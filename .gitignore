@@ -1,2 +1,7 @@
 /node_modules/
 npm-debug.log
+/PACOR/nbproject/private/
+/nbproject/private/
+/node_modules
+/nbproject
+/package-lock.json
