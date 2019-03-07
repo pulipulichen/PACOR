@@ -1,7 +1,9 @@
 var express = require('express');
 var app = express();
 
-var tools = require('./tools');
+var _file = './too'
+
+var tools = require(_file + 'ls');
 
 app.get('/', function (req, res) {
   res.send('Hello World!');

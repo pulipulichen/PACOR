@@ -2,7 +2,7 @@
 // ========
 module.exports = {
   foo: function () {
-    console.log('a44aa')
+    console.log('a44aaaaa')
   },
   bar: function () {
     // whatever
