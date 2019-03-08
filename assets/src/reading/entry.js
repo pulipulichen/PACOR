@@ -5,6 +5,7 @@ import App from './app.vue'
 
 (function () {
   //const App = require('./app.vue')
+  require('./style.css')
   
   new Vue({
     el: '#app',
