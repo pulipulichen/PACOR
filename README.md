@@ -2,6 +2,8 @@
 
 a [Sails v1](https://sailsjs.com) application
 
+https://github.com/pulipulichen/PACOR
+https://github.com/pulipulichen/PACOR/issues
 
 ### Links
 
