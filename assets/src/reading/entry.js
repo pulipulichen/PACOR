@@ -1,17 +1,11 @@
 import Vue from 'vue'
+//const Vue = require('vue')
+//const App = require('./app.vue')
 import App from './app.vue'
 
-(() => {
-  const $ = require('../vender/jquery/jquery-3.3.1.min.js')
-  const msg = 'Hello, world.'
-  console.log(msg)
-  $(() => {
-    console.log($('body').text())
-  })
+(function () {
+  //const App = require('./app.vue')
   
-  //console.log(111)
-  
-
   new Vue({
     el: '#app',
     render: h => h(App)

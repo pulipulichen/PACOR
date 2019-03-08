@@ -35,8 +35,7 @@
     "sails-hook-sockets": "^1.5.5",
     "sails-postgresql": "^1.0.2",
     "sails-sqlite3": "^0.1.2",
-    "vue": "^2.6.8",
-    "vue-template-compiler": "^2.6.8"
+    "vue": "^2.6.8"
   },
   "devDependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
@@ -52,7 +51,7 @@
     "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
     "cheerio": "^1.0.0-rc.2",
-    "css-loader": "^2.1.0",
+    "css-loader": "^2.1.1",
     "cssnano": "^4.1.10",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "grunt": "^1.0.3",
@@ -78,6 +77,8 @@
     "uglifyjs-webpack-plugin": "^2.1.2",
     "vue-hot-reload-api": "^2.3.3",
     "vue-loader": "^15.7.0",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.8",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-node-externals": "^1.7.2",
