@@ -8,6 +8,8 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const WebpackShellPlugin = require('webpack-shell-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
+const { VueLoaderPlugin } = require('vue-loader')
+
 let webpackConfig  = {
   //cache: true,
   devtool: 'source-map',
@@ -61,6 +63,9 @@ let webpackConfig  = {
       }
     ]
   },
+  plugins: [
+    new VueLoaderPlugin()
+  ],
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
