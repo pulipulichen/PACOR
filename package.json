@@ -23,7 +23,7 @@
   "dependencies": {
     "@feathersjs/express": "^4.3.1",
     "@feathersjs/feathers": "^4.3.1",
-    "@feathersjs/socketio": "^4.3.1",
+    "@feathersjs/socketio": "^4.3.1"
   },
   "devDependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
