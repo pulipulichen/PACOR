@@ -108,6 +108,6 @@ $RECYCLE.BIN/
 
 # Others
 lib/
-data/
+data/*.db
 /.private-document/
 /package-lock.json
