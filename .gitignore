@@ -111,3 +111,4 @@ lib/
 data/*.db
 /.private-document/
 /package-lock.json
+/*.sqlite
