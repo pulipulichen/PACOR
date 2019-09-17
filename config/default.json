@@ -35,5 +35,6 @@
       }
     }
   },
-  "nedb": "../data"
+  "nedb": "../data",
+  "sqlite": "sqlite://pacor.sqlite"
 }
