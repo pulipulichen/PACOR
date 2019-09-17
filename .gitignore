@@ -113,3 +113,4 @@ data/*.db
 /package-lock.json
 /*.sqlite
 /.document/20190917-rebuild-pgsql/config/default.json
+/config/default.json
