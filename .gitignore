@@ -112,3 +112,4 @@ data/*.db
 /.private-document/
 /package-lock.json
 /*.sqlite
+/.document/20190917-rebuild-pgsql/config/default.json

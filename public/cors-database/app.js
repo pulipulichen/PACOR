@@ -153,12 +153,16 @@ const showChat = async () => {
   document.getElementById('app').innerHTML = chatHTML;
 
   // Find the latest 25 messages. They will come with the newest first
+  /*
   const messages = await client.service('message-database').find({
     query: {
       $sort: { createdAt: -1 },
       $limit: 25
     }
   });
+  */
+  
+  const messages = await client.service('message-database').find()
   
   // We want to show the newest message last
   messages.data.reverse().forEach(addMessage);

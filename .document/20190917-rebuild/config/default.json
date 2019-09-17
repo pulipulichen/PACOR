@@ -9,7 +9,7 @@
   "authentication": {
     "entity": "user",
     "service": "users",
-    "secret": "Cyix2jW0Pu0udoQVF9NDa/jNVLw=",
+    "secret": "A19PUv4FlMBAk1Bp1sfoYQmn/yA=",
     "authStrategies": [
       "jwt",
       "local"
@@ -30,11 +30,10 @@
     "oauth": {
       "redirect": "/",
       "github": {
-        "key": "0432499d331e0437565d",
-        "secret": "fa6c9f851f5f0f4a6d7886e20759a853951285e9"
+        "key": "<github oauth key>",
+        "secret": "<github oauth secret>"
       }
     }
   },
-  "nedb": "../data",
-  "sqlite": "sqlite://pacor.sqlite"
+  "sqlite": "sqlite://20190917_rebuild.sqlite"
 }
