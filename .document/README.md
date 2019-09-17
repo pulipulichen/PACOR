@@ -7,7 +7,7 @@
 
 # TODO
 
-https://docs.feathersjs.com/guides/basics/frontend.html
+https://github.com/pulipulichen/PACOR/issues/3
 
 ----
 
