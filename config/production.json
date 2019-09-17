@@ -1,4 +1,4 @@
 {
   "host": "pacor-app.feathersjs.com",
-  "port": "PORT"
+  "port": "80"
 }
