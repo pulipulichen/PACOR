@@ -1,32 +1,85 @@
 {
   "name": "pacor",
-  "description": "Peer-assisted Collaborative Reading Environment",
+  "private": true,
   "version": "0.0.0",
-  "homepage": "",
-  "main": "src",
-  "keywords": [
-    "feathers"
-  ],
-  "author": {
-    "name": "Pulipuli Chen",
-    "email": "pulipuli.chen@gmail.com"
-  },
-  "contributors": [],
-  "bugs": {},
-  "directories": {
-    "lib": "src",
-    "test": "test/",
-    "config": "config/"
-  },
-  "engines": {
-    "node": "^10.0.0",
-    "npm": ">= 3.0.0"
-  },
+  "description": "Peer-assisted Collaborative Reading Environment",
+  "keywords": [],
   "scripts": {
-    "test": "npm run eslint && npm run mocha",
-    "eslint": "eslint src/. test/. --config .eslintrc.json",
-    "dev": "nodemon src/",
-    "start": "node src/",
-    "mocha": "mocha test/ --recursive --exit"
-  }
+    "start": "sails lift",
+    "test": "npm run lint && npm run custom-tests && echo 'Done.'",
+    "lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look so good.' && htmlhint -c ./.htmlhintrc views/*.ejs && htmlhint -c ./.htmlhintrc views/**/*.ejs && htmlhint -c ./.htmlhintrc views/**/**/*.ejs && htmlhint -c ./.htmlhintrc views/**/**/**/*.ejs && htmlhint -c ./.htmlhintrc views/**/**/**/**/*.ejs && htmlhint -c ./.htmlhintrc views/**/**/**/**/**/*.ejs && htmlhint -c ./.htmlhintrc views/**/**/**/**/**/**/*.ejs && echo '✔  So do your .ejs files.' && lesshint assets/styles/ --max-warnings=0 && echo '✔  Your .less files look good, too.'",
+    "custom-tests": "echo \"(No other custom tests yet.)\" && echo",
+    "deploy": "echo 'This script assumes a dead-simple, opinionated setup on Heroku.' && echo 'But, of course, you can deploy your app anywhere you like.' && echo '(Node.js/Sails.js apps are supported on all modern hosting platforms.)' && echo && echo 'Warning: Specifically, this script assumes you are on the master branch, and that your app can be deployed simply by force-pushing on top of the *deploy* branch.  It will also temporarily use a local *predeploy* branch for preparing assets, that it will delete after it finishes.  Please make sure there is nothing you care about on either of these two branches!!!' && echo '' && echo '' && echo 'Preparing to deploy...' && echo '--' && git status && echo '' && echo '--' && echo 'I hope you are on the master branch and have everything committed/pulled/pushed and are completely up to date and stuff.' && echo '********************************************'  && echo '** IF NOT THEN PLEASE PRESS <CTRL+C> NOW! **' && echo '********************************************' && echo 'Press CTRL+C to cancel.' && echo '(you have five seconds)' && sleep 1 && echo '...4' && sleep 1 && echo '...3' && sleep 1 && echo '...2' && sleep 1 && echo '...1' && sleep 1  && echo '' && echo 'Alright, here we go.  No turning back now!' && echo 'Trying to switch to master branch...' && git checkout master && echo && echo 'OK.  Now wiping node_modules/ and running npm install...' && rm -rf node_modules && rm -rf package-lock.json && npm install && (git add package-lock.json && git commit -am 'AUTOMATED COMMIT: Did fresh npm install before deploying, and it caused something relevant (probably the package-lock.json file) to change!  This commit tracks that change.' || true) && echo 'Deploying as version:' && npm version patch && echo '' && git push origin master && git push --tags && (git branch -D predeploy > /dev/null 2>&1 || true) && git checkout -b predeploy && (echo 'Now building+minifying assets for production...' && echo '(Hang tight, this could take a while.)' && echo && node node_modules/grunt/bin/grunt buildProd || (echo && echo '------------------------------------------' && echo 'IMPORTANT!  IMPORTANT!  IMPORTANT!' && echo 'ERROR: Could not compile assets for production!' && echo && echo 'Attempting to recover automatically by stashing, ' && echo 'switching back to the master branch, and then ' && echo 'deleting the predeploy branch... ' && echo && echo 'After this, please fix the issues logged above' && echo 'and push that up.  Then, try deploying again.' && echo '------------------------------------------' && echo && echo 'Staging, deleting the predeploy branch, and switching back to master...' && git stash && git checkout master && git branch -D predeploy && false)) && mv www .www && git add .www && node -e 'sailsrc = JSON.parse(require(\"fs\").readFileSync(\"./.sailsrc\", \"utf8\"));  if (sailsrc.paths&&sailsrc.paths.public !== undefined || sailsrc.hooks&&sailsrc.hooks.grunt !== undefined) { throw new Error(\"Cannot complete deployment script: .sailsrc file has conflicting contents!  Please throw away this midway-complete deployment, switch back to your original branch (master), remove the conflicting stuff from .sailsrc, then commit and push that up.\"); }  sailsrc.paths = sailsrc.paths || {};  sailsrc.paths.public = \"./.www\";   sailsrc.hooks = sailsrc.hooks || {};  sailsrc.hooks.grunt = false;  require(\"fs\").writeFileSync(\"./.sailsrc\", JSON.stringify(sailsrc))' && git commit -am 'AUTOMATED COMMIT: Automatically bundling compiled assets as part of deploy, updating the EJS layout and .sailsrc file accordingly.' && git push origin predeploy && git checkout master && git push origin +predeploy:deploy && git push --tags && git branch -D predeploy && git push origin :predeploy && echo '' && echo '--' && echo 'OK, done.  It should be live momentarily on your staging environment.' && echo '(if you get impatient, check the Heroku dashboard for status)' && echo && echo 'Staging environment:' && echo ' 🌐–•  https://staging.example.com' && echo '       (hold ⌘ and click to open links in the terminal)' && echo && echo 'Please review that to make sure it looks good.' && echo 'When you are ready to go to production, visit your pipeline on Heroku and press the PROMOTE TO PRODUCTION button.'",
+    "request": "node request.js",
+    "webpack-build": "webpack --mode production",
+    "webpack-watch": "webpack --watch --mode development",
+    "mocha": "mocha lib-for-link/src/**/*.mocha-test.js",
+    "mocha-watch": "mocha --watch lib-for-link/src/**/*.mocha-test.js",
+    "selenium": "node selenium.config.js",
+    "selenium-side-runner": "selenium-side-runner lib-for-link/src/**/*.side",
+    "extract-link": "node archive-prasing/extractLinks.js",
+    "package-css": "node package-css.js"
+  },
+  "dependencies": {
+    "@feathersjs/cli": "^4.1.1",
+    "@feathersjs/express": "^4.3.1",
+    "@feathersjs/feathers": "^4.3.1",
+    "@feathersjs/socketio": "^4.3.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@sailshq/eslint": "^4.19.3",
+    "@sailshq/htmlhint": "^0.9.16",
+    "@sailshq/lesshint": "^4.6.6",
+    "acorn": "^6.1.1",
+    "ajv": "^6.10.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "cheerio": "^1.0.0-rc.2",
+    "css-loader": "^2.1.1",
+    "cssnano": "^4.1.10",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "grunt": "^1.0.3",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.1.0",
+    "jest-environment-node": "^24.0.0",
+    "jest-environment-selenium": "^2.1.0",
+    "json2csv": "^4.3.5",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "mocha": "^6.0.2",
+    "node-stream-zip": "^1.8.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
+    "preload-webpack-plugin": "^3.0.0-beta.3",
+    "sails-hook-grunt": "^3.1.0",
+    "selenium-side-runner": "^3.5.9",
+    "selenium-webdriver": "^4.0.0-alpha.1",
+    "shim-loader": "^1.0.1",
+    "should": "^13.2.3",
+    "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "vue-hot-reload-api": "^2.3.3",
+    "vue-loader": "^15.7.0",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.8",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-node-externals": "^1.7.2",
+    "webpack-shell-plugin": "^0.5.0"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pulipulichen/Pulipuli-Blog.git"
+  },
+  "author": "anonymous node/sails user",
+  "license": "",
+  "engines": {
+    "node": "^10.15"
 }
