@@ -115,3 +115,4 @@ data/*.db
 /.document/20190917-rebuild-pgsql/config/default.json
 /config/default.json
 /.document/20190917-rebuild-knex/config/default.json
+/.document/20190918-objection/config/default.json
