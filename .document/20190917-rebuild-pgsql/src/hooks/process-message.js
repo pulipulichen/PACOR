@@ -13,8 +13,8 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
     // Make sure that messages are no longer than 400 characters
     const text = data.text.substring(0, 400);
     
-    console.log('這裡沒有正常運作嗎？')
-    console.log(user)
+    //console.log('這裡沒有正常運作嗎？')
+    //console.log(user)
 
     // Update the original data (so that people can't submit additional stuff)
     context.data = {

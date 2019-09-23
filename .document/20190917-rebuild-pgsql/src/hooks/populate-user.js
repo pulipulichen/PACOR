@@ -10,10 +10,10 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
       // that we get a safe version of the user data
       
       //message.userId = 1
-      console.log(message)
-      console.log(message.userId)
+      //console.log(message)
+      //console.log(message.userId)
       const user = await app.service('users').get(message.userId, params);
-      console.log('passed')
+      //console.log('passed')
       // Merge the message content to include the `user` object
       return {
         ...message,
