@@ -22,6 +22,10 @@ module.exports = function (app) {
   messages.associate = function (models) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
+    const {
+      users
+    } = models;
+    messages.belongsTo(users);
   };
 
   return messages;
