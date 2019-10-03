@@ -10,6 +10,11 @@ const query = 's=60';
 
 exports.Users = class Users extends Service {
   create (data, params) {
+    console.log(`data`)
+    console.log(data)
+    console.log(`params`)
+    console.log(params)
+    
     // This is the information we want from the user signup data
     const { email, password, githubId } = data;
     // Gravatar uses MD5 hashes from an email address (all lowercase) to get the image

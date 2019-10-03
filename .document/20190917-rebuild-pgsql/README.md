@@ -1,6 +1,21 @@
 # 20190917-rebuild-pgsql
 
-> 
+# Changelog
+
+npm start
+
+* GitHub可以用了
+
+- 能自訂欄位嗎？
+- 能用Google登入嗎？
+- 能用Vue + Semantic UI改寫嗎？
+
+````
+Client ID
+0ca9d322e451020cafc9
+Client Secret
+a5bb14f9311b69e0036b2c403230ed3b9df1d50d
+`````
 
 ## About
 
