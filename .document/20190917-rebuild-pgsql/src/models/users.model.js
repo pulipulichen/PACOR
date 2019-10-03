@@ -23,6 +23,14 @@ module.exports = function (app) {
       type: Sequelize.INTEGER,
       allowNull: true
     },
+    googleId: { 
+      type: Sequelize.INTEGER,
+      allowNull: true
+    },
+    facebookId: { 
+      type: Sequelize.INTEGER,
+      allowNull: true
+    },
   
   }, {
     hooks: {
