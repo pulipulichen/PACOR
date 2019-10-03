@@ -9,7 +9,7 @@ module.exports = function (app) {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: false
     },
     password: {
       type: DataTypes.STRING,
@@ -28,7 +28,7 @@ module.exports = function (app) {
       allowNull: true
     },
     facebookId: { 
-      type: Sequelize.INTEGER,
+      type: Sequelize.STRING,
       allowNull: true
     },
   

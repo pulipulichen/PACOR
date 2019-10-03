@@ -27,10 +27,11 @@ class GoogleStrategy extends OAuthStrategy {
 class FacebookStrategy extends OAuthStrategy {
   async getEntityData(profile) {
     const baseData = await super.getEntityData(profile);
-
+    let email = profile.id + '@facebook'
+    
     return {
       ...baseData,
-      email: profile.email
+      email: email
     };
   }
 }

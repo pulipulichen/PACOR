@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 const logger = require('./logger');
-const {app,server} = require('./app');
+const {app, server} = require('./app');
 const port = app.get('port');
-//const server = app.listen(port);
+//const server = app.listen(3030);
 
 process.on('unhandledRejection', (reason, p) =>
   logger.error('Unhandled Rejection at: Promise ', p, reason)
