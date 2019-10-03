@@ -151,19 +151,12 @@ const showChat = async () => {
   // Find the latest 25 messages. They will come with the newest first
   let messages
   try {
-    messages = await client.service('messages').find(null, {
-      query: {
-        $sort: { createdAt: -1 },
-        $limit: 25
-        /*
-        $where: {
-          id: 2
-        }
-         */
-      }
-    });
+  messages = await client.service('messages').find(null, {
+    where: {
+      limit: 2
+    }
+  });
     console.log(messages)
-    //messages = []
   } catch (e) {
     console.trace(e)
   }

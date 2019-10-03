@@ -33,7 +33,7 @@ module.exports = function (app) {
     },
   
   }, {
-    force: true,
+    //force: true,
     hooks: {
       beforeCount(options) {
         options.raw = true;

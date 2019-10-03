@@ -62,6 +62,27 @@ const server = https.createServer({
   cert: fs.readFileSync(path.resolve(__dirname, 'server.crt'))
 }, app).listen(port);
 
+app.service('messages').hooks({
+  before: {
+    find(context) {
+      // Get the Sequelize instance. In the generated application via:
+      const sequelize = context.app.get('sequelizeClient');
+      //const { User } = sequelize.models;
+
+      //context.params.sequelize = {
+      //  include: [ User ]
+      //}
+      
+      //console.log(context)
+      
+      //console.log(context.service.options)
+      //context.service.options.paginate.default = 12
+
+      return context;
+    }
+  }
+});
+
 // Call app.setup to initialize all services and SocketIO
 app.setup(server);
 
