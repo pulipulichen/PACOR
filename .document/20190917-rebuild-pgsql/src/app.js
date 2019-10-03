@@ -54,4 +54,18 @@ app.use(express.errorHandler({ logger }));
 
 app.hooks(appHooks);
 
-module.exports = app;
+const fs = require('fs');
+const https  = require('https');
+const server = https.createServer({
+  key: fs.readFileSync(path.resolve(__dirname, 'server.key')),
+  cert: fs.readFileSync(path.resolve(__dirname, 'server.crt'))
+}, app).listen(3030);
+
+// Call app.setup to initialize all services and SocketIO
+app.setup(server);
+
+module.exports = {
+  app,
+  server
+};
+

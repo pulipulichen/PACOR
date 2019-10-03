@@ -24,7 +24,7 @@ module.exports = function (app) {
       allowNull: true
     },
     googleId: { 
-      type: Sequelize.INTEGER,
+      type: Sequelize.STRING,
       allowNull: true
     },
     facebookId: { 
@@ -33,6 +33,7 @@ module.exports = function (app) {
     },
   
   }, {
+    force: true,
     hooks: {
       beforeCount(options) {
         options.raw = true;
