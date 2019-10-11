@@ -1,0 +1,6 @@
+<div class="ui red floating message"
+     v-if="showError"
+     v-on:click="close"
+     v-bind:title="$t('Click to close')">
+  <pre>{{ error }}</pre>
+</div>

@@ -1,0 +1,83 @@
+<div class="ui form segment">
+  
+  <div class="ui field"
+       v-if="errorMessage !== ''">
+    <div class="ui negative message">
+      {{ errorMessage }}
+    </div>
+  </div>
+  
+  <div class="ui field">
+    <label for="loginUsername">
+      {{ $t('Username') }}
+    </label>
+    <input type="text" 
+           id="loginUsername"
+           v-model="username" />
+  </div>
+  
+  <div class="ui field"
+       v-bind:class="{error: !isEmail}"
+       v-if="mode==='register'">
+    <label for="loginEmail">
+      {{ $t('Email') }}
+    </label>
+    <input type="email" 
+           id="loginEmail"
+           v-model="email" />
+  </div>
+  
+  <div class="ui field">
+    <label for="loginPassword">
+      {{ $t('Password') }}
+    </label>
+    <input type="password" 
+           id="loginPassword"
+           v-model="password" />
+  </div>
+  
+  <div class="ui six buttons">
+    <button type="button" 
+            class="ui button"
+            v-on:click="login"
+            v-bind:class="{disabled: (mode === 'login' && !isLoginEnable)}">
+      {{ $t('Login') }}
+    </button>
+    
+    <button type="button" 
+            class="ui button"
+            v-on:click="register"
+            v-bind:class="{disabled: (mode === 'register' && !isRegisterEnable)}">
+      {{ $t('Register') }}
+    </button>
+    
+    <button type="button" 
+            class="ui google button"
+            v-on:click="loginFromOAuth('google')">
+      <i class="google icon"></i>
+      {{ $t('Login from Google') }}
+    </button>
+    
+    <button type="button" 
+            class="ui github button"
+            v-on:click="loginFromOAuth('github')">
+      <i class="github icon"></i>
+      {{ $t('Login from GitHub') }}
+    </button>
+    
+    <button type="button" 
+            class="ui instagram button"
+            v-on:click="loginFromOAuth('instagram')">
+      <i class="instagram icon"></i>
+      {{ $t('Login from Instagram') }}
+    </button>
+    
+    <button type="button" 
+            class="ui foursquare button"
+            v-on:click="loginFromOAuth('foursquare')">
+      <i class="instagram icon"></i>
+      {{ $t('Login from Foursquare') }}
+    </button>
+  </div>
+  
+</div>
