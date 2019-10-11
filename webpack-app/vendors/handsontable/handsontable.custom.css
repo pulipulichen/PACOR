@@ -1,0 +1,8 @@
+.htFiltersMenuLabel {
+  user-select: none;
+  cursor: default;
+}
+
+.htItemWrapper {
+  user-select: none;
+}

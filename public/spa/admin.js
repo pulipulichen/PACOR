@@ -1,1 +1,575 @@
-!function(u){function e(e){for(var r,t,n=e[0],i=e[1],o=e[2],s=0,a=[];s<n.length;s++)t=n[s],Object.prototype.hasOwnProperty.call(p,t)&&p[t]&&a.push(p[t][0]),p[t]=0;for(r in i)Object.prototype.hasOwnProperty.call(i,r)&&(u[r]=i[r]);for(h&&h(e);a.length;)a.shift()();return l.push.apply(l,o||[]),c()}function c(){for(var e,r=0;r<l.length;r++){for(var t=l[r],n=!0,i=1;i<t.length;i++){var o=t[i];0!==p[o]&&(n=!1)}n&&(l.splice(r--,1),e=f(f.s=t[0]))}return e}var t={},p={1:0},l=[];function f(e){if(t[e])return t[e].exports;var r=t[e]={i:e,l:!1,exports:{}};return u[e].call(r.exports,r,r.exports,f),r.l=!0,r.exports}f.e=function(i){var e=[],t=p[i];if(0!==t)if(t)e.push(t[2]);else{var r=new Promise(function(e,r){t=p[i]=[e,r]});e.push(t[2]=r);var n,o=document.createElement("script");o.charset="utf-8",o.timeout=120,f.nc&&o.setAttribute("nonce",f.nc),o.src=function(e){return f.p+""+({3:"client-components/Chat",4:"client-components/Login",5:"vendors/semantic-ui-niwsf"}[e]||e)+".js"}(i);var s=new Error;n=function(e){o.onerror=o.onload=null,clearTimeout(a);var r=p[i];if(0!==r){if(r){var t=e&&("load"===e.type?"missing":e.type),n=e&&e.target&&e.target.src;s.message="Loading chunk "+i+" failed.\n("+t+": "+n+")",s.name="ChunkLoadError",s.type=t,s.request=n,r[1](s)}p[i]=void 0}};var a=setTimeout(function(){n({type:"timeout",target:o})},12e4);o.onerror=o.onload=n,document.head.appendChild(o)}return Promise.all(e)},f.m=u,f.c=t,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},f.t=function(r,e){if(1&e&&(r=f(r)),8&e)return r;if(4&e&&"object"==typeof r&&r&&r.__esModule)return r;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:r}),2&e&&"string"!=typeof r)for(var n in r)f.d(t,n,function(e){return r[e]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,"a",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p="http://127.0.0.1:3333/spa/",f.oe=function(e){throw console.error(e),e};var r=window.webpackJsonp=window.webpackJsonp||[],n=r.push.bind(r);r.push=e,r=r.slice();for(var i=0;i<r.length;i++)e(r[i]);var h=n;l.push([68,0]),c()}([,,,,,,,function(e,r,t){var n=t(33);"string"==typeof n&&(n=[[e.i,n,""]]);var i={insert:"head",singleton:!1};t(17)(n,i);n.locals&&(e.exports=n.locals)},function(e,r){e.exports=function(e){e.options.__i18n=e.options.__i18n||[],e.options.__i18n.push('{"en":{},"zh-TW":{}}'),delete e.options._Ctor}},function(e,r,t){var n=t(35);"string"==typeof n&&(n=[[e.i,n,""]]);var i={insert:"head",singleton:!1};t(17)(n,i);n.locals&&(e.exports=n.locals)},function(e,r){e.exports=function(e){e.options.__i18n=e.options.__i18n||[],e.options.__i18n.push('{"en":{},"zh-TW":{}}'),delete e.options._Ctor}},,,function(e,r){e.exports={debug:{},locale:"zh-TW",clientConfigName:"CONFIG"}},function(e,r,t){"use strict";var n=t(8),i=t.n(n);r.default=i.a},function(e,r,t){"use strict";var n=t(10),i=t.n(n);r.default=i.a},,,,,function(e,r,t){"use strict";var n=t(3),u=t.n(n),i=t(0),c=t.n(i),o=t(1),s=t.n(o),a=t(6),p=t.n(a);p.a.defaults.withCredentials=!0;var l,f,h,d,v={baseURL:"",errorHandler:null,setBaseURL:function(e){return!0===e.endsWith("/")&&(e=e.slice(0,-1)),this.baseURL=e,this},setErrorHandler:function(e){this.errorHandler=e},handleError:function(e){console.error(e),"function"==typeof this.errorHandler&&this.errorHandler(e)},getURL:function(e){return!1===e.startsWith("/")&&(e="/"+e),this.baseURL+e},get:(d=s()(c.a.mark(function e(r,t,n){var i;return c.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return r=this.getURL(r),e.next=3,this.getOther(r,t,n);case 3:return i=e.sent,e.abrupt("return",i);case 5:case"end":return e.stop()}},e,this)})),function(e,r,t){return d.apply(this,arguments)}),getOther:(h=s()(c.a.mark(function e(r,t,n){var i,o;return c.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return i={},"object"===u()(t)&&(i.params=t),e.prev=2,e.next=5,p.a.get(r,i);case 5:return o=e.sent,e.abrupt("return",o.data);case 9:return e.prev=9,e.t0=e.catch(2),"function"!=typeof n?this.handleError(e.t0):n(e.t0),e.abrupt("return");case 13:case"end":return e.stop()}},e,this,[[2,9]])})),function(e,r,t){return h.apply(this,arguments)}),post:(f=s()(c.a.mark(function e(r,t,n){var i,o;return c.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return i={},"object"===u()(t)&&(i=t),e.prev=2,e.next=5,p.a.post(this.getURL(r),i);case 5:return o=e.sent,e.abrupt("return",o.data);case 9:return e.prev=9,e.t0=e.catch(2),"function"!=typeof n?this.handleError(e.t0):n(e.t0),e.abrupt("return");case 13:case"end":return e.stop()}},e,this,[[2,9]])})),function(e,r,t){return f.apply(this,arguments)}),upload:(l=s()(c.a.mark(function e(r,t,n){var i,o,s,a;return c.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:if("object"!==u()(t))return this.handleError("no data"),e.abrupt("return","");e.next=3;break;case 3:for(o in i=new FormData,t)s=t[o],"object"===u()(s.files)&&(s=s.files[0]),i.append(o,s);return e.prev=5,e.next=8,p.a.post(this.getURL(r),i,{headers:{"Content-Type":"multipart/form-data"}});case 8:return a=e.sent,e.abrupt("return",a.data);case 12:return e.prev=12,e.t0=e.catch(5),"function"!=typeof n?this.handleError(e.t0):n(e.t0),e.abrupt("return");case 16:case"end":return e.stop()}},e,this,[[5,12]])})),function(e,r,t){return l.apply(this,arguments)})};r.a=v},function(e,r,t){"use strict";var n=t(12),i=t.n(n),o=t(26),s=t.n(o);i.a.extend(s.a),t(45).default;var a={setLocale:function(r){if("string"!=typeof r)return this;r=r.toLowerCase();try{i.a.locale(r)}catch(e){console.error("dayjs locale is error: ".concat(r))}return this},fromNow:function(e){return i()(e).fromNow()}};r.a=a},function(e,r,t){"use strict";var n={validateEmail:function(e){return/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(String(e).toLowerCase())}};r.a=n},function(e,r,t){"use strict";function n(){this.$createElement;return this._self._c,this._m(0)}n._withStripped=!0;var i={},o=(t(32),t(4)),s=t(14),a=Object(o.a)(i,n,[function(){var e=this.$createElement,r=this._self._c||e;return r("div",{staticClass:"ui segment"},[r("div",{staticClass:"ui active centered inline loader"})])}],!1,null,"076bb14c",null);"function"==typeof s.default&&Object(s.default)(a),a.options.__file="webpack-app/components/Loading/Loading.vue";function u(){var e=this,r=e.$createElement,t=e._self._c||r;return e.showError?t("div",{staticClass:"ui red floating message",attrs:{title:e.$t("Click to close")},on:{click:e.close}},[t("pre",[e._v(e._s(e.error))])]):e._e()}var c=a.exports;u._withStripped=!0;var p=t(3),l=t.n(p),f={props:["config","error"],data:function(){return this.$i18n.locale=this.config.locale,{}},computed:{showError:function(){return"object"===l()(this.error)||"string"==typeof this.error&&""!==this.error.trim()}},watch:{},mounted:function(){},methods:{close:function(){this.error=""}}},h=(t(34),t(15)),d=Object(o.a)(f,u,[],!1,null,"7536335c",null);"function"==typeof h.default&&Object(h.default)(d),d.options.__file="webpack-app/components/ErrorHandler/ErrorHandler.vue";function v(){var e=this.$createElement;return(this._self._c||e)("div")}var g=d.exports;v._withStripped=!0;var m,b,y,w,x=t(0),_=t.n(x),k=t(1),L=t.n(k),U={props:["lib","status","config","progress","error"],data:function(){return{}},mounted:(w=L()(_.a.mark(function e(){var r;return _.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:if("string"!=typeof this.config.username&&"string"==typeof this.config.usernameQueryURL)return e.next=3,this.loadUsernameFromURL();e.next=4;break;case 3:this.config.username=e.sent;case 4:if(r=!1,"string"==typeof this.config.username)return e.next=8,this.attemptLoginViaUsername(this.config.username);e.next=9;break;case 8:r=e.sent;case 9:if(!1===r)return e.next=12,this.checkLogin();e.next=12;break;case 12:case"end":return e.stop()}},e,this)})),function(){return w.apply(this,arguments)}),methods:{loadUsernameFromURL:(y=L()(_.a.mark(function e(){var r;return _.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.lib.AxiosHelper.getOther(this.config.usernameQueryURL);case 2:if("string"==typeof(r=e.sent))return e.abrupt("return",r);e.next=5;break;case 5:case"end":return e.stop()}},e,this)})),function(){return y.apply(this,arguments)}),attemptLoginViaUsername:(b=L()(_.a.mark(function e(r){var t;return _.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.lib.AxiosHelper.get("/client/user/attempt-login-via-username",{username:r});case 2:if("string"==typeof(t=e.sent))return this.status.username=t,e.abrupt("return",!0);e.next=8;break;case 8:return e.abrupt("return",!1);case 9:case"end":return e.stop()}},e,this)})),function(e){return b.apply(this,arguments)}),checkLogin:(m=L()(_.a.mark(function e(){var r;return _.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.lib.AxiosHelper.get("/client/user/check-login");case 2:r=e.sent,this.status.username=r;case 4:case"end":return e.stop()}},e,this)})),function(){return m.apply(this,arguments)})}},j=Object(o.a)(U,v,[],!1,null,null,null);j.options.__file="webpack-app/client/components/Auth/Auth.vue";var O={Loading:c,"error-handler":g,Auth:j.exports,Login:function(){return t.e(4).then(t.bind(null,118))},Chat:function(){return t.e(3).then(t.bind(null,117))}};r.a=O},function(e,r,t){"use strict";var n=t(18),i={en:{Title:"Example Title"},"zh-TW":{Title:"範例標題",OK:"確認"}};t(2).a.use(n.a);var o=new n.a({locale:"zh-TW",messages:i,silentTranslationWarn:!0});r.a=o},,,function(e,r,t){"use strict";var n=t(2),i=(t(29),t(25));n.a.config.devtools=!1,n.a.config.productionTip=!1,n.a.use(i.a.Plugin)},,function(e,r,t){var n=t(30);"string"==typeof n&&(n=[[e.i,n,""]]);var i={insert:"head",singleton:!1};t(17)(n,i);n.locals&&(e.exports=n.locals)},function(e,r,t){(e.exports=t(16)(!1)).push([e.i,"",""])},function(e,r,t){var n=t(11);window.jQuery=window.$=n;Promise.all([t.e(0),t.e(5)]).then(t.t.bind(null,48,7))},function(e,r,t){"use strict";var n=t(7);t.n(n).a},function(e,r,t){(e.exports=t(16)(!1)).push([e.i,"",""])},function(e,r,t){"use strict";var n=t(9);t.n(n).a},function(e,r,t){(e.exports=t(16)(!1)).push([e.i,".message[data-v-7536335c]{cursor:pointer}",""])},,,,,,,,,,,,function(e,r){e.exports='<div class="non-invasive-web-style-framework">\r\n  <auth v-bind:config="config"\r\n        v-bind:status="status"\r\n        v-bind:progress="progress"\r\n        v-bind:lib="lib"\r\n        v-bind:error="error"\r\n        ref="auth"></auth>\r\n  <error-handler v-bind:config="config"\r\n                 v-bind:error="error"\r\n                 ref="ErrorHandler"></error-handler>\r\n\r\n  <router-view v-bind:config="config"\r\n               v-bind:status="status"\r\n               v-bind:progress="progress"\r\n               v-bind:lib="lib"\r\n               v-bind:error="error"></router-view>\r\n  \r\n  <keep-alive>\r\n    <component v-bind:is="view"\r\n        v-bind:config="config"\r\n        v-bind:status="status"\r\n        v-bind:progress="progress"\r\n        v-bind:error="error"\r\n        v-bind:lib="lib"\r\n        v-bind:view="view"></component>\r\n  </keep-alive>\r\n  \r\n  {{ message }}\r\n  \r\n  <div>\r\n    ?origin=URL: <br />\r\n    <a v-bind:href="$route.query.origin" target="origin">\r\n      {{ $route.query.origin }}\r\n    </a>\r\n  </div>\r\n  \r\n  <div class="ui list" v-for="user in users">\r\n      {{ user.id }}: {{ user.username }}\r\n  </div>\r\n</div>'},,,,,,,,,,,,,,,,,,,,,function(e,r,t){"use strict";t.r(r);var n=t(0),i=t.n(n),o=t(1),s=t.n(o),a=t(2),u=(t(27),t(31),t(24)),c=t(19);a.a.use(c.a);function p(){var e=this.$createElement;return(this._self._c||e)("div")}var l=new c.a({routes:[]}),f=t(23),h=t(20),d=t(21),v=t(22);p._withStripped=!0;var g,m,b,y,w={props:["lib","status","config","progress","error"],data:function(){return{}},mounted:(y=s()(i.a.mark(function e(){return i.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:case"end":return e.stop()}},e)})),function(){return y.apply(this,arguments)}),methods:{loadUsernameFromURL:(b=s()(i.a.mark(function e(){var r;return i.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.lib.AxiosHelper.getOther(this.config.usernameQueryURL);case 2:if("string"==typeof(r=e.sent))return e.abrupt("return",r);e.next=5;break;case 5:case"end":return e.stop()}},e,this)})),function(){return b.apply(this,arguments)}),attemptLoginViaUsername:(m=s()(i.a.mark(function e(r){var t;return i.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.lib.AxiosHelper.get("/client/user/attempt-login-via-username",{username:r});case 2:if("string"==typeof(t=e.sent))return this.status.username=t,e.abrupt("return",!0);e.next=8;break;case 8:return e.abrupt("return",!1);case 9:case"end":return e.stop()}},e,this)})),function(e){return m.apply(this,arguments)}),checkLogin:(g=s()(i.a.mark(function e(){var r;return i.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.lib.AxiosHelper.get("/client/user/check-login");case 2:r=e.sent,this.status.username=r;case 4:case"end":return e.stop()}},e,this)})),function(){return g.apply(this,arguments)})}},x=t(4),_=Object(x.a)(w,p,[],!1,null,null,null);_.options.__file="webpack-app/admin/components/Auth/Auth.vue";_.exports;var k=t(11),L=t.n(k),U=t(47),j=t.n(U),O=t(13),E=t.n(O),H=L()(document.currentScript);E.a.baseURL="/",H.before('<div id="app"></div>');var A,$={data:{message:"Hello, world.",users:[],config:E.a,status:{username:""},progress:{component:!1,data:!1,display:!1},lib:{AxiosHelper:h.a.setBaseURL("/"),DayJSHelper:d.a,StringHelper:v.a},view:null,error:"",persistAttrs:[]},watch:{"status.username":function(){},"config.locale":function(){this.lib.DayJSHelper.setLocale(this.config.locale)},"$route.query.origin":function(){console.log(this.$route.query.origin),"string"==typeof this.$route.query.origin&&""!==this.$route.query.origin&&this.loadUsers(this.$route.query.origin)}},created:function(){},mounted:function(){var r=this;"string"==typeof this.$route.query.origin&&""!==this.$route.query.origin&&this.loadUsers(this.$route.query.origin),this.lib.AxiosHelper.setErrorHandler(function(e){r.error=e})},methods:{loadUsers:(A=s()(i.a.mark(function e(r){var t;return i.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.lib.AxiosHelper.get("/admin/user/list",{origin:r});case 2:t=e.sent,Array.isArray(t)&&(this.users=t);case 4:case"end":return e.stop()}},e,this)})),function(e){return A.apply(this,arguments)})},el:"#app",i18n:u.a,template:j.a,router:l,components:f.a,errorCaptured:function(e,r,t){this.error=e.stack}};L()(function(){new a.a($)}),window.VueController=$}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	function webpackJsonpCallback(data) {
+/******/ 		var chunkIds = data[0];
+/******/ 		var moreModules = data[1];
+/******/ 		var executeModules = data[2];
+/******/
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
+/******/
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/
+/******/ 		// add entry modules from loaded chunk to deferred list
+/******/ 		deferredModules.push.apply(deferredModules, executeModules || []);
+/******/
+/******/ 		// run deferred modules when all chunks ready
+/******/ 		return checkDeferredModules();
+/******/ 	};
+/******/ 	function checkDeferredModules() {
+/******/ 		var result;
+/******/ 		for(var i = 0; i < deferredModules.length; i++) {
+/******/ 			var deferredModule = deferredModules[i];
+/******/ 			var fulfilled = true;
+/******/ 			for(var j = 1; j < deferredModule.length; j++) {
+/******/ 				var depId = deferredModule[j];
+/******/ 				if(installedChunks[depId] !== 0) fulfilled = false;
+/******/ 			}
+/******/ 			if(fulfilled) {
+/******/ 				deferredModules.splice(i--, 1);
+/******/ 				result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
+/******/ 			}
+/******/ 		}
+/******/
+/******/ 		return result;
+/******/ 	}
+/******/
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 	// Promise = chunk loading, 0 = chunk loaded
+/******/ 	var installedChunks = {
+/******/ 		"admin": 0
+/******/ 	};
+/******/
+/******/ 	var deferredModules = [];
+/******/
+/******/ 	// script path function
+/******/ 	function jsonpScriptSrc(chunkId) {
+/******/ 		return __webpack_require__.p + "" + ({"client-components/Chat":"client-components/Chat","client-components/Login":"client-components/Login","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
+/******/ 	}
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/ 	// This file contains only the entry chunk.
+/******/ 	// The chunk loading function for additional chunks
+/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
+/******/ 		var promises = [];
+/******/
+/******/
+/******/ 		// JSONP chunk loading for javascript
+/******/
+/******/ 		var installedChunkData = installedChunks[chunkId];
+/******/ 		if(installedChunkData !== 0) { // 0 means "already installed".
+/******/
+/******/ 			// a Promise means "currently loading".
+/******/ 			if(installedChunkData) {
+/******/ 				promises.push(installedChunkData[2]);
+/******/ 			} else {
+/******/ 				// setup Promise in chunk cache
+/******/ 				var promise = new Promise(function(resolve, reject) {
+/******/ 					installedChunkData = installedChunks[chunkId] = [resolve, reject];
+/******/ 				});
+/******/ 				promises.push(installedChunkData[2] = promise);
+/******/
+/******/ 				// start chunk loading
+/******/ 				var script = document.createElement('script');
+/******/ 				var onScriptComplete;
+/******/
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.src = jsonpScriptSrc(chunkId);
+/******/
+/******/ 				// create error before stack unwound to get useful stacktrace later
+/******/ 				var error = new Error();
+/******/ 				onScriptComplete = function (event) {
+/******/ 					// avoid mem leaks in IE.
+/******/ 					script.onerror = script.onload = null;
+/******/ 					clearTimeout(timeout);
+/******/ 					var chunk = installedChunks[chunkId];
+/******/ 					if(chunk !== 0) {
+/******/ 						if(chunk) {
+/******/ 							var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 							var realSrc = event && event.target && event.target.src;
+/******/ 							error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 							error.name = 'ChunkLoadError';
+/******/ 							error.type = errorType;
+/******/ 							error.request = realSrc;
+/******/ 							chunk[1](error);
+/******/ 						}
+/******/ 						installedChunks[chunkId] = undefined;
+/******/ 					}
+/******/ 				};
+/******/ 				var timeout = setTimeout(function(){
+/******/ 					onScriptComplete({ type: 'timeout', target: script });
+/******/ 				}, 120000);
+/******/ 				script.onerror = script.onload = onScriptComplete;
+/******/ 				document.head.appendChild(script);
+/******/ 			}
+/******/ 		}
+/******/ 		return Promise.all(promises);
+/******/ 	};
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "http://127.0.0.1:3333/spa/";
+/******/
+/******/ 	// on error function for async loading
+/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
+/******/
+/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	jsonpArray.push = webpackJsonpCallback;
+/******/ 	jsonpArray = jsonpArray.slice();
+/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
+/******/
+/******/
+/******/ 	// add entry module to deferred list
+/******/ 	deferredModules.push(["./webpack-app/admin.js","vendors","commons"]);
+/******/ 	// run deferred modules when ready
+/******/ 	return checkDeferredModules();
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./webpack-app/admin.js":
+/*!******************************!*\
+  !*** ./webpack-app/admin.js ***!
+  \******************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue\\dist\\vue.esm.js");
+/* harmony import */ var _plugins_plugins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./plugins/plugins */ "./webpack-app/plugins/plugins.js");
+/* harmony import */ var _plugins_semantic_ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./plugins/semantic-ui */ "./webpack-app/plugins/semantic-ui.js");
+/* harmony import */ var _plugins_semantic_ui__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_plugins_semantic_ui__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _plugins_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./plugins/i18n */ "./webpack-app/plugins/i18n.js");
+/* harmony import */ var _admin_routes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./admin/routes */ "./webpack-app/admin/routes.js");
+/* harmony import */ var _client_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./client/components */ "./webpack-app/client/components.js");
+/* harmony import */ var _helpers_AxiosHelper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./helpers/AxiosHelper */ "./webpack-app/helpers/AxiosHelper.js");
+/* harmony import */ var _helpers_DayJSHelper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers/DayJSHelper */ "./webpack-app/helpers/DayJSHelper.js");
+/* harmony import */ var _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers/StringHelper */ "./webpack-app/helpers/StringHelper.js");
+/* harmony import */ var _admin_components_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./admin/components/Auth/Auth.vue */ "./webpack-app/admin/components/Auth/Auth.vue");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./admin/admin.tpl */ "./webpack-app/admin/admin.tpl");
+/* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_admin_admin_tpl__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_config_js__WEBPACK_IMPORTED_MODULE_12__);
+
+
+// ----------------------------------
+// plugins
+
+
+
+
+
+// --------------------
+// Components or routes
+
+
+
+
+// ----------------------------------
+// Helpers
+
+
+
+
+// --------------------
+// Components
+
+
+
+// ----------------------
+
+
+
+
+
+// -----------------------
+// 確認 baseURL
+
+let baseURL = '/'
+let baseScript = jquery__WEBPACK_IMPORTED_MODULE_10___default()(document.currentScript)
+_config_js__WEBPACK_IMPORTED_MODULE_12___default.a.baseURL = baseURL
+baseScript.before(`<div id="app"></div>`)
+
+// -----------------------
+
+let VueController = {
+  data: {
+    message: 'Hello, world.', // for test
+    users: [],
+    config: _config_js__WEBPACK_IMPORTED_MODULE_12___default.a,
+    status: {
+      username: '',
+    },
+    progress: {
+      component: false,
+      data: false,
+      display: false
+    },
+    lib: {
+      AxiosHelper: _helpers_AxiosHelper__WEBPACK_IMPORTED_MODULE_6__["default"].setBaseURL(baseURL),
+      DayJSHelper: _helpers_DayJSHelper__WEBPACK_IMPORTED_MODULE_7__["default"],
+      StringHelper: _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_8__["default"]
+    },
+    //view: 'Loading',
+    view: null,
+    error: '',
+    persistAttrs: [
+    ]
+  },
+  
+  watch: {
+    'status.username': function () {
+      /*
+      let path = '/login'
+      if (typeof(this.status.username) === 'string') {
+        path = '/chat'
+      }
+      
+      if (this.$router.currentRoute.fullPath !== path) {
+        this.$router.replace(path)
+      }
+       */
+    },
+    'config.locale': function () {
+      this.lib.DayJSHelper.setLocale(this.config.locale)
+    },
+    '$route.query.origin': function () {
+      console.log(this.$route.query.origin)
+      if (typeof(this.$route.query.origin) === 'string' 
+              && this.$route.query.origin !== '') {
+        this.loadUsers(this.$route.query.origin)
+      }
+    }
+  },
+  created: function () {
+    
+  },
+  mounted: function () {
+    if (typeof(this.$route.query.origin) === 'string' 
+            && this.$route.query.origin !== '') {
+      this.loadUsers(this.$route.query.origin)
+    }
+    
+    this.lib.AxiosHelper.setErrorHandler((error) => {
+      this.error = error
+    })
+  },
+  methods: {
+    loadUsers: async function (origin) {
+      let users = await this.lib.AxiosHelper.get('/admin/user/list', {
+        origin: origin
+      })
+      
+      if (Array.isArray(users)) {
+        this.users = users
+      }
+    }
+  }, // methods: {
+  
+  // --------------------------
+  // Basic configuration
+  el: '#app',
+  i18n: _plugins_i18n__WEBPACK_IMPORTED_MODULE_3__["default"],
+  
+  template: _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_11___default.a,
+  router: _admin_routes__WEBPACK_IMPORTED_MODULE_4__["default"],
+  components: _client_components__WEBPACK_IMPORTED_MODULE_5__["default"],
+  errorCaptured(err, vm, info) {
+    // https://medium.com/js-dojo/error-exception-handling-in-vue-js-application-6c26eeb6b3e4
+    this.error = err.stack
+    // err: error trace
+    // vm: component in which error occured
+    // info: Vue specific error information such as lifecycle hooks, events etc.
+    // TODO: Perform any custom logic or log to server
+    // return false to stop the propagation of errors further to parent or global error handler
+  },
+}
+
+if (typeof(baseURL) === 'string') {
+  jquery__WEBPACK_IMPORTED_MODULE_10___default()(() => {
+    new vue__WEBPACK_IMPORTED_MODULE_0__["default"](VueController)
+  })
+}
+
+window.VueController = VueController
+
+
+/***/ }),
+
+/***/ "./webpack-app/admin/admin.tpl":
+/*!*************************************!*\
+  !*** ./webpack-app/admin/admin.tpl ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        ref=\"auth\"></auth>\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:error=\"error\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n\r\n  <router-view v-bind:config=\"config\"\r\n               v-bind:status=\"status\"\r\n               v-bind:progress=\"progress\"\r\n               v-bind:lib=\"lib\"\r\n               v-bind:error=\"error\"></router-view>\r\n  \r\n  <keep-alive>\r\n    <component v-bind:is=\"view\"\r\n        v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:error=\"error\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:view=\"view\"></component>\r\n  </keep-alive>\r\n  \r\n  {{ message }}\r\n  \r\n  <div>\r\n    ?origin=URL: <br />\r\n    <a v-bind:href=\"$route.query.origin\" target=\"origin\">\r\n      {{ $route.query.origin }}\r\n    </a>\r\n  </div>\r\n  \r\n  <div class=\"ui list\" v-for=\"user in users\">\r\n      {{ user.id }}: {{ user.username }}\r\n  </div>\r\n</div>";
+
+/***/ }),
+
+/***/ "./webpack-app/admin/components/Auth/Auth.html?vue&type=template&id=1b581e5c&":
+/*!************************************************************************************!*\
+  !*** ./webpack-app/admin/components/Auth/Auth.html?vue&type=template&id=1b581e5c& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _C_Users_pudding_AppData_Roaming_npm_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Auth_html_vue_type_template_id_1b581e5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!C:/Users/pudding/AppData/Roaming/npm/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./Auth.html?vue&type=template&id=1b581e5c& */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue-loader\\lib\\loaders\\templateLoader.js?!./webpack-app/admin/components/Auth/Auth.html?vue&type=template&id=1b581e5c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _C_Users_pudding_AppData_Roaming_npm_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Auth_html_vue_type_template_id_1b581e5c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _C_Users_pudding_AppData_Roaming_npm_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Auth_html_vue_type_template_id_1b581e5c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/admin/components/Auth/Auth.js?vue&type=script&lang=js&?74c7":
+/*!****************************************************************************!*\
+  !*** ./webpack-app/admin/components/Auth/Auth.js?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let Auth = {
+  props: ['lib', 'status', 'config', 'progress', 'error'],
+  data() {
+    return {}
+  },
+  mounted: async function () {
+    // await this.checkLogin()
+  },
+  methods: {
+    loadUsernameFromURL: async function () {
+      let result = await this.lib.AxiosHelper.getOther(this.config.usernameQueryURL)
+      if (typeof(result) === 'string') {
+        return result
+      }
+    },
+    attemptLoginViaUsername: async function (username) {
+      var result = await this.lib.AxiosHelper.get(`/client/user/attempt-login-via-username`, {
+        username: username
+      })
+      if (typeof(result) === 'string') {
+        this.status.username = result
+        return true
+      }
+      else {
+        return false
+      }
+    },
+    checkLogin: async function () {
+      var result = await this.lib.AxiosHelper.get(`/client/user/check-login`)
+      this.status.username = result
+    }
+  } // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Auth);
+
+/***/ }),
+
+/***/ "./webpack-app/admin/components/Auth/Auth.js?vue&type=script&lang=js&?b7d3":
+/*!****************************************************************************!*\
+  !*** ./webpack-app/admin/components/Auth/Auth.js?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Auth_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./Auth.js?vue&type=script&lang=js& */ "./webpack-app/admin/components/Auth/Auth.js?vue&type=script&lang=js&?74c7");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_Auth_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/admin/components/Auth/Auth.vue":
+/*!****************************************************!*\
+  !*** ./webpack-app/admin/components/Auth/Auth.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Auth_html_vue_type_template_id_1b581e5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Auth.html?vue&type=template&id=1b581e5c& */ "./webpack-app/admin/components/Auth/Auth.html?vue&type=template&id=1b581e5c&");
+/* harmony import */ var _Auth_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Auth.js?vue&type=script&lang=js& */ "./webpack-app/admin/components/Auth/Auth.js?vue&type=script&lang=js&?b7d3");
+/* empty/unused harmony star reexport *//* harmony import */ var _C_Users_pudding_AppData_Roaming_npm_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! C:/Users/pudding/AppData/Roaming/npm/node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue-loader\\lib\\runtime\\componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_C_Users_pudding_AppData_Roaming_npm_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Auth_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Auth_html_vue_type_template_id_1b581e5c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Auth_html_vue_type_template_id_1b581e5c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/admin/components/Auth/Auth.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/admin/routes.js":
+/*!*************************************!*\
+  !*** ./webpack-app/admin/routes.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue\\dist\\vue.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue-router\\dist\\vue-router.esm.js");
+
+
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"])
+
+const routes = [
+]
+
+/* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  routes: routes
+}));
+
+/***/ }),
+
+/***/ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue-loader\\lib\\loaders\\templateLoader.js?!./webpack-app/admin/components/Auth/Auth.html?vue&type=template&id=1b581e5c&":
+/*!***************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/pudding/AppData/Roaming/npm/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/admin/components/Auth/Auth.html?vue&type=template&id=1b581e5c& ***!
+  \***************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ })
+
+/******/ });
+//# sourceMappingURL=admin.js.map

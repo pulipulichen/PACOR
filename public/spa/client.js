@@ -1,1 +1,438 @@
-!function(u){function e(e){for(var t,r,n=e[0],i=e[1],o=e[2],a=0,s=[];a<n.length;a++)r=n[a],Object.prototype.hasOwnProperty.call(l,r)&&l[r]&&s.push(l[r][0]),l[r]=0;for(t in i)Object.prototype.hasOwnProperty.call(i,t)&&(u[t]=i[t]);for(h&&h(e);s.length;)s.shift()();return p.push.apply(p,o||[]),c()}function c(){for(var e,t=0;t<p.length;t++){for(var r=p[t],n=!0,i=1;i<r.length;i++){var o=r[i];0!==l[o]&&(n=!1)}n&&(p.splice(t--,1),e=f(f.s=r[0]))}return e}var r={},l={2:0},p=[];function f(e){if(r[e])return r[e].exports;var t=r[e]={i:e,l:!1,exports:{}};return u[e].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.e=function(i){var e=[],r=l[i];if(0!==r)if(r)e.push(r[2]);else{var t=new Promise(function(e,t){r=l[i]=[e,t]});e.push(r[2]=t);var n,o=document.createElement("script");o.charset="utf-8",o.timeout=120,f.nc&&o.setAttribute("nonce",f.nc),o.src=function(e){return f.p+""+({3:"client-components/Chat",4:"client-components/Login",5:"vendors/semantic-ui-niwsf"}[e]||e)+".js"}(i);var a=new Error;n=function(e){o.onerror=o.onload=null,clearTimeout(s);var t=l[i];if(0!==t){if(t){var r=e&&("load"===e.type?"missing":e.type),n=e&&e.target&&e.target.src;a.message="Loading chunk "+i+" failed.\n("+r+": "+n+")",a.name="ChunkLoadError",a.type=r,a.request=n,t[1](a)}l[i]=void 0}};var s=setTimeout(function(){n({type:"timeout",target:o})},12e4);o.onerror=o.onload=n,document.head.appendChild(o)}return Promise.all(e)},f.m=u,f.c=r,f.d=function(e,t,r){f.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},f.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},f.t=function(t,e){if(1&e&&(t=f(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(f.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var n in t)f.d(r,n,function(e){return t[e]}.bind(null,n));return r},f.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(t,"a",t),t},f.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},f.p="http://127.0.0.1:3333/spa/",f.oe=function(e){throw console.error(e),e};var t=window.webpackJsonp=window.webpackJsonp||[],n=t.push.bind(t);t.push=e,t=t.slice();for(var i=0;i<t.length;i++)e(t[i]);var h=n;p.push([69,0]),c()}([,,,,,,,function(e,t,r){var n=r(33);"string"==typeof n&&(n=[[e.i,n,""]]);var i={insert:"head",singleton:!1};r(17)(n,i);n.locals&&(e.exports=n.locals)},function(e,t){e.exports=function(e){e.options.__i18n=e.options.__i18n||[],e.options.__i18n.push('{"en":{},"zh-TW":{}}'),delete e.options._Ctor}},function(e,t,r){var n=r(35);"string"==typeof n&&(n=[[e.i,n,""]]);var i={insert:"head",singleton:!1};r(17)(n,i);n.locals&&(e.exports=n.locals)},function(e,t){e.exports=function(e){e.options.__i18n=e.options.__i18n||[],e.options.__i18n.push('{"en":{},"zh-TW":{}}'),delete e.options._Ctor}},,,function(e,t){e.exports={debug:{},locale:"zh-TW",clientConfigName:"CONFIG"}},function(e,t,r){"use strict";var n=r(8),i=r.n(n);t.default=i.a},function(e,t,r){"use strict";var n=r(10),i=r.n(n);t.default=i.a},,,,,function(e,t,r){"use strict";var n=r(3),u=r.n(n),i=r(0),c=r.n(i),o=r(1),a=r.n(o),s=r(6),l=r.n(s);l.a.defaults.withCredentials=!0;var p,f,h,d,v={baseURL:"",errorHandler:null,setBaseURL:function(e){return!0===e.endsWith("/")&&(e=e.slice(0,-1)),this.baseURL=e,this},setErrorHandler:function(e){this.errorHandler=e},handleError:function(e){console.error(e),"function"==typeof this.errorHandler&&this.errorHandler(e)},getURL:function(e){return!1===e.startsWith("/")&&(e="/"+e),this.baseURL+e},get:(d=a()(c.a.mark(function e(t,r,n){var i;return c.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return t=this.getURL(t),e.next=3,this.getOther(t,r,n);case 3:return i=e.sent,e.abrupt("return",i);case 5:case"end":return e.stop()}},e,this)})),function(e,t,r){return d.apply(this,arguments)}),getOther:(h=a()(c.a.mark(function e(t,r,n){var i,o;return c.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return i={},"object"===u()(r)&&(i.params=r),e.prev=2,e.next=5,l.a.get(t,i);case 5:return o=e.sent,e.abrupt("return",o.data);case 9:return e.prev=9,e.t0=e.catch(2),"function"!=typeof n?this.handleError(e.t0):n(e.t0),e.abrupt("return");case 13:case"end":return e.stop()}},e,this,[[2,9]])})),function(e,t,r){return h.apply(this,arguments)}),post:(f=a()(c.a.mark(function e(t,r,n){var i,o;return c.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return i={},"object"===u()(r)&&(i=r),e.prev=2,e.next=5,l.a.post(this.getURL(t),i);case 5:return o=e.sent,e.abrupt("return",o.data);case 9:return e.prev=9,e.t0=e.catch(2),"function"!=typeof n?this.handleError(e.t0):n(e.t0),e.abrupt("return");case 13:case"end":return e.stop()}},e,this,[[2,9]])})),function(e,t,r){return f.apply(this,arguments)}),upload:(p=a()(c.a.mark(function e(t,r,n){var i,o,a,s;return c.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:if("object"!==u()(r))return this.handleError("no data"),e.abrupt("return","");e.next=3;break;case 3:for(o in i=new FormData,r)a=r[o],"object"===u()(a.files)&&(a=a.files[0]),i.append(o,a);return e.prev=5,e.next=8,l.a.post(this.getURL(t),i,{headers:{"Content-Type":"multipart/form-data"}});case 8:return s=e.sent,e.abrupt("return",s.data);case 12:return e.prev=12,e.t0=e.catch(5),"function"!=typeof n?this.handleError(e.t0):n(e.t0),e.abrupt("return");case 16:case"end":return e.stop()}},e,this,[[5,12]])})),function(e,t,r){return p.apply(this,arguments)})};t.a=v},function(e,t,r){"use strict";var n=r(12),i=r.n(n),o=r(26),a=r.n(o);i.a.extend(a.a),r(45).default;var s={setLocale:function(t){if("string"!=typeof t)return this;t=t.toLowerCase();try{i.a.locale(t)}catch(e){console.error("dayjs locale is error: ".concat(t))}return this},fromNow:function(e){return i()(e).fromNow()}};t.a=s},function(e,t,r){"use strict";var n={validateEmail:function(e){return/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(String(e).toLowerCase())}};t.a=n},function(e,t,r){"use strict";function n(){this.$createElement;return this._self._c,this._m(0)}n._withStripped=!0;var i={},o=(r(32),r(4)),a=r(14),s=Object(o.a)(i,n,[function(){var e=this.$createElement,t=this._self._c||e;return t("div",{staticClass:"ui segment"},[t("div",{staticClass:"ui active centered inline loader"})])}],!1,null,"076bb14c",null);"function"==typeof a.default&&Object(a.default)(s),s.options.__file="webpack-app/components/Loading/Loading.vue";function u(){var e=this,t=e.$createElement,r=e._self._c||t;return e.showError?r("div",{staticClass:"ui red floating message",attrs:{title:e.$t("Click to close")},on:{click:e.close}},[r("pre",[e._v(e._s(e.error))])]):e._e()}var c=s.exports;u._withStripped=!0;var l=r(3),p=r.n(l),f={props:["config","error"],data:function(){return this.$i18n.locale=this.config.locale,{}},computed:{showError:function(){return"object"===p()(this.error)||"string"==typeof this.error&&""!==this.error.trim()}},watch:{},mounted:function(){},methods:{close:function(){this.error=""}}},h=(r(34),r(15)),d=Object(o.a)(f,u,[],!1,null,"7536335c",null);"function"==typeof h.default&&Object(h.default)(d),d.options.__file="webpack-app/components/ErrorHandler/ErrorHandler.vue";function v(){var e=this.$createElement;return(this._self._c||e)("div")}var g=d.exports;v._withStripped=!0;var b,m,w,y,x=r(0),_=r.n(x),L=r(1),k=r.n(L),j={props:["lib","status","config","progress","error"],data:function(){return{}},mounted:(y=k()(_.a.mark(function e(){var t;return _.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:if("string"!=typeof this.config.username&&"string"==typeof this.config.usernameQueryURL)return e.next=3,this.loadUsernameFromURL();e.next=4;break;case 3:this.config.username=e.sent;case 4:if(t=!1,"string"==typeof this.config.username)return e.next=8,this.attemptLoginViaUsername(this.config.username);e.next=9;break;case 8:t=e.sent;case 9:if(!1===t)return e.next=12,this.checkLogin();e.next=12;break;case 12:case"end":return e.stop()}},e,this)})),function(){return y.apply(this,arguments)}),methods:{loadUsernameFromURL:(w=k()(_.a.mark(function e(){var t;return _.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.lib.AxiosHelper.getOther(this.config.usernameQueryURL);case 2:if("string"==typeof(t=e.sent))return e.abrupt("return",t);e.next=5;break;case 5:case"end":return e.stop()}},e,this)})),function(){return w.apply(this,arguments)}),attemptLoginViaUsername:(m=k()(_.a.mark(function e(t){var r;return _.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.lib.AxiosHelper.get("/client/user/attempt-login-via-username",{username:t});case 2:if("string"==typeof(r=e.sent))return this.status.username=r,e.abrupt("return",!0);e.next=8;break;case 8:return e.abrupt("return",!1);case 9:case"end":return e.stop()}},e,this)})),function(e){return m.apply(this,arguments)}),checkLogin:(b=k()(_.a.mark(function e(){var t;return _.a.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.lib.AxiosHelper.get("/client/user/check-login");case 2:t=e.sent,this.status.username=t;case 4:case"end":return e.stop()}},e,this)})),function(){return b.apply(this,arguments)})}},C=Object(o.a)(j,v,[],!1,null,null,null);C.options.__file="webpack-app/client/components/Auth/Auth.vue";var E={Loading:c,"error-handler":g,Auth:C.exports,Login:function(){return r.e(4).then(r.bind(null,118))},Chat:function(){return r.e(3).then(r.bind(null,117))}};t.a=E},function(e,t,r){"use strict";var n=r(18),i={en:{Title:"Example Title"},"zh-TW":{Title:"範例標題",OK:"確認"}};r(2).a.use(n.a);var o=new n.a({locale:"zh-TW",messages:i,silentTranslationWarn:!0});t.a=o},,,function(e,t,r){"use strict";var n=r(2),i=(r(29),r(25));n.a.config.devtools=!1,n.a.config.productionTip=!1,n.a.use(i.a.Plugin)},,function(e,t,r){var n=r(30);"string"==typeof n&&(n=[[e.i,n,""]]);var i={insert:"head",singleton:!1};r(17)(n,i);n.locals&&(e.exports=n.locals)},function(e,t,r){(e.exports=r(16)(!1)).push([e.i,"",""])},function(e,t,r){var n=r(11);window.jQuery=window.$=n;Promise.all([r.e(0),r.e(5)]).then(r.t.bind(null,48,7))},function(e,t,r){"use strict";var n=r(7);r.n(n).a},function(e,t,r){(e.exports=r(16)(!1)).push([e.i,"",""])},function(e,t,r){"use strict";var n=r(9);r.n(n).a},function(e,t,r){(e.exports=r(16)(!1)).push([e.i,".message[data-v-7536335c]{cursor:pointer}",""])},,,,,,,,,,,function(e,t){e.exports='<div class="non-invasive-web-style-framework">\r\n\r\n  <auth v-bind:config="config"\r\n        v-bind:status="status"\r\n        v-bind:progress="progress"\r\n        v-bind:lib="lib"\r\n        v-bind:error="error"\r\n        ref="auth"></auth>\r\n  <error-handler v-bind:config="config"\r\n                 v-bind:error="error"\r\n                 ref="ErrorHandler"></error-handler>\r\n  \r\n  <router-view v-bind:config="config"\r\n               v-bind:status="status"\r\n               v-bind:progress="progress"\r\n               v-bind:lib="lib"\r\n               v-bind:error="error"></router-view>\r\n  \r\n  <keep-alive>\r\n    <component v-bind:is="view"\r\n        v-bind:config="config"\r\n        v-bind:status="status"\r\n        v-bind:progress="progress"\r\n        v-bind:lib="lib"\r\n        v-bind:error="error"\r\n        v-bind:view="view"></component>\r\n  </keep-alive>\r\n</div>'},,,,,,,,,,,,,,,,,,,,,,,function(e,t,r){"use strict";r.r(t);var n=r(3),i=r.n(n),o=r(2),a=(r(27),r(31),r(24)),s=r(20),u=r(21),c=r(22),l=r(11),p=r.n(l),f=r(46),h=r.n(f),d=r(13),v=r.n(d),g=r(19);o.a.use(g.a);var b=new g.a({routes:[]}),m=r(23),w=r.p;w=w.split("/").slice(0,3).join("/"),v.a.baseURL=w;var y=p()(document.currentScript);1===y.length&&y.before('<div id="app"></div>');var x={data:{config:v.a,status:{username:""},progress:{component:!1,data:!1,display:!1},lib:{AxiosHelper:s.a.setBaseURL(w),DayJSHelper:u.a,StringHelper:c.a},view:"Loading",error:"",persistAttrs:[]},watch:{"status.username":function(){var e="Login";"string"==typeof this.status.username&&(e="Chat"),this.view=e},"config.locale":function(){this.lib.DayJSHelper.setLocale(this.config.locale)}},created:function(){this.loadClientConfig()},mounted:function(){var t=this;this.lib.AxiosHelper.setErrorHandler(function(e){t.error=e})},methods:{loadClientConfig:function(){var e=window[this.config.clientConfigName];if("object"===i()(e))for(var t in e)this.config[t]=e[t]}},el:"#app",i18n:a.a,template:h.a,router:b,components:m.a,errorCaptured:function(e,t,r){this.error=e.stack}};"string"==typeof w&&p()(function(){new o.a(x),p()("body > #TestMessage").remove()}),window.VueController=x}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	function webpackJsonpCallback(data) {
+/******/ 		var chunkIds = data[0];
+/******/ 		var moreModules = data[1];
+/******/ 		var executeModules = data[2];
+/******/
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
+/******/
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/
+/******/ 		// add entry modules from loaded chunk to deferred list
+/******/ 		deferredModules.push.apply(deferredModules, executeModules || []);
+/******/
+/******/ 		// run deferred modules when all chunks ready
+/******/ 		return checkDeferredModules();
+/******/ 	};
+/******/ 	function checkDeferredModules() {
+/******/ 		var result;
+/******/ 		for(var i = 0; i < deferredModules.length; i++) {
+/******/ 			var deferredModule = deferredModules[i];
+/******/ 			var fulfilled = true;
+/******/ 			for(var j = 1; j < deferredModule.length; j++) {
+/******/ 				var depId = deferredModule[j];
+/******/ 				if(installedChunks[depId] !== 0) fulfilled = false;
+/******/ 			}
+/******/ 			if(fulfilled) {
+/******/ 				deferredModules.splice(i--, 1);
+/******/ 				result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
+/******/ 			}
+/******/ 		}
+/******/
+/******/ 		return result;
+/******/ 	}
+/******/
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 	// Promise = chunk loading, 0 = chunk loaded
+/******/ 	var installedChunks = {
+/******/ 		"client": 0
+/******/ 	};
+/******/
+/******/ 	var deferredModules = [];
+/******/
+/******/ 	// script path function
+/******/ 	function jsonpScriptSrc(chunkId) {
+/******/ 		return __webpack_require__.p + "" + ({"client-components/Chat":"client-components/Chat","client-components/Login":"client-components/Login","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
+/******/ 	}
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/ 	// This file contains only the entry chunk.
+/******/ 	// The chunk loading function for additional chunks
+/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
+/******/ 		var promises = [];
+/******/
+/******/
+/******/ 		// JSONP chunk loading for javascript
+/******/
+/******/ 		var installedChunkData = installedChunks[chunkId];
+/******/ 		if(installedChunkData !== 0) { // 0 means "already installed".
+/******/
+/******/ 			// a Promise means "currently loading".
+/******/ 			if(installedChunkData) {
+/******/ 				promises.push(installedChunkData[2]);
+/******/ 			} else {
+/******/ 				// setup Promise in chunk cache
+/******/ 				var promise = new Promise(function(resolve, reject) {
+/******/ 					installedChunkData = installedChunks[chunkId] = [resolve, reject];
+/******/ 				});
+/******/ 				promises.push(installedChunkData[2] = promise);
+/******/
+/******/ 				// start chunk loading
+/******/ 				var script = document.createElement('script');
+/******/ 				var onScriptComplete;
+/******/
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.src = jsonpScriptSrc(chunkId);
+/******/
+/******/ 				// create error before stack unwound to get useful stacktrace later
+/******/ 				var error = new Error();
+/******/ 				onScriptComplete = function (event) {
+/******/ 					// avoid mem leaks in IE.
+/******/ 					script.onerror = script.onload = null;
+/******/ 					clearTimeout(timeout);
+/******/ 					var chunk = installedChunks[chunkId];
+/******/ 					if(chunk !== 0) {
+/******/ 						if(chunk) {
+/******/ 							var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 							var realSrc = event && event.target && event.target.src;
+/******/ 							error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 							error.name = 'ChunkLoadError';
+/******/ 							error.type = errorType;
+/******/ 							error.request = realSrc;
+/******/ 							chunk[1](error);
+/******/ 						}
+/******/ 						installedChunks[chunkId] = undefined;
+/******/ 					}
+/******/ 				};
+/******/ 				var timeout = setTimeout(function(){
+/******/ 					onScriptComplete({ type: 'timeout', target: script });
+/******/ 				}, 120000);
+/******/ 				script.onerror = script.onload = onScriptComplete;
+/******/ 				document.head.appendChild(script);
+/******/ 			}
+/******/ 		}
+/******/ 		return Promise.all(promises);
+/******/ 	};
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "http://127.0.0.1:3333/spa/";
+/******/
+/******/ 	// on error function for async loading
+/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
+/******/
+/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	jsonpArray.push = webpackJsonpCallback;
+/******/ 	jsonpArray = jsonpArray.slice();
+/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
+/******/
+/******/
+/******/ 	// add entry module to deferred list
+/******/ 	deferredModules.push(["./webpack-app/client.js","vendors","commons"]);
+/******/ 	// run deferred modules when ready
+/******/ 	return checkDeferredModules();
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./webpack-app/client.js":
+/*!*******************************!*\
+  !*** ./webpack-app/client.js ***!
+  \*******************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue\\dist\\vue.esm.js");
+/* harmony import */ var _plugins_plugins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./plugins/plugins */ "./webpack-app/plugins/plugins.js");
+/* harmony import */ var _plugins_semantic_ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./plugins/semantic-ui */ "./webpack-app/plugins/semantic-ui.js");
+/* harmony import */ var _plugins_semantic_ui__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_plugins_semantic_ui__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _plugins_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./plugins/i18n */ "./webpack-app/plugins/i18n.js");
+/* harmony import */ var _helpers_AxiosHelper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers/AxiosHelper */ "./webpack-app/helpers/AxiosHelper.js");
+/* harmony import */ var _helpers_DayJSHelper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers/DayJSHelper */ "./webpack-app/helpers/DayJSHelper.js");
+/* harmony import */ var _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./helpers/StringHelper */ "./webpack-app/helpers/StringHelper.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./client/client.tpl */ "./webpack-app/client/client.tpl");
+/* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_client_client_tpl__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_config_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _client_routes__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./client/routes */ "./webpack-app/client/routes.js");
+/* harmony import */ var _client_components__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./client/components */ "./webpack-app/client/components.js");
+/* global __webpack_public_path__ */
+
+
+// ----------------------------------
+// plugins
+
+
+
+
+
+// ----------------------------------
+// Helpers
+
+
+
+
+// ----------------------
+
+
+
+
+
+// --------------------
+// Components or routes
+
+
+
+
+// -----------------------
+// 確認 baseURL
+
+let baseURL = __webpack_require__.p
+baseURL = baseURL.split('/').slice(0, 3).join('/')
+_config_js__WEBPACK_IMPORTED_MODULE_9___default.a.baseURL = baseURL
+
+let baseScript = jquery__WEBPACK_IMPORTED_MODULE_7___default()(document.currentScript)
+if (baseScript.length === 1) {
+  baseScript.before(`<div id="app"></div>`)
+}
+
+// -----------------------
+
+let VueController = {
+  data: {
+    config: _config_js__WEBPACK_IMPORTED_MODULE_9___default.a,
+    status: {
+      username: '',
+    },
+    progress: {
+      component: false,
+      data: false,
+      display: false
+    },
+    lib: {
+      AxiosHelper: _helpers_AxiosHelper__WEBPACK_IMPORTED_MODULE_4__["default"].setBaseURL(baseURL),
+      DayJSHelper: _helpers_DayJSHelper__WEBPACK_IMPORTED_MODULE_5__["default"],
+      StringHelper: _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_6__["default"]
+    },
+    view: 'Loading',
+    error: '',
+    persistAttrs: [
+    ]
+  },
+  watch: {
+    'status.username': function () {
+      /*
+      let path = '/login'
+      if (typeof(this.status.username) === 'string') {
+        path = '/chat'
+      }
+      
+      if (this.$router.currentRoute.fullPath !== path) {
+        this.$router.replace(path)
+      }
+      */
+      let view = 'Login'
+      if (typeof(this.status.username) === 'string') {
+        view = 'Chat'
+      }
+      //console.log(view)
+      this.view = view
+    },
+    'config.locale': function () {
+      this.lib.DayJSHelper.setLocale(this.config.locale)
+    }
+  },
+  created: function () {
+    /*
+    if (this.$router.currentRoute.fullPath !== '/') {
+      this.$router.replace('/')
+    }
+     */
+    this.loadClientConfig()
+  },
+  mounted: function () {
+    this.lib.AxiosHelper.setErrorHandler((error) => {
+      this.error = error
+    })
+  },
+  
+  methods: {
+    loadClientConfig: function () {
+      let config = window[this.config.clientConfigName]
+      
+      if (typeof(config) === 'object') {
+        for (let key in config) {
+          this.config[key] = config[key]
+        }
+      }
+      
+      //console.log(this.config)
+    },
+  }, // methods: {
+  
+  
+  // --------------------------
+  // Basic configuration
+  el: '#app',
+  i18n: _plugins_i18n__WEBPACK_IMPORTED_MODULE_3__["default"],
+  
+  template: _client_client_tpl__WEBPACK_IMPORTED_MODULE_8___default.a,
+  router: _client_routes__WEBPACK_IMPORTED_MODULE_10__["default"],
+  components: _client_components__WEBPACK_IMPORTED_MODULE_11__["default"],
+  errorCaptured(err, vm, info) {
+    // https://medium.com/js-dojo/error-exception-handling-in-vue-js-application-6c26eeb6b3e4
+    this.error = err.stack
+    // err: error trace
+    // vm: component in which error occured
+    // info: Vue specific error information such as lifecycle hooks, events etc.
+    // TODO: Perform any custom logic or log to server
+    // return false to stop the propagation of errors further to parent or global error handler
+  },
+}
+
+if (typeof(baseURL) === 'string') {
+  jquery__WEBPACK_IMPORTED_MODULE_7___default()(() => {
+    new vue__WEBPACK_IMPORTED_MODULE_0__["default"](VueController)
+    
+    jquery__WEBPACK_IMPORTED_MODULE_7___default()('body > #TestMessage').remove()
+  })
+}
+
+window.VueController = VueController
+
+
+/***/ }),
+
+/***/ "./webpack-app/client/client.tpl":
+/*!***************************************!*\
+  !*** ./webpack-app/client/client.tpl ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        ref=\"auth\"></auth>\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:error=\"error\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n  \r\n  <router-view v-bind:config=\"config\"\r\n               v-bind:status=\"status\"\r\n               v-bind:progress=\"progress\"\r\n               v-bind:lib=\"lib\"\r\n               v-bind:error=\"error\"></router-view>\r\n  \r\n  <rangy-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></rangy-manager>\r\n  \r\n  <keep-alive>\r\n    <component v-bind:is=\"view\"\r\n        v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></component>\r\n  </keep-alive>\r\n</div>";
+
+/***/ }),
+
+/***/ "./webpack-app/client/routes.js":
+/*!**************************************!*\
+  !*** ./webpack-app/client/routes.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue\\dist\\vue.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue-router\\dist\\vue-router.esm.js");
+
+
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"])
+
+const routes = [
+  //{ path: '/', component: require('./components/Loading/Loading.vue') },
+  //{ path: '/login', component: () => import(/* webpackChunkName: "client-components/login" */ './components/Login/Login.vue') },
+  //{ path: '/chat', component: () => import(/* webpackChunkName: "client-components/chat" */ './components/Chat/Chat.vue') }
+]
+
+/* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  routes: routes
+}));
+
+/***/ })
+
+/******/ });
+//# sourceMappingURL=client.js.map
