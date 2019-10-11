@@ -2,16 +2,5 @@
   "en": {
   },
   "zh-TW": {
-    "User {0} is not existed.": "使用者{0}不存在。",
-    "User {0} is registed.": "使用者{0}已經註冊。",
-    "Password is incorrect.": "密碼錯誤。",
-    "Username": "使用者名稱",
-    "Password": "密碼",
-    "Email": "電子信箱地址",
-    "Login": "登入",
-    "Register": "註冊",
-    "Login from Google": "從Google帳號登入",
-    "Login from GitHub": "從GitHub帳號登入",
-    "Login from Instagram": "從Instagram帳號登入"
   }
 }
