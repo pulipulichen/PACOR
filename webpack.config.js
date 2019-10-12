@@ -6,7 +6,6 @@ const baseURL = process.env.PROTOCOL + '//' + process.env.HOST + ':' + process.e
 
 const path = require('path')
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
-
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 let compileCount = 0
@@ -53,7 +52,12 @@ module.exports = (env, argv) => {
           use: [
             'vue-style-loader', // Step 3
             'css-loader?sourceMap', // Step 2再執行這個
-            'less-loader?sourceMap' // Step 1 要先執行這個
+            {
+              loader: 'less-loader?sourceMap',
+              options: {
+                globalVars: require('./webpack-app/style.config.js')
+              }
+            }, // Step 1 要先執行這個
           ]
         },
         {
@@ -109,7 +113,7 @@ module.exports = (env, argv) => {
               let seconds = paddingZero(date.getSeconds())
               let minutes = paddingZero(date.getMinutes())
               let hour = paddingZero(date.getHours())
-              console.warn(`[${compileCount}] Building completed at ${hour}:${minutes}:${seconds}`)
+              console.warn(`[${compileCount}] Webpack building completed at ${hour}:${minutes}:${seconds}`)
             }, 100)
           });
         } // apply: (compiler) => {

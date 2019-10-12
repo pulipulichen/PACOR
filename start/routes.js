@@ -16,7 +16,7 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+//Route.on('/').render('welcome')
 
 // ------------------------------------------
 
@@ -39,3 +39,9 @@ Route.get('/client/oauth/login', 'Client/UserController.oauthLogin')
 
 Route.on('/admin').render('admin')
 Route.get('/admin/user/list', 'Admin/UserController.list')
+
+Route.on('/').render('admin')
+Route.group(() => {
+  // Binds '/users' to 'App/Controllers/Http/Admin/UserController'
+  Route.resource('/users', 'UserController')
+}).namespace('admin')

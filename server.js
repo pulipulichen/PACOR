@@ -1,3 +1,5 @@
+/* global __dirname */
+
 'use strict'
 
 /*
@@ -21,5 +23,17 @@ const { Ignitor } = require('@adonisjs/ignitor')
 
 new Ignitor(require('@adonisjs/fold'))
   .appRoot(__dirname)
-  .fireHttpServer()
+  .fireHttpServer(() => {
+    let paddingZero = (n) => {
+      if (n < 10) {
+        n = '0' + n
+      }
+      return n
+    }
+    let date = new Date
+    let seconds = paddingZero(date.getSeconds())
+    let minutes = paddingZero(date.getMinutes())
+    let hour = paddingZero(date.getHours())
+    console.log(`AdonisJs server started at ${hour}:${minutes}:${seconds}.`)
+  })
   .catch(console.error)
