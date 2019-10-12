@@ -15,8 +15,6 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
-const ioc = require('@adonisjs/fold').ioc
-const { HttpException } = use('@adonisjs/generic-exceptions') 
 
 // 進入管理或文件管理
 Route.on('/').render('index')
@@ -39,6 +37,9 @@ Route.get('/client/oauth/authenticated/:driver', 'Client/UserController.oauthAut
 Route.get('/client/oauth/login', 'Client/UserController.oauthLogin')
 
 // ---------------------------
+
+const ioc = require('@adonisjs/fold').ioc
+const { HttpException } = use('@adonisjs/generic-exceptions') 
 
 let controllerMapping = (options, module, controller, action) => {
   const params = options.params
@@ -64,9 +65,12 @@ let controllerMapping = (options, module, controller, action) => {
 
 // ----------------------------
 Route.on('/admin').render('admin')
+
+
 Route.any('/admin/:controller/:action', (options) => {
   return controllerMapping(options, 'admin')
 })
+
 
 // --------------------------------
 
@@ -74,3 +78,10 @@ Route.on('/material').render('material')
 Route.any('/material/:controller/:action', (options) => {
   return controllerMapping(options, 'material')
 })
+
+
+let routePrefix = '/material/asset/:id'
+for (let i = 0; i < 10; i++) {
+  routePrefix = routePrefix + `/:folderLevel${i}`
+  Route.get(routePrefix, 'Material/Asset.get')
+}

@@ -15,6 +15,10 @@ class Auth {
     return false
   }
   
+  async t () {
+    return false
+  }
+  
   async list ({ request, auth }) {
     let {origin} = request.get()
     if (typeof(origin) !== 'string') {
