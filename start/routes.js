@@ -38,8 +38,8 @@ Route.get('/client/oauth/login', 'Client/UserController.oauthLogin')
 
 // ---------------------------
 
-const ioc = require('@adonisjs/fold').ioc
-const { HttpException } = use('@adonisjs/generic-exceptions') 
+//const ioc = require('@adonisjs/fold').ioc
+//const { HttpException } = use('@adonisjs/generic-exceptions') 
 
 let controllerMapping = (options, module, controller, action) => {
   const params = options.params
@@ -63,6 +63,7 @@ let controllerMapping = (options, module, controller, action) => {
   return controllerInstance.method.apply(controllerInstance.instance,[options])
 }
 
+/*
 // ----------------------------
 Route.on('/admin').render('admin')
 
@@ -78,7 +79,7 @@ Route.on('/material').render('material')
 Route.any('/material/:controller/:action', (options) => {
   return controllerMapping(options, 'material')
 })
-
+*/
 
 let routePrefix = '/material/asset/:id'
 for (let i = 0; i < 10; i++) {
