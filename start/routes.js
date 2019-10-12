@@ -16,6 +16,7 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 const ioc = require('@adonisjs/fold').ioc
+const { HttpException } = use('@adonisjs/generic-exceptions') 
 
 // 進入管理或文件管理
 Route.on('/').render('index')
@@ -39,35 +40,37 @@ Route.get('/client/oauth/login', 'Client/UserController.oauthLogin')
 
 // ---------------------------
 
+let controllerMapping = (options, module, controller, action) => {
+  const params = options.params
+  if (typeof(module) !== 'string' && typeof(params.module) === 'string') {
+    module = params.module
+  }
+  if (typeof(controller) !== 'string' && typeof(params.controller) === 'string') {
+    controller = params.controller
+  }
+  if (typeof(action) !== 'string' && typeof(params.action) === 'string') {
+    action = params.action
+  }
+  
+  if (action.startsWith('_')) {
+    throw new HttpException(`${module}/${controller}.${action} is not public method.`, 404)
+  }
+  
+  const controllerPath = `App/Controllers/Http/${module}`
+  const url = `${controllerPath}/${controller}.${action}`
+  const controllerInstance = ioc.makeFunc(url)
+  return controllerInstance.method.apply(controllerInstance.instance,[options])
+}
+
 // ----------------------------
 Route.on('/admin').render('admin')
 Route.any('/admin/:controller/:action', (options) => {
-  const params = options.params
-  const module = 'admin'
-  const controller = params.controller
-  const action = params.action
-  const controllerPath = `App/Controllers/Http/${module}`
-
-  const url = `${controllerPath}/${controller}.${action}`
-
-  const controllerInstance = ioc.makeFunc(url)
-
-  return controllerInstance.method.apply(controllerInstance.instance,[options])
+  return controllerMapping(options, 'admin')
 })
 
 // --------------------------------
 
 Route.on('/material').render('material')
 Route.any('/material/:controller/:action', (options) => {
-  const params = options.params
-  const module = 'material'
-  const controller = params.controller
-  const action = params.action
-  const controllerPath = `App/Controllers/Http/${module}`
-
-  const url = `${controllerPath}/${controller}.${action}`
-
-  const controllerInstance = ioc.makeFunc(url)
-
-  return controllerInstance.method.apply(controllerInstance.instance,[options])
+  return controllerMapping(options, 'material')
 })
