@@ -38,8 +38,8 @@ Route.get('/client/oauth/login', 'Client/UserController.oauthLogin')
 
 // ---------------------------
 
-//const ioc = require('@adonisjs/fold').ioc
-//const { HttpException } = use('@adonisjs/generic-exceptions') 
+const ioc = require('@adonisjs/fold').ioc
+const { HttpException } = use('@adonisjs/generic-exceptions') 
 
 let controllerMapping = (options, module, controller, action) => {
   const params = options.params

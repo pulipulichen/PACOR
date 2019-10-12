@@ -25,7 +25,7 @@ module.exports = {
     |
     */
     local: {
-      root: Helpers.tmpPath(),
+      root: './storage',
       driver: 'local'
     },
 

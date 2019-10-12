@@ -1,7 +1,9 @@
 'use strict'
 
+const Drive = use('Drive')
+
 class Asset {
-  async get ({request, params, Drive}) {
+  async get ({request, params}) {
     await Drive.put('hello.txt', Buffer.from('Hello world!'))
     
     let id = params.id
