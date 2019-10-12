@@ -15,8 +15,10 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
+const ioc = require('@adonisjs/fold').ioc
 
-//Route.on('/').render('welcome')
+// 進入管理或文件管理
+Route.on('/').render('index')
 
 // ------------------------------------------
 
@@ -37,11 +39,35 @@ Route.get('/client/oauth/login', 'Client/UserController.oauthLogin')
 
 // ---------------------------
 
+// ----------------------------
 Route.on('/admin').render('admin')
-Route.get('/admin/user/list', 'Admin/UserController.list')
+Route.any('/admin/:controller/:action', (options) => {
+  const params = options.params
+  const module = 'admin'
+  const controller = params.controller
+  const action = params.action
+  const controllerPath = `App/Controllers/Http/${module}`
 
-Route.on('/').render('admin')
-Route.group(() => {
-  // Binds '/users' to 'App/Controllers/Http/Admin/UserController'
-  Route.resource('/users', 'UserController')
-}).namespace('admin')
+  const url = `${controllerPath}/${controller}.${action}`
+
+  const controllerInstance = ioc.makeFunc(url)
+
+  return controllerInstance.method.apply(controllerInstance.instance,[options])
+})
+
+// --------------------------------
+
+Route.on('/material').render('material')
+Route.any('/material/:controller/:action', (options) => {
+  const params = options.params
+  const module = 'material'
+  const controller = params.controller
+  const action = params.action
+  const controllerPath = `App/Controllers/Http/${module}`
+
+  const url = `${controllerPath}/${controller}.${action}`
+
+  const controllerInstance = ioc.makeFunc(url)
+
+  return controllerInstance.method.apply(controllerInstance.instance,[options])
+})

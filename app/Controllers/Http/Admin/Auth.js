@@ -6,9 +6,9 @@ const UserOAuth = use('App/Models/UserOAuth')
 const Hash = use('Hash')
 const OriginFilter = use('App/Helpers/OriginFilter')
 
-class UserController {
-  async test () {
-    return true
+class Auth {
+  async test ({request, params}) {
+    return request.all()
   }
   
   async ok () {
@@ -34,4 +34,4 @@ class UserController {
   }
 }
 
-module.exports = UserController
+module.exports = Auth
