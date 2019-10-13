@@ -63,7 +63,6 @@ let controllerMapping = (options, module, controller, action) => {
   return controllerInstance.method.apply(controllerInstance.instance,[options])
 }
 
-/*
 // ----------------------------
 Route.on('/admin').render('admin')
 
@@ -76,13 +75,15 @@ Route.any('/admin/:controller/:action', (options) => {
 // --------------------------------
 
 Route.on('/material').render('material')
+
+// Read material assets
+let routePrefix = '/material/asset/:id'
+//Route.get(routePrefix, 'Material/Asset.get')
+for (let i = 0; i < 10; i++) {
+  routePrefix = routePrefix + `/:folderLevel${i}?`
+  Route.get(routePrefix, 'Material/Asset.get')
+}
+
 Route.any('/material/:controller/:action', (options) => {
   return controllerMapping(options, 'material')
 })
-*/
-
-let routePrefix = '/material/asset/:id'
-for (let i = 0; i < 10; i++) {
-  routePrefix = routePrefix + `/:folderLevel${i}`
-  Route.get(routePrefix, 'Material/Asset.get')
-}
