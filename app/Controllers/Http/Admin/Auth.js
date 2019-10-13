@@ -85,7 +85,8 @@ class Auth {
     await auth.remember(true).login(user)
     return {
       displayName: ADMIN_USERNAME,
-      avatar: AvatarHelper.adminURL()
+      avatar: AvatarHelper.adminURL(),
+      role: user.role
     }
   }
   
@@ -115,7 +116,8 @@ class Auth {
     await auth.remember(true).login(user)
     return {
       displayName: user.name,
-      avatar: AvatarHelper.userURL(user.avatar)
+      avatar: AvatarHelper.userURL(user.avatar),
+      role: user.role
     }
   }
   
@@ -137,7 +139,8 @@ class Auth {
         return {
           username: user.username,
           displayName: user.display_name,
-          avatar: avatarURL
+          avatar: avatarURL,
+          role: user.role
         }
       }
       else {

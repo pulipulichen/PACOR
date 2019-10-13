@@ -46,6 +46,7 @@ let VueController = {
     users: [],
     config: config,
     status: {
+      role: '',
       username: '',
       displayName: '',
       avatat: '',

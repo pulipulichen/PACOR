@@ -18,6 +18,7 @@ let Materials = {
   watch: {
   },
   mounted() {
+    this.status.title = this.$t('Material Assets Management')
     this.list()
   },
   methods: {

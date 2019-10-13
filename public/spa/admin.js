@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"admin-components/clients":"admin-components/clients","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"admin-components/clients":"admin-components/clients","admin-components/materials":"admin-components/materials","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -490,6 +490,32 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "menu-full right menu" }, [
+      _c(
+        "a",
+        {
+          staticClass: "item",
+          on: {
+            click: function($event) {
+              return _vm.$router.push("/clients")
+            }
+          }
+        },
+        [_vm._v("\r\n     " + _vm._s(_vm.$t("Clients")) + "\r\n    ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "item",
+          on: {
+            click: function($event) {
+              return _vm.$router.push("/materials")
+            }
+          }
+        },
+        [_vm._v("\r\n     " + _vm._s(_vm.$t("Materials")) + "\r\n    ")]
+      ),
+      _vm._v(" "),
       _c("a", { staticClass: "item", on: { click: _vm.logout } }, [
         _vm._v("\r\n     " + _vm._s(_vm.$t("Logout")) + "\r\n    ")
       ])
@@ -709,6 +735,7 @@ let VueController = {
     users: [],
     config: _config_js__WEBPACK_IMPORTED_MODULE_12___default.a,
     status: {
+      role: '',
       username: '',
       displayName: '',
       avatat: '',
@@ -903,6 +930,7 @@ let Auth = {
       this.status.username = result.username
       this.status.displayName = result.displayName
       this.status.avatar = result.avatar
+      this.status.role = result.role
       this.status.needLogin = false
     }
   } // methods
@@ -1033,6 +1061,7 @@ let Login = {
       this.status.username = this.username
       this.status.displayName = result.displayName
       this.status.avatar = result.avatar
+      this.status.role = result.role
       
       this.status.needLogin = false
       this.reset()
@@ -1457,6 +1486,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MOD
 const routes = [
   { path: '/', redirect: '/clients' },
   { path: '/clients', component: () => __webpack_require__.e(/*! import() | admin-components/clients */ "admin-components/clients").then(__webpack_require__.bind(null, /*! ./components/Clients/Clients.vue */ "./webpack-app/admin/components/Clients/Clients.vue")) },
+  { path: '/materials', component: () => __webpack_require__.e(/*! import() | admin-components/materials */ "admin-components/materials").then(__webpack_require__.bind(null, /*! ./components/Materials/Materials.vue */ "./webpack-app/admin/components/Materials/Materials.vue")) },
 ]
 
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({

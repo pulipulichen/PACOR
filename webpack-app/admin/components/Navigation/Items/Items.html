@@ -12,6 +12,17 @@
   </div>
   
   <div class="menu-full right menu">
+    
+    <a class="item"
+       v-on:click="$router.push('/clients')">
+     {{ $t('Clients') }}
+    </a>
+    
+    <a class="item"
+       v-on:click="$router.push('/materials')">
+     {{ $t('Materials') }}
+    </a>
+    
     <a class="item"
        v-on:click="logout">
      {{ $t('Logout') }}

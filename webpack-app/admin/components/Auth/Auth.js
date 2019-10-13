@@ -18,6 +18,7 @@ let Auth = {
       this.status.username = result.username
       this.status.displayName = result.displayName
       this.status.avatar = result.avatar
+      this.status.role = result.role
       this.status.needLogin = false
     }
   } // methods

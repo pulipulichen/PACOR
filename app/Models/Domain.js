@@ -15,14 +15,13 @@ class Domain extends Model {
     return this.hasMany('App/Models/User')
   }
   
-  admins () {
-    return this.hasMany('App/Models/User')
-  }
-  
   webpages () {
-    return this.hasMany('App/Models/webpages')
+    return this.hasMany('App/Models/Webpage')
   }
   
+  assets () {
+    return this.hasMany('App/Models/MaterialAsset')
+  }
 }
 
 module.exports = Domain

@@ -8,6 +8,7 @@ class MaterialAssetSchema extends Schema {
     this.create('material_assets', (table) => {
       table.increments()
       table.string('filename', 80).notNullable()
+      table.integer('domain_id').notNullable().unsigned().references('id').inTable('domains')
       table.timestamps()
     })
   }

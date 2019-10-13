@@ -7,7 +7,7 @@ const fs = require('fs')
 
 class MaterialAsset {
   async upload({auth, request}) {
-    await auth.check()
+    let user = await auth.getUser()
     
     const {filename} = request.all()
     if (typeof(filename) !== 'string' 
@@ -26,7 +26,10 @@ class MaterialAsset {
 
     let asset = new Asset()
     asset.filename = filename
-    await asset.save()
+    asset.domain_id = user.domain_id
+    
+    let domain = await user.domain().fetch()
+    await domain.assets().save(asset)
 
     let name = `${asset.id}.zip`
     await assetFile.move(Helpers.appRoot() + `/storage/Material`, {
@@ -42,16 +45,21 @@ class MaterialAsset {
   }
   
   async list ({auth}) {
-    await auth.check()
+    let user = await auth.getUser()
     
-    return Asset
+    let query = Asset
             .query()
             .orderBy('filename', 'asc')
-            .fetch()
+    
+    if (user.role === 'domain_admin') {
+      let domain = await user.domain().fetch()
+      query.where('domain_id', domain.id)
+    }
+    return await query.fetch()
   }
   
   async remove ({auth, request}) {
-    await auth.check()
+    let user = await auth.getUser()
     
     const { assetID } = request.all()
     
@@ -60,6 +68,10 @@ class MaterialAsset {
     }
     
     let asset = await Asset.find(assetID)
+    if (asset.isEditable(user) === false) {
+      return 0
+    }
+    
     let assetPath = Helpers.appRoot() + `/storage/Material/${asset.id}.zip`
     if (fs.existsSync(assetPath)) {
       fs.unlinkSync(assetPath)
@@ -70,7 +82,7 @@ class MaterialAsset {
   }
   
   async edit ({auth, request}) {
-    await auth.check()
+    let user = await auth.getUser()
     
     const { assetID, filename } = request.all()
     
@@ -82,6 +94,9 @@ class MaterialAsset {
     }
     
     let asset = await Asset.find(assetID)
+    if (asset.isEditable(user) === false) {
+      return 0
+    }
     asset.filename = filename
     await asset.save()
     

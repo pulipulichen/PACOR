@@ -41,6 +41,7 @@ let Login = {
       this.status.username = this.username
       this.status.displayName = result.displayName
       this.status.avatar = result.avatar
+      this.status.role = result.role
       
       this.status.needLogin = false
       this.reset()
