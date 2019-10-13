@@ -11,7 +11,7 @@ import i18n from './plugins/i18n'
 // Components or routes
 
 import routes from './admin/routes'
-import components from './client/components'
+import components from './admin/components'
 
 // ----------------------------------
 // Helpers

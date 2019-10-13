@@ -3,12 +3,12 @@ let Login = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      /*
       username: '',
       password: '',
-      /*
-      username: 'pudding',
-      password: 'test',
-       */
+      */
+      username: 'admin',
+      password: 'password',
       errorMessage: '',
     }
   },
@@ -24,7 +24,10 @@ let Login = {
   },
   methods: {
     login: async function() {
-      this.mode = 'login'
+      this.status.isAdmin = true
+      return
+      
+      
       let result = await this.lib.AxiosHelper.get(`/client/user/login`, {
           username: this.username,
           password: this.password,
@@ -52,16 +55,14 @@ let Login = {
         this.status.username = this.username
         this.errorMessage = ''
         //this.$router.replace('chat')
-        this.view = 'Chat'
+        this.status.isAdmin = true
         this.reset()
       }
     },
     reset: function () {
       this.username = ''
-      this.email = ''
       this.password = ''
       this.errorMessage = ''
-      this.mode = 'login'
     }
   } // methods
 }

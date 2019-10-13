@@ -17,7 +17,7 @@
         v-bind:error="error"
         v-bind:lib="lib"></login>
   </template>
-  <template else>
+  <template v-else>
     <navigation v-bind:config="config"
         v-bind:status="status"
         v-bind:progress="progress"

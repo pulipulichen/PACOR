@@ -75,7 +75,22 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\r\n  Clients\r\n  \r\n  "), _c("materials")], 1)
+  return _c(
+    "div",
+    [
+      _vm._v("\r\n  Clients\r\n  \r\n  "),
+      _c("materials", {
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          progress: _vm.progress,
+          error: _vm.error,
+          lib: _vm.lib
+        }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -99,7 +114,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\r\n  Navitation\r\n")])
+  return _c("div", [_vm._v("\r\n  Materials\r\n")])
 }
 var staticRenderFns = []
 render._withStripped = true

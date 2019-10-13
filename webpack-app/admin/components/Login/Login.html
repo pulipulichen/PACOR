@@ -29,7 +29,7 @@
     <button type="button" 
             class="ui button"
             v-on:click="login"
-            v-bind:class="{disabled: (mode === 'login' && !isLoginEnable)}">
+            v-bind:class="{disabled: !isLoginEnable}">
       {{ $t('Login') }}
     </button>
   </div>
