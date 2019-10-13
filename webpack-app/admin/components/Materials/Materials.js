@@ -6,7 +6,8 @@ let Materials = {
       filename: '',
       file: null,
       assets: [],
-      changedIDs: []
+      changedIDs: [],
+      editUploadAssetID: null
     }
   },
   computed: {
@@ -121,6 +122,23 @@ let Materials = {
         return id !== asset.id
       })
       this.assets.splice(assetIndex, 1)
+    },
+    editUploadTrigger: function (assetID) {
+      this.editUploadAssetID = assetID
+      this.$refs.EditUploadInput.click()
+    },
+    editUpload: async function () {
+      let result = await this.lib.AxiosHelper.upload('/Admin/MaterialAsset/editUpload', {
+        assetID: this.editUploadAssetID,
+        asset: this.$refs.EditUploadInput.files[0]
+      })
+      
+      if (result === 1) {
+        window.alert(this.$t('File uploaded.'))
+      }
+      
+      this.editUploadAssetID = null
+      this.$refs.EditUploadInput.value = ''
     }
   } // methods
 }

@@ -44,6 +44,41 @@ class MaterialAsset {
     return asset.id
   }
   
+  async editUpload({auth, request}) {
+    let user = await auth.getUser()
+    
+    const {assetID} = request.all()
+    if (isNaN(assetID) === true) {
+      return 0
+    }
+    
+    const assetFile = request.file('asset', {
+      types: ['zip', 'x-zip-compressed'],
+      size: '10mb'
+    })
+
+    if (assetFile === null) {
+      return 0
+    }
+
+    let asset = await Asset.find(assetID)
+    if (asset === null) {
+      return 0
+    }
+    
+    let name = `${asset.id}.zip`
+    await assetFile.move(Helpers.appRoot() + `/storage/Material`, {
+      name: name,
+      overwrite: true,
+    },)
+
+    if (!assetFile.moved()) {
+      return assetFile.error()
+    }
+    
+    return 1
+  }
+  
   async list ({auth}) {
     let user = await auth.getUser()
     

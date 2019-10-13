@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"Materials.less?vue&type=style&index=0&id=4a3a8ba8&lang=less&scoped=true&"}]);
+exports.push([module.i, ".hide[data-v-4a3a8ba8] {\n  display: none;\n}\n", "",{"version":3,"sources":["Materials.less?vue&type=style&index=0&id=4a3a8ba8&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,aAAa;AACf","file":"Materials.less?vue&type=style&index=0&id=4a3a8ba8&lang=less&scoped=true&","sourcesContent":[".hide[data-v-4a3a8ba8] {\n  display: none;\n}\n"]}]);
 
 
 /***/ }),
@@ -133,13 +133,32 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
+    _c("input", {
+      ref: "EditUploadInput",
+      staticClass: "hide",
+      attrs: { type: "file", accept: "application/zip" },
+      on: { change: _vm.editUpload }
+    }),
+    _vm._v(" "),
     _c("table", { staticClass: "ui unstackable table" }, [
       _c("thead", [
         _c("tr", [
+          _vm.status.role === "global_admin"
+            ? _c("th", [
+                _vm._v(
+                  "\r\n          " + _vm._s(_vm.$t("Domain")) + "\r\n        "
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c("th", [
             _vm._v(
               "\r\n          " + _vm._s(_vm.$t("Filename")) + "\r\n        "
             )
+          ]),
+          _vm._v(" "),
+          _c("th", [
+            _vm._v("\r\n          " + _vm._s(_vm.$t("Date")) + "\r\n        ")
           ]),
           _vm._v(" "),
           _c("th", [
@@ -154,6 +173,14 @@ var render = function() {
         "tbody",
         _vm._l(_vm.assets, function(asset, index) {
           return _c("tr", [
+            _vm.status.role === "global_admin"
+              ? _c("td", [
+                  _vm._v(
+                    "\r\n          " + _vm._s(asset.domain_id) + "\r\n        "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
             _c("td", [
               _c("input", {
                 directives: [
@@ -181,7 +208,25 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("td", [
-              _c("div", { staticClass: "unstackable three fields" }, [
+              _vm._v("\r\n          " + _vm._s(asset.date) + "\r\n        ")
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c("div", { staticClass: "unstackable four fields" }, [
+                _c("div", { staticClass: "field" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "ui icon button",
+                      attrs: {
+                        target: "_blank",
+                        href: "/material/asset/" + asset.id + "/"
+                      }
+                    },
+                    [_c("i", { staticClass: "linkify icon" })]
+                  )
+                ]),
+                _vm._v(" "),
                 _c("div", { staticClass: "field" }, [
                   _c(
                     "button",
@@ -204,15 +249,17 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "field" }, [
                   _c(
-                    "a",
+                    "button",
                     {
                       staticClass: "ui icon button",
-                      attrs: {
-                        target: "_blank",
-                        href: "/material/asset/" + asset.id + "/"
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.editUploadTrigger(asset.id)
+                        }
                       }
                     },
-                    [_c("i", { staticClass: "linkify icon" })]
+                    [_c("i", { staticClass: "upload icon" })]
                   )
                 ]),
                 _vm._v(" "),
@@ -303,7 +350,8 @@ let Materials = {
       filename: '',
       file: null,
       assets: [],
-      changedIDs: []
+      changedIDs: [],
+      editUploadAssetID: null
     }
   },
   computed: {
@@ -418,6 +466,23 @@ let Materials = {
         return id !== asset.id
       })
       this.assets.splice(assetIndex, 1)
+    },
+    editUploadTrigger: function (assetID) {
+      this.editUploadAssetID = assetID
+      this.$refs.EditUploadInput.click()
+    },
+    editUpload: async function () {
+      let result = await this.lib.AxiosHelper.upload('/Admin/MaterialAsset/editUpload', {
+        assetID: this.editUploadAssetID,
+        asset: this.$refs.EditUploadInput.files[0]
+      })
+      
+      if (result === 1) {
+        window.alert(this.$t('File uploaded.'))
+      }
+      
+      this.editUploadAssetID = null
+      this.$refs.EditUploadInput.value = ''
     }
   } // methods
 }

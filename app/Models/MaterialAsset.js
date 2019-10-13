@@ -13,6 +13,10 @@ class MaterialAsset extends Model {
     return 'material_assets'
   }
   
+  static get computed () {
+    return ['date']
+  }
+  
   domain () {
     return this.belongsTo('App/Models/Domain')
   }
@@ -21,6 +25,10 @@ class MaterialAsset extends Model {
     let role = user.role
     return (ADMIN_ROLES.indexOf(role) > -1
             && user.domain_id === this.domain_id)
+  }
+  
+  getDate ({created_at}) {
+    return created_at.slice(0, created_at.indexOf(' '))
   }
 }
 

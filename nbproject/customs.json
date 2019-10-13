@@ -3,6 +3,7 @@
     "materials": {}
   },
   "attributes": {
+    "v-if": {},
     "v-on:click": {
       "context": "button"
     },

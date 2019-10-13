@@ -42,11 +42,23 @@
     </div>
   </div>
   
+  <input type="file"
+        ref="EditUploadInput"
+        class="hide"
+        v-on:change="editUpload"
+        accept="application/zip" /> 
+  
   <table class="ui unstackable table">
     <thead>
       <tr>
+        <th v-if="status.role === 'global_admin'">
+          {{ $t('Domain') }}
+        </th>
         <th>
           {{ $t('Filename') }}
+        </th>
+        <th>
+          {{ $t('Date') }}
         </th>
         <th>
           {{ $t('Management') }}
@@ -55,13 +67,26 @@
     </thead>
     <tbody>
       <tr v-for="(asset, index) in assets">
+        <td v-if="status.role === 'global_admin'">
+          {{ asset.domain_id }}
+        </td>
         <td>
           <input type="text"
                  v-model="asset.filename"
                  v-on:keyup="change(asset.id)" />
         </td>
         <td>
-          <div class="unstackable three fields">
+          {{ asset.date }}
+        </td>
+        <td>
+          <div class="unstackable four fields">
+            <div class="field">
+              <a class="ui icon button"
+                 target="_blank"
+                 v-bind:href="'/material/asset/' + asset.id + '/'">
+                <i class="linkify icon"></i>
+              </a>
+            </div>
             <div class="field">
               <button type="button"
                 class="ui icon button"
@@ -71,11 +96,11 @@
               </button>
             </div>
             <div class="field">
-              <a class="ui icon button"
-                 target="_blank"
-                 v-bind:href="'/material/asset/' + asset.id + '/'">
-                <i class="linkify icon"></i>
-              </a>
+              <button type="button"
+                class="ui icon button"
+                v-on:click="editUploadTrigger(asset.id)">
+                <i class="upload icon"></i> 
+              </button>
             </div>
             <div class="field">
               <button type="button"
