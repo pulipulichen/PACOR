@@ -1,3 +1,92 @@
-<div>
-  Materials
+<div class="ui segment form">
+  <h2>{{ $t('Material Management') }}</h2>
+  
+  
+  <div class="ui segment">
+    <div class="unstackable three fields">
+      <div class="field">
+        <label for="MaterialName">
+          {{ $t('Material Name') }}
+        </label>
+        <input type="text"
+               id="MaterialName"
+               size="20"
+               name="MaterialName"
+               v-model="filename" />
+      </div>
+      <div class="field">
+        <label for="MaterialAsset">
+          {{ $t('File') }}
+          <a href="/materials/example-material.zip">
+            ({{ $t('example') }})
+          </a>
+        </label>
+        <input type="file"
+               id="MaterialAsset"
+               ref="FileInput"
+               name="MaterialAsset"
+               v-on:change="checkEnableUpload"
+               accept="application/zip" />
+      </div>
+      <div class="field">
+        <label>
+          &nbsp;
+        </label>
+        <button type="button"
+                class="ui fluid button"
+                v-bind:class="{disabled: !enableUpload}"
+                v-on:click="upload">
+          {{ $t('UPLOAD') }}
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <table class="ui unstackable table">
+    <thead>
+      <tr>
+        <th>
+          {{ $t('Filename') }}
+        </th>
+        <th>
+          {{ $t('Management') }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(asset, index) in assets">
+        <td>
+          <input type="text"
+                 v-model="asset.filename"
+                 v-on:keyup="change(asset.id)" />
+        </td>
+        <td>
+          <div class="unstackable three fields">
+            <div class="field">
+              <button type="button"
+                class="ui icon button"
+                v-bind:class="{disabled: !isAssetChanged(asset.id), green: isAssetChanged(asset.id)}"
+                v-on:click="edit(index)">
+                <i class="edit icon"></i> 
+              </button>
+            </div>
+            <div class="field">
+              <a class="ui icon button"
+                 target="_blank"
+                 v-bind:href="'/material/asset/' + asset.id + '/'">
+                <i class="linkify icon"></i>
+              </a>
+            </div>
+            <div class="field">
+              <button type="button"
+                class="ui icon button"
+                v-on:click="remove(index)">
+                <i class="close icon"></i>
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

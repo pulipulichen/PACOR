@@ -701,7 +701,8 @@ let i18nGlobal = {
   },
   "zh-TW": {
     "Title": "範例標題",
-    "OK": "確認"
+    "OK": "確認",
+    "UPLOAD": "上傳",
   }
 }
 

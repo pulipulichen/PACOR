@@ -1,6 +1,8 @@
 {
   "en": {
+    "Are you sure to remove {0}?": "Are you sure to remove {0}?"
   },
   "zh-TW": {
+    "Are you sure to remove {0}?": "你確定要刪除{0}嗎？"
   }
 }

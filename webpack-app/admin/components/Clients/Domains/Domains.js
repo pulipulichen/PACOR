@@ -1,7 +1,4 @@
-import Domains from './Domains/Domains.vue'
-import Materials from './Materials/Materials.vue'
-
-let Clients = {
+let Domains = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -9,18 +6,15 @@ let Clients = {
     }
   },
   components: {
-    'materials': Materials,
-    'domains': Domains,
   },
   computed: {
   },
   watch: {
   },
   mounted() {
-    this.status.title = this.$t('Client Management')
   },
   methods: {
   } // methods
 }
 
-export default Clients
+export default Domains

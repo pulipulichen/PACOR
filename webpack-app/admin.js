@@ -70,6 +70,9 @@ let VueController = {
   },
   
   watch: {
+    'status.title': function () {
+      document.title = this.status.title
+    },
     'status.username': function () {
       /*
       let path = '/login'

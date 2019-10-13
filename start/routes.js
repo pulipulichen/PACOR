@@ -78,10 +78,10 @@ Route.on('/material').render('material')
 
 // Read material assets
 let routePrefix = '/material/asset/:id'
-//Route.get(routePrefix, 'Material/Asset.get')
+//Route.get(routePrefix, 'Material/Asset.view')
 for (let i = 0; i < 10; i++) {
   routePrefix = routePrefix + `/:folderLevel${i}?`
-  Route.get(routePrefix, 'Material/Asset.get')
+  Route.get(routePrefix, 'Material/Asset.view')
 }
 
 Route.any('/material/:controller/:action', (options) => {

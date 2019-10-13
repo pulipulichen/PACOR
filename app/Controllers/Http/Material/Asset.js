@@ -1,6 +1,6 @@
 'use strict'
 
-const clientScriptTag = `<script>alert('ok')</script>`
+const clientScriptTag = `<script>document.write('ClientJS is injected.')</script>`
 
 // ---------------
 
@@ -23,7 +23,7 @@ const readAsStringExtList = [
 
 
 class Asset {
-  async get ({request, params}) {
+  async view ({request, params}) {
     let id = params.id
     let zipPath = request.url().split('/').slice(4).join('/')
     let result = await this._readZipEntry(id, zipPath)

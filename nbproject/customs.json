@@ -2,5 +2,12 @@
   "elements": {
     "materials": {}
   },
-  "attributes": {}
+  "attributes": {
+    "v-on:click": {
+      "context": "button"
+    },
+    "v-bind:href": {},
+    "v-for": {},
+    "v-model": {}
+  }
 }
