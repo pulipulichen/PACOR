@@ -1,0 +1,37 @@
+<div class="ui form segment">
+  
+  <div class="ui field"
+       v-if="errorMessage !== ''">
+    <div class="ui negative message">
+      {{ errorMessage }}
+    </div>
+  </div>
+  
+  <div class="ui field">
+    <label for="loginUsername">
+      {{ $t('Username') }}
+    </label>
+    <input type="text" 
+           id="loginUsername"
+           v-model="username" />
+  </div>
+    
+  <div class="ui field">
+    <label for="loginPassword">
+      {{ $t('Password') }}
+    </label>
+    <input type="password" 
+           id="loginPassword"
+           v-model="password" />
+  </div>
+  
+  <div class="ui six buttons">
+    <button type="button" 
+            class="ui button"
+            v-on:click="login"
+            v-bind:class="{disabled: (mode === 'login' && !isLoginEnable)}">
+      {{ $t('Login') }}
+    </button>
+  </div>
+  
+</div>
