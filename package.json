@@ -35,7 +35,6 @@
     "type-of-is": "^3.5.1"
   },
   "devDependencies": {
-    "@adonisjs/ace": "^6.1.7",
     "@adonisjs/ally": "^2.1.3",
     "@adonisjs/auth": "^3.0.7",
     "@adonisjs/bodyparser": "^2.0.5",
@@ -96,6 +95,9 @@
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.9"
+  },
+  "globalDependencies": {
+    "@adonisjs/cli": "^4.0.12"
   },
   "autoload": {
     "App": "./app"
