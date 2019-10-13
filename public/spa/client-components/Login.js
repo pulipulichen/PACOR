@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".segment[data-v-7f785ee2] {\n  background-color: green !important;\n}\n", "",{"version":3,"sources":["Login.less?vue&type=style&index=0&id=7f785ee2&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kCAAkC;AACpC","file":"Login.less?vue&type=style&index=0&id=7f785ee2&lang=less&scoped=true&","sourcesContent":[".segment[data-v-7f785ee2] {\n  background-color: green !important;\n}\n"]}]);
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"Login.less?vue&type=style&index=0&id=7f785ee2&lang=less&scoped=true&"}]);
 
 
 /***/ }),

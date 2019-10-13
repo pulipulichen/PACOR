@@ -1,7 +1,21 @@
-<div>
-  Navigation
-  <button type="button"
-          v-on:click="logout">
-    Logout
-  </button>
+<div class="container">
+  <div class="ui inverted top fixed menu">
+    <items v-bind:config="config"
+          v-bind:status="status"
+          v-bind:progress="progress"
+          v-bind:error="error"
+          v-bind:lib="lib"></items>
+  </div>
+  
+  <div class="ui inverted right fixed vertical menu"
+       v-bind:class="{hide: !sideMenuDisplay}">
+    <items v-bind:config="config"
+          v-bind:status="status"
+          v-bind:progress="progress"
+          v-bind:error="error"
+          v-bind:lib="lib"></items>
+  </div>
+  
+  <div class="overlay"
+       v-if="sideMenuDisplay"></div>
 </div>

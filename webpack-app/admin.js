@@ -49,7 +49,8 @@ let VueController = {
       username: '',
       displayName: '',
       avatat: '',
-      needLogin: true
+      needLogin: true,
+      title: ''
     },
     progress: {
       component: false,

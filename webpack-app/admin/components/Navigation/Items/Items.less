@@ -1,0 +1,18 @@
+.close.item {
+  cursor: pointer;
+  height: 3rem;
+  line-height: inherit;
+  border-bottom: 1px solid #ccc;
+}
+
+@media screen and (min-width: @TopMenuMinWidth) {
+  .menu-compact.right.menu {
+    display:none !important; 
+  }
+}
+
+@media screen and (max-width: @TopMenuMinWidth) {
+  .menu-full.right.menu {
+    display: none !important;
+  }
+}

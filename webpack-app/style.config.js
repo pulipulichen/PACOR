@@ -2,5 +2,6 @@
  * If you revise following configuration, you should compile less with Webpack again.
  */
 module.exports = {
-  "bgColor": "green"
+  "TopMenuMinWidth": "600px",
+  "TopMenuHeight": "60px"
 }

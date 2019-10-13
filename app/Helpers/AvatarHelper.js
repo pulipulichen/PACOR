@@ -3,7 +3,8 @@
 const Config = use('Config')
 const {admin, guest, users} = Config.get('avatar')
 
-const Helpers = use('Helpers')
+const Env = use('Env')
+const baseURL = `${Env.get('PROTOCOL')}//${Env.get('HOST')}:${Env.get('PORT')}/avatars/`
 
 let AvatarHelper = {
   getRandomUser: function (excludedUsers) {
@@ -33,16 +34,16 @@ let AvatarHelper = {
   },
   
   adminURL: function () {
-    return Helpers.publicPath(`avators/${admin}`)
+    return baseURL + admin
   },
   
   guestURL: function () {
-    return Helpers.publicPath(`avators/${guest}`)
+    return baseURL + guest
   },
   
   userURL: function (name) {
     let file = users[name]
-    return Helpers.publicPath(`avators/${file}`)
+    return baseURL + file
   },
 }
 

@@ -1,0 +1,26 @@
+<fragment>
+  <div class="item in-vertical close"
+       v-on:click="hideSideMenu">
+    <i class="close icon"></i>
+  </div>
+  
+  <div class="item avatar in-top">
+    <img v-bind:src="status.avatar">
+  </div>
+  <div class="item title in-top">
+    {{ status.title }}
+  </div>
+  
+  <div class="menu-full right menu">
+    <a class="item"
+       v-on:click="logout">
+     {{ $t('Logout') }}
+    </a>    
+  </div>
+  <div class="menu-compact right menu">
+    <a class="icon item"
+       v-on:click="showSideMenu">
+     <i class="ellipsis vertical icon"></i>
+    </a>
+  </div>
+</fragment>

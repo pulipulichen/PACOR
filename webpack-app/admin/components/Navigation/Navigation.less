@@ -1,0 +1,63 @@
+.container {
+  padding-top: @TopMenuHeight;
+}
+
+.vertical.menu {
+  z-index: 103 !important;
+  
+  &.hide {
+    display: none !important;
+  }
+  
+}
+
+.top.menu ::v-deep {
+  .in-vertical {
+    display: none !important;
+  }
+}
+
+.vertical.menu ::v-deep {
+  .menu-compact {
+    display: none !important;
+  }
+  
+  .right.menu > .item {
+    line-height: 3rem;
+    color: white !important;
+  }
+  
+  .menu-full {
+    display: block !important;
+  }
+  
+  .menu-full {
+    display: block !important;
+  }
+  
+  .in-top {
+    display: none !important;
+  }
+}
+
+/*
+@media screen and (min-width: @TopMenuMinWidth) {
+  
+}
+
+@media screen and (max-width: @TopMenuMinWidth) {
+  .top.fixed.menu {
+    display: none;
+  }
+}
+*/
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255,255,255,0.7);
+  z-index: 102;
+}

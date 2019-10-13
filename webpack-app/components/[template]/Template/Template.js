@@ -1,9 +1,11 @@
-let Navigation = {
+let Template = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
     }
+  },
+  components: {
   },
   computed: {
   },
@@ -15,4 +17,4 @@ let Navigation = {
   } // methods
 }
 
-export default Navigation
+export default Template
