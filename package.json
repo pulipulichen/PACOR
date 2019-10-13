@@ -35,6 +35,7 @@
     "type-of-is": "^3.5.1"
   },
   "devDependencies": {
+    "@adonisjs/ace": "^5.0.8",
     "@adonisjs/ally": "^2.1.3",
     "@adonisjs/auth": "^3.0.7",
     "@adonisjs/bodyparser": "^2.0.5",

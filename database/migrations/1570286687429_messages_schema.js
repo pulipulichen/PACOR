@@ -1,5 +1,7 @@
 'use strict'
 
+// 稍晚我們就把它刪除吧
+
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
