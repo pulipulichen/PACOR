@@ -4,30 +4,21 @@ let Auth = {
     return {}
   },
   mounted: async function () {
-    // await this.checkLogin()
+    await this.checkLogin()
+    this.progress.display = true
   },
   methods: {
-    loadUsernameFromURL: async function () {
-      let result = await this.lib.AxiosHelper.getOther(this.config.usernameQueryURL)
-      if (typeof(result) === 'string') {
-        return result
-      }
-    },
-    attemptLoginViaUsername: async function (username) {
-      var result = await this.lib.AxiosHelper.get(`/client/user/attempt-login-via-username`, {
-        username: username
-      })
-      if (typeof(result) === 'string') {
-        this.status.username = result
-        return true
-      }
-      else {
+    checkLogin: async function () {
+      var result = await this.lib.AxiosHelper.get(`/admin/auth/checkLogin`)
+      
+      if (typeof(result) !== 'object') {
         return false
       }
-    },
-    checkLogin: async function () {
-      var result = await this.lib.AxiosHelper.get(`/client/user/check-login`)
-      this.status.username = result
+      
+      this.status.username = result.username
+      this.status.displayName = result.displayName
+      this.status.avatar = result.avatar
+      this.status.needLogin = false
     }
   } // methods
 }

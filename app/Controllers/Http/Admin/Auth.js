@@ -9,6 +9,11 @@ const ADMIN_PASSWORD = Env.get('ADMIN_PASSWORD')
 
 const AvatarHelper = use('App/Helpers/AvatarHelper')
 
+const ADMIN_ROLES = [
+  'global_admin',
+  'domain_admin',
+]
+
 class Auth {
   async login ({ request, auth }) {
     const {username, password, domain} = request.get()
@@ -111,6 +116,37 @@ class Auth {
     return {
       displayName: user.name,
       avatar: AvatarHelper.userURL(user.avatar)
+    }
+  }
+  
+  // -----------------------------
+  
+  async checkLogin ({auth}) {
+    try {
+      let user = await auth.getUser()
+      let role = user.role
+      if (ADMIN_ROLES.indexOf(role) > -1) {
+        let avatarURL
+        if (role === 'global_admin') {
+          avatarURL = AvatarHelper.adminURL()
+        }
+        else {
+          avatarURL = AvatarHelper.userURL(user.avatar)
+        }
+        
+        return {
+          username: user.username,
+          displayName: user.display_name,
+          avatar: avatarURL
+        }
+      }
+      else {
+        await this._forceLogout(auth)
+        return 0
+      }
+    }
+    catch (error) {
+      return 0
     }
   }
 }

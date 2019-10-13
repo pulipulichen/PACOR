@@ -12,6 +12,11 @@ let Navigation = {
   mounted() {
   },
   methods: {
+    logout: async function () {
+      await this.lib.AxiosHelper.get(`/admin/auth/logout`)
+      
+      this.status.needLogin = true
+    }
   } // methods
 }
 
