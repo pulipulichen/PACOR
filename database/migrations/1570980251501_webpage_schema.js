@@ -10,6 +10,7 @@ class WebpageSchema extends Schema {
       table.integer('domain_id').notNullable().unsigned().references('id').inTable('domains')
       table.string('path', 254).notNullable()
       table.text('title').notNullable().defaultTo('')
+      table.json('config')
       table.timestamps()
     })
   }

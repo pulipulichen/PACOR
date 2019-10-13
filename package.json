@@ -29,6 +29,7 @@
   "private": false,
   "dependencies": {
     "axios": "^0.19.0",
+    "cheerio": "^0.19.0",
     "dayjs": "^1.8.16",
     "jquery": "^3.4.1",
     "node-stream-zip": "^1.8.2",
