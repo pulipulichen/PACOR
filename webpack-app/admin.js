@@ -47,7 +47,9 @@ let VueController = {
     config: config,
     status: {
       username: '',
-      isAdmin: false
+      displayName: '',
+      avatat: '',
+      needLogin: true
     },
     progress: {
       component: false,

@@ -19,6 +19,11 @@ class User extends Model {
       if (userInstance.dirty.password) {
         userInstance.password = await Hash.make(userInstance.password)
       }
+      
+      if (typeof(userInstance.display_name) !== '' 
+              || userInstance.display_name === '') {
+        userInstance.display_name = userInstance.username
+      }
     })
     
   }
@@ -52,6 +57,10 @@ class User extends Model {
   
   oauths () {
     return this.hasMany('App/Models/UserOAuth')
+  }
+  
+  domain () {
+    return this.belongsTo('App/Models/Domain')
   }
   
   static get hidden () {

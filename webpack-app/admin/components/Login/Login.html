@@ -1,10 +1,12 @@
 <div class="ui form segment">
-  
-  <div class="ui field"
-       v-if="errorMessage !== ''">
-    <div class="ui negative message">
-      {{ errorMessage }}
-    </div>
+    
+  <div class="ui field">
+    <label for="loginDomain">
+      {{ $t('Domain') }}
+    </label>
+    <input type="text" 
+           id="loginDomain"
+           v-model="domain" />
   </div>
   
   <div class="ui field">

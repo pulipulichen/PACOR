@@ -324,13 +324,32 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "ui form segment" }, [
-    _vm.errorMessage !== ""
-      ? _c("div", { staticClass: "ui field" }, [
-          _c("div", { staticClass: "ui negative message" }, [
-            _vm._v("\r\n      " + _vm._s(_vm.errorMessage) + "\r\n    ")
-          ])
-        ])
-      : _vm._e(),
+    _c("div", { staticClass: "ui field" }, [
+      _c("label", { attrs: { for: "loginDomain" } }, [
+        _vm._v("\r\n      " + _vm._s(_vm.$t("Domain")) + "\r\n    ")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.domain,
+            expression: "domain"
+          }
+        ],
+        attrs: { type: "text", id: "loginDomain" },
+        domProps: { value: _vm.domain },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.domain = $event.target.value
+          }
+        }
+      })
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "ui field" }, [
       _c("label", { attrs: { for: "loginUsername" } }, [
@@ -548,7 +567,9 @@ let VueController = {
     config: _config_js__WEBPACK_IMPORTED_MODULE_12___default.a,
     status: {
       username: '',
-      isAdmin: false
+      displayName: '',
+      avatat: '',
+      needLogin: true
     },
     progress: {
       component: false,
@@ -653,7 +674,7 @@ window.VueController = VueController
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        ref=\"auth\"></auth>\r\n  \r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:error=\"error\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n\r\n  <template v-if=\"status.isAdmin === false\">\r\n    <login v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:error=\"error\"\r\n        v-bind:lib=\"lib\"></login>\r\n  </template>\r\n  <template v-else>\r\n    <navigation v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:error=\"error\"\r\n        v-bind:lib=\"lib\"></navigation>\r\n    \r\n    <router-view v-bind:config=\"config\"\r\n                 v-bind:status=\"status\"\r\n                 v-bind:progress=\"progress\"\r\n                 v-bind:lib=\"lib\"\r\n                 v-bind:error=\"error\"></router-view>\r\n  </template>\r\n</div>";
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        ref=\"auth\"></auth>\r\n  \r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:error=\"error\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n\r\n  <template v-if=\"status.needLogin === true\">\r\n    <login v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:error=\"error\"\r\n        v-bind:lib=\"lib\"></login>\r\n  </template>\r\n  <template v-else>\r\n    <navigation v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:error=\"error\"\r\n        v-bind:lib=\"lib\"></navigation>\r\n    \r\n    <router-view v-bind:config=\"config\"\r\n                 v-bind:status=\"status\"\r\n                 v-bind:progress=\"progress\"\r\n                 v-bind:lib=\"lib\"\r\n                 v-bind:error=\"error\"></router-view>\r\n  </template>\r\n</div>";
 
 /***/ }),
 
@@ -834,12 +855,13 @@ let Login = {
     this.$i18n.locale = this.config.locale
     return {
       /*
+      domain: '',
       username: '',
       password: '',
       */
+      domain: '::',
       username: 'admin',
       password: 'password',
-      errorMessage: '',
     }
   },
   computed: {
@@ -854,45 +876,30 @@ let Login = {
   },
   methods: {
     login: async function() {
-      this.status.isAdmin = true
-      return
       
-      
-      let result = await this.lib.AxiosHelper.get(`/client/user/login`, {
-          username: this.username,
-          password: this.password,
+      let result = await this.lib.AxiosHelper.get(`/admin/auth/login`, {
+        domain: this.domain,
+        username: this.username,
+        password: this.password,
       })
       
-      let user = result
-      if (user === undefined) {
-        this.errorMessage = this.$t(`User {0} is not existed.`, [this.username])
-        return
+      if (typeof(result) !== 'object') {
+        //this.errorMessage = this.$t(`Authentication failed.`)
+        this.error = this.$t(`Authentication failed.`)
+        return false
       }      
       
-      if (typeof(user.error) === 'string') {
-        if (user.error === 'no-user') { 
-          this.errorMessage = this.$t(`User {0} is not existed.`, [this.username])
-        }
-        else if (user.error === 'password-wrong') { 
-          this.errorMessage = this.$t(`Password is incorrect.`, [this.username])
-        }
-        else {
-          this.errorMessage = user.error
-        }
-        return false
-      }
-      else {
-        this.status.username = this.username
-        this.errorMessage = ''
-        //this.$router.replace('chat')
-        this.status.isAdmin = true
-        this.reset()
-      }
+      this.status.username = this.username
+      this.status.displayName = result.displayName
+      this.status.avatar = result.avatar
+      
+      this.status.needLogin = false
+      this.reset()
     },
     reset: function () {
       this.username = ''
       this.password = ''
-      this.errorMessage = ''
+      this.error = ''
     }
   } // methods
 }

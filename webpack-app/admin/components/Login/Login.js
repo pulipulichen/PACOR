@@ -4,12 +4,13 @@ let Login = {
     this.$i18n.locale = this.config.locale
     return {
       /*
+      domain: '',
       username: '',
       password: '',
       */
+      domain: '::',
       username: 'admin',
       password: 'password',
-      errorMessage: '',
     }
   },
   computed: {
@@ -24,45 +25,30 @@ let Login = {
   },
   methods: {
     login: async function() {
-      this.status.isAdmin = true
-      return
       
-      
-      let result = await this.lib.AxiosHelper.get(`/client/user/login`, {
-          username: this.username,
-          password: this.password,
+      let result = await this.lib.AxiosHelper.get(`/admin/auth/login`, {
+        domain: this.domain,
+        username: this.username,
+        password: this.password,
       })
       
-      let user = result
-      if (user === undefined) {
-        this.errorMessage = this.$t(`User {0} is not existed.`, [this.username])
-        return
+      if (typeof(result) !== 'object') {
+        //this.errorMessage = this.$t(`Authentication failed.`)
+        this.error = this.$t(`Authentication failed.`)
+        return false
       }      
       
-      if (typeof(user.error) === 'string') {
-        if (user.error === 'no-user') { 
-          this.errorMessage = this.$t(`User {0} is not existed.`, [this.username])
-        }
-        else if (user.error === 'password-wrong') { 
-          this.errorMessage = this.$t(`Password is incorrect.`, [this.username])
-        }
-        else {
-          this.errorMessage = user.error
-        }
-        return false
-      }
-      else {
-        this.status.username = this.username
-        this.errorMessage = ''
-        //this.$router.replace('chat')
-        this.status.isAdmin = true
-        this.reset()
-      }
+      this.status.username = this.username
+      this.status.displayName = result.displayName
+      this.status.avatar = result.avatar
+      
+      this.status.needLogin = false
+      this.reset()
     },
     reset: function () {
       this.username = ''
       this.password = ''
-      this.errorMessage = ''
+      this.error = ''
     }
   } // methods
 }

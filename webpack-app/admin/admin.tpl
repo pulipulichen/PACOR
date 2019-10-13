@@ -10,7 +10,7 @@
                  v-bind:error="error"
                  ref="ErrorHandler"></error-handler>
 
-  <template v-if="status.isAdmin === false">
+  <template v-if="status.needLogin === true">
     <login v-bind:config="config"
         v-bind:status="status"
         v-bind:progress="progress"
