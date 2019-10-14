@@ -1,5 +1,3 @@
-import Domains from './Domains/Domains.vue'
-//import Materials from './Materials/Materials.vue'
 
 let Clients = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
@@ -9,7 +7,6 @@ let Clients = {
     }
   },
   components: {
-    'domains': Domains,
   },
   computed: {
   },

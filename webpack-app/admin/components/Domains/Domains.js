@@ -3,6 +3,16 @@ let Domains = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      create: {
+        domain: '',
+        title: '',
+        admins: '',
+        config: ''
+      },
+      pageConfig: {
+        page: 1,
+        maxPage: 0
+      }
     }
   },
   components: {

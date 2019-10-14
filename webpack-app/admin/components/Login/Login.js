@@ -8,7 +8,7 @@ let Login = {
       username: '',
       password: '',
       */
-      domain: '::',
+      domain: '',
       username: 'admin',
       password: 'password',
     }

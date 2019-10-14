@@ -1,31 +1,27 @@
-<div class="ui segment form">
-  <h2>{{ $t('Material Management') }}</h2>
+<div class="ui segment">
+  <h2>{{ $t('Domain Management') }}</h2>
   
   <div class="ui segment">
     <div class="unstackable three fields">
       <div class="field">
-        <label for="MaterialName">
-          {{ $t('Material Name') }}
+        <label for="createDomain">
+          {{ $t('Domain') }}
         </label>
-        <input type="text"
-               id="MaterialName"
-               size="20"
-               name="MaterialName"
-               v-model="filename" />
+        <input type="url"
+               id="createDomain"
+               size="256"
+               name="createDomain"
+               v-model="create.domain" />
       </div>
       <div class="field">
-        <label for="MaterialAsset">
-          {{ $t('File') }}
-          <a href="/materials/example-material.zip">
-            ({{ $t('example') }})
-          </a>
+        <label for="createTitle">
+          {{ $t('Title') }}
         </label>
-        <input type="file"
-               id="MaterialAsset"
-               ref="FileInput"
-               name="MaterialAsset"
-               v-on:change="checkEnableUpload"
-               accept="application/zip" />
+        <input type="text"
+               id="createTitle"
+               size="256"
+               name="createTitle"
+               v-model="create.title" />
       </div>
       <div class="field">
         <label>
@@ -35,18 +31,37 @@
                 class="ui fluid button"
                 v-bind:class="{disabled: !enableUpload}"
                 v-on:click="upload">
-          {{ $t('UPLOAD') }}
+          {{ $t('Submit') }}
         </button>
+      </div>
+      
+      <div class="unstackable two fields">
+        <div class="field">
+          <label for="createAdmins">
+            {{ $t('Admins') }}
+            ({{ $t('Split admins by space') }})
+          </label>
+          <textarea id="createAdmins"
+                    name="createAdmins"
+                    class="ui red"
+                    v-model="create.admins"></textarea>
+        </div>
+        <div class="field">
+          <label for="createConfig">
+            {{ $t('Config') }}
+            ({{ $t('JSON Format') }}
+            <a href="./help/ConfigExample.md" target="_blank">{{ $t('Example') }}</a>)
+          </label>
+          <textarea id="createConfig"
+                    name="createConfig"
+                    class="ui red"
+                    v-model="create.config"></textarea>
+        </div>
       </div>
     </div>
   </div>
   
-  <input type="file"
-        ref="EditUploadInput"
-        class="hide"
-        v-on:change="editUpload"
-        accept="application/zip" /> 
-  
+  <!--
   <pagination v-bind:pageConfig="pageConfig" />
   
   <table class="ui unstackable table">
@@ -72,29 +87,29 @@
           {{ asset.domain_id }}
         </td>
         <td>
-          <div class="ui action input">
-            <input type="text"
+          <input type="text"
                  v-model="asset.filename"
                  v-on:keyup="change(asset.id)" />
-            <button type="button"
-                class="ui icon button"
-                v-bind:class="{disabled: !isAssetChanged(asset.id), green: isAssetChanged(asset.id)}"
-                v-on:click="edit(index)">
-                <i class="edit icon"></i> 
-            </button>
-          </div>
         </td>
         <td>
           {{ asset.date }}
         </td>
         <td>
-          <div class="unstackable three fields">
+          <div class="unstackable four fields">
             <div class="field">
               <a class="ui icon button"
                  target="_blank"
                  v-bind:href="'/material/asset/' + asset.id + '/'">
                 <i class="linkify icon"></i>
               </a>
+            </div>
+            <div class="field">
+              <button type="button"
+                class="ui icon button"
+                v-bind:class="{disabled: !isAssetChanged(asset.id), green: isAssetChanged(asset.id)}"
+                v-on:click="edit(index)">
+                <i class="edit icon"></i> 
+              </button>
             </div>
             <div class="field">
               <button type="button"
@@ -117,5 +132,6 @@
   </table>
   
   <pagination v-bind:pageConfig="pageConfig"
-              pathPrefix="/materials/" />
+              pathPrefix="/domains/" />
+  -->
 </div>

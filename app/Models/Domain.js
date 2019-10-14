@@ -11,16 +11,25 @@ class Domain extends Model {
 
     this.addHook('afterCreate', async (instance) => {
       //instance.title = await 
-      let url = instance.domain
-      if (url === '::') {
-        //return instance
-        return false
-      }
-      
-      instance.title = await CrawlerHelper.getTitle(url)
-      //console.log(instance.title)
-      instance.save()
+      await this._crawlTitleFromURL(instance)
     })
+  }
+  
+  async _crawlTitleFromURL (instance) {
+    if (typeof(instance.title) === 'string' 
+            && instance.title !== '') {
+      return false
+    }
+
+    let url = instance.domain
+    if (url === '') {
+      //return instance
+      return false
+    }
+
+    instance.title = await CrawlerHelper.getTitle(url)
+    //console.log(instance.title)
+    await instance.save()
   }
   /*
   static boot () {
@@ -30,6 +39,16 @@ class Domain extends Model {
   
   users () {
     return this.hasMany('App/Models/User')
+  }
+  
+  admins () {
+    return this.hasMany('App/Models/User')
+            .where('role', 'global_admin')
+  }
+  
+  readers () {
+    return this.hasMany('App/Models/User')
+            .where('role', 'reader')
   }
   
   webpages () {

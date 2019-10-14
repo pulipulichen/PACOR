@@ -22,7 +22,7 @@ class Auth {
     // 先檢查是否是全網站的admin
     if (username === ADMIN_USERNAME 
             && password === ADMIN_PASSWORD
-            && domain === '::') {
+            && domain === '') {
       return this._loginGlobalAdmin({ request, auth })
     }
     else {
@@ -55,7 +55,7 @@ class Auth {
       .where('username', ADMIN_USERNAME)
       .where('role', 'global_admin')
       .whereHas('domain', (builder) => {
-        builder.where('domain', '::')
+        builder.where('domain', '')
       })
       .pick(1)
     
@@ -70,7 +70,7 @@ class Auth {
     }
     
     let domain = await Domain.findOrCreate({
-      domain: '::'
+      domain: ''
     })
     
     user = new User()

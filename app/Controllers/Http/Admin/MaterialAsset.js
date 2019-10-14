@@ -7,7 +7,10 @@ const fs = require('fs')
 
 const ItemsInPage = 10
 
+const Domain = use('App/Models/Domain')
+
 class MaterialAsset {
+  
   async upload({auth, request}) {
     let user = await auth.getUser()
     

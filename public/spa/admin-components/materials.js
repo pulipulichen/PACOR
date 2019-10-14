@@ -189,29 +189,49 @@ var render = function() {
                 : _vm._e(),
               _vm._v(" "),
               _c("td", [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: asset.filename,
-                      expression: "asset.filename"
-                    }
-                  ],
-                  attrs: { type: "text" },
-                  domProps: { value: asset.filename },
-                  on: {
-                    keyup: function($event) {
-                      return _vm.change(asset.id)
-                    },
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                _c("div", { staticClass: "ui action input" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: asset.filename,
+                        expression: "asset.filename"
                       }
-                      _vm.$set(asset, "filename", $event.target.value)
+                    ],
+                    attrs: { type: "text" },
+                    domProps: { value: asset.filename },
+                    on: {
+                      keyup: function($event) {
+                        return _vm.change(asset.id)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(asset, "filename", $event.target.value)
+                      }
                     }
-                  }
-                })
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "ui icon button",
+                      class: {
+                        disabled: !_vm.isAssetChanged(asset.id),
+                        green: _vm.isAssetChanged(asset.id)
+                      },
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit(index)
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "edit icon" })]
+                  )
+                ])
               ]),
               _vm._v(" "),
               _c("td", [
@@ -219,7 +239,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("td", [
-                _c("div", { staticClass: "unstackable four fields" }, [
+                _c("div", { staticClass: "unstackable three fields" }, [
                   _c("div", { staticClass: "field" }, [
                     _c(
                       "a",
@@ -231,26 +251,6 @@ var render = function() {
                         }
                       },
                       [_c("i", { staticClass: "linkify icon" })]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "field" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "ui icon button",
-                        class: {
-                          disabled: !_vm.isAssetChanged(asset.id),
-                          green: _vm.isAssetChanged(asset.id)
-                        },
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            return _vm.edit(index)
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "edit icon" })]
                     )
                   ]),
                   _vm._v(" "),
