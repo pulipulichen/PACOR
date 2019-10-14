@@ -1,9 +1,11 @@
 {
   "elements": {
+    "pagination": {},
     "materials": {}
   },
   "attributes": {
     "v-if": {},
+    "ref": {},
     "v-on:click": {
       "context": "button"
     },

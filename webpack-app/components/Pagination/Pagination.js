@@ -1,5 +1,5 @@
 let Pagination = {
-  props: ['pageConfig', 'pathPrefix'],
+  props: ['pageConfig'],
   data() {
     return {
     }
@@ -10,7 +10,6 @@ let Pagination = {
         return false
       }
       this.pageConfig.page = i
-      this.$router.push(this.pathPrefix + i)
     },
   } // methods
 }

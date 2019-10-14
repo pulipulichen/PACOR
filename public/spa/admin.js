@@ -1640,7 +1640,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let Pagination = {
-  props: ['pageConfig', 'pathPrefix'],
+  props: ['pageConfig'],
   data() {
     return {
     }
@@ -1651,7 +1651,6 @@ let Pagination = {
         return false
       }
       this.pageConfig.page = i
-      this.$router.push(this.pathPrefix + i)
     },
   } // methods
 }

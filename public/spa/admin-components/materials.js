@@ -143,9 +143,7 @@ var render = function() {
         on: { change: _vm.editUpload }
       }),
       _vm._v(" "),
-      _c("pagination", {
-        attrs: { pageConfig: _vm.pageConfig, pathPrefix: "/materials/" }
-      }),
+      _c("pagination", { attrs: { pageConfig: _vm.pageConfig } }),
       _vm._v(" "),
       _c("table", { staticClass: "ui unstackable table" }, [
         _c("thead", [
@@ -380,6 +378,15 @@ let Materials = {
     },
   },
   watch: {
+    'pageConfig.page': function () {
+      if (isNaN(this.pageConfig.page) === false) {
+        let currentPage = this.$route.params.page
+        if (isNaN(currentPage) === true
+                || parseInt(currentPage, 10) !== this.pageConfig.page) {
+          this.$router.push('/materials/' + this.pageConfig.page)
+        }
+      }
+    }
   },
   mounted() {
     this.initPage()
@@ -397,7 +404,7 @@ let Materials = {
         else {
           this.pageConfig.page = 1
         }
-        this.$router.push(`/materials/${this.pageConfig.page}`)
+        //this.$router.push(`/materials/${this.pageConfig.page}`)
         //localStorage.setItem('Materials.page', this.page)
       }
       else {
