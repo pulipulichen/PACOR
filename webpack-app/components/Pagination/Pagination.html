@@ -1,0 +1,10 @@
+<div class="center aligned">
+    <div class="ui basic icon buttons">
+      <button v-for="i in pageConfig.maxPage"
+              v-bind:class="{active: i === pageConfig.page}"
+              v-on:click="changePage(i)"
+              class="ui button">
+        {{ i }}
+      </button>
+    </div>
+  </div>

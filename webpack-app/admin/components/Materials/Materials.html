@@ -1,7 +1,6 @@
 <div class="ui segment form">
   <h2>{{ $t('Material Management') }}</h2>
   
-  
   <div class="ui segment">
     <div class="unstackable three fields">
       <div class="field">
@@ -47,6 +46,9 @@
         class="hide"
         v-on:change="editUpload"
         accept="application/zip" /> 
+  
+  <pagination v-bind:pageConfig="pageConfig"
+              pathPrefix="/materials/" />
   
   <table class="ui unstackable table">
     <thead>
@@ -114,4 +116,5 @@
       </tr>
     </tbody>
   </table>
+  
 </div>

@@ -7,7 +7,11 @@ let Materials = {
       file: null,
       assets: [],
       changedIDs: [],
-      editUploadAssetID: null
+      editUploadAssetID: null,
+      pageConfig: {
+        page: 1,
+        maxPage: 5
+      },
     }
   },
   computed: {
@@ -19,10 +23,29 @@ let Materials = {
   watch: {
   },
   mounted() {
+    this.initPage()
+    
     this.status.title = this.$t('Material Assets Management')
     this.list()
   },
   methods: {
+    initPage: function () {
+      if (isNaN(this.$route.params.page) === true) {
+        let lastPage = localStorage.getItem('Materials.page')
+        if (isNaN(lastPage) === false) {
+          this.pageConfig.page = lastPage
+        }
+        else {
+          this.pageConfig.page = 1
+        }
+        this.$router.push(`/materials/${this.pageConfig.page}`)
+        //localStorage.setItem('Materials.page', this.page)
+      }
+      else {
+        this.pageConfig.page = parseInt(this.$route.params.page, 10)
+      }
+    },
+    
     list: async function () {
       let result = await this.lib.AxiosHelper.get('/Admin/MaterialAsset/list')
       if (Array.isArray(result)) {

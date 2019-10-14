@@ -45,247 +45,258 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui segment form" }, [
-    _c("h2", [_vm._v(_vm._s(_vm.$t("Material Management")))]),
-    _vm._v(" "),
-    _c("div", { staticClass: "ui segment" }, [
-      _c("div", { staticClass: "unstackable three fields" }, [
-        _c("div", { staticClass: "field" }, [
-          _c("label", { attrs: { for: "MaterialName" } }, [
-            _vm._v(
-              "\r\n          " +
-                _vm._s(_vm.$t("Material Name")) +
-                "\r\n        "
-            )
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.filename,
-                expression: "filename"
-              }
-            ],
-            attrs: {
-              type: "text",
-              id: "MaterialName",
-              size: "20",
-              name: "MaterialName"
-            },
-            domProps: { value: _vm.filename },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+  return _c(
+    "div",
+    { staticClass: "ui segment form" },
+    [
+      _c("h2", [_vm._v(_vm._s(_vm.$t("Material Management")))]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ui segment" }, [
+        _c("div", { staticClass: "unstackable three fields" }, [
+          _c("div", { staticClass: "field" }, [
+            _c("label", { attrs: { for: "MaterialName" } }, [
+              _vm._v(
+                "\r\n          " +
+                  _vm._s(_vm.$t("Material Name")) +
+                  "\r\n        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.filename,
+                  expression: "filename"
                 }
-                _vm.filename = $event.target.value
+              ],
+              attrs: {
+                type: "text",
+                id: "MaterialName",
+                size: "20",
+                name: "MaterialName"
+              },
+              domProps: { value: _vm.filename },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.filename = $event.target.value
+                }
               }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "field" }, [
-          _c("label", { attrs: { for: "MaterialAsset" } }, [
-            _vm._v(
-              "\r\n          " + _vm._s(_vm.$t("File")) + "\r\n          "
-            ),
-            _c("a", { attrs: { href: "/materials/example-material.zip" } }, [
-              _vm._v(
-                "\r\n            (" +
-                  _vm._s(_vm.$t("example")) +
-                  ")\r\n          "
-              )
-            ])
+            })
           ]),
           _vm._v(" "),
-          _c("input", {
-            ref: "FileInput",
-            attrs: {
-              type: "file",
-              id: "MaterialAsset",
-              name: "MaterialAsset",
-              accept: "application/zip"
-            },
-            on: { change: _vm.checkEnableUpload }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "field" }, [
-          _c("label", [_vm._v("\r\n           \r\n        ")]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "ui fluid button",
-              class: { disabled: !_vm.enableUpload },
-              attrs: { type: "button" },
-              on: { click: _vm.upload }
-            },
-            [
+          _c("div", { staticClass: "field" }, [
+            _c("label", { attrs: { for: "MaterialAsset" } }, [
               _vm._v(
-                "\r\n          " + _vm._s(_vm.$t("UPLOAD")) + "\r\n        "
-              )
-            ]
-          )
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("input", {
-      ref: "EditUploadInput",
-      staticClass: "hide",
-      attrs: { type: "file", accept: "application/zip" },
-      on: { change: _vm.editUpload }
-    }),
-    _vm._v(" "),
-    _c("table", { staticClass: "ui unstackable table" }, [
-      _c("thead", [
-        _c("tr", [
-          _vm.status.role === "global_admin"
-            ? _c("th", [
+                "\r\n          " + _vm._s(_vm.$t("File")) + "\r\n          "
+              ),
+              _c("a", { attrs: { href: "/materials/example-material.zip" } }, [
                 _vm._v(
-                  "\r\n          " + _vm._s(_vm.$t("Domain")) + "\r\n        "
+                  "\r\n            (" +
+                    _vm._s(_vm.$t("example")) +
+                    ")\r\n          "
                 )
               ])
-            : _vm._e(),
-          _vm._v(" "),
-          _c("th", [
-            _vm._v(
-              "\r\n          " + _vm._s(_vm.$t("Filename")) + "\r\n        "
-            )
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              ref: "FileInput",
+              attrs: {
+                type: "file",
+                id: "MaterialAsset",
+                name: "MaterialAsset",
+                accept: "application/zip"
+              },
+              on: { change: _vm.checkEnableUpload }
+            })
           ]),
           _vm._v(" "),
-          _c("th", [
-            _vm._v("\r\n          " + _vm._s(_vm.$t("Date")) + "\r\n        ")
-          ]),
-          _vm._v(" "),
-          _c("th", [
-            _vm._v(
-              "\r\n          " + _vm._s(_vm.$t("Management")) + "\r\n        "
+          _c("div", { staticClass: "field" }, [
+            _c("label", [_vm._v("\r\n           \r\n        ")]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "ui fluid button",
+                class: { disabled: !_vm.enableUpload },
+                attrs: { type: "button" },
+                on: { click: _vm.upload }
+              },
+              [
+                _vm._v(
+                  "\r\n          " + _vm._s(_vm.$t("UPLOAD")) + "\r\n        "
+                )
+              ]
             )
           ])
         ])
       ]),
       _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.assets, function(asset, index) {
-          return _c("tr", [
+      _c("input", {
+        ref: "EditUploadInput",
+        staticClass: "hide",
+        attrs: { type: "file", accept: "application/zip" },
+        on: { change: _vm.editUpload }
+      }),
+      _vm._v(" "),
+      _c("pagination", {
+        attrs: { pageConfig: _vm.pageConfig, pathPrefix: "/materials/" }
+      }),
+      _vm._v(" "),
+      _c("table", { staticClass: "ui unstackable table" }, [
+        _c("thead", [
+          _c("tr", [
             _vm.status.role === "global_admin"
-              ? _c("td", [
+              ? _c("th", [
                   _vm._v(
-                    "\r\n          " + _vm._s(asset.domain_id) + "\r\n        "
+                    "\r\n          " + _vm._s(_vm.$t("Domain")) + "\r\n        "
                   )
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("td", [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: asset.filename,
-                    expression: "asset.filename"
-                  }
-                ],
-                attrs: { type: "text" },
-                domProps: { value: asset.filename },
-                on: {
-                  keyup: function($event) {
-                    return _vm.change(asset.id)
-                  },
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+            _c("th", [
+              _vm._v(
+                "\r\n          " + _vm._s(_vm.$t("Filename")) + "\r\n        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("th", [
+              _vm._v("\r\n          " + _vm._s(_vm.$t("Date")) + "\r\n        ")
+            ]),
+            _vm._v(" "),
+            _c("th", [
+              _vm._v(
+                "\r\n          " + _vm._s(_vm.$t("Management")) + "\r\n        "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.assets, function(asset, index) {
+            return _c("tr", [
+              _vm.status.role === "global_admin"
+                ? _c("td", [
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(asset.domain_id) +
+                        "\r\n        "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("td", [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: asset.filename,
+                      expression: "asset.filename"
                     }
-                    _vm.$set(asset, "filename", $event.target.value)
+                  ],
+                  attrs: { type: "text" },
+                  domProps: { value: asset.filename },
+                  on: {
+                    keyup: function($event) {
+                      return _vm.change(asset.id)
+                    },
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(asset, "filename", $event.target.value)
+                    }
                   }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v("\r\n          " + _vm._s(asset.date) + "\r\n        ")
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _c("div", { staticClass: "unstackable four fields" }, [
-                _c("div", { staticClass: "field" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "ui icon button",
-                      attrs: {
-                        target: "_blank",
-                        href: "/material/asset/" + asset.id + "/"
-                      }
-                    },
-                    [_c("i", { staticClass: "linkify icon" })]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "field" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "ui icon button",
-                      class: {
-                        disabled: !_vm.isAssetChanged(asset.id),
-                        green: _vm.isAssetChanged(asset.id)
+                })
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v("\r\n          " + _vm._s(asset.date) + "\r\n        ")
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _c("div", { staticClass: "unstackable four fields" }, [
+                  _c("div", { staticClass: "field" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "ui icon button",
+                        attrs: {
+                          target: "_blank",
+                          href: "/material/asset/" + asset.id + "/"
+                        }
                       },
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          return _vm.edit(index)
+                      [_c("i", { staticClass: "linkify icon" })]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "field" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "ui icon button",
+                        class: {
+                          disabled: !_vm.isAssetChanged(asset.id),
+                          green: _vm.isAssetChanged(asset.id)
+                        },
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.edit(index)
+                          }
                         }
-                      }
-                    },
-                    [_c("i", { staticClass: "edit icon" })]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "field" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "ui icon button",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          return _vm.editUploadTrigger(asset.id)
+                      },
+                      [_c("i", { staticClass: "edit icon" })]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "field" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "ui icon button",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.editUploadTrigger(asset.id)
+                          }
                         }
-                      }
-                    },
-                    [_c("i", { staticClass: "upload icon" })]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "field" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "ui icon button",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          return _vm.remove(index)
+                      },
+                      [_c("i", { staticClass: "upload icon" })]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "field" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "ui icon button",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.remove(index)
+                          }
                         }
-                      }
-                    },
-                    [_c("i", { staticClass: "close icon" })]
-                  )
+                      },
+                      [_c("i", { staticClass: "close icon" })]
+                    )
+                  ])
                 ])
               ])
             ])
-          ])
-        }),
-        0
-      )
-    ])
-  ])
+          }),
+          0
+        )
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -351,7 +362,11 @@ let Materials = {
       file: null,
       assets: [],
       changedIDs: [],
-      editUploadAssetID: null
+      editUploadAssetID: null,
+      pageConfig: {
+        page: 1,
+        maxPage: 5
+      },
     }
   },
   computed: {
@@ -363,10 +378,29 @@ let Materials = {
   watch: {
   },
   mounted() {
+    this.initPage()
+    
     this.status.title = this.$t('Material Assets Management')
     this.list()
   },
   methods: {
+    initPage: function () {
+      if (isNaN(this.$route.params.page) === true) {
+        let lastPage = localStorage.getItem('Materials.page')
+        if (isNaN(lastPage) === false) {
+          this.pageConfig.page = lastPage
+        }
+        else {
+          this.pageConfig.page = 1
+        }
+        this.$router.push(`/materials/${this.pageConfig.page}`)
+        //localStorage.setItem('Materials.page', this.page)
+      }
+      else {
+        this.pageConfig.page = parseInt(this.$route.params.page, 10)
+      }
+    },
+    
     list: async function () {
       let result = await this.lib.AxiosHelper.get('/Admin/MaterialAsset/list')
       if (Array.isArray(result)) {
