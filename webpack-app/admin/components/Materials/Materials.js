@@ -91,7 +91,9 @@ let Materials = {
       })
       //console.log(result)
       this.assets.unshift({
-        id: result,
+        id: result.assetID,
+        domain_id: result.domainID,
+        date: result.date,
         filename: this.filename
       })
       this._sortAssets()

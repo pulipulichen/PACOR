@@ -5,7 +5,7 @@ const Drive = use('Drive')
 const Helpers = use('Helpers')
 const fs = require('fs')
 
-const ItemsInPage = 1
+const ItemsInPage = 10
 
 class MaterialAsset {
   async upload({auth, request}) {
@@ -43,7 +43,14 @@ class MaterialAsset {
       return assetFile.error()
     }
     
-    return asset.id
+    let date = asset.created_at
+    date = date.slice(0, date.indexOf(' '))
+    
+    return {
+      assetID: asset.id,
+      domainID: domain.id,
+      date: date
+    }
   }
   
   async editUpload({auth, request}) {
