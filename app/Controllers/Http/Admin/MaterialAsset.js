@@ -5,6 +5,8 @@ const Drive = use('Drive')
 const Helpers = use('Helpers')
 const fs = require('fs')
 
+const ItemsInPage = 1
+
 class MaterialAsset {
   async upload({auth, request}) {
     let user = await auth.getUser()
@@ -79,18 +81,41 @@ class MaterialAsset {
     return 1
   }
   
-  async list ({auth}) {
+  async list ({auth, request}) {
     let user = await auth.getUser()
+    
+    let {page} = request.all()
+    
+    if (isNaN(page) === true) {
+      page = 1
+    }
+    else {
+      page = parseInt(page, 10)
+    }
+    
+    let offset = (page - 1) * ItemsInPage
     
     let query = Asset
             .query()
+            .offset(offset)
+            .limit(ItemsInPage)
             .orderBy('filename', 'asc')
     
     if (user.role === 'domain_admin') {
       let domain = await user.domain().fetch()
       query.where('domain_id', domain.id)
     }
-    return await query.fetch()
+    
+    let assets = await query.fetch()
+    
+    // --------------------
+    let assetsCount = await Asset.getCount()
+    let maxPage = Math.ceil(assetsCount / ItemsInPage)
+    
+    return {
+      maxPage: maxPage,
+      assets: assets
+    }
   }
   
   async remove ({auth, request}) {

@@ -367,7 +367,7 @@ let Materials = {
       editUploadAssetID: null,
       pageConfig: {
         page: 1,
-        maxPage: 1
+        maxPage: 0
       },
     }
   },
@@ -384,6 +384,8 @@ let Materials = {
         if (isNaN(currentPage) === true
                 || parseInt(currentPage, 10) !== this.pageConfig.page) {
           this.$router.push('/materials/' + this.pageConfig.page)
+          localStorage.setItem('Materials.page', this.pageConfig.page)
+          this.list()
         }
       }
     }
@@ -413,9 +415,22 @@ let Materials = {
     },
     
     list: async function () {
-      let result = await this.lib.AxiosHelper.get('/Admin/MaterialAsset/list')
-      if (Array.isArray(result)) {
-        this.assets = result
+      let result = await this.lib.AxiosHelper.get('/Admin/MaterialAsset/list', {
+        page: this.pageConfig.page
+      })
+      if (typeof(result) === 'object') {
+        if (Array.isArray(result.assets)) {
+          if (result.assets.length === 0) {
+            if (this.pageConfig.page !== 1) {
+              this.pageConfig.page = 1
+            }
+            return false
+          }
+          this.assets = result.assets
+        }
+        if (typeof(result.maxPage) === 'number') {
+          this.pageConfig.maxPage = result.maxPage
+        }
       }
     },
     checkEnableUpload: function () {
