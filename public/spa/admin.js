@@ -339,7 +339,7 @@ exports.push([module.i, ".container[data-v-4a021392] {\n  padding-top: 60px;\n}\
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"Pagination.less?vue&type=style&index=0&id=16bb9012&lang=less&scoped=true&"}]);
+exports.push([module.i, ".pagination[data-v-16bb9012] {\n  text-align: center;\n}\n.pagination .active[data-v-16bb9012] {\n  pointer-events: none;\n}\n", "",{"version":3,"sources":["Pagination.less?vue&type=style&index=0&id=16bb9012&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;AACpB;AACA;EACE,oBAAoB;AACtB","file":"Pagination.less?vue&type=style&index=0&id=16bb9012&lang=less&scoped=true&","sourcesContent":[".pagination[data-v-16bb9012] {\n  text-align: center;\n}\n.pagination .active[data-v-16bb9012] {\n  pointer-events: none;\n}\n"]}]);
 
 
 /***/ }),
@@ -643,7 +643,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "center aligned" }, [
+  return _c("div", { staticClass: "pagination" }, [
     _c(
       "div",
       { staticClass: "ui basic icon buttons" },
@@ -659,7 +659,7 @@ var render = function() {
               }
             }
           },
-          [_vm._v("\r\n        " + _vm._s(i) + "\r\n      ")]
+          [_vm._v("\r\n      " + _vm._s(i) + "\r\n    ")]
         )
       }),
       0

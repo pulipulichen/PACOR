@@ -10,7 +10,7 @@ let Materials = {
       editUploadAssetID: null,
       pageConfig: {
         page: 1,
-        maxPage: 5
+        maxPage: 1
       },
     }
   },

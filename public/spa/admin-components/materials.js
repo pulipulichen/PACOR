@@ -293,7 +293,11 @@ var render = function() {
           }),
           0
         )
-      ])
+      ]),
+      _vm._v(" "),
+      _c("pagination", {
+        attrs: { pageConfig: _vm.pageConfig, pathPrefix: "/materials/" }
+      })
     ],
     1
   )
@@ -365,7 +369,7 @@ let Materials = {
       editUploadAssetID: null,
       pageConfig: {
         page: 1,
-        maxPage: 5
+        maxPage: 1
       },
     }
   },

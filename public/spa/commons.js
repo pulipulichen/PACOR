@@ -55,7 +55,7 @@ exports.push([module.i, "/*\nTo change this license header, choose License Heade
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".message[data-v-7536335c] {\n  cursor: pointer;\n  max-width: 100%;\n  overflow: auto;\n}\n", "",{"version":3,"sources":["ErrorHandler.less?vue&type=style&index=0&id=7536335c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,eAAe;EACf,cAAc;AAChB","file":"ErrorHandler.less?vue&type=style&index=0&id=7536335c&lang=less&scoped=true&","sourcesContent":[".message[data-v-7536335c] {\n  cursor: pointer;\n  max-width: 100%;\n  overflow: auto;\n}\n"]}]);
+exports.push([module.i, ".message[data-v-7536335c] {\n  cursor: pointer;\n  max-width: 100%;\n  overflow: auto;\n  position: fixed;\n  left: 3rem;\n  width: calc(100vw - 3rem);\n  top: calc(60px + 1rem);\n  max-height: calc(100vh - 60px - 4rem);\n  z-index: 999;\n}\n", "",{"version":3,"sources":["ErrorHandler.less?vue&type=style&index=0&id=7536335c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,eAAe;EACf,cAAc;EACd,eAAe;EACf,UAAU;EACV,yBAAyB;EACzB,sBAAsB;EACtB,qCAAqC;EACrC,YAAY;AACd","file":"ErrorHandler.less?vue&type=style&index=0&id=7536335c&lang=less&scoped=true&","sourcesContent":[".message[data-v-7536335c] {\n  cursor: pointer;\n  max-width: 100%;\n  overflow: auto;\n  position: fixed;\n  left: 3rem;\n  width: calc(100vw - 3rem);\n  top: calc(60px + 1rem);\n  max-height: calc(100vh - 60px - 4rem);\n  z-index: 999;\n}\n"]}]);
 
 
 /***/ }),

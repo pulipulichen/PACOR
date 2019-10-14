@@ -2,4 +2,11 @@
   cursor: pointer;
   max-width: 100%;
   overflow: auto;
+  
+  position: fixed;
+  left: 3rem;
+  width: calc(100vw - 3rem);
+  top: calc(@TopMenuHeight + 1rem);
+  max-height: calc(100vh - @TopMenuHeight - 4rem);
+  z-index: 999;
 }
