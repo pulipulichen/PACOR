@@ -843,6 +843,14 @@ let baseScript = jquery__WEBPACK_IMPORTED_MODULE_11___default()(document.current
 _config_js__WEBPACK_IMPORTED_MODULE_13___default.a.baseURL = baseURL
 baseScript.before(`<div id="app"></div>`)
 
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].config.warnHandler = function(msg, vm, trace) {
+  //console.log(`Warn: ${msg}\nTrace: ${trace}`);
+  VueController.data.error = {
+    message: msg,
+    stack: trace
+  }
+}
+
 // -----------------------
 
 let VueController = {
@@ -904,7 +912,6 @@ let VueController = {
     }
   },
   created: function () {
-    
   },
   mounted: function () {
     if (typeof(this.$route.query.origin) === 'string' 
@@ -938,7 +945,24 @@ let VueController = {
   components: _admin_components__WEBPACK_IMPORTED_MODULE_5__["default"],
   errorCaptured(err, vm, info) {
     // https://medium.com/js-dojo/error-exception-handling-in-vue-js-application-6c26eeb6b3e4
-    this.error = err.stack
+    //console.log(info)
+    //console.log(vm)
+    
+    console.log(err.toString())
+    
+    if (typeof(err) === 'object'
+            && typeof(err.stack) !== 'undefined') {
+      this.error = err.stack
+    }
+    /*
+    else if (typeof(info) === 'string' && info !== '') {
+      this.error = info
+    }
+    else if (typeof(err) === 'string') {
+      this.error = err
+    }
+    */
+     
     // err: error trace
     // vm: component in which error occured
     // info: Vue specific error information such as lifecycle hooks, events etc.
@@ -965,7 +989,7 @@ window.VueController = VueController
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        ref=\"auth\"></auth>\r\n\r\n  <template v-if=\"progress.display === true && status.needLogin === false\">\r\n    <navigation v-bind:config=\"config\"\r\n                v-bind:status=\"status\"\r\n                v-bind:progress=\"progress\"\r\n                v-bind:error=\"error\"\r\n                v-bind:lib=\"lib\"></navigation>\r\n  </template>\r\n\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:error=\"error\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n\r\n\r\n  <template v-if=\"progress.display === false\">\r\n    <loading></loading>\r\n  </template>\r\n  <template v-else>\r\n    <template v-if=\"status.needLogin === true\">\r\n      <login v-bind:config=\"config\"\r\n             v-bind:status=\"status\"\r\n             v-bind:progress=\"progress\"\r\n             v-bind:error=\"error\"\r\n             v-bind:lib=\"lib\"></login>\r\n    </template>\r\n    <template v-else>\r\n\r\n      <router-view v-bind:config=\"config\"\r\n                   v-bind:status=\"status\"\r\n                   v-bind:progress=\"progress\"\r\n                   v-bind:lib=\"lib\"\r\n                   v-bind:error=\"error\"></router-view>\r\n    </template>\r\n  </template>\r\n</div>";
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        ref=\"auth\"></auth>\r\n\r\n  <template v-if=\"progress.display === true && status.needLogin === false\">\r\n    <navigation v-bind:config=\"config\"\r\n                v-bind:status=\"status\"\r\n                v-bind:progress=\"progress\"\r\n                v-bind:error=\"error\"\r\n                v-bind:lib=\"lib\"></navigation>\r\n  </template>\r\n\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:error=\"error\"\r\n                 v-bind:lib=\"lib\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n\r\n\r\n  <template v-if=\"progress.display === false\">\r\n    <loading></loading>\r\n  </template>\r\n  <template v-else>\r\n    <template v-if=\"status.needLogin === true\">\r\n      <login v-bind:config=\"config\"\r\n             v-bind:status=\"status\"\r\n             v-bind:progress=\"progress\"\r\n             v-bind:error=\"error\"\r\n             v-bind:lib=\"lib\"></login>\r\n    </template>\r\n    <template v-else>\r\n\r\n      <router-view v-bind:config=\"config\"\r\n                   v-bind:status=\"status\"\r\n                   v-bind:progress=\"progress\"\r\n                   v-bind:lib=\"lib\"\r\n                   v-bind:error=\"error\"></router-view>\r\n    </template>\r\n  </template>\r\n</div>";
 
 /***/ }),
 

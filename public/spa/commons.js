@@ -55,7 +55,7 @@ exports.push([module.i, "/*\nTo change this license header, choose License Heade
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".message[data-v-7536335c] {\n  cursor: pointer;\n  max-width: 100%;\n  overflow: auto;\n  position: fixed !important;\n  left: 3rem;\n  width: calc(100vw - 6rem);\n  top: calc(60px + 1rem);\n  max-height: calc(100vh - 60px - 4rem);\n  z-index: 999;\n}\n", "",{"version":3,"sources":["ErrorHandler.less?vue&type=style&index=0&id=7536335c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,eAAe;EACf,cAAc;EACd,0BAA0B;EAC1B,UAAU;EACV,yBAAyB;EACzB,sBAAsB;EACtB,qCAAqC;EACrC,YAAY;AACd","file":"ErrorHandler.less?vue&type=style&index=0&id=7536335c&lang=less&scoped=true&","sourcesContent":[".message[data-v-7536335c] {\n  cursor: pointer;\n  max-width: 100%;\n  overflow: auto;\n  position: fixed !important;\n  left: 3rem;\n  width: calc(100vw - 6rem);\n  top: calc(60px + 1rem);\n  max-height: calc(100vh - 60px - 4rem);\n  z-index: 999;\n}\n"]}]);
+exports.push([module.i, ".message[data-v-7536335c] {\n  max-width: 100%;\n  overflow: auto;\n  position: fixed !important;\n  left: 3rem;\n  width: calc(100vw - 6rem);\n  top: calc(60px + 1rem);\n  max-height: calc(100vh - 60px - 4rem);\n  z-index: 999;\n}\n.message .close[data-v-7536335c] {\n  cursor: pointer;\n}\n.message .item > i.icon[data-v-7536335c] {\n  padding-top: 5px !important;\n  cursor: pointer;\n}\n.message .item > i.icon[data-v-7536335c]:hover,\n.message .item > i.icon[data-v-7536335c]:active {\n  color: #e67e22;\n}\n.message .header[data-v-7536335c] {\n  cursor: inherit !important;\n}\n.message .header.retry[data-v-7536335c] {\n  cursor: pointer !important;\n  font-weight: bold;\n  font-family: monospace, monospace;\n}\n.message .error-group .more[data-v-7536335c] {\n  cursor: pointer;\n}\n.message .error-group .more[data-v-7536335c]:hover,\n.message .error-group .more[data-v-7536335c]:active {\n  color: #e67e22;\n}\n.message .error-group .description[data-v-7536335c] {\n  max-width: calc(100vw - 11rem);\n  overflow-x: auto;\n  overflow-y: hidden;\n}\n.message .error-group pre[data-v-7536335c] {\n  margin-top: 0;\n}\n.message .error-group pre[data-v-7536335c]:first-of-type {\n  margin-bottom: 0;\n}\n", "",{"version":3,"sources":["ErrorHandler.less?vue&type=style&index=0&id=7536335c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,cAAc;EACd,0BAA0B;EAC1B,UAAU;EACV,yBAAyB;EACzB,sBAAsB;EACtB,qCAAqC;EACrC,YAAY;AACd;AACA;EACE,eAAe;AACjB;AACA;EACE,2BAA2B;EAC3B,eAAe;AACjB;AACA;;EAEE,cAAc;AAChB;AACA;EACE,0BAA0B;AAC5B;AACA;EACE,0BAA0B;EAC1B,iBAAiB;EACjB,iCAAiC;AACnC;AACA;EACE,eAAe;AACjB;AACA;;EAEE,cAAc;AAChB;AACA;EACE,8BAA8B;EAC9B,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,aAAa;AACf;AACA;EACE,gBAAgB;AAClB","file":"ErrorHandler.less?vue&type=style&index=0&id=7536335c&lang=less&scoped=true&","sourcesContent":[".message[data-v-7536335c] {\n  max-width: 100%;\n  overflow: auto;\n  position: fixed !important;\n  left: 3rem;\n  width: calc(100vw - 6rem);\n  top: calc(60px + 1rem);\n  max-height: calc(100vh - 60px - 4rem);\n  z-index: 999;\n}\n.message .close[data-v-7536335c] {\n  cursor: pointer;\n}\n.message .item > i.icon[data-v-7536335c] {\n  padding-top: 5px !important;\n  cursor: pointer;\n}\n.message .item > i.icon[data-v-7536335c]:hover,\n.message .item > i.icon[data-v-7536335c]:active {\n  color: #e67e22;\n}\n.message .header[data-v-7536335c] {\n  cursor: inherit !important;\n}\n.message .header.retry[data-v-7536335c] {\n  cursor: pointer !important;\n  font-weight: bold;\n  font-family: monospace, monospace;\n}\n.message .error-group .more[data-v-7536335c] {\n  cursor: pointer;\n}\n.message .error-group .more[data-v-7536335c]:hover,\n.message .error-group .more[data-v-7536335c]:active {\n  color: #e67e22;\n}\n.message .error-group .description[data-v-7536335c] {\n  max-width: calc(100vw - 11rem);\n  overflow-x: auto;\n  overflow-y: hidden;\n}\n.message .error-group pre[data-v-7536335c] {\n  margin-top: 0;\n}\n.message .error-group pre[data-v-7536335c]:first-of-type {\n  margin-bottom: 0;\n}\n"]}]);
 
 
 /***/ }),
@@ -90,15 +90,155 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.showError
-    ? _c(
-        "div",
-        {
-          staticClass: "ui red floating message",
+    ? _c("div", { staticClass: "ui red floating message" }, [
+        _c("i", {
+          staticClass: "close icon",
           attrs: { title: _vm.$t("Click to close") },
           on: { click: _vm.close }
-        },
-        [_c("pre", [_vm._v(_vm._s(_vm.error))])]
-      )
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "ui relaxed divided list" }, [
+          _vm.responseErrorMessage
+            ? _c("div", { staticClass: "item error-group" }, [
+                _c("i", {
+                  staticClass: "large server icon",
+                  on: {
+                    click: function($event) {
+                      _vm.showServerErrorStack = !_vm.showServerErrorStack
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "content" }, [
+                  _c("a", { staticClass: "header" }, [
+                    _vm.responseErrorMessage
+                      ? _c("pre", [_vm._v(_vm._s(_vm.responseErrorMessage))])
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "description" }, [
+                    _vm.responseErrorStack && !_vm.showServerErrorStack
+                      ? _c(
+                          "pre",
+                          {
+                            staticClass: "more",
+                            on: {
+                              click: function($event) {
+                                _vm.showServerErrorStack = !_vm.showServerErrorStack
+                              }
+                            }
+                          },
+                          [_vm._v("(" + _vm._s(_vm.$t("Show stacks...")) + ")")]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.responseErrorStack && _vm.showServerErrorStack
+                      ? _c("pre", [_vm._v(_vm._s(_vm.responseErrorStack))])
+                      : _vm._e()
+                  ])
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.localErrorMessage
+            ? _c("div", { staticClass: "item error-group" }, [
+                _c("i", {
+                  staticClass: "large desktop icon",
+                  on: {
+                    click: function($event) {
+                      _vm.showErrorStack = !_vm.showErrorStack
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "content" }, [
+                  _c("a", { staticClass: "header" }, [
+                    _vm.localErrorMessage
+                      ? _c("pre", [_vm._v(_vm._s(_vm.localErrorMessage))])
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "description" }, [
+                    _vm.localErrorStack && !_vm.showErrorStack
+                      ? _c(
+                          "pre",
+                          {
+                            staticClass: "more",
+                            on: {
+                              click: function($event) {
+                                _vm.showErrorStack = !_vm.showErrorStack
+                              }
+                            }
+                          },
+                          [_vm._v("(" + _vm._s(_vm.$t("Show stacks...")) + ")")]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.localErrorStack && _vm.showErrorStack
+                      ? _c("pre", [_vm._v(_vm._s(_vm.localErrorStack))])
+                      : _vm._e()
+                  ])
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          typeof _vm.error === "string"
+            ? _c("div", { staticClass: "item error-group" }, [
+                _c("i", {
+                  staticClass: "large desktop icon",
+                  on: {
+                    click: function($event) {
+                      _vm.showErrorStack = !_vm.showErrorStack
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "content" }, [
+                  _c("a", { staticClass: "header" }, [
+                    _vm.error
+                      ? _c("pre", [_vm._v(_vm._s(_vm.error))])
+                      : _vm._e()
+                  ])
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.error.config && _vm.error.config.method
+            ? _c("div", { staticClass: "item" }, [
+                _c("i", {
+                  staticClass: "large redo icon",
+                  on: { click: _vm.retry }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "content" }, [
+                  _c(
+                    "a",
+                    { staticClass: "header retry", on: { click: _vm.retry } },
+                    [
+                      _vm.error.config.method
+                        ? _c("span", [_vm._v(_vm._s(_vm.error.config.method))])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.error.config.method && _vm.error.config.url
+                        ? _c("span", [_vm._v(": ")])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.error.config.url
+                        ? _c("span", [_vm._v(_vm._s(_vm.error.config.url))])
+                        : _vm._e()
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "description" }, [
+                    _vm.error.config.params
+                      ? _c("pre", [_vm._v(_vm._s(_vm.error.config.params))])
+                      : _vm._e()
+                  ])
+                ])
+              ])
+            : _vm._e()
+        ])
+      ])
     : _vm._e()
 }
 var staticRenderFns = []
@@ -225,27 +365,104 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let ErrorHandler = {
-  props: ['config', 'error'],
+  props: ['config', 'error', 'lib'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      showError: false,
+      showServerErrorStack: false,
+      showErrorStack: false
     }
   },
   computed: {
-    showError: function () {
-      return (typeof(this.error) === 'object' 
-              || (typeof(this.error) === 'string' && this.error.trim() !== '') )
+    responseErrorMessage: function () {
+      if (typeof(this.error) === 'object'
+              && typeof(this.error.response) === 'object'
+              && typeof(this.error.response.data) === 'object'
+              && typeof(this.error.response.data.error) === 'object') {
+        
+        let output = ''
+        let e = this.error.response.data.error
+        
+        if (typeof(e.status) === 'number') {
+          output = output + `[${e.status}]`
+        }
+        
+        if (typeof(e.message) === 'string') {
+          if (output !== '') {
+            output = ' '
+          }
+          output = output + '' + e.message.trim()
+        }
+        
+        return output
+      }
+    },
+    responseErrorStack: function () {
+      if (typeof(this.error) === 'object'
+              && typeof(this.error.response) === 'object'
+              && typeof(this.error.response.data) === 'object'
+              && typeof(this.error.response.data.error) === 'object') {
+        
+        let output = ''
+        let e = this.error.response.data.error
+        
+        if (Array.isArray(e.frames)) {
+          if (output !== '') {
+            output = output + '\n'
+          }
+          
+          output = output + e.frames.map((f) => {
+            return `at ${f.method} (${f.file} :${f.line} :${f.column})`
+          }).join('\n')
+        }
+        
+        return output
+      }
+    },
+    localErrorMessage: function () {
+      if (typeof(this.error) === 'object'
+              && typeof(this.error.message) === 'string') {
+        return this.error.message
+      }
+    },
+    localErrorStack: function () {
+      if (typeof(this.error) === 'object'
+              && typeof(this.error.stack) === 'string') {
+        let stack = this.error.stack
+        if (stack.trim().startsWith('found in') && stack.indexOf('--->') > 0) {
+          return stack.slice(stack.indexOf('--->') + 4).trim()
+        }
+        else {
+          return stack.split('\n').slice(1).map(line => line.trim()).join('\n')
+        }
+      }
     }
   },
   watch: {
-    
-  },
-  mounted() {
-    
+    'error': function () {
+      //console.log(typeof(this.error), this.error)
+      if (typeof(this.error) === 'object' 
+              || (typeof(this.error) === 'string' && this.error.trim() !== '') ) {
+        this.showError = true
+      }
+    },
   },
   methods: {
-    close() {
-      this.error = ''
+    close () {
+      this.showError = false
+    },
+    retry (e) {
+      if (typeof(this.error) !== 'object' 
+              || typeof(this.error.config) !== 'object' 
+              || typeof(this.error.config.url) !== 'string'
+              || typeof(this.error.config.method) !== 'string') {
+        return false
+      }
+      console.log('retry')
+      
+      e.stopPropagation()
+      //let url = 
     }
   } // methods
 }
@@ -519,8 +736,8 @@ let AxiosHelper = {
   setErrorHandler: function (handler) {
     this.errorHandler = handler
   },
-  handleError: function (error) {
-    console.error(error)
+  handleError: function (error, b) {
+    //console.error(error.response)
     if (typeof(this.errorHandler) === 'function') {
       this.errorHandler(error)
     }

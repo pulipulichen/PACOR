@@ -1,6 +1,9 @@
 {
   "en": {
+    "Admins": "Admin | Admins",
+    "Webpages": "Webpage | Webpages"
   },
   "zh-TW": {
+    "Title": "標題"
   }
 }

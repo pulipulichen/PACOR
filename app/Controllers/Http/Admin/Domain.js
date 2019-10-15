@@ -15,9 +15,15 @@ class Domain {
     const offset = (page - 1) * limit
     
     let domains = await DomainModel
-            .offset(offset)
-            .limit(offset)
+            .query()
+            //.where('domain', '!=', '')
+            .with('admins')
+            .with('webpageCount')
+            //.offset(offset)
+            //.limit(offset)
             .fetch()
+    
+    //await domains.loadMany(['admins'])
     
     let count = await DomainModel.getCount()
     let maxPage = Math.ceil(count / limit)

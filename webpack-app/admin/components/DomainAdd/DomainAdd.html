@@ -52,31 +52,18 @@
         {{ $t('SUBMIT') }}
       </button>
     </div>
-
-
   </div>
-  <div class="two fields">
-    <div class="field">
-      <label for="addInputAdmins">
-        {{ $t('Admins') }}
-        ({{ $t('Split admins by space') }})
-      </label>
-      <textarea id="addInputAdmins"
-                name="addInputAdmins"
-                class="ui red"
-                v-model="addInput.admins"></textarea>
-    </div>
-    <div class="field"
-         v-bind:class="{error: !configIsJSON}">
-      <label for="addInputConfig">
-        {{ $t('Config') }}
-        ({{ $t('JSON Format') }}
-        <a href="https://github.com/pulipulichen/PACOR/blob/master/help/ConfigExample.md" target="_blank">{{ $t('Example') }}</a>)
-      </label>
-      <textarea id="addInputConfig"
-                name="addInputConfig"
-                class="ui red"
-                v-model="addInput.config"></textarea>
-    </div>
+  
+  <div class="field"
+       v-bind:class="{error: !configIsJSON}">
+    <label for="addInputConfig">
+      {{ $t('Config') }}
+      ({{ $t('JSON Format') }}
+      <a href="https://github.com/pulipulichen/PACOR/blob/master/help/ConfigExample.md" target="_blank">{{ $t('Example') }}</a>)
+    </label>
+    <textarea id="addInputConfig"
+              name="addInputConfig"
+              class="ui red"
+              v-model="addInput.config"></textarea>
   </div>
 </div>

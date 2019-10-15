@@ -39,6 +39,14 @@ let baseScript = $(document.currentScript)
 config.baseURL = baseURL
 baseScript.before(`<div id="app"></div>`)
 
+Vue.config.warnHandler = function(msg, vm, trace) {
+  //console.log(`Warn: ${msg}\nTrace: ${trace}`);
+  VueController.data.error = {
+    message: msg,
+    stack: trace
+  }
+}
+
 // -----------------------
 
 let VueController = {
@@ -100,7 +108,6 @@ let VueController = {
     }
   },
   created: function () {
-    
   },
   mounted: function () {
     if (typeof(this.$route.query.origin) === 'string' 
@@ -134,7 +141,24 @@ let VueController = {
   components: components,
   errorCaptured(err, vm, info) {
     // https://medium.com/js-dojo/error-exception-handling-in-vue-js-application-6c26eeb6b3e4
-    this.error = err.stack
+    //console.log(info)
+    //console.log(vm)
+    
+    console.log(err.toString())
+    
+    if (typeof(err) === 'object'
+            && typeof(err.stack) !== 'undefined') {
+      this.error = err.stack
+    }
+    /*
+    else if (typeof(info) === 'string' && info !== '') {
+      this.error = info
+    }
+    else if (typeof(err) === 'string') {
+      this.error = err
+    }
+    */
+     
     // err: error trace
     // vm: component in which error occured
     // info: Vue specific error information such as lifecycle hooks, events etc.

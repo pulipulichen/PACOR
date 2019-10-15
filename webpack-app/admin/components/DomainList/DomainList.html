@@ -18,71 +18,56 @@
     </div>
   </div>
   
+  <!-- ==================================== -->
     
   <pagination v-bind:pageConfig="pageConfig" />
   
   <table class="ui unstackable table">
     <thead>
       <tr>
-        <th v-if="status.role === 'global_admin'">
+        <th>
           {{ $t('Domain') }}
         </th>
         <th>
-          {{ $t('Filename') }}
+          {{ $t('Title') }}
         </th>
         <th>
-          {{ $t('Date') }}
+          {{ $t('Admins') }}
         </th>
         <th>
-          {{ $t('Management') }}
+          {{ $t('Config') }}
+        </th>
+        <th>
+          {{ $t('Webpage') }}
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(asset, index) in assets">
-        <td v-if="status.role === 'global_admin'">
-          {{ asset.domain_id }}
+      <tr v-for="(domain, index) in domains">
+        <td>
+          {{ domain.domain }}
         </td>
         <td>
-          <input type="text"
-                 v-model="asset.filename"
-                 v-on:keyup="change(asset.id)" />
+          {{ domain.title }}
         </td>
         <td>
-          {{ asset.date }}
+          <span class="ui labeled icon button">
+            <i class="edit icon"></i>
+            {{ domain.admins.length }}
+            {{ $t('Admins', domain.admins.length) }}
+          </span>
         </td>
         <td>
-          <div class="unstackable four fields">
-            <div class="field">
-              <a class="ui icon button"
-                 target="_blank"
-                 v-bind:href="'/material/asset/' + asset.id + '/'">
-                <i class="linkify icon"></i>
-              </a>
-            </div>
-            <div class="field">
-              <button type="button"
-                class="ui icon button"
-                v-bind:class="{disabled: !isAssetChanged(asset.id), green: isAssetChanged(asset.id)}"
-                v-on:click="edit(index)">
-                <i class="edit icon"></i> 
-              </button>
-            </div>
-            <div class="field">
-              <button type="button"
-                class="ui icon button"
-                v-on:click="editUploadTrigger(asset.id)">
-                <i class="upload icon"></i> 
-              </button>
-            </div>
-            <div class="field">
-              <button type="button"
-                class="ui icon button"
-                v-on:click="remove(index)">
-                <i class="close icon"></i>
-              </button>
-            </div>
-          </div>
+          <span class="ui icon button">
+            <i class="edit icon"></i>
+          </span>
+        </td>
+        <td>
+          <span class="ui labeled icon button">
+            <i class="edit icon"></i>
+            {{ domain.webpageCount }}
+            {{ $t('Webpages', domain.webpageCount) }}
+          </span>
         </td>
       </tr>
     </tbody>

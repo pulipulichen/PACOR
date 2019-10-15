@@ -14,8 +14,8 @@ let AxiosHelper = {
   setErrorHandler: function (handler) {
     this.errorHandler = handler
   },
-  handleError: function (error) {
-    console.error(error)
+  handleError: function (error, b) {
+    //console.error(error.response)
     if (typeof(this.errorHandler) === 'function') {
       this.errorHandler(error)
     }

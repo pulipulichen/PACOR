@@ -1,6 +1,81 @@
 <div class="ui red floating message"
-     v-if="showError"
-     v-on:click="close"
-     v-bind:title="$t('Click to close')">
-  <pre>{{ error }}</pre>
+     v-if="showError">
+  
+  <i class="close icon"
+     v-bind:title="$t('Click to close')"
+     v-on:click="close"></i>
+  
+  <div class="ui relaxed divided list">
+    
+    <div class="item error-group"
+         v-if="responseErrorMessage">
+      <i class="large server icon"
+         v-on:click="showServerErrorStack = !showServerErrorStack"></i>
+      <div class="content">
+        <a class="header">
+          <pre v-if="responseErrorMessage">{{ responseErrorMessage }}</pre>
+        </a>
+        <div class="description">
+          <pre v-if="responseErrorStack && !showServerErrorStack"
+               v-on:click="showServerErrorStack = !showServerErrorStack"
+               class="more">({{ $t('Show stacks...') }})</pre>
+          <pre v-if="responseErrorStack && showServerErrorStack">{{ responseErrorStack }}</pre>
+        </div>
+      </div>
+    </div>
+    
+    <div class="item error-group"
+         v-if="localErrorMessage">
+      <i class="large desktop icon"
+         v-on:click="showErrorStack = !showErrorStack"></i>
+      <div class="content">
+        <a class="header">
+          <pre v-if="localErrorMessage">{{ localErrorMessage }}</pre>
+        </a>
+        <div class="description">
+          <pre v-if="localErrorStack && !showErrorStack"
+               v-on:click="showErrorStack = !showErrorStack"
+               class="more">({{ $t('Show stacks...') }})</pre>
+          <pre v-if="localErrorStack && showErrorStack">{{ localErrorStack }}</pre>
+        </div>
+      </div>
+    </div>
+    
+    <div class="item error-group"
+         v-if="typeof(error) === 'string'">
+      <i class="large desktop icon"
+         v-on:click="showErrorStack = !showErrorStack"></i>
+      <div class="content">
+        <a class="header">
+          <pre v-if="error">{{ error }}</pre>
+        </a>
+        <!--
+        <div class="description">
+          <pre v-if="localErrorStack && !showErrorStack"
+               v-on:click="showErrorStack = !showErrorStack"
+               class="more">({{ $t('Show stacks...') }})</pre>
+          <pre v-if="localErrorStack && showErrorStack">{{ localErrorStack }}</pre>
+        </div>
+        -->
+      </div>
+    </div>
+    
+    <div class="item"
+         v-if="error.config && error.config.method">
+      <i class="large redo icon"
+         v-on:click="retry"></i>
+      <div class="content">
+        <a class="header retry"
+           v-on:click="retry">
+          <span v-if="error.config.method">{{ error.config.method }}</span>
+          <span v-if="error.config.method && error.config.url">: </span>
+          <span v-if="error.config.url">{{ error.config.url }}</span>
+        </a>
+        <div class="description">
+          <pre v-if="error.config.params">{{ error.config.params }}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </div>

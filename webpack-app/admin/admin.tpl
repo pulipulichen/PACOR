@@ -16,6 +16,7 @@
 
   <error-handler v-bind:config="config"
                  v-bind:error="error"
+                 v-bind:lib="lib"
                  ref="ErrorHandler"></error-handler>
 
 

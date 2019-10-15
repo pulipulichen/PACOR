@@ -4,6 +4,7 @@
     "materials": {}
   },
   "attributes": {
+    "v-bind:class": {},
     "v-if": {},
     "ref": {},
     "v-on:click": {

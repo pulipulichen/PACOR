@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{},"zh-TW":{}}')
+  Component.options.__i18n.push('{"en":{"Admins":"Admin | Admins","Webpages":"Webpage | Webpages"},"zh-TW":{"Title":"標題"}}')
   delete Component.options._Ctor
 }
 
@@ -191,86 +191,50 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "two fields" }, [
-      _c("div", { staticClass: "field" }, [
-        _c("label", { attrs: { for: "addInputAdmins" } }, [
-          _vm._v(
-            "\r\n        " +
-              _vm._s(_vm.$t("Admins")) +
-              "\r\n        (" +
-              _vm._s(_vm.$t("Split admins by space")) +
-              ")\r\n      "
-          )
-        ]),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.addInput.admins,
-              expression: "addInput.admins"
+    _c("div", { staticClass: "field", class: { error: !_vm.configIsJSON } }, [
+      _c("label", { attrs: { for: "addInputConfig" } }, [
+        _vm._v(
+          "\r\n      " +
+            _vm._s(_vm.$t("Config")) +
+            "\r\n      (" +
+            _vm._s(_vm.$t("JSON Format")) +
+            "\r\n      "
+        ),
+        _c(
+          "a",
+          {
+            attrs: {
+              href:
+                "https://github.com/pulipulichen/PACOR/blob/master/help/ConfigExample.md",
+              target: "_blank"
             }
-          ],
-          staticClass: "ui red",
-          attrs: { id: "addInputAdmins", name: "addInputAdmins" },
-          domProps: { value: _vm.addInput.admins },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.addInput, "admins", $event.target.value)
-            }
-          }
-        })
+          },
+          [_vm._v(_vm._s(_vm.$t("Example")))]
+        ),
+        _vm._v(")\r\n    ")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "field", class: { error: !_vm.configIsJSON } }, [
-        _c("label", { attrs: { for: "addInputConfig" } }, [
-          _vm._v(
-            "\r\n        " +
-              _vm._s(_vm.$t("Config")) +
-              "\r\n        (" +
-              _vm._s(_vm.$t("JSON Format")) +
-              "\r\n        "
-          ),
-          _c(
-            "a",
-            {
-              attrs: {
-                href:
-                  "https://github.com/pulipulichen/PACOR/blob/master/help/ConfigExample.md",
-                target: "_blank"
-              }
-            },
-            [_vm._v(_vm._s(_vm.$t("Example")))]
-          ),
-          _vm._v(")\r\n      ")
-        ]),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.addInput.config,
-              expression: "addInput.config"
-            }
-          ],
-          staticClass: "ui red",
-          attrs: { id: "addInputConfig", name: "addInputConfig" },
-          domProps: { value: _vm.addInput.config },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.addInput, "config", $event.target.value)
-            }
+      _c("textarea", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.addInput.config,
+            expression: "addInput.config"
           }
-        })
-      ])
+        ],
+        staticClass: "ui red",
+        attrs: { id: "addInputConfig", name: "addInputConfig" },
+        domProps: { value: _vm.addInput.config },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.addInput, "config", $event.target.value)
+          }
+        }
+      })
     ])
   ])
 }
@@ -331,27 +295,33 @@ var render = function() {
       _c("table", { staticClass: "ui unstackable table" }, [
         _c("thead", [
           _c("tr", [
-            _vm.status.role === "global_admin"
-              ? _c("th", [
-                  _vm._v(
-                    "\r\n          " + _vm._s(_vm.$t("Domain")) + "\r\n        "
-                  )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
             _c("th", [
               _vm._v(
-                "\r\n          " + _vm._s(_vm.$t("Filename")) + "\r\n        "
+                "\r\n          " + _vm._s(_vm.$t("Domain")) + "\r\n        "
               )
             ]),
             _vm._v(" "),
             _c("th", [
-              _vm._v("\r\n          " + _vm._s(_vm.$t("Date")) + "\r\n        ")
+              _vm._v(
+                "\r\n          " + _vm._s(_vm.$t("Title")) + "\r\n        "
+              )
             ]),
             _vm._v(" "),
             _c("th", [
               _vm._v(
-                "\r\n          " + _vm._s(_vm.$t("Management")) + "\r\n        "
+                "\r\n          " + _vm._s(_vm.$t("Admins")) + "\r\n        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("th", [
+              _vm._v(
+                "\r\n          " + _vm._s(_vm.$t("Config")) + "\r\n        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("th", [
+              _vm._v(
+                "\r\n          " + _vm._s(_vm.$t("Webpage")) + "\r\n        "
               )
             ])
           ])
@@ -359,115 +329,43 @@ var render = function() {
         _vm._v(" "),
         _c(
           "tbody",
-          _vm._l(_vm.assets, function(asset, index) {
+          _vm._l(_vm.domains, function(domain, index) {
             return _c("tr", [
-              _vm.status.role === "global_admin"
-                ? _c("td", [
-                    _vm._v(
-                      "\r\n          " +
-                        _vm._s(asset.domain_id) +
-                        "\r\n        "
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
               _c("td", [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: asset.filename,
-                      expression: "asset.filename"
-                    }
-                  ],
-                  attrs: { type: "text" },
-                  domProps: { value: asset.filename },
-                  on: {
-                    keyup: function($event) {
-                      return _vm.change(asset.id)
-                    },
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(asset, "filename", $event.target.value)
-                    }
-                  }
-                })
+                _vm._v(
+                  "\r\n          " + _vm._s(domain.domain) + "\r\n        "
+                )
               ]),
               _vm._v(" "),
               _c("td", [
-                _vm._v("\r\n          " + _vm._s(asset.date) + "\r\n        ")
+                _vm._v("\r\n          " + _vm._s(domain.title) + "\r\n        ")
               ]),
               _vm._v(" "),
               _c("td", [
-                _c("div", { staticClass: "unstackable four fields" }, [
-                  _c("div", { staticClass: "field" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "ui icon button",
-                        attrs: {
-                          target: "_blank",
-                          href: "/material/asset/" + asset.id + "/"
-                        }
-                      },
-                      [_c("i", { staticClass: "linkify icon" })]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "field" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "ui icon button",
-                        class: {
-                          disabled: !_vm.isAssetChanged(asset.id),
-                          green: _vm.isAssetChanged(asset.id)
-                        },
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            return _vm.edit(index)
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "edit icon" })]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "field" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "ui icon button",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            return _vm.editUploadTrigger(asset.id)
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "upload icon" })]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "field" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "ui icon button",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            return _vm.remove(index)
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "close icon" })]
-                    )
-                  ])
+                _c("span", { staticClass: "ui labeled icon button" }, [
+                  _c("i", { staticClass: "edit icon" }),
+                  _vm._v(
+                    "\r\n            " +
+                      _vm._s(domain.admins.length) +
+                      "\r\n            " +
+                      _vm._s(_vm.$t("Admins", domain.admins.length)) +
+                      "\r\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(0, true),
+              _vm._v(" "),
+              _c("td", [
+                _c("span", { staticClass: "ui labeled icon button" }, [
+                  _c("i", { staticClass: "edit icon" }),
+                  _vm._v(
+                    "\r\n            " +
+                      _vm._s(domain.webpageCount) +
+                      "\r\n            " +
+                      _vm._s(_vm.$t("Webpages", domain.webpageCount)) +
+                      "\r\n          "
+                  )
                 ])
               ])
             ])
@@ -483,7 +381,18 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("span", { staticClass: "ui icon button" }, [
+        _c("i", { staticClass: "edit icon" })
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -754,14 +663,9 @@ let DomainList = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      createInput: {
-        domain: '',
-        title: '',
-        admins: '',
-        config: ''
-      },
+      domains: [],
       pageConfig: {
-        page: 1,
+        page: 0,
         maxPage: 0
       }
     }
@@ -769,24 +673,62 @@ let DomainList = {
   components: {
   },
   computed: {
+    'pageConfig.page': function () {
+      if (isNaN(this.pageConfig.page) === false) {
+        let currentPage = this.$route.params.page
+        if (isNaN(currentPage) === true
+                || parseInt(currentPage, 10) !== this.pageConfig.page) {
+          this.$router.push('/domain/list/' + this.pageConfig.page)
+          localStorage.setItem('DomainList.pageConfig.page', this.pageConfig.page)
+          this.list()
+        }
+      }
+    }
   },
   watch: {
   },
   mounted() {
+    this.initPage()
+    
     this.status.title = this.$t('Domaian Management')
+    this.list()
   },
   methods: {
-    createSubmit: async function () {
-      let data = JSON.parse(JSON.stringify(this.createInput))
-      data.admins = data.admins.replace(/\n/g, ' ').trim().split(' ')
-      
-      let result = await this.lib.AxiosHelper.post('/admin/Domain/create', data)
-      
-      // 完成admin之後呢？
-      if (typeof(result) === 'object') {
-        this.$router.push('/domain/1')
+    initPage: function () {
+      if (isNaN(this.$route.params.page) === true) {
+        let lastPage = localStorage.getItem('DomainList.pageConfig.page')
+        if (isNaN(lastPage) === false && lastPage !== null) {
+          this.pageConfig.page = lastPage
+        }
+        else {
+          this.pageConfig.page = 1
+        }
       }
-    }
+      else {
+        this.pageConfig.page = parseInt(this.$route.params.page, 10)
+      }
+    },
+    
+    list: async function () {
+      
+      let result = await this.lib.AxiosHelper.get('/Admin/Domain/list', {
+        page: this.pageConfig.page
+      })
+      if (typeof(result) === 'object') {
+        if (Array.isArray(result.domains)) {
+          if (result.domains.length === 0) {
+            if (this.pageConfig.page !== 1) {
+              this.pageConfig.page = 1
+            }
+            return false
+          }
+          this.domains = result.domains
+        }
+        if (typeof(result.maxPage) === 'number') {
+          this.pageConfig.maxPage = result.maxPage
+        }
+      }
+    },
   } // methods
 }
 

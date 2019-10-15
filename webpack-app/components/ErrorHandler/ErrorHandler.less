@@ -1,5 +1,5 @@
 .message {
-  cursor: pointer;
+  
   max-width: 100%;
   overflow: auto;
   
@@ -9,4 +9,55 @@
   top: calc(@TopMenuHeight + 1rem);
   max-height: calc(100vh - @TopMenuHeight - 4rem);
   z-index: 999;
+  
+  .close {
+    cursor: pointer;
+  }
+  
+  .item > i.icon {
+    padding-top: 5px !important;
+    cursor: pointer;
+    
+    &:hover,
+    &:active {
+      color: #e67e22;
+    }
+  }
+  
+  
+  .header { 
+    cursor: inherit !important;
+    
+    &.retry {
+      cursor: pointer !important;
+      font-weight: bold;
+      font-family: monospace, monospace;
+    }
+  }
+  
+  .error-group {
+    
+    .more {
+      cursor: pointer;
+      
+      &:hover,
+      &:active {
+        color: #e67e22;
+      }
+    }
+    
+    .description {
+      max-width: calc(100vw - 11rem);
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    
+    & pre {
+      margin-top: 0;
+      
+      &:first-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
 }

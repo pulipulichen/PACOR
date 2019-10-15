@@ -43,7 +43,7 @@ class Domain extends Model {
   
   admins () {
     return this.hasMany('App/Models/User')
-            .where('role', 'global_admin')
+            .where('role', 'domain_admin')
   }
   
   readers () {
@@ -53,6 +53,10 @@ class Domain extends Model {
   
   webpages () {
     return this.hasMany('App/Models/Webpage')
+  }
+  
+  async webpageCount () {
+    return await this.hasMany('App/Models/Webpage').getCount()
   }
   
   assets () {
