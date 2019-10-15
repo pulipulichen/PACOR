@@ -542,13 +542,22 @@ let DomainAdd = {
   },
   methods: {
     addSubmit: async function () {
-      let data = JSON.parse(JSON.stringify(this.addInput))
-      data.admins = data.admins.replace(/\n/g, ' ').trim().split(' ')
-      if (data.config !== '') {
-        data.config = JSON.parse(data.config)
+      let input = JSON.parse(JSON.stringify(this.addInput))
+      let data = {
+        domain: input.domain
       }
-      else {
-        delete data.config
+      
+      if (input.title !== '') {
+        data.title = input.title
+      }
+      if (input.admins !== '') {
+        data.admins = input.admins.replace(/\n/g, ' ').trim().split(' ')
+      }
+      if (input.config !== '') {
+        try {
+          data.config = JSON.parse(data.config)
+        }
+        catch (e) {}
       }
       
       let result = await this.lib.AxiosHelper.post('/admin/Domain/add', data)

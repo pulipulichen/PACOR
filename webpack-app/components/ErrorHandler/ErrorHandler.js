@@ -80,7 +80,12 @@ let ErrorHandler = {
         try {
           data = JSON.parse(data)
         }
-        catch (e) {} 
+        catch (e) {}
+        
+        if (typeof(data) === 'object') {
+          data = JSON.stringify(data, null, ' ').slice(2, -2)
+        }
+        
         return data
       }
     }
@@ -111,15 +116,10 @@ let ErrorHandler = {
       this.showError = false
       
       let data = this.error.config.params
-      console.log(data)
-      console.log(typeof(data))
       if (typeof(data) === 'undefined') {
         data = this.error.config.data
       }
-      console.log(data)
-      console.log(typeof(data))
-      let result = await this.lib.AxiosHelper[this.error.config.method](this.error.config.url, data)
-      //let url = 
+      await this.lib.AxiosHelper[this.error.config.method](this.error.config.url, data)
     }
   } // methods
 }
