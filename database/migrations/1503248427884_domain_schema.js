@@ -7,8 +7,8 @@ class DomainSchema extends Schema {
   up () {
     this.create('domains', (table) => {
       table.increments()
-      table.string('domain', 254).notNullable()
-      table.text('title').notNullable().defaultTo('')
+      table.string('domain', 254).notNullable().unique()
+      table.text('title')
       table.json('config')
       table.timestamps()
     })

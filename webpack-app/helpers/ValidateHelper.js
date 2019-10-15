@@ -11,6 +11,18 @@ let ValidateHelper = {
     '(\\#[-a-z\\d_]*)?$','i'), // fragment locator
   isURL(url) {
     return !!this._urlPattern.test(url);
+  },
+  isJSON(str) {
+    if (typeof(str) !== 'string') {
+      return true
+    }
+    try {
+      JSON.parse(str)
+      return true
+    }
+    catch (e) {
+      return false
+    }
   }
 }
 

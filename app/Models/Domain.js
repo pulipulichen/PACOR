@@ -11,7 +11,7 @@ class Domain extends Model {
 
     this.addHook('afterCreate', async (instance) => {
       //instance.title = await 
-      await this._crawlTitleFromURL(instance)
+      await instance._crawlTitleFromURL(instance)
     })
   }
   

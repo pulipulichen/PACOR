@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{},"zh-TW":{}}')
+  Component.options.__i18n.push('{"en":{},"zh-TW":{"Title":"標題"}}')
   delete Component.options._Ctor
 }
 
@@ -102,40 +102,48 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "unstackable three fields" }, [
-      _c("div", { staticClass: "field" }, [
-        _c("label", { attrs: { for: "addInputDomain" } }, [
-          _vm._v("\r\n        " + _vm._s(_vm.$t("Domain")) + "\r\n      ")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.addInput.domain,
-              expression: "addInput.domain"
-            }
-          ],
-          attrs: {
-            type: "url",
-            id: "addInputDomain",
-            size: "256",
-            name: "addInputDomain"
-          },
-          domProps: { value: _vm.addInput.domain },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+    _c("div", { staticClass: "three fields" }, [
+      _c(
+        "div",
+        { staticClass: "seven wide field", class: { error: !_vm.domainIsURL } },
+        [
+          _c("label", { attrs: { for: "addInputDomain" } }, [
+            _vm._v(
+              "\r\n        " +
+                _vm._s(_vm.$t("Domain (include http:// or https:// or port)")) +
+                "\r\n      "
+            )
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.addInput.domain,
+                expression: "addInput.domain"
               }
-              _vm.$set(_vm.addInput, "domain", $event.target.value)
+            ],
+            attrs: {
+              type: "url",
+              id: "addInputDomain",
+              size: "256",
+              name: "addInputDomain"
+            },
+            domProps: { value: _vm.addInput.domain },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.addInput, "domain", $event.target.value)
+              }
             }
-          }
-        })
-      ]),
+          })
+        ]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "field" }, [
+      _c("div", { staticClass: "seven wide field" }, [
         _c("label", { attrs: { for: "addInputTitle" } }, [
           _vm._v("\r\n        " + _vm._s(_vm.$t("Title")) + "\r\n      ")
         ]),
@@ -167,7 +175,7 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "field" }, [
+      _c("div", { staticClass: "two wide field" }, [
         _c("label", [_vm._v("\r\n         \r\n      ")]),
         _vm._v(" "),
         _c(
@@ -178,12 +186,12 @@ var render = function() {
             attrs: { type: "button" },
             on: { click: _vm.addSubmit }
           },
-          [_vm._v("\r\n        " + _vm._s(_vm.$t("Submit")) + "\r\n      ")]
+          [_vm._v("\r\n        " + _vm._s(_vm.$t("SUBMIT")) + "\r\n      ")]
         )
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "unstackable two fields" }, [
+    _c("div", { staticClass: "two fields" }, [
       _c("div", { staticClass: "field" }, [
         _c("label", { attrs: { for: "addInputAdmins" } }, [
           _vm._v(
@@ -218,7 +226,7 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "field" }, [
+      _c("div", { staticClass: "field", class: { error: !_vm.configIsJSON } }, [
         _c("label", { attrs: { for: "addInputConfig" } }, [
           _vm._v(
             "\r\n        " +
@@ -288,33 +296,192 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui form" }, [
-    _c("div", { staticClass: "ui fields" }, [
-      _c("div", { staticClass: "twelve wide field" }, [
-        _c("h2", [_vm._v(_vm._s(_vm.$t("Domain Management")))])
+  return _c(
+    "div",
+    { staticClass: "ui form" },
+    [
+      _c("div", { staticClass: "ui fields" }, [
+        _c("div", { staticClass: "twelve wide field" }, [
+          _c("h2", [_vm._v(_vm._s(_vm.$t("Domain Management")))])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "four wide field" }, [
+          _c("div", { staticClass: "ui fluid buttons sub-navigation" }, [
+            _c("span", { staticClass: "ui button active" }, [
+              _vm._v(
+                "\r\n            " + _vm._s(_vm.$t("List")) + "\r\n          "
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "a",
+              { staticClass: "ui button", attrs: { href: "#/domain/add" } },
+              [
+                _vm._v(
+                  "\r\n            " + _vm._s(_vm.$t("Add")) + "\r\n          "
+                )
+              ]
+            )
+          ])
+        ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "four wide field" }, [
-        _c("div", { staticClass: "ui fluid buttons sub-navigation" }, [
-          _c("span", { staticClass: "ui button active" }, [
-            _vm._v(
-              "\r\n            " + _vm._s(_vm.$t("List")) + "\r\n          "
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "ui button", attrs: { href: "#/domain/add" } },
-            [
+      _c("pagination", { attrs: { pageConfig: _vm.pageConfig } }),
+      _vm._v(" "),
+      _c("table", { staticClass: "ui unstackable table" }, [
+        _c("thead", [
+          _c("tr", [
+            _vm.status.role === "global_admin"
+              ? _c("th", [
+                  _vm._v(
+                    "\r\n          " + _vm._s(_vm.$t("Domain")) + "\r\n        "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("th", [
               _vm._v(
-                "\r\n            " + _vm._s(_vm.$t("Add")) + "\r\n          "
+                "\r\n          " + _vm._s(_vm.$t("Filename")) + "\r\n        "
               )
-            ]
-          )
-        ])
-      ])
-    ])
-  ])
+            ]),
+            _vm._v(" "),
+            _c("th", [
+              _vm._v("\r\n          " + _vm._s(_vm.$t("Date")) + "\r\n        ")
+            ]),
+            _vm._v(" "),
+            _c("th", [
+              _vm._v(
+                "\r\n          " + _vm._s(_vm.$t("Management")) + "\r\n        "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.assets, function(asset, index) {
+            return _c("tr", [
+              _vm.status.role === "global_admin"
+                ? _c("td", [
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(asset.domain_id) +
+                        "\r\n        "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("td", [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: asset.filename,
+                      expression: "asset.filename"
+                    }
+                  ],
+                  attrs: { type: "text" },
+                  domProps: { value: asset.filename },
+                  on: {
+                    keyup: function($event) {
+                      return _vm.change(asset.id)
+                    },
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(asset, "filename", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v("\r\n          " + _vm._s(asset.date) + "\r\n        ")
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _c("div", { staticClass: "unstackable four fields" }, [
+                  _c("div", { staticClass: "field" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "ui icon button",
+                        attrs: {
+                          target: "_blank",
+                          href: "/material/asset/" + asset.id + "/"
+                        }
+                      },
+                      [_c("i", { staticClass: "linkify icon" })]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "field" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "ui icon button",
+                        class: {
+                          disabled: !_vm.isAssetChanged(asset.id),
+                          green: _vm.isAssetChanged(asset.id)
+                        },
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.edit(index)
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "edit icon" })]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "field" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "ui icon button",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.editUploadTrigger(asset.id)
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "upload icon" })]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "field" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "ui icon button",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.remove(index)
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "close icon" })]
+                    )
+                  ])
+                ])
+              ])
+            ])
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _c("pagination", {
+        attrs: { pageConfig: _vm.pageConfig, pathPrefix: "/domains/" }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -398,10 +565,10 @@ let DomainAdd = {
     this.$i18n.locale = this.config.locale
     return {
       addInput: {
-        domain: '',
+        domain: 'http://blog.pulipuli.info',
         title: '',
         admins: '',
-        config: ''
+        config: '{}'
       }
     }
   },
@@ -409,7 +576,16 @@ let DomainAdd = {
   },
   computed: {
     enableAdd: function () {
-      return this.lib.ValidateHelper.isURL(this.addInput.domain)
+      return (this.lib.ValidateHelper.isURL(this.addInput.domain)
+              && (this.addInput.config === '' || this.lib.ValidateHelper.isJSON(this.addInput.config)) )
+    },
+    domainIsURL: function () {
+      return (this.addInput.domain === '' 
+              || this.lib.ValidateHelper.isURL(this.addInput.domain))
+    },
+    configIsJSON: function () {
+      return (this.addInput.config === '' 
+              || this.lib.ValidateHelper.isJSON(this.addInput.config))
     }
   },
   watch: {
@@ -421,6 +597,12 @@ let DomainAdd = {
     addSubmit: async function () {
       let data = JSON.parse(JSON.stringify(this.addInput))
       data.admins = data.admins.replace(/\n/g, ' ').trim().split(' ')
+      if (data.config !== '') {
+        data.config = JSON.parse(data.config)
+      }
+      else {
+        delete data.config
+      }
       
       let result = await this.lib.AxiosHelper.post('/admin/Domain/add', data)
       

@@ -4,10 +4,10 @@ let DomainAdd = {
     this.$i18n.locale = this.config.locale
     return {
       addInput: {
-        domain: '',
+        domain: 'http://blog.pulipuli.info',
         title: '',
         admins: '',
-        config: ''
+        config: '{}'
       }
     }
   },
@@ -15,7 +15,16 @@ let DomainAdd = {
   },
   computed: {
     enableAdd: function () {
-      return this.lib.ValidateHelper.isURL(this.addInput.domain)
+      return (this.lib.ValidateHelper.isURL(this.addInput.domain)
+              && (this.addInput.config === '' || this.lib.ValidateHelper.isJSON(this.addInput.config)) )
+    },
+    domainIsURL: function () {
+      return (this.addInput.domain === '' 
+              || this.lib.ValidateHelper.isURL(this.addInput.domain))
+    },
+    configIsJSON: function () {
+      return (this.addInput.config === '' 
+              || this.lib.ValidateHelper.isJSON(this.addInput.config))
     }
   },
   watch: {
@@ -27,6 +36,12 @@ let DomainAdd = {
     addSubmit: async function () {
       let data = JSON.parse(JSON.stringify(this.addInput))
       data.admins = data.admins.replace(/\n/g, ' ').trim().split(' ')
+      if (data.config !== '') {
+        data.config = JSON.parse(data.config)
+      }
+      else {
+        delete data.config
+      }
       
       let result = await this.lib.AxiosHelper.post('/admin/Domain/add', data)
       

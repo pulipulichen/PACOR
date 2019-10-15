@@ -9,7 +9,7 @@ let Material = {
       changedIDs: [],
       editUploadAssetID: null,
       pageConfig: {
-        page: 1,
+        page: 0,
         maxPage: 0
       },
     }
@@ -26,8 +26,8 @@ let Material = {
         let currentPage = this.$route.params.page
         if (isNaN(currentPage) === true
                 || parseInt(currentPage, 10) !== this.pageConfig.page) {
-          this.$router.push('/materials/' + this.pageConfig.page)
-          localStorage.setItem('Materials.page', this.pageConfig.page)
+          this.$router.push('/material/' + this.pageConfig.page)
+          localStorage.setItem('Material.page', this.pageConfig.page)
           this.list()
         }
       }
@@ -42,8 +42,8 @@ let Material = {
   methods: {
     initPage: function () {
       if (isNaN(this.$route.params.page) === true) {
-        let lastPage = localStorage.getItem('Materials.page')
-        if (isNaN(lastPage) === false) {
+        let lastPage = localStorage.getItem('Material.page')
+        if (isNaN(lastPage) === false && lastPage !== null) {
           this.pageConfig.page = lastPage
         }
         else {

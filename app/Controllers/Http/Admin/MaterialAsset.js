@@ -5,7 +5,8 @@ const Drive = use('Drive')
 const Helpers = use('Helpers')
 const fs = require('fs')
 
-const ItemsInPage = 10
+const Config = use('Config')
+const ItemsInPage = Config.get('view.itemsPerPage')
 
 const Domain = use('App/Models/Domain')
 
