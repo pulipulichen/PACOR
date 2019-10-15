@@ -141,8 +141,33 @@ var build_connection = (api, session, query, params, callback)=>{
   // console.log('Invoke API: ', api);
 
   if(session.username == undefined){
-    console.error('connect without username')
-    callback(false)
+    if (typeof(process.env.DB_DATABASE) === 'string') {
+      const client = new Client({
+        user: process.env.DB_USER.replace(/\s/g, ''),
+        host: process.env.DB_HOST.replace(/\s/g, ''),
+        database: process.env.DB_DATABASE.replace(/\s/g, ''),
+        password: process.env.DB_PASSWORD,
+        port: process.env.DB_PORT,
+        ssl : false
+      })
+
+      client.connect()
+      // Here we select from pg_stat_user_tables which is the same as
+      // pg_stat_all_tables, except that only user tables are shown.
+      client.query(query, params, (error, response) => {
+        client.end()
+        if(error){
+          console.error(error)
+          callback(false)
+        } else {
+          callback(response)  
+        }        
+      })
+    }
+    else {
+      console.error('connect without username')
+      callback(false)
+    }
   } else {
     const client = new Client({
       user: session.username,
@@ -150,7 +175,7 @@ var build_connection = (api, session, query, params, callback)=>{
       database: session.database,
       password: session.password,
       port: session.port,
-      ssl : true
+      ssl : false
     })
 
     client.connect()

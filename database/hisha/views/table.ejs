@@ -20,7 +20,7 @@ dflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbg
       <div class="panel panel-default panel-table">
         <div class="panel-heading">
           <div class="row">
-            <div class="col col-xs-6">
+            <div class="col col-xs-6 text-overflow-ellipsis">
               <h3 class="panel-title">Table - <%= table_name %></h3>
               - Click cell to edit. Press Enter to save update.<br>
               - Green if update success, Red if update failed.
@@ -56,11 +56,18 @@ dflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbg
                     <td onkeypress="saveUpdate(this, event);" 
                         onclick="editMode(this);" onblur="this.contentEditable=false;"
                         data-row="<%= row.id %>" class="hidden-xs"
+                        title="<%= row[key] %>"
                         data-column="<%= key %>" data-value="<%= row[key] %>">
                       <%= row[key] %>                  
                     </td>
                   <% } %>
                 <% } %>
+              </tr>
+              <% } %>
+
+              <% for(i = 0; i < 100; i++){ %>
+              <tr>                
+                <td></td>
               </tr>
               <% } %>
             </tbody>

@@ -4,6 +4,41 @@ const { Client } = require('pg')
 
 /* GET Portal - connection form */
 router.get('/', function(req, res, next) {
+  
+  if (typeof(process.env.DB_DATABASE) === 'string') {
+    // TODO: check validation of connetion_info one by one
+    var session = req.session
+    session.username = process.env.DB_USER.replace(/\s/g, '')
+    session.host = process.env.DB_HOST.replace(/\s/g, '')
+    session.port = process.env.DB_PORT
+    session.database = process.env.DB_DATABASE.replace(/\s/g, '')
+    session.password = process.env.DB_PASSWORD
+
+    const client = new Client({
+      user: session.username,
+      host: session.host,
+      database: session.database,
+      password: session.password,
+      port: session.port,
+      ssl : false
+    })
+
+    client.connect()
+
+    // Here we select from pg_stat_user_tables which is the same as
+    // pg_stat_all_tables, except that only user tables are shown.
+    client.query('SELECT relid as table_id, relname as table_name,n_live_tup as rows FROM pg_stat_user_tables', (error, response) => {
+      client.end()
+      if(error){
+        console.error(error)
+        res.send({ result: false })
+      } else {
+        res.render('dashboard', { title: 'Dashboard - Hisha', tables: response.rows });
+      }	  
+    })
+    return
+  }
+  
 	res.render('index', { title: 'Hisha' })
 });
 
@@ -21,7 +56,7 @@ router.post('/test', function(req, res, next) {
 	  database: connection_info.database.replace(/\s/g, ''),
 	  password: connection_info.password,
 	  port: connection_info.port,
-	  ssl : true
+	  ssl : false
 	})
 	
 	client.connect()
@@ -58,7 +93,7 @@ router.post('/connect', function(req, res, next) {
 	  database: session.database,
 	  password: session.password,
 	  port: session.port,
-	  ssl : true
+	  ssl : false
 	})
 
 	client.connect()
