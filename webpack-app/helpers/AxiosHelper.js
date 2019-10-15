@@ -32,6 +32,10 @@ let AxiosHelper = {
     return result
   },
   getOther: async function (path, data, errorHandler) {
+    if (typeof(data) === 'string') {
+      data = JSON.parse(data)
+    }
+    
     let options = {}
     if (typeof(data) === 'object') {
       options.params = data
@@ -52,6 +56,10 @@ let AxiosHelper = {
     }
   },
   post: async function (path, data, errorHandler) {
+    if (typeof(data) === 'string') {
+      data = JSON.parse(data)
+    }
+    
     let options = {}
     if (typeof(data) === 'object') {
       options = data

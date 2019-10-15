@@ -108,9 +108,17 @@ let ErrorHandler = {
               || typeof(this.error.config.method) !== 'string') {
         return false
       }
-      console.log('retry')
+      this.showError = false
       
-      let result = await this.lib.AxiosHelper[this.error.config.method](this.error.config.url, this.error.config.params)
+      let data = this.error.config.params
+      console.log(data)
+      console.log(typeof(data))
+      if (typeof(data) === 'undefined') {
+        data = this.error.config.data
+      }
+      console.log(data)
+      console.log(typeof(data))
+      let result = await this.lib.AxiosHelper[this.error.config.method](this.error.config.url, data)
       //let url = 
     }
   } // methods
