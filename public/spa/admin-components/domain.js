@@ -552,9 +552,11 @@ let DomainAdd = {
       }
       
       let result = await this.lib.AxiosHelper.post('/admin/Domain/add', data)
-      
+      //console.log(result)
       // 完成admin之後呢？
-      this.$router.push('/domain/list/')
+      if (result === 1) {
+        this.$router.push('/domain/list/')
+      }
     }
   } // methods
 }
