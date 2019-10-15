@@ -1,4 +1,4 @@
-let Materials = {
+let Material = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -192,4 +192,4 @@ let Materials = {
   } // methods
 }
 
-export default Materials
+export default Material

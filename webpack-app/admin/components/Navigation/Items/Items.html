@@ -15,14 +15,14 @@
     
     <a class="item"
        v-bind:class="{active: $route.path.startsWith('/domains')}"
-       v-on:click="$router.push('/domains')">
-     {{ $t('Domains') }}
+       href="#/domain/list">
+     {{ $t('Domain') }}
     </a>
     
     <a class="item"
        v-bind:class="{active: $route.path.startsWith('/materials')}"
-       v-on:click="$router.push('/materials')">
-     {{ $t('Materials') }}
+       href="#/material">
+     {{ $t('Material') }}
     </a>
     
     <a class="item"

@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"admin-components/domain":"admin-components/domain","admin-components/material":"admin-components/material","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -525,13 +525,9 @@ var render = function() {
         {
           staticClass: "item",
           class: { active: _vm.$route.path.startsWith("/domains") },
-          on: {
-            click: function($event) {
-              return _vm.$router.push("/domains")
-            }
-          }
+          attrs: { href: "#/domain/list" }
         },
-        [_vm._v("\r\n     " + _vm._s(_vm.$t("Domains")) + "\r\n    ")]
+        [_vm._v("\r\n     " + _vm._s(_vm.$t("Domain")) + "\r\n    ")]
       ),
       _vm._v(" "),
       _c(
@@ -539,13 +535,9 @@ var render = function() {
         {
           staticClass: "item",
           class: { active: _vm.$route.path.startsWith("/materials") },
-          on: {
-            click: function($event) {
-              return _vm.$router.push("/materials")
-            }
-          }
+          attrs: { href: "#/material" }
         },
-        [_vm._v("\r\n     " + _vm._s(_vm.$t("Materials")) + "\r\n    ")]
+        [_vm._v("\r\n     " + _vm._s(_vm.$t("Material")) + "\r\n    ")]
       ),
       _vm._v(" "),
       _c("a", { staticClass: "item", on: { click: _vm.logout } }, [
@@ -802,13 +794,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_AxiosHelper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./helpers/AxiosHelper */ "./webpack-app/helpers/AxiosHelper.js");
 /* harmony import */ var _helpers_DayJSHelper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers/DayJSHelper */ "./webpack-app/helpers/DayJSHelper.js");
 /* harmony import */ var _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers/StringHelper */ "./webpack-app/helpers/StringHelper.js");
-/* harmony import */ var _admin_components_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./admin/components/Auth/Auth.vue */ "./webpack-app/admin/components/Auth/Auth.vue");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./admin/admin.tpl */ "./webpack-app/admin/admin.tpl");
-/* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_admin_admin_tpl__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
-/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_config_js__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./helpers/ValidateHelper */ "./webpack-app/helpers/ValidateHelper.js");
+/* harmony import */ var _admin_components_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./admin/components/Auth/Auth.vue */ "./webpack-app/admin/components/Auth/Auth.vue");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin/admin.tpl */ "./webpack-app/admin/admin.tpl");
+/* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_admin_admin_tpl__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_config_js__WEBPACK_IMPORTED_MODULE_13__);
 
 
 // ----------------------------------
@@ -830,6 +823,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 // --------------------
 // Components
 
@@ -845,8 +839,8 @@ __webpack_require__.r(__webpack_exports__);
 // 確認 baseURL
 
 let baseURL = '/'
-let baseScript = jquery__WEBPACK_IMPORTED_MODULE_10___default()(document.currentScript)
-_config_js__WEBPACK_IMPORTED_MODULE_12___default.a.baseURL = baseURL
+let baseScript = jquery__WEBPACK_IMPORTED_MODULE_11___default()(document.currentScript)
+_config_js__WEBPACK_IMPORTED_MODULE_13___default.a.baseURL = baseURL
 baseScript.before(`<div id="app"></div>`)
 
 // -----------------------
@@ -855,7 +849,7 @@ let VueController = {
   data: {
     message: 'Hello, world.', // for test
     users: [],
-    config: _config_js__WEBPACK_IMPORTED_MODULE_12___default.a,
+    config: _config_js__WEBPACK_IMPORTED_MODULE_13___default.a,
     status: {
       role: '',
       username: '',
@@ -872,7 +866,8 @@ let VueController = {
     lib: {
       AxiosHelper: _helpers_AxiosHelper__WEBPACK_IMPORTED_MODULE_6__["default"].setBaseURL(baseURL),
       DayJSHelper: _helpers_DayJSHelper__WEBPACK_IMPORTED_MODULE_7__["default"],
-      StringHelper: _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_8__["default"]
+      StringHelper: _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_8__["default"],
+      ValidateHelper: _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_9__["default"]
     },
     //view: 'Loading',
     view: null,
@@ -938,7 +933,7 @@ let VueController = {
   el: '#app',
   i18n: _plugins_i18n__WEBPACK_IMPORTED_MODULE_3__["default"],
   
-  template: _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_11___default.a,
+  template: _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_12___default.a,
   router: _admin_routes__WEBPACK_IMPORTED_MODULE_4__["default"],
   components: _admin_components__WEBPACK_IMPORTED_MODULE_5__["default"],
   errorCaptured(err, vm, info) {
@@ -953,7 +948,7 @@ let VueController = {
 }
 
 if (typeof(baseURL) === 'string') {
-  jquery__WEBPACK_IMPORTED_MODULE_10___default()(() => {
+  jquery__WEBPACK_IMPORTED_MODULE_11___default()(() => {
     new vue__WEBPACK_IMPORTED_MODULE_0__["default"](VueController)
   })
 }
@@ -1614,14 +1609,15 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MOD
 
 const routes = [
   { path: '/', redirect: '/domain/list' },
-  { path: '/domain/list/:page?', component: () => Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './components/DomainList/DomainList.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }) },
-  { path: '/domain/add', component: () => Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './components/DomainAdd/DomainAdd.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }) },
-  { path: '/material/:page?', component: () => Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './components/Material/Material.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }) },
+  { path: '/domain/list/:page?', component: () => __webpack_require__.e(/*! import() | admin-components/domain */ "admin-components/domain").then(__webpack_require__.bind(null, /*! ./components/DomainList/DomainList.vue */ "./webpack-app/admin/components/DomainList/DomainList.vue")) },
+  { path: '/domain/add', component: () => __webpack_require__.e(/*! import() | admin-components/domain */ "admin-components/domain").then(__webpack_require__.bind(null, /*! ./components/DomainAdd/DomainAdd.vue */ "./webpack-app/admin/components/DomainAdd/DomainAdd.vue")) },
+  { path: '/material/:page?', component: () => __webpack_require__.e(/*! import() | admin-components/material */ "admin-components/material").then(__webpack_require__.bind(null, /*! ./components/Material/Material.vue */ "./webpack-app/admin/components/Material/Material.vue")) },
 ]
 
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: routes
 }));
+
 
 /***/ }),
 

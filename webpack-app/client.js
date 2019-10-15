@@ -13,6 +13,7 @@ import i18n from './plugins/i18n'
 import AxiosHelper from './helpers/AxiosHelper'
 import DayJSHelper from './helpers/DayJSHelper'
 import StringHelper from './helpers/StringHelper'
+import ValidateHelper from './helpers/ValidateHelper'
 
 // ----------------------
 
@@ -54,7 +55,8 @@ let VueController = {
     lib: {
       AxiosHelper: AxiosHelper.setBaseURL(baseURL),
       DayJSHelper: DayJSHelper,
-      StringHelper: StringHelper
+      StringHelper: StringHelper,
+      ValidateHelper: ValidateHelper
     },
     view: 'Loading',
     error: '',

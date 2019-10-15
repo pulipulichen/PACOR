@@ -441,14 +441,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_AxiosHelper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers/AxiosHelper */ "./webpack-app/helpers/AxiosHelper.js");
 /* harmony import */ var _helpers_DayJSHelper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers/DayJSHelper */ "./webpack-app/helpers/DayJSHelper.js");
 /* harmony import */ var _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./helpers/StringHelper */ "./webpack-app/helpers/StringHelper.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./client/client.tpl */ "./webpack-app/client/client.tpl");
-/* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_client_client_tpl__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
-/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_config_js__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _client_routes__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./client/routes */ "./webpack-app/client/routes.js");
-/* harmony import */ var _client_components__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./client/components */ "./webpack-app/client/components.js");
+/* harmony import */ var _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers/ValidateHelper */ "./webpack-app/helpers/ValidateHelper.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./client/client.tpl */ "./webpack-app/client/client.tpl");
+/* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_client_client_tpl__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_config_js__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _client_routes__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./client/routes */ "./webpack-app/client/routes.js");
+/* harmony import */ var _client_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./client/components */ "./webpack-app/client/components.js");
 /* global __webpack_public_path__ */
 
 
@@ -461,6 +462,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // ----------------------------------
 // Helpers
+
 
 
 
@@ -482,9 +484,9 @@ __webpack_require__.r(__webpack_exports__);
 
 let baseURL = __webpack_require__.p
 baseURL = baseURL.split('/').slice(0, 3).join('/')
-_config_js__WEBPACK_IMPORTED_MODULE_9___default.a.baseURL = baseURL
+_config_js__WEBPACK_IMPORTED_MODULE_10___default.a.baseURL = baseURL
 
-let baseScript = jquery__WEBPACK_IMPORTED_MODULE_7___default()(document.currentScript)
+let baseScript = jquery__WEBPACK_IMPORTED_MODULE_8___default()(document.currentScript)
 if (baseScript.length === 1) {
   baseScript.before(`<div id="app"></div>`)
 }
@@ -493,7 +495,7 @@ if (baseScript.length === 1) {
 
 let VueController = {
   data: {
-    config: _config_js__WEBPACK_IMPORTED_MODULE_9___default.a,
+    config: _config_js__WEBPACK_IMPORTED_MODULE_10___default.a,
     status: {
       username: '',
     },
@@ -505,7 +507,8 @@ let VueController = {
     lib: {
       AxiosHelper: _helpers_AxiosHelper__WEBPACK_IMPORTED_MODULE_4__["default"].setBaseURL(baseURL),
       DayJSHelper: _helpers_DayJSHelper__WEBPACK_IMPORTED_MODULE_5__["default"],
-      StringHelper: _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_6__["default"]
+      StringHelper: _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_6__["default"],
+      ValidateHelper: _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_7__["default"]
     },
     view: 'Loading',
     error: '',
@@ -569,9 +572,9 @@ let VueController = {
   el: '#app',
   i18n: _plugins_i18n__WEBPACK_IMPORTED_MODULE_3__["default"],
   
-  template: _client_client_tpl__WEBPACK_IMPORTED_MODULE_8___default.a,
-  router: _client_routes__WEBPACK_IMPORTED_MODULE_10__["default"],
-  components: _client_components__WEBPACK_IMPORTED_MODULE_11__["default"],
+  template: _client_client_tpl__WEBPACK_IMPORTED_MODULE_9___default.a,
+  router: _client_routes__WEBPACK_IMPORTED_MODULE_11__["default"],
+  components: _client_components__WEBPACK_IMPORTED_MODULE_12__["default"],
   errorCaptured(err, vm, info) {
     // https://medium.com/js-dojo/error-exception-handling-in-vue-js-application-6c26eeb6b3e4
     this.error = err.stack
@@ -584,10 +587,10 @@ let VueController = {
 }
 
 if (typeof(baseURL) === 'string') {
-  jquery__WEBPACK_IMPORTED_MODULE_7___default()(() => {
+  jquery__WEBPACK_IMPORTED_MODULE_8___default()(() => {
     new vue__WEBPACK_IMPORTED_MODULE_0__["default"](VueController)
     
-    jquery__WEBPACK_IMPORTED_MODULE_7___default()('body > #TestMessage').remove()
+    jquery__WEBPACK_IMPORTED_MODULE_8___default()('body > #TestMessage').remove()
   })
 }
 

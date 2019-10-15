@@ -17,10 +17,10 @@
     </div>
   </div>
 
-  <div class="unstackable three fields">
+  <div class="three fields">
     <div class="field">
       <label for="addInputDomain">
-        {{ $t('Domain') }}
+        {{ $t('Domain (include http:// or https:// or port)') }}
       </label>
       <input type="url"
              id="addInputDomain"
@@ -44,7 +44,7 @@
       </label>
       <button type="button"
               class="ui fluid button"
-              v-bind:class="{disabled: !enableUpload}"
+              v-bind:class="{disabled: !enableAdd}"
               v-on:click="addSubmit">
         {{ $t('Submit') }}
       </button>
@@ -52,7 +52,7 @@
 
 
   </div>
-  <div class="unstackable two fields">
+  <div class="two fields">
     <div class="field">
       <label for="addInputAdmins">
         {{ $t('Admins') }}

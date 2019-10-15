@@ -1,4 +1,4 @@
-let DomainsList = {
+let DomainList = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -39,4 +39,4 @@ let DomainsList = {
   } // methods
 }
 
-export default DomainsList
+export default DomainList
