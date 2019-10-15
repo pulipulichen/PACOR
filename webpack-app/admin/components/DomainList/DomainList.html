@@ -51,7 +51,7 @@
           {{ domain.title }}
         </td>
         <td>
-          <span class="ui labeled icon button">
+          <span class="ui fluid labeled icon button">
             <i class="edit icon"></i>
             {{ domain.admins.length }}
             {{ $t('Admins', domain.admins.length) }}
@@ -63,10 +63,10 @@
           </span>
         </td>
         <td>
-          <span class="ui labeled icon button">
+          <span class="ui fluid labeled icon button">
             <i class="edit icon"></i>
-            {{ domain.webpageCount }}
-            {{ $t('Webpages', domain.webpageCount) }}
+            {{ domain.__meta__.webpages_count }}
+            {{ $t('Webpages', domain.__meta__.webpages_count) }}
           </span>
         </td>
       </tr>

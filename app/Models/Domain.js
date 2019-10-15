@@ -55,8 +55,12 @@ class Domain extends Model {
     return this.hasMany('App/Models/Webpage')
   }
   
-  async webpageCount () {
-    return await this.hasMany('App/Models/Webpage').getCount()
+  webpageCount () {
+    return {
+      eagerLoad: () => {
+        return this.id
+      }
+    }
   }
   
   assets () {

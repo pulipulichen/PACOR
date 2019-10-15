@@ -16,9 +16,9 @@ class Domain {
     
     let domains = await DomainModel
             .query()
-            //.where('domain', '!=', '')
+            .where('domain', '!=', '')
             .with('admins')
-            .with('webpageCount')
+            .withCount('webpages')
             //.offset(offset)
             //.limit(offset)
             .fetch()

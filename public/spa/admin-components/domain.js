@@ -342,7 +342,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("td", [
-                _c("span", { staticClass: "ui labeled icon button" }, [
+                _c("span", { staticClass: "ui fluid labeled icon button" }, [
                   _c("i", { staticClass: "edit icon" }),
                   _vm._v(
                     "\r\n            " +
@@ -357,13 +357,15 @@ var render = function() {
               _vm._m(0, true),
               _vm._v(" "),
               _c("td", [
-                _c("span", { staticClass: "ui labeled icon button" }, [
+                _c("span", { staticClass: "ui fluid labeled icon button" }, [
                   _c("i", { staticClass: "edit icon" }),
                   _vm._v(
                     "\r\n            " +
-                      _vm._s(domain.webpageCount) +
+                      _vm._s(domain.__meta__.webpages_count) +
                       "\r\n            " +
-                      _vm._s(_vm.$t("Webpages", domain.webpageCount)) +
+                      _vm._s(
+                        _vm.$t("Webpages", domain.__meta__.webpages_count)
+                      ) +
                       "\r\n          "
                   )
                 ])
