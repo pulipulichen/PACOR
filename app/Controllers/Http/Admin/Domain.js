@@ -63,6 +63,29 @@ class Domain {
     
     return 1
   }
+  
+  async editAdmins({request, auth}) {
+    await auth.checkGlobalAdmin()
+    
+    const {id, admins} = request.all()
+    
+    const domain = await DomainModel.find(id)
+    await domain.changeAdmins(admins)
+    
+    return 1
+  }
+  
+  async editConfig({request, auth}) {
+    await auth.checkGlobalAdmin()
+    
+    const {id, config} = request.all()
+    
+    const domain = await DomainModel.find(id)
+    domain.config = config
+    await domain.save()
+    
+    return 1
+  }
 }
 
 module.exports = Domain

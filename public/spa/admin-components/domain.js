@@ -284,7 +284,9 @@ var render = function() {
     [
       _c("div", { staticClass: "ui fields" }, [
         _c("div", { staticClass: "twelve wide field" }, [
-          _c("h2", [_vm._v(_vm._s(_vm.$t("Domain Management")))])
+          _c("h2", { on: { click: _vm.t } }, [
+            _vm._v(_vm._s(_vm.$t("Domain Management")))
+          ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "four wide field" }, [
@@ -842,10 +844,51 @@ let DomainList = {
       
       await this.lib.AxiosHelper.post('/Admin/Domain/editTitle', data)
       
-      //domain.isChanged = false
-      //this.domains[index].title = domain.title
       this.domains[index].isChanged = false
       this.$forceUpdate();
+    },
+    t: async function() {
+      await this.lib.AxiosHelper.post('/Admin/Domain/editAdmins', {
+        id: 1,
+        admins: ['pudding', 'jo']
+      })
+    },
+    editAdmins: async function (domain, index) {
+      let data = {
+        id: domain.id
+      }
+      
+      if (domain.admins !== '') {
+        data.admins = domain.admins.replace(/\n/g, ' ').trim().split(' ')
+      }
+      
+      if (data.admins.length === 0) {
+        return false
+      }
+      
+      await this.lib.AxiosHelper.post('/Admin/Domain/editAdmins', data)
+      
+      // 關閉Modal
+    },
+    editConfig: async function (domain, index) {
+      let data = {
+        id: domain.id
+      }
+      
+      if (domain.config !== '') {
+        try {
+          data.config = JSON.parse(domain.config)
+        }
+        catch (e) {}
+      }
+      
+      if (typeof(data.config) === 'undefined') {
+        return false
+      }
+      
+      await this.lib.AxiosHelper.post('/Admin/Domain/editConfig', data)
+      
+      // 關閉Modal
     }
   } // methods
 }

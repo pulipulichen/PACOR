@@ -6,6 +6,8 @@ const Hash = use('Hash')
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
+const AvatarHelper = use('App/Helpers/AvatarHelper')
+
 class User extends Model {
   
   static boot () {
@@ -20,9 +22,13 @@ class User extends Model {
         userInstance.password = await Hash.make(userInstance.password)
       }
       
-      if (typeof(userInstance.display_name) !== '' 
+      if (typeof(userInstance.display_name) !== 'string' 
               || userInstance.display_name === '') {
         userInstance.display_name = userInstance.username
+      }
+      
+      if (typeof(userInstance.avatar) !== 'string') {
+        userInstance.avatar = AvatarHelper.getRandomUser()
       }
     })
     

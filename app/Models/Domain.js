@@ -46,6 +46,33 @@ class Domain extends Model {
             .where('role', 'domain_admin')
   }
   
+  async changeAdmins (adminsUsername) {
+    // 先把不是名單中的人變成讀者
+    await this.admins()
+            .whereNotIn('username', adminsUsername)
+            .update({'role': 'reader'})
+    
+    await this.readers()
+            .whereIn('username', adminsUsername)
+            .update({'role': 'domain_admin'})
+    
+    let users = await this.users()
+            .whereIn('username', adminsUsername)
+            .fetch()
+    
+    let existedUsernames = users.toJSON().map(user => user.username)
+    let nonexistentUsernams = adminsUsername.filter(username => existedUsernames.indexOf(username) === -1)
+    
+    let usersData = nonexistentUsernams.map((username) => { return {
+      username: username,
+      role: 'domain_admin'
+    }})
+    
+    await this.users().createMany(usersData)
+    
+    return 1
+  }
+  
   readers () {
     return this.hasMany('App/Models/User')
             .where('role', 'reader')

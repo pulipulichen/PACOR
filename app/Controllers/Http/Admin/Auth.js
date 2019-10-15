@@ -11,7 +11,7 @@ const AvatarHelper = use('App/Helpers/AvatarHelper')
 
 const ADMIN_ROLES = [
   'global_admin',
-  'domain_admin',
+  'domain_admin'
 ]
 
 class Auth {
@@ -124,6 +124,7 @@ class Auth {
   // -----------------------------
   
   async checkLogin ({auth}) {
+    
     try {
       let user = await auth.getUser()
       let role = user.role

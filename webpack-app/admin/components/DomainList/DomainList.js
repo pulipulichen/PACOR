@@ -78,10 +78,51 @@ let DomainList = {
       
       await this.lib.AxiosHelper.post('/Admin/Domain/editTitle', data)
       
-      //domain.isChanged = false
-      //this.domains[index].title = domain.title
       this.domains[index].isChanged = false
       this.$forceUpdate();
+    },
+    t: async function() {
+      await this.lib.AxiosHelper.post('/Admin/Domain/editAdmins', {
+        id: 1,
+        admins: ['pudding', 'jo']
+      })
+    },
+    editAdmins: async function (domain, index) {
+      let data = {
+        id: domain.id
+      }
+      
+      if (domain.admins !== '') {
+        data.admins = domain.admins.replace(/\n/g, ' ').trim().split(' ')
+      }
+      
+      if (data.admins.length === 0) {
+        return false
+      }
+      
+      await this.lib.AxiosHelper.post('/Admin/Domain/editAdmins', data)
+      
+      // 關閉Modal
+    },
+    editConfig: async function (domain, index) {
+      let data = {
+        id: domain.id
+      }
+      
+      if (domain.config !== '') {
+        try {
+          data.config = JSON.parse(domain.config)
+        }
+        catch (e) {}
+      }
+      
+      if (typeof(data.config) === 'undefined') {
+        return false
+      }
+      
+      await this.lib.AxiosHelper.post('/Admin/Domain/editConfig', data)
+      
+      // 關閉Modal
     }
   } // methods
 }
