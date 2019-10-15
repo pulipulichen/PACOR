@@ -331,31 +331,31 @@ var render = function() {
       _c("table", { staticClass: "ui unstackable table" }, [
         _c("thead", [
           _c("tr", [
-            _c("th", [
+            _c("th", { staticClass: "center aligned" }, [
               _vm._v(
                 "\r\n          " + _vm._s(_vm.$t("Domain")) + "\r\n        "
               )
             ]),
             _vm._v(" "),
-            _c("th", [
+            _c("th", { staticClass: "center aligned" }, [
               _vm._v(
                 "\r\n          " + _vm._s(_vm.$t("Title")) + "\r\n        "
               )
             ]),
             _vm._v(" "),
-            _c("th", [
+            _c("th", { staticClass: "center aligned" }, [
               _vm._v(
                 "\r\n          " + _vm._s(_vm.$t("Admins")) + "\r\n        "
               )
             ]),
             _vm._v(" "),
-            _c("th", [
+            _c("th", { staticClass: "center aligned" }, [
               _vm._v(
                 "\r\n          " + _vm._s(_vm.$t("Config")) + "\r\n        "
               )
             ]),
             _vm._v(" "),
-            _c("th", [
+            _c("th", { staticClass: "center aligned" }, [
               _vm._v(
                 "\r\n          " + _vm._s(_vm.$t("Webpage")) + "\r\n        "
               )
@@ -373,38 +373,95 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("td", [
-                _vm._v("\r\n          " + _vm._s(domain.title) + "\r\n        ")
-              ]),
+              _c(
+                "td",
+                { staticClass: "field", class: { error: domain.title === "" } },
+                [
+                  _c("div", { staticClass: "ui action input" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: domain.title,
+                          expression: "domain.title"
+                        }
+                      ],
+                      attrs: { type: "text" },
+                      domProps: { value: domain.title },
+                      on: {
+                        input: [
+                          function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(domain, "title", $event.target.value)
+                          },
+                          function($event) {
+                            domain.isChanged = true
+                          }
+                        ]
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "ui icon button",
+                        class: {
+                          disabled: !(
+                            domain.isChanged === true && domain.title !== ""
+                          )
+                        },
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.editTitle(domain, index)
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "edit icon" })]
+                    )
+                  ])
+                ]
+              ),
               _vm._v(" "),
-              _c("td", [
-                _c("span", { staticClass: "ui fluid labeled icon button" }, [
-                  _c("i", { staticClass: "edit icon" }),
-                  _vm._v(
-                    "\r\n            " +
-                      _vm._s(domain.admins.length) +
+              _c("td", { staticClass: "center aligned" }, [
+                _c(
+                  "span",
+                  { staticClass: "ui fluid right labeled icon button" },
+                  [
+                    _vm._v(
                       "\r\n            " +
-                      _vm._s(_vm.$t("Admins", domain.admins.length)) +
-                      "\r\n          "
-                  )
-                ])
+                        _vm._s(domain.admins.length) +
+                        "\r\n            " +
+                        _vm._s(_vm.$t("Admins", domain.admins.length)) +
+                        "\r\n            "
+                    ),
+                    _c("i", { staticClass: "edit icon" })
+                  ]
+                )
               ]),
               _vm._v(" "),
               _vm._m(0, true),
               _vm._v(" "),
-              _c("td", [
-                _c("span", { staticClass: "ui fluid labeled icon button" }, [
-                  _c("i", { staticClass: "edit icon" }),
-                  _vm._v(
-                    "\r\n            " +
-                      _vm._s(domain.__meta__.webpages_count) +
+              _c("td", { staticClass: "center aligned" }, [
+                _c(
+                  "span",
+                  { staticClass: "ui fluid right labeled icon button" },
+                  [
+                    _vm._v(
                       "\r\n            " +
-                      _vm._s(
-                        _vm.$t("Webpages", domain.__meta__.webpages_count)
-                      ) +
-                      "\r\n          "
-                  )
-                ])
+                        _vm._s(domain.__meta__.webpages_count) +
+                        "\r\n            " +
+                        _vm._s(
+                          _vm.$t("Webpages", domain.__meta__.webpages_count)
+                        ) +
+                        "\r\n            "
+                    ),
+                    _c("i", { staticClass: "edit icon" })
+                  ]
+                )
               ])
             ])
           }),
@@ -424,7 +481,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
+    return _c("td", { staticClass: "center aligned" }, [
       _c("span", { staticClass: "ui icon button" }, [
         _c("i", { staticClass: "edit icon" })
       ])
@@ -776,6 +833,20 @@ let DomainList = {
         }
       }
     },
+    
+    editTitle: async function (domain, index) {
+      let data = {
+        id: domain.id,
+        title: domain.title
+      }
+      
+      await this.lib.AxiosHelper.post('/Admin/Domain/editTitle', data)
+      
+      //domain.isChanged = false
+      //this.domains[index].title = domain.title
+      this.domains[index].isChanged = false
+      this.$forceUpdate();
+    }
   } // methods
 }
 

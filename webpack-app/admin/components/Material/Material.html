@@ -75,7 +75,7 @@
           <div class="ui action input">
             <input type="text"
                  v-model="asset.filename"
-                 v-on:keyup="change(asset.id)" />
+                 v-on:input="change(asset.id)" />
             <button type="button"
                 class="ui icon button"
                 v-bind:class="{disabled: !isAssetChanged(asset.id), green: isAssetChanged(asset.id)}"

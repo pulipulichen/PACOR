@@ -51,6 +51,18 @@ class Domain {
     
     return 1
   }
+  
+  async editTitle({request, auth}) {
+    await auth.checkGlobalAdmin()
+    
+    const {id, title} = request.all()
+    
+    const domain = await DomainModel.find(id)
+    domain.title = title
+    await domain.save()
+    
+    return 1
+  }
 }
 
 module.exports = Domain

@@ -69,6 +69,20 @@ let DomainList = {
         }
       }
     },
+    
+    editTitle: async function (domain, index) {
+      let data = {
+        id: domain.id,
+        title: domain.title
+      }
+      
+      await this.lib.AxiosHelper.post('/Admin/Domain/editTitle', data)
+      
+      //domain.isChanged = false
+      //this.domains[index].title = domain.title
+      this.domains[index].isChanged = false
+      this.$forceUpdate();
+    }
   } // methods
 }
 

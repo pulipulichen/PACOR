@@ -28,19 +28,19 @@
   <table class="ui unstackable table">
     <thead>
       <tr>
-        <th>
+        <th class="center aligned">
           {{ $t('Domain') }}
         </th>
-        <th>
+        <th class="center aligned">
           {{ $t('Title') }}
         </th>
-        <th>
+        <th class="center aligned">
           {{ $t('Admins') }}
         </th>
-        <th>
+        <th class="center aligned">
           {{ $t('Config') }}
         </th>
-        <th>
+        <th class="center aligned">
           {{ $t('Webpage') }}
         </th>
       </tr>
@@ -50,26 +50,37 @@
         <td>
           {{ domain.domain }}
         </td>
-        <td>
-          {{ domain.title }}
+        <td class="field"
+            v-bind:class="{error: (domain.title === '')}">
+          <div class="ui action input">
+            <input type="text"
+                   v-model="domain.title"
+                   v-on:input="domain.isChanged = true" />
+            <button type="button"
+                class="ui icon button"
+                v-bind:class="{disabled: !(domain.isChanged === true && domain.title !== '')}"
+                v-on:click="editTitle(domain, index)">
+                <i class="edit icon"></i> 
+            </button>
+          </div>
         </td>
-        <td>
-          <span class="ui fluid labeled icon button">
-            <i class="edit icon"></i>
+        <td class="center aligned">
+          <span class="ui fluid right labeled icon button">
             {{ domain.admins.length }}
             {{ $t('Admins', domain.admins.length) }}
+            <i class="edit icon"></i>
           </span>
         </td>
-        <td>
+        <td class="center aligned">
           <span class="ui icon button">
             <i class="edit icon"></i>
           </span>
         </td>
-        <td>
-          <span class="ui fluid labeled icon button">
-            <i class="edit icon"></i>
+        <td class="center aligned">
+          <span class="ui fluid right labeled icon button">
             {{ domain.__meta__.webpages_count }}
             {{ $t('Webpages', domain.__meta__.webpages_count) }}
+            <i class="edit icon"></i>
           </span>
         </td>
       </tr>

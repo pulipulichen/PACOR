@@ -202,15 +202,17 @@ var render = function() {
                     attrs: { type: "text" },
                     domProps: { value: asset.filename },
                     on: {
-                      keyup: function($event) {
-                        return _vm.change(asset.id)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      input: [
+                        function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(asset, "filename", $event.target.value)
+                        },
+                        function($event) {
+                          return _vm.change(asset.id)
                         }
-                        _vm.$set(asset, "filename", $event.target.value)
-                      }
+                      ]
                     }
                   }),
                   _vm._v(" "),
