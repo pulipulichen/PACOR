@@ -8,9 +8,12 @@
           <span class="ui button active">
             {{ $t('List') }}
           </span>
-        
-          <a
-             href="#/domain/add"
+          <a href="/admin/Database/admin?table=domains"
+             class="ui button"
+             target="_blank">
+            {{ $t('Database') }}
+          </a>
+          <a href="#/domain/add"
              class="ui button">
             {{ $t('Add') }}
           </a>

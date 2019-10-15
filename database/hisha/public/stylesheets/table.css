@@ -88,7 +88,7 @@ used to vertically center elements, may need modification if you're not using de
   height: calc(100vh - 11rem);
   position: fixed;
   left: 0;
-  max-width: 100vw;
+  width: 100vw;
   
 }
 

@@ -79,6 +79,8 @@ let ErrorHandler = {
       if (typeof(this.error) === 'object' 
               || (typeof(this.error) === 'string' && this.error.trim() !== '') ) {
         this.showError = true
+        this.showServerErrorStack = false
+        this.showErrorStack = false
       }
     },
   },

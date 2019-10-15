@@ -46,9 +46,7 @@ let DomainAdd = {
       let result = await this.lib.AxiosHelper.post('/admin/Domain/add', data)
       
       // 完成admin之後呢？
-      if (typeof(result) === 'object') {
-        this.$router.push('/domain/list/1')
-      }
+      this.$router.push('/domain/list/')
     }
   } // methods
 }

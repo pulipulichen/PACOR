@@ -112,7 +112,7 @@ var render = function() {
                 _c("div", { staticClass: "content" }, [
                   _c("a", { staticClass: "header" }, [
                     _vm.responseErrorMessage
-                      ? _c("pre", [_vm._v(_vm._s(_vm.responseErrorMessage))])
+                      ? _c("span", [_vm._v(_vm._s(_vm.responseErrorMessage))])
                       : _vm._e()
                   ]),
                   _vm._v(" "),
@@ -154,7 +154,7 @@ var render = function() {
                 _c("div", { staticClass: "content" }, [
                   _c("a", { staticClass: "header" }, [
                     _vm.localErrorMessage
-                      ? _c("pre", [_vm._v(_vm._s(_vm.localErrorMessage))])
+                      ? _c("span", [_vm._v(_vm._s(_vm.localErrorMessage))])
                       : _vm._e()
                   ]),
                   _vm._v(" "),
@@ -196,7 +196,7 @@ var render = function() {
                 _c("div", { staticClass: "content" }, [
                   _c("a", { staticClass: "header" }, [
                     _vm.error
-                      ? _c("pre", [_vm._v(_vm._s(_vm.error))])
+                      ? _c("span", [_vm._v(_vm._s(_vm.error))])
                       : _vm._e()
                   ])
                 ])
@@ -445,6 +445,8 @@ let ErrorHandler = {
       if (typeof(this.error) === 'object' 
               || (typeof(this.error) === 'string' && this.error.trim() !== '') ) {
         this.showError = true
+        this.showServerErrorStack = false
+        this.showErrorStack = false
       }
     },
   },

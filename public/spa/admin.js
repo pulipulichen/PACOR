@@ -540,6 +540,18 @@ var render = function() {
         [_vm._v("\r\n     " + _vm._s(_vm.$t("Material")) + "\r\n    ")]
       ),
       _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "item",
+          attrs: {
+            href: "/admin/Database/admin?table=webpages",
+            target: "_blank"
+          }
+        },
+        [_vm._v("\r\n     " + _vm._s(_vm.$t("Database")) + "\r\n    ")]
+      ),
+      _vm._v(" "),
       _c("a", { staticClass: "item", on: { click: _vm.logout } }, [
         _vm._v("\r\n     " + _vm._s(_vm.$t("Logout")) + "\r\n    ")
       ]),

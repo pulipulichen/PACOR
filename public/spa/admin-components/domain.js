@@ -93,6 +93,24 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "ui button",
+              attrs: {
+                href: "/admin/Database/admin?table=domains",
+                target: "_blank"
+              }
+            },
+            [
+              _vm._v(
+                "\r\n            " +
+                  _vm._s(_vm.$t("Database")) +
+                  "\r\n          "
+              )
+            ]
+          ),
+          _vm._v(" "),
           _c("a", { staticClass: "ui active button" }, [
             _vm._v(
               "\r\n            " + _vm._s(_vm.$t("Add")) + "\r\n          "
@@ -276,6 +294,24 @@ var render = function() {
                 "\r\n            " + _vm._s(_vm.$t("List")) + "\r\n          "
               )
             ]),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "ui button",
+                attrs: {
+                  href: "/admin/Database/admin?table=domains",
+                  target: "_blank"
+                }
+              },
+              [
+                _vm._v(
+                  "\r\n            " +
+                    _vm._s(_vm.$t("Database")) +
+                    "\r\n          "
+                )
+              ]
+            ),
             _vm._v(" "),
             _c(
               "a",
@@ -518,9 +554,7 @@ let DomainAdd = {
       let result = await this.lib.AxiosHelper.post('/admin/Domain/add', data)
       
       // 完成admin之後呢？
-      if (typeof(result) === 'object') {
-        this.$router.push('/domain/list/1')
-      }
+      this.$router.push('/domain/list/')
     }
   } // methods
 }

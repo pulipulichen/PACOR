@@ -13,7 +13,7 @@
          v-on:click="showServerErrorStack = !showServerErrorStack"></i>
       <div class="content">
         <a class="header">
-          <pre v-if="responseErrorMessage">{{ responseErrorMessage }}</pre>
+          <span v-if="responseErrorMessage">{{ responseErrorMessage }}</span>
         </a>
         <div class="description">
           <pre v-if="responseErrorStack && !showServerErrorStack"
@@ -30,7 +30,7 @@
          v-on:click="showErrorStack = !showErrorStack"></i>
       <div class="content">
         <a class="header">
-          <pre v-if="localErrorMessage">{{ localErrorMessage }}</pre>
+          <span v-if="localErrorMessage">{{ localErrorMessage }}</span>
         </a>
         <div class="description">
           <pre v-if="localErrorStack && !showErrorStack"
@@ -47,7 +47,7 @@
          v-on:click="showErrorStack = !showErrorStack"></i>
       <div class="content">
         <a class="header">
-          <pre v-if="error">{{ error }}</pre>
+          <span v-if="error">{{ error }}</span>
         </a>
         <!--
         <div class="description">
