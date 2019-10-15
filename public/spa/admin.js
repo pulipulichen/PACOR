@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"admin-components/domains":"admin-components/domains","admin-components/materials":"admin-components/materials","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -311,7 +311,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".close.item[data-v-05077283] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n  border-bottom: 1px solid #ccc;\n}\n@media screen and (min-width: 600px) {\n.menu-compact.right.menu[data-v-05077283] {\n    display: none !important;\n}\n}\n@media screen and (max-width: 600px) {\n.menu-full.right.menu[data-v-05077283] {\n    display: none !important;\n}\n}\n", "",{"version":3,"sources":["Items.less?vue&type=style&index=0&id=05077283&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,YAAY;EACZ,oBAAoB;EACpB,6BAA6B;AAC/B;AACA;AACA;IACI,wBAAwB;AAC5B;AACA;AACA;AACA;IACI,wBAAwB;AAC5B;AACA","file":"Items.less?vue&type=style&index=0&id=05077283&lang=less&scoped=true&","sourcesContent":[".close.item[data-v-05077283] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n  border-bottom: 1px solid #ccc;\n}\n@media screen and (min-width: 600px) {\n.menu-compact.right.menu[data-v-05077283] {\n    display: none !important;\n}\n}\n@media screen and (max-width: 600px) {\n.menu-full.right.menu[data-v-05077283] {\n    display: none !important;\n}\n}\n"]}]);
+exports.push([module.i, ".close.item[data-v-05077283] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n  border-bottom: 1px solid #ccc;\n}\n.item.title[data-v-05077283] {\n  font-size: 20px;\n  font-weight: bold;\n  padding-top: 0;\n  padding-bottom: 0;\n}\n.item.active[data-v-05077283] {\n  background-color: rgba(255, 255, 255, 0.3) !important;\n}\n@media screen and (min-width: 600px) {\n.menu-compact.right.menu[data-v-05077283] {\n    display: none !important;\n}\n}\n@media screen and (max-width: 600px) {\n.menu-full.right.menu[data-v-05077283] {\n    display: none !important;\n}\n}\n", "",{"version":3,"sources":["Items.less?vue&type=style&index=0&id=05077283&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,YAAY;EACZ,oBAAoB;EACpB,6BAA6B;AAC/B;AACA;EACE,eAAe;EACf,iBAAiB;EACjB,cAAc;EACd,iBAAiB;AACnB;AACA;EACE,qDAAqD;AACvD;AACA;AACA;IACI,wBAAwB;AAC5B;AACA;AACA;AACA;IACI,wBAAwB;AAC5B;AACA","file":"Items.less?vue&type=style&index=0&id=05077283&lang=less&scoped=true&","sourcesContent":[".close.item[data-v-05077283] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n  border-bottom: 1px solid #ccc;\n}\n.item.title[data-v-05077283] {\n  font-size: 20px;\n  font-weight: bold;\n  padding-top: 0;\n  padding-bottom: 0;\n}\n.item.active[data-v-05077283] {\n  background-color: rgba(255, 255, 255, 0.3) !important;\n}\n@media screen and (min-width: 600px) {\n.menu-compact.right.menu[data-v-05077283] {\n    display: none !important;\n}\n}\n@media screen and (max-width: 600px) {\n.menu-full.right.menu[data-v-05077283] {\n    display: none !important;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -524,6 +524,7 @@ var render = function() {
         "a",
         {
           staticClass: "item",
+          class: { active: _vm.$route.path.startsWith("/domains") },
           on: {
             click: function($event) {
               return _vm.$router.push("/domains")
@@ -537,6 +538,7 @@ var render = function() {
         "a",
         {
           staticClass: "item",
+          class: { active: _vm.$route.path.startsWith("/materials") },
           on: {
             click: function($event) {
               return _vm.$router.push("/materials")
@@ -548,7 +550,31 @@ var render = function() {
       _vm._v(" "),
       _c("a", { staticClass: "item", on: { click: _vm.logout } }, [
         _vm._v("\r\n     " + _vm._s(_vm.$t("Logout")) + "\r\n    ")
-      ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "item",
+          attrs: {
+            href: "https://github.com/pulipulichen/PACOR",
+            target: "PACOR"
+          }
+        },
+        [_vm._v("\r\n     " + _vm._s(_vm.$t("Project")) + "\r\n    ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "item",
+          attrs: {
+            href: "https://github.com/pulipulichen/PACOR/issues",
+            target: "PACORIssues"
+          }
+        },
+        [_vm._v("\r\n     " + _vm._s(_vm.$t("Issues")) + "\r\n    ")]
+      )
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "menu-compact right menu" }, [
@@ -1587,9 +1613,10 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"])
 
 const routes = [
-  { path: '/', redirect: '/domains' },
-  { path: '/domains/:page?', component: () => __webpack_require__.e(/*! import() | admin-components/domains */ "admin-components/domains").then(__webpack_require__.bind(null, /*! ./components/Domains/Domains.vue */ "./webpack-app/admin/components/Domains/Domains.vue")) },
-  { path: '/materials/:page?', component: () => __webpack_require__.e(/*! import() | admin-components/materials */ "admin-components/materials").then(__webpack_require__.bind(null, /*! ./components/Materials/Materials.vue */ "./webpack-app/admin/components/Materials/Materials.vue")) },
+  { path: '/', redirect: '/domain/list' },
+  { path: '/domain/list/:page?', component: () => Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './components/DomainList/DomainList.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }) },
+  { path: '/domain/add', component: () => Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './components/DomainAdd/DomainAdd.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }) },
+  { path: '/material/:page?', component: () => Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './components/Material/Material.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }) },
 ]
 
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({

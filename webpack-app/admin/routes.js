@@ -3,9 +3,10 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/', redirect: '/domains' },
-  { path: '/domains/:page?', component: () => import(/* webpackChunkName: "admin-components/domains" */ './components/Domains/Domains.vue') },
-  { path: '/materials/:page?', component: () => import(/* webpackChunkName: "admin-components/materials" */ './components/Materials/Materials.vue') },
+  { path: '/', redirect: '/domain/list' },
+  { path: '/domain/list/:page?', component: () => import(/* webpackChunkName: "admin-components/domain" */ './components/DomainList/DomainList.vue') },
+  { path: '/domain/add', component: () => import(/* webpackChunkName: "admin-components/domain" */ './components/DomainAdd/DomainAdd.vue') },
+  { path: '/material/:page?', component: () => import(/* webpackChunkName: "admin-components/material" */ './components/Material/Material.vue') },
 ]
 
 export default new VueRouter({

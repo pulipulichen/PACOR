@@ -14,11 +14,13 @@
   <div class="menu-full right menu">
     
     <a class="item"
+       v-bind:class="{active: $route.path.startsWith('/domains')}"
        v-on:click="$router.push('/domains')">
      {{ $t('Domains') }}
     </a>
     
     <a class="item"
+       v-bind:class="{active: $route.path.startsWith('/materials')}"
        v-on:click="$router.push('/materials')">
      {{ $t('Materials') }}
     </a>
@@ -26,7 +28,19 @@
     <a class="item"
        v-on:click="logout">
      {{ $t('Logout') }}
-    </a>    
+    </a>
+    
+    <a class="item"
+       href="https://github.com/pulipulichen/PACOR"
+       target="PACOR">
+     {{ $t('Project') }}
+    </a>
+    
+    <a class="item"
+       href="https://github.com/pulipulichen/PACOR/issues"
+       target="PACORIssues">
+     {{ $t('Issues') }}
+    </a>
   </div>
   <div class="menu-compact right menu">
     <a class="icon item"

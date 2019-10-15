@@ -1,66 +1,24 @@
-<div class="ui segment">
-  <h2>{{ $t('Domain Management') }}</h2>
-  
-  <div class="ui segment">
-    <div class="unstackable three fields">
-      <div class="field">
-        <label for="createDomain">
-          {{ $t('Domain') }}
-        </label>
-        <input type="url"
-               id="createDomain"
-               size="256"
-               name="createDomain"
-               v-model="create.domain" />
-      </div>
-      <div class="field">
-        <label for="createTitle">
-          {{ $t('Title') }}
-        </label>
-        <input type="text"
-               id="createTitle"
-               size="256"
-               name="createTitle"
-               v-model="create.title" />
-      </div>
-      <div class="field">
-        <label>
-          &nbsp;
-        </label>
-        <button type="button"
-                class="ui fluid button"
-                v-bind:class="{disabled: !enableUpload}"
-                v-on:click="upload">
-          {{ $t('Submit') }}
-        </button>
-      </div>
-      
-      <div class="unstackable two fields">
-        <div class="field">
-          <label for="createAdmins">
-            {{ $t('Admins') }}
-            ({{ $t('Split admins by space') }})
-          </label>
-          <textarea id="createAdmins"
-                    name="createAdmins"
-                    class="ui red"
-                    v-model="create.admins"></textarea>
-        </div>
-        <div class="field">
-          <label for="createConfig">
-            {{ $t('Config') }}
-            ({{ $t('JSON Format') }}
-            <a href="./help/ConfigExample.md" target="_blank">{{ $t('Example') }}</a>)
-          </label>
-          <textarea id="createConfig"
-                    name="createConfig"
-                    class="ui red"
-                    v-model="create.config"></textarea>
-        </div>
+<div class="ui form">
+  <div class="ui fields">
+    <div class="twelve wide field">
+      <h2>{{ $t('Domain Management') }}</h2>
+    </div>
+    <div class="four wide field">
+      <div class="ui fluid buttons sub-navigation">
+          <span class="ui button active">
+            {{ $t('List') }}
+          </span>
+        
+          <a
+             href="#/domain/add"
+             class="ui button">
+            {{ $t('Add') }}
+          </a>
       </div>
     </div>
   </div>
   
+    
   <!--
   <pagination v-bind:pageConfig="pageConfig" />
   
