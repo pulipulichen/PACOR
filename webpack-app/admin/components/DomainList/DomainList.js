@@ -81,12 +81,14 @@ let DomainList = {
       this.domains[index].isChanged = false
       this.$forceUpdate();
     },
+    /*
     t: async function() {
       await this.lib.AxiosHelper.post('/Admin/Domain/editAdmins', {
         id: 1,
         admins: ['pudding', 'jo']
       })
     },
+     */
     editAdmins: async function (domain, index) {
       let data = {
         id: domain.id

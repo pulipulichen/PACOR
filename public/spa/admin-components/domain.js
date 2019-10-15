@@ -284,9 +284,7 @@ var render = function() {
     [
       _c("div", { staticClass: "ui fields" }, [
         _c("div", { staticClass: "twelve wide field" }, [
-          _c("h2", { on: { click: _vm.t } }, [
-            _vm._v(_vm._s(_vm.$t("Domain Management")))
-          ])
+          _c("h2", [_vm._v(_vm._s(_vm.$t("Domain Management")))])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "four wide field" }, [
@@ -847,12 +845,14 @@ let DomainList = {
       this.domains[index].isChanged = false
       this.$forceUpdate();
     },
+    /*
     t: async function() {
       await this.lib.AxiosHelper.post('/Admin/Domain/editAdmins', {
         id: 1,
         admins: ['pudding', 'jo']
       })
     },
+     */
     editAdmins: async function (domain, index) {
       let data = {
         id: domain.id
