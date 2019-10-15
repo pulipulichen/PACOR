@@ -232,6 +232,10 @@ var render = function() {
                   _c("div", { staticClass: "description" }, [
                     _vm.error.config.params
                       ? _c("pre", [_vm._v(_vm._s(_vm.error.config.params))])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.error.config.data
+                      ? _c("pre", [_vm._v(_vm._s(_vm.displayErrorData))])
                       : _vm._e()
                   ])
                 ])
@@ -437,11 +441,24 @@ let ErrorHandler = {
           return stack.split('\n').slice(1).map(line => line.trim()).join('\n')
         }
       }
+    },
+    displayErrorData: function () {
+      if (typeof(this.error) === 'object'
+              && typeof(this.error.config) === 'object'
+              && typeof(this.error.config.data) !== 'undefined') {
+        let data = this.error.config.data
+        try {
+          data = JSON.parse(data)
+        }
+        catch (e) {} 
+        return data
+      }
     }
   },
   watch: {
     'error': function () {
       //console.log(typeof(this.error), this.error)
+      console.log(JSON.stringify(this.error.config, null, '\t'))
       if (typeof(this.error) === 'object' 
               || (typeof(this.error) === 'string' && this.error.trim() !== '') ) {
         this.showError = true
@@ -454,7 +471,7 @@ let ErrorHandler = {
     close () {
       this.showError = false
     },
-    retry (e) {
+    async retry (e) {
       if (typeof(this.error) !== 'object' 
               || typeof(this.error.config) !== 'object' 
               || typeof(this.error.config.url) !== 'string'
@@ -463,7 +480,7 @@ let ErrorHandler = {
       }
       console.log('retry')
       
-      e.stopPropagation()
+      let result = await this.lib.AxiosHelper[this.error.config.method](this.error.config.url, this.error.config.params)
       //let url = 
     }
   } // methods

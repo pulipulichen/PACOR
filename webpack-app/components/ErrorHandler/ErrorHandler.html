@@ -73,6 +73,7 @@
         </a>
         <div class="description">
           <pre v-if="error.config.params">{{ error.config.params }}</pre>
+          <pre v-if="error.config.data">{{ displayErrorData }}</pre>
         </div>
       </div>
     </div>
