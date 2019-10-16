@@ -2,7 +2,8 @@
   "elements": {
     "pagination": {},
     "materials": {},
-    "domain-edit-admin": {}
+    "domain-edit-admin": {},
+    "modal": {}
   },
   "attributes": {
     "v-bind:class": {},
@@ -12,7 +13,10 @@
       "context": "button"
     },
     "v-bind:href": {},
+    "v-slot:content": {},
     "v-for": {},
+    "v-slot:header": {},
+    "#header": {},
     "v-model": {}
   }
 }

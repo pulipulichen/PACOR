@@ -91,8 +91,23 @@
               pathPrefix="/domains/" />
   
   <modal v-bind:config="config"
-                v-bind:status="status"
-                v-bind:progress="progress"
-                v-bind:error="error"
-                v-bind:lib="lib"></modal>
+         v-bind:status="status"
+         v-bind:progress="progress"
+         v-bind:error="error"
+         v-bind:lib="lib"
+         modal_display_close_icon="false">
+    <template v-slot:header>OK</template>
+    <template v-slot:content>
+      <div class="image">
+        An image can appear on left or an icon
+      </div>
+      <div class="description">
+        A description can appear on the right
+      </div>
+    </template>
+    <template v-slot:actions>
+      <div class="ui button">Cancel</div>
+      <div class="ui button">OK</div>
+    </template>
+  </modal>
 </div>

@@ -479,8 +479,48 @@ var render = function() {
           status: _vm.status,
           progress: _vm.progress,
           error: _vm.error,
-          lib: _vm.lib
-        }
+          lib: _vm.lib,
+          modal_display_close_icon: "false"
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "header",
+            fn: function() {
+              return [_vm._v("OK")]
+            },
+            proxy: true
+          },
+          {
+            key: "content",
+            fn: function() {
+              return [
+                _c("div", { staticClass: "image" }, [
+                  _vm._v(
+                    "\r\n        An image can appear on left or an icon\r\n      "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "description" }, [
+                  _vm._v(
+                    "\r\n        A description can appear on the right\r\n      "
+                  )
+                ])
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "actions",
+            fn: function() {
+              return [
+                _c("div", { staticClass: "ui button" }, [_vm._v("Cancel")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "ui button" }, [_vm._v("OK")])
+              ]
+            },
+            proxy: true
+          }
+        ])
       })
     ],
     1
