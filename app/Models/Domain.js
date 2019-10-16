@@ -41,9 +41,17 @@ class Domain extends Model {
     return this.hasMany('App/Models/User')
   }
   
-  admins () {
-    return this.hasMany('App/Models/User')
-            .where('role', 'domain_admin')
+  static get computed () {
+    return ['admins', 'admins_string']
+  }
+  
+  //admins () {
+  //  return this.hasMany('App/Models/User')
+  //          .where('role', 'domain_admin')
+  //}
+  
+  getAdmins ({users})  {
+    return users().where('role', 'domain_admin')
   }
   
   async changeAdmins (adminsUsername) {

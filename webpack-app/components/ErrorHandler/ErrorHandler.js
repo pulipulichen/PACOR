@@ -73,21 +73,34 @@ let ErrorHandler = {
       }
     },
     displayErrorData: function () {
+      let data
       if (typeof(this.error) === 'object'
               && typeof(this.error.config) === 'object'
               && typeof(this.error.config.data) !== 'undefined') {
-        let data = this.error.config.data
+        data = this.error.config.data  
+      }
+      else if (typeof(this.error) === 'object'
+              && typeof(this.error.config) === 'object'
+              && typeof(this.error.config.params) !== 'undefined') {
+        data = this.error.config.params
+      }
+      
+      if (data === undefined) {
+        return
+      }
+      
+      if (typeof(data) === 'string') {
         try {
           data = JSON.parse(data)
         }
         catch (e) {}
-        
-        if (typeof(data) === 'object') {
-          data = JSON.stringify(data, null, ' ').slice(2, -2)
-        }
-        
-        return data
       }
+
+      if (typeof(data) === 'object') {
+        data = JSON.stringify(data, null, ' ').slice(2, -2)
+      }
+
+      return data
     }
   },
   watch: {

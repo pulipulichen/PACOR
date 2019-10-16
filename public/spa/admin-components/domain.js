@@ -474,13 +474,14 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("modal", {
+        ref: "ModelEditAdmin",
         attrs: {
+          modal_cancal_action: "true",
           config: _vm.config,
           status: _vm.status,
           progress: _vm.progress,
           error: _vm.error,
-          lib: _vm.lib,
-          modal_display_close_icon: "false"
+          lib: _vm.lib
         },
         scopedSlots: _vm._u([
           {
@@ -494,17 +495,9 @@ var render = function() {
             key: "content",
             fn: function() {
               return [
-                _c("div", { staticClass: "image" }, [
-                  _vm._v(
-                    "\r\n        An image can appear on left or an icon\r\n      "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "description" }, [
-                  _vm._v(
-                    "\r\n        A description can appear on the right\r\n      "
-                  )
-                ])
+                _vm._v(
+                  "\r\n        A description can appear on the right\r\n    "
+                )
               ]
             },
             proxy: true
@@ -512,11 +505,7 @@ var render = function() {
           {
             key: "actions",
             fn: function() {
-              return [
-                _c("div", { staticClass: "ui button" }, [_vm._v("Cancel")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "ui button" }, [_vm._v("OK")])
-              ]
+              return [_c("div", { staticClass: "ui button" }, [_vm._v("OK")])]
             },
             proxy: true
           }

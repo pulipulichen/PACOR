@@ -7,7 +7,8 @@ let i18nGlobal = {
     "OK": "確認",
     "UPLOAD": "上傳",
     "SUBMIT": "送出",
-    "ADD": "新增"
+    "ADD": "新增",
+    "CANCEL": "取消"
   }
 }
 

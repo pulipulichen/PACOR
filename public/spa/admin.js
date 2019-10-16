@@ -704,7 +704,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { ref: "modal", staticClass: "ui modal" }, [
-    _vm.modal_display_close_icon !== "false"
+    _vm.modal_display_close_icon !== "false" ||
+    _vm.modal_cancal_action === "true"
       ? _c("i", { staticClass: "close icon" })
       : _vm._e(),
     _vm._v(" "),
@@ -716,8 +717,21 @@ var render = function() {
       ? _c("div", { staticClass: "content" }, [_vm._t("content")], 2)
       : _vm._e(),
     _vm._v(" "),
-    _vm.$slots.actions
-      ? _c("div", { staticClass: "actions" }, [_vm._t("actions")], 2)
+    _vm.$slots.actions || _vm.modal_cancal_action === "true"
+      ? _c(
+          "div",
+          { staticClass: "actions" },
+          [
+            _vm.modal_cancal_action === "true"
+              ? _c("div", { staticClass: "ui button" }, [
+                  _vm._v("\r\n      " + _vm._s(_vm.$t("CANCEL")) + "\r\n    ")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._t("actions")
+          ],
+          2
+        )
       : _vm._e()
   ])
 }
@@ -1810,7 +1824,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 let Template = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'
-    , 'modal_title', 'modal_display_close_icon'],
+    , 'modal_title', 'modal_display_close_icon', 'modal_cancal_action'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {

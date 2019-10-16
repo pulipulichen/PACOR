@@ -72,8 +72,7 @@
           <span v-if="error.config.url">{{ error.config.url }}</span>
         </a>
         <div class="description">
-          <pre v-if="error.config.params">{{ error.config.params }}</pre>
-          <pre v-if="error.config.data">{{ displayErrorData }}</pre>
+          <pre>{{ displayErrorData }}</pre>
         </div>
       </div>
     </div>
