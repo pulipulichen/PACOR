@@ -5,7 +5,7 @@ let DomainList = {
     return {
       domains: [],
       editingAdmins: {},
-      editingConfig: null,
+      editingConfig: {},
       pageConfig: {
         page: 0,
         maxPage: 0
@@ -81,7 +81,7 @@ let DomainList = {
       await this.lib.AxiosHelper.post('/Admin/Domain/editTitle', data)
       
       this.domains[index].isChanged = false
-      this.$forceUpdate();
+      this.$forceUpdate()
     },
     /*
     t: async function() {
@@ -102,15 +102,14 @@ let DomainList = {
     },
     */
     editAdminsOpen: function (domain) {
-      console.log(domain)
+      //console.log(domain)
       this.editingAdmins = domain
       this.$refs.ModelEditAdmins.show()
     },
-    editAdmins: async function () {
-      console.log('a')
-      return
-      
+    editAdminsSubmit: async function () {
       let domain = this.editingAdmins
+      this.$refs.ModelEditAdmins.hide()
+      
       let data = {
         id: domain.id
       }
@@ -123,11 +122,20 @@ let DomainList = {
         return false
       }
       
+      domain.adminsCount = data.admins.length
+      
       await this.lib.AxiosHelper.post('/Admin/Domain/editAdmins', data)
       
-      // 關閉Modal
     },
-    editConfig: async function (domain, index) {
+    editConfigOpen: function (domain) {
+      //console.log(domain)
+      this.editingConfig = domain
+      this.$refs.ModelEditConfig.show()
+    },
+    editConfigSubmit: async function () {
+      this.$refs.ModelEditConfig.hide()
+      
+      let domain = this.editingConfig
       let data = {
         id: domain.id
       }

@@ -704,8 +704,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { ref: "modal", staticClass: "ui modal" }, [
-    _vm.modal_display_close_icon !== "false" ||
-    _vm.modal_cancal_action === "true"
+    _vm.displayCloseIcon !== "false" || _vm.cancalAction === "true"
       ? _c("i", { staticClass: "close icon" })
       : _vm._e(),
     _vm._v(" "),
@@ -719,16 +718,24 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.$slots.actions || _vm.modal_cancal_action === "true"
+    _vm.$slots.actions || _vm.cancalAction === "true"
       ? _c(
           "div",
           { staticClass: "actions" },
           [
-            _vm.modal_cancal_action === "true"
+            _vm.cancalAction !== "false"
               ? _c(
                   "div",
                   { staticClass: "ui button", on: { click: _vm.hide } },
                   [_vm._v("\r\n      " + _vm._s(_vm.$t("CANCEL")) + "\r\n    ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.reset
+              ? _c(
+                  "div",
+                  { staticClass: "ui button", on: { click: _vm.doReset } },
+                  [_vm._v("\r\n      " + _vm._s(_vm.$t("RESET")) + "\r\n    ")]
                 )
               : _vm._e(),
             _vm._v(" "),
@@ -1828,10 +1835,11 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 let Template = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'
-    , 'modal_title', 'modal_display_close_icon', 'modal_cancal_action'],
+    , 'displayCloseIcon', 'cancalAction', 'reset'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      resetCache: null
     }
   },
   components: {
@@ -1839,6 +1847,17 @@ let Template = {
   computed: {
   },
   watch: {
+    'reset': function () {
+      try {
+        if (typeof(this.reset) === 'object') {
+          this.resetCache = JSON.parse(JSON.stringify(this.reset))
+        }
+        else {
+          this.resetCache = this.reset
+        }
+      }
+      catch (e) {}
+    }
   },
   mounted() {
     //setTimeout(() => {
@@ -1855,6 +1874,11 @@ let Template = {
     hide: function () {
       this.getModal().modal('hide')
     },
+    doReset: function () {
+      for (let name in this.resetCache) {
+        this.reset[name] = this.resetCache[name]
+      }
+    }
   } // methods
 }
 

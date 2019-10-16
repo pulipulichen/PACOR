@@ -1,8 +1,8 @@
 <div class="ui modal" 
      ref="modal">
   <i class="close icon"
-     v-if="modal_display_close_icon !== 'false'
-            || modal_cancal_action === 'true'"></i>
+     v-if="displayCloseIcon !== 'false'
+            || cancalAction === 'true'"></i>
   <div class="header"
        v-if="$slots.header">
     <slot name="header"></slot>
@@ -14,12 +14,18 @@
     </div>
   </div>
   <div class="actions"
-       v-if="$slots.actions || modal_cancal_action === 'true'">
+       v-if="$slots.actions || cancalAction === 'true'">
     
     <div class="ui button"
-         v-if="modal_cancal_action === 'true'"
+         v-if="cancalAction !== 'false'"
          v-on:click="hide">
       {{ $t('CANCEL') }}
+    </div>
+    
+    <div class="ui button"
+         v-if="reset"
+         v-on:click="doReset">
+      {{ $t('RESET') }}
     </div>
     
     <slot name="actions"></slot>

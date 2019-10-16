@@ -2,6 +2,7 @@
   "elements": {
     "pagination": {},
     "materials": {},
+    "slot": {},
     "domain-edit-admin": {},
     "modal": {}
   },

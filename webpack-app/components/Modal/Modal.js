@@ -1,9 +1,10 @@
 let Template = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'
-    , 'modal_title', 'modal_display_close_icon', 'modal_cancal_action'],
+    , 'displayCloseIcon', 'cancalAction', 'reset'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      resetCache: null
     }
   },
   components: {
@@ -11,6 +12,17 @@ let Template = {
   computed: {
   },
   watch: {
+    'reset': function () {
+      try {
+        if (typeof(this.reset) === 'object') {
+          this.resetCache = JSON.parse(JSON.stringify(this.reset))
+        }
+        else {
+          this.resetCache = this.reset
+        }
+      }
+      catch (e) {}
+    }
   },
   mounted() {
     //setTimeout(() => {
@@ -27,6 +39,11 @@ let Template = {
     hide: function () {
       this.getModal().modal('hide')
     },
+    doReset: function () {
+      for (let name in this.resetCache) {
+        this.reset[name] = this.resetCache[name]
+      }
+    }
   } // methods
 }
 

@@ -30,6 +30,10 @@ class Domain {
       let admins = domain.admins.map(admin => admin.username)
       domain.admins = admins.join(' ')
       domain.adminsCount = admins.length
+      
+      if (domain.config !== null) {
+        domain.config = JSON.stringify(domain.config, null, '  ')
+      }
     })
     
     let count = await DomainModel.getCount()
