@@ -1,28 +1,7 @@
 <div class="ui form">
-  <div class="ui fields">
-    <div class="ten wide field">
-      <h2>{{ $t('Domain Management') }}</h2>
-    </div>
-    <div class="six wide field">
-      <div class="ui fluid buttons sub-navigation">
-          <span class="ui button active">
-            <i class="list icon"></i>
-            {{ $t('List') }}
-          </span>
-          <a href="/admin/Database/admin?table=domains"
-             class="ui button"
-             target="_blank">
-            <i class="database icon"></i>
-            {{ $t('Database') }}
-          </a>
-          <a href="#/domain/add"
-             class="ui button">
-            <i class="plus icon"></i>
-            {{ $t('Add') }}
-          </a>
-      </div>
-    </div>
-  </div>
+  <domain-sub-navigation 
+    v-bind:title="$t('Domain Management')"
+    v-bind:config="config"></domain-sub-navigation>
   
   <!-- ==================================== -->
     

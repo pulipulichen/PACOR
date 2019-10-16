@@ -1,3 +1,5 @@
+import DomainSubNavigation from './../DomainSubNavigation/DomainSubNavigation.vue'
+
 let DomainAdd = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
@@ -12,6 +14,7 @@ let DomainAdd = {
     }
   },
   components: {
+    'domain-sub-navigation': DomainSubNavigation
   },
   computed: {
     enableAdd: function () {
