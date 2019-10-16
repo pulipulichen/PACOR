@@ -27,7 +27,9 @@ class Domain {
     //await domains.loadMany(['admins'])
     domains = domains.toJSON()
     domains.forEach(domain => {
-      domain.admins = domain.admins.map(admin => admin.username).join(' ')
+      let admins = domain.admins.map(admin => admin.username)
+      domain.admins = admins.join(' ')
+      domain.adminsCount = admins.length
     })
     
     let count = await DomainModel.getCount()

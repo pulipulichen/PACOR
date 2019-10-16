@@ -92,11 +92,20 @@ let DomainList = {
     },
      */
     /*
+    countAdmins: function (admins) {
+      if (admins === '') {
+        return 0
+      }
+      else {
+        return admins.split(' ').length
+      }
+    },
+    */
     editAdminsOpen: function (domain) {
+      console.log(domain)
       this.editingAdmins = domain
       this.$refs.ModelEditAdmins.show()
     },
-    */
     editAdmins: async function () {
       console.log('a')
       return

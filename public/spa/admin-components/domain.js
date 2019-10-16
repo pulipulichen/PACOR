@@ -427,7 +427,7 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("td", { staticClass: "center aligned" }, [
-                typeof domain.adminNames === "string"
+                typeof domain.admins === "string"
                   ? _c(
                       "span",
                       {
@@ -441,11 +441,9 @@ var render = function() {
                       [
                         _vm._v(
                           "\r\n            " +
-                            _vm._s(domain.adminNames.split(" ").length) +
+                            _vm._s(domain.adminsCount) +
                             "\r\n            " +
-                            _vm._s(
-                              _vm.$t("Admins", domain.admins.split(" ").length)
-                            ) +
+                            _vm._s(_vm.$t("Admins", domain.adminsCount)) +
                             "\r\n            "
                         ),
                         _c("i", { staticClass: "edit icon" })
@@ -509,7 +507,8 @@ var render = function() {
                           _vm._s(_vm.editingAdmins.domain) +
                           "\r\n        "
                       ),
-                      _vm.editingAdmins.title !== ""
+                      _vm.editingAdmins.title !== "" &&
+                      _vm.editingAdmins.title !== null
                         ? [
                             _vm._v(
                               "\r\n          (" +
@@ -994,11 +993,20 @@ let DomainList = {
     },
      */
     /*
+    countAdmins: function (admins) {
+      if (admins === '') {
+        return 0
+      }
+      else {
+        return admins.split(' ').length
+      }
+    },
+    */
     editAdminsOpen: function (domain) {
+      console.log(domain)
       this.editingAdmins = domain
       this.$refs.ModelEditAdmins.show()
     },
-    */
     editAdmins: async function () {
       console.log('a')
       return

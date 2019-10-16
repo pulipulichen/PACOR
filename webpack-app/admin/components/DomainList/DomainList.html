@@ -66,10 +66,10 @@
         </td>
         <td class="center aligned">
           <span class="ui fluid right labeled icon button"
-                v-if="typeof(domain.adminNames) === 'string'"
+                v-if="typeof(domain.admins) === 'string'"
                 v-on:click="editAdminsOpen(domain)">
-            {{ domain.adminNames.split(' ').length }}
-            {{ $t('Admins', domain.admins.split(' ').length) }}
+            {{ domain.adminsCount }}
+            {{ $t('Admins', domain.adminsCount) }}
             <i class="edit icon"></i>
           </span>
         </td>
@@ -103,7 +103,7 @@
       <template v-slot:header v-if="editingAdmins" inline-template>
         # {{ editingAdmins.id }}
         {{ editingAdmins.domain }}
-        <template v-if="editingAdmins.title !== ''">
+        <template v-if="editingAdmins.title !== '' && editingAdmins.title !== null">
           ({{ editingAdmins.title }})
         </template>
       </template>

@@ -1841,9 +1841,9 @@ let Template = {
   watch: {
   },
   mounted() {
-    setTimeout(() => {
-      this.show()
-    }, 1000)
+    //setTimeout(() => {
+    //  this.show()
+    //}, 1000)
   },
   methods: {
     getModal: function () {
