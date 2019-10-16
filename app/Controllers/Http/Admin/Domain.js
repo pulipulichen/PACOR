@@ -16,11 +16,12 @@ class Domain {
     
     let domains = await DomainModel
             .query()
-            .where('domain', '!=', '')
+            //.where('domain', '!=', '')
             .with('admins')
             .withCount('webpages')
-            //.offset(offset)
-            //.limit(offset)
+            .offset(offset)
+            .limit(limit)
+            .orderBy('created_at', 'desc')
             .fetch()
     
     //await domains.loadMany(['admins'])
