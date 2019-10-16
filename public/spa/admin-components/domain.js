@@ -77,16 +77,17 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "ui form" }, [
     _c("div", { staticClass: "ui fields" }, [
-      _c("div", { staticClass: "twelve wide field" }, [
+      _c("div", { staticClass: "ten wide field" }, [
         _c("h2", [_vm._v(_vm._s(_vm.$t("Add Domain")))])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "four wide field" }, [
+      _c("div", { staticClass: "six wide field" }, [
         _c("div", { staticClass: "ui fluid buttons sub-navigation" }, [
           _c(
             "a",
             { staticClass: "ui button", attrs: { href: "#/domain/list" } },
             [
+              _c("i", { staticClass: "list icon" }),
               _vm._v(
                 "\r\n            " + _vm._s(_vm.$t("List")) + "\r\n          "
               )
@@ -103,6 +104,7 @@ var render = function() {
               }
             },
             [
+              _c("i", { staticClass: "database icon" }),
               _vm._v(
                 "\r\n            " +
                   _vm._s(_vm.$t("Database")) +
@@ -112,6 +114,7 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("a", { staticClass: "ui active button" }, [
+            _c("i", { staticClass: "plus icon" }),
             _vm._v(
               "\r\n            " + _vm._s(_vm.$t("Add")) + "\r\n          "
             )
@@ -283,13 +286,14 @@ var render = function() {
     { staticClass: "ui form" },
     [
       _c("div", { staticClass: "ui fields" }, [
-        _c("div", { staticClass: "twelve wide field" }, [
+        _c("div", { staticClass: "ten wide field" }, [
           _c("h2", [_vm._v(_vm._s(_vm.$t("Domain Management")))])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "four wide field" }, [
+        _c("div", { staticClass: "six wide field" }, [
           _c("div", { staticClass: "ui fluid buttons sub-navigation" }, [
             _c("span", { staticClass: "ui button active" }, [
+              _c("i", { staticClass: "list icon" }),
               _vm._v(
                 "\r\n            " + _vm._s(_vm.$t("List")) + "\r\n          "
               )
@@ -305,6 +309,7 @@ var render = function() {
                 }
               },
               [
+                _c("i", { staticClass: "database icon" }),
                 _vm._v(
                   "\r\n            " +
                     _vm._s(_vm.$t("Database")) +
@@ -317,6 +322,7 @@ var render = function() {
               "a",
               { staticClass: "ui button", attrs: { href: "#/domain/add" } },
               [
+                _c("i", { staticClass: "plus icon" }),
                 _vm._v(
                   "\r\n            " + _vm._s(_vm.$t("Add")) + "\r\n          "
                 )
