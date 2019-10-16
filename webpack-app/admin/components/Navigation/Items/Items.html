@@ -14,13 +14,13 @@
   <div class="menu-full right menu">
     
     <a class="item"
-       v-bind:class="{active: $route.path.startsWith('/domains')}"
+       v-bind:class="{'active disabled': $route.path.startsWith('/domain')}"
        href="#/domain/list">
      {{ $t('Domain') }}
     </a>
     
     <a class="item"
-       v-bind:class="{active: $route.path.startsWith('/materials')}"
+       v-bind:class="{'active disabled': $route.path.startsWith('/material')}"
        href="#/material">
      {{ $t('Material') }}
     </a>

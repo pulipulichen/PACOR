@@ -1,30 +1,31 @@
 <div class="ui form">
-  <div class="ui fields">
-    <div class="ten wide field">
-      <h2>{{ title }}</h2>
+  
+  <div class="ui secondary menu">
+    <div class="item">
+      <h2>{{ status.title }}</h2>
     </div>
-    <div class="six wide field">
-      <div class="ui fluid buttons sub-navigation">
+    <div class="right menu">
+      
         <a href="#/domain/list"
-           class="ui button"
-           v-bind:class="{active: ($route.path.startsWith('/domain/list'))}">
+           class="ui item"
+           v-bind:class="{active: ($route.path.startsWith('/domain/list')), disabled: ($route.path.startsWith('/domain/list'))}">
           <i class="list icon"></i>
           {{ $t('List') }}
         </a>
+
+        <a href="#/domain/add"
+           class="ui item"
+           v-bind:class="{active: ($route.path.startsWith('/domain/add')), disabled: ($route.path.startsWith('/domain/add'))}">
+          <i class="plus icon"></i>
+          {{ $t('Add') }}
+        </a>
+      
         <a href="/admin/Database/admin?table=domains"
-           class="ui button"
+           class="ui item"
            target="_blank">
           <i class="database icon"></i>
           {{ $t('Database') }}
         </a>
-
-        <a href="#/domain/add"
-           class="ui button"
-           v-bind:class="{active: ($route.path.startsWith('/domain/add'))}">
-          <i class="plus icon"></i>
-          {{ $t('Add') }}
-        </a>
-      </div>
     </div>
   </div>
   

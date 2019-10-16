@@ -39,6 +39,7 @@ let Template = {
     }
   },
   mounted() {
+    this.domainView = DomainList
   },
   methods: {
   } // methods

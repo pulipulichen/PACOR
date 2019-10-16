@@ -302,11 +302,17 @@ background: rgba(0, 0, 0, 0.03);
 color: rgba(0, 0, 0, 0.95);
 }
 .non-invasive-web-style-framework .ui.menu .active.item {
-background: rgba(0, 0, 0, 0.05);
-color: rgba(0, 0, 0, 0.95);
-font-weight: normal;
--webkit-box-shadow: none;
-box-shadow: none;
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.95);
+  font-weight: normal;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+
+  &.disabled {
+    background: rgba(0, 0, 0, 0.05);
+    color: rgba(0, 0, 0, 0.95) !important;
+    pointer-events: none;
+  }
 }
 .non-invasive-web-style-framework .ui.menu .active.item > i.icon {
 opacity: 1;
@@ -623,11 +629,17 @@ background: rgba(0, 0, 0, 0.05);
 color: rgba(0, 0, 0, 0.95);
 }
 .non-invasive-web-style-framework .ui.secondary.menu .active.item {
--webkit-box-shadow: none;
-box-shadow: none;
-background: rgba(0, 0, 0, 0.05);
-color: rgba(0, 0, 0, 0.95);
-border-radius: 0.28571429rem;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  //background: rgba(0, 0, 0, 0.05);
+  background-color: #E0E1E2;
+  color: rgba(0, 0, 0, 0.95);
+  border-radius: 0.28571429rem;
+  
+  &.disabled {
+    background-color: #E0E1E2 !important;
+    color: rgba(0, 0, 0, 0.95) !important;
+  }
 }
 .non-invasive-web-style-framework .ui.secondary.menu .active.item:hover {
 -webkit-box-shadow: none;
@@ -646,8 +658,14 @@ background: rgba(255, 255, 255, 0.08);
 color: #ffffff !important;
 }
 .non-invasive-web-style-framework .ui.secondary.inverted.menu .active.item {
-background: rgba(255, 255, 255, 0.15);
-color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff !important;
+  
+  &.disabled {
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff !important;
+  }
 }
 .non-invasive-web-style-framework .ui.secondary.item.menu {
 margin-left: 0em;
@@ -1069,8 +1087,14 @@ background: rgba(255, 255, 255, 0.08);
 color: #ffffff;
 }
 .non-invasive-web-style-framework .ui.inverted.menu .active.item {
-background: rgba(255, 255, 255, 0.15);
-color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff !important;
+  
+  &.disabled {
+    background: rgba(255, 255, 255, 0.3) !important;
+    color: #ffffff !important;
+    pointer-events: none;
+  }
 }
 .non-invasive-web-style-framework .ui.inverted.vertical.menu .item .menu .active.item {
 background: transparent;

@@ -327,7 +327,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".close.item[data-v-05077283] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n  border-bottom: 1px solid #ccc;\n}\n.item.title[data-v-05077283] {\n  font-size: 20px;\n  font-weight: bold;\n  padding-top: 0;\n  padding-bottom: 0;\n}\n.item.active[data-v-05077283] {\n  background-color: rgba(255, 255, 255, 0.3) !important;\n}\n@media screen and (min-width: 600px) {\n.menu-compact.right.menu[data-v-05077283] {\n    display: none !important;\n}\n}\n@media screen and (max-width: 600px) {\n.menu-full.right.menu[data-v-05077283] {\n    display: none !important;\n}\n}\n", "",{"version":3,"sources":["Items.less?vue&type=style&index=0&id=05077283&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,YAAY;EACZ,oBAAoB;EACpB,6BAA6B;AAC/B;AACA;EACE,eAAe;EACf,iBAAiB;EACjB,cAAc;EACd,iBAAiB;AACnB;AACA;EACE,qDAAqD;AACvD;AACA;AACA;IACI,wBAAwB;AAC5B;AACA;AACA;AACA;IACI,wBAAwB;AAC5B;AACA","file":"Items.less?vue&type=style&index=0&id=05077283&lang=less&scoped=true&","sourcesContent":[".close.item[data-v-05077283] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n  border-bottom: 1px solid #ccc;\n}\n.item.title[data-v-05077283] {\n  font-size: 20px;\n  font-weight: bold;\n  padding-top: 0;\n  padding-bottom: 0;\n}\n.item.active[data-v-05077283] {\n  background-color: rgba(255, 255, 255, 0.3) !important;\n}\n@media screen and (min-width: 600px) {\n.menu-compact.right.menu[data-v-05077283] {\n    display: none !important;\n}\n}\n@media screen and (max-width: 600px) {\n.menu-full.right.menu[data-v-05077283] {\n    display: none !important;\n}\n}\n"]}]);
+exports.push([module.i, ".close.item[data-v-05077283] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n  border-bottom: 1px solid #ccc;\n}\n.item.title[data-v-05077283] {\n  font-size: 20px;\n  font-weight: bold;\n  padding-top: 0;\n  padding-bottom: 0;\n}\n@media screen and (min-width: 600px) {\n.menu-compact.right.menu[data-v-05077283] {\n    display: none !important;\n}\n}\n@media screen and (max-width: 600px) {\n.menu-full.right.menu[data-v-05077283] {\n    display: none !important;\n}\n}\n", "",{"version":3,"sources":["Items.less?vue&type=style&index=0&id=05077283&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,YAAY;EACZ,oBAAoB;EACpB,6BAA6B;AAC/B;AACA;EACE,eAAe;EACf,iBAAiB;EACjB,cAAc;EACd,iBAAiB;AACnB;AACA;AACA;IACI,wBAAwB;AAC5B;AACA;AACA;AACA;IACI,wBAAwB;AAC5B;AACA","file":"Items.less?vue&type=style&index=0&id=05077283&lang=less&scoped=true&","sourcesContent":[".close.item[data-v-05077283] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n  border-bottom: 1px solid #ccc;\n}\n.item.title[data-v-05077283] {\n  font-size: 20px;\n  font-weight: bold;\n  padding-top: 0;\n  padding-bottom: 0;\n}\n@media screen and (min-width: 600px) {\n.menu-compact.right.menu[data-v-05077283] {\n    display: none !important;\n}\n}\n@media screen and (max-width: 600px) {\n.menu-full.right.menu[data-v-05077283] {\n    display: none !important;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -554,7 +554,7 @@ var render = function() {
         "a",
         {
           staticClass: "item",
-          class: { active: _vm.$route.path.startsWith("/domains") },
+          class: { "active disabled": _vm.$route.path.startsWith("/domain") },
           attrs: { href: "#/domain/list" }
         },
         [_vm._v("\r\n     " + _vm._s(_vm.$t("Domain")) + "\r\n    ")]
@@ -564,7 +564,7 @@ var render = function() {
         "a",
         {
           staticClass: "item",
-          class: { active: _vm.$route.path.startsWith("/materials") },
+          class: { "active disabled": _vm.$route.path.startsWith("/material") },
           attrs: { href: "#/material" }
         },
         [_vm._v("\r\n     " + _vm._s(_vm.$t("Material")) + "\r\n    ")]

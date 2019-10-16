@@ -1,7 +1,5 @@
-import DomainSubNavigation from './../DomainSubNavigation/DomainSubNavigation.vue'
-
 let DomainList = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+  props: ['lib', 'status', 'config', 'progress', 'error', 'view', 'title'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -15,7 +13,6 @@ let DomainList = {
     }
   },
   components: {
-    'domain-sub-navigation': DomainSubNavigation
   },
   computed: {
     'pageConfig.page': function () {
