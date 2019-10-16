@@ -1,7 +1,8 @@
 {
   "elements": {
     "pagination": {},
-    "materials": {}
+    "materials": {},
+    "domain-edit-admin": {}
   },
   "attributes": {
     "v-bind:class": {},

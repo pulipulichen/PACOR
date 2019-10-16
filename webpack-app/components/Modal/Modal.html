@@ -1,0 +1,20 @@
+<div class="ui modal" 
+     ref="modal">
+  <i class="close icon"
+     v-if="display-close-icon !== false"></i>
+  <div class="header">
+    {{ modal-title }}
+  </div>
+  <div class="image content">
+    <div class="image">
+      An image can appear on left or an icon
+    </div>
+    <div class="description">
+      A description can appear on the right
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui button">Cancel</div>
+    <div class="ui button">OK</div>
+  </div>
+</div>

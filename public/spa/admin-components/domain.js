@@ -471,6 +471,16 @@ var render = function() {
       _vm._v(" "),
       _c("pagination", {
         attrs: { pageConfig: _vm.pageConfig, pathPrefix: "/domains/" }
+      }),
+      _vm._v(" "),
+      _c("modal", {
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          progress: _vm.progress,
+          error: _vm.error,
+          lib: _vm.lib
+        }
       })
     ],
     1
@@ -768,6 +778,8 @@ let DomainList = {
     this.$i18n.locale = this.config.locale
     return {
       domains: [],
+      editingAdmin: null,
+      editingConfig: null,
       pageConfig: {
         page: 0,
         maxPage: 0

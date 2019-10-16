@@ -12,8 +12,4 @@ let components = {
   Navigation: Navigation,
 }
 
-import Vue from 'vue'
-import Pagination from './../components/Pagination/Pagination.vue'
-Vue.component('pagination', Pagination)
-
 export default components

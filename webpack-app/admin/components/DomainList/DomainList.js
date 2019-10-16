@@ -4,6 +4,8 @@ let DomainList = {
     this.$i18n.locale = this.config.locale
     return {
       domains: [],
+      editingAdmin: null,
+      editingConfig: null,
       pageConfig: {
         page: 0,
         maxPage: 0

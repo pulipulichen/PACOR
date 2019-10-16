@@ -27405,7 +27405,7 @@ transform: none;
 -webkit-transform: scale3d(0.9, 0.9, 0.9);
 transform: scale3d(0.9, 0.9, 0.9);
 }
-.non-invasive-web-style-framework 50%, 55% {
+50%, 55% {
 opacity: 1;
 -webkit-transform: scale3d(1.1, 1.1, 1.1);
 transform: scale3d(1.1, 1.1, 1.1);
@@ -27437,7 +27437,7 @@ transform: scale3d(0.3, 0.3, 0.3);
 -webkit-transform: translate3d(0, 10px, 0);
 transform: translate3d(0, 10px, 0);
 }
-.non-invasive-web-style-framework 40%, 45% {
+40%, 45% {
 opacity: 1;
 -webkit-transform: translate3d(0, -20px, 0);
 transform: translate3d(0, -20px, 0);

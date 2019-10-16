@@ -10,8 +10,10 @@ import i18n from './plugins/i18n'
 // --------------------
 // Components or routes
 
+import './admin/global-components'
+
+import components from './admin/local-components'
 import routes from './admin/routes'
-import components from './admin/components'
 
 // ----------------------------------
 // Helpers
