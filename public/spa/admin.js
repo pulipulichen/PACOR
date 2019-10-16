@@ -714,7 +714,9 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _vm.$slots.content
-      ? _c("div", { staticClass: "content" }, [_vm._t("content")], 2)
+      ? _c("div", { staticClass: "content" }, [
+          _c("div", { staticClass: "ui form" }, [_vm._t("content")], 2)
+        ])
       : _vm._e(),
     _vm._v(" "),
     _vm.$slots.actions || _vm.modal_cancal_action === "true"
@@ -723,9 +725,11 @@ var render = function() {
           { staticClass: "actions" },
           [
             _vm.modal_cancal_action === "true"
-              ? _c("div", { staticClass: "ui button" }, [
-                  _vm._v("\r\n      " + _vm._s(_vm.$t("CANCEL")) + "\r\n    ")
-                ])
+              ? _c(
+                  "div",
+                  { staticClass: "ui button", on: { click: _vm.hide } },
+                  [_vm._v("\r\n      " + _vm._s(_vm.$t("CANCEL")) + "\r\n    ")]
+                )
               : _vm._e(),
             _vm._v(" "),
             _vm._t("actions")

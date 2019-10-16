@@ -4,7 +4,7 @@ let DomainList = {
     this.$i18n.locale = this.config.locale
     return {
       domains: [],
-      editingAdmin: null,
+      editingAdmins: {},
       editingConfig: null,
       pageConfig: {
         page: 0,
@@ -91,7 +91,17 @@ let DomainList = {
       })
     },
      */
-    editAdmins: async function (domain, index) {
+    /*
+    editAdminsOpen: function (domain) {
+      this.editingAdmins = domain
+      this.$refs.ModelEditAdmins.show()
+    },
+    */
+    editAdmins: async function () {
+      console.log('a')
+      return
+      
+      let domain = this.editingAdmins
       let data = {
         id: domain.id
       }

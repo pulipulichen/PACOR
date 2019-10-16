@@ -427,20 +427,31 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("td", { staticClass: "center aligned" }, [
-                _c(
-                  "span",
-                  { staticClass: "ui fluid right labeled icon button" },
-                  [
-                    _vm._v(
-                      "\r\n            " +
-                        _vm._s(domain.admins.length) +
-                        "\r\n            " +
-                        _vm._s(_vm.$t("Admins", domain.admins.length)) +
-                        "\r\n            "
-                    ),
-                    _c("i", { staticClass: "edit icon" })
-                  ]
-                )
+                typeof domain.adminNames === "string"
+                  ? _c(
+                      "span",
+                      {
+                        staticClass: "ui fluid right labeled icon button",
+                        on: {
+                          click: function($event) {
+                            return _vm.editAdminsOpen(domain)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n            " +
+                            _vm._s(domain.adminNames.split(" ").length) +
+                            "\r\n            " +
+                            _vm._s(
+                              _vm.$t("Admins", domain.admins.split(" ").length)
+                            ) +
+                            "\r\n            "
+                        ),
+                        _c("i", { staticClass: "edit icon" })
+                      ]
+                    )
+                  : _vm._e()
               ]),
               _vm._v(" "),
               _vm._m(0, true),
@@ -474,7 +485,7 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("modal", {
-        ref: "ModelEditAdmin",
+        ref: "ModelEditAdmins",
         attrs: {
           modal_cancal_action: "true",
           config: _vm.config,
@@ -483,33 +494,121 @@ var render = function() {
           error: _vm.error,
           lib: _vm.lib
         },
-        scopedSlots: _vm._u([
-          {
-            key: "header",
-            fn: function() {
-              return [_vm._v("OK")]
-            },
-            proxy: true
-          },
-          {
-            key: "content",
-            fn: function() {
-              return [
-                _vm._v(
-                  "\r\n        A description can appear on the right\r\n    "
-                )
-              ]
-            },
-            proxy: true
-          },
-          {
-            key: "actions",
-            fn: function() {
-              return [_c("div", { staticClass: "ui button" }, [_vm._v("OK")])]
-            },
-            proxy: true
-          }
-        ])
+        on: { ok: _vm.editAdmins },
+        scopedSlots: _vm._u(
+          [
+            _vm.editingAdmins
+              ? {
+                  key: "header",
+                  fn: function() {
+                    return [
+                      _vm._v(
+                        "\r\n        # " +
+                          _vm._s(_vm.editingAdmins.id) +
+                          "\r\n        " +
+                          _vm._s(_vm.editingAdmins.domain) +
+                          "\r\n        "
+                      ),
+                      _vm.editingAdmins.title !== ""
+                        ? [
+                            _vm._v(
+                              "\r\n          (" +
+                                _vm._s(_vm.editingAdmins.title) +
+                                ")\r\n        "
+                            )
+                          ]
+                        : _vm._e()
+                    ]
+                  },
+                  proxy: true
+                }
+              : null,
+            _vm.editingAdmins
+              ? {
+                  key: "content",
+                  fn: function() {
+                    return [
+                      _c("div", { staticClass: "ui field" }, [
+                        _c("label", [
+                          _vm._v(
+                            "\r\n            " +
+                              _vm._s(_vm.$t("Edit Admins (split by space)")) +
+                              "\r\n            ("
+                          ),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "https://github.com/pulipulichen/PACOR/blob/master/help/AdminsExample.md",
+                                target: "_blank"
+                              }
+                            },
+                            [_vm._v(_vm._s(_vm.$t("Example")))]
+                          ),
+                          _vm._v(")\r\n          ")
+                        ]),
+                        _vm._v(" "),
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editingAdmins.admins,
+                              expression: "editingAdmins.admins"
+                            }
+                          ],
+                          domProps: { value: _vm.editingAdmins.admins },
+                          on: {
+                            input: [
+                              function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.editingAdmins,
+                                  "admins",
+                                  $event.target.value
+                                )
+                              },
+                              function($event) {
+                                _vm.editingAdmins.isChanged = true
+                              }
+                            ]
+                          }
+                        })
+                      ])
+                    ]
+                  },
+                  proxy: true
+                }
+              : null,
+            {
+              key: "actions",
+              fn: function() {
+                return [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "ui button",
+                      class: {
+                        disabled: !(
+                          _vm.editingAdmins !== undefined &&
+                          _vm.editingAdmins.isChanged === true
+                        )
+                      },
+                      on: { click: _vm.editAdmins }
+                    },
+                    [_vm._v(_vm._s(_vm.$t("OK")))]
+                  )
+                ]
+              },
+              proxy: true
+            }
+          ],
+          null,
+          true
+        )
       })
     ],
     1
@@ -807,7 +906,7 @@ let DomainList = {
     this.$i18n.locale = this.config.locale
     return {
       domains: [],
-      editingAdmin: null,
+      editingAdmins: {},
       editingConfig: null,
       pageConfig: {
         page: 0,
@@ -894,7 +993,17 @@ let DomainList = {
       })
     },
      */
-    editAdmins: async function (domain, index) {
+    /*
+    editAdminsOpen: function (domain) {
+      this.editingAdmins = domain
+      this.$refs.ModelEditAdmins.show()
+    },
+    */
+    editAdmins: async function () {
+      console.log('a')
+      return
+      
+      let domain = this.editingAdmins
       let data = {
         id: domain.id
       }

@@ -25,6 +25,10 @@ class Domain {
             .fetch()
     
     //await domains.loadMany(['admins'])
+    domains = domains.toJSON()
+    domains.forEach(domain => {
+      domain.admins = domain.admins.map(admin => admin.username).join(' ')
+    })
     
     let count = await DomainModel.getCount()
     let maxPage = Math.ceil(count / limit)

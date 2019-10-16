@@ -65,9 +65,11 @@
           </div>
         </td>
         <td class="center aligned">
-          <span class="ui fluid right labeled icon button">
-            {{ domain.admins.length }}
-            {{ $t('Admins', domain.admins.length) }}
+          <span class="ui fluid right labeled icon button"
+                v-if="typeof(domain.adminNames) === 'string'"
+                v-on:click="editAdminsOpen(domain)">
+            {{ domain.adminNames.split(' ').length }}
+            {{ $t('Admins', domain.admins.split(' ').length) }}
             <i class="edit icon"></i>
           </span>
         </td>
@@ -90,29 +92,35 @@
   <pagination v-bind:pageConfig="pageConfig"
               pathPrefix="/domains/" />
   
-  <modal ref="ModelEditAdmin"
+  <modal ref="ModelEditAdmins"
          modal_cancal_action="true"
          v-bind:config="config"
          v-bind:status="status"
          v-bind:progress="progress"
          v-bind:error="error"
-         v-bind:lib="lib">
-    <template v-if="editingAdmin !== null">
-      <template v-slot:header>
-        # {{ editingAdmin.id }}
-        {{ editingAdmin.domain }}
-        <template v-if="editingAdmin.title !== ''">
-          ({{ editingAdmin.title }})
+         v-bind:lib="lib"
+         v-on:ok="editAdmins">
+      <template v-slot:header v-if="editingAdmins" inline-template>
+        # {{ editingAdmins.id }}
+        {{ editingAdmins.domain }}
+        <template v-if="editingAdmins.title !== ''">
+          ({{ editingAdmins.title }})
         </template>
       </template>
-      <template v-slot:content>
-        <div class="ui input">
-          <textarea v-model="editingAdmin.admins"></textarea>
+      <template v-slot:content v-if="editingAdmins" inline-template>
+        <div class="ui field">
+          <label>
+            {{ $t('Edit Admins (split by space)') }}
+            (<a href="https://github.com/pulipulichen/PACOR/blob/master/help/AdminsExample.md" target="_blank">{{ $t('Example') }}</a>)
+          </label>
+          <textarea v-model="editingAdmins.admins"
+                      v-on:input="editingAdmins.isChanged = true"></textarea>
         </div>
       </template>
-      <template v-slot:actions>
-        <div class="ui button">OK</div>
+      <template v-slot:actions inline-template>
+        <div class="ui button"
+             v-bind:class="{disabled: !(editingAdmins !== undefined && editingAdmins.isChanged === true)}"
+             v-on:click="editAdmins">{{ $t('OK') }}</div>
       </template>
-    </template>
   </modal>
 </div>

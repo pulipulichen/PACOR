@@ -9,13 +9,16 @@
   </div>
   <div class="content"
        v-if="$slots.content">
-    <slot name="content"></slot>
+    <div class="ui form">
+      <slot name="content"></slot>
+    </div>
   </div>
   <div class="actions"
        v-if="$slots.actions || modal_cancal_action === 'true'">
     
     <div class="ui button"
-         v-if="modal_cancal_action === 'true'">
+         v-if="modal_cancal_action === 'true'"
+         v-on:click="hide">
       {{ $t('CANCEL') }}
     </div>
     

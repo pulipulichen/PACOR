@@ -230,13 +230,7 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "description" }, [
-                    _vm.error.config.params
-                      ? _c("pre", [_vm._v(_vm._s(_vm.error.config.params))])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.error.config.data
-                      ? _c("pre", [_vm._v(_vm._s(_vm.displayErrorData))])
-                      : _vm._e()
+                    _c("pre", [_vm._v(_vm._s(_vm.displayErrorData))])
                   ])
                 ])
               ])
@@ -443,27 +437,40 @@ let ErrorHandler = {
       }
     },
     displayErrorData: function () {
+      let data
       if (typeof(this.error) === 'object'
               && typeof(this.error.config) === 'object'
               && typeof(this.error.config.data) !== 'undefined') {
-        let data = this.error.config.data
+        data = this.error.config.data  
+      }
+      else if (typeof(this.error) === 'object'
+              && typeof(this.error.config) === 'object'
+              && typeof(this.error.config.params) !== 'undefined') {
+        data = this.error.config.params
+      }
+      
+      if (data === undefined) {
+        return
+      }
+      
+      if (typeof(data) === 'string') {
         try {
           data = JSON.parse(data)
         }
         catch (e) {}
-        
-        if (typeof(data) === 'object') {
-          data = JSON.stringify(data, null, ' ').slice(2, -2)
-        }
-        
-        return data
       }
+
+      if (typeof(data) === 'object') {
+        data = JSON.stringify(data, null, ' ').slice(2, -2)
+      }
+
+      return data
     }
   },
   watch: {
     'error': function () {
       //console.log(typeof(this.error), this.error)
-      console.log(JSON.stringify(this.error.config, null, '\t'))
+      //console.log(JSON.stringify(this.error.config, null, '\t'))
       if (typeof(this.error) === 'object' 
               || (typeof(this.error) === 'string' && this.error.trim() !== '') ) {
         this.showError = true
@@ -998,7 +1005,8 @@ let i18nGlobal = {
     "UPLOAD": "上傳",
     "SUBMIT": "送出",
     "ADD": "新增",
-    "CANCEL": "取消"
+    "CANCEL": "取消",
+    "Example": "範例"
   }
 }
 

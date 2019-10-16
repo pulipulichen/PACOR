@@ -41,18 +41,25 @@ class Domain extends Model {
     return this.hasMany('App/Models/User')
   }
   
-  static get computed () {
-    return ['admins', 'admins_string']
+  admins () {
+    return this.users()
+            .where('role', 'domain_admin')
   }
   
-  //admins () {
-  //  return this.hasMany('App/Models/User')
-  //          .where('role', 'domain_admin')
-  //}
-  
-  getAdmins ({users})  {
-    return users().where('role', 'domain_admin')
+  /*
+  async adminNames () {
+    let users = await this.hasMany('App/Models/User')
+            .where('role', 'domain_admin')
+            .pair('id', 'username')
+    return users.map(user => user.username)
   }
+   */
+  /*
+  async adminNames () {
+    let admins = await this.admins()
+    return admins.map(user => user.username)
+  }
+  */
   
   async changeAdmins (adminsUsername) {
     // 先把不是名單中的人變成讀者

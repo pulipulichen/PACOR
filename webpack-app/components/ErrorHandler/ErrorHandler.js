@@ -106,7 +106,7 @@ let ErrorHandler = {
   watch: {
     'error': function () {
       //console.log(typeof(this.error), this.error)
-      console.log(JSON.stringify(this.error.config, null, '\t'))
+      //console.log(JSON.stringify(this.error.config, null, '\t'))
       if (typeof(this.error) === 'object' 
               || (typeof(this.error) === 'string' && this.error.trim() !== '') ) {
         this.showError = true

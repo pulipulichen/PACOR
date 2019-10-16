@@ -8,7 +8,8 @@ let i18nGlobal = {
     "UPLOAD": "上傳",
     "SUBMIT": "送出",
     "ADD": "新增",
-    "CANCEL": "取消"
+    "CANCEL": "取消",
+    "Example": "範例"
   }
 }
 
