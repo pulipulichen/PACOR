@@ -1812,6 +1812,7 @@ const routes = [
   //{ path: '/domain/add', component: () => import(/* webpackChunkName: "admin-components/domain" */ './components/DomainAdd/DomainAdd.vue') },
   { path: '/domain/:action/:page?', component: () => __webpack_require__.e(/*! import() | admin-components/domain */ "admin-components/domain").then(__webpack_require__.bind(null, /*! ./components/Domain/Domain.vue */ "./webpack-app/admin/components/Domain/Domain.vue")) },
   { path: '/webpage/:domainID?/:action?/:page?', component: () => __webpack_require__.e(/*! import() | admin-components/webpage */ "admin-components/webpage").then(__webpack_require__.bind(null, /*! ./components/Webpage/Webpage.vue */ "./webpack-app/admin/components/Webpage/Webpage.vue")) },
+  //{ path: '/webpage-dashboard/:webpageID/:action/:page?', component: () => import(/* webpackChunkName: "admin-components/webpage" */ './components/Webpage/Webpage.vue') },
   { path: '/material/:page?', component: () => __webpack_require__.e(/*! import() | admin-components/material */ "admin-components/material").then(__webpack_require__.bind(null, /*! ./components/Material/Material.vue */ "./webpack-app/admin/components/Material/Material.vue")) },
 ]
 

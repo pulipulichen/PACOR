@@ -3,6 +3,7 @@ let WebpageList = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      domain: '',
       webpages: [],
       editingGroups: {},
       editingConfig: {},
@@ -32,10 +33,17 @@ let WebpageList = {
   mounted() {
     this.initPage()
     
-    this.status.title = this.$t('Webpage Management')
+    this.initTitle()
     this.list()
   },
   methods: {
+    initTitle: function () {
+      let title = this.$t('Webpage Management')
+      if (this.domain !== '') {
+        title = title + '(' + this.domain + ')'
+      }
+      this.status.title = title
+    },
     initPage: function () {
       if (isNaN(this.$route.params.page) === true) {
         let lastPage = localStorage.getItem('WebpageList.pageConfig.page')
@@ -73,6 +81,9 @@ let WebpageList = {
             return false
           }
           this.webpages = result.webpages
+        }
+        if (typeof(result.domain) === 'string') {
+          this.domain = result.domain
         }
         if (typeof(result.maxPage) === 'number') {
           this.pageConfig.maxPage = result.maxPage
@@ -141,6 +152,9 @@ let WebpageList = {
           data.config = JSON.parse(webpage.config)
         }
         catch (e) {}
+      }
+      else {
+        data.config = null
       }
       
       if (typeof(data.config) === 'undefined') {

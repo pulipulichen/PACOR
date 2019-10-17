@@ -7,15 +7,20 @@ const UserModel = use('App/Models/User')
 
 const Config = use('Config')
 
+const { HttpException } = use('@adonisjs/generic-exceptions') 
+
 class Webpage {
   async list ({request, auth}) {
     //await auth.checkAdmin()
     
-    const {page = 1, domainID} = request.all()
+    let {page = 1, domainID} = request.all()
     await auth.checkDomainAdmin(domainID)
     
+    if (isNaN(domainID) === false && typeof(domainID) === 'string') {
+      domainID = parseInt(domainID, 10)
+    }
     if (typeof(domainID) !== 'number') {
-      throw 'No domainID'
+      throw new HttpException('No domainID', 503)
     }
     
     const limit = Config.get('view.itemsPerPage')
@@ -25,19 +30,45 @@ class Webpage {
             .query()
             //.where('domain', '!=', '')
             .where('domain_id', domainID)
+            .with('groups')
             .offset(offset)
             .limit(limit)
             .orderBy('created_at', 'desc')
             .fetch()
     
+    
+    webpages = webpages.toJSON().map(webpage => {
+      let groups = []
+      //console.log(webpage.groups)
+      webpage.groups.forEach(group => {
+        if (group.users.length > 0) {
+          groups.push(group.users.map(user => user.username).join(' '))
+        }
+      })
+      webpage.groupsCount = groups.length
+      webpage.groups = groups.join('\n')
+      try {
+        if (webpage.config === null) {
+          webpage.config = ''
+        }
+        else {
+          webpage.config = JSON.stringify(webpage.config, null, '  ')
+        }
+      }
+      catch (e) {}
+      return webpage
+    })
+    
     //await domains.loadMany(['admins'])
     
-    let count = await DomainModel.find(domainID).webpages().getCount()
+    let domain = await DomainModel.find(domainID)
+    let count = await domain.webpages().getCount()
     let maxPage = Math.ceil(count / limit)
     
     return {
       webpages,
-      maxPage
+      maxPage,
+      domain: domain.domain
     }
   }
   
@@ -195,36 +226,36 @@ e f`)
   }
   
   async editTitle({request, auth}) {
-    await auth.checkGlobalAdmin()
+    const data = request.all()
     
-    const {id, title} = request.all()
+    await auth.checkDomainAdmin(data.domainID)
     
-    const domain = await DomainModel.find(id)
-    domain.title = title
-    await domain.save()
+    const webpage = await WebpageModel.find(data.id)
+    webpage.title = data.title
+    await webpage.save()
     
     return 1
   }
   
-  async editAdmins({request, auth}) {
-    await auth.checkGlobalAdmin()
+  async editGroups({request, auth}) {
+    const data = request.all()
     
-    const {id, admins} = request.all()
-    
-    const domain = await DomainModel.find(id)
-    await domain.changeAdmins(admins)
+    await auth.checkDomainAdmin(data.domainID)
+    //throw new HttpException('test')
+    const webpage = await WebpageModel.find(data.id)
+    await webpage.setGroupsList(data.groups)
     
     return 1
   }
   
   async editConfig({request, auth}) {
-    await auth.checkGlobalAdmin()
+    const data = request.all()
     
-    const {id, config} = request.all()
+    await auth.checkDomainAdmin(data.domainID)
     
-    const domain = await DomainModel.find(id)
-    domain.config = config
-    await domain.save()
+    const webpage = await WebpageModel.find(data.id)
+    webpage.config = data.config
+    await webpage.save()
     
     return 1
   }

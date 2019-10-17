@@ -156,6 +156,9 @@ let DomainList = {
         }
         catch (e) {}
       }
+      else {
+        data.config = null
+      }
       
       if (typeof(data.config) === 'undefined') {
         return false

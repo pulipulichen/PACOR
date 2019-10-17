@@ -8,6 +8,7 @@ const routes = [
   //{ path: '/domain/add', component: () => import(/* webpackChunkName: "admin-components/domain" */ './components/DomainAdd/DomainAdd.vue') },
   { path: '/domain/:action/:page?', component: () => import(/* webpackChunkName: "admin-components/domain" */ './components/Domain/Domain.vue') },
   { path: '/webpage/:domainID?/:action?/:page?', component: () => import(/* webpackChunkName: "admin-components/webpage" */ './components/Webpage/Webpage.vue') },
+  //{ path: '/webpage-dashboard/:webpageID/:action/:page?', component: () => import(/* webpackChunkName: "admin-components/webpage" */ './components/Webpage/Webpage.vue') },
   { path: '/material/:page?', component: () => import(/* webpackChunkName: "admin-components/material" */ './components/Material/Material.vue') },
 ]
 

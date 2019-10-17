@@ -58,6 +58,8 @@ class WebpageGroup extends Model {
       }
     }
     
+    // ------------------
+    
     let namesInGroup = await this.getUsernames()
     let namesInDomain = await this.getUsernamesInDomain()
     

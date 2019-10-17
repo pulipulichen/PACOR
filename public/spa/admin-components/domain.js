@@ -385,13 +385,13 @@ var render = function() {
             _vm._v(" "),
             _c("th", { staticClass: "center aligned" }, [
               _vm._v(
-                "\r\n          " + _vm._s(_vm.$t("Admins")) + "\r\n        "
+                "\r\n          " + _vm._s(_vm.$t("Config")) + "\r\n        "
               )
             ]),
             _vm._v(" "),
             _c("th", { staticClass: "center aligned" }, [
               _vm._v(
-                "\r\n          " + _vm._s(_vm.$t("Config")) + "\r\n        "
+                "\r\n          " + _vm._s(_vm.$t("Admins")) + "\r\n        "
               )
             ]),
             _vm._v(" "),
@@ -510,7 +510,7 @@ var render = function() {
                   "a",
                   {
                     staticClass: "ui icon button",
-                    attrs: { href: "#/user/" + domain.id + "/list/" }
+                    attrs: { href: "#/user/" + domain.id + "/list" }
                   },
                   [_c("i", { staticClass: "list icon" })]
                 )
@@ -521,7 +521,7 @@ var render = function() {
                   "a",
                   {
                     staticClass: "ui fluid right labeled icon button",
-                    attrs: { href: "#/webpage/" + domain.id + "/list/" }
+                    attrs: { href: "#/webpage/" + domain.id + "/list" }
                   },
                   [
                     _vm._v(
@@ -1430,6 +1430,9 @@ let DomainList = {
           data.config = JSON.parse(domain.config)
         }
         catch (e) {}
+      }
+      else {
+        data.config = null
       }
       
       if (typeof(data.config) === 'undefined') {

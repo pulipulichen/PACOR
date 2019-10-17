@@ -11,10 +11,10 @@
           {{ $t('Title') }}
         </th>
         <th class="center aligned">
-          {{ $t('Groups') }}
+          {{ $t('Config') }}
         </th>
         <th class="center aligned">
-          {{ $t('Config') }}
+          {{ $t('Group') }}
         </th>
         <th class="center aligned">
           {{ $t('Dashboard') }}
@@ -48,21 +48,20 @@
         </td>
         <td class="center aligned">
           <span class="ui right labeled icon button"
-                v-on:click="editGroupsSubmit(webpage)">
-            {{ domain.groupsCount }}
-            {{ $t('Groups', domain.groupsCount) }}
+                v-on:click="editGroupsOpen(webpage)">
+            {{ webpage.groupsCount }}
+            {{ $t('Groups', webpage.groupsCount) }}
             <i class="edit icon"></i>
           </span>
           <a class="ui icon button"
-                v-bind:href="'#/user/' + domain.id + '/list/'">
+                v-bind:href="'#/user/' + webpage.domain_id + '/list/'">
             <i class="list icon"></i>
           </a>
         </td>
         <td class="center aligned">
           <a class="ui fluid right labeled icon button"
-             v-bind:href="'#/webpage/' + domain.id + '/list/'">
-            {{ domain.__meta__.webpages_count }}
-            {{ $t('Webpages', domain.__meta__.webpages_count) }}
+             v-bind:href="'#/webpage-dashboard/' + webpage.id">
+            {{ $t('Dashboard') }}
             <i class="list icon"></i>
           </a>
         </td>
@@ -81,33 +80,34 @@
          v-bind:progress="progress"
          v-bind:error="error"
          v-bind:lib="lib"
-         v-bind:reset="editingAdmins">
+         v-bind:reset="editingGroups">
+      
       <template v-slot:header inline-template>
         <a href="/admin/Database/admin?table=users" 
            target="_blank"
            class="ui button">
           {{ $t('DATABASE') }}
         </a>
-        # {{ editingAdmins.id }}
-        {{ editingAdmins.domain }}
-        <template v-if="editingAdmins.title !== '' && editingAdmins.title !== null">
-          ({{ editingAdmins.title }})
+        # {{ editingGroups.id }}
+        {{ domain }}{{ editingGroups.path }}
+        <template v-if="editingGroups.title !== '' && editingGroups.title !== null">
+          ({{ editingGroups.title }})
         </template>
       </template>
       <template v-slot:content inline-template>
         <div class="ui field">
           <label>
-            {{ $t('Edit Admins (split by space)') }}
-            (<a href="https://github.com/pulipulichen/PACOR/blob/master/help/AdminsExample.md" target="_blank">{{ $t('Example') }}</a>)
+            {{ $t('Edit Groups (A group per line. Readers in group is splited by space)') }}
+            (<a href="https://github.com/pulipulichen/PACOR/blob/master/help/GroupsExample.md" target="_blank">{{ $t('Example') }}</a>)
           </label>
-          <textarea v-model="editingAdmins.admins"
-                    v-on:input="editingAdmins.isChanged = true"></textarea>
+          <textarea v-model="editingGroups.groups"
+                    v-on:input="editingGroups.isChanged = true"></textarea>
         </div>
       </template>
       <template v-slot:actions inline-template>
         <div class="ui button"
-             v-bind:class="{disabled: !(editingAdmins.isChanged === true)}"
-             v-on:click="editAdminsSubmit">{{ $t('OK') }}</div>
+             v-bind:class="{disabled: !(editingGroups.isChanged === true)}"
+             v-on:click="editGroupsSubmit">{{ $t('OK') }}</div>
       </template>
   </modal>
   

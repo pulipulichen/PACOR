@@ -1,6 +1,7 @@
 let i18nGlobal = {
   "en": {
-    "Title": "Example Title"
+    "Title": "Example Title",
+    "Groups": "Group | Groups"
   },
   "zh-TW": {
     "Title": "標題",
@@ -11,7 +12,12 @@ let i18nGlobal = {
     "CANCEL": "取消",
     "Example": "範例",
     "DATABASE": "資料庫",
-    "RESET": "重設"
+    "RESET": "重設",
+    "Path": "路徑",
+    "Config": "設定",
+    "Group": "分組",
+    "Groups": "組",
+    "Dashboard": "儀表板"
   }
 }
 

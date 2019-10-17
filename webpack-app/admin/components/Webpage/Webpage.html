@@ -6,16 +6,16 @@
     </div>
     <div class="right menu">
       
-        <a href="#/webpage/list"
+        <a v-bind:href="`#/webpage/${$route.params.domainID}/list/`"
            class="ui item"
-           v-bind:class="{active: ($route.path.startsWith('/webpage/list')), disabled: ($route.path.startsWith('/webpage/list'))}">
+           v-bind:class="{'active disabled': ($route.params.action === 'list')}">
           <i class="list icon"></i>
           {{ $t('List') }}
         </a>
 
-        <a href="#/webpage/add"
+        <a v-bind:href="`#/webpage/${$route.params.domainID}/add`"
            class="ui item"
-           v-bind:class="{active: ($route.path.startsWith('/webpage/add')), disabled: ($route.path.startsWith('/webpage/add'))}">
+           v-bind:class="{'active disabled': ($route.params.action === 'add')}">
           <i class="plus icon"></i>
           {{ $t('Add') }}
         </a>

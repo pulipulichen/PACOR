@@ -9,6 +9,8 @@ const baseURL = `${Env.get('PROTOCOL')}//${Env.get('HOST')}:${Env.get('PORT')}`
 
 const WebpageGroup = use('App/Models/WebpageGroup')
 
+const { HttpException } = use('@adonisjs/generic-exceptions') 
+
 class Webpage extends Model {
   
   static boot () {

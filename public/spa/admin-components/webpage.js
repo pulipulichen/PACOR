@@ -119,11 +119,10 @@ var render = function() {
             "a",
             {
               staticClass: "ui item",
-              class: {
-                active: _vm.$route.path.startsWith("/webpage/list"),
-                disabled: _vm.$route.path.startsWith("/webpage/list")
-              },
-              attrs: { href: "#/webpage/list" }
+              class: { "active disabled": _vm.$route.params.action === "list" },
+              attrs: {
+                href: "#/webpage/" + _vm.$route.params.domainID + "/list/"
+              }
             },
             [
               _c("i", { staticClass: "list icon" }),
@@ -135,11 +134,10 @@ var render = function() {
             "a",
             {
               staticClass: "ui item",
-              class: {
-                active: _vm.$route.path.startsWith("/webpage/add"),
-                disabled: _vm.$route.path.startsWith("/webpage/add")
-              },
-              attrs: { href: "#/webpage/add" }
+              class: { "active disabled": _vm.$route.params.action === "add" },
+              attrs: {
+                href: "#/webpage/" + _vm.$route.params.domainID + "/add"
+              }
             },
             [
               _c("i", { staticClass: "plus icon" }),
@@ -293,13 +291,13 @@ var render = function() {
             _vm._v(" "),
             _c("th", { staticClass: "center aligned" }, [
               _vm._v(
-                "\r\n          " + _vm._s(_vm.$t("Groups")) + "\r\n        "
+                "\r\n          " + _vm._s(_vm.$t("Config")) + "\r\n        "
               )
             ]),
             _vm._v(" "),
             _c("th", { staticClass: "center aligned" }, [
               _vm._v(
-                "\r\n          " + _vm._s(_vm.$t("Config")) + "\r\n        "
+                "\r\n          " + _vm._s(_vm.$t("Group")) + "\r\n        "
               )
             ]),
             _vm._v(" "),
@@ -397,16 +395,16 @@ var render = function() {
                     staticClass: "ui right labeled icon button",
                     on: {
                       click: function($event) {
-                        return _vm.editGroupsSubmit(webpage)
+                        return _vm.editGroupsOpen(webpage)
                       }
                     }
                   },
                   [
                     _vm._v(
                       "\r\n            " +
-                        _vm._s(_vm.domain.groupsCount) +
+                        _vm._s(webpage.groupsCount) +
                         "\r\n            " +
-                        _vm._s(_vm.$t("Groups", _vm.domain.groupsCount)) +
+                        _vm._s(_vm.$t("Groups", webpage.groupsCount)) +
                         "\r\n            "
                     ),
                     _c("i", { staticClass: "edit icon" })
@@ -417,7 +415,7 @@ var render = function() {
                   "a",
                   {
                     staticClass: "ui icon button",
-                    attrs: { href: "#/user/" + _vm.domain.id + "/list/" }
+                    attrs: { href: "#/user/" + webpage.domain_id + "/list/" }
                   },
                   [_c("i", { staticClass: "list icon" })]
                 )
@@ -428,16 +426,12 @@ var render = function() {
                   "a",
                   {
                     staticClass: "ui fluid right labeled icon button",
-                    attrs: { href: "#/webpage/" + _vm.domain.id + "/list/" }
+                    attrs: { href: "#/webpage-dashboard/" + webpage.id }
                   },
                   [
                     _vm._v(
                       "\r\n            " +
-                        _vm._s(_vm.domain.__meta__.webpages_count) +
-                        "\r\n            " +
-                        _vm._s(
-                          _vm.$t("Webpages", _vm.domain.__meta__.webpages_count)
-                        ) +
+                        _vm._s(_vm.$t("Dashboard")) +
                         "\r\n            "
                     ),
                     _c("i", { staticClass: "list icon" })
@@ -462,7 +456,7 @@ var render = function() {
           progress: _vm.progress,
           error: _vm.error,
           lib: _vm.lib,
-          reset: _vm.editingAdmins
+          reset: _vm.editingGroups
         },
         scopedSlots: _vm._u([
           {
@@ -488,17 +482,18 @@ var render = function() {
                 ),
                 _vm._v(
                   "\r\n        # " +
-                    _vm._s(_vm.editingAdmins.id) +
+                    _vm._s(_vm.editingGroups.id) +
                     "\r\n        " +
-                    _vm._s(_vm.editingAdmins.domain) +
+                    _vm._s(_vm.domain) +
+                    _vm._s(_vm.editingGroups.path) +
                     "\r\n        "
                 ),
-                _vm.editingAdmins.title !== "" &&
-                _vm.editingAdmins.title !== null
+                _vm.editingGroups.title !== "" &&
+                _vm.editingGroups.title !== null
                   ? [
                       _vm._v(
                         "\r\n          (" +
-                          _vm._s(_vm.editingAdmins.title) +
+                          _vm._s(_vm.editingGroups.title) +
                           ")\r\n        "
                       )
                     ]
@@ -515,7 +510,11 @@ var render = function() {
                   _c("label", [
                     _vm._v(
                       "\r\n            " +
-                        _vm._s(_vm.$t("Edit Admins (split by space)")) +
+                        _vm._s(
+                          _vm.$t(
+                            "Edit Groups (A group per line. Readers in group is splited by space)"
+                          )
+                        ) +
                         "\r\n            ("
                     ),
                     _c(
@@ -523,7 +522,7 @@ var render = function() {
                       {
                         attrs: {
                           href:
-                            "https://github.com/pulipulichen/PACOR/blob/master/help/AdminsExample.md",
+                            "https://github.com/pulipulichen/PACOR/blob/master/help/GroupsExample.md",
                           target: "_blank"
                         }
                       },
@@ -537,11 +536,11 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.editingAdmins.admins,
-                        expression: "editingAdmins.admins"
+                        value: _vm.editingGroups.groups,
+                        expression: "editingGroups.groups"
                       }
                     ],
-                    domProps: { value: _vm.editingAdmins.admins },
+                    domProps: { value: _vm.editingGroups.groups },
                     on: {
                       input: [
                         function($event) {
@@ -549,13 +548,13 @@ var render = function() {
                             return
                           }
                           _vm.$set(
-                            _vm.editingAdmins,
-                            "admins",
+                            _vm.editingGroups,
+                            "groups",
                             $event.target.value
                           )
                         },
                         function($event) {
-                          _vm.editingAdmins.isChanged = true
+                          _vm.editingGroups.isChanged = true
                         }
                       ]
                     }
@@ -574,9 +573,9 @@ var render = function() {
                   {
                     staticClass: "ui button",
                     class: {
-                      disabled: !(_vm.editingAdmins.isChanged === true)
+                      disabled: !(_vm.editingGroups.isChanged === true)
                     },
-                    on: { click: _vm.editAdminsSubmit }
+                    on: { click: _vm.editGroupsSubmit }
                   },
                   [_vm._v(_vm._s(_vm.$t("OK")))]
                 )
@@ -1172,6 +1171,7 @@ let WebpageList = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      domain: '',
       webpages: [],
       editingGroups: {},
       editingConfig: {},
@@ -1201,10 +1201,17 @@ let WebpageList = {
   mounted() {
     this.initPage()
     
-    this.status.title = this.$t('Webpage Management')
+    this.initTitle()
     this.list()
   },
   methods: {
+    initTitle: function () {
+      let title = this.$t('Webpage Management')
+      if (this.domain !== '') {
+        title = title + '(' + this.domain + ')'
+      }
+      this.status.title = title
+    },
     initPage: function () {
       if (isNaN(this.$route.params.page) === true) {
         let lastPage = localStorage.getItem('WebpageList.pageConfig.page')
@@ -1242,6 +1249,9 @@ let WebpageList = {
             return false
           }
           this.webpages = result.webpages
+        }
+        if (typeof(result.domain) === 'string') {
+          this.domain = result.domain
         }
         if (typeof(result.maxPage) === 'number') {
           this.pageConfig.maxPage = result.maxPage
@@ -1310,6 +1320,9 @@ let WebpageList = {
           data.config = JSON.parse(webpage.config)
         }
         catch (e) {}
+      }
+      else {
+        data.config = null
       }
       
       if (typeof(data.config) === 'undefined') {
