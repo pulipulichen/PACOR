@@ -7,6 +7,8 @@ const CrawlerHelper = use('App/Helpers/CrawlerHelper')
 const Env = use('Env')
 const baseURL = `${Env.get('PROTOCOL')}//${Env.get('HOST')}:${Env.get('PORT')}`
 
+const WebpageGroup = use('App/Models/WebpageGroup')
+
 class Webpage extends Model {
   
   static boot () {
@@ -47,10 +49,25 @@ class Webpage extends Model {
     return this.hasMany('App/Models/Annotation')
   }
   
-  groups () {
-    return this.hasMany('App/Models/WebpageGroup')
+  groups (group_seq_id) {
+    let groups = this.hasMany('App/Models/WebpageGroup')
             .with('users')
             .orderBy('group_seq_id', 'asc')
+    
+    if (typeof(group_seq_id) === 'number') {
+      groups.where('group_seq_id', group_seq_id)
+              .limit(1)
+    }
+    
+    return groups
+  }
+  
+  async getGroup(group_seq_id) {
+    let group = await this.groups(group_seq_id).fetch()
+    if (group === null) {
+      return null
+    }
+    return group.first()
   }
   
   async getGroupsList() {
@@ -78,7 +95,32 @@ class Webpage extends Model {
       })
     }
     
+    // ---------------------
     
+    let currentSeqID
+    let seqIDs = await this.groups().pluck('group_seq_id')
+    for (currentSeqID = 0; currentSeqID < list.length; currentSeqID++) {
+      let group = await this.getGroup(currentSeqID)
+      
+      if (group === null) {
+        group = new WebpageGroup()
+        group.group_seq_id = currentSeqID
+        
+        await this.groups().save(group)
+      }
+      
+      // ----------------------
+      
+      let usersToAdd = list[currentSeqID]
+      await group.setUsers(usersToAdd)
+      
+      // ----------------------
+    }
+    
+    seqIDs.forEach(seqID => {
+      let group = this.groups(seqID)
+      
+    })
   }
 }
 

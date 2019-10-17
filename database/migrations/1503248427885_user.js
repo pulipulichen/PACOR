@@ -12,7 +12,7 @@ class UserSchema extends Schema {
       //table.string('email', 254).notNullable().unique()
       table.string('email', 254)
       table.string('password', 60)
-      table.string('role', 60).notNullable().defaultTo('student')
+      table.string('role', 60).notNullable().defaultTo('reader')
       table.string('display_name', 20)
       table.string('avatar', 254).notNullable()
       table.timestamps()

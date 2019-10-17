@@ -111,6 +111,21 @@ class Webpage {
     return await groups.users().fetch()
   }
   
+  async d() {
+    
+    let webpage = await WebpageModel
+            .find(3)
+    
+    let group = await webpage.getGroup(0)
+    
+    let names = "pudding jo"
+    
+    //await group.rows[0].setUsers("pudding jo")
+    group.setUsers(names)
+    
+    return group
+  }
+  
   async add ({request, auth}) {
     const data = request.all()
     
