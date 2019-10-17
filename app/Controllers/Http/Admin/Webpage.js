@@ -118,12 +118,30 @@ class Webpage {
     
     let group = await webpage.getGroup(0)
     
-    let names = "pudding jo"
+    let names = ``
     
     //await group.rows[0].setUsers("pudding jo")
     group.setUsers(names)
     
     return group
+  }
+  
+  async d2() {
+    
+    let webpage = await WebpageModel
+            .find(2)
+    
+    await webpage.setGroupsList(`a c
+c d z
+e f`)
+    
+    return await webpage.getGroupsList()
+  }
+  
+  async u () {
+    let user = await UserModel.find(4)
+    await user.groups(2).detach()
+    return user.groups().fetch()
   }
   
   async add ({request, auth}) {

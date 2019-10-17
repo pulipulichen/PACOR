@@ -76,6 +76,15 @@ class User extends Model {
   static get hidden () {
     return ['password']
   }
+  
+  groups (groupID) {
+    let groups = this.belongsToMany('App/Models/WebpageGroup')
+            .pivotTable('group_user')
+    if (typeof(groupID) === 'number') {
+      groups.where('id', groupID)
+    }
+    return groups
+  }
 }
 
 module.exports = User

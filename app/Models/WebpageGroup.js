@@ -48,13 +48,9 @@ class WebpageGroup extends Model {
   }
   
   async setUsers(namesList) {
-    await this.dissociateUsersByName(['a'])
-    return
-    
     if (typeof(namesList) === 'string') {
       if (namesList === '') {
-        await this.delete()
-        return 1
+        namesList = []
       }
       else {
         namesList = namesList.split(' ')
@@ -112,7 +108,8 @@ class WebpageGroup extends Model {
   async dissociateUsersByName (namesNeedToDisso) {
     let users = await this.getDomainUsers(namesNeedToDisso)
     for (let i in users.rows) {
-      await this.users().dissociate(users.rows[i])
+      //await this.users().dissociate(users.rows[i])
+      await users.rows[i].groups(this.id).detach()
     }
   }
 }

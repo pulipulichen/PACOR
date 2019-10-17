@@ -1,5 +1,5 @@
 # AdminsExample
 
 ````
-Admin1 Admin2 Admin3
+Admin1:password1 Admin2:password1 Admin3:password1
 ````

@@ -70,6 +70,16 @@ class Webpage extends Model {
     return group.first()
   }
   
+  async getGroups() {
+    let groups = await this.groups().fetch()
+    
+    let mapping = {}
+    groups.rows.forEach(group => {
+      mapping[group.group_seq_id] = group
+    })
+    return mapping
+  }
+  
   async getGroupsList() {
     let groups = await this.groups().fetch()
     
@@ -98,11 +108,11 @@ class Webpage extends Model {
     // ---------------------
     
     let currentSeqID
-    let seqIDs = await this.groups().pluck('group_seq_id')
+    let groups = await this.getGroups()
     for (currentSeqID = 0; currentSeqID < list.length; currentSeqID++) {
-      let group = await this.getGroup(currentSeqID)
+      let group = groups[currentSeqID]
       
-      if (group === null) {
+      if (group === null || group === undefined) {
         group = new WebpageGroup()
         group.group_seq_id = currentSeqID
         
@@ -115,12 +125,14 @@ class Webpage extends Model {
       await group.setUsers(usersToAdd)
       
       // ----------------------
+      
+      delete groups[currentSeqID]
     }
     
-    seqIDs.forEach(seqID => {
-      let group = this.groups(seqID)
-      
-    })
+    for (let i in groups) {
+      await groups[i].users().detach()
+      await groups[i].delete()
+    }
   }
 }
 
