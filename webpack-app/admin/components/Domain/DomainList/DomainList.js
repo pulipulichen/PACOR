@@ -115,7 +115,17 @@ let DomainList = {
       }
       
       if (domain.admins !== '') {
-        data.admins = domain.admins.replace(/\n/g, ' ').trim().split(' ')
+        data.admins = domain.admins.replace(/\n/g, ' ').trim().split(' ').map(admin => {
+          let parts = admin.split(':')
+          if (parts.length !== 2) {
+            throw this.$t('Format should be "admin:password"')
+          }
+          return {
+            username: parts[0],
+            password: parts[1]
+          }
+        })
+        
       }
       
       if (data.admins.length === 0) {

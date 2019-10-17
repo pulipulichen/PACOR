@@ -22,9 +22,9 @@ class User extends Model {
         throw `Username cannot contain space. (${userInstance.username})`
       }
       
-      if (userInstance.dirty.password) {
-        userInstance.password = await Hash.make(userInstance.password)
-      }
+      //if (userInstance.dirty.password) {
+      //  userInstance.password = await Hash.make(userInstance.password)
+      //}
       
       if (typeof(userInstance.display_name) !== 'string' 
               || userInstance.display_name === '') {

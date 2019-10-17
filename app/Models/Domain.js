@@ -61,7 +61,9 @@ class Domain extends Model {
   }
   */
   
-  async changeAdmins (adminsUsername) {
+  async changeAdmins (adminsData) {
+    let adminsUsername = adminsData.map(admin => admin.username)
+    
     // 先把不是名單中的人變成讀者
     await this.admins()
             .whereNotIn('username', adminsUsername)
@@ -78,8 +80,9 @@ class Domain extends Model {
     let existedUsernames = users.toJSON().map(user => user.username)
     let nonexistentUsernams = adminsUsername.filter(username => existedUsernames.indexOf(username) === -1)
     
-    let usersData = nonexistentUsernams.map((username) => { return {
+    let usersData = nonexistentUsernams.map((username, i) => { return {
       username: username,
+      password: adminsData[i].password,
       role: 'domain_admin'
     }})
     
