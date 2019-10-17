@@ -61,6 +61,7 @@ let VueController = {
       username: '',
       displayName: '',
       avatat: '',
+      domainID: null,
       needLogin: true,
       title: ''
     },

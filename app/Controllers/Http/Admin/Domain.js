@@ -27,7 +27,13 @@ class Domain {
     //await domains.loadMany(['admins'])
     domains = domains.toJSON()
     domains.forEach(domain => {
-      let admins = domain.admins.map(admin => admin.username)
+      let admins = domain.admins.map(admin => {
+        let output = admin.username + ':'
+        if (typeof(admin.password) === 'string') {
+          output = output + admin.password
+        }
+        return output
+      })
       domain.admins = admins.join(' ')
       domain.adminsCount = admins.length
       

@@ -918,7 +918,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let Template = {
+let Domain = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -956,13 +956,18 @@ let Template = {
     }
   },
   mounted() {
+    if (this.status.role === 'domain_admin') {
+      this.$router.replace(`/webpage/${this.status.domainID}/list`)
+      return
+    }
+    
     this.domainView = _DomainList_DomainList_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Template);
+/* harmony default export */ __webpack_exports__["default"] = (Domain);
 
 /***/ }),
 

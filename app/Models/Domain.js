@@ -63,6 +63,10 @@ class Domain extends Model {
   
   async changeAdmins (adminsData) {
     let adminsUsername = adminsData.map(admin => admin.username)
+    let adminPasswordMapping = {}
+    adminsData.forEach(admin => {
+      adminPasswordMapping[admin.username] = admin.password
+    })
     
     // 先把不是名單中的人變成讀者
     await this.admins()
@@ -76,6 +80,13 @@ class Domain extends Model {
     let users = await this.users()
             .whereIn('username', adminsUsername)
             .fetch()
+    
+    let admins = await this.admins().fetch()
+    for (let i in admins.rows) {
+      let admin = admins.rows[i]
+      admin.password = adminPasswordMapping[admin.username]
+      await admin.save()
+    }
     
     let existedUsernames = users.toJSON().map(user => user.username)
     let nonexistentUsernams = adminsUsername.filter(username => existedUsernames.indexOf(username) === -1)

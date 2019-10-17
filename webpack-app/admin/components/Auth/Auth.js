@@ -13,12 +13,14 @@ let Auth = {
       
       if (typeof(result) !== 'object') {
         return false
+        // 不做任何警告
       }
       
       this.status.username = result.username
       this.status.displayName = result.displayName
       this.status.avatar = result.avatar
       this.status.role = result.role
+      this.status.domainID = result.domainID
       this.status.needLogin = false
     }
   } // methods

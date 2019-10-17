@@ -73,9 +73,9 @@ class User extends Model {
     return this.belongsTo('App/Models/Domain')
   }
   
-  static get hidden () {
-    return ['password']
-  }
+  //static get hidden () {
+  //  return ['password']
+  //}
   
   groups (groupID) {
     let groups = this.belongsToMany('App/Models/WebpageGroup')

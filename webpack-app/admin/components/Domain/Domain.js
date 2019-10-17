@@ -1,7 +1,7 @@
 import DomainList from './DomainList/DomainList.vue'
 import DomainAdd from './DomainAdd/DomainAdd.vue'
 
-let Template = {
+let Domain = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -39,10 +39,15 @@ let Template = {
     }
   },
   mounted() {
+    if (this.status.role === 'domain_admin') {
+      this.$router.replace(`/webpage/${this.status.domainID}/list`)
+      return
+    }
+    
     this.domainView = DomainList
   },
   methods: {
   } // methods
 }
 
-export default Template
+export default Domain

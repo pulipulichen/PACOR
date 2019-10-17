@@ -65,7 +65,9 @@ class Auth {
       await auth.loginViaId(user.id)
       return {
         displayName: user.display_name,
-        avatar: AvatarHelper.adminURL()
+        avatar: AvatarHelper.adminURL(),
+        domainID: user.domain_id,
+        role: user.role
       }
     }
     
@@ -86,6 +88,7 @@ class Auth {
     return {
       displayName: ADMIN_USERNAME,
       avatar: AvatarHelper.adminURL(),
+      domainID: user.domain_id,
       role: user.role
     }
   }
@@ -96,27 +99,32 @@ class Auth {
     let user
     user = await User
       .query()
-      .where('username', ADMIN_USERNAME)
+      .where('username', username)
+      .where('password', password)
       .where('role', 'domain_admin')
       .whereHas('domain', (builder) => {
         builder.where('domain', domain)
       })
       .fetch()
     
-    if (user === null) {
-      return 0
+    if (user.size() === 0) {
+      throw 'No user'
+    }
+    else {
+      user = user.first()
     }
     
-    let match = await user.validatePassword(password)
-    if (match === false) {
-      return 0
-    }
+    //let match = await user.validatePassword(password)
+    //if (match === false) {
+    //  return 0
+    //}
     
     await this._forceLogout(auth)
     await auth.remember(true).login(user)
     return {
       displayName: user.name,
       avatar: AvatarHelper.userURL(user.avatar),
+      domainID: user.domain_id,
       role: user.role
     }
   }
@@ -141,6 +149,7 @@ class Auth {
           username: user.username,
           displayName: user.display_name,
           avatar: avatarURL,
+          domainID: user.domain_id,
           role: user.role
         }
       }

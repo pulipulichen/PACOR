@@ -994,6 +994,7 @@ let VueController = {
       username: '',
       displayName: '',
       avatat: '',
+      domainID: null,
       needLogin: true,
       title: ''
     },
@@ -1166,12 +1167,14 @@ let Auth = {
       
       if (typeof(result) !== 'object') {
         return false
+        // 不做任何警告
       }
       
       this.status.username = result.username
       this.status.displayName = result.displayName
       this.status.avatar = result.avatar
       this.status.role = result.role
+      this.status.domainID = result.domainID
       this.status.needLogin = false
     }
   } // methods
@@ -1270,8 +1273,8 @@ let Login = {
       password: '',
       */
       domain: '',
-      username: 'admin',
-      password: 'password',
+      username: 'Jo',
+      password: 'c',
     }
   },
   computed: {
@@ -1303,6 +1306,7 @@ let Login = {
       this.status.displayName = result.displayName
       this.status.avatar = result.avatar
       this.status.role = result.role
+      this.status.domainID = result.domainID
       
       this.status.needLogin = false
       this.reset()

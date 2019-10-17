@@ -9,8 +9,8 @@ let Login = {
       password: '',
       */
       domain: '',
-      username: 'admin',
-      password: 'password',
+      username: 'Jo',
+      password: 'c',
     }
   },
   computed: {
@@ -42,6 +42,7 @@ let Login = {
       this.status.displayName = result.displayName
       this.status.avatar = result.avatar
       this.status.role = result.role
+      this.status.domainID = result.domainID
       
       this.status.needLogin = false
       this.reset()
