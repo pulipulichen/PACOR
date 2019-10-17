@@ -62,11 +62,36 @@ class Webpage {
   }
   
   async b() {
-    
     let webpage = await WebpageModel
             .find(3)
     
     return webpage.getGroupsList()
+  }
+  
+  async b2 () {
+    /*
+    let webpage = new WebpageModel()
+    webpage.title = 'A'
+    webpage.path = '/'
+    
+    let domain = await DomainModel.find(1)
+    await domain.webpages().save(webpage)
+    */
+    //let webpage = await WebpageModel.find(1)
+    let webpage = await WebpageModel
+            .find(3)
+    
+    let group = new WebpageGroupModel()
+    group.group_seq_id = 0
+    await webpage.groups().save(group)
+    
+    let user = await UserModel.find(2)
+    await group.users().save(user)
+    
+    let user2 = await UserModel.find(3)
+    await group.users().save(user2)
+    
+    return 1
   }
   
   async c() {

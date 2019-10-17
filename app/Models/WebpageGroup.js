@@ -10,6 +10,7 @@ class WebpageGroup extends Model {
   
   users () {
     return this.belongsToMany('App/Models/User')
+            .orderBy('username', 'asc')
             .pivotTable('group_user')
   }
 }

@@ -50,6 +50,7 @@ class Webpage extends Model {
   groups () {
     return this.hasMany('App/Models/WebpageGroup')
             .with('users')
+            .orderBy('group_seq_id', 'asc')
   }
   
   async getGroupsList() {
