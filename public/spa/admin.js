@@ -550,37 +550,61 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "menu-full right menu" }, [
-      _c(
-        "a",
-        {
-          staticClass: "item",
-          class: { "active disabled": _vm.$route.path.startsWith("/domain") },
-          attrs: { href: "#/domain/list" }
-        },
-        [_vm._v("\r\n     " + _vm._s(_vm.$t("Domain")) + "\r\n    ")]
-      ),
+      _vm.status.role === "global_admin"
+        ? _c(
+            "a",
+            {
+              staticClass: "item",
+              class: {
+                "active disabled": _vm.$route.path.startsWith("/domain")
+              },
+              attrs: { href: "#/domain/list" }
+            },
+            [_vm._v("\r\n     " + _vm._s(_vm.$t("Domain")) + "\r\n    ")]
+          )
+        : _vm._e(),
       _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "item",
-          class: { "active disabled": _vm.$route.path.startsWith("/material") },
-          attrs: { href: "#/material" }
-        },
-        [_vm._v("\r\n     " + _vm._s(_vm.$t("Material")) + "\r\n    ")]
-      ),
+      _vm.status.role === "domain_admin"
+        ? _c(
+            "a",
+            {
+              staticClass: "item",
+              class: {
+                "active disabled": _vm.$route.path.startsWith("/domain")
+              },
+              attrs: { href: "#/webpage/" }
+            },
+            [_vm._v("\r\n     " + _vm._s(_vm.$t("Webpage")) + "\r\n    ")]
+          )
+        : _vm._e(),
       _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "item",
-          attrs: {
-            href: "/admin/Database/admin?table=webpages",
-            target: "_blank"
-          }
-        },
-        [_vm._v("\r\n     " + _vm._s(_vm.$t("Database")) + "\r\n    ")]
-      ),
+      _vm.status.role === "global_admin"
+        ? _c(
+            "a",
+            {
+              staticClass: "item",
+              class: {
+                "active disabled": _vm.$route.path.startsWith("/material")
+              },
+              attrs: { href: "#/material" }
+            },
+            [_vm._v("\r\n     " + _vm._s(_vm.$t("Material")) + "\r\n    ")]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.status.role === "global_admin"
+        ? _c(
+            "a",
+            {
+              staticClass: "item",
+              attrs: {
+                href: "/admin/Database/admin?table=webpages",
+                target: "_blank"
+              }
+            },
+            [_vm._v("\r\n     " + _vm._s(_vm.$t("Database")) + "\r\n    ")]
+          )
+        : _vm._e(),
       _vm._v(" "),
       _c("a", { staticClass: "item", on: { click: _vm.logout } }, [
         _vm._v("\r\n     " + _vm._s(_vm.$t("Logout")) + "\r\n    ")
@@ -1787,7 +1811,7 @@ const routes = [
   //{ path: '/domain/list/:page?', component: () => import(/* webpackChunkName: "admin-components/domain" */ './components/DomainList/DomainList.vue') },
   //{ path: '/domain/add', component: () => import(/* webpackChunkName: "admin-components/domain" */ './components/DomainAdd/DomainAdd.vue') },
   { path: '/domain/:action/:page?', component: () => __webpack_require__.e(/*! import() | admin-components/domain */ "admin-components/domain").then(__webpack_require__.bind(null, /*! ./components/Domain/Domain.vue */ "./webpack-app/admin/components/Domain/Domain.vue")) },
-  { path: '/webpage/:domainID/:action/:page?', component: () => __webpack_require__.e(/*! import() | admin-components/webpage */ "admin-components/webpage").then(__webpack_require__.bind(null, /*! ./components/Webpage/Webpage.vue */ "./webpack-app/admin/components/Webpage/Webpage.vue")) },
+  { path: '/webpage/:domainID?/:action?/:page?', component: () => __webpack_require__.e(/*! import() | admin-components/webpage */ "admin-components/webpage").then(__webpack_require__.bind(null, /*! ./components/Webpage/Webpage.vue */ "./webpack-app/admin/components/Webpage/Webpage.vue")) },
   { path: '/material/:page?', component: () => __webpack_require__.e(/*! import() | admin-components/material */ "admin-components/material").then(__webpack_require__.bind(null, /*! ./components/Material/Material.vue */ "./webpack-app/admin/components/Material/Material.vue")) },
 ]
 

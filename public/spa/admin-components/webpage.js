@@ -409,6 +409,10 @@ let Webpage = {
     }
   },
   mounted() {
+    if (isNaN(this.$route.params.domainID) === true) {
+      this.$router.replace(`/webpage/${this.status.domainID}/list`)
+    }
+    
     this.componentView = _WebpageList_WebpageList_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {

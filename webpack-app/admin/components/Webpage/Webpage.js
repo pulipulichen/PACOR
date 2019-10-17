@@ -27,6 +27,10 @@ let Webpage = {
     }
   },
   mounted() {
+    if (isNaN(this.$route.params.domainID) === true) {
+      this.$router.replace(`/webpage/${this.status.domainID}/list`)
+    }
+    
     this.componentView = List
   },
   methods: {

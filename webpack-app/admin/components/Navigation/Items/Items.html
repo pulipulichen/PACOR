@@ -15,19 +15,29 @@
     
     <a class="item"
        v-bind:class="{'active disabled': $route.path.startsWith('/domain')}"
-       href="#/domain/list">
+       href="#/domain/list"
+       v-if="status.role === 'global_admin'">
      {{ $t('Domain') }}
     </a>
     
     <a class="item"
+       v-bind:class="{'active disabled': $route.path.startsWith('/domain')}"
+       href="#/webpage/"
+       v-if="status.role === 'domain_admin'">
+     {{ $t('Webpage') }}
+    </a>
+    
+    <a class="item"
        v-bind:class="{'active disabled': $route.path.startsWith('/material')}"
-       href="#/material">
+       href="#/material"
+       v-if="status.role === 'global_admin'">
      {{ $t('Material') }}
     </a>
     
     <a class="item"
        href="/admin/Database/admin?table=webpages"
-       target="_blank">
+       target="_blank"
+       v-if="status.role === 'global_admin'">
      {{ $t('Database') }}
     </a>
     
