@@ -16,7 +16,19 @@ let Webpage = {
   },
   watch: {
     '$route.params.action': function () {
-      switch (this.$route.params.action) {
+      this.switchCompnent(this.$route.params.action)
+    }
+  },
+  mounted() {
+    if (isNaN(this.$route.params.domainID) === true) {
+      this.$router.replace(`/webpage/${this.status.domainID}/list`)
+    }
+    
+    this.switchCompnent(this.$route.params.action)
+  },
+  methods: {
+    switchCompnent: function (action) {
+      switch (action) {
         case 'list':
           this.componentView = List
           break
@@ -25,15 +37,6 @@ let Webpage = {
           break
       }
     }
-  },
-  mounted() {
-    if (isNaN(this.$route.params.domainID) === true) {
-      this.$router.replace(`/webpage/${this.status.domainID}/list`)
-    }
-    
-    this.componentView = List
-  },
-  methods: {
   } // methods
 }
 

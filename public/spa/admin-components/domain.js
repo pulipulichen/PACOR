@@ -608,8 +608,10 @@ var render = function() {
                   _c("label", [
                     _vm._v(
                       "\r\n            " +
-                        _vm._s(_vm.$t("Edit Admins (split by space)")) +
-                        "\r\n            ("
+                        _vm._s(_vm.$t("Edit Admins ")) +
+                        "\r\n            (" +
+                        _vm._s(_vm.$t("split by space")) +
+                        "\r\n             "
                     ),
                     _c(
                       "a",
@@ -741,8 +743,10 @@ var render = function() {
                   _c("label", [
                     _vm._v(
                       "\r\n            " +
-                        _vm._s(_vm.$t("Edit Config (JSON format)")) +
-                        "\r\n            ("
+                        _vm._s(_vm.$t("Edit Config")) +
+                        "\r\n            (" +
+                        _vm._s(_vm.$t("JSON format.")) +
+                        "\r\n             "
                     ),
                     _c(
                       "a",
@@ -945,14 +949,7 @@ let Domain = {
   },
   watch: {
     '$route.params.action': function () {
-      switch (this.$route.params.action) {
-        case 'list':
-          this.domainView = _DomainList_DomainList_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-          break
-        case 'add':
-          this.domainView = _DomainAdd_DomainAdd_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
-          break
-      }
+      this.switchComponent(this.$route.params.action)
     }
   },
   mounted() {
@@ -961,9 +958,19 @@ let Domain = {
       return
     }
     
-    this.domainView = _DomainList_DomainList_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    this.switchComponent(this.$route.params.action)
   },
   methods: {
+    switchComponent: function (action) {
+      switch (action) {
+        case 'list':
+          this.domainView = _DomainList_DomainList_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+          break
+        case 'add':
+          this.domainView = _DomainAdd_DomainAdd_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+          break
+      }
+    }
   } // methods
 }
 
@@ -1111,7 +1118,7 @@ let DomainAdd = {
         domain: 'http://blog.pulipuli.info',
         title: '',
         admins: '',
-        config: '{}'
+        config: ''
       }
     }
   },

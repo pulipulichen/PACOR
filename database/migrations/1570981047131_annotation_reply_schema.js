@@ -7,8 +7,8 @@ class AnnotationReplySchema extends Schema {
   up () {
     this.create('annotation_replies', (table) => {
       table.increments()
-      table.integer('to_annotation_id').notNullable().unsigned().references('id').inTable('annotations')
-      table.integer('from_annotation_id').notNullable().unsigned().references('id').inTable('annotations')
+      table.integer('to_annotation_id').notNullable().unsigned().references('id').inTable('annotations').onDelete('cascade')
+      table.integer('from_annotation_id').notNullable().unsigned().references('id').inTable('annotations').onDelete('cascade')
       table.timestamps()
     })
   }

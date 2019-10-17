@@ -1297,8 +1297,8 @@ let Login = {
       password: '',
       */
       domain: '',
-      username: 'Jo',
-      password: 'c',
+      username: 'admin',
+      password: 'password',
     }
   },
   computed: {

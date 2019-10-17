@@ -7,8 +7,8 @@ class ParagraphNoteSchema extends Schema {
   up () {
     this.create('paragraph_notes', (table) => {
       table.increments()
-      table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages')
-      table.integer('user_id').notNullable().unsigned().references('id').inTable('users')
+      table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
+      table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
       table.integer('paragraph_id').notNullable()
       table.text('note').notNullable()
       table.timestamps()

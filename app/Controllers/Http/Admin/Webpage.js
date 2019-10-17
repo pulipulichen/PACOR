@@ -203,10 +203,30 @@ e f`)
     if (typeof(domainID) === 'string') {
       domainID = parseInt(domainID, 10)
     }
+    if (typeof(domainID) !== 'number') {
+      throw new HttpException('No domain id')
+    }
     
     // --------
     
-    let webpage = new WebpageModel
+    let isCreate = false
+    let webpage
+    webpage = await WebpageModel
+            .query()
+            .where('domain_id', domainID)
+            .where('path', data.path)
+            .pick(1)
+    
+    if (webpage.size() === 0) {
+      webpage = new WebpageModel
+      isCreate = true
+    }
+    else {
+      webpage = webpage.first()
+    }
+    
+    // -------
+    
     webpage.path = data.path
     if (data.title !== '') {
       webpage.title = data.title
@@ -215,12 +235,19 @@ e f`)
       webpage.config = data.config
     }
     
-    // 還沒有做reader分組的部分
-    
     // ---------
     
-    const domain = await DomainModel.find(domainID)
-    await domain.webpages().save(webpage)
+    if (isCreate === false) {
+      await webpage.save()
+    }
+    else {
+      const domain = await DomainModel.find(domainID)
+      await domain.webpages().save(webpage)
+    }
+    
+    if (Array.isArray(data.groups)) {
+      await webpage.setGroupsList(data.groups)
+    }
     
     return 1
   }

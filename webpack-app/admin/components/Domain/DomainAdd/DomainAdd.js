@@ -7,7 +7,7 @@ let DomainAdd = {
         domain: 'http://blog.pulipuli.info',
         title: '',
         admins: '',
-        config: '{}'
+        config: ''
       }
     }
   },

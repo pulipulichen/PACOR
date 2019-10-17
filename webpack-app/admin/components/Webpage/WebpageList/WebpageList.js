@@ -29,6 +29,13 @@ let WebpageList = {
     }
   },
   watch: {
+    'status.domain': function () {
+      let title = this.$t('Webpage Management')
+      if (this.status.domain !== '') {
+        title = title + '(' + this.status.domain + ')'
+      }
+      this.status.title = title
+    }
   },
   mounted() {
     this.initPage()
@@ -39,8 +46,9 @@ let WebpageList = {
   methods: {
     initTitle: function () {
       let title = this.$t('Webpage Management')
-      if (this.domain !== '') {
-        title = title + '(' + this.domain + ')'
+      if (this.status.domain !== undefined 
+              && this.status.domain !== '') {
+        title = title + ' (' + this.status.domain + ')'
       }
       this.status.title = title
     },
@@ -83,7 +91,7 @@ let WebpageList = {
           this.webpages = result.webpages
         }
         if (typeof(result.domain) === 'string') {
-          this.domain = result.domain
+          this.status.domain = result.domain
         }
         if (typeof(result.maxPage) === 'number') {
           this.pageConfig.maxPage = result.maxPage

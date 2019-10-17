@@ -49,6 +49,7 @@ class WebpageGroup extends Model {
   }
   
   async setUsers(namesList) {
+    
     if (typeof(namesList) === 'string') {
       if (namesList === '') {
         namesList = []
@@ -76,6 +77,12 @@ class WebpageGroup extends Model {
     
     let namesNeedToDisso = namesInGroup.filter(username => (namesList.indexOf(username) === -1))
     
+    //console.log('======================')
+    //console.log('namesNeedToCreate', namesNeedToCreate)
+    //console.log('namesNeedToAsso', namesNeedToAsso)
+    //console.log('namesNeedToDisso', namesNeedToDisso)
+    //return
+    
     // --------------------------
     // 先建立users
     await this.createDomainUserByNames(namesNeedToCreate)
@@ -91,6 +98,9 @@ class WebpageGroup extends Model {
   }
   
   async createDomainUserByNames (namesNeedToCreate) {
+    if (namesNeedToCreate.length === 0) {
+      return
+    }
     let userData = namesNeedToCreate.map(username => {
       return {
         username: username
@@ -102,17 +112,24 @@ class WebpageGroup extends Model {
   }
   
   async associateUsersByName (namesNeedToAsso) {
+    if (namesNeedToAsso.length === 0) {
+      return
+    }
     let users = await this.getDomainUsers(namesNeedToAsso)
     for (let i in users.rows) {
       await this.users().save(users.rows[i])
+      //await users.rows[i].groups(this.id).attach()
     }
   }
   
   async dissociateUsersByName (namesNeedToDisso) {
+    if (namesNeedToDisso.length === 0) {
+      return
+    }
     let users = await this.getDomainUsers(namesNeedToDisso)
     for (let i in users.rows) {
       //await this.users().dissociate(users.rows[i])
-      await users.rows[i].groups(this.id).detach()
+      await users.rows[i].groups().detach(this.id)
     }
   }
   

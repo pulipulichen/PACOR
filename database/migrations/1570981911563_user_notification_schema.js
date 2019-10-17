@@ -7,8 +7,8 @@ class UserNotificationSchema extends Schema {
   up () {
     this.create('user_notifications', (table) => {
       table.increments()
-      table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages')
-      table.integer('user_id').notNullable().unsigned().references('id').inTable('users')
+      table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
+      table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
       table.string('type', 60).notNullable()
       table.json('notification').notNullable()
       table.boolean('readed').notNullable().defaultTo(false)

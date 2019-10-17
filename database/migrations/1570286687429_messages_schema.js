@@ -11,7 +11,7 @@ class MessagesSchema extends Schema {
       table.increments()
       table.text('message').notNullable()
       table.bigInteger('timestamp').notNullable()
-      table.integer('user_id').notNullable().unsigned().references('id').inTable('users')
+      table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
       table.timestamps()
     })
   }

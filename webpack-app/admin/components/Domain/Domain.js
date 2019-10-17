@@ -28,14 +28,7 @@ let Domain = {
   },
   watch: {
     '$route.params.action': function () {
-      switch (this.$route.params.action) {
-        case 'list':
-          this.domainView = DomainList
-          break
-        case 'add':
-          this.domainView = DomainAdd
-          break
-      }
+      this.switchComponent(this.$route.params.action)
     }
   },
   mounted() {
@@ -44,9 +37,19 @@ let Domain = {
       return
     }
     
-    this.domainView = DomainList
+    this.switchComponent(this.$route.params.action)
   },
   methods: {
+    switchComponent: function (action) {
+      switch (action) {
+        case 'list':
+          this.domainView = DomainList
+          break
+        case 'add':
+          this.domainView = DomainAdd
+          break
+      }
+    }
   } // methods
 }
 

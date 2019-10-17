@@ -9,8 +9,8 @@ class RecallTestSchema extends Schema {
       table.increments()
       table.string('type', 60).notNullable().defaultTo('pre-test')
       table.text('response')
-      table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages')
-      table.integer('user_id').notNullable().unsigned().references('id').inTable('users')
+      table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
+      table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
       table.timestamps()
     })
   }

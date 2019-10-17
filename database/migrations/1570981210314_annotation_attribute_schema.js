@@ -7,7 +7,7 @@ class AnnotationAttributeSchema extends Schema {
   up () {
     this.create('annotation_attributes', (table) => {
       table.increments()
-      table.integer('annotation_id').notNullable().unsigned().references('id').inTable('annotations')
+      table.integer('annotation_id').notNullable().unsigned().references('id').inTable('annotations').onDelete('cascade')
       table.string('name', 60).notNullable()
       table.json('value').notNullable()
       table.timestamps()

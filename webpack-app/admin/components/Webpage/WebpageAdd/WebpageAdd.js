@@ -1,13 +1,13 @@
-let DomainAdd = {
+let WebpageAdd = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
       addInput: {
-        domain: 'http://blog.pulipuli.info',
+        path: '/test',
         title: '',
-        admins: '',
-        config: '{}'
+        groups: '',
+        config: ''
       }
     }
   },
@@ -15,12 +15,8 @@ let DomainAdd = {
   },
   computed: {
     enableAdd: function () {
-      return (this.lib.ValidateHelper.isURL(this.addInput.domain)
+      return (this.addInput.path.startsWith('/')
               && (this.addInput.config === '' || this.lib.ValidateHelper.isJSON(this.addInput.config)) )
-    },
-    domainIsURL: function () {
-      return (this.addInput.domain === '' 
-              || this.lib.ValidateHelper.isURL(this.addInput.domain))
     },
     configIsJSON: function () {
       return (this.addInput.config === '' 
@@ -30,20 +26,40 @@ let DomainAdd = {
   watch: {
   },
   mounted() {
-    this.status.title = this.$t('Webpage Add')
+    this.initTitle()
   },
   methods: {
+    initTitle: function () {
+      let title = this.$t('Webpage Add')
+      if (this.status.domain !== undefined 
+              && this.status.domain !== '') {
+        title = title + ' (' + this.status.domain + ')'
+      }
+      this.status.title = title
+    },
     addSubmit: async function () {
       let input = JSON.parse(JSON.stringify(this.addInput))
+      let domainID = this.$route.params.domainID
       let data = {
-        domain: input.domain
+        domainID: domainID,
+        path: input.path
       }
       
       if (input.title !== '') {
         data.title = input.title
       }
-      if (input.admins !== '') {
-        data.admins = input.admins.replace(/\n/g, ' ').trim().split(' ')
+      if (input.groups !== undefined 
+              && input.groups !== '') {
+        let groups = []
+        input.groups.trim().split('\n').forEach(line => {
+          let group = line.trim().split(' ').filter(user => user !== '')
+          if (group.length > 0) {
+            groups.push(group)
+          }
+        })
+        if (groups.length > 0) {
+          data.groups = groups
+        }
       }
       if (input.config !== '') {
         try {
@@ -52,14 +68,14 @@ let DomainAdd = {
         catch (e) {}
       }
       
-      let result = await this.lib.AxiosHelper.post('/admin/Domain/add', data)
+      let result = await this.lib.AxiosHelper.post('/admin/Webpage/add', data)
       //console.log(result)
       // 完成admin之後呢？
       if (result === 1) {
-        this.$router.push('/domain/list/')
+        this.$router.push('list')
       }
     }
   } // methods
 }
 
-export default DomainAdd
+export default WebpageAdd

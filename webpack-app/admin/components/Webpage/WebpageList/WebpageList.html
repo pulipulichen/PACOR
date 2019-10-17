@@ -89,7 +89,7 @@
           {{ $t('DATABASE') }}
         </a>
         # {{ editingGroups.id }}
-        {{ domain }}{{ editingGroups.path }}
+        {{ status.domain }}{{ editingGroups.path }}
         <template v-if="editingGroups.title !== '' && editingGroups.title !== null">
           ({{ editingGroups.title }})
         </template>
@@ -97,8 +97,9 @@
       <template v-slot:content inline-template>
         <div class="ui field">
           <label>
-            {{ $t('Edit Groups (A group per line. Readers in group is splited by space)') }}
-            (<a href="https://github.com/pulipulichen/PACOR/blob/master/help/GroupsExample.md" target="_blank">{{ $t('Example') }}</a>)
+            {{ $t('Edit Groups') }}
+            ({{ $t('each group per line. Readers in group is splited by space.')  }}
+             <a href="https://github.com/pulipulichen/PACOR/blob/master/help/GroupsExample.md" target="_blank">{{ $t('Example') }}</a>)
           </label>
           <textarea v-model="editingGroups.groups"
                     v-on:input="editingGroups.isChanged = true"></textarea>
@@ -135,8 +136,9 @@
       <template v-slot:content inline-template>
         <div class="ui field">
           <label>
-            {{ $t('Edit Config (JSON format)') }}
-            (<a href="https://github.com/pulipulichen/PACOR/blob/master/help/ConfigExample.md" target="_blank">{{ $t('Example') }}</a>)
+            {{ $t('Edit Config') }}
+            ({{ $t('JSON format.') }}
+             <a href="https://github.com/pulipulichen/PACOR/blob/master/help/ConfigExample.md" target="_blank">{{ $t('Example') }}</a>)
           </label>
           <textarea v-model="editingConfig.config"
                     v-on:input="editingConfig.isChanged = true"></textarea>

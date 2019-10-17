@@ -201,50 +201,194 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "ui form" }, [
-    _c("div", { staticClass: "field", class: { error: !_vm.configIsJSON } }, [
-      _c("label", { attrs: { for: "addInputConfig" } }, [
-        _vm._v(
-          "\r\n      " +
-            _vm._s(_vm.$t("Config")) +
-            "\r\n      (" +
-            _vm._s(_vm.$t("JSON Format")) +
-            "\r\n      "
-        ),
-        _c(
-          "a",
-          {
+    _c("div", { staticClass: "three fields" }, [
+      _c(
+        "div",
+        {
+          staticClass: "seven wide field",
+          class: { error: !_vm.addInput.path.startsWith("/") }
+        },
+        [
+          _c("label", { attrs: { for: "addInputPath" } }, [
+            _vm._v(
+              "\r\n        " +
+                _vm._s(_vm.$t("Webpage Path (start from / )")) +
+                "\r\n      "
+            )
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.addInput.path,
+                expression: "addInput.path"
+              }
+            ],
             attrs: {
-              href:
-                "https://github.com/pulipulichen/PACOR/blob/master/help/ConfigExample.md",
-              target: "_blank"
+              type: "text",
+              id: "addInputPath",
+              size: "256",
+              name: "addInputPath"
+            },
+            domProps: { value: _vm.addInput.path },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.addInput, "path", $event.target.value)
+              }
             }
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "seven wide field" }, [
+        _c("label", { attrs: { for: "addInputTitle" } }, [
+          _vm._v("\r\n        " + _vm._s(_vm.$t("Title")) + "\r\n      ")
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.addInput.title,
+              expression: "addInput.title"
+            }
+          ],
+          attrs: {
+            type: "text",
+            id: "addInputTitle",
+            size: "256",
+            name: "addInputTitle"
           },
-          [_vm._v(_vm._s(_vm.$t("Example")))]
-        ),
-        _vm._v(")\r\n    ")
+          domProps: { value: _vm.addInput.title },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.addInput, "title", $event.target.value)
+            }
+          }
+        })
       ]),
       _vm._v(" "),
-      _c("textarea", {
-        directives: [
+      _c("div", { staticClass: "two wide field" }, [
+        _c("label", [_vm._v("\r\n         \r\n      ")]),
+        _vm._v(" "),
+        _c(
+          "button",
           {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.addInput.config,
-            expression: "addInput.config"
-          }
-        ],
-        staticClass: "ui red",
-        attrs: { id: "addInputConfig", name: "addInputConfig" },
-        domProps: { value: _vm.addInput.config },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+            staticClass: "ui fluid button",
+            class: { disabled: !_vm.enableAdd },
+            attrs: { type: "button" },
+            on: { click: _vm.addSubmit }
+          },
+          [_vm._v("\r\n        " + _vm._s(_vm.$t("SUBMIT")) + "\r\n      ")]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "two fields" }, [
+      _c("div", { staticClass: "field", class: { error: !_vm.configIsJSON } }, [
+        _c("label", { attrs: { for: "addInputConfig" } }, [
+          _vm._v(
+            "\r\n      " +
+              _vm._s(_vm.$t("Config")) +
+              "\r\n      (" +
+              _vm._s(_vm.$t("JSON Format")) +
+              "\r\n      "
+          ),
+          _c(
+            "a",
+            {
+              attrs: {
+                href:
+                  "https://github.com/pulipulichen/PACOR/blob/master/help/ConfigExample.md",
+                target: "_blank"
+              }
+            },
+            [_vm._v(_vm._s(_vm.$t("Example")))]
+          ),
+          _vm._v(")\r\n    ")
+        ]),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.addInput.config,
+              expression: "addInput.config"
             }
-            _vm.$set(_vm.addInput, "config", $event.target.value)
+          ],
+          staticClass: "ui red",
+          attrs: { id: "addInputConfig", name: "addInputConfig" },
+          domProps: { value: _vm.addInput.config },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.addInput, "config", $event.target.value)
+            }
           }
-        }
-      })
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "field", class: { error: !_vm.configIsJSON } }, [
+        _c("label", { attrs: { for: "addInputConfig" } }, [
+          _vm._v(
+            "\r\n      " +
+              _vm._s(_vm.$t("Groups")) +
+              "\r\n      (" +
+              _vm._s(
+                _vm.$t(
+                  "each group per line. Readers in group is splited by space"
+                )
+              ) +
+              "\r\n       "
+          ),
+          _c(
+            "a",
+            {
+              attrs: {
+                href:
+                  "https://github.com/pulipulichen/PACOR/blob/master/help/GroupsExample.md",
+                target: "_blank"
+              }
+            },
+            [_vm._v(_vm._s(_vm.$t("Example")))]
+          ),
+          _vm._v(")\r\n    ")
+        ]),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.addInput.groups,
+              expression: "addInput.groups"
+            }
+          ],
+          staticClass: "ui red",
+          attrs: { id: "addInputGroups", name: "addInputGroups" },
+          domProps: { value: _vm.addInput.groups },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.addInput, "groups", $event.target.value)
+            }
+          }
+        })
+      ])
     ])
   ])
 }
@@ -484,7 +628,7 @@ var render = function() {
                   "\r\n        # " +
                     _vm._s(_vm.editingGroups.id) +
                     "\r\n        " +
-                    _vm._s(_vm.domain) +
+                    _vm._s(_vm.status.domain) +
                     _vm._s(_vm.editingGroups.path) +
                     "\r\n        "
                 ),
@@ -510,12 +654,14 @@ var render = function() {
                   _c("label", [
                     _vm._v(
                       "\r\n            " +
+                        _vm._s(_vm.$t("Edit Groups")) +
+                        "\r\n            (" +
                         _vm._s(
                           _vm.$t(
-                            "Edit Groups (A group per line. Readers in group is splited by space)"
+                            "each group per line. Readers in group is splited by space."
                           )
                         ) +
-                        "\r\n            ("
+                        "\r\n             "
                     ),
                     _c(
                       "a",
@@ -647,8 +793,10 @@ var render = function() {
                   _c("label", [
                     _vm._v(
                       "\r\n            " +
-                        _vm._s(_vm.$t("Edit Config (JSON format)")) +
-                        "\r\n            ("
+                        _vm._s(_vm.$t("Edit Config")) +
+                        "\r\n            (" +
+                        _vm._s(_vm.$t("JSON format.")) +
+                        "\r\n             "
                     ),
                     _c(
                       "a",
@@ -839,7 +987,19 @@ let Webpage = {
   },
   watch: {
     '$route.params.action': function () {
-      switch (this.$route.params.action) {
+      this.switchCompnent(this.$route.params.action)
+    }
+  },
+  mounted() {
+    if (isNaN(this.$route.params.domainID) === true) {
+      this.$router.replace(`/webpage/${this.status.domainID}/list`)
+    }
+    
+    this.switchCompnent(this.$route.params.action)
+  },
+  methods: {
+    switchCompnent: function (action) {
+      switch (action) {
         case 'list':
           this.componentView = _WebpageList_WebpageList_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
           break
@@ -848,15 +1008,6 @@ let Webpage = {
           break
       }
     }
-  },
-  mounted() {
-    if (isNaN(this.$route.params.domainID) === true) {
-      this.$router.replace(`/webpage/${this.status.domainID}/list`)
-    }
-    
-    this.componentView = _WebpageList_WebpageList_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  methods: {
   } // methods
 }
 
@@ -981,16 +1132,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let DomainAdd = {
+let WebpageAdd = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
       addInput: {
-        domain: 'http://blog.pulipuli.info',
+        path: '/test',
         title: '',
-        admins: '',
-        config: '{}'
+        groups: '',
+        config: ''
       }
     }
   },
@@ -998,12 +1149,8 @@ let DomainAdd = {
   },
   computed: {
     enableAdd: function () {
-      return (this.lib.ValidateHelper.isURL(this.addInput.domain)
+      return (this.addInput.path.startsWith('/')
               && (this.addInput.config === '' || this.lib.ValidateHelper.isJSON(this.addInput.config)) )
-    },
-    domainIsURL: function () {
-      return (this.addInput.domain === '' 
-              || this.lib.ValidateHelper.isURL(this.addInput.domain))
     },
     configIsJSON: function () {
       return (this.addInput.config === '' 
@@ -1013,20 +1160,40 @@ let DomainAdd = {
   watch: {
   },
   mounted() {
-    this.status.title = this.$t('Webpage Add')
+    this.initTitle()
   },
   methods: {
+    initTitle: function () {
+      let title = this.$t('Webpage Add')
+      if (this.status.domain !== undefined 
+              && this.status.domain !== '') {
+        title = title + ' (' + this.status.domain + ')'
+      }
+      this.status.title = title
+    },
     addSubmit: async function () {
       let input = JSON.parse(JSON.stringify(this.addInput))
+      let domainID = this.$route.params.domainID
       let data = {
-        domain: input.domain
+        domainID: domainID,
+        path: input.path
       }
       
       if (input.title !== '') {
         data.title = input.title
       }
-      if (input.admins !== '') {
-        data.admins = input.admins.replace(/\n/g, ' ').trim().split(' ')
+      if (input.groups !== undefined 
+              && input.groups !== '') {
+        let groups = []
+        input.groups.trim().split('\n').forEach(line => {
+          let group = line.trim().split(' ').filter(user => user !== '')
+          if (group.length > 0) {
+            groups.push(group)
+          }
+        })
+        if (groups.length > 0) {
+          data.groups = groups
+        }
       }
       if (input.config !== '') {
         try {
@@ -1035,17 +1202,17 @@ let DomainAdd = {
         catch (e) {}
       }
       
-      let result = await this.lib.AxiosHelper.post('/admin/Domain/add', data)
+      let result = await this.lib.AxiosHelper.post('/admin/Webpage/add', data)
       //console.log(result)
       // 完成admin之後呢？
       if (result === 1) {
-        this.$router.push('/domain/list/')
+        this.$router.push('list')
       }
     }
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (DomainAdd);
+/* harmony default export */ __webpack_exports__["default"] = (WebpageAdd);
 
 /***/ }),
 
@@ -1197,6 +1364,13 @@ let WebpageList = {
     }
   },
   watch: {
+    'status.domain': function () {
+      let title = this.$t('Webpage Management')
+      if (this.status.domain !== '') {
+        title = title + '(' + this.status.domain + ')'
+      }
+      this.status.title = title
+    }
   },
   mounted() {
     this.initPage()
@@ -1207,8 +1381,9 @@ let WebpageList = {
   methods: {
     initTitle: function () {
       let title = this.$t('Webpage Management')
-      if (this.domain !== '') {
-        title = title + '(' + this.domain + ')'
+      if (this.status.domain !== undefined 
+              && this.status.domain !== '') {
+        title = title + ' (' + this.status.domain + ')'
       }
       this.status.title = title
     },
@@ -1251,7 +1426,7 @@ let WebpageList = {
           this.webpages = result.webpages
         }
         if (typeof(result.domain) === 'string') {
-          this.domain = result.domain
+          this.status.domain = result.domain
         }
         if (typeof(result.maxPage) === 'number') {
           this.pageConfig.maxPage = result.maxPage
