@@ -18,6 +18,10 @@ class User extends Model {
      * it to the database.
      */
     this.addHook('beforeSave', async (userInstance) => {
+      if (userInstance.username.indexOf(' ') > -1) {
+        throw `Username cannot contain space. (${userInstance.username})`
+      }
+      
       if (userInstance.dirty.password) {
         userInstance.password = await Hash.make(userInstance.password)
       }

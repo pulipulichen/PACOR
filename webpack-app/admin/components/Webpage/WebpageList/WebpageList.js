@@ -61,7 +61,7 @@ let WebpageList = {
       }
       
       let result = await this.lib.AxiosHelper.get('/Admin/Webpage/list', {
-        domainID: domainID
+        domainID: domainID,
         page: this.pageConfig.page
       })
       if (typeof(result) === 'object') {

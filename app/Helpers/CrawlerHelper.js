@@ -10,7 +10,6 @@ let iconv = require('iconv-lite')
 let CrawlerHelper = {
   getTitle: function (url) {
     return new Promise ((resolve, reject) => {
-      
       let urlObject
       try {
         urlObject = new URL(url)

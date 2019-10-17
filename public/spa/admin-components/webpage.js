@@ -717,9 +717,179 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./webpack-app/admin/components/Webpage/WebpageList/WebpageList.js?vue&type=script&lang=js& ***!
   \**************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module parse failed: Unexpected token (65:8)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n|       let result = await this.lib.AxiosHelper.get('/Admin/Webpage/list', {\n|         domainID: domainID\n>         page: this.pageConfig.page\n|       })\n|       if (typeof(result) === 'object') {");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let WebpageList = {
+  props: ['lib', 'status', 'config', 'progress', 'error', 'view', 'title'],
+  data() {    
+    this.$i18n.locale = this.config.locale
+    return {
+      webpages: [],
+      editingGroups: {},
+      editingConfig: {},
+      pageConfig: {
+        page: 0,
+        maxPage: 0
+      }
+    }
+  },
+  components: {
+  },
+  computed: {
+    'pageConfig.page': function () {
+      if (isNaN(this.pageConfig.page) === false) {
+        let currentPage = this.$route.params.page
+        if (isNaN(currentPage) === true
+                || parseInt(currentPage, 10) !== this.pageConfig.page) {
+          this.$router.push('/webpage/list/' + this.pageConfig.page)
+          localStorage.setItem('WebpageList.pageConfig.page', this.pageConfig.page)
+          this.list()
+        }
+      }
+    }
+  },
+  watch: {
+  },
+  mounted() {
+    this.initPage()
+    
+    this.status.title = this.$t('Webpage Management')
+    this.list()
+  },
+  methods: {
+    initPage: function () {
+      if (isNaN(this.$route.params.page) === true) {
+        let lastPage = localStorage.getItem('WebpageList.pageConfig.page')
+        if (isNaN(lastPage) === false && lastPage !== null) {
+          this.pageConfig.page = lastPage
+        }
+        else {
+          this.pageConfig.page = 1
+        }
+      }
+      else {
+        this.pageConfig.page = parseInt(this.$route.params.page, 10)
+      }
+    },
+    
+    list: async function () {
+      let domainID = this.$route.params.domainID
+      if (typeof(domainID) === 'undefined') {
+        return false
+      }
+      else {
+        domainID = parseInt(domainID, 10)
+      }
+      
+      let result = await this.lib.AxiosHelper.get('/Admin/Webpage/list', {
+        domainID: domainID,
+        page: this.pageConfig.page
+      })
+      if (typeof(result) === 'object') {
+        if (Array.isArray(result.webpages)) {
+          if (result.webpages.length === 0) {
+            if (this.pageConfig.page !== 1) {
+              this.pageConfig.page = 1
+            }
+            return false
+          }
+          this.webpages = result.webpages
+        }
+        if (typeof(result.maxPage) === 'number') {
+          this.pageConfig.maxPage = result.maxPage
+        }
+      }
+    },
+    
+    editTitle: async function (domain, index) {
+      let data = {
+        id: domain.id,
+        title: domain.title
+      }
+      
+      await this.lib.AxiosHelper.post('/Admin/Webpage/editTitle', data)
+      
+      this.domains[index].isChanged = false
+      this.$forceUpdate()
+    },
+    /*
+    t: async function() {
+      await this.lib.AxiosHelper.post('/Admin/Domain/editAdmins', {
+        id: 1,
+        admins: ['pudding', 'jo']
+      })
+    },
+     */
+    /*
+    countAdmins: function (admins) {
+      if (admins === '') {
+        return 0
+      }
+      else {
+        return admins.split(' ').length
+      }
+    },
+    */
+    editAdminsOpen: function (domain) {
+      //console.log(domain)
+      this.editingAdmins = domain
+      this.$refs.ModelEditAdmins.show()
+    },
+    editAdminsSubmit: async function () {
+      let domain = this.editingAdmins
+      this.$refs.ModelEditAdmins.hide()
+      
+      let data = {
+        id: domain.id
+      }
+      
+      if (domain.admins !== '') {
+        data.admins = domain.admins.replace(/\n/g, ' ').trim().split(' ')
+      }
+      
+      if (data.admins.length === 0) {
+        return false
+      }
+      
+      domain.adminsCount = data.admins.length
+      
+      await this.lib.AxiosHelper.post('/Admin/Webpage/editGroups', data)
+      
+    },
+    editConfigOpen: function (domain) {
+      //console.log(domain)
+      this.editingConfig = domain
+      this.$refs.ModelEditConfig.show()
+    },
+    editConfigSubmit: async function () {
+      this.$refs.ModelEditConfig.hide()
+      
+      let domain = this.editingConfig
+      let data = {
+        id: domain.id
+      }
+      
+      if (domain.config !== '') {
+        try {
+          data.config = JSON.parse(domain.config)
+        }
+        catch (e) {}
+      }
+      
+      if (typeof(data.config) === 'undefined') {
+        return false
+      }
+      
+      await this.lib.AxiosHelper.post('/Admin/Webpage/editConfig', data)
+      
+      // 關閉Modal
+    }
+  } // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (WebpageList);
 
 /***/ }),
 
@@ -727,7 +897,7 @@ throw new Error("Module parse failed: Unexpected token (65:8)\nYou may need an a
 /*!**************************************************************************************************!*\
   !*** ./webpack-app/admin/components/Webpage/WebpageList/WebpageList.js?vue&type=script&lang=js& ***!
   \**************************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -773,14 +943,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************************************!*\
   !*** ./webpack-app/admin/components/Webpage/WebpageList/WebpageList.vue ***!
   \**************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _WebpageList_html_vue_type_template_id_206aeb8a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WebpageList.html?vue&type=template&id=206aeb8a&scoped=true& */ "./webpack-app/admin/components/Webpage/WebpageList/WebpageList.html?vue&type=template&id=206aeb8a&scoped=true&");
 /* harmony import */ var _WebpageList_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WebpageList.js?vue&type=script&lang=js& */ "./webpack-app/admin/components/Webpage/WebpageList/WebpageList.js?vue&type=script&lang=js&?f04a");
-/* empty/unused harmony star reexport *//* harmony import */ var _WebpageList_less_vue_type_style_index_0_id_206aeb8a_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WebpageList.less?vue&type=style&index=0&id=206aeb8a&lang=less&scoped=true& */ "./webpack-app/admin/components/Webpage/WebpageList/WebpageList.less?vue&type=style&index=0&id=206aeb8a&lang=less&scoped=true&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _WebpageList_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _WebpageList_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _WebpageList_less_vue_type_style_index_0_id_206aeb8a_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WebpageList.less?vue&type=style&index=0&id=206aeb8a&lang=less&scoped=true& */ "./webpack-app/admin/components/Webpage/WebpageList/WebpageList.less?vue&type=style&index=0&id=206aeb8a&lang=less&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 /* harmony import */ var _WebpageList_json_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cadmin_5Ccomponents_5CWebpage_5CWebpageList_5CWebpageList_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./WebpageList.json?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cadmin%5Ccomponents%5CWebpage%5CWebpageList%5CWebpageList.vue */ "./webpack-app/admin/components/Webpage/WebpageList/WebpageList.json?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cadmin%5Ccomponents%5CWebpage%5CWebpageList%5CWebpageList.vue");
 

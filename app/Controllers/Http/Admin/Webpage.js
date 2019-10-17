@@ -1,7 +1,9 @@
 'use strict'
 
-const DomainModel = use('App/Models/DomainModel')
+const DomainModel = use('App/Models/Domain')
 const WebpageModel = use('App/Models/Webpage')
+const WebpageGroupModel = use('App/Models/WebpageGroup')
+const UserModel = use('App/Models/User')
 
 const Config = use('Config')
 
@@ -37,6 +39,51 @@ class Webpage {
       webpages,
       maxPage
     }
+  }
+  
+  async t () {
+    /*
+    let webpage = new WebpageModel()
+    webpage.title = 'A'
+    webpage.path = '/'
+    
+    let domain = await DomainModel.find(1)
+    await domain.webpages().save(webpage)
+    */
+    //let webpage = await WebpageModel.find(1)
+    let group = new WebpageGroupModel()
+    group.group_seq_id = 0
+    await webpage.groups().save(group)
+    
+    let user = await UserModel.find(1)
+    await group.users().save(user)
+    
+    return 1
+  }
+  
+  async b() {
+    
+    let webpage = await WebpageModel
+            .find(3)
+    
+    return webpage.getGroupsList()
+  }
+  
+  async c() {
+    
+    let webpage = await WebpageModel
+            .find(3)
+    
+    let groups = await webpage.groups().fetch()
+    
+    let user = await UserModel.find(1)
+    
+    groups.map(async (group) => {
+      await group.users().dissociate(user)
+    })
+    
+    
+    return await groups.users().fetch()
   }
   
   async add ({request, auth}) {

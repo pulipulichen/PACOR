@@ -4,6 +4,8 @@
 const Model = use('Model')
 
 const CrawlerHelper = use('App/Helpers/CrawlerHelper')
+const Env = use('Env')
+const baseURL = `${Env.get('PROTOCOL')}//${Env.get('HOST')}:${Env.get('PORT')}`
 
 class Webpage extends Model {
   
@@ -11,18 +13,30 @@ class Webpage extends Model {
     super.boot()
 
     this.addHook('afterCreate', async (instance) => {
-      //instance.title = await 
-      let domain = await this.domain().fetch
-      if (domain.domain === '::') {
-        return false
-      }
-      
-      let url = domain.domain + instance.path
-      
-      instance.title = await CrawlerHelper.getTitle(url)
-      //console.log(instance.title)
-      instance.save()
+      instance._crawlTitleFromURL(instance)
     })
+  }
+  
+  async _crawlTitleFromURL (instance) {
+    if (typeof(instance.title) === 'string' 
+            && instance.title !== '') {
+      return
+    }
+
+    //instance.title = await 
+    let domain = await instance.domain().fetch
+    if (typeof(domain.domain) === 'string' 
+            && domain.domain !== '') {
+      domain = domain.domain
+    }
+    else {
+      domain = baseURL
+    }
+    let url = domain + instance.path
+
+    instance.title = await CrawlerHelper.getTitle(url)
+    //console.log(instance.title)
+    instance.save()
   }
   
   domain () {
@@ -34,9 +48,37 @@ class Webpage extends Model {
   }
   
   groups () {
-    return this.hasMany('App/Models/Group')
+    return this.hasMany('App/Models/WebpageGroup')
+            .with('users')
   }
   
+  async getGroupsList() {
+    let groups = await this.groups().fetch()
+    
+    let list = groups.toJSON().map(group => {
+      return group.users.map(user => user.username).join(' ')
+    })
+    
+    return list.join('\n')
+  }
+  
+  async setGroupsList(list) {
+    if (typeof(list) === 'string') {
+      let lines = list.trim().split('\n')
+      list = []
+      lines.forEach(line => {
+        let lineArray = []
+        line.trim().split(' ').forEach(user => {
+          if (user !== '') {
+            lineArray.push(user)
+          }
+        })
+        list.push(lineArray)
+      })
+    }
+    
+    
+  }
 }
 
 module.exports = Webpage
