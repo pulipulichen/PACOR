@@ -44,7 +44,7 @@ class AuthAdminCheck {
       }
     }
     
-    auth.checkDomainAdmin = (domainID) => {
+    auth.checkDomainAdmin = function (domainID) {
       return this.checkAdmin(domainID)
     }
     

@@ -8,6 +8,7 @@ const Database = use('Database')
 const Domain = use('App/Models/Domain')
 
 class WebpageGroup extends Model {
+  
   webpage () {
     return this.belongsTo('App/Models/Webpage')
   }
@@ -111,6 +112,11 @@ class WebpageGroup extends Model {
       //await this.users().dissociate(users.rows[i])
       await users.rows[i].groups(this.id).detach()
     }
+  }
+  
+  static get hidden () {
+    //return ['password']
+    return ['created_at', 'updated_at']
   }
 }
 

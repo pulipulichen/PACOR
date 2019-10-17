@@ -1,68 +1,66 @@
 <div class="ui form">
    
   <pagination v-bind:pageConfig="pageConfig" />
-  <!--
   <table class="ui unstackable table">
     <thead>
       <tr>
         <th class="center aligned">
-          {{ $t('Domain') }}
+          {{ $t('Path') }}
         </th>
         <th class="center aligned">
           {{ $t('Title') }}
         </th>
         <th class="center aligned">
-          {{ $t('Admins') }}
+          {{ $t('Groups') }}
         </th>
         <th class="center aligned">
           {{ $t('Config') }}
         </th>
         <th class="center aligned">
-          {{ $t('Webpage') }}
+          {{ $t('Dashboard') }}
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(domain, index) in domains">
+      <tr v-for="(webpage, index) in webpages">
         <td>
-          {{ domain.domain }}
+          {{ webpage.path }}
         </td>
         <td class="field"
-            v-bind:class="{error: (domain.title === '')}">
+            v-bind:class="{error: (webpage.title === '')}">
           <div class="ui action input">
             <input type="text"
-                   v-model="domain.title"
-                   v-on:input="domain.isChanged = true" />
+                   v-model="webpage.title"
+                   v-on:input="webpage.isChanged = true" />
             <button type="button"
                 class="ui icon button"
-                v-bind:class="{disabled: !(domain.isChanged === true && domain.title !== '')}"
-                v-on:click="editTitle(domain, index)">
+                v-bind:class="{disabled: !(webpage.isChanged === true && webpage.title !== '')}"
+                v-on:click="editTitle(webpage, index)">
                 <i class="edit icon"></i> 
             </button>
           </div>
         </td>
         <td class="center aligned">
           <span class="ui icon button"
-                v-on:click="editConfigOpen(domain)">
+                v-on:click="editConfigOpen(webpage)">
             <i class="edit icon"></i>
           </span>
         </td>
         <td class="center aligned">
           <span class="ui right labeled icon button"
-                v-if="typeof(domain.admins) === 'string'"
-                v-on:click="editAdminsOpen(domain)">
-            {{ domain.adminsCount }}
-            {{ $t('Admins', domain.adminsCount) }}
+                v-on:click="editGroupsSubmit(webpage)">
+            {{ domain.groupsCount }}
+            {{ $t('Groups', domain.groupsCount) }}
             <i class="edit icon"></i>
           </span>
           <a class="ui icon button"
-                v-bind:href="'#/user/list/?domain=' + domain.id">
+                v-bind:href="'#/user/' + domain.id + '/list/'">
             <i class="list icon"></i>
           </a>
         </td>
         <td class="center aligned">
           <a class="ui fluid right labeled icon button"
-             v-bind:href="'#/webpage/list/?domain=' + domain.id">
+             v-bind:href="'#/webpage/' + domain.id + '/list/'">
             {{ domain.__meta__.webpages_count }}
             {{ $t('Webpages', domain.__meta__.webpages_count) }}
             <i class="list icon"></i>
@@ -74,10 +72,10 @@
   
   <pagination v-bind:pageConfig="pageConfig"
               pathPrefix="/domains/" />
-  -->
+  
   <!-- ============================================ -->
-  <!--
-  <modal ref="ModelEditAdmins"
+  
+  <modal ref="ModelEditGroups"
          v-bind:config="config"
          v-bind:status="status"
          v-bind:progress="progress"
@@ -112,9 +110,9 @@
              v-on:click="editAdminsSubmit">{{ $t('OK') }}</div>
       </template>
   </modal>
-  -->
+  
   <!-- ============================================ -->
-  <!--
+  
   <modal ref="ModelEditConfig"
          v-bind:config="config"
          v-bind:status="status"
@@ -150,5 +148,5 @@
              v-on:click="editConfigSubmit">{{ $t('OK') }}</div>
       </template>
   </modal>
-  -->
+  
 </div>

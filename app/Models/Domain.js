@@ -114,6 +114,10 @@ class Domain extends Model {
   assets () {
     return this.hasMany('App/Models/MaterialAsset')
   }
+  
+  static get hidden () {
+    return ['created_at', 'updated_at']
+  }
 }
 
 module.exports = Domain

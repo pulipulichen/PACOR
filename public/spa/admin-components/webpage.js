@@ -109,8 +109,6 @@ var render = function() {
     "div",
     { staticClass: "ui form" },
     [
-      _vm._v("\r\n  " + _vm._s(_vm.$route.params.domainID) + "\r\n  "),
-      _vm._v(" "),
       _c("div", { staticClass: "ui secondary menu" }, [
         _c("div", { staticClass: "item" }, [
           _c("h2", [_vm._v(_vm._s(_vm.status.title))])
@@ -277,7 +275,451 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "ui form" },
-    [_c("pagination", { attrs: { pageConfig: _vm.pageConfig } })],
+    [
+      _c("pagination", { attrs: { pageConfig: _vm.pageConfig } }),
+      _vm._v(" "),
+      _c("table", { staticClass: "ui unstackable table" }, [
+        _c("thead", [
+          _c("tr", [
+            _c("th", { staticClass: "center aligned" }, [
+              _vm._v("\r\n          " + _vm._s(_vm.$t("Path")) + "\r\n        ")
+            ]),
+            _vm._v(" "),
+            _c("th", { staticClass: "center aligned" }, [
+              _vm._v(
+                "\r\n          " + _vm._s(_vm.$t("Title")) + "\r\n        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("th", { staticClass: "center aligned" }, [
+              _vm._v(
+                "\r\n          " + _vm._s(_vm.$t("Groups")) + "\r\n        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("th", { staticClass: "center aligned" }, [
+              _vm._v(
+                "\r\n          " + _vm._s(_vm.$t("Config")) + "\r\n        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("th", { staticClass: "center aligned" }, [
+              _vm._v(
+                "\r\n          " + _vm._s(_vm.$t("Dashboard")) + "\r\n        "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.webpages, function(webpage, index) {
+            return _c("tr", [
+              _c("td", [
+                _vm._v("\r\n          " + _vm._s(webpage.path) + "\r\n        ")
+              ]),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "field",
+                  class: { error: webpage.title === "" }
+                },
+                [
+                  _c("div", { staticClass: "ui action input" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: webpage.title,
+                          expression: "webpage.title"
+                        }
+                      ],
+                      attrs: { type: "text" },
+                      domProps: { value: webpage.title },
+                      on: {
+                        input: [
+                          function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(webpage, "title", $event.target.value)
+                          },
+                          function($event) {
+                            webpage.isChanged = true
+                          }
+                        ]
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "ui icon button",
+                        class: {
+                          disabled: !(
+                            webpage.isChanged === true && webpage.title !== ""
+                          )
+                        },
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.editTitle(webpage, index)
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "edit icon" })]
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("td", { staticClass: "center aligned" }, [
+                _c(
+                  "span",
+                  {
+                    staticClass: "ui icon button",
+                    on: {
+                      click: function($event) {
+                        return _vm.editConfigOpen(webpage)
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "edit icon" })]
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "center aligned" }, [
+                _c(
+                  "span",
+                  {
+                    staticClass: "ui right labeled icon button",
+                    on: {
+                      click: function($event) {
+                        return _vm.editGroupsSubmit(webpage)
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n            " +
+                        _vm._s(_vm.domain.groupsCount) +
+                        "\r\n            " +
+                        _vm._s(_vm.$t("Groups", _vm.domain.groupsCount)) +
+                        "\r\n            "
+                    ),
+                    _c("i", { staticClass: "edit icon" })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "ui icon button",
+                    attrs: { href: "#/user/" + _vm.domain.id + "/list/" }
+                  },
+                  [_c("i", { staticClass: "list icon" })]
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "center aligned" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "ui fluid right labeled icon button",
+                    attrs: { href: "#/webpage/" + _vm.domain.id + "/list/" }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n            " +
+                        _vm._s(_vm.domain.__meta__.webpages_count) +
+                        "\r\n            " +
+                        _vm._s(
+                          _vm.$t("Webpages", _vm.domain.__meta__.webpages_count)
+                        ) +
+                        "\r\n            "
+                    ),
+                    _c("i", { staticClass: "list icon" })
+                  ]
+                )
+              ])
+            ])
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _c("pagination", {
+        attrs: { pageConfig: _vm.pageConfig, pathPrefix: "/domains/" }
+      }),
+      _vm._v(" "),
+      _c("modal", {
+        ref: "ModelEditGroups",
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          progress: _vm.progress,
+          error: _vm.error,
+          lib: _vm.lib,
+          reset: _vm.editingAdmins
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "header",
+            fn: function() {
+              return [
+                _c(
+                  "a",
+                  {
+                    staticClass: "ui button",
+                    attrs: {
+                      href: "/admin/Database/admin?table=users",
+                      target: "_blank"
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(_vm.$t("DATABASE")) +
+                        "\r\n        "
+                    )
+                  ]
+                ),
+                _vm._v(
+                  "\r\n        # " +
+                    _vm._s(_vm.editingAdmins.id) +
+                    "\r\n        " +
+                    _vm._s(_vm.editingAdmins.domain) +
+                    "\r\n        "
+                ),
+                _vm.editingAdmins.title !== "" &&
+                _vm.editingAdmins.title !== null
+                  ? [
+                      _vm._v(
+                        "\r\n          (" +
+                          _vm._s(_vm.editingAdmins.title) +
+                          ")\r\n        "
+                      )
+                    ]
+                  : _vm._e()
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "content",
+            fn: function() {
+              return [
+                _c("div", { staticClass: "ui field" }, [
+                  _c("label", [
+                    _vm._v(
+                      "\r\n            " +
+                        _vm._s(_vm.$t("Edit Admins (split by space)")) +
+                        "\r\n            ("
+                    ),
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          href:
+                            "https://github.com/pulipulichen/PACOR/blob/master/help/AdminsExample.md",
+                          target: "_blank"
+                        }
+                      },
+                      [_vm._v(_vm._s(_vm.$t("Example")))]
+                    ),
+                    _vm._v(")\r\n          ")
+                  ]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.editingAdmins.admins,
+                        expression: "editingAdmins.admins"
+                      }
+                    ],
+                    domProps: { value: _vm.editingAdmins.admins },
+                    on: {
+                      input: [
+                        function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.editingAdmins,
+                            "admins",
+                            $event.target.value
+                          )
+                        },
+                        function($event) {
+                          _vm.editingAdmins.isChanged = true
+                        }
+                      ]
+                    }
+                  })
+                ])
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "actions",
+            fn: function() {
+              return [
+                _c(
+                  "div",
+                  {
+                    staticClass: "ui button",
+                    class: {
+                      disabled: !(_vm.editingAdmins.isChanged === true)
+                    },
+                    on: { click: _vm.editAdminsSubmit }
+                  },
+                  [_vm._v(_vm._s(_vm.$t("OK")))]
+                )
+              ]
+            },
+            proxy: true
+          }
+        ])
+      }),
+      _vm._v(" "),
+      _c("modal", {
+        ref: "ModelEditConfig",
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          progress: _vm.progress,
+          error: _vm.error,
+          lib: _vm.lib,
+          reset: _vm.editingConfig
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "header",
+            fn: function() {
+              return [
+                _c(
+                  "a",
+                  {
+                    staticClass: "ui button",
+                    attrs: {
+                      href: "/admin/Database/admin?table=domains",
+                      target: "_blank"
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(_vm.$t("DATABASE")) +
+                        "\r\n        "
+                    )
+                  ]
+                ),
+                _vm._v(
+                  "\r\n        # " +
+                    _vm._s(_vm.editingConfig.id) +
+                    "\r\n        " +
+                    _vm._s(_vm.editingConfig.domain) +
+                    "\r\n        "
+                ),
+                _vm.editingConfig.title !== "" &&
+                _vm.editingConfig.title !== null
+                  ? [
+                      _vm._v(
+                        "\r\n          (" +
+                          _vm._s(_vm.editingConfig.title) +
+                          ")\r\n        "
+                      )
+                    ]
+                  : _vm._e()
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "content",
+            fn: function() {
+              return [
+                _c("div", { staticClass: "ui field" }, [
+                  _c("label", [
+                    _vm._v(
+                      "\r\n            " +
+                        _vm._s(_vm.$t("Edit Config (JSON format)")) +
+                        "\r\n            ("
+                    ),
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          href:
+                            "https://github.com/pulipulichen/PACOR/blob/master/help/ConfigExample.md",
+                          target: "_blank"
+                        }
+                      },
+                      [_vm._v(_vm._s(_vm.$t("Example")))]
+                    ),
+                    _vm._v(")\r\n          ")
+                  ]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.editingConfig.config,
+                        expression: "editingConfig.config"
+                      }
+                    ],
+                    domProps: { value: _vm.editingConfig.config },
+                    on: {
+                      input: [
+                        function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.editingConfig,
+                            "config",
+                            $event.target.value
+                          )
+                        },
+                        function($event) {
+                          _vm.editingConfig.isChanged = true
+                        }
+                      ]
+                    }
+                  })
+                ])
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "actions",
+            fn: function() {
+              return [
+                _c(
+                  "div",
+                  {
+                    staticClass: "ui button",
+                    class: {
+                      disabled: !(_vm.editingConfig.isChanged === true)
+                    },
+                    on: { click: _vm.editConfigSubmit }
+                  },
+                  [_vm._v(_vm._s(_vm.$t("OK")))]
+                )
+              ]
+            },
+            proxy: true
+          }
+        ])
+      })
+    ],
     1
   )
 }
@@ -726,7 +1168,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let WebpageList = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view', 'title'],
+  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -807,77 +1249,65 @@ let WebpageList = {
       }
     },
     
-    editTitle: async function (domain, index) {
+    editTitle: async function (webpage, index) {
       let data = {
-        id: domain.id,
-        title: domain.title
+        id: webpage.id,
+        title: webpage.title
       }
       
       await this.lib.AxiosHelper.post('/Admin/Webpage/editTitle', data)
       
-      this.domains[index].isChanged = false
+      this.webpages[index].isChanged = false
       this.$forceUpdate()
     },
-    /*
-    t: async function() {
-      await this.lib.AxiosHelper.post('/Admin/Domain/editAdmins', {
-        id: 1,
-        admins: ['pudding', 'jo']
-      })
-    },
-     */
-    /*
-    countAdmins: function (admins) {
-      if (admins === '') {
-        return 0
-      }
-      else {
-        return admins.split(' ').length
-      }
-    },
-    */
-    editAdminsOpen: function (domain) {
+    editGroupsOpen: function (webpage) {
       //console.log(domain)
-      this.editingAdmins = domain
-      this.$refs.ModelEditAdmins.show()
+      this.editingGroups = webpage
+      this.$refs.ModelEditGroups.show()
     },
-    editAdminsSubmit: async function () {
-      let domain = this.editingAdmins
-      this.$refs.ModelEditAdmins.hide()
+    editGroupsSubmit: async function () {
+      let webpage = this.editingGroups
+      this.$refs.ModelEditGroups.hide()
       
       let data = {
-        id: domain.id
+        id: webpage.id
       }
       
-      if (domain.admins !== '') {
-        data.admins = domain.admins.replace(/\n/g, ' ').trim().split(' ')
+      if (webpage.groups !== '') {
+        data.groups = []
+        webpage.groups.trim().split('\n').forEach(line => {
+          line = line.trim()
+          if (line !== '') {
+            data.groups.push(line.split(' '))
+          }
+        })
       }
       
-      if (data.admins.length === 0) {
+      if (data.groups.length === 0) {
         return false
       }
       
-      domain.adminsCount = data.admins.length
+      webpage.groupsCount = data.groups.length
       
       await this.lib.AxiosHelper.post('/Admin/Webpage/editGroups', data)
       
     },
-    editConfigOpen: function (domain) {
+    editConfigOpen: function (webpage) {
       //console.log(domain)
-      this.editingConfig = domain
+      this.editingConfig = webpage
       this.$refs.ModelEditConfig.show()
     },
     editConfigSubmit: async function () {
       this.$refs.ModelEditConfig.hide()
       
-      let domain = this.editingConfig
+      let webpage = this.editingConfig
       let data = {
-        id: domain.id
+        id: webpage.id
       }
       
-      if (domain.config !== '') {
+      if (webpage.config !== '') {
         try {
-          data.config = JSON.parse(domain.config)
+          data.config = JSON.parse(webpage.config)
         }
         catch (e) {}
       }

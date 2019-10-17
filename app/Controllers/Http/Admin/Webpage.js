@@ -144,6 +144,26 @@ e f`)
     return user.groups().fetch()
   }
   
+  /*
+  async w () {
+    let group = WebpageGroupModel
+            .query()
+            .where('id', 7)
+            //.with('webpage.domain.users', (builder) => {
+            //  builder.pluck('username')
+            //})
+            //.with('webpage', (builder) => {
+            //  builder.with('domain', (builder) => {
+            //    builder.with('users', (builder) => {
+            //    })
+            //  })
+            //})
+            .pluck('webpage.id')
+            .fetch()
+    return group
+  }
+  */
+  
   async add ({request, auth}) {
     const data = request.all()
     

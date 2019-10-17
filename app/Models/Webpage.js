@@ -134,6 +134,11 @@ class Webpage extends Model {
       await groups[i].delete()
     }
   }
+  
+  static get hidden () {
+    //return ['password']
+    return ['created_at', 'updated_at']
+  }
 }
 
 module.exports = Webpage

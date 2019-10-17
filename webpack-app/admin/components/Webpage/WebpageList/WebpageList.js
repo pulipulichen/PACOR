@@ -1,5 +1,5 @@
 let WebpageList = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view', 'title'],
+  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -80,77 +80,65 @@ let WebpageList = {
       }
     },
     
-    editTitle: async function (domain, index) {
+    editTitle: async function (webpage, index) {
       let data = {
-        id: domain.id,
-        title: domain.title
+        id: webpage.id,
+        title: webpage.title
       }
       
       await this.lib.AxiosHelper.post('/Admin/Webpage/editTitle', data)
       
-      this.domains[index].isChanged = false
+      this.webpages[index].isChanged = false
       this.$forceUpdate()
     },
-    /*
-    t: async function() {
-      await this.lib.AxiosHelper.post('/Admin/Domain/editAdmins', {
-        id: 1,
-        admins: ['pudding', 'jo']
-      })
-    },
-     */
-    /*
-    countAdmins: function (admins) {
-      if (admins === '') {
-        return 0
-      }
-      else {
-        return admins.split(' ').length
-      }
-    },
-    */
-    editAdminsOpen: function (domain) {
+    editGroupsOpen: function (webpage) {
       //console.log(domain)
-      this.editingAdmins = domain
-      this.$refs.ModelEditAdmins.show()
+      this.editingGroups = webpage
+      this.$refs.ModelEditGroups.show()
     },
-    editAdminsSubmit: async function () {
-      let domain = this.editingAdmins
-      this.$refs.ModelEditAdmins.hide()
+    editGroupsSubmit: async function () {
+      let webpage = this.editingGroups
+      this.$refs.ModelEditGroups.hide()
       
       let data = {
-        id: domain.id
+        id: webpage.id
       }
       
-      if (domain.admins !== '') {
-        data.admins = domain.admins.replace(/\n/g, ' ').trim().split(' ')
+      if (webpage.groups !== '') {
+        data.groups = []
+        webpage.groups.trim().split('\n').forEach(line => {
+          line = line.trim()
+          if (line !== '') {
+            data.groups.push(line.split(' '))
+          }
+        })
       }
       
-      if (data.admins.length === 0) {
+      if (data.groups.length === 0) {
         return false
       }
       
-      domain.adminsCount = data.admins.length
+      webpage.groupsCount = data.groups.length
       
       await this.lib.AxiosHelper.post('/Admin/Webpage/editGroups', data)
       
     },
-    editConfigOpen: function (domain) {
+    editConfigOpen: function (webpage) {
       //console.log(domain)
-      this.editingConfig = domain
+      this.editingConfig = webpage
       this.$refs.ModelEditConfig.show()
     },
     editConfigSubmit: async function () {
       this.$refs.ModelEditConfig.hide()
       
-      let domain = this.editingConfig
+      let webpage = this.editingConfig
       let data = {
-        id: domain.id
+        id: webpage.id
       }
       
-      if (domain.config !== '') {
+      if (webpage.config !== '') {
         try {
-          data.config = JSON.parse(domain.config)
+          data.config = JSON.parse(webpage.config)
         }
         catch (e) {}
       }
