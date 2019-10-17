@@ -16,6 +16,8 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
+Route.on('/chat').render('chat')
+
 // 進入管理或文件管理
 Route.on('/').render('index')
 

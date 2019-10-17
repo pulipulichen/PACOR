@@ -20,7 +20,8 @@ const providers = [
   '@adonisjs/session/providers/SessionProvider',
   '@adonisjs/auth/providers/AuthProvider',
   '@adonisjs/ally/providers/AllyProvider',
-  '@adonisjs/drive/providers/DriveProvider'
+  '@adonisjs/drive/providers/DriveProvider',
+  '@adonisjs/websocket/providers/WsProvider'
 ]
 
 
