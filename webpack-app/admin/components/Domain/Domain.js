@@ -11,8 +11,8 @@ let Template = {
     }
   },
   components: {
-    'domain-list': DomainList,
-    'domain-add': DomainAdd,
+    //'domain-list': DomainList,
+    //'domain-add': DomainAdd,
   },
   computed: {
     /*

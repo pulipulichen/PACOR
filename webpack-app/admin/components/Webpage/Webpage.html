@@ -8,21 +8,21 @@
     </div>
     <div class="right menu">
       
-        <a href="#/domain/list"
+        <a href="#/webpage/list"
            class="ui item"
-           v-bind:class="{active: ($route.path.startsWith('/domain/list')), disabled: ($route.path.startsWith('/domain/list'))}">
+           v-bind:class="{active: ($route.path.startsWith('/webpage/list')), disabled: ($route.path.startsWith('/webpage/list'))}">
           <i class="list icon"></i>
           {{ $t('List') }}
         </a>
 
-        <a href="#/domain/add"
+        <a href="#/webpage/add"
            class="ui item"
-           v-bind:class="{active: ($route.path.startsWith('/domain/add')), disabled: ($route.path.startsWith('/domain/add'))}">
+           v-bind:class="{active: ($route.path.startsWith('/webpage/add')), disabled: ($route.path.startsWith('/webpage/add'))}">
           <i class="plus icon"></i>
           {{ $t('Add') }}
         </a>
       
-        <a href="/admin/Database/admin?table=domains"
+        <a href="/admin/Database/admin?table=webpages"
            class="ui item"
            target="_blank">
           <i class="database icon"></i>
@@ -32,12 +32,10 @@
   </div>
   
   <!-- ========================================== -->
-  
-  <component v-bind:is="domainView"
+  <component v-bind:is="componentView"
         v-bind:config="config"
         v-bind:status="status"
         v-bind:progress="progress"
         v-bind:lib="lib"
-        v-bind:error="error"
-        v-bind:domainView="domainView"></component>
+        v-bind:error="error"></component>
 </div>

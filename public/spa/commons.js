@@ -1000,7 +1000,7 @@ let i18nGlobal = {
     "Title": "Example Title"
   },
   "zh-TW": {
-    "Title": "範例標題",
+    "Title": "標題",
     "OK": "確認",
     "UPLOAD": "上傳",
     "SUBMIT": "送出",

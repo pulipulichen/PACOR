@@ -467,11 +467,26 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("td", { staticClass: "center aligned" }, [
+                _c(
+                  "span",
+                  {
+                    staticClass: "ui icon button",
+                    on: {
+                      click: function($event) {
+                        return _vm.editConfigOpen(domain)
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "edit icon" })]
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "center aligned" }, [
                 typeof domain.admins === "string"
                   ? _c(
                       "span",
                       {
-                        staticClass: "ui fluid right labeled icon button",
+                        staticClass: "ui right labeled icon button",
                         on: {
                           click: function($event) {
                             return _vm.editAdminsOpen(domain)
@@ -489,28 +504,25 @@ var render = function() {
                         _c("i", { staticClass: "edit icon" })
                       ]
                     )
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("td", { staticClass: "center aligned" }, [
+                  : _vm._e(),
+                _vm._v(" "),
                 _c(
-                  "span",
+                  "a",
                   {
                     staticClass: "ui icon button",
-                    on: {
-                      click: function($event) {
-                        return _vm.editConfigOpen(domain)
-                      }
-                    }
+                    attrs: { href: "#/user/list/?domain=" + domain.id }
                   },
-                  [_c("i", { staticClass: "edit icon" })]
+                  [_c("i", { staticClass: "list icon" })]
                 )
               ]),
               _vm._v(" "),
               _c("td", { staticClass: "center aligned" }, [
                 _c(
-                  "span",
-                  { staticClass: "ui fluid right labeled icon button" },
+                  "a",
+                  {
+                    staticClass: "ui fluid right labeled icon button",
+                    attrs: { href: "#/webpage/list/?domain=" + domain.id }
+                  },
                   [
                     _vm._v(
                       "\r\n            " +
@@ -521,7 +533,7 @@ var render = function() {
                         ) +
                         "\r\n            "
                     ),
-                    _c("i", { staticClass: "edit icon" })
+                    _c("i", { staticClass: "list icon" })
                   ]
                 )
               ])
@@ -916,8 +928,8 @@ let Template = {
     }
   },
   components: {
-    'domain-list': _DomainList_DomainList_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'domain-add': _DomainAdd_DomainAdd_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    //'domain-list': DomainList,
+    //'domain-add': DomainAdd,
   },
   computed: {
     /*

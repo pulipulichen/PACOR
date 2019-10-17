@@ -1,0 +1,51 @@
+<div class="ui form">
+  
+  <!--
+  <div class="three fields">
+    <div class="seven wide field"
+         v-bind:class="{error: !domainIsURL}">
+      <label for="addInputDomain">
+        {{ $t('Webpage (start from /') }}
+      </label>
+      <input type="url"
+             id="addInputDomain"
+             size="256"
+             name="addInputDomain"
+             v-model="addInput.domain" />
+    </div>
+    <div class="seven wide field">
+      <label for="addInputTitle">
+        {{ $t('Title') }}
+      </label>
+      <input type="text"
+             id="addInputTitle"
+             size="256"
+             name="addInputTitle"
+             v-model="addInput.title" />
+    </div>
+    <div class="two wide field">
+      <label>
+        &nbsp;
+      </label>
+      <button type="button"
+              class="ui fluid button"
+              v-bind:class="{disabled: !enableAdd}"
+              v-on:click="addSubmit">
+        {{ $t('SUBMIT') }}
+      </button>
+    </div>
+  </div>
+  -->
+  <div class="field"
+       v-bind:class="{error: !configIsJSON}">
+    <label for="addInputConfig">
+      {{ $t('Config') }}
+      ({{ $t('JSON Format') }}
+      <a href="https://github.com/pulipulichen/PACOR/blob/master/help/ConfigExample.md" target="_blank">{{ $t('Example') }}</a>)
+    </label>
+    <textarea id="addInputConfig"
+              name="addInputConfig"
+              class="ui red"
+              v-model="addInput.config"></textarea>
+  </div>
+</div>
