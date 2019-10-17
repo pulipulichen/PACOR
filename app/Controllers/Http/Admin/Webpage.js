@@ -39,13 +39,17 @@ class Webpage {
     
     webpages = webpages.toJSON().map(webpage => {
       let groups = []
+      let usersCount = 0
       //console.log(webpage.groups)
       webpage.groups.forEach(group => {
         if (group.users.length > 0) {
-          groups.push(group.users.map(user => user.username).join(' '))
+          let g = group.users.map(user => user.username).filter(username => (username !== '') )
+          groups.push(g.join(' '))
+          usersCount = usersCount + g.length
         }
       })
       webpage.groupsCount = groups.length
+      webpage.usersCount = usersCount
       webpage.groups = groups.join('\n')
       try {
         if (webpage.config === null) {

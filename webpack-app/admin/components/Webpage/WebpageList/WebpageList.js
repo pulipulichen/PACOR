@@ -123,12 +123,15 @@ let WebpageList = {
         id: webpage.id
       }
       
+      let usersCount = 0
       if (webpage.groups !== '') {
         data.groups = []
         webpage.groups.trim().split('\n').forEach(line => {
           line = line.trim()
           if (line !== '') {
-            data.groups.push(line.split(' '))
+            let group = line.split(' ')
+            data.groups.push(group)
+            usersCount = usersCount + group.length
           }
         })
       }
@@ -138,6 +141,7 @@ let WebpageList = {
       }
       
       webpage.groupsCount = data.groups.length
+      webpage.usersCount = usersCount
       
       await this.lib.AxiosHelper.post('/Admin/Webpage/editGroups', data)
       

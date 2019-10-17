@@ -546,6 +546,10 @@ var render = function() {
                   [
                     _vm._v(
                       "\r\n            " +
+                        _vm._s(webpage.usersCount) +
+                        "\r\n            " +
+                        _vm._s(_vm.$t("Readers", webpage.usersCount)) +
+                        "\r\n            /\r\n            " +
                         _vm._s(webpage.groupsCount) +
                         "\r\n            " +
                         _vm._s(_vm.$t("Groups", webpage.groupsCount)) +
@@ -553,15 +557,6 @@ var render = function() {
                     ),
                     _c("i", { staticClass: "edit icon" })
                   ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "ui icon button",
-                    attrs: { href: "#/user/" + webpage.domain_id + "/list/" }
-                  },
-                  [_c("i", { staticClass: "list icon" })]
                 )
               ]),
               _vm._v(" "),
@@ -569,17 +564,10 @@ var render = function() {
                 _c(
                   "a",
                   {
-                    staticClass: "ui fluid right labeled icon button",
+                    staticClass: "ui icon button",
                     attrs: { href: "#/webpage-dashboard/" + webpage.id }
                   },
-                  [
-                    _vm._v(
-                      "\r\n            " +
-                        _vm._s(_vm.$t("Dashboard")) +
-                        "\r\n            "
-                    ),
-                    _c("i", { staticClass: "list icon" })
-                  ]
+                  [_c("i", { staticClass: "chart bar icon" })]
                 )
               ])
             ])
@@ -1458,12 +1446,15 @@ let WebpageList = {
         id: webpage.id
       }
       
+      let usersCount = 0
       if (webpage.groups !== '') {
         data.groups = []
         webpage.groups.trim().split('\n').forEach(line => {
           line = line.trim()
           if (line !== '') {
-            data.groups.push(line.split(' '))
+            let group = line.split(' ')
+            data.groups.push(group)
+            usersCount = usersCount + group.length
           }
         })
       }
@@ -1473,6 +1464,7 @@ let WebpageList = {
       }
       
       webpage.groupsCount = data.groups.length
+      webpage.usersCount = usersCount
       
       await this.lib.AxiosHelper.post('/Admin/Webpage/editGroups', data)
       

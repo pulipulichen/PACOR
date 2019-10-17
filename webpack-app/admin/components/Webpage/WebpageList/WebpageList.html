@@ -49,20 +49,24 @@
         <td class="center aligned">
           <span class="ui right labeled icon button"
                 v-on:click="editGroupsOpen(webpage)">
+            {{ webpage.usersCount }}
+            {{ $t('Readers', webpage.usersCount) }}
+            /
             {{ webpage.groupsCount }}
             {{ $t('Groups', webpage.groupsCount) }}
             <i class="edit icon"></i>
           </span>
+          <!--
           <a class="ui icon button"
                 v-bind:href="'#/user/' + webpage.domain_id + '/list/'">
             <i class="list icon"></i>
           </a>
+          -->
         </td>
         <td class="center aligned">
-          <a class="ui fluid right labeled icon button"
+          <a class="ui icon button"
              v-bind:href="'#/webpage-dashboard/' + webpage.id">
-            {{ $t('Dashboard') }}
-            <i class="list icon"></i>
+            <i class="chart bar icon"></i>
           </a>
         </td>
       </tr>

@@ -998,7 +998,8 @@ __webpack_require__.r(__webpack_exports__);
 let i18nGlobal = {
   "en": {
     "Title": "Example Title",
-    "Groups": "Group | Groups"
+    "Groups": "Group | Groups",
+    "Readers": "Reader | Readers"
   },
   "zh-TW": {
     "Title": "標題",
@@ -1014,6 +1015,7 @@ let i18nGlobal = {
     "Config": "設定",
     "Group": "分組",
     "Groups": "組",
+    "Readers": "讀者",
     "Dashboard": "儀表板"
   }
 }

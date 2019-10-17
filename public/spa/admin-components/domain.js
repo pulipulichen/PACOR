@@ -504,16 +504,7 @@ var render = function() {
                         _c("i", { staticClass: "edit icon" })
                       ]
                     )
-                  : _vm._e(),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "ui icon button",
-                    attrs: { href: "#/user/" + domain.id + "/list" }
-                  },
-                  [_c("i", { staticClass: "list icon" })]
-                )
+                  : _vm._e()
               ]),
               _vm._v(" "),
               _c("td", { staticClass: "center aligned" }, [
