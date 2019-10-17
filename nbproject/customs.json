@@ -1,5 +1,6 @@
 {
   "elements": {
+    "component": {},
     "pagination": {},
     "materials": {},
     "slot": {},

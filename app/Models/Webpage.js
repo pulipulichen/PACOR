@@ -30,7 +30,11 @@ class Webpage extends Model {
   }
   
   annotations () {
-    return this.hasMany('App/Models/annotations')
+    return this.hasMany('App/Models/Annotation')
+  }
+  
+  groups () {
+    return this.hasMany('App/Models/Group')
   }
   
 }

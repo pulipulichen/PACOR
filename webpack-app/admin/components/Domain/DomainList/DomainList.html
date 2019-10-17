@@ -56,13 +56,13 @@
             <i class="edit icon"></i>
           </span>
           <a class="ui icon button"
-                v-bind:href="'#/user/list/?domain=' + domain.id">
+                v-bind:href="`#/user/${domain.id}/list/`">
             <i class="list icon"></i>
           </a>
         </td>
         <td class="center aligned">
           <a class="ui fluid right labeled icon button"
-             v-bind:href="'#/webpage/list/?domain=' + domain.id">
+             v-bind:href="`#/webpage/${domain.id}/list/`">
             {{ domain.__meta__.webpages_count }}
             {{ $t('Webpages', domain.__meta__.webpages_count) }}
             <i class="list icon"></i>

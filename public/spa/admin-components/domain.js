@@ -510,7 +510,7 @@ var render = function() {
                   "a",
                   {
                     staticClass: "ui icon button",
-                    attrs: { href: "#/user/list/?domain=" + domain.id }
+                    attrs: { href: "#/user/" + domain.id + "/list/" }
                   },
                   [_c("i", { staticClass: "list icon" })]
                 )
@@ -521,7 +521,7 @@ var render = function() {
                   "a",
                   {
                     staticClass: "ui fluid right labeled icon button",
-                    attrs: { href: "#/webpage/list/?domain=" + domain.id }
+                    attrs: { href: "#/webpage/" + domain.id + "/list/" }
                   },
                   [
                     _vm._v(

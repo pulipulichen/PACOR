@@ -3,7 +3,7 @@ let WebpageList = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      domains: [],
+      webpages: [],
       editingGroups: {},
       editingConfig: {},
       pageConfig: {
@@ -52,19 +52,27 @@ let WebpageList = {
     },
     
     list: async function () {
+      let domainID = this.$route.params.domainID
+      if (typeof(domainID) === 'undefined') {
+        return false
+      }
+      else {
+        domainID = parseInt(domainID, 10)
+      }
       
       let result = await this.lib.AxiosHelper.get('/Admin/Webpage/list', {
+        domainID: domainID
         page: this.pageConfig.page
       })
       if (typeof(result) === 'object') {
-        if (Array.isArray(result.domains)) {
-          if (result.domains.length === 0) {
+        if (Array.isArray(result.webpages)) {
+          if (result.webpages.length === 0) {
             if (this.pageConfig.page !== 1) {
               this.pageConfig.page = 1
             }
             return false
           }
-          this.domains = result.domains
+          this.webpages = result.webpages
         }
         if (typeof(result.maxPage) === 'number') {
           this.pageConfig.maxPage = result.maxPage

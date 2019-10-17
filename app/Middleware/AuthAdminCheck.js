@@ -12,8 +12,9 @@ class AuthAdminCheck {
     let auth = data.auth
     let isAdmin = false
     let isGlobalAdmin = false
+    let user
     try {
-      let user = await auth.getUser()
+      user = await auth.getUser()
       let role = user.role
       isAdmin = (ADMIN_ROLES.indexOf(role) > -1)
       isGlobalAdmin = (role === 'global_admin')
@@ -22,9 +23,18 @@ class AuthAdminCheck {
     auth.isAdmin = isAdmin
     auth.isGlobalAdmin = isGlobalAdmin
     
-    auth.checkAdmin = () => {
-      if (isAdmin === false) {
+    auth.checkAdmin = (domainID) => {
+      if (isGlobalAdmin === true) {
+        return true
+      }
+      else if (isAdmin === false) {
         throw new HttpException(`You don't have permisssion to access.`, 403)
+      }
+      else if (domainID !== undefined) {
+        if (typeof(domainID) === 'string') {
+          domainID = parseInt(domainID, 10)
+        }
+        return user.domain_id === domainID
       }
     }
     
@@ -32,6 +42,10 @@ class AuthAdminCheck {
       if (isGlobalAdmin === false) {
         throw new HttpException(`You don't have permisssion to access.`, 403)
       }
+    }
+    
+    auth.checkDomainAdmin = (domainID) => {
+      return this.checkAdmin(domainID)
     }
     
     await next()
