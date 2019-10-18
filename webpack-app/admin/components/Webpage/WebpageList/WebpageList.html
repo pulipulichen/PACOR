@@ -24,7 +24,10 @@
     <tbody>
       <tr v-for="(webpage, index) in webpages">
         <td>
-          {{ webpage.path }}
+          <a v-bind:href="status.domain + webpage.path"
+             target="_blank">
+              {{ webpage.path }}
+          </a>
         </td>
         <td class="field"
             v-bind:class="{error: (webpage.title === '')}">

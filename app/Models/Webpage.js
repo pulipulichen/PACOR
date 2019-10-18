@@ -141,6 +141,7 @@ class Webpage extends Model {
     //return ['password']
     return ['created_at', 'updated_at']
   }
+  
 }
 
 module.exports = Webpage

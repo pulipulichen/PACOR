@@ -458,7 +458,22 @@ var render = function() {
           _vm._l(_vm.webpages, function(webpage, index) {
             return _c("tr", [
               _c("td", [
-                _vm._v("\r\n          " + _vm._s(webpage.path) + "\r\n        ")
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: _vm.status.domain + webpage.path,
+                      target: "_blank"
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n              " +
+                        _vm._s(webpage.path) +
+                        "\r\n          "
+                    )
+                  ]
+                )
               ]),
               _vm._v(" "),
               _c(
