@@ -86,7 +86,7 @@
          v-bind:error="error"
          v-bind:lib="lib"
          v-bind:reset="editingAdmins">
-      <template v-slot:header inline-template>
+      <template v-slot:header>
         <a href="/admin/Database/admin?table=users" 
            target="_blank"
            class="ui button">
@@ -98,7 +98,7 @@
           ({{ editingAdmins.title }})
         </template>
       </template>
-      <template v-slot:content inline-template>
+      <template v-slot:content>
         <div class="ui field">
           <label>
             {{ $t('Edit Admins ') }}
@@ -109,7 +109,7 @@
                     v-on:input="editingAdmins.isChanged = true"></textarea>
         </div>
       </template>
-      <template v-slot:actions inline-template>
+      <template v-slot:actions>
         <div class="ui button"
              v-bind:class="{disabled: !(editingAdmins.isChanged === true)}"
              v-on:click="editAdminsSubmit">{{ $t('OK') }}</div>
@@ -125,7 +125,7 @@
          v-bind:error="error"
          v-bind:lib="lib"
          v-bind:reset="editingConfig">
-      <template v-slot:header inline-template>
+      <template v-slot:header>
         <a href="/admin/Database/admin?table=domains" 
            target="_blank"
            class="ui button">
@@ -137,7 +137,7 @@
           ({{ editingConfig.title }})
         </template>
       </template>
-      <template v-slot:content inline-template>
+      <template v-slot:content>
         <div class="ui field">
           <label>
             {{ $t('Edit Config') }}
@@ -148,7 +148,7 @@
                     v-on:input="editingConfig.isChanged = true"></textarea>
         </div>
       </template>
-      <template v-slot:actions inline-template>
+      <template v-slot:actions>
         <div class="ui button"
              v-bind:class="{disabled: !(editingConfig.isChanged === true)}"
              v-on:click="editConfigSubmit">{{ $t('OK') }}</div>

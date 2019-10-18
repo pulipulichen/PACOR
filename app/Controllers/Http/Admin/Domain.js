@@ -4,10 +4,11 @@ const DomainModel = use('App/Models/Domain')
 
 const Config = use('Config')
 
+const { HttpException } = use('@adonisjs/generic-exceptions') 
+
 class Domain {
   async list ({request, auth}) {
     await auth.checkGlobalAdmin()
-    //await auth.checkAdmin()
     
     const {page = 1} = request.all()
     

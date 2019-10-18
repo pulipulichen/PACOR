@@ -1304,7 +1304,6 @@ let DomainList = {
   },
   mounted() {
     this.initPage()
-    
     this.status.title = this.$t('Domaian Management')
     this.list()
   },

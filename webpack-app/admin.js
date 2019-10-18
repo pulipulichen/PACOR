@@ -41,12 +41,15 @@ let baseScript = $(document.currentScript)
 config.baseURL = baseURL
 baseScript.before(`<div id="app"></div>`)
 
-Vue.config.warnHandler = function(msg, vm, trace) {
-  //console.log(`Warn: ${msg}\nTrace: ${trace}`);
-  VueController.data.error = {
-    message: msg,
-    stack: trace
-  }
+window.onerror = function(message, source, lineno, colno, error) {
+  //console.log(message, source, lineno, colno, error)
+  VueController.data.error = error
+}
+
+Vue.config.errorHandler  = function(err, vm, info) {
+  //console.log(`Error: ${err.stack}\nInfo: ${info}`);
+  VueController.data.error = err
+  console.error(err)
 }
 
 // -----------------------
@@ -142,32 +145,6 @@ let VueController = {
   template: template,
   router: routes,
   components: components,
-  errorCaptured(err, vm, info) {
-    // https://medium.com/js-dojo/error-exception-handling-in-vue-js-application-6c26eeb6b3e4
-    //console.log(info)
-    //console.log(vm)
-    
-    console.log(err.toString())
-    
-    if (typeof(err) === 'object'
-            && typeof(err.stack) !== 'undefined') {
-      this.error = err.stack
-    }
-    /*
-    else if (typeof(info) === 'string' && info !== '') {
-      this.error = info
-    }
-    else if (typeof(err) === 'string') {
-      this.error = err
-    }
-    */
-     
-    // err: error trace
-    // vm: component in which error occured
-    // info: Vue specific error information such as lifecycle hooks, events etc.
-    // TODO: Perform any custom logic or log to server
-    // return false to stop the propagation of errors further to parent or global error handler
-  },
 }
 
 if (typeof(baseURL) === 'string') {

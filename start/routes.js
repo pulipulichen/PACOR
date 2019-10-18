@@ -68,7 +68,6 @@ let controllerMapping = (options, module, controller, action) => {
 // ----------------------------
 Route.on('/admin').render('admin')
 
-
 Route.any('/admin/:controller/:action', (options) => {
   return controllerMapping(options, 'admin')
 })
