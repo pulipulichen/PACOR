@@ -1,5 +1,5 @@
 import './tocbot.min.js'
-import './tocbot.css'
+import './tocbot.less'
 //import './styles.css'
 
 export default window.tocbot

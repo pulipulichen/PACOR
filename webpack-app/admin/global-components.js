@@ -5,6 +5,3 @@ Vue.component('pagination', Pagination)
 
 import Modal from './../components/Modal/Modal.vue'
 Vue.component('modal', Modal)
-
-import TOC from './../components/TOC/TOC.vue'
-Vue.component('toc', TOC)

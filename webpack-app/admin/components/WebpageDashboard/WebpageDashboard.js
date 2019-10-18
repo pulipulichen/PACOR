@@ -17,6 +17,9 @@ let Template = {
   mounted() {
     this.initDashboard()
   },
+  destroyed () {
+    this.lib.toc(false)
+  },
   methods: {
     initDashboard: async function () {
       // 先跟伺服器取得webpage的資訊

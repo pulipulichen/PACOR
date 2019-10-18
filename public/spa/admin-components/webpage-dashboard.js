@@ -79,8 +79,6 @@ var render = function() {
     "div",
     { staticClass: "ui form" },
     [
-      _c("toc", { ref: "toc", attrs: { config: _vm.config } }),
-      _vm._v(" "),
       _c("div", { staticClass: "ui secondary menu" }, [
         _c("div", { staticClass: "item" }, [
           _c("h2", { staticClass: "ui header" }, [
@@ -342,6 +340,9 @@ let Template = {
   mounted() {
     this.initDashboard()
   },
+  destroyed () {
+    this.lib.toc(false)
+  },
   methods: {
     initDashboard: async function () {
       // 先跟伺服器取得webpage的資訊
@@ -517,7 +518,7 @@ let Template = {
       let result = await this.lib.AxiosHelper.get('/admin/Dashboard/groups', data)
       //console.log(result)
       this.groups = result.groups
-      this.$parent.$refs.toc.refresh()
+      this.lib.toc()
     },
     attrHeaderID: function (anchor) {
       return '/webpage-dashboard/' + this.$route.params.webpageID + '/' + anchor
