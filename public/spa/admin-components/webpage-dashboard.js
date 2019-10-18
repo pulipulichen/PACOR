@@ -160,7 +160,10 @@ var render = function() {
     [
       _c(
         "h3",
-        { staticClass: "ui header", attrs: { id: "dashboard-groups" } },
+        {
+          staticClass: "ui header",
+          attrs: { id: _vm.attrHeaderID("dashboard-groups") }
+        },
         [_vm._v("\r\n    " + _vm._s(_vm.$t("Groups")) + "\r\n  ")]
       ),
       _vm._v(" "),
@@ -168,7 +171,13 @@ var render = function() {
         return _c("div", { staticClass: "ui segment" }, [
           _c(
             "h4",
-            { attrs: { id: "dashboard-group-" + (group.group_seq_id + 1) } },
+            {
+              attrs: {
+                id: _vm.attrHeaderID(
+                  "dashboard-group" + (group.group_seq_id + 1)
+                )
+              }
+            },
             [_vm._v("Group #" + _vm._s(group.group_seq_id + 1))]
           ),
           _vm._v(" "),
@@ -508,6 +517,9 @@ let Template = {
       let result = await this.lib.AxiosHelper.get('/admin/Dashboard/groups', data)
       //console.log(result)
       this.groups = result.groups
+    },
+    attrHeaderID: function (anchor) {
+      return '/webpage-dashboard/' + this.$route.params.webpageID + '/' + anchor
     }
   } // methods
 }

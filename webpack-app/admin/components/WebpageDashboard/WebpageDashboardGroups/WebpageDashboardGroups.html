@@ -1,12 +1,12 @@
 <div class="ui segment">
   <h3 class="ui header"
-      id="dashboard-groups">
+      v-bind:id="attrHeaderID('dashboard-groups')">
     {{ $t('Groups') }}
   </h3>
   
   <div class="ui segment"
        v-for="group in groups">
-    <h4 v-bind:id="'dashboard-group-' + (group.group_seq_id+1)">Group #{{ (group.group_seq_id + 1)  }}</h4>
+    <h4 v-bind:id="attrHeaderID('dashboard-group' + (group.group_seq_id+1))">Group #{{ (group.group_seq_id + 1)  }}</h4>
     <div class="ui items">
       <div class="item"
            v-for="user in group.users">

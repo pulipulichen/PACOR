@@ -399,7 +399,7 @@ exports.push([module.i, ".pagination[data-v-16bb9012] {\n  text-align: center;\n
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"TOC.less?vue&type=style&index=0&id=0d8fa0e4&lang=less&scoped=true&"}]);
+exports.push([module.i, "nav[data-v-0d8fa0e4] {\n  padding-top: calc(60px + 1rem);\n  right: 1rem;\n  max-height: calc(100vh - 60px - 1rem);\n}\n", "",{"version":3,"sources":["TOC.less?vue&type=style&index=0&id=0d8fa0e4&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;EAC9B,WAAW;EACX,qCAAqC;AACvC","file":"TOC.less?vue&type=style&index=0&id=0d8fa0e4&lang=less&scoped=true&","sourcesContent":["nav[data-v-0d8fa0e4] {\n  padding-top: calc(60px + 1rem);\n  right: 1rem;\n  max-height: calc(100vh - 60px - 1rem);\n}\n"]}]);
 
 
 /***/ }),
@@ -413,7 +413,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".toc{\n    overflow-y:auto\n}\n.toc>.toc-list{\n    overflow:hidden;\n    position:relative\n}\n.toc>.toc-list li{\n    list-style:none\n}\n.toc-list{\n    margin:0;\n    padding-left:10px\n}\na.toc-link{\n    color:currentColor;\n    height:100%\n}\n.is-collapsible{\n    max-height:1000px;\n    overflow:hidden;\n    transition:all 300ms ease-in-out\n}\n.is-collapsed{\n    max-height:0\n}\n.is-position-fixed{\n    position:fixed !important;\n    top:0\n}\n.is-active-link{\n    font-weight:700\n}\n.toc-link::before{\n    background-color:#EEE;\n    content:' ';\n    display:inline-block;\n    height:inherit;\n    left:0;\n    margin-top:-1px;\n    position:absolute;\n    width:2px\n}\n.is-active-link::before{\n    background-color:#54BC4B\n}\n ", "",{"version":3,"sources":["tocbot.css"],"names":[],"mappings":"AAAA;IACI;AACJ;AACA;IACI,eAAe;IACf;AACJ;AACA;IACI;AACJ;AACA;IACI,QAAQ;IACR;AACJ;AACA;IACI,kBAAkB;IAClB;AACJ;AACA;IACI,iBAAiB;IACjB,eAAe;IACf;AACJ;AACA;IACI;AACJ;AACA;IACI,yBAAyB;IACzB;AACJ;AACA;IACI;AACJ;AACA;IACI,qBAAqB;IACrB,WAAW;IACX,oBAAoB;IACpB,cAAc;IACd,MAAM;IACN,eAAe;IACf,iBAAiB;IACjB;AACJ;AACA;IACI;AACJ","file":"tocbot.css","sourcesContent":[".toc{\n    overflow-y:auto\n}\n.toc>.toc-list{\n    overflow:hidden;\n    position:relative\n}\n.toc>.toc-list li{\n    list-style:none\n}\n.toc-list{\n    margin:0;\n    padding-left:10px\n}\na.toc-link{\n    color:currentColor;\n    height:100%\n}\n.is-collapsible{\n    max-height:1000px;\n    overflow:hidden;\n    transition:all 300ms ease-in-out\n}\n.is-collapsed{\n    max-height:0\n}\n.is-position-fixed{\n    position:fixed !important;\n    top:0\n}\n.is-active-link{\n    font-weight:700\n}\n.toc-link::before{\n    background-color:#EEE;\n    content:' ';\n    display:inline-block;\n    height:inherit;\n    left:0;\n    margin-top:-1px;\n    position:absolute;\n    width:2px\n}\n.is-active-link::before{\n    background-color:#54BC4B\n}\n "]}]);
+exports.push([module.i, ".toc{\n  overflow-y:auto\n}\n.toc>.toc-list{\n  overflow:hidden;\n  position:relative\n}\n.toc>.toc-list li{\n  list-style:none\n}\n.toc-list{\n  margin:0;\n  padding-left:10px\n}\na.toc-link{\n  color:currentColor;\n  height:100%\n}\n.is-collapsible{\n  max-height:1000px;\n  overflow:hidden;\n  transition:all 300ms ease-in-out\n}\n.is-collapsed{\n  max-height:0\n}\n.is-position-fixed {\n  position:fixed !important;\n  top:0;\n  right: 0;\n  z-index: 1;\n}\n.is-active-link{\n  font-weight:700\n}\n.toc-link::before{\n  background-color:#EEE;\n  content:' ';\n  display:inline-block;\n  height:inherit;\n  left:0;\n  margin-top:-1px;\n  position:absolute;\n  width:2px\n}\n.is-active-link::before{\n  background-color:#54BC4B\n}\n", "",{"version":3,"sources":["tocbot.css"],"names":[],"mappings":"AAAA;EACE;AACF;AACA;EACE,eAAe;EACf;AACF;AACA;EACE;AACF;AACA;EACE,QAAQ;EACR;AACF;AACA;EACE,kBAAkB;EAClB;AACF;AACA;EACE,iBAAiB;EACjB,eAAe;EACf;AACF;AACA;EACE;AACF;AACA;EACE,yBAAyB;EACzB,KAAK;EACL,QAAQ;EACR,UAAU;AACZ;AACA;EACE;AACF;AACA;EACE,qBAAqB;EACrB,WAAW;EACX,oBAAoB;EACpB,cAAc;EACd,MAAM;EACN,eAAe;EACf,iBAAiB;EACjB;AACF;AACA;EACE;AACF","file":"tocbot.css","sourcesContent":[".toc{\n  overflow-y:auto\n}\n.toc>.toc-list{\n  overflow:hidden;\n  position:relative\n}\n.toc>.toc-list li{\n  list-style:none\n}\n.toc-list{\n  margin:0;\n  padding-left:10px\n}\na.toc-link{\n  color:currentColor;\n  height:100%\n}\n.is-collapsible{\n  max-height:1000px;\n  overflow:hidden;\n  transition:all 300ms ease-in-out\n}\n.is-collapsed{\n  max-height:0\n}\n.is-position-fixed {\n  position:fixed !important;\n  top:0;\n  right: 0;\n  z-index: 1;\n}\n.is-active-link{\n  font-weight:700\n}\n.toc-link::before{\n  background-color:#EEE;\n  content:' ';\n  display:inline-block;\n  height:inherit;\n  left:0;\n  margin-top:-1px;\n  position:absolute;\n  width:2px\n}\n.is-active-link::before{\n  background-color:#54BC4B\n}\n"]}]);
 
 
 /***/ }),
@@ -881,7 +881,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\r\n  TOC\r\n")])
+  return _c("nav", {
+    staticClass:
+      "toc toc-right js-toc relative z-1 transition--300 absolute pa4 is-position-fixed"
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2259,22 +2262,29 @@ let TOC = {
   watch: {
   },
   mounted() {
-    window.$('<div class="js-toc"></div>').appendTo('body')
+    //window.$(``).prependTo('body')
     setTimeout(() => {
       _vendors_tocbot_tocbot_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].init({
         // Where to render the table of contents.
         tocSelector: '.js-toc',
         // Where to grab the headings to build the table of contents.
-        contentSelector: '.ui.form',
+        contentSelector: '.non-invasive-web-style-framework',
         // Which headings to grab inside of the contentSelector element.
         headingSelector: 'h3, h4',
         // For headings inside relative or absolute positioned containers within content.
         hasInnerContainers: true,
+        fixedSidebarOffset: 60,
       });
     }, 1000)
       
   },
+  destroyed () {
+    _vendors_tocbot_tocbot_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].destroy()
+  },
   methods: {
+    refresh: function () {
+      _vendors_tocbot_tocbot_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].refresh()
+    }
   } // methods
 }
 
@@ -2405,6 +2415,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tocbot_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tocbot_css__WEBPACK_IMPORTED_MODULE_1__);
 
 
+//import './styles.css'
 
 /* harmony default export */ __webpack_exports__["default"] = (window.tocbot);
 
