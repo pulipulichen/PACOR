@@ -29,6 +29,24 @@ class Dashboard {
     }
   }
   
+  async groups ({request, auth}) {
+    let {webpageID} = request.all()
+    
+    let webpage = await WebpageModel
+            .query()
+            .with('groups')
+            .where('id', webpageID)
+            .pick(1)
+    
+    webpage = webpage.first().toJSON()
+    
+    await auth.checkDomainAdmin(webpage.domain_id)
+    
+    return {
+      groups: webpage.groups
+    }
+  }
+  
 }
 
 module.exports = Dashboard

@@ -1,3 +1,38 @@
 <div class="ui segment">
-  Template
+  <h1 class="ui header">
+    {{ $t('Groups') }}
+  </h1>
+  
+  <div class="ui segment"
+       v-for="group in groups">
+    <div class="ui items">
+      <div class="item"
+           v-for="user in group.users">
+        <div class="image">
+          <img v-bind:src="user.avatar_url" />
+        </div>
+        <div class="content">
+          <a class="header">
+            {{ user.username }}
+            <template v-if="user.username !== user.display_name">
+              ({{ user.display_name }})
+            </template>
+          </a>
+          <!--
+          <div class="meta">
+            <span>Description</span>
+          </div>
+          -->
+          <div class="description">
+            <p>INFO (#TODO)</p>
+          </div>
+          <div class="extra">
+            <a href="#" class="ui button">
+              TODO
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

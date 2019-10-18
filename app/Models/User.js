@@ -86,6 +86,14 @@ class User extends Model {
     }
     return groups
   }
+  
+  static get computed () {
+    return ['avatar_url']
+  }
+
+  getAvatarUrl ({avatar}) {
+    return AvatarHelper.userURL(avatar)
+  }
 }
 
 module.exports = User

@@ -25,9 +25,8 @@ let Template = {
       }
       
       let result = await this.lib.AxiosHelper.get('/admin/Dashboard/info', data)
-      console.log(result.webpageURL)
       this.status.webpageURL = result.webpageURL
-      this.status.title = this.status.webpageURL
+      this.status.title = this.$t('Dashboard') + ' ' + this.status.webpageURL
     }
   } // methods
 }

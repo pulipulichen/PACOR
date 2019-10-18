@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Groups":"小組資訊"}}')
   delete Component.options._Ctor
 }
 
@@ -80,11 +80,19 @@ var render = function() {
     { staticClass: "ui form" },
     [
       _c("div", { staticClass: "ui secondary menu" }, [
-        _c("div", { staticClass: "item header" }, [
-          _c("div", { staticClass: "field" }, [
-            _c("h3", [_vm._v(_vm._s(_vm.$t("Dashboard")))]),
-            _vm._v(" "),
-            _c("h2", [_vm._v(_vm._s(_vm.status.title))])
+        _c("div", { staticClass: "item" }, [
+          _c("h2", { staticClass: "ui header" }, [
+            _c("div", { staticClass: "content" }, [
+              _c("div", { staticClass: "sub header" }, [
+                _vm._v(
+                  "\r\n            " +
+                    _vm._s(_vm.$t("Dashboard")) +
+                    "\r\n          "
+                )
+              ]),
+              _vm._v(" "),
+              _c("h2", [_vm._v(_vm._s(_vm.status.webpageURL))])
+            ])
           ])
         ]),
         _vm._v(" "),
@@ -144,11 +152,82 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui segment" }, [
-    _vm._v("\r\n  Template\r\n")
-  ])
+  return _c(
+    "div",
+    { staticClass: "ui segment" },
+    [
+      _c("h1", { staticClass: "ui header" }, [
+        _vm._v("\r\n    " + _vm._s(_vm.$t("Groups")) + "\r\n  ")
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.groups, function(group) {
+        return _c("div", { staticClass: "ui segment" }, [
+          _c(
+            "div",
+            { staticClass: "ui items" },
+            _vm._l(group.users, function(user) {
+              return _c("div", { staticClass: "item" }, [
+                _c("div", { staticClass: "image" }, [
+                  _c("img", { attrs: { src: user.avatar_url } })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "content" }, [
+                  _c(
+                    "a",
+                    { staticClass: "header" },
+                    [
+                      _vm._v(
+                        "\r\n            " +
+                          _vm._s(user.username) +
+                          "\r\n            "
+                      ),
+                      user.username !== user.display_name
+                        ? [
+                            _vm._v(
+                              "\r\n              (" +
+                                _vm._s(user.display_name) +
+                                ")\r\n            "
+                            )
+                          ]
+                        : _vm._e()
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _vm._m(0, true),
+                  _vm._v(" "),
+                  _vm._m(1, true)
+                ])
+              ])
+            }),
+            0
+          )
+        ])
+      })
+    ],
+    2
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "description" }, [
+      _c("p", [_vm._v("INFO (#TODO)")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "extra" }, [
+      _c("a", { staticClass: "ui button", attrs: { href: "#" } }, [
+        _vm._v("\r\n              TODO\r\n            ")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -252,9 +331,8 @@ let Template = {
       }
       
       let result = await this.lib.AxiosHelper.get('/admin/Dashboard/info', data)
-      console.log(result.webpageURL)
       this.status.webpageURL = result.webpageURL
-      this.status.title = this.status.webpageURL
+      this.status.title = this.$t('Dashboard') + ' ' + this.status.webpageURL
     }
   } // methods
 }
@@ -399,6 +477,7 @@ let Template = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      groups: []
     }
   },
   components: {
@@ -408,8 +487,18 @@ let Template = {
   watch: {
   },
   mounted() {
+    this.initGroups()
   },
   methods: {
+    initGroups: async function () {
+      let data = {
+        webpageID: this.$route.params.webpageID
+      }
+      
+      let result = await this.lib.AxiosHelper.get('/admin/Dashboard/groups', data)
+      console.log(result)
+      this.groups = result.groups
+    }
   } // methods
 }
 

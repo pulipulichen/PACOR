@@ -1,11 +1,15 @@
 <div class="ui form">
   
   <div class="ui secondary menu">
-    <div class="item header">
-      <div class="field">
-        <h3>{{ $t('Dashboard') }}</h3>
-        <h2>{{ status.title }}</h2>
-      </div>
+    <div class="item">
+      <h2 class="ui header">
+        <div class="content">
+          <div class="sub header">
+            {{ $t('Dashboard') }}
+          </div>
+          <h2>{{ status.webpageURL }}</h2>
+        </div>
+      </h2>
     </div>
     <div class="right menu">
       <!--

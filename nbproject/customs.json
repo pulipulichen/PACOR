@@ -1,11 +1,22 @@
 {
   "elements": {
     "component": {},
-    "pagination": {},
+    "pagination": {
+      "attributes": {
+        "v-bind:pageConfig": {}
+      }
+    },
     "materials": {},
     "slot": {},
     "domain-edit-admin": {},
-    "modal": {}
+    "modal": {
+      "attributes": {
+        "v-bind:error": {},
+        "v-bind:status": {},
+        "v-bind:config": {},
+        "v-bind:progress": {}
+      }
+    }
   },
   "attributes": {
     "v-bind:class": {},
@@ -13,15 +24,21 @@
       "context": "template"
     },
     "v-if": {},
+    "v-bind:href": {},
+    "v-for": {},
+    "v-bind:lib": {},
+    "v-bind:src": {
+      "context": "img"
+    },
+    "v-bind:reset": {},
+    "v-model": {},
+    "v-bind:error": {},
     "ref": {},
     "v-on:click": {
       "context": "button"
     },
-    "v-bind:href": {},
     "v-slot:content": {},
-    "v-for": {},
     "v-slot:header": {},
-    "#header": {},
-    "v-model": {}
+    "#header": {}
   }
 }

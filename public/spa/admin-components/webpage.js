@@ -591,9 +591,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("pagination", {
-        attrs: { pageConfig: _vm.pageConfig, pathPrefix: "/domains/" }
-      }),
+      _c("pagination", { attrs: { pageConfig: _vm.pageConfig } }),
       _vm._v(" "),
       _c("modal", {
         ref: "ModelEditGroups",

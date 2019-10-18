@@ -1023,7 +1023,8 @@ let VueController = {
       avatat: '',
       domainID: null,
       needLogin: true,
-      title: ''
+      title: '',
+      webpageURL: '',
     },
     progress: {
       component: false,
