@@ -46,6 +46,10 @@ class Dashboard {
       groups: webpage.groups
     }
   }
+  
+  async t () {
+    return 1
+  }
 }
 
 module.exports = Dashboard

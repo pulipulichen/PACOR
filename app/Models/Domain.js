@@ -5,6 +5,8 @@ const Model = use('Model')
 
 const CrawlerHelper = use('App/Helpers/CrawlerHelper')
 
+const OriginFilter = use('App/Helpers/OriginFilter')
+
 class Domain extends Model {
   static boot () {
     super.boot()
@@ -117,6 +119,18 @@ class Domain extends Model {
   
   static get hidden () {
     return ['created_at', 'updated_at']
+  }
+  
+  static async findByURL (URL) {
+    let origin = OriginFilter(URL)
+    
+    return await Domain.findOrCreate({
+      domain: origin
+    })
+  }
+  
+  getFullURL (webpagePath) {
+    return this.domain + webpagePath
   }
 }
 

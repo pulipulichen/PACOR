@@ -15,7 +15,7 @@ let WebpageAdd = {
   },
   computed: {
     enableAdd: function () {
-      return (this.addInput.path.startsWith('/')
+      return (this.lib.ValidateHelper.isURL(this.addInput.url)
               && (this.addInput.config === '' || this.lib.ValidateHelper.isJSON(this.addInput.config)) )
     },
     configIsJSON: function () {
@@ -42,7 +42,7 @@ let WebpageAdd = {
       let domainID = this.$route.params.domainID
       let data = {
         domainID: domainID,
-        path: input.path
+        url: input.url
       }
       
       if (input.title !== '') {

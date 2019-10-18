@@ -7,6 +7,7 @@ const CrawlerHelper = use('App/Helpers/CrawlerHelper')
 const Env = use('Env')
 const baseURL = `${Env.get('PROTOCOL')}//${Env.get('HOST')}:${Env.get('PORT')}`
 
+const Domain = use('App/Models/Domain')
 const WebpageGroup = use('App/Models/WebpageGroup')
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
@@ -142,6 +143,20 @@ class Webpage extends Model {
     return ['created_at', 'updated_at']
   }
   
+  static async findByURL (URL) {
+    let webpage = await Webpage.findBy('url', URL)
+    
+    if (webpage !== null) {
+      return webpage
+    }
+    
+    let domain = await Domain.findByURL(URL)
+    webpage = new Webpage
+    webpage.url = URL
+    await domain.webpages().save(webpage)
+    
+    return webpage
+  }
 }
 
 module.exports = Webpage

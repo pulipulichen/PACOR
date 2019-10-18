@@ -25,7 +25,7 @@
     <tbody>
       <tr v-for="(webpage, index) in webpages">
         <td>
-          <a v-bind:href="status.domain + webpage.path"
+          <a v-bind:href="webpage.url"
              target="_blank">
               {{ webpage.path }}
           </a>
@@ -96,7 +96,7 @@
           {{ $t('DATABASE') }}
         </a>
         # {{ editingGroups.id }}
-        {{ status.domain }}{{ editingGroups.path }}
+        {{ editingGroups.url }}
         <template v-if="editingGroups.title !== '' && editingGroups.title !== null">
           ({{ editingGroups.title }})
         </template>

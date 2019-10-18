@@ -38,6 +38,8 @@ class Webpage {
     
     
     webpages = webpages.toJSON().map(webpage => {
+      webpage.path = '/' + webpage.url.split('/').slice(3).join('/')
+      
       let groups = []
       let usersCount = 0
       //console.log(webpage.groups)
@@ -218,7 +220,7 @@ e f`)
     webpage = await WebpageModel
             .query()
             .where('domain_id', domainID)
-            .where('path', data.path)
+            .where('url', data.url)
             .pick(1)
     
     if (webpage.size() === 0) {
@@ -231,7 +233,8 @@ e f`)
     
     // -------
     
-    webpage.path = data.path
+    //webpage.path = data.path
+    webpage.url = domain.getFullURL(data.url)
     if (data.title !== '') {
       webpage.title = data.title
     }

@@ -2,15 +2,15 @@
   
   <div class="three fields">
     <div class="seven wide field"
-         v-bind:class="{error: !addInput.path.startsWith('/')}">
-      <label for="addInputPath">
-        {{ $t('Webpage Path (start from / )') }}
+         v-bind:class="{error: !addInput.url.startsWith('http')}">
+      <label for="addInputURL">
+        {{ $t('Webpage URL (start from http:// or https:// )') }}
       </label>
       <input type="text"
-             id="addInputPath"
+             id="addInputURL"
              size="256"
-             name="addInputPath"
-             v-model="addInput.path" />
+             name="addInputURL"
+             v-model="addInput.url" />
     </div>
     <div class="seven wide field">
       <label for="addInputTitle">

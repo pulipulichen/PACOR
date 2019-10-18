@@ -206,13 +206,15 @@ var render = function() {
         "div",
         {
           staticClass: "seven wide field",
-          class: { error: !_vm.addInput.path.startsWith("/") }
+          class: { error: !_vm.addInput.url.startsWith("http") }
         },
         [
-          _c("label", { attrs: { for: "addInputPath" } }, [
+          _c("label", { attrs: { for: "addInputURL" } }, [
             _vm._v(
               "\r\n        " +
-                _vm._s(_vm.$t("Webpage Path (start from / )")) +
+                _vm._s(
+                  _vm.$t("Webpage URL (start from http:// or https:// )")
+                ) +
                 "\r\n      "
             )
           ]),
@@ -222,23 +224,23 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.addInput.path,
-                expression: "addInput.path"
+                value: _vm.addInput.url,
+                expression: "addInput.url"
               }
             ],
             attrs: {
               type: "text",
-              id: "addInputPath",
+              id: "addInputURL",
               size: "256",
-              name: "addInputPath"
+              name: "addInputURL"
             },
-            domProps: { value: _vm.addInput.path },
+            domProps: { value: _vm.addInput.url },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.addInput, "path", $event.target.value)
+                _vm.$set(_vm.addInput, "url", $event.target.value)
               }
             }
           })
@@ -458,22 +460,13 @@ var render = function() {
           _vm._l(_vm.webpages, function(webpage, index) {
             return _c("tr", [
               _c("td", [
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      href: _vm.status.domain + webpage.path,
-                      target: "_blank"
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\r\n              " +
-                        _vm._s(webpage.path) +
-                        "\r\n          "
-                    )
-                  ]
-                )
+                _c("a", { attrs: { href: webpage.url, target: "_blank" } }, [
+                  _vm._v(
+                    "\r\n              " +
+                      _vm._s(webpage.path) +
+                      "\r\n          "
+                  )
+                ])
               ]),
               _vm._v(" "),
               _c(
@@ -629,8 +622,7 @@ var render = function() {
                   "\r\n        # " +
                     _vm._s(_vm.editingGroups.id) +
                     "\r\n        " +
-                    _vm._s(_vm.status.domain) +
-                    _vm._s(_vm.editingGroups.path) +
+                    _vm._s(_vm.editingGroups.url) +
                     "\r\n        "
                 ),
                 _vm.editingGroups.title !== "" &&
@@ -1150,7 +1142,7 @@ let WebpageAdd = {
   },
   computed: {
     enableAdd: function () {
-      return (this.addInput.path.startsWith('/')
+      return (this.lib.ValidateHelper.isURL(this.addInput.url)
               && (this.addInput.config === '' || this.lib.ValidateHelper.isJSON(this.addInput.config)) )
     },
     configIsJSON: function () {
@@ -1177,7 +1169,7 @@ let WebpageAdd = {
       let domainID = this.$route.params.domainID
       let data = {
         domainID: domainID,
-        path: input.path
+        url: input.url
       }
       
       if (input.title !== '') {

@@ -8,7 +8,7 @@ class WebpageSchema extends Schema {
     this.create('webpages', (table) => {
       table.increments()
       table.integer('domain_id').notNullable().unsigned().references('id').inTable('domains').onDelete('cascade')
-      table.string('path', 254).notNullable()
+      table.string('url', 254).notNullable()
       table.text('title')
       table.json('config')
       table.timestamps()

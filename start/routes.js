@@ -23,20 +23,20 @@ Route.on('/').render('index')
 
 // ------------------------------------------
 
-Route.get('/client/user/login', 'Client/UserController.login')
-Route.get('/client/user/register', 'Client/UserController.register')
+Route.get('/client/user/login', 'Client/UserController.login').middleware(['origin', 'referer'])
+Route.get('/client/user/register', 'Client/UserController.register').middleware(['origin', 'referer'])
 Route.get('/client/user/logout', 'Client/UserController.logout')
-Route.get('/client/user/check-login', 'Client/UserController.checkLogin')
-Route.get('/client/user/attempt-login-via-username', 'Client/UserController.attemptLoginViaUsername')
+Route.get('/client/user/check-login', 'Client/UserController.checkLogin').middleware(['origin', 'referer'])
+Route.get('/client/user/attempt-login-via-username', 'Client/UserController.attemptLoginViaUsername').middleware(['origin', 'referer'])
 
-Route.get('/client/message/list', 'Client/MessageController.list')
-Route.get('/client/message/sync-list', 'Client/MessageController.syncList')
-Route.post('/client/message/insert', 'Client/MessageController.insert')
-Route.post('/client/message/upload', 'Client/MessageController.upload')
+Route.get('/client/message/list', 'Client/MessageController.list').middleware(['origin', 'referer'])
+Route.get('/client/message/sync-list', 'Client/MessageController.syncList').middleware(['origin', 'referer'])
+Route.post('/client/message/insert', 'Client/MessageController.insert').middleware(['origin', 'referer'])
+Route.post('/client/message/upload', 'Client/MessageController.upload').middleware(['origin', 'referer'])
 
-Route.get('/client/oauth/request/:driver', 'Client/UserController.oauthRequest')
-Route.get('/client/oauth/authenticated/:driver', 'Client/UserController.oauthAuthenticated')
-Route.get('/client/oauth/login', 'Client/UserController.oauthLogin')
+Route.get('/client/oauth/request/:driver', 'Client/UserController.oauthRequest').middleware(['origin', 'referer'])
+Route.get('/client/oauth/authenticated/:driver', 'Client/UserController.oauthAuthenticated').middleware(['origin', 'referer'])
+Route.get('/client/oauth/login', 'Client/UserController.oauthLogin').middleware(['origin', 'referer'])
 
 // ---------------------------
 
@@ -70,7 +70,7 @@ Route.on('/admin').render('admin')
 
 Route.any('/admin/:controller/:action', (options) => {
   return controllerMapping(options, 'admin')
-})
+}).middleware(['admin'])
 
 
 // --------------------------------
@@ -87,4 +87,4 @@ for (let i = 0; i < 10; i++) {
 
 Route.any('/material/:controller/:action', (options) => {
   return controllerMapping(options, 'material')
-})
+}).middleware(['admin'])
