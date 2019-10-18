@@ -313,7 +313,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "#tocbotNavContainer {\n  padding-top: calc(60px + 1rem);\n  right: 1rem;\n  max-height: calc(100vh - 60px - 1rem);\n}\n#tocbotNavContainer.toc {\n  overflow-y: auto;\n}\n#tocbotNavContainer.toc > .toc-list {\n  overflow: hidden;\n  position: relative;\n}\n#tocbotNavContainer.toc > .toc-list li {\n  list-style: none;\n}\n#tocbotNavContainer .toc-list {\n  margin: 0;\n  padding-left: 10px;\n}\n#tocbotNavContainer a.toc-link {\n  color: currentColor;\n  height: 100%;\n}\n#tocbotNavContainer .is-collapsible {\n  max-height: 1000px;\n  overflow: hidden;\n  transition: all 300ms ease-in-out;\n}\n#tocbotNavContainer .is-collapsed {\n  max-height: 0;\n}\n#tocbotNavContainer.is-position-fixed {\n  position: fixed !important;\n  top: 0;\n  right: 0;\n  z-index: 1;\n}\n#tocbotNavContainer .is-active-link {\n  font-weight: 700;\n}\n#tocbotNavContainer .toc-link::before {\n  background-color: #EEE;\n  content: ' ';\n  display: inline-block;\n  height: inherit;\n  left: 0;\n  margin-top: -1px;\n  position: absolute;\n  width: 2px;\n}\n#tocbotNavContainer .is-active-link::before {\n  background-color: #54BC4B;\n}\n", "",{"version":3,"sources":["tocbot.less"],"names":[],"mappings":"AAAA;EACE,8BAA8B;EAC9B,WAAW;EACX,qCAAqC;AACvC;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,SAAS;EACT,kBAAkB;AACpB;AACA;EACE,mBAAmB;EACnB,YAAY;AACd;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,iCAAiC;AACnC;AACA;EACE,aAAa;AACf;AACA;EACE,0BAA0B;EAC1B,MAAM;EACN,QAAQ;EACR,UAAU;AACZ;AACA;EACE,gBAAgB;AAClB;AACA;EACE,sBAAsB;EACtB,YAAY;EACZ,qBAAqB;EACrB,eAAe;EACf,OAAO;EACP,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,yBAAyB;AAC3B","file":"tocbot.less","sourcesContent":["#tocbotNavContainer {\n  padding-top: calc(60px + 1rem);\n  right: 1rem;\n  max-height: calc(100vh - 60px - 1rem);\n}\n#tocbotNavContainer.toc {\n  overflow-y: auto;\n}\n#tocbotNavContainer.toc > .toc-list {\n  overflow: hidden;\n  position: relative;\n}\n#tocbotNavContainer.toc > .toc-list li {\n  list-style: none;\n}\n#tocbotNavContainer .toc-list {\n  margin: 0;\n  padding-left: 10px;\n}\n#tocbotNavContainer a.toc-link {\n  color: currentColor;\n  height: 100%;\n}\n#tocbotNavContainer .is-collapsible {\n  max-height: 1000px;\n  overflow: hidden;\n  transition: all 300ms ease-in-out;\n}\n#tocbotNavContainer .is-collapsed {\n  max-height: 0;\n}\n#tocbotNavContainer.is-position-fixed {\n  position: fixed !important;\n  top: 0;\n  right: 0;\n  z-index: 1;\n}\n#tocbotNavContainer .is-active-link {\n  font-weight: 700;\n}\n#tocbotNavContainer .toc-link::before {\n  background-color: #EEE;\n  content: ' ';\n  display: inline-block;\n  height: inherit;\n  left: 0;\n  margin-top: -1px;\n  position: absolute;\n  width: 2px;\n}\n#tocbotNavContainer .is-active-link::before {\n  background-color: #54BC4B;\n}\n"]}]);
+exports.push([module.i, "#tocbotNavContainer {\n  padding-top: calc(60px + 1rem);\n  right: 1rem;\n  max-height: calc(100vh - 60px - 1rem);\n  width: 200px;\n  font-family: 'Noto Sans CJK TC Light', 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;\n}\n#tocbotNavContainer.toc {\n  overflow-y: auto;\n}\n#tocbotNavContainer.toc > .toc-list {\n  overflow: hidden;\n  position: relative;\n}\n#tocbotNavContainer.toc > .toc-list li {\n  list-style: none;\n}\n#tocbotNavContainer .toc-list {\n  margin: 0;\n  padding-left: 10px;\n}\n#tocbotNavContainer a.toc-link {\n  color: currentColor;\n  height: 100%;\n  text-decoration: none;\n  line-height: 200%;\n}\n#tocbotNavContainer .is-collapsible {\n  max-height: 1000px;\n  overflow: hidden;\n  transition: all 300ms ease-in-out;\n}\n#tocbotNavContainer .is-collapsed {\n  max-height: 0;\n}\n#tocbotNavContainer.is-position-fixed {\n  position: fixed;\n  top: 0;\n  right: 0;\n  z-index: 1;\n}\n#tocbotNavContainer .is-active-link {\n  font-weight: 700;\n}\n#tocbotNavContainer .toc-link::before {\n  background-color: #EEE;\n  content: ' ';\n  display: inline-block;\n  height: inherit;\n  left: 0;\n  margin-top: -1px;\n  position: absolute;\n  width: 4px;\n}\n#tocbotNavContainer .is-active-link::before {\n  background-color: #21ba45;\n}\n.non-invasive-web-style-framework.tocbot {\n  max-width: calc(100% - 200px);\n}\n@media (max-width: calc(200px * 3)) {\n  .non-invasive-web-style-framework.tocbot {\n    max-width: 100%;\n  }\n  #tocbotNavContainer {\n    position: static !important;\n  }\n}\n", "",{"version":3,"sources":["tocbot.less"],"names":[],"mappings":"AAAA;EACE,8BAA8B;EAC9B,WAAW;EACX,qCAAqC;EACrC,YAAY;EACZ,6FAA6F;AAC/F;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,SAAS;EACT,kBAAkB;AACpB;AACA;EACE,mBAAmB;EACnB,YAAY;EACZ,qBAAqB;EACrB,iBAAiB;AACnB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,iCAAiC;AACnC;AACA;EACE,aAAa;AACf;AACA;EACE,eAAe;EACf,MAAM;EACN,QAAQ;EACR,UAAU;AACZ;AACA;EACE,gBAAgB;AAClB;AACA;EACE,sBAAsB;EACtB,YAAY;EACZ,qBAAqB;EACrB,eAAe;EACf,OAAO;EACP,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,6BAA6B;AAC/B;AACA;EACE;IACE,eAAe;EACjB;EACA;IACE,2BAA2B;EAC7B;AACF","file":"tocbot.less","sourcesContent":["#tocbotNavContainer {\n  padding-top: calc(60px + 1rem);\n  right: 1rem;\n  max-height: calc(100vh - 60px - 1rem);\n  width: 200px;\n  font-family: 'Noto Sans CJK TC Light', 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;\n}\n#tocbotNavContainer.toc {\n  overflow-y: auto;\n}\n#tocbotNavContainer.toc > .toc-list {\n  overflow: hidden;\n  position: relative;\n}\n#tocbotNavContainer.toc > .toc-list li {\n  list-style: none;\n}\n#tocbotNavContainer .toc-list {\n  margin: 0;\n  padding-left: 10px;\n}\n#tocbotNavContainer a.toc-link {\n  color: currentColor;\n  height: 100%;\n  text-decoration: none;\n  line-height: 200%;\n}\n#tocbotNavContainer .is-collapsible {\n  max-height: 1000px;\n  overflow: hidden;\n  transition: all 300ms ease-in-out;\n}\n#tocbotNavContainer .is-collapsed {\n  max-height: 0;\n}\n#tocbotNavContainer.is-position-fixed {\n  position: fixed;\n  top: 0;\n  right: 0;\n  z-index: 1;\n}\n#tocbotNavContainer .is-active-link {\n  font-weight: 700;\n}\n#tocbotNavContainer .toc-link::before {\n  background-color: #EEE;\n  content: ' ';\n  display: inline-block;\n  height: inherit;\n  left: 0;\n  margin-top: -1px;\n  position: absolute;\n  width: 4px;\n}\n#tocbotNavContainer .is-active-link::before {\n  background-color: #21ba45;\n}\n.non-invasive-web-style-framework.tocbot {\n  max-width: calc(100% - 200px);\n}\n@media (max-width: calc(200px * 3)) {\n  .non-invasive-web-style-framework.tocbot {\n    max-width: 100%;\n  }\n  #tocbotNavContainer {\n    position: static !important;\n  }\n}\n"]}]);
 
 
 /***/ }),
@@ -2150,6 +2150,9 @@ __webpack_require__.r(__webpack_exports__);
 
 let inited = false
 
+let rootContainer
+let container
+
 let TOCHelper = function (doDestroy) {
   
   let init = (options) => {
@@ -2157,7 +2160,7 @@ let TOCHelper = function (doDestroy) {
     
     options = initOptions(options)
     setTimeout(() => {
-      console.log(options)
+      //console.log(options)
       _tocbot_tocbot_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].init(options)
       //console.trace('inited')
     }, 0)
@@ -2192,18 +2195,22 @@ let TOCHelper = function (doDestroy) {
   }
   
   let initContainer = () => {
-    window.$(_TOCHelper_tpl__WEBPACK_IMPORTED_MODULE_1___default.a)
-            .appendTo('body')
+    container = window.$(_TOCHelper_tpl__WEBPACK_IMPORTED_MODULE_1___default.a)
+    container.prependTo('body')
+    
+    rootContainer = window.$('.non-invasive-web-style-framework:first')
+    rootContainer.addClass('tocbot')
   }
   
   let removeContainer = () => {
-    window.$('#tocbotNavContainer').remove()
+    container.remove()
+    rootContainer.removeClass('tocbot')
   }
   
   let refresh = () => {
     setTimeout(() => {
       _tocbot_tocbot_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].refresh()
-      console.log('refresh')
+      //console.log('refresh')
     }, 0)
   }
   
@@ -2308,7 +2315,8 @@ __webpack_require__.r(__webpack_exports__);
  */
 module.exports = {
   "TopMenuMinWidth": "600px",
-  "TopMenuHeight": "60px"
+  "TopMenuHeight": "60px",
+  "TocbotWidth": "200px"
 }
 
 /***/ })

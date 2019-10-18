@@ -4,6 +4,9 @@ import style from './../../style.config'
 
 let inited = false
 
+let rootContainer
+let container
+
 let TOCHelper = function (doDestroy) {
   
   let init = (options) => {
@@ -11,7 +14,7 @@ let TOCHelper = function (doDestroy) {
     
     options = initOptions(options)
     setTimeout(() => {
-      console.log(options)
+      //console.log(options)
       tocbot.init(options)
       //console.trace('inited')
     }, 0)
@@ -46,18 +49,22 @@ let TOCHelper = function (doDestroy) {
   }
   
   let initContainer = () => {
-    window.$(template)
-            .appendTo('body')
+    container = window.$(template)
+    container.prependTo('body')
+    
+    rootContainer = window.$('.non-invasive-web-style-framework:first')
+    rootContainer.addClass('tocbot')
   }
   
   let removeContainer = () => {
-    window.$('#tocbotNavContainer').remove()
+    container.remove()
+    rootContainer.removeClass('tocbot')
   }
   
   let refresh = () => {
     setTimeout(() => {
       tocbot.refresh()
-      console.log('refresh')
+      //console.log('refresh')
     }, 0)
   }
   

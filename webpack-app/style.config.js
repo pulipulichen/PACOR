@@ -3,5 +3,6 @@
  */
 module.exports = {
   "TopMenuMinWidth": "600px",
-  "TopMenuHeight": "60px"
+  "TopMenuHeight": "60px",
+  "TocbotWidth": "200px"
 }
