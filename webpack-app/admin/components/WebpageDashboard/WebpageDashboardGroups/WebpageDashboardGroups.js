@@ -22,7 +22,7 @@ let Template = {
       }
       
       let result = await this.lib.AxiosHelper.get('/admin/Dashboard/groups', data)
-      console.log(result)
+      //console.log(result)
       this.groups = result.groups
     }
   } // methods

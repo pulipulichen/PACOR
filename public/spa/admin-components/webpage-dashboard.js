@@ -125,7 +125,9 @@ var render = function() {
           lib: _vm.lib,
           error: _vm.error
         }
-      })
+      }),
+      _vm._v(" "),
+      _c("toc", { attrs: { config: _vm.config } })
     ],
     1
   )
@@ -156,12 +158,20 @@ var render = function() {
     "div",
     { staticClass: "ui segment" },
     [
-      _c("h1", { staticClass: "ui header" }, [
-        _vm._v("\r\n    " + _vm._s(_vm.$t("Groups")) + "\r\n  ")
-      ]),
+      _c(
+        "h3",
+        { staticClass: "ui header", attrs: { id: "dashboard-groups" } },
+        [_vm._v("\r\n    " + _vm._s(_vm.$t("Groups")) + "\r\n  ")]
+      ),
       _vm._v(" "),
       _vm._l(_vm.groups, function(group) {
         return _c("div", { staticClass: "ui segment" }, [
+          _c(
+            "h4",
+            { attrs: { id: "dashboard-group-" + (group.group_seq_id + 1) } },
+            [_vm._v("Group #" + _vm._s(group.group_seq_id + 1))]
+          ),
+          _vm._v(" "),
           _c(
             "div",
             { staticClass: "ui items" },
@@ -496,7 +506,7 @@ let Template = {
       }
       
       let result = await this.lib.AxiosHelper.get('/admin/Dashboard/groups', data)
-      console.log(result)
+      //console.log(result)
       this.groups = result.groups
     }
   } // methods
