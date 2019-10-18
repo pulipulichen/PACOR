@@ -1047,6 +1047,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_admin_admin_tpl__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
 /* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_config_js__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _style_config_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./style.config.js */ "./webpack-app/style.config.js");
+/* harmony import */ var _style_config_js__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_style_config_js__WEBPACK_IMPORTED_MODULE_15__);
 
 
 // ----------------------------------
@@ -1081,6 +1083,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+_config_js__WEBPACK_IMPORTED_MODULE_14___default.a.style = _style_config_js__WEBPACK_IMPORTED_MODULE_15___default.a
 
 // -----------------------
 // 確認 baseURL
@@ -2262,28 +2266,34 @@ let TOC = {
   watch: {
   },
   mounted() {
-    //window.$(``).prependTo('body')
-    setTimeout(() => {
-      _vendors_tocbot_tocbot_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].init({
-        // Where to render the table of contents.
-        tocSelector: '.js-toc',
-        // Where to grab the headings to build the table of contents.
-        contentSelector: '.non-invasive-web-style-framework',
-        // Which headings to grab inside of the contentSelector element.
-        headingSelector: 'h3, h4',
-        // For headings inside relative or absolute positioned containers within content.
-        hasInnerContainers: true,
-        fixedSidebarOffset: 60,
-      });
-    }, 1000)
-      
+    let height = this.config.style.TopMenuHeight
+    if (height.endsWith('px')) {
+      height = height.slice(0, -2)
+    }
+    if (typeof(height) === 'string'){
+      height = parseInt(height, 10)
+    }
+    
+    _vendors_tocbot_tocbot_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].init({
+      // Where to render the table of contents.
+      tocSelector: '.js-toc',
+      // Where to grab the headings to build the table of contents.
+      contentSelector: '.non-invasive-web-style-framework',
+      // Which headings to grab inside of the contentSelector element.
+      headingSelector: 'h3, h4',
+      // For headings inside relative or absolute positioned containers within content.
+      hasInnerContainers: true,
+      fixedSidebarOffset: height,
+    });
   },
   destroyed () {
     _vendors_tocbot_tocbot_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].destroy()
   },
   methods: {
     refresh: function () {
-      _vendors_tocbot_tocbot_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].refresh()
+      setTimeout(() => {
+        _vendors_tocbot_tocbot_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].refresh()
+      }, 0)
     }
   } // methods
 }
@@ -2365,6 +2375,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_TOC_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CTOC_5CTOC_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_TOC_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CTOC_5CTOC_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_TOC_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CTOC_5CTOC_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_TOC_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CTOC_5CTOC_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_TOC_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CTOC_5CTOC_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/style.config.js":
+/*!*************************************!*\
+  !*** ./webpack-app/style.config.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * If you revise following configuration, you should compile less with Webpack again.
+ */
+module.exports = {
+  "TopMenuMinWidth": "600px",
+  "TopMenuHeight": "60px"
+}
 
 /***/ }),
 

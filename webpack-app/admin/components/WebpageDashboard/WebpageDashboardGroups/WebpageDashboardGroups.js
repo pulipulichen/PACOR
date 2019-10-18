@@ -1,5 +1,5 @@
 let Template = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+  props: ['lib', 'status', 'config', 'progress', 'error', 'toc'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -24,6 +24,7 @@ let Template = {
       let result = await this.lib.AxiosHelper.get('/admin/Dashboard/groups', data)
       //console.log(result)
       this.groups = result.groups
+      this.$parent.$refs.toc.refresh()
     },
     attrHeaderID: function (anchor) {
       return '/webpage-dashboard/' + this.$route.params.webpageID + '/' + anchor

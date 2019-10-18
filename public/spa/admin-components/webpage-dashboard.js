@@ -79,6 +79,8 @@ var render = function() {
     "div",
     { staticClass: "ui form" },
     [
+      _c("toc", { ref: "toc", attrs: { config: _vm.config } }),
+      _vm._v(" "),
       _c("div", { staticClass: "ui secondary menu" }, [
         _c("div", { staticClass: "item" }, [
           _c("h2", { staticClass: "ui header" }, [
@@ -125,9 +127,7 @@ var render = function() {
           lib: _vm.lib,
           error: _vm.error
         }
-      }),
-      _vm._v(" "),
-      _c("toc", { attrs: { config: _vm.config } })
+      })
     ],
     1
   )
@@ -492,7 +492,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let Template = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+  props: ['lib', 'status', 'config', 'progress', 'error', 'toc'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -517,6 +517,7 @@ let Template = {
       let result = await this.lib.AxiosHelper.get('/admin/Dashboard/groups', data)
       //console.log(result)
       this.groups = result.groups
+      this.$parent.$refs.toc.refresh()
     },
     attrHeaderID: function (anchor) {
       return '/webpage-dashboard/' + this.$route.params.webpageID + '/' + anchor

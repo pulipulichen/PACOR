@@ -1,4 +1,6 @@
 <div class="ui form">
+  <toc v-bind:config="config"
+       ref="toc"></toc>
   
   <div class="ui secondary menu">
     <div class="item">
@@ -50,5 +52,4 @@
         v-bind:error="error"
         ref="auth"></webpage-dashboard-groups>
   
-  <toc v-bind:config="config"></toc>
 </div>
