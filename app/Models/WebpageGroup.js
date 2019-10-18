@@ -6,6 +6,7 @@ const Model = use('Model')
 
 const Database = use('Database')
 const Domain = use('App/Models/Domain')
+const User = use('App/Models/User')
 
 class WebpageGroup extends Model {
   
@@ -137,6 +138,7 @@ class WebpageGroup extends Model {
     //return ['password']
     return ['created_at', 'updated_at']
   }
+  
 }
 
 module.exports = WebpageGroup
