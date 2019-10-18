@@ -1,5 +1,4 @@
 <div class="ui form">
-  
   <div class="ui secondary menu">
     <div class="item">
       <h2 class="ui header">
@@ -34,20 +33,25 @@
           {{ $t('Database') }}
         </a>
       -->
+      <a v-bind:href="status.webpageURL"
+         class="ui item"
+         target="_blank">
+        <i class="external link icon"></i>
+        {{ $t('Open Webpage') }}
+      </a>
       <a href="/admin/Database/admin?table=webpages"
-           class="ui item"
-          target="_blank">
-         <i class="database icon"></i>
-         {{ $t('Database') }}
-       </a>
+         class="ui item"
+         target="_blank"
+         v-if="status.role='global_admin'">
+        <i class="database icon"></i>
+        {{ $t('Database') }}
+      </a>
     </div>
   </div>
-  
   <webpage-dashboard-groups v-bind:config="config"
         v-bind:status="status"
         v-bind:progress="progress"
         v-bind:lib="lib"
         v-bind:error="error"
         ref="auth"></webpage-dashboard-groups>
-  
 </div>

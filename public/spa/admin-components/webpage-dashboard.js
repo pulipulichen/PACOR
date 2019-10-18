@@ -101,18 +101,34 @@ var render = function() {
             "a",
             {
               staticClass: "ui item",
-              attrs: {
-                href: "/admin/Database/admin?table=webpages",
-                target: "_blank"
-              }
+              attrs: { href: _vm.status.webpageURL, target: "_blank" }
             },
             [
-              _c("i", { staticClass: "database icon" }),
+              _c("i", { staticClass: "external link icon" }),
               _vm._v(
-                "\r\n         " + _vm._s(_vm.$t("Database")) + "\r\n       "
+                "\r\n        " + _vm._s(_vm.$t("Open Webpage")) + "\r\n      "
               )
             ]
-          )
+          ),
+          _vm._v(" "),
+          (_vm.status.role = "global_admin")
+            ? _c(
+                "a",
+                {
+                  staticClass: "ui item",
+                  attrs: {
+                    href: "/admin/Database/admin?table=webpages",
+                    target: "_blank"
+                  }
+                },
+                [
+                  _c("i", { staticClass: "database icon" }),
+                  _vm._v(
+                    "\r\n        " + _vm._s(_vm.$t("Database")) + "\r\n      "
+                  )
+                ]
+              )
+            : _vm._e()
         ])
       ]),
       _vm._v(" "),

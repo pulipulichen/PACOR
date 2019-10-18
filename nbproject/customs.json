@@ -8,6 +8,13 @@
     },
     "materials": {},
     "toc": {},
+    "style": {
+      "attributes": {
+        "scoped": {},
+        "src": {},
+        "lang": {}
+      }
+    },
     "slot": {},
     "domain-edit-admin": {},
     "modal": {
@@ -32,6 +39,7 @@
       "context": "img"
     },
     "v-bind:reset": {},
+    "v-bind:id": {},
     "v-model": {},
     "v-bind:error": {},
     "ref": {},

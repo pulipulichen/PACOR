@@ -918,6 +918,32 @@ let DayJSHelper = {
   },
   fromNow: function (timestamp) {
     return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).fromNow()
+  },
+  shortTime: function (timestamp) {
+    let intervalTimestamp = (new Date()).getTime() - timestamp
+    
+    if (intervalTimestamp < 10800000) {
+      // 如果是在距離現在三小時內，那就顯示 n分鐘前
+      return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).fromNow()
+    }
+    else if (intervalTimestamp < 86400000) {
+      // 如果是距離現在1天內，那就顯示 hh:mm
+      return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).format('HH:mm')
+    }
+    else if (intervalTimestamp < 31536000000) {
+      // 如果距離現在1年內，那就顯示 mm/dd
+      return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).format('MM-DD')
+    }
+    else {
+      // 如果超過1年，那就顯示2019年
+      return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).format('YYYY')
+    }
+  },
+  from: function (baseTimestamp, toTimestamp) {
+    return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(baseTimestamp).from(dayjs__WEBPACK_IMPORTED_MODULE_0___default()(toTimestamp))
+  },
+  to: function (baseTimestamp, toTimestamp) {
+    return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(baseTimestamp).to(dayjs__WEBPACK_IMPORTED_MODULE_0___default()(toTimestamp))
   }
 }
 
