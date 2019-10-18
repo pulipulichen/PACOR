@@ -1103,26 +1103,6 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_fragment__WEBPACK_IMPORTED_M
 
 /***/ }),
 
-/***/ "./webpack-app/plugins/semantic-ui.js":
-/*!********************************************!*\
-  !*** ./webpack-app/plugins/semantic-ui.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-let $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")
-window.jQuery = window.$ = $
-
-// Use Semantic UI original version
-//require('./../vendors/semantic-ui/semantic.min.css')
-//require('./../vendors/semantic-ui/semantic.min.js')
-
-// Use Semantic UI NIWSF version
-let SemanticUINIWSF = () => Promise.all(/*! import() | vendors/semantic-ui-niwsf */[__webpack_require__.e("vendors"), __webpack_require__.e("vendors/semantic-ui-niwsf")]).then(__webpack_require__.t.bind(null, /*! ./../vendors/semantic-ui-niwsf/semantic-ui-niwsf-webpack.js */ "./webpack-app/vendors/semantic-ui-niwsf/semantic-ui-niwsf-webpack.js", 7))
-SemanticUINIWSF()
-
-/***/ }),
-
 /***/ "./webpack-app/styles/global.less":
 /*!****************************************!*\
   !*** ./webpack-app/styles/global.less ***!
@@ -1141,6 +1121,26 @@ var add = __webpack_require__(/*! ../../node_modules/vue-style-loader/lib/addSty
 var update = add("831b4592", content, false, {});
 // Hot Module Replacement
 if(false) {}
+
+/***/ }),
+
+/***/ "./webpack-app/styles/semantic-ui.js":
+/*!*******************************************!*\
+  !*** ./webpack-app/styles/semantic-ui.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+let $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")
+window.jQuery = window.$ = $
+
+// Use Semantic UI original version
+//require('./../vendors/semantic-ui/semantic.min.css')
+//require('./../vendors/semantic-ui/semantic.min.js')
+
+// Use Semantic UI NIWSF version
+let SemanticUINIWSF = () => Promise.all(/*! import() | vendors/semantic-ui-niwsf */[__webpack_require__.e("vendors"), __webpack_require__.e("vendors/semantic-ui-niwsf")]).then(__webpack_require__.t.bind(null, /*! ./semantic-ui-niwsf/semantic-ui-niwsf-webpack.js */ "./webpack-app/styles/semantic-ui-niwsf/semantic-ui-niwsf-webpack.js", 7))
+SemanticUINIWSF()
 
 /***/ })
 

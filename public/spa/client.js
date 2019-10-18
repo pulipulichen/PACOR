@@ -435,8 +435,8 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var _plugins_plugins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./plugins/plugins */ "./webpack-app/plugins/plugins.js");
-/* harmony import */ var _plugins_semantic_ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./plugins/semantic-ui */ "./webpack-app/plugins/semantic-ui.js");
-/* harmony import */ var _plugins_semantic_ui__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_plugins_semantic_ui__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _styles_semantic_ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/semantic-ui */ "./webpack-app/styles/semantic-ui.js");
+/* harmony import */ var _styles_semantic_ui__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_styles_semantic_ui__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _plugins_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./plugins/i18n */ "./webpack-app/plugins/i18n.js");
 /* harmony import */ var _helpers_AxiosHelper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers/AxiosHelper */ "./webpack-app/helpers/AxiosHelper.js");
 /* harmony import */ var _helpers_DayJSHelper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers/DayJSHelper */ "./webpack-app/helpers/DayJSHelper.js");

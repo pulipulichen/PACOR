@@ -5,7 +5,7 @@ import Vue from 'vue'
 // plugins
 
 import './plugins/plugins'
-import './plugins/semantic-ui'
+import './styles/semantic-ui'
 import i18n from './plugins/i18n'
 
 // ----------------------------------
