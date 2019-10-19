@@ -50,7 +50,9 @@ class Dashboard {
   async t () {
     return DomainModel
             .query()
-            .with('w')
+            .with('w', (builder) => {
+              builder.where('id', 2)
+            })
             .where('id', 2)
             .fetch()
   }
