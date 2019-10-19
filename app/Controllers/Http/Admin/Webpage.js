@@ -9,6 +9,7 @@ const Config = use('Config')
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
+
 class Webpage {
   async list ({request, auth}) {
     //await auth.checkAdmin()
@@ -38,7 +39,7 @@ class Webpage {
     
     
     webpages = webpages.toJSON().map(webpage => {
-      webpage.path = '/' + webpage.url.split('/').slice(3).join('/')
+      webpage.path = webpage.url.split('/').slice(3).join('/')
       
       let groups = []
       let usersCount = 0
@@ -204,7 +205,10 @@ e f`)
   async add ({request, auth}) {
     const data = request.all()
     
-    await auth.checkDomainAdmin(data.domainID)
+    let domain = await DomainModel.findByURL(data.url)
+    
+    await auth.checkDomainAdmin(domain.id)
+    /*
     let domainID = data.domainID
     if (typeof(domainID) === 'string') {
       domainID = parseInt(domainID, 10)
@@ -214,7 +218,7 @@ e f`)
     }
     
     // --------
-    
+    /*
     let isCreate = false
     let webpage
     webpage = await WebpageModel
@@ -230,9 +234,10 @@ e f`)
     else {
       webpage = webpage.first()
     }
-    
+    */
     // -------
     
+    let webpage = await WebpageModel.findByURL(data.url)
     //webpage.path = data.path
     webpage.url = domain.getFullURL(data.url)
     if (data.title !== '') {
@@ -241,16 +246,7 @@ e f`)
     if (data.config !== '') {
       webpage.config = data.config
     }
-    
-    // ---------
-    
-    if (isCreate === false) {
-      await webpage.save()
-    }
-    else {
-      const domain = await DomainModel.find(domainID)
-      await domain.webpages().save(webpage)
-    }
+    await webpage.save()
     
     if (Array.isArray(data.groups)) {
       await webpage.setGroupsList(data.groups)

@@ -48,7 +48,11 @@ class Dashboard {
   }
   
   async t () {
-    return 1
+    return DomainModel
+            .query()
+            .with('w')
+            .where('id', 2)
+            .fetch()
   }
 }
 

@@ -113,6 +113,11 @@ class Domain extends Model {
     return this.hasMany('App/Models/Webpage')
   }
   
+  w () {
+    return this.hasMany('App/Models/Webpage')
+            //.where('id', 1)
+  }
+  
   assets () {
     return this.hasMany('App/Models/MaterialAsset')
   }

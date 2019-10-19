@@ -4,7 +4,7 @@ let WebpageAdd = {
     this.$i18n.locale = this.config.locale
     return {
       addInput: {
-        path: '/test',
+        url: 'http://pc.pulipuli.info/test',
         title: '',
         groups: '',
         config: ''
@@ -41,7 +41,7 @@ let WebpageAdd = {
       let input = JSON.parse(JSON.stringify(this.addInput))
       let domainID = this.$route.params.domainID
       let data = {
-        domainID: domainID,
+        //domainID: domainID,
         url: input.url
       }
       
