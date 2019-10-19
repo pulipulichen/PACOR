@@ -48,11 +48,11 @@ class Dashboard {
   }
   
   async t () {
+    let webpage = await WebpageModel.find(1)
+    console.log(webpage.primaryKey, webpage.primaryKeyValue)
     return DomainModel
             .query()
-            .with('w', (builder) => {
-              builder.where('id', 2)
-            })
+            .with('w', webpage)
             .where('id', 2)
             .fetch()
   }
