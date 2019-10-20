@@ -12,14 +12,30 @@ class CustomizedModel extends Model {
       if (typeof(field) === 'string' 
               && typeof(operator) === 'string' 
               && typeof(value) !== 'undefined') {
-        callback = (builder) => {
-          builder.where(field, operator, value)
+        if (typeof(value) === 'object'
+                && typeof(value.primaryKeyValue) === 'number') {
+          callback = (builder) => {
+            builder.where(field, operator, value.primaryKeyValue)
+          }
+        }
+        else {
+          callback = (builder) => {
+            builder.where(field, operator, value)
+          }
         }
       }
       else if (typeof(field) === 'string' 
               && typeof(operator) !== 'undefined') {
-        callback = (builder) => {
-          builder.where(field, operator)
+        if (typeof(operator) === 'object'
+                && typeof(operator.primaryKeyValue) === 'number') {
+          callback = (builder) => {
+            builder.where(field, operator.primaryKeyValue)
+          }
+        }
+        else {
+          callback = (builder) => {
+            builder.where(field, operator)
+          }
         }
       }
       else if (typeof(field) === 'number') {
