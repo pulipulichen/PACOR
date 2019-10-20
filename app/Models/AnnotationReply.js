@@ -3,12 +3,12 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
-class AnnotationRate extends Model {
+class AnnotationReply extends Model {
   user () {
     return this.belongsTo('App/Models/User')
   }
   
-  rater () {
+  replier () {
     return this.user()
   }
   
@@ -16,9 +16,9 @@ class AnnotationRate extends Model {
     return this.hasOne('App/Models/Annotation')
   }
   
-  rateToAnnotation () {
+  replyToAnnotation () {
     return this.annotation()
   }
 }
 
-module.exports = AnnotationRate
+module.exports = AnnotationReply

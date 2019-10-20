@@ -3,21 +3,21 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
-class ParagraphNoteSchema extends Schema {
+class SectionNoteSchema extends Schema {
   up () {
-    this.create('paragraph_notes', (table) => {
+    this.create('section_notes', (table) => {
       table.increments()
       table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
       table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
-      table.integer('paragraph_id').notNullable()
+      table.integer('section_seq_id').notNullable()
       table.text('note').notNullable()
       table.timestamps()
     })
   }
 
   down () {
-    this.drop('paragraph_notes')
+    this.drop('section_notes')
   }
 }
 
-module.exports = ParagraphNoteSchema
+module.exports = SectionNoteSchema

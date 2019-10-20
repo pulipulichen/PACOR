@@ -15,10 +15,6 @@ class AnnotationRate extends Model {
   annotation () {
     return this.hasOne('App/Models/Annotation')
   }
-  
-  rateToAnnotation () {
-    return this.annotation()
-  }
 }
 
 module.exports = AnnotationRate
