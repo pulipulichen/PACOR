@@ -3,6 +3,9 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
+/**
+ * For privotTable use
+ */
 class GroupUserSchema extends Schema {
   up () {
     this.create('group_user', (table) => {

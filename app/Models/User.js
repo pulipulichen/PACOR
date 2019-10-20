@@ -73,6 +73,21 @@ class User extends Model {
     return this.belongsTo('App/Models/Domain')
   }
   
+  readingProgresses (webpage, step) {
+    let relation = this.hasMany('App/Models/ReadingProgress')
+      .orderBy('step', 'asc')
+    if (typeof(webpage) === 'object' 
+            && typeof(webpage.primaryKeyValue) === 'number') {
+      relation.where('webpage_id', webpage.primaryKeyValue)
+    }
+    if (typeof(step) === 'number') {
+      relation.where('step', step)
+    }
+    return relation
+  }
+  
+  
+  
   static get hidden () {
     //return ['password']
     return ['created_at', 'updated_at']

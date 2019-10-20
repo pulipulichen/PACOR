@@ -3,9 +3,9 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
-class ActivityLogSchema extends Schema {
+class ReadingActivityLogSchema extends Schema {
   up () {
-    this.create('activity_logs', (table) => {
+    this.create('reading_activity_logs', (table) => {
       table.increments()
       table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
       table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
@@ -16,8 +16,8 @@ class ActivityLogSchema extends Schema {
   }
 
   down () {
-    this.drop('activity_logs')
+    this.drop('reading_activity_logs')
   }
 }
 
-module.exports = ActivityLogSchema
+module.exports = ReadingActivityLogSchema

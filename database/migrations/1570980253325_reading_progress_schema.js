@@ -11,7 +11,7 @@ class ReadingProgressSchema extends Schema {
       table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
       table.integer('step').notNullable()
       table.bitInteger('start_timestamp').notNullable()
-      table.bitInteger('end_timestamp').notNullable()
+      table.bitInteger('end_timestamp')
       table.json('log')
       table.timestamps()
     })
