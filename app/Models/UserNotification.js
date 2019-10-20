@@ -1,9 +1,9 @@
 'use strict'
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const Model = use('Model')
+const Model = use('App/Models/CustomizedModel/CustomizedModel')
 
-class Annotation extends Model {
+class Notification extends Model {
   user () {
     return this.belongsTo('App/Models/User')
   }
@@ -12,23 +12,6 @@ class Annotation extends Model {
     return this.belongsTo('App/Models/Webpage')
   }
   
-  rates () {
-    return this.hasMany('App/Models/AnnotationRate')
-            .where('deleted', false)
-  }
-  
-  ratesCount () {
-    return this.rate().getCount()
-  }
-  
-  replies () {
-    return this.hasMany('App/Models/AnnotationReply')
-            .where('deleted', false)
-  }
-  
-  repliesCount () {
-    return this.replies().getCount()
-  }
 }
 
-module.exports = Annotation
+module.exports = Notification

@@ -157,6 +157,18 @@ class Webpage extends Model {
     
     return webpage
   }
+  
+  // ------------------
+  
+  annotations () {
+    return this.hasMany('App/Model/Annotation')
+  }
+  
+  sectionAnnotations() {
+    return this.hasMany('App/Model/SectionAnnotation')
+  }
+  
+  // ------------------
 }
 
 module.exports = Webpage

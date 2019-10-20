@@ -1,20 +1,16 @@
 'use strict'
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const Model = use('Model')
+const AnnotationRate = use('App/Models/AnnotationRate')
 
-class AnnotationRate extends Model {
-  user () {
-    return this.belongsTo('App/Models/User')
-  }
-  
-  rater () {
-    return this.user()
-  }
-  
+class SectionAnnotationRate extends AnnotationRate {
   annotation () {
-    return this.hasOne('App/Models/Annotation')
+    return this.hasOne('App/Models/SectionAnnotation')
+  }
+  
+  get anchorType () {
+    return 'SectionAnnotation'
   }
 }
 
-module.exports = AnnotationRate
+module.exports = SectionAnnotationRate

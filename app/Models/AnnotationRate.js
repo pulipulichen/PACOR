@@ -1,13 +1,8 @@
 'use strict'
 
-/** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const Model = use('Model')
+const AnnotationReply = use('App/Models/AnnotationReply')
 
-class AnnotationRate extends Model {
-  user () {
-    return this.belongsTo('App/Models/User')
-  }
-  
+class AnnotationRate extends AnnotationReply {
   rater () {
     return this.user()
   }

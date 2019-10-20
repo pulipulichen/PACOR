@@ -8,6 +8,10 @@ class SectionAnnotationReply extends AnnotationReply {
   annotation () {
     return this.hasOne('App/Models/SectionAnnotation')
   }
+  
+  get anchorType () {
+    return 'SectionAnnotation'
+  }
 }
 
 module.exports = SectionAnnotationReply

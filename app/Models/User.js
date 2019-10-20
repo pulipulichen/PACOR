@@ -109,6 +109,22 @@ class User extends Model {
   getAvatarUrl ({avatar}) {
     return AvatarHelper.userURL(avatar)
   }
+  
+  // ---------------
+  
+  annotations () {
+    return this.hasMany('App/Models/Annotation')
+  }
+  
+  sectionAnnotations () {
+    return this.hasMany('App/Models/SectionAnnotation')
+  }
+  
+  // ----------------
+  
+  notifications () {
+    return this.hasMany('App/Models/UserNotification')
+  }
 }
 
 module.exports = User
