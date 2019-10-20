@@ -102,6 +102,15 @@ class User extends Model {
     return groups
   }
   
+  /**
+   * .with('group', 'webpage_id', webpage)
+   */
+  group () {
+    let group = this.belongsTo('App/Models/WebpageGroup')
+            .pivotTable('group_user')
+    return group
+  }
+  
   static get computed () {
     return ['avatar_url']
   }

@@ -9,7 +9,7 @@ class AnnotationRateSchema extends Schema {
       table.increments()
       table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
       table.integer('annotation_id').notNullable().unsigned().references('id').inTable('annotations').onDelete('cascade')
-      table.integer('rater_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
+      table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
       table.string('type', 60).defaultTo('like')  // like null dislike
       table.boolean('deleted').defaultTo(false)
       table.timestamps()

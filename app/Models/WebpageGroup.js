@@ -14,11 +14,25 @@ class WebpageGroup extends Model {
     return this.belongsTo('App/Models/Webpage')
   }
   
-  users () {
-    return this.belongsToMany('App/Models/User')
+  users (excludedUser) {
+    let relation = this.belongsToMany('App/Models/User')
             //.orderBy('username', 'asc')
             .pivotTable('group_user')
+    
+    if (typeof(excludedUser) === 'number') {
+      relation.where('user_id', '!=', excludedUser)
+    }
+    else if (typeof(excludedUser) === 'object'
+            && typeof(excludedUser.primaryKeyValue) === 'number') {
+      relation.where('user_id', '!=', excludedUser.primaryKeyValue)
+    }
+    
+    return relation
   }
+  
+  userIds (excludedUser) {
+    return this.users(excludedUser).ids()
+  } 
   
   async getUsernames() {
     let users = await this.users().fetch()

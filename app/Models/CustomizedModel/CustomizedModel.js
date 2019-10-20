@@ -73,6 +73,9 @@ class CustomizedModel extends Model {
     
     return queryBuilder
   }
+  
+  // -------------
+  // Set created_at and updated_at format as unixMs
 }
 
 module.exports = CustomizedModel
