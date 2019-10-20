@@ -1,8 +1,8 @@
 
 const WebpageUserBaseController = use('App/Controllers/Http/Client/WebpageUserBaseController')
 
-class MyAnnotation extends WebpageUserBaseController {
+class Annotation extends WebpageUserBaseController {
   // all based on WebpageUserBaseController
 }
 
-module.exports = MyAnnotation
+module.exports = Annotation

@@ -2,7 +2,9 @@
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
-// MyAnnotation base
+/**
+ * For example: Annotation
+ */
 class WebpageUserBaseController {
   model () {
     return use('App/Models/Annotation')
@@ -12,7 +14,7 @@ class WebpageUserBaseController {
     return true
   }
   
-  async index ({ request, webpage, user }) {
+  async indexMy ({ request, webpage, user }) {
     let query = this.model
             .where('webpage_id', webpage.primaryKeyValue)
             .where('user_id', user.primaryKeyValue)
@@ -29,7 +31,7 @@ class WebpageUserBaseController {
     return await query.fetch()
   }
   
-  async others ({ request, webpage, user }) {
+  async indexOthers ({ request, webpage, user }) {
     let others = await user.getOtherUsersInGroup(webpage)
     
     let query = this.model
