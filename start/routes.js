@@ -66,11 +66,22 @@ let controllerMapping = (options, module, controller, action) => {
 }
 
 // ----------------------------
+
 Route.on('/admin').render('admin')
 
 Route.any('/admin/:controller/:action', (options) => {
   return controllerMapping(options, 'admin')
 }).middleware(['admin'])
+
+// ----------------------------
+
+Route.any('/client/auth/:action', (options) => {
+  return controllerMapping(options, 'client', 'auth')
+}).middleware(['webpage'])
+
+Route.any('/client/:controller/:action', (options) => {
+  return controllerMapping(options, 'client')
+}).middleware(['user', 'webpage'])
 
 
 // --------------------------------

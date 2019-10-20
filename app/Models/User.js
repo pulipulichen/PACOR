@@ -111,6 +111,17 @@ class User extends Model {
     return group
   }
   
+  async getOtherUsersInGroup(webpage) {
+    let {users} = this.manyThrough('App/Models/WebpageGroup', 'users')
+            .where('webpage_id', webpage.primaryKeyValue)
+            .with('users', (builder) => {
+              builder.where('user_id', '<>', this.primaryKeyValue)
+            })
+            .fetch()
+    
+    return users.toJSON().map(user => user.primaryKeyValue)
+  }
+  
   static get computed () {
     return ['avatar_url']
   }

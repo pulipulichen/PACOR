@@ -29,6 +29,25 @@ class WebpageUserBaseController {
     return await query.fetch()
   }
   
+  async others ({ request, webpage, user }) {
+    let others = await user.getOtherUsersInGroup(webpage)
+    
+    let query = this.model
+            .where('webpage_id', webpage.primaryKeyValue)
+            .whereIn('user_id', others)
+    
+    if (this.hasDeletedColumn === true) {
+      query.where('deleted', false)
+    }
+    
+    let condition = request.all()
+    if (typeof(condition) === 'object') {
+      query.where(condition)
+    }
+    
+    return await query.fetch()
+  }
+  
   async create({request, webpage, user}) {
     let data = request.all()
     if (this.hasDeletedColumn === false) {
