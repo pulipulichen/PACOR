@@ -447,11 +447,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./client/client.tpl */ "./webpack-app/client/client.tpl");
 /* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_client_client_tpl__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
-/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_config_js__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _styles_style_config_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./styles/style.config.js */ "./webpack-app/styles/style.config.js");
-/* harmony import */ var _styles_style_config_js__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_styles_style_config_js__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _client_routes__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./client/routes */ "./webpack-app/client/routes.js");
-/* harmony import */ var _client_components__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./client/components */ "./webpack-app/client/components.js");
+/* harmony import */ var _client_routes__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./client/routes */ "./webpack-app/client/routes.js");
+/* harmony import */ var _client_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./client/components */ "./webpack-app/client/components.js");
 /* global __webpack_public_path__ */
 
 
@@ -475,8 +472,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-_config_js__WEBPACK_IMPORTED_MODULE_10___default.a.style = _styles_style_config_js__WEBPACK_IMPORTED_MODULE_11___default.a
-
 // --------------------
 // Components or routes
 
@@ -488,7 +483,7 @@ _config_js__WEBPACK_IMPORTED_MODULE_10___default.a.style = _styles_style_config_
 
 let baseURL = __webpack_require__.p
 baseURL = baseURL.split('/').slice(0, 3).join('/')
-_config_js__WEBPACK_IMPORTED_MODULE_10___default.a.baseURL = baseURL
+_config_js__WEBPACK_IMPORTED_MODULE_10__["default"].baseURL = baseURL
 
 let baseScript = jquery__WEBPACK_IMPORTED_MODULE_8___default()(document.currentScript)
 if (baseScript.length === 1) {
@@ -499,7 +494,7 @@ if (baseScript.length === 1) {
 
 let VueController = {
   data: {
-    config: _config_js__WEBPACK_IMPORTED_MODULE_10___default.a,
+    config: _config_js__WEBPACK_IMPORTED_MODULE_10__["default"],
     status: {
       username: '',
     },
@@ -577,8 +572,8 @@ let VueController = {
   i18n: _plugins_i18n__WEBPACK_IMPORTED_MODULE_3__["default"],
   
   template: _client_client_tpl__WEBPACK_IMPORTED_MODULE_9___default.a,
-  router: _client_routes__WEBPACK_IMPORTED_MODULE_12__["default"],
-  components: _client_components__WEBPACK_IMPORTED_MODULE_13__["default"],
+  router: _client_routes__WEBPACK_IMPORTED_MODULE_11__["default"],
+  components: _client_components__WEBPACK_IMPORTED_MODULE_12__["default"],
   errorCaptured(err, vm, info) {
     // https://medium.com/js-dojo/error-exception-handling-in-vue-js-application-6c26eeb6b3e4
     this.error = err.stack

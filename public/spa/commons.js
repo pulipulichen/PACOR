@@ -729,15 +729,100 @@ component.options.__file = "webpack-app/components/Loading/Loading.vue"
 /*!*******************************!*\
   !*** ./webpack-app/config.js ***!
   \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _styles_style_config_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.config.js */ "./webpack-app/styles/style.config.js");
+/* harmony import */ var _styles_style_config_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_style_config_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _config_reading_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config.reading.js */ "./webpack-app/config.reading.js");
+/* harmony import */ var _config_reading_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_config_reading_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
 
 module.exports = {
   debug: {
   },
   
   locale: 'zh-TW',
-  clientConfigName: 'CONFIG'
+  clientConfigName: 'CONFIG',
+  
+  style: _styles_style_config_js__WEBPACK_IMPORTED_MODULE_0___default.a,
+  reading: _config_reading_js__WEBPACK_IMPORTED_MODULE_1___default.a
+}
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
+
+/***/ "./webpack-app/config.reading.js":
+/*!***************************************!*\
+  !*** ./webpack-app/config.reading.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+  readingProgress: ['pre-imaginary', 'individual-reading', 'collaborative-reading', 'post-recall'],
+  readingProgressModules: {
+    'pre-imaginary': {
+      minCharacters: 10,
+      limitMinutes: 1
+    },
+    /**
+     * include 'individual-reading' and 'collaborative-reading'
+     */
+    'reading': {
+      limitMinutes: 1,
+    },
+    'individual-reading': {
+      annnotationTypes: ['confused', 'mainIdea'],
+      checklist: [
+        'I have already read this section.',
+        'I have already written annotations on a sentence I don\'t understand.',
+        'I have already written the main ideas of this section.',
+      ]
+    },
+    'collaborative-reading': {
+      annnotationTypes: ['confused', 'mainIdea'],
+    },
+    'post-recall': {
+      minCharacters: 10,
+      limitMinutes: 1
+    }
+  },
+  annotationTypeModules: {
+    'confused': {
+      /**
+       * {anchorText}
+       * {questionText}
+       */
+      'questionTemplates': [
+        {
+          'hint': 'What is it?',
+          'template': `I don't know what is "{anchorText}"?`
+        },
+        {
+          'hint': 'Why is it?',
+          'template': `Why is "{anchorText}"?`
+        },
+      ],
+      'externalResourceSeachs': [
+        {
+          'name': 'Find answer in Wikipedia',
+          'urlPattern': 'https://zh.wikipedia.org/w/index.php?search={anchorText}&title=Special%3A搜索&go=執行&ns0=1'
+        },
+        {
+          'name': 'Find answer in Google',
+          'urlPattern': 'https://www.google.com/search?q={questionText}'
+        }
+      ]
+    },
+    'mainIdea': {
+      
+    }
+  }
 }
 
 

@@ -33,6 +33,14 @@ class Annotation extends Model {
   repliesCount () {
     return this.replies().getCount()
   }
+  
+  attr () {
+    return this.hasOne('App/Models/AnnotationAttirbutes')
+  }
+  
+  attrs () {
+    return this.hasMany('App/Models/AnnotationAttirbutes')
+  }
 }
 
 module.exports = Annotation

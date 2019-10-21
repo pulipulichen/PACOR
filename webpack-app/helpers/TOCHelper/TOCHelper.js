@@ -1,6 +1,6 @@
 import tocbot from './tocbot/tocbot.webpack.js'
 import template from './TOCHelper.tpl'
-import style from './../../style.config'
+import style from './../../styles/style.config'
 
 let inited = false
 

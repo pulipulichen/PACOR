@@ -1061,9 +1061,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./admin/admin.tpl */ "./webpack-app/admin/admin.tpl");
 /* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_admin_admin_tpl__WEBPACK_IMPORTED_MODULE_14__);
 /* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
-/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_config_js__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var _styles_style_config_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./styles/style.config.js */ "./webpack-app/styles/style.config.js");
-/* harmony import */ var _styles_style_config_js__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_styles_style_config_js__WEBPACK_IMPORTED_MODULE_16__);
 
 
 // ----------------------------------
@@ -1100,14 +1097,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-_config_js__WEBPACK_IMPORTED_MODULE_15___default.a.style = _styles_style_config_js__WEBPACK_IMPORTED_MODULE_16___default.a
-
 // -----------------------
 // 確認 baseURL
 
 let baseURL = '/'
 let baseScript = jquery__WEBPACK_IMPORTED_MODULE_13___default()(document.currentScript)
-_config_js__WEBPACK_IMPORTED_MODULE_15___default.a.baseURL = baseURL
+_config_js__WEBPACK_IMPORTED_MODULE_15__["default"].baseURL = baseURL
 baseScript.before(`<div id="app"></div>`)
 
 window.onerror = function(message, source, lineno, colno, error) {
@@ -1127,7 +1122,7 @@ let VueController = {
   data: {
     message: 'Hello, world.', // for test
     users: [],
-    config: _config_js__WEBPACK_IMPORTED_MODULE_15___default.a,
+    config: _config_js__WEBPACK_IMPORTED_MODULE_15__["default"],
     status: {
       role: '',
       username: '',
@@ -2373,8 +2368,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tocbot_tocbot_webpack_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tocbot/tocbot.webpack.js */ "./webpack-app/helpers/TOCHelper/tocbot/tocbot.webpack.js");
 /* harmony import */ var _TOCHelper_tpl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TOCHelper.tpl */ "./webpack-app/helpers/TOCHelper/TOCHelper.tpl");
 /* harmony import */ var _TOCHelper_tpl__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_TOCHelper_tpl__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _style_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../style.config */ "./webpack-app/style.config.js");
-/* harmony import */ var _style_config__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_style_config__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _styles_style_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../styles/style.config */ "./webpack-app/styles/style.config.js");
+/* harmony import */ var _styles_style_config__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_styles_style_config__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
@@ -2398,7 +2393,7 @@ let TOCHelper = function (doDestroy) {
   }
   
   let initOptions = (options) => {
-    let height = _style_config__WEBPACK_IMPORTED_MODULE_2___default.a.TopMenuHeight
+    let height = _styles_style_config__WEBPACK_IMPORTED_MODULE_2___default.a.TopMenuHeight
     if (height.endsWith('px')) {
       height = height.slice(0, -2)
     }
@@ -2531,17 +2526,6 @@ __webpack_require__.r(__webpack_exports__);
 //import './styles.css'
 
 /* harmony default export */ __webpack_exports__["default"] = (window.tocbot);
-
-/***/ }),
-
-/***/ "./webpack-app/style.config.js":
-/*!*************************************!*\
-  !*** ./webpack-app/style.config.js ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'D:\\xampp\\htdocs\\projects-nodejs\\PACOR\\webpack-app\\style.config.js'");
 
 /***/ })
 

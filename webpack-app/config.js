@@ -1,7 +1,13 @@
+import styleConfig from './styles/style.config.js'
+import readingConfig from './config.reading.js'
+
 module.exports = {
   debug: {
   },
   
   locale: 'zh-TW',
-  clientConfigName: 'CONFIG'
+  clientConfigName: 'CONFIG',
+  
+  style: styleConfig,
+  reading: readingConfig
 }

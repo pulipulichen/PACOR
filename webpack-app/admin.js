@@ -33,8 +33,6 @@ import Auth from './admin/components/Auth/Auth.vue'
 import $ from 'jquery'
 import template from './admin/admin.tpl'
 import config from './config.js'
-import styleConfig from './styles/style.config.js'
-config.style = styleConfig
 
 // -----------------------
 // 確認 baseURL
