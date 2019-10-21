@@ -6,8 +6,17 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
  * For example: Annotation
  */
 class WebpageUserBaseController {
-  model () {
-    return use('App/Models/Annotation')
+  constructor () {
+    this.modelName = 'Annotation'
+  }
+  
+  setModel (model) {
+    this.modelName = model
+  }
+  
+  get model () {
+    //console.log('App/Models/' + this.modelName)
+    return use('App/Models/' + this.modelName)
   }
   
   get hasDeletedColumn () {
@@ -16,6 +25,7 @@ class WebpageUserBaseController {
   
   async indexMy ({ request, webpage, user }) {
     let query = this.model
+            .query()
             .where('webpage_id', webpage.primaryKeyValue)
             .where('user_id', user.primaryKeyValue)
     
@@ -35,6 +45,7 @@ class WebpageUserBaseController {
     let others = await user.getOtherUsersInGroup(webpage)
     
     let query = this.model
+            .query()
             .where('webpage_id', webpage.primaryKeyValue)
             .whereIn('user_id', others)
     

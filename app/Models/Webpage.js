@@ -144,6 +144,10 @@ class Webpage extends Model {
   }
   
   static async findByURL (URL) {
+    if (typeof(URL) !== 'string') {
+      URL = '/'
+    }
+    
     let webpage = await Webpage.findBy('url', URL)
     
     if (webpage !== null) {

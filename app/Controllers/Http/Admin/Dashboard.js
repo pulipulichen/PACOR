@@ -48,6 +48,8 @@ class Dashboard {
   }
   
   async t () {
+    return 1
+    /*
     let webpage = await WebpageModel.find(1)
     console.log(webpage.primaryKey, webpage.primaryKeyValue)
     return DomainModel
@@ -55,6 +57,8 @@ class Dashboard {
             .with('w', webpage)
             .where('id', 2)
             .fetch()
+     * 
+     */
   }
 }
 

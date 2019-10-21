@@ -11,7 +11,7 @@ class WebpageParser {
       referer = headers.origin
     }
     
-    data.webpage = new WebpageModel.findByURL(referer)
+    data.webpage = await WebpageModel.findByURL(referer)
     await next()
   }
 }

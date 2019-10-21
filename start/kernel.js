@@ -44,7 +44,7 @@ const namedMiddleware = {
   referer: 'App/Middleware/RefererPathParser',
   admin: 'App/Middleware/AuthAdminCheck',
   webpage: 'App/Middleware/WebpageParser',
-  user: 'App/Middleware/AuthAdminCheck'
+  user: 'App/Middleware/AuthUserCheck'
 }
 
 /*

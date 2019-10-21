@@ -79,10 +79,39 @@ Route.any('/client/auth/:action', (options) => {
   return controllerMapping(options, 'client', 'auth')
 }).middleware(['webpage'])
 
+/*
 Route.any('/client/:controller/:action', (options) => {
   return controllerMapping(options, 'client')
 }).middleware(['user', 'webpage'])
+*/
 
+// -------------------------------
+
+let resourceControllerMapping = (options, model, action) => {
+  const params = options.params
+  if (typeof(model) !== 'string' && typeof(params.model) === 'string') {
+    model = params.model
+  }
+  
+  if (typeof(action) !== 'string' && typeof(params.action) === 'string') {
+    action = params.action
+  }
+  
+  if (action.startsWith('_')) {
+    throw new HttpException(`Client/WebpageUserBaseController.${action} is not public method.`, 404)
+  }
+  
+  const controllerPath = `App/Controllers/Http/Client`
+  const url = `${controllerPath}/WebpageUserBaseController.${action}`
+  const controllerInstance = ioc.makeFunc(url)
+  console.log(model)
+  controllerInstance.instance.setModel(model)
+  return controllerInstance.method.apply(controllerInstance.instance,[options])
+}
+
+Route.any('/client/resource/:model/:action', (options) => {
+  return resourceControllerMapping(options)
+}).middleware(['user', 'webpage'])
 
 // --------------------------------
 
