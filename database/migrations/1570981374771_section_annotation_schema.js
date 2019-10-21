@@ -22,4 +22,4 @@ class SectionAnnotationSchema extends Schema {
   }
 }
 
-module.exports = SectionNoteSchema
+module.exports = SectionAnnotationSchema
