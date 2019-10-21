@@ -112,14 +112,20 @@ class User extends Model {
   }
   
   async getOtherUsersInGroup(webpage) {
-    let {users} = this.manyThrough('App/Models/WebpageGroup', 'users')
+    let groups = await this.manyThrough('App/Models/WebpageGroup', 'users')
             .where('webpage_id', webpage.primaryKeyValue)
             .with('users', (builder) => {
               builder.where('user_id', '<>', this.primaryKeyValue)
             })
             .fetch()
     
-    return users.toJSON().map(user => user.primaryKeyValue)
+    if (groups !== null) {
+      return groups.users.toJSON().map(user => user.primaryKeyValue)
+    }
+    else {
+      // 查詢沒有加入群組的使用者
+      return await webpage.getAnonymousUserIDs(this)
+    }
   }
   
   static get computed () {

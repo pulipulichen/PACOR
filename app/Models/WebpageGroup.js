@@ -142,9 +142,11 @@ class WebpageGroup extends Model {
       return
     }
     let users = await this.getDomainUsers(namesNeedToDisso)
+    
     for (let i in users.rows) {
       //await this.users().dissociate(users.rows[i])
-      await users.rows[i].groups().detach(this.id)
+      let user = users.rows[i]
+      await user.groups().detach(this.id)
     }
   }
   

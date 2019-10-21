@@ -74,7 +74,9 @@ class Webpage extends Model {
   }
   
   async getGroups() {
-    let groups = await this.groups().fetch()
+    let groups = await this.groups()
+            .where('group_seq_id', '!=', -1)
+            .fetch()
     
     let mapping = {}
     groups.rows.forEach(group => {
@@ -173,6 +175,10 @@ class Webpage extends Model {
   }
   
   // ------------------
+  
+  async getAnonymousUserIDs(excludedUser) {
+    
+  }
 }
 
 module.exports = Webpage

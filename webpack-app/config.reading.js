@@ -29,6 +29,7 @@ module.exports = {
   },
   annotationTypeModules: {
     'confused': {
+      minCharacters: 10,
       /**
        * {anchorText}
        * {questionText}
@@ -55,7 +56,7 @@ module.exports = {
       ]
     },
     'mainIdea': {
-      
+      minCharacters: 10,
     }
   }
 }
