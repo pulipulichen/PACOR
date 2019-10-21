@@ -1142,6 +1142,24 @@ window.jQuery = window.$ = $
 let SemanticUINIWSF = () => Promise.all(/*! import() | vendors/semantic-ui-niwsf */[__webpack_require__.e("vendors"), __webpack_require__.e("vendors/semantic-ui-niwsf")]).then(__webpack_require__.t.bind(null, /*! ./semantic-ui-niwsf/semantic-ui-niwsf-webpack.js */ "./webpack-app/styles/semantic-ui-niwsf/semantic-ui-niwsf-webpack.js", 7))
 SemanticUINIWSF()
 
+/***/ }),
+
+/***/ "./webpack-app/styles/style.config.js":
+/*!********************************************!*\
+  !*** ./webpack-app/styles/style.config.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * If you revise following configuration, you should compile less with Webpack again.
+ */
+module.exports = {
+  "TopMenuMinWidth": "600px",
+  "TopMenuHeight": "60px",
+  "TocbotWidth": "200px"
+}
+
 /***/ })
 
 }]);

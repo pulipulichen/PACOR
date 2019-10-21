@@ -12,6 +12,10 @@ class Annotation extends Model {
     return this.belongsTo('App/Models/Webpage')
   }
   
+  anchorText () {
+    return this.belongsTo('App/Models/AnnotationAnchorText')
+  }
+  
   rates () {
     return this.hasMany('App/Models/AnnotationRate')
             .where('deleted', false)

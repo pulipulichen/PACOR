@@ -55,7 +55,7 @@ module.exports = (env, argv) => {
             {
               loader: 'less-loader?sourceMap',
               options: {
-                globalVars: require('./webpack-app/style.config.js')
+                globalVars: require('./webpack-app/styles/style.config.js')
               }
             }, // Step 1 要先執行這個
           ]

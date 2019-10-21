@@ -1062,8 +1062,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_admin_admin_tpl__WEBPACK_IMPORTED_MODULE_14__);
 /* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
 /* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_config_js__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var _style_config_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./style.config.js */ "./webpack-app/style.config.js");
-/* harmony import */ var _style_config_js__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_style_config_js__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _styles_style_config_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./styles/style.config.js */ "./webpack-app/styles/style.config.js");
+/* harmony import */ var _styles_style_config_js__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_styles_style_config_js__WEBPACK_IMPORTED_MODULE_16__);
 
 
 // ----------------------------------
@@ -1100,7 +1100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-_config_js__WEBPACK_IMPORTED_MODULE_15___default.a.style = _style_config_js__WEBPACK_IMPORTED_MODULE_16___default.a
+_config_js__WEBPACK_IMPORTED_MODULE_15___default.a.style = _styles_style_config_js__WEBPACK_IMPORTED_MODULE_16___default.a
 
 // -----------------------
 // 確認 baseURL
@@ -2541,14 +2541,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-/**
- * If you revise following configuration, you should compile less with Webpack again.
- */
-module.exports = {
-  "TopMenuMinWidth": "600px",
-  "TopMenuHeight": "60px",
-  "TocbotWidth": "200px"
-}
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'D:\\xampp\\htdocs\\projects-nodejs\\PACOR\\webpack-app\\style.config.js'");
 
 /***/ })
 

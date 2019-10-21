@@ -20,6 +20,8 @@ import ValidateHelper from './helpers/ValidateHelper'
 import $ from 'jquery'
 import template from './client/client.tpl'
 import config from './config.js'
+import styleConfig from './styles/style.config.js'
+config.style = styleConfig
 
 // --------------------
 // Components or routes

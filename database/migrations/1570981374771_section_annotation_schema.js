@@ -10,7 +10,9 @@ class SectionAnnotationSchema extends Schema {
       table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
       table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
       table.integer('section_seq_id').notNullable()
-      table.text('note').notNullable()
+      table.boolean('finished').defaultTo(false)
+      table.text('note')
+      table.json('checklist')
       table.timestamps()
     })
   }
