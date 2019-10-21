@@ -8,16 +8,17 @@
     "0.init": "npm i && node init.js && npm run migration && npm run 0.development",
     "1.development": "concurrently -p \"[{name} {time}]\" -t \"HH:mm:ss\" --kill-others --names \"a,c,w,h\" \"npm run start\" \"npm run cors-start\" \"npm run w2.webpack-watch-development\" \"npm run start-database-admin\" ",
     "2.production": "concurrently -p \"[{name} {time}]\" -t \"HH:mm:ss\" --kill-others --names \"a,w\" \"npm run start\" \"npm w4.webpack-build-production\"",
-    "start": "nodemon --ignore webpack-app --ignore database --ignore public --ignore website-cors server.js",
-    "start-https": "nodemon --ignore webpack-app --ignore database --ignore public --ignore website-cors server-https.js",
+    "s1.start": "nodemon --ignore webpack-app --ignore database --ignore public --ignore website-cors server.js",
+    "s2.start-database-admin": "node ./database/hisha/bin/www",
+    "s3.start-cors": "node ./website-cors/index.js",
+    "s9.start-https": "nodemon --ignore webpack-app --ignore database --ignore public --ignore website-cors server-https.js",
     "setup-database": "adonis migration:refresh",
-    "start-database-admin": "node ./database/hisha/bin/www",
     "test": "node ace test",
-    "cors-start": "node ./website-cors/index.js",
     "w1.webpack-build-development": "webpack --mode development",
     "w2.webpack-watch-development": "webpack --watch --mode development --display errors-only",
     "w3.webpack-watch-build-production": "webpack --watch --mode production --display errors-only",
-    "w4.webpack-build-production": "webpack --mode production"
+    "w4.webpack-build-production": "webpack --mode production",
+    "unit-test": "adonis test"
   },
   "keywords": [
     "adonisjs",
@@ -29,6 +30,8 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "@adonisjs/vow": "^1.0.17",
+    "@adonisjs/vow-browser": "^1.0.7",
     "@adonisjs/websocket": "^1.0.12",
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
