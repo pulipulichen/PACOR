@@ -9,8 +9,11 @@ const Config = use('Config')
  * For example: Annotation
  */
 class WebpageUserBaseController {
-  constructor () {
-    this.modelName = 'Annotation'
+  constructor (modelName) {
+    if (typeof(modelName) !== 'string') {
+      modelName = 'Annotation'
+    }
+    this.modelName = modelName
   }
   
   setModel (model) {

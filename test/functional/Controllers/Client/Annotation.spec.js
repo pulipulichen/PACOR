@@ -103,6 +103,23 @@ test('check annotation is logged', async ({ assert, client }) => {
   let logs = await ReadingActivityLog.findLog(1, 1, 'Annotation.create')
   
   assert.equal(logs.length, 1)
+  
+  let response = await client.get('/client/Annotation/indexMy')
+          .header('Referer', url)
+          .session('adonis-auth', 1)
+          .end()
+  
+  response.assertStatus(200)
+  response.assertJSONSubset([
+    {
+      type: 'mainIdea',
+      note: '測試筆記'
+    }
+  ])
+  
+  let logs2 = await ReadingActivityLog.findLog(1, 1, 'Annotation.indexMy')
+  assert.equal(logs2.length, 1)
+  
 })
 
 /*
