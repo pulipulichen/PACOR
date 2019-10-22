@@ -3,7 +3,7 @@
  * https://www.chaijs.com/api/assert/
  * @type type
  */
-const { test, trait } = use('Test/Suite')('User')
+const { test, trait } = use('Test/Suite')('Models/User')
 
 const UserModel = use('App/Models/User')
 const WebpageModel = use('App/Models/Webpage')
