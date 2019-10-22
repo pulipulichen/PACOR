@@ -8,7 +8,18 @@ const Database = use('Database')
 const Domain = use('App/Models/Domain')
 const User = use('App/Models/User')
 
+const Cache = use('Cache')
+
 class WebpageGroup extends Model {
+  
+  static boot () {
+    super.boot()
+
+    this.addHook('beforeSave', async (instance) => {
+      await Cache.forget(`WebpageGroup.getUsernamesInDomain.${instance.primaryKeyValue}`)
+      await Cache.forget(`WebpageGroup.getUsernames.${instance.primaryKeyValue}`)
+    })
+  }
   
   webpage () {
     return this.belongsTo('App/Models/Webpage')
@@ -35,8 +46,13 @@ class WebpageGroup extends Model {
   } 
   
   async getUsernames() {
-    let users = await this.users().fetch()
-    return users.toJSON().map(user => user.username)
+    let cacheKey = `WebpageGroup.getUsernames.${this.primaryKeyValue}`
+    return await Cache.get(cacheKey, async () => {
+      let users = await this.users().fetch()
+      let output = users.toJSON().map(user => user.username)
+      await Cache.forever(cacheKey, output)
+      return output
+    })
   }
   
   async getDomain () {
@@ -53,14 +69,23 @@ class WebpageGroup extends Model {
     return await users.fetch()
   }
   
-  async getUsernamesInDomain(names) {
-    let domain = await this.getDomain()
-    let users = domain.users()
-    if (Array.isArray(names)) {
-      users.whereIn('username', names)
-    }
-    users = await users.fetch()
-    return users.toJSON().map(user => user.username)
+  async getUsernamesInDomain() {
+    let cacheKey = `WebpageGroup.getUsernamesInDomain.${this.primaryKeyValue}`
+    //if (Array.isArray(names)) {
+    //  cacheKey = cacheKey + '.' + names.join(',')
+    //}
+    
+    return await Cache.get(cacheKey, async () => {
+      let domain = await this.getDomain()
+      let users = domain.users()
+      //if (Array.isArray(names)) {
+      //  users.whereIn('username', names)
+      //}
+      users = await users.fetch()
+      let output =  users.toJSON().map(user => user.username)
+      await Cache.forever(cacheKey, output)
+      return output
+    })
   }
   
   async setUsers(namesList) {

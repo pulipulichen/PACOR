@@ -83,13 +83,18 @@ class Webpage extends Model {
   }
   
   async getGroupsList() {
-    let groups = await this.groups().fetch()
-    
-    let list = groups.toJSON().map(group => {
-      return group.users.map(user => user.username).join(' ')
+    let cacheKey = `Webpage.getGroupsList.${this.primaryKeyValue}`
+    return await Cache.get(cacheKey, async () => {
+      let groups = await this.groups().fetch()
+
+      let list = groups.toJSON().map(group => {
+        return group.users.map(user => user.username).join(' ')
+      })
+
+      let output = list.join('\n')
+      await Cache.forever(cacheKey, output)
+      return output
     })
-    
-    return list.join('\n')
   }
   
   async setGroupsList(list) {
@@ -136,8 +141,8 @@ class Webpage extends Model {
       await groups[i].delete()
     }
     
-    let cacheKey = `User.getOtherUserIDsInGroup.${this.primaryKeyValue}`
-    await Cache.forget(cacheKey)
+    await Cache.forget(`User.getOtherUserIDsInGroup.${this.primaryKeyValue}`)
+    await Cache.forget(`Webpage.getGroupsList.${this.primaryKeyValue}`)
   }
   
   static get hidden () {
@@ -182,29 +187,37 @@ class Webpage extends Model {
       excludedUserID = excludedUserID.primaryKeyValue
     }
     
-    let relation = User
-            .query()
-            .where('domain_id', this.domain_id)
-    
-    let groups = await this.groups().fetch()
-    let usersInGroups = []
-    groups.toJSON().forEach(group => {
-      group.users.forEach(user => {
-        usersInGroups.push(user.id)
+    let cacheKey = `Webpage.getAnonymousUserIDs.${this.primaryKeyValue}`
+    let output = await Cache.get(cacheKey, async () => {
+      let relation = User
+              .query()
+              .where('domain_id', this.domain_id)
+
+      let groups = await this.groups().fetch()
+      let usersInGroups = []
+      groups.toJSON().forEach(group => {
+        group.users.forEach(user => {
+          usersInGroups.push(user.id)
+        })
       })
+
+
+      if (typeof(excludedUserID) === 'number') {
+        usersInGroups.push(excludedUserID)
+      }
+
+      if (usersInGroups.length > 0) {
+        relation.whereNotIn('id', usersInGroups)
+      }
+
+      let users = await relation.fetch()
+      return users.toJSON().map(user => user.id)
     })
     
-    
     if (typeof(excludedUserID) === 'number') {
-      usersInGroups.push(excludedUserID)
+      output = output.filter(id => (id !== excludedUserID)) 
     }
-    
-    if (usersInGroups.length > 0) {
-      relation.whereNotIn('id', usersInGroups)
-    }
-    
-    let users = await relation.fetch()
-    return users.toJSON().map(user => user.id)
+    return output
   }
 }
 
