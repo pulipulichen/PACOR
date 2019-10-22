@@ -118,21 +118,30 @@ class User extends Model {
    * .with('group', 'webpage_id', webpage)
    */
   group () {
-    let group = this.belongsTo('App/Models/WebpageGroup')
+    let group = this.belongsToMany('App/Models/WebpageGroup')
             .pivotTable('group_user')
     return group
   }
   
   async getOtherUserIDsInGroup(webpage) {
+    /*
     let groups = await this.manyThrough('App/Models/WebpageGroup', 'users')
             .where('webpage_id', webpage.primaryKeyValue)
             .with('users', (builder) => {
-              builder.where('user_id', '<>', this.primaryKeyValue)
+              builder.where('users.id', '<>', this.primaryKeyValue)
             })
             .fetch()
-    
-    if (groups !== null) {
-      return groups.users.toJSON().map(user => user.primaryKeyValue)
+    */
+    let groups = await this.group()
+            .where('webpage_id', webpage.primaryKeyValue)
+            .with('users', (builder) => {
+              builder.whereNot('users.id', this.primaryKeyValue)
+            })
+            .pick(1)
+            
+    if (groups.size() > 0) {
+      //console.log(groups.first())
+      return groups.first().toJSON().users.map(user => user.id)
     }
     else {
       // 查詢沒有加入群組的使用者

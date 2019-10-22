@@ -17,9 +17,6 @@ f g`
   
   let groups = await webpage.groups().fetch()
   assert.equal(groups.size(), 3)
-  
-  let user = await UserModel.findByNameInWebpage(webpage, 'a')
-  assert.notEqual(user.avatar, undefined)
 })
 
 test(`find other users' id in group`, async ({ assert }) => {
@@ -27,13 +24,33 @@ test(`find other users' id in group`, async ({ assert }) => {
   assert.equal(webpage.domain_id, 1)
   
   let user = await UserModel.findByNameInWebpage(webpage, 'a')
-  console.log(user.toJSON())
   assert.equal(user.id, 1)
   
   let usersInGroup = await user.getOtherUserIDsInGroup(webpage)
-  assert.equal(usersInGroup, [2, 3])
+  assert.deepEqual(usersInGroup, [2, 3])
+})
+
+// -----------------------------
+
+test('change groups in webpage ', async ({ assert }) => {
+  let webpage = await WebpageModel.findByURL('http://blog.pulipuli.info')
+  let groupSetting = `b c
+d`
+  await webpage.setGroupsList(groupSetting)
   
-  trait('DatabaseTransactions')
+  let groups = await webpage.groups().fetch()
+  assert.equal(groups.size(), 2)
+})
+
+test(`find other users' id in anonymous group`, async ({ assert }) => {
+  let webpage = await WebpageModel.findByURL('http://blog.pulipuli.info')
+  assert.equal(webpage.domain_id, 1)
+  
+  let user = await UserModel.findByNameInWebpage(webpage, 'a')
+  assert.equal(user.id, 1)
+  
+  let usersInGroup = await user.getOtherUserIDsInGroup(webpage)
+  assert.equal(usersInGroup.length, 4)
 })
 
 // Reset database

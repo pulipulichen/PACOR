@@ -171,8 +171,21 @@ class Webpage extends Model {
   
   // ------------------
   
-  async getAnonymousUserIDs(excludedUser) {
+  users () {
+    return this.manyThrough('App/Models/Domain', 'users')
+  }
+  
+  async getAnonymousUserIDs(excludedUserID) {
+    if (typeof(excludedUserID) === 'object'
+            && typeof(excludedUserID.primaryKeyValue) === 'number') {
+      excludedUserID = excludedUserID.primaryKeyValue
+    }
     
+    let relation = this.users()
+    if (typeof(excludedUserID) === 'number') {
+      relation.whereNot('id', excludedUserID)
+    }
+    return relation
   }
 }
 
