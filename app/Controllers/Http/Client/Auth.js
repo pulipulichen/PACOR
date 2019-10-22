@@ -15,28 +15,69 @@ const ADMIN_ROLES = [
 ]
 
 class Auth {
-  async login ({ request, auth }) {
-    const {domain, username, password} = request.get()
+  async login ({ request, auth, webpage }) {
+    const {username, password} = request.all()
     
-    // -------------------------
-    // 先檢查是否是全網站的admin
-    if (username === ADMIN_USERNAME 
-            && password === ADMIN_PASSWORD
-            && domain === '') {
-      return this._loginGlobalAdmin({ request, auth })
+    let role = 'reader'
+    if (typeof(password) === 'string' && password !== '') {
+      role = 'domain_admin'
     }
-    else {
-      return this._loginDomainAdmin({ request, auth })
+    
+    let query = User
+            .query()
+            .where('domain_id', webpage.domain_id)
+            .where('username', username)
+            .where('role', role)
+    
+    if (role === 'domain_admin') {
+      query.where('password', password)
     }
+    
+    let user = await query.pick(1)
+    if (user.size() > 0) {
+      user = user.toJSON()[0]
+      await this._forceLogout(auth)
+      await auth.loginViaId(user.id)
+      return {
+        username: user.username,
+        displayName: user.display_name,
+        avatar: AvatarHelper.userURL(user.avatar)
+      }
+    }
+    else if (role === 'domain_admin') {
+      throw new HttpException('Login fail')
+    }
+    
+    // 不然就建立新的使用者
+    let newUser = await this._createUser(username, webpage)
+    await this._forceLogout(auth)
+    await auth.loginViaId(newUser.id)
+    return {
+      username: newUser.username,
+      displayName: newUser.display_name,
+      avatar: AvatarHelper.userURL(newUser.avatar)
+    }
+  }
+  
+  async _createUser (username, webpage) {
+    let user = new User
+    
+    user.username = username
+    user.domain_id = webpage.domain_id
+    
+    await user.save()
+    return user
   }
   
   async logout ({ auth }) {
     try {
       await auth.logout()
+      let user = await auth.getUser()
+      console.log(user.username)
       return 1
     }
     catch (error) {
-      return 0
+      return error
     }
   }
   
@@ -47,115 +88,21 @@ class Auth {
     } catch (error) {}
   }
   
-  async _loginGlobalAdmin({ request, auth }) {
-    // 先檢查是否有這個user
-    let user
-    user = await User
-      .query()
-      .where('username', ADMIN_USERNAME)
-      .where('role', 'global_admin')
-      .whereHas('domain', (builder) => {
-        builder.where('domain', '')
-      })
-      .pick(1)
-    
-    if (user.size() > 0) {
-      user = user.toJSON()[0]
-      await this._forceLogout(auth)
-      await auth.loginViaId(user.id)
-      return {
-        displayName: user.display_name,
-        avatar: AvatarHelper.adminURL(),
-        domainID: user.domain_id,
-        role: user.role
-      }
-    }
-    
-    let domain = await Domain.findOrCreate({
-      domain: ''
-    })
-    
-    user = new User()
-    user.username = ADMIN_USERNAME
-    user.role = 'global_admin'
-    user.avatar = 'admin'
-    
-    await domain.users().save(user)
-    
-    
-    await this._forceLogout(auth)
-    await auth.remember(true).login(user)
-    return {
-      displayName: ADMIN_USERNAME,
-      avatar: AvatarHelper.adminURL(),
-      domainID: user.domain_id,
-      role: user.role
-    }
-  }
-  
-  async _loginDomainAdmin({ request, auth}) {
-    const {username, password, domain} = request.get()
-    
-    let user
-    user = await User
-      .query()
-      .where('username', username)
-      .where('password', password)
-      .where('role', 'domain_admin')
-      .whereHas('domain', (builder) => {
-        builder.where('domain', domain)
-      })
-      .fetch()
-    
-    if (user.size() === 0) {
-      throw 'No user'
-    }
-    else {
-      user = user.first()
-    }
-    
-    //let match = await user.validatePassword(password)
-    //if (match === false) {
-    //  return 0
-    //}
-    
-    await this._forceLogout(auth)
-    await auth.remember(true).login(user)
-    return {
-      displayName: user.name,
-      avatar: AvatarHelper.userURL(user.avatar),
-      domainID: user.domain_id,
-      role: user.role
-    }
-  }
-  
   // -----------------------------
   
-  async checkLogin ({auth}) {
+  async checkLogin ({auth, webpage}) {
     
     try {
       let user = await auth.getUser()
-      let role = user.role
-      if (ADMIN_ROLES.indexOf(role) > -1) {
-        let avatarURL
-        if (role === 'global_admin') {
-          avatarURL = AvatarHelper.adminURL()
-        }
-        else {
-          avatarURL = AvatarHelper.userURL(user.avatar)
-        }
-        
-        return {
-          username: user.username,
-          displayName: user.display_name,
-          avatar: avatarURL,
-          domainID: user.domain_id,
-          role: user.role
-        }
-      }
-      else {
+      
+      if (webpage.domain_id !== user.domain_id) {
         await this._forceLogout(auth)
         return 0
+      }
+      return {
+        username: user.username,
+        displayName: user.display_name,
+        avatar: user.avatarURL
       }
     }
     catch (error) {
