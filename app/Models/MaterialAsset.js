@@ -1,7 +1,7 @@
 'use strict'
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const Model = use('App/Models/CustomizedModel/CustomizedModel')
+const Model = use('Model')
 
 const ADMIN_ROLES = [
   'global_admin',

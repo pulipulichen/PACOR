@@ -1,7 +1,7 @@
 'use strict'
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const Model = use('App/Models/CustomizedModel/CustomizedModel')
+const Model = use('Model')
 
 const CrawlerHelper = use('App/Helpers/CrawlerHelper')
 const Env = use('Env')
@@ -28,16 +28,7 @@ class Webpage extends Model {
       return
     }
 
-    //instance.title = await 
-    let domain = await instance.domain().fetch
-    if (typeof(domain.domain) === 'string' 
-            && domain.domain !== '') {
-      domain = domain.domain
-    }
-    else {
-      domain = baseURL
-    }
-    let url = domain + instance.path
+    let url = instance.url
 
     instance.title = await CrawlerHelper.getTitle(url)
     //console.log(instance.title)

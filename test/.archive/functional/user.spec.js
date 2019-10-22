@@ -1,5 +1,8 @@
 'use strict'
-
+/**
+ * https://www.chaijs.com/api/assert/
+ * @type type
+ */
 const { test, trait } = use('Test/Suite')('User')
 
 const UserModel = use('App/Models/User')
