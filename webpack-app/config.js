@@ -1,5 +1,5 @@
 import styleConfig from './styles/style.config.js'
-import readingConfig from './config.reading.js'
+import readingConfig from './../config/reading.js'
 
 module.exports = {
   debug: {

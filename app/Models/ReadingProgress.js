@@ -12,12 +12,12 @@ class ReadingProgress extends Model {
     return this.belongsTo('App/Models/Webpage')
   }
   
-  isCompleted () {
-    return (this.end_timestamp !== null)
+  getIsCompleted ({end_timestamp}) {
+    return (end_timestamp !== null)
   }
   
   static get computed () {
-    return ['duration']
+    return ['duration', 'isCompleted']
   }
   
   getDuration ({start_timestamp, end_timestamp}) {

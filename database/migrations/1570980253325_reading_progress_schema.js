@@ -9,7 +9,7 @@ class ReadingProgressSchema extends Schema {
       table.increments()
       table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
       table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
-      table.integer('step').notNullable()
+      table.string('step_name', 60).notNullable()
       table.bigInteger('start_timestamp').notNullable()
       table.bigInteger('end_timestamp')
       table.json('log')

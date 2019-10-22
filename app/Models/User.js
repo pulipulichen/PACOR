@@ -8,6 +8,7 @@ const Hash = use('Hash')
 const Model = use('Model')
 
 const AvatarHelper = use('App/Helpers/AvatarHelper')
+const ReadingProgress = use('App/Models/ReadingProgress')
 
 const Cache = use('Cache')
 
@@ -89,17 +90,83 @@ class User extends Model {
     return this.belongsTo('App/Models/Domain')
   }
   
-  readingProgresses (webpage, step) {
+  readingProgresses (webpage, stepName) {
     let relation = this.hasMany('App/Models/ReadingProgress')
-      .orderBy('step', 'asc')
     if (typeof(webpage) === 'object' 
             && typeof(webpage.primaryKeyValue) === 'number') {
       relation.where('webpage_id', webpage.primaryKeyValue)
     }
-    if (typeof(step) === 'number') {
-      relation.where('step', step)
+    if (typeof(stepName) === 'string') {
+      relation.where('step_name', stepName)
     }
     return relation
+  }
+  
+  async getReadingProgressStatus (webpage, config) {
+    let cacheKey = Cache.key('User', 'getReadingProgressStatus', webpage, this)
+    return await Cache.get(cacheKey, async () => {
+      let readingProgresses
+      if (Array.isArray(config)) {
+        readingProgresses = config
+      }
+      else if (Array.isArray(webpage) === false
+              && typeof(webpage.primaryKeyValue) === 'number') {
+        readingProgresses = await webpage.getReadingProgresses()
+      }
+
+      let status = await this.readingProgresses(webpage).fetch()
+      status = status.toJSON()
+
+      readingProgresses = readingProgresses.map(stepName => {
+        let output = {
+          'step_name': stepName
+        }
+
+        for (let i in status) {
+          let s = status[i]
+          if (s.step_name === stepName) {
+            output.start_timestamp = s.start_timestamp
+            output.end_timestamp = s.end_timestamp
+            output.duration = s.duration
+            output.isCompleted = s.isCompleted
+          }
+        }
+
+        return output
+      })
+      
+      Cache.forever(cacheKey, readingProgresses)
+      return readingProgresses
+    })
+  }
+  
+  async startReadingProgress (webpage, stepName) {
+    let time = (new Date()).getTime()
+    
+    await ReadingProgress.create({
+      'user_id': this.primaryKeyValue,
+      'webpage_id': webpage.primaryKeyValue,
+      'step_name': stepName,
+      'start_timestamp': time
+    })
+    /*
+    let affectedRows = await ReadingProgress
+            .query()
+            .where('user_id', this.primaryKeyValue)
+            .where('webpage_id', webpage.primaryKeyValue)
+            .where('step_name', stepName)
+            .update({'start_timestamp': time})
+    
+    console.log('startReadingProgress', affectedRows)
+    */
+    Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
+  }
+  
+  async endReadingProgress (webpage, stepName) {
+    let time = (new Date()).getTime()
+    await this.readingProgresses(webpage, stepName)
+            .update({'end_timestamp': time})
+    Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
   }
   
   static get hidden () {

@@ -1,5 +1,5 @@
 module.exports = {
-  readingProgress: ['pre-imaginary', 'individual-reading', 'collaborative-reading', 'post-recall'],
+  readingProgresses: ['pre-imaginary', 'individual-reading', 'collaborative-reading', 'post-recall'],
   readingProgressModules: {
     'pre-imaginary': {
       minCharacters: 10,

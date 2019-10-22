@@ -16,7 +16,7 @@ module.exports = {
   |
   */
 
-  default: Env.get('CACHE_STORE', 'object'),
+  default: Env.get('CACHE_STORE', 'database'),
 
   /*
   |--------------------------------------------------------------------------

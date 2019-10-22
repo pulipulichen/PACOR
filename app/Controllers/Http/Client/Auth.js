@@ -40,11 +40,8 @@ class Auth {
       user = user.toJSON()[0]
       await this._forceLogout(auth)
       await auth.loginViaId(user.id)
-      return {
-        username: user.username,
-        displayName: user.display_name,
-        avatar: AvatarHelper.userURL(user.avatar)
-      }
+      let data = await _getLoginedUserData(webpage, user)
+      return data
     }
     else if (role === 'domain_admin') {
       throw new HttpException('Login fail')
@@ -54,11 +51,8 @@ class Auth {
     let newUser = await this._createUser(username, webpage)
     await this._forceLogout(auth)
     await auth.loginViaId(newUser.id)
-    return {
-      username: newUser.username,
-      displayName: newUser.display_name,
-      avatar: AvatarHelper.userURL(newUser.avatar)
-    }
+    let data = await _getLoginedUserData(webpage, newUser)
+    return data
   }
   
   async _createUser (username, webpage) {
@@ -74,8 +68,8 @@ class Auth {
   async logout ({ auth }) {
     try {
       await auth.logout()
-      let user = await auth.getUser()
-      console.log(user.username)
+      //let user = await auth.getUser()
+      //console.log(user.username)
       return 1
     }
     catch (error) {
@@ -90,6 +84,16 @@ class Auth {
     } catch (error) {}
   }
   
+  async _getLoginedUserData (webpage, user) {
+    let readingProgresses = await user.getReadingProgresses(webpage)
+    return {
+      username: user.username,
+      displayName: user.display_name,
+      avatar: user.avatarURL,
+      readingProgresses: readingProgresses
+    }
+  }
+  
   // -----------------------------
   
   async checkLogin ({auth, webpage}) {
@@ -101,11 +105,9 @@ class Auth {
         await this._forceLogout(auth)
         return 0
       }
-      return {
-        username: user.username,
-        displayName: user.display_name,
-        avatar: user.avatarURL
-      }
+      
+      let data = await _getLoginedUserData(webpage, user)
+      return data
     }
     catch (error) {
       return 0

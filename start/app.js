@@ -55,7 +55,9 @@ const aceProviders = [
 |
 */
 const aliases = {
-  Cache: 'Adonis/Addons/Cache'
+  //Cache: 'Adonis/Addons/Cache'
+  Cache: 'App/Helpers/CacheHelper',
+  Sleep: 'App/Helpers/Sleep'
 }
 
 /*

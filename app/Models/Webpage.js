@@ -15,6 +15,8 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 
 const Cache = use('Cache')
 
+const ReadingConfig = use('Config').get('reading')
+
 class Webpage extends Model {
   
   static boot () {
@@ -22,6 +24,10 @@ class Webpage extends Model {
 
     this.addHook('afterCreate', async (instance) => {
       instance._crawlTitleFromURL(instance)
+    })
+    
+    this.addHook('beforeSave', async (instance) => {
+      Cache.forget(Cache.key('Webpage', 'getReadingProgresses', instance))
     })
   }
   
@@ -218,6 +224,31 @@ class Webpage extends Model {
       output = output.filter(id => (id !== excludedUserID)) 
     }
     return output
+  }
+  
+  async getReadingProgresses () {
+    let cacheKey = Cache.key('Webpage', 'getReadingProgresses', this)
+    return await Cache.get(cacheKey, async () => {
+      // 先看看自己有沒有
+      let output
+      
+      if (this.config !== null
+              && Array.isArray(this.config.readingProgresses)) {
+        output = this.config.readingProgresses
+      }
+      else {
+        let domain = this.domain().fetch()
+        if (domain.config !== undefined
+                && Array.isArray(domain.config.readingProgresses)) {
+          output = domain.config.readingProgresses
+        }
+        else {
+          output = ReadingConfig.readingProgresses
+        }
+      }
+      await Cache.forever(cacheKey, output)
+      return output
+    })
   }
 }
 
