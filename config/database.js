@@ -36,9 +36,18 @@ module.exports = {
     },
     useNullAsDefault: true
   },
+  
   sqlite_testing: {
     client: 'sqlite3',
     connection: ':memory:',
+    useNullAsDefault: true
+  },
+  
+  sqlite_cache: {
+    client: 'sqlite3',
+    connection: {
+      filename: Helpers.databasePath(`${Env.get('DB_DATABASE', 'development')}.cache.sqlite`)
+    },
     useNullAsDefault: true
   },
 
