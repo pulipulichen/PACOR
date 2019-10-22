@@ -9,6 +9,8 @@ const Model = use('Model')
 
 const AvatarHelper = use('App/Helpers/AvatarHelper')
 
+const Cache = use('Cache')
+
 class User extends Model {
   
   static boot () {
@@ -124,29 +126,36 @@ class User extends Model {
   }
   
   async getOtherUserIDsInGroup(webpage) {
-    /*
-    let groups = await this.manyThrough('App/Models/WebpageGroup', 'users')
-            .where('webpage_id', webpage.primaryKeyValue)
-            .with('users', (builder) => {
-              builder.where('users.id', '<>', this.primaryKeyValue)
-            })
-            .fetch()
-    */
-    let groups = await this.group()
-            .where('webpage_id', webpage.primaryKeyValue)
-            .with('users', (builder) => {
-              builder.whereNot('users.id', this.primaryKeyValue)
-            })
-            .pick(1)
-            
-    if (groups.size() > 0) {
-      //console.log(groups.first())
-      return groups.first().toJSON().users.map(user => user.id)
-    }
-    else {
-      // 查詢沒有加入群組的使用者
-      return await webpage.getAnonymousUserIDs(this)
-    }
+    let cacheKey = `User.getOtherUserIDsInGroup.${webpage.primaryKeyValue}`
+    return await Cache.get(cacheKey, async () => {
+      /*
+      let groups = await this.manyThrough('App/Models/WebpageGroup', 'users')
+              .where('webpage_id', webpage.primaryKeyValue)
+              .with('users', (builder) => {
+                builder.where('users.id', '<>', this.primaryKeyValue)
+              })
+              .fetch()
+      */
+      let groups = await this.group()
+              .where('webpage_id', webpage.primaryKeyValue)
+              .with('users', (builder) => {
+                builder.whereNot('users.id', this.primaryKeyValue)
+              })
+              .pick(1)
+
+      let userIds
+      if (groups.size() > 0) {
+        //console.log(groups.first())
+        userIds = groups.first().toJSON().users.map(user => user.id)
+      }
+      else {
+        // 查詢沒有加入群組的使用者
+        userIds = await webpage.getAnonymousUserIDs(this)
+      }
+
+      await Cache.forever(cacheKey, userIds)
+      return userIds
+    })
   }
   
   static get computed () {

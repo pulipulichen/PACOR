@@ -13,6 +13,8 @@ const User = use('App/Models/User')
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
+const Cache = use('Cache')
+
 class Webpage extends Model {
   
   static boot () {
@@ -133,6 +135,9 @@ class Webpage extends Model {
       await groups[i].users().detach()
       await groups[i].delete()
     }
+    
+    let cacheKey = `User.getOtherUserIDsInGroup.${this.primaryKeyValue}`
+    await Cache.forget(cacheKey)
   }
   
   static get hidden () {
