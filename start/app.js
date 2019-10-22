@@ -22,6 +22,7 @@ const providers = [
   '@adonisjs/ally/providers/AllyProvider',
   '@adonisjs/drive/providers/DriveProvider',
   '@adonisjs/websocket/providers/WsProvider',
+   'adonis-cache/providers/CacheProvider'
 ]
 
 
@@ -38,6 +39,7 @@ const aceProviders = [
   '@adonisjs/lucid/providers/MigrationsProvider',
   '@adonisjs/vow/providers/VowProvider',
   '@adonisjs/vow-browser/providers/VowBrowserProvider',
+  'adonis-cache/providers/CommandsProvider'
 ]
 
 /*
@@ -53,6 +55,7 @@ const aceProviders = [
 |
 */
 const aliases = {
+  Cache: 'Adonis/Addons/Cache'
 }
 
 /*

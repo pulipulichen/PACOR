@@ -45,10 +45,12 @@ module.exports = {
   
   sqlite_cache: {
     client: 'sqlite3',
-    connection: {
-      filename: Helpers.databasePath(`${Env.get('DB_DATABASE', 'development')}.cache.sqlite`)
-    },
-    useNullAsDefault: true
+    connection: ':memory:',
+    //connection: {
+    //  filename: Helpers.databasePath(`${Env.get('DB_DATABASE', 'development')}.cache.sqlite`)
+    //},
+    useNullAsDefault: true,
+    keepAlive: true
   },
 
   /*

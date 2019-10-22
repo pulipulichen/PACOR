@@ -37,3 +37,4 @@ database/development.sqlite
 /.document/20190918-objection/config/default.json
 /database/test.sqlite
 /database/test.sqlite-journal
+/database/20191012_pacor.cache.sqlite
