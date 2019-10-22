@@ -35,17 +35,21 @@ class User extends Model {
       if (typeof(userInstance.avatar) !== 'string') {
         userInstance.avatar = AvatarHelper.getRandomUser()
       }
-      console.log('user', userInstance.avatar)
+      //console.log('user', userInstance.avatar)
     })
     
   }
   
-  static findByNameInWebpage (webpage, username) {
-    return User
+  static async findByNameInWebpage (webpage, username) {
+    let users = await User
             .query()
             .where('domain_id', webpage.domain_id)
             .where('username', username)
-            .fetch()
+            .pick(1)
+    
+    if (users.size() > 0) {
+      return users.first()
+    }
   }
   
   async validatePassword (queryPassword) {

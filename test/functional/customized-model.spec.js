@@ -19,7 +19,7 @@ f g`
   assert.equal(groups.size(), 3)
   
   let user = await UserModel.findByNameInWebpage(webpage, 'a')
-  assert.notEqual(user.avatar, undefined)
+  assert.isString(user.avatar)
 })
 
 // Reset database
