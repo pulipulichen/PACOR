@@ -86,8 +86,6 @@ class User extends Model {
     return relation
   }
   
-  
-  
   static get hidden () {
     //return ['password']
     return ['created_at', 'updated_at']
@@ -111,7 +109,7 @@ class User extends Model {
     return group
   }
   
-  async getOtherUsersInGroup(webpage) {
+  async getOtherUserIDsInGroup(webpage) {
     let groups = await this.manyThrough('App/Models/WebpageGroup', 'users')
             .where('webpage_id', webpage.primaryKeyValue)
             .with('users', (builder) => {

@@ -15,7 +15,6 @@ class WebpageGroupSchema extends Schema {
   }
 
   down () {
-    console.log('webpage_groups')
     this.drop('webpage_groups')
     //return knex.raw('DROP TABLE webpage_groups CASCADE')
   }

@@ -14,6 +14,7 @@ class AnnotationSchema extends Schema {
       table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
       table.string('type', 60).notNullable().defaultTo('highlight')
       table.text('note').notNullable()
+      table.boolean('private').defaultTo(false)
       table.boolean('deleted').defaultTo(false)
       table.timestamps()
     })

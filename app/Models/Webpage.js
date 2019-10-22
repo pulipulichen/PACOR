@@ -65,6 +65,10 @@ class Webpage extends Model {
     return groups
   }
   
+  getGroups(group_seq_id) {
+    return this.groups(group_seq_id)
+  }
+  
   async getGroup(group_seq_id) {
     let group = await this.groups(group_seq_id).fetch()
     if (group === null) {

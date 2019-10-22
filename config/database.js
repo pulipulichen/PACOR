@@ -36,6 +36,11 @@ module.exports = {
     },
     useNullAsDefault: true
   },
+  sqlite_testing: {
+    client: 'sqlite3',
+    connection: ':memory:',
+    useNullAsDefault: true
+  },
 
   /*
   |--------------------------------------------------------------------------
