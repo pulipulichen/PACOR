@@ -16,7 +16,7 @@ module.exports = {
   |
   */
 
-  default: Env.get('CACHE_STORE', 'object'),
+  default: Env.get('CACHE_STORE', 'database'),
 
   /*
   |--------------------------------------------------------------------------
@@ -43,7 +43,7 @@ module.exports = {
     database: {
       driver: 'database',
       table: 'cache',
-      connection: 'sqlite'
+      connection: 'sqlite_testing'
     },
 
     redis: {
