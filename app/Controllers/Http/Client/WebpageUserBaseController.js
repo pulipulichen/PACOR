@@ -1,6 +1,9 @@
 'use strict'
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
+const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
+const Cache = use('Cache')
+const Config = use('Config')
 
 /**
  * For example: Annotation
@@ -24,45 +27,63 @@ class WebpageUserBaseController {
   }
   
   async indexMy ({ request, webpage, user }) {
-    let query = this.model
-            .query()
-            .where('webpage_id', webpage.primaryKeyValue)
-            .where('user_id', user.primaryKeyValue)
-    
-    if (this.hasDeletedColumn === true) {
-      query.where('deleted', false)
-    }
-    
     let condition = request.all()
-    if (typeof(condition) === 'object') {
-      query.where(condition)
-    }
+    await ReadingActivityLog.log(webpage, user, this.modelName + '.indexMy', condition)
     
-    return await query.fetch()
+    let cacheKey = `${this.modelName}.indexMy.${webpage.id}.${user.id}.${JSON.stringify(condition)}`
+    return await Cache.get(cacheKey, async () => {
+      let query = this.model
+              .query()
+              .where('webpage_id', webpage.primaryKeyValue)
+              .where('user_id', user.primaryKeyValue)
+
+      if (this.hasDeletedColumn === true) {
+        query.where('deleted', false)
+      }
+
+      if (typeof(condition) === 'object') {
+        query.where(condition)
+      }
+
+      let output = await query.fetch()
+      await Cache.put(cacheKey, output, Config.get('view.indexCacheMinute'))
+      return output
+    })
   }
   
   async indexOthers ({ request, webpage, user }) {
-    let others = await user.getOtherUsersInGroup(webpage)
-    
-    let query = this.model
-            .query()
-            .where('webpage_id', webpage.primaryKeyValue)
-            .whereIn('user_id', others)
-    
-    if (this.hasDeletedColumn === true) {
-      query.where('deleted', false)
-    }
-    
     let condition = request.all()
-    if (typeof(condition) === 'object') {
-      query.where(condition)
-    }
+    await ReadingActivityLog.log(webpage, user, this.modelName + '.indexOthers', condition)
     
-    return await query.fetch()
+    let cacheKey = `${this.modelName}.indexOthers.${webpage.id}.${user.id}.${JSON.stringify(condition)}`
+    return await Cache.get(cacheKey, async () => {
+      let others = await user.getOtherUsersInGroup(webpage)
+
+      let query = this.model
+              .query()
+              .where('webpage_id', webpage.primaryKeyValue)
+              .whereIn('user_id', others)
+
+      if (this.hasDeletedColumn === true) {
+        query.where('deleted', false)
+      }
+
+      if (typeof(condition) === 'object') {
+        query.where(condition)
+      }
+
+      let output = await query.fetch()
+      await Cache.put(cacheKey, output, Config.get('view.indexCacheMinute'))
+      return output
+    })
   }
   
   async create({request, webpage, user}) {
+    let id = -1
     let data = request.all()
+    
+    await ReadingActivityLog.log(webpage, user, this.modelName + '.create', data)
+    
     if (this.hasDeletedColumn === false) {
       let instance = new this.model
 
@@ -73,6 +94,7 @@ class WebpageUserBaseController {
       }
 
       await instance.save()
+      id = instance.id
     }
     else {
       let condition = {
@@ -89,13 +111,17 @@ class WebpageUserBaseController {
       if (instance.deleted === true) {
         instance.deleted = false
         await instance.save()
+        id = instance.id
       }
     }
-    return 1
+    return id
   }
   
   async update ({request, webpage, user}) {
     let data = request.all()
+    
+    await ReadingActivityLog.log(webpage, user, this.modelName + '.update', data)
+    
     let id = data.id
     if (typeof(id) !== 'number') {
       throw new HttpException('No id')
@@ -121,6 +147,9 @@ class WebpageUserBaseController {
   
   async destroy({request, webpage, user}) {
     let data = request.all()
+    
+    await ReadingActivityLog.log(webpage, user, this.modelName + '.destroy', data)
+    
     let id = data.id
     if (typeof(id) !== 'number') {
       throw new HttpException('No id')

@@ -1,5 +1,7 @@
 'use strict'
 
+const Log = use('App/Models/Domain')
+
 const User = use('App/Models/User')
 const Domain = use('App/Models/Domain')
 

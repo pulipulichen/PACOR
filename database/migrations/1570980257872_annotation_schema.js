@@ -12,7 +12,7 @@ class AnnotationSchema extends Schema {
       table.integer('end_pos').notNullable()
       table.integer('annotation_anchor_text_id').notNullable().unsigned().references('id').inTable('annotation_anchor_texts').onDelete('cascade')
       table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
-      table.string('type', 60).notNullable().defaultTo('highlight')
+      table.string('type', 60).notNullable().defaultTo('mainIdea')
       table.text('note').notNullable()
       table.boolean('private').defaultTo(false)
       table.boolean('deleted').defaultTo(false)
