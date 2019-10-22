@@ -12,15 +12,6 @@ const Cache = use('Cache')
 
 class WebpageGroup extends Model {
   
-  static boot () {
-    super.boot()
-
-    this.addHook('beforeSave', async (instance) => {
-      await Cache.forget(`WebpageGroup.getUsernamesInDomain.${instance.primaryKeyValue}`)
-      await Cache.forget(`WebpageGroup.getUsernames.${instance.primaryKeyValue}`)
-    })
-  }
-  
   webpage () {
     return this.belongsTo('App/Models/Webpage')
   }
@@ -50,7 +41,7 @@ class WebpageGroup extends Model {
     return await Cache.get(cacheKey, async () => {
       let users = await this.users().fetch()
       let output = users.toJSON().map(user => user.username)
-      await Cache.forever(cacheKey, output)
+      //await Cache.forever(cacheKey, output)
       return output
     })
   }
@@ -133,6 +124,10 @@ class WebpageGroup extends Model {
     if (usersCount === 0) {
       await this.delete()
     }
+    
+    
+    await Cache.forget(`WebpageGroup.getUsernamesInDomain.${this.primaryKeyValue}`)
+    await Cache.forget(`WebpageGroup.getUsernames.${this.primaryKeyValue}`)
     
     return 1
   }

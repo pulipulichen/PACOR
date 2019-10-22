@@ -144,7 +144,6 @@ class User extends Model {
               .pick(1)
 
       let userIds
-      console.log(groups.size())
       if (groups.size() > 0) {
         //console.log(groups.first())
         userIds = groups.first().toJSON().users.map(user => user.id)
