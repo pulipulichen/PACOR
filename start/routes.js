@@ -73,6 +73,22 @@ Route.any('/admin/:controller/:action', (options) => {
   return controllerMapping(options, 'admin')
 }).middleware(['admin'])
 
+// --------------------------------
+
+Route.on('/material').render('material')
+
+// Read material assets
+let routePrefix = '/material/asset/:id'
+//Route.get(routePrefix, 'Material/Asset.view')
+for (let i = 0; i < 10; i++) {
+  routePrefix = routePrefix + `/:folderLevel${i}?`
+  Route.get(routePrefix, 'Material/Asset.view')
+}
+
+Route.any('/material/:controller/:action', (options) => {
+  return controllerMapping(options, 'material')
+}).middleware(['admin'])
+
 // ----------------------------
 
 Route.any('/client/auth/:action', (options) => {
@@ -113,18 +129,8 @@ Route.any('/client/resource/:model/:action', (options) => {
   return resourceControllerMapping(options)
 }).middleware(['user', 'webpage'])
 
-// --------------------------------
+// ------------------------
 
-Route.on('/material').render('material')
-
-// Read material assets
-let routePrefix = '/material/asset/:id'
-//Route.get(routePrefix, 'Material/Asset.view')
-for (let i = 0; i < 10; i++) {
-  routePrefix = routePrefix + `/:folderLevel${i}?`
-  Route.get(routePrefix, 'Material/Asset.view')
-}
-
-Route.any('/material/:controller/:action', (options) => {
-  return controllerMapping(options, 'material')
-}).middleware(['admin'])
+Route.any('/client/:controller/:action', (options) => {
+  return controllerMapping(options, 'client')
+}).middleware(['user', 'webpage'])

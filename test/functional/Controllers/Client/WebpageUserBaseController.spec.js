@@ -3,7 +3,7 @@
  * https://www.chaijs.com/api/assert/
  * @type type
  */
-const { test, trait } = use('Test/Suite')('Controllers/Client/WebpageUserBaseController')
+const { test, trait } = use('Test/Suite')('Controllers/Client/Annotation')
 
 trait('Test/ApiClient')
 trait('Session/Client')
@@ -78,7 +78,21 @@ test('check login status before login', async ({ assert, client }) => {
 })
 
 test('create an annotation', async ({ assert, client }) => {
+  let data = {
+    startPos: 2,
+    endPos: 4,
+    anchorText: '測試測試',
+    type: 'mainIdea',
+    note: '測試筆記'
+  }
   
+  let response = await client.post('/client/Annotation/create')
+          .header('Referer', url)
+          .session('adonis-auth', 1)
+          .send(data)
+          .end()
+  
+  response.assertStatus(200)
 })
 
 test('check annotation is logged', async ({ assert, client }) => {
