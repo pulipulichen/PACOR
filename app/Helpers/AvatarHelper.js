@@ -42,6 +42,9 @@ let AvatarHelper = {
   },
   
   userURL: function (name) {
+    if (name === null) {
+      return
+    }
     let file = users[name]
     return baseURL + file
   },

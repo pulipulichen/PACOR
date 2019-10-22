@@ -4,7 +4,7 @@
 const Hash = use('Hash')
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const Model = use('App/Models/CustomizedModel/CustomizedModel')
+const Model = use('Model')
 
 const AvatarHelper = use('App/Helpers/AvatarHelper')
 
@@ -31,11 +31,20 @@ class User extends Model {
         userInstance.display_name = userInstance.username
       }
       
+      console.log('user', userInstance.avatar)
       if (typeof(userInstance.avatar) !== 'string') {
         userInstance.avatar = AvatarHelper.getRandomUser()
       }
     })
     
+  }
+  
+  static findByNameInWebpage (webpage, username) {
+    return User
+            .query()
+            .where('domain_id', webpage.domain_id)
+            .where('username', username)
+            .fetch()
   }
   
   async validatePassword (queryPassword) {
