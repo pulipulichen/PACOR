@@ -50,7 +50,8 @@ test(`find other users' id in anonymous group`, async ({ assert }) => {
   assert.equal(user.id, 1)
   
   let usersInGroup = await user.getOtherUserIDsInGroup(webpage)
-  assert.equal(usersInGroup.length, 4)
+  //console.log(usersInGroup)
+  assert.equal(usersInGroup.length, 3)
 })
 
 // Reset database

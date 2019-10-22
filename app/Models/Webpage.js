@@ -9,6 +9,7 @@ const baseURL = `${Env.get('PROTOCOL')}//${Env.get('HOST')}:${Env.get('PORT')}`
 
 const Domain = use('App/Models/Domain')
 const WebpageGroup = use('App/Models/WebpageGroup')
+const User = use('App/Models/User')
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
@@ -70,7 +71,6 @@ class Webpage extends Model {
   
   async getGroups() {
     let groups = await this.groups()
-            .where('group_seq_id', '!=', -1)
             .fetch()
     
     let mapping = {}
@@ -171,21 +171,35 @@ class Webpage extends Model {
   
   // ------------------
   
-  users () {
-    return this.manyThrough('App/Models/Domain', 'users')
-  }
-  
   async getAnonymousUserIDs(excludedUserID) {
     if (typeof(excludedUserID) === 'object'
             && typeof(excludedUserID.primaryKeyValue) === 'number') {
       excludedUserID = excludedUserID.primaryKeyValue
     }
     
-    let relation = this.users()
+    let relation = User
+            .query()
+            .where('domain_id', this.domain_id)
+    
+    let groups = await this.groups().fetch()
+    let usersInGroups = []
+    groups.toJSON().forEach(group => {
+      group.users.forEach(user => {
+        usersInGroups.push(user.id)
+      })
+    })
+    
+    
     if (typeof(excludedUserID) === 'number') {
-      relation.whereNot('id', excludedUserID)
+      usersInGroups.push(excludedUserID)
     }
-    return relation
+    
+    if (usersInGroups.length > 0) {
+      relation.whereNotIn('id', usersInGroups)
+    }
+    
+    let users = await relation.fetch()
+    return users.toJSON().map(user => user.id)
   }
 }
 
