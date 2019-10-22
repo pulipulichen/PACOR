@@ -26,6 +26,29 @@ class ReadingActivityLog extends Model {
     await logInstance.save()
   }
   
+  static async findLog (webpageID, userID, type) {
+    if (typeof(webpageID) === 'object'
+            && typeof(webpageID.primaryKeyValue) === 'number') {
+      webpageID = webpageID.primaryKeyValue
+    }
+    
+    if (typeof(userID) === 'object'
+            && typeof(userID.primaryKeyValue) === 'number') {
+      userID = userID.primaryKeyValue
+    }
+    
+    let result = await ReadingActivityLog
+            .query()
+            .where('webpage_id', webpageID)
+            .where('user_id', userID)
+            .where('type', type)
+            .fetch()
+    
+    return result.toJSON()
+  }
+  
+  // --------------------------------------------
+  
   user() {
     return this.belongsTo('App/Models/User')
   }

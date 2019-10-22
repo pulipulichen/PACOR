@@ -101,8 +101,13 @@ Route.any('/client/:controller/:action', (options) => {
 }).middleware(['user', 'webpage'])
 */
 
-// -------------------------------
+// ------------------------
 
+Route.any('/client/Annotation/:action', (options) => {
+  return controllerMapping(options, 'client', 'Annotation')
+}).middleware(['user', 'webpage'])
+
+// -------------------------------
 let resourceControllerMapping = (options, model, action) => {
   const params = options.params
   if (typeof(model) !== 'string' && typeof(params.model) === 'string') {
@@ -126,11 +131,5 @@ let resourceControllerMapping = (options, model, action) => {
 }
 
 Route.any('/client/resource/:model/:action', (options) => {
-  return resourceControllerMapping(options)
-}).middleware(['user', 'webpage'])
-
-// ------------------------
-
-Route.any('/client/:controller/:action', (options) => {
-  return controllerMapping(options, 'client')
+  return resourceControllerMapping(options, 'client')
 }).middleware(['user', 'webpage'])

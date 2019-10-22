@@ -11,6 +11,8 @@ trait('Session/Client')
 const UserModel = use('App/Models/User')
 const WebpageModel = use('App/Models/Webpage')
 
+const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
+
 const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html'
 
 test('create group in webpage', async ({ assert, client }) => {
@@ -92,11 +94,15 @@ test('create an annotation', async ({ assert, client }) => {
           .send(data)
           .end()
   
+  //response.assertError([])
   response.assertStatus(200)
+  response.assertText(1)
 })
 
 test('check annotation is logged', async ({ assert, client }) => {
+  let logs = await ReadingActivityLog.findLog(1, 1, 'Annotation.create')
   
+  assert.equal(logs.length, 1)
 })
 
 /*
