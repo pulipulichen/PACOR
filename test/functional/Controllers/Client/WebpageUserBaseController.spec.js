@@ -23,7 +23,7 @@ f g`
   let groups = await webpage.groups().fetch()
   assert.equal(groups.size(), 3)
 })
-
+/*
 test('logout', async ({ assert, client }) => {
   
   let response
@@ -47,7 +47,7 @@ test('check login status before login', async ({ assert, client }) => {
   response.assertStatus(200)
   response.assertText('0')
 })
-/*
+*/
 test('do login', async ({ assert, client }) => {
   let response
   response = await client.get('/client/auth/login')
@@ -76,7 +76,7 @@ test('check login status before login', async ({ assert, client }) => {
     displayName: 'a'
   })
 })
-*/
+
 test('create an annotation', async ({ assert, client }) => {
   
 })
