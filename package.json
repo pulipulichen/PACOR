@@ -13,12 +13,12 @@
     "s3.start-cors": "node ./website-cors/index.js",
     "s9.start-https": "nodemon --ignore webpack-app --ignore database --ignore public --ignore website-cors --ignore test --ignore node_modules --ignore .document --ignore .private-document --ignore help --ignore storage server-https.js",
     "setup-database": "adonis migration:refresh",
-    "test": "node ace test",
+    "adonisjs-self-test": "node ace test",
     "w1.webpack-build-development": "webpack --mode development",
     "w2.webpack-watch-development": "webpack --watch --mode development --display errors-only",
     "w3.webpack-watch-build-production": "webpack --watch --mode production --display errors-only",
     "w4.webpack-build-production": "webpack --mode production",
-    "unit-test": "adonis test"
+    "test": "adonis test"
   },
   "keywords": [
     "adonisjs",
