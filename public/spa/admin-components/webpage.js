@@ -1206,8 +1206,8 @@ let WebpageAdd = {
       let result = await this.lib.AxiosHelper.post('/admin/Webpage/add', data)
       //console.log(result)
       // 完成admin之後呢？
-      if (result === 1) {
-        this.$router.push('list')
+      if (typeof(result) === 'number') {
+        this.$router.push('/webpage/' + result + '/list')
       }
     }
   } // methods

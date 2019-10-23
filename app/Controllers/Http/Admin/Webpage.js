@@ -243,22 +243,32 @@ e f`)
     */
     // -------
     
+    console.log('a1')
     let webpage = await WebpageModel.findByURL(data.url)
+    console.log('a2')
     //webpage.path = data.path
     //webpage.url = domain.getFullURL(data.url)
-    if (data.title !== '') {
+    let changed = false
+    if (typeof(data.title) === 'string' && data.title !== '') {
       webpage.title = data.title
+      changed = true
     }
-    if (data.config !== '') {
+    if (typeof(data.title) === 'object') {
       webpage.config = data.config
+      changed = true
     }
-    await webpage.save()
     
+    console.log('a')
+    if (changed === true) {
+      await webpage.save()
+    }
+    console.log('b')
     if (Array.isArray(data.groups)) {
       await webpage.setGroupsList(data.groups)
     }
+    console.log('c')
     
-    return 1
+    return domain.id
   }
   
   async editTitle({request, auth}) {
