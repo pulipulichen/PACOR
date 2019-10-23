@@ -20,8 +20,6 @@ const ADMIN_ROLES = [
 
 class Auth {
   async login ({ request, auth, webpage }) {
-    throw new HttpException('test')
-    
     const {username, password} = request.all()
     
     let role = 'reader'
@@ -41,7 +39,8 @@ class Auth {
     
     let user = await query.pick(1)
     if (user.size() > 0) {
-      user = user.toJSON()[0]
+      //user = user.toJSON()[0]
+      user = user.first()
       await this._forceLogout(auth)
       await auth.loginViaId(user.id)
       let data = await this._getLoginedUserData(webpage, user)
@@ -89,7 +88,7 @@ class Auth {
   }
   
   async _getLoginedUserData (webpage, user) {
-    let readingProgresses = await user.getReadingProgresses(webpage)
+    let readingProgresses = await user.getReadingProgressStatus(webpage)
     return {
       username: user.username,
       displayName: user.display_name,
