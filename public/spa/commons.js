@@ -1269,7 +1269,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Modal_html_vue_type_template_id_4cdf972e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Modal.html?vue&type=template&id=4cdf972e& */ "./webpack-app/components/Modal/Modal.html?vue&type=template&id=4cdf972e&");
 /* harmony import */ var _Modal_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Modal.js?vue&type=script&lang=js& */ "./webpack-app/components/Modal/Modal.js?vue&type=script&lang=js&?0539");
-/* empty/unused harmony star reexport *//* harmony import */ var _Modal_global_less_vue_type_style_index_0_lang_less___WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Modal.global.less?vue&type=style&index=0&lang=less& */ "./webpack-app/components/Modal/Modal.global.less?vue&type=style&index=0&lang=less&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Modal_global_less_vue_type_style_index_0_lang_less___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Modal.global.less?vue&type=style&index=0&lang=less& */ "./webpack-app/components/Modal/Modal.global.less?vue&type=style&index=0&lang=less&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 /* harmony import */ var _Modal_json_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CModal_5CModal_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Modal.json?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CModal%5CModal.vue */ "./webpack-app/components/Modal/Modal.json?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CModal%5CModal.vue");
 
@@ -1638,10 +1638,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_style_config_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_style_config_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _config_reading_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../config/reading.js */ "./config/reading.js");
 /* harmony import */ var _config_reading_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_config_reading_js__WEBPACK_IMPORTED_MODULE_1__);
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
+/* harmony import */ var _config_production_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./config.production.js */ "./webpack-app/config.production.js");
+let config = {
   debug: {
     ErrorHandler: {
       verbose: true
@@ -1650,9 +1648,38 @@ __webpack_require__.r(__webpack_exports__);
   
   locale: 'zh-TW',
   clientConfigName: 'CONFIG',
-  
-  style: _styles_style_config_js__WEBPACK_IMPORTED_MODULE_0___default.a,
-  reading: _config_reading_js__WEBPACK_IMPORTED_MODULE_1___default.a
+}
+
+
+config.styleConfig = _styles_style_config_js__WEBPACK_IMPORTED_MODULE_0___default.a
+
+
+config.readingConfig = _config_reading_js__WEBPACK_IMPORTED_MODULE_1___default.a
+
+
+if (false) {}
+
+/* harmony default export */ __webpack_exports__["default"] = (config);
+
+/***/ }),
+
+/***/ "./webpack-app/config.production.js":
+/*!******************************************!*\
+  !*** ./webpack-app/config.production.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// 要怎麼在發佈版加入這邊的設定呢...
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  debug: {
+    ErrorHandler: {
+      verbose: false
+    }
+  }
 });
 
 

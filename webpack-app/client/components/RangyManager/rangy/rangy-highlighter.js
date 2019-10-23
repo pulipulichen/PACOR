@@ -20,6 +20,7 @@
         // No AMD or CommonJS support so we use the rangy property of root (probably the global variable)
         factory(root.rangy);
     }
+    factory(root.rangy);
 })(function(rangy) {
     rangy.createModule("Highlighter", ["ClassApplier"], function(api, module) {
         var dom = api.dom;

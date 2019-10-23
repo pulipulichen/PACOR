@@ -1,4 +1,4 @@
-import './../../../vendors/summernote/summernote-lite.webpack.js'
+import './summernote/summernote-lite.webpack.js'
 
 let NoteEditorManager = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],

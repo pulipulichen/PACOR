@@ -158,7 +158,12 @@ module.exports = (env, argv) => {
         'style-loader', // Step 3
         'css-loader', // Step 2再執行這個
         'postcss-loader',
-        'less-loader' // Step 1 要先執行這個
+        {
+          loader: 'less-loader?sourceMap',
+          options: {
+            globalVars: require('./webpack-app/styles/style.config.js')
+          }
+        }, // Step 1 要先執行這個
       ]
     }
     webpackConfig.module.rules.push({

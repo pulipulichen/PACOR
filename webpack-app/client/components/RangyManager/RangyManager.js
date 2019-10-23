@@ -1,4 +1,4 @@
-import rangy from './../../../vendors/rangy/rangy-webpack.js'
+import rangy from './rangy/rangy-webpack.js'
 let highlighter
 
 let RangyManager = {
