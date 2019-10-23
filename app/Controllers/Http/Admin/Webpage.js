@@ -79,15 +79,16 @@ class Webpage {
     }
   }
   
+  /*
   async t () {
-    /*
-    let webpage = new WebpageModel()
-    webpage.title = 'A'
-    webpage.path = '/'
     
-    let domain = await DomainModel.find(1)
-    await domain.webpages().save(webpage)
-    */
+//    let webpage = new WebpageModel()
+//    webpage.title = 'A'
+//    webpage.path = '/'
+//    
+//    let domain = await DomainModel.find(1)
+//    await domain.webpages().save(webpage)
+    
     //let webpage = await WebpageModel.find(1)
     let group = new WebpageGroupModel()
     group.group_seq_id = 0
@@ -98,23 +99,24 @@ class Webpage {
     
     return 1
   }
-  
+  */
+  /*
   async b() {
     let webpage = await WebpageModel
             .find(3)
     
     return webpage.getGroupsList()
   }
-  
+  */
+  /*
   async b2 () {
-    /*
-    let webpage = new WebpageModel()
-    webpage.title = 'A'
-    webpage.path = '/'
+//    let webpage = new WebpageModel()
+//    webpage.title = 'A'
+//    webpage.path = '/'
+//    
+//    let domain = await DomainModel.find(1)
+//    await domain.webpages().save(webpage)
     
-    let domain = await DomainModel.find(1)
-    await domain.webpages().save(webpage)
-    */
     //let webpage = await WebpageModel.find(1)
     let webpage = await WebpageModel
             .find(3)
@@ -131,7 +133,8 @@ class Webpage {
     
     return 1
   }
-  
+  */
+  /*
   async c() {
     
     let webpage = await WebpageModel
@@ -148,7 +151,8 @@ class Webpage {
     
     return await groups.users().fetch()
   }
-  
+  */
+  /*
   async d() {
     
     let webpage = await WebpageModel
@@ -175,12 +179,14 @@ e f`)
     
     return await webpage.getGroupsList()
   }
-  
+  */
+  /*
   async u () {
     let user = await UserModel.find(4)
     await user.groups(2).detach()
     return user.groups().fetch()
   }
+  */
   
   /*
   async w () {
@@ -239,7 +245,7 @@ e f`)
     
     let webpage = await WebpageModel.findByURL(data.url)
     //webpage.path = data.path
-    webpage.url = domain.getFullURL(data.url)
+    //webpage.url = domain.getFullURL(data.url)
     if (data.title !== '') {
       webpage.title = data.title
     }
