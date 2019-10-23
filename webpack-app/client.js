@@ -86,7 +86,6 @@ let VueController = {
   },
   computed: {
     'status.currentStep': function () {
-      let step = 'not-yet-started'
       if (Array.isArray(this.status.readingProgresses)
               && this.status.readingProgresses.length > 0) {
         for (let i = 0; i < this.status.readingProgresses.length; i++) {
@@ -98,8 +97,9 @@ let VueController = {
             return s.step_name
           }
         }
+        return 'finish'
       }
-      return step
+      return 'not-yet-started'
     }
   },
   watch: {

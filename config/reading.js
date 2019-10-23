@@ -1,7 +1,8 @@
 module.exports = {
-  readingProgresses: ['pre-imaginary', 'individual-reading', 'collaborative-reading', 'post-recall'],
+  readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
+  readingProgressesFinish: 'Exit',
   readingProgressModules: {
-    'pre-imaginary': {
+    'PreImaginary': {
       minCharacters: 10,
       limitMinutes: 1
     },
@@ -11,7 +12,7 @@ module.exports = {
     'reading': {
       limitMinutes: 1,
     },
-    'individual-reading': {
+    'IndividualReading': {
       annnotationTypes: ['confused', 'mainIdea'],
       checklist: [
         'I have already read this section.',
@@ -19,10 +20,10 @@ module.exports = {
         'I have already written the main ideas of this section.',
       ]
     },
-    'collaborative-reading': {
+    'CollaborativeReading': {
       annnotationTypes: ['confused', 'mainIdea'],
     },
-    'post-recall': {
+    'PostRecall': {
       minCharacters: 10,
       limitMinutes: 1
     }

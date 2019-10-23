@@ -24,10 +24,11 @@ let i18nGlobal = {
     "Dashboard": "儀表板",
     "Not yet started": "尚未開始",
     "READING_PROGRESS.not-yet-started": "尚未開始",
-    "READING_PROGRESS.pre-imaginary": "閱讀前的想像",
-    "READING_PROGRESS.individual-reading": "個人閱讀",
-    "READING_PROGRESS.collaborative-reading": "團體閱讀",
-    "READING_PROGRESS.post-recall": "閱讀後的回想",
+    "READING_PROGRESS.PreImaginary": "閱讀前的想像",
+    "READING_PROGRESS.IndividualReading": "個人閱讀",
+    "READING_PROGRESS.CollaborativeReading": "團體閱讀",
+    "READING_PROGRESS.PostRecall": "閱讀後的回想",
+    "READING_PROGRESS.finish": "已經完成",
   }
 }
 

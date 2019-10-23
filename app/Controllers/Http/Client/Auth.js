@@ -1,23 +1,14 @@
 'use strict'
 
-const Log = use('App/Models/Domain')
-
 const User = use('App/Models/User')
-const Domain = use('App/Models/Domain')
-
-const Env = use('Env')
-const ADMIN_USERNAME = Env.get('ADMIN_USERNAME')
-const ADMIN_PASSWORD = Env.get('ADMIN_PASSWORD')
-
-const AvatarHelper = use('App/Helpers/AvatarHelper')
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
-const ADMIN_ROLES = [
-  'global_admin',
-  'domain_admin'
-]
+const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
 
+/**
+ * 登入
+ */
 class Auth {
   async login ({ request, auth, webpage }) {
     const {username, password} = request.all()
@@ -68,16 +59,24 @@ class Auth {
     return user
   }
   
-  async logout ({ auth }) {
+  async logout ({ auth, webpage }) {
+    let output = 1
+    let user
     try {
+      user = await auth.getUser()
       await auth.logout()
       //let user = await auth.getUser()
       //console.log(user.username)
-      return 1
     }
     catch (error) {
-      return error
+      output = error
     }
+    
+    if (typeof(user) === 'object') {
+      await ReadingActivityLog.log(webpage, user, 'Auth.logout', output)
+    }
+    
+    return output
   }
   
   async _forceLogout(auth) {
@@ -89,12 +88,14 @@ class Auth {
   
   async _getLoginedUserData (webpage, user) {
     let readingProgresses = await user.getReadingProgressStatus(webpage)
-    return {
+    let data = {
       username: user.username,
       displayName: user.display_name,
       avatar: user.avatarURL,
       readingProgresses: readingProgresses
     }
+    await ReadingActivityLog.log(webpage, user, 'Auth.login', data)
+    return data
   }
   
   // -----------------------------

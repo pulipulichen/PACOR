@@ -8,9 +8,10 @@
 /***/ (function(module, exports) {
 
 module.exports = {
-  readingProgresses: ['pre-imaginary', 'individual-reading', 'collaborative-reading', 'post-recall'],
+  readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
+  readingProgressesFinish: 'Exit',
   readingProgressModules: {
-    'pre-imaginary': {
+    'PreImaginary': {
       minCharacters: 10,
       limitMinutes: 1
     },
@@ -20,7 +21,7 @@ module.exports = {
     'reading': {
       limitMinutes: 1,
     },
-    'individual-reading': {
+    'IndividualReading': {
       annnotationTypes: ['confused', 'mainIdea'],
       checklist: [
         'I have already read this section.',
@@ -28,10 +29,10 @@ module.exports = {
         'I have already written the main ideas of this section.',
       ]
     },
-    'collaborative-reading': {
+    'CollaborativeReading': {
       annnotationTypes: ['confused', 'mainIdea'],
     },
-    'post-recall': {
+    'PostRecall': {
       minCharacters: 10,
       limitMinutes: 1
     }
@@ -1504,6 +1505,7 @@ let StepProgressBar = {
         
         return this.displayTitle(step)
       }
+      return this.$t('READING_PROGRESS.finish')
     }
   },
   methods: {
@@ -1989,10 +1991,11 @@ let i18nGlobal = {
     "Dashboard": "儀表板",
     "Not yet started": "尚未開始",
     "READING_PROGRESS.not-yet-started": "尚未開始",
-    "READING_PROGRESS.pre-imaginary": "閱讀前的想像",
-    "READING_PROGRESS.individual-reading": "個人閱讀",
-    "READING_PROGRESS.collaborative-reading": "團體閱讀",
-    "READING_PROGRESS.post-recall": "閱讀後的回想",
+    "READING_PROGRESS.PreImaginary": "閱讀前的想像",
+    "READING_PROGRESS.IndividualReading": "個人閱讀",
+    "READING_PROGRESS.CollaborativeReading": "團體閱讀",
+    "READING_PROGRESS.PostRecall": "閱讀後的回想",
+    "READING_PROGRESS.finish": "已經完成",
   }
 }
 

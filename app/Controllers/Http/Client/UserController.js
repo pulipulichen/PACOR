@@ -1,5 +1,7 @@
 'use strict'
 
+// 這個檔案準備不使用了
+
 const User = use('App/Models/User')
 const UserOAuth = use('App/Models/UserOAuth')
 

@@ -36,6 +36,7 @@ let StepProgressBar = {
         
         return this.displayTitle(step)
       }
+      return this.$t('READING_PROGRESS.finish')
     }
   },
   methods: {

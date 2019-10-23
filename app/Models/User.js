@@ -152,7 +152,11 @@ class User extends Model {
   async startReadingProgress (webpage, stepName) {
     let time = (new Date()).getTime()
     
-    await ReadingProgress.create({
+    let step = await ReadingProgress.findOrCreate({
+      'user_id': this.primaryKeyValue,
+      'webpage_id': webpage.primaryKeyValue,
+      'step_name': stepName
+    }, {
       'user_id': this.primaryKeyValue,
       'webpage_id': webpage.primaryKeyValue,
       'step_name': stepName,
@@ -168,14 +172,21 @@ class User extends Model {
     
     console.log('startReadingProgress', affectedRows)
     */
-    Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
+    if (step.start_timestamp === time) {
+      // 表示這是新增的資料
+      Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
+    }
   }
   
   async endReadingProgress (webpage, stepName) {
-    let time = (new Date()).getTime()
-    await this.readingProgresses(webpage, stepName)
-            .update({'end_timestamp': time})
-    Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
+    let step = await this.readingProgresses(webpage, stepName).fetch()
+    
+    if (typeof(step.end_timestamp) !== 'number') {
+      let time = (new Date()).getTime()
+      step.end_timestamp = time
+      await step.save()
+      Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
+    }
   }
   
   static get hidden () {
