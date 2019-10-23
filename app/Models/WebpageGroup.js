@@ -10,6 +10,10 @@ const User = use('App/Models/User')
 
 const Cache = use('Cache')
 
+/**
+ * table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
+ * table.integer('group_seq_id').notNullable()
+ */
 class WebpageGroup extends Model {
   
   webpage () {

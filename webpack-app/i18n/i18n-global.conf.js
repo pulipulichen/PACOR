@@ -19,7 +19,11 @@ let i18nGlobal = {
     "Group": "分組",
     "Groups": "組",
     "Readers": "讀者",
-    "Dashboard": "儀表板"
+    "Dashboard": "儀表板",
+    "READING_PROGRESS.pre-imaginary": "閱讀前的想像",
+    "READING_PROGRESS.individual-reading": "個人閱讀",
+    "READING_PROGRESS.collaborative-reading": "團體閱讀",
+    "READING_PROGRESS.post-recall": "閱讀後的回想",
   }
 }
 

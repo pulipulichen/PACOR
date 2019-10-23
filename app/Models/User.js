@@ -12,6 +12,15 @@ const ReadingProgress = use('App/Models/ReadingProgress')
 
 const Cache = use('Cache')
 
+/**
+table.integer('domain_id').notNullable().unsigned().references('id').inTable('domains').onDelete('cascade')
+table.string('username', 80).notNullable()
+table.string('email', 254)
+table.string('password', 60)
+table.string('role', 60).notNullable().defaultTo('reader')
+table.string('display_name', 20)
+table.string('avatar', 254)
+ */
 class User extends Model {
   
   static boot () {

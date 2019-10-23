@@ -55,7 +55,7 @@ exports.push([module.i, ".header h2[data-v-4e86c872],\n.header h3[data-v-4e86c87
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"WebpageDashboardGroups.less?vue&type=style&index=0&id=2671bcbe&lang=less&scoped=true&"}]);
+exports.push([module.i, "h4[data-v-2671bcbe] {\n  margin-top: 1rem !important;\n}\n", "",{"version":3,"sources":["WebpageDashboardGroups.less?vue&type=style&index=0&id=2671bcbe&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,2BAA2B;AAC7B","file":"WebpageDashboardGroups.less?vue&type=style&index=0&id=2671bcbe&lang=less&scoped=true&","sourcesContent":["h4[data-v-2671bcbe] {\n  margin-top: 1rem !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -193,7 +193,7 @@ var render = function() {
       ),
       _vm._v(" "),
       _vm._l(_vm.groups, function(group) {
-        return _c("div", { staticClass: "ui segment" }, [
+        return _c("div", {}, [
           _c(
             "h4",
             {
@@ -203,19 +203,26 @@ var render = function() {
                 )
               }
             },
-            [_vm._v("Group #" + _vm._s(group.group_seq_id + 1))]
+            [
+              _vm._v(
+                "\r\n      Group #" +
+                  _vm._s(group.group_seq_id + 1) +
+                  "\r\n    "
+              )
+            ]
           ),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "ui items" },
+            { staticClass: "ui cards" },
             _vm._l(group.users, function(user) {
-              return _c("div", { staticClass: "item" }, [
-                _c("div", { staticClass: "image" }, [
-                  _c("img", { attrs: { src: user.avatar_url } })
-                ]),
-                _vm._v(" "),
+              return _c("div", { staticClass: "card" }, [
                 _c("div", { staticClass: "content" }, [
+                  _c("img", {
+                    staticClass: "right floated mini ui image",
+                    attrs: { src: user.avatar_url }
+                  }),
+                  _vm._v(" "),
                   _c(
                     "a",
                     { staticClass: "header" },
@@ -238,6 +245,14 @@ var render = function() {
                     2
                   ),
                   _vm._v(" "),
+                  _c("div", { staticClass: "meta" }, [
+                    _vm._v(
+                      "\r\n            " +
+                        _vm._s(user.readingProgresses.length) +
+                        "\r\n          "
+                    )
+                  ]),
+                  _vm._v(" "),
                   _vm._m(0, true),
                   _vm._v(" "),
                   _vm._m(1, true)
@@ -258,16 +273,20 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "description" }, [
-      _c("p", [_vm._v("INFO (#TODO)")])
+      _c("p", [_vm._v("#TODO")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "extra" }, [
-      _c("a", { staticClass: "ui button", attrs: { href: "#" } }, [
-        _vm._v("\r\n              TODO\r\n            ")
+    return _c("div", { staticClass: "extra content" }, [
+      _c("div", { staticClass: "ui two buttons" }, [
+        _c("div", { staticClass: "ui basic green button" }, [
+          _vm._v("Button 1")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "ui basic red button" }, [_vm._v("Button 2")])
       ])
     ])
   }

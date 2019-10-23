@@ -243,9 +243,10 @@ e f`)
     */
     // -------
     
-    console.log('a1')
+    //console.log('a1')
     let webpage = await WebpageModel.findByURL(data.url)
-    console.log('a2')
+    //console.log('a2')
+
     //webpage.path = data.path
     //webpage.url = domain.getFullURL(data.url)
     let changed = false
@@ -258,15 +259,15 @@ e f`)
       changed = true
     }
     
-    console.log('a')
+    //console.log('a')
     if (changed === true) {
       await webpage.save()
     }
-    console.log('b')
+    //console.log('b')
     if (Array.isArray(data.groups)) {
       await webpage.setGroupsList(data.groups)
     }
-    console.log('c')
+    //console.log('c')
     
     return domain.id
   }

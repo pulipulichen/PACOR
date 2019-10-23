@@ -7,6 +7,7 @@ const Hash = use('Hash')
 const OriginFilter = use('App/Helpers/OriginFilter')
 
 class UserController {
+  /*
   async test () {
     return true
   }
@@ -14,6 +15,7 @@ class UserController {
   async ok () {
     return false
   }
+  */
   
   async list ({ request, auth }) {
     let {origin} = request.get()

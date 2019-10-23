@@ -133,9 +133,9 @@ class Domain extends Model {
     })
   }
   
-  getFullURL (webpagePath) {
-    return this.domain + webpagePath
-  }
+//  getFullURL (webpagePath) {
+//    return this.domain + webpagePath
+//  }
 }
 
 module.exports = Domain

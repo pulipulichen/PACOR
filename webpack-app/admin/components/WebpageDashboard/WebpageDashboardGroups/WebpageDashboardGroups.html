@@ -4,36 +4,42 @@
     {{ $t('Groups') }}
   </h3>
   
-  <div class="ui segment"
+  <div class=""
        v-for="group in groups">
-    <h4 v-bind:id="attrHeaderID('dashboard-group' + (group.group_seq_id+1))">Group #{{ (group.group_seq_id + 1)  }}</h4>
-    <div class="ui items">
-      <div class="item"
+    <h4 v-bind:id="attrHeaderID('dashboard-group' + (group.group_seq_id+1))">
+      Group #{{ (group.group_seq_id + 1)  }}
+    </h4>
+    <div class="ui cards">
+      <div class="card"
            v-for="user in group.users">
-        <div class="image">
-          <img v-bind:src="user.avatar_url" />
-        </div>
         <div class="content">
+          <img v-bind:src="user.avatar_url"
+               class="right floated mini ui image"/>
           <a class="header">
             {{ user.username }}
             <template v-if="user.username !== user.display_name">
               ({{ user.display_name }})
             </template>
           </a>
-          <!--
           <div class="meta">
-            <span>Description</span>
+            {{ user.readingProgresses.length }}
           </div>
-          -->
-          <div class="description">
-            <p>INFO (#TODO)</p>
+            <!--
+            <div class="meta">
+              <span>Description</span>
+            </div>
+            -->
+            <div class="description">
+              <p>#TODO</p>
+            </div>
+            <div class="extra content">
+              <div class="ui two buttons">
+                <div class="ui basic green button">Button 1</div>
+                <div class="ui basic red button">Button 2</div>
+              </div>
+            </div>
           </div>
-          <div class="extra">
-            <a href="#" class="ui button">
-              TODO
-            </a>
-          </div>
-        </div>
+        </div> <!-- <div class="content"> -->
       </div>
     </div>
   </div>

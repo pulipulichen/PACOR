@@ -5,16 +5,16 @@ const DomainModel = use('App/Models/Domain')
 const Config = use('Config')
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
+const Cache = use('Cache')
 
 class Domain {
   async list ({request, auth}) {
     await auth.checkGlobalAdmin()
-    
     const {page = 1} = request.all()
     
     const limit = Config.get('view.itemsPerPage')
     const offset = (page - 1) * limit
-    
+
     let domains = await DomainModel
             .query()
             //.where('domain', '!=', '')
@@ -24,7 +24,7 @@ class Domain {
             .limit(limit)
             .orderBy('created_at', 'desc')
             .fetch()
-    
+
     //await domains.loadMany(['admins'])
     domains = domains.toJSON()
     domains.forEach(domain => {
@@ -37,19 +37,20 @@ class Domain {
       })
       domain.admins = admins.join(' ')
       domain.adminsCount = admins.length
-      
+
       if (domain.config !== null) {
         domain.config = JSON.stringify(domain.config, null, '  ')
       }
     })
-    
+
     let count = await DomainModel.getCount()
     let maxPage = Math.ceil(count / limit)
-    
-    return {
+
+    let output = {
       domains,
       maxPage
     }
+    return output
   }
   
   async add ({request, auth}) {
