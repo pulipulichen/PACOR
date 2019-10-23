@@ -62,6 +62,13 @@ class Dashboard {
           let user = users[u]
           let userJSON = user.toJSON()
           userJSON.readingProgresses = await user.getReadingProgressStatus(webpage)
+          
+          // For test
+          //userJSON.readingProgresses[0].isCompleted = true
+          //userJSON.readingProgresses[0].start_timestamp = 1
+          //userJSON.readingProgresses[0].end_timestamp = 10000
+          //userJSON.readingProgresses[1].start_timestamp = 10001
+          
           g.users.push(userJSON)
         }
         

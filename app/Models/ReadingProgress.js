@@ -3,6 +3,14 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
+/**
+table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
+table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
+table.string('step_name', 60).notNullable()
+table.bigInteger('start_timestamp').notNullable()
+table.bigInteger('end_timestamp')
+table.json('log')
+ */
 class ReadingProgress extends Model {
   user () {
     return this.belongsTo('App/Models/User')

@@ -1,12 +1,13 @@
-<div class="ui mini fluid buttons disabled"
-     v-bind:class="{hide: steps.length === 0}">
-  <span v-for="(step, index) in steps"
+<div class="step-progress-bar"
+     v-bind:class="{hide: progresses.length === 0}">
+  
+  {{ currentStep }}
+  
+<div class="ui mini fluid buttons">
+  <span v-for="(step, index) in progresses"
         class="ui button"
-        v-bind:class="{'green active': step.isCompleted, 'disabled': !step.isCompleted}"
-        v-bind:title="displayTitle(step, index)">
-    {{ step.name }}
-    <template v-if="step.timestamp">
-      ({{ displayTime(step.timestamp, index) }})
-    </template>
+        v-bind:class="displayClass(step)"
+        v-bind:title="displayTitle(step)">  
   </span>
+</div>
 </div>

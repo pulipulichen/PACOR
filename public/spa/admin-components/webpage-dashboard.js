@@ -245,13 +245,20 @@ var render = function() {
                     2
                   ),
                   _vm._v(" "),
-                  _c("div", { staticClass: "meta" }, [
-                    _vm._v(
-                      "\r\n            " +
-                        _vm._s(user.readingProgresses.length) +
-                        "\r\n          "
-                    )
-                  ]),
+                  _c(
+                    "div",
+                    { staticClass: "meta" },
+                    [
+                      _c("step-progress-bar", {
+                        attrs: {
+                          lib: _vm.lib,
+                          config: _vm.config,
+                          progresses: user.readingProgresses
+                        }
+                      })
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   _vm._m(0, true),
                   _vm._v(" "),

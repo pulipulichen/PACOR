@@ -22,7 +22,9 @@
             </template>
           </a>
           <div class="meta">
-            {{ user.readingProgresses.length }}
+            <step-progress-bar v-bind:lib="lib"
+                               v-bind:config="config"
+                               v-bind:progresses="user.readingProgresses"></step-progress-bar>
           </div>
             <!--
             <div class="meta">

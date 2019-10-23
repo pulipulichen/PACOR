@@ -397,7 +397,7 @@ exports.push([module.i, ".pagination[data-v-16bb9012] {\n  text-align: center;\n
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"StepProgressBar.less?vue&type=style&index=0&id=e5bffb70&lang=less&scoped=true&"}]);
+exports.push([module.i, ".step-progress-bar[data-v-e5bffb70] {\n  /*\n  max-width: 100%;\n  overflow-x: hidden;\n    \n  \n  &> .button {\n    max-width: 100%;\n    overflow-x: hidden;\n    text-overflow: ellipsis;\n  }\n  */\n}\n.step-progress-bar .button[data-v-e5bffb70] {\n  padding: 0 !important;\n  cursor: default !important;\n}\n", "",{"version":3,"sources":["StepProgressBar.less?vue&type=style&index=0&id=e5bffb70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE;;;;;;;;;;GAUC;AACH;AACA;EACE,qBAAqB;EACrB,0BAA0B;AAC5B","file":"StepProgressBar.less?vue&type=style&index=0&id=e5bffb70&lang=less&scoped=true&","sourcesContent":[".step-progress-bar[data-v-e5bffb70] {\n  /*\n  max-width: 100%;\n  overflow-x: hidden;\n    \n  \n  &> .button {\n    max-width: 100%;\n    overflow-x: hidden;\n    text-overflow: ellipsis;\n  }\n  */\n}\n.step-progress-bar .button[data-v-e5bffb70] {\n  padding: 0 !important;\n  cursor: default !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -868,36 +868,24 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "ui mini fluid buttons disabled",
-      class: { hide: _vm.steps.length === 0 }
+      staticClass: "step-progress-bar",
+      class: { hide: _vm.progresses.length === 0 }
     },
-    _vm._l(_vm.steps, function(step, index) {
-      return _c(
-        "span",
-        {
-          staticClass: "ui button",
-          class: {
-            "green active": step.isCompleted,
-            disabled: !step.isCompleted
-          },
-          attrs: { title: _vm.displayTitle(step, index) }
-        },
-        [
-          _vm._v("\r\n    " + _vm._s(step.name) + "\r\n    "),
-          step.timestamp
-            ? [
-                _vm._v(
-                  "\r\n      (" +
-                    _vm._s(_vm.displayTime(step.timestamp, index)) +
-                    ")\r\n    "
-                )
-              ]
-            : _vm._e()
-        ],
-        2
+    [
+      _vm._v("\r\n  \r\n  " + _vm._s(_vm.currentStep) + "\r\n  \r\n"),
+      _c(
+        "div",
+        { staticClass: "ui mini fluid buttons" },
+        _vm._l(_vm.progresses, function(step, index) {
+          return _c("span", {
+            staticClass: "ui button",
+            class: _vm.displayClass(step),
+            attrs: { title: _vm.displayTitle(step) }
+          })
+        }),
+        0
       )
-    }),
-    0
+    ]
   )
 }
 var staticRenderFns = []
@@ -2247,14 +2235,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let Template = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+let StepProgressBar = {
+  props: ['lib', 'config', 'progresses'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      steps: []
+      
     }
   },
+  /*
   components: {
   },
   computed: {
@@ -2263,27 +2252,76 @@ let Template = {
   },
   mounted() {
   },
+  */
+  computed: {
+    currentStep: function () {
+      if (Array.isArray(this.progresses) === false 
+              || this.progresses.length === 0) {
+        return this.$t('Not yet started')
+      }
+      
+      for (let i = 0; i < this.progresses.length; i++) {
+        let step = this.progresses[i]
+        if (step.isCompleted === true) {
+          continue
+        }
+        
+        if (i === 0 
+                && typeof(step.start_timestamp) !== 'number') {
+          return '(' + this.$t('Not yet started') + ')'
+        }
+        
+        return this.displayTitle(step)
+      }
+    }
+  },
   methods: {
-    displayTitle: function (step, index) {
-      let title = step.name
-      if (typeof(step.timestamp) === 'number'){
-        title = `${title} (${this.displayTime(step.timestamp, index)})`
+    getTitle: function (step_name) {
+      if (typeof(step_name) === 'object'
+              && typeof(step_name.step_name) === 'string') {
+        step_name = step_name.step_name
+      }
+      return this.$t(`READING_PROGRESS.${step_name}`)
+    },
+    displayTitle: function (step) {
+      let title = this.getTitle(step)
+      if (typeof(step.start_timestamp) === 'number'){
+        title = `${title} (${this.displayTime(step)})`
       }
       return title
     },
-    displayTime: function (timestamp, index) {
-      if (index === 0) {
-        return this.lib.DayJSHelper.shortTime(timestamp)
+    displayTime: function (step) {
+      if (step.isCompleted === false) {
+        return this.lib.DayJSHelper.toNow(step.start_timestamp)
       }
       else {
-        let baseTimestamp = this.steps[0].timestamp
-        return this.lib.DayJSHelper.to(baseTimestamp, timestamp)
+        return this.lib.DayJSHelper.to(step.end_timestamp, step.start_timestamp)
+      }
+      /*
+      if (index === 0) {
+        return this.lib.DayJSHelper.shortTime(start_timestamp)
+      }
+      else {
+        let baseTimestamp = this.steps[0].start_timestamp
+        return this.lib.DayJSHelper.to(baseTimestamp, start_timestamp)
+      }
+      */
+    },
+    displayClass: function (step) {
+      if (step.isCompleted === true) {
+        return 'grey'
+      }
+      else if (typeof(step.start_timestamp) === 'number') {
+        return 'green'
+      }
+      else {
+        return 'basic grey'
       }
     }
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Template);
+/* harmony default export */ __webpack_exports__["default"] = (StepProgressBar);
 
 /***/ }),
 
