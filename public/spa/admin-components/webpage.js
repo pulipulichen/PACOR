@@ -110,7 +110,15 @@ var render = function() {
     { staticClass: "ui form" },
     [
       _c("div", { staticClass: "ui secondary menu" }, [
-        _c("div", { staticClass: "item" }, [
+        _vm.status.role === "global_admin"
+          ? _c(
+              "a",
+              { staticClass: "icon item", attrs: { href: "#/domain/list" } },
+              [_c("i", { staticClass: "angle left icon" })]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "item header" }, [
           _c("h2", [_vm._v(_vm._s(_vm.status.title))])
         ]),
         _vm._v(" "),

@@ -1131,7 +1131,7 @@ let VueController = {
       domainID: null,
       needLogin: true,
       title: '',
-      webpageURL: '',
+      webpageURL: ''
     },
     progress: {
       component: false,

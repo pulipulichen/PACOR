@@ -80,6 +80,17 @@ var render = function() {
     { staticClass: "ui form" },
     [
       _c("div", { staticClass: "ui secondary menu" }, [
+        _c(
+          "a",
+          {
+            staticClass: "icon item",
+            attrs: {
+              href: "#/webpage/" + _vm.$route.params.webpageID + "/list"
+            }
+          },
+          [_c("i", { staticClass: "angle left icon" })]
+        ),
+        _vm._v(" "),
         _c("div", { staticClass: "item" }, [
           _c("h2", { staticClass: "ui header" }, [
             _c("div", { staticClass: "content" }, [

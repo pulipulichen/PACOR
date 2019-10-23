@@ -1,7 +1,12 @@
 <div class="ui form">
   
   <div class="ui secondary menu">
-    <div class="item">
+    <a class="icon item"
+         v-if="status.role === 'global_admin'"
+         href="#/domain/list">
+      <i class="angle left icon"></i>
+    </a>
+    <div class="item header">
       <h2>{{ status.title }}</h2>
     </div>
     <div class="right menu">
