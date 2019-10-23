@@ -25,7 +25,6 @@
         v-bind:error="error"
         v-bind:view="view"></note-editor-manager>
   -->
-  <keep-alive>
     <component v-bind:is="view"
         v-bind:config="config"
         v-bind:status="status"
@@ -33,5 +32,4 @@
         v-bind:lib="lib"
         v-bind:error="error"
         v-bind:view="view"></component>
-  </keep-alive>
 </div>

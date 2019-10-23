@@ -10,7 +10,7 @@
          cancelable="false">
       <template v-slot:header>
         <div v-on:click="adminMode = !adminMode">
-          {{ $t('Login') }}
+          {{ $t('Welcome to PACOR') }}
         </div>
       </template>
       <template v-slot:content>
@@ -41,9 +41,6 @@
             </div>
           </div>
         </div>
-            
-        
-            
       </template>
       <template v-slot:actions>
         <div class="ui button"
@@ -51,4 +48,5 @@
              v-on:click="login">{{ $t('LOGIN') }}</div>
       </template>
   </modal>
+  
 </div>

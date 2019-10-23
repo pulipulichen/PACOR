@@ -8,3 +8,6 @@ Vue.component('modal', Modal)
 
 import StepProgressBar from './../components/StepProgressBar/StepProgressBar.vue'
 Vue.component('step-progress-bar', StepProgressBar)
+
+import BlockExit from './../components/BlockExit/BlockExit.vue'
+Vue.component('block-exit', BlockExit)

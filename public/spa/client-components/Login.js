@@ -77,7 +77,7 @@ var render = function() {
                   [
                     _vm._v(
                       "\r\n          " +
-                        _vm._s(_vm.$t("Login")) +
+                        _vm._s(_vm.$t("Welcome to PACOR")) +
                         "\r\n        "
                     )
                   ]
