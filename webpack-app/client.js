@@ -45,7 +45,13 @@ let VueController = {
   data: {
     config: config,
     status: {
+      needLogin: true,
       username: '',
+      displayName: '',
+      avatar: '',
+      role: 'reader',
+      readingProgresses: [],
+      title: ''
     },
     progress: {
       component: false,
@@ -62,6 +68,24 @@ let VueController = {
     error: '',
     persistAttrs: [
     ]
+  },
+  computed: {
+    'status.currentStep': function () {
+      let step = 'not-yet-started'
+      if (Array.isArray(this.status.readingProgresses)
+              && this.status.readingProgresses.length > 0) {
+        for (let i = 0; i < this.status.readingProgresses.length; i++) {
+          let s = this.status.readingProgresses[i]
+          if (s.isCompleted === true) {
+            continue
+          }
+          else if (typeof(s.start_timestamp) === 'number') {
+            return s.step_name
+          }
+        }
+      }
+      return step
+    }
   },
   watch: {
     'status.username': function () {
