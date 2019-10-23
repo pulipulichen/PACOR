@@ -447,8 +447,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./client/client.tpl */ "./webpack-app/client/client.tpl");
 /* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_client_client_tpl__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
-/* harmony import */ var _client_routes__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./client/routes */ "./webpack-app/client/routes.js");
-/* harmony import */ var _client_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./client/components */ "./webpack-app/client/components.js");
+/* harmony import */ var _client_global_components__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./client/global-components */ "./webpack-app/client/global-components.js");
+/* harmony import */ var _client_local_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./client/local-components */ "./webpack-app/client/local-components.js");
 /* global __webpack_public_path__ */
 
 
@@ -596,8 +596,7 @@ let VueController = {
   i18n: _plugins_i18n__WEBPACK_IMPORTED_MODULE_3__["default"],
   
   template: _client_client_tpl__WEBPACK_IMPORTED_MODULE_9___default.a,
-  router: _client_routes__WEBPACK_IMPORTED_MODULE_11__["default"],
-  components: _client_components__WEBPACK_IMPORTED_MODULE_12__["default"],
+  components: _client_local_components__WEBPACK_IMPORTED_MODULE_12__["default"],
   errorCaptured(err, vm, info) {
     // https://medium.com/js-dojo/error-exception-handling-in-vue-js-application-6c26eeb6b3e4
     this.error = err.stack
@@ -629,40 +628,7 @@ window.VueController = VueController
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        ref=\"auth\"></auth>\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:error=\"error\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n  \r\n  <router-view v-bind:config=\"config\"\r\n               v-bind:status=\"status\"\r\n               v-bind:progress=\"progress\"\r\n               v-bind:lib=\"lib\"\r\n               v-bind:error=\"error\"></router-view>\r\n  \r\n  <!--\r\n  <rangy-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></rangy-manager>\r\n  \r\n  <note-editor-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></note-editor-manager>\r\n  -->\r\n  <keep-alive>\r\n    <component v-bind:is=\"view\"\r\n        v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></component>\r\n  </keep-alive>\r\n</div>";
-
-/***/ }),
-
-/***/ "./webpack-app/client/components.js":
-/*!******************************************!*\
-  !*** ./webpack-app/client/components.js ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_Loading_Loading_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../components/Loading/Loading.vue */ "./webpack-app/components/Loading/Loading.vue");
-/* harmony import */ var _components_ErrorHandler_ErrorHandler_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../components/ErrorHandler/ErrorHandler.vue */ "./webpack-app/components/ErrorHandler/ErrorHandler.vue");
-/* harmony import */ var _components_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Auth/Auth.vue */ "./webpack-app/client/components/Auth/Auth.vue");
-/* harmony import */ var _components_RangyManager_RangyManager_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/RangyManager/RangyManager.vue */ "./webpack-app/client/components/RangyManager/RangyManager.vue");
-/* harmony import */ var _components_NoteEditorManager_NoteEditorManager_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/NoteEditorManager/NoteEditorManager.vue */ "./webpack-app/client/components/NoteEditorManager/NoteEditorManager.vue");
-
-
-
-
-
-
-let components = {
-  Loading: _components_Loading_Loading_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-  'error-handler': _components_ErrorHandler_ErrorHandler_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-  Auth: _components_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-  'rangy-manager': _components_RangyManager_RangyManager_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-  'note-editor-manager': _components_NoteEditorManager_NoteEditorManager_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-  Login: () => __webpack_require__.e(/*! import() | client-components/Login */ "client-components/Login").then(__webpack_require__.bind(null, /*! ./components/Login/Login.vue */ "./webpack-app/client/components/Login/Login.vue")),
-  Chat: () => __webpack_require__.e(/*! import() | client-components/Chat */ "client-components/Chat").then(__webpack_require__.bind(null, /*! ./components/Chat/Chat.vue */ "./webpack-app/client/components/Chat/Chat.vue")),
-}
-/* harmony default export */ __webpack_exports__["default"] = (components);
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        ref=\"auth\"></auth>\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:error=\"error\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n  \r\n  <!--\r\n  <rangy-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></rangy-manager>\r\n  \r\n  <note-editor-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></note-editor-manager>\r\n  -->\r\n  <keep-alive>\r\n    <component v-bind:is=\"view\"\r\n        v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></component>\r\n  </keep-alive>\r\n</div>";
 
 /***/ }),
 
@@ -1134,30 +1100,62 @@ component.options.__file = "webpack-app/client/components/RangyManager/RangyMana
 
 /***/ }),
 
-/***/ "./webpack-app/client/routes.js":
-/*!**************************************!*\
-  !*** ./webpack-app/client/routes.js ***!
-  \**************************************/
-/*! exports provided: default */
+/***/ "./webpack-app/client/global-components.js":
+/*!*************************************************!*\
+  !*** ./webpack-app/client/global-components.js ***!
+  \*************************************************/
+/*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _components_Pagination_Pagination_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../components/Pagination/Pagination.vue */ "./webpack-app/components/Pagination/Pagination.vue");
+/* harmony import */ var _components_Modal_Modal_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../components/Modal/Modal.vue */ "./webpack-app/components/Modal/Modal.vue");
+/* harmony import */ var _components_StepProgressBar_StepProgressBar_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../components/StepProgressBar/StepProgressBar.vue */ "./webpack-app/components/StepProgressBar/StepProgressBar.vue");
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"])
 
-const routes = [
-  //{ path: '/', component: require('./components/Loading/Loading.vue') },
-  //{ path: '/login', component: () => import(/* webpackChunkName: "client-components/login" */ './components/Login/Login.vue') },
-  //{ path: '/chat', component: () => import(/* webpackChunkName: "client-components/chat" */ './components/Chat/Chat.vue') }
-]
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('pagination', _components_Pagination_Pagination_vue__WEBPACK_IMPORTED_MODULE_1__["default"])
 
-/* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  routes: routes
-}));
+
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('modal', _components_Modal_Modal_vue__WEBPACK_IMPORTED_MODULE_2__["default"])
+
+
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('step-progress-bar', _components_StepProgressBar_StepProgressBar_vue__WEBPACK_IMPORTED_MODULE_3__["default"])
+
+/***/ }),
+
+/***/ "./webpack-app/client/local-components.js":
+/*!************************************************!*\
+  !*** ./webpack-app/client/local-components.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_Loading_Loading_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../components/Loading/Loading.vue */ "./webpack-app/components/Loading/Loading.vue");
+/* harmony import */ var _components_ErrorHandler_ErrorHandler_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../components/ErrorHandler/ErrorHandler.vue */ "./webpack-app/components/ErrorHandler/ErrorHandler.vue");
+/* harmony import */ var _components_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Auth/Auth.vue */ "./webpack-app/client/components/Auth/Auth.vue");
+/* harmony import */ var _components_RangyManager_RangyManager_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/RangyManager/RangyManager.vue */ "./webpack-app/client/components/RangyManager/RangyManager.vue");
+/* harmony import */ var _components_NoteEditorManager_NoteEditorManager_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/NoteEditorManager/NoteEditorManager.vue */ "./webpack-app/client/components/NoteEditorManager/NoteEditorManager.vue");
+
+
+
+
+
+
+let components = {
+  Loading: _components_Loading_Loading_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+  'error-handler': _components_ErrorHandler_ErrorHandler_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+  Auth: _components_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+  'rangy-manager': _components_RangyManager_RangyManager_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+  'note-editor-manager': _components_NoteEditorManager_NoteEditorManager_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+  Login: () => __webpack_require__.e(/*! import() | client-components/Login */ "client-components/Login").then(__webpack_require__.bind(null, /*! ./components/Login/Login.vue */ "./webpack-app/client/components/Login/Login.vue")),
+  Chat: () => __webpack_require__.e(/*! import() | client-components/Chat */ "client-components/Chat").then(__webpack_require__.bind(null, /*! ./components/Chat/Chat.vue */ "./webpack-app/client/components/Chat/Chat.vue")),
+}
+/* harmony default export */ __webpack_exports__["default"] = (components);
 
 /***/ }),
 

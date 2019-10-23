@@ -24,8 +24,8 @@ import config from './config.js'
 // --------------------
 // Components or routes
 
-import routes from './client/routes'
-import components from './client/components'
+import './client/global-components'
+import components from './client/local-components'
 
 // -----------------------
 // 確認 baseURL
@@ -145,7 +145,6 @@ let VueController = {
   i18n: i18n,
   
   template: template,
-  router: routes,
   components: components,
   errorCaptured(err, vm, info) {
     // https://medium.com/js-dojo/error-exception-handling-in-vue-js-application-6c26eeb6b3e4

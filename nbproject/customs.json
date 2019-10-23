@@ -43,6 +43,9 @@
     "v-model": {},
     "v-bind:error": {},
     "ref": {},
+    "v-slot:actions": {
+      "context": "template"
+    },
     "v-on:click": {
       "context": "button"
     },

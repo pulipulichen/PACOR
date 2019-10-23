@@ -45,198 +45,139 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui form segment" }, [
-    _vm.errorMessage !== ""
-      ? _c("div", { staticClass: "ui field" }, [
-          _c("div", { staticClass: "ui negative message" }, [
-            _vm._v("\r\n      " + _vm._s(_vm.errorMessage) + "\r\n    ")
-          ])
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _c("div", { staticClass: "ui field" }, [
-      _c("label", { attrs: { for: "loginUsername" } }, [
-        _vm._v("\r\n      " + _vm._s(_vm.$t("Username")) + "\r\n    ")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
+  return _c(
+    "div",
+    { staticClass: "login-modal" },
+    [
+      _c("modal", {
+        ref: "LoginModal",
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          progress: _vm.progress,
+          error: _vm.error,
+          lib: _vm.lib,
+          "overlay-opacity": "0"
+        },
+        scopedSlots: _vm._u([
           {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.username,
-            expression: "username"
-          }
-        ],
-        attrs: { type: "text", id: "loginUsername" },
-        domProps: { value: _vm.username },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.username = $event.target.value
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _vm.mode === "register"
-      ? _c("div", { staticClass: "ui field", class: { error: !_vm.isEmail } }, [
-          _c("label", { attrs: { for: "loginEmail" } }, [
-            _vm._v("\r\n      " + _vm._s(_vm.$t("Email")) + "\r\n    ")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.email,
-                expression: "email"
-              }
-            ],
-            attrs: { type: "email", id: "loginEmail" },
-            domProps: { value: _vm.email },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.email = $event.target.value
-              }
-            }
-          })
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _c("div", { staticClass: "ui field" }, [
-      _c("label", { attrs: { for: "loginPassword" } }, [
-        _vm._v("\r\n      " + _vm._s(_vm.$t("Password")) + "\r\n    ")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
+            key: "header",
+            fn: function() {
+              return [
+                _c(
+                  "div",
+                  {
+                    on: {
+                      click: function($event) {
+                        _vm.adminMode = !_vm.adminMode
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(_vm.$t("Login")) +
+                        "\r\n        "
+                    )
+                  ]
+                )
+              ]
+            },
+            proxy: true
+          },
           {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.password,
-            expression: "password"
+            key: "content",
+            fn: function() {
+              return [
+                _c("div", { staticClass: "ui field" }, [
+                  _c("label", { attrs: { for: "loginUsername" } }, [
+                    _vm._v(
+                      "\r\n            " +
+                        _vm._s(_vm.$t("Username")) +
+                        "\r\n          "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.username,
+                        expression: "username"
+                      }
+                    ],
+                    attrs: { type: "text", id: "loginUsername" },
+                    domProps: { value: _vm.username },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.username = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _vm.adminMode
+                  ? _c("div", { staticClass: "ui field" }, [
+                      _c("label", { attrs: { for: "loginPassword" } }, [
+                        _vm._v(
+                          "\r\n            " +
+                            _vm._s(_vm.$t("Password")) +
+                            "\r\n          "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.password,
+                            expression: "password"
+                          }
+                        ],
+                        attrs: { type: "password", id: "loginPassword" },
+                        domProps: { value: _vm.password },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.password = $event.target.value
+                          }
+                        }
+                      })
+                    ])
+                  : _vm._e()
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "actions",
+            fn: function() {
+              return [
+                _c(
+                  "div",
+                  {
+                    staticClass: "ui button",
+                    class: { disabled: _vm.isDisableLogin },
+                    on: { click: _vm.login }
+                  },
+                  [_vm._v(_vm._s(_vm.$t("LOGIN")))]
+                )
+              ]
+            },
+            proxy: true
           }
-        ],
-        attrs: { type: "password", id: "loginPassword" },
-        domProps: { value: _vm.password },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.password = $event.target.value
-          }
-        }
+        ])
       })
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "ui six buttons" }, [
-      _c(
-        "button",
-        {
-          staticClass: "ui button",
-          class: { disabled: _vm.mode === "login" && !_vm.isLoginEnable },
-          attrs: { type: "button" },
-          on: { click: _vm.login }
-        },
-        [_vm._v("\r\n      " + _vm._s(_vm.$t("Login")) + "\r\n    ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "ui button",
-          class: { disabled: _vm.mode === "register" && !_vm.isRegisterEnable },
-          attrs: { type: "button" },
-          on: { click: _vm.register }
-        },
-        [_vm._v("\r\n      " + _vm._s(_vm.$t("Register")) + "\r\n    ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "ui google button",
-          attrs: { type: "button" },
-          on: {
-            click: function($event) {
-              return _vm.loginFromOAuth("google")
-            }
-          }
-        },
-        [
-          _c("i", { staticClass: "google icon" }),
-          _vm._v(
-            "\r\n      " + _vm._s(_vm.$t("Login from Google")) + "\r\n    "
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "ui github button",
-          attrs: { type: "button" },
-          on: {
-            click: function($event) {
-              return _vm.loginFromOAuth("github")
-            }
-          }
-        },
-        [
-          _c("i", { staticClass: "github icon" }),
-          _vm._v(
-            "\r\n      " + _vm._s(_vm.$t("Login from GitHub")) + "\r\n    "
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "ui instagram button",
-          attrs: { type: "button" },
-          on: {
-            click: function($event) {
-              return _vm.loginFromOAuth("instagram")
-            }
-          }
-        },
-        [
-          _c("i", { staticClass: "instagram icon" }),
-          _vm._v(
-            "\r\n      " + _vm._s(_vm.$t("Login from Instagram")) + "\r\n    "
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "ui foursquare button",
-          attrs: { type: "button" },
-          on: {
-            click: function($event) {
-              return _vm.loginFromOAuth("foursquare")
-            }
-          }
-        },
-        [
-          _c("i", { staticClass: "instagram icon" }),
-          _vm._v(
-            "\r\n      " + _vm._s(_vm.$t("Login from Foursquare")) + "\r\n    "
-          )
-        ]
-      )
-    ])
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -299,150 +240,56 @@ let Login = {
     this.$i18n.locale = this.config.locale
     return {
       username: '',
-      email: '',
       password: '',
-      /*
-      username: 'pudding',
-      email: 'pudding@nccu.edu.tw',
-      password: 'test',
-       */
-      mode: 'login',
-      errorMessage: '',
+      adminMode: false
     }
   },
   computed: {
-    isEmail() {
-      if (this.email.trim() === '') {
+    isDisableLogin: function () {
+      if (this.username === '') {
         return true
       }
-      return this.lib.StringHelper.validateEmail(this.email)
-    },
-    isLoginEnable() {
-      return (this.username.trim() !== ''
-              && this.password.trim() !== '')
-    },
-    isRegisterEnable() {
-      return (this.isEmail === true 
-              && this.username.trim() !== ''
-              && this.email.trim() !== ''
-              && this.password.trim() !== '')
+      
+      if (this.adminMode === false) {
+        return false
+      }
+      
+      if (this.password === '') {
+        return false
+      }
+      
+      return true
     }
   },
   watch: {
   },
   mounted() {
+    //console.log(this.$refs.LoginModal)
+    this.$refs.LoginModal.show()
   },
   methods: {
-    register: async function() {
-      if (this.mode !== 'register') {
-        this.mode = 'register'
-        return false
-      }
-      
-      let result = await this.lib.AxiosHelper.get(`/client/user/register`, {
-        username: this.username,
-        email: this.email,
-        password: this.password
-      })
-      
-      let user = result
-      if (typeof(user.error) === 'string') {
-        if (user.error === 'user-is-existed') { 
-          this.errorMessage = this.$t(`User {0} is registed.`, [this.username])
-        }
-        else {
-          this.errorMessage = user.error
-        }
-        return false
-      }
-      else {
-        this.status.username = this.username
-        this.errorMessage = ''
-        //this.$router.replace('chat')
-        this.view = 'Chat'
-        this.reset()
-      }
-    },
     login: async function() {
-      this.mode = 'login'
-      let result = await this.lib.AxiosHelper.get(`/client/user/login`, {
-          username: this.username,
-          password: this.password,
-      })
-      
-      let user = result
-      if (user === undefined) {
-        this.errorMessage = this.$t(`User {0} is not existed.`, [this.username])
-        return
-      }      
-      
-      if (typeof(user.error) === 'string') {
-        if (user.error === 'no-user') { 
-          this.errorMessage = this.$t(`User {0} is not existed.`, [this.username])
-        }
-        else if (user.error === 'password-wrong') { 
-          this.errorMessage = this.$t(`Password is incorrect.`, [this.username])
-        }
-        else {
-          this.errorMessage = user.error
-        }
-        return false
-      }
-      else {
-        this.status.username = this.username
-        this.errorMessage = ''
-        //this.$router.replace('chat')
-        this.view = 'Chat'
-        this.reset()
-      }
-    },
-    loginFromOAuth(driver) {
-      let width = 400
-      if (width > screen.availWidth) {
-        width = screen.availWidth
+      let data = {
+        username: this.username,
       }
       
-      let height = 600
-      if (height > screen.availHeight) {
-        height = screen.availHeight
+      if (this.adminMode) {
+        data.password = this.password
       }
       
-      let dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : window.screenX;
-      let dualScreenTop = window.screenTop !== undefined ? window.screenTop : window.screenY;
-
-      let screenWidth = screen.availWidth
-      let screenHeight = screen.availHeight
-
-      let left = ((screenWidth - width) / 2) + dualScreenLeft
-      let top = ((screenHeight - height) / 2) + dualScreenTop
+      let result = await this.lib.AxiosHelper.get(`/client/Auth/login`, data)
       
-      let win = window.open(`${this.config.baseURL}/client/oauth/request/${driver}`, '_blank', `location=0,menubar=no,copyhistory=no,directories=0,status=0,width=${width},height=${height},top=${top},left=${left}`)
-      this.loginOAuthCallback(driver, win)
-    },
-    loginOAuthCallback: function (driver, win) {
-      let callback = async (event) => {
-        if (event.origin !== this.config.baseURL) {
-          return false
-        }
-        win.close()
-        let data = event.data
-        if (typeof(data) === 'object') {
-          data.driver = driver
-          let result = await this.lib.AxiosHelper.get(`/client/oauth/login`, data)
-          if (result !== false) {
-            this.status.username = result
-          }
-        }
-        window.removeEventListener('message', callback, false)
+      for (let name in result) {
+        this.status[name] = result[name]
       }
-      window.addEventListener('message', callback, false);
+      this.status.username = this.username
+      this.status.needLogin = false
+      
+      this.reset()
     },
     reset: function () {
       this.username = ''
-      this.email = ''
       this.password = ''
-      this.errorMessage = ''
-      this.mode = 'login'
     }
   } // methods
 }

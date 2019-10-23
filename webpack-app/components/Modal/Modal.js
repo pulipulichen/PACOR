@@ -1,6 +1,6 @@
 let Template = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'
-    , 'displayCloseIcon', 'cancalAction', 'reset'],
+    , 'displayCloseIcon', 'cancalAction', 'reset', 'overlay-opacity'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
