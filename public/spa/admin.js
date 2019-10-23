@@ -801,6 +801,9 @@ let baseScript = jquery__WEBPACK_IMPORTED_MODULE_13___default()(document.current
 _config_js__WEBPACK_IMPORTED_MODULE_15__["default"].baseURL = baseURL
 baseScript.before(`<div id="app"></div>`)
 
+// ---------------
+// 錯誤訊息的設置
+
 window.onerror = function(message, source, lineno, colno, error) {
   //console.log(message, source, lineno, colno, error)
   VueController.data.error = error

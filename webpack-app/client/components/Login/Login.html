@@ -6,31 +6,44 @@
          v-bind:progress="progress"
          v-bind:error="error"
          v-bind:lib="lib"
-         overlay-opacity="0">
+         dimmerTransparent="false"
+         cancelable="false">
       <template v-slot:header>
         <div v-on:click="adminMode = !adminMode">
           {{ $t('Login') }}
         </div>
       </template>
       <template v-slot:content>
-        <div class="ui field">
-          <label for="loginUsername">
-            {{ $t('Username') }}
-          </label>
-          <input type="text" 
-                 id="loginUsername"
-                 v-model="username" />
-        </div>
         
-        <div class="ui field"
-             v-if="adminMode">
-          <label for="loginPassword">
-            {{ $t('Password') }}
-          </label>
-          <input type="password" 
-                 id="loginPassword"
-                 v-model="password" />
+        <div class="ui middle aligned grid">
+          <div class="six wide column">
+            <img v-bind:src="config.baseURL + '/imgs/pacor.svg'"
+                 class="ui image" />
+          </div>
+          <div class="ten wide column">
+            <div class="ui field">
+              <label for="loginUsername">
+                {{ $t('Username') }}
+              </label>
+              <input type="text" 
+                     id="loginUsername"
+                     v-model="username" />
+            </div>
+
+            <div class="ui field"
+                 v-if="adminMode">
+              <label for="loginPassword">
+                {{ $t('Password') }}
+              </label>
+              <input type="password" 
+                     id="loginPassword"
+                     v-model="password" />
+            </div>
+          </div>
         </div>
+            
+        
+            
       </template>
       <template v-slot:actions>
         <div class="ui button"

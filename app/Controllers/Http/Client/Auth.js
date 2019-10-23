@@ -11,6 +11,8 @@ const ADMIN_PASSWORD = Env.get('ADMIN_PASSWORD')
 
 const AvatarHelper = use('App/Helpers/AvatarHelper')
 
+const { HttpException } = use('@adonisjs/generic-exceptions') 
+
 const ADMIN_ROLES = [
   'global_admin',
   'domain_admin'
@@ -18,6 +20,8 @@ const ADMIN_ROLES = [
 
 class Auth {
   async login ({ request, auth, webpage }) {
+    throw new HttpException('test')
+    
     const {username, password} = request.all()
     
     let role = 'reader'
@@ -40,7 +44,7 @@ class Auth {
       user = user.toJSON()[0]
       await this._forceLogout(auth)
       await auth.loginViaId(user.id)
-      let data = await _getLoginedUserData(webpage, user)
+      let data = await this._getLoginedUserData(webpage, user)
       return data
     }
     else if (role === 'domain_admin') {
@@ -51,7 +55,7 @@ class Auth {
     let newUser = await this._createUser(username, webpage)
     await this._forceLogout(auth)
     await auth.loginViaId(newUser.id)
-    let data = await _getLoginedUserData(webpage, newUser)
+    let data = await this._getLoginedUserData(webpage, newUser)
     return data
   }
   
@@ -106,7 +110,7 @@ class Auth {
         return 0
       }
       
-      let data = await _getLoginedUserData(webpage, user)
+      let data = await this._getLoginedUserData(webpage, user)
       return data
     }
     catch (error) {

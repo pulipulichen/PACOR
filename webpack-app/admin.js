@@ -42,6 +42,9 @@ let baseScript = $(document.currentScript)
 config.baseURL = baseURL
 baseScript.before(`<div id="app"></div>`)
 
+// ---------------
+// 錯誤訊息的設置
+
 window.onerror = function(message, source, lineno, colno, error) {
   //console.log(message, source, lineno, colno, error)
   VueController.data.error = error

@@ -5,6 +5,8 @@ let i18nGlobal = {
     "Readers": "Reader | Readers"
   },
   "zh-TW": {
+    "LOGIN": "登入",
+    "LOGOUT": "登出",
     "Title": "標題",
     "OK": "確認",
     "UPLOAD": "上傳",

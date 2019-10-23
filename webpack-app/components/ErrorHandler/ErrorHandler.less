@@ -8,13 +8,22 @@
   width: calc(100vw - 6rem);
   bottom: calc(@TopMenuHeight + 1rem);
   max-height: calc(100vh - @TopMenuHeight - 4rem);
-  z-index: 999;
+  //z-index: 999;
+  z-index: 1001;
+  
+  .list {
+    margin-top: 0 !important;
+  }
   
   .close {
     cursor: pointer;
   }
   
-  .item > i.icon {
+  .disabled-icon {
+    padding-top: 2px !important;
+  }
+  
+  .item > i.icon:not(.disabled-icon) {
     padding-top: 5px !important;
     cursor: pointer;
     

@@ -3,6 +3,9 @@ import readingConfig from './../config/reading.js'
 
 export default {
   debug: {
+    ErrorHandler: {
+      verbose: true
+    }
   },
   
   locale: 'zh-TW',

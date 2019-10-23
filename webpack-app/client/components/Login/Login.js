@@ -3,7 +3,7 @@ let Login = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      username: '',
+      username: 'a',
       password: '',
       adminMode: false
     }
@@ -28,7 +28,6 @@ let Login = {
   watch: {
   },
   mounted() {
-    //console.log(this.$refs.LoginModal)
     this.$refs.LoginModal.show()
   },
   methods: {
@@ -43,11 +42,17 @@ let Login = {
       
       let result = await this.lib.AxiosHelper.get(`/client/Auth/login`, data)
       
+      if (typeof(result) !== 'object') {
+        return
+      }
+      
       for (let name in result) {
         this.status[name] = result[name]
       }
       this.status.username = this.username
       this.status.needLogin = false
+      this.$refs.LoginModal.hide()
+      alert('成功登入了，然後呢？')
       
       this.reset()
     },

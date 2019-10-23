@@ -490,6 +490,20 @@ if (baseScript.length === 1) {
   baseScript.before(`<div id="app"></div>`)
 }
 
+// ---------------
+// 錯誤訊息的設置
+
+window.onerror = function(message, source, lineno, colno, error) {
+  //console.log(message, source, lineno, colno, error)
+  VueController.data.error = error
+}
+
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].config.errorHandler  = function(err, vm, info) {
+  //console.log(`Error: ${err.stack}\nInfo: ${info}`);
+  VueController.data.error = err
+  console.error(err)
+}
+
 // -----------------------
 
 let VueController = {
@@ -596,16 +610,7 @@ let VueController = {
   i18n: _plugins_i18n__WEBPACK_IMPORTED_MODULE_3__["default"],
   
   template: _client_client_tpl__WEBPACK_IMPORTED_MODULE_9___default.a,
-  components: _client_local_components__WEBPACK_IMPORTED_MODULE_12__["default"],
-  errorCaptured(err, vm, info) {
-    // https://medium.com/js-dojo/error-exception-handling-in-vue-js-application-6c26eeb6b3e4
-    this.error = err.stack
-    // err: error trace
-    // vm: component in which error occured
-    // info: Vue specific error information such as lifecycle hooks, events etc.
-    // TODO: Perform any custom logic or log to server
-    // return false to stop the propagation of errors further to parent or global error handler
-  },
+  components: _client_local_components__WEBPACK_IMPORTED_MODULE_12__["default"]
 }
 
 if (typeof(baseURL) === 'string') {

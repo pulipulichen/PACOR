@@ -57,7 +57,8 @@ var render = function() {
           progress: _vm.progress,
           error: _vm.error,
           lib: _vm.lib,
-          "overlay-opacity": "0"
+          dimmerTransparent: "false",
+          cancelable: "false"
         },
         scopedSlots: _vm._u([
           {
@@ -89,44 +90,21 @@ var render = function() {
             key: "content",
             fn: function() {
               return [
-                _c("div", { staticClass: "ui field" }, [
-                  _c("label", { attrs: { for: "loginUsername" } }, [
-                    _vm._v(
-                      "\r\n            " +
-                        _vm._s(_vm.$t("Username")) +
-                        "\r\n          "
-                    )
+                _c("div", { staticClass: "ui middle aligned grid" }, [
+                  _c("div", { staticClass: "six wide column" }, [
+                    _c("img", {
+                      staticClass: "ui image",
+                      attrs: { src: _vm.config.baseURL + "/imgs/pacor.svg" }
+                    })
                   ]),
                   _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.username,
-                        expression: "username"
-                      }
-                    ],
-                    attrs: { type: "text", id: "loginUsername" },
-                    domProps: { value: _vm.username },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.username = $event.target.value
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _vm.adminMode
-                  ? _c("div", { staticClass: "ui field" }, [
-                      _c("label", { attrs: { for: "loginPassword" } }, [
+                  _c("div", { staticClass: "ten wide column" }, [
+                    _c("div", { staticClass: "ui field" }, [
+                      _c("label", { attrs: { for: "loginUsername" } }, [
                         _vm._v(
-                          "\r\n            " +
-                            _vm._s(_vm.$t("Password")) +
-                            "\r\n          "
+                          "\r\n                " +
+                            _vm._s(_vm.$t("Username")) +
+                            "\r\n              "
                         )
                       ]),
                       _vm._v(" "),
@@ -135,23 +113,57 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.password,
-                            expression: "password"
+                            value: _vm.username,
+                            expression: "username"
                           }
                         ],
-                        attrs: { type: "password", id: "loginPassword" },
-                        domProps: { value: _vm.password },
+                        attrs: { type: "text", id: "loginUsername" },
+                        domProps: { value: _vm.username },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.password = $event.target.value
+                            _vm.username = $event.target.value
                           }
                         }
                       })
-                    ])
-                  : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _vm.adminMode
+                      ? _c("div", { staticClass: "ui field" }, [
+                          _c("label", { attrs: { for: "loginPassword" } }, [
+                            _vm._v(
+                              "\r\n                " +
+                                _vm._s(_vm.$t("Password")) +
+                                "\r\n              "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.password,
+                                expression: "password"
+                              }
+                            ],
+                            attrs: { type: "password", id: "loginPassword" },
+                            domProps: { value: _vm.password },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.password = $event.target.value
+                              }
+                            }
+                          })
+                        ])
+                      : _vm._e()
+                  ])
+                ])
               ]
             },
             proxy: true
@@ -239,7 +251,7 @@ let Login = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      username: '',
+      username: 'a',
       password: '',
       adminMode: false
     }
@@ -264,7 +276,6 @@ let Login = {
   watch: {
   },
   mounted() {
-    //console.log(this.$refs.LoginModal)
     this.$refs.LoginModal.show()
   },
   methods: {
@@ -279,11 +290,17 @@ let Login = {
       
       let result = await this.lib.AxiosHelper.get(`/client/Auth/login`, data)
       
+      if (typeof(result) !== 'object') {
+        return
+      }
+      
       for (let name in result) {
         this.status[name] = result[name]
       }
       this.status.username = this.username
       this.status.needLogin = false
+      this.$refs.LoginModal.hide()
+      alert('成功登入了，然後呢？')
       
       this.reset()
     },

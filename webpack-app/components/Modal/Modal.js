@@ -1,6 +1,6 @@
 let Template = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'
-    , 'displayCloseIcon', 'cancalAction', 'reset', 'overlay-opacity'],
+    , 'cancelable', 'reset', 'dimmerTransparent'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -33,11 +33,39 @@ let Template = {
     getModal: function () {
       return window.$(this.$refs.modal)
     },
+    _awaitInit: function (callback) {
+      let modal = this.getModal()
+      let loop = () => {
+        if (typeof(modal.modal) !== 'function') {
+          setTimeout(loop, 100)
+        }
+        else {
+          callback(modal)
+        }
+      }
+      loop()
+    },
     show: function () {
-      this.getModal().modal('show')
+      this._awaitInit((modal) => {
+        let options = {}
+        if (this.cancelable === 'false') {
+          options.closable = false
+          options.duration = 0
+        }
+        
+        if (this.dimmerTransparent === 'false') {
+          options.dimmerSettings= {
+            dimmerName: 'opaque'
+          }
+        }
+        
+        modal.modal(options).modal('show')
+      })
     },
     hide: function () {
-      this.getModal().modal('hide')
+      this._awaitInit((modal) => {
+        modal.modal('hide')
+      })
     },
     doReset: function () {
       for (let name in this.resetCache) {

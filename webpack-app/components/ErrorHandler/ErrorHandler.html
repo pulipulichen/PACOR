@@ -10,12 +10,18 @@
     <div class="item error-group"
          v-if="responseErrorMessage">
       <i class="large node js icon"
-         v-on:click="showServerErrorStack = !showServerErrorStack"></i>
+         v-on:click="showServerErrorStack = !showServerErrorStack"
+         v-if="config.debug.ErrorHandler.verbose"></i>
+      
+      <i class="minus circle icon disabled-icon"
+         v-if="config.debug.ErrorHandler.verbose === false"></i>
+      
       <div class="content">
         <a class="header">
           <span v-if="responseErrorMessage">{{ responseErrorMessage }}</span>
         </a>
-        <div class="description">
+        <div class="description"
+             v-if="config.debug.ErrorHandler.verbose">
           <pre v-if="responseErrorStack && !showServerErrorStack"
                v-on:click="showServerErrorStack = !showServerErrorStack"
                class="more">({{ $t('Show stacks...') }})</pre>
@@ -25,7 +31,7 @@
     </div>
     
     <div class="item error-group"
-         v-if="localErrorMessage">
+         v-if="localErrorMessage && config.debug.ErrorHandler.verbose">
       <i class="large vuejs icon"
          v-on:click="showErrorStack = !showErrorStack"></i>
       <div class="content">
@@ -42,7 +48,7 @@
     </div>
     
     <div class="item error-group"
-         v-if="typeof(error) === 'string'">
+         v-if="typeof(error) === 'string' && config.debug.ErrorHandler.verbose">
       <i class="large vuejs icon"
          v-on:click="showErrorStack = !showErrorStack"></i>
       <div class="content">
@@ -61,7 +67,7 @@
     </div>
     
     <div class="item"
-         v-if="error.config && error.config.method">
+         v-if="error.config && error.config.method && config.debug.ErrorHandler.verbose">
       <i class="large redo icon"
          v-on:click="retry"></i>
       <div class="content">
