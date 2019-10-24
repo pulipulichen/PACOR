@@ -1,3 +1,8 @@
+let acted = false
+let checkActed = function () {
+  acted = true
+}
+
 let ActivityTimer = {
   props: ['config', 'lib'],
   data() {
@@ -9,20 +14,20 @@ let ActivityTimer = {
   created() {
     this.lastTime = this.getCurrentTime()
     
+    let document = window.document
+    document.addEventListener('mousemove', checkActed)
+    document.addEventListener('keypress', checkActed)
+    document.addEventListener('touchend', checkActed)
+    
     let seconds = this.config.detectActivitySeconds
     this.timer = setInterval(async () => {
-      await this.lib.AxiosHelper.get('/client/ReadingProgress/activityTimer', {
-        seconds: this.toNow()
-      })
-      this.lastTime = this.getCurrentTime()
+      this.send()
     }, seconds * 1000)
   },
   destroyed: async function () {
     clearInterval(this.timer)
     
-    await this.lib.AxiosHelper.get('/client/ReadingProgress/activityTimer', {
-      seconds: this.toNow()
-    })
+    this.send()
   },
   methods: {
     getCurrentTime: function () {
@@ -30,6 +35,15 @@ let ActivityTimer = {
     },
     toNow: function () {
       return Math.round((this.getCurrentTime() - this.lastTime) / 1000)
+    },
+    send: async function () {
+      if (acted === true) {
+        await this.lib.AxiosHelper.get('/client/ReadingProgress/activityTimer', {
+          seconds: this.toNow()
+        })
+        acted = false
+      }
+      this.lastTime = this.getCurrentTime()
     }
   }
 }
