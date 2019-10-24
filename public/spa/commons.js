@@ -1845,6 +1845,9 @@ dayjs__WEBPACK_IMPORTED_MODULE_0___default.a.extend(dayjs_plugin_relativeTime__W
 __webpack_require__(/*! dayjs/locale/zh-tw */ "./node_modules/dayjs/locale/zh-tw.js").default
 
 let DayJSHelper = {
+  time: function () {
+    return (new Date()).getTime()
+  },
   setLocale: function (dayjsLocale) {
     if (typeof(dayjsLocale) !== 'string') {
       return this

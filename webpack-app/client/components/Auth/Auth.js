@@ -48,8 +48,18 @@ let Auth = {
       }
     },
     checkLogin: async function () {
-      var result = await this.lib.AxiosHelper.get(`/client/user/check-login`)
-      this.status.username = result
+      var result = await this.lib.AxiosHelper.get(`/client/auth/checkLogin`)
+      //console.log(result)
+      if (typeof(result) === 'object') {
+        for (let name in result) {
+          this.status[name] = result[name]
+        }
+        this.status.needLogin = false
+      }
+      else {
+        this.status.view = 'Login'
+      }
+      //this.status.username = result
     },
     getCurrentStep: function () {
       if (Array.isArray(this.status.readingProgresses)
@@ -61,6 +71,7 @@ let Auth = {
           }
 
           if (typeof (s.start_timestamp) !== 'number') {
+            s.start_timestamp = this.lib.DayJSHelper.time()
             return s.step_name
           }
           if (typeof (s.start_timestamp) === 'number'
@@ -74,21 +85,15 @@ let Auth = {
     },
     nextStep: function () {
       //throw 'nextStep'
-      let time = (new Date()).getTime()
+      let time = this.lib.DayJSHelper.time()
       for (let i = 0; i < this.status.readingProgresses.length; i++) {
         let s = this.status.readingProgresses[i]
         if (s.isCompleted === true) {
           continue
         }
 
-        if (typeof(s.start_timestamp) !== 'number') {
-          s.start_timestamp = time
-          s.end_timestamp = time
-          break
-        }
         if (typeof(s.start_timestamp) === 'number' 
                 && typeof(s.end_timestamp) !== 'number') {
-          s.start_timestamp = time
           s.end_timestamp = time
           break;
         }

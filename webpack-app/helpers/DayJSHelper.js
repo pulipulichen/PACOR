@@ -7,6 +7,9 @@ dayjs.extend(relativeTime)
 require(`dayjs/locale/zh-tw`).default
 
 let DayJSHelper = {
+  time: function () {
+    return (new Date()).getTime()
+  },
   setLocale: function (dayjsLocale) {
     if (typeof(dayjsLocale) !== 'string') {
       return this

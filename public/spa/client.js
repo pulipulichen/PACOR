@@ -694,7 +694,7 @@ window.VueController = VueController
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        ref=\"auth\"></auth>\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:error=\"error\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n  \r\n  <!--\r\n  <rangy-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></rangy-manager>\r\n  \r\n  <note-editor-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></note-editor-manager>\r\n  -->\r\n  <template v-if=\"status.needLogin === true\">\r\n    <Login v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"></Login>\r\n  </template>\r\n  <template v-else>\r\n    <component v-bind:is=\"status.view\"\r\n        v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"></component>\r\n  </template>\r\n</div>";
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        ref=\"auth\"></auth>\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:error=\"error\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n  \r\n  <!--\r\n  <rangy-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></rangy-manager>\r\n  \r\n  <note-editor-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></note-editor-manager>\r\n  -->\r\n  \r\n  <component v-bind:is=\"status.view\"\r\n      v-bind:config=\"config\"\r\n      v-bind:status=\"status\"\r\n      v-bind:progress=\"progress\"\r\n      v-bind:lib=\"lib\"\r\n      v-bind:error=\"error\"></component>\r\n</div>";
 
 /***/ }),
 
@@ -789,8 +789,18 @@ let Auth = {
       }
     },
     checkLogin: async function () {
-      var result = await this.lib.AxiosHelper.get(`/client/user/check-login`)
-      this.status.username = result
+      var result = await this.lib.AxiosHelper.get(`/client/auth/checkLogin`)
+      //console.log(result)
+      if (typeof(result) === 'object') {
+        for (let name in result) {
+          this.status[name] = result[name]
+        }
+        this.status.needLogin = false
+      }
+      else {
+        this.status.view = 'Login'
+      }
+      //this.status.username = result
     },
     getCurrentStep: function () {
       if (Array.isArray(this.status.readingProgresses)
@@ -802,6 +812,7 @@ let Auth = {
           }
 
           if (typeof (s.start_timestamp) !== 'number') {
+            s.start_timestamp = this.lib.DayJSHelper.time()
             return s.step_name
           }
           if (typeof (s.start_timestamp) === 'number'
@@ -815,21 +826,15 @@ let Auth = {
     },
     nextStep: function () {
       //throw 'nextStep'
-      let time = (new Date()).getTime()
+      let time = this.lib.DayJSHelper.time()
       for (let i = 0; i < this.status.readingProgresses.length; i++) {
         let s = this.status.readingProgresses[i]
         if (s.isCompleted === true) {
           continue
         }
 
-        if (typeof(s.start_timestamp) !== 'number') {
-          s.start_timestamp = time
-          s.end_timestamp = time
-          break
-        }
         if (typeof(s.start_timestamp) === 'number' 
                 && typeof(s.end_timestamp) !== 'number') {
-          s.start_timestamp = time
           s.end_timestamp = time
           break;
         }
