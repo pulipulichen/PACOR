@@ -7,6 +7,7 @@ class ReadingProgress {
   async start({webpage, user}) {
     //throw new HttpException('#TODO start')
     let step = await user.startReadingProgress(webpage)
+    //console.log(step.step_name)
     return step.step_name
   }
   
@@ -19,7 +20,6 @@ class ReadingProgress {
   async end({webpage, user}) {
     //throw new HttpException('#TODO start')
     await user.endReadingProgress(webpage)
-    
     let step = await user.startReadingProgress(webpage)
     return step.step_name
   }

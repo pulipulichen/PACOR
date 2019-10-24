@@ -112,7 +112,8 @@ class User extends Model {
   }
   
   async getCurrentReadingProgressStepName (webpage) {
-    let status = await this.getReadingProgressStatus
+    let status = await this.getReadingProgressStatus(webpage)
+    //console.log(status)
     if (status.length === 0) {
       return null
     }
@@ -124,15 +125,24 @@ class User extends Model {
         continue
       }
       
-      if (i === 0 && typeof(step.start_timestamp) !== 'number') {
+      if (typeof(step.start_timestamp) === 'number'
+              && typeof(step.end_timestamp) !== 'number') {
+        //console.log('step.step_name', step.step_name)
         return step.step_name
       }
       
+      if (typeof(step.start_timestamp) !== 'number') {
+        //console.log('step.step_name', step.step_name)
+        return step.step_name
+      }
+      /*
       if (typeof(step.start_timestamp) === 'number'
               && typeof(step.end_timestamp) !== 'number') {
         return step.step_name
       }
+      */
     }
+    //console.log('null')
     return null
   }
   
@@ -173,11 +183,11 @@ class User extends Model {
   
   async startReadingProgress (webpage, stepName) {
     let time = (new Date()).getTime()
-    
-    
+    //console.log('startReadingProgress', time)
     if (typeof(stepName) !== 'string') {
       stepName = await this.getCurrentReadingProgressStepName(webpage)
     }
+    //console.log('startReadingProgress', stepName)
     
     let step = await ReadingProgress.findOrCreate({
       'user_id': this.primaryKeyValue,
@@ -189,21 +199,12 @@ class User extends Model {
       'step_name': stepName,
       'start_timestamp': time
     })
-    /*
-    let affectedRows = await ReadingProgress
-            .query()
-            .where('user_id', this.primaryKeyValue)
-            .where('webpage_id', webpage.primaryKeyValue)
-            .where('step_name', stepName)
-            .update({'start_timestamp': time})
     
-    console.log('startReadingProgress', affectedRows)
-    */
     if (step.start_timestamp === time) {
       // 表示這是新增的資料
-      Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
+      await Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
     }
-    console.log('startReadingProgress', step.start_timestamp)
+    //console.log('startReadingProgress AAA', step.start_timestamp)
     return step
   }
   
@@ -215,17 +216,25 @@ class User extends Model {
       step = await this.readingProgresses(webpage, stepName).fetch()
     }
     else {
-      step = await this.startReadingProgress(webpage).fetch()
+      //console.log('AAAA')
+      step = await this.startReadingProgress(webpage)
     }
+    
+    //console.log(step.toJSON())
     
     if (typeof(step.end_timestamp) !== 'number') {
       if (typeof(step.start_timestamp) !== 'number') {
         step.start_timestamp = time
       }
       step.end_timestamp = time
+      //console.log('step.end_timestamp AAA', time)
       await step.save()
+      //console.log('step.end_timestamp BBB', time)
       Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
+      //console.log('step.end_timestamp CCC', time)
     }
+    
+    return step
   }
   
   async addActivitySeconds (webpage, seconds) {
