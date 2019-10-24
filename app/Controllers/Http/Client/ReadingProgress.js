@@ -21,7 +21,7 @@ class ReadingProgress {
   async end({webpage, user}) {
     //throw new HttpException('#TODO start')
     await user.endReadingProgress(webpage)
-    /*
+    
     let step = await user.startReadingProgress(webpage)
     if (step === null) {
       return 0
@@ -29,10 +29,6 @@ class ReadingProgress {
     else {
       return 1
     }
-    return step.step_name
-     * 
-     */
-    return 1
   }
   
   async activityTimer({request, webpage, user}) {

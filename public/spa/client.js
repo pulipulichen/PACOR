@@ -748,7 +748,7 @@ let Auth = {
     'status.needLogin': function () {
       if (this.status.needLogin === false) {
         let view = this.getCurrentStep()
-        console.log(view)
+        //console.log(view)
         //console.log(view)
         this.status.view = view
       }

@@ -39,7 +39,7 @@ class Webpage {
     
     
     webpages = webpages.toJSON().map(webpage => {
-      webpage.path = webpage.url.split('/').slice(3).join('/')
+      webpage.path = '/' + webpage.url.split('/').slice(3).join('/')
       
       let groups = []
       let usersCount = 0
