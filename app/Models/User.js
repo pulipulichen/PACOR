@@ -111,14 +111,36 @@ class User extends Model {
     return relation
   }
   
-  async getReadingProgressStatus (webpage, config) {
+  async getCurrentReadingProgressStepName (webpage) {
+    let status = await this.getReadingProgressStatus
+    if (status.length === 0) {
+      return null
+    }
+    
+    //let stepName = status[0].step_name
+    for (let i = 0; i < status.length; i++) {
+      let step = status[i]
+      if (step.isCompleted === true) {
+        continue
+      }
+      
+      if (i === 0 && typeof(step.start_timestamp) !== 'number') {
+        return step.step_name
+      }
+      
+      if (typeof(step.start_timestamp) === 'number'
+              && typeof(step.end_timestamp) !== 'number') {
+        return step.step_name
+      }
+    }
+    return null
+  }
+  
+  async getReadingProgressStatus (webpage) {
     let cacheKey = Cache.key('User', 'getReadingProgressStatus', webpage, this)
     return await Cache.get(cacheKey, async () => {
       let readingProgresses
-      if (Array.isArray(config)) {
-        readingProgresses = config
-      }
-      else if (Array.isArray(webpage) === false
+      if (Array.isArray(webpage) === false
               && typeof(webpage.primaryKeyValue) === 'number') {
         readingProgresses = await webpage.getReadingProgresses()
       }
@@ -152,6 +174,11 @@ class User extends Model {
   async startReadingProgress (webpage, stepName) {
     let time = (new Date()).getTime()
     
+    
+    if (typeof(stepName) !== 'string') {
+      stepName = await this.getCurrentReadingProgressStepName(webpage)
+    }
+    
     let step = await ReadingProgress.findOrCreate({
       'user_id': this.primaryKeyValue,
       'webpage_id': webpage.primaryKeyValue,
@@ -176,17 +203,41 @@ class User extends Model {
       // 表示這是新增的資料
       Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
     }
+    
+    return step
   }
   
   async endReadingProgress (webpage, stepName) {
-    let step = await this.readingProgresses(webpage, stepName).fetch()
+    let time = (new Date()).getTime()
+    
+    let step
+    if (typeof(stepName) === 'string') {
+      step = await this.readingProgresses(webpage, stepName).fetch()
+    }
+    else {
+      step = await this.startReadingProgress(webpage).fetch()
+    }
     
     if (typeof(step.end_timestamp) !== 'number') {
-      let time = (new Date()).getTime()
+      if (typeof(step.start_timestamp) !== 'number') {
+        step.start_timestamp = time
+      }
       step.end_timestamp = time
       await step.save()
       Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
     }
+  }
+  
+  async addActivitySeconds (webpage, seconds) {
+    if (typeof(seconds) !== 'number') {
+      return false
+    }
+    
+    let step = await this.startReadingProgress(webpage)
+    
+    step.activity_seconds = step.activity_seconds + seconds
+    await step.save()
+    return step
   }
   
   static get hidden () {

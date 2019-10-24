@@ -24,6 +24,12 @@
         "v-bind:config": {},
         "v-bind:progress": {}
       }
+    },
+    "i18n": {
+      "attributes": {
+        "src": {},
+        "lang": {}
+      }
     }
   },
   "attributes": {
