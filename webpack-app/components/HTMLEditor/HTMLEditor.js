@@ -1,9 +1,11 @@
 import './summernote/summernote-lite.webpack.js'
 
-let NoteEditorManager = {
+let HTMLEditor = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {
-    this.$i18n.locale = this.config.locale
+    if (typeof(this.config) === 'object') {
+      this.$i18n.locale = this.config.locale
+    }
     return {
       serializedHighlights: null
     }
@@ -25,4 +27,4 @@ let NoteEditorManager = {
   } // methods
 }
 
-export default NoteEditorManager
+export default HTMLEditor

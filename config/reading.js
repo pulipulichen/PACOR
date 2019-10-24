@@ -3,6 +3,7 @@ module.exports = {
   readingProgressesFinish: 'Exit',  // 'FreeReading'
   readingProgressModules: {
     'PreImaginary': {
+      message: '請開始想像吧！',
       minCharacters: 10,
       limitMinutes: 1
     },
@@ -24,6 +25,7 @@ module.exports = {
       annnotationTypes: ['confused', 'mainIdea'],
     },
     'PostRecall': {
+      message: '請開始回憶吧！',
       minCharacters: 10,
       limitMinutes: 1
     }
