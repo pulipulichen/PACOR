@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"PreImaginary.less?vue&type=style&index=0&id=09414983&lang=less&scoped=true&"}]);
+exports.push([module.i, ".hint[data-v-09414983] {\n  max-height: 7rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-09414983] {\n  height: calc(100vh - 25em) !important;\n}\n", "",{"version":3,"sources":["PreImaginary.less?vue&type=style&index=0&id=09414983&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,qCAAqC;AACvC","file":"PreImaginary.less?vue&type=style&index=0&id=09414983&lang=less&scoped=true&","sourcesContent":[".hint[data-v-09414983] {\n  max-height: 7rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-09414983] {\n  height: calc(100vh - 25em) !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -77,13 +77,10 @@ var render = function() {
             key: "content",
             fn: function() {
               return [
-                _c("div", { staticClass: "field" }, [
-                  _vm._v(
-                    "\r\n          " +
-                      _vm._s(_vm.$t(_vm.message)) +
-                      "\r\n        "
-                  )
-                ]),
+                _c("div", {
+                  staticClass: "field hint ui segment",
+                  domProps: { innerHTML: _vm._s(_vm.message) }
+                }),
                 _vm._v(" "),
                 _c("div", { staticClass: "field" }, [
                   _c("textarea", {
@@ -95,6 +92,7 @@ var render = function() {
                         expression: "log.answer"
                       }
                     ],
+                    staticClass: "answer",
                     attrs: { disabled: _vm.isTimeup },
                     domProps: { value: _vm.log.answer },
                     on: {
@@ -337,6 +335,7 @@ let PreImaginary = {
       }
     },
     startCountdown: function () {
+      return
       setTimeout(() => {
         if (this.remainingSeconds > 0) {
           this.remainingSeconds--

@@ -11,13 +11,12 @@
         {{ $t('Pre Imaginary') }}
       </template>
       <template v-slot:content inline-template>
-        <div class="field">
-          {{ $t(message) }}
-        </div>
+        <div class="field hint ui segment" v-html="message"></div>
         <div class="field">
             <textarea v-model="log.answer"
                       v-on:input="persist"
-                      v-bind:disabled="isTimeup"></textarea>
+                      v-bind:disabled="isTimeup"
+                      class="answer"></textarea>
             <div class="ui pointing basic label"
                  v-bind:class="classWordCounter"
                  v-if="!isTimeup">

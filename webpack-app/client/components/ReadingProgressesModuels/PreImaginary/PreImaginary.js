@@ -114,6 +114,7 @@ let PreImaginary = {
       }
     },
     startCountdown: function () {
+      return
       setTimeout(() => {
         if (this.remainingSeconds > 0) {
           this.remainingSeconds--
