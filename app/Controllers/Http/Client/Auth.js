@@ -110,16 +110,15 @@ class Auth {
     
     try {
       let user = await auth.getUser()
-      
       if (webpage.domain_id !== user.domain_id) {
         await this._forceLogout(auth)
         return 0
       }
-      
       let data = await this._getLoginedUserData(webpage, user)
       return data
     }
     catch (error) {
+      //throw new HttpException(error)
       return 0
     }
   }

@@ -42,7 +42,7 @@
         </div>
       </template>
       <template v-slot:actions>
-        <span v-html="$t('agreement-link', [agreementLink])"></span>
+        <span class="message" v-html="$t('agreement-link', [agreementLink])"></span>
         <div class="ui button"
              v-bind:class="{disabled: isDisableLogin}"
              v-on:click="login">{{ $t('LOGIN') }}</div>

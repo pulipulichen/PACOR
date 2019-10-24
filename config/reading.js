@@ -1,6 +1,6 @@
 module.exports = {
   readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
-  readingProgressesFinish: 'http://blog.pulipuli.info',  // 'Exit', 'FreeReading', 'http://blog.pulipuli.info'
+  readingProgressesFinish: 'Exit',  // 'Exit', 'FreeReading', 'http://blog.pulipuli.info'
   readingProgressModules: {
     'PreImaginary': {
       message: '請開始想像吧！',

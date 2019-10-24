@@ -115,7 +115,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".dimmable > .ui.dimmer.opaque {\n  background-color: black !important;\n}\n", "",{"version":3,"sources":["Modal.global.less?vue&type=style&index=0&lang=less&"],"names":[],"mappings":"AAAA;EACE,kCAAkC;AACpC","file":"Modal.global.less?vue&type=style&index=0&lang=less&","sourcesContent":[".dimmable > .ui.dimmer.opaque {\n  background-color: black !important;\n}\n"]}]);
+exports.push([module.i, ".non-invasive-web-style-framework.dimmable > .ui.dimmer.opaque {\n  background-color: black !important;\n}\n.non-invasive-web-style-framework .ui.modal .actions > .message {\n  position: relative;\n  top: -1.8rem;\n}\n", "",{"version":3,"sources":["Modal.global.less?vue&type=style&index=0&lang=less&"],"names":[],"mappings":"AAAA;EACE,kCAAkC;AACpC;AACA;EACE,kBAAkB;EAClB,YAAY;AACd","file":"Modal.global.less?vue&type=style&index=0&lang=less&","sourcesContent":[".non-invasive-web-style-framework.dimmable > .ui.dimmer.opaque {\n  background-color: black !important;\n}\n.non-invasive-web-style-framework .ui.modal .actions > .message {\n  position: relative;\n  top: -1.8rem;\n}\n"]}]);
 
 
 /***/ }),

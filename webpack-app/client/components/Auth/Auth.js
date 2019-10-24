@@ -7,6 +7,9 @@ let Auth = {
     'status.needLogin': async function () {
       if (this.status.needLogin === false) {
         let view = await this.getCurrentStep()
+        if (this.lib.ValidateHelper.isURL(view)) {
+          return await this._redirect(view)
+        }
         //console.log(view)
         //console.log(view)
         this.status.view = view
@@ -88,7 +91,8 @@ let Auth = {
       return 'not-yet-started'
     },
     _redirect: async function (url) {
-      await this.lib.AxiosHelper.get('/client/auth/logout')
+      //await this.lib.AxiosHelper.get('/client/auth/logout')
+      //return
       location.href = url
     },
     showLogin: function () {
