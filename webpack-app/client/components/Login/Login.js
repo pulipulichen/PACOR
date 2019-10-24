@@ -23,6 +23,9 @@ let Login = {
       }
       
       return true
+    },
+    agreementLink: function () {
+      return this.config.baseURL + '/client/webpage/agreement'
     }
   },
   watch: {
