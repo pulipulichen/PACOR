@@ -33,6 +33,7 @@ class Webpage extends Model {
     
     this.addHook('beforeSave', async (instance) => {
       Cache.forget(Cache.key('Webpage', 'getReadingProgresses', instance))
+      Cache.forget(Cache.key('Models.Webpage.getAgreement', this))
     })
   }
   
@@ -270,11 +271,11 @@ class Webpage extends Model {
         }
         else {
           const filepath = Helpers.publicPath('agreement.html')
-          output = fs.readFileSync(filepath)
+          output = fs.readFileSync(filepath, 'utf8').toString()
         }
       }
-      
-      Cache.forever(cacheKey, output)
+      //console.log(output)
+      //Cache.forever(cacheKey, output)
       return output
     })
   }
