@@ -17,17 +17,14 @@ class Auth {
     if (typeof(password) === 'string' && password !== '') {
       role = 'domain_admin'
     }
-    
     let query = User
             .query()
             .where('domain_id', webpage.domain_id)
             .where('username', username)
             .where('role', role)
-    
     if (role === 'domain_admin') {
       query.where('password', password)
     }
-    
     let user = await query.pick(1)
     if (user.size() > 0) {
       //user = user.toJSON()[0]
@@ -40,7 +37,6 @@ class Auth {
     else if (role === 'domain_admin') {
       throw new HttpException('Login fail')
     }
-    
     // 不然就建立新的使用者
     let newUser = await this._createUser(username, webpage)
     await this._forceLogout(auth)
@@ -54,8 +50,11 @@ class Auth {
     
     user.username = username
     user.domain_id = webpage.domain_id
+    user.role = 'reader'
     
     await user.save()
+    
+    //console.log('_createUser', user.toJSON().avatar_url)
     return user
   }
   
@@ -90,13 +89,16 @@ class Auth {
     let config = await webpage.getConfig()
     await user.startReadingProgress(webpage)
     let readingProgresses = await user.getReadingProgressStatus(webpage)
+    let userJSON = user.toJSON()
     let data = {
       username: user.username,
       displayName: user.display_name,
-      avatar: user.avatarURL,
+      avatar: userJSON.avatar_url,
+      role: user.role,
       readingProgresses: readingProgresses,
       readingProgressesFinish: config.readingProgressesFinish
     }
+    //console.log(data)
     await ReadingActivityLog.log(webpage, user, 'Auth.login', data)
     return data
   }

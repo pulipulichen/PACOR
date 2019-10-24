@@ -113,11 +113,9 @@ class User extends Model {
   
   async getCurrentReadingProgressStepName (webpage) {
     let status = await this.getReadingProgressStatus(webpage)
-    //console.log(status)
     if (status.length === 0) {
       return null
     }
-    
     //let stepName = status[0].step_name
     for (let i = 0; i < status.length; i++) {
       let step = status[i]
@@ -154,7 +152,6 @@ class User extends Model {
               && typeof(webpage.primaryKeyValue) === 'number') {
         readingProgresses = await webpage.getReadingProgresses()
       }
-
       let status = await this.readingProgresses(webpage).fetch()
       status = status.toJSON()
       //console.log(status)
@@ -175,7 +172,6 @@ class User extends Model {
 
         return output
       })
-      
       Cache.forever(cacheKey, readingProgresses)
       return readingProgresses
     })
@@ -183,16 +179,13 @@ class User extends Model {
   
   async startReadingProgress (webpage, stepName) {
     let time = (new Date()).getTime()
-    //console.log('startReadingProgress', time)
     if (typeof(stepName) !== 'string') {
       stepName = await this.getCurrentReadingProgressStepName(webpage)
     }
-    
     if (stepName === null) {
       return null
     }
     //console.log('startReadingProgress', stepName)
-    
     let step = await ReadingProgress.findOrCreate({
       'user_id': this.primaryKeyValue,
       'webpage_id': webpage.primaryKeyValue,
@@ -203,7 +196,6 @@ class User extends Model {
       'step_name': stepName,
       'start_timestamp': time
     })
-    
     if (step.start_timestamp === time) {
       // 表示這是新增的資料
       await Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))

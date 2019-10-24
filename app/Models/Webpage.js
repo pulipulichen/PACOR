@@ -240,12 +240,14 @@ class Webpage extends Model {
       let output
       
       if (this.config !== null
+              && (typeof(this.config) === 'object')
               && Array.isArray(this.config.readingProgresses)) {
         output = this.config.readingProgresses
       }
       else {
         let domain = this.domain().fetch()
         if (domain.config !== undefined
+                && (typeof(domain.config) === 'object')
                 && Array.isArray(domain.config.readingProgresses)) {
           output = domain.config.readingProgresses
         }

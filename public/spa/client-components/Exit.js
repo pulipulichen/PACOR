@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "div[data-v-c5a868fa] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 255, 0, 0.5);\n}\n", "",{"version":3,"sources":["Exit.less?vue&type=style&index=0&id=c5a868fa&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,sCAAsC;AACxC","file":"Exit.less?vue&type=style&index=0&id=c5a868fa&lang=less&scoped=true&","sourcesContent":["div[data-v-c5a868fa] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 255, 0, 0.5);\n}\n"]}]);
+exports.push([module.i, "img[data-v-c5a868fa] {\n  width: 100px;\n}\n", "",{"version":3,"sources":["Exit.less?vue&type=style&index=0&id=c5a868fa&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;AACd","file":"Exit.less?vue&type=style&index=0&id=c5a868fa&lang=less&scoped=true&","sourcesContent":["img[data-v-c5a868fa] {\n  width: 100px;\n}\n"]}]);
 
 
 /***/ }),
@@ -45,7 +45,86 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\r\n  Exit\r\n")])
+  return _c(
+    "div",
+    [
+      _c("modal", {
+        ref: "ExitModal",
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          progress: _vm.progress,
+          error: _vm.error,
+          lib: _vm.lib,
+          dimmerTransparent: "false",
+          cancelable: "false"
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "header",
+            fn: function() {
+              return [
+                _vm._v(
+                  "\r\n        " +
+                    _vm._s(_vm.$t("Thank you for your reading")) +
+                    "\r\n      "
+                )
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "content",
+            fn: function() {
+              return [
+                _c("div", { staticClass: "ui middle aligned grid" }, [
+                  _c("div", { staticClass: "four wide column" }, [
+                    _c("img", {
+                      staticClass: "ui image",
+                      attrs: { src: _vm.status.avatar }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "twelve wide column" }, [
+                    _c("h1", { staticClass: "ui header" }, [
+                      _vm._v(
+                        "\r\n              " +
+                          _vm._s(
+                            _vm.$t("Congratulation! You finished reading.")
+                          ) +
+                          "\r\n            "
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "actions",
+            fn: function() {
+              return [
+                _c(
+                  "div",
+                  { staticClass: "ui button", on: { click: _vm.logout } },
+                  [_vm._v(_vm._s(_vm.$t("LOGOUT")))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "ui button", on: { click: _vm.exit } },
+                  [_vm._v(_vm._s(_vm.$t("EXIT")))]
+                )
+              ]
+            },
+            proxy: true
+          }
+        ])
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -116,8 +195,17 @@ let Template = {
   watch: {
   },
   mounted() {
+    this.$refs.ExitModal.show()
   },
   methods: {
+    logout: async function () {
+      await this.lib.AxiosHelper.get('/client/auth/logout')
+      this.status.needLogin = true
+    },
+    exit: async function () {
+      await this.logout()
+      window.close()
+    }
   } // methods
 }
 

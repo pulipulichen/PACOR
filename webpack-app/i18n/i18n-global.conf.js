@@ -10,6 +10,7 @@ let i18nGlobal = {
   "zh-TW": {
     "LOGIN": "登入",
     "LOGOUT": "登出",
+    "EXIT": "離開",
     "Title": "標題",
     "OK": "確認",
     "UPLOAD": "上傳",

@@ -313,8 +313,6 @@ var render = function() {
     "div",
     { staticClass: "login-modal" },
     [
-      _c("HTMLEditor"),
-      _vm._v(" "),
       _c("modal", {
         ref: "LoginModal",
         attrs: {
