@@ -152,7 +152,8 @@ var render = function() {
           lib: _vm.lib,
           error: _vm.error
         }
-      })
+      }),
+      _vm._v("\r\n  \r\n  [#TODO 這邊還要取得未分派群組的人]\r\n")
     ],
     1
   )
