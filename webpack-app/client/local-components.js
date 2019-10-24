@@ -17,5 +17,7 @@ let components = {
   'IndividualReading': () => import(/* webpackChunkName: "client-components/IndividualReading" */ './components/ReadingProgressesModuels/IndividualReading/IndividualReading.vue'),
   'PostRecall': () => import(/* webpackChunkName: "client-components/PostRecall" */ './components/ReadingProgressesModuels/PostRecall/PostRecall.vue'),
   'PreImaginary': () => import(/* webpackChunkName: "client-components/PreImaginary" */ './components/ReadingProgressesModuels/PreImaginary/PreImaginary.vue'),
+  'Exit': () => import(/* webpackChunkName: "client-components/Exit" */ './components/ReadingProgressesModuels/Exit/Exit.vue'),
+  'FreeReading': () => import(/* webpackChunkName: "client-components/FreeReading" */ './components/ReadingProgressesModuels/FreeReading/FreeReading.vue'),
 }
 export default components

@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"client-components/CollaborativeReading":"client-components/CollaborativeReading","client-components/IndividualReading":"client-components/IndividualReading","client-components/PostRecall":"client-components/PostRecall","client-components/PreImaginary":"client-components/PreImaginary","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"client-components/CollaborativeReading":"client-components/CollaborativeReading","client-components/Exit":"client-components/Exit","client-components/FreeReading":"client-components/FreeReading","client-components/IndividualReading":"client-components/IndividualReading","client-components/PostRecall":"client-components/PostRecall","client-components/PreImaginary":"client-components/PreImaginary","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -624,7 +624,8 @@ let VueController = {
       avatar: '',
       role: 'reader',
       readingProgresses: [],
-      title: ''
+      title: '',
+      view: 'Loading'
     },
     progress: {
       component: false,
@@ -638,49 +639,16 @@ let VueController = {
       ValidateHelper: _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_7__["default"],
       auth: null
     },
-    view: 'Loading',
     error: '',
     persistAttrs: [
     ]
   },
   computed: {
-    'currentStep': function () {
-      if (Array.isArray(this.status.readingProgresses)
-              && this.status.readingProgresses.length > 0) {
-        for (let i = 0; i < this.status.readingProgresses.length; i++) {
-          let s = this.status.readingProgresses[i]
-          if (s.isCompleted === true) {
-            continue
-          }
-          
-          if (typeof(s.start_timestamp) !== 'number') {
-            return s.step_name
-          }
-          if (typeof(s.start_timestamp) === 'number' 
-                  && typeof(s.end_timestamp) !== 'number') {
-            return s.step_name
-          }
-        }
-        return 'finish'
-      }
-      return 'not-yet-started'
-    }
   },
   watch: {
     'config.locale': function () {
       this.lib.DayJSHelper.setLocale(this.config.locale)
     },
-    'status.needLogin': function () {
-      if (this.status.needLogin === false) {
-        let view = this.currentStep
-        //console.log(this.currentStep)
-        if (view === 'finish') {
-          view = this.status.readingProgressesFinish
-        }
-        //console.log(view)
-        this.view = view
-      }
-    }
   },
   created: function () {
   },
@@ -690,7 +658,7 @@ let VueController = {
     })
     
     this.lib.auth = this.$refs.auth
-    console.log(this.lib.auth.nextStep)
+    //console.log(this.lib.auth.nextStep)
   },
   
   methods: {
@@ -726,7 +694,7 @@ window.VueController = VueController
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        ref=\"auth\"></auth>\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:error=\"error\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n  \r\n  <!--\r\n  <rangy-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></rangy-manager>\r\n  \r\n  <note-editor-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></note-editor-manager>\r\n  -->\r\n  <template v-if=\"status.needLogin === true\">\r\n    <Login v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"></Login>\r\n  </template>\r\n  <template v-else>\r\n    <component v-bind:is=\"view\"\r\n        v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></component>\r\n  </template>\r\n</div>";
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        ref=\"auth\"></auth>\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:error=\"error\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n  \r\n  <!--\r\n  <rangy-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></rangy-manager>\r\n  \r\n  <note-editor-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></note-editor-manager>\r\n  -->\r\n  <template v-if=\"status.needLogin === true\">\r\n    <Login v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"></Login>\r\n  </template>\r\n  <template v-else>\r\n    <component v-bind:is=\"status.view\"\r\n        v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"></component>\r\n  </template>\r\n</div>";
 
 /***/ }),
 
@@ -776,6 +744,16 @@ let Auth = {
   data() {
     return {}
   },
+  watch: {
+    'status.needLogin': function () {
+      if (this.status.needLogin === false) {
+        let view = this.getCurrentStep()
+        console.log(view)
+        //console.log(view)
+        this.status.view = view
+      }
+    }
+  },
   mounted: async function () {
     if (typeof(this.config.username) !== 'string' 
             && typeof(this.config.usernameQueryURL) === 'string') {
@@ -814,8 +792,49 @@ let Auth = {
       var result = await this.lib.AxiosHelper.get(`/client/user/check-login`)
       this.status.username = result
     },
+    getCurrentStep: function () {
+      if (Array.isArray(this.status.readingProgresses)
+              && this.status.readingProgresses.length > 0) {
+        for (let i = 0; i < this.status.readingProgresses.length; i++) {
+          let s = this.status.readingProgresses[i]
+          if (s.isCompleted === true) {
+            continue
+          }
+
+          if (typeof (s.start_timestamp) !== 'number') {
+            return s.step_name
+          }
+          if (typeof (s.start_timestamp) === 'number'
+                  && typeof (s.end_timestamp) !== 'number') {
+            return s.step_name
+          }
+        }
+        return this.status.readingProgressesFinish
+      }
+      return 'not-yet-started'
+    },
     nextStep: function () {
-      throw 'nextStep'
+      //throw 'nextStep'
+      let time = (new Date()).getTime()
+      for (let i = 0; i < this.status.readingProgresses.length; i++) {
+        let s = this.status.readingProgresses[i]
+        if (s.isCompleted === true) {
+          continue
+        }
+
+        if (typeof(s.start_timestamp) !== 'number') {
+          s.start_timestamp = time
+          s.end_timestamp = time
+          break
+        }
+        if (typeof(s.start_timestamp) === 'number' 
+                && typeof(s.end_timestamp) !== 'number') {
+          s.start_timestamp = time
+          s.end_timestamp = time
+          break;
+        }
+      }
+      this.status.view = this.getCurrentStep()
     }
   } // methods
 }
@@ -1114,6 +1133,8 @@ let components = {
   'IndividualReading': () => __webpack_require__.e(/*! import() | client-components/IndividualReading */ "client-components/IndividualReading").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/IndividualReading/IndividualReading.vue */ "./webpack-app/client/components/ReadingProgressesModuels/IndividualReading/IndividualReading.vue")),
   'PostRecall': () => __webpack_require__.e(/*! import() | client-components/PostRecall */ "client-components/PostRecall").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/PostRecall/PostRecall.vue */ "./webpack-app/client/components/ReadingProgressesModuels/PostRecall/PostRecall.vue")),
   'PreImaginary': () => __webpack_require__.e(/*! import() | client-components/PreImaginary */ "client-components/PreImaginary").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/PreImaginary/PreImaginary.vue */ "./webpack-app/client/components/ReadingProgressesModuels/PreImaginary/PreImaginary.vue")),
+  'Exit': () => __webpack_require__.e(/*! import() | client-components/Exit */ "client-components/Exit").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Exit/Exit.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Exit/Exit.vue")),
+  'FreeReading': () => __webpack_require__.e(/*! import() | client-components/FreeReading */ "client-components/FreeReading").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/FreeReading/FreeReading.vue */ "./webpack-app/client/components/ReadingProgressesModuels/FreeReading/FreeReading.vue")),
 }
 /* harmony default export */ __webpack_exports__["default"] = (components);
 

@@ -66,7 +66,8 @@ let VueController = {
       avatar: '',
       role: 'reader',
       readingProgresses: [],
-      title: ''
+      title: '',
+      view: 'Loading'
     },
     progress: {
       component: false,
@@ -80,49 +81,16 @@ let VueController = {
       ValidateHelper: ValidateHelper,
       auth: null
     },
-    view: 'Loading',
     error: '',
     persistAttrs: [
     ]
   },
   computed: {
-    'currentStep': function () {
-      if (Array.isArray(this.status.readingProgresses)
-              && this.status.readingProgresses.length > 0) {
-        for (let i = 0; i < this.status.readingProgresses.length; i++) {
-          let s = this.status.readingProgresses[i]
-          if (s.isCompleted === true) {
-            continue
-          }
-          
-          if (typeof(s.start_timestamp) !== 'number') {
-            return s.step_name
-          }
-          if (typeof(s.start_timestamp) === 'number' 
-                  && typeof(s.end_timestamp) !== 'number') {
-            return s.step_name
-          }
-        }
-        return 'finish'
-      }
-      return 'not-yet-started'
-    }
   },
   watch: {
     'config.locale': function () {
       this.lib.DayJSHelper.setLocale(this.config.locale)
     },
-    'status.needLogin': function () {
-      if (this.status.needLogin === false) {
-        let view = this.currentStep
-        //console.log(this.currentStep)
-        if (view === 'finish') {
-          view = this.status.readingProgressesFinish
-        }
-        //console.log(view)
-        this.view = view
-      }
-    }
   },
   created: function () {
   },
@@ -132,7 +100,7 @@ let VueController = {
     })
     
     this.lib.auth = this.$refs.auth
-    console.log(this.lib.auth.nextStep)
+    //console.log(this.lib.auth.nextStep)
   },
   
   methods: {

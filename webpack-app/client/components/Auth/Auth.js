@@ -3,6 +3,16 @@ let Auth = {
   data() {
     return {}
   },
+  watch: {
+    'status.needLogin': function () {
+      if (this.status.needLogin === false) {
+        let view = this.getCurrentStep()
+        console.log(view)
+        //console.log(view)
+        this.status.view = view
+      }
+    }
+  },
   mounted: async function () {
     if (typeof(this.config.username) !== 'string' 
             && typeof(this.config.usernameQueryURL) === 'string') {
@@ -41,8 +51,49 @@ let Auth = {
       var result = await this.lib.AxiosHelper.get(`/client/user/check-login`)
       this.status.username = result
     },
+    getCurrentStep: function () {
+      if (Array.isArray(this.status.readingProgresses)
+              && this.status.readingProgresses.length > 0) {
+        for (let i = 0; i < this.status.readingProgresses.length; i++) {
+          let s = this.status.readingProgresses[i]
+          if (s.isCompleted === true) {
+            continue
+          }
+
+          if (typeof (s.start_timestamp) !== 'number') {
+            return s.step_name
+          }
+          if (typeof (s.start_timestamp) === 'number'
+                  && typeof (s.end_timestamp) !== 'number') {
+            return s.step_name
+          }
+        }
+        return this.status.readingProgressesFinish
+      }
+      return 'not-yet-started'
+    },
     nextStep: function () {
-      throw 'nextStep'
+      //throw 'nextStep'
+      let time = (new Date()).getTime()
+      for (let i = 0; i < this.status.readingProgresses.length; i++) {
+        let s = this.status.readingProgresses[i]
+        if (s.isCompleted === true) {
+          continue
+        }
+
+        if (typeof(s.start_timestamp) !== 'number') {
+          s.start_timestamp = time
+          s.end_timestamp = time
+          break
+        }
+        if (typeof(s.start_timestamp) === 'number' 
+                && typeof(s.end_timestamp) !== 'number') {
+          s.start_timestamp = time
+          s.end_timestamp = time
+          break;
+        }
+      }
+      this.status.view = this.getCurrentStep()
     }
   } // methods
 }
