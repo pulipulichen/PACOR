@@ -40,6 +40,9 @@ let DayJSHelper = {
     if (n < 10) {
       return '0' + n
     }
+    else {
+      return n
+    }
   },
   shortTime: function (millisecond) {
     //let intervalTimestamp = (new Date()).getTime() - timestamp
@@ -86,6 +89,29 @@ let DayJSHelper = {
   },
   to: function (baseTimestamp, toTimestamp) {
     return dayjs(baseTimestamp).to(dayjs(toTimestamp))
+  },
+  formatHHMMSS: function (seconds) {
+    if (seconds < 60) {
+      return seconds
+    }
+    else if (seconds < 3600) {
+      let mm = Math.floor(seconds / 60)
+      let ss = seconds % 60
+      return this._prefixZero(mm) 
+              + ':' 
+              + this._prefixZero(ss) 
+    }
+    else {
+      let hh = Math.floor(seconds / 3600)
+      let mm = Math.floor((seconds % 3600) / 60)
+      let ss = seconds % 60
+      console.log(hh,mm,ss)
+      return this._prefixZero(hh) 
+              + ':' 
+              + this._prefixZero(mm) 
+              + ':' 
+              + this._prefixZero(ss) 
+    }
   }
 }
 

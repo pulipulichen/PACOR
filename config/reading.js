@@ -3,9 +3,9 @@ module.exports = {
   readingProgressesFinish: 'Exit',  // 'Exit', 'FreeReading', 'http://blog.pulipuli.info'
   readingProgressModules: {
     'PreImaginary': {
-      message: '請開始想像吧！',
+      message: '猜猜看待會文章的內容會講到什麼？',
       minCharacters: 10,
-      limitMinutes: 1
+      limitMinutes: 0.1
     },
     /**
      * include 'individual-reading' and 'collaborative-reading'
@@ -27,7 +27,7 @@ module.exports = {
     'PostRecall': {
       message: '請開始回憶吧！',
       minCharacters: 10,
-      limitMinutes: 1
+      limitMinutes: 0.1
     }
   },
   annotationTypeModules: {

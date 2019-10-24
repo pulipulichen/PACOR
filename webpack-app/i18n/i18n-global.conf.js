@@ -5,7 +5,10 @@ let i18nGlobal = {
     "Readers": "Reader | Readers",
     "in {0} day": "in {0} day | in {0} days",
     "in {0} month": "in {0} month | in {0} months",
-    "in {0} year": "in {0} year | in {0} years"
+    "in {0} year": "in {0} year | in {0} years",
+    "{0} word": "{0} word | {0} words",
+    "You still need to write {0} words more.": "You still need to write {0} word more. | You still need to write {0} words more.",
+    "Remaining Time: {0}": "Remaining Time: {0}"
   },
   "zh-TW": {
     "LOGIN": "登入",
@@ -35,7 +38,10 @@ let i18nGlobal = {
     "READING_PROGRESS.finish": "已經完成",
     "in {0} day": "在{0}天內",
     "in {0} month": "在{0}月內",
-    "in {0} year": "在{0}年內"
+    "in {0} year": "在{0}年內",
+    "{0} word": "{0}字",
+    "You still need to write {0} words more.": "你還需要寫{0}字。",
+    "Remaining Time: {0}": "剩餘時間：{0}"
   }
 }
 

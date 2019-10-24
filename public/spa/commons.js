@@ -1806,6 +1806,9 @@ let DayJSHelper = {
     if (n < 10) {
       return '0' + n
     }
+    else {
+      return n
+    }
   },
   shortTime: function (millisecond) {
     //let intervalTimestamp = (new Date()).getTime() - timestamp
@@ -1852,6 +1855,29 @@ let DayJSHelper = {
   },
   to: function (baseTimestamp, toTimestamp) {
     return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(baseTimestamp).to(dayjs__WEBPACK_IMPORTED_MODULE_0___default()(toTimestamp))
+  },
+  formatHHMMSS: function (seconds) {
+    if (seconds < 60) {
+      return seconds
+    }
+    else if (seconds < 3600) {
+      let mm = Math.floor(seconds / 60)
+      let ss = seconds % 60
+      return this._prefixZero(mm) 
+              + ':' 
+              + this._prefixZero(ss) 
+    }
+    else {
+      let hh = Math.floor(seconds / 3600)
+      let mm = Math.floor((seconds % 3600) / 60)
+      let ss = seconds % 60
+      console.log(hh,mm,ss)
+      return this._prefixZero(hh) 
+              + ':' 
+              + this._prefixZero(mm) 
+              + ':' 
+              + this._prefixZero(ss) 
+    }
   }
 }
 
@@ -1873,6 +1899,42 @@ let StringHelper = {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   },
+  /**
+   * https://www.thecodedeveloper.com/count-word-contain-utf-8-character-in-javascript/
+   * @param {type} str
+   * @returns {undefined}
+   */
+  countWords(string) {
+    if (typeof(string) !== 'string') {
+      return 0
+    }
+    let r1 = new RegExp('[\u3000-\u4DFF]','g');
+    let r2 = new RegExp('[\u4E00-\u9FFF]','g');
+    let r3 = new RegExp('[\u0E00-\u0E7F]','g');
+    string = string.replace(r1,' {PNK} ');
+    string = string.replace(r2,' {CJK} ');
+    string = string.replace(r3,' {THI} ');
+    //string = string.replace(/(<([^>]+)>)/ig,”") ;
+    string = string.replace(/(\(|\)|\*|\||\+|\”|\’|_|;|:|,|\.|\?)/ig," ") ;
+    string = string.replace(/(。，、；：「」『』（）—？！…《》～〔〕［］・　)/ig," ") ;
+    string = string.replace(/\s+/ig," ");
+    //string = string.replace(/_+/ig," ");
+    var a = string.split(/[\s+|\\|\/]/g);
+    var count = 0;
+    var pnkCounter = 0;
+    var thiCounter = 0;
+    for (var i=0;i<a.length;i++){
+        if (a[i]==='{PNK}'){
+              pnkCounter++;
+        }else if(a[i]==='{THI}'){
+              thiCounter++;
+        }else if (a[i].length>0){
+              count++;
+        }
+    }
+    count += Math.ceil(pnkCounter/3) + Math.ceil(thiCounter/4);
+    return count;
+  }
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (StringHelper);
@@ -1936,7 +1998,10 @@ let i18nGlobal = {
     "Readers": "Reader | Readers",
     "in {0} day": "in {0} day | in {0} days",
     "in {0} month": "in {0} month | in {0} months",
-    "in {0} year": "in {0} year | in {0} years"
+    "in {0} year": "in {0} year | in {0} years",
+    "{0} word": "{0} word | {0} words",
+    "You still need to write {0} words more.": "You still need to write {0} word more. | You still need to write {0} words more.",
+    "Remaining Time: {0}": "Remaining Time: {0}"
   },
   "zh-TW": {
     "LOGIN": "登入",
@@ -1966,7 +2031,10 @@ let i18nGlobal = {
     "READING_PROGRESS.finish": "已經完成",
     "in {0} day": "在{0}天內",
     "in {0} month": "在{0}月內",
-    "in {0} year": "在{0}年內"
+    "in {0} year": "在{0}年內",
+    "{0} word": "{0}字",
+    "You still need to write {0} words more.": "你還需要寫{0}字。",
+    "Remaining Time: {0}": "剩餘時間：{0}"
   }
 }
 

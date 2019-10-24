@@ -37,6 +37,28 @@ class ReadingProgress {
     await user.addActivitySeconds(webpage, seconds)
     return 1
   }
+  
+  async setLog({request, webpage, user}) {
+    let log = request.all()
+    if (typeof(log) !== 'object' || JSON.stringify(log) === '{}') {
+      return 0
+    }
+    
+    let step = await user.startReadingProgress(webpage)
+    step.log = log
+    await step.save()
+    
+    return 1
+  }
+  
+  async getLog({request, webpage, user}) {
+    let step = await user.startReadingProgress(webpage)
+    let log = step.log
+    if (log === null || typeof(log) !== 'object') {
+      log = {}
+    }
+    return log
+  }
 }
 
 module.exports = ReadingProgress
