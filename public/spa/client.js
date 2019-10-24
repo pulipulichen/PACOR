@@ -635,7 +635,8 @@ let VueController = {
       AxiosHelper: _helpers_AxiosHelper__WEBPACK_IMPORTED_MODULE_4__["default"].setBaseURL(baseURL),
       DayJSHelper: _helpers_DayJSHelper__WEBPACK_IMPORTED_MODULE_5__["default"],
       StringHelper: _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_6__["default"],
-      ValidateHelper: _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_7__["default"]
+      ValidateHelper: _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_7__["default"],
+      auth: null
     },
     view: 'Loading',
     error: '',
@@ -643,7 +644,7 @@ let VueController = {
     ]
   },
   computed: {
-    'status.currentStep': function () {
+    'currentStep': function () {
       if (Array.isArray(this.status.readingProgresses)
               && this.status.readingProgresses.length > 0) {
         for (let i = 0; i < this.status.readingProgresses.length; i++) {
@@ -651,7 +652,12 @@ let VueController = {
           if (s.isCompleted === true) {
             continue
           }
-          else if (typeof(s.start_timestamp) === 'number') {
+          
+          if (typeof(s.start_timestamp) !== 'number') {
+            return s.step_name
+          }
+          if (typeof(s.start_timestamp) === 'number' 
+                  && typeof(s.end_timestamp) !== 'number') {
             return s.step_name
           }
         }
@@ -661,60 +667,33 @@ let VueController = {
     }
   },
   watch: {
-    'status.username': function () {
-      /*
-      let path = '/login'
-      if (typeof(this.status.username) === 'string') {
-        path = '/chat'
-      }
-      
-      if (this.$router.currentRoute.fullPath !== path) {
-        this.$router.replace(path)
-      }
-      */
-      let view = 'Login'
-      if (typeof(this.status.username) === 'string') {
-        view = 'Chat'
-      }
-      //console.log(view)
-      this.view = view
-    },
     'config.locale': function () {
       this.lib.DayJSHelper.setLocale(this.config.locale)
     },
     'status.needLogin': function () {
-      if (this.status.needLogin === true) {
-        console.log(this.status.currentStep)
-        this.view = this.status.currentStep
+      if (this.status.needLogin === false) {
+        let view = this.currentStep
+        //console.log(this.currentStep)
+        if (view === 'finish') {
+          view = this.status.readingProgressesFinish
+        }
+        //console.log(view)
+        this.view = view
       }
     }
   },
   created: function () {
-    /*
-    if (this.$router.currentRoute.fullPath !== '/') {
-      this.$router.replace('/')
-    }
-     */
-    this.loadClientConfig()
   },
   mounted: function () {
     this.lib.AxiosHelper.setErrorHandler((error) => {
       this.error = error
     })
+    
+    this.lib.auth = this.$refs.auth
+    console.log(this.lib.auth.nextStep)
   },
   
   methods: {
-    loadClientConfig: function () {
-      let config = window[this.config.clientConfigName]
-      
-      if (typeof(config) === 'object') {
-        for (let key in config) {
-          this.config[key] = config[key]
-        }
-      }
-      
-      //console.log(this.config)
-    },
   }, // methods: {
   
   
@@ -747,7 +726,7 @@ window.VueController = VueController
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        ref=\"auth\"></auth>\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:error=\"error\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n  \r\n  <!--\r\n  <rangy-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></rangy-manager>\r\n  \r\n  <note-editor-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></note-editor-manager>\r\n  -->\r\n  <template v-if=\"status.needLogin === false\">\r\n    <login v-bind:is=\"view\"\r\n        v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"></login>\r\n  </template>\r\n  <template v-else>\r\n    <component v-bind:is=\"view\"\r\n        v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></component>\r\n  </template>\r\n</div>";
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        ref=\"auth\"></auth>\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:error=\"error\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n  \r\n  <!--\r\n  <rangy-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></rangy-manager>\r\n  \r\n  <note-editor-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></note-editor-manager>\r\n  -->\r\n  <template v-if=\"status.needLogin === true\">\r\n    <Login v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"></Login>\r\n  </template>\r\n  <template v-else>\r\n    <component v-bind:is=\"view\"\r\n        v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></component>\r\n  </template>\r\n</div>";
 
 /***/ }),
 
@@ -834,6 +813,9 @@ let Auth = {
     checkLogin: async function () {
       var result = await this.lib.AxiosHelper.get(`/client/user/check-login`)
       this.status.username = result
+    },
+    nextStep: function () {
+      throw 'nextStep'
     }
   } // methods
 }

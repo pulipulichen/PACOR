@@ -25,13 +25,12 @@
         v-bind:error="error"
         v-bind:view="view"></note-editor-manager>
   -->
-  <template v-if="status.needLogin === false">
-    <login v-bind:is="view"
-        v-bind:config="config"
+  <template v-if="status.needLogin === true">
+    <Login v-bind:config="config"
         v-bind:status="status"
         v-bind:progress="progress"
         v-bind:lib="lib"
-        v-bind:error="error"></login>
+        v-bind:error="error"></Login>
   </template>
   <template v-else>
     <component v-bind:is="view"

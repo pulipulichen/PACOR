@@ -1,6 +1,6 @@
 module.exports = {
   readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
-  readingProgressesFinish: 'Exit',
+  readingProgressesFinish: 'Exit',  // 'FreeReading'
   readingProgressModules: {
     'PreImaginary': {
       minCharacters: 10,

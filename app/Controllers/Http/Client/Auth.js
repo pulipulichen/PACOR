@@ -87,12 +87,14 @@ class Auth {
   }
   
   async _getLoginedUserData (webpage, user) {
+    let config = await webpage.getConfig()
     let readingProgresses = await user.getReadingProgressStatus(webpage)
     let data = {
       username: user.username,
       displayName: user.display_name,
       avatar: user.avatarURL,
-      readingProgresses: readingProgresses
+      readingProgresses: readingProgresses,
+      readingProgressesFinish: config.readingProgressesFinish
     }
     await ReadingActivityLog.log(webpage, user, 'Auth.login', data)
     return data

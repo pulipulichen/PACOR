@@ -40,6 +40,9 @@ let Auth = {
     checkLogin: async function () {
       var result = await this.lib.AxiosHelper.get(`/client/user/check-login`)
       this.status.username = result
+    },
+    nextStep: function () {
+      throw 'nextStep'
     }
   } // methods
 }

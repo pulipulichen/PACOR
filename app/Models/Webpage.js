@@ -34,6 +34,7 @@ class Webpage extends Model {
     this.addHook('beforeSave', async (instance) => {
       Cache.forget(Cache.key('Webpage', 'getReadingProgresses', instance))
       Cache.forget(Cache.key('Models.Webpage.getAgreement', this))
+      Cache.forget(Cache.key('Models.Webpage.getConfig', this))
     })
   }
   
@@ -272,6 +273,28 @@ class Webpage extends Model {
         else {
           const filepath = Helpers.publicPath('agreement.html')
           output = fs.readFileSync(filepath, 'utf8').toString()
+        }
+      }
+      //console.log(output)
+      //Cache.forever(cacheKey, output)
+      return output
+    })
+  }
+  
+  async getConfig() {
+    let cacheKey = Cache.key('Models.Webpage.getConfig', this)
+    return await Cache.get(cacheKey, async () => {
+      let output
+      if (typeof(this.config) === 'string') {
+        output = this.config
+      }
+      else {
+        let domain = await this.domain().fetch()
+        if (typeof(domain.config) === 'string') {
+          output = domain.config
+        }
+        else {
+          output = ReadingConfig
         }
       }
       //console.log(output)
