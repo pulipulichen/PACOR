@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".header h2[data-v-4e86c872],\n.header h3[data-v-4e86c872] {\n  margin: 0;\n}\n", "",{"version":3,"sources":["WebpageDashboard.less?vue&type=style&index=0&id=4e86c872&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;EAEE,SAAS;AACX","file":"WebpageDashboard.less?vue&type=style&index=0&id=4e86c872&lang=less&scoped=true&","sourcesContent":[".header h2[data-v-4e86c872],\n.header h3[data-v-4e86c872] {\n  margin: 0;\n}\n"]}]);
+exports.push([module.i, ".header h2[data-v-4e86c872],\n.header h3[data-v-4e86c872] {\n  margin: 0;\n}\n.header h2[data-v-4e86c872] {\n  word-break: break-all;\n  width: calc(100vw - 39rem);\n}\n", "",{"version":3,"sources":["WebpageDashboard.less?vue&type=style&index=0&id=4e86c872&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;EAEE,SAAS;AACX;AACA;EACE,qBAAqB;EACrB,0BAA0B;AAC5B","file":"WebpageDashboard.less?vue&type=style&index=0&id=4e86c872&lang=less&scoped=true&","sourcesContent":[".header h2[data-v-4e86c872],\n.header h3[data-v-4e86c872] {\n  margin: 0;\n}\n.header h2[data-v-4e86c872] {\n  word-break: break-all;\n  width: calc(100vw - 39rem);\n}\n"]}]);
 
 
 /***/ }),
@@ -102,7 +102,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("h2", [_vm._v(_vm._s(_vm.status.webpageURL))])
+              _c("h2", [_vm._v(_vm._s(_vm.webpagePath))])
             ])
           ])
         ]),
@@ -387,6 +387,11 @@ let Template = {
     'webpage-dashboard-groups': _WebpageDashboardGroups_WebpageDashboardGroups_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   computed: {
+    'webpagePath': function () {
+      if (typeof(this.status.webpageURL) === 'string') {
+        return '/' + this.status.webpageURL.split('/').slice(3).join('/')
+      }
+    }
   },
   watch: {
   },
@@ -405,7 +410,7 @@ let Template = {
       
       let result = await this.lib.AxiosHelper.get('/admin/Dashboard/info', data)
       this.status.webpageURL = result.webpageURL
-      this.status.title = this.$t('Dashboard') + ' ' + this.status.webpageURL
+      this.status.title = this.$t('Dashboard') + ' ' + this.webpagePath
     }
   } // methods
 }

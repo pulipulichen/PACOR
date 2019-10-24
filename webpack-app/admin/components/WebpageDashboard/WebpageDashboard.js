@@ -11,6 +11,11 @@ let Template = {
     'webpage-dashboard-groups': WebpageDashboardGroups
   },
   computed: {
+    'webpagePath': function () {
+      if (typeof(this.status.webpageURL) === 'string') {
+        return '/' + this.status.webpageURL.split('/').slice(3).join('/')
+      }
+    }
   },
   watch: {
   },
@@ -29,7 +34,7 @@ let Template = {
       
       let result = await this.lib.AxiosHelper.get('/admin/Dashboard/info', data)
       this.status.webpageURL = result.webpageURL
-      this.status.title = this.$t('Dashboard') + ' ' + this.status.webpageURL
+      this.status.title = this.$t('Dashboard') + ' ' + this.webpagePath
     }
   } // methods
 }
