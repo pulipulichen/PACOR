@@ -95,6 +95,10 @@ Route.any('/client/auth/:action', (options) => {
   return controllerMapping(options, 'client', 'auth')
 }).middleware(['webpage'])
 
+Route.any('/client/Webpage/:action', (options) => {
+  return controllerMapping(options, 'client', 'Webpage')
+}).middleware(['webpage'])
+
 /*
 Route.any('/client/:controller/:action', (options) => {
   return controllerMapping(options, 'client')

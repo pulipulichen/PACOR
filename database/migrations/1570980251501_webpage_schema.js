@@ -11,6 +11,7 @@ class WebpageSchema extends Schema {
       table.string('url', 254).notNullable()
       table.text('title')
       table.json('config')
+      table.text('agreement')
       table.timestamps()
     })
   }

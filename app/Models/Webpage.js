@@ -1,3 +1,5 @@
+/* global use */
+
 'use strict'
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
@@ -16,6 +18,9 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 const Cache = use('Cache')
 
 const ReadingConfig = use('Config').get('reading')
+
+const fs = use('fs')
+const Helpers = use('Helpers')
 
 class Webpage extends Model {
   
@@ -247,6 +252,29 @@ class Webpage extends Model {
         }
       }
       await Cache.forever(cacheKey, output)
+      return output
+    })
+  }
+  
+  async getAgreement() {
+    let cacheKey = Cache.key('Models.Webpage.getAgreement', this)
+    return await Cache.get(cacheKey, async () => {
+      let output
+      if (typeof(this.agreement) === 'string') {
+        output = this.agreement
+      }
+      else {
+        let domain = await this.domain().fetch()
+        if (typeof(domain.agreement) === 'string') {
+          output = domain.agreement
+        }
+        else {
+          const filepath = Helpers.publicPath('agreement.html')
+          output = fs.readFileSync(filepath)
+        }
+      }
+      
+      Cache.forever(cacheKey, output)
       return output
     })
   }

@@ -123,6 +123,12 @@ let VueController = {
     },
     'config.locale': function () {
       this.lib.DayJSHelper.setLocale(this.config.locale)
+    },
+    'status.needLogin': function () {
+      if (this.status.needLogin === true) {
+        console.log(this.status.currentStep)
+        this.view = this.status.currentStep
+      }
     }
   },
   created: function () {

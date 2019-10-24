@@ -1,5 +1,5 @@
 let Login = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+  props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -50,11 +50,12 @@ let Login = {
         this.status[name] = result[name]
       }
       this.status.username = this.username
-      this.status.needLogin = false
-      this.$refs.LoginModal.hide()
-      alert('成功登入了，然後呢？')
-      
       this.reset()
+      this.$refs.LoginModal.hide()
+      
+      this.status.needLogin = false
+      //alert('成功登入了，然後呢？')
+      
     },
     reset: function () {
       this.username = ''
