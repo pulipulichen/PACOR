@@ -644,6 +644,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Modal_Modal_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../components/Modal/Modal.vue */ "./webpack-app/components/Modal/Modal.vue");
 /* harmony import */ var _components_StepProgressBar_StepProgressBar_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../components/StepProgressBar/StepProgressBar.vue */ "./webpack-app/components/StepProgressBar/StepProgressBar.vue");
 /* harmony import */ var _components_BlockExit_BlockExit_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../components/BlockExit/BlockExit.vue */ "./webpack-app/components/BlockExit/BlockExit.vue");
+/* harmony import */ var _components_ActivityTimer_ActivityTimer_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../components/ActivityTimer/ActivityTimer.vue */ "./webpack-app/components/ActivityTimer/ActivityTimer.vue");
 
 
 
@@ -657,6 +658,9 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('step-progress-bar', _comp
 
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('block-exit', _components_BlockExit_BlockExit_vue__WEBPACK_IMPORTED_MODULE_4__["default"])
+
+
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('activity-timer', _components_ActivityTimer_ActivityTimer_vue__WEBPACK_IMPORTED_MODULE_5__["default"])
 
 /***/ }),
 
@@ -688,6 +692,51 @@ let components = {
   Chat: () => __webpack_require__.e(/*! import() | client-components/Chat */ "client-components/Chat").then(__webpack_require__.bind(null, /*! ./components/Chat/Chat.vue */ "./webpack-app/client/components/Chat/Chat.vue")),
 }
 /* harmony default export */ __webpack_exports__["default"] = (components);
+
+/***/ }),
+
+/***/ "./webpack-app/components/ActivityTimer/ActivityTimer.vue":
+/*!****************************************************************!*\
+  !*** ./webpack-app/components/ActivityTimer/ActivityTimer.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module './Template.html?vue&type=template&id=46a4ac00&scoped=true&'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module './Template.js?vue&type=script&lang=js&'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+throw new Error("Cannot find module './Template.js?vue&type=script&lang=js&'");
+!(function webpackMissingModule() { var e = new Error("Cannot find module './Template.less?vue&type=style&index=0&id=46a4ac00&lang=less&scoped=true&'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+!(function webpackMissingModule() { var e = new Error("Cannot find module './Template.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CActivityTimer%5CActivityTimer.vue&lang=yaml'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  !(function webpackMissingModule() { var e = new Error("Cannot find module './Template.js?vue&type=script&lang=js&'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  !(function webpackMissingModule() { var e = new Error("Cannot find module './Template.html?vue&type=template&id=46a4ac00&scoped=true&'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  !(function webpackMissingModule() { var e = new Error("Cannot find module './Template.html?vue&type=template&id=46a4ac00&scoped=true&'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  false,
+  null,
+  "46a4ac00",
+  null
+  
+)
+
+/* custom blocks */
+
+if (typeof !(function webpackMissingModule() { var e = new Error("Cannot find module './Template.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CActivityTimer%5CActivityTimer.vue&lang=yaml'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) === 'function') !(function webpackMissingModule() { var e = new Error("Cannot find module './Template.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CActivityTimer%5CActivityTimer.vue&lang=yaml'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/components/ActivityTimer/ActivityTimer.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 

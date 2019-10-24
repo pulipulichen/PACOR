@@ -7,6 +7,7 @@ let config = {
   
   locale: 'zh-TW',
   clientConfigName: 'CONFIG',
+  detectActivitySeconds: 10
 }
 
 import styleConfig from './styles/style.config.js'

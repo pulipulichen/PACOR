@@ -11,3 +11,6 @@ Vue.component('step-progress-bar', StepProgressBar)
 
 import BlockExit from './../components/BlockExit/BlockExit.vue'
 Vue.component('block-exit', BlockExit)
+
+import ActivityTimer from './../components/ActivityTimer/ActivityTimer.vue'
+Vue.component('activity-timer', ActivityTimer)

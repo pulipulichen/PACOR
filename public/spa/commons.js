@@ -1650,6 +1650,7 @@ let config = {
   
   locale: 'zh-TW',
   clientConfigName: 'CONFIG',
+  detectActivitySeconds: 10
 }
 
 
