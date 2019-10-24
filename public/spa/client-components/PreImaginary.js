@@ -45,9 +45,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { on: { click: _vm.lib.auth.nextStep } }, [
-    _vm._v("\r\n  PreImaginary\r\n")
-  ])
+  return _c(
+    "div",
+    { on: { click: _vm.lib.auth.nextStep } },
+    [
+      _vm._v("\r\n  PreImaginary\r\n  \r\n  "),
+      _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
+      _vm._v(" "),
+      _c("block-exit")
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

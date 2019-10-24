@@ -187,6 +187,10 @@ class User extends Model {
     if (typeof(stepName) !== 'string') {
       stepName = await this.getCurrentReadingProgressStepName(webpage)
     }
+    
+    if (stepName === null) {
+      return null
+    }
     //console.log('startReadingProgress', stepName)
     
     let step = await ReadingProgress.findOrCreate({
@@ -218,6 +222,9 @@ class User extends Model {
     else {
       //console.log('AAAA')
       step = await this.startReadingProgress(webpage)
+      if (step === null) {
+        return null
+      }
     }
     
     //console.log(step.toJSON())
@@ -238,12 +245,27 @@ class User extends Model {
   }
   
   async addActivitySeconds (webpage, seconds) {
+    //console.log('addActivitySeconds', seconds, typeof(seconds))
+    if (isNaN(seconds) === false) {
+      seconds = parseInt(seconds, 10)
+    }
     if (typeof(seconds) !== 'number') {
       return false
     }
     
     let step = await this.startReadingProgress(webpage)
+    //console.log(activity_seconds)
+    if (step === null) {
+      return null
+    }
     
+    //console.log(step.activity_seconds, typeof(step.activity_seconds))
+    if (isNaN(step.activity_seconds) === false) {
+      step.activity_seconds = parseInt(step.activity_seconds, 10)
+    }
+    if (typeof(step.activity_seconds) !== 'number') {
+      step.activity_seconds = 0
+    }
     step.activity_seconds = step.activity_seconds + seconds
     await step.save()
     return step

@@ -1,6 +1,10 @@
 let acted = false
+let lastTime
 let checkActed = function () {
-  acted = true
+  if (acted === false) {
+    acted = true
+    lastTime = (new Date()).getTime()
+  }
 }
 
 let ActivityTimer = {
@@ -12,11 +16,9 @@ let ActivityTimer = {
     }
   },
   created() {
-    this.lastTime = this.getCurrentTime()
-    
     let document = window.document
     document.addEventListener('mousemove', checkActed)
-    document.addEventListener('keypress', checkActed)
+    document.addEventListener('keyup', checkActed)
     document.addEventListener('touchend', checkActed)
     
     let seconds = this.config.detectActivitySeconds
@@ -30,11 +32,8 @@ let ActivityTimer = {
     this.send()
   },
   methods: {
-    getCurrentTime: function () {
-      return (new Date()).getTime()
-    },
     toNow: function () {
-      return Math.round((this.getCurrentTime() - this.lastTime) / 1000)
+      return Math.round(((new Date()).getTime() - lastTime) / 1000)
     },
     send: async function () {
       if (acted === true) {
@@ -43,7 +42,6 @@ let ActivityTimer = {
         })
         acted = false
       }
-      this.lastTime = this.getCurrentTime()
     }
   }
 }

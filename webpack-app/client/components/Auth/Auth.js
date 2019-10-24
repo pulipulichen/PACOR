@@ -83,8 +83,10 @@ let Auth = {
       }
       return 'not-yet-started'
     },
-    nextStep: function () {
+    nextStep: async function () {
       //throw 'nextStep'
+      await this.lib.AxiosHelper.get('/client/ReadingProgress/end')
+      
       let time = this.lib.DayJSHelper.time()
       for (let i = 0; i < this.status.readingProgresses.length; i++) {
         let s = this.status.readingProgresses[i]
