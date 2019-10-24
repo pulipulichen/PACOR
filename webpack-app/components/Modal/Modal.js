@@ -11,6 +11,9 @@ let Template = {
   },
   computed: {
   },
+  destoryed: function () {
+    this.hide()
+  },
   watch: {
     'reset': function () {
       try {

@@ -1,6 +1,6 @@
 module.exports = {
   readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
-  readingProgressesFinish: 'Exit',  // 'FreeReading'
+  readingProgressesFinish: 'http://blog.pulipuli.info',  // 'Exit', 'FreeReading', 'http://blog.pulipuli.info'
   readingProgressModules: {
     'PreImaginary': {
       message: '請開始想像吧！',
@@ -11,7 +11,7 @@ module.exports = {
      * include 'individual-reading' and 'collaborative-reading'
      */
     'reading': {
-      limitMinutes: 1,
+      totalLimitMinutes: 1,
     },
     'IndividualReading': {
       annnotationTypes: ['confused', 'mainIdea'],

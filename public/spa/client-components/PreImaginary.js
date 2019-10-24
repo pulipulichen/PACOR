@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "div[data-v-09414983] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 255, 0, 0.5);\n}\n", "",{"version":3,"sources":["PreImaginary.less?vue&type=style&index=0&id=09414983&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,sCAAsC;AACxC","file":"PreImaginary.less?vue&type=style&index=0&id=09414983&lang=less&scoped=true&","sourcesContent":["div[data-v-09414983] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 255, 0, 0.5);\n}\n"]}]);
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"PreImaginary.less?vue&type=style&index=0&id=09414983&lang=less&scoped=true&"}]);
 
 
 /***/ }),
@@ -47,9 +47,85 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { on: { click: _vm.lib.auth.nextStep } },
     [
-      _vm._v("\r\n  PreImaginary\r\n  \r\n  "),
+      _c("modal", {
+        ref: "Modal",
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          progress: _vm.progress,
+          error: _vm.error,
+          lib: _vm.lib,
+          dimmerTransparent: "false",
+          cancelable: "false"
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "header",
+            fn: function() {
+              return [
+                _vm._v(
+                  "\r\n        " +
+                    _vm._s(_vm.$t("Pre Imaginary")) +
+                    "\r\n      "
+                )
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "content",
+            fn: function() {
+              return [
+                _c("div", { staticClass: "field" }, [
+                  _vm._v(
+                    "\r\n          " +
+                      _vm._s(_vm.$t(_vm.message)) +
+                      "\r\n        "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "field" }, [_c("textarea")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "field" }, [
+                  _vm._v(
+                    "\r\n          counter\r\n          " +
+                      _vm._s(_vm.minCharacters) +
+                      "\r\n        "
+                  )
+                ])
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "actions",
+            fn: function() {
+              return [
+                _c(
+                  "div",
+                  {
+                    staticClass: "ui button",
+                    class: _vm.buttonClass,
+                    on: { click: _vm.lib.auth.nextStep }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(_vm.buttonText) +
+                        "\r\n          " +
+                        _vm._s(_vm.limitMinutes) +
+                        "\r\n        "
+                    )
+                  ]
+                )
+              ]
+            },
+            proxy: true
+          }
+        ])
+      }),
+      _vm._v(" "),
       _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
       _vm._v(" "),
       _c("block-exit")
@@ -130,16 +206,34 @@ let Template = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
-    return {
+    let data = {}
+    if (typeof(this.status) === 'object' 
+            && typeof(this.status.readingConfig) === 'object') {
+      if (typeof(this.status.readingConfig.readingProgressModules) === 'object'
+              && typeof(this.status.readingConfig.readingProgressModules.PreImaginary) === 'object') {
+        for (let name in this.status.readingConfig.readingProgressModules.PreImaginary) {
+          data[name] = this.status.readingConfig.readingProgressModules.PreImaginary[name]
+        }
+      }
+      data.readingConfig = this.status.readingConfig
     }
+    return data
   },
   components: {
   },
   computed: {
+    buttonText: function () {
+      return this.$t('OK')
+    },
+    buttonClass: function () {
+      //return 'disabled'
+      return ''
+    }
   },
   watch: {
   },
   mounted() {
+    this.$refs.Modal.show()
   },
   methods: {
   } // methods

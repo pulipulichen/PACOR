@@ -749,9 +749,9 @@ let Auth = {
     return {}
   },
   watch: {
-    'status.needLogin': function () {
+    'status.needLogin': async function () {
       if (this.status.needLogin === false) {
-        let view = this.getCurrentStep()
+        let view = await this.getCurrentStep()
         //console.log(view)
         //console.log(view)
         this.status.view = view
@@ -806,7 +806,7 @@ let Auth = {
       }
       //this.status.username = result
     },
-    getCurrentStep: function () {
+    getCurrentStep: async function () {
       if (Array.isArray(this.status.readingProgresses)
               && this.status.readingProgresses.length > 0) {
         for (let i = 0; i < this.status.readingProgresses.length; i++) {
@@ -824,9 +824,17 @@ let Auth = {
             return s.step_name
           }
         }
-        return this.status.readingProgressesFinish
+        let finishStep = this.status.readingConfig.readingProgressesFinish
+        if (this.lib.ValidateHelper.isURL(finishStep)) {
+          await this._redirect(finishStep)
+        }
+        return finishStep
       }
       return 'not-yet-started'
+    },
+    _redirect: async function (url) {
+      await this.lib.AxiosHelper.get('/client/auth/logout')
+      location.href = url
     },
     showLogin: function () {
       this.status.needLogin = true
@@ -849,7 +857,7 @@ let Auth = {
           break;
         }
       }
-      this.status.view = this.getCurrentStep()
+      this.status.view = await this.getCurrentStep()
     }
   } // methods
 }

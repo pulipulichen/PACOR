@@ -96,7 +96,8 @@ class Auth {
       avatar: userJSON.avatar_url,
       role: user.role,
       readingProgresses: readingProgresses,
-      readingProgressesFinish: config.readingProgressesFinish
+      //readingProgressesFinish: config.readingProgressesFinish,
+      readingConfig: config
     }
     //console.log(data)
     await ReadingActivityLog.log(webpage, user, 'Auth.login', data)

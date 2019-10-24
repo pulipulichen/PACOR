@@ -1,5 +1,36 @@
-<div v-on:click="lib.auth.nextStep">
-  PreImaginary
+<div>
+  <modal ref="Modal"
+         v-bind:config="config"
+         v-bind:status="status"
+         v-bind:progress="progress"
+         v-bind:error="error"
+         v-bind:lib="lib"
+         dimmerTransparent="false"
+         cancelable="false">
+      <template v-slot:header>
+        {{ $t('Pre Imaginary') }}
+      </template>
+      <template v-slot:content>
+        <div class="field">
+          {{ $t(message) }}
+        </div>
+        <div class="field">
+          <textarea></textarea>
+        </div>
+        <div class="field">
+          counter
+          {{ minCharacters }}
+        </div>
+      </template>
+      <template v-slot:actions>
+        <div class="ui button"
+             v-bind:class="buttonClass"
+             v-on:click="lib.auth.nextStep">
+          {{ buttonText }}
+          {{ limitMinutes }}
+        </div>
+      </template>
+  </modal>
   
   <activity-timer v-bind:config="config"
         v-bind:lib="lib"></activity-timer>

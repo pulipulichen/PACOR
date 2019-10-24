@@ -1,81 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["commons"],{
 
-/***/ "./config/reading.js":
-/*!***************************!*\
-  !*** ./config/reading.js ***!
-  \***************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = {
-  readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
-  readingProgressesFinish: 'Exit',  // 'FreeReading'
-  readingProgressModules: {
-    'PreImaginary': {
-      message: '請開始想像吧！',
-      minCharacters: 10,
-      limitMinutes: 1
-    },
-    /**
-     * include 'individual-reading' and 'collaborative-reading'
-     */
-    'reading': {
-      limitMinutes: 1,
-    },
-    'IndividualReading': {
-      annnotationTypes: ['confused', 'mainIdea'],
-      checklist: [
-        'I have already read this section.',
-        'I have already written annotations on a sentence I don\'t understand.',
-        'I have already written the main ideas of this section.',
-      ]
-    },
-    'CollaborativeReading': {
-      annnotationTypes: ['confused', 'mainIdea'],
-    },
-    'PostRecall': {
-      message: '請開始回憶吧！',
-      minCharacters: 10,
-      limitMinutes: 1
-    }
-  },
-  annotationTypeModules: {
-    'confused': {
-      minCharacters: 10,
-      /**
-       * {anchorText}
-       * {questionText}
-       */
-      'questionTemplates': [
-        {
-          'hint': 'What is it?',
-          'template': `I don't know what is "{anchorText}"?`
-        },
-        {
-          'hint': 'Why is it?',
-          'template': `Why is "{anchorText}"?`
-        },
-      ],
-      'externalResourceSeachs': [
-        {
-          'name': 'Find answer in Wikipedia',
-          'urlPattern': 'https://zh.wikipedia.org/w/index.php?search={anchorText}&title=Special%3A搜索&go=執行&ns0=1'
-        },
-        {
-          'name': 'Find answer in Google',
-          'urlPattern': 'https://www.google.com/search?q={questionText}'
-        }
-      ]
-    },
-    'mainIdea': {
-      minCharacters: 10,
-    }
-  }
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/ErrorHandler/ErrorHandler.json?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CErrorHandler%5CErrorHandler.vue":
 /*!**************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/components/ErrorHandler/ErrorHandler.json?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CErrorHandler%5CErrorHandler.vue ***!
@@ -1177,6 +1101,9 @@ let Template = {
   },
   computed: {
   },
+  destoryed: function () {
+    this.hide()
+  },
   watch: {
     'reset': function () {
       try {
@@ -1641,9 +1568,7 @@ component.options.__file = "webpack-app/components/StepProgressBar/StepProgressB
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_style_config_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.config.js */ "./webpack-app/styles/style.config.js");
 /* harmony import */ var _styles_style_config_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_style_config_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _config_reading_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../config/reading.js */ "./config/reading.js");
-/* harmony import */ var _config_reading_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_config_reading_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _config_production_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./config.production.js */ "./webpack-app/config.production.js");
+/* harmony import */ var _config_production_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config.production.js */ "./webpack-app/config.production.js");
 let config = {
   debug: {
     ErrorHandler: {
@@ -1659,8 +1584,8 @@ let config = {
 
 config.styleConfig = _styles_style_config_js__WEBPACK_IMPORTED_MODULE_0___default.a
 
-
-config.readingConfig = _config_reading_js__WEBPACK_IMPORTED_MODULE_1___default.a
+//import readingConfig from './../config/reading.js'
+//config.readingConfig = readingConfig
 
 
 if (false) {}
