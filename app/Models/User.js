@@ -147,7 +147,7 @@ class User extends Model {
 
       let status = await this.readingProgresses(webpage).fetch()
       status = status.toJSON()
-
+      //console.log(status)
       readingProgresses = readingProgresses.map(stepName => {
         let output = {
           'step_name': stepName
@@ -203,7 +203,7 @@ class User extends Model {
       // 表示這是新增的資料
       Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
     }
-    
+    console.log('startReadingProgress', step.start_timestamp)
     return step
   }
   

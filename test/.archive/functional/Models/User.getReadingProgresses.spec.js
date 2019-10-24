@@ -35,7 +35,7 @@ test('check user reading progresses', async ({ assert, client }) => {
   let readingProgresses = await user.getReadingProgressStatus(webpage)
   
   assert.equal(readingProgresses.length, 4)
-  assert.equal(readingProgresses[1].step_name, 'individual-reading')
+  assert.equal(readingProgresses[1].step_name, 'IndividualReading')
   assert.isUndefined(readingProgresses[0].start_timestamp)
   assert.isUndefined(readingProgresses[0].end_timestamp)
 })
