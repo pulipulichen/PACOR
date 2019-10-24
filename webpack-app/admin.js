@@ -127,6 +127,10 @@ let VueController = {
       this.loadUsers(this.$route.query.origin)
     }
     
+    this.lib.DayJSHelper.setI18N((name, data) => {
+      return this.$t(name, data)
+    })
+    
     this.lib.AxiosHelper.setErrorHandler((error) => {
       this.error = error
     })

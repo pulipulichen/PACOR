@@ -2,7 +2,10 @@ let i18nGlobal = {
   "en": {
     "Title": "Example Title",
     "Groups": "Group | Groups",
-    "Readers": "Reader | Readers"
+    "Readers": "Reader | Readers",
+    "in {0} day": "in {0} day | in {0} days",
+    "in {0} month": "in {0} month | in {0} months",
+    "in {0} year": "in {0} year | in {0} years"
   },
   "zh-TW": {
     "LOGIN": "登入",
@@ -29,6 +32,9 @@ let i18nGlobal = {
     "READING_PROGRESS.CollaborativeReading": "團體閱讀",
     "READING_PROGRESS.PostRecall": "閱讀後的回想",
     "READING_PROGRESS.finish": "已經完成",
+    "in {0} day": "在{0}天內",
+    "in {0} month": "在{0}月內",
+    "in {0} year": "在{0}年內"
   }
 }
 

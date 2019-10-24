@@ -59,7 +59,8 @@ let StepProgressBar = {
         return this.lib.DayJSHelper.toNow(step.start_timestamp)
       }
       else {
-        return this.lib.DayJSHelper.to(step.end_timestamp, step.start_timestamp)
+        return this.lib.DayJSHelper.shortTime(step.end_timestamp - step.start_timestamp)
+        //return this.lib.DayJSHelper.from(step.start_timestamp, step.end_timestamp)
       }
       /*
       if (index === 0) {

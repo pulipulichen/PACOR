@@ -46,32 +46,22 @@ test('check user reading progresses', async ({ assert, client }) => {
   
   assert.equal(readingProgresses.length, 4)
   assert.equal(readingProgresses[1].step_name, 'IndividualReading')
-  assert.isUndefined(readingProgresses[0].start_timestamp)
-  assert.isUndefined(readingProgresses[0].end_timestamp)
+  assert.isNumber(readingProgresses[0].start_timestamp)
+  assert.isNull(readingProgresses[0].end_timestamp)
+  assert.equal(readingProgresses[0].isCompleted, false)
 })
 
-test('start step', async ({ assert, client }) => {
-  let response = await client.get('/Client/ReadingProgress/start')
-          .header('Referer', url)
-          .session('adonis-auth', 1)
-          .end()
-  
-  response.assertStatus(200)
-  response.assertText('PreImaginary')
-  //console.log(response.body)
-  
-})
 test('end step', async ({ assert, client }) => {
-  await Sleep(0.5)
+  await Sleep(1)
   
-  let response = await client.get('/client/ReadingProgress/end')
+  let response = await client.get('/Client/ReadingProgress/end')
           .header('Referer', url)
           .session('adonis-auth', 1)
           .end()
   
   response.assertStatus(200)
-  //console.log(response.error)
-  response.assertText('IndividualReading')
+  response.assertText('1')
+  //console.log(response.body)
 })
 
 test('check user progresses after finishing', async ({ assert, client }) => {
@@ -84,6 +74,14 @@ test('check user progresses after finishing', async ({ assert, client }) => {
   assert.equal(readingProgresses.length, 4)
   assert.isNumber(readingProgresses[0].start_timestamp)
   assert.isNumber(readingProgresses[0].end_timestamp)
+  assert.equal(readingProgresses[0].isCompleted, true)
+  assert.equal((readingProgresses[0].duration > 0), true)
+  
+  assert.isNumber(readingProgresses[1].start_timestamp)
+  assert.isNull(readingProgresses[1].end_timestamp)
+  assert.equal(readingProgresses[1].isCompleted, false)
+  assert.equal(readingProgresses[1].duration, null)
 })
+
 // Reset database
 //trait('DatabaseTransactions')

@@ -7,6 +7,10 @@ dayjs.extend(relativeTime)
 require(`dayjs/locale/zh-tw`).default
 
 let DayJSHelper = {
+  $t: null,
+  setI18N: function ($t) {
+    this.$t = $t
+  },
   time: function () {
     return (new Date()).getTime()
   },
@@ -29,24 +33,52 @@ let DayJSHelper = {
   fromNow: function (timestamp) {
     return dayjs(timestamp).fromNow()
   },
-  shortTime: function (timestamp) {
-    let intervalTimestamp = (new Date()).getTime() - timestamp
+  toNow: function (timestamp) {
+    return dayjs(timestamp).toNow()
+  },
+  _prefixZero: function (n) {
+    if (n < 10) {
+      return '0' + n
+    }
+  },
+  shortTime: function (millisecond) {
+    //let intervalTimestamp = (new Date()).getTime() - timestamp
     
-    if (intervalTimestamp < 10800000) {
-      // 如果是在距離現在三小時內，那就顯示 n分鐘前
-      return dayjs(timestamp).fromNow()
+    let year = 0
+    let month = 0
+    let day = 0
+    let hour = 0
+    let minute = 0
+    
+    if (millisecond < 60000) {
+      // 如果是在距離現在12小時內，那就顯示 n分鐘前
+      return this.$t('in a minute')
     }
-    else if (intervalTimestamp < 86400000) {
+    else if (millisecond < 86400000) {
       // 如果是距離現在1天內，那就顯示 hh:mm
-      return dayjs(timestamp).format('HH:mm')
+      hour = Math.floor(millisecond / 3600000)
+      minute = Math.floor((millisecond % 3600000) / 60000)
+      return this._prefixZero(hour) + ':' + this._prefixZero(minute)
+      
+      //return dayjs().millisecond(timestamp).format('HH:mm')
+      //return this.$t('in a day')
     }
-    else if (intervalTimestamp < 31536000000) {
-      // 如果距離現在1年內，那就顯示 mm/dd
-      return dayjs(timestamp).format('MM-DD')
+    else if (millisecond < 2592000000) {
+      // 如果距離30天內，那就顯示 in {0} day
+      day = Math.ceil(millisecond / 86400000)
+      return this.$t('in {0} day', [day])
+    }
+    else if (millisecond < 31536000000) {
+      // 如果距離現在1年內，那就顯示 in {0} month
+      //return dayjs().millisecond(millisecond).format('MM-DD')
+      month = Math.ceil(millisecond / 2592000000)
+      return this.$t('in {0} month', [month])
     }
     else {
-      // 如果超過1年，那就顯示2019年
-      return dayjs(timestamp).format('YYYY')
+      // 如果超過1年，那就顯示 in {0} year
+      
+      year = Math.ceil(millisecond / 31536000000)
+      return this.$t('in {0} year', [year])
     }
   },
   from: function (baseTimestamp, toTimestamp) {

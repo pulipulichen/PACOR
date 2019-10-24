@@ -1528,7 +1528,8 @@ let StepProgressBar = {
         return this.lib.DayJSHelper.toNow(step.start_timestamp)
       }
       else {
-        return this.lib.DayJSHelper.to(step.end_timestamp, step.start_timestamp)
+        return this.lib.DayJSHelper.shortTime(step.end_timestamp - step.start_timestamp)
+        //return this.lib.DayJSHelper.from(step.start_timestamp, step.end_timestamp)
       }
       /*
       if (index === 0) {
@@ -1845,6 +1846,10 @@ dayjs__WEBPACK_IMPORTED_MODULE_0___default.a.extend(dayjs_plugin_relativeTime__W
 __webpack_require__(/*! dayjs/locale/zh-tw */ "./node_modules/dayjs/locale/zh-tw.js").default
 
 let DayJSHelper = {
+  $t: null,
+  setI18N: function ($t) {
+    this.$t = $t
+  },
   time: function () {
     return (new Date()).getTime()
   },
@@ -1867,24 +1872,52 @@ let DayJSHelper = {
   fromNow: function (timestamp) {
     return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).fromNow()
   },
-  shortTime: function (timestamp) {
-    let intervalTimestamp = (new Date()).getTime() - timestamp
+  toNow: function (timestamp) {
+    return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).toNow()
+  },
+  _prefixZero: function (n) {
+    if (n < 10) {
+      return '0' + n
+    }
+  },
+  shortTime: function (millisecond) {
+    //let intervalTimestamp = (new Date()).getTime() - timestamp
     
-    if (intervalTimestamp < 10800000) {
-      // 如果是在距離現在三小時內，那就顯示 n分鐘前
-      return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).fromNow()
+    let year = 0
+    let month = 0
+    let day = 0
+    let hour = 0
+    let minute = 0
+    
+    if (millisecond < 60000) {
+      // 如果是在距離現在12小時內，那就顯示 n分鐘前
+      return this.$t('in a minute')
     }
-    else if (intervalTimestamp < 86400000) {
+    else if (millisecond < 86400000) {
       // 如果是距離現在1天內，那就顯示 hh:mm
-      return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).format('HH:mm')
+      hour = Math.floor(millisecond / 3600000)
+      minute = Math.floor((millisecond % 3600000) / 60000)
+      return this._prefixZero(hour) + ':' + this._prefixZero(minute)
+      
+      //return dayjs().millisecond(timestamp).format('HH:mm')
+      //return this.$t('in a day')
     }
-    else if (intervalTimestamp < 31536000000) {
-      // 如果距離現在1年內，那就顯示 mm/dd
-      return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).format('MM-DD')
+    else if (millisecond < 2592000000) {
+      // 如果距離30天內，那就顯示 in {0} day
+      day = Math.ceil(millisecond / 86400000)
+      return this.$t('in {0} day', [day])
+    }
+    else if (millisecond < 31536000000) {
+      // 如果距離現在1年內，那就顯示 in {0} month
+      //return dayjs().millisecond(millisecond).format('MM-DD')
+      month = Math.ceil(millisecond / 2592000000)
+      return this.$t('in {0} month', [month])
     }
     else {
-      // 如果超過1年，那就顯示2019年
-      return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).format('YYYY')
+      // 如果超過1年，那就顯示 in {0} year
+      
+      year = Math.ceil(millisecond / 31536000000)
+      return this.$t('in {0} year', [year])
     }
   },
   from: function (baseTimestamp, toTimestamp) {
@@ -1973,7 +2006,10 @@ let i18nGlobal = {
   "en": {
     "Title": "Example Title",
     "Groups": "Group | Groups",
-    "Readers": "Reader | Readers"
+    "Readers": "Reader | Readers",
+    "in {0} day": "in {0} day | in {0} days",
+    "in {0} month": "in {0} month | in {0} months",
+    "in {0} year": "in {0} year | in {0} years"
   },
   "zh-TW": {
     "LOGIN": "登入",
@@ -2000,6 +2036,9 @@ let i18nGlobal = {
     "READING_PROGRESS.CollaborativeReading": "團體閱讀",
     "READING_PROGRESS.PostRecall": "閱讀後的回想",
     "READING_PROGRESS.finish": "已經完成",
+    "in {0} day": "在{0}天內",
+    "in {0} month": "在{0}月內",
+    "in {0} year": "在{0}年內"
   }
 }
 

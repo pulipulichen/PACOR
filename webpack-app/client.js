@@ -99,6 +99,10 @@ let VueController = {
       this.error = error
     })
     
+    this.lib.DayJSHelper.setI18N((name, data) => {
+      return this.$t(name, data)
+    })
+    
     this.lib.auth = this.$refs.auth
     //console.log(this.lib.auth.nextStep)
   },

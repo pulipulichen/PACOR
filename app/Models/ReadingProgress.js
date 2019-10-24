@@ -22,6 +22,8 @@ class ReadingProgress extends Model {
   }
   
   getIsCompleted ({end_timestamp}) {
+    //console.log(end_timestamp, typeof(end_timestamp))
+    //return (isNaN(end_timestamp) === false)
     return (end_timestamp !== null)
   }
   
@@ -34,8 +36,39 @@ class ReadingProgress extends Model {
       return null
     }
     else {
+      if (typeof(start_timestamp) === 'string'
+              && isNaN(start_timestamp) === false) {
+        start_timestamp = parseInt(start_timestamp, 10)
+      }
+      if (typeof(end_timestamp) === 'string'
+              && isNaN(end_timestamp) === false) {
+        end_timestamp = parseInt(end_timestamp, 10)
+      }
       return end_timestamp - start_timestamp
     }
+  }
+  
+  getStartTimestamp (timestamp) {
+    if (timestamp === null) {
+      return null
+    }
+    else if (isNaN(timestamp) === false) {
+      return parseInt(timestamp, 10)
+    }
+    else {
+      return null
+    }
+  }
+  
+  getEndTimestamp (timestamp) {
+    if (timestamp === null) {
+      return null
+    }
+    else if (isNaN(timestamp) === false) {
+      //console.log(timestamp, isNaN(timestamp), typeof(timestamp))
+      return parseInt(timestamp, 10)
+    }
+    return null
   }
 }
 
