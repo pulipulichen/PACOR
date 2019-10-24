@@ -802,7 +802,7 @@ let Auth = {
         this.status.needLogin = false
       }
       else {
-        this.status.view = 'Login'
+        this.showLogin()
       }
       //this.status.username = result
     },
@@ -827,6 +827,10 @@ let Auth = {
         return this.status.readingProgressesFinish
       }
       return 'not-yet-started'
+    },
+    showLogin: function () {
+      this.status.needLogin = true
+      this.status.view = 'Login'
     },
     nextStep: async function () {
       //throw 'nextStep'

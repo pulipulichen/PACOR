@@ -200,10 +200,11 @@ let Template = {
   methods: {
     logout: async function () {
       await this.lib.AxiosHelper.get('/client/auth/logout')
-      this.status.needLogin = true
+      this.$refs.ExitModal.hide()
+      this.lib.auth.showLogin()
     },
     exit: async function () {
-      await this.logout()
+      await this.lib.AxiosHelper.get('/client/auth/logout')
       window.close()
     }
   } // methods
