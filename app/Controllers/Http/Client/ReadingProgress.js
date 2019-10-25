@@ -39,7 +39,7 @@ class ReadingProgress {
   }
   
   async setLog({request, webpage, user}) {
-    let log = request.all()
+    let {log, goNext} = request.all()
     if (typeof(log) !== 'object' || JSON.stringify(log) === '{}') {
       return 0
     }
@@ -47,6 +47,11 @@ class ReadingProgress {
     let step = await user.startReadingProgress(webpage)
     step.log = log
     await step.save()
+    
+    // ----------------------
+    if (goNext === true) {
+      return await this.end({webpage, user})
+    }
     
     return 1
   }
