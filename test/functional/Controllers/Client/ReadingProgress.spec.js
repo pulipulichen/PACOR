@@ -51,6 +51,42 @@ test('check user reading progresses', async ({ assert, client }) => {
   assert.equal(readingProgresses[0].isCompleted, false)
 })
 
+test('set log', async ({ assert, client }) => {
+  await Sleep(1.5)
+  
+  let response = await client.post('/Client/ReadingProgress/setLog')
+          .send({
+            answer: 'qazwsx',
+            start_timestamp: 123456
+          })
+          .header('Referer', url)
+          .session('adonis-auth', 1)
+          .end()
+  
+  console.log(response.text)
+  response.assertStatus(200)
+  response.assertText('1')
+  //console.log(response.body)
+})
+
+test('get log', async ({ assert, client }) => {
+  await Sleep(1.5)
+  
+  let response = await client.post('/Client/ReadingProgress/getLog')
+          .header('Referer', url)
+          .session('adonis-auth', 1)
+          .end()
+  
+  console.log(response.text)
+  response.assertStatus(200)
+  response.assertJSONSubset({
+    answer: 'qazwsx',
+    start_timestamp: 123456
+  })
+  //console.log(response.body)
+})
+
+
 test('end step', async ({ assert, client }) => {
   await Sleep(1)
   

@@ -12,18 +12,20 @@ class ReadingProgress {
     return step.step_name
   }
   */
-  /**
-   * 
-   * @param {type} webpage
-   * @param {type} user
-   * @returns 下一個步驟
-   */
-  async end({webpage, user}) {
+ 
+  async end({request, webpage, user}) {
+    let {log} = request.all()
+    if (typeof(log) === 'object' && JSON.stringify(log) !== '{}') {
+      let currentStep = await user.startReadingProgress(webpage)
+      currentStep.log = log
+      await currentStep.save()
+    }
+    
     //throw new HttpException('#TODO start')
     await user.endReadingProgress(webpage)
     
-    let step = await user.startReadingProgress(webpage)
-    if (step === null) {
+    let nextStep = await user.startReadingProgress(webpage)
+    if (nextStep === null) {
       return 0
     }
     else {
@@ -39,25 +41,34 @@ class ReadingProgress {
   }
   
   async setLog({request, webpage, user}) {
-    let {log, goNext} = request.all()
+    let log = request.all()
     if (typeof(log) !== 'object' || JSON.stringify(log) === '{}') {
+      throw new HttpException('No log' + JSON.stringify(log))
       return 0
     }
     
     let step = await user.startReadingProgress(webpage)
+    //step.log = JSON.stringify(log)
+    //step.fill({
+    //  log: log
+    //})
     step.log = log
-    await step.save()
+    let result = await step.save()
     
-    // ----------------------
-    if (goNext === true) {
-      return await this.end({webpage, user})
-    }
-    
+    console.log(result)
+    console.log(step.step_name)
+    console.log(step.log)
+    console.log(typeof(step.log))
+    console.log(step.toJSON())
     return 1
   }
   
   async getLog({request, webpage, user}) {
     let step = await user.startReadingProgress(webpage)
+    console.log(step.toJSON())
+    console.log(step.step_name)
+    console.log(step.log)
+    
     let log = step.log
     if (log === null || typeof(log) !== 'object') {
       log = {}

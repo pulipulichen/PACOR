@@ -24,7 +24,7 @@ class ReadingProgress extends Model {
   getIsCompleted ({end_timestamp}) {
     //console.log(end_timestamp, typeof(end_timestamp))
     //return (isNaN(end_timestamp) === false)
-    return (end_timestamp !== null)
+    return (end_timestamp !== null && end_timestamp !== undefined)
   }
   
   static get computed () {
@@ -44,7 +44,14 @@ class ReadingProgress extends Model {
               && isNaN(end_timestamp) === false) {
         end_timestamp = parseInt(end_timestamp, 10)
       }
-      return end_timestamp - start_timestamp
+      
+      if (typeof(end_timestamp) === 'number' 
+              && typeof(start_timestamp) === 'number') {
+        return end_timestamp - start_timestamp
+      }
+      else {
+        return null
+      }
     }
   }
   

@@ -15,19 +15,25 @@
         <div class="field">
             <textarea v-model="log.answer"
                       v-on:input="persist"
-                      v-bind:disabled="isTimeup"
+                      v-bind:disabled="isTimeUp"
                       class="answer"></textarea>
             <div class="ui pointing basic label"
                  v-bind:class="classWordCounter"
-                 v-if="!isTimeup">
+                 v-if="!isTimeUp">
               {{ displayCharacterCounter }}
             </div>
             
         </div>
       </template>
       <template v-slot:actions>
-        <div class="ui button disabled">
-          ({{ buttonText }})
+        <div class="ui button disabled" 
+             v-if="!isTimeUp"
+             v-html="buttonText"></div>
+        <div class="ui green right labeled icon button" 
+             v-if="isTimeUp"
+             v-on:click="nextStep">
+            {{ $t('NEXT') }}
+            <i class="angle right icon"></i>
         </div>
       </template>
   </modal>

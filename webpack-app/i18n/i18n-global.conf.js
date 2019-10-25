@@ -14,6 +14,7 @@ let i18nGlobal = {
     "LOGIN": "登入",
     "LOGOUT": "登出",
     "EXIT": "離開",
+    "NEXT": "下一步",
     "Title": "標題",
     "OK": "確認",
     "UPLOAD": "上傳",

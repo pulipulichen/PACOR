@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "0.init": "npm i && node init.js && npm run migration && npm run 0.development",
-    "1.development": "concurrently -p \"[{name} {time}]\" -t \"HH:mm:ss\" --kill-others --names \"a,c,w,h\" \"npm run start\" \"npm run cors-start\" \"npm run w2.webpack-watch-development\" \"npm run start-database-admin\" ",
-    "2.production": "concurrently -p \"[{name} {time}]\" -t \"HH:mm:ss\" --kill-others --names \"a,w\" \"npm run start\" \"npm w4.webpack-build-production\"",
+    "1.development": "concurrently -p \"[{name} {time}]\" -t \"HH:mm:ss\" --kill-others --names \"a,c,w,d\" \"npm run s1.start\" \"npm run s3.start-cors\" \"npm run w2.webpack-watch-development\" \"npm run s2.start-database-admin\" ",
+    "2.production": "concurrently -p \"[{name} {time}]\" -t \"HH:mm:ss\" --kill-others --names \"a,w,d\" \"npm run s1.start\" \"npm w4.webpack-build-production\" \"npm run s2.start-database-admin\" ",
     "s1.start": "nodemon --ignore webpack-app --ignore database --ignore public --ignore website-cors --ignore test --ignore node_modules --ignore .document --ignore .private-document --ignore help --ignore storage server.js",
     "s2.start-database-admin": "node ./database/hisha/bin/www",
     "s3.start-cors": "node ./website-cors/index.js",

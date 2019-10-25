@@ -201,6 +201,7 @@ class User extends Model {
       await Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
     }
     //console.log('startReadingProgress AAA', step.start_timestamp)
+    console.log(step.toJSON())
     return step
   }
   

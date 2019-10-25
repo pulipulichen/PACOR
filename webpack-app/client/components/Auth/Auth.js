@@ -99,9 +99,11 @@ let Auth = {
       this.status.needLogin = true
       this.status.view = 'Login'
     },
-    nextStep: async function () {
+    nextStep: async function (sendEnd) {
       //throw 'nextStep'
-      await this.lib.AxiosHelper.get('/client/ReadingProgress/end')
+      if (sendEnd !== false) {
+        await this.lib.AxiosHelper.get('/client/ReadingProgress/end')
+      }
       
       let time = this.lib.DayJSHelper.time()
       for (let i = 0; i < this.status.readingProgresses.length; i++) {

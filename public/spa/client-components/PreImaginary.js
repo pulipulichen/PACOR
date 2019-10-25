@@ -93,7 +93,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "answer",
-                    attrs: { disabled: _vm.isTimeup },
+                    attrs: { disabled: _vm.isTimeUp },
                     domProps: { value: _vm.log.answer },
                     on: {
                       input: [
@@ -108,7 +108,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  !_vm.isTimeup
+                  !_vm.isTimeUp
                     ? _c(
                         "div",
                         {
@@ -133,11 +133,30 @@ var render = function() {
             key: "actions",
             fn: function() {
               return [
-                _c("div", { staticClass: "ui button disabled" }, [
-                  _vm._v(
-                    "\r\n          (" + _vm._s(_vm.buttonText) + ")\r\n        "
-                  )
-                ])
+                !_vm.isTimeUp
+                  ? _c("div", {
+                      staticClass: "ui button disabled",
+                      domProps: { innerHTML: _vm._s(_vm.buttonText) }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.isTimeUp
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "ui green right labeled icon button",
+                        on: { click: _vm.nextStep }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n            " +
+                            _vm._s(_vm.$t("NEXT")) +
+                            "\r\n            "
+                        ),
+                        _c("i", { staticClass: "angle right icon" })
+                      ]
+                    )
+                  : _vm._e()
               ]
             },
             proxy: true
@@ -248,14 +267,14 @@ let PreImaginary = {
     buttonText: function () {
       //return this.$t('OK')
       if (typeof(this.log.start_timestamp) !== 'number') {
-        return this.$t('Waiting')
+        return '(' + this.$t('Waiting') + ')'
       }
       else if (this.remainingSeconds > 0) {
         let remainingTime = this.lib.DayJSHelper.formatHHMMSS(this.remainingSeconds)
-        return this.$t('Remaining Time: {0}', [remainingTime])
+        return '(' + this.$t('Remaining Time: {0}', [remainingTime]) + ')'
       }
       else {
-        return this.$t('Time Up')
+        return ''
       }
     },
     buttonClass: function () {
@@ -294,7 +313,7 @@ let PreImaginary = {
         return 'green'
       }
     },
-    isTimeup: function () {
+    isTimeUp: function () {
       return (typeof(this.remainingSeconds) === 'number'
               && this.remainingSeconds <= 0)
     }
@@ -335,12 +354,23 @@ let PreImaginary = {
       }
     },
     startCountdown: function () {
-      return
+      //return  // for test
       setTimeout(() => {
         if (this.remainingSeconds > 0) {
           this.remainingSeconds--
         }
       }, 1000)
+    },
+    nextStep: async function () {
+      let data = {
+        log: this.log,
+        nextStep: true
+      }
+      
+      console.log(data)
+      
+      await this.lib.AxiosHelper.post('/client/ReadingProgress/setLog', data)
+      //return await this.lib.auth.nextStep(false)
     }
   } // methods
 }
