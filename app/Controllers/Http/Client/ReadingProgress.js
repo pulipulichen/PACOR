@@ -53,6 +53,7 @@ class ReadingProgress {
     //  log: log
     //})
     step.log = log
+    step.activity_seconds = 2
     let result = await step.save()
     
     console.log(result)
@@ -70,6 +71,11 @@ class ReadingProgress {
     console.log(step.log)
     
     let log = step.log
+    if (typeof(log) === 'string' && log.startsWith('{') && log.endsWith('}')) {
+      try {
+        log = JSON.parse(log)
+      } catch (e) {}
+    } 
     if (log === null || typeof(log) !== 'object') {
       log = {}
     }
