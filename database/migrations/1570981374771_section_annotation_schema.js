@@ -12,7 +12,7 @@ class SectionAnnotationSchema extends Schema {
       table.integer('section_seq_id').notNullable()
       table.boolean('finished').defaultTo(false)
       table.text('note')
-      table.json('checklist')
+      table.text('checklist') // json
       table.timestamps()
     })
   }

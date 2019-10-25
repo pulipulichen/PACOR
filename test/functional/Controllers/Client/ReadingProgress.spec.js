@@ -28,7 +28,16 @@ f g`
   let groups = await webpage.groups().fetch()
   assert.equal(groups.size(), 3)
 })
-
+/*
+test('test webpage config', async ({ assert, client }) => {
+  let webpage = await WebpageModel.findByURL(url)
+  webpage.config = {a: 1, b: 2}
+  await webpage.save()
+  
+  webpage = await WebpageModel.findByURL(url)
+  assert.isObject(webpage.config)
+})
+*/
 test('check user reading progresses', async ({ assert, client }) => {
   //let webpage = await WebpageModel.findByURL(url)
   //let user = await UserModel.findByNameInWebpage(webpage, 'a')
@@ -50,6 +59,19 @@ test('check user reading progresses', async ({ assert, client }) => {
   assert.isNull(readingProgresses[0].end_timestamp)
   assert.equal(readingProgresses[0].isCompleted, false)
 })
+test('set log from modal', async ({ assert, client }) => {
+  await Sleep(5)
+  
+  let step = await ReadingProgressModel.find(1)
+  step.log = {a: 1, b: 2}
+  await step.save()
+  
+  step = await ReadingProgressModel.find(1)
+  assert.isObject(step.log)
+  assert.isNotNull(step.log)
+  
+  //console.log(response.body)
+}).timeout(0)
 
 test('set log', async ({ assert, client }) => {
   await Sleep(1.5)
@@ -63,7 +85,7 @@ test('set log', async ({ assert, client }) => {
           .session('adonis-auth', 1)
           .end()
   
-  console.log(response.text)
+  //console.log(response.text)
   response.assertStatus(200)
   response.assertText('1')
   //console.log(response.body)
@@ -77,7 +99,7 @@ test('get log', async ({ assert, client }) => {
           .session('adonis-auth', 1)
           .end()
   
-  console.log(response.text)
+  //console.log(response.text)
   response.assertStatus(200)
   response.assertJSONSubset({
     answer: 'qazwsx',
@@ -85,8 +107,6 @@ test('get log', async ({ assert, client }) => {
   })
   //console.log(response.body)
 })
-
-
 test('end step', async ({ assert, client }) => {
   await Sleep(1)
   
@@ -99,7 +119,6 @@ test('end step', async ({ assert, client }) => {
   response.assertText('1')
   //console.log(response.body)
 })
-
 test('check user progresses after finishing', async ({ assert, client }) => {
   let webpage = await WebpageModel.findByURL(url)
   let user = await UserModel.findByNameInWebpage(webpage, 'a')

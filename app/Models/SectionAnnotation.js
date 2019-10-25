@@ -4,6 +4,8 @@
 const Annotation = use('App/Models/Annotation')
 
 class SectionAnnotation extends Annotation {
+  // 這邊要做check list的 json case
+  
   rates () {
     return this.hasMany('App/Models/SectionAnnotationRate')
             .where('deleted', false)
@@ -12,6 +14,23 @@ class SectionAnnotation extends Annotation {
   replies () {
     return this.hasMany('App/Models/SectionAnnotationReply')
             .where('deleted', false)
+  }
+  
+  getChecklist (checklist) {
+    if (checklist !== null 
+                && typeof(checklist) === 'string'
+                && checklist.startsWith('{')
+                && checklist.endsWith('}')) {
+          checklist = JSON.parse(checklist)
+    }
+    return checklist
+  }
+  
+  setChecklist (checklist) {
+    if (checklist !== null && typeof(checklist) === 'object') {
+      checklist = JSON.stringify(checklist)
+    }
+    return checklist
   }
 }
 

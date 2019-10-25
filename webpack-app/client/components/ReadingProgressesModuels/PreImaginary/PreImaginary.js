@@ -122,15 +122,18 @@ let PreImaginary = {
       }, 1000)
     },
     nextStep: async function () {
+      /*
       let data = {
         log: this.log,
         nextStep: true
       }
+      */
+      //console.log(data)
       
-      console.log(data)
-      
-      await this.lib.AxiosHelper.post('/client/ReadingProgress/setLog', data)
-      //return await this.lib.auth.nextStep(false)
+      await this.lib.AxiosHelper.post('/client/ReadingProgress/end', this.log)
+      localStorage.removeItem(this.persistKey)
+      this.$refs.Modal.hide()
+      return await this.lib.auth.nextStep(false)
     }
   } // methods
 }

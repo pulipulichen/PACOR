@@ -39,6 +39,14 @@ module.exports = {
   
   sqlite_testing: {
     client: 'sqlite3',
+    connection: {
+      filename: Helpers.databasePath(`${Env.get('DB_DATABASE', 'development')}-test.sqlite`)
+    },
+    useNullAsDefault: true
+  },
+  
+  sqlite_testing_memory: {
+    client: 'sqlite3',
     connection: ':memory:',
     useNullAsDefault: true
   },

@@ -13,7 +13,7 @@ class ReadingProgressSchema extends Schema {
       table.bigInteger('activity_seconds').defaultTo(0)
       table.bigInteger('start_timestamp').notNullable()
       table.bigInteger('end_timestamp')
-      table.json('log')
+      table.text('log') // json
       table.timestamps()
     })
   }

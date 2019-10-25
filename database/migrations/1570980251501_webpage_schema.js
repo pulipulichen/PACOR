@@ -10,7 +10,7 @@ class WebpageSchema extends Schema {
       table.integer('domain_id').notNullable().unsigned().references('id').inTable('domains').onDelete('cascade')
       table.string('url', 254).notNullable()
       table.text('title')
-      table.json('config')
+      table.text('config')  // json
       table.text('agreement')
       table.timestamps()
     })

@@ -2,8 +2,15 @@
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
+const ModelHelper = use('App/Helpers/ModelHelper')
 
 class ReadingActivityLog extends Model {
+  static boot () {
+    super.boot()
+    
+    ModelHelper.addJSONCaseHook(this, 'properties')
+  }
+  
   static async log (webpageID, userID, type, log) {
     if (typeof(webpageID) === 'object'
             && typeof(webpageID.primaryKeyValue) === 'number') {

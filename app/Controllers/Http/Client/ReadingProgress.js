@@ -14,7 +14,7 @@ class ReadingProgress {
   */
  
   async end({request, webpage, user}) {
-    let {log} = request.all()
+    let log = request.all()
     if (typeof(log) === 'object' && JSON.stringify(log) !== '{}') {
       let currentStep = await user.startReadingProgress(webpage)
       currentStep.log = log
@@ -56,19 +56,19 @@ class ReadingProgress {
     step.activity_seconds = 2
     let result = await step.save()
     
-    console.log(result)
-    console.log(step.step_name)
-    console.log(step.log)
-    console.log(typeof(step.log))
-    console.log(step.toJSON())
+//    console.log(result)
+//    console.log(step.step_name)
+//    console.log(step.log)
+//    console.log(typeof(step.log))
+//    console.log(step.toJSON())
     return 1
   }
   
   async getLog({request, webpage, user}) {
     let step = await user.startReadingProgress(webpage)
-    console.log(step.toJSON())
-    console.log(step.step_name)
-    console.log(step.log)
+//    console.log(step.toJSON())
+//    console.log(step.step_name)
+//    console.log(step.log)
     
     let log = step.log
     if (typeof(log) === 'string' && log.startsWith('{') && log.endsWith('}')) {
