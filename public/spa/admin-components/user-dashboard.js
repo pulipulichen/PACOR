@@ -75,7 +75,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\r\n  PreImaginary\r\n")])
+  return _c("pre", [_vm._v("\r\n  " + _vm._s(_vm.displayStepData) + "\r\n")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -319,27 +319,43 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let Template = {
+let PreImaginary = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      stepName: 'PreImaginary',
+      stepData: {}
     }
   },
   components: {
   },
   computed: {
+    displayStepData: function () {
+      if (typeof(this.stepData) === 'object') {
+        let output = JSON.stringify(this.stepData, null, '  ')
+        output = output.slice(2, -2).trim()
+        return output
+      }
+    }
   },
   watch: {
   },
   mounted() {
     this.$parent.$refs.toc.refresh()
+    this.init()
   },
   methods: {
+    init: async function () {
+      this.stepData = await this.lib.AxiosHelper.get('/admin/UserDashboard/PreImaginary', {
+        webpageID: this.$route.params.webpageID,
+        userID: this.$route.params.userID,
+      })
+    }
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Template);
+/* harmony default export */ __webpack_exports__["default"] = (PreImaginary);
 
 /***/ }),
 
