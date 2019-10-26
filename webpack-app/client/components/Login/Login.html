@@ -38,11 +38,12 @@
                      id="loginPassword"
                      v-model="password" />
             </div>
+            
+            <div class="ui field" v-html="$t('agreement-link', [agreementLink])"></div>
           </div>
         </div>
       </template>
       <template v-slot:actions>
-        <span class="message" v-html="$t('agreement-link', [agreementLink])"></span>
         <div class="ui button"
              v-bind:class="{disabled: isDisableLogin}"
              v-on:click="login">{{ $t('LOGIN') }}</div>

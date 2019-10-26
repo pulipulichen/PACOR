@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "div[data-v-0643bae3] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 255, 0, 0.5);\n}\n", "",{"version":3,"sources":["PostRecall.less?vue&type=style&index=0&id=0643bae3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,sCAAsC;AACxC","file":"PostRecall.less?vue&type=style&index=0&id=0643bae3&lang=less&scoped=true&","sourcesContent":["div[data-v-0643bae3] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 255, 0, 0.5);\n}\n"]}]);
+exports.push([module.i, ".hint[data-v-0643bae3] {\n  max-height: 7rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-0643bae3] {\n  height: calc(100vh - 25em) !important;\n}\n", "",{"version":3,"sources":["PostRecall.less?vue&type=style&index=0&id=0643bae3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,qCAAqC;AACvC","file":"PostRecall.less?vue&type=style&index=0&id=0643bae3&lang=less&scoped=true&","sourcesContent":[".hint[data-v-0643bae3] {\n  max-height: 7rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-0643bae3] {\n  height: calc(100vh - 25em) !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -49,7 +49,120 @@ var render = function() {
     "div",
     { on: { click: _vm.lib.auth.nextStep } },
     [
-      _vm._v("\r\n  PostRecall\r\n  \r\n  "),
+      _c("modal", {
+        ref: "Modal",
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          progress: _vm.progress,
+          error: _vm.error,
+          lib: _vm.lib,
+          dimmerTransparent: "false",
+          cancelable: "false"
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "header",
+            fn: function() {
+              return [
+                _vm._v(
+                  "\r\n        " + _vm._s(_vm.$t("Post Recall")) + "\r\n      "
+                )
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "content",
+            fn: function() {
+              return [
+                _c("div", {
+                  staticClass: "field hint ui segment",
+                  domProps: { innerHTML: _vm._s(_vm.message) }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "field" }, [
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.log.answer,
+                        expression: "log.answer"
+                      }
+                    ],
+                    staticClass: "answer",
+                    attrs: { disabled: _vm.isTimeUp },
+                    domProps: { value: _vm.log.answer },
+                    on: {
+                      input: [
+                        function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.log, "answer", $event.target.value)
+                        },
+                        _vm.persist
+                      ]
+                    }
+                  }),
+                  _vm._v(" "),
+                  !_vm.isTimeUp
+                    ? _c(
+                        "div",
+                        {
+                          staticClass: "ui pointing basic label",
+                          class: _vm.classWordCounter
+                        },
+                        [
+                          _vm._v(
+                            "\r\n              " +
+                              _vm._s(_vm.displayCharacterCounter) +
+                              "\r\n            "
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ])
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "actions",
+            fn: function() {
+              return [
+                !_vm.isTimeUp
+                  ? _c("div", {
+                      staticClass: "ui button disabled",
+                      domProps: { innerHTML: _vm._s(_vm.buttonText) }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.isTimeUp
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "ui green right labeled icon button",
+                        on: { click: _vm.nextStep }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n            " +
+                            _vm._s(_vm.$t("NEXT")) +
+                            "\r\n            "
+                        ),
+                        _c("i", { staticClass: "angle right icon" })
+                      ]
+                    )
+                  : _vm._e()
+              ]
+            },
+            proxy: true
+          }
+        ])
+      }),
+      _vm._v(" "),
       _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
       _vm._v(" "),
       _c("block-exit")
@@ -126,26 +239,33 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let Template = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
-  data() {    
-    this.$i18n.locale = this.config.locale
-    return {
+/* harmony import */ var _PreImaginary_PreImaginary_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../PreImaginary/PreImaginary.js */ "./webpack-app/client/components/ReadingProgressesModuels/PreImaginary/PreImaginary.js");
+
+
+_PreImaginary_PreImaginary_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = function () {
+  this.$i18n.locale = this.config.locale
+  let key = 'PostRecall'
+  let data = {}
+  if (typeof (this.status) === 'object'
+          && typeof (this.status.readingConfig) === 'object') {
+    if (typeof (this.status.readingConfig.readingProgressModules) === 'object'
+            && typeof (this.status.readingConfig.readingProgressModules[key]) === 'object') {
+      for (let name in this.status.readingConfig.readingProgressModules[key]) {
+        data[name] = this.status.readingConfig.readingProgressModules[key][name]
+      }
     }
-  },
-  components: {
-  },
-  computed: {
-  },
-  watch: {
-  },
-  mounted() {
-  },
-  methods: {
-  } // methods
+    data.readingConfig = this.status.readingConfig
+  }
+  data.log = {
+    answer: '',
+    start_timestamp: null
+  }
+  data.persistKey = key + '.log'
+  data.remainingSeconds = null
+  return data
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Template);
+/* harmony default export */ __webpack_exports__["default"] = (_PreImaginary_PreImaginary_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 
@@ -222,6 +342,161 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_PostRecall_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CPostRecall_5CPostRecall_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_PostRecall_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CPostRecall_5CPostRecall_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_PostRecall_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CPostRecall_5CPostRecall_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_PostRecall_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CPostRecall_5CPostRecall_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_PostRecall_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CPostRecall_5CPostRecall_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/PreImaginary/PreImaginary.js":
+/*!*********************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/PreImaginary/PreImaginary.js ***!
+  \*********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let PreImaginary = {
+  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+  data() {    
+    this.$i18n.locale = this.config.locale
+    
+    let key = 'PreImaginary'
+    let data = {}
+    if (typeof(this.status) === 'object' 
+            && typeof(this.status.readingConfig) === 'object') {
+      if (typeof(this.status.readingConfig.readingProgressModules) === 'object'
+              && typeof(this.status.readingConfig.readingProgressModules[key]) === 'object') {
+        for (let name in this.status.readingConfig.readingProgressModules[key]) {
+          data[name] = this.status.readingConfig.readingProgressModules[key][name]
+        }
+      }
+      data.readingConfig = this.status.readingConfig
+    }
+    data.log = {
+      answer: '',
+      start_timestamp: null
+    }
+    data.persistKey = key + '.log'
+    data.remainingSeconds = null
+    return data
+  },
+  //components: {
+  //},
+  computed: {
+    buttonText: function () {
+      //return this.$t('OK')
+      if (typeof(this.log.start_timestamp) !== 'number') {
+        return '(' + this.$t('Waiting') + ')'
+      }
+      else if (this.remainingSeconds > 0) {
+        let remainingTime = this.lib.DayJSHelper.formatHHMMSS(this.remainingSeconds)
+        return '(' + this.$t('Remaining Time: {0}', [remainingTime]) + ')'
+      }
+      else {
+        return ''
+      }
+    },
+    buttonClass: function () {
+      //return 'disabled'
+      return ''
+    },
+    wordCount: function () {
+      if (typeof(this.log) !== 'object'
+              || typeof(this.log.answer) !== 'string') {
+        return 0
+      }
+      //console.log(this.log.answer)
+      return this.lib.StringHelper.countWords(this.log.answer)
+    },
+    displayCharacterCounter: function () {
+      if (typeof(this.log) !== 'object'
+              || typeof(this.log.answer) !== 'string') {
+        //console.log('err')
+        return ''
+      }
+      
+      let output = this.$t('{0} word', [this.wordCount])
+      
+      if (this.wordCount < this.minCharacters) {
+        let needWordsCount = this.minCharacters - this.wordCount
+        output = output + ' (' + this.$t('You still need to write {0} words more.', [needWordsCount]) + ')'
+      }
+      //console.log(output)
+      return output
+    },
+    classWordCounter: function () {
+      if (this.wordCount < this.minCharacters) {
+        return 'red'
+      }
+      else {
+        return 'green'
+      }
+    },
+    isTimeUp: function () {
+      return (typeof(this.remainingSeconds) === 'number'
+              && this.remainingSeconds <= 0)
+    }
+  },
+  watch: {
+    'remainingSeconds': function () {
+      if (typeof(this.remainingSeconds) === 'number'
+              && this.remainingSeconds > 0) {
+        this.startCountdown()
+      }
+    }
+  },
+  mounted() {
+    this.initLog()
+    this.$refs.Modal.show()
+  },
+  methods: {
+    initLog: function () {
+      let cache = localStorage.getItem(this.persistKey)
+      //console.log(cache)
+      if (cache !== null) {
+        try {
+          this.log = JSON.parse(cache)
+          
+          this.remainingSeconds = this.limitMinutes * 60 - Math.round((this.lib.DayJSHelper.time() - this.log.start_timestamp) / 1000)
+        }
+        catch (e) {}
+      }
+    },
+    persist: function () {
+      if (typeof(this.log) === 'object') {
+        if (typeof(this.log.start_timestamp) !== 'number') {
+          this.log.start_timestamp = this.lib.DayJSHelper.time()
+          this.remainingSeconds = this.limitMinutes * 60
+        }
+        
+        localStorage.setItem(this.persistKey, JSON.stringify(this.log))
+      }
+    },
+    startCountdown: function () {
+      //return  // for test
+      setTimeout(() => {
+        if (this.remainingSeconds > 0) {
+          this.remainingSeconds--
+        }
+      }, 1000)
+    },
+    nextStep: async function () {
+      /*
+      let data = {
+        log: this.log,
+        nextStep: true
+      }
+      */
+      //console.log(data)
+      
+      await this.lib.AxiosHelper.post('/client/ReadingProgress/end', this.log)
+      localStorage.removeItem(this.persistKey)
+      this.$refs.Modal.hide()
+      return await this.lib.auth.nextStep(false)
+    }
+  } // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (PreImaginary);
 
 /***/ })
 

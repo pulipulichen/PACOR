@@ -164,7 +164,9 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
+      _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
+      _vm._v(" "),
+      _c("block-exit")
     ],
     1
   )
@@ -242,13 +244,15 @@ let PreImaginary = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
+    let key = 'PreImaginary'
     let data = {}
     if (typeof(this.status) === 'object' 
             && typeof(this.status.readingConfig) === 'object') {
       if (typeof(this.status.readingConfig.readingProgressModules) === 'object'
-              && typeof(this.status.readingConfig.readingProgressModules.PreImaginary) === 'object') {
-        for (let name in this.status.readingConfig.readingProgressModules.PreImaginary) {
-          data[name] = this.status.readingConfig.readingProgressModules.PreImaginary[name]
+              && typeof(this.status.readingConfig.readingProgressModules[key]) === 'object') {
+        for (let name in this.status.readingConfig.readingProgressModules[key]) {
+          data[name] = this.status.readingConfig.readingProgressModules[key][name]
         }
       }
       data.readingConfig = this.status.readingConfig
@@ -257,12 +261,12 @@ let PreImaginary = {
       answer: '',
       start_timestamp: null
     }
-    data.persistKey = 'PreImaginary.log'
+    data.persistKey = key + '.log'
     data.remainingSeconds = null
     return data
   },
-  components: {
-  },
+  //components: {
+  //},
   computed: {
     buttonText: function () {
       //return this.$t('OK')

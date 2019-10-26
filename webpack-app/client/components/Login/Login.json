@@ -1,6 +1,6 @@
 {
   "en": {
-    "agreement-link": "(By clicking Sign Up, you agree to our <a href='{0}' target='_blank'>Agreement Terms</a>.)"
+    "agreement-link": "By clicking Sign Up, you agree to our <a href='{0}' target='_blank'>Agreement Terms</a>."
   },
   "zh-TW": {
     "User {0} is not existed.": "使用者{0}不存在。",
@@ -14,6 +14,6 @@
     "Login from Google": "從Google帳號登入",
     "Login from GitHub": "從GitHub帳號登入",
     "Login from Instagram": "從Instagram帳號登入",
-    "agreement-link": "(如果您按下「登入」按鈕，表示您同意我們的<a href='{0}' target='_blank'>知情同意書</a>。)"
+    "agreement-link": "如果您按下「登入」按鈕，表示您同意我們的<a href='{0}' target='_blank'>知情同意書</a>。"
   }
 }

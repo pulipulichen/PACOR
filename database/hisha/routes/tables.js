@@ -7,9 +7,9 @@ const { Client } = require('pg')
 /* This is the same as /connect in index.js */
 router.get('/lists', function(req, res, next) {
 
-  const query = 'SELECT relid as table_id, relname as table_name,n_live_tup as rows FROM pg_stat_user_tables';
+  const query = 'SELECT relid as table_id, relname as table_name,n_live_tup as rows FROM pg_stat_user_tables order by table_name asc';
   build_connection('lists', req.session, query, [], (result)=>{
-    if(result == false)
+    if(result === false)
       res.render('index', { title: 'Hisha' })
     else
       res.render('dashboard', { title: 'Dashboard - Hisha', tables: result.rows }); 
@@ -36,7 +36,7 @@ router.get('/new/:table_name', function(req, res, next) {
   const query = "select column_name,udt_name as data_type, is_nullable as nullable " 
               + "from information_schema.columns where table_name = '" + table_name + "'";
   build_connection('new', req.session, query, [], (result)=>{
-    if(result == false)
+    if(result === false)
       res.render('index', { title: 'Hisha' })
     else{
       res.render('new_row', { 
@@ -56,7 +56,7 @@ router.post('/insert/:table_name', function(req, res, next) {
   let values = ''
   for(let key in row_content){
     columns = columns + key + ", "
-    if(row_content[key] == ''){
+    if(row_content[key] === ''){
       values = values + "NULL, "
     } else {
       values = values + "'" + row_content[key] + "', "
@@ -69,7 +69,7 @@ router.post('/insert/:table_name', function(req, res, next) {
   const query = `INSERT INTO ${table_name} ( ${columns} ) VALUES ( ${values} )`;
   // console.log(query)  
   build_connection('insert', req.session, query, [], (result)=>{
-    if(result == false)
+    if(result === false)
       res.redirect('/tables/read/' + table_name)
     else
       res.redirect('/tables/read/' + table_name)    
@@ -79,6 +79,7 @@ router.post('/insert/:table_name', function(req, res, next) {
 
 /* GET read content of secific table */
 router.get('/read/:table_name', function(req, res, next) {
+  /*
 	const table_name = req.params.table_name;
   const query = 'SELECT * FROM ' + table_name;
   build_connection('read', req.session, query, [], (result)=>{
@@ -100,6 +101,39 @@ router.get('/read/:table_name', function(req, res, next) {
       }); 
     }
   })
+  */
+  
+  const table_name = req.params.table_name;
+  const query = "select column_name from information_schema.columns where table_name = '" + table_name + "'";
+  build_connection('read', req.session, query, [], (columns)=>{
+    if(columns === false) {
+      res.render('index', { title: 'Hisha' })
+    }
+    else {
+      let query = 'SELECT * FROM ' + table_name;
+      
+      let hasIDColumn = false
+      for (let i = 0; i < columns.rows.length; i++) {
+        if (columns.rows[i].column_name === 'id') {
+          hasIDColumn = true
+          break
+        }
+      }
+      
+      if (hasIDColumn === true) {
+        query = query + ' order by id desc'
+      }
+      
+      build_connection('read', req.session, query, [], (result)=>{
+        res.render('table', { 
+          title: 'Table ' + table_name + ' - Hisha', 
+          table_name: table_name,
+          columns: columns.rows,
+          rows: result.rows 
+        });
+      })
+    }
+  }); 
 });
 
 /* POST save cell data */
