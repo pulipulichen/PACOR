@@ -11,11 +11,14 @@ let StepProgressBar = {
   },
   computed: {
   },
-  watch: {
-  },
   */
-  mounted() {
-    window.$(this.$refs.buttons).children().popup()
+  watch: {
+    'progresses': function () {
+      this.initPopup()
+    }
+  },
+  mounted: function () {
+    this.initPopup()
   },
   computed: {
     currentStep: function () {
@@ -38,9 +41,32 @@ let StepProgressBar = {
         return this.displayTitle(step)
       }
       return this.$t('READING_PROGRESS.finish')
+    },
+    allStepFinished: function () {
+      for (let i = 0; i < this.progresses.length; i++) {
+        let step = this.progresses[i]
+        if (step.isCompleted === true) {
+          continue
+        }
+        else {
+          return false
+        }
+      }
+      return true
     }
   },
   methods: {
+    initPopup: function () {
+      //console.log(Array.isArray(this.progresses))
+      if (Array.isArray(this.progresses)) {
+        setTimeout(() => {
+          let buttons = window.$(this.$refs.buttons).children()
+          if (buttons.length > 0) {
+            buttons.popup()
+          }
+        }, 0)
+      }
+    },
     getTitle: function (step_name) {
       if (typeof(step_name) === 'object'
               && typeof(step_name.step_name) === 'string') {
@@ -77,7 +103,10 @@ let StepProgressBar = {
       */
     },
     displayClass: function (step) {
-      if (step.isCompleted === true) {
+      if (this.allStepFinished === true) {
+        return 'green'
+      } 
+      else if (step.isCompleted === true) {
         return 'grey'
       }
       else if (typeof(step.start_timestamp) === 'number') {

@@ -191,6 +191,27 @@ var render = function() {
         attrs: { config: _vm.config, lib: _vm.lib, headings: "h3, h4" }
       }),
       _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "ui segment" },
+        [
+          _c("h3", { attrs: { id: _vm.attrHeaderID("steps") } }, [
+            _vm._v(
+              "\r\n      " + _vm._s(_vm.$t("Reading Progresses")) + "\r\n    "
+            )
+          ]),
+          _vm._v(" "),
+          _c("step-progress-bar", {
+            attrs: {
+              lib: _vm.lib,
+              config: _vm.config,
+              progresses: _vm.user.readingProgresses
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
       _vm._l(_vm.user.readingProgresses, function(step) {
         return _c(
           "div",
@@ -461,7 +482,9 @@ let UserDashboard = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      user: {}
+      user: {
+        readingProgresses: []
+      }
     }
   },
   components: {
@@ -505,6 +528,7 @@ let UserDashboard = {
       
       let result = await this.lib.AxiosHelper.get('/admin/UserDashboard/info', data)
       this.user = result.user
+      console.log(this.user)
       this.status.webpageURL = result.webpageURL
       this.status.title = this.$t('Dashboard') + ' ' + this.username
     },

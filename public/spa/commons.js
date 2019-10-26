@@ -159,7 +159,7 @@ exports.push([module.i, ".pagination[data-v-16bb9012] {\n  text-align: center;\n
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".step-progress-bar[data-v-e5bffb70] {\n  /*\n  max-width: 100%;\n  overflow-x: hidden;\n    \n  \n  &> .button {\n    max-width: 100%;\n    overflow-x: hidden;\n    text-overflow: ellipsis;\n  }\n  */\n}\n.step-progress-bar .button[data-v-e5bffb70] {\n  padding: 0 !important;\n  cursor: default !important;\n}\n", "",{"version":3,"sources":["StepProgressBar.less?vue&type=style&index=0&id=e5bffb70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE;;;;;;;;;;GAUC;AACH;AACA;EACE,qBAAqB;EACrB,0BAA0B;AAC5B","file":"StepProgressBar.less?vue&type=style&index=0&id=e5bffb70&lang=less&scoped=true&","sourcesContent":[".step-progress-bar[data-v-e5bffb70] {\n  /*\n  max-width: 100%;\n  overflow-x: hidden;\n    \n  \n  &> .button {\n    max-width: 100%;\n    overflow-x: hidden;\n    text-overflow: ellipsis;\n  }\n  */\n}\n.step-progress-bar .button[data-v-e5bffb70] {\n  padding: 0 !important;\n  cursor: default !important;\n}\n"]}]);
+exports.push([module.i, ".step-progress-bar[data-v-e5bffb70] {\n  /*\n  max-width: 100%;\n  overflow-x: hidden;\n    \n  \n  &> .button {\n    max-width: 100%;\n    overflow-x: hidden;\n    text-overflow: ellipsis;\n  }\n  */\n}\n.step-progress-bar .button[data-v-e5bffb70] {\n  padding: 0 !important;\n  cursor: default !important;\n}\n.step-progress-bar .button.grey[data-v-e5bffb70],\n.step-progress-bar .button.green[data-v-e5bffb70] {\n  margin-right: 0.3em !important;\n}\n.step-progress-bar .button.grey[data-v-e5bffb70]:last-of-type,\n.step-progress-bar .button.green[data-v-e5bffb70]:last-of-type {\n  margin-right: 0  !important;\n}\n", "",{"version":3,"sources":["StepProgressBar.less?vue&type=style&index=0&id=e5bffb70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE;;;;;;;;;;GAUC;AACH;AACA;EACE,qBAAqB;EACrB,0BAA0B;AAC5B;AACA;;EAEE,8BAA8B;AAChC;AACA;;EAEE,2BAA2B;AAC7B","file":"StepProgressBar.less?vue&type=style&index=0&id=e5bffb70&lang=less&scoped=true&","sourcesContent":[".step-progress-bar[data-v-e5bffb70] {\n  /*\n  max-width: 100%;\n  overflow-x: hidden;\n    \n  \n  &> .button {\n    max-width: 100%;\n    overflow-x: hidden;\n    text-overflow: ellipsis;\n  }\n  */\n}\n.step-progress-bar .button[data-v-e5bffb70] {\n  padding: 0 !important;\n  cursor: default !important;\n}\n.step-progress-bar .button.grey[data-v-e5bffb70],\n.step-progress-bar .button.green[data-v-e5bffb70] {\n  margin-right: 0.3em !important;\n}\n.step-progress-bar .button.grey[data-v-e5bffb70]:last-of-type,\n.step-progress-bar .button.green[data-v-e5bffb70]:last-of-type {\n  margin-right: 0  !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -525,7 +525,8 @@ var render = function() {
             class: _vm.displayClass(step),
             attrs: {
               title: _vm.displayTitle(step),
-              "data-content": _vm.displayTitle(step)
+              "data-content": _vm.displayTitle(step),
+              "data-position": "bottom center"
             }
           })
         }),
@@ -1428,11 +1429,14 @@ let StepProgressBar = {
   },
   computed: {
   },
-  watch: {
-  },
   */
-  mounted() {
-    window.$(this.$refs.buttons).children().popup()
+  watch: {
+    'progresses': function () {
+      this.initPopup()
+    }
+  },
+  mounted: function () {
+    this.initPopup()
   },
   computed: {
     currentStep: function () {
@@ -1455,9 +1459,32 @@ let StepProgressBar = {
         return this.displayTitle(step)
       }
       return this.$t('READING_PROGRESS.finish')
+    },
+    allStepFinished: function () {
+      for (let i = 0; i < this.progresses.length; i++) {
+        let step = this.progresses[i]
+        if (step.isCompleted === true) {
+          continue
+        }
+        else {
+          return false
+        }
+      }
+      return true
     }
   },
   methods: {
+    initPopup: function () {
+      //console.log(Array.isArray(this.progresses))
+      if (Array.isArray(this.progresses)) {
+        setTimeout(() => {
+          let buttons = window.$(this.$refs.buttons).children()
+          if (buttons.length > 0) {
+            buttons.popup()
+          }
+        }, 0)
+      }
+    },
     getTitle: function (step_name) {
       if (typeof(step_name) === 'object'
               && typeof(step_name.step_name) === 'string') {
@@ -1494,7 +1521,10 @@ let StepProgressBar = {
       */
     },
     displayClass: function (step) {
-      if (step.isCompleted === true) {
+      if (this.allStepFinished === true) {
+        return 'green'
+      } 
+      else if (step.isCompleted === true) {
         return 'grey'
       }
       else if (typeof(step.start_timestamp) === 'number') {

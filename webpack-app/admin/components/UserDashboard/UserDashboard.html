@@ -37,6 +37,9 @@
     </div>
   </div>
   
+  
+  
+  
   <!-- ======================================== -->
   
   <table-of-contents v-bind:config="config"
@@ -44,11 +47,21 @@
                      headings="h3, h4"
                      ref='toc'></table-of-contents>
   
+  <div class="ui segment">
+    <h3 v-bind:id="attrHeaderID('steps')">
+      {{ $t('Reading Progresses') }}
+    </h3>
+    <step-progress-bar v-bind:lib="lib"
+                 v-bind:config="config"
+                 v-bind:progresses="user.readingProgresses"></step-progress-bar>
+  </div>
+  
   <div v-for="step in user.readingProgresses"
        class="ui segment">
     <h3 v-bind:id="attrHeaderID(step.step_name)">
       {{ $t('READING_PROGRESS.' + step.step_name) }}
     </h3>
+    
     <component v-bind:is="step.step_name"
                 v-bind:config="config"
                 v-bind:status="status"
