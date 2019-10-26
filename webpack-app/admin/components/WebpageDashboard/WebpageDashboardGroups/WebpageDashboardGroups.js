@@ -1,12 +1,16 @@
-let Template = {
+import ReaderCard from './ReaderCard/ReaderCard.vue'
+
+let WebpageDashboardGroups = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'toc'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      groups: []
+      groups: [],
+      notInGroup: []
     }
   },
   components: {
+    'reader-card': ReaderCard
   },
   computed: {
   },
@@ -23,7 +27,9 @@ let Template = {
       
       let result = await this.lib.AxiosHelper.get('/admin/Dashboard/groups', data)
       //console.log(result)
-      this.groups = result.groups
+      for (let name in result) {
+        this[name] = result[name]
+      }
       this.lib.toc()
     },
     attrHeaderID: function (anchor) {
@@ -32,4 +38,4 @@ let Template = {
   } // methods
 }
 
-export default Template
+export default WebpageDashboardGroups

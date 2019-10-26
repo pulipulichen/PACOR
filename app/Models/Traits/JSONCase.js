@@ -9,7 +9,7 @@ class JSONCase {
     return Config.get(`database.${connection}.client`)
   }
   
-  register (modal, attrs) {
+  register (Model, attrs) {
     if (this.getDatabaseClient() !== 'sqlite3') {
       return
     }
@@ -18,7 +18,7 @@ class JSONCase {
       attrs = [attrs]
     }
     
-    modal.addHook('beforeSave', async (instance) => {
+    Model.addHook('beforeSave', async (instance) => {
       attrs.forEach(attr => {
         if (instance[attr] !== null && typeof(instance[attr]) === 'object') {
           instance[attr] = JSON.stringify(instance[attr])
@@ -26,7 +26,7 @@ class JSONCase {
       })
     })
     
-    modal.addHook('afterFind', async (instance) => {
+    Model.addHook('afterFind', async (instance) => {
       attrs.forEach(attr => {
         if (instance[attr] !== null 
                 && typeof(instance[attr]) === 'string'

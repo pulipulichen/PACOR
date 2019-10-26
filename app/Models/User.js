@@ -312,7 +312,7 @@ class User extends Model {
       }
       else {
         // 查詢沒有加入群組的使用者
-        userIds = await webpage.getAnonymousUserIDs(this)
+        userIds = await webpage.getReaderIDsNotInGroup(this)
       }
 
       await Cache.forever(cacheKey, userIds)

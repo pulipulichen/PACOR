@@ -157,6 +157,8 @@ class Webpage extends Model {
     }
     
     await Cache.forget(`User.getOtherUserIDsInGroup.${this.primaryKeyValue}`)
+    await Cache.forget(`Webpage.getReadersNotInGroup.${this.primaryKeyValue}`)
+    await Cache.forget(`Webpage.getReaderIDsNotInGroup.${this.primaryKeyValue}`)
     await Cache.forget(`Webpage.getGroupsList.${this.primaryKeyValue}`)
   }
   
@@ -196,16 +198,26 @@ class Webpage extends Model {
   
   // ------------------
   
-  async getAnonymousUserIDs(excludedUserID) {
+  async getReadersNotInGroup() {
+    let idsList = await this.getReaderIDsNotInGroup()
+    let readers = await User
+            .query()
+            .whereIn('id', idsList)
+            .fetch()
+    return readers
+  }
+  
+  async getReaderIDsNotInGroup(excludedUserID) {
     if (typeof(excludedUserID) === 'object'
             && typeof(excludedUserID.primaryKeyValue) === 'number') {
       excludedUserID = excludedUserID.primaryKeyValue
     }
     
-    let cacheKey = `Webpage.getAnonymousUserIDs.${this.primaryKeyValue}`
+    let cacheKey = `Webpage.getReaderIDsNotInGroup.${this.primaryKeyValue}`
     let output = await Cache.get(cacheKey, async () => {
       let relation = User
               .query()
+              .where('role', 'reader')
               .where('domain_id', this.domain_id)
 
       let groups = await this.groups().fetch()
@@ -232,6 +244,8 @@ class Webpage extends Model {
     if (typeof(excludedUserID) === 'number') {
       output = output.filter(id => (id !== excludedUserID)) 
     }
+    
+    await Cache.forever(cacheKey, output)
     return output
   }
   
