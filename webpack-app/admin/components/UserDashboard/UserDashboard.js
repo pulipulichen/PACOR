@@ -1,4 +1,7 @@
 import PreImaginary from './PreImaginary/PreImaginary.vue'
+import IndividualReading from './IndividualReading/IndividualReading.vue'
+import CollaborativeReading from './CollaborativeReading/CollaborativeReading.vue'
+import PostRecall from './PostRecall/PostRecall.vue'
 
 let UserDashboard = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
@@ -12,9 +15,9 @@ let UserDashboard = {
   },
   components: {
     PreImaginary: PreImaginary,
-    IndividualReading: PreImaginary,
-    CollaborativeReading: PreImaginary,
-    PostRecall: PreImaginary
+    IndividualReading: IndividualReading,
+    CollaborativeReading: CollaborativeReading,
+    PostRecall: PostRecall
   },
   computed: {
     'webpagePath': function () {
@@ -57,6 +60,17 @@ let UserDashboard = {
     },
     attrHeaderID: function (anchor) {
       return '/user-dashboard/' + this.$route.params.webpageID + '/' + this.$route.params.userID + '/' + anchor
+    },
+    stepIcon: function (step) {
+      if (step.isCompleted) {
+        return 'checkmark'
+      }
+      else if (typeof(step.start_timestamp) === 'number') {
+        return 'play'
+      }
+      else {
+        return 'hourglass'
+      }
     }
   } // methods
 }

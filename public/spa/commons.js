@@ -1930,6 +1930,9 @@ let DayJSHelper = {
   to: function (baseTimestamp, toTimestamp) {
     return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(baseTimestamp).to(dayjs__WEBPACK_IMPORTED_MODULE_0___default()(toTimestamp))
   },
+  format: function (unixMS) {
+    return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(unixMS).format('YYYY-MM-DD HH:mm:ss')
+  },
   formatHHMMSS: function (seconds) {
     if (seconds < 60) {
       return seconds

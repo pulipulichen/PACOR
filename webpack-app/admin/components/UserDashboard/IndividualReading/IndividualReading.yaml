@@ -3,5 +3,4 @@ en:
   
 zh-TW:
   # 這是註解
-  Groups: 小組資訊
-  Group: 小組
+  TEST_MESSAGE: 測試訊息

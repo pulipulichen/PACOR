@@ -90,6 +90,9 @@ let DayJSHelper = {
   to: function (baseTimestamp, toTimestamp) {
     return dayjs(baseTimestamp).to(dayjs(toTimestamp))
   },
+  format: function (unixMS) {
+    return dayjs(unixMS).format('YYYY-MM-DD HH:mm:ss')
+  },
   formatHHMMSS: function (seconds) {
     if (seconds < 60) {
       return seconds

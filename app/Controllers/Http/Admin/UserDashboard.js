@@ -12,6 +12,7 @@ const Cache = use('Cache')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
 class UserDashboard {
+  
   async info ({request, auth}) {
     let {webpageID, userID} = request.all()
     let webpage = await this._checkDomainAdmin(auth, webpageID)
@@ -28,7 +29,7 @@ class UserDashboard {
       user = user.first()
       let userJSON = user.toJSON()
       
-      userJSON.readingProgresses = await user.getReadingProgressStatus(webpage)
+      userJSON.readingProgresses = await user.getReadingProgressStatus(webpage, true)
 
       let webpageURL = webpage.url
       let output = {
@@ -50,25 +51,28 @@ class UserDashboard {
     return webpage
   }
   
-  async PreImaginary ({request, auth}) {
-    let {webpageID, userID} = request.all()
+  async step ({request, auth}) {
+    let {webpageID, userID, stepName} = request.all()
     await this._checkDomainAdmin(auth, webpageID)
     
-    let cacheKey = Cache.key('UserDashboard', 'PreImaginary', webpageID, userID)
-    //return await Cache.get(cacheKey, async () => {
+    let cacheKey = Cache.key('UserDashboard', stepName, webpageID, userID)
+    return await Cache.get(cacheKey, async () => {
       let step = await ReadingProgressModel
               .query()
+              .where('step_name', stepName)
               .where('user_id', userID)
               .where('webpage_id', webpageID)
-              .fetch()
+              .pick(1)
       
+      if (step.size() === 0) {
+        return ''
+      }
       step = step.first().toJSON()
-      
       let output = step
       //console.log(output)
       //Cache.put(cacheKey, output, 0.5)
       return output
-    //})
+    })
   }
 }
 

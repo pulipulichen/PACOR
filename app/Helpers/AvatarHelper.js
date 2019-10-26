@@ -35,14 +35,23 @@ let AvatarHelper = {
   },
    */
   getRandomUser: function (index) {
+    //console.log(users)
+    
+    let usersArray = []
+    for (let name in users) {
+      
+      usersArray.push({
+        name: name,
+      })
+    }
     
     if (typeof(index) === 'number') {
-      index = users.length % index
-      return users[index].name
+      index = index % usersArray.length
+      return usersArray[index].name
     }
 
-    let userIndex = Math.floor(Math.random() * users.length)
-    return users[userIndex].name
+    let userIndex = Math.floor(Math.random() * usersArray.length)
+    return usersArray[userIndex].name
   },
   
   adminURL: function () {

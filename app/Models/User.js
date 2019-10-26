@@ -146,7 +146,7 @@ class User extends Model {
     return null
   }
   
-  async getReadingProgressStatus (webpage) {
+  async getReadingProgressStatus (webpage, showDetails) {
     let cacheKey = Cache.key('User', 'getReadingProgressStatus', webpage, this)
     return await Cache.get(cacheKey, async () => {
       let readingProgresses
@@ -169,6 +169,10 @@ class User extends Model {
             output.end_timestamp = s.end_timestamp
             output.duration = s.duration
             output.isCompleted = s.isCompleted
+            if (showDetails === true) {
+              output.activity_seconds = s.activity_seconds
+              output.log = s.log
+            }
           }
         }
 
