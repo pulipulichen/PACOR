@@ -2,7 +2,8 @@
   <div class="content">
     <img v-bind:src="user.avatar_url"
          class="right floated mini ui image"/>
-    <a class="header">
+    <a class="header"
+       v-bind:href="'#user-dashboard/' + $route.params.webpageID + '/' + user.id">
       {{ user.username }}
       <template v-if="user.username !== user.display_name">
         ({{ user.display_name }})
@@ -17,10 +18,17 @@
       <p>#TODO</p>
     </div>
     <div class="extra content">
+      <div class="ui fluid buttons">
+        <div class="ui button">
+          {{ $t('VIEW') }}
+        </div>
+      </div>
+      <!--
       <div class="ui two buttons">
         <div class="ui basic green button">Button 1</div>
         <div class="ui basic red button">Button 2</div>
       </div>
+      -->
     </div>
   </div> <!-- <div class="content"> -->
 </div>

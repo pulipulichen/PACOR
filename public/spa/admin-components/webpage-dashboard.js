@@ -122,7 +122,7 @@ var render = function() {
         ),
         _vm._v(" "),
         _c("div", { staticClass: "item" }, [
-          _c("h2", { staticClass: "ui header" }, [
+          _c("div", { staticClass: "ui header" }, [
             _c("div", { staticClass: "content" }, [
               _c("div", { staticClass: "sub header" }, [
                 _vm._v(
@@ -218,7 +218,16 @@ var render = function() {
       _vm._v(" "),
       _c(
         "a",
-        { staticClass: "header" },
+        {
+          staticClass: "header",
+          attrs: {
+            href:
+              "#user-dashboard/" +
+              _vm.$route.params.webpageID +
+              "/" +
+              _vm.user.id
+          }
+        },
         [
           _vm._v("\r\n      " + _vm._s(_vm.user.username) + "\r\n      "),
           _vm.user.username !== _vm.user.display_name
@@ -251,7 +260,13 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _vm._m(1)
+      _c("div", { staticClass: "extra content" }, [
+        _c("div", { staticClass: "ui fluid buttons" }, [
+          _c("div", { staticClass: "ui button" }, [
+            _vm._v("\r\n          " + _vm._s(_vm.$t("VIEW")) + "\r\n        ")
+          ])
+        ])
+      ])
     ])
   ])
 }
@@ -262,20 +277,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "description" }, [
       _c("p", [_vm._v("#TODO")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "extra content" }, [
-      _c("div", { staticClass: "ui two buttons" }, [
-        _c("div", { staticClass: "ui basic green button" }, [
-          _vm._v("Button 1")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "ui basic red button" }, [_vm._v("Button 2")])
-      ])
     ])
   }
 ]
