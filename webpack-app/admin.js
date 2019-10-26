@@ -83,7 +83,7 @@ let VueController = {
       DayJSHelper: DayJSHelper,
       StringHelper: StringHelper,
       ValidateHelper: ValidateHelper,
-      toc: TOCHelper,
+      //toc: TOCHelper,
     },
     //view: 'Loading',
     view: null,

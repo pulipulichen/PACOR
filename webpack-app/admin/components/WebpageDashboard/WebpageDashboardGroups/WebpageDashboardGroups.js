@@ -30,7 +30,8 @@ let WebpageDashboardGroups = {
       for (let name in result) {
         this[name] = result[name]
       }
-      this.lib.toc()
+      
+      this.$parent.$refs.toc.refresh()
     },
     attrHeaderID: function (anchor) {
       return '/webpage-dashboard/' + this.$route.params.webpageID + '/' + anchor

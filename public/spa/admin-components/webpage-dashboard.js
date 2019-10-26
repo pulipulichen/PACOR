@@ -173,6 +173,11 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
+      _c("table-of-contents", {
+        ref: "toc",
+        attrs: { config: _vm.config, lib: _vm.lib, headings: "h3, h4" }
+      }),
+      _vm._v(" "),
       _c("webpage-dashboard-groups", {
         ref: "auth",
         attrs: {
@@ -515,6 +520,15 @@ let WebpageDashboard = {
   },
   mounted() {
     this.initDashboard()
+    
+    /*
+    this.$nextTick(() => {
+      setTimeout(() => {
+        this.$refs.toc.refresh()
+      }, 0)
+      //console.log('可') // => 'not updated'
+    })
+     */
   },
   methods: {
     initDashboard: async function () {
@@ -841,7 +855,8 @@ let WebpageDashboardGroups = {
       for (let name in result) {
         this[name] = result[name]
       }
-      this.lib.toc()
+      
+      this.$parent.$refs.toc.refresh()
     },
     attrHeaderID: function (anchor) {
       return '/webpage-dashboard/' + this.$route.params.webpageID + '/' + anchor

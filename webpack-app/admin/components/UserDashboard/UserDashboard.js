@@ -9,6 +9,11 @@ let UserDashboard = {
   components: {
   },
   computed: {
+    'webpagePath': function () {
+      if (typeof(this.status.webpageURL) === 'string') {
+        return '/' + this.status.webpageURL.split('/').slice(3).join('/')
+      }
+    }
   },
   watch: {
   },

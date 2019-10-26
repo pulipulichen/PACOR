@@ -1,0 +1,44 @@
+.toc{
+    height:100%;
+    width:280px;
+    transform:translateX(0)
+}
+.toc-icon{
+    position:fixed;
+    top:0;
+    right:0;
+}
+#toc:checked ~ .toc{
+    box-shadow:0 0 5px #c8c8c8;
+    transform:translateX(0)
+}
+.toc{
+    background-color:rgba(255,255,255,0.9);
+    transform:translateX(-100%)
+}
+.toc.toc-right{
+    transform:translateX(100%);
+    right:0
+}
+@media (min-width: 52em){
+    .toc{
+        transform:translateX(0)
+    }
+    .toc.toc-right{
+        transform:translateX(0);
+        right:calc((100% - 48rem - 4rem) / 2)
+    }
+    .toc-icon{
+        display:none
+    }
+    .try-it-container{
+        display:block
+    }
+    .content{
+        margin-left:280px
+    }
+    .toc-right ~ .content{
+        margin-left:0;
+        margin-right:280px
+    }
+}

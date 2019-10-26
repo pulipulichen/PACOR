@@ -1,0 +1,73 @@
+#tocbotNavContainer {
+  padding-top: calc(@TopMenuHeight + 1rem);
+  right: 1rem;
+  max-height: calc(100vh - @TopMenuHeight - 1rem);
+  width: @TocbotWidth;
+  font-family: 'Noto Sans CJK TC Light', 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  
+  
+  &.toc{
+    overflow-y:auto
+  }
+  &.toc>.toc-list{
+    overflow:hidden;
+    position:relative
+  }
+  &.toc>.toc-list li{
+    list-style:none
+  }
+  .toc-list{
+    margin:0;
+    padding-left:10px
+  }
+  a.toc-link{
+    color:currentColor;
+    height:100%;
+    text-decoration: none;
+    line-height: 200%;
+  }
+  .is-collapsible{
+    max-height:1000px;
+    overflow:hidden;
+    transition:all 300ms ease-in-out
+  }
+  .is-collapsed{
+    max-height:0
+  }
+  &.is-position-fixed {
+    position:fixed;
+    top:0;
+    right: 0;
+    z-index: 1;
+  }
+  .is-active-link{
+    font-weight:700
+  }
+  .toc-link::before{
+    background-color:#EEE;
+    content:' ';
+    display:inline-block;
+    height:inherit;
+    left:0;
+    margin-top:-1px;
+    position:absolute;
+    width:4px
+  }
+  .is-active-link::before{
+    background-color:#21ba45
+  }
+}
+
+.non-invasive-web-style-framework.tocbot {
+  max-width: calc(100% - @TocbotWidth);
+}
+
+@media (max-width: calc(@TocbotWidth * 3)) {
+  .non-invasive-web-style-framework.tocbot {
+    max-width: 100%;
+  }
+  
+  #tocbotNavContainer {
+    position: static !important;
+  }
+}

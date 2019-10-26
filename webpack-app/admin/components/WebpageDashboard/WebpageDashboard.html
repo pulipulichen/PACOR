@@ -53,6 +53,11 @@
     </div>
   </div>
   
+  <table-of-contents v-bind:config="config"
+                     v-bind:lib="lib"
+                     headings="h3, h4"
+                     ref='toc'></table-of-contents>
+  
   <webpage-dashboard-groups v-bind:config="config"
         v-bind:status="status"
         v-bind:progress="progress"
