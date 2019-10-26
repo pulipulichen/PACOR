@@ -2,13 +2,12 @@
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
-const ModelHelper = use('App/Helpers/ModelHelper')
 
 class AnnotationAnchorText extends Model {
   static boot () {
     super.boot()
     
-    ModelHelper.addJSONCaseHook(this, 'properties')
+    this.addTrait('JSONCase', 'properties')
   }
   
   annotations () {

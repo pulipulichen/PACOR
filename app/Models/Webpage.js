@@ -4,7 +4,6 @@
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
-const ModelHelper = use('App/Helpers/ModelHelper')
 
 const CrawlerHelper = use('App/Helpers/CrawlerHelper')
 const Env = use('Env')
@@ -38,7 +37,7 @@ class Webpage extends Model {
       Cache.forget(Cache.key('Models.Webpage.getConfig', this))
     })
     
-    ModelHelper.addJSONCaseHook(this, 'config')
+    this.addTrait('JSONCase', 'config')
   }
   
   async _crawlTitleFromURL (instance) {

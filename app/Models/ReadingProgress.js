@@ -2,7 +2,6 @@
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
-const ModelHelper = use('App/Helpers/ModelHelper')
 
 /**
 table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
@@ -13,11 +12,12 @@ table.bigInteger('start_timestamp').notNullable()
 table.bigInteger('end_timestamp')
 table.json('log')
  */
+
 class ReadingProgress extends Model {
   static boot () {
     super.boot()
     
-    ModelHelper.addJSONCaseHook(this, 'log')
+    this.addTrait('JSONCase', 'log')
   }
   
   user () {
