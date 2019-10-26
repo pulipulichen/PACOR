@@ -121,7 +121,9 @@ var render = function() {
             )
           : _vm._e()
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _vm._v("\r\n  \r\n  這邊要讀取現在的模組...\r\n")
   ])
 }
 var staticRenderFns = []

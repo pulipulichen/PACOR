@@ -429,6 +429,15 @@ var render = function() {
         attrs: { type: "text", id: "loginDomain" },
         domProps: { value: _vm.domain },
         on: {
+          keyup: function($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            return _vm.login($event)
+          },
           input: function($event) {
             if ($event.target.composing) {
               return
@@ -456,6 +465,15 @@ var render = function() {
         attrs: { type: "text", id: "loginUsername" },
         domProps: { value: _vm.username },
         on: {
+          keyup: function($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            return _vm.login($event)
+          },
           input: function($event) {
             if ($event.target.composing) {
               return
@@ -483,6 +501,15 @@ var render = function() {
         attrs: { type: "password", id: "loginPassword" },
         domProps: { value: _vm.password },
         on: {
+          keyup: function($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            return _vm.login($event)
+          },
           input: function($event) {
             if ($event.target.composing) {
               return

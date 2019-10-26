@@ -16,26 +16,29 @@ class UserDashboard {
     let cacheKey = Cache.key('UserDashboard', 'info', webpageID, userID)
     
     return await Cache.get(cacheKey, async () => {
-      let user = await UserModel
-              .query()
-              .with('domain')
-              .where('id', userID)
-              .pick(1)
-
-      user = user.first().toJSON()
-
-      await auth.checkDomainAdmin(user.domain_id)
-
       let webpage = await WebpageModel
               .query()
               .with('domain')
               .where('id', webpageID)
               .pick(1)
 
+      let user = await UserModel
+              .query()
+              .with('domain')
+              .where('id', userID)
+              .pick(1)
+
+      user = user.first()
+      let userJSON = user.toJSON()
+      
+      userJSON.readingProgresses = await user.getReadingProgressStatus(webpage)
+
+      await auth.checkDomainAdmin(user.domain_id)
+
       let webpageURL = webpage.first().url
       let output = {
-        user,
-        webpageURL
+        user: userJSON,
+        webpageURL: webpageURL
       }
       //Cache.put(cacheKey, output, 3)
       return output

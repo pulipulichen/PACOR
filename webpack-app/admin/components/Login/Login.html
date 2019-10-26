@@ -6,7 +6,8 @@
     </label>
     <input type="text" 
            id="loginDomain"
-           v-model="domain" />
+           v-model="domain"
+           v-on:keyup.enter="login" />
   </div>
   
   <div class="ui field">
@@ -15,7 +16,8 @@
     </label>
     <input type="text" 
            id="loginUsername"
-           v-model="username" />
+           v-model="username"
+           v-on:keyup.enter="login" />
   </div>
     
   <div class="ui field">
@@ -24,7 +26,8 @@
     </label>
     <input type="password" 
            id="loginPassword"
-           v-model="password" />
+           v-model="password"
+           v-on:keyup.enter="login" />
   </div>
   
   <div class="ui six buttons">

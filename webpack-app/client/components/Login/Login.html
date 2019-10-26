@@ -26,7 +26,8 @@
               </label>
               <input type="text" 
                      id="loginUsername"
-                     v-model="username" />
+                     v-model="username"
+                     v-on:keyup.enter="login"/>
             </div>
 
             <div class="ui field"
@@ -36,7 +37,8 @@
               </label>
               <input type="password" 
                      id="loginPassword"
-                     v-model="password" />
+                     v-model="password"
+                     v-on:keyup.enter="login" />
             </div>
             
             <div class="ui field" v-html="$t('agreement-link', [agreementLink])"></div>
