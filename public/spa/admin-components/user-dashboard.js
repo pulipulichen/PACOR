@@ -55,7 +55,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".ui.secondary.menu h2[data-v-68468aa6] {\n  margin-top: 0 !important;\n}\nh4[data-v-68468aa6] {\n  margin-top: 1rem !important;\n}\n", "",{"version":3,"sources":["UserDashboard.less?vue&type=style&index=0&id=68468aa6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;AAC1B;AACA;EACE,2BAA2B;AAC7B","file":"UserDashboard.less?vue&type=style&index=0&id=68468aa6&lang=less&scoped=true&","sourcesContent":[".ui.secondary.menu h2[data-v-68468aa6] {\n  margin-top: 0 !important;\n}\nh4[data-v-68468aa6] {\n  margin-top: 1rem !important;\n}\n"]}]);
+exports.push([module.i, ".ui.secondary.menu h2[data-v-68468aa6] {\n  margin-top: 0 !important;\n}\nh4[data-v-68468aa6] {\n  margin-top: 1rem !important;\n}\n.header h2[data-v-68468aa6],\n.header h3[data-v-68468aa6] {\n  margin: 0;\n}\n.header .sub.header[data-v-68468aa6] {\n  word-break: break-all;\n  width: calc(100vw - 43rem);\n  min-width: 10rem;\n}\n", "",{"version":3,"sources":["UserDashboard.less?vue&type=style&index=0&id=68468aa6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;AAC1B;AACA;EACE,2BAA2B;AAC7B;AACA;;EAEE,SAAS;AACX;AACA;EACE,qBAAqB;EACrB,0BAA0B;EAC1B,gBAAgB;AAClB","file":"UserDashboard.less?vue&type=style&index=0&id=68468aa6&lang=less&scoped=true&","sourcesContent":[".ui.secondary.menu h2[data-v-68468aa6] {\n  margin-top: 0 !important;\n}\nh4[data-v-68468aa6] {\n  margin-top: 1rem !important;\n}\n.header h2[data-v-68468aa6],\n.header h3[data-v-68468aa6] {\n  margin: 0;\n}\n.header .sub.header[data-v-68468aa6] {\n  word-break: break-all;\n  width: calc(100vw - 43rem);\n  min-width: 10rem;\n}\n"]}]);
 
 
 /***/ }),
@@ -75,9 +75,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui segment" }, [
-    _vm._v("\r\n  PreImaginary\r\n")
-  ])
+  return _c("div", [_vm._v("\r\n  PreImaginary\r\n")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -116,6 +114,10 @@ var render = function() {
           },
           [_c("i", { staticClass: "angle left icon" })]
         ),
+        _vm._v(" "),
+        _c("a", { staticClass: "icon item" }, [
+          _c("img", { attrs: { src: _vm.user.avatar_url } })
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "item" }, [
           _c("div", { staticClass: "ui header" }, [

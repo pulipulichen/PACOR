@@ -57,7 +57,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".header h2[data-v-4e86c872],\n.header h3[data-v-4e86c872] {\n  margin: 0;\n}\n.header h2[data-v-4e86c872] {\n  word-break: break-all;\n  width: calc(100vw - 39rem);\n}\n", "",{"version":3,"sources":["WebpageDashboard.less?vue&type=style&index=0&id=4e86c872&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;EAEE,SAAS;AACX;AACA;EACE,qBAAqB;EACrB,0BAA0B;AAC5B","file":"WebpageDashboard.less?vue&type=style&index=0&id=4e86c872&lang=less&scoped=true&","sourcesContent":[".header h2[data-v-4e86c872],\n.header h3[data-v-4e86c872] {\n  margin: 0;\n}\n.header h2[data-v-4e86c872] {\n  word-break: break-all;\n  width: calc(100vw - 39rem);\n}\n"]}]);
+exports.push([module.i, ".header h2[data-v-4e86c872],\n.header h3[data-v-4e86c872] {\n  margin: 0;\n}\n.header h2[data-v-4e86c872] {\n  word-break: break-all;\n  width: calc(100vw - 39rem);\n  min-width: 10rem;\n}\n", "",{"version":3,"sources":["WebpageDashboard.less?vue&type=style&index=0&id=4e86c872&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;EAEE,SAAS;AACX;AACA;EACE,qBAAqB;EACrB,0BAA0B;EAC1B,gBAAgB;AAClB","file":"WebpageDashboard.less?vue&type=style&index=0&id=4e86c872&lang=less&scoped=true&","sourcesContent":[".header h2[data-v-4e86c872],\n.header h3[data-v-4e86c872] {\n  margin: 0;\n}\n.header h2[data-v-4e86c872] {\n  word-break: break-all;\n  width: calc(100vw - 39rem);\n  min-width: 10rem;\n}\n"]}]);
 
 
 /***/ }),
