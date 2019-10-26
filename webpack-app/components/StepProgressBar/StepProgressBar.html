@@ -1,13 +1,15 @@
 <div class="step-progress-bar"
      v-bind:class="{hide: progresses.length === 0}">
-  
+
   {{ currentStep }}
-  
-<div class="ui mini fluid buttons">
-  <span v-for="(step, index) in progresses"
-        class="ui button"
-        v-bind:class="displayClass(step)"
-        v-bind:title="displayTitle(step)">  
-  </span>
-</div>
+
+  <div class="ui mini fluid buttons"
+       ref="buttons">
+    <span v-for="(step, index) in progresses"
+          class="ui button"
+          v-bind:class="displayClass(step)"
+          v-bind:title="displayTitle(step)"
+          v-bind:data-content="displayTitle(step)">  
+    </span>
+  </div>
 </div>

@@ -13,9 +13,10 @@ let StepProgressBar = {
   },
   watch: {
   },
-  mounted() {
-  },
   */
+  mounted() {
+    window.$(this.$refs.buttons).children().popup()
+  },
   computed: {
     currentStep: function () {
       if (Array.isArray(this.progresses) === false 
@@ -51,6 +52,9 @@ let StepProgressBar = {
       let title = this.getTitle(step)
       if (typeof(step.start_timestamp) === 'number'){
         title = `${title} (${this.displayTime(step)})`
+      }
+      else {
+        title = `${title} (${this.$t('not yet started')})`
       }
       return title
     },
