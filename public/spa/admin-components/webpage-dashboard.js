@@ -218,16 +218,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "a",
-        {
-          staticClass: "header",
-          attrs: {
-            href:
-              "#user-dashboard/" +
-              _vm.$route.params.webpageID +
-              "/" +
-              _vm.user.id
-          }
-        },
+        { staticClass: "header", attrs: { href: _vm.userDashboardLink } },
         [
           _vm._v("\r\n      " + _vm._s(_vm.user.username) + "\r\n      "),
           _vm.user.username !== _vm.user.display_name
@@ -258,28 +249,30 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _vm._m(0),
+      _vm.user.currentReadingSummary
+        ? _c("div", { staticClass: "description" }, [
+            _vm._v(
+              "\r\n      " + _vm._s(_vm.user.currentReadingSummary) + "\r\n    "
+            )
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "extra content" }, [
         _c("div", { staticClass: "ui fluid buttons" }, [
-          _c("div", { staticClass: "ui button" }, [
-            _vm._v("\r\n          " + _vm._s(_vm.$t("VIEW")) + "\r\n        ")
-          ])
+          _c(
+            "a",
+            {
+              staticClass: "ui button",
+              attrs: { href: _vm.userDashboardLink }
+            },
+            [_vm._v("\r\n          " + _vm._s(_vm.$t("VIEW")) + "\r\n        ")]
+          )
         ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "description" }, [
-      _c("p", [_vm._v("#TODO")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -501,7 +494,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _WebpageDashboardGroups_WebpageDashboardGroups_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WebpageDashboardGroups/WebpageDashboardGroups.vue */ "./webpack-app/admin/components/WebpageDashboard/WebpageDashboardGroups/WebpageDashboardGroups.vue");
 
 
-let Template = {
+let WebpageDashboard = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -523,9 +516,6 @@ let Template = {
   mounted() {
     this.initDashboard()
   },
-  destroyed () {
-    this.lib.toc(false)
-  },
   methods: {
     initDashboard: async function () {
       // 先跟伺服器取得webpage的資訊
@@ -540,7 +530,7 @@ let Template = {
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Template);
+/* harmony default export */ __webpack_exports__["default"] = (WebpageDashboard);
 
 /***/ }),
 
@@ -671,6 +661,9 @@ let ReaderCard = {
   components: {
   },
   computed: {
+    userDashboardLink: function () {
+      return '#/user-dashboard/' + this.$route.params.webpageID + '/' + this.user.id
+    }
   },
   watch: {
   },

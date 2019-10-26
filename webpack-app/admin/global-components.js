@@ -12,3 +12,6 @@ Vue.component('step-progress-bar', StepProgressBar)
 //import HTMLEditor from './../components/HTMLEditor/HTMLEditor.vue'
 //Vue.component('HTMLEditor', HTMLEditor)
 Vue.component('HTMLEditor', () => import(/* webpackChunkName: "vendors/HTMLEditor" */ './../components/HTMLEditor/HTMLEditor.vue'))
+
+import TableOfContent from './../components/TableOfContent/TableOfContent.vue'
+Vue.component('table-of-content', TableOfContent)

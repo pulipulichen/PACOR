@@ -1,6 +1,6 @@
 import WebpageDashboardGroups from "./WebpageDashboardGroups/WebpageDashboardGroups.vue"
 
-let Template = {
+let WebpageDashboard = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -22,9 +22,6 @@ let Template = {
   mounted() {
     this.initDashboard()
   },
-  destroyed () {
-    this.lib.toc(false)
-  },
   methods: {
     initDashboard: async function () {
       // 先跟伺服器取得webpage的資訊
@@ -39,4 +36,4 @@ let Template = {
   } // methods
 }
 
-export default Template
+export default WebpageDashboard

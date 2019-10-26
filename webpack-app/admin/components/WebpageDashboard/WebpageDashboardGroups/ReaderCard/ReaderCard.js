@@ -8,6 +8,9 @@ let ReaderCard = {
   components: {
   },
   computed: {
+    userDashboardLink: function () {
+      return '#/user-dashboard/' + this.$route.params.webpageID + '/' + this.user.id
+    }
   },
   watch: {
   },

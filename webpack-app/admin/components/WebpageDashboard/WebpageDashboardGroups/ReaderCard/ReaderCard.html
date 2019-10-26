@@ -3,7 +3,7 @@
     <img v-bind:src="user.avatar_url"
          class="right floated mini ui image"/>
     <a class="header"
-       v-bind:href="'#user-dashboard/' + $route.params.webpageID + '/' + user.id">
+       v-bind:href="userDashboardLink">
       {{ user.username }}
       <template v-if="user.username !== user.display_name">
         ({{ user.display_name }})
@@ -14,14 +14,19 @@
                          v-bind:config="config"
                          v-bind:progresses="user.readingProgresses"></step-progress-bar>
     </div>
-    <div class="description">
-      <p>#TODO</p>
+    
+    <!-- 這邊應該要隨著現在的進度顯示相關的摘要資訊 -->
+    <div class="description"
+         v-if="user.currentReadingSummary">
+      {{ user.currentReadingSummary }}
     </div>
+    
     <div class="extra content">
       <div class="ui fluid buttons">
-        <div class="ui button">
+        <a class="ui button"
+           v-bind:href="userDashboardLink">
           {{ $t('VIEW') }}
-        </div>
+        </a>
       </div>
       <!--
       <div class="ui two buttons">
