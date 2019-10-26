@@ -326,7 +326,9 @@ var render = function() {
             },
             [
               _vm._v(
-                "\r\n      Group #" +
+                "\r\n      " +
+                  _vm._s(_vm.$t("Group")) +
+                  " #" +
                   _vm._s(group.group_seq_id + 1) +
                   "\r\n    "
               )
@@ -355,33 +357,45 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("div", [
-        _c(
-          "h4",
-          { attrs: { id: _vm.attrHeaderID("dashboard-not-in-group") } },
-          [_vm._v("\r\n      Readers Not In Group\r\n    ")]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "ui cards" },
-          [
-            _vm._l(_vm.notInGroup.users, function(user) {
-              return [
-                _c("reader-card", {
-                  attrs: {
-                    user: user,
-                    lib: _vm.lib,
-                    status: _vm.status,
-                    config: _vm.config
-                  }
-                })
-              ]
-            })
-          ],
-          2
-        )
-      ])
+      _vm.notInGroup.users.length > 0
+        ? [
+            _c("div", { staticClass: "ui divider" }),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "h4",
+                { attrs: { id: _vm.attrHeaderID("dashboard-not-in-group") } },
+                [
+                  _vm._v(
+                    "\r\n        " +
+                      _vm._s(_vm.$t("Readers Not In Group")) +
+                      "\r\n      "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "ui cards" },
+                [
+                  _vm._l(_vm.notInGroup.users, function(user) {
+                    return [
+                      _c("reader-card", {
+                        attrs: {
+                          user: user,
+                          lib: _vm.lib,
+                          status: _vm.status,
+                          config: _vm.config
+                        }
+                      })
+                    ]
+                  })
+                ],
+                2
+              )
+            ])
+          ]
+        : _vm._e()
     ],
     2
   )
@@ -809,7 +823,7 @@ let WebpageDashboardGroups = {
     this.$i18n.locale = this.config.locale
     return {
       groups: [],
-      notInGroup: []
+      notInGroup: { users: [] }
     }
   },
   components: {

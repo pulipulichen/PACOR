@@ -6,7 +6,7 @@
   
   <div v-for="group in groups">
     <h4 v-bind:id="attrHeaderID('dashboard-group' + (group.group_seq_id+1))">
-      Group #{{ (group.group_seq_id + 1)  }}
+      {{ $t('Group') }} #{{ (group.group_seq_id + 1)  }}
     </h4>
     <div class="ui cards">
       <template v-for="user in group.users">
@@ -18,17 +18,21 @@
     </div>
   </div> <!-- <div v-for="group in groups"> -->
   
-  <div>
-    <h4 v-bind:id="attrHeaderID('dashboard-not-in-group')">
-      Readers Not In Group
-    </h4>
-    <div class="ui cards">
-      <template v-for="user in notInGroup.users">
-        <reader-card v-bind:user="user"
-                     v-bind:lib="lib"
-                     v-bind:status="status"
-                     v-bind:config="config"></reader-card>
-      </template>
-    </div>
-  </div> <!-- <div v-for="group in groups"> -->
+  <template v-if="notInGroup.users.length > 0">
+    <div class="ui divider"></div>
+    
+    <div>
+      <h4 v-bind:id="attrHeaderID('dashboard-not-in-group')">
+        {{ $t('Readers Not In Group') }}
+      </h4>
+      <div class="ui cards">
+        <template v-for="user in notInGroup.users">
+          <reader-card v-bind:user="user"
+                       v-bind:lib="lib"
+                       v-bind:status="status"
+                       v-bind:config="config"></reader-card>
+        </template>
+      </div>
+    </div> <!-- <div v-for="group in groups"> -->
+  </template>
 </div>

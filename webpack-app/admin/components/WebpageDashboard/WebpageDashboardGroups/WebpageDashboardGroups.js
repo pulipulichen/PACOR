@@ -6,7 +6,7 @@ let WebpageDashboardGroups = {
     this.$i18n.locale = this.config.locale
     return {
       groups: [],
-      notInGroup: []
+      notInGroup: { users: [] }
     }
   },
   components: {
