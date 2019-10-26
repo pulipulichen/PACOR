@@ -1,4 +1,4 @@
-<div class="ui segment">
+<div class="ui form">
   <div class="ui secondary menu">
     <a class="icon item"
        v-bind:href="'#/webpage-dashboard/' + $route.params.webpageID">
@@ -10,8 +10,8 @@
           <div class="sub header">{{ webpagePath }}</div>
           <h2>
             {{ user.username }}
-            <template v-if="user.username !== user.displayName">
-              ({{ user.displayName }})
+            <template v-if="user.username !== user.display_name">
+              ({{ user.display_name }})
             </template>
           </h2>
         </div>

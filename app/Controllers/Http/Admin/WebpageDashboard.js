@@ -13,7 +13,7 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 class WebpageDashboard {
   async info ({request, auth}) {
     let {webpageID} = request.all()
-    let cacheKey = Cache.key('Dashboard', 'info', webpageID)
+    let cacheKey = Cache.key('WebpageDashboard', 'info', webpageID)
     
     return await Cache.get(cacheKey, async () => {
       let webpage = await WebpageModel
@@ -37,7 +37,7 @@ class WebpageDashboard {
   
   async groups ({request, auth}) {
     let {webpageID} = request.all()
-    let cacheKey = Cache.key('Dashboard', 'group', webpageID)
+    let cacheKey = Cache.key('WebpageDashboard', 'group', webpageID)
     
     let webpage = await WebpageModel.find(webpageID)
     await auth.checkDomainAdmin(webpage.domain_id)
