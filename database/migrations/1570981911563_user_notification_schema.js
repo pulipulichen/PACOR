@@ -10,7 +10,7 @@ class UserNotificationSchema extends Schema {
       table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
       table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
       table.string('type', 60).notNullable()
-      table.text('properties')  // json
+      table.json('properties')  // json
       table.boolean('readed').defaultTo(false)
       table.boolean('deleted').defaultTo(false)
       table.timestamps()

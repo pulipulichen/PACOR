@@ -9,7 +9,7 @@ class DomainSchema extends Schema {
       table.increments()
       table.string('domain', 254).notNullable().unique()
       table.text('title')
-      table.text('config') // json
+      table.json('config') // json
       table.text('agreement')
       table.timestamps()
     })

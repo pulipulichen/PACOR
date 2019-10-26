@@ -11,7 +11,7 @@ class AnnotationAnchorTextSchema extends Schema {
       table.integer('start_pos').notNullable()
       table.integer('end_pos').notNullable()
       table.text('anchor_text').notNullable()
-      table.text('properties') // json
+      table.json('properties') // json
       table.timestamps()
     })
   }

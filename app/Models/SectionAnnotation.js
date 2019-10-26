@@ -2,6 +2,7 @@
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Annotation = use('App/Models/Annotation')
+const ModelHelper = use('App/Helpers/ModelHelper')
 
 class SectionAnnotation extends Annotation {
   // 這邊要做check list的 json case
@@ -17,6 +18,10 @@ class SectionAnnotation extends Annotation {
   }
   
   getChecklist (checklist) {
+    if (ModelHelper.getDatabaseClient() !== 'sqlite3') {
+      return checklist
+    }
+    
     if (checklist !== null 
                 && typeof(checklist) === 'string'
                 && checklist.startsWith('{')
@@ -27,6 +32,10 @@ class SectionAnnotation extends Annotation {
   }
   
   setChecklist (checklist) {
+    if (ModelHelper.getDatabaseClient() !== 'sqlite3') {
+      return checklist
+    }
+    
     if (checklist !== null && typeof(checklist) === 'object') {
       checklist = JSON.stringify(checklist)
     }
