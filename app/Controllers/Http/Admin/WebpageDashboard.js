@@ -10,7 +10,7 @@ const Cache = use('Cache')
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
-class Dashboard {
+class WebpageDashboard {
   async info ({request, auth}) {
     let {webpageID} = request.all()
     let cacheKey = Cache.key('Dashboard', 'info', webpageID)
@@ -122,4 +122,4 @@ class Dashboard {
 //  }
 }
 
-module.exports = Dashboard
+module.exports = WebpageDashboard

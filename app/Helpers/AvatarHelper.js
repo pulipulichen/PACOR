@@ -7,6 +7,7 @@ const Env = use('Env')
 const baseURL = `${Env.get('PROTOCOL')}//${Env.get('HOST')}:${Env.get('PORT')}/avatars/`
 
 let AvatarHelper = {
+  /*
   getRandomUser: function (excludedUsers) {
     if (Array.isArray(excludedUsers) === false) {
       excludedUsers = []
@@ -31,6 +32,17 @@ let AvatarHelper = {
 
     let userIndex = Math.floor(Math.random() * usersArray.length)
     return usersArray[userIndex].name
+  },
+   */
+  getRandomUser: function (index) {
+    
+    if (typeof(index) === 'number') {
+      index = users.length % index
+      return users[index].name
+    }
+
+    let userIndex = Math.floor(Math.random() * users.length)
+    return users[userIndex].name
   },
   
   adminURL: function () {

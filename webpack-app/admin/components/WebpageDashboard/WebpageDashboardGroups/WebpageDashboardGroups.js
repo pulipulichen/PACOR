@@ -25,7 +25,7 @@ let WebpageDashboardGroups = {
         webpageID: this.$route.params.webpageID
       }
       
-      let result = await this.lib.AxiosHelper.get('/admin/Dashboard/groups', data)
+      let result = await this.lib.AxiosHelper.get('/admin/WebpageDashboard/groups', data)
       //console.log(result)
       for (let name in result) {
         this[name] = result[name]

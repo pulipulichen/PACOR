@@ -32,7 +32,7 @@ let Template = {
         webpageID: this.$route.params.webpageID
       }
       
-      let result = await this.lib.AxiosHelper.get('/admin/Dashboard/info', data)
+      let result = await this.lib.AxiosHelper.get('/admin/WebpageDashboard/info', data)
       this.status.webpageURL = result.webpageURL
       this.status.title = this.$t('Dashboard') + ' ' + this.webpagePath
     }

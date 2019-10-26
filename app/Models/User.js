@@ -30,26 +30,28 @@ class User extends Model {
      * A hook to hash the user password before saving
      * it to the database.
      */
-    this.addHook('beforeSave', async (userInstance) => {
-      if (userInstance.username.indexOf(' ') > -1) {
-        throw `Username cannot contain space. (${userInstance.username})`
+    this.addHook('beforeSave', async (instance) => {
+      if (instance.username.indexOf(' ') > -1) {
+        throw `Username cannot contain space. (${instance.username})`
       }
       
       //if (userInstance.dirty.password) {
       //  userInstance.password = await Hash.make(userInstance.password)
       //}
       
-      if (typeof(userInstance.display_name) !== 'string' 
-              || userInstance.display_name === '') {
-        userInstance.display_name = userInstance.username
-      }
-      
-      if (typeof(userInstance.avatar) !== 'string') {
-        userInstance.avatar = AvatarHelper.getRandomUser()
+      if (typeof(instance.display_name) !== 'string' 
+              || instance.display_name === '') {
+        instance.display_name = instance.username
       }
       //console.log('user', userInstance.avatar)
     })
     
+    this.addHook('afterSave', async (instance) => {
+      if (typeof(instance.avatar) !== 'string') {
+        instance.avatar = AvatarHelper.getRandomUser(instance.primaryKeyValue)
+        await instance.save()
+      }
+    })
   }
   
   static async findByNameInWebpage (webpage, username) {

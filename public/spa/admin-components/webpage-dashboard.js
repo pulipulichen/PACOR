@@ -532,7 +532,7 @@ let Template = {
         webpageID: this.$route.params.webpageID
       }
       
-      let result = await this.lib.AxiosHelper.get('/admin/Dashboard/info', data)
+      let result = await this.lib.AxiosHelper.get('/admin/WebpageDashboard/info', data)
       this.status.webpageURL = result.webpageURL
       this.status.title = this.$t('Dashboard') + ' ' + this.webpagePath
     }
@@ -842,7 +842,7 @@ let WebpageDashboardGroups = {
         webpageID: this.$route.params.webpageID
       }
       
-      let result = await this.lib.AxiosHelper.get('/admin/Dashboard/groups', data)
+      let result = await this.lib.AxiosHelper.get('/admin/WebpageDashboard/groups', data)
       //console.log(result)
       for (let name in result) {
         this[name] = result[name]
