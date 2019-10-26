@@ -64,7 +64,7 @@ class UserDashboard {
       
       step = step.first().toJSON()
       
-      let output = step.log
+      let output = step
       //console.log(output)
       //Cache.put(cacheKey, output, 0.5)
       return output
