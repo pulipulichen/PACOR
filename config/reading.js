@@ -1,4 +1,5 @@
 module.exports = {
+  allowLoginWithoutGrop: false,
   readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
   readingProgressesFinish: 'Exit',  // 'Exit', 'FreeReading', 'http://blog.pulipuli.info'
   readingProgressModules: {

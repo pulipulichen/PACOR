@@ -1,3 +1,5 @@
+import PreImaginary from './PreImaginary/PreImaginary.vue'
+
 let UserDashboard = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
@@ -6,8 +8,12 @@ let UserDashboard = {
       user: {}
     }
   },
-  //components: {
-  //},
+  components: {
+    PreImaginary: PreImaginary,
+    IndividualReading: PreImaginary,
+    CollaborativeReading: PreImaginary,
+    PostRecall: PreImaginary
+  },
   computed: {
     'webpagePath': function () {
       if (typeof(this.status.webpageURL) === 'string') {
@@ -45,6 +51,9 @@ let UserDashboard = {
       this.user = result.user
       this.status.webpageURL = result.webpageURL
       this.status.title = this.$t('Dashboard') + ' ' + this.username
+    },
+    attrHeaderID: function (anchor) {
+      return '/user-dashboard/' + this.$route.params.webpageID + '/' + this.$route.params.userID + '/' + anchor
     }
   } // methods
 }

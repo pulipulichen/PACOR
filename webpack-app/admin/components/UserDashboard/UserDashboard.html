@@ -36,5 +36,21 @@
   
   <!-- ======================================== -->
   
-  這邊要讀取現在的模組...
+  <table-of-contents v-bind:config="config"
+                     v-bind:lib="lib"
+                     headings="h3, h4"
+                     ref='toc'></table-of-contents>
+  
+  <div v-for="step in user.readingProgresses"
+       class="ui segment">
+    <h3 v-bind:id="attrHeaderID(step.step_name)">
+      {{ $t('READING_PROGRESS.' + step.step_name) }}
+    </h3>
+    <component v-bind:is="step.step_name"
+                v-bind:config="config"
+                v-bind:status="status"
+                v-bind:progress="progress"
+                v-bind:lib="lib"
+                v-bind:error="error"></component>
+  </div>
 </div>

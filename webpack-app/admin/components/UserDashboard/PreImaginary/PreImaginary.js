@@ -12,6 +12,7 @@ let Template = {
   watch: {
   },
   mounted() {
+    this.$parent.$refs.toc.refresh()
   },
   methods: {
   } // methods

@@ -21,6 +21,7 @@ class UserDashboard {
               .with('domain')
               .where('id', webpageID)
               .pick(1)
+      webpage = webpage.first()
 
       let user = await UserModel
               .query()
@@ -35,7 +36,7 @@ class UserDashboard {
 
       await auth.checkDomainAdmin(user.domain_id)
 
-      let webpageURL = webpage.first().url
+      let webpageURL = webpage.url
       let output = {
         user: userJSON,
         webpageURL: webpageURL
