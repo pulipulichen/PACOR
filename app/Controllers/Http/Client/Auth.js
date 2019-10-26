@@ -37,6 +37,13 @@ class Auth {
     else if (role === 'domain_admin') {
       throw new HttpException('Login fail')
     }
+    
+    // --------------------------
+    let config = await webpage.getConfig()
+    if (config.allowLoginWithoutGrop === false) {
+      throw new HttpException('Login fail')
+    }
+    
     // 不然就建立新的使用者
     let newUser = await this._createUser(username, webpage)
     await this._forceLogout(auth)
