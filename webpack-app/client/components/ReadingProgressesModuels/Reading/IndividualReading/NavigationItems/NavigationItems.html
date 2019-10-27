@@ -1,19 +1,21 @@
 <div>
   <navigation ref="nav" 
               v-bind:config="config"
-              compact-width="400">
+              compactWidth="400">
+    <template v-slot:header>
+      <a class="item avatar in-top">
+        <img v-bind:src="status.avatar">
+      </a>
+
+      <div class="item title in-top">
+        {{ status.title }}
+      </div>
+    </template>
     
-    <a class="item avatar in-top">
-      <img v-bind:src="status.avatar">
-    </a>
-    
-    <div class="item title in-top">
-      {{ status.title }}
-    </div>
 
     <!-- ========================= -->
     
-    <div class="menu-full right menu">
+    <template v-slot:items>
 
       <a class="item">
         Test Button
@@ -23,7 +25,7 @@
          v-on:click="lib.auth.nextStep">
         Next Step
       </a>
-    </div>
+    </template>
     
   </navigation>
 </div>

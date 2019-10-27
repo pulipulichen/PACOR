@@ -245,31 +245,46 @@ var render = function() {
   return _c(
     "div",
     [
-      _c(
-        "navigation",
-        { ref: "nav", attrs: { config: _vm.config, "compact-width": "400" } },
-        [
-          _c("a", { staticClass: "item avatar in-top" }, [
-            _c("img", { attrs: { src: _vm.status.avatar } })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item title in-top" }, [
-            _vm._v("\r\n      " + _vm._s(_vm.status.title) + "\r\n    ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "menu-full right menu" }, [
-            _c("a", { staticClass: "item" }, [
-              _vm._v("\r\n        Test Button\r\n      ")
-            ]),
-            _vm._v(" "),
-            _c(
-              "a",
-              { staticClass: "item", on: { click: _vm.lib.auth.nextStep } },
-              [_vm._v("\r\n        Next Step\r\n      ")]
-            )
-          ])
-        ]
-      )
+      _c("navigation", {
+        ref: "nav",
+        attrs: { config: _vm.config, compactWidth: "400" },
+        scopedSlots: _vm._u([
+          {
+            key: "header",
+            fn: function() {
+              return [
+                _c("a", { staticClass: "item avatar in-top" }, [
+                  _c("img", { attrs: { src: _vm.status.avatar } })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "item title in-top" }, [
+                  _vm._v(
+                    "\r\n        " + _vm._s(_vm.status.title) + "\r\n      "
+                  )
+                ])
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "items",
+            fn: function() {
+              return [
+                _c("a", { staticClass: "item" }, [
+                  _vm._v("\r\n        Test Button\r\n      ")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "item", on: { click: _vm.lib.auth.nextStep } },
+                  [_vm._v("\r\n        Next Step\r\n      ")]
+                )
+              ]
+            },
+            proxy: true
+          }
+        ])
+      })
     ],
     1
   )

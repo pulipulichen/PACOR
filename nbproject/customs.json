@@ -17,6 +17,11 @@
       }
     },
     "slot": {},
+    "media": {
+      "attributes": {
+        "v-bind:query": {}
+      }
+    },
     "domain-edit-admin": {},
     "modal": {
       "attributes": {

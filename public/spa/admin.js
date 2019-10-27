@@ -529,119 +529,165 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("navigation", { ref: "nav", attrs: { config: _vm.config } }, [
-        _c(
-          "a",
-          { staticClass: "item avatar in-top", attrs: { href: "/admin/" } },
-          [_c("img", { attrs: { src: _vm.status.avatar } })]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "item title in-top" }, [
-          _vm._v("\r\n      " + _vm._s(_vm.status.title) + "\r\n    ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "menu-full right menu" }, [
-          _vm.status.role === "global_admin"
-            ? _c(
-                "a",
-                {
-                  staticClass: "item",
-                  class: {
-                    "active disabled": _vm.$route.path.startsWith("/domain")
+      _c("navigation", {
+        ref: "nav",
+        attrs: { config: _vm.config, compactWidth: "600" },
+        scopedSlots: _vm._u([
+          {
+            key: "header",
+            fn: function() {
+              return [
+                _c(
+                  "a",
+                  {
+                    staticClass: "item avatar in-top",
+                    attrs: { href: "/admin/" }
                   },
-                  attrs: { href: "#/domain/list" }
-                },
-                [
+                  [_c("img", { attrs: { src: _vm.status.avatar } })]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "item title in-top" }, [
                   _vm._v(
-                    "\r\n        " + _vm._s(_vm.$t("Domain")) + "\r\n      "
+                    "\r\n        " + _vm._s(_vm.status.title) + "\r\n      "
                   )
-                ]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.status.role === "domain_admin"
-            ? _c(
-                "a",
-                {
-                  staticClass: "item",
-                  class: {
-                    "active disabled": _vm.$route.path.startsWith("/domain")
-                  },
-                  attrs: { href: "#/webpage/" }
-                },
-                [
-                  _vm._v(
-                    "\r\n        " + _vm._s(_vm.$t("Webpage")) + "\r\n      "
-                  )
-                ]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.status.role === "global_admin"
-            ? _c(
-                "a",
-                {
-                  staticClass: "item",
-                  class: {
-                    "active disabled": _vm.$route.path.startsWith("/material")
-                  },
-                  attrs: { href: "#/material" }
-                },
-                [
-                  _vm._v(
-                    "\r\n        " + _vm._s(_vm.$t("Material")) + "\r\n      "
-                  )
-                ]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.status.role === "global_admin"
-            ? _c(
-                "a",
-                {
-                  staticClass: "item",
-                  attrs: {
-                    href: "/admin/Database/admin?table=webpages",
-                    target: "_blank"
-                  }
-                },
-                [
-                  _vm._v(
-                    "\r\n        " + _vm._s(_vm.$t("Database")) + "\r\n      "
-                  )
-                ]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _c("a", { staticClass: "item", on: { click: _vm.logout } }, [
-            _vm._v("\r\n        " + _vm._s(_vm.$t("Logout")) + "\r\n      ")
-          ]),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "item",
-              attrs: {
-                href: "https://github.com/pulipulichen/PACOR",
-                target: "PACOR"
-              }
+                ])
+              ]
             },
-            [_vm._v("\r\n        " + _vm._s(_vm.$t("Project")) + "\r\n      ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "item",
-              attrs: {
-                href: "https://github.com/pulipulichen/PACOR/issues",
-                target: "PACORIssues"
-              }
+            proxy: true
+          },
+          {
+            key: "items",
+            fn: function() {
+              return [
+                _vm.status.role === "global_admin"
+                  ? _c(
+                      "a",
+                      {
+                        staticClass: "item",
+                        class: {
+                          "active disabled": _vm.$route.path.startsWith(
+                            "/domain"
+                          )
+                        },
+                        attrs: { href: "#/domain/list" }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n        " +
+                            _vm._s(_vm.$t("Domain")) +
+                            "\r\n      "
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.status.role === "domain_admin"
+                  ? _c(
+                      "a",
+                      {
+                        staticClass: "item",
+                        class: {
+                          "active disabled": _vm.$route.path.startsWith(
+                            "/domain"
+                          )
+                        },
+                        attrs: { href: "#/webpage/" }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n        " +
+                            _vm._s(_vm.$t("Webpage")) +
+                            "\r\n      "
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.status.role === "global_admin"
+                  ? _c(
+                      "a",
+                      {
+                        staticClass: "item",
+                        class: {
+                          "active disabled": _vm.$route.path.startsWith(
+                            "/material"
+                          )
+                        },
+                        attrs: { href: "#/material" }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n        " +
+                            _vm._s(_vm.$t("Material")) +
+                            "\r\n      "
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.status.role === "global_admin"
+                  ? _c(
+                      "a",
+                      {
+                        staticClass: "item",
+                        attrs: {
+                          href: "/admin/Database/admin?table=webpages",
+                          target: "_blank"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n        " +
+                            _vm._s(_vm.$t("Database")) +
+                            "\r\n      "
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("a", { staticClass: "item", on: { click: _vm.logout } }, [
+                  _vm._v(
+                    "\r\n        " + _vm._s(_vm.$t("Logout")) + "\r\n      "
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "item",
+                    attrs: {
+                      href: "https://github.com/pulipulichen/PACOR",
+                      target: "PACOR"
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n        " + _vm._s(_vm.$t("Project")) + "\r\n      "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "item",
+                    attrs: {
+                      href: "https://github.com/pulipulichen/PACOR/issues",
+                      target: "PACORIssues"
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n        " + _vm._s(_vm.$t("Issues")) + "\r\n      "
+                    )
+                  ]
+                )
+              ]
             },
-            [_vm._v("\r\n        " + _vm._s(_vm.$t("Issues")) + "\r\n      ")]
-          )
+            proxy: true
+          }
         ])
-      ])
+      })
     ],
     1
   )
@@ -812,7 +858,7 @@ __webpack_require__.r(__webpack_exports__);
 // -----------------------
 // 確認 baseURL
 
-let baseURL = '/'
+let baseURL = ''
 let baseScript = jquery__WEBPACK_IMPORTED_MODULE_13___default()(document.currentScript)
 _config_js__WEBPACK_IMPORTED_MODULE_15__["default"].baseURL = baseURL
 baseScript.before(`<div id="app"></div>`)

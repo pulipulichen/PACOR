@@ -46,7 +46,8 @@
     "morgan": "^1.9.1",
     "node-stream-zip": "^1.8.2",
     "serve-favicon": "^2.5.0",
-    "type-of-is": "^3.5.1"
+    "type-of-is": "^3.5.1",
+    "vue-media": "^1.1.1"
   },
   "devDependencies": {
     "@adonisjs/ace": "^5.0.8",

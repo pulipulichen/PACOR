@@ -1,13 +1,24 @@
 <div class="placeholder">
-  <div class="ui inverted top fixed menu">
-    <slot></slot>
+  <div class="ui inverted top fixed menu"
+       v-bind:class="{'compact-mode': isCompactMode}">
+    <slot name="header"></slot>
     
-    <div class="menu-compact right menu">
-      <a class="icon item"
-         v-on:click="showSideMenu">
-        <i class="ellipsis vertical icon"></i>
-      </a>
-    </div>
+    <media v-bind:query="{minWidth: maxWidth}"
+           v-on:media-enter="isCompactMode = false"
+           v-on:media-leave="isCompactMode = true">
+      <div class="menu-full right menu">
+        <slot name="items"></slot>
+      </div>
+    </media>
+    
+    <media v-bind:query="{maxWidth: maxWidth}">
+      <div class="menu-compact right menu">
+        <a class="icon item"
+           v-on:click="showSideMenu">
+          <i class="ellipsis vertical icon"></i>
+        </a>
+      </div>
+    </media>
   </div>
   
   <div class="ui inverted right fixed vertical menu"
@@ -16,7 +27,7 @@
     <div class="item in-vertical close"
          v-on:click="hideSideMenu">
       
-      <img v-bind:src="config.baseURL + 'imgs/pacor.svg'" />
+      <img v-bind:src="config.baseURL + '/imgs/pacor.svg'" />
       
       <div class="site-header">
         {{ $t('PACOR') }}
@@ -26,7 +37,7 @@
       <i class="close icon"></i>
     </div>
     
-    <slot></slot>
+    <slot name="items"></slot>
   </div>
   
   <div class="overlay"

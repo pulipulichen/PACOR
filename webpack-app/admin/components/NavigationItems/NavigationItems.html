@@ -1,18 +1,20 @@
 <div>
   <navigation ref="nav" 
-              v-bind:config="config">
-    
-    <a class="item avatar in-top"
-       href="/admin/">
-      <img v-bind:src="status.avatar">
-    </a>
-    
-    <div class="item title in-top">
-      {{ status.title }}
-    </div>
+              v-bind:config="config"
+              compactWidth="600">
+    <template v-slot:header>
+      <a class="item avatar in-top"
+         href="/admin/">
+        <img v-bind:src="status.avatar">
+      </a>
 
-    <div class="menu-full right menu">
+      <div class="item title in-top">
+        {{ status.title }}
+      </div>
+    </template>
+      
 
+    <template v-slot:items>
       <a class="item"
          v-bind:class="{'active disabled': $route.path.startsWith('/domain')}"
          href="#/domain/list"
@@ -57,7 +59,7 @@
          target="PACORIssues">
         {{ $t('Issues') }}
       </a>
-    </div>
+    </template>
     
   </navigation>
 </div>

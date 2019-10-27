@@ -37,7 +37,7 @@ import config from './config.js'
 // -----------------------
 // 確認 baseURL
 
-let baseURL = '/'
+let baseURL = ''
 let baseScript = $(document.currentScript)
 config.baseURL = baseURL
 baseScript.before(`<div id="app"></div>`)
