@@ -249,23 +249,34 @@ let RangyManager = {
         */
     },
     highlightSelectedText: function () {
+      var sel = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].getSelection();
+      //console.log(sel)
+      let id = window.$(sel.anchorNode).parents("[id^='p']").prop('id')
+      //return
       //toggleItalicYellowBg();
       highlighter.highlightSelection("highlight", {
-        exclusive: false
+        exclusive: false,
+        containerElementId: id
       });
       console.log(highlighter.serialize())
       //$$.cookie(_get_cookie_key(), highlighter.serialize(), {expires: _cookie_expire }); 
-      var sel = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].getSelection();
+      sel = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].getSelection();
       sel.removeAllRanges();
     },
     note: function () {
+      var sel = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].getSelection();
+      //console.log(sel)
+      let id = window.$(sel.anchorNode).parents("[id^='p']").prop('id')
       //toggleBoldRed();
       highlighter.highlightSelection("note", {
-        exclusive: false
+        exclusive: false,
+        containerElementId: id
       });
+      let hl = highlighter.highlights
+      console.log(hl[(hl.length - 1)].characterRange)
       console.log(highlighter.serialize())
       //$$.cookie(_get_cookie_key(), highlighter.serialize(), {expires: _cookie_expire }); 
-      var sel = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].getSelection();
+      //var sel = rangy.getSelection();
       sel.removeAllRanges();
     }
   } // methods

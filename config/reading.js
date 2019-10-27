@@ -1,4 +1,10 @@
 module.exports = {
+  // 只會選擇第一個
+  articleSelector: 'article,#main,#article,.main,.article',
+  
+  // 依序判斷article下面可能會有的section選取器
+  sectionSelector: ['section', '.section', 'p', 'div'],
+  
   allowLoginWithoutGrop: true,
   readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
   readingProgressesFinish: 'Exit',  // 'Exit', 'FreeReading', 'http://blog.pulipuli.info'

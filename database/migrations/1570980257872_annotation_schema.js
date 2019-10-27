@@ -8,6 +8,8 @@ class AnnotationSchema extends Schema {
     this.create('annotations', (table) => {
       table.increments()
       table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
+      table.integer('paragraphy_sql_id').notNullable()
+      table.string('paragraphy_id', 256).notNullable()
       table.integer('start_pos').notNullable()
       table.integer('end_pos').notNullable()
       table.integer('annotation_anchor_text_id').notNullable().unsigned().references('id').inTable('annotation_anchor_texts').onDelete('cascade')
