@@ -206,12 +206,6 @@ var render = function() {
           lib: _vm.lib
         }
       }),
-      _vm._v("\r\n  \r\n  IndividualReading\r\n  \r\n  "),
-      _c("pre", [
-        _vm._v(
-          "\r\n    nav bar\r\n    section\r\n    IndividualReading - rangy\r\n    editor\r\n    notification\r\n  "
-        )
-      ]),
       _vm._v(" "),
       _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
       _vm._v(" "),
