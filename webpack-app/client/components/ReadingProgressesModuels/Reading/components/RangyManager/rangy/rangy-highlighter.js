@@ -10,6 +10,7 @@
  * Build date: 20 May 2015
  */
 (function(factory, root) {
+  /*
     if (typeof define == "function" && define.amd) {
         // AMD. Register as an anonymous module with a dependency on Rangy.
         define(["./rangy-core"], factory);
@@ -21,6 +22,8 @@
         factory(root.rangy);
     }
     factory(root.rangy);
+    */
+   window.rangy = factory(window.rangy)
 })(function(rangy) {
     rangy.createModule("Highlighter", ["ClassApplier"], function(api, module) {
         var dom = api.dom;

@@ -9,6 +9,7 @@
  */
 
 (function(factory, root) {
+    /*
     if (typeof define == "function" && define.amd) {
         // AMD. Register as an anonymous module.
         define(factory);
@@ -19,6 +20,8 @@
         // No AMD or CommonJS support so we place Rangy in (probably) the global variable
         root.rangy = factory();
     }
+    */
+    module.exports = factory()
 })(function() {
 
     var OBJECT = "object", FUNCTION = "function", UNDEFINED = "undefined";
@@ -3843,3 +3846,4 @@
 
     return api;
 }, this);
+

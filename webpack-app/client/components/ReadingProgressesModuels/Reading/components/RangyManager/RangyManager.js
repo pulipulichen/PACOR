@@ -1,4 +1,5 @@
-import rangy from 'rangy'
+//import rangy from 'rangy-updated'
+import rangy from './rangy/rangy-webpack.js'
 
 let highlighter
 
@@ -10,12 +11,15 @@ let RangyManager = {
       serializedHighlights: null
     }
   },  // data() {
+  /*
   computed: {
   },  // computed: {
   watch: {
   },  // watch: {
+   */
   mounted() {
-    window.rangy = rangy
+    //console.log(rangy)
+    //window.rangy = rangy
     this.initHighlighter()
     //console.log(rangy)
   },  // mounted() {
