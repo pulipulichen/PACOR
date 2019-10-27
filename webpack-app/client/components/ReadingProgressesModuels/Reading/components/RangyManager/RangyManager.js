@@ -135,7 +135,11 @@ let RangyManager = {
     },
     note: function () {
       var sel = rangy.getSelection();
-      //console.log(sel)
+      //console.log(window.$(sel.anchorNode).offset())
+      var range = sel.getRangeAt(0).cloneRange();
+      var rect = range.getBoundingDocumentRect();
+      console.log("y pos:" + rect.top, rect)
+      
       let id = window.$(sel.anchorNode).parents("[id^='p']").prop('id')
       //toggleBoldRed();
       highlighter.highlightSelection("note", {

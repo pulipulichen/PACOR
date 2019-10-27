@@ -9,6 +9,9 @@ ClassApplier(rangy)
 //require('./rangy-highlighter.js')
 import Highlighter from './rangy-highlighter.js'
 Highlighter(rangy)
+
+import Position from './rangy-position.js'
+Position(rangy)
 //console.log(HighlighterModule)
 //rangy = HighlighterModule(rangy)
 //console.log(rangy)
