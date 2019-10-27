@@ -5,7 +5,8 @@ let Navigation = {
   data() {
     return {
       sideMenuDisplay: false,
-      isCompactMode: false
+      isCompactMode: false,
+      placeholder: null
     }
   },
   components: {
@@ -32,8 +33,19 @@ let Navigation = {
   mounted() {
     let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     this.isCompactMode = (width < this.compactWidth)
+    this.initPlaceholder()
+  },
+  destroyed () {
+    this.removePlaceholder()
   },
   methods: {
+    initPlaceholder: function () {
+      this.placeholder = window.$(`<div class="placeholder"></div>`)
+              .prependTo('body')
+    },
+    removePlaceholder: function () {
+      this.placeholder.remove()
+    },
     showSideMenu: function () {
       this.sideMenuDisplay = true
     },

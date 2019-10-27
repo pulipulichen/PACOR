@@ -10,7 +10,8 @@ let IndividualReading = {
   },
   components: {
     //'navigation-items': () => import(/* webpackChunkName: "client-components/IndividualReading" */ './NavigationItems/NavigationItems.vue'),
-    'navigation-items': NavigationItems
+    'navigation-items': NavigationItems,
+    'rangy': () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './../components/RangyManager/RangyManager.vue'),
   },
   computed: {
   },
