@@ -7,11 +7,11 @@
         ref="auth"></auth>
 
   <template v-if="progress.display === true && status.needLogin === false">
-    <navigation v-bind:config="config"
+    <navigation-items v-bind:config="config"
                 v-bind:status="status"
                 v-bind:progress="progress"
                 v-bind:error="error"
-                v-bind:lib="lib"></navigation>
+                v-bind:lib="lib"></navigation-items>
   </template>
 
   <error-handler v-bind:config="config"

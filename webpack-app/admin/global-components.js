@@ -9,6 +9,9 @@ Vue.component('modal', Modal)
 import StepProgressBar from './../components/StepProgressBar/StepProgressBar.vue'
 Vue.component('step-progress-bar', StepProgressBar)
 
+import Navigation from './../components/Navigation/Navigation.vue'
+Vue.component('navigation', Navigation)
+
 //import HTMLEditor from './../components/HTMLEditor/HTMLEditor.vue'
 //Vue.component('HTMLEditor', HTMLEditor)
 Vue.component('HTMLEditor', () => import(/* webpackChunkName: "vendors/HTMLEditor" */ './../components/HTMLEditor/HTMLEditor.vue'))

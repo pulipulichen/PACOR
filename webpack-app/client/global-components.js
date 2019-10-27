@@ -15,4 +15,8 @@ Vue.component('block-exit', BlockExit)
 import ActivityTimer from './../components/ActivityTimer/ActivityTimer.vue'
 Vue.component('activity-timer', ActivityTimer)
 
+import Navigation from './../components/Navigation/Navigation.vue'
+Vue.component('navigation', Navigation)
+
 Vue.component('HTMLEditor', () => import(/* webpackChunkName: "vendors/HTMLEditor" */ './../components/HTMLEditor/HTMLEditor.vue'))
+

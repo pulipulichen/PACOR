@@ -1,0 +1,13 @@
+<div class="placeholder">
+  <div class="ui inverted top fixed menu">
+    <slot></slot>
+  </div>
+  
+  <div class="ui inverted right fixed vertical menu"
+       v-bind:class="{hide: !sideMenuDisplay}">
+    <slot></slot>
+  </div>
+  
+  <div class="overlay"
+       v-if="sideMenuDisplay"></div>
+</div>

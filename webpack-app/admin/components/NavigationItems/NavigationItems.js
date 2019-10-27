@@ -17,10 +17,10 @@ let Items = {
       this.status.needLogin = true
     },
     showSideMenu: function () {
-      this.$parent.showSideMenu()
+      this.$refs.nav.showSideMenu()
     },
     hideSideMenu: function () {
-      this.$parent.hideSideMenu()
+      this.$refs.nav.hideSideMenu()
     }
   } // methods
 }

@@ -1,15 +1,9 @@
-import Items from './Items/Items.vue'
-
-let Navigation = {
+let Items = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      sideMenuDisplay: false
     }
-  },
-  components: {
-    'items': Items
   },
   computed: {
   },
@@ -18,14 +12,17 @@ let Navigation = {
   mounted() {
   },
   methods: {
+    logout: async function () {
+      await this.lib.AxiosHelper.get(`/admin/auth/logout`)
+      this.status.needLogin = true
+    },
     showSideMenu: function () {
-      this.sideMenuDisplay = true
+      this.$refs.nav.showSideMenu()
     },
     hideSideMenu: function () {
-      this.sideMenuDisplay = false
+      this.$refs.nav.hideSideMenu()
     }
-    
   } // methods
 }
 
-export default Navigation
+export default Items

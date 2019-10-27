@@ -1153,6 +1153,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_StepProgressBar_StepProgressBar_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../components/StepProgressBar/StepProgressBar.vue */ "./webpack-app/components/StepProgressBar/StepProgressBar.vue");
 /* harmony import */ var _components_BlockExit_BlockExit_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../components/BlockExit/BlockExit.vue */ "./webpack-app/components/BlockExit/BlockExit.vue");
 /* harmony import */ var _components_ActivityTimer_ActivityTimer_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../components/ActivityTimer/ActivityTimer.vue */ "./webpack-app/components/ActivityTimer/ActivityTimer.vue");
+/* harmony import */ var _components_Navigation_Navigation_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../components/Navigation/Navigation.vue */ "./webpack-app/components/Navigation/Navigation.vue");
 
 
 
@@ -1170,7 +1171,12 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('block-exit', _components_
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('activity-timer', _components_ActivityTimer_ActivityTimer_vue__WEBPACK_IMPORTED_MODULE_5__["default"])
 
+
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('navigation', _components_Navigation_Navigation_vue__WEBPACK_IMPORTED_MODULE_6__["default"])
+
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('HTMLEditor', () => Promise.all(/*! import() | vendors/HTMLEditor */[__webpack_require__.e("vendors"), __webpack_require__.e("vendors/HTMLEditor")]).then(__webpack_require__.bind(null, /*! ./../components/HTMLEditor/HTMLEditor.vue */ "./webpack-app/components/HTMLEditor/HTMLEditor.vue")))
+
+
 
 /***/ }),
 
