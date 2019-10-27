@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"client-components/CollaborativeReading":"client-components/CollaborativeReading","client-components/Exit":"client-components/Exit","client-components/FreeReading":"client-components/FreeReading","client-components/IndividualReading":"client-components/IndividualReading","client-components/PostRecall":"client-components/PostRecall","client-components/PreImaginary":"client-components/PreImaginary","vendors/HTMLEditor":"vendors/HTMLEditor","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"client-components/Exit":"client-components/Exit","client-components/Questionnaire":"client-components/Questionnaire","client-components/Reading":"client-components/Reading","vendors/HTMLEditor":"vendors/HTMLEditor","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -1202,12 +1202,12 @@ let components = {
   //'note-editor-manager': NoteEditorManager,
   Login: _components_Login_Login_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
   //Chat: () => import(/* webpackChunkName: "client-components/Chat" */ './components/Chat/Chat.vue'),
-  'CollaborativeReading': () => __webpack_require__.e(/*! import() | client-components/CollaborativeReading */ "client-components/CollaborativeReading").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/CollaborativeReading/CollaborativeReading.vue */ "./webpack-app/client/components/ReadingProgressesModuels/CollaborativeReading/CollaborativeReading.vue")),
-  'IndividualReading': () => __webpack_require__.e(/*! import() | client-components/IndividualReading */ "client-components/IndividualReading").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/IndividualReading/IndividualReading.vue */ "./webpack-app/client/components/ReadingProgressesModuels/IndividualReading/IndividualReading.vue")),
-  'PostRecall': () => __webpack_require__.e(/*! import() | client-components/PostRecall */ "client-components/PostRecall").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/PostRecall/PostRecall.vue */ "./webpack-app/client/components/ReadingProgressesModuels/PostRecall/PostRecall.vue")),
-  'PreImaginary': () => __webpack_require__.e(/*! import() | client-components/PreImaginary */ "client-components/PreImaginary").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/PreImaginary/PreImaginary.vue */ "./webpack-app/client/components/ReadingProgressesModuels/PreImaginary/PreImaginary.vue")),
+  'CollaborativeReading': () => __webpack_require__.e(/*! import() | client-components/Reading */ "client-components/Reading").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.vue")),
+  'IndividualReading': () => __webpack_require__.e(/*! import() | client-components/Reading */ "client-components/Reading").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Reading/IndividualReading/IndividualReading.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/IndividualReading/IndividualReading.vue")),
+  'PostRecall': () => __webpack_require__.e(/*! import() | client-components/Questionnaire */ "client-components/Questionnaire").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Questionnaire/PostRecall/PostRecall.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Questionnaire/PostRecall/PostRecall.vue")),
+  'PreImaginary': () => __webpack_require__.e(/*! import() | client-components/Questionnaire */ "client-components/Questionnaire").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Questionnaire/PreImaginary/PreImaginary.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Questionnaire/PreImaginary/PreImaginary.vue")),
   'Exit': () => __webpack_require__.e(/*! import() | client-components/Exit */ "client-components/Exit").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Exit/Exit.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Exit/Exit.vue")),
-  'FreeReading': () => __webpack_require__.e(/*! import() | client-components/FreeReading */ "client-components/FreeReading").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/FreeReading/FreeReading.vue */ "./webpack-app/client/components/ReadingProgressesModuels/FreeReading/FreeReading.vue")),
+  'FreeReading': () => __webpack_require__.e(/*! import() | client-components/Reading */ "client-components/Reading").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Reading/FreeReading/FreeReading.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/FreeReading/FreeReading.vue")),
 }
 /* harmony default export */ __webpack_exports__["default"] = (components);
 

@@ -13,11 +13,11 @@ let components = {
   //'note-editor-manager': NoteEditorManager,
   Login: Login,
   //Chat: () => import(/* webpackChunkName: "client-components/Chat" */ './components/Chat/Chat.vue'),
-  'CollaborativeReading': () => import(/* webpackChunkName: "client-components/CollaborativeReading" */ './components/ReadingProgressesModuels/CollaborativeReading/CollaborativeReading.vue'),
-  'IndividualReading': () => import(/* webpackChunkName: "client-components/IndividualReading" */ './components/ReadingProgressesModuels/IndividualReading/IndividualReading.vue'),
-  'PostRecall': () => import(/* webpackChunkName: "client-components/PostRecall" */ './components/ReadingProgressesModuels/PostRecall/PostRecall.vue'),
-  'PreImaginary': () => import(/* webpackChunkName: "client-components/PreImaginary" */ './components/ReadingProgressesModuels/PreImaginary/PreImaginary.vue'),
+  'CollaborativeReading': () => import(/* webpackChunkName: "client-components/Reading" */ './components/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.vue'),
+  'IndividualReading': () => import(/* webpackChunkName: "client-components/Reading" */ './components/ReadingProgressesModuels/Reading/IndividualReading/IndividualReading.vue'),
+  'PostRecall': () => import(/* webpackChunkName: "client-components/Questionnaire" */ './components/ReadingProgressesModuels/Questionnaire/PostRecall/PostRecall.vue'),
+  'PreImaginary': () => import(/* webpackChunkName: "client-components/Questionnaire" */ './components/ReadingProgressesModuels/Questionnaire/PreImaginary/PreImaginary.vue'),
   'Exit': () => import(/* webpackChunkName: "client-components/Exit" */ './components/ReadingProgressesModuels/Exit/Exit.vue'),
-  'FreeReading': () => import(/* webpackChunkName: "client-components/FreeReading" */ './components/ReadingProgressesModuels/FreeReading/FreeReading.vue'),
+  'FreeReading': () => import(/* webpackChunkName: "client-components/Reading" */ './components/ReadingProgressesModuels/Reading/FreeReading/FreeReading.vue'),
 }
 export default components
