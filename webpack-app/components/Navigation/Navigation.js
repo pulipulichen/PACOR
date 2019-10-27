@@ -1,5 +1,5 @@
 let Navigation = {
-  props: ['config'],
+  props: ['config', 'compact-width'],
   data() {
     return {
       sideMenuDisplay: false

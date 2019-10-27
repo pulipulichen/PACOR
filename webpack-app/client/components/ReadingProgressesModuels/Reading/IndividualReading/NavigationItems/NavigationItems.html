@@ -1,0 +1,29 @@
+<div>
+  <navigation ref="nav" 
+              v-bind:config="config"
+              compact-width="400">
+    
+    <a class="item avatar in-top">
+      <img v-bind:src="status.avatar">
+    </a>
+    
+    <div class="item title in-top">
+      {{ status.title }}
+    </div>
+
+    <!-- ========================= -->
+    
+    <div class="menu-full right menu">
+
+      <a class="item">
+        Test Button
+      </a>
+
+      <a class="item"
+         v-on:click="lib.auth.nextStep">
+        Next Step
+      </a>
+    </div>
+    
+  </navigation>
+</div>

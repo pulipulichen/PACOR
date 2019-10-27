@@ -1,5 +1,5 @@
 let PreImaginary = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view', 'log'],
+  props: ['lib', 'status', 'config', 'progress', 'error', 'view', 'log', 'toc'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -51,7 +51,7 @@ let PreImaginary = {
       
       //console.log(this.stepData)
       
-      this.$parent.$refs.toc.refresh()
+      this.toc.refresh()
     }
   } // methods
 }

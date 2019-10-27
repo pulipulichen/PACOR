@@ -8,6 +8,7 @@ let UserDashboard = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      toc: null,
       user: {
         readingProgresses: []
       }
@@ -43,6 +44,7 @@ let UserDashboard = {
   //},
   mounted() {
     this.initDashboard()
+    this.toc = this.$refs.toc
   },
   methods: {
     initDashboard: async function () {

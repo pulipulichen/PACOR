@@ -1405,7 +1405,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let Navigation = {
-  props: ['config'],
+  props: ['config', 'compact-width'],
   data() {
     return {
       sideMenuDisplay: false

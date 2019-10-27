@@ -523,7 +523,8 @@ var render = function() {
                 progress: _vm.progress,
                 lib: _vm.lib,
                 log: step.log,
-                error: _vm.error
+                error: _vm.error,
+                toc: _vm.toc
               }
             })
           ],
@@ -656,7 +657,7 @@ if(false) {}
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let PreImaginary = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view', 'log'],
+  props: ['lib', 'status', 'config', 'progress', 'error', 'view', 'log', 'toc'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -708,7 +709,7 @@ let PreImaginary = {
       
       //console.log(this.stepData)
       
-      this.$parent.$refs.toc.refresh()
+      this.toc.refresh()
     }
   } // methods
 }
@@ -1138,10 +1139,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 _BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = function () {    
-    this.$i18n.locale = this.config.locale
-    return {
-      stepName: 'PreImaginary'
-    }
+  this.$i18n.locale = this.config.locale
+  return {
+    stepName: 'PreImaginary'
+  }
 }
 /* harmony default export */ __webpack_exports__["default"] = (_BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
@@ -1292,6 +1293,7 @@ let UserDashboard = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      toc: null,
       user: {
         readingProgresses: []
       }
@@ -1327,6 +1329,7 @@ let UserDashboard = {
   //},
   mounted() {
     this.initDashboard()
+    this.toc = this.$refs.toc
   },
   methods: {
     initDashboard: async function () {
