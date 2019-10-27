@@ -530,9 +530,11 @@ var render = function() {
     "div",
     [
       _c("navigation", { ref: "nav", attrs: { config: _vm.config } }, [
-        _c("div", { staticClass: "item avatar in-top" }, [
-          _c("img", { attrs: { src: _vm.status.avatar } })
-        ]),
+        _c(
+          "a",
+          { staticClass: "item avatar in-top", attrs: { href: "/admin/" } },
+          [_c("img", { attrs: { src: _vm.status.avatar } })]
+        ),
         _vm._v(" "),
         _c("div", { staticClass: "item title in-top" }, [
           _vm._v("\r\n      " + _vm._s(_vm.status.title) + "\r\n    ")
