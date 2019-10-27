@@ -10,8 +10,7 @@ let Auth = {
         if (this.lib.ValidateHelper.isURL(view)) {
           return await this._redirect(view)
         }
-        //console.log(view)
-        //console.log(view)
+        console.log(view)
         this.status.view = view
       }
     }

@@ -1,5 +1,5 @@
-let Items = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+let NavigationItems = {
+  props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -12,17 +12,7 @@ let Items = {
   mounted() {
   },
   methods: {
-    logout: async function () {
-      await this.lib.AxiosHelper.get(`/admin/auth/logout`)
-      this.status.needLogin = true
-    },
-    showSideMenu: function () {
-      this.$refs.nav.showSideMenu()
-    },
-    hideSideMenu: function () {
-      this.$refs.nav.hideSideMenu()
-    }
   } // methods
 }
 
-export default Items
+export default NavigationItems
