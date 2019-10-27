@@ -31,10 +31,11 @@
     display: block !important;
   }
   
+  /*
   .menu-full {
     display: block !important;
   }
-  
+  */
   .in-top {
     display: none !important;
   }
@@ -63,3 +64,36 @@
   z-index: 102;
 }
 
+.ui.vertical.menu .close.item {
+  cursor: pointer;
+  height: 3rem;
+  line-height: inherit;
+  border-bottom: 1px solid #ccc;
+  
+  img {
+    width: 1.5em;
+    float: left;
+    margin-top: -0.2em;
+  }
+  
+  .site-header {
+    display: inline-block;
+    padding-left: 1em;
+  }
+}
+
+@media screen and (min-width: @TopMenuMinWidth) {
+  .ui.top.menu .menu-compact.right.menu {
+    display:none !important; 
+  }
+}
+
+@media screen and (max-width: @TopMenuMinWidth) {
+  .ui.top.menu .menu-full.right.menu {
+    display: none !important;
+  }
+  
+  .ui.top.menu .item.title {
+    max-width: calc(100vw - 8rem);
+  }
+}

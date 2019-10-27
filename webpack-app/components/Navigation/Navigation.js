@@ -1,4 +1,5 @@
 let Navigation = {
+  props: ['config'],
   data() {
     return {
       sideMenuDisplay: false

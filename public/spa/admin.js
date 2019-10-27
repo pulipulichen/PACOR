@@ -323,7 +323,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".close.item[data-v-2fd8c3ac] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n  border-bottom: 1px solid #ccc;\n}\n.item.title[data-v-2fd8c3ac] {\n  font-size: 20px;\n  font-weight: bold;\n  padding-top: 0;\n  padding-bottom: 0;\n  max-width: calc(100vw - 40rem);\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n@media screen and (min-width: 600px) {\n.menu-compact.right.menu[data-v-2fd8c3ac] {\n    display: none !important;\n}\n}\n@media screen and (max-width: 600px) {\n.menu-full.right.menu[data-v-2fd8c3ac] {\n    display: none !important;\n}\n.item.title[data-v-2fd8c3ac] {\n    max-width: calc(100vw - 8rem);\n}\n}\n", "",{"version":3,"sources":["NavigationItems.less?vue&type=style&index=0&id=2fd8c3ac&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,YAAY;EACZ,oBAAoB;EACpB,6BAA6B;AAC/B;AACA;EACE,eAAe;EACf,iBAAiB;EACjB,cAAc;EACd,iBAAiB;EACjB,8BAA8B;EAC9B,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB;AACA;AACA;IACI,wBAAwB;AAC5B;AACA;AACA;AACA;IACI,wBAAwB;AAC5B;AACA;IACI,6BAA6B;AACjC;AACA","file":"NavigationItems.less?vue&type=style&index=0&id=2fd8c3ac&lang=less&scoped=true&","sourcesContent":[".close.item[data-v-2fd8c3ac] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n  border-bottom: 1px solid #ccc;\n}\n.item.title[data-v-2fd8c3ac] {\n  font-size: 20px;\n  font-weight: bold;\n  padding-top: 0;\n  padding-bottom: 0;\n  max-width: calc(100vw - 40rem);\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n@media screen and (min-width: 600px) {\n.menu-compact.right.menu[data-v-2fd8c3ac] {\n    display: none !important;\n}\n}\n@media screen and (max-width: 600px) {\n.menu-full.right.menu[data-v-2fd8c3ac] {\n    display: none !important;\n}\n.item.title[data-v-2fd8c3ac] {\n    max-width: calc(100vw - 8rem);\n}\n}\n"]}]);
+exports.push([module.i, ".item.title[data-v-2fd8c3ac] {\n  font-size: 20px;\n  font-weight: bold;\n  padding-top: 0;\n  padding-bottom: 0;\n  max-width: calc(100vw - 40rem);\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n", "",{"version":3,"sources":["NavigationItems.less?vue&type=style&index=0&id=2fd8c3ac&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,iBAAiB;EACjB,cAAc;EACd,iBAAiB;EACjB,8BAA8B;EAC9B,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB","file":"NavigationItems.less?vue&type=style&index=0&id=2fd8c3ac&lang=less&scoped=true&","sourcesContent":[".item.title[data-v-2fd8c3ac] {\n  font-size: 20px;\n  font-weight: bold;\n  padding-top: 0;\n  padding-bottom: 0;\n  max-width: calc(100vw - 40rem);\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n"]}]);
 
 
 /***/ }),
@@ -529,16 +529,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("navigation", { ref: "nav" }, [
-        _c(
-          "div",
-          {
-            staticClass: "item in-vertical close",
-            on: { click: _vm.hideSideMenu }
-          },
-          [_c("i", { staticClass: "close icon" })]
-        ),
-        _vm._v(" "),
+      _c("navigation", { ref: "nav", attrs: { config: _vm.config } }, [
         _c("div", { staticClass: "item avatar in-top" }, [
           _c("img", { attrs: { src: _vm.status.avatar } })
         ]),
@@ -646,14 +637,6 @@ var render = function() {
               }
             },
             [_vm._v("\r\n        " + _vm._s(_vm.$t("Issues")) + "\r\n      ")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "menu-compact right menu" }, [
-          _c(
-            "a",
-            { staticClass: "icon item", on: { click: _vm.showSideMenu } },
-            [_c("i", { staticClass: "ellipsis vertical icon" })]
           )
         ])
       ])
