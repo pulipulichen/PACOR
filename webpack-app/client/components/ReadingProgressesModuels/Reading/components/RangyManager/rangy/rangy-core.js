@@ -8,23 +8,9 @@
  * Build date: 20 May 2015
  */
 
-(function(factory, root) {
-    /*
-    if (typeof define == "function" && define.amd) {
-        // AMD. Register as an anonymous module.
-        define(factory);
-    } else if (typeof module != "undefined" && typeof exports == "object") {
-        // Node/CommonJS style
-        module.exports = factory();
-    } else {
-        // No AMD or CommonJS support so we place Rangy in (probably) the global variable
-        root.rangy = factory();
-    }
-    */
-    module.exports = factory()
-})(function() {
-
-    var OBJECT = "object", FUNCTION = "function", UNDEFINED = "undefined";
+    let OBJECT = "object"
+    let FUNCTION = "function"
+    let UNDEFINED = "undefined";
 
     // Minimal set of properties required for DOM Level 2 Range compliance. Comparison constants such as START_TO_START
     // are omitted because ranges in KHTML do not have them but otherwise work perfectly well. See issue 113.
@@ -3844,6 +3830,5 @@
         }
     }
 
-    return api;
-}, this);
-
+    //return api;
+export default api
