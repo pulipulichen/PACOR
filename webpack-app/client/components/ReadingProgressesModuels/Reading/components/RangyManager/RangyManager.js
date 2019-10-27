@@ -1,10 +1,11 @@
-import rangy from './rangy/rangy-webpack.js'
+import rangy from 'rangy'
+
 let highlighter
 
 let RangyManager = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {
-    this.$i18n.locale = this.config.locale
+    //this.$i18n.locale = this.config.locale
     return {
       serializedHighlights: null
     }

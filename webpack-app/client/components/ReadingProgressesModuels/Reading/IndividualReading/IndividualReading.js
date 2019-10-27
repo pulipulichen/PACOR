@@ -1,4 +1,5 @@
 import NavigationItems from './NavigationItems/NavigationItems.vue'
+import RangyManager from './../components/RangyManager/RangyManager.vue'
 
 let IndividualReading = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
@@ -8,7 +9,8 @@ let IndividualReading = {
     }
   },
   components: {
-    'navigation-items': NavigationItems
+    'navigation-items': NavigationItems,
+    'rangy': RangyManager
   },
   computed: {
   },
