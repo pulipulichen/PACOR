@@ -18,9 +18,9 @@ let RangyManager = {
   },  // watch: {
    */
   mounted() {
-    //console.log(rangy)
+    console.log(rangy)
     //window.rangy = rangy
-    //this.initHighlighter()
+    this.initHighlighter()
     //console.log(rangy)
   },  // mounted() {
   methods: {
