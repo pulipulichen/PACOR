@@ -1784,7 +1784,7 @@
                 var nextCharIndex, i, childNodes;
 
                 while (!stop && (node = nodeStack.pop())) {
-                    if (node.nodeType == 3) {
+                    if (node.nodeType === 3) {
                         nextCharIndex = charIndex + node.length;
                         if (!foundStart && bookmark.start >= charIndex && bookmark.start <= nextCharIndex) {
                             this.setStart(node, bookmark.start - charIndex);

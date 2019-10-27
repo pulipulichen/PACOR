@@ -1,6 +1,6 @@
-console.log(1)
+//console.log(1)
 import rangy from './rangy-core.js'
-console.log(2)
+//console.log(2)
 //let rangy = require('./rangy-core.js')
 //window.rangy = rangy
 //require('./rangy-classapplier.js')

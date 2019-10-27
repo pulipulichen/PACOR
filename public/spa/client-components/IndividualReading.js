@@ -91,7 +91,9 @@ var render = function() {
       _vm._v(" "),
       _c("rangy"),
       _vm._v(" "),
-      _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
+      _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
+      _vm._v(" "),
+      _c("div", { domProps: { innerHTML: _vm._s(_vm.t) } })
     ],
     1
   )
@@ -250,6 +252,7 @@ let IndividualReading = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      t: ''
     }
   },
   components: {
@@ -262,6 +265,24 @@ let IndividualReading = {
   watch: {
   },
   mounted() {
+    setTimeout(() => {
+      this.t = `AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
+AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
+AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
+AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
+AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
+AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
+AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
+AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
+AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
+AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
+AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
+AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
+AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
+AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
+AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
+AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />`
+    }, 0)
   },
   methods: {
   } // methods
