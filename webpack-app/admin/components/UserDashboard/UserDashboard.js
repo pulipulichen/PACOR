@@ -56,7 +56,7 @@ let UserDashboard = {
       
       let result = await this.lib.AxiosHelper.get('/admin/UserDashboard/info', data)
       this.user = result.user
-      console.log(this.user)
+      //console.log(this.user)
       this.status.webpageURL = result.webpageURL
       this.status.title = this.$t('Dashboard') + ' ' + this.username
     },
