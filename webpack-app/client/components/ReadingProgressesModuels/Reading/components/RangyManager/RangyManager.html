@@ -2,8 +2,15 @@
   <template v-for="className in highlightClasses">
     <button type="button"
           v-on:click="highlightPinnedSelection(className)">
-    {{ className }}
-  </button>
+    +{{ className }}
+    </button>
+  </template>
+  
+  <template v-for="className in highlightClasses">
+    <button type="button"
+          v-on:click="removeHighlightFromPinnedSelection(className)">
+    -{{ className }}
+    </button>
   </template>
   
   <!--

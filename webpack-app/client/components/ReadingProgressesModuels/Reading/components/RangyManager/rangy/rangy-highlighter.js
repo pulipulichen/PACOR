@@ -483,9 +483,22 @@ export default (rangy) => {
             },
 
             unhighlightSelection: function(selection) {
-                selection = selection || api.getSelection(this.doc);
-                var intersectingHighlights = this.getIntersectingHighlights( selection.getAllRanges() );
-                this.removeHighlights(intersectingHighlights);
+                let classNameList = []
+                if (Array.isArray(selection) && typeof(selection[0]) === 'string') {
+                  classNameList = selection
+                  selection = api.getSelection(this.doc);
+                }
+                else {
+                  selection = selection || api.getSelection(this.doc);
+                }
+                let intersectingHighlights = this.getIntersectingHighlights( selection.getAllRanges() );
+                //console.log(intersectingHighlights)
+                if (classNameList.length > 0) {
+                  intersectingHighlights = intersectingHighlights.filter(highlight => (classNameList.indexOf(highlight.classApplier.className) > -1))
+                }
+                if (intersectingHighlights.length > 0) {
+                  this.removeHighlights(intersectingHighlights)
+                }
                 selection.removeAllRanges();
                 return intersectingHighlights;
             },

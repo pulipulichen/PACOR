@@ -55,17 +55,17 @@ let RangyManager = {
     //console.log('ok')
     //console.log(rangy)
     //window.rangy = rangy
-    this.initHighlighter()
+    this._initHighlighter()
     //console.log(rangy)
     
     //document.addEventListener('selectionchange', () => {
     //console.log(document.getSelection());
     //});
-    this.initAnchorPosition()
-    this.initOnSelectEventListener()
+    this._initAnchorPosition()
+    this._initOnSelectEventListener()
   },  // mounted() {
   methods: {
-    initAnchorPosition: function () {
+    _initAnchorPosition: function () {
       for (let i = 0; i < this.rangyConfig.articleSelector.length; i++) {
         let node = window.$(this.rangyConfig.articleSelector[i])
         if (node.length > 0) {
@@ -114,7 +114,7 @@ let RangyManager = {
         }
       })
     },
-    initOnSelectEventListener: function () {
+    _initOnSelectEventListener: function () {
       
       document.addEventListener('touchend', () => {
         this.onselect()
@@ -139,7 +139,7 @@ let RangyManager = {
         }
       })
       
-      this.initSelectionApplier()
+      this._initSelectionApplier()
     },
     onselect: function () {
       let selection = rangy.getSelection()
@@ -177,7 +177,7 @@ let RangyManager = {
       }
     },
     
-    initSelectionApplier: function () {
+    _initSelectionApplier: function () {
       // Enable buttons
       let classApplierModule = rangy.modules.ClassApplier;
 
@@ -237,15 +237,35 @@ let RangyManager = {
       return this.selection
     },
     
-    // -------------------
-    
-    highlight: function (className) {
+    removeHighlightFromPinnedSelection: function (className) {
+      if (this.highlightClasses.indexOf(className) === -1
+              || this.selectionSaved === null) {
+        return false
+      }
       
+      rangy.restoreSelection(this.selectionSaved);
+      //let sel = rangy.getSelection()
+      //let id = window.$(sel.anchorNode).parents("[data-pacor-paragraph-seq-id]:first").prop('id')
+      //return
+      //toggleItalicYellowBg();
       
+      //let highlight = this.highlighter.getHighlightForElement(this.selection)
+      //highlight.removeHighlights( [className] )
+      //console.log(className)
+      this.highlighter.unhighlightSelection( [className] )
       
+      //console.log(className)
+      this.selection.removeAllRanges()
+      this.unpinSelection()
+      
+      this.selection.highlightClassName = className
+      
+      return this.selection
     },
     
-    initHighlighter: function () {
+    // -------------------
+    
+    _initHighlighter: function () {
       if (typeof(this.rangyConfig.annotationTypeModules) !== 'object') {
         return false
       }
@@ -356,6 +376,7 @@ let RangyManager = {
             }
         */
     },
+    /*
     highlightSelectedText: function () {
       var sel = rangy.getSelection();
       //console.log(sel)
@@ -391,6 +412,7 @@ let RangyManager = {
       //var sel = rangy.getSelection();
       sel.removeAllRanges();
     }
+     */
   } // methods
 }
 

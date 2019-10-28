@@ -9,7 +9,7 @@
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "@media print {\n.annotate-panel {\n    display: none;\n}\n.highlight {\n    /*background-color: #333;*/\n    background-color: yellow;\n}\n}\n.highlight {\n  background-color: yellow;\n}\n.annotate-panel {\n  position: fixed;\n  /*right: 10px;*/\n  /*top: 10px;*/\n  display: none;\n  background-color: white;\n  background-color: #CCC;\n  border-radius: 10px;\n  /*padding: 5px;*/\n  box-shadow: 5px 5px 2px grey;\n  user-select: none;\n}\n.annotate-panel.show {\n  display: inline-block;\n}\n.annotate-panel .button {\n  border-width: 0;\n  background-color: transparent;\n  text-align: center;\n  display: inline-block;\n  /*border-right: 3px ridge white;*/\n  cursor: pointer;\n  font-size: 0.8em;\n  padding: 5px;\n}\n.annotate-panel .button.highlightSelectedText {\n  border-radius: 10px 0 0 10px;\n}\n.annotate-panel .button.removeHighlightFromSelectedText {\n  border-radius: 0 10px 10px 0 ;\n  margin-left: -5px;\n}\n.annotate-panel .button-container {\n  border-right: 3px ridge white;\n  display: inline-block;\n  /*padding-right: 4px;*/\n}\n.annotate-panel .button:hover {\n  background-color: yellow;\n}\n.annotate-panel .button-container:last-of-type {\n  border-right-width: 0;\n  padding-right: 0px;\n}\n.annotate-panel.hide-remove .button-container.remove {\n  display: none;\n}\n.annotate-panel.hide-remove .button-container {\n  border-right-width: 0;\n  padding-right: 0px;\n}\n.annotate-panel.hide-remove .button {\n  border-radius: 10px;\n}\n.rangy-container-test {\n  position: fixed;\n  top: 100px;\n  left: 100px;\n  background-color: red;\n}\n.note {\n  color: red ;\n}\n.italicYellowBg {\n  font-style: italic;\n  background-color: yellow;\n}\n.boldRed {\n  font-weight: bold;\n  color: red;\n}\nimg.boldRed {\n  border: solid red 3px;\n}\na.pinkLink {\n  color: #f66;\n  font-size: 1.2em;\n}\n.pacor-selection {\n  background-color: rgba(206, 227, 255, 0.7);\n}\n", "",{"version":3,"sources":["RangyManager.global.less?vue&type=style&index=0&lang=less&"],"names":[],"mappings":"AAAA;AACA;IACI,aAAa;AACjB;AACA;IACI,0BAA0B;IAC1B,wBAAwB;AAC5B;AACA;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,eAAe;EACf,eAAe;EACf,aAAa;EACb,aAAa;EACb,uBAAuB;EACvB,sBAAsB;EACtB,mBAAmB;EACnB,gBAAgB;EAChB,4BAA4B;EAC5B,iBAAiB;AACnB;AACA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;EACf,6BAA6B;EAC7B,kBAAkB;EAClB,qBAAqB;EACrB,iCAAiC;EACjC,eAAe;EACf,gBAAgB;EAChB,YAAY;AACd;AACA;EACE,4BAA4B;AAC9B;AACA;EACE,6BAA6B;EAC7B,iBAAiB;AACnB;AACA;EACE,6BAA6B;EAC7B,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,aAAa;AACf;AACA;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,UAAU;EACV,WAAW;EACX,qBAAqB;AACvB;AACA;EACE,WAAW;AACb;AACA;EACE,kBAAkB;EAClB,wBAAwB;AAC1B;AACA;EACE,iBAAiB;EACjB,UAAU;AACZ;AACA;EACE,qBAAqB;AACvB;AACA;EACE,WAAW;EACX,gBAAgB;AAClB;AACA;EACE,0CAA0C;AAC5C","file":"RangyManager.global.less?vue&type=style&index=0&lang=less&","sourcesContent":["@media print {\n.annotate-panel {\n    display: none;\n}\n.highlight {\n    /*background-color: #333;*/\n    background-color: yellow;\n}\n}\n.highlight {\n  background-color: yellow;\n}\n.annotate-panel {\n  position: fixed;\n  /*right: 10px;*/\n  /*top: 10px;*/\n  display: none;\n  background-color: white;\n  background-color: #CCC;\n  border-radius: 10px;\n  /*padding: 5px;*/\n  box-shadow: 5px 5px 2px grey;\n  user-select: none;\n}\n.annotate-panel.show {\n  display: inline-block;\n}\n.annotate-panel .button {\n  border-width: 0;\n  background-color: transparent;\n  text-align: center;\n  display: inline-block;\n  /*border-right: 3px ridge white;*/\n  cursor: pointer;\n  font-size: 0.8em;\n  padding: 5px;\n}\n.annotate-panel .button.highlightSelectedText {\n  border-radius: 10px 0 0 10px;\n}\n.annotate-panel .button.removeHighlightFromSelectedText {\n  border-radius: 0 10px 10px 0 ;\n  margin-left: -5px;\n}\n.annotate-panel .button-container {\n  border-right: 3px ridge white;\n  display: inline-block;\n  /*padding-right: 4px;*/\n}\n.annotate-panel .button:hover {\n  background-color: yellow;\n}\n.annotate-panel .button-container:last-of-type {\n  border-right-width: 0;\n  padding-right: 0px;\n}\n.annotate-panel.hide-remove .button-container.remove {\n  display: none;\n}\n.annotate-panel.hide-remove .button-container {\n  border-right-width: 0;\n  padding-right: 0px;\n}\n.annotate-panel.hide-remove .button {\n  border-radius: 10px;\n}\n.rangy-container-test {\n  position: fixed;\n  top: 100px;\n  left: 100px;\n  background-color: red;\n}\n.note {\n  color: red ;\n}\n.italicYellowBg {\n  font-style: italic;\n  background-color: yellow;\n}\n.boldRed {\n  font-weight: bold;\n  color: red;\n}\nimg.boldRed {\n  border: solid red 3px;\n}\na.pinkLink {\n  color: #f66;\n  font-size: 1.2em;\n}\n.pacor-selection {\n  background-color: rgba(206, 227, 255, 0.7);\n}\n"]}]);
+exports.push([module.i, "@media print {\n.annotate-panel {\n    display: none;\n}\n.highlight {\n    /*background-color: #333;*/\n    background-color: yellow;\n}\n}\n.highlight {\n  background-color: yellow;\n}\n.annotate-panel {\n  position: fixed;\n  /*right: 10px;*/\n  /*top: 10px;*/\n  display: none;\n  background-color: white;\n  background-color: #CCC;\n  border-radius: 10px;\n  /*padding: 5px;*/\n  box-shadow: 5px 5px 2px grey;\n  user-select: none;\n}\n.annotate-panel.show {\n  display: inline-block;\n}\n.annotate-panel .button {\n  border-width: 0;\n  background-color: transparent;\n  text-align: center;\n  display: inline-block;\n  /*border-right: 3px ridge white;*/\n  cursor: pointer;\n  font-size: 0.8em;\n  padding: 5px;\n}\n.annotate-panel .button.highlightSelectedText {\n  border-radius: 10px 0 0 10px;\n}\n.annotate-panel .button.removeHighlightFromSelectedText {\n  border-radius: 0 10px 10px 0 ;\n  margin-left: -5px;\n}\n.annotate-panel .button-container {\n  border-right: 3px ridge white;\n  display: inline-block;\n  /*padding-right: 4px;*/\n}\n.annotate-panel .button:hover {\n  background-color: yellow;\n}\n.annotate-panel .button-container:last-of-type {\n  border-right-width: 0;\n  padding-right: 0px;\n}\n.annotate-panel.hide-remove .button-container.remove {\n  display: none;\n}\n.annotate-panel.hide-remove .button-container {\n  border-right-width: 0;\n  padding-right: 0px;\n}\n.annotate-panel.hide-remove .button {\n  border-radius: 10px;\n}\n.rangy-container-test {\n  position: fixed;\n  top: 100px;\n  left: 100px;\n  background-color: red;\n}\n.note {\n  color: red ;\n}\n.italicYellowBg {\n  font-style: italic;\n  background-color: yellow;\n}\n.boldRed {\n  font-weight: bold;\n  color: red;\n}\nimg.boldRed {\n  border: solid red 3px;\n}\na.pinkLink {\n  color: #f66;\n  font-size: 1.2em;\n}\n.pacor-selection {\n  background-color: rgba(0, 0, 255, 0.7);\n  color: white;\n}\n", "",{"version":3,"sources":["RangyManager.global.less?vue&type=style&index=0&lang=less&"],"names":[],"mappings":"AAAA;AACA;IACI,aAAa;AACjB;AACA;IACI,0BAA0B;IAC1B,wBAAwB;AAC5B;AACA;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,eAAe;EACf,eAAe;EACf,aAAa;EACb,aAAa;EACb,uBAAuB;EACvB,sBAAsB;EACtB,mBAAmB;EACnB,gBAAgB;EAChB,4BAA4B;EAC5B,iBAAiB;AACnB;AACA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;EACf,6BAA6B;EAC7B,kBAAkB;EAClB,qBAAqB;EACrB,iCAAiC;EACjC,eAAe;EACf,gBAAgB;EAChB,YAAY;AACd;AACA;EACE,4BAA4B;AAC9B;AACA;EACE,6BAA6B;EAC7B,iBAAiB;AACnB;AACA;EACE,6BAA6B;EAC7B,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,aAAa;AACf;AACA;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,UAAU;EACV,WAAW;EACX,qBAAqB;AACvB;AACA;EACE,WAAW;AACb;AACA;EACE,kBAAkB;EAClB,wBAAwB;AAC1B;AACA;EACE,iBAAiB;EACjB,UAAU;AACZ;AACA;EACE,qBAAqB;AACvB;AACA;EACE,WAAW;EACX,gBAAgB;AAClB;AACA;EACE,sCAAsC;EACtC,YAAY;AACd","file":"RangyManager.global.less?vue&type=style&index=0&lang=less&","sourcesContent":["@media print {\n.annotate-panel {\n    display: none;\n}\n.highlight {\n    /*background-color: #333;*/\n    background-color: yellow;\n}\n}\n.highlight {\n  background-color: yellow;\n}\n.annotate-panel {\n  position: fixed;\n  /*right: 10px;*/\n  /*top: 10px;*/\n  display: none;\n  background-color: white;\n  background-color: #CCC;\n  border-radius: 10px;\n  /*padding: 5px;*/\n  box-shadow: 5px 5px 2px grey;\n  user-select: none;\n}\n.annotate-panel.show {\n  display: inline-block;\n}\n.annotate-panel .button {\n  border-width: 0;\n  background-color: transparent;\n  text-align: center;\n  display: inline-block;\n  /*border-right: 3px ridge white;*/\n  cursor: pointer;\n  font-size: 0.8em;\n  padding: 5px;\n}\n.annotate-panel .button.highlightSelectedText {\n  border-radius: 10px 0 0 10px;\n}\n.annotate-panel .button.removeHighlightFromSelectedText {\n  border-radius: 0 10px 10px 0 ;\n  margin-left: -5px;\n}\n.annotate-panel .button-container {\n  border-right: 3px ridge white;\n  display: inline-block;\n  /*padding-right: 4px;*/\n}\n.annotate-panel .button:hover {\n  background-color: yellow;\n}\n.annotate-panel .button-container:last-of-type {\n  border-right-width: 0;\n  padding-right: 0px;\n}\n.annotate-panel.hide-remove .button-container.remove {\n  display: none;\n}\n.annotate-panel.hide-remove .button-container {\n  border-right-width: 0;\n  padding-right: 0px;\n}\n.annotate-panel.hide-remove .button {\n  border-radius: 10px;\n}\n.rangy-container-test {\n  position: fixed;\n  top: 100px;\n  left: 100px;\n  background-color: red;\n}\n.note {\n  color: red ;\n}\n.italicYellowBg {\n  font-style: italic;\n  background-color: yellow;\n}\n.boldRed {\n  font-weight: bold;\n  color: red;\n}\nimg.boldRed {\n  border: solid red 3px;\n}\na.pinkLink {\n  color: #f66;\n  font-size: 1.2em;\n}\n.pacor-selection {\n  background-color: rgba(0, 0, 255, 0.7);\n  color: white;\n}\n"]}]);
 
 
 /***/ }),
@@ -45,7 +45,24 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("\r\n    " + _vm._s(className) + "\r\n  ")]
+            [_vm._v("\r\n    +" + _vm._s(className) + "\r\n    ")]
+          )
+        ]
+      }),
+      _vm._v(" "),
+      _vm._l(_vm.highlightClasses, function(className) {
+        return [
+          _c(
+            "button",
+            {
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  return _vm.removeHighlightFromPinnedSelection(className)
+                }
+              }
+            },
+            [_vm._v("\r\n    -" + _vm._s(className) + "\r\n    ")]
           )
         ]
       }),
@@ -209,17 +226,17 @@ let RangyManager = {
     //console.log('ok')
     //console.log(rangy)
     //window.rangy = rangy
-    this.initHighlighter()
+    this._initHighlighter()
     //console.log(rangy)
     
     //document.addEventListener('selectionchange', () => {
     //console.log(document.getSelection());
     //});
-    this.initAnchorPosition()
-    this.initOnSelectEventListener()
+    this._initAnchorPosition()
+    this._initOnSelectEventListener()
   },  // mounted() {
   methods: {
-    initAnchorPosition: function () {
+    _initAnchorPosition: function () {
       for (let i = 0; i < this.rangyConfig.articleSelector.length; i++) {
         let node = window.$(this.rangyConfig.articleSelector[i])
         if (node.length > 0) {
@@ -268,7 +285,7 @@ let RangyManager = {
         }
       })
     },
-    initOnSelectEventListener: function () {
+    _initOnSelectEventListener: function () {
       
       document.addEventListener('touchend', () => {
         this.onselect()
@@ -293,7 +310,7 @@ let RangyManager = {
         }
       })
       
-      this.initSelectionApplier()
+      this._initSelectionApplier()
     },
     onselect: function () {
       let selection = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].getSelection()
@@ -331,7 +348,7 @@ let RangyManager = {
       }
     },
     
-    initSelectionApplier: function () {
+    _initSelectionApplier: function () {
       // Enable buttons
       let classApplierModule = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].modules.ClassApplier;
 
@@ -391,15 +408,35 @@ let RangyManager = {
       return this.selection
     },
     
-    // -------------------
-    
-    highlight: function (className) {
+    removeHighlightFromPinnedSelection: function (className) {
+      if (this.highlightClasses.indexOf(className) === -1
+              || this.selectionSaved === null) {
+        return false
+      }
       
+      _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].restoreSelection(this.selectionSaved);
+      //let sel = rangy.getSelection()
+      //let id = window.$(sel.anchorNode).parents("[data-pacor-paragraph-seq-id]:first").prop('id')
+      //return
+      //toggleItalicYellowBg();
       
+      //let highlight = this.highlighter.getHighlightForElement(this.selection)
+      //highlight.removeHighlights( [className] )
+      //console.log(className)
+      this.highlighter.unhighlightSelection( [className] )
       
+      //console.log(className)
+      this.selection.removeAllRanges()
+      this.unpinSelection()
+      
+      this.selection.highlightClassName = className
+      
+      return this.selection
     },
     
-    initHighlighter: function () {
+    // -------------------
+    
+    _initHighlighter: function () {
       if (typeof(this.rangyConfig.annotationTypeModules) !== 'object') {
         return false
       }
@@ -510,8 +547,9 @@ let RangyManager = {
             }
         */
     },
+    /*
     highlightSelectedText: function () {
-      var sel = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].getSelection();
+      var sel = rangy.getSelection();
       //console.log(sel)
       let id = window.$(sel.anchorNode).parents("[id^='p']").prop('id')
       //return
@@ -522,11 +560,11 @@ let RangyManager = {
       });
       console.log(highlighter.serialize())
       //$$.cookie(_get_cookie_key(), highlighter.serialize(), {expires: _cookie_expire }); 
-      sel = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].getSelection();
+      sel = rangy.getSelection();
       sel.removeAllRanges();
     },
     note: function () {
-      var sel = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].getSelection();
+      var sel = rangy.getSelection();
       //console.log(window.$(sel.anchorNode).offset())
       var range = sel.getRangeAt(0).cloneRange();
       var rect = range.getBoundingDocumentRect();
@@ -545,6 +583,7 @@ let RangyManager = {
       //var sel = rangy.getSelection();
       sel.removeAllRanges();
     }
+     */
   } // methods
 }
 
@@ -6042,9 +6081,22 @@ __webpack_require__.r(__webpack_exports__);
             },
 
             unhighlightSelection: function(selection) {
-                selection = selection || api.getSelection(this.doc);
-                var intersectingHighlights = this.getIntersectingHighlights( selection.getAllRanges() );
-                this.removeHighlights(intersectingHighlights);
+                let classNameList = []
+                if (Array.isArray(selection) && typeof(selection[0]) === 'string') {
+                  classNameList = selection
+                  selection = api.getSelection(this.doc);
+                }
+                else {
+                  selection = selection || api.getSelection(this.doc);
+                }
+                let intersectingHighlights = this.getIntersectingHighlights( selection.getAllRanges() );
+                //console.log(intersectingHighlights)
+                if (classNameList.length > 0) {
+                  intersectingHighlights = intersectingHighlights.filter(highlight => (classNameList.indexOf(highlight.classApplier.className) > -1))
+                }
+                if (intersectingHighlights.length > 0) {
+                  this.removeHighlights(intersectingHighlights)
+                }
                 selection.removeAllRanges();
                 return intersectingHighlights;
             },
