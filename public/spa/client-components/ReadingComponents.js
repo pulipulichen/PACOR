@@ -52,16 +52,6 @@ var render = function() {
       _vm._v(" "),
       _c(
         "button",
-        { attrs: { type: "button" }, on: { click: _vm.highlightSelectedText } },
-        [_vm._v("\r\n    Highlight\r\n  ")]
-      ),
-      _vm._v(" "),
-      _c("button", { attrs: { type: "button" }, on: { click: _vm.note } }, [
-        _vm._v("\r\n    Note\r\n  ")
-      ]),
-      _vm._v(" "),
-      _c(
-        "button",
         { attrs: { type: "button" }, on: { click: _vm.pinSelection } },
         [_vm._v("\r\n    pin\r\n  ")]
       ),
@@ -203,6 +193,7 @@ let RangyManager = {
       
       selectionApplier: null,
       selection: null,
+      selectionSaved: null,
       
       highlighter: null,
       highlightClasses: []
@@ -342,7 +333,7 @@ let RangyManager = {
     
     initSelectionApplier: function () {
       // Enable buttons
-      var classApplierModule = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].modules.ClassApplier;
+      let classApplierModule = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].modules.ClassApplier;
 
       // Next line is pure paranoia: it will only return false if the browser has no support for ranges,
       // selections or TextRanges. Even IE 5 would pass this test.
@@ -360,9 +351,16 @@ let RangyManager = {
         return false
       }
       
+      this.selectionSaved = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].saveSelection()
+      
+      //let range = this.selection.saveRanges()
+      //console.log(range)
+      //console.log(this.selection.getRangeAt(0))
+      
       this.selectionApplier.toggleSelection()
       this.selection.removeAllRanges()
-      this.selection = null
+      //this.selection = null
+      
       return this
     },
     unpinSelection : function () {
@@ -370,11 +368,27 @@ let RangyManager = {
       return this
     },
     highlightPinnedSelection: function (className) {
-      if (this.highlightClasses.indexOf(className) === -1) {
+      if (this.highlightClasses.indexOf(className) === -1
+              || this.selectionSaved === null) {
         return false
       }
       
-      console.log(className)
+      _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].restoreSelection(this.selectionSaved);
+      //let sel = rangy.getSelection()
+      //let id = window.$(sel.anchorNode).parents("[data-pacor-paragraph-seq-id]:first").prop('id')
+      //return
+      //toggleItalicYellowBg();
+      this.highlighter.highlightSelection(className, {
+        exclusive: false,
+        containerElementId: this.selection.anchorPosition.paragraph_id
+      });
+      //console.log(className)
+      this.selection.removeAllRanges()
+      this.unpinSelection()
+      
+      this.selection.highlightClassName = className
+      
+      return this.selection
     },
     
     // -------------------
@@ -420,9 +434,10 @@ let RangyManager = {
           document.head.appendChild(sheet)
         }
         
+        rules.reverse()
         rules.forEach(rule => {
-          console.log(rule)
-          sheet.insertRule(rule, sheet.cssRules.length);
+          //console.log(rule)
+          sheet.insertRule(rule, sheet.cssRules.length)
         })
       }
       
@@ -6707,6 +6722,259 @@ rangy.createModule("Position", ["WrappedSelection"], function(api, module) {
 
 /***/ }),
 
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/rangy/rangy-selectionsaverestore.js":
+/*!************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/rangy/rangy-selectionsaverestore.js ***!
+  \************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Selection save and restore module for Rangy.
+ * Saves and restores user selections using marker invisible elements in the DOM.
+ *
+ * Part of Rangy, a cross-browser JavaScript range and selection library
+ * https://github.com/timdown/rangy
+ *
+ * Depends on Rangy core.
+ *
+ * Copyright 2015, Tim Down
+ * Licensed under the MIT license.
+ * Version: 1.3.1-dev
+ * Build date: 20 May 2015
+ */
+/* harmony default export */ __webpack_exports__["default"] = (function(rangy) {
+    rangy.createModule("SaveRestore", ["WrappedRange"], function(api, module) {
+        var dom = api.dom;
+        var removeNode = dom.removeNode;
+        var isDirectionBackward = api.Selection.isDirectionBackward;
+        var markerTextChar = "\ufeff";
+
+        function gEBI(id, doc) {
+            return (doc || document).getElementById(id);
+        }
+
+        function insertRangeBoundaryMarker(range, atStart) {
+            var markerId = "selectionBoundary_" + (+new Date()) + "_" + ("" + Math.random()).slice(2);
+            var markerEl;
+            var doc = dom.getDocument(range.startContainer);
+
+            // Clone the Range and collapse to the appropriate boundary point
+            var boundaryRange = range.cloneRange();
+            boundaryRange.collapse(atStart);
+
+            // Create the marker element containing a single invisible character using DOM methods and insert it
+            markerEl = doc.createElement("span");
+            markerEl.id = markerId;
+            markerEl.style.lineHeight = "0";
+            markerEl.style.display = "none";
+            markerEl.className = "rangySelectionBoundary";
+            markerEl.appendChild(doc.createTextNode(markerTextChar));
+
+            boundaryRange.insertNode(markerEl);
+            return markerEl;
+        }
+
+        function setRangeBoundary(doc, range, markerId, atStart) {
+            var markerEl = gEBI(markerId, doc);
+            if (markerEl) {
+                range[atStart ? "setStartBefore" : "setEndBefore"](markerEl);
+                removeNode(markerEl);
+            } else {
+                module.warn("Marker element has been removed. Cannot restore selection.");
+            }
+        }
+
+        function compareRanges(r1, r2) {
+            return r2.compareBoundaryPoints(r1.START_TO_START, r1);
+        }
+
+        function saveRange(range, direction) {
+            var startEl, endEl, doc = api.DomRange.getRangeDocument(range), text = range.toString();
+            var backward = isDirectionBackward(direction);
+
+            if (range.collapsed) {
+                endEl = insertRangeBoundaryMarker(range, false);
+                return {
+                    document: doc,
+                    markerId: endEl.id,
+                    collapsed: true
+                };
+            } else {
+                endEl = insertRangeBoundaryMarker(range, false);
+                startEl = insertRangeBoundaryMarker(range, true);
+
+                return {
+                    document: doc,
+                    startMarkerId: startEl.id,
+                    endMarkerId: endEl.id,
+                    collapsed: false,
+                    backward: backward,
+                    toString: function() {
+                        return "original text: '" + text + "', new text: '" + range.toString() + "'";
+                    }
+                };
+            }
+        }
+
+        function restoreRange(rangeInfo, normalize) {
+            var doc = rangeInfo.document;
+            if (typeof normalize == "undefined") {
+                normalize = true;
+            }
+            var range = api.createRange(doc);
+            if (rangeInfo.collapsed) {
+                var markerEl = gEBI(rangeInfo.markerId, doc);
+                if (markerEl) {
+                    markerEl.style.display = "inline";
+                    var previousNode = markerEl.previousSibling;
+
+                    // Workaround for issue 17
+                    if (previousNode && previousNode.nodeType == 3) {
+                        removeNode(markerEl);
+                        range.collapseToPoint(previousNode, previousNode.length);
+                    } else {
+                        range.collapseBefore(markerEl);
+                        removeNode(markerEl);
+                    }
+                } else {
+                    module.warn("Marker element has been removed. Cannot restore selection.");
+                }
+            } else {
+                setRangeBoundary(doc, range, rangeInfo.startMarkerId, true);
+                setRangeBoundary(doc, range, rangeInfo.endMarkerId, false);
+            }
+
+            if (normalize) {
+                range.normalizeBoundaries();
+            }
+
+            return range;
+        }
+
+        function saveRanges(ranges, direction) {
+            var rangeInfos = [], range, doc;
+            var backward = isDirectionBackward(direction);
+
+            // Order the ranges by position within the DOM, latest first, cloning the array to leave the original untouched
+            ranges = ranges.slice(0);
+            ranges.sort(compareRanges);
+
+            for (var i = 0, len = ranges.length; i < len; ++i) {
+                rangeInfos[i] = saveRange(ranges[i], backward);
+            }
+
+            // Now that all the markers are in place and DOM manipulation over, adjust each range's boundaries to lie
+            // between its markers
+            for (i = len - 1; i >= 0; --i) {
+                range = ranges[i];
+                doc = api.DomRange.getRangeDocument(range);
+                if (range.collapsed) {
+                    range.collapseAfter(gEBI(rangeInfos[i].markerId, doc));
+                } else {
+                    range.setEndBefore(gEBI(rangeInfos[i].endMarkerId, doc));
+                    range.setStartAfter(gEBI(rangeInfos[i].startMarkerId, doc));
+                }
+            }
+
+            return rangeInfos;
+        }
+
+        function saveSelection(win) {
+            if (!api.isSelectionValid(win)) {
+                module.warn("Cannot save selection. This usually happens when the selection is collapsed and the selection document has lost focus.");
+                return null;
+            }
+            var sel = api.getSelection(win);
+            var ranges = sel.getAllRanges();
+            var backward = (ranges.length == 1 && sel.isBackward());
+
+            var rangeInfos = saveRanges(ranges, backward);
+
+            // Ensure current selection is unaffected
+            if (backward) {
+                sel.setSingleRange(ranges[0], backward);
+            } else {
+                sel.setRanges(ranges);
+            }
+
+            return {
+                win: win,
+                rangeInfos: rangeInfos,
+                restored: false
+            };
+        }
+
+        function restoreRanges(rangeInfos) {
+            var ranges = [];
+
+            // Ranges are in reverse order of appearance in the DOM. We want to restore earliest first to avoid
+            // normalization affecting previously restored ranges.
+            var rangeCount = rangeInfos.length;
+
+            for (var i = rangeCount - 1; i >= 0; i--) {
+                ranges[i] = restoreRange(rangeInfos[i], true);
+            }
+
+            return ranges;
+        }
+
+        function restoreSelection(savedSelection, preserveDirection) {
+            if (!savedSelection.restored) {
+                var rangeInfos = savedSelection.rangeInfos;
+                var sel = api.getSelection(savedSelection.win);
+                var ranges = restoreRanges(rangeInfos), rangeCount = rangeInfos.length;
+
+                if (rangeCount == 1 && preserveDirection && api.features.selectionHasExtend && rangeInfos[0].backward) {
+                    sel.removeAllRanges();
+                    sel.addRange(ranges[0], true);
+                } else {
+                    sel.setRanges(ranges);
+                }
+
+                savedSelection.restored = true;
+            }
+        }
+
+        function removeMarkerElement(doc, markerId) {
+            var markerEl = gEBI(markerId, doc);
+            if (markerEl) {
+                removeNode(markerEl);
+            }
+        }
+
+        function removeMarkers(savedSelection) {
+            var rangeInfos = savedSelection.rangeInfos;
+            for (var i = 0, len = rangeInfos.length, rangeInfo; i < len; ++i) {
+                rangeInfo = rangeInfos[i];
+                if (rangeInfo.collapsed) {
+                    removeMarkerElement(savedSelection.doc, rangeInfo.markerId);
+                } else {
+                    removeMarkerElement(savedSelection.doc, rangeInfo.startMarkerId);
+                    removeMarkerElement(savedSelection.doc, rangeInfo.endMarkerId);
+                }
+            }
+        }
+
+        api.util.extend(api, {
+            saveRange: saveRange,
+            restoreRange: restoreRange,
+            saveRanges: saveRanges,
+            restoreRanges: restoreRanges,
+            saveSelection: saveSelection,
+            restoreSelection: restoreSelection,
+            removeMarkerElement: removeMarkerElement,
+            removeMarkers: removeMarkers
+        });
+    });
+    
+    return rangy;
+});
+
+/***/ }),
+
 /***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/rangy/rangy-webpack.js":
 /*!***********************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/rangy/rangy-webpack.js ***!
@@ -6720,6 +6988,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _rangy_classapplier_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./rangy-classapplier.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/rangy/rangy-classapplier.js");
 /* harmony import */ var _rangy_highlighter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./rangy-highlighter.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/rangy/rangy-highlighter.js");
 /* harmony import */ var _rangy_position_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./rangy-position.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/rangy/rangy-position.js");
+/* harmony import */ var _rangy_selectionsaverestore_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./rangy-selectionsaverestore.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/rangy/rangy-selectionsaverestore.js");
 //console.log(1)
 
 //console.log(2)
@@ -6734,6 +7003,9 @@ Object(_rangy_highlighter_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_rangy_cor
 
 
 Object(_rangy_position_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_rangy_core_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+
+
+Object(_rangy_selectionsaverestore_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_rangy_core_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 //console.log(HighlighterModule)
 //rangy = HighlighterModule(rangy)
 //console.log(rangy)

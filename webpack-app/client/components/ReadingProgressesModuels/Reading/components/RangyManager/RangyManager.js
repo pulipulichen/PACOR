@@ -39,6 +39,7 @@ let RangyManager = {
       
       selectionApplier: null,
       selection: null,
+      selectionSaved: null,
       
       highlighter: null,
       highlightClasses: []
@@ -178,7 +179,7 @@ let RangyManager = {
     
     initSelectionApplier: function () {
       // Enable buttons
-      var classApplierModule = rangy.modules.ClassApplier;
+      let classApplierModule = rangy.modules.ClassApplier;
 
       // Next line is pure paranoia: it will only return false if the browser has no support for ranges,
       // selections or TextRanges. Even IE 5 would pass this test.
@@ -196,9 +197,16 @@ let RangyManager = {
         return false
       }
       
+      this.selectionSaved = rangy.saveSelection()
+      
+      //let range = this.selection.saveRanges()
+      //console.log(range)
+      //console.log(this.selection.getRangeAt(0))
+      
       this.selectionApplier.toggleSelection()
       this.selection.removeAllRanges()
-      this.selection = null
+      //this.selection = null
+      
       return this
     },
     unpinSelection : function () {
@@ -206,11 +214,27 @@ let RangyManager = {
       return this
     },
     highlightPinnedSelection: function (className) {
-      if (this.highlightClasses.indexOf(className) === -1) {
+      if (this.highlightClasses.indexOf(className) === -1
+              || this.selectionSaved === null) {
         return false
       }
       
-      console.log(className)
+      rangy.restoreSelection(this.selectionSaved);
+      //let sel = rangy.getSelection()
+      //let id = window.$(sel.anchorNode).parents("[data-pacor-paragraph-seq-id]:first").prop('id')
+      //return
+      //toggleItalicYellowBg();
+      this.highlighter.highlightSelection(className, {
+        exclusive: false,
+        containerElementId: this.selection.anchorPosition.paragraph_id
+      });
+      //console.log(className)
+      this.selection.removeAllRanges()
+      this.unpinSelection()
+      
+      this.selection.highlightClassName = className
+      
+      return this.selection
     },
     
     // -------------------
@@ -256,9 +280,10 @@ let RangyManager = {
           document.head.appendChild(sheet)
         }
         
+        rules.reverse()
         rules.forEach(rule => {
-          console.log(rule)
-          sheet.insertRule(rule, sheet.cssRules.length);
+          //console.log(rule)
+          sheet.insertRule(rule, sheet.cssRules.length)
         })
       }
       

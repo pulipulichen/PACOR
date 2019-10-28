@@ -70,11 +70,11 @@ module.exports = {
           'urlPattern': 'https://www.google.com/search?q={questionText}'
         }
       ],
-      'style': 'border: 1px solid green'
+      'style': 'border-bottom: 1px solid green'
     },
     'mainIdea': {
       'minCharacters': 10,
-      'style': 'border: 1px solid red'
+      'style': 'border-bottom: 1px solid red'
     }
   }
 }
