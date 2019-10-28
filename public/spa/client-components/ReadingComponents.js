@@ -171,29 +171,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./rangy/rangy-webpack.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/rangy/rangy-webpack.js");
 //import rangy from 'rangy-updated'
 
-
-/*
-let highlighter
-function gEBI(id) {
-  return document.getElementById(id);
-}
-
-var italicYellowBgApplier, boldRedApplier, pinkLinkApplier;
-
-function toggleItalicYellowBg() {
-  var sel = rangy.getSelection();
-  console.log(sel.anchorOffset)
-  italicYellowBgApplier.toggleSelection();
-}
-
-function toggleBoldRed() {
-  boldRedApplier.toggleSelection();
-}
-
-function togglePinkLink() {
-  pinkLinkApplier.toggleSelection();
-}
-*/
 let RangyManager = {
   props: ['lib', 'rangyConfig'],
   data() {
@@ -321,31 +298,99 @@ let RangyManager = {
         
         // 我想要知道它的id跟section做法
         selection.anchorPosition = {}
-        let anchorNode = window.$(selection.anchorNode)
         
-        let parentSection = anchorNode.parents('[data-pacor-section-seq-id]:first')
-        if (parentSection.length === 1) {
-          selection.anchorPosition.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
-        }
-        else {
-          // we will not select out of scope.
+        let nodes = this._getNodesInRange(selection.getAllRanges())
+        //console.log(nodes)
+        let section_seq_id = []
+        let paragraph_seq_id = []
+        let paragraph_id = []
+        
+        nodes.forEach(anchorNode => {
+          //let anchorNode = window.$(selection.anchorNode)
+          anchorNode = window.$(anchorNode)
+          let parentSection = anchorNode.parents('[data-pacor-section-seq-id]:first')
+          if (parentSection.length === 1) {
+            //selection.anchorPosition.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
+            section_seq_id.push(parseInt(parentSection.attr('data-pacor-section-seq-id'), 10))
+          }
+          else {
+            // we will not select out of scope.
+            return false
+          }
+
+          let parentParagraph = anchorNode.parents('[data-pacor-paragraph-seq-id]:first')
+          if (parentParagraph.length === 1) {
+            //selection.anchorPosition.paragraph_seq_id = parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10)
+            //selection.anchorPosition.paragraph_id = parentParagraph.attr('id')
+            paragraph_seq_id.push(parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10))
+            paragraph_id.push(parentParagraph.attr('id'))
+          }
+          else {
+            // we will not select out of scope.
+            return false
+          }
+        })
+        
+        if (section_seq_id.length === 0 || paragraph_seq_id.length === 0) {
           return false
         }
         
-        let parentParagraph = anchorNode.parents('[data-pacor-paragraph-seq-id]:first')
-        if (parentParagraph.length === 1) {
-          selection.anchorPosition.paragraph_seq_id = parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10)
-          selection.anchorPosition.paragraph_id = parentParagraph.attr('id')
-        }
-        else {
-          // we will not select out of scope.
-          return false
+        selection.anchorPosition = {
+          section_seq_id,
+          paragraph_seq_id,
+          paragraph_id
         }
         
         this.$emit('select', selection)
         console.log('onselect', selection)
         this.selection = selection
       }
+    },
+    
+    _getNextNode: function (node) {
+      if (node.firstChild) {
+          return node.firstChild;
+        }
+      while (node){
+        if (node.nextSibling) {
+          return node.nextSibling;
+        }
+        node = node.parentNode;
+      }
+    },
+    
+    _getNodesInRange: function (ranges) {
+      let nodes = []
+      
+      if (Array.isArray(ranges) === false) {
+        ranges = [ranges]
+      }
+      
+      ranges.forEach(range => {
+        var start = range.startContainer;
+        var end = range.endContainer;
+        var commonAncestor = range.commonAncestorContainer;
+
+        var node;
+
+        // walk parent nodes from start to common ancestor
+        for (node = start.parentNode; node; node = node.parentNode) {
+          nodes.push(node)
+          if (node === commonAncestor) {
+            break
+          }
+        }
+        nodes.reverse()
+
+        // walk children and siblings from start until end is found
+        for (node = start; node; node = this._getNextNode(node)) {
+          nodes.push(node)
+          if (node === end)
+            break
+        }
+      })
+
+      return nodes;
     },
     
     _initSelectionApplier: function () {
@@ -364,7 +409,8 @@ let RangyManager = {
     pinSelection: function () {
       this.unpinSelection()
       if (this.selection === null 
-              || typeof(this.selection.anchorPosition.paragraph_seq_id) !== 'number') {
+              || Array.isArray(this.selection.anchorPosition.paragraph_seq_id) === false
+              || this.selection.anchorPosition.paragraph_seq_id.length === 0) {
         return false
       }
       
@@ -390,20 +436,23 @@ let RangyManager = {
         return false
       }
       
-      _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].restoreSelection(this.selectionSaved);
+      _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].restoreSelection(this.selectionSaved)
       //let sel = rangy.getSelection()
       //let id = window.$(sel.anchorNode).parents("[data-pacor-paragraph-seq-id]:first").prop('id')
       //return
       //toggleItalicYellowBg();
-      this.highlighter.highlightSelection(className, {
+      console.log(this.selection.anchorPosition.paragraph_id)
+      let highlight = this.highlighter.highlightSelection(className, {
         exclusive: false,
         containerElementId: this.selection.anchorPosition.paragraph_id
-      });
+      })
+      console.log(highlight)
+      
       //console.log(className)
       this.selection.removeAllRanges()
       this.unpinSelection()
       
-      this.selection.highlightClassName = className
+      this.selection.highlight = highlight
       
       return this.selection
     },
@@ -443,6 +492,8 @@ let RangyManager = {
       let rules = []
       _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].init()
       this.highlighter = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].createHighlighter()
+      window.hl = this.highlighter
+      
       let options = {
         ignoreWhiteSpace: true,
         tagNames: ["span", "a", "b", "img"]
@@ -477,113 +528,7 @@ let RangyManager = {
           sheet.insertRule(rule, sheet.cssRules.length)
         })
       }
-      
-      
-      /*
-      highlighter.addClassApplier(rangy.createClassApplier("highlight", {
-        ignoreWhiteSpace: true,
-        tagNames: ["span", "a", "b", "img"],
-        elementProperties: {
-              //href: "#",
-              onclick: function() {
-                  let highlight = highlighter.getHighlightForElement(this);
-                  console.log(highlight)
-                  return
-                  if (window.confirm("Delete this note (ID " + highlight.id + ")?")) {
-                      highlighter.removeHighlights( [highlight] );
-                  }
-                  return false;
-              }
-          }
-      }));
-
-      highlighter.addClassApplier(rangy.createClassApplier("note", {
-          ignoreWhiteSpace: true,
-          elementTagName: "span",
-          elementProperties: {
-              //href: "#",
-              onclick: function() {
-                  let highlight = highlighter.getHighlightForElement(this);
-                  console.log(highlight)
-                  return
-                  if (window.confirm("Delete this note (ID " + highlight.id + ")?")) {
-                      highlighter.removeHighlights( [highlight] );
-                  }
-                  return false;
-              }
-          }
-      }))
-      */
-       //if (this.serializedHighlights) {
-       //   highlighter.deserialize(this.serializedHighlights);
-       //}
-       /*
-       
-    
-            // Enable buttons
-            var classApplierModule = rangy.modules.ClassApplier;
-
-            // Next line is pure paranoia: it will only return false if the browser has no support for ranges,
-            // selections or TextRanges. Even IE 5 would pass this test.
-            if (rangy.supported && classApplierModule && classApplierModule.supported) {
-                boldRedApplier = rangy.createClassApplier("boldRed", {
-                    tagNames: ["span", "img"]
-                });
-
-                italicYellowBgApplier = rangy.createClassApplier("italicYellowBg", {
-                    tagNames: ["span", "a", "b", "img"]
-                });
-
-                pinkLinkApplier = rangy.createClassApplier("pinkLink", {
-                    elementTagName: "a",
-                    elementProperties: {
-                        href: "http://code.google.com/p/rangy",
-                        title: "Rangy home page"
-                    }
-                });
-                
-                highlighter.addClassApplier(boldRedApplier)
-                highlighter.addClassApplier(italicYellowBgApplier)
-            }
-        */
     },
-    /*
-    highlightSelectedText: function () {
-      var sel = rangy.getSelection();
-      //console.log(sel)
-      let id = window.$(sel.anchorNode).parents("[id^='p']").prop('id')
-      //return
-      //toggleItalicYellowBg();
-      highlighter.highlightSelection("highlight", {
-        exclusive: false,
-        containerElementId: id
-      });
-      console.log(highlighter.serialize())
-      //$$.cookie(_get_cookie_key(), highlighter.serialize(), {expires: _cookie_expire }); 
-      sel = rangy.getSelection();
-      sel.removeAllRanges();
-    },
-    note: function () {
-      var sel = rangy.getSelection();
-      //console.log(window.$(sel.anchorNode).offset())
-      var range = sel.getRangeAt(0).cloneRange();
-      var rect = range.getBoundingDocumentRect();
-      console.log("y pos:" + rect.top, rect)
-      
-      let id = window.$(sel.anchorNode).parents("[id^='p']").prop('id')
-      //toggleBoldRed();
-      highlighter.highlightSelection("note", {
-        exclusive: false,
-        containerElementId: id
-      });
-      let hl = highlighter.highlights
-      console.log(hl[(hl.length - 1)].characterRange)
-      console.log(highlighter.serialize())
-      //$$.cookie(_get_cookie_key(), highlighter.serialize(), {expires: _cookie_expire }); 
-      //var sel = rangy.getSelection();
-      sel.removeAllRanges();
-    }
-     */
   } // methods
 }
 
