@@ -149,7 +149,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.js?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -299,7 +299,11 @@ let RangyManager = {
         // 我想要知道它的id跟section做法
         selection.anchorPosition = {}
         
+        // 我放棄，只取第一個
         let nodes = this._getNodesInRange(selection.getAllRanges())
+        //let nodes = [selection.anchorNode]
+        
+        
         //console.log(nodes)
         let section_seq_id = []
         let paragraph_seq_id = []
@@ -436,19 +440,76 @@ let RangyManager = {
         return false
       }
       
-      _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].restoreSelection(this.selectionSaved)
+      
       //let sel = rangy.getSelection()
       //let id = window.$(sel.anchorNode).parents("[data-pacor-paragraph-seq-id]:first").prop('id')
       //return
       //toggleItalicYellowBg();
-      console.log(this.selection.anchorPosition.paragraph_id)
+      //let ids = JSON.parse(JSON.stringify(this.selection.anchorPosition.paragraph_id))
+      //console.log(this.selection.anchorPosition.paragraph_id)
+      
+      /*
+      let highlights = []
+      
+      let loop = (i) => {
+        console.log(i, ids.length)
+        rangy.restoreSelection(this.selectionSaved)
+        if (i < ids.length) {
+          let id = ids[i]
+          console.log(id)
+          let highlight = this.highlighter.highlightSelection(className, {
+            exclusive: false,
+            containerElementId: id,
+            selection: this.selection
+          })
+          highlights = highlights.concat(highlight)
+          this.selection.removeAllRanges()
+          setTimeout(function () {
+            loop(i+1)
+          }, 500)
+          return
+        }
+        else {
+          console.log(highlights)
+
+          //console.log(className)
+          this.selection.removeAllRanges()
+          this.unpinSelection()
+
+          this.selection.highlight = highlights
+        }
+      }
+      loop(0)
+      */
+      /*
+      this.selection.anchorPosition.paragraph_id.forEach(id => {
+        console.log(id, className)
+        let highlight = this.highlighter.highlightSelection(className, {
+          exclusive: false,
+          containerElementId: id
+        })
+        highlights = highlights.concat(highlight)
+      })
+        
+      console.log(highlights)
+      
+      //console.log(className)
+      this.selection.removeAllRanges()
+      this.unpinSelection()
+      
+      this.selection.highlight = highlights
+      
+      return this.selection
+       */
+      
+      //let ids = JSON.parse(JSON.stringify(this.selection.anchorPosition.paragraph_id))
+      
+      _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].restoreSelection(this.selectionSaved)
       let highlight = this.highlighter.highlightSelection(className, {
         exclusive: false,
         containerElementId: this.selection.anchorPosition.paragraph_id
       })
       console.log(highlight)
-      
-      //console.log(className)
       this.selection.removeAllRanges()
       this.unpinSelection()
       
@@ -540,14 +601,15 @@ let RangyManager = {
 /*!*****************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.vue ***!
   \*****************************************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _RangyManager_html_vue_type_template_id_131db6d5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RangyManager.html?vue&type=template&id=131db6d5& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.html?vue&type=template&id=131db6d5&");
 /* harmony import */ var _RangyManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RangyManager.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.js?vue&type=script&lang=js&?bc91");
-/* empty/unused harmony star reexport *//* harmony import */ var _RangyManager_global_less_vue_type_style_index_0_lang_less___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RangyManager.global.less?vue&type=style&index=0&lang=less& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.global.less?vue&type=style&index=0&lang=less&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _RangyManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _RangyManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _RangyManager_global_less_vue_type_style_index_0_lang_less___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RangyManager.global.less?vue&type=style&index=0&lang=less& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.global.less?vue&type=style&index=0&lang=less&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 

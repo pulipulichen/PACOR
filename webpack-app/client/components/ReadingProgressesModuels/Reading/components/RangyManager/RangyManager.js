@@ -128,7 +128,11 @@ let RangyManager = {
         // 我想要知道它的id跟section做法
         selection.anchorPosition = {}
         
+        // 我放棄，只取第一個
         let nodes = this._getNodesInRange(selection.getAllRanges())
+        //let nodes = [selection.anchorNode]
+        
+        
         //console.log(nodes)
         let section_seq_id = []
         let paragraph_seq_id = []
@@ -265,19 +269,76 @@ let RangyManager = {
         return false
       }
       
-      rangy.restoreSelection(this.selectionSaved)
+      
       //let sel = rangy.getSelection()
       //let id = window.$(sel.anchorNode).parents("[data-pacor-paragraph-seq-id]:first").prop('id')
       //return
       //toggleItalicYellowBg();
-      console.log(this.selection.anchorPosition.paragraph_id)
+      //let ids = JSON.parse(JSON.stringify(this.selection.anchorPosition.paragraph_id))
+      //console.log(this.selection.anchorPosition.paragraph_id)
+      
+      /*
+      let highlights = []
+      
+      let loop = (i) => {
+        console.log(i, ids.length)
+        rangy.restoreSelection(this.selectionSaved)
+        if (i < ids.length) {
+          let id = ids[i]
+          console.log(id)
+          let highlight = this.highlighter.highlightSelection(className, {
+            exclusive: false,
+            containerElementId: id,
+            selection: this.selection
+          })
+          highlights = highlights.concat(highlight)
+          this.selection.removeAllRanges()
+          setTimeout(function () {
+            loop(i+1)
+          }, 500)
+          return
+        }
+        else {
+          console.log(highlights)
+
+          //console.log(className)
+          this.selection.removeAllRanges()
+          this.unpinSelection()
+
+          this.selection.highlight = highlights
+        }
+      }
+      loop(0)
+      */
+      /*
+      this.selection.anchorPosition.paragraph_id.forEach(id => {
+        console.log(id, className)
+        let highlight = this.highlighter.highlightSelection(className, {
+          exclusive: false,
+          containerElementId: id
+        })
+        highlights = highlights.concat(highlight)
+      })
+        
+      console.log(highlights)
+      
+      //console.log(className)
+      this.selection.removeAllRanges()
+      this.unpinSelection()
+      
+      this.selection.highlight = highlights
+      
+      return this.selection
+       */
+      
+      //let ids = JSON.parse(JSON.stringify(this.selection.anchorPosition.paragraph_id))
+      
+      rangy.restoreSelection(this.selectionSaved)
       let highlight = this.highlighter.highlightSelection(className, {
         exclusive: false,
         containerElementId: this.selection.anchorPosition.paragraph_id
       })
       console.log(highlight)
-      
-      //console.log(className)
       this.selection.removeAllRanges()
       this.unpinSelection()
       
