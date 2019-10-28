@@ -29,30 +29,52 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "rangy-container-test" }, [
-    _c(
-      "button",
-      { attrs: { type: "button" }, on: { click: _vm.highlightSelectedText } },
-      [_vm._v("\r\n    Highlight\r\n  ")]
-    ),
-    _vm._v(" "),
-    _c("button", { attrs: { type: "button" }, on: { click: _vm.note } }, [
-      _vm._v("\r\n    Note\r\n  ")
-    ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      { attrs: { type: "button" }, on: { click: _vm.pinSelection } },
-      [_vm._v("\r\n    pin\r\n  ")]
-    ),
-    _vm._v(" "),
-    _c(
-      "button",
-      { attrs: { type: "button" }, on: { click: _vm.unpinSelection } },
-      [_vm._v("\r\n    unpin\r\n  ")]
-    ),
-    _vm._v("\r\n  AAAAAAAAA\r\n")
-  ])
+  return _c(
+    "div",
+    { staticClass: "rangy-container-test" },
+    [
+      _vm._l(_vm.highlightClasses, function(className) {
+        return [
+          _c(
+            "button",
+            {
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  return _vm.highlightPinnedSelection(className)
+                }
+              }
+            },
+            [_vm._v("\r\n    " + _vm._s(className) + "\r\n  ")]
+          )
+        ]
+      }),
+      _vm._v(" "),
+      _c(
+        "button",
+        { attrs: { type: "button" }, on: { click: _vm.highlightSelectedText } },
+        [_vm._v("\r\n    Highlight\r\n  ")]
+      ),
+      _vm._v(" "),
+      _c("button", { attrs: { type: "button" }, on: { click: _vm.note } }, [
+        _vm._v("\r\n    Note\r\n  ")
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        { attrs: { type: "button" }, on: { click: _vm.pinSelection } },
+        [_vm._v("\r\n    pin\r\n  ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { attrs: { type: "button" }, on: { click: _vm.unpinSelection } },
+        [_vm._v("\r\n    unpin\r\n  ")]
+      ),
+      _vm._v("\r\n  AAAAAAAAA\r\n")
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -143,6 +165,7 @@ __webpack_require__.r(__webpack_exports__);
 //import rangy from 'rangy-updated'
 
 
+/*
 let highlighter
 function gEBI(id) {
   return document.getElementById(id);
@@ -151,7 +174,7 @@ function gEBI(id) {
 var italicYellowBgApplier, boldRedApplier, pinkLinkApplier;
 
 function toggleItalicYellowBg() {
-  var sel = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].getSelection();
+  var sel = rangy.getSelection();
   console.log(sel.anchorOffset)
   italicYellowBgApplier.toggleSelection();
 }
@@ -163,14 +186,14 @@ function toggleBoldRed() {
 function togglePinkLink() {
   pinkLinkApplier.toggleSelection();
 }
-
+*/
 let RangyManager = {
   props: ['lib', 'rangyConfig'],
   data() {
-    console.log(this.status)
+    //console.log(this.status)
     //this.$i18n.locale = this.config.locale
     return {
-      serializedHighlights: null,
+      //serializedHighlights: null,
       
       //articleSelector: this.status.readingConfig.articleSelector,
       //sectionSelector: this.status.readingConfig.sectionSelector,
@@ -179,7 +202,10 @@ let RangyManager = {
       paragraphNodes: null,
       
       selectionApplier: null,
-      selection: null
+      selection: null,
+      
+      highlighter: null,
+      highlightClasses: []
     }
   },  // data() {
   /*
@@ -212,7 +238,9 @@ let RangyManager = {
       }
       
       if (this.articleNode === null) {
-        return
+        //console.warn('Cannot found any article node.')
+        throw this.$t('Cannot found any article node.')
+        return false
       }
       
       let children = this.articleNode.children()
@@ -222,6 +250,12 @@ let RangyManager = {
           this.sectionNodes = nodes
           break
         }
+      }
+      
+      if (this.sectionNodes === null) {
+        //console.warn('Cannot found any article node.')
+        throw this.$t('Cannot found any section node.')
+        return false
       }
       
       this.sectionNodes.each((i, node) => {
@@ -244,6 +278,7 @@ let RangyManager = {
       })
     },
     initOnSelectEventListener: function () {
+      
       document.addEventListener('touchend', () => {
         this.onselect()
       })
@@ -285,7 +320,8 @@ let RangyManager = {
           selection.anchorPosition.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
         }
         else {
-          return
+          // we will not select out of scope.
+          return false
         }
         
         let parentParagraph = anchorNode.parents('[data-pacor-paragraph-seq-id]:first')
@@ -294,7 +330,8 @@ let RangyManager = {
           selection.anchorPosition.paragraph_id = parentParagraph.attr('id')
         }
         else {
-          return
+          // we will not select out of scope.
+          return false
         }
         
         this.$emit('select', selection)
@@ -320,27 +357,78 @@ let RangyManager = {
       this.unpinSelection()
       if (this.selection === null 
               || typeof(this.selection.anchorPosition.paragraph_seq_id) !== 'number') {
-        return
+        return false
       }
       
       this.selectionApplier.toggleSelection()
       this.selection.removeAllRanges()
+      this.selection = null
+      return this
     },
     unpinSelection : function () {
       window.$('.pacor-selection').removeClass('pacor-selection')
+      return this
+    },
+    highlightPinnedSelection: function (className) {
+      if (this.highlightClasses.indexOf(className) === -1) {
+        return false
+      }
+      
+      console.log(className)
     },
     
     // -------------------
     
     highlight: function (className) {
       
+      
+      
     },
     
     initHighlighter: function () {
+      if (typeof(this.rangyConfig.annotationTypeModules) !== 'object') {
+        return false
+      }
+      let rules = []
       _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].init()
-      highlighter = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].createHighlighter()
-
-      highlighter.addClassApplier(_rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].createClassApplier("highlight", {
+      this.highlighter = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].createHighlighter()
+      let options = {
+        ignoreWhiteSpace: true,
+        tagNames: ["span", "a", "b", "img"]
+      }
+      for (let className in this.rangyConfig.annotationTypeModules) {
+        let applier = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].createClassApplier(className, options)
+        this.highlighter.addClassApplier(applier);
+        this.highlightClasses.push(className)
+        
+        // 如果有css style的話
+        let rule = this.rangyConfig.annotationTypeModules[className].style
+        if (typeof(rule) === 'string') {
+          let selector = `[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .${className}`
+          rules.push(`${selector} {${rule}}`)
+        }
+      }
+      
+      if (rules.length > 0) {
+        let sheet
+        if (window.document.styleSheets.length > 0) {
+          sheet = window.document.styleSheets[0]
+        }
+        else {
+          sheet = document.createElement("style")
+          sheet.type = "text/css"
+          document.head.appendChild(sheet)
+        }
+        
+        rules.forEach(rule => {
+          console.log(rule)
+          sheet.insertRule(rule, sheet.cssRules.length);
+        })
+      }
+      
+      
+      /*
+      highlighter.addClassApplier(rangy.createClassApplier("highlight", {
         ignoreWhiteSpace: true,
         tagNames: ["span", "a", "b", "img"],
         elementProperties: {
@@ -357,7 +445,7 @@ let RangyManager = {
           }
       }));
 
-      highlighter.addClassApplier(_rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].createClassApplier("note", {
+      highlighter.addClassApplier(rangy.createClassApplier("note", {
           ignoreWhiteSpace: true,
           elementTagName: "span",
           elementProperties: {
@@ -373,7 +461,7 @@ let RangyManager = {
               }
           }
       }))
-      
+      */
        //if (this.serializedHighlights) {
        //   highlighter.deserialize(this.serializedHighlights);
        //}

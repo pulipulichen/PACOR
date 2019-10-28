@@ -4,7 +4,7 @@ module.exports = {
   
   // 依序判斷article下面可能會有的section選取器
   sectionSelector: ['section','.section','p','div'],
-  
+  loginMessage: 'Hello',
   allowLoginWithoutGrop: true,
   readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
   readingProgressesFinish: 'Exit',  // 'Exit', 'FreeReading', 'http://blog.pulipuli.info'
@@ -21,6 +21,7 @@ module.exports = {
       totalLimitMinutes: 1,
     },
     'IndividualReading': {
+      message: '進入個人閱讀囉',
       limitMinutes: 3,
       annnotationTypes: ['confused-clarified', 'mainIdea'],
       checklist: [
@@ -30,7 +31,8 @@ module.exports = {
       ]
     },
     'CollaborativeReading': {
-      annnotationTypes: ['confused', 'mainIdea'],
+      message: '進入合作閱讀囉',
+      annnotationTypes: ['confused-clarified', 'mainIdea'],
     },
     'PostRecall': {
       message: '請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！',
@@ -38,9 +40,12 @@ module.exports = {
       limitMinutes: 0.1
     }
   },
+  'selection': {
+    
+  },
   annotationTypeModules: {
     'confused-clarified': {
-      minCharacters: 10,
+      'minCharacters': 10,
       /**
        * {anchorText}
        * {questionText}
@@ -64,10 +69,12 @@ module.exports = {
           'name': 'Find answer in Google',
           'urlPattern': 'https://www.google.com/search?q={questionText}'
         }
-      ]
+      ],
+      'style': 'border: 1px solid green'
     },
     'mainIdea': {
-      minCharacters: 10,
+      'minCharacters': 10,
+      'style': 'border: 1px solid red'
     }
   }
 }

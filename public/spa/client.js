@@ -363,6 +363,9 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "ten wide column" }, [
+                    _vm._v(
+                      "\r\n            \r\n            #TODO 這裡要顯示設定檔的問候訊息\r\n            \r\n            "
+                    ),
                     _c("div", { staticClass: "ui field" }, [
                       _c("label", { attrs: { for: "loginUsername" } }, [
                         _vm._v(

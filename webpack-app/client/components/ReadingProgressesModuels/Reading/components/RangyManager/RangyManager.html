@@ -1,4 +1,11 @@
 <div class="rangy-container-test">
+  <template v-for="className in highlightClasses">
+    <button type="button"
+          v-on:click="highlightPinnedSelection(className)">
+    {{ className }}
+  </button>
+  </template>
+  
   <button type="button"
           v-on:click="highlightSelectedText">
     Highlight

@@ -277,6 +277,8 @@ let IndividualReading = {
   watch: {
   },
   mounted() {
+    this.status.title = this.status.username
+    
     setTimeout(() => {
       this.t = `AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
