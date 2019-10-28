@@ -147,7 +147,7 @@ class User extends Model {
   }
   
   async getReadingProgressStatus (webpage, showDetails) {
-    let cacheKey = Cache.key('User', 'getReadingProgressStatus', webpage, this)
+    let cacheKey = Cache.key('User', 'getReadingProgressStatus', webpage, this, showDetails)
     return await Cache.get(cacheKey, async () => {
       let readingProgresses
       if (Array.isArray(webpage) === false
