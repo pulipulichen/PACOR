@@ -28,7 +28,8 @@ class WebpageDashboard {
 
       let webpageURL = webpage.url
       let output = {
-        webpageURL
+        webpageURL,
+        domainID: webpage.domain_id
       }
       Cache.put(cacheKey, output, 3)
       return output

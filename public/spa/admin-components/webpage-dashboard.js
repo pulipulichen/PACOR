@@ -114,9 +114,7 @@ var render = function() {
           "a",
           {
             staticClass: "icon item",
-            attrs: {
-              href: "#/webpage/" + _vm.$route.params.webpageID + "/list"
-            }
+            attrs: { href: "#/webpage/" + _vm.domainID + "/list" }
           },
           [_c("i", { staticClass: "angle left icon" })]
         ),
@@ -504,6 +502,7 @@ let WebpageDashboard = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      domainID: null
     }
   },
   components: {
@@ -540,6 +539,7 @@ let WebpageDashboard = {
       let result = await this.lib.AxiosHelper.get('/admin/WebpageDashboard/info', data)
       this.status.webpageURL = result.webpageURL
       this.status.title = this.$t('Dashboard') + ' ' + this.webpagePath
+      this.domainID = result.domainID
     }
   } // methods
 }

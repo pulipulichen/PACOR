@@ -89,7 +89,9 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("rangy"),
+      _c("rangy", {
+        attrs: { status: _vm.status, rangyConfig: _vm.rangyConfig }
+      }),
       _vm._v(" "),
       _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
       _vm._v(" "),
@@ -261,6 +263,16 @@ let IndividualReading = {
     'rangy': () => __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./../components/RangyManager/RangyManager.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.vue")),
   },
   computed: {
+    rangyConfig: function () {
+      let output = {}
+      if (typeof(this.status) === 'object'
+              && typeof(this.status.readingConfig) === 'object') {
+        output.articleSelector = this.status.readingConfig.articleSelector
+        output.sectionSelector = this.status.readingConfig.sectionSelector
+        output.annotationTypeModules = this.status.readingConfig.annotationTypeModules
+      }
+      return output
+    }
   },
   watch: {
   },
@@ -282,7 +294,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />`
-    }, 1000 * 10)
+    }, 1000 * 1)
   },
   methods: {
   } // methods

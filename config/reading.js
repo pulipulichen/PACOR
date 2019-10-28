@@ -1,9 +1,9 @@
 module.exports = {
   // 只會選擇第一個
-  articleSelector: 'article,#main,#article,.main,.article',
+  articleSelector: ['article', '#main', '#article', '.main', '.article,body'],
   
   // 依序判斷article下面可能會有的section選取器
-  sectionSelector: ['section', '.section', 'p', 'div'],
+  sectionSelector: ['section','.section','p','div'],
   
   allowLoginWithoutGrop: true,
   readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
@@ -21,7 +21,8 @@ module.exports = {
       totalLimitMinutes: 1,
     },
     'IndividualReading': {
-      annnotationTypes: ['confused', 'mainIdea'],
+      limitMinutes: 3,
+      annnotationTypes: ['confused-clarified', 'mainIdea'],
       checklist: [
         'I have already read this section.',
         'I have already written annotations on a sentence I don\'t understand.',
@@ -38,7 +39,7 @@ module.exports = {
     }
   },
   annotationTypeModules: {
-    'confused': {
+    'confused-clarified': {
       minCharacters: 10,
       /**
        * {anchorText}

@@ -5,6 +5,7 @@ let WebpageDashboard = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      domainID: null
     }
   },
   components: {
@@ -41,6 +42,7 @@ let WebpageDashboard = {
       let result = await this.lib.AxiosHelper.get('/admin/WebpageDashboard/info', data)
       this.status.webpageURL = result.webpageURL
       this.status.title = this.$t('Dashboard') + ' ' + this.webpagePath
+      this.domainID = result.domainID
     }
   } // methods
 }

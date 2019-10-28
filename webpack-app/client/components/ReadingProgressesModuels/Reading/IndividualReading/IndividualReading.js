@@ -15,6 +15,16 @@ let IndividualReading = {
     'rangy': () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './../components/RangyManager/RangyManager.vue'),
   },
   computed: {
+    rangyConfig: function () {
+      let output = {}
+      if (typeof(this.status) === 'object'
+              && typeof(this.status.readingConfig) === 'object') {
+        output.articleSelector = this.status.readingConfig.articleSelector
+        output.sectionSelector = this.status.readingConfig.sectionSelector
+        output.annotationTypeModules = this.status.readingConfig.annotationTypeModules
+      }
+      return output
+    }
   },
   watch: {
   },
@@ -36,7 +46,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />`
-    }, 1000 * 10)
+    }, 1000 * 1)
   },
   methods: {
   } // methods
