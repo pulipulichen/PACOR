@@ -62,10 +62,17 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "annotation-type-selector ui pointing black label",
-      style: _vm.attrStyle
+      ref: "Selector",
+      staticClass: "annotation-type-selector",
+      style: _vm.attrPosition
     },
-    [_vm._v("\r\n  Selector...要怎麼顯示呢？\r\n")]
+    [
+      _vm._v("\r\n  1\r\n  "),
+      _c("div", { staticClass: "ui pointing", class: _vm.attrDir }, [
+        _vm._v("\r\n    Selector...要怎麼顯示呢？\r\n  ")
+      ]),
+      _vm._v("\r\n  1\r\n")
+    ]
   )
 }
 var staticRenderFns = []
@@ -178,15 +185,61 @@ let AnnotationTypeSelector = {
   components: {
   },
   computed: {
-    attrStyle: function () {
-      if (typeof(this.selection) === 'object') {
+    attrDir: function () {
+      let className = 'black label'
+      if (this.selection !== null
+              && typeof(this.selection) === 'object'
+              && typeof(this.selection.rect) === 'object') {
         let maxWidth = window.innerWidth || screen.width
         let maxHeight = window.innerHeight || screen.height
         
         // 要得知screen width
         //console.log(this.selection)
         let rect = this.selection.rect
+        let height = this.$refs.Selector.clientHeight
         
+        if ( (rect.bottom + height) > maxHeight ) {
+          className = 'below ' + className
+        }
+      }
+      return className
+    },
+    attrPosition: function () {
+      if (this.selection !== null
+              && typeof(this.selection) === 'object'
+              && typeof(this.selection.rect) === 'object') {
+        let maxWidth = window.innerWidth || screen.width
+        let maxHeight = window.innerHeight || screen.height
+        
+        // 要得知screen width
+        //console.log(this.selection)
+        let rect = this.selection.rect
+        let top
+        let left
+        
+        let height = this.$refs.Selector.clientHeight
+        let width = this.$refs.Selector.clientWidth
+        
+        if (this.attrDir !== 'below') {
+          top = rect.bottom
+        }
+        else {
+          top = rect.top - height
+        }
+        
+        left = (rect.left + (rect.width / 2)) - (width / 2)
+        if (left < 0) {
+          left = 0
+        }
+        else if ( (left + width) > maxWidth ) {
+          left = maxWidth - width
+        }
+        console.log(top, left)
+        
+        return {
+          top: top + 'px',
+          left: left + 'px'
+        }
       }
     }
   },
