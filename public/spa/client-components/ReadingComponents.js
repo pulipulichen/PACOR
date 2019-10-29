@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-type-selector[data-v-31e52695] {\n  position: fixed !important;\n  top: 100px;\n  left: 0;\n  user-select: none;\n}\n", "",{"version":3,"sources":["AnnotationTypeSelector.less?vue&type=style&index=0&id=31e52695&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,UAAU;EACV,OAAO;EACP,iBAAiB;AACnB","file":"AnnotationTypeSelector.less?vue&type=style&index=0&id=31e52695&lang=less&scoped=true&","sourcesContent":[".annotation-type-selector[data-v-31e52695] {\n  position: fixed !important;\n  top: 100px;\n  left: 0;\n  user-select: none;\n}\n"]}]);
+exports.push([module.i, ".annotation-type-selector[data-v-31e52695] {\n  /*\n  position: fixed !important;\n  //top: -100vh;\n  top: 100px;\n  left: 0;\n  user-select: none;\n  */\n}\n.fab-main-container[data-v-31e52695] {\n  right: 5rem !important;\n  bottom: 5rem !important;\n}\n.fab-main-container.hidden[data-v-31e52695] {\n  display: none;\n}\n", "",{"version":3,"sources":["AnnotationTypeSelector.less?vue&type=style&index=0&id=31e52695&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE;;;;;;GAMC;AACH;AACA;EACE,sBAAsB;EACtB,uBAAuB;AACzB;AACA;EACE,aAAa;AACf","file":"AnnotationTypeSelector.less?vue&type=style&index=0&id=31e52695&lang=less&scoped=true&","sourcesContent":[".annotation-type-selector[data-v-31e52695] {\n  /*\n  position: fixed !important;\n  //top: -100vh;\n  top: 100px;\n  left: 0;\n  user-select: none;\n  */\n}\n.fab-main-container[data-v-31e52695] {\n  right: 5rem !important;\n  bottom: 5rem !important;\n}\n.fab-main-container.hidden[data-v-31e52695] {\n  display: none;\n}\n"]}]);
 
 
 /***/ }),
@@ -61,18 +61,44 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      ref: "Selector",
-      staticClass: "annotation-type-selector",
-      style: _vm.attrPosition
-    },
+    { ref: "Selector", staticClass: "annotation-type-selector" },
     [
-      _vm._v("\r\n  1\r\n  "),
-      _c("div", { staticClass: "ui pointing", class: _vm.attrDir }, [
-        _vm._v("\r\n    Selector...要怎麼顯示呢？\r\n  ")
-      ]),
-      _vm._v("\r\n  1\r\n")
-    ]
+      _vm._v("\r\n  \r\n  // index.html\r\n  "),
+      _c("link", {
+        attrs: {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/icon?family=Material+Icons"
+        }
+      }),
+      _vm._v("\r\n\r\n  // App.vue\r\n  "),
+      _c(
+        "vue-fab",
+        {
+          ref: "fab",
+          class: { hidden: !_vm.inited },
+          attrs: { mainBtnColor: "#E6AD07", size: "big" }
+        },
+        [
+          _c("fab-item", {
+            staticClass: "AAA",
+            attrs: { idx: 0, title: "add", icon: "add" },
+            on: { clickItem: _vm.clickItem }
+          }),
+          _vm._v(" "),
+          _c("fab-item", {
+            attrs: { idx: 1, title: "https", icon: "https" },
+            on: { clickItem: _vm.clickItem }
+          }),
+          _vm._v(" "),
+          _c("fab-item", {
+            attrs: { idx: 2, title: "edit", icon: "edit" },
+            on: { clickItem: _vm.clickItem }
+          })
+        ],
+        1
+      )
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -180,9 +206,23 @@ let AnnotationTypeSelector = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      inited: false
     }
   },
   components: {
+  },
+  watch: {
+    'selection': function () {
+      let fab = this.$refs.fab
+      if (this.selection !== null) {
+        fab.onOffFab(true)
+      }
+      else {
+        fab.onOffFab(false)
+      }
+      console.log(this.selection)
+      //fab.onOffFab((this.selection !== null))
+    }
   },
   computed: {
     attrDir: function () {
@@ -243,11 +283,16 @@ let AnnotationTypeSelector = {
       }
     }
   },
-  watch: {
-  },
   mounted() {
+    this.$refs.fab.onOffFab(false)
+    setTimeout(() => {
+      this.inited = true
+    }, 500)
   },
   methods: {
+    clickItem: function () {
+      console.log('clickItem')
+    }
   } // methods
 }
 

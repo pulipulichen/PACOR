@@ -3,9 +3,23 @@ let AnnotationTypeSelector = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      inited: false
     }
   },
   components: {
+  },
+  watch: {
+    'selection': function () {
+      let fab = this.$refs.fab
+      if (this.selection !== null) {
+        fab.onOffFab(true)
+      }
+      else {
+        fab.onOffFab(false)
+      }
+      console.log(this.selection)
+      //fab.onOffFab((this.selection !== null))
+    }
   },
   computed: {
     attrDir: function () {
@@ -66,11 +80,16 @@ let AnnotationTypeSelector = {
       }
     }
   },
-  watch: {
-  },
   mounted() {
+    this.$refs.fab.onOffFab(false)
+    setTimeout(() => {
+      this.inited = true
+    }, 500)
   },
   methods: {
+    clickItem: function () {
+      console.log('clickItem')
+    }
   } // methods
 }
 

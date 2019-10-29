@@ -2548,6 +2548,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_global_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../styles/global.less */ "./webpack-app/styles/global.less");
 /* harmony import */ var _styles_global_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_global_less__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var vue_fragment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-fragment */ "./node_modules/vue-fragment/dist/vue-fragment.esm.js");
+/* harmony import */ var vue_float_action_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-float-action-button */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue-float-action-button\\dist\\vue-fab.js");
+/* harmony import */ var vue_float_action_button__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_float_action_button__WEBPACK_IMPORTED_MODULE_3__);
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].config.devtools = false
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].config.productionTip = false
@@ -2557,6 +2559,13 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].config.productionTip = false
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_fragment__WEBPACK_IMPORTED_MODULE_2__["default"].Plugin)
 
+
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_float_action_button__WEBPACK_IMPORTED_MODULE_3___default.a, /* {
+  ----------------------
+  // opitons 可选iconfont图标或MaterialIcons
+  iconType: 'MaterialDesign'
+  // iconType: 'iconfont'
+} */)
 
 /***/ }),
 

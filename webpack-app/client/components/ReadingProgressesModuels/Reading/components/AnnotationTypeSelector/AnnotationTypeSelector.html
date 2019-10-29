@@ -1,10 +1,16 @@
 <div class="annotation-type-selector"
-     v-bind:style="attrPosition"
      ref="Selector">
-  1
-  <div class="ui pointing"
-     v-bind:class="attrDir">
-    Selector...要怎麼顯示呢？
-  </div>
-  1
+  
+  // index.html
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  // App.vue
+  <vue-fab ref="fab"
+           mainBtnColor="#E6AD07"
+           size="big"
+           v-bind:class="{'hidden': !inited}">
+    <fab-item @clickItem="clickItem" :idx="0" title="add" icon="add" class="AAA" />
+    <fab-item @clickItem="clickItem" :idx="1" title="https" icon="https" />
+    <fab-item @clickItem="clickItem" :idx="2" title="edit" icon="edit" />
+  </vue-fab>
 </div>
