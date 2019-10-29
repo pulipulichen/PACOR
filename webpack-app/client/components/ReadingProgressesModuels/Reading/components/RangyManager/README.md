@@ -1,9 +1,7 @@
-# TODO
+# RangyManager
 
-
-- nav bar: ok
-
-- IndividualReading - rangy
-- editor
-- section
-- notification
+````html
+<rangy v-bind:status="status"
+         v-bind:rangyConfig="rangyConfig"
+         v-on:select="onselect"></rangy>
+````

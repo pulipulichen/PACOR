@@ -90,7 +90,18 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("rangy", {
-        attrs: { status: _vm.status, rangyConfig: _vm.rangyConfig }
+        attrs: { status: _vm.status, rangyConfig: _vm.rangyConfig },
+        on: { select: _vm.onselect, selectcollapsed: _vm.onselectcollapsed }
+      }),
+      _vm._v(" "),
+      _c("annotation-type-selector", {
+        ref: "AnnotationTypeSelector",
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          lib: _vm.lib,
+          selection: _vm.selection
+        }
       }),
       _vm._v(" "),
       _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
@@ -254,13 +265,16 @@ let IndividualReading = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      t: ''
+      t: '',
+      
+      selection: null,
     }
   },
   components: {
     //'navigation-items': () => import(/* webpackChunkName: "client-components/IndividualReading" */ './NavigationItems/NavigationItems.vue'),
     'navigation-items': _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     'rangy': () => __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./../components/RangyManager/RangyManager.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.vue")),
+    'annotation-type-selector': () => __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./../components/AnnotationTypeSelector/AnnotationTypeSelector.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationTypeSelector/AnnotationTypeSelector.vue")),
   },
   computed: {
     rangyConfig: function () {
@@ -299,6 +313,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />`
     }, 1000 * 1)
   },
   methods: {
+    onselect: function (selection) {
+      console.log(selection)
+      this.selection = selection
+    },
+    onselectcollapsed: function () {
+      console.log('collapsed')
+      this.selection = null
+    }
   } // methods
 }
 

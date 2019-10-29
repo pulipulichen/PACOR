@@ -6,13 +6,16 @@ let IndividualReading = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      t: ''
+      t: '',
+      
+      selection: null,
     }
   },
   components: {
     //'navigation-items': () => import(/* webpackChunkName: "client-components/IndividualReading" */ './NavigationItems/NavigationItems.vue'),
     'navigation-items': NavigationItems,
     'rangy': () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './../components/RangyManager/RangyManager.vue'),
+    'annotation-type-selector': () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './../components/AnnotationTypeSelector/AnnotationTypeSelector.vue'),
   },
   computed: {
     rangyConfig: function () {
@@ -51,6 +54,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />`
     }, 1000 * 1)
   },
   methods: {
+    onselect: function (selection) {
+      console.log(selection)
+      this.selection = selection
+    },
+    onselectcollapsed: function () {
+      console.log('collapsed')
+      this.selection = null
+    }
   } // methods
 }
 

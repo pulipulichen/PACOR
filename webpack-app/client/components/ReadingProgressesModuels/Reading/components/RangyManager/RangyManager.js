@@ -175,8 +175,14 @@ let RangyManager = {
         }
         
         this.$emit('select', selection)
-        console.log('onselect', selection)
+        //console.log('onselect', selection)
         this.selection = selection
+      }
+      else {
+        if (this.selection !== null) {
+          this.selection = null
+          this.$emit('selectcollapsed')
+        }
       }
     },
     
@@ -225,6 +231,8 @@ let RangyManager = {
 
       return nodes;
     },
+    
+    // ------------------------------------------------------
     
     _initSelectionApplier: function () {
       // Enable buttons
@@ -336,13 +344,13 @@ let RangyManager = {
       rangy.restoreSelection(this.selectionSaved)
       let highlight = this.highlighter.highlightSelection(className, {
         exclusive: false,
-        containerElementId: this.selection.anchorPosition.paragraph_id
+        containerElementId: this.selection.anchorPosition.paragraph_id[0]
       })
-      console.log(highlight)
+      //console.log(highlight[0])
       this.selection.removeAllRanges()
       this.unpinSelection()
       
-      this.selection.highlight = highlight
+      this.selection.highlight = highlight[0]
       
       return this.selection
     },
@@ -419,6 +427,47 @@ let RangyManager = {
         })
       }
     },
+    
+    /**
+     * highlightJSON = [
+        {
+          className: 'mainIdea',
+          paragraphID: 'pacor-paragraph-id-1',
+          start: 1,
+          end: 5
+        },
+        {
+          className: 'mainIdea',
+          paragraphID: 'pacor-paragraph-id-2',
+          start: 3,
+          end: 7
+        },
+        {
+          className: 'mainIdea',
+          paragraphID: 'pacor-paragraph-id-0',
+          start: 10,
+          end: 15
+        },
+      ]
+     */
+    deserialize: function (highlightJSONArray) {
+      // "type:textContent|28$198$2$confused-clarified$pacor-paragraph-id-2"
+      if (Array.isArray(highlightJSONArray)) {
+        highlightJSONArray = highlightJSONArray.map((json, id) => {
+          return [
+            json.start,
+            json.end,
+            id,
+            json.className,
+            json.paragraphID
+          ].join('$')
+        })
+        highlightJSONArray.unshift('type:textContent')
+        highlightJSONArray = highlightJSONArray.join('|')
+      }
+      
+      this.highlighter.deserialize(highlightJSONArray)
+    }
   } // methods
 }
 

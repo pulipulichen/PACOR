@@ -456,7 +456,13 @@ export default (rangy) => {
                 var exclusive = options.exclusive;
                 var selection = options.selection || api.getSelection(this.doc);
                 var doc = selection.win.document;
-                var containerElement = getContainerElement(doc, containerElementId);
+                var containerElement
+                if (Array.isArray(containerElementId)) {
+                  containerElement = getContainerElement(doc, null);
+                }
+                else {
+                  containerElement = getContainerElement(doc, containerElementId);
+                }
 
                 if (!classApplier && className !== false) {
                     throw new Error("No class applier found for class '" + className + "'");
@@ -471,10 +477,21 @@ export default (rangy) => {
                     selCharRanges.push( CharacterRange.fromCharacterRange(rangeInfo.characterRange) );
                 });
 
-                var newHighlights = this.highlightCharacterRanges(className, selCharRanges, {
-                    containerElementId: containerElementId,
-                    exclusive: exclusive
-                });
+                var newHighlights = []
+                let ids = containerElementId
+                if (Array.isArray(ids) === false) {
+                  ids = [ids]
+                } 
+                ids.forEach((id, i) => {
+                  let hl = this.highlightCharacterRanges(className, selCharRanges, {
+                     containerElementId: id,
+                     exclusive: exclusive
+                  });
+                  //console.log(hl)
+                  
+                  newHighlights = newHighlights.concat(hl)
+                })
+                
 
                 // Restore selection
                 converter.restoreSelection(selection, serializedSelection, containerElement);

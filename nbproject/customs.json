@@ -7,6 +7,13 @@
       }
     },
     "materials": {},
+    "rangy": {
+      "attributes": {
+        "v-bind:rangyConfig": {},
+        "v-bind:status": {},
+        "v-on:select": {}
+      }
+    },
     "toc": {},
     "block-exit": {},
     "style": {
