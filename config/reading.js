@@ -73,7 +73,7 @@ module.exports = {
       "style": {
         'highlight': 'border-bottom: 1px solid green',
         'button': {
-          'icon': 'address book',
+          'icon': 'question',
           'color': 'white',
           'backgroundColor': 'green',
         }
@@ -84,7 +84,7 @@ module.exports = {
       "style": {
         'highlight': 'border-bottom: 1px solid red',
         'button': {
-          'icon': 'compress',
+          'icon': 'exclamation',
           'color': 'white',
           'backgroundColor': 'red',
         }
