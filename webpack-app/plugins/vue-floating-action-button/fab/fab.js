@@ -1,41 +1,6 @@
-<template>
-  <div ref="fab" class="fab-main-container">
-    <transition :name="'fab-' + fabAutoHideAnimateModel">
-      <fab-cantainer
-          @click.native="openMenu"
-          v-if="hidden"
-          class="fab"
-          data-outside="true"
-          :class="'fab-size-' + size"
-          :style="fabClass">
-        <transition :name="computedTransitionName">
-          <i
-          v-if="iconType === 'MaterialDesign'"
-          data-outside="true"
-          :key="activeIcon === icon ? icon : active"
-          :class="{ 'fab-active' : active }"
-          class="vue-fab-material-icons material-icons">{{activeIcon === icon ? icon : active ? activeIcon : icon}}</i>
-        </transition>
-        <i v-if="iconType === 'iconfont'"
-           @click.stop="openMenu"
-           class="icons iconfont vue-fab-material-icons vue-fab-iconfont-icons"
-           style="font-size: 15px"
-           :class="[active ? 'fab-active' : '', icon ]"
-           data-outside="true">
-        </i>
-      </fab-cantainer>
-    </transition>
-      <div v-click-outside="clickoutside"
-          class="fab-item-container"
-          :class="'fab-size-' + size">
-          <slot></slot>
-      </div>
-    </transition>
-  </div>
-</template>
+import util from './../util'
 
-<script>
-import handleClass from './util'
+const handleClass = util.handleClass
 
 export default {
   name: 'vue-fab',
@@ -300,44 +265,3 @@ export default {
     this.unloadEvent()
   }
 }
-</script>
-
-<style lang="less" scoped>
-  @import './styles/index.less';
-
-  * {
-    user-select: none
-  }
-  .fab-main-container {
-    position: fixed;
-    right: 20%;
-    z-index: 9999;
-    bottom: 10%;
-    overflow: initial;
-    box-sizing: border-box;
-  }
-
-  .fab {
-    box-sizing: border-box;
-    .flex-center();
-    .absolute();
-    border-radius: 50%;
-    color: white;
-    cursor: pointer;
-    padding: 8px;
-    .transition();
-    i {
-      font-size: 1.5em;
-    }
-  }
-
-  .fab-active {
-    transform: rotate(45deg)
-  }
-
-  .fab-item-container {
-    box-sizing: border-box;
-    .absolute();
-  }
-
-</style>

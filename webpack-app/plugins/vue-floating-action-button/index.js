@@ -1,6 +1,6 @@
-import FAB from './fab.vue'
-import FABItem from './fab-item.vue'
-import FABCantainer from './fab-cantainer.vue'
+import FAB from './fab/fab.vue'
+import FABItem from './fab-item/fab-item.vue'
+import FABCantainer from './fab-cantainer/fab-cantainer.vue'
 import util from './util'
 
 const testSafariBrower = util.testSafariBrower

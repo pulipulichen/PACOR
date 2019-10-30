@@ -1,12 +1,10 @@
 {
   "elements": {
-    "component": {},
     "pagination": {
       "attributes": {
         "v-bind:pageConfig": {}
       }
     },
-    "materials": {},
     "rangy": {
       "attributes": {
         "v-bind:rangyConfig": {},
@@ -15,18 +13,27 @@
       }
     },
     "toc": {},
+    "slot": {},
+    "media": {
+      "attributes": {
+        "v-bind:query": {}
+      }
+    },
+    "i18n": {
+      "attributes": {
+        "src": {},
+        "lang": {}
+      }
+    },
+    "transition": {},
+    "component": {},
+    "materials": {},
     "block-exit": {},
     "style": {
       "attributes": {
         "scoped": {},
         "src": {},
         "lang": {}
-      }
-    },
-    "slot": {},
-    "media": {
-      "attributes": {
-        "v-bind:query": {}
       }
     },
     "domain-edit-admin": {},
@@ -36,12 +43,6 @@
         "v-bind:status": {},
         "v-bind:config": {},
         "v-bind:progress": {}
-      }
-    },
-    "i18n": {
-      "attributes": {
-        "src": {},
-        "lang": {}
       }
     }
   },

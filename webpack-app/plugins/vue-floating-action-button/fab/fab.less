@@ -1,0 +1,36 @@
+@import './../styles/index.less';
+
+* {
+  user-select: none
+}
+.fab-main-container {
+  position: fixed;
+  right: 20%;
+  z-index: 9999;
+  bottom: 10%;
+  overflow: initial;
+  box-sizing: border-box;
+}
+
+.fab {
+  box-sizing: border-box;
+  .flex-center();
+  .absolute();
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  .transition();
+  i {
+    font-size: 1.5em;
+  }
+}
+
+.fab-active {
+  transform: rotate(45deg)
+}
+
+.fab-item-container {
+  box-sizing: border-box;
+  .absolute();
+}

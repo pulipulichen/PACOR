@@ -1,0 +1,10 @@
+<div v-on:touchstart="startAnimate" 
+      v-on:touchend="endAnimate"
+      v-on:mousedown="startAnimate"
+      v-on:mouseup="endAnimate"
+      v-on:mouseleave="endAnimate"
+      class="fab-cantainer">
+  <div v-bind:class="{ 'touchStyle' : touching }" 
+       class="fabMask"></div>
+  <slot></slot>
+</div>

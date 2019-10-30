@@ -74,10 +74,10 @@ var render = function() {
         "vue-fab",
         {
           ref: "fab",
-          class: { hidden: !_vm.inited },
           attrs: {
             mainBtnColor: "#E6AD07",
             size: "big",
+            hideOnStart: true,
             scrollAutoHide: false,
             globalOptions: { spacing: 50 }
           }
@@ -255,12 +255,13 @@ let AnnotationTypeSelector = {
     }
   },
   computed: {
+    /*
     attrDir: function () {
       let className = 'black label'
       if (this.selection !== null
               && typeof(this.selection) === 'object'
               && typeof(this.selection.rect) === 'object') {
-        let maxWidth = window.innerWidth || screen.width
+        //let maxWidth = window.innerWidth || screen.width
         let maxHeight = window.innerHeight || screen.height
         
         // 要得知screen width
@@ -312,8 +313,10 @@ let AnnotationTypeSelector = {
         }
       }
     }
+     */
   },
   mounted() {
+    return
     this.$refs.fab.onOffFab(false)
     setTimeout(() => {
       this.inited = true

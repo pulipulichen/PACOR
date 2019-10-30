@@ -6,7 +6,7 @@
   <vue-fab ref="fab"
            mainBtnColor="#E6AD07"
            size="big"
-           v-bind:class="{'hidden': !inited}"
+           v-bind:hideOnStart="true"
            v-bind:scrollAutoHide="false"
            v-bind:globalOptions="{spacing: 50}">
     <fab-item @clickItem="clickItem" :idx="0" title="add" icon="add" />

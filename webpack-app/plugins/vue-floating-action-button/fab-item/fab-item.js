@@ -1,29 +1,5 @@
-<template>
-  <transition
-    :name="'fab-item-' + $parent.fabItemAnimate">
-    <fab-cantainer
-      @click.native="clickItem"
-      class="fab-item"
-      v-show="showItem"
-      :style="fabItemStyle"
-      :class="{ 'fab-shadow' : !color }">
-        <div v-if="title" :style="titleStyle" class="fab-item-title">
-          {{title}}
-        </div>
-        <i v-if="$parent.iconType === 'MaterialDesign'" class="material-icons vue-fab-material-icons"
-          :style="{
-            color: color ? 'white' : '#999'
-      }">{{icon}}</i>
-        <i v-else class="vue-fab-material-icons iconfont" :class="icon" style="font-size: 10px" :style="{
-            color: color ? 'white' : '#999'
-      }">
-        </i>
-    </fab-cantainer>
-  </transition>
-</template>
-
-<script>
-import { Timeout } from './util'
+import util from './../util'
+const Timeout = util.Timeout
 
 export default {
   name: 'fab-item',
@@ -107,33 +83,3 @@ export default {
   created () {
   }
 }
-</script>
-
-<style lang="less" scoped>
-@import './styles/index.less';
-
-.fab-item {
-  .flex-center();
-  .transition();
-  position: absolute;
-  cursor: pointer;
-  top: -50px;
-  width: 80%;
-  height: 80%;
-  margin-left: 10%;
-  border-radius: 50%;
-  overflow: inherit;
-}
-
-.fab-item-title {
-  position: absolute;
-  right: 4em;
-  box-shadow: 0 1px .5px #CCC;
-  padding: 2px 5px;
-  font-size: .8em;
-  min-width: 3em;
-  white-space:nowrap;
-  border-radius: 2px;
-  text-align: center;
-}
-</style>

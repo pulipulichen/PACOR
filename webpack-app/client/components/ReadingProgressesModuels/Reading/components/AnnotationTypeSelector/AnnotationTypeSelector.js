@@ -49,12 +49,13 @@ let AnnotationTypeSelector = {
     }
   },
   computed: {
+    /*
     attrDir: function () {
       let className = 'black label'
       if (this.selection !== null
               && typeof(this.selection) === 'object'
               && typeof(this.selection.rect) === 'object') {
-        let maxWidth = window.innerWidth || screen.width
+        //let maxWidth = window.innerWidth || screen.width
         let maxHeight = window.innerHeight || screen.height
         
         // 要得知screen width
@@ -106,8 +107,10 @@ let AnnotationTypeSelector = {
         }
       }
     }
+     */
   },
   mounted() {
+    return
     this.$refs.fab.onOffFab(false)
     setTimeout(() => {
       this.inited = true
