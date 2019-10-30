@@ -1,13 +1,40 @@
+/*
+import FAB from './vue-floating-action-button/fab.vue'
+import FABItem from './vue-floating-action-button/fab-item.vue'
+import FABCantainer from './vue-floating-action-button/fab-cantainer.vue'
+import { testSafariBrower, handleSafariBodyClickNotWorkEvent, listenClick } from './vue-floating-action-button/util'
+*/
 let AnnotationTypeSelector = {
   props: ['status', 'config', 'selection'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
     return {
       inited: false
     }
   },
-  components: {
+  /*
+  directive: {
+    bind: (el, binding, vnode) => {
+      el.__clickOutside__ = listenClick
+      // 处理safari浏览器body对象无法响应click事件
+      handleSafariBodyClickNotWorkEvent(listenClick, testSafariBrower(), {
+        el, binding
+      })
+    },
+    unbind: (el, binding) => {
+      if (testSafariBrower()) {
+        document.removeEventListener('click', el.__clickOutside__)
+      } else {
+        document.querySelector('html').removeEventListener('click', el.__clickOutside__)
+      }
+    }
   },
+  components: {
+    'vue-fab': FAB,
+    'fab-item': FABItem,
+    'fab-cantainer': FABCantainer
+  },*/
   watch: {
     'selection': function () {
       let fab = this.$refs.fab
@@ -17,7 +44,7 @@ let AnnotationTypeSelector = {
       else {
         fab.onOffFab(false)
       }
-      console.log(this.selection)
+      //console.log(this.selection)
       //fab.onOffFab((this.selection !== null))
     }
   },

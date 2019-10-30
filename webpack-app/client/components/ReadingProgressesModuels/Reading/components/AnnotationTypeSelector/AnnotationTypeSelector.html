@@ -1,16 +1,17 @@
 <div class="annotation-type-selector"
      ref="Selector">
   
-  // index.html
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-  // App.vue
   <vue-fab ref="fab"
            mainBtnColor="#E6AD07"
            size="big"
-           v-bind:class="{'hidden': !inited}">
-    <fab-item @clickItem="clickItem" :idx="0" title="add" icon="add" class="AAA" />
+           v-bind:class="{'hidden': !inited}"
+           v-bind:scrollAutoHide="false"
+           v-bind:globalOptions="{spacing: 50}">
+    <fab-item @clickItem="clickItem" :idx="0" title="add" icon="add" />
     <fab-item @clickItem="clickItem" :idx="1" title="https" icon="https" />
     <fab-item @clickItem="clickItem" :idx="2" title="edit" icon="edit" />
   </vue-fab>
+  
 </div>

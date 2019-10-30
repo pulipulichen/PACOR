@@ -63,24 +63,27 @@ var render = function() {
     "div",
     { ref: "Selector", staticClass: "annotation-type-selector" },
     [
-      _vm._v("\r\n  \r\n  // index.html\r\n  "),
       _c("link", {
         attrs: {
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/icon?family=Material+Icons"
         }
       }),
-      _vm._v("\r\n\r\n  // App.vue\r\n  "),
+      _vm._v(" "),
       _c(
         "vue-fab",
         {
           ref: "fab",
           class: { hidden: !_vm.inited },
-          attrs: { mainBtnColor: "#E6AD07", size: "big" }
+          attrs: {
+            mainBtnColor: "#E6AD07",
+            size: "big",
+            scrollAutoHide: false,
+            globalOptions: { spacing: 50 }
+          }
         },
         [
           _c("fab-item", {
-            staticClass: "AAA",
             attrs: { idx: 0, title: "add", icon: "add" },
             on: { clickItem: _vm.clickItem }
           }),
@@ -201,16 +204,43 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/*
+import FAB from './vue-floating-action-button/fab.vue'
+import FABItem from './vue-floating-action-button/fab-item.vue'
+import FABCantainer from './vue-floating-action-button/fab-cantainer.vue'
+import { testSafariBrower, handleSafariBodyClickNotWorkEvent, listenClick } from './vue-floating-action-button/util'
+*/
 let AnnotationTypeSelector = {
   props: ['status', 'config', 'selection'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
     return {
       inited: false
     }
   },
-  components: {
+  /*
+  directive: {
+    bind: (el, binding, vnode) => {
+      el.__clickOutside__ = listenClick
+      // 处理safari浏览器body对象无法响应click事件
+      handleSafariBodyClickNotWorkEvent(listenClick, testSafariBrower(), {
+        el, binding
+      })
+    },
+    unbind: (el, binding) => {
+      if (testSafariBrower()) {
+        document.removeEventListener('click', el.__clickOutside__)
+      } else {
+        document.querySelector('html').removeEventListener('click', el.__clickOutside__)
+      }
+    }
   },
+  components: {
+    'vue-fab': FAB,
+    'fab-item': FABItem,
+    'fab-cantainer': FABCantainer
+  },*/
   watch: {
     'selection': function () {
       let fab = this.$refs.fab
@@ -220,7 +250,7 @@ let AnnotationTypeSelector = {
       else {
         fab.onOffFab(false)
       }
-      console.log(this.selection)
+      //console.log(this.selection)
       //fab.onOffFab((this.selection !== null))
     }
   },
@@ -428,7 +458,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.js?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -929,15 +959,14 @@ let RangyManager = {
 /*!*****************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.vue ***!
   \*****************************************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _RangyManager_html_vue_type_template_id_131db6d5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RangyManager.html?vue&type=template&id=131db6d5& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.html?vue&type=template&id=131db6d5&");
 /* harmony import */ var _RangyManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RangyManager.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.js?vue&type=script&lang=js&?bc91");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _RangyManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _RangyManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _RangyManager_global_less_vue_type_style_index_0_lang_less___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RangyManager.global.less?vue&type=style&index=0&lang=less& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.global.less?vue&type=style&index=0&lang=less&");
+/* empty/unused harmony star reexport *//* harmony import */ var _RangyManager_global_less_vue_type_style_index_0_lang_less___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RangyManager.global.less?vue&type=style&index=0&lang=less& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.global.less?vue&type=style&index=0&lang=less&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 

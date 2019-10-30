@@ -1,0 +1,30 @@
+@import './vars.less';
+@import './mixins.less';
+
+.fab-size-normal {
+  .fab-size(@normal);
+}
+
+.fab-size-big {
+  .fab-size(@big);
+}
+
+.fab-size-small {
+  .fab-size(@small);
+}
+
+.vue-fab-material-icons {
+  .flex-center();
+  .transition(.2s, ease);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  font-size: 1em;
+}
+
+.vue-fab-icons {
+  .vue-fab-material-icons();
+  * {
+    color: white;
+  }
+}
