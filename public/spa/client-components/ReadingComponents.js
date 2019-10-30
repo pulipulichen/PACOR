@@ -72,9 +72,10 @@ var render = function() {
             size: "big",
             iconType: "SemanticUI",
             clickAutoCloseType: "fab",
-            hideOnStart: false,
+            hideOnStart: true,
             transitionEnable: true,
             scrollAutoShow: false,
+            clickOutsideCloseMenu: false,
             autoOpenMenu: true
           }
         },
@@ -210,6 +211,7 @@ let AnnotationTypeSelector = {
     'selection': function () {
       let fab = this.$refs.fab
       if (this.selection !== null) {
+        //console.log('open')
         fab.onOffFab(true)
       }
       else {
@@ -501,28 +503,14 @@ let RangyManager = {
     },
     _initOnSelectEventListener: function () {
       
-      document.addEventListener('touchend', () => {
+      let triggerSelect = () => {
         this.onselect()
-      })
+      }
       
-      let timer = null
-      document.addEventListener('selectionchange', () => {
-        if (timer !== null) {
-          clearTimeout(timer)
-        }
-        
-        timer = setTimeout(() => {
-          this.onselect()
-          timer = null
-        }, 200)
-      })
-      
-      document.addEventListener('keyup', (event) => {
-        if (event.shiftKey === true 
-                && [37,38,39,40].indexOf(event) > -1) {
-          this.onselect()
-        }
-      })
+      document.addEventListener('touchend', triggerSelect)
+      document.addEventListener('keyup', triggerSelect)
+      document.addEventListener('mouseup', triggerSelect)
+      document.addEventListener('mousedown', triggerSelect)
       
       this._initSelectionApplier()
     },

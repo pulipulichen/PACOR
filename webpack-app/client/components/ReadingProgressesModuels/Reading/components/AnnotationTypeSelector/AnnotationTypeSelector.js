@@ -9,6 +9,7 @@ let AnnotationTypeSelector = {
     'selection': function () {
       let fab = this.$refs.fab
       if (this.selection !== null) {
+        //console.log('open')
         fab.onOffFab(true)
       }
       else {

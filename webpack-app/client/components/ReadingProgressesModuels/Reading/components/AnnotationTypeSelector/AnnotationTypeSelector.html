@@ -6,9 +6,10 @@
            size="big"
            iconType="SemanticUI"
            clickAutoCloseType="fab"
-           v-bind:hideOnStart="false"
+           v-bind:hideOnStart="true"
            v-bind:transitionEnable="true"
            v-bind:scrollAutoShow="false"
+           v-bind:clickOutsideCloseMenu="false"
            v-bind:autoOpenMenu="true">
       <fab-item v-for="(module, i) in modules"
                 v-on:clickItem="clickItem(module.type)" 

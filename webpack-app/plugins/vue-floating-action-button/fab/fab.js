@@ -46,6 +46,10 @@ export default {
       type: Boolean,
       default: true
     },
+    clickOutsideCloseMenu: {
+      type: Boolean,
+      default: true
+    },
     clickAutoCloseType: {
       type: String,
       default: 'menu' // menu , fab
@@ -114,16 +118,19 @@ export default {
   watch: {
     // 這個hidden = true其實是顯示
     hidden: function (val) {
+      //console.log(val, this.active)
       if (!val && this.active) {
         this.active = false
       }
       
       //console.log(this.autoOpenMenu, val, this.active)
+      /*
       if (this.autoOpenMenu === true && val === true) {
         setTimeout(() => {
           this.openMenuForce()
         }, 200)
       }
+      */
     }
   },
   computed: {
@@ -203,7 +210,9 @@ export default {
   },
   methods: {
     clickoutside: function (e) {
-      this.active = false
+      if (this.clickOutsideCloseMenu === true) {
+        this.active = false
+      }
     },
     /**
      * @method testPCMobile 判断用户设备信息 PC/Mobile
@@ -229,6 +238,12 @@ export default {
      */
     onOffFab: function (onOff) {
       this.hidden = onOff
+      //console.log(this.autoOpenMenu, val, this.active)
+      if (this.autoOpenMenu === true && onOff === true) {
+        setTimeout(() => {
+          this.openMenuForce()
+        }, 200)
+      }
     },
     /**
      * @method openMenu 打开或关闭菜单
