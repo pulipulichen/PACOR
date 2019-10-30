@@ -23,7 +23,7 @@ module.exports = {
     'IndividualReading': {
       message: '進入個人閱讀囉',
       limitMinutes: 3,
-      annnotationTypes: ['confused-clarified', 'mainIdea'],
+      annotationTypes: ['confused-clarified', 'mainIdea'],
       checklist: [
         'I have already read this section.',
         'I have already written annotations on a sentence I don\'t understand.',
@@ -32,7 +32,7 @@ module.exports = {
     },
     'CollaborativeReading': {
       message: '進入合作閱讀囉',
-      annnotationTypes: ['confused-clarified', 'mainIdea'],
+      annotationTypes: ['confused-clarified', 'mainIdea'],
     },
     'PostRecall': {
       message: '請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！',
@@ -70,11 +70,25 @@ module.exports = {
           'urlPattern': 'https://www.google.com/search?q={questionText}'
         }
       ],
-      'style': 'border-bottom: 1px solid green'
+      "style": {
+        'highlight': 'border-bottom: 1px solid green',
+        'button': {
+          'icon': 'address book',
+          'color': 'white',
+          'backgroundColor': 'green',
+        }
+      }
     },
     'mainIdea': {
       'minCharacters': 10,
-      'style': 'border-bottom: 1px solid red'
+      "style": {
+        'highlight': 'border-bottom: 1px solid red',
+        'button': {
+          'icon': 'compress',
+          'color': 'white',
+          'backgroundColor': 'red',
+        }
+      }
     }
   }
 }

@@ -121,7 +121,7 @@ export default {
       //console.log(this.autoOpenMenu, val, this.active)
       if (this.autoOpenMenu === true && val === true) {
         setTimeout(() => {
-          this.openMenu()
+          this.openMenuForce()
         }, 200)
       }
     }
@@ -246,9 +246,6 @@ export default {
       if (this.$children.length > 1) {
         //console.trace('openMenu', this.active)
         this.active = true
-        if (this.active === true) {
-          this.$emit('clickMainBtn')
-        }
       }
     },
     recordScrollTopByChangeDirection: function (_scrollTop) {

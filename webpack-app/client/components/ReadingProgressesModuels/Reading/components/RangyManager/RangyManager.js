@@ -402,10 +402,13 @@ let RangyManager = {
         this.highlightClasses.push(className)
         
         // 如果有css style的話
-        let rule = this.rangyConfig.annotationTypeModules[className].style
-        if (typeof(rule) === 'string') {
-          let selector = `[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .${className}`
-          rules.push(`${selector} {${rule}}`)
+        if (typeof(this.rangyConfig.annotationTypeModules[className].style) === 'object'
+                && typeof(this.rangyConfig.annotationTypeModules[className].style.highlight) === 'string') {
+          let rule = this.rangyConfig.annotationTypeModules[className].style.highlight
+          if (typeof(rule) === 'string') {
+            let selector = `[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .${className}`
+            rules.push(`${selector} {${rule}}`)
+          }
         }
       }
       

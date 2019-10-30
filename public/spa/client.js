@@ -850,7 +850,7 @@ let Auth = {
       }
       //this.status.username = result
     },
-    getCurrentStep: async function () {
+    getCurrentStep: function () {
       if (Array.isArray(this.status.readingProgresses)
               && this.status.readingProgresses.length > 0) {
         for (let i = 0; i < this.status.readingProgresses.length; i++) {
@@ -870,7 +870,8 @@ let Auth = {
         }
         let finishStep = this.status.readingConfig.readingProgressesFinish
         if (this.lib.ValidateHelper.isURL(finishStep)) {
-          await this._redirect(finishStep)
+          this._redirect(finishStep)
+          return false
         }
         return finishStep
       }

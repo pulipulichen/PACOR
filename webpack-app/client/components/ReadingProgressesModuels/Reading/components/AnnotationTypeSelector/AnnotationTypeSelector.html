@@ -1,26 +1,22 @@
 <div class="annotation-type-selector"
      ref="Selector">
   
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  
-  <!--
-  iconType="SemanticUI"
-  MaterialDesign
-  -->
-  
   <vue-fab ref="fab"
            mainBtnColor="#E6AD07"
            size="big"
-           
            iconType="SemanticUI"
            clickAutoCloseType="fab"
            v-bind:hideOnStart="false"
            v-bind:transitionEnable="true"
            v-bind:scrollAutoShow="false"
            v-bind:autoOpenMenu="true">
-    <fab-item @clickItem="clickItem" :idx="0" title="add" icon="angle right" btnColor="#E6AD07" />
-    <fab-item @clickItem="clickItem" :idx="1" title="https" icon="sort" />
-    <fab-item @clickItem="clickItem" :idx="2" title="edit" icon="circle" />
+      <fab-item v-for="(module, i) in modules"
+                v-on:clickItem="clickItem(module.type)" 
+                v-bind:idx="i"
+                v-bind:title="$t('ANNOTATION_TYPE.' + module.type)"
+                v-bind:icon="module.style.button.icon"
+                v-bind:btnColor="module.style.button.backgroundColor"></fab-item>
+
   </vue-fab>
   
 </div>

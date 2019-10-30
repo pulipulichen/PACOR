@@ -2881,7 +2881,11 @@ let i18nGlobal = {
     "in {0} year": "在{0}年內",
     "{0} word": "{0}字",
     "You still need to write {0} words more.": "你還需要寫{0}字。",
-    "Remaining Time: {0}": "剩餘時間：{0}"
+    "Remaining Time: {0}": "剩餘時間：{0}",
+    "ANNOTATION_TYPE.mainIdea": "重點",
+    "ANNOTATION_TYPE.confused-clarified": "疑問",
+    "ANNOTATION_TYPE.confused": "疑問",
+    "ANNOTATION_TYPE.clarified": "已釐清",
   }
 }
 
@@ -3029,14 +3033,14 @@ const Timeout = _util_js__WEBPACK_IMPORTED_MODULE_0__["default"].Timeout
       await this.timeout.handleTimeout()
       this.animating = false
       if (this.mousedown) {
-        return
+        return false
       }
       this.touching = false
     },
     endAnimate: function () {
       this.mousedown = false
       if (this.animating) {
-        return
+        return false
       }
       this.touching = false
       this.timeout.handleClearTimeout()
@@ -3498,7 +3502,7 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
       //console.log(this.autoOpenMenu, val, this.active)
       if (this.autoOpenMenu === true && val === true) {
         setTimeout(() => {
-          this.openMenu()
+          this.openMenuForce()
         }, 200)
       }
     }
@@ -3623,9 +3627,6 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
       if (this.$children.length > 1) {
         //console.trace('openMenu', this.active)
         this.active = true
-        if (this.active === true) {
-          this.$emit('clickMainBtn')
-        }
       }
     },
     recordScrollTopByChangeDirection: function (_scrollTop) {

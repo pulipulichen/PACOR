@@ -35,14 +35,14 @@ export default {
       await this.timeout.handleTimeout()
       this.animating = false
       if (this.mousedown) {
-        return
+        return false
       }
       this.touching = false
     },
     endAnimate: function () {
       this.mousedown = false
       if (this.animating) {
-        return
+        return false
       }
       this.touching = false
       this.timeout.handleClearTimeout()

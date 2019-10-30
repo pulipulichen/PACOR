@@ -42,7 +42,11 @@ let i18nGlobal = {
     "in {0} year": "在{0}年內",
     "{0} word": "{0}字",
     "You still need to write {0} words more.": "你還需要寫{0}字。",
-    "Remaining Time: {0}": "剩餘時間：{0}"
+    "Remaining Time: {0}": "剩餘時間：{0}",
+    "ANNOTATION_TYPE.mainIdea": "重點",
+    "ANNOTATION_TYPE.confused-clarified": "疑問",
+    "ANNOTATION_TYPE.confused": "疑問",
+    "ANNOTATION_TYPE.clarified": "已釐清",
   }
 }
 
