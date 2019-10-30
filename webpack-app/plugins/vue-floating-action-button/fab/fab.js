@@ -46,6 +46,10 @@ export default {
       type: Boolean,
       default: true
     },
+    clickAutoCloseType: {
+      type: String,
+      default: 'menu' // menu , fab
+    },
     fabAnimateBezier: {
       type: String,
       default: 'linear'
@@ -114,7 +118,7 @@ export default {
         this.active = false
       }
       
-      console.log(this.autoOpenMenu, val, this.active)
+      //console.log(this.autoOpenMenu, val, this.active)
       if (this.autoOpenMenu === true && val === true) {
         setTimeout(() => {
           this.openMenu()
@@ -233,6 +237,15 @@ export default {
       if (this.$children.length > 1) {
         //console.trace('openMenu', this.active)
         this.active = !this.active
+        if (this.active === true) {
+          this.$emit('clickMainBtn')
+        }
+      }
+    },
+    openMenuForce: function () {
+      if (this.$children.length > 1) {
+        //console.trace('openMenu', this.active)
+        this.active = true
         if (this.active === true) {
           this.$emit('clickMainBtn')
         }

@@ -78,6 +78,7 @@ var render = function() {
             mainBtnColor: "#E6AD07",
             size: "big",
             iconType: "SemanticUI",
+            clickAutoCloseType: "fab",
             hideOnStart: false,
             transitionEnable: true,
             scrollAutoShow: false,

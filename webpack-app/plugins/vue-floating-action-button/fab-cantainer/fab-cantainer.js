@@ -15,8 +15,7 @@ export default {
       touching: false,
       animating: false,
       mousedown: false,
-      timeout: Timeout(),
-      disableTransition: false,
+      timeout: Timeout()
     }
   },
   computed: {
@@ -27,18 +26,6 @@ export default {
     }
   },
   mounted () {
-    if (this.hideOnStart === true) {
-      this.disableTransition = true
-      
-      setTimeout(() => {
-        this.$parent.onOffFab(false)
-        
-        setTimeout(() => {
-          this.disableTransition = false
-        }, 500)
-        
-      }, 0)
-    }
   },
   methods: {
     startAnimate: async function () {

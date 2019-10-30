@@ -39,8 +39,22 @@
   .absolute();
 }
 
-.semantic-ui i {
-  margin-right: 0 !important;
-  height: auto !important;
-  font-size: 1.5em !important;
+.semantic-ui {
+  i {
+    margin-right: 0 !important;
+    height: auto !important;
+    line-height: @normal !important;
+    display: inline-block !important;
+    width: 100% !important;
+    font-size: 1.5em !important;
+    border-radius: calc(@normal / 2);
+  }
+  &.fab-size-big i {
+    line-height: @big !important;
+    border-radius: calc(@big / 2);
+  }
+  &.fab-size-small i {
+    line-height: @small !important;
+    border-radius: calc(@small / 2);
+  }
 }

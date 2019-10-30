@@ -112,9 +112,15 @@ export default {
     },
     handleAutoClose: async function () {
       if (this.$parent.clickAutoClose) {
-        let timeout = new Timeout()
-        await timeout.handleTimeout()
-        this.$parent.active = false
+        let closeType = this.$parent.clickAutoCloseType
+        if (closeType === 'menu') {
+          let timeout = new Timeout()
+          await timeout.handleTimeout()
+          this.$parent.active = false
+        }
+        else {
+          this.$parent.onOffFab(false)
+        }
         return true
       } else {
         return false

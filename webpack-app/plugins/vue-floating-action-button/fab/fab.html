@@ -5,7 +5,7 @@
   <!-- 這個是主要的item -->
   <transition v-bind:name="transitionName">
     <fab-cantainer
-      v-on:click.native="openMenu"
+      v-on:click.native="openMenu" 
       v-if="hidden"
       class="fab"
       data-outside="true"
@@ -25,7 +25,6 @@
         <i v-if="iconType === 'SemanticUI'"
           data-outside="true"
           class="vue-fab-material-icons material-icons"
-          style="border:1px solid red;"
           v-bind:key="activeIcon === icon ? icon : active"
           v-bind:class="computedSemanticUIIconClass"> 
         </i>
