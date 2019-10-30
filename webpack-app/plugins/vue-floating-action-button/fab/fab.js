@@ -50,6 +50,14 @@ export default {
       type: Boolean,
       default: true
     },
+    deactiveAutoClose: {
+      type: Boolean,
+      default: false
+    },
+    activeIconRotate: {
+      type: Boolean,
+      default: true
+    },
     clickAutoCloseType: {
       type: String,
       default: 'menu' // menu , fab
@@ -116,6 +124,11 @@ export default {
     }
   },
   watch: {
+    active: function (val) {
+      if (val === false && this.deactiveAutoClose === true) {
+        this.onOffFab(false)
+      }
+    },
     // 這個hidden = true其實是顯示
     hidden: function (val) {
       //console.log(val, this.active)
@@ -135,7 +148,8 @@ export default {
   },
   computed: {
     computedTransitionName: function () {
-      if (this.transitionEnable === false) {
+      if (this.transitionEnable === false
+              || this.activeIconRotate === false) {
         return
       }
       
@@ -162,6 +176,9 @@ export default {
       //console.log(icon, this.activeIcon, this.icon)
       if (this.active === true) {
         icon = 'fab-active ' + icon
+      }
+      if (this.activeIconRotate === false) {
+        icon = 'disable-rotate ' + icon
       }
       
       return icon + ' icon'
