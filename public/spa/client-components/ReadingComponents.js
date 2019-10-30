@@ -78,7 +78,8 @@ var render = function() {
             mainBtnColor: "#E6AD07",
             size: "big",
             hideOnStart: true,
-            scrollAutoHide: false,
+            scrollAutoShow: false,
+            autoOpenMenu: true,
             globalOptions: { spacing: 50 }
           }
         },

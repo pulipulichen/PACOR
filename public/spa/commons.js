@@ -3381,7 +3381,15 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
       type: Boolean,
       default: true
     },
+    scrollAutoShow: {
+      type: Boolean,
+      default: true
+    },
     hideOnStart: {
+      type: Boolean,
+      default: false
+    },
+    autoOpenMenu: {
       type: Boolean,
       default: false
     },
@@ -3396,7 +3404,7 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
     },
     autoHideDirection: {
       type: String,
-      default: 'up'
+      default: 'all'
     }
   },
   data () {
@@ -3415,9 +3423,17 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
     }
   },
   watch: {
+    // 這個hidden = true其實是顯示
     hidden: function (val) {
       if (!val && this.active) {
         this.active = false
+      }
+      
+      //console.log(this.autoOpenMenu, val)
+      if (this.autoOpenMenu === true && val === true) {
+        setTimeout(() => {
+          this.openMenu()
+        }, 200)
       }
     }
   },
@@ -3445,8 +3461,11 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
     notChangeHideStatus: function () {
       if (this.autoHideDirection === 'up') {
         return (this.scrollDirectionUpAndHidden || this.scrollDirectionDownAndShow)
-      } else {
+      } else if (this.autoHideDirection === 'down') {
         return (this.scrollDirectionUpAndShow || this.scrollDirectionDownAndHidden)
+      }
+      else {
+        return false
       }
     },
     scrollDirectionUpAndHidden: function () {
@@ -3509,12 +3528,24 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
      * @method scrollerEventListener 监听滚动事件
      */
     scrollerEventListener: function () {
+      //console.log(this.hidden, this.scrollAutoShow, this.scrollAutoHide)
+      if (this.hidden === false && this.scrollAutoShow === false) {
+        return false
+      }
+      else if (this.hidden === true && this.scrollAutoHide === false) {
+        return false
+      }
+      
       let _scrollTop = document.documentElement.scrollTop || document.body.scrollTop
       this.recordScrollTopByChangeDirection(_scrollTop)
       // 偏移量等于当前距离顶部距离与改变方向时记录距离顶部距离值的差
       let offset = Math.abs(_scrollTop - this.changeDirectionScrollTop)
-      if (this.computedOffsetOver(offset)) return false
-      if (this.notChangeHideStatus) return false
+      if (this.computedOffsetOver(offset)) {
+        return false
+      }
+      if (this.notChangeHideStatus) {
+        return false
+      }
       // 偏移量
       this.hidden = this.computedShowHideByOffset()
       return true
@@ -3523,7 +3554,12 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
       return (offset < this.autoHideThreshold)
     },
     computedShowHideByOffset () {
-      return this.scrollDirection === this.autoHideDirection
+      if (this.autoHideDirection === 'all') {
+        return false
+      }
+      else {
+        return this.scrollDirection === this.autoHideDirection
+      }
     },
     /**
      * @method checkDirection 检测滚动方向
@@ -3560,7 +3596,7 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
     },
     // 根据PC还是移动端以及是否启用自动 隐藏来卸载不同的事件监听函数
     unloadEvent: function () {
-      if (this.scrollAutoHide) {
+      if (this.scrollAutoHide || this.scrollAutoShow) {
         if (this.testPCMobile()) {
           this.removeTouchEvent()
         } else {
@@ -3570,7 +3606,7 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
     },
     initTouchEvent: function () {
       // 区分PC和移动端 使用不同的动画交互方式
-      if (this.scrollAutoHide) {
+      if (this.scrollAutoHide || this.scrollAutoShow) {
         if (this.testPCMobile()) {
           this.listenTouchEvent()
         } else {
