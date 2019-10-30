@@ -3,7 +3,8 @@
       v-on:mousedown="startAnimate"
       v-on:mouseup="endAnimate"
       v-on:mouseleave="endAnimate"
-      class="fab-cantainer">
+      class="fab-cantainer"
+      v-bind:class="fabContainerClass">
   <div v-bind:class="{ 'touchStyle' : touching }" 
        class="fabMask"></div>
   <slot></slot>

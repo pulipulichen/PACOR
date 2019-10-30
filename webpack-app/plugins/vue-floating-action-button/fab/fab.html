@@ -1,4 +1,6 @@
-<div ref="fab" class="fab-main-container">
+<div ref="fab" 
+     class="fab-main-container"
+     v-bind:class="{hidden: isHidden}">
   <transition v-bind:name="'fab-' + fabAutoHideAnimateModel">
     <fab-cantainer
       v-on:click.native="openMenu"

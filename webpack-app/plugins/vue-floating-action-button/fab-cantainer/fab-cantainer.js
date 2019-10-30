@@ -4,12 +4,40 @@ const Timeout = util.Timeout
 
 export default {
   name: 'fab-cantainer',
+  props: {
+    hideOnStart: {
+      type: Boolean,
+      default: false
+    },
+  },
   data () {
     return {
       touching: false,
       animating: false,
       mousedown: false,
-      timeout: Timeout()
+      timeout: Timeout(),
+      disableTransition: false,
+    }
+  },
+  computed: {
+    fabContainerClass: function () {
+      return {
+        disableTransition: this.disableTransition
+      }
+    }
+  },
+  mounted () {
+    if (this.hideOnStart === true) {
+      this.disableTransition = true
+      
+      setTimeout(() => {
+        this.$parent.onOffFab(false)
+        
+        setTimeout(() => {
+          this.disableTransition = false
+        }, 500)
+        
+      }, 0)
     }
   },
   methods: {

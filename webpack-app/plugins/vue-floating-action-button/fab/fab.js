@@ -61,6 +61,10 @@ export default {
       type: Boolean,
       default: true
     },
+    hideOnStart: {
+      type: Boolean,
+      default: false
+    },
     globalOptions: {
       type: Object,
       default: () => {
@@ -83,6 +87,7 @@ export default {
       hidden: true,
       scrollDirection: null, // 滚动方向 up/down
       changeDirectionScrollTop: 0, // 改变滚动方向时距离顶部的位置
+      isHidden: false,
       touchEventInfo: {
         startY: 0,
         offsetY: 0
@@ -113,7 +118,7 @@ export default {
         transitionTimingFunction: /,/.test(this.fabAnimateBezier) ? `cubic-bezier(${this.fabAnimateBezier})` : this.fabAnimateBezier,
         zIndex: this.zIndex,
         background: this.mainBtnColor,
-        boxShadow: this.shadow ? '0px 2px 8px #666' : ''
+        boxShadow: this.shadow ? '0px 2px 8px #666' : '',
       }
     },
     // 是否无需改变隐藏状态
@@ -223,7 +228,9 @@ export default {
     },
     listenTouchMove: function (e) {
       this.touchEventInfo.offsetY = e.touches[0].clientY - this.touchEventInfo.startY
-      if (!this.overflowThreshold) return
+      if (!this.overflowThreshold) {
+        return false
+      }
       if (this.touchEventInfo.offsetY > 0) {
         this.hidden = this.autoHideDirection !== 'up'
       } else {
@@ -253,6 +260,14 @@ export default {
     }
   },
   mounted () {
+    if (true) {
+      this.isHidden = true
+      this.onOffFab(false)
+      setTimeout(() => {
+        this.isHidden = false
+      }, 500)
+    }
+    
     this.initTouchEvent()
   },
   activated () {
