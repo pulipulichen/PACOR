@@ -22,7 +22,7 @@ export default {
   computed: {
     fabContainerClass: function () {
       return {
-        disableTransition: this.disableTransition
+        'semantic-ui': (this.$parent.iconType === 'SemanticUI')
       }
     }
   },

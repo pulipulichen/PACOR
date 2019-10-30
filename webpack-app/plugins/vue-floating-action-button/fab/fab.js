@@ -15,7 +15,8 @@ export default {
     },
     activeIcon: {
       type: String,
-      default: 'add'
+      //default: 'add'
+      default: null
     },
     iconType: {
       type: String,
@@ -73,6 +74,10 @@ export default {
       type: Boolean,
       default: false
     },
+    transitionEnable: {
+      type: Boolean,
+      default: true
+    },
     globalOptions: {
       type: Object,
       default: () => {
@@ -109,7 +114,7 @@ export default {
         this.active = false
       }
       
-      //console.log(this.autoOpenMenu, val)
+      console.log(this.autoOpenMenu, val, this.active)
       if (this.autoOpenMenu === true && val === true) {
         setTimeout(() => {
           this.openMenu()
@@ -119,11 +124,36 @@ export default {
   },
   computed: {
     computedTransitionName: function () {
+      if (this.transitionEnable === false) {
+        return
+      }
+      
       if (this.activeIcon === this.icon) {
         return 'fab-icon'
       } else {
         return this.active ? 'fab-active-icon' : 'fab-icon'
       }
+    },
+    computedSemanticUIIconClass: function () {
+      let icon
+      if (this.active) {
+        // 啟動的時候
+        if (this.activeIcon !== null) {
+          icon = this.activeIcon
+        }
+        else {
+          icon = this.icon
+        }
+      }
+      else {
+        icon = this.icon
+      }
+      //console.log(icon, this.activeIcon, this.icon)
+      if (this.active === true) {
+        icon = 'fab-active ' + icon
+      }
+      
+      return icon + ' icon'
     },
     overflowThreshold: function () {
       // 滑动不超过阈值
@@ -159,6 +189,12 @@ export default {
     },
     scrollDirectionDownAndHidden: function () {
       return this.scrollDirection === 'down' && this.hidden === true
+    },
+    transitionName: function () {
+      if (this.transitionEnable === false) {
+        return
+      }
+      return 'fab-' + this.fabAutoHideAnimateModel
     }
   },
   methods: {
@@ -194,7 +230,13 @@ export default {
      * @method openMenu 打开或关闭菜单
      */
     openMenu: function () {
-      this.$children.length > 1 ? this.active = !this.active : this.$emit('clickMainBtn')
+      if (this.$children.length > 1) {
+        //console.trace('openMenu', this.active)
+        this.active = !this.active
+        if (this.active === true) {
+          this.$emit('clickMainBtn')
+        }
+      }
     },
     recordScrollTopByChangeDirection: function (_scrollTop) {
       let direction = this.checkDirection(_scrollTop)
@@ -296,12 +338,18 @@ export default {
     }
   },
   mounted () {
-    if (true) {
+    
+    if (this.hideOnStart === true) {
       this.isHidden = true
       this.onOffFab(false)
       setTimeout(() => {
         this.isHidden = false
       }, 500)
+    }
+    else {
+      if (this.autoOpenMenu === true) {
+        this.openMenu()
+      }
     }
     
     this.initTouchEvent()

@@ -1,11 +1,11 @@
 <transition
-  v-bind:name="'fab-item-' + $parent.fabItemAnimate">
+  v-bind:name="transitionName">
   <fab-cantainer
     v-on:click.native="clickItem"
-    class="fab-item"
+    class="fab-item fab-shadow"
     v-show="showItem"
     v-bind:style="fabItemStyle"
-    v-bind:class="{ 'fab-shadow' : !color }">
+    v-bind:class="{ 'semantic-ui': ($parent.iconType === 'SemanticUI') }">
     <div v-if="title" 
          v-bind:style="titleStyle" 
          class="fab-item-title">
@@ -14,14 +14,19 @@
     <i v-if="$parent.iconType === 'MaterialDesign'" 
        class="material-icons vue-fab-material-icons"
        v-bind:style="{
-       color: color ? 'white' : '#999'
+       color: computedIconColor
        }">{{icon}}</i>
+    <i v-else-if="$parent.iconType === 'SemanticUI'" 
+       v-bind:style="{
+       color: computedIconColor
+       }"
+       v-bind:class="icon + ' icon'"></i>
     <i v-else 
        class="vue-fab-material-icons iconfont" 
        v-bind:class="icon" 
        style="font-size: 10px" 
        v-bind:style="{
-       color: color ? 'white' : '#999'
+       color: computedIconColor
        }">
     </i>
   </fab-cantainer>

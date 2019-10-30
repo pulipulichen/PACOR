@@ -25,7 +25,11 @@
         "lang": {}
       }
     },
-    "transition": {},
+    "transition": {
+      "attributes": {
+        "v-bind:name": {}
+      }
+    },
     "component": {},
     "materials": {},
     "block-exit": {},

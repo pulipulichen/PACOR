@@ -217,7 +217,7 @@ exports.push([module.i, ".step-progress-bar[data-v-e5bffb70] {\n  /*\n  max-widt
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".fab-size-normal[data-v-487b4d28] {\n  height: 40px;\n  width: 40px;\n}\n.fab-size-big[data-v-487b4d28] {\n  height: 48px;\n  width: 48px;\n}\n.fab-size-small[data-v-487b4d28] {\n  height: 32px;\n  width: 32px;\n}\n.vue-fab-material-icons[data-v-487b4d28] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons[data-v-487b4d28] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons *[data-v-487b4d28] {\n  color: white;\n}\n.flex-center[data-v-487b4d28] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.fab-shadow[data-v-487b4d28] {\n  box-shadow: 0px 2px 8px #666;\n}\n.absolute[data-v-487b4d28] {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.fab-default-leave-to[data-v-487b4d28] {\n  transform: scale(0);\n}\n.fab-default-enter[data-v-487b4d28] {\n  transform: scale(0) rotate(-45deg);\n}\n.fab-item-default-enter[data-v-487b4d28] {\n  opacity: 0;\n  transform: translate3D(0, 5px, 0) scale(0);\n}\n.fab-item-default-leave-to[data-v-487b4d28] {\n  opacity: 0;\n}\n.fab-active-icon-leave[data-v-487b4d28] {\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-leave-to[data-v-487b4d28] {\n  transform: rotate(45deg) !important;\n  opacity: 0 !important;\n}\n.fab-active-icon-enter[data-v-487b4d28] {\n  opacity: 0;\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-enter-to[data-v-487b4d28] {\n  transform: rotate(45deg) !important;\n  opacity: 1;\n}\n.fab-icon-enter[data-v-487b4d28] {\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.fab-icon-enter-to[data-v-487b4d28] {\n  transform: rotate(0deg);\n}\n.fab-icon-leave[data-v-487b4d28] {\n  transform: rotate(45deg);\n  opacity: 1;\n}\n.fab-icon-leave-to[data-v-487b4d28] {\n  transform: rotate(0deg) !important;\n  opacity: 0;\n}\n.fab-icon-enter[data-v-487b4d28],\n.fab-icon-leave-to[data-v-487b4d28] {\n  opacity: 0;\n}\n.fab-icon-to[data-v-487b4d28],\n.fab-icon-leave[data-v-487b4d28] {\n  opacity: 1;\n}\n.fab-alive-leave-to[data-v-487b4d28] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-alive-leave-active[data-v-487b4d28],\n.fab-alive-enter-active[data-v-487b4d28] {\n  transition: all 0.3s linear;\n}\n.fab-alive-enter[data-v-487b4d28] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-item-alive-leave-to[data-v-487b4d28] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item-alive-enter-active[data-v-487b4d28] {\n  transition: all 0.6s linear;\n  opacity: 0;\n}\n.fab-item-alive-enter[data-v-487b4d28] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fabMask[data-v-487b4d28] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%;\n  border-radius: 50%;\n  background: #FFF;\n  opacity: 0;\n  transition: all 0.3s;\n}\n.touchStyle[data-v-487b4d28] {\n  opacity: 0.2 !important;\n}\n.fab-cantainer.disableTransition[data-v-487b4d28] {\n  /*\n  transition-duration: 0s !important;\n  transition: none;\n  */\n  position: fixed !important;\n  top: -100vh !important;\n}\n", "",{"version":3,"sources":["fab-cantainer.less?vue&type=style&index=0&id=487b4d28&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,cAAc;AAChB;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,cAAc;AAChB;AACA;EACE,YAAY;AACd;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,4BAA4B;AAC9B;AACA;EACE,kBAAkB;EAClB,OAAO;EACP,MAAM;AACR;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kCAAkC;AACpC;AACA;EACE,UAAU;EACV,0CAA0C;AAC5C;AACA;EACE,UAAU;AACZ;AACA;EACE,kCAAkC;AACpC;AACA;EACE,mCAAmC;EACnC,qBAAqB;AACvB;AACA;EACE,UAAU;EACV,kCAAkC;AACpC;AACA;EACE,mCAAmC;EACnC,UAAU;AACZ;AACA;EACE,wBAAwB;EACxB,UAAU;AACZ;AACA;EACE,uBAAuB;AACzB;AACA;EACE,wBAAwB;EACxB,UAAU;AACZ;AACA;EACE,kCAAkC;EAClC,UAAU;AACZ;AACA;;EAEE,UAAU;AACZ;AACA;;EAEE,UAAU;AACZ;AACA;EACE,sCAAsC;EACtC,UAAU;AACZ;AACA;;EAEE,2BAA2B;AAC7B;AACA;EACE,sCAAsC;EACtC,UAAU;AACZ;AACA;EACE,qCAAqC;EACrC,UAAU;AACZ;AACA;EACE,2BAA2B;EAC3B,UAAU;AACZ;AACA;EACE,qCAAqC;EACrC,UAAU;AACZ;AACA;EACE,kBAAkB;EAClB,OAAO;EACP,MAAM;EACN,YAAY;EACZ,WAAW;EACX,kBAAkB;EAClB,gBAAgB;EAChB,UAAU;EACV,oBAAoB;AACtB;AACA;EACE,uBAAuB;AACzB;AACA;EACE;;;GAGC;EACD,0BAA0B;EAC1B,sBAAsB;AACxB","file":"fab-cantainer.less?vue&type=style&index=0&id=487b4d28&lang=less&scoped=true&","sourcesContent":[".fab-size-normal[data-v-487b4d28] {\n  height: 40px;\n  width: 40px;\n}\n.fab-size-big[data-v-487b4d28] {\n  height: 48px;\n  width: 48px;\n}\n.fab-size-small[data-v-487b4d28] {\n  height: 32px;\n  width: 32px;\n}\n.vue-fab-material-icons[data-v-487b4d28] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons[data-v-487b4d28] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons *[data-v-487b4d28] {\n  color: white;\n}\n.flex-center[data-v-487b4d28] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.fab-shadow[data-v-487b4d28] {\n  box-shadow: 0px 2px 8px #666;\n}\n.absolute[data-v-487b4d28] {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.fab-default-leave-to[data-v-487b4d28] {\n  transform: scale(0);\n}\n.fab-default-enter[data-v-487b4d28] {\n  transform: scale(0) rotate(-45deg);\n}\n.fab-item-default-enter[data-v-487b4d28] {\n  opacity: 0;\n  transform: translate3D(0, 5px, 0) scale(0);\n}\n.fab-item-default-leave-to[data-v-487b4d28] {\n  opacity: 0;\n}\n.fab-active-icon-leave[data-v-487b4d28] {\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-leave-to[data-v-487b4d28] {\n  transform: rotate(45deg) !important;\n  opacity: 0 !important;\n}\n.fab-active-icon-enter[data-v-487b4d28] {\n  opacity: 0;\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-enter-to[data-v-487b4d28] {\n  transform: rotate(45deg) !important;\n  opacity: 1;\n}\n.fab-icon-enter[data-v-487b4d28] {\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.fab-icon-enter-to[data-v-487b4d28] {\n  transform: rotate(0deg);\n}\n.fab-icon-leave[data-v-487b4d28] {\n  transform: rotate(45deg);\n  opacity: 1;\n}\n.fab-icon-leave-to[data-v-487b4d28] {\n  transform: rotate(0deg) !important;\n  opacity: 0;\n}\n.fab-icon-enter[data-v-487b4d28],\n.fab-icon-leave-to[data-v-487b4d28] {\n  opacity: 0;\n}\n.fab-icon-to[data-v-487b4d28],\n.fab-icon-leave[data-v-487b4d28] {\n  opacity: 1;\n}\n.fab-alive-leave-to[data-v-487b4d28] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-alive-leave-active[data-v-487b4d28],\n.fab-alive-enter-active[data-v-487b4d28] {\n  transition: all 0.3s linear;\n}\n.fab-alive-enter[data-v-487b4d28] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-item-alive-leave-to[data-v-487b4d28] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item-alive-enter-active[data-v-487b4d28] {\n  transition: all 0.6s linear;\n  opacity: 0;\n}\n.fab-item-alive-enter[data-v-487b4d28] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fabMask[data-v-487b4d28] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%;\n  border-radius: 50%;\n  background: #FFF;\n  opacity: 0;\n  transition: all 0.3s;\n}\n.touchStyle[data-v-487b4d28] {\n  opacity: 0.2 !important;\n}\n.fab-cantainer.disableTransition[data-v-487b4d28] {\n  /*\n  transition-duration: 0s !important;\n  transition: none;\n  */\n  position: fixed !important;\n  top: -100vh !important;\n}\n"]}]);
+exports.push([module.i, ".fab-size-normal[data-v-487b4d28] {\n  height: 40px;\n  width: 40px;\n}\n.fab-size-big[data-v-487b4d28] {\n  height: 48px;\n  width: 48px;\n}\n.fab-size-small[data-v-487b4d28] {\n  height: 32px;\n  width: 32px;\n}\n.vue-fab-material-icons[data-v-487b4d28] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons[data-v-487b4d28] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons *[data-v-487b4d28] {\n  color: white;\n}\n.flex-center[data-v-487b4d28] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.fab-shadow[data-v-487b4d28] {\n  box-shadow: 0px 2px 8px #666;\n}\n.absolute[data-v-487b4d28] {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.fab-default-leave-to[data-v-487b4d28] {\n  transform: scale(0);\n}\n.fab-default-enter[data-v-487b4d28] {\n  transform: scale(0) rotate(-45deg);\n}\n.fab-item-default-enter[data-v-487b4d28] {\n  opacity: 0;\n  transform: translate3D(0, 5px, 0) scale(0);\n}\n.fab-item-default-leave-to[data-v-487b4d28] {\n  opacity: 0;\n}\n.fab-active-icon-leave[data-v-487b4d28] {\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-leave-to[data-v-487b4d28] {\n  transform: rotate(45deg) !important;\n  opacity: 0 !important;\n}\n.fab-active-icon-enter[data-v-487b4d28] {\n  opacity: 0;\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-enter-to[data-v-487b4d28] {\n  transform: rotate(45deg) !important;\n  opacity: 1;\n}\n.fab-icon-enter[data-v-487b4d28] {\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.fab-icon-enter-to[data-v-487b4d28] {\n  transform: rotate(0deg);\n}\n.fab-icon-leave[data-v-487b4d28] {\n  transform: rotate(45deg);\n  opacity: 1;\n}\n.fab-icon-leave-to[data-v-487b4d28] {\n  transform: rotate(0deg) !important;\n  opacity: 0;\n}\n.fab-icon-enter[data-v-487b4d28],\n.fab-icon-leave-to[data-v-487b4d28] {\n  opacity: 0;\n}\n.fab-icon-to[data-v-487b4d28],\n.fab-icon-leave[data-v-487b4d28] {\n  opacity: 1;\n}\n.fab-alive-leave-to[data-v-487b4d28] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-alive-leave-active[data-v-487b4d28],\n.fab-alive-enter-active[data-v-487b4d28] {\n  transition: all 0.3s linear;\n}\n.fab-alive-enter[data-v-487b4d28] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-item-alive-leave-to[data-v-487b4d28] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item-alive-enter-active[data-v-487b4d28] {\n  transition: all 0.6s linear;\n  opacity: 0;\n}\n.fab-item-alive-enter[data-v-487b4d28] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fabMask[data-v-487b4d28] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%;\n  border-radius: 50%;\n  background: #FFF;\n  opacity: 0;\n  transition: all 0.3s;\n}\n.touchStyle[data-v-487b4d28] {\n  opacity: 0.2 !important;\n}\n.semantic-ui i[data-v-487b4d28] {\n  margin-right: 0 !important;\n  height: auto !important;\n}\n", "",{"version":3,"sources":["fab-cantainer.less?vue&type=style&index=0&id=487b4d28&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,cAAc;AAChB;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,cAAc;AAChB;AACA;EACE,YAAY;AACd;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,4BAA4B;AAC9B;AACA;EACE,kBAAkB;EAClB,OAAO;EACP,MAAM;AACR;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kCAAkC;AACpC;AACA;EACE,UAAU;EACV,0CAA0C;AAC5C;AACA;EACE,UAAU;AACZ;AACA;EACE,kCAAkC;AACpC;AACA;EACE,mCAAmC;EACnC,qBAAqB;AACvB;AACA;EACE,UAAU;EACV,kCAAkC;AACpC;AACA;EACE,mCAAmC;EACnC,UAAU;AACZ;AACA;EACE,wBAAwB;EACxB,UAAU;AACZ;AACA;EACE,uBAAuB;AACzB;AACA;EACE,wBAAwB;EACxB,UAAU;AACZ;AACA;EACE,kCAAkC;EAClC,UAAU;AACZ;AACA;;EAEE,UAAU;AACZ;AACA;;EAEE,UAAU;AACZ;AACA;EACE,sCAAsC;EACtC,UAAU;AACZ;AACA;;EAEE,2BAA2B;AAC7B;AACA;EACE,sCAAsC;EACtC,UAAU;AACZ;AACA;EACE,qCAAqC;EACrC,UAAU;AACZ;AACA;EACE,2BAA2B;EAC3B,UAAU;AACZ;AACA;EACE,qCAAqC;EACrC,UAAU;AACZ;AACA;EACE,kBAAkB;EAClB,OAAO;EACP,MAAM;EACN,YAAY;EACZ,WAAW;EACX,kBAAkB;EAClB,gBAAgB;EAChB,UAAU;EACV,oBAAoB;AACtB;AACA;EACE,uBAAuB;AACzB;AACA;EACE,0BAA0B;EAC1B,uBAAuB;AACzB","file":"fab-cantainer.less?vue&type=style&index=0&id=487b4d28&lang=less&scoped=true&","sourcesContent":[".fab-size-normal[data-v-487b4d28] {\n  height: 40px;\n  width: 40px;\n}\n.fab-size-big[data-v-487b4d28] {\n  height: 48px;\n  width: 48px;\n}\n.fab-size-small[data-v-487b4d28] {\n  height: 32px;\n  width: 32px;\n}\n.vue-fab-material-icons[data-v-487b4d28] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons[data-v-487b4d28] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons *[data-v-487b4d28] {\n  color: white;\n}\n.flex-center[data-v-487b4d28] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.fab-shadow[data-v-487b4d28] {\n  box-shadow: 0px 2px 8px #666;\n}\n.absolute[data-v-487b4d28] {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.fab-default-leave-to[data-v-487b4d28] {\n  transform: scale(0);\n}\n.fab-default-enter[data-v-487b4d28] {\n  transform: scale(0) rotate(-45deg);\n}\n.fab-item-default-enter[data-v-487b4d28] {\n  opacity: 0;\n  transform: translate3D(0, 5px, 0) scale(0);\n}\n.fab-item-default-leave-to[data-v-487b4d28] {\n  opacity: 0;\n}\n.fab-active-icon-leave[data-v-487b4d28] {\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-leave-to[data-v-487b4d28] {\n  transform: rotate(45deg) !important;\n  opacity: 0 !important;\n}\n.fab-active-icon-enter[data-v-487b4d28] {\n  opacity: 0;\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-enter-to[data-v-487b4d28] {\n  transform: rotate(45deg) !important;\n  opacity: 1;\n}\n.fab-icon-enter[data-v-487b4d28] {\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.fab-icon-enter-to[data-v-487b4d28] {\n  transform: rotate(0deg);\n}\n.fab-icon-leave[data-v-487b4d28] {\n  transform: rotate(45deg);\n  opacity: 1;\n}\n.fab-icon-leave-to[data-v-487b4d28] {\n  transform: rotate(0deg) !important;\n  opacity: 0;\n}\n.fab-icon-enter[data-v-487b4d28],\n.fab-icon-leave-to[data-v-487b4d28] {\n  opacity: 0;\n}\n.fab-icon-to[data-v-487b4d28],\n.fab-icon-leave[data-v-487b4d28] {\n  opacity: 1;\n}\n.fab-alive-leave-to[data-v-487b4d28] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-alive-leave-active[data-v-487b4d28],\n.fab-alive-enter-active[data-v-487b4d28] {\n  transition: all 0.3s linear;\n}\n.fab-alive-enter[data-v-487b4d28] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-item-alive-leave-to[data-v-487b4d28] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item-alive-enter-active[data-v-487b4d28] {\n  transition: all 0.6s linear;\n  opacity: 0;\n}\n.fab-item-alive-enter[data-v-487b4d28] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fabMask[data-v-487b4d28] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%;\n  border-radius: 50%;\n  background: #FFF;\n  opacity: 0;\n  transition: all 0.3s;\n}\n.touchStyle[data-v-487b4d28] {\n  opacity: 0.2 !important;\n}\n.semantic-ui i[data-v-487b4d28] {\n  margin-right: 0 !important;\n  height: auto !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -231,7 +231,7 @@ exports.push([module.i, ".fab-size-normal[data-v-487b4d28] {\n  height: 40px;\n 
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".fab-size-normal[data-v-55c47e34] {\n  height: 40px;\n  width: 40px;\n}\n.fab-size-big[data-v-55c47e34] {\n  height: 48px;\n  width: 48px;\n}\n.fab-size-small[data-v-55c47e34] {\n  height: 32px;\n  width: 32px;\n}\n.vue-fab-material-icons[data-v-55c47e34] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons[data-v-55c47e34] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons *[data-v-55c47e34] {\n  color: white;\n}\n.flex-center[data-v-55c47e34] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.fab-shadow[data-v-55c47e34] {\n  box-shadow: 0px 2px 8px #666;\n}\n.absolute[data-v-55c47e34] {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.fab-default-leave-to[data-v-55c47e34] {\n  transform: scale(0);\n}\n.fab-default-enter[data-v-55c47e34] {\n  transform: scale(0) rotate(-45deg);\n}\n.fab-item-default-enter[data-v-55c47e34] {\n  opacity: 0;\n  transform: translate3D(0, 5px, 0) scale(0);\n}\n.fab-item-default-leave-to[data-v-55c47e34] {\n  opacity: 0;\n}\n.fab-active-icon-leave[data-v-55c47e34] {\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-leave-to[data-v-55c47e34] {\n  transform: rotate(45deg) !important;\n  opacity: 0 !important;\n}\n.fab-active-icon-enter[data-v-55c47e34] {\n  opacity: 0;\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-enter-to[data-v-55c47e34] {\n  transform: rotate(45deg) !important;\n  opacity: 1;\n}\n.fab-icon-enter[data-v-55c47e34] {\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.fab-icon-enter-to[data-v-55c47e34] {\n  transform: rotate(0deg);\n}\n.fab-icon-leave[data-v-55c47e34] {\n  transform: rotate(45deg);\n  opacity: 1;\n}\n.fab-icon-leave-to[data-v-55c47e34] {\n  transform: rotate(0deg) !important;\n  opacity: 0;\n}\n.fab-icon-enter[data-v-55c47e34],\n.fab-icon-leave-to[data-v-55c47e34] {\n  opacity: 0;\n}\n.fab-icon-to[data-v-55c47e34],\n.fab-icon-leave[data-v-55c47e34] {\n  opacity: 1;\n}\n.fab-alive-leave-to[data-v-55c47e34] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-alive-leave-active[data-v-55c47e34],\n.fab-alive-enter-active[data-v-55c47e34] {\n  transition: all 0.3s linear;\n}\n.fab-alive-enter[data-v-55c47e34] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-item-alive-leave-to[data-v-55c47e34] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item-alive-enter-active[data-v-55c47e34] {\n  transition: all 0.6s linear;\n  opacity: 0;\n}\n.fab-item-alive-enter[data-v-55c47e34] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item[data-v-55c47e34] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s linear;\n  position: absolute;\n  cursor: pointer;\n  top: -50px;\n  width: 80%;\n  height: 80%;\n  margin-left: 10%;\n  border-radius: 50%;\n  overflow: inherit;\n}\n.fab-item-title[data-v-55c47e34] {\n  position: absolute;\n  right: 4em;\n  box-shadow: 0 1px 0.5px #CCC;\n  padding: 2px 5px;\n  font-size: 0.8em;\n  min-width: 3em;\n  white-space: nowrap;\n  border-radius: 2px;\n  text-align: center;\n}\n", "",{"version":3,"sources":["fab-item.less?vue&type=style&index=0&id=55c47e34&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,cAAc;AAChB;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,cAAc;AAChB;AACA;EACE,YAAY;AACd;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,4BAA4B;AAC9B;AACA;EACE,kBAAkB;EAClB,OAAO;EACP,MAAM;AACR;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kCAAkC;AACpC;AACA;EACE,UAAU;EACV,0CAA0C;AAC5C;AACA;EACE,UAAU;AACZ;AACA;EACE,kCAAkC;AACpC;AACA;EACE,mCAAmC;EACnC,qBAAqB;AACvB;AACA;EACE,UAAU;EACV,kCAAkC;AACpC;AACA;EACE,mCAAmC;EACnC,UAAU;AACZ;AACA;EACE,wBAAwB;EACxB,UAAU;AACZ;AACA;EACE,uBAAuB;AACzB;AACA;EACE,wBAAwB;EACxB,UAAU;AACZ;AACA;EACE,kCAAkC;EAClC,UAAU;AACZ;AACA;;EAEE,UAAU;AACZ;AACA;;EAEE,UAAU;AACZ;AACA;EACE,sCAAsC;EACtC,UAAU;AACZ;AACA;;EAEE,2BAA2B;AAC7B;AACA;EACE,sCAAsC;EACtC,UAAU;AACZ;AACA;EACE,qCAAqC;EACrC,UAAU;AACZ;AACA;EACE,2BAA2B;EAC3B,UAAU;AACZ;AACA;EACE,qCAAqC;EACrC,UAAU;AACZ;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,2BAA2B;EAC3B,kBAAkB;EAClB,eAAe;EACf,UAAU;EACV,UAAU;EACV,WAAW;EACX,gBAAgB;EAChB,kBAAkB;EAClB,iBAAiB;AACnB;AACA;EACE,kBAAkB;EAClB,UAAU;EACV,4BAA4B;EAC5B,gBAAgB;EAChB,gBAAgB;EAChB,cAAc;EACd,mBAAmB;EACnB,kBAAkB;EAClB,kBAAkB;AACpB","file":"fab-item.less?vue&type=style&index=0&id=55c47e34&lang=less&scoped=true&","sourcesContent":[".fab-size-normal[data-v-55c47e34] {\n  height: 40px;\n  width: 40px;\n}\n.fab-size-big[data-v-55c47e34] {\n  height: 48px;\n  width: 48px;\n}\n.fab-size-small[data-v-55c47e34] {\n  height: 32px;\n  width: 32px;\n}\n.vue-fab-material-icons[data-v-55c47e34] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons[data-v-55c47e34] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons *[data-v-55c47e34] {\n  color: white;\n}\n.flex-center[data-v-55c47e34] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.fab-shadow[data-v-55c47e34] {\n  box-shadow: 0px 2px 8px #666;\n}\n.absolute[data-v-55c47e34] {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.fab-default-leave-to[data-v-55c47e34] {\n  transform: scale(0);\n}\n.fab-default-enter[data-v-55c47e34] {\n  transform: scale(0) rotate(-45deg);\n}\n.fab-item-default-enter[data-v-55c47e34] {\n  opacity: 0;\n  transform: translate3D(0, 5px, 0) scale(0);\n}\n.fab-item-default-leave-to[data-v-55c47e34] {\n  opacity: 0;\n}\n.fab-active-icon-leave[data-v-55c47e34] {\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-leave-to[data-v-55c47e34] {\n  transform: rotate(45deg) !important;\n  opacity: 0 !important;\n}\n.fab-active-icon-enter[data-v-55c47e34] {\n  opacity: 0;\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-enter-to[data-v-55c47e34] {\n  transform: rotate(45deg) !important;\n  opacity: 1;\n}\n.fab-icon-enter[data-v-55c47e34] {\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.fab-icon-enter-to[data-v-55c47e34] {\n  transform: rotate(0deg);\n}\n.fab-icon-leave[data-v-55c47e34] {\n  transform: rotate(45deg);\n  opacity: 1;\n}\n.fab-icon-leave-to[data-v-55c47e34] {\n  transform: rotate(0deg) !important;\n  opacity: 0;\n}\n.fab-icon-enter[data-v-55c47e34],\n.fab-icon-leave-to[data-v-55c47e34] {\n  opacity: 0;\n}\n.fab-icon-to[data-v-55c47e34],\n.fab-icon-leave[data-v-55c47e34] {\n  opacity: 1;\n}\n.fab-alive-leave-to[data-v-55c47e34] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-alive-leave-active[data-v-55c47e34],\n.fab-alive-enter-active[data-v-55c47e34] {\n  transition: all 0.3s linear;\n}\n.fab-alive-enter[data-v-55c47e34] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-item-alive-leave-to[data-v-55c47e34] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item-alive-enter-active[data-v-55c47e34] {\n  transition: all 0.6s linear;\n  opacity: 0;\n}\n.fab-item-alive-enter[data-v-55c47e34] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item[data-v-55c47e34] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s linear;\n  position: absolute;\n  cursor: pointer;\n  top: -50px;\n  width: 80%;\n  height: 80%;\n  margin-left: 10%;\n  border-radius: 50%;\n  overflow: inherit;\n}\n.fab-item-title[data-v-55c47e34] {\n  position: absolute;\n  right: 4em;\n  box-shadow: 0 1px 0.5px #CCC;\n  padding: 2px 5px;\n  font-size: 0.8em;\n  min-width: 3em;\n  white-space: nowrap;\n  border-radius: 2px;\n  text-align: center;\n}\n"]}]);
+exports.push([module.i, ".fab-size-normal[data-v-55c47e34] {\n  height: 40px;\n  width: 40px;\n}\n.fab-size-big[data-v-55c47e34] {\n  height: 48px;\n  width: 48px;\n}\n.fab-size-small[data-v-55c47e34] {\n  height: 32px;\n  width: 32px;\n}\n.vue-fab-material-icons[data-v-55c47e34] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons[data-v-55c47e34] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons *[data-v-55c47e34] {\n  color: white;\n}\n.flex-center[data-v-55c47e34] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.fab-shadow[data-v-55c47e34] {\n  box-shadow: 0px 2px 8px #666;\n}\n.absolute[data-v-55c47e34] {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.fab-default-leave-to[data-v-55c47e34] {\n  transform: scale(0);\n}\n.fab-default-enter[data-v-55c47e34] {\n  transform: scale(0) rotate(-45deg);\n}\n.fab-item-default-enter[data-v-55c47e34] {\n  opacity: 0;\n  transform: translate3D(0, 5px, 0) scale(0);\n}\n.fab-item-default-leave-to[data-v-55c47e34] {\n  opacity: 0;\n}\n.fab-active-icon-leave[data-v-55c47e34] {\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-leave-to[data-v-55c47e34] {\n  transform: rotate(45deg) !important;\n  opacity: 0 !important;\n}\n.fab-active-icon-enter[data-v-55c47e34] {\n  opacity: 0;\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-enter-to[data-v-55c47e34] {\n  transform: rotate(45deg) !important;\n  opacity: 1;\n}\n.fab-icon-enter[data-v-55c47e34] {\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.fab-icon-enter-to[data-v-55c47e34] {\n  transform: rotate(0deg);\n}\n.fab-icon-leave[data-v-55c47e34] {\n  transform: rotate(45deg);\n  opacity: 1;\n}\n.fab-icon-leave-to[data-v-55c47e34] {\n  transform: rotate(0deg) !important;\n  opacity: 0;\n}\n.fab-icon-enter[data-v-55c47e34],\n.fab-icon-leave-to[data-v-55c47e34] {\n  opacity: 0;\n}\n.fab-icon-to[data-v-55c47e34],\n.fab-icon-leave[data-v-55c47e34] {\n  opacity: 1;\n}\n.fab-alive-leave-to[data-v-55c47e34] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-alive-leave-active[data-v-55c47e34],\n.fab-alive-enter-active[data-v-55c47e34] {\n  transition: all 0.3s linear;\n}\n.fab-alive-enter[data-v-55c47e34] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-item-alive-leave-to[data-v-55c47e34] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item-alive-enter-active[data-v-55c47e34] {\n  transition: all 0.6s linear;\n  opacity: 0;\n}\n.fab-item-alive-enter[data-v-55c47e34] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item[data-v-55c47e34] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s linear;\n  position: absolute;\n  cursor: pointer;\n  top: -50px;\n  width: 80%;\n  height: 80%;\n  margin-left: 10%;\n  border-radius: 50%;\n  overflow: inherit;\n}\n.fab-item-title[data-v-55c47e34] {\n  position: absolute;\n  right: 4em;\n  box-shadow: 0px 2px 8px #666;\n  padding: 2px 5px;\n  font-size: 0.8em;\n  min-width: 3em;\n  white-space: nowrap;\n  border-radius: 5px;\n  text-align: center;\n}\n.semantic-ui i[data-v-55c47e34] {\n  margin-right: 0 !important;\n  height: auto !important;\n  font-size: 1em !important;\n}\n", "",{"version":3,"sources":["fab-item.less?vue&type=style&index=0&id=55c47e34&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,cAAc;AAChB;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,cAAc;AAChB;AACA;EACE,YAAY;AACd;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,4BAA4B;AAC9B;AACA;EACE,kBAAkB;EAClB,OAAO;EACP,MAAM;AACR;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kCAAkC;AACpC;AACA;EACE,UAAU;EACV,0CAA0C;AAC5C;AACA;EACE,UAAU;AACZ;AACA;EACE,kCAAkC;AACpC;AACA;EACE,mCAAmC;EACnC,qBAAqB;AACvB;AACA;EACE,UAAU;EACV,kCAAkC;AACpC;AACA;EACE,mCAAmC;EACnC,UAAU;AACZ;AACA;EACE,wBAAwB;EACxB,UAAU;AACZ;AACA;EACE,uBAAuB;AACzB;AACA;EACE,wBAAwB;EACxB,UAAU;AACZ;AACA;EACE,kCAAkC;EAClC,UAAU;AACZ;AACA;;EAEE,UAAU;AACZ;AACA;;EAEE,UAAU;AACZ;AACA;EACE,sCAAsC;EACtC,UAAU;AACZ;AACA;;EAEE,2BAA2B;AAC7B;AACA;EACE,sCAAsC;EACtC,UAAU;AACZ;AACA;EACE,qCAAqC;EACrC,UAAU;AACZ;AACA;EACE,2BAA2B;EAC3B,UAAU;AACZ;AACA;EACE,qCAAqC;EACrC,UAAU;AACZ;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,2BAA2B;EAC3B,kBAAkB;EAClB,eAAe;EACf,UAAU;EACV,UAAU;EACV,WAAW;EACX,gBAAgB;EAChB,kBAAkB;EAClB,iBAAiB;AACnB;AACA;EACE,kBAAkB;EAClB,UAAU;EACV,4BAA4B;EAC5B,gBAAgB;EAChB,gBAAgB;EAChB,cAAc;EACd,mBAAmB;EACnB,kBAAkB;EAClB,kBAAkB;AACpB;AACA;EACE,0BAA0B;EAC1B,uBAAuB;EACvB,yBAAyB;AAC3B","file":"fab-item.less?vue&type=style&index=0&id=55c47e34&lang=less&scoped=true&","sourcesContent":[".fab-size-normal[data-v-55c47e34] {\n  height: 40px;\n  width: 40px;\n}\n.fab-size-big[data-v-55c47e34] {\n  height: 48px;\n  width: 48px;\n}\n.fab-size-small[data-v-55c47e34] {\n  height: 32px;\n  width: 32px;\n}\n.vue-fab-material-icons[data-v-55c47e34] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons[data-v-55c47e34] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons *[data-v-55c47e34] {\n  color: white;\n}\n.flex-center[data-v-55c47e34] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.fab-shadow[data-v-55c47e34] {\n  box-shadow: 0px 2px 8px #666;\n}\n.absolute[data-v-55c47e34] {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.fab-default-leave-to[data-v-55c47e34] {\n  transform: scale(0);\n}\n.fab-default-enter[data-v-55c47e34] {\n  transform: scale(0) rotate(-45deg);\n}\n.fab-item-default-enter[data-v-55c47e34] {\n  opacity: 0;\n  transform: translate3D(0, 5px, 0) scale(0);\n}\n.fab-item-default-leave-to[data-v-55c47e34] {\n  opacity: 0;\n}\n.fab-active-icon-leave[data-v-55c47e34] {\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-leave-to[data-v-55c47e34] {\n  transform: rotate(45deg) !important;\n  opacity: 0 !important;\n}\n.fab-active-icon-enter[data-v-55c47e34] {\n  opacity: 0;\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-enter-to[data-v-55c47e34] {\n  transform: rotate(45deg) !important;\n  opacity: 1;\n}\n.fab-icon-enter[data-v-55c47e34] {\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.fab-icon-enter-to[data-v-55c47e34] {\n  transform: rotate(0deg);\n}\n.fab-icon-leave[data-v-55c47e34] {\n  transform: rotate(45deg);\n  opacity: 1;\n}\n.fab-icon-leave-to[data-v-55c47e34] {\n  transform: rotate(0deg) !important;\n  opacity: 0;\n}\n.fab-icon-enter[data-v-55c47e34],\n.fab-icon-leave-to[data-v-55c47e34] {\n  opacity: 0;\n}\n.fab-icon-to[data-v-55c47e34],\n.fab-icon-leave[data-v-55c47e34] {\n  opacity: 1;\n}\n.fab-alive-leave-to[data-v-55c47e34] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-alive-leave-active[data-v-55c47e34],\n.fab-alive-enter-active[data-v-55c47e34] {\n  transition: all 0.3s linear;\n}\n.fab-alive-enter[data-v-55c47e34] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-item-alive-leave-to[data-v-55c47e34] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item-alive-enter-active[data-v-55c47e34] {\n  transition: all 0.6s linear;\n  opacity: 0;\n}\n.fab-item-alive-enter[data-v-55c47e34] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item[data-v-55c47e34] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s linear;\n  position: absolute;\n  cursor: pointer;\n  top: -50px;\n  width: 80%;\n  height: 80%;\n  margin-left: 10%;\n  border-radius: 50%;\n  overflow: inherit;\n}\n.fab-item-title[data-v-55c47e34] {\n  position: absolute;\n  right: 4em;\n  box-shadow: 0px 2px 8px #666;\n  padding: 2px 5px;\n  font-size: 0.8em;\n  min-width: 3em;\n  white-space: nowrap;\n  border-radius: 5px;\n  text-align: center;\n}\n.semantic-ui i[data-v-55c47e34] {\n  margin-right: 0 !important;\n  height: auto !important;\n  font-size: 1em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -245,7 +245,7 @@ exports.push([module.i, ".fab-size-normal[data-v-55c47e34] {\n  height: 40px;\n 
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".fab-size-normal[data-v-7d0e7d24] {\n  height: 40px;\n  width: 40px;\n}\n.fab-size-big[data-v-7d0e7d24] {\n  height: 48px;\n  width: 48px;\n}\n.fab-size-small[data-v-7d0e7d24] {\n  height: 32px;\n  width: 32px;\n}\n.vue-fab-material-icons[data-v-7d0e7d24] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons[data-v-7d0e7d24] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons *[data-v-7d0e7d24] {\n  color: white;\n}\n.flex-center[data-v-7d0e7d24] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.fab-shadow[data-v-7d0e7d24] {\n  box-shadow: 0px 2px 8px #666;\n}\n.absolute[data-v-7d0e7d24] {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.fab-default-leave-to[data-v-7d0e7d24] {\n  transform: scale(0);\n}\n.fab-default-enter[data-v-7d0e7d24] {\n  transform: scale(0) rotate(-45deg);\n}\n.fab-item-default-enter[data-v-7d0e7d24] {\n  opacity: 0;\n  transform: translate3D(0, 5px, 0) scale(0);\n}\n.fab-item-default-leave-to[data-v-7d0e7d24] {\n  opacity: 0;\n}\n.fab-active-icon-leave[data-v-7d0e7d24] {\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-leave-to[data-v-7d0e7d24] {\n  transform: rotate(45deg) !important;\n  opacity: 0 !important;\n}\n.fab-active-icon-enter[data-v-7d0e7d24] {\n  opacity: 0;\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-enter-to[data-v-7d0e7d24] {\n  transform: rotate(45deg) !important;\n  opacity: 1;\n}\n.fab-icon-enter[data-v-7d0e7d24] {\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.fab-icon-enter-to[data-v-7d0e7d24] {\n  transform: rotate(0deg);\n}\n.fab-icon-leave[data-v-7d0e7d24] {\n  transform: rotate(45deg);\n  opacity: 1;\n}\n.fab-icon-leave-to[data-v-7d0e7d24] {\n  transform: rotate(0deg) !important;\n  opacity: 0;\n}\n.fab-icon-enter[data-v-7d0e7d24],\n.fab-icon-leave-to[data-v-7d0e7d24] {\n  opacity: 0;\n}\n.fab-icon-to[data-v-7d0e7d24],\n.fab-icon-leave[data-v-7d0e7d24] {\n  opacity: 1;\n}\n.fab-alive-leave-to[data-v-7d0e7d24] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-alive-leave-active[data-v-7d0e7d24],\n.fab-alive-enter-active[data-v-7d0e7d24] {\n  transition: all 0.3s linear;\n}\n.fab-alive-enter[data-v-7d0e7d24] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-item-alive-leave-to[data-v-7d0e7d24] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item-alive-enter-active[data-v-7d0e7d24] {\n  transition: all 0.6s linear;\n  opacity: 0;\n}\n.fab-item-alive-enter[data-v-7d0e7d24] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n*[data-v-7d0e7d24] {\n  user-select: none;\n}\n.fab-main-container[data-v-7d0e7d24] {\n  position: fixed;\n  right: 20%;\n  z-index: 9999;\n  bottom: 10%;\n  overflow: initial;\n  box-sizing: border-box;\n}\n.fab-main-container.hidden[data-v-7d0e7d24] {\n  top: -100vh;\n}\n.fab[data-v-7d0e7d24] {\n  box-sizing: border-box;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 50%;\n  color: white;\n  cursor: pointer;\n  padding: 8px;\n  transition: all 0.2s linear;\n}\n.fab i[data-v-7d0e7d24] {\n  font-size: 1.5em;\n}\n.fab-active[data-v-7d0e7d24] {\n  transform: rotate(45deg);\n}\n.fab-item-container[data-v-7d0e7d24] {\n  box-sizing: border-box;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n", "",{"version":3,"sources":["fab.less?vue&type=style&index=0&id=7d0e7d24&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,cAAc;AAChB;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,cAAc;AAChB;AACA;EACE,YAAY;AACd;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,4BAA4B;AAC9B;AACA;EACE,kBAAkB;EAClB,OAAO;EACP,MAAM;AACR;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kCAAkC;AACpC;AACA;EACE,UAAU;EACV,0CAA0C;AAC5C;AACA;EACE,UAAU;AACZ;AACA;EACE,kCAAkC;AACpC;AACA;EACE,mCAAmC;EACnC,qBAAqB;AACvB;AACA;EACE,UAAU;EACV,kCAAkC;AACpC;AACA;EACE,mCAAmC;EACnC,UAAU;AACZ;AACA;EACE,wBAAwB;EACxB,UAAU;AACZ;AACA;EACE,uBAAuB;AACzB;AACA;EACE,wBAAwB;EACxB,UAAU;AACZ;AACA;EACE,kCAAkC;EAClC,UAAU;AACZ;AACA;;EAEE,UAAU;AACZ;AACA;;EAEE,UAAU;AACZ;AACA;EACE,sCAAsC;EACtC,UAAU;AACZ;AACA;;EAEE,2BAA2B;AAC7B;AACA;EACE,sCAAsC;EACtC,UAAU;AACZ;AACA;EACE,qCAAqC;EACrC,UAAU;AACZ;AACA;EACE,2BAA2B;EAC3B,UAAU;AACZ;AACA;EACE,qCAAqC;EACrC,UAAU;AACZ;AACA;EACE,iBAAiB;AACnB;AACA;EACE,eAAe;EACf,UAAU;EACV,aAAa;EACb,WAAW;EACX,iBAAiB;EACjB,sBAAsB;AACxB;AACA;EACE,WAAW;AACb;AACA;EACE,sBAAsB;EACtB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,kBAAkB;EAClB,OAAO;EACP,MAAM;EACN,kBAAkB;EAClB,YAAY;EACZ,eAAe;EACf,YAAY;EACZ,2BAA2B;AAC7B;AACA;EACE,gBAAgB;AAClB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,sBAAsB;EACtB,kBAAkB;EAClB,OAAO;EACP,MAAM;AACR","file":"fab.less?vue&type=style&index=0&id=7d0e7d24&lang=less&scoped=true&","sourcesContent":[".fab-size-normal[data-v-7d0e7d24] {\n  height: 40px;\n  width: 40px;\n}\n.fab-size-big[data-v-7d0e7d24] {\n  height: 48px;\n  width: 48px;\n}\n.fab-size-small[data-v-7d0e7d24] {\n  height: 32px;\n  width: 32px;\n}\n.vue-fab-material-icons[data-v-7d0e7d24] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons[data-v-7d0e7d24] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons *[data-v-7d0e7d24] {\n  color: white;\n}\n.flex-center[data-v-7d0e7d24] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.fab-shadow[data-v-7d0e7d24] {\n  box-shadow: 0px 2px 8px #666;\n}\n.absolute[data-v-7d0e7d24] {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.fab-default-leave-to[data-v-7d0e7d24] {\n  transform: scale(0);\n}\n.fab-default-enter[data-v-7d0e7d24] {\n  transform: scale(0) rotate(-45deg);\n}\n.fab-item-default-enter[data-v-7d0e7d24] {\n  opacity: 0;\n  transform: translate3D(0, 5px, 0) scale(0);\n}\n.fab-item-default-leave-to[data-v-7d0e7d24] {\n  opacity: 0;\n}\n.fab-active-icon-leave[data-v-7d0e7d24] {\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-leave-to[data-v-7d0e7d24] {\n  transform: rotate(45deg) !important;\n  opacity: 0 !important;\n}\n.fab-active-icon-enter[data-v-7d0e7d24] {\n  opacity: 0;\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-enter-to[data-v-7d0e7d24] {\n  transform: rotate(45deg) !important;\n  opacity: 1;\n}\n.fab-icon-enter[data-v-7d0e7d24] {\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.fab-icon-enter-to[data-v-7d0e7d24] {\n  transform: rotate(0deg);\n}\n.fab-icon-leave[data-v-7d0e7d24] {\n  transform: rotate(45deg);\n  opacity: 1;\n}\n.fab-icon-leave-to[data-v-7d0e7d24] {\n  transform: rotate(0deg) !important;\n  opacity: 0;\n}\n.fab-icon-enter[data-v-7d0e7d24],\n.fab-icon-leave-to[data-v-7d0e7d24] {\n  opacity: 0;\n}\n.fab-icon-to[data-v-7d0e7d24],\n.fab-icon-leave[data-v-7d0e7d24] {\n  opacity: 1;\n}\n.fab-alive-leave-to[data-v-7d0e7d24] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-alive-leave-active[data-v-7d0e7d24],\n.fab-alive-enter-active[data-v-7d0e7d24] {\n  transition: all 0.3s linear;\n}\n.fab-alive-enter[data-v-7d0e7d24] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-item-alive-leave-to[data-v-7d0e7d24] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item-alive-enter-active[data-v-7d0e7d24] {\n  transition: all 0.6s linear;\n  opacity: 0;\n}\n.fab-item-alive-enter[data-v-7d0e7d24] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n*[data-v-7d0e7d24] {\n  user-select: none;\n}\n.fab-main-container[data-v-7d0e7d24] {\n  position: fixed;\n  right: 20%;\n  z-index: 9999;\n  bottom: 10%;\n  overflow: initial;\n  box-sizing: border-box;\n}\n.fab-main-container.hidden[data-v-7d0e7d24] {\n  top: -100vh;\n}\n.fab[data-v-7d0e7d24] {\n  box-sizing: border-box;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 50%;\n  color: white;\n  cursor: pointer;\n  padding: 8px;\n  transition: all 0.2s linear;\n}\n.fab i[data-v-7d0e7d24] {\n  font-size: 1.5em;\n}\n.fab-active[data-v-7d0e7d24] {\n  transform: rotate(45deg);\n}\n.fab-item-container[data-v-7d0e7d24] {\n  box-sizing: border-box;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n"]}]);
+exports.push([module.i, ".fab-size-normal[data-v-7d0e7d24] {\n  height: 40px;\n  width: 40px;\n}\n.fab-size-big[data-v-7d0e7d24] {\n  height: 48px;\n  width: 48px;\n}\n.fab-size-small[data-v-7d0e7d24] {\n  height: 32px;\n  width: 32px;\n}\n.vue-fab-material-icons[data-v-7d0e7d24] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons[data-v-7d0e7d24] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons *[data-v-7d0e7d24] {\n  color: white;\n}\n.flex-center[data-v-7d0e7d24] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.fab-shadow[data-v-7d0e7d24] {\n  box-shadow: 0px 2px 8px #666;\n}\n.absolute[data-v-7d0e7d24] {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.fab-default-leave-to[data-v-7d0e7d24] {\n  transform: scale(0);\n}\n.fab-default-enter[data-v-7d0e7d24] {\n  transform: scale(0) rotate(-45deg);\n}\n.fab-item-default-enter[data-v-7d0e7d24] {\n  opacity: 0;\n  transform: translate3D(0, 5px, 0) scale(0);\n}\n.fab-item-default-leave-to[data-v-7d0e7d24] {\n  opacity: 0;\n}\n.fab-active-icon-leave[data-v-7d0e7d24] {\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-leave-to[data-v-7d0e7d24] {\n  transform: rotate(45deg) !important;\n  opacity: 0 !important;\n}\n.fab-active-icon-enter[data-v-7d0e7d24] {\n  opacity: 0;\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-enter-to[data-v-7d0e7d24] {\n  transform: rotate(45deg) !important;\n  opacity: 1;\n}\n.fab-icon-enter[data-v-7d0e7d24] {\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.fab-icon-enter-to[data-v-7d0e7d24] {\n  transform: rotate(0deg);\n}\n.fab-icon-leave[data-v-7d0e7d24] {\n  transform: rotate(45deg);\n  opacity: 1;\n}\n.fab-icon-leave-to[data-v-7d0e7d24] {\n  transform: rotate(0deg) !important;\n  opacity: 0;\n}\n.fab-icon-enter[data-v-7d0e7d24],\n.fab-icon-leave-to[data-v-7d0e7d24] {\n  opacity: 0;\n}\n.fab-icon-to[data-v-7d0e7d24],\n.fab-icon-leave[data-v-7d0e7d24] {\n  opacity: 1;\n}\n.fab-alive-leave-to[data-v-7d0e7d24] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-alive-leave-active[data-v-7d0e7d24],\n.fab-alive-enter-active[data-v-7d0e7d24] {\n  transition: all 0.3s linear;\n}\n.fab-alive-enter[data-v-7d0e7d24] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-item-alive-leave-to[data-v-7d0e7d24] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item-alive-enter-active[data-v-7d0e7d24] {\n  transition: all 0.6s linear;\n  opacity: 0;\n}\n.fab-item-alive-enter[data-v-7d0e7d24] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n*[data-v-7d0e7d24] {\n  user-select: none;\n}\n.fab-main-container[data-v-7d0e7d24] {\n  position: fixed;\n  right: 20%;\n  z-index: 9999;\n  bottom: 10%;\n  overflow: initial;\n  box-sizing: border-box;\n}\n.fab-main-container.hidden[data-v-7d0e7d24] {\n  top: -100vh;\n}\n.fab[data-v-7d0e7d24] {\n  box-sizing: border-box;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 50%;\n  color: white;\n  cursor: pointer;\n  padding: 8px;\n  transition: all 0.2s linear;\n}\n.fab i[data-v-7d0e7d24] {\n  font-size: 1.5em;\n}\n.fab-active[data-v-7d0e7d24] {\n  transform: rotate(45deg);\n}\n.fab-item-container[data-v-7d0e7d24] {\n  box-sizing: border-box;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.semantic-ui i[data-v-7d0e7d24] {\n  margin-right: 0 !important;\n  height: auto !important;\n  font-size: 1.5em !important;\n}\n", "",{"version":3,"sources":["fab.less?vue&type=style&index=0&id=7d0e7d24&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,YAAY;EACZ,WAAW;AACb;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,cAAc;AAChB;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,cAAc;AAChB;AACA;EACE,YAAY;AACd;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,4BAA4B;AAC9B;AACA;EACE,kBAAkB;EAClB,OAAO;EACP,MAAM;AACR;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kCAAkC;AACpC;AACA;EACE,UAAU;EACV,0CAA0C;AAC5C;AACA;EACE,UAAU;AACZ;AACA;EACE,kCAAkC;AACpC;AACA;EACE,mCAAmC;EACnC,qBAAqB;AACvB;AACA;EACE,UAAU;EACV,kCAAkC;AACpC;AACA;EACE,mCAAmC;EACnC,UAAU;AACZ;AACA;EACE,wBAAwB;EACxB,UAAU;AACZ;AACA;EACE,uBAAuB;AACzB;AACA;EACE,wBAAwB;EACxB,UAAU;AACZ;AACA;EACE,kCAAkC;EAClC,UAAU;AACZ;AACA;;EAEE,UAAU;AACZ;AACA;;EAEE,UAAU;AACZ;AACA;EACE,sCAAsC;EACtC,UAAU;AACZ;AACA;;EAEE,2BAA2B;AAC7B;AACA;EACE,sCAAsC;EACtC,UAAU;AACZ;AACA;EACE,qCAAqC;EACrC,UAAU;AACZ;AACA;EACE,2BAA2B;EAC3B,UAAU;AACZ;AACA;EACE,qCAAqC;EACrC,UAAU;AACZ;AACA;EACE,iBAAiB;AACnB;AACA;EACE,eAAe;EACf,UAAU;EACV,aAAa;EACb,WAAW;EACX,iBAAiB;EACjB,sBAAsB;AACxB;AACA;EACE,WAAW;AACb;AACA;EACE,sBAAsB;EACtB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,kBAAkB;EAClB,OAAO;EACP,MAAM;EACN,kBAAkB;EAClB,YAAY;EACZ,eAAe;EACf,YAAY;EACZ,2BAA2B;AAC7B;AACA;EACE,gBAAgB;AAClB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,sBAAsB;EACtB,kBAAkB;EAClB,OAAO;EACP,MAAM;AACR;AACA;EACE,0BAA0B;EAC1B,uBAAuB;EACvB,2BAA2B;AAC7B","file":"fab.less?vue&type=style&index=0&id=7d0e7d24&lang=less&scoped=true&","sourcesContent":[".fab-size-normal[data-v-7d0e7d24] {\n  height: 40px;\n  width: 40px;\n}\n.fab-size-big[data-v-7d0e7d24] {\n  height: 48px;\n  width: 48px;\n}\n.fab-size-small[data-v-7d0e7d24] {\n  height: 32px;\n  width: 32px;\n}\n.vue-fab-material-icons[data-v-7d0e7d24] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons[data-v-7d0e7d24] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons *[data-v-7d0e7d24] {\n  color: white;\n}\n.flex-center[data-v-7d0e7d24] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.fab-shadow[data-v-7d0e7d24] {\n  box-shadow: 0px 2px 8px #666;\n}\n.absolute[data-v-7d0e7d24] {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.fab-default-leave-to[data-v-7d0e7d24] {\n  transform: scale(0);\n}\n.fab-default-enter[data-v-7d0e7d24] {\n  transform: scale(0) rotate(-45deg);\n}\n.fab-item-default-enter[data-v-7d0e7d24] {\n  opacity: 0;\n  transform: translate3D(0, 5px, 0) scale(0);\n}\n.fab-item-default-leave-to[data-v-7d0e7d24] {\n  opacity: 0;\n}\n.fab-active-icon-leave[data-v-7d0e7d24] {\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-leave-to[data-v-7d0e7d24] {\n  transform: rotate(45deg) !important;\n  opacity: 0 !important;\n}\n.fab-active-icon-enter[data-v-7d0e7d24] {\n  opacity: 0;\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-enter-to[data-v-7d0e7d24] {\n  transform: rotate(45deg) !important;\n  opacity: 1;\n}\n.fab-icon-enter[data-v-7d0e7d24] {\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.fab-icon-enter-to[data-v-7d0e7d24] {\n  transform: rotate(0deg);\n}\n.fab-icon-leave[data-v-7d0e7d24] {\n  transform: rotate(45deg);\n  opacity: 1;\n}\n.fab-icon-leave-to[data-v-7d0e7d24] {\n  transform: rotate(0deg) !important;\n  opacity: 0;\n}\n.fab-icon-enter[data-v-7d0e7d24],\n.fab-icon-leave-to[data-v-7d0e7d24] {\n  opacity: 0;\n}\n.fab-icon-to[data-v-7d0e7d24],\n.fab-icon-leave[data-v-7d0e7d24] {\n  opacity: 1;\n}\n.fab-alive-leave-to[data-v-7d0e7d24] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-alive-leave-active[data-v-7d0e7d24],\n.fab-alive-enter-active[data-v-7d0e7d24] {\n  transition: all 0.3s linear;\n}\n.fab-alive-enter[data-v-7d0e7d24] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-item-alive-leave-to[data-v-7d0e7d24] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item-alive-enter-active[data-v-7d0e7d24] {\n  transition: all 0.6s linear;\n  opacity: 0;\n}\n.fab-item-alive-enter[data-v-7d0e7d24] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n*[data-v-7d0e7d24] {\n  user-select: none;\n}\n.fab-main-container[data-v-7d0e7d24] {\n  position: fixed;\n  right: 20%;\n  z-index: 9999;\n  bottom: 10%;\n  overflow: initial;\n  box-sizing: border-box;\n}\n.fab-main-container.hidden[data-v-7d0e7d24] {\n  top: -100vh;\n}\n.fab[data-v-7d0e7d24] {\n  box-sizing: border-box;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 50%;\n  color: white;\n  cursor: pointer;\n  padding: 8px;\n  transition: all 0.2s linear;\n}\n.fab i[data-v-7d0e7d24] {\n  font-size: 1.5em;\n}\n.fab-active[data-v-7d0e7d24] {\n  transform: rotate(45deg);\n}\n.fab-item-container[data-v-7d0e7d24] {\n  box-sizing: border-box;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.semantic-ui i[data-v-7d0e7d24] {\n  margin-right: 0 !important;\n  height: auto !important;\n  font-size: 1.5em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -793,7 +793,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "transition",
-    { attrs: { name: "fab-item-" + _vm.$parent.fabItemAnimate } },
+    { attrs: { name: _vm.transitionName } },
     [
       _c(
         "fab-cantainer",
@@ -806,8 +806,8 @@ var render = function() {
               expression: "showItem"
             }
           ],
-          staticClass: "fab-item",
-          class: { "fab-shadow": !_vm.color },
+          staticClass: "fab-item fab-shadow",
+          class: { "semantic-ui": _vm.$parent.iconType === "SemanticUI" },
           style: _vm.fabItemStyle,
           nativeOn: {
             click: function($event) {
@@ -830,17 +830,24 @@ var render = function() {
                 {
                   staticClass: "material-icons vue-fab-material-icons",
                   style: {
-                    color: _vm.color ? "white" : "#999"
+                    color: _vm.computedIconColor
                   }
                 },
                 [_vm._v(_vm._s(_vm.icon))]
               )
+            : _vm.$parent.iconType === "SemanticUI"
+            ? _c("i", {
+                class: _vm.icon + " icon",
+                style: {
+                  color: _vm.computedIconColor
+                }
+              })
             : _c("i", {
                 staticClass: "vue-fab-material-icons iconfont",
                 class: _vm.icon,
                 staticStyle: { "font-size": "10px" },
                 style: {
-                  color: _vm.color ? "white" : "#999"
+                  color: _vm.computedIconColor
                 }
               })
         ]
@@ -876,12 +883,15 @@ var render = function() {
     {
       ref: "fab",
       staticClass: "fab-main-container",
-      class: { hidden: _vm.isHidden }
+      class: {
+        hidden: _vm.isHidden,
+        "semantic-ui": _vm.iconType === "SemanticUI"
+      }
     },
     [
       _c(
         "transition",
-        { attrs: { name: "fab-" + _vm.fabAutoHideAnimateModel } },
+        { attrs: { name: _vm.transitionName } },
         [
           _vm.hidden
             ? _c(
@@ -929,6 +939,20 @@ var render = function() {
                               )
                             ]
                           )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.iconType === "SemanticUI"
+                        ? _c("i", {
+                            key:
+                              _vm.activeIcon === _vm.icon
+                                ? _vm.icon
+                                : _vm.active,
+                            staticClass:
+                              "vue-fab-material-icons material-icons",
+                            class: _vm.computedSemanticUIIconClass,
+                            staticStyle: { border: "1px solid red" },
+                            attrs: { "data-outside": "true" }
+                          })
                         : _vm._e()
                     ]
                   ),
@@ -2993,7 +3017,7 @@ const Timeout = _util_js__WEBPACK_IMPORTED_MODULE_0__["default"].Timeout
   computed: {
     fabContainerClass: function () {
       return {
-        disableTransition: this.disableTransition
+        'semantic-ui': (this.$parent.iconType === 'SemanticUI')
       }
     }
   },
@@ -3156,6 +3180,10 @@ const Timeout = _util__WEBPACK_IMPORTED_MODULE_0__["default"].Timeout
       type: String,
       default: null
     },
+    btnColor: {
+      type: String,
+      default: null
+    },
     titleColor: {
       type: String,
       default: '#666'
@@ -3173,11 +3201,24 @@ const Timeout = _util__WEBPACK_IMPORTED_MODULE_0__["default"].Timeout
      * 根据不同的动画模式处理不同的css
      */
     fabItemStyle: function () {
+      let sizePadding = 0
+      if (this.$parent.size === 'big') {
+        sizePadding = 10
+      }
+      else if (this.$parent.size === 'small') {
+        sizePadding = -10
+      }
+      
+      let backgroundColor = '#FFF'
+      if (this.btnColor) {
+        backgroundColor = this.btnColor
+      }
+      
       let animateModel = {
         default: {
-          top: -40 - this.idx * this.$parent.globalOptions.spacing + 'px',
-          transitionDelay: this.$parent.active ? this.idx * this.$parent.globalOptions.delay + 's' : '0s',
-          background: this.color ? this.color : '#FFF'
+          top: ((-40 - sizePadding) - this.idx * (this.$parent.globalOptions.spacing + sizePadding) ) + 'px',
+          transitionDelay: this.$parent.active ? (this.idx * this.$parent.globalOptions.delay) + 's' : '0s',
+          background: backgroundColor
         },
         alive: {
           transition: 'all .4s',
@@ -3185,7 +3226,7 @@ const Timeout = _util__WEBPACK_IMPORTED_MODULE_0__["default"].Timeout
           top: 0,
           transitionDelay: this.$parent.active ? this.idx * (this.$parent.globalOptions.delay / 3) + 's' : '0s',
           opacity: this.$parent.active ? 1 : 0,
-          background: this.color ? this.color : '#FFF',
+          background: backgroundColor,
           transform: this.$parent.active ? 'translate3D(0, -' + (this.idx + 1) * this.$parent.globalOptions.spacing + 'px, 0)' : 'translate3D(0, 0, 0)',
           zIndex: -this.idx
         }
@@ -3196,6 +3237,30 @@ const Timeout = _util__WEBPACK_IMPORTED_MODULE_0__["default"].Timeout
       return {
         color: this.titleColor,
         background: this.titleBgColor
+      }
+    },
+    transitionName: function () {
+      if (this.$parent.transitionEnable === false) {
+        return
+      }
+      return 'fab-item-' + this.$parent.fabItemAnimate
+    },
+    computedIconColor: function () {
+      if (this.btnColor) {
+        if (this.color) {
+          return this.color
+        }
+        else {
+          return 'white'
+        }
+      }
+      else {
+        if (this.color) {
+          return this.color
+        }
+        else {
+          return '#999'
+        }
       }
     }
   },
@@ -3335,7 +3400,8 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
     },
     activeIcon: {
       type: String,
-      default: 'add'
+      //default: 'add'
+      default: null
     },
     iconType: {
       type: String,
@@ -3393,6 +3459,10 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
       type: Boolean,
       default: false
     },
+    transitionEnable: {
+      type: Boolean,
+      default: true
+    },
     globalOptions: {
       type: Object,
       default: () => {
@@ -3429,7 +3499,7 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
         this.active = false
       }
       
-      //console.log(this.autoOpenMenu, val)
+      console.log(this.autoOpenMenu, val, this.active)
       if (this.autoOpenMenu === true && val === true) {
         setTimeout(() => {
           this.openMenu()
@@ -3439,11 +3509,36 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
   },
   computed: {
     computedTransitionName: function () {
+      if (this.transitionEnable === false) {
+        return
+      }
+      
       if (this.activeIcon === this.icon) {
         return 'fab-icon'
       } else {
         return this.active ? 'fab-active-icon' : 'fab-icon'
       }
+    },
+    computedSemanticUIIconClass: function () {
+      let icon
+      if (this.active) {
+        // 啟動的時候
+        if (this.activeIcon !== null) {
+          icon = this.activeIcon
+        }
+        else {
+          icon = this.icon
+        }
+      }
+      else {
+        icon = this.icon
+      }
+      //console.log(icon, this.activeIcon, this.icon)
+      if (this.active === true) {
+        icon = 'fab-active ' + icon
+      }
+      
+      return icon + ' icon'
     },
     overflowThreshold: function () {
       // 滑动不超过阈值
@@ -3479,6 +3574,12 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
     },
     scrollDirectionDownAndHidden: function () {
       return this.scrollDirection === 'down' && this.hidden === true
+    },
+    transitionName: function () {
+      if (this.transitionEnable === false) {
+        return
+      }
+      return 'fab-' + this.fabAutoHideAnimateModel
     }
   },
   methods: {
@@ -3514,7 +3615,13 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
      * @method openMenu 打开或关闭菜单
      */
     openMenu: function () {
-      this.$children.length > 1 ? this.active = !this.active : this.$emit('clickMainBtn')
+      if (this.$children.length > 1) {
+        //console.trace('openMenu', this.active)
+        this.active = !this.active
+        if (this.active === true) {
+          this.$emit('clickMainBtn')
+        }
+      }
     },
     recordScrollTopByChangeDirection: function (_scrollTop) {
       let direction = this.checkDirection(_scrollTop)
@@ -3616,12 +3723,18 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
     }
   },
   mounted () {
-    if (true) {
+    
+    if (this.hideOnStart === true) {
       this.isHidden = true
       this.onOffFab(false)
       setTimeout(() => {
         this.isHidden = false
       }, 500)
+    }
+    else {
+      if (this.autoOpenMenu === true) {
+        this.openMenu()
+      }
     }
     
     this.initTouchEvent()

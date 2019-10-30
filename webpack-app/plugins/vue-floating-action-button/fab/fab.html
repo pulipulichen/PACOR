@@ -1,7 +1,9 @@
 <div ref="fab" 
      class="fab-main-container"
-     v-bind:class="{hidden: isHidden}">
-  <transition v-bind:name="'fab-' + fabAutoHideAnimateModel">
+     v-bind:class="{hidden: isHidden, 'semantic-ui': (iconType === 'SemanticUI')}">
+  
+  <!-- 這個是主要的item -->
+  <transition v-bind:name="transitionName">
     <fab-cantainer
       v-on:click.native="openMenu"
       v-if="hidden"
@@ -10,14 +12,24 @@
       v-bind:class="'fab-size-' + size"
       v-bind:style="fabClass">
       <transition v-bind:name="computedTransitionName">
-        <i
-          v-if="iconType === 'MaterialDesign'"
+        
+        <i v-if="iconType === 'MaterialDesign'"
           data-outside="true"
           v-bind:key="activeIcon === icon ? icon : active"
           v-bind:class="{ 'fab-active' : active }"
           class="vue-fab-material-icons material-icons"> 
           {{activeIcon === icon ? icon : active ? activeIcon : icon}}
         </i>
+        
+        <!-- <i class="universal access icon"></i> -->
+        <i v-if="iconType === 'SemanticUI'"
+          data-outside="true"
+          class="vue-fab-material-icons material-icons"
+          style="border:1px solid red;"
+          v-bind:key="activeIcon === icon ? icon : active"
+          v-bind:class="computedSemanticUIIconClass"> 
+        </i>
+        
       </transition>
       <i v-if="iconType === 'iconfont'"
          v-on:click.stop="openMenu"
@@ -28,6 +40,8 @@
       </i>
     </fab-cantainer>
   </transition>
+  
+  <!-- 下面這些是其他的items -->
   <div v-click-outside="clickoutside"
        class="fab-item-container"
        v-bind:class="'fab-size-' + size">

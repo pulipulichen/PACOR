@@ -21,6 +21,10 @@ export default {
       type: String,
       default: null
     },
+    btnColor: {
+      type: String,
+      default: null
+    },
     titleColor: {
       type: String,
       default: '#666'
@@ -38,11 +42,24 @@ export default {
      * 根据不同的动画模式处理不同的css
      */
     fabItemStyle: function () {
+      let sizePadding = 0
+      if (this.$parent.size === 'big') {
+        sizePadding = 10
+      }
+      else if (this.$parent.size === 'small') {
+        sizePadding = -10
+      }
+      
+      let backgroundColor = '#FFF'
+      if (this.btnColor) {
+        backgroundColor = this.btnColor
+      }
+      
       let animateModel = {
         default: {
-          top: -40 - this.idx * this.$parent.globalOptions.spacing + 'px',
-          transitionDelay: this.$parent.active ? this.idx * this.$parent.globalOptions.delay + 's' : '0s',
-          background: this.color ? this.color : '#FFF'
+          top: ((-40 - sizePadding) - this.idx * (this.$parent.globalOptions.spacing + sizePadding) ) + 'px',
+          transitionDelay: this.$parent.active ? (this.idx * this.$parent.globalOptions.delay) + 's' : '0s',
+          background: backgroundColor
         },
         alive: {
           transition: 'all .4s',
@@ -50,7 +67,7 @@ export default {
           top: 0,
           transitionDelay: this.$parent.active ? this.idx * (this.$parent.globalOptions.delay / 3) + 's' : '0s',
           opacity: this.$parent.active ? 1 : 0,
-          background: this.color ? this.color : '#FFF',
+          background: backgroundColor,
           transform: this.$parent.active ? 'translate3D(0, -' + (this.idx + 1) * this.$parent.globalOptions.spacing + 'px, 0)' : 'translate3D(0, 0, 0)',
           zIndex: -this.idx
         }
@@ -61,6 +78,30 @@ export default {
       return {
         color: this.titleColor,
         background: this.titleBgColor
+      }
+    },
+    transitionName: function () {
+      if (this.$parent.transitionEnable === false) {
+        return
+      }
+      return 'fab-item-' + this.$parent.fabItemAnimate
+    },
+    computedIconColor: function () {
+      if (this.btnColor) {
+        if (this.color) {
+          return this.color
+        }
+        else {
+          return 'white'
+        }
+      }
+      else {
+        if (this.color) {
+          return this.color
+        }
+        else {
+          return '#999'
+        }
       }
     }
   },

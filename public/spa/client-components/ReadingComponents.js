@@ -77,25 +77,31 @@ var render = function() {
           attrs: {
             mainBtnColor: "#E6AD07",
             size: "big",
-            hideOnStart: true,
+            iconType: "SemanticUI",
+            hideOnStart: false,
+            transitionEnable: true,
             scrollAutoShow: false,
-            autoOpenMenu: true,
-            globalOptions: { spacing: 50 }
+            autoOpenMenu: true
           }
         },
         [
           _c("fab-item", {
-            attrs: { idx: 0, title: "add", icon: "add" },
+            attrs: {
+              idx: 0,
+              title: "add",
+              icon: "angle right",
+              btnColor: "#E6AD07"
+            },
             on: { clickItem: _vm.clickItem }
           }),
           _vm._v(" "),
           _c("fab-item", {
-            attrs: { idx: 1, title: "https", icon: "https" },
+            attrs: { idx: 1, title: "https", icon: "sort" },
             on: { clickItem: _vm.clickItem }
           }),
           _vm._v(" "),
           _c("fab-item", {
-            attrs: { idx: 2, title: "edit", icon: "edit" },
+            attrs: { idx: 2, title: "edit", icon: "circle" },
             on: { clickItem: _vm.clickItem }
           })
         ],

@@ -1,18 +1,25 @@
 <div class="annotation-type-selector"
      ref="Selector">
   
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  
+  <!--
+  iconType="SemanticUI"
+  MaterialDesign
+  -->
+  
   <vue-fab ref="fab"
            mainBtnColor="#E6AD07"
            size="big"
-           v-bind:hideOnStart="true"
+           
+           iconType="SemanticUI"
+           v-bind:hideOnStart="false"
+           v-bind:transitionEnable="true"
            v-bind:scrollAutoShow="false"
-           v-bind:autoOpenMenu="true"
-           v-bind:globalOptions="{spacing: 50}">
-    <fab-item @clickItem="clickItem" :idx="0" title="add" icon="add" />
-    <fab-item @clickItem="clickItem" :idx="1" title="https" icon="https" />
-    <fab-item @clickItem="clickItem" :idx="2" title="edit" icon="edit" />
+           v-bind:autoOpenMenu="true">
+    <fab-item @clickItem="clickItem" :idx="0" title="add" icon="angle right" btnColor="#E6AD07" />
+    <fab-item @clickItem="clickItem" :idx="1" title="https" icon="sort" />
+    <fab-item @clickItem="clickItem" :idx="2" title="edit" icon="circle" />
   </vue-fab>
   
 </div>
