@@ -1,6 +1,7 @@
 <fragment>
-  <div class="ui inverted top fixed menu"
-       v-bind:class="{'compact-mode': isCompactMode}">
+  <div class="ui inverted"
+       ref="Menu"
+       v-bind:class="computedClass">
     <slot name="header"></slot>
     
     <media v-bind:query="{minWidth: maxWidth}"

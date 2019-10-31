@@ -1,7 +1,7 @@
 import Media from 'vue-media'
 
 let Navigation = {
-  props: ['config', 'compactWidth'],
+  props: ['config', 'compactWidth', 'position'],
   data() {
     return {
       sideMenuDisplay: false,
@@ -24,7 +24,24 @@ let Navigation = {
       else {
         return 0
       }
+    },
+    computedClass: function () {
+      let classList = []
+      
+      if (typeof(this.position) !== 'string') {
+        classList.push('top')
+      }
+      else {
+        classList.push(this.position)
+      }
+      
+      if (this.isCompactMode === true) {
+        classList.push('compact-mode')
+      }
+      
+      return classList.join(' ') + ' fixed menu'
     }
+    
   },
   /*
   watch: {
@@ -40,8 +57,16 @@ let Navigation = {
   },
   methods: {
     initPlaceholder: function () {
-      this.placeholder = window.$(`<div class="placeholder"></div>`)
-              .prependTo('body')
+      this.placeholder = window.$(`<div class="Navigation placeholder"></div>`)
+      
+      if (this.position === 'bottom') {
+        this.placeholder.appendTo('body')
+      }
+      else {
+        this.placeholder.prependTo('body')
+      }
+      
+      this.placeholder.css('height', this.$refs.Menu.clientHeight + 'px')
     },
     removePlaceholder: function () {
       this.placeholder.remove()

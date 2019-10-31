@@ -36,6 +36,9 @@ let AnnotationManager = {
   */
   methods: {
     onselect: function (selection) {
+      if (this.pinSelection !== null) {
+        return false
+      }
       //console.log(selection)
       this.selection = selection
     },
@@ -45,9 +48,13 @@ let AnnotationManager = {
     },
     pin: function (type) {
       this.selection = null
-      this.pinSelection = this.$refs.RangyManager.pinSelection()
+      this.pinSelection = this.$refs.RangyManager.pinSelection({
+        'behavior': 'smooth',
+        'block': 'start',
+        'delay': 100
+      })
       //this.$refs.AnnotationPanel.show()
-      console.log(type)
+      //console.log(type)
     },
     unpin: function () {
       this.$refs.RangyManager.unpinSelection()

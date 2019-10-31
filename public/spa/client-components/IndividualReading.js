@@ -134,7 +134,7 @@ var render = function() {
     [
       _c("navigation", {
         ref: "nav",
-        attrs: { config: _vm.config, compactWidth: "400" },
+        attrs: { config: _vm.config, compactWidth: "400", position: "bottom" },
         scopedSlots: _vm._u([
           {
             key: "header",
@@ -275,7 +275,7 @@ let IndividualReading = {
   },
   mounted() {
     this.status.title = this.status.username
-    
+    return
     setTimeout(() => {
       this.t = `AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />

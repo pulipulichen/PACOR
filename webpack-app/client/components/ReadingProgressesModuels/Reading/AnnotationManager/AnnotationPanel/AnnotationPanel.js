@@ -3,7 +3,9 @@ let AnnotationPanel = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      isHide: true
+      heightVH: 50,
+      isHide: true,
+      placeholder: null
     }
   },
   components: {
@@ -16,15 +18,29 @@ let AnnotationPanel = {
               && typeof(pinSelection) === 'object') {
         this.show()
       }
+    },
+    heightVH: function (heightVH) {
+      if (typeof(heightVH) === 'number') {
+        this.placeholder.css('height', heightVH + 'vh')
+      }
     }
   },
   mounted() {
+    this.placeholder = window.$('<div></div>')
+            .css('height', this.heightVH + 'vh')
+            .hide()
+            .appendTo('body')
+  },
+  destroyed() {
+    this.placeholder.remove()
   },
   methods: {
     show () {
       this.isHide = false
+      this.placeholder.show()
     },
     hide () {
+      this.placeholder.hide()
       this.isHide = true
       this.$emit('hide')
     }

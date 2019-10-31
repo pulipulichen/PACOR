@@ -1,5 +1,6 @@
 <div ref="fab" 
      class="fab-main-container"
+     v-bind:style="computedStyle"
      v-bind:class="{hidden: isInitHidden, 'semantic-ui': (iconType === 'SemanticUI')}">
   
   <!-- 這個是主要的item -->

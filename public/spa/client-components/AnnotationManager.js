@@ -71,7 +71,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-panel[data-v-77c1285b] {\n  position: fixed !important;\n  margin-top: 0;\n  margin-bottom: 0;\n  left: 0;\n  bottom: 0;\n  width: 100vw;\n  height: 50vh;\n  background-color: red !important;\n}\n.annotation-panel.hidden[data-v-77c1285b] {\n  display: none;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=77c1285b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,aAAa;EACb,gBAAgB;EAChB,OAAO;EACP,SAAS;EACT,YAAY;EACZ,YAAY;EACZ,gCAAgC;AAClC;AACA;EACE,aAAa;AACf","file":"AnnotationPanel.less?vue&type=style&index=0&id=77c1285b&lang=less&scoped=true&","sourcesContent":[".annotation-panel[data-v-77c1285b] {\n  position: fixed !important;\n  margin-top: 0;\n  margin-bottom: 0;\n  left: 0;\n  bottom: 0;\n  width: 100vw;\n  height: 50vh;\n  background-color: red !important;\n}\n.annotation-panel.hidden[data-v-77c1285b] {\n  display: none;\n}\n"]}]);
+exports.push([module.i, ".annotation-panel[data-v-77c1285b] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0 !important;\n  bottom: 0 !important;\n  width: 100vw !important;\n  height: 50vh !important;\n}\n.annotation-panel.hidden[data-v-77c1285b] {\n  display: none;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=77c1285b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,kBAAkB;EAClB,oBAAoB;EACpB,uBAAuB;EACvB,uBAAuB;AACzB;AACA;EACE,aAAa;AACf","file":"AnnotationPanel.less?vue&type=style&index=0&id=77c1285b&lang=less&scoped=true&","sourcesContent":[".annotation-panel[data-v-77c1285b] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0 !important;\n  bottom: 0 !important;\n  width: 100vw !important;\n  height: 50vh !important;\n}\n.annotation-panel.hidden[data-v-77c1285b] {\n  display: none;\n}\n"]}]);
 
 
 /***/ }),
@@ -85,7 +85,7 @@ exports.push([module.i, ".annotation-panel[data-v-77c1285b] {\n  position: fixed
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-type-selector[data-v-b43f5722] {\n  /*\n  position: fixed !important;\n  //top: -100vh;\n  top: 100px;\n  left: 0;\n  user-select: none;\n  */\n}\n.fab-main-container[data-v-b43f5722] {\n  right: 5rem !important;\n  bottom: 5rem !important;\n}\n.fab-main-container.hidden[data-v-b43f5722] {\n  display: none;\n}\n", "",{"version":3,"sources":["AnnotationTypeSelector.less?vue&type=style&index=0&id=b43f5722&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE;;;;;;GAMC;AACH;AACA;EACE,sBAAsB;EACtB,uBAAuB;AACzB;AACA;EACE,aAAa;AACf","file":"AnnotationTypeSelector.less?vue&type=style&index=0&id=b43f5722&lang=less&scoped=true&","sourcesContent":[".annotation-type-selector[data-v-b43f5722] {\n  /*\n  position: fixed !important;\n  //top: -100vh;\n  top: 100px;\n  left: 0;\n  user-select: none;\n  */\n}\n.fab-main-container[data-v-b43f5722] {\n  right: 5rem !important;\n  bottom: 5rem !important;\n}\n.fab-main-container.hidden[data-v-b43f5722] {\n  display: none;\n}\n"]}]);
+exports.push([module.i, ".annotation-type-selector[data-v-b43f5722] {\n  /*\n  position: fixed !important;\n  //top: -100vh;\n  top: 100px;\n  left: 0;\n  user-select: none;\n  */\n}\n/*\n.fab-main-container {\n  right: 5rem !important;\n  bottom: 5rem !important;\n  \n  &.hidden {\n    display: none;\n  }\n  \n}\n*/\n", "",{"version":3,"sources":["AnnotationTypeSelector.less?vue&type=style&index=0&id=b43f5722&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE;;;;;;GAMC;AACH;AACA;;;;;;;;;;CAUC","file":"AnnotationTypeSelector.less?vue&type=style&index=0&id=b43f5722&lang=less&scoped=true&","sourcesContent":[".annotation-type-selector[data-v-b43f5722] {\n  /*\n  position: fixed !important;\n  //top: -100vh;\n  top: 100px;\n  left: 0;\n  user-select: none;\n  */\n}\n/*\n.fab-main-container {\n  right: 5rem !important;\n  bottom: 5rem !important;\n  \n  &.hidden {\n    display: none;\n  }\n  \n}\n*/\n"]}]);
 
 
 /***/ }),
@@ -180,20 +180,23 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "ui segment annotation-panel",
-      class: { hidden: _vm.isHide }
+      staticClass: "ui teal segment form annotation-panel",
+      class: { hidden: _vm.isHide },
+      style: { height: _vm.heightVH + "vh" }
     },
     [
-      _vm._v("\r\n  Annotation Panel\r\n  "),
-      _c(
-        "button",
-        {
-          staticClass: "ui button",
-          attrs: { type: "button" },
-          on: { click: _vm.hide }
-        },
-        [_vm._v("Close")]
-      )
+      _c("div", { staticClass: "field" }, [
+        _vm._v("\r\n      Annotation Panel\r\n\r\n      "),
+        _c(
+          "button",
+          {
+            staticClass: "ui button",
+            attrs: { type: "button" },
+            on: { click: _vm.hide }
+          },
+          [_vm._v("Close")]
+        )
+      ])
     ]
   )
 }
@@ -233,6 +236,8 @@ var render = function() {
             iconType: "SemanticUI",
             activeIcon: "angle down",
             clickAutoCloseType: "fab",
+            bottom: "10em",
+            right: "5em",
             hideOnStart: true,
             activeIconRotate: false,
             transitionEnable: true,
@@ -445,6 +450,9 @@ let AnnotationManager = {
   */
   methods: {
     onselect: function (selection) {
+      if (this.pinSelection !== null) {
+        return false
+      }
       //console.log(selection)
       this.selection = selection
     },
@@ -454,9 +462,13 @@ let AnnotationManager = {
     },
     pin: function (type) {
       this.selection = null
-      this.pinSelection = this.$refs.RangyManager.pinSelection()
+      this.pinSelection = this.$refs.RangyManager.pinSelection({
+        'behavior': 'smooth',
+        'block': 'start',
+        'delay': 100
+      })
       //this.$refs.AnnotationPanel.show()
-      console.log(type)
+      //console.log(type)
     },
     unpin: function () {
       this.$refs.RangyManager.unpinSelection()
@@ -592,7 +604,9 @@ let AnnotationPanel = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      isHide: true
+      heightVH: 50,
+      isHide: true,
+      placeholder: null
     }
   },
   components: {
@@ -605,15 +619,29 @@ let AnnotationPanel = {
               && typeof(pinSelection) === 'object') {
         this.show()
       }
+    },
+    heightVH: function (heightVH) {
+      if (typeof(heightVH) === 'number') {
+        this.placeholder.css('height', heightVH + 'vh')
+      }
     }
   },
   mounted() {
+    this.placeholder = window.$('<div></div>')
+            .css('height', this.heightVH + 'vh')
+            .hide()
+            .appendTo('body')
+  },
+  destroyed() {
+    this.placeholder.remove()
   },
   methods: {
     show () {
       this.isHide = false
+      this.placeholder.show()
     },
     hide () {
+      this.placeholder.hide()
       this.isHide = true
       this.$emit('hide')
     }
@@ -1185,7 +1213,7 @@ let RangyManager = {
       }
     },
     
-    pinSelection: function () {
+    pinSelection: function (scrollOptions) {
       this.unpinSelection()
       if (this.selection === null 
               || Array.isArray(this.selection.anchorPosition.paragraph_seq_id) === false
@@ -1200,13 +1228,40 @@ let RangyManager = {
       //console.log(this.selection.getRangeAt(0))
       
       this.selectionApplier.toggleSelection()
+      
+      if (typeof(scrollOptions) === 'object') {
+        if (typeof(scrollOptions.delay) === 'number') {
+          setTimeout(() => {
+            _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].restoreSelection(this.selectionSaved)
+            this.selection.anchorNode.scrollIntoView(scrollOptions)
+            this.selection.removeAllRanges()
+          }, scrollOptions.delay)
+        }
+        else {
+          this.selection.anchorNode.scrollIntoView(scrollOptions)
+        }
+      }
+      
       this.selection.removeAllRanges()
       //this.selection = null
       
       return this
     },
-    unpinSelection : function () {
+    unpinSelection : function (scrollOptions) {
       window.$('.pacor-selection').removeClass('pacor-selection')
+      
+      if (typeof(scrollOptions) === 'object') {
+        if (typeof(scrollOptions.delay) === 'number') {
+          setTimeout(() => {
+            _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].restoreSelection(this.selectionSaved)
+            this.selection.anchorNode.scrollIntoView(scrollOptions)
+            this.selection.removeAllRanges()
+          }, scrollOptions.delay)
+        }
+        else {
+          this.selection.anchorNode.scrollIntoView(scrollOptions)
+        }
+      }
       return this
     },
     highlightPinnedSelection: function (className) {

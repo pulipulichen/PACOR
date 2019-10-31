@@ -106,7 +106,15 @@ export default {
     autoHideDirection: {
       type: String,
       default: 'all'
-    }
+    },
+    bottom: {
+      type: String,
+      default: '10%'
+    },
+    right: {
+      type: String,
+      default: '20%'
+    },
   },
   data () {
     return {
@@ -146,6 +154,12 @@ export default {
     }
   },
   computed: {
+    computedStyle: function () {
+      return {
+        'bottom': this.bottom,
+        'right': this.right
+      }
+    },
     computedTransitionName: function () {
       if (this.transitionEnable === false
               || this.activeIconRotate === false) {

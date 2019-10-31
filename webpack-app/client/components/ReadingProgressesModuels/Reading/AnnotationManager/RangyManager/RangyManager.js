@@ -233,7 +233,7 @@ let RangyManager = {
       }
     },
     
-    pinSelection: function () {
+    pinSelection: function (scrollOptions) {
       this.unpinSelection()
       if (this.selection === null 
               || Array.isArray(this.selection.anchorPosition.paragraph_seq_id) === false
@@ -248,13 +248,40 @@ let RangyManager = {
       //console.log(this.selection.getRangeAt(0))
       
       this.selectionApplier.toggleSelection()
+      
+      if (typeof(scrollOptions) === 'object') {
+        if (typeof(scrollOptions.delay) === 'number') {
+          setTimeout(() => {
+            rangy.restoreSelection(this.selectionSaved)
+            this.selection.anchorNode.scrollIntoView(scrollOptions)
+            this.selection.removeAllRanges()
+          }, scrollOptions.delay)
+        }
+        else {
+          this.selection.anchorNode.scrollIntoView(scrollOptions)
+        }
+      }
+      
       this.selection.removeAllRanges()
       //this.selection = null
       
       return this
     },
-    unpinSelection : function () {
+    unpinSelection : function (scrollOptions) {
       window.$('.pacor-selection').removeClass('pacor-selection')
+      
+      if (typeof(scrollOptions) === 'object') {
+        if (typeof(scrollOptions.delay) === 'number') {
+          setTimeout(() => {
+            rangy.restoreSelection(this.selectionSaved)
+            this.selection.anchorNode.scrollIntoView(scrollOptions)
+            this.selection.removeAllRanges()
+          }, scrollOptions.delay)
+        }
+        else {
+          this.selection.anchorNode.scrollIntoView(scrollOptions)
+        }
+      }
       return this
     },
     highlightPinnedSelection: function (className) {
