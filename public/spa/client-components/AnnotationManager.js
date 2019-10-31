@@ -186,7 +186,7 @@ var render = function() {
           "div",
           {
             ref: "panel",
-            staticClass: "ui teal segment form ",
+            staticClass: "ui segment form ",
             style: { height: _vm.heightVH + "vh" }
           },
           [
