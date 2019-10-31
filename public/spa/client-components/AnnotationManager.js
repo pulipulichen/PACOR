@@ -71,7 +71,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-panel[data-v-77c1285b] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0 !important;\n  bottom: 0 !important;\n  width: 100vw !important;\n  height: 50vh !important;\n}\n.annotation-panel.hidden[data-v-77c1285b] {\n  display: none;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=77c1285b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,kBAAkB;EAClB,oBAAoB;EACpB,uBAAuB;EACvB,uBAAuB;AACzB;AACA;EACE,aAAa;AACf","file":"AnnotationPanel.less?vue&type=style&index=0&id=77c1285b&lang=less&scoped=true&","sourcesContent":[".annotation-panel[data-v-77c1285b] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0 !important;\n  bottom: 0 !important;\n  width: 100vw !important;\n  height: 50vh !important;\n}\n.annotation-panel.hidden[data-v-77c1285b] {\n  display: none;\n}\n"]}]);
+exports.push([module.i, ".annotation-panel[data-v-77c1285b] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0 !important;\n  bottom: 0 !important;\n  width: 100vw !important;\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n}\n.annotation-panel.hidden[data-v-77c1285b] {\n  display: none;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=77c1285b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,kBAAkB;EAClB,oBAAoB;EACpB,uBAAuB;EACvB,sBAAsB;EACtB,mBAAmB;EACnB,mCAAmC;AACrC;AACA;EACE,aAAa;AACf","file":"AnnotationPanel.less?vue&type=style&index=0&id=77c1285b&lang=less&scoped=true&","sourcesContent":[".annotation-panel[data-v-77c1285b] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0 !important;\n  bottom: 0 !important;\n  width: 100vw !important;\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n}\n.annotation-panel.hidden[data-v-77c1285b] {\n  display: none;\n}\n"]}]);
 
 
 /***/ }),
@@ -177,28 +177,41 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "ui teal segment form annotation-panel",
-      class: { hidden: _vm.isHide },
-      style: { height: _vm.heightVH + "vh" }
-    },
-    [
-      _c("div", { staticClass: "field" }, [
-        _vm._v("\r\n      Annotation Panel\r\n\r\n      "),
-        _c(
-          "button",
-          {
-            staticClass: "ui button",
-            attrs: { type: "button" },
-            on: { click: _vm.hide }
-          },
-          [_vm._v("Close")]
-        )
-      ])
-    ]
-  )
+  return _c("fragment", [
+    _c(
+      "div",
+      {
+        staticClass: "annotation-panel",
+        class: { hidden: _vm.isHide, "animated bounce": !_vm.isHide },
+        on: { click: _vm.animate }
+      },
+      [
+        !_vm.isHide
+          ? _c(
+              "div",
+              {
+                staticClass: "ui teal segment form ",
+                style: { height: _vm.heightVH + "vh" }
+              },
+              [
+                _c("div", { ref: "panel", staticClass: "field" }, [
+                  _vm._v("\r\n          Annotation Panel\r\n\r\n          "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "ui button",
+                      attrs: { type: "button" },
+                      on: { click: _vm.hide }
+                    },
+                    [_vm._v("Close")]
+                  )
+                ])
+              ]
+            )
+          : _vm._e()
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -462,11 +475,7 @@ let AnnotationManager = {
     },
     pin: function (type) {
       this.selection = null
-      this.pinSelection = this.$refs.RangyManager.pinSelection({
-        'behavior': 'smooth',
-        'block': 'start',
-        'delay': 100
-      })
+      this.pinSelection = this.$refs.RangyManager.pinSelection()
       //this.$refs.AnnotationPanel.show()
       //console.log(type)
     },
@@ -612,12 +621,17 @@ let AnnotationPanel = {
   components: {
   },
   computed: {
+    computedPlaceholderHeight () {
+      return `calc(${this.heightVH}vh - ${this.navigationPlaceholderHeight}px)`
+    }
   },
   watch: {
     pinSelection: function (pinSelection) {
       if (pinSelection !== null 
               && typeof(pinSelection) === 'object') {
+        //console.log(pinSelection)
         this.show()
+        this.scrollToPinSelection()
       }
     },
     heightVH: function (heightVH) {
@@ -627,15 +641,23 @@ let AnnotationPanel = {
     }
   },
   mounted() {
-    this.placeholder = window.$('<div></div>')
-            .css('height', this.heightVH + 'vh')
-            .hide()
-            .appendTo('body')
+    this._initPlaceholder()
   },
   destroyed() {
     this.placeholder.remove()
   },
   methods: {
+    _initPlaceholder () {
+      let navPH = window.$('.Navigation.placeholder:first')
+      if (navPH.length === 1) { 
+        this.navigationPlaceholderHeight = navPH.height()
+      }
+    
+      this.placeholder = window.$('<div></div>')
+            .css('height', this.computedPlaceholderHeight)
+            .hide()
+            .appendTo('body')
+    },
     show () {
       this.isHide = false
       this.placeholder.show()
@@ -644,6 +666,50 @@ let AnnotationPanel = {
       this.placeholder.hide()
       this.isHide = true
       this.$emit('hide')
+    },
+    scrollToPinSelection () {
+      let rect = this.pinSelection.rect
+      let viewportHeight = window.innerHeight
+      
+      if (rect.middle < viewportHeight / 2) {
+        return false  // 不做捲動
+      }
+      
+      //let middle = this.pinSelection.rect.middle
+      let middle = (viewportHeight * (1 - (this.heightVH / 100)) / 2)
+      let scrollTop = this.getScrollTop()
+      console.log(scrollTop, rect.middle, middle)
+      
+      window.scrollTo({
+        top: (scrollTop + rect.middle - middle),
+        behavior: 'smooth'
+      })
+    },
+    /**
+     * @author http://www.eion.com.tw/Blogger/?Pid=1154
+     */
+    getScrollTop () {
+      let bodyTop = 0;
+      if (typeof window.pageYOffset !== "undefined") {
+        bodyTop = window.pageYOffset;
+
+      } else if (typeof document.compatMode === "undefined"
+                 && document.compatMode !== "BackCompat") {
+        bodyTop = document.documentElement.scrollTop;
+
+      } else if (typeof document.body !== "undefined") {
+        bodyTop = document.body.scrollTop;
+      }
+      /*顯示出捲動後的高度值*/
+      return bodyTop
+    },
+    animate () {
+      const element = this.$refs.panel
+      element.classList.add('animated', 'bounce')
+
+      element.addEventListener('animationend', () => { 
+        console.log('a')
+      })
     }
   } // methods
 }
@@ -800,7 +866,7 @@ let AnnotationTypeSelector = {
         
         let config = this.status.readingConfig
         if (typeof(config) === 'object') {
-          let annotationTypes = config.readingProgressModules[currentStep].annotationTypes
+          let annotationTypes = config.readingProgressModules[currentStep].annotation.types
           if (Array.isArray(annotationTypes)) {
             annotationTypes.forEach(type => {
               let module = config.annotationTypeModules[type]
@@ -1228,11 +1294,11 @@ let RangyManager = {
       //console.log(this.selection.getRangeAt(0))
       
       this.selectionApplier.toggleSelection()
-      
+      /*
       if (typeof(scrollOptions) === 'object') {
         if (typeof(scrollOptions.delay) === 'number') {
           setTimeout(() => {
-            _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].restoreSelection(this.selectionSaved)
+            rangy.restoreSelection(this.selectionSaved)
             this.selection.anchorNode.scrollIntoView(scrollOptions)
             this.selection.removeAllRanges()
           }, scrollOptions.delay)
@@ -1241,19 +1307,19 @@ let RangyManager = {
           this.selection.anchorNode.scrollIntoView(scrollOptions)
         }
       }
-      
+      */
       this.selection.removeAllRanges()
       //this.selection = null
       
-      return this
+      return this.selection
     },
-    unpinSelection : function (scrollOptions) {
+    unpinSelection : function () {
       window.$('.pacor-selection').removeClass('pacor-selection')
-      
+      /*
       if (typeof(scrollOptions) === 'object') {
         if (typeof(scrollOptions.delay) === 'number') {
           setTimeout(() => {
-            _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].restoreSelection(this.selectionSaved)
+            rangy.restoreSelection(this.selectionSaved)
             this.selection.anchorNode.scrollIntoView(scrollOptions)
             this.selection.removeAllRanges()
           }, scrollOptions.delay)
@@ -1261,7 +1327,7 @@ let RangyManager = {
         else {
           this.selection.anchorNode.scrollIntoView(scrollOptions)
         }
-      }
+      }*/
       return this
     },
     highlightPinnedSelection: function (className) {
@@ -7197,10 +7263,12 @@ rangy.createModule("Position", ["WrappedSelection"], function(api, module) {
         this.left = left;
         this.width = right - left;
         this.height = bottom - top;
+        this.middle = top + (this.height / 2)
+        this.center = left + (this.width / 2)
     }
 
     function createRelativeRect(rect, dx, dy) {
-        return new Rect(rect.top + dy, rect.right + dx, rect.bottom + dy, rect.left + dx);
+      return new Rect(rect.top + dy, rect.right + dx, rect.bottom + dy, rect.left + dx)
     }
 
     function adjustClientRect(rect, doc) {

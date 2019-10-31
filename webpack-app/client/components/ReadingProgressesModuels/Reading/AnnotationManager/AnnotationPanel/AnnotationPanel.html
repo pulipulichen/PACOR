@@ -1,11 +1,20 @@
-<div class="ui teal segment form annotation-panel"
-     v-bind:class="{'hidden': isHide}"
-     v-bind:style="{'height': heightVH + 'vh'}">
-    <div class="field">
-      Annotation Panel
+<fragment>
+  <div class="annotation-panel"
+       v-bind:class="{'hidden': isHide, 'animated bounce': !isHide}"
+       v-on:click="animate">
+    <div class="ui teal segment form "
+         v-if="!isHide"
+         v-bind:style="{'height': heightVH + 'vh'}">
 
-      <button type="button"
-              class="ui button"
-              v-on:click="hide">Close</button>
+        <div class="field"
+       ref="panel">
+          Annotation Panel
+
+          <button type="button"
+                  class="ui button"
+                  v-on:click="hide">Close</button>
+        </div>
     </div>
-</div>
+  </div>
+</fragment>
+  

@@ -68,10 +68,12 @@ rangy.createModule("Position", ["WrappedSelection"], function(api, module) {
         this.left = left;
         this.width = right - left;
         this.height = bottom - top;
+        this.middle = top + (this.height / 2)
+        this.center = left + (this.width / 2)
     }
 
     function createRelativeRect(rect, dx, dy) {
-        return new Rect(rect.top + dy, rect.right + dx, rect.bottom + dy, rect.left + dx);
+      return new Rect(rect.top + dy, rect.right + dx, rect.bottom + dy, rect.left + dx)
     }
 
     function adjustClientRect(rect, doc) {

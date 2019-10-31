@@ -48,11 +48,7 @@ let AnnotationManager = {
     },
     pin: function (type) {
       this.selection = null
-      this.pinSelection = this.$refs.RangyManager.pinSelection({
-        'behavior': 'smooth',
-        'block': 'start',
-        'delay': 100
-      })
+      this.pinSelection = this.$refs.RangyManager.pinSelection()
       //this.$refs.AnnotationPanel.show()
       //console.log(type)
     },

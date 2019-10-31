@@ -248,7 +248,7 @@ let RangyManager = {
       //console.log(this.selection.getRangeAt(0))
       
       this.selectionApplier.toggleSelection()
-      
+      /*
       if (typeof(scrollOptions) === 'object') {
         if (typeof(scrollOptions.delay) === 'number') {
           setTimeout(() => {
@@ -261,15 +261,15 @@ let RangyManager = {
           this.selection.anchorNode.scrollIntoView(scrollOptions)
         }
       }
-      
+      */
       this.selection.removeAllRanges()
       //this.selection = null
       
-      return this
+      return this.selection
     },
-    unpinSelection : function (scrollOptions) {
+    unpinSelection : function () {
       window.$('.pacor-selection').removeClass('pacor-selection')
-      
+      /*
       if (typeof(scrollOptions) === 'object') {
         if (typeof(scrollOptions.delay) === 'number') {
           setTimeout(() => {
@@ -281,7 +281,7 @@ let RangyManager = {
         else {
           this.selection.anchorNode.scrollIntoView(scrollOptions)
         }
-      }
+      }*/
       return this
     },
     highlightPinnedSelection: function (className) {

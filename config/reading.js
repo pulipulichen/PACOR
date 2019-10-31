@@ -23,16 +23,23 @@ module.exports = {
     'IndividualReading': {
       message: '進入個人閱讀囉',
       limitMinutes: 3,
-      annotationTypes: ['confused-clarified', 'mainIdea'],
+      annotation: {
+        types: ['confused-clarified', 'mainIdea'],
+        enableCollaboration: false
+      },
       checklist: [
         'I have already read this section.',
         'I have already written annotations on a sentence I don\'t understand.',
         'I have already written the main ideas of this section.',
-      ]
+      ],
+      
     },
     'CollaborativeReading': {
       message: '進入合作閱讀囉',
-      annotationTypes: ['confused-clarified', 'mainIdea'],
+      annotation: {
+        types: ['confused-clarified', 'mainIdea'],
+        enableCollaboration: false
+      },
     },
     'PostRecall': {
       message: '請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！',

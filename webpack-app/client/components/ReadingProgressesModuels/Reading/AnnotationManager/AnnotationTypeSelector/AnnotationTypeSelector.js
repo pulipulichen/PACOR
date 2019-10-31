@@ -29,7 +29,7 @@ let AnnotationTypeSelector = {
         
         let config = this.status.readingConfig
         if (typeof(config) === 'object') {
-          let annotationTypes = config.readingProgressModules[currentStep].annotationTypes
+          let annotationTypes = config.readingProgressModules[currentStep].annotation.types
           if (Array.isArray(annotationTypes)) {
             annotationTypes.forEach(type => {
               let module = config.annotationTypeModules[type]

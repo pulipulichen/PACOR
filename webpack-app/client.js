@@ -6,8 +6,10 @@ import Vue from 'vue'
 // plugins
 
 import './plugins/plugins'
-import './styles/semantic-ui'
+import './styles/styles'
 import i18n from './plugins/i18n'
+
+
 
 // ----------------------------------
 // Helpers
