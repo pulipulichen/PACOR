@@ -1,13 +1,11 @@
 <fragment>
   <div class="annotation-panel"
-       v-bind:class="{'hidden': isHide, 'animated bounce': !isHide}"
-       v-on:click="animate">
+       v-bind:class="{'hidden': isHide}">
     <div class="ui teal segment form "
-         v-if="!isHide"
-         v-bind:style="{'height': heightVH + 'vh'}">
+         v-bind:style="{'height': heightVH + 'vh'}"
+         ref="panel">
 
-        <div class="field"
-       ref="panel">
+        <div class="field">
           Annotation Panel
 
           <button type="button"

@@ -72,6 +72,7 @@
     "v-slot:actions": {
       "context": "template"
     },
+    "v-bind:style": {},
     "v-on:click": {
       "context": "button"
     },

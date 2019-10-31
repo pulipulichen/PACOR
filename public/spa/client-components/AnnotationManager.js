@@ -180,35 +180,30 @@ var render = function() {
   return _c("fragment", [
     _c(
       "div",
-      {
-        staticClass: "annotation-panel",
-        class: { hidden: _vm.isHide, "animated bounce": !_vm.isHide },
-        on: { click: _vm.animate }
-      },
+      { staticClass: "annotation-panel", class: { hidden: _vm.isHide } },
       [
-        !_vm.isHide
-          ? _c(
-              "div",
-              {
-                staticClass: "ui teal segment form ",
-                style: { height: _vm.heightVH + "vh" }
-              },
-              [
-                _c("div", { ref: "panel", staticClass: "field" }, [
-                  _vm._v("\r\n          Annotation Panel\r\n\r\n          "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "ui button",
-                      attrs: { type: "button" },
-                      on: { click: _vm.hide }
-                    },
-                    [_vm._v("Close")]
-                  )
-                ])
-              ]
-            )
-          : _vm._e()
+        _c(
+          "div",
+          {
+            ref: "panel",
+            staticClass: "ui teal segment form ",
+            style: { height: _vm.heightVH + "vh" }
+          },
+          [
+            _c("div", { staticClass: "field" }, [
+              _vm._v("\r\n          Annotation Panel\r\n\r\n          "),
+              _c(
+                "button",
+                {
+                  staticClass: "ui button",
+                  attrs: { type: "button" },
+                  on: { click: _vm.hide }
+                },
+                [_vm._v("Close")]
+              )
+            ])
+          ]
+        )
       ]
     )
   ])
@@ -480,7 +475,7 @@ let AnnotationManager = {
       //console.log(type)
     },
     unpin: function () {
-      this.$refs.RangyManager.unpinSelection()
+      this.$refs.RangyManager.unpinSelection(true)
       this.selection = null
       this.pinSelection = null
     }
@@ -638,6 +633,9 @@ let AnnotationPanel = {
       if (typeof(heightVH) === 'number') {
         this.placeholder.css('height', heightVH + 'vh')
       }
+    },
+    isHide () {
+      
     }
   },
   mounted() {
@@ -653,19 +651,26 @@ let AnnotationPanel = {
         this.navigationPlaceholderHeight = navPH.height()
       }
     
+      let container = window.$('<div class="non-invasive-web-style-framework"></div>')
+            .appendTo('body')
       this.placeholder = window.$('<div></div>')
             .css('height', this.computedPlaceholderHeight)
             .hide()
-            .appendTo('body')
+            .appendTo(container)
     },
     show () {
       this.isHide = false
-      this.placeholder.show()
+      this.placeholder.transition('fly up')
+      window.$(this.$refs.panel).transition('fly up', () => {
+        //this.placeholder.show()
+      })
     },
     hide () {
-      this.placeholder.hide()
-      this.isHide = true
-      this.$emit('hide')
+      this.placeholder.transition('fly up')
+      window.$(this.$refs.panel).transition('fly up', () => {
+        this.isHide = true
+        this.$emit('hide')
+      })
     },
     scrollToPinSelection () {
       let rect = this.pinSelection.rect
@@ -703,14 +708,6 @@ let AnnotationPanel = {
       /*顯示出捲動後的高度值*/
       return bodyTop
     },
-    animate () {
-      const element = this.$refs.panel
-      element.classList.add('animated', 'bounce')
-
-      element.addEventListener('animationend', () => { 
-        console.log('a')
-      })
-    }
   } // methods
 }
 
@@ -1313,7 +1310,7 @@ let RangyManager = {
       
       return this.selection
     },
-    unpinSelection : function () {
+    unpinSelection : function (restoreSelection) {
       window.$('.pacor-selection').removeClass('pacor-selection')
       /*
       if (typeof(scrollOptions) === 'object') {
@@ -1328,6 +1325,13 @@ let RangyManager = {
           this.selection.anchorNode.scrollIntoView(scrollOptions)
         }
       }*/
+      
+      if (restoreSelection === true) {
+        let selection = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].getSelection()
+        if (selection.toString().length === 0) {
+          _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].restoreSelection(this.selectionSaved)
+        }
+      }
       return this
     },
     highlightPinnedSelection: function (className) {

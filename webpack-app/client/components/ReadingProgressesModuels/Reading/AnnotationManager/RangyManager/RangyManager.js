@@ -267,7 +267,7 @@ let RangyManager = {
       
       return this.selection
     },
-    unpinSelection : function () {
+    unpinSelection : function (restoreSelection) {
       window.$('.pacor-selection').removeClass('pacor-selection')
       /*
       if (typeof(scrollOptions) === 'object') {
@@ -282,6 +282,13 @@ let RangyManager = {
           this.selection.anchorNode.scrollIntoView(scrollOptions)
         }
       }*/
+      
+      if (restoreSelection === true) {
+        let selection = rangy.getSelection()
+        if (selection.toString().length === 0) {
+          rangy.restoreSelection(this.selectionSaved)
+        }
+      }
       return this
     },
     highlightPinnedSelection: function (className) {

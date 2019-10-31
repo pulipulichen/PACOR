@@ -28,6 +28,9 @@ let AnnotationPanel = {
       if (typeof(heightVH) === 'number') {
         this.placeholder.css('height', heightVH + 'vh')
       }
+    },
+    isHide () {
+      
     }
   },
   mounted() {
@@ -43,19 +46,26 @@ let AnnotationPanel = {
         this.navigationPlaceholderHeight = navPH.height()
       }
     
+      let container = window.$('<div class="non-invasive-web-style-framework"></div>')
+            .appendTo('body')
       this.placeholder = window.$('<div></div>')
             .css('height', this.computedPlaceholderHeight)
             .hide()
-            .appendTo('body')
+            .appendTo(container)
     },
     show () {
       this.isHide = false
-      this.placeholder.show()
+      this.placeholder.transition('fly up')
+      window.$(this.$refs.panel).transition('fly up', () => {
+        //this.placeholder.show()
+      })
     },
     hide () {
-      this.placeholder.hide()
-      this.isHide = true
-      this.$emit('hide')
+      this.placeholder.transition('fly up')
+      window.$(this.$refs.panel).transition('fly up', () => {
+        this.isHide = true
+        this.$emit('hide')
+      })
     },
     scrollToPinSelection () {
       let rect = this.pinSelection.rect
@@ -93,14 +103,6 @@ let AnnotationPanel = {
       /*顯示出捲動後的高度值*/
       return bodyTop
     },
-    animate () {
-      const element = this.$refs.panel
-      element.classList.add('animated', 'bounce')
-
-      element.addEventListener('animationend', () => { 
-        console.log('a')
-      })
-    }
   } // methods
 }
 

@@ -53,7 +53,7 @@ let AnnotationManager = {
       //console.log(type)
     },
     unpin: function () {
-      this.$refs.RangyManager.unpinSelection()
+      this.$refs.RangyManager.unpinSelection(true)
       this.selection = null
       this.pinSelection = null
     }
