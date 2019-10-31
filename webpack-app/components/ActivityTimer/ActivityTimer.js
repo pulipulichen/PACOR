@@ -39,6 +39,9 @@ let ActivityTimer = {
       if (acted === true) {
         await this.lib.AxiosHelper.get('/client/ReadingProgress/activityTimer', {
           seconds: this.toNow()
+        }, (error) => {
+          console.error(error)
+          this.lib.auth.logout()
         })
         acted = false
       }

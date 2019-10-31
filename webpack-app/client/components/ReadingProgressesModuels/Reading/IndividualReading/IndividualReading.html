@@ -5,16 +5,13 @@
                 v-bind:error="error"
                 v-bind:lib="lib"
                 ref="nav"></navigation-items>
-  <rangy v-bind:status="status"
-         v-bind:rangyConfig="rangyConfig"
-         v-on:select="onselect"
-         v-on:selectcollapsed="onselectcollapsed"></rangy>
   
-  <annotation-type-selector v-bind:config="config"
+  <annotation v-bind:config="config"
         v-bind:status="status"
+        v-bind:progress="progress"
         v-bind:lib="lib"
-        v-bind:selection="selection"
-        ref="AnnotationTypeSelector"></annotation-type-selector>
+        v-bind:error="error"
+        ref="auth"></annotation>
   
   <!-- <block-exit></block-exit> -->
   <activity-timer v-bind:config="config"

@@ -95,6 +95,9 @@ let Auth = {
       //return
       location.href = url
     },
+    logout: function () {
+      return this.showLogin()
+    },
     showLogin: function () {
       this.status.needLogin = true
       this.status.view = 'Login'
