@@ -71,7 +71,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"AnnotationPanel.less?vue&type=style&index=0&id=77c1285b&lang=less&scoped=true&"}]);
+exports.push([module.i, ".annotation-panel[data-v-77c1285b] {\n  position: fixed !important;\n  margin-top: 0;\n  margin-bottom: 0;\n  left: 0;\n  bottom: 0;\n  width: 100vw;\n  height: 50vh;\n  background-color: red !important;\n}\n.annotation-panel.hidden[data-v-77c1285b] {\n  display: none;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=77c1285b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,aAAa;EACb,gBAAgB;EAChB,OAAO;EACP,SAAS;EACT,YAAY;EACZ,YAAY;EACZ,gCAAgC;AAClC;AACA;EACE,aAAa;AACf","file":"AnnotationPanel.less?vue&type=style&index=0&id=77c1285b&lang=less&scoped=true&","sourcesContent":[".annotation-panel[data-v-77c1285b] {\n  position: fixed !important;\n  margin-top: 0;\n  margin-bottom: 0;\n  left: 0;\n  bottom: 0;\n  width: 100vw;\n  height: 50vh;\n  background-color: red !important;\n}\n.annotation-panel.hidden[data-v-77c1285b] {\n  display: none;\n}\n"]}]);
 
 
 /***/ }),
@@ -136,7 +136,7 @@ var render = function() {
           lib: _vm.lib,
           selection: _vm.selection
         },
-        on: { selectAnnotation: _vm.selectAnnotation }
+        on: { selectAnnotation: _vm.pin }
       }),
       _vm._v(" "),
       _c("annotation-panel", {
@@ -146,8 +146,10 @@ var render = function() {
           status: _vm.status,
           progress: _vm.progress,
           lib: _vm.lib,
-          error: _vm.error
-        }
+          error: _vm.error,
+          pinSelection: _vm.pinSelection
+        },
+        on: { hide: _vm.unpin }
       })
     ],
     1
@@ -175,9 +177,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui segment" }, [
-    _vm._v("\r\n  Annotation Panel\r\n")
-  ])
+  return _c(
+    "div",
+    {
+      staticClass: "ui segment annotation-panel",
+      class: { hidden: _vm.isHide }
+    },
+    [
+      _vm._v("\r\n  Annotation Panel\r\n  "),
+      _c(
+        "button",
+        {
+          staticClass: "ui button",
+          attrs: { type: "button" },
+          on: { click: _vm.hide }
+        },
+        [_vm._v("Close")]
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -399,6 +417,7 @@ let AnnotationManager = {
     this.$i18n.locale = this.config.locale
     return {
       selection: null,
+      pinSelection: null,
     }
   },
   components: {
@@ -433,10 +452,16 @@ let AnnotationManager = {
       //console.log('collapsed')
       this.selection = null
     },
-    selectAnnotation: function (type) {
-      this.$refs.RangyManager.pinSelection()
-      this.$refs.AnnotationPanel.show()
+    pin: function (type) {
+      this.selection = null
+      this.pinSelection = this.$refs.RangyManager.pinSelection()
+      //this.$refs.AnnotationPanel.show()
       console.log(type)
+    },
+    unpin: function () {
+      this.$refs.RangyManager.unpinSelection()
+      this.selection = null
+      this.pinSelection = null
     }
   } // methods
 }
@@ -563,7 +588,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let AnnotationPanel = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+  props: ['lib', 'status', 'config', 'progress', 'error', 'pinSelection'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -575,6 +600,12 @@ let AnnotationPanel = {
   computed: {
   },
   watch: {
+    pinSelection: function (pinSelection) {
+      if (pinSelection !== null 
+              && typeof(pinSelection) === 'object') {
+        this.show()
+      }
+    }
   },
   mounted() {
   },
@@ -584,6 +615,7 @@ let AnnotationPanel = {
     },
     hide () {
       this.isHide = true
+      this.$emit('hide')
     }
   } // methods
 }

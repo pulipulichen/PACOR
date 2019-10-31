@@ -8,6 +8,7 @@ let AnnotationManager = {
     this.$i18n.locale = this.config.locale
     return {
       selection: null,
+      pinSelection: null,
     }
   },
   components: {
@@ -42,10 +43,16 @@ let AnnotationManager = {
       //console.log('collapsed')
       this.selection = null
     },
-    selectAnnotation: function (type) {
-      this.$refs.RangyManager.pinSelection()
-      this.$refs.AnnotationPanel.show()
+    pin: function (type) {
+      this.selection = null
+      this.pinSelection = this.$refs.RangyManager.pinSelection()
+      //this.$refs.AnnotationPanel.show()
       console.log(type)
+    },
+    unpin: function () {
+      this.$refs.RangyManager.unpinSelection()
+      this.selection = null
+      this.pinSelection = null
     }
   } // methods
 }

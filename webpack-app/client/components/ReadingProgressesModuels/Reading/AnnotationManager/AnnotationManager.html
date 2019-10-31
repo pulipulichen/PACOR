@@ -10,7 +10,7 @@
         v-bind:status="status"
         v-bind:lib="lib"
         v-bind:selection="selection"
-        v-on:selectAnnotation="selectAnnotation"
+        v-on:selectAnnotation="pin"
         ref="AnnotationTypeSelector"></annotation-type-selector>
   
   <annotation-panel v-bind:config="config"
@@ -18,6 +18,8 @@
         v-bind:progress="progress"
         v-bind:lib="lib"
         v-bind:error="error"
+        v-bind:pinSelection="pinSelection"
+        v-on:hide="unpin"
         ref="AnnotationPanel"></annotation-panel>
   
 </fragment>

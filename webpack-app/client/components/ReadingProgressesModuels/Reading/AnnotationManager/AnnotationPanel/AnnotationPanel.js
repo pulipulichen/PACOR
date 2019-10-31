@@ -1,5 +1,5 @@
 let AnnotationPanel = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+  props: ['lib', 'status', 'config', 'progress', 'error', 'pinSelection'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -11,6 +11,12 @@ let AnnotationPanel = {
   computed: {
   },
   watch: {
+    pinSelection: function (pinSelection) {
+      if (pinSelection !== null 
+              && typeof(pinSelection) === 'object') {
+        this.show()
+      }
+    }
   },
   mounted() {
   },
@@ -20,6 +26,7 @@ let AnnotationPanel = {
     },
     hide () {
       this.isHide = true
+      this.$emit('hide')
     }
   } // methods
 }
