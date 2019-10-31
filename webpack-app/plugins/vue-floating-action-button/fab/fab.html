@@ -1,12 +1,12 @@
 <div ref="fab" 
      class="fab-main-container"
-     v-bind:class="{hidden: isHidden, 'semantic-ui': (iconType === 'SemanticUI')}">
+     v-bind:class="{hidden: isInitHidden, 'semantic-ui': (iconType === 'SemanticUI')}">
   
   <!-- 這個是主要的item -->
   <transition v-bind:name="transitionName">
     <fab-cantainer
       v-on:click.native="openMenu" 
-      v-if="hidden"
+      v-if="visible"
       class="fab"
       data-outside="true"
       v-bind:class="'fab-size-' + size"

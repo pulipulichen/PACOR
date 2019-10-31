@@ -113,10 +113,10 @@ export default {
       handleClass: handleClass,
       active: false,
       scrollTop: 0,
-      hidden: true,
+      visible: true,
       scrollDirection: null, // 滚动方向 up/down
       changeDirectionScrollTop: 0, // 改变滚动方向时距离顶部的位置
-      isHidden: false,
+      isInitHidden: false,  // 額外加上去的東西
       touchEventInfo: {
         startY: 0,
         offsetY: 0
@@ -129,8 +129,7 @@ export default {
         this.onOffFab(false)
       }
     },
-    // 這個hidden = true其實是顯示
-    hidden: function (val) {
+    visible: function (val) {
       //console.log(val, this.active)
       if (!val && this.active) {
         this.active = false
@@ -207,16 +206,16 @@ export default {
       }
     },
     scrollDirectionUpAndHidden: function () {
-      return this.scrollDirection === 'up' && this.hidden === true
+      return this.scrollDirection === 'up' && this.visible === true
     },
     scrollDirectionDownAndShow: function () {
-      return this.scrollDirection === 'down' && this.hidden === false
+      return this.scrollDirection === 'down' && this.visible === false
     },
     scrollDirectionUpAndShow: function () {
-      return this.scrollDirection === 'up' && this.hidden === false
+      return this.scrollDirection === 'up' && this.visible === false
     },
     scrollDirectionDownAndHidden: function () {
-      return this.scrollDirection === 'down' && this.hidden === true
+      return this.scrollDirection === 'down' && this.visible === true
     },
     transitionName: function () {
       if (this.transitionEnable === false) {
@@ -254,7 +253,7 @@ export default {
      * @param { Boolean } onOff 是否显示Fab
      */
     onOffFab: function (onOff) {
-      this.hidden = onOff
+      this.visible = onOff
       //console.log(this.autoOpenMenu, val, this.active)
       if (this.autoOpenMenu === true && onOff === true) {
         setTimeout(() => {
@@ -292,11 +291,11 @@ export default {
      * @method scrollerEventListener 监听滚动事件
      */
     scrollerEventListener: function () {
-      //console.log(this.hidden, this.scrollAutoShow, this.scrollAutoHide)
-      if (this.hidden === false && this.scrollAutoShow === false) {
+      //console.log(this.visible, this.scrollAutoShow, this.scrollAutoHide)
+      if (this.visible === false && this.scrollAutoShow === false) {
         return false
       }
-      else if (this.hidden === true && this.scrollAutoHide === false) {
+      else if (this.visible === true && this.scrollAutoHide === false) {
         return false
       }
       
@@ -311,7 +310,7 @@ export default {
         return false
       }
       // 偏移量
-      this.hidden = this.computedShowHideByOffset()
+      this.visible = this.computedShowHideByOffset()
       return true
     },
     computedOffsetOver: function (offset) {
@@ -352,9 +351,9 @@ export default {
         return false
       }
       if (this.touchEventInfo.offsetY > 0) {
-        this.hidden = this.autoHideDirection !== 'up'
+        this.visible = this.autoHideDirection !== 'up'
       } else {
-        this.hidden = this.autoHideDirection === 'up'
+        this.visible = this.autoHideDirection === 'up'
       }
       this.touchEventInfo.offsetY = 0
     },
@@ -382,10 +381,10 @@ export default {
   mounted () {
     
     if (this.hideOnStart === true) {
-      this.isHidden = true
+      this.isInitHidden = true
       this.onOffFab(false)
       setTimeout(() => {
-        this.isHidden = false
+        this.isInitHidden = false
       }, 500)
     }
     else {

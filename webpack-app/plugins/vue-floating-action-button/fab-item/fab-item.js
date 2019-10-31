@@ -36,7 +36,7 @@ export default {
   },
   computed: {
     showItem: function () {
-      return (this.$parent.fabMenuAnimate === 'alive' || this.$parent.active) && this.$parent.hidden
+      return (this.$parent.fabMenuAnimate === 'alive' || this.$parent.active) && this.$parent.visible
     },
     /**
      * 根据不同的动画模式处理不同的css
