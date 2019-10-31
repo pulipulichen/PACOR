@@ -1,5 +1,6 @@
 import RangyManager from './RangyManager/RangyManager.vue'
 import AnnotationTypeSelector from './AnnotationTypeSelector/AnnotationTypeSelector.vue'
+import AnnotationPanel from './AnnotationPanel/AnnotationPanel.vue'
 
 let AnnotationManager = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
@@ -11,7 +12,8 @@ let AnnotationManager = {
   },
   components: {
     'rangy': RangyManager,
-    'annotation-type-selector': AnnotationTypeSelector
+    'annotation-type-selector': AnnotationTypeSelector,
+    'annotation-panel': AnnotationPanel
   },
   computed: {
     rangyConfig: function () {
@@ -25,19 +27,25 @@ let AnnotationManager = {
       return output
     }
   },
+  /*
   watch: {
   },
   mounted() {
-    console.log('AAA')
   },
+  */
   methods: {
     onselect: function (selection) {
-      console.log(selection)
+      //console.log(selection)
       this.selection = selection
     },
     onselectcollapsed: function () {
-      console.log('collapsed')
+      //console.log('collapsed')
       this.selection = null
+    },
+    selectAnnotation: function (type) {
+      this.$refs.RangyManager.pinSelection()
+      this.$refs.AnnotationPanel.show()
+      console.log(type)
     }
   } // methods
 }

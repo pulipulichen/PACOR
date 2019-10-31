@@ -49,7 +49,8 @@ let AnnotationTypeSelector = {
   },
   methods: {
     clickItem: function (type) {
-      console.log('clickItem', type)
+      //console.log('clickItem', type)
+      this.$emit('selectAnnotation', type)
     }
   } // methods
 }

@@ -1,13 +1,23 @@
 <fragment>
-  111
+  
   <rangy v-bind:status="status"
          v-bind:rangyConfig="rangyConfig"
          v-on:select="onselect"
-         v-on:selectcollapsed="onselectcollapsed"></rangy>
+         v-on:selectcollapsed="onselectcollapsed"
+         ref="RangyManager"></rangy>
   
   <annotation-type-selector v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib"
         v-bind:selection="selection"
+        v-on:selectAnnotation="selectAnnotation"
         ref="AnnotationTypeSelector"></annotation-type-selector>
+  
+  <annotation-panel v-bind:config="config"
+        v-bind:status="status"
+        v-bind:progress="progress"
+        v-bind:lib="lib"
+        v-bind:error="error"
+        ref="AnnotationPanel"></annotation-panel>
+  
 </fragment>
