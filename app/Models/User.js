@@ -52,7 +52,9 @@ class User extends Model {
         await instance.save()
       }
     })
-  }
+    
+    this.addTrait('JSONCase', 'perference')
+  } // static boot () {
   
   static async findByNameInWebpage (webpage, username) {
     let users = await User
