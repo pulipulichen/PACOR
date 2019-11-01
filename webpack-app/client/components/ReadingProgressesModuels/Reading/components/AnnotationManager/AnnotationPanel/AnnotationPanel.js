@@ -18,6 +18,7 @@ let AnnotationPanel = {
   },
   computed: {
     enableCollaboration () {
+      return true
       let stepConfig = this.lib.auth.currentStepConfig
       return (stepConfig.annotation.enableCollaboration === true)
     },

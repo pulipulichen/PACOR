@@ -4,10 +4,16 @@ img {
   height: 2em;
   width: auto;
   float:left;
-  margin-right: @margin;
+  max-width: inherit !important;
+  //margin-right: @margin;
 }
 
 .username {
-  margin-right: @margin;
+  //margin-right: @margin;
   display: inline-block;
+  
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }

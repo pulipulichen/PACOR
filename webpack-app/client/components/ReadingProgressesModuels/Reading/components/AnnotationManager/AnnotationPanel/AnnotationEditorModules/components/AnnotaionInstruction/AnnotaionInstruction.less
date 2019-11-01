@@ -1,3 +1,16 @@
 .button {
-  margin-left: 1em !important;
+  //margin-left: 1em !important;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.column:not(.grid) {
+  //border: 1px solid red !important;
+  padding: 0.5em !important;
+  
+  &.right {
+    padding-left: 0 !important;
+  }
 }

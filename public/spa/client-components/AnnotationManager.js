@@ -163,7 +163,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".button[data-v-673c960f] {\n  margin-left: 1em !important;\n}\n", "",{"version":3,"sources":["AnnotaionInstruction.less?vue&type=style&index=0&id=673c960f&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,2BAA2B;AAC7B","file":"AnnotaionInstruction.less?vue&type=style&index=0&id=673c960f&lang=less&scoped=true&","sourcesContent":[".button[data-v-673c960f] {\n  margin-left: 1em !important;\n}\n"]}]);
+exports.push([module.i, ".button[data-v-673c960f] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n}\n.column[data-v-673c960f]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-673c960f] {\n  padding-left: 0 !important;\n}\n", "",{"version":3,"sources":["AnnotaionInstruction.less?vue&type=style&index=0&id=673c960f&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,uBAAuB;EACvB,gBAAgB;EAChB,eAAe;AACjB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,0BAA0B;AAC5B","file":"AnnotaionInstruction.less?vue&type=style&index=0&id=673c960f&lang=less&scoped=true&","sourcesContent":[".button[data-v-673c960f] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n}\n.column[data-v-673c960f]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-673c960f] {\n  padding-left: 0 !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -177,7 +177,7 @@ exports.push([module.i, ".button[data-v-673c960f] {\n  margin-left: 1em !importa
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "img[data-v-fa31e19a] {\n  height: 2em;\n  width: auto;\n  float: left;\n  margin-right: 1em;\n}\n.username[data-v-fa31e19a] {\n  margin-right: 1em;\n  display: inline-block;\n}\n", "",{"version":3,"sources":["UserInformation.less?vue&type=style&index=0&id=fa31e19a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,iBAAiB;AACnB;AACA;EACE,iBAAiB;EACjB,qBAAqB;AACvB","file":"UserInformation.less?vue&type=style&index=0&id=fa31e19a&lang=less&scoped=true&","sourcesContent":["img[data-v-fa31e19a] {\n  height: 2em;\n  width: auto;\n  float: left;\n  margin-right: 1em;\n}\n.username[data-v-fa31e19a] {\n  margin-right: 1em;\n  display: inline-block;\n}\n"]}]);
+exports.push([module.i, "img[data-v-fa31e19a] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-fa31e19a] {\n  display: inline-block;\n  max-width: 100%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n}\n", "",{"version":3,"sources":["UserInformation.less?vue&type=style&index=0&id=fa31e19a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,eAAe;EACf,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;AAClB","file":"UserInformation.less?vue&type=style&index=0&id=fa31e19a&lang=less&scoped=true&","sourcesContent":["img[data-v-fa31e19a] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-fa31e19a] {\n  display: inline-block;\n  max-width: 100%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n}\n"]}]);
 
 
 /***/ }),
@@ -327,7 +327,7 @@ var render = function() {
       _c("div", { staticClass: "two columns row" }, [
         _c(
           "div",
-          { staticClass: "column" },
+          { staticClass: "six wide column" },
           [
             _c("user-information", {
               attrs: {
@@ -341,7 +341,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "column" },
+          { staticClass: "ten wide column" },
           [
             _c("annotaion-instruction", {
               attrs: {
@@ -387,17 +387,28 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui compact right floated segment" }, [
-    _vm._v("\r\n  " + _vm._s(_vm.instruction.summary) + "\r\n  "),
-    _c(
-      "button",
-      {
-        staticClass: "ui mini button",
-        attrs: { type: "button" },
-        on: { click: _vm.showInstruction }
-      },
-      [_vm._v("\r\n    " + _vm._s(_vm.$t("Hint")) + "\r\n  ")]
-    )
+  return _c("div", { staticClass: "ui segment" }, [
+    _c("div", { staticClass: "ui middle aligned two column grid" }, [
+      _c("div", { staticClass: "ten wide column" }, [
+        _vm._v("\r\n        " + _vm._s(_vm.instruction.summary) + "\r\n      ")
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "six wide right floated right aligned column" },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "ui mini fluid button",
+              attrs: { type: "button" },
+              on: { click: _vm.showInstruction }
+            },
+            [_vm._v("\r\n          " + _vm._s(_vm.$t("Hint")) + "\r\n        ")]
+          )
+        ]
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -422,21 +433,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "fragment",
-    [
-      _c("img", { attrs: { src: _vm.status.avatar } }),
-      _vm._v(" "),
-      _c("div", { staticClass: "username" }, [
-        _vm._v("\r\n    " + _vm._s(_vm.username) + "\r\n  ")
+  return _c("div", { staticClass: "ui middle aligned grid" }, [
+    _c("div", { staticClass: "three column unstackable row" }, [
+      _c("div", { staticClass: "three wide column" }, [
+        _c("img", { attrs: { src: _vm.status.avatar } })
       ]),
       _vm._v(" "),
-      _c("annotation-module-button", {
-        attrs: { status: _vm.status, annotationModule: _vm.annotationModule }
-      })
-    ],
-    1
-  )
+      _c("div", { staticClass: "seven wide column" }, [
+        _c("div", { staticClass: "username" }, [
+          _vm._v(
+            "\r\n        " +
+              _vm._s(_vm.username) +
+              "ssssssssssssssssss\r\n      "
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "six wide column" },
+        [
+          _c("annotation-module-button", {
+            attrs: {
+              status: _vm.status,
+              annotationModule: _vm.annotationModule
+            }
+          })
+        ],
+        1
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1627,6 +1654,7 @@ let AnnotationPanel = {
   },
   computed: {
     enableCollaboration () {
+      return true
       let stepConfig = this.lib.auth.currentStepConfig
       return (stepConfig.annotation.enableCollaboration === true)
     },

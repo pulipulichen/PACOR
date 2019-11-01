@@ -1,9 +1,17 @@
-<fragment>
-  <img v-bind:src="status.avatar" />
-  <div class="username">
-    {{ username }}
-  </div>
-  <annotation-module-button 
+<div class="ui middle aligned grid">
+  <div class="three column unstackable row">
+    <div class="three wide column">
+      <img v-bind:src="status.avatar" />
+    </div>
+    <div class="seven wide column">
+      <div class="username">
+        {{ username }}ssssssssssssssssss
+      </div>
+    </div>
+    <div class="six wide column">
+      <annotation-module-button 
         v-bind:status="status"
         v-bind:annotationModule="annotationModule"></annotation-module-button>
-</fragment>
+    </div>
+  </div>
+</div>
