@@ -13,11 +13,12 @@
       </div>
     </div>
   </div>
-  <div class="ui segment"
-       v-bind:style="computedEditorStyle"
-       v-on:click="focusEditor">
-    <HTMLEditor ref="editor"></HTMLEditor>
-  </div>
+  
+  <HTMLEditor ref="editor"
+              v-bind:style="computedEditorStyle"
+              v-bind:editorConfig="editorConfig"
+              v-on:change="onEditorChange"></HTMLEditor>
+
   <div class="ui one column grid annotation-panel-buttons">
     <div class="right aligned column">
       <!--

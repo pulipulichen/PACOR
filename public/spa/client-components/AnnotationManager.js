@@ -322,76 +322,85 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui form" }, [
-    _c("div", { staticClass: "ui middle aligned grid" }, [
-      _c("div", { staticClass: "two columns row" }, [
-        _c(
-          "div",
-          { staticClass: "six wide column" },
-          [
-            _c("user-information", {
-              attrs: {
-                annotationModule: _vm.annotationModule,
-                status: _vm.status
-              }
-            })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "ten wide column" },
-          [
-            _c("annotaion-instruction", {
-              attrs: {
-                config: _vm.config,
-                status: _vm.status,
-                annotationModule: _vm.annotationModule
-              }
-            })
-          ],
-          1
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "ui segment",
+  return _c(
+    "div",
+    { staticClass: "ui form" },
+    [
+      _c("div", { staticClass: "ui middle aligned grid" }, [
+        _c("div", { staticClass: "two columns row" }, [
+          _c(
+            "div",
+            { staticClass: "six wide column" },
+            [
+              _c("user-information", {
+                attrs: {
+                  annotationModule: _vm.annotationModule,
+                  status: _vm.status
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "ten wide column" },
+            [
+              _c("annotaion-instruction", {
+                attrs: {
+                  config: _vm.config,
+                  status: _vm.status,
+                  annotationModule: _vm.annotationModule
+                }
+              })
+            ],
+            1
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("HTMLEditor", {
+        ref: "editor",
         style: _vm.computedEditorStyle,
-        on: { click: _vm.focusEditor }
-      },
-      [_c("HTMLEditor", { ref: "editor" })],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "ui one column grid annotation-panel-buttons" }, [
-      _c("div", { staticClass: "right aligned column" }, [
-        _c(
-          "button",
-          {
-            staticClass: "ui button",
-            attrs: { type: "button" },
-            on: { click: _vm.hide }
-          },
-          [_vm._v("\r\n        " + _vm._s(_vm.$t("CANCEL")) + "  \r\n      ")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "ui button",
-            class: { disabled: !_vm.enableAddAnnotation },
-            attrs: { type: "button" },
-            on: { click: _vm.addAnnotation }
-          },
-          [_vm._v("\r\n        " + _vm._s(_vm.$t("ADD")) + "  \r\n      ")]
-        )
-      ])
-    ])
-  ])
+        attrs: { editorConfig: _vm.editorConfig },
+        on: { change: _vm.onEditorChange }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "ui one column grid annotation-panel-buttons" },
+        [
+          _c("div", { staticClass: "right aligned column" }, [
+            _c(
+              "button",
+              {
+                staticClass: "ui button",
+                attrs: { type: "button" },
+                on: { click: _vm.hide }
+              },
+              [
+                _vm._v(
+                  "\r\n        " + _vm._s(_vm.$t("CANCEL")) + "  \r\n      "
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "ui button",
+                class: { disabled: !_vm.enableAddAnnotation },
+                attrs: { type: "button" },
+                on: { click: _vm.addAnnotation }
+              },
+              [_vm._v("\r\n        " + _vm._s(_vm.$t("ADD")) + "  \r\n      ")]
+            )
+          ])
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1263,10 +1272,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MainIdea = {
-  props: ['lib', 'status', 'config', 'annotationModule', 'heightVH', 'error', 'view'],
+  props: ['lib', 'status', 'config', 'annotationModule', 'heightVH', 'error', 'view', 'annotationInstance'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
+    let note = ''
+    if (typeof(this.annotationInstance) === 'object'
+            && typeof(this.annotationInstance.note) === 'string') {
+      note = this.annotationInstance.note
+    }
+    
     return {
+      note: note,
+      noteReset: note
     }
   },
   components: {
@@ -1274,16 +1292,35 @@ let MainIdea = {
     'annotaion-instruction': _components_AnnotaionInstruction_AnnotaionInstruction_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   computed: {
-    enableEditAnnotation () {
-      return false
+    isNoteDifferent () {
+      return (this.note !== this.noteReset)
     },
     enableAddAnnotation () {
+      if (this.isNoteDifferent 
+              && typeof(this.note) === 'string'
+              && this.note !== '') {
+        return true
+      }
       return false
     },
+    enableEditAnnotation () {
+      return this.enableAddAnnotation
+    },
+    /*
     computedEditorStyle () {
       return {
-        height: `calc(${this.heightVH}vh - 10em)`,
+        height: `calc(${this.heightVH}vh - 11em)`,
         //border: '1px solid red'
+      }
+    },
+    */
+    editorConfig () {
+      return {
+        content: this.note,
+        style: {
+          height: `calc(${this.heightVH}vh - 11em)`,
+          //border: '1px solid red'
+        }
       }
     }
   },
@@ -1303,9 +1340,6 @@ let MainIdea = {
     },
     hide () {
       this.$parent.hide()
-    },
-    focusEditor () {
-      this.$refs.editor.focus()
     }
   } // methods
 }

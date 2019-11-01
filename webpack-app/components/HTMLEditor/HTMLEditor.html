@@ -1,1 +1,5 @@
-<div ref="editor">HTMLEditor</div>
+<div class="ui segment html-editor-container"
+     v-bind:style="editorConfig.style"
+     v-on:click="focus">
+  <div ref="editor"></div>
+</div>

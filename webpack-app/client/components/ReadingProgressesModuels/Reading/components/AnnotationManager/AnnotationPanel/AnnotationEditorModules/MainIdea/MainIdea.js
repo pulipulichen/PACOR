@@ -2,10 +2,19 @@ import UserInformation from './../components/UserInformation/UserInformation.vue
 import AnnotaionInstruction from './../components/AnnotaionInstruction/AnnotaionInstruction.vue'
 
 let MainIdea = {
-  props: ['lib', 'status', 'config', 'annotationModule', 'heightVH', 'error', 'view'],
+  props: ['lib', 'status', 'config', 'annotationModule', 'heightVH', 'error', 'view', 'annotationInstance'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
+    let note = ''
+    if (typeof(this.annotationInstance) === 'object'
+            && typeof(this.annotationInstance.note) === 'string') {
+      note = this.annotationInstance.note
+    }
+    
     return {
+      note: note,
+      noteReset: note
     }
   },
   components: {
@@ -13,16 +22,35 @@ let MainIdea = {
     'annotaion-instruction': AnnotaionInstruction
   },
   computed: {
-    enableEditAnnotation () {
-      return false
+    isNoteDifferent () {
+      return (this.note !== this.noteReset)
     },
     enableAddAnnotation () {
+      if (this.isNoteDifferent 
+              && typeof(this.note) === 'string'
+              && this.note !== '') {
+        return true
+      }
       return false
     },
+    enableEditAnnotation () {
+      return this.enableAddAnnotation
+    },
+    /*
     computedEditorStyle () {
       return {
-        height: `calc(${this.heightVH}vh - 10em)`,
+        height: `calc(${this.heightVH}vh - 11em)`,
         //border: '1px solid red'
+      }
+    },
+    */
+    editorConfig () {
+      return {
+        content: this.note,
+        style: {
+          height: `calc(${this.heightVH}vh - 11em)`,
+          //border: '1px solid red'
+        }
       }
     }
   },
@@ -42,9 +70,6 @@ let MainIdea = {
     },
     hide () {
       this.$parent.hide()
-    },
-    focusEditor () {
-      this.$refs.editor.focus()
     }
   } // methods
 }
