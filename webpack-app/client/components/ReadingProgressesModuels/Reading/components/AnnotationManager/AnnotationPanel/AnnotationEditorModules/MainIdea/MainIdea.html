@@ -13,10 +13,12 @@
       </div>
     </div>
   </div>
-  <div class="field input">
-    #Summernote
+  <div class="ui segment"
+       v-bind:style="computedEditorStyle"
+       v-on:click="focusEditor">
+    <HTMLEditor ref="editor"></HTMLEditor>
   </div>
-  <div class="ui one column grid">
+  <div class="ui one column grid annotation-panel-buttons">
     <div class="right aligned column">
       <!--
       #time

@@ -36,6 +36,7 @@
     "fragment": {},
     "materials": {},
     "block-exit": {},
+    "HTMLEditor": {},
     "style": {
       "attributes": {
         "scoped": {},

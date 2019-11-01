@@ -7,7 +7,7 @@ let HTMLEditor = {
       this.$i18n.locale = this.config.locale
     }
     return {
-      serializedHighlights: null
+      editor: null
     }
   },  // data() {
   computed: {
@@ -19,10 +19,20 @@ let HTMLEditor = {
   },  // mounted() {
   methods: {
     initEditor: function () {
-      $('<div class="editor-container"><div id="editor"><h1>Hello Summernote</h1></div></div>').appendTo('body')
-      $('#editor').summernote({
+      let options = {
+        airMode: true
+      }
+      
+      this.editor = window.$(this.$refs.editor)
+      this.editor.summernote(options)
+      
+      //$('<div class="editor-container"><div id="editor"><h1>Hello Summernote</h1></div></div>').appendTo('body')
+      //$('#editor').summernote({
         //airMode: true
-      })
+      //})
+    },
+    focus () {
+      this.editor.summernote('focus')
     }
   } // methods
 }

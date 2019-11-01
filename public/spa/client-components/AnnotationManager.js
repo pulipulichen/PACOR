@@ -149,7 +149,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"MainIdea.less?vue&type=style&index=0&id=45a0d506&lang=less&scoped=true&"}]);
+exports.push([module.i, ".annotation-panel-buttons[data-v-45a0d506] {\n  user-select: none;\n}\n", "",{"version":3,"sources":["MainIdea.less?vue&type=style&index=0&id=45a0d506&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;AACnB","file":"MainIdea.less?vue&type=style&index=0&id=45a0d506&lang=less&scoped=true&","sourcesContent":[".annotation-panel-buttons[data-v-45a0d506] {\n  user-select: none;\n}\n"]}]);
 
 
 /***/ }),
@@ -163,7 +163,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".button[data-v-673c960f] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n}\n.column[data-v-673c960f]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-673c960f] {\n  padding-left: 0 !important;\n}\n", "",{"version":3,"sources":["AnnotaionInstruction.less?vue&type=style&index=0&id=673c960f&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,uBAAuB;EACvB,gBAAgB;EAChB,eAAe;AACjB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,0BAA0B;AAC5B","file":"AnnotaionInstruction.less?vue&type=style&index=0&id=673c960f&lang=less&scoped=true&","sourcesContent":[".button[data-v-673c960f] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n}\n.column[data-v-673c960f]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-673c960f] {\n  padding-left: 0 !important;\n}\n"]}]);
+exports.push([module.i, ".button[data-v-673c960f],\n.summary[data-v-673c960f] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n}\n.column[data-v-673c960f]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-673c960f] {\n  padding-left: 0 !important;\n}\n", "",{"version":3,"sources":["AnnotaionInstruction.less?vue&type=style&index=0&id=673c960f&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;EAEE,mBAAmB;EACnB,uBAAuB;EACvB,gBAAgB;EAChB,eAAe;AACjB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,0BAA0B;AAC5B","file":"AnnotaionInstruction.less?vue&type=style&index=0&id=673c960f&lang=less&scoped=true&","sourcesContent":[".button[data-v-673c960f],\n.summary[data-v-673c960f] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n}\n.column[data-v-673c960f]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-673c960f] {\n  padding-left: 0 !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -356,11 +356,18 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "field input" }, [
-      _vm._v("\r\n    #Summernote\r\n  ")
-    ]),
+    _c(
+      "div",
+      {
+        staticClass: "ui segment",
+        style: _vm.computedEditorStyle,
+        on: { click: _vm.focusEditor }
+      },
+      [_c("HTMLEditor", { ref: "editor" })],
+      1
+    ),
     _vm._v(" "),
-    _c("div", { staticClass: "ui one column grid" }, [
+    _c("div", { staticClass: "ui one column grid annotation-panel-buttons" }, [
       _c("div", { staticClass: "right aligned column" }, [
         _c(
           "button",
@@ -413,7 +420,7 @@ var render = function() {
     { staticClass: "ui segment" },
     [
       _c("div", { staticClass: "ui middle aligned two column grid" }, [
-        _c("div", { staticClass: "ten wide column" }, [
+        _c("div", { staticClass: "ten wide column summary" }, [
           _vm._v(
             "\r\n        " + _vm._s(_vm.instruction.summary) + "\r\n      "
           )
@@ -576,6 +583,7 @@ var render = function() {
                         status: _vm.status,
                         annotationModule: _vm.annotationModule,
                         lib: _vm.lib,
+                        heightVH: _vm.heightVH,
                         error: _vm.error
                       }
                     })
@@ -1255,7 +1263,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MainIdea = {
-  props: ['lib', 'status', 'config', 'annotationModule', 'error', 'view'],
+  props: ['lib', 'status', 'config', 'annotationModule', 'heightVH', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -1271,6 +1279,12 @@ let MainIdea = {
     },
     enableAddAnnotation () {
       return false
+    },
+    computedEditorStyle () {
+      return {
+        height: `calc(${this.heightVH}vh - 10em)`,
+        //border: '1px solid red'
+      }
     }
   },
   watch: {
@@ -1289,6 +1303,9 @@ let MainIdea = {
     },
     hide () {
       this.$parent.hide()
+    },
+    focusEditor () {
+      this.$refs.editor.focus()
     }
   } // methods
 }

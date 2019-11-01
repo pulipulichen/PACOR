@@ -2,7 +2,7 @@ import UserInformation from './../components/UserInformation/UserInformation.vue
 import AnnotaionInstruction from './../components/AnnotaionInstruction/AnnotaionInstruction.vue'
 
 let MainIdea = {
-  props: ['lib', 'status', 'config', 'annotationModule', 'error', 'view'],
+  props: ['lib', 'status', 'config', 'annotationModule', 'heightVH', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -18,6 +18,12 @@ let MainIdea = {
     },
     enableAddAnnotation () {
       return false
+    },
+    computedEditorStyle () {
+      return {
+        height: `calc(${this.heightVH}vh - 10em)`,
+        //border: '1px solid red'
+      }
     }
   },
   watch: {
@@ -36,6 +42,9 @@ let MainIdea = {
     },
     hide () {
       this.$parent.hide()
+    },
+    focusEditor () {
+      this.$refs.editor.focus()
     }
   } // methods
 }
