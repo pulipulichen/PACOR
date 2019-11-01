@@ -12,7 +12,7 @@ let IndividualReading = {
   components: {
     //'navigation-items': () => import(/* webpackChunkName: "client-components/IndividualReading" */ './NavigationItems/NavigationItems.vue'),
     'navigation-items': NavigationItems,
-    'annotation': () => import(/* webpackChunkName: "client-components/AnnotationManager" */ './../AnnotationManager/AnnotationManager.vue'),
+    'annotation': () => import(/* webpackChunkName: "client-components/AnnotationManager" */ './../components/AnnotationManager/AnnotationManager.vue'),
   },
   computed: {
   },

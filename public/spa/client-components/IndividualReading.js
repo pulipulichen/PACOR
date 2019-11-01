@@ -267,7 +267,7 @@ let IndividualReading = {
   components: {
     //'navigation-items': () => import(/* webpackChunkName: "client-components/IndividualReading" */ './NavigationItems/NavigationItems.vue'),
     'navigation-items': _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'annotation': () => __webpack_require__.e(/*! import() | client-components/AnnotationManager */ "client-components/AnnotationManager").then(__webpack_require__.bind(null, /*! ./../AnnotationManager/AnnotationManager.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/AnnotationManager/AnnotationManager.vue")),
+    'annotation': () => __webpack_require__.e(/*! import() | client-components/AnnotationManager */ "client-components/AnnotationManager").then(__webpack_require__.bind(null, /*! ./../components/AnnotationManager/AnnotationManager.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationManager.vue")),
   },
   computed: {
   },
