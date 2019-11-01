@@ -1,11 +1,14 @@
-<fragment>
   <div class="annotation-panel"
        v-bind:class="{'hidden': isHide}">
-    <div class="ui red secondary segment form "
+    
+    <div class="ui secondary segment form "
          v-bind:style="{'height': heightVH + 'vh'}"
          v-bind:class="computedSegmentClass"
          ref="panel">
-
+      
+        <div class="resize-handler"
+             v-on:mousedown="onResizeStart"></div>
+      
       <div class="ui stackable"
            v-bind:class="computedGridClass">
         <div class="column annotation-editor">
@@ -30,7 +33,6 @@
             ref="AnnotationDisscussion"></annotation-discussion>
         </div>
       </div>
-      
       <!--
         <div class="field">
           Annotation Panel
@@ -42,5 +44,4 @@
       -->
     </div>
   </div>
-</fragment>
   

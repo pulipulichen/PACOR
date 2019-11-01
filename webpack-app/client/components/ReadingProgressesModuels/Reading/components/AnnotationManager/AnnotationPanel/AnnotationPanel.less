@@ -32,3 +32,15 @@
 }
 
 //@import './AnnotationPanel.transition.less';
+
+@resizeHandlerHeight: 2em;
+.resize-handler {
+  width: 100%;
+  height: @resizeHandlerHeight;
+  //position: relative;
+  cursor: grab;
+  top: @resizeHandlerHeight * -1;
+  position: relative;
+  //top: -1em;
+  background-color: rgba(255,0,0,0.7);
+}

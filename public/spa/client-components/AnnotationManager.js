@@ -191,7 +191,7 @@ exports.push([module.i, "img[data-v-fa31e19a] {\n  height: 2em;\n  width: auto;\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;AACzB;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ","file":"AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&","sourcesContent":[".annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n"]}]);
+exports.push([module.i, ".annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  top: -2em;\n  position: relative;\n  background-color: rgba(255, 0, 0, 0.7);\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;AACzB;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,WAAW;EACX,WAAW;EACX,YAAY;EACZ,SAAS;EACT,kBAAkB;EAClB,sCAAsC;AACxC","file":"AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&","sourcesContent":[".annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  top: -2em;\n  position: relative;\n  background-color: rgba(255, 0, 0, 0.7);\n}\n"]}]);
 
 
 /***/ }),
@@ -568,72 +568,75 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("fragment", [
-    _c(
-      "div",
-      { staticClass: "annotation-panel", class: { hidden: _vm.isHide } },
-      [
-        _c(
-          "div",
-          {
-            ref: "panel",
-            staticClass: "ui red secondary segment form ",
-            class: _vm.computedSegmentClass,
-            style: { height: _vm.heightVH + "vh" }
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "ui stackable", class: _vm.computedGridClass },
-              [
-                _c(
-                  "div",
-                  { staticClass: "column annotation-editor" },
-                  [
-                    _c(_vm.annotationModule, {
-                      tag: "component",
-                      attrs: {
-                        config: _vm.config,
-                        status: _vm.status,
-                        annotationModule: _vm.annotationModule,
-                        lib: _vm.lib,
-                        heightVH: _vm.heightVH,
-                        error: _vm.error
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm.enableCollaboration
-                  ? _c(
-                      "div",
-                      {
-                        staticClass: "column annotation-discussion",
-                        staticStyle: { "background-color": "green" }
-                      },
-                      [
-                        _c("annotation-discussion", {
-                          ref: "AnnotationDisscussion",
-                          attrs: {
-                            config: _vm.config,
-                            status: _vm.status,
-                            progress: _vm.progress,
-                            lib: _vm.lib,
-                            error: _vm.error
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  : _vm._e()
-              ]
-            )
-          ]
-        )
-      ]
-    )
-  ])
+  return _c(
+    "div",
+    { staticClass: "annotation-panel", class: { hidden: _vm.isHide } },
+    [
+      _c(
+        "div",
+        {
+          ref: "panel",
+          staticClass: "ui secondary segment form ",
+          class: _vm.computedSegmentClass,
+          style: { height: _vm.heightVH + "vh" }
+        },
+        [
+          _c("div", {
+            staticClass: "resize-handler",
+            on: { mousedown: _vm.onResizeStart }
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "ui stackable", class: _vm.computedGridClass },
+            [
+              _c(
+                "div",
+                { staticClass: "column annotation-editor" },
+                [
+                  _c(_vm.annotationModule, {
+                    tag: "component",
+                    attrs: {
+                      config: _vm.config,
+                      status: _vm.status,
+                      annotationModule: _vm.annotationModule,
+                      lib: _vm.lib,
+                      heightVH: _vm.heightVH,
+                      error: _vm.error
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm.enableCollaboration
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "column annotation-discussion",
+                      staticStyle: { "background-color": "green" }
+                    },
+                    [
+                      _c("annotation-discussion", {
+                        ref: "AnnotationDisscussion",
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          progress: _vm.progress,
+                          lib: _vm.lib,
+                          error: _vm.error
+                        }
+                      })
+                    ],
+                    1
+                  )
+                : _vm._e()
+            ]
+          )
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1783,7 +1786,8 @@ let AnnotationPanel = {
       heightVH: 50,
       isHide: true,
       placeholder: null,
-      transitionMode: 'slide up'
+      transitionMode: 'slide up',
+      
     }
   },
   components: {
@@ -1905,6 +1909,10 @@ let AnnotationPanel = {
       }
       /*顯示出捲動後的高度值*/
       return bodyTop
+    },
+    
+    onResizeStart: function (event) {
+      console.log(event)
     },
   } // methods
 }

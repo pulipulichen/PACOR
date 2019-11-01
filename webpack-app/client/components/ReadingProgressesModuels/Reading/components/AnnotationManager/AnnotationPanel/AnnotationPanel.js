@@ -9,7 +9,8 @@ let AnnotationPanel = {
       heightVH: 50,
       isHide: true,
       placeholder: null,
-      transitionMode: 'slide up'
+      transitionMode: 'slide up',
+      
     }
   },
   components: {
@@ -131,6 +132,10 @@ let AnnotationPanel = {
       }
       /*顯示出捲動後的高度值*/
       return bodyTop
+    },
+    
+    onResizeStart: function (event) {
+      console.log(event)
     },
   } // methods
 }

@@ -22,6 +22,7 @@ let HTMLEditor = {
     initEditor: function () {
       let options = {
         airMode: true,
+        disableDragAndDrop: true,
         callbacks: {
           onChange: this._callbacksOnChange
         }
