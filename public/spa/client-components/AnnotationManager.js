@@ -57,7 +57,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Hint":"顯示教學"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Hint":"顯示說明"}}')
   delete Component.options._Ctor
 }
 
@@ -387,29 +387,72 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui segment" }, [
-    _c("div", { staticClass: "ui middle aligned two column grid" }, [
-      _c("div", { staticClass: "ten wide column" }, [
-        _vm._v("\r\n        " + _vm._s(_vm.instruction.summary) + "\r\n      ")
+  return _c(
+    "div",
+    { staticClass: "ui segment" },
+    [
+      _c("div", { staticClass: "ui middle aligned two column grid" }, [
+        _c("div", { staticClass: "ten wide column" }, [
+          _vm._v(
+            "\r\n        " + _vm._s(_vm.instruction.summary) + "\r\n      "
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "six wide right floated right aligned column" },
+          [
+            _c(
+              "button",
+              {
+                staticClass: "ui mini fluid button",
+                attrs: { type: "button" },
+                on: { click: _vm.showInstruction }
+              },
+              [
+                _vm._v(
+                  "\r\n          " + _vm._s(_vm.$t("Hint")) + "\r\n        "
+                )
+              ]
+            )
+          ]
+        )
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "six wide right floated right aligned column" },
-        [
-          _c(
-            "button",
-            {
-              staticClass: "ui mini fluid button",
-              attrs: { type: "button" },
-              on: { click: _vm.showInstruction }
+      _c("modal", {
+        ref: "Modal",
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          contentURL: _vm.instruction.url,
+          cancelable: "true"
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "header",
+            fn: function() {
+              return [
+                _c("annotation-module-button", {
+                  style: { float: "left", "margin-right": "1em" },
+                  attrs: {
+                    status: _vm.status,
+                    annotationModule: _vm.annotationModule
+                  }
+                }),
+                _vm._v(
+                  "\r\n        " +
+                    _vm._s(_vm.instruction.summary) +
+                    "\r\n      "
+                )
+              ]
             },
-            [_vm._v("\r\n          " + _vm._s(_vm.$t("Hint")) + "\r\n        ")]
-          )
-        ]
-      )
-    ])
-  ])
+            proxy: true
+          }
+        ])
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -441,11 +484,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "seven wide column" }, [
         _c("div", { staticClass: "username" }, [
-          _vm._v(
-            "\r\n        " +
-              _vm._s(_vm.username) +
-              "ssssssssssssssssss\r\n      "
-          )
+          _vm._v("\r\n        " + _vm._s(_vm.username) + "\r\n      ")
         ])
       ]),
       _vm._v(" "),
@@ -1341,7 +1380,7 @@ let AnnotaionInstruction = {
   },
   methods: {
     showInstruction () {
-      console.log('#TODO')
+      this.$refs.Modal.show()
     }
   } // methods
 }

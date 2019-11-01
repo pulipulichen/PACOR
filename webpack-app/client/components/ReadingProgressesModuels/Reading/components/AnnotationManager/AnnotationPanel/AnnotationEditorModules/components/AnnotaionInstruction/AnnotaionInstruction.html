@@ -11,4 +11,20 @@
         </button>
       </div>
   </div>
+  
+  <!-- ================================= -->
+  
+    <modal ref="Modal"
+         v-bind:config="config"
+         v-bind:status="status"
+         v-bind:contentURL="instruction.url"
+         cancelable="true">
+      <template v-slot:header>
+        <annotation-module-button 
+          v-bind:status="status"
+          v-bind:style="{float: 'left', 'margin-right': '1em'}"
+          v-bind:annotationModule="annotationModule"></annotation-module-button>
+        {{ instruction.summary }}
+      </template>
+  </modal>
 </div>

@@ -18,7 +18,7 @@ let AnnotaionInstruction = {
   },
   methods: {
     showInstruction () {
-      console.log('#TODO')
+      this.$refs.Modal.show()
     }
   } // methods
 }

@@ -54,7 +54,7 @@ module.exports = {
     'ConfusedClarified': {
       'instruction': {
         'summary': '你有什麼不懂的地方？',
-        'description': '你有什麼不懂的地方？你有什麼不懂的地方？你有什麼不懂的地方？你有什麼不懂的地方？你有什麼不懂的地方？'
+        'url': '/annotation-instruction/ConfusedClarified.html'
       },
       'minCharacters': 10,
       /**
@@ -94,7 +94,7 @@ module.exports = {
       'minCharacters': 10,
       'instruction': {
         'summary': '您覺得哪裡是重點？',
-        'description': '你有什麼不懂的地方？你有什麼不懂的地方？你有什麼不懂的地方？你有什麼不懂的地方？你有什麼不懂的地方？'
+        'url': '/annotation-instruction/MainIdea.html'
       },
       "style": {
         'highlight': 'border-bottom: 1px solid red',

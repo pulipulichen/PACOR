@@ -1,11 +1,9 @@
 # Model
 
 ````html
-  <modal ref="ModelEditConfig"
+  <modal ref="Modal"
          v-bind:config="config"
          v-bind:status="status"
-         v-bind:progress="progress"
-         v-bind:error="error"
          v-bind:lib="lib"
          v-bind:reset="editingConfig">
       <template v-slot:header>

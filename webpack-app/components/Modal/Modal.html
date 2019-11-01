@@ -12,6 +12,11 @@
       <slot name="content"></slot>
     </div>
   </div>
+  <div class="content"
+       v-if="contentURL">
+    <iframe v-bind:src="computedContentURL"
+            frameborder="0"></iframe>
+  </div>
   <div class="actions"
        v-if="$slots.actions || cancelable === 'true' || reset">
     

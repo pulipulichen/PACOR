@@ -6,9 +6,7 @@ let AnnotationModuleButton = {
   },
   computed: {
     'computedStyle' () {
-      console.log(this.annotationModule)
       let {color, backgroundColor} = this.status.readingConfig.annotationTypeModules[this.annotationModule].style.button
-      console.log(color, backgroundColor)
       return {color, backgroundColor}
     }
   },

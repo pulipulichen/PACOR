@@ -1,6 +1,5 @@
-let Template = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'
-    , 'cancelable', 'reset', 'dimmerTransparent'],
+let Modal = {
+  props: ['lib', 'status', 'config', 'cancelable', 'reset', 'dimmerTransparent', 'contentURL'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -10,6 +9,17 @@ let Template = {
   components: {
   },
   computed: {
+    computedContentURL () {
+      let url = this.contentURL
+      if (typeof(url) !== 'string') {
+        return null
+      }
+      
+      if (url.startsWith('/')) {
+        url = this.config.baseURL + url
+      }
+      return url
+    }
   },
   destoryed: function () {
     this.hide()
@@ -78,4 +88,4 @@ let Template = {
   } // methods
 }
 
-export default Template
+export default Modal
