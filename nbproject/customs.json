@@ -81,6 +81,7 @@
       "context": "button"
     },
     "v-slot:content": {},
+    "v-else": {},
     "v-bind:config": {},
     "v-slot:header": {},
     "#header": {}

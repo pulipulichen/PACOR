@@ -21,6 +21,7 @@ let i18nGlobal = {
     "SUBMIT": "送出",
     "ADD": "新增",
     "CANCEL": "取消",
+    "CLOSE": "關閉",
     "Example": "範例",
     "DATABASE": "資料庫",
     "RESET": "重設",

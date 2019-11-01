@@ -481,6 +481,7 @@ var render = function() {
           config: _vm.config,
           status: _vm.status,
           contentURL: _vm.instruction.url,
+          cancelButtonText: "CLOSE",
           cancelable: "true"
         },
         scopedSlots: _vm._u([
@@ -1362,7 +1363,7 @@ let MainIdea = {
       else {
         height = `calc(${this.heightPX}px - 12em)`
       }
-      console.log(height)
+      //console.log(height)
       return {
         height: height,
         //border: '1px solid red'
@@ -1991,18 +1992,17 @@ let AnnotationPanel = {
       let viewportHeight = window.innerHeight
       
       //if (rect.middle < viewportHeight / 2) {
-      throw '這個捲動的範圍還沒修正'
       if (rect.bottom < (viewportHeight - this.heightPX)) {
         return false  // 不做捲動
       }
       
       //let middle = this.pinSelection.rect.middle
-      let middle = (viewportHeight * (1 - (this.heightVH / 100)) / 2)
+      let middle = ((viewportHeight - this.heightPX) / 2)
       let scrollTop = this.getScrollTop()
-      console.log(scrollTop, rect.middle, middle)
+      //console.log(scrollTop, rect.middle, middle)
       
       window.scrollTo({
-        top: (scrollTop + rect.middle - middle),
+        top: (scrollTop + rect.middle - middle),  // 等於是往上捲半個可顯示的畫面
         behavior: 'smooth'
       })
     },

@@ -49,7 +49,7 @@ let MainIdea = {
       else {
         height = `calc(${this.heightPX}px - 12em)`
       }
-      console.log(height)
+      //console.log(height)
       return {
         height: height,
         //border: '1px solid red'

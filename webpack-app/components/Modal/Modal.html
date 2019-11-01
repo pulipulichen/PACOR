@@ -21,9 +21,20 @@
        v-if="$slots.actions || cancelable === 'true' || reset">
     
     <div class="ui button"
+         v-if="contentURL"
+         v-on:click="openContentURLWindow">
+      {{ $t('Open in Another Window') }}
+    </div>
+    
+    <div class="ui button"
          v-if="cancelable !== 'false'"
          v-on:click="hide">
-      {{ $t('CANCEL') }}
+      <template v-if="cancelButtonText">
+        {{ $t(cancelButtonText) }}
+      </template>
+      <template v-else>
+        {{ $t('CANCEL') }}
+      </template>
     </div>
     
     <div class="ui button"

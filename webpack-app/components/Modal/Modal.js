@@ -1,5 +1,7 @@
 let Modal = {
-  props: ['lib', 'status', 'config', 'cancelable', 'reset', 'dimmerTransparent', 'contentURL'],
+  props: ['lib', 'status', 'config'
+    , 'cancelable', 'reset', 'dimmerTransparent', 'contentURL'
+    , 'cancelButtonText'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -84,6 +86,9 @@ let Modal = {
       for (let name in this.resetCache) {
         this.reset[name] = this.resetCache[name]
       }
+    },
+    openContentURLWindow () {
+      window.open(this.computedContentURL, '_blank')
     }
   } // methods
 }
