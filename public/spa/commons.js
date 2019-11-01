@@ -161,7 +161,7 @@ exports.push([module.i, ".non-invasive-web-style-framework.dimmable > .ui.dimmer
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "iframe[data-v-4cdf972e] {\n  width: 100%;\n  height: calc(100vh - 14.5em);\n}\n", "",{"version":3,"sources":["Modal.local.less?vue&type=style&index=1&id=4cdf972e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,4BAA4B;AAC9B","file":"Modal.local.less?vue&type=style&index=1&id=4cdf972e&lang=less&scoped=true&","sourcesContent":["iframe[data-v-4cdf972e] {\n  width: 100%;\n  height: calc(100vh - 14.5em);\n}\n"]}]);
+exports.push([module.i, "iframe[data-v-4cdf972e] {\n  width: 100%;\n  height: calc(100vh - 14.5em);\n}\n.actions[data-v-4cdf972e] {\n  user-select: none;\n}\n", "",{"version":3,"sources":["Modal.local.less?vue&type=style&index=1&id=4cdf972e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,4BAA4B;AAC9B;AACA;EACE,iBAAiB;AACnB","file":"Modal.local.less?vue&type=style&index=1&id=4cdf972e&lang=less&scoped=true&","sourcesContent":["iframe[data-v-4cdf972e] {\n  width: 100%;\n  height: calc(100vh - 14.5em);\n}\n.actions[data-v-4cdf972e] {\n  user-select: none;\n}\n"]}]);
 
 
 /***/ }),

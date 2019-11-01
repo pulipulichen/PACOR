@@ -16,8 +16,35 @@
   <div class="field input">
     #Summernote
   </div>
-  <div class="right aligned field">
-    edit delete close submit
+  <div class="ui one column grid">
+    <div class="right aligned column">
+      <!--
+      #time
+      
+      <button type="button"
+              class="ui button"
+              v-bind:class="{'disabled': !enableAddAnnotation}"
+              v-on:click="editAnnotation">
+        {{ $t('EDIT') }}  
+      </button>
+      <button type="button"
+              class="ui button"
+              v-on:click="deleteAnnotation">
+        {{ $t('DELETE') }}  
+      </button>
+      -->
+      <button type="button"
+              class="ui button"
+              v-on:click="hide">
+        {{ $t('CANCEL') }}  
+      </button>
+      <button type="button"
+              class="ui button"
+              v-bind:class="{'disabled': !enableAddAnnotation}"
+              v-on:click="addAnnotation">
+        {{ $t('ADD') }}  
+      </button>
+    </div>
   </div>
 </div>
 

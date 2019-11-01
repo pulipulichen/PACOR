@@ -18,7 +18,7 @@ let AnnotationPanel = {
   },
   computed: {
     enableCollaboration () {
-      return true
+      //return true // for test
       let stepConfig = this.lib.auth.currentStepConfig
       return (stepConfig.annotation.enableCollaboration === true)
     },
@@ -35,6 +35,9 @@ let AnnotationPanel = {
       }
       
       return classList.join(' ') + ' column grid'
+    },
+    computedSegmentClass () {
+      return this.status.readingConfig.annotationTypeModules[this.annotationModule].style.segmentColor
     }
   },
   watch: {

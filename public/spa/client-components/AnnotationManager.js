@@ -360,8 +360,29 @@ var render = function() {
       _vm._v("\r\n    #Summernote\r\n  ")
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "right aligned field" }, [
-      _vm._v("\r\n    edit delete close submit\r\n  ")
+    _c("div", { staticClass: "ui one column grid" }, [
+      _c("div", { staticClass: "right aligned column" }, [
+        _c(
+          "button",
+          {
+            staticClass: "ui button",
+            attrs: { type: "button" },
+            on: { click: _vm.hide }
+          },
+          [_vm._v("\r\n        " + _vm._s(_vm.$t("CANCEL")) + "  \r\n      ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "ui button",
+            class: { disabled: !_vm.enableAddAnnotation },
+            attrs: { type: "button" },
+            on: { click: _vm.addAnnotation }
+          },
+          [_vm._v("\r\n        " + _vm._s(_vm.$t("ADD")) + "  \r\n      ")]
+        )
+      ])
     ])
   ])
 }
@@ -405,7 +426,7 @@ var render = function() {
             _c(
               "button",
               {
-                staticClass: "ui mini fluid button",
+                staticClass: "ui mini button",
                 attrs: { type: "button" },
                 on: { click: _vm.showInstruction }
               },
@@ -535,7 +556,8 @@ var render = function() {
           "div",
           {
             ref: "panel",
-            staticClass: "ui segment form ",
+            staticClass: "ui red secondary segment form ",
+            class: _vm.computedSegmentClass,
             style: { height: _vm.heightVH + "vh" }
           },
           [
@@ -1244,12 +1266,30 @@ let MainIdea = {
     'annotaion-instruction': _components_AnnotaionInstruction_AnnotaionInstruction_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   computed: {
+    enableEditAnnotation () {
+      return false
+    },
+    enableAddAnnotation () {
+      return false
+    }
   },
   watch: {
   },
   mounted() {
   },
   methods: {
+    editAnnotation () {
+      console.error('#TODO editAnnotation')
+    },
+    deleteAnnotation () {
+      console.error('#TODO deleteAnnotation')
+    },
+    addAnnotation () {
+      console.error('#TODO addAnnotation')
+    },
+    hide () {
+      this.$parent.hide()
+    }
   } // methods
 }
 
@@ -1693,7 +1733,7 @@ let AnnotationPanel = {
   },
   computed: {
     enableCollaboration () {
-      return true
+      //return true // for test
       let stepConfig = this.lib.auth.currentStepConfig
       return (stepConfig.annotation.enableCollaboration === true)
     },
@@ -1710,6 +1750,9 @@ let AnnotationPanel = {
       }
       
       return classList.join(' ') + ' column grid'
+    },
+    computedSegmentClass () {
+      return this.status.readingConfig.annotationTypeModules[this.annotationModule].style.segmentColor
     }
   },
   watch: {
@@ -2394,7 +2437,7 @@ let RangyManager = {
         }
       }*/
       
-      if (restoreSelection === true) {
+      if (restoreSelection === true && this.selectionSaved !== null) {
         let selection = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].getSelection()
         if (selection.toString().length === 0) {
           _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].restoreSelection(this.selectionSaved)

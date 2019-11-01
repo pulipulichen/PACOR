@@ -13,12 +13,30 @@ let MainIdea = {
     'annotaion-instruction': AnnotaionInstruction
   },
   computed: {
+    enableEditAnnotation () {
+      return false
+    },
+    enableAddAnnotation () {
+      return false
+    }
   },
   watch: {
   },
   mounted() {
   },
   methods: {
+    editAnnotation () {
+      console.error('#TODO editAnnotation')
+    },
+    deleteAnnotation () {
+      console.error('#TODO deleteAnnotation')
+    },
+    addAnnotation () {
+      console.error('#TODO addAnnotation')
+    },
+    hide () {
+      this.$parent.hide()
+    }
   } // methods
 }
 

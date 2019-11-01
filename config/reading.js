@@ -83,6 +83,7 @@ module.exports = {
       ],
       "style": {
         'highlight': 'border-bottom: 1px solid green',
+        'segmentColor': 'red',
         'button': {
           'icon': 'question',
           'color': 'white',
@@ -98,6 +99,7 @@ module.exports = {
       },
       "style": {
         'highlight': 'border-bottom: 1px solid red',
+        'segmentColor': 'yellow',
         'button': {
           'icon': 'exclamation',
           'color': 'white',
