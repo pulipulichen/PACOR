@@ -10,7 +10,7 @@ let AnnotationManager = {
       selection: null,
       pinSelection: null,
       //annotationModule: null,
-      annotationModule: 'mainIdea', // for test
+      annotationModule: 'MainIdea', // for test
     }
   },
   components: {

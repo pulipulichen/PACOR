@@ -18,5 +18,8 @@ Vue.component('activity-timer', ActivityTimer)
 import Navigation from './../components/Navigation/Navigation.vue'
 Vue.component('navigation', Navigation)
 
+import AnnotationModuleButton from './../components/AnnotationModuleButton/AnnotationModuleButton.vue'
+Vue.component('annotation-module-button', AnnotationModuleButton)
+
 Vue.component('HTMLEditor', () => import(/* webpackChunkName: "vendors/HTMLEditor" */ './../components/HTMLEditor/HTMLEditor.vue'))
 

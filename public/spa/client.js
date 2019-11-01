@@ -270,6 +270,20 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true&"}]);
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/components/Auth/Auth.html?vue&type=template&id=206d1964&":
 /*!*****************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/components/Auth/Auth.html?vue&type=template&id=206d1964& ***!
@@ -528,6 +542,40 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.html?vue&type=template&id=50b9f39c&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.html?vue&type=template&id=50b9f39c&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "span",
+    { staticClass: "ui mini button", style: _vm.computedStyle },
+    [
+      _vm._v(
+        "\r\n  " +
+          _vm._s(_vm.$t("ANNOTATION_TYPE." + _vm.annotationModule)) +
+          "\r\n"
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/BlockExit/BlockExit.html?vue&type=template&id=29b99a2c&":
 /*!********************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/BlockExit/BlockExit.html?vue&type=template&id=29b99a2c& ***!
@@ -568,6 +616,27 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("4fac615a", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("0447473f", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -1209,6 +1278,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_BlockExit_BlockExit_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../components/BlockExit/BlockExit.vue */ "./webpack-app/components/BlockExit/BlockExit.vue");
 /* harmony import */ var _components_ActivityTimer_ActivityTimer_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../components/ActivityTimer/ActivityTimer.vue */ "./webpack-app/components/ActivityTimer/ActivityTimer.vue");
 /* harmony import */ var _components_Navigation_Navigation_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../components/Navigation/Navigation.vue */ "./webpack-app/components/Navigation/Navigation.vue");
+/* harmony import */ var _components_AnnotationModuleButton_AnnotationModuleButton_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../components/AnnotationModuleButton/AnnotationModuleButton.vue */ "./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.vue");
 
 
 
@@ -1228,6 +1298,9 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('activity-timer', _compone
 
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('navigation', _components_Navigation_Navigation_vue__WEBPACK_IMPORTED_MODULE_6__["default"])
+
+
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('annotation-module-button', _components_AnnotationModuleButton_AnnotationModuleButton_vue__WEBPACK_IMPORTED_MODULE_7__["default"])
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('HTMLEditor', () => Promise.all(/*! import() | vendors/HTMLEditor */[__webpack_require__.e("vendors"), __webpack_require__.e("vendors/HTMLEditor")]).then(__webpack_require__.bind(null, /*! ./../components/HTMLEditor/HTMLEditor.vue */ "./webpack-app/components/HTMLEditor/HTMLEditor.vue")))
 
@@ -1403,6 +1476,134 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "webpack-app/components/ActivityTimer/ActivityTimer.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.html?vue&type=template&id=50b9f39c&scoped=true&":
+/*!******************************************************************************************************************************!*\
+  !*** ./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.html?vue&type=template&id=50b9f39c&scoped=true& ***!
+  \******************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_AnnotationModuleButton_html_vue_type_template_id_50b9f39c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./AnnotationModuleButton.html?vue&type=template&id=50b9f39c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.html?vue&type=template&id=50b9f39c&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_AnnotationModuleButton_html_vue_type_template_id_50b9f39c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_AnnotationModuleButton_html_vue_type_template_id_50b9f39c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.js?vue&type=script&lang=js&?46c5":
+/*!**********************************************************************************************************!*\
+  !*** ./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.js?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AnnotationModuleButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./AnnotationModuleButton.js?vue&type=script&lang=js& */ "./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.js?vue&type=script&lang=js&?f766");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_AnnotationModuleButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.js?vue&type=script&lang=js&?f766":
+/*!**********************************************************************************************************!*\
+  !*** ./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.js?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let AnnotationModuleButton = {
+  props: ['status', 'annotationModule'],
+  data() {
+    return {
+    }
+  },
+  computed: {
+    'computedStyle' () {
+      console.log(this.annotationModule)
+      let {color, backgroundColor} = this.status.readingConfig.annotationTypeModules[this.annotationModule].style.button
+      console.log(color, backgroundColor)
+      return {color, backgroundColor}
+    }
+  },
+  /*
+  components: {
+  },
+  computed: {
+  },
+  watch: {
+  },
+  mounted() {
+  },
+  methods: {
+  } // methods
+   */
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (AnnotationModuleButton);
+
+/***/ }),
+
+/***/ "./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true&":
+/*!*********************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true& ***!
+  \*********************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationModuleButton_less_vue_type_style_index_0_id_50b9f39c_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-style-loader!../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationModuleButton_less_vue_type_style_index_0_id_50b9f39c_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationModuleButton_less_vue_type_style_index_0_id_50b9f39c_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationModuleButton_less_vue_type_style_index_0_id_50b9f39c_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationModuleButton_less_vue_type_style_index_0_id_50b9f39c_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationModuleButton_less_vue_type_style_index_0_id_50b9f39c_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.vue":
+/*!**********************************************************************************!*\
+  !*** ./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.vue ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AnnotationModuleButton_html_vue_type_template_id_50b9f39c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AnnotationModuleButton.html?vue&type=template&id=50b9f39c&scoped=true& */ "./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.html?vue&type=template&id=50b9f39c&scoped=true&");
+/* harmony import */ var _AnnotationModuleButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AnnotationModuleButton.js?vue&type=script&lang=js& */ "./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.js?vue&type=script&lang=js&?46c5");
+/* empty/unused harmony star reexport *//* harmony import */ var _AnnotationModuleButton_less_vue_type_style_index_0_id_50b9f39c_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true& */ "./webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _AnnotationModuleButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AnnotationModuleButton_html_vue_type_template_id_50b9f39c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AnnotationModuleButton_html_vue_type_template_id_50b9f39c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "50b9f39c",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/components/AnnotationModuleButton/AnnotationModuleButton.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
