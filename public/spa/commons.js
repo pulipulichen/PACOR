@@ -2514,8 +2514,9 @@ let config = {
   },
   
   locale: 'zh-TW',
-  clientConfigName: 'CONFIG',
-  detectActivitySeconds: 10
+  //clientConfigName: 'CONFIG',
+  detectActivitySeconds: 10,
+  
 }
 
 
@@ -4130,7 +4131,9 @@ SemanticUINIWSF()
 module.exports = {
   //"TopMenuMinWidth": "600px",
   "TopMenuHeight": "60px",
-  "TocbotWidth": "200px"  // @TODO 應該要用media來改造
+  "TocbotWidth": "200px",  // @TODO 應該要用media來改造
+  "StackWidth": 767,
+  "SmallHeight": 640
 }
 
 /***/ }),

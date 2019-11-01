@@ -21,7 +21,6 @@ import AxiosHelper from './helpers/AxiosHelper'
 import DayJSHelper from './helpers/DayJSHelper'
 import StringHelper from './helpers/StringHelper'
 import ValidateHelper from './helpers/ValidateHelper'
-import TOCHelper from './helpers/TOCHelper/TOCHelper.js'
 
 // --------------------
 // Components

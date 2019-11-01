@@ -205,7 +205,7 @@ exports.push([module.i, "body.disable-user-select {\n  user-select: none;\n  cur
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  top: -2em;\n  position: relative;\n}\n.resize-handler.moving[data-v-0a5b4950] {\n  cursor: grabbing;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,gCAAgC;EAChC,mCAAmC;AACrC;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,WAAW;EACX,WAAW;EACX,YAAY;EACZ,SAAS;EACT,kBAAkB;AACpB;AACA;EACE,gBAAgB;AAClB","file":"AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&","sourcesContent":[".annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  top: -2em;\n  position: relative;\n}\n.resize-handler.moving[data-v-0a5b4950] {\n  cursor: grabbing;\n}\n"]}]);
+exports.push([module.i, ".annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-0a5b4950] {\n  cursor: grabbing;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,gCAAgC;EAChC,mCAAmC;AACrC;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,WAAW;EACX,WAAW;EACX,YAAY;EACZ,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,gBAAgB;AAClB","file":"AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&","sourcesContent":[".annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-0a5b4950] {\n  cursor: grabbing;\n}\n"]}]);
 
 
 /***/ }),
@@ -312,7 +312,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("fragment", [_vm._v("\r\n  AnnotationDiscussion #TODO\r\n")])
+  return _c("fragment", [_vm._v("\r\n  [AnnotationDiscussion #TODO]\r\n")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -615,6 +615,8 @@ var render = function() {
                       config: _vm.config,
                       status: _vm.status,
                       annotationModule: _vm.annotationModule,
+                      annotationInstance: _vm.annotationInstance,
+                      enableCollaboration: _vm.enableCollaboration,
                       lib: _vm.lib,
                       heightPX: _vm.heightPX,
                       error: _vm.error
@@ -1313,7 +1315,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MainIdea = {
-  props: ['lib', 'status', 'config', 'annotationModule', 'heightPX', 'error', 'view', 'annotationInstance'],
+  props: ['lib', 'status', 'config'
+    , 'annotationModule', 'annotationInstance'
+    , 'heightPX', 'enableCollaboration'],
   data() {    
     this.$i18n.locale = this.config.locale
     
@@ -1349,8 +1353,18 @@ let MainIdea = {
     },
     
     computedEditorStyle () {
+      let height
+      if (this.enableCollaboration === true
+              && this.lib.style.isStackWidth()) {
+        height = (this.lib.style.getClientHeight() / 2)
+        height = `calc(${height}px - 12em)`
+      }
+      else {
+        height = `calc(${this.heightPX}px - 12em)`
+      }
+      console.log(height)
       return {
-        height: `calc(${this.heightPX}px - 12em)`,
+        height: height,
         //border: '1px solid red'
       }
     },
@@ -1839,7 +1853,9 @@ let AnnotationPanel = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      heightVH: 50,
+      annotationInstance: {},
+      
+      //heightVH: 50,
       heightPX: 500,
       isHide: true,
       placeholder: null,
@@ -1857,6 +1873,7 @@ let AnnotationPanel = {
   computed: {
     enableCollaboration () {
       //return true // for test
+      
       let stepConfig = this.lib.auth.currentStepConfig
       return (stepConfig.annotation.enableCollaboration === true)
     },
@@ -1876,8 +1893,18 @@ let AnnotationPanel = {
       return classList.join(' ') + ' column grid'
     },
     computedSegmentStyle () {
-      return {
-        'height': `${this.heightPX}px`
+      if (this.enableCollaboration === true
+              && this.lib.style.isStackWidth() === true) {
+        return {
+          'max-height': `${this.heightPX}px`,
+          'overflow-y': 'auto',
+          'overflow-x': 'hidden'
+        }
+      }
+      else {
+        return {
+          'height': `${this.heightPX}px`
+        }
       }
     },
     computedSegmentClass () {
@@ -1964,6 +1991,7 @@ let AnnotationPanel = {
       let viewportHeight = window.innerHeight
       
       //if (rect.middle < viewportHeight / 2) {
+      throw '這個捲動的範圍還沒修正'
       if (rect.bottom < (viewportHeight - this.heightPX)) {
         return false  // 不做捲動
       }
@@ -2010,10 +2038,19 @@ let AnnotationPanel = {
       let currentY = event.clientY
       
       let moveEvent = (event) => {
-        if (event.clientY < 200
-                || (window.innerHeight - event.clientY) < 300) {
-          return false
+        if (this.lib.style.isSmallHeight() === false) {
+          if (event.clientY < 100
+                  || (window.innerHeight - event.clientY) < 200) {
+            return false
+          }
         }
+        else {
+          if (event.clientY < 50
+                  || (window.innerHeight - event.clientY) < 100) {
+            return false
+          }
+        }
+          
         
         let interval = currentY - event.clientY
         this.heightPX = this.heightPX + interval
@@ -2035,7 +2072,7 @@ let AnnotationPanel = {
         
         // 計算最後的比例，然後存到preference去
         let sizeRatio = ((window.innerHeight - currentY) / window.innerHeight)
-        console.log(sizeRatio)
+        //console.log(sizeRatio)
         localStorage.setItem(this.localStorageKeyPrefix + 'sizeRatio', sizeRatio)
       }
       

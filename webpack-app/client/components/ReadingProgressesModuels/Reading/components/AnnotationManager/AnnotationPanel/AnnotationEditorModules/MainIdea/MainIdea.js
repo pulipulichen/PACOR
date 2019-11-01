@@ -2,7 +2,9 @@ import UserInformation from './../components/UserInformation/UserInformation.vue
 import AnnotaionInstruction from './../components/AnnotaionInstruction/AnnotaionInstruction.vue'
 
 let MainIdea = {
-  props: ['lib', 'status', 'config', 'annotationModule', 'heightPX', 'error', 'view', 'annotationInstance'],
+  props: ['lib', 'status', 'config'
+    , 'annotationModule', 'annotationInstance'
+    , 'heightPX', 'enableCollaboration'],
   data() {    
     this.$i18n.locale = this.config.locale
     
@@ -38,8 +40,18 @@ let MainIdea = {
     },
     
     computedEditorStyle () {
+      let height
+      if (this.enableCollaboration === true
+              && this.lib.style.isStackWidth()) {
+        height = (this.lib.style.getClientHeight() / 2)
+        height = `calc(${height}px - 12em)`
+      }
+      else {
+        height = `calc(${this.heightPX}px - 12em)`
+      }
+      console.log(height)
       return {
-        height: `calc(${this.heightPX}px - 12em)`,
+        height: height,
         //border: '1px solid red'
       }
     },

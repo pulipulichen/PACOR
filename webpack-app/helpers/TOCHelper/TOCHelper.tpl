@@ -1,2 +1,0 @@
-<nav id="tocbotNavContainer" 
-     class="toc toc-right js-toc relative z-1 transition--300 absolute pa4 is-position-fixed"></nav>

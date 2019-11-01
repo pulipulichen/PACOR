@@ -11,7 +11,9 @@ let AnnotationPanel = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      heightVH: 50,
+      annotationInstance: {},
+      
+      //heightVH: 50,
       heightPX: 500,
       isHide: true,
       placeholder: null,
@@ -29,6 +31,7 @@ let AnnotationPanel = {
   computed: {
     enableCollaboration () {
       //return true // for test
+      
       let stepConfig = this.lib.auth.currentStepConfig
       return (stepConfig.annotation.enableCollaboration === true)
     },
@@ -48,8 +51,18 @@ let AnnotationPanel = {
       return classList.join(' ') + ' column grid'
     },
     computedSegmentStyle () {
-      return {
-        'height': `${this.heightPX}px`
+      if (this.enableCollaboration === true
+              && this.lib.style.isStackWidth() === true) {
+        return {
+          'max-height': `${this.heightPX}px`,
+          'overflow-y': 'auto',
+          'overflow-x': 'hidden'
+        }
+      }
+      else {
+        return {
+          'height': `${this.heightPX}px`
+        }
       }
     },
     computedSegmentClass () {
@@ -136,6 +149,7 @@ let AnnotationPanel = {
       let viewportHeight = window.innerHeight
       
       //if (rect.middle < viewportHeight / 2) {
+      throw '這個捲動的範圍還沒修正'
       if (rect.bottom < (viewportHeight - this.heightPX)) {
         return false  // 不做捲動
       }
@@ -182,10 +196,19 @@ let AnnotationPanel = {
       let currentY = event.clientY
       
       let moveEvent = (event) => {
-        if (event.clientY < 200
-                || (window.innerHeight - event.clientY) < 300) {
-          return false
+        if (this.lib.style.isSmallHeight() === false) {
+          if (event.clientY < 100
+                  || (window.innerHeight - event.clientY) < 200) {
+            return false
+          }
         }
+        else {
+          if (event.clientY < 50
+                  || (window.innerHeight - event.clientY) < 100) {
+            return false
+          }
+        }
+          
         
         let interval = currentY - event.clientY
         this.heightPX = this.heightPX + interval
@@ -207,7 +230,7 @@ let AnnotationPanel = {
         
         // 計算最後的比例，然後存到preference去
         let sizeRatio = ((window.innerHeight - currentY) / window.innerHeight)
-        console.log(sizeRatio)
+        //console.log(sizeRatio)
         localStorage.setItem(this.localStorageKeyPrefix + 'sizeRatio', sizeRatio)
       }
       

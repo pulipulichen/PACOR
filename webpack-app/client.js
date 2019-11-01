@@ -17,6 +17,7 @@ import AxiosHelper from './helpers/AxiosHelper'
 import DayJSHelper from './helpers/DayJSHelper'
 import StringHelper from './helpers/StringHelper'
 import ValidateHelper from './helpers/ValidateHelper'
+import StyleHelper from './helpers/StyleHelper'
 
 // ----------------------
 
@@ -82,6 +83,7 @@ let VueController = {
       DayJSHelper: DayJSHelper,
       StringHelper: StringHelper,
       ValidateHelper: ValidateHelper,
+      style: StyleHelper.setConfig(config),
       auth: null
     },
     error: '',
