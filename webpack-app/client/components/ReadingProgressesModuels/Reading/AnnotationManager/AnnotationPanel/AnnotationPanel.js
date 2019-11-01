@@ -1,3 +1,5 @@
+import AnnotationDiscussion from './AnnotationDiscussion/AnnotationDiscussion.vue'
+
 let AnnotationPanel = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'pinSelection'],
   data() {    
@@ -5,14 +7,30 @@ let AnnotationPanel = {
     return {
       heightVH: 50,
       isHide: true,
-      placeholder: null
+      placeholder: null,
     }
   },
   components: {
+    'annotation-discussion': AnnotationDiscussion
   },
   computed: {
+    enableCollaboration () {
+      let stepConfig = this.lib.auth.currentStepConfig
+      return (stepConfig.annotation.enableCollaboration === true)
+    },
     computedPlaceholderHeight () {
       return `calc(${this.heightVH}vh - ${this.navigationPlaceholderHeight}px)`
+    },
+    computedGridClass () {
+      let classList = []
+      if (this.enableCollaboration === true) {
+        classList.push('two')
+      }
+      else {
+        classList.push('one')
+      }
+      
+      return classList.join(' ') + ' column grid'
     }
   },
   watch: {
@@ -29,17 +47,21 @@ let AnnotationPanel = {
         this.placeholder.css('height', heightVH + 'vh')
       }
     },
-    isHide () {
-      
-    }
+//    isHide () {
+//      
+//    }
   },
   mounted() {
     this._initPlaceholder()
+    this._test()
   },
   destroyed() {
     this.placeholder.remove()
   },
   methods: {
+    _test: function () {
+      this.show()
+    },
     _initPlaceholder () {
       let navPH = window.$('.Navigation.placeholder:first')
       if (navPH.length === 1) { 

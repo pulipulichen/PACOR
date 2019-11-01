@@ -5,6 +5,7 @@ let Login = {
     return {
       username: 'a',
       password: '',
+      waiting: false,
       adminMode: false
     }
   },
@@ -22,6 +23,10 @@ let Login = {
         return false
       }
       
+      if (this.waiting === true) {
+        return false
+      }
+      
       return true
     },
     agreementLink: function () {
@@ -35,6 +40,7 @@ let Login = {
   },
   methods: {
     login: async function() {
+      this.waiting = true
       let data = {
         username: this.username,
       }
@@ -46,7 +52,7 @@ let Login = {
       let result = await this.lib.AxiosHelper.get(`/client/Auth/login`, data)
       
       if (typeof(result) !== 'object') {
-        return
+        return false
       }
       
       for (let name in result) {
@@ -57,6 +63,7 @@ let Login = {
       this.$refs.LoginModal.hide()
       
       this.status.needLogin = false
+      this.waiting = false
       //alert('成功登入了，然後呢？')
       
     },

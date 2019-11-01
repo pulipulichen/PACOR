@@ -6,7 +6,7 @@ let Auth = {
   watch: {
     'status.needLogin': async function () {
       if (this.status.needLogin === false) {
-        let view = await this.getCurrentStep()
+        let view = this.currentStep
         if (this.lib.ValidateHelper.isURL(view)) {
           return await this._redirect(view)
         }
@@ -28,6 +28,46 @@ let Auth = {
     
     if (result === false) {
       await this.checkLogin()
+    }
+  },
+  computed: {
+    currentStep () {
+      if (Array.isArray(this.status.readingProgresses)
+              && this.status.readingProgresses.length > 0) {
+        for (let i = 0; i < this.status.readingProgresses.length; i++) {
+          let s = this.status.readingProgresses[i]
+          if (s.isCompleted === true) {
+            continue
+          }
+
+          if (typeof (s.start_timestamp) !== 'number') {
+            s.start_timestamp = this.lib.DayJSHelper.time()
+            return s.step_name
+          }
+          if (typeof (s.start_timestamp) === 'number'
+                  && typeof (s.end_timestamp) !== 'number') {
+            return s.step_name
+          }
+        }
+        let finishStep = this.status.readingConfig.readingProgressesFinish
+        if (this.lib.ValidateHelper.isURL(finishStep)) {
+          this._redirect(finishStep)
+          return false
+        }
+        return finishStep
+      }
+      return 'not-yet-started'
+    },
+    currentStepConfig () {
+      if (typeof(this.currentStep) === 'string') {
+        
+        let config = this.status.readingConfig
+        if (typeof(config) === 'object') {
+          return config.readingProgressModules[this.currentStep]
+        }
+      }
+      //console.log(modules)
+      return null
     }
   },
   methods: {
@@ -121,7 +161,7 @@ let Auth = {
           break;
         }
       }
-      this.status.view = await this.getCurrentStep()
+      this.status.view = this.currentStep
     }
   } // methods
 }

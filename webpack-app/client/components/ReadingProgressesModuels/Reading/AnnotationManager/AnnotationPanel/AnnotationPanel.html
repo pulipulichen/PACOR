@@ -5,6 +5,26 @@
          v-bind:style="{'height': heightVH + 'vh'}"
          ref="panel">
 
+      <div class="ui stackable"
+           v-bind:class="computedGridClass">
+        <div class="column" style="background-color: red;">
+          column 1
+        </div>
+        
+        <!-- =========================================== -->
+        <div class="column" 
+             style="background-color: green;"
+             v-if="enableCollaboration">
+          <annotation-discussion v-bind:config="config"
+            v-bind:status="status"
+            v-bind:progress="progress"
+            v-bind:lib="lib"
+            v-bind:error="error"
+            ref="AnnotationDisscussion"></annotation-discussion>
+        </div>
+      </div>
+      
+      <!--
         <div class="field">
           Annotation Panel
 
@@ -12,6 +32,7 @@
                   class="ui button"
                   v-on:click="hide">Close</button>
         </div>
+      -->
     </div>
   </div>
 </fragment>

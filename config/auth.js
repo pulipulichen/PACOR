@@ -32,7 +32,8 @@ module.exports = {
     model: 'App/Models/User',
     scheme: 'session',
     uid: 'username',
-    password: 'password'
+    password: 'password',
+    // 這邊的登入時間，是由session.js的cookie所控制的
   },
 
   /*

@@ -23,7 +23,7 @@ let AnnotationTypeSelector = {
     modules: function () {
       let modules = []
       
-      let currentStep = this.lib.auth.getCurrentStep()
+      let currentStep = this.lib.auth.currentStep
       //console.log(currentStep)
       if (typeof(currentStep) === 'string') {
         

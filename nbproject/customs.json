@@ -42,6 +42,7 @@
       }
     },
     "domain-edit-admin": {},
+    "fragement": {},
     "modal": {
       "attributes": {
         "v-bind:error": {},
