@@ -7,12 +7,17 @@
 
       <div class="ui stackable"
            v-bind:class="computedGridClass">
-        <div class="column" style="background-color: red;">
-          column 1
+        <div class="column annotation-editor">
+          <component v-bind:is="annotationModule"
+                     v-bind:config="config"
+                     v-bind:status="status"
+                      v-bind:progress="progress"
+                     v-bind:lib="lib"
+                     v-bind:error="error"></component>
         </div>
         
         <!-- =========================================== -->
-        <div class="column" 
+        <div class="column annotation-discussion" 
              style="background-color: green;"
              v-if="enableCollaboration">
           <annotation-discussion v-bind:config="config"

@@ -14,7 +14,7 @@ class UserSchema extends Schema {
       table.string('role', 60).defaultTo('reader')
       table.string('display_name', 20)
       table.string('avatar', 254)
-      table.json('perference')
+      table.json('preference')
       table.timestamps()
     })
   }

@@ -9,6 +9,8 @@ let AnnotationManager = {
     return {
       selection: null,
       pinSelection: null,
+      //annotationModule: null,
+      annotationModule: 'mainIdea', // for test
     }
   },
   components: {
@@ -48,6 +50,7 @@ let AnnotationManager = {
     },
     pin: function (type) {
       this.selection = null
+      this.annotationModule = type
       this.pinSelection = this.$refs.RangyManager.pinSelection()
       //this.$refs.AnnotationPanel.show()
       //console.log(type)

@@ -1,11 +1,19 @@
+
 .annotation-panel {
   position: fixed !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
-  left: 0 !important;
+  left: 0.5em !important;
   bottom: 0 !important;
-  width: 100vw !important;
+  width: calc(100vw - 2em) !important;
+  z-index: 102 !important;
+  
   //height: 50vh !important;
+  
+  &> .ui.segment.form {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
   
   &.hidden {
     display: none;

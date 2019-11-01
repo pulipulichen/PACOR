@@ -1,17 +1,20 @@
 import AnnotationDiscussion from './AnnotationDiscussion/AnnotationDiscussion.vue'
+import AnnotationModuleMainIdea from './AnnotationEditorModules/MainIdea/MainIdea.vue'
 
 let AnnotationPanel = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'pinSelection'],
+  props: ['lib', 'status', 'config', 'progress', 'error', 'pinSelection', 'annotationModule'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
       heightVH: 50,
       isHide: true,
       placeholder: null,
+      transitionMode: 'slide up'
     }
   },
   components: {
-    'annotation-discussion': AnnotationDiscussion
+    'annotation-discussion': AnnotationDiscussion,
+    'mainIdea': AnnotationModuleMainIdea
   },
   computed: {
     enableCollaboration () {
@@ -77,14 +80,14 @@ let AnnotationPanel = {
     },
     show () {
       this.isHide = false
-      this.placeholder.transition('fly up')
-      window.$(this.$refs.panel).transition('fly up', () => {
+      this.placeholder.transition(this.transitionMode)
+      window.$(this.$refs.panel).transition(this.transitionMode, () => {
         //this.placeholder.show()
       })
     },
     hide () {
-      this.placeholder.transition('fly up')
-      window.$(this.$refs.panel).transition('fly up', () => {
+      this.placeholder.transition(this.transitionMode)
+      window.$(this.$refs.panel).transition(this.transitionMode, () => {
         this.isHide = true
         this.$emit('hide')
       })

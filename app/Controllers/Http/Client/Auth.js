@@ -104,7 +104,8 @@ class Auth {
       role: user.role,
       readingProgresses: readingProgresses,
       //readingProgressesFinish: config.readingProgressesFinish,
-      readingConfig: config
+      readingConfig: config,
+      preference: user.preference
     }
     //console.log(data)
     await ReadingActivityLog.log(webpage, user, 'Auth.login', data)

@@ -668,7 +668,8 @@ let VueController = {
       role: 'reader',
       readingProgresses: [],
       title: '',
-      view: 'Loading'
+      view: 'Loading',
+      preference: null
     },
     progress: {
       component: false,
