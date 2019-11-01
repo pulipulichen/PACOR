@@ -47,7 +47,6 @@
     "node-stream-zip": "^1.8.2",
     "serve-favicon": "^2.5.0",
     "type-of-is": "^3.5.1",
-    "vue-float-action-button": "^0.6.4",
     "vue-media": "^1.1.1"
   },
   "devDependencies": {

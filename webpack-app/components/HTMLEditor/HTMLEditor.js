@@ -29,6 +29,8 @@ let HTMLEditor = {
       }
       
       this.editor = window.$(this.$refs.editor)
+      return
+      
       this.editor.summernote(options)
       
       if (typeof(this.note) === 'string') {

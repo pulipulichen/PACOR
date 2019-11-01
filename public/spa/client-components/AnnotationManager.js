@@ -1787,7 +1787,6 @@ let AnnotationPanel = {
       isHide: true,
       placeholder: null,
       transitionMode: 'slide up',
-      
     }
   },
   components: {
@@ -1839,6 +1838,12 @@ let AnnotationPanel = {
   mounted() {
     this._initPlaceholder()
     this._test()
+    
+    //$.extend(require('jquery-ui'))
+    //$.extend(jQueryUI)
+    
+      console.log(typeof($(this.$refs.panel).resizable))
+    
   },
   destroyed() {
     this.placeholder.remove()
