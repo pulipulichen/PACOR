@@ -1,4 +1,5 @@
 import UserInformation from './../components/UserInformation/UserInformation.vue'
+import AnnotaionInstruction from './../components/AnnotaionInstruction/AnnotaionInstruction.vue'
 
 let MainIdea = {
   props: ['lib', 'status', 'config', 'annotationModule', 'error', 'view'],
@@ -8,7 +9,8 @@ let MainIdea = {
     }
   },
   components: {
-    'user-information': UserInformation
+    'user-information': UserInformation,
+    'annotaion-instruction': AnnotaionInstruction
   },
   computed: {
   },

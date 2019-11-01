@@ -30,6 +30,7 @@
         "v-bind:name": {}
       }
     },
+    "user-information": {},
     "annotation-module-button": {},
     "component": {},
     "fragment": {},

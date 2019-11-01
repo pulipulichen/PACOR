@@ -279,7 +279,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true&"}]);
+exports.push([module.i, ".button[data-v-50b9f39c] {\n  cursor: default !important;\n}\n", "",{"version":3,"sources":["AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;AAC5B","file":"AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true&","sourcesContent":[".button[data-v-50b9f39c] {\n  cursor: default !important;\n}\n"]}]);
 
 
 /***/ }),

@@ -1,3 +1,8 @@
-<div class="ui segment">
-  Template
+<div class="ui compact right floated segment">
+  {{ hint }}
+  <button type="button"
+    class="ui mini button"
+    v-on:click="showInstruction">
+    {{ $t('Hint') }}
+  </button>
 </div>

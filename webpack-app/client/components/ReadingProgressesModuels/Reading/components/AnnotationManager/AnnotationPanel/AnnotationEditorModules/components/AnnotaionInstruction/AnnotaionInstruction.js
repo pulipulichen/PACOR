@@ -1,5 +1,5 @@
 let AnnotaionInstruction = {
-  props: ['status', 'annotationModule'],
+  props: ['config', 'status', 'annotationModule'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -8,12 +8,18 @@ let AnnotaionInstruction = {
   components: {
   },
   computed: {
+    hint () {
+      return 'ok'
+    }
   },
   watch: {
   },
   mounted() {
   },
   methods: {
+    showInstruction () {
+      console.log('#TODO')
+    }
   } // methods
 }
 

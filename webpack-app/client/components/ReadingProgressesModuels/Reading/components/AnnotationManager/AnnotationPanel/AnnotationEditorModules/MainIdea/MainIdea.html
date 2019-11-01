@@ -1,12 +1,17 @@
 <div class="ui form">
-  <div class="two fields">
-    <div class="six wide field">
-      <user-information v-bind:annotationModule="annotationModule"
-                        v-bind:status="status"></user-information>
-    </div>
-    <div class="ten wide field">
-      #HINT
-    </div>
+  <div class="ui middle aligned grid">
+    <div class="row">
+      <div class="column">
+        
+    <annotaion-instruction v-bind:config="config"
+      v-bind:status="status"
+      v-bind:annotationModule="annotationModule"></annotaion-instruction>
+
+    <user-information v-bind:annotationModule="annotationModule"
+                      v-bind:status="status"></user-information>
+      </div>
+    
+      </div>
   </div>
   <div class="field input">
     #Summernote

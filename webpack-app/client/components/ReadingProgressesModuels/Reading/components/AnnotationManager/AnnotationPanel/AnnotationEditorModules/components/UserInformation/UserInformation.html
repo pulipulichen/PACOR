@@ -1,6 +1,8 @@
 <fragment>
   <img v-bind:src="status.avatar" />
-  {{ username }}
+  <div class="username">
+    {{ username }}
+  </div>
   <annotation-module-button 
         v-bind:status="status"
         v-bind:annotationModule="annotationModule"></annotation-module-button>
