@@ -1103,7 +1103,7 @@ let AnnotationPanel = {
   },
   components: {
     'annotation-discussion': _AnnotationDiscussion_AnnotationDiscussion_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'mainIdea': _AnnotationEditorModules_MainIdea_MainIdea_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    'MainIdea': _AnnotationEditorModules_MainIdea_MainIdea_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   computed: {
     enableCollaboration () {

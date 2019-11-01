@@ -14,7 +14,7 @@ let AnnotationPanel = {
   },
   components: {
     'annotation-discussion': AnnotationDiscussion,
-    'mainIdea': AnnotationModuleMainIdea
+    'MainIdea': AnnotationModuleMainIdea
   },
   computed: {
     enableCollaboration () {

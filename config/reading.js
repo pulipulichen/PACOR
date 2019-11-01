@@ -24,7 +24,7 @@ module.exports = {
       message: '進入個人閱讀囉',
       limitMinutes: 3,
       annotation: {
-        types: ['confused-clarified', 'mainIdea'],
+        types: ['ConfusedClarified', 'MainIdea'],
         enableCollaboration: false
       },
       checklist: [
@@ -37,7 +37,7 @@ module.exports = {
     'CollaborativeReading': {
       message: '進入合作閱讀囉',
       annotation: {
-        types: ['confused-clarified', 'mainIdea'],
+        types: ['ConfusedClarified', 'MainIdea'],
         enableCollaboration: false
       },
     },
@@ -51,7 +51,7 @@ module.exports = {
     
   },
   annotationTypeModules: {
-    'confused-clarified': {
+    'ConfusedClarified': {
       'minCharacters': 10,
       /**
        * {anchorText}
@@ -86,7 +86,7 @@ module.exports = {
         }
       }
     },
-    'mainIdea': {
+    'MainIdea': {
       'minCharacters': 10,
       "style": {
         'highlight': 'border-bottom: 1px solid red',
