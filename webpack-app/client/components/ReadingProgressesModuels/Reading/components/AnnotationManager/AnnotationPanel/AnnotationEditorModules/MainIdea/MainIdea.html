@@ -15,9 +15,8 @@
   </div>
   
   <HTMLEditor ref="editor"
-              v-bind:style="computedEditorStyle"
-              v-bind:editorConfig="editorConfig"
-              v-on:change="onEditorChange"></HTMLEditor>
+              v-model="note"
+              v-bind:style="computedEditorStyle"></HTMLEditor>
 
   <div class="ui one column grid annotation-panel-buttons">
     <div class="right aligned column">

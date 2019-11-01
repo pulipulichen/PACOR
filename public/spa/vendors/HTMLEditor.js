@@ -83,7 +83,6 @@ var render = function() {
     "div",
     {
       staticClass: "ui segment html-editor-container",
-      style: _vm.editorConfig.style,
       on: { click: _vm.focus }
     },
     [_c("div", { ref: "editor" })]
@@ -185,25 +184,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let HTMLEditor = {
-  props: ['lib', 'status', 'config', 'value', 'editorConfig'],
+  props: ['lib', 'status', 'config', 'note'],
   data() {
     if (typeof(this.config) === 'object') {
       this.$i18n.locale = this.config.locale
     }
     return {
       editor: null,
-      lastChangedContent: null
+      lastChangedContents: null
     }
   },  // data() {
-  computed: {
-  },  // computed: {
-  watch: {
-    'value' (value) {
-      if (typeof(value) === 'string') {
-        this.html(value)
-      }
-    }
-  },  // watch: {
+//  computed: {
+//  },  // computed: {
+//  watch: {
+//  },  // watch: {
   mounted() {
     this.initEditor()
   },  // mounted() {
@@ -219,6 +213,10 @@ let HTMLEditor = {
       this.editor = window.$(this.$refs.editor)
       this.editor.summernote(options)
       
+      if (typeof(this.note) === 'string') {
+        this.html(this.note)
+      }
+      
       //$('<div class="editor-container"><div id="editor"><h1>Hello Summernote</h1></div></div>').appendTo('body')
       //$('#editor').summernote({
         //airMode: true
@@ -229,13 +227,14 @@ let HTMLEditor = {
         contents = ''
       }
       
-      if (this.lastChangedContent === contents) {
+      if (this.lastChangedContents === contents) {
         return false
       }
       
-      this.$emit('change', contents)
+      this.$emit('input', contents)
+      //this.editorConfig.contents = contents
       
-      this.lastChangedContent = contents
+      this.lastChangedContents = contents
       
       //console.log('onChange:', contents, $editable);
     },

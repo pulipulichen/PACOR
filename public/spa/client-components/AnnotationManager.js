@@ -362,8 +362,13 @@ var render = function() {
       _c("HTMLEditor", {
         ref: "editor",
         style: _vm.computedEditorStyle,
-        attrs: { editorConfig: _vm.editorConfig },
-        on: { change: _vm.onEditorChange }
+        model: {
+          value: _vm.note,
+          callback: function($$v) {
+            _vm.note = $$v
+          },
+          expression: "note"
+        }
       }),
       _vm._v(" "),
       _c(
@@ -1306,25 +1311,28 @@ let MainIdea = {
     enableEditAnnotation () {
       return this.enableAddAnnotation
     },
-    /*
+    
     computedEditorStyle () {
       return {
         height: `calc(${this.heightVH}vh - 11em)`,
         //border: '1px solid red'
       }
     },
-    */
+    /*
     editorConfig () {
       return {
-        content: this.note,
+        contents: this.note,
         style: {
           height: `calc(${this.heightVH}vh - 11em)`,
           //border: '1px solid red'
         }
       }
-    }
+    }*/
   },
   watch: {
+    'editorConfig.contents' (contents) {
+      console.log(contents)
+    }
   },
   mounted() {
   },
