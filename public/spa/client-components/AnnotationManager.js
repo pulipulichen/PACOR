@@ -577,63 +577,70 @@ var render = function() {
         {
           ref: "panel",
           staticClass: "ui secondary segment form ",
-          class: _vm.computedSegmentClass,
-          style: { height: _vm.heightVH + "vh" }
+          class: _vm.computedSegmentClass
         },
         [
-          _c("div", {
-            staticClass: "resize-handler",
-            on: { mousedown: _vm.onResizeStart }
-          }),
-          _vm._v(" "),
           _c(
-            "div",
-            { staticClass: "ui stackable", class: _vm.computedGridClass },
+            "vue-draggable-resizable",
+            {
+              attrs: {
+                h: 500,
+                w: 1000,
+                draggable: false,
+                minHeight: 300,
+                active: true,
+                handles: ["tm"],
+                axis: "y"
+              }
+            },
             [
               _c(
                 "div",
-                { staticClass: "column annotation-editor" },
+                { staticClass: "ui stackable", class: _vm.computedGridClass },
                 [
-                  _c(_vm.annotationModule, {
-                    tag: "component",
-                    attrs: {
-                      config: _vm.config,
-                      status: _vm.status,
-                      annotationModule: _vm.annotationModule,
-                      lib: _vm.lib,
-                      heightVH: _vm.heightVH,
-                      error: _vm.error
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm.enableCollaboration
-                ? _c(
+                  _c(
                     "div",
-                    {
-                      staticClass: "column annotation-discussion",
-                      staticStyle: { "background-color": "green" }
-                    },
+                    { staticClass: "column annotation-editor" },
                     [
-                      _c("annotation-discussion", {
-                        ref: "AnnotationDisscussion",
+                      _c(_vm.annotationModule, {
+                        tag: "component",
                         attrs: {
                           config: _vm.config,
                           status: _vm.status,
-                          progress: _vm.progress,
+                          annotationModule: _vm.annotationModule,
                           lib: _vm.lib,
                           error: _vm.error
                         }
                       })
                     ],
                     1
-                  )
-                : _vm._e()
+                  ),
+                  _vm._v(" "),
+                  _vm.enableCollaboration
+                    ? _c(
+                        "div",
+                        { staticClass: "column annotation-discussion" },
+                        [
+                          _c("annotation-discussion", {
+                            ref: "AnnotationDisscussion",
+                            attrs: {
+                              config: _vm.config,
+                              status: _vm.status,
+                              progress: _vm.progress,
+                              lib: _vm.lib,
+                              error: _vm.error
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    : _vm._e()
+                ]
+              )
             ]
           )
-        ]
+        ],
+        1
       )
     ]
   )
@@ -1773,8 +1780,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _AnnotationDiscussion_AnnotationDiscussion_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AnnotationDiscussion/AnnotationDiscussion.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationDiscussion/AnnotationDiscussion.vue");
-/* harmony import */ var _AnnotationEditorModules_MainIdea_MainIdea_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AnnotationEditorModules/MainIdea/MainIdea.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.vue");
+/* harmony import */ var vue_draggable_resizable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-draggable-resizable */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue-draggable-resizable\\dist\\VueDraggableResizable.umd.min.js");
+/* harmony import */ var vue_draggable_resizable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_draggable_resizable__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_draggable_resizable_dist_VueDraggableResizable_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-draggable-resizable/dist/VueDraggableResizable.css */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue-draggable-resizable\\dist\\VueDraggableResizable.css");
+/* harmony import */ var vue_draggable_resizable_dist_VueDraggableResizable_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_draggable_resizable_dist_VueDraggableResizable_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _AnnotationDiscussion_AnnotationDiscussion_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AnnotationDiscussion/AnnotationDiscussion.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationDiscussion/AnnotationDiscussion.vue");
+/* harmony import */ var _AnnotationEditorModules_MainIdea_MainIdea_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AnnotationEditorModules/MainIdea/MainIdea.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.vue");
+
+
+
 
 
 
@@ -1790,8 +1804,10 @@ let AnnotationPanel = {
     }
   },
   components: {
-    'annotation-discussion': _AnnotationDiscussion_AnnotationDiscussion_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'MainIdea': _AnnotationEditorModules_MainIdea_MainIdea_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    'vue-draggable-resizable': vue_draggable_resizable__WEBPACK_IMPORTED_MODULE_0___default.a,
+    
+    'annotation-discussion': _AnnotationDiscussion_AnnotationDiscussion_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    'MainIdea': _AnnotationEditorModules_MainIdea_MainIdea_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   computed: {
     enableCollaboration () {
@@ -1842,7 +1858,7 @@ let AnnotationPanel = {
     //$.extend(require('jquery-ui'))
     //$.extend(jQueryUI)
     
-      console.log(typeof($(this.$refs.panel).resizable))
+    //console.log(typeof($(this.$refs.panel).resizable))
     
   },
   destroyed() {

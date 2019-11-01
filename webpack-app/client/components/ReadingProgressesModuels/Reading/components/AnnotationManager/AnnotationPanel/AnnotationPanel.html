@@ -1,14 +1,20 @@
   <div class="annotation-panel"
        v-bind:class="{'hidden': isHide}">
-    
+  
     <div class="ui secondary segment form "
-         v-bind:style="{'height': heightVH + 'vh'}"
          v-bind:class="computedSegmentClass"
          ref="panel">
       
-        <div class="resize-handler"
-             v-on:mousedown="onResizeStart"></div>
-      
+  
+    <vue-draggable-resizable
+      v-bind:h="500"
+      v-bind:w="1000"
+      v-bind:draggable="false"
+      v-bind:minHeight="300"
+      v-bind:active="true"
+      v-bind:handles="['tm']"
+      axis='y'>
+        
       <div class="ui stackable"
            v-bind:class="computedGridClass">
         <div class="column annotation-editor">
@@ -17,13 +23,11 @@
                      v-bind:status="status"
                      v-bind:annotationModule="annotationModule"
                      v-bind:lib="lib"
-                     v-bind:heightVH="heightVH"
                      v-bind:error="error"></component>
         </div>
         
         <!-- =========================================== -->
         <div class="column annotation-discussion" 
-             style="background-color: green;"
              v-if="enableCollaboration">
           <annotation-discussion v-bind:config="config"
             v-bind:status="status"
@@ -42,6 +46,8 @@
                   v-on:click="hide">Close</button>
         </div>
       -->
+      
+      </vue-draggable-resizable>
     </div>
   </div>
   

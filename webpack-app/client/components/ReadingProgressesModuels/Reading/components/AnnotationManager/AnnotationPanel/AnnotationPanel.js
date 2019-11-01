@@ -1,3 +1,6 @@
+import VueDraggableResizable from 'vue-draggable-resizable'
+import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
+
 import AnnotationDiscussion from './AnnotationDiscussion/AnnotationDiscussion.vue'
 import AnnotationModuleMainIdea from './AnnotationEditorModules/MainIdea/MainIdea.vue'
 
@@ -13,6 +16,8 @@ let AnnotationPanel = {
     }
   },
   components: {
+    'vue-draggable-resizable': VueDraggableResizable,
+    
     'annotation-discussion': AnnotationDiscussion,
     'MainIdea': AnnotationModuleMainIdea
   },
@@ -65,7 +70,7 @@ let AnnotationPanel = {
     //$.extend(require('jquery-ui'))
     //$.extend(jQueryUI)
     
-      console.log(typeof($(this.$refs.panel).resizable))
+    //console.log(typeof($(this.$refs.panel).resizable))
     
   },
   destroyed() {
