@@ -1,10 +1,8 @@
-//import VueDraggableResizable from 'vue-draggable-resizable'
-//import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
+import VueDraggableResizable from 'vue-draggable-resizable'
+import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
 
 import AnnotationDiscussion from './AnnotationDiscussion/AnnotationDiscussion.vue'
 import AnnotationModuleMainIdea from './AnnotationEditorModules/MainIdea/MainIdea.vue'
-
-import $ from 'jquery'
 
 let AnnotationPanel = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'pinSelection', 'annotationModule'],
@@ -12,16 +10,13 @@ let AnnotationPanel = {
     this.$i18n.locale = this.config.locale
     return {
       heightVH: 50,
-      heightPX: 500,
       isHide: true,
       placeholder: null,
       transitionMode: 'slide up',
-      resizeLocker: false,
-      localStorageKeyPrefix: 'client.components.ReadingProgressesModuels.Reading.components.AnnotationManager.AnnotationPanel.'
     }
   },
   components: {
-    //'vue-draggable-resizable': VueDraggableResizable,
+    'vue-draggable-resizable': VueDraggableResizable,
     
     'annotation-discussion': AnnotationDiscussion,
     'MainIdea': AnnotationModuleMainIdea
@@ -33,8 +28,7 @@ let AnnotationPanel = {
       return (stepConfig.annotation.enableCollaboration === true)
     },
     computedPlaceholderHeight () {
-      //return `calc(${this.heightVH}vh - ${this.navigationPlaceholderHeight}px)`
-      return `calc(${this.heightPX}px - ${this.navigationPlaceholderHeight}px)`
+      return `calc(${this.heightVH}vh - ${this.navigationPlaceholderHeight}px)`
     },
     computedGridClass () {
       let classList = []
@@ -46,11 +40,6 @@ let AnnotationPanel = {
       }
       
       return classList.join(' ') + ' column grid'
-    },
-    computedSegmentStyle () {
-      return {
-        'height': `${this.heightPX}px`
-      }
     },
     computedSegmentClass () {
       return this.status.readingConfig.annotationTypeModules[this.annotationModule].style.segmentColor
@@ -75,8 +64,6 @@ let AnnotationPanel = {
 //    }
   },
   mounted() {
-    this._initHeightPX()
-    
     this._initPlaceholder()
     this._test()
     
@@ -90,17 +77,6 @@ let AnnotationPanel = {
     this.placeholder.remove()
   },
   methods: {
-    _initHeightPX () {
-      let sizeRatio = localStorage.getItem(this.localStorageKeyPrefix + 'sizeRatio')
-      if (sizeRatio === null) {
-        sizeRatio = 0.5
-      }
-      else {
-        sizeRatio = parseFloat(sizeRatio)
-      }
-      //console.log(sizeRatio)
-      this.heightPX = (window.innerHeight * sizeRatio)
-    },
     _test: function () {
       this.show()
     },
@@ -112,7 +88,7 @@ let AnnotationPanel = {
     
       let container = window.$('<div class="non-invasive-web-style-framework"></div>')
             .appendTo('body')
-      this.placeholder = window.$('<div class="AnnotationPanel placeholder"></div>')
+      this.placeholder = window.$('<div></div>')
             .css('height', this.computedPlaceholderHeight)
             .hide()
             .appendTo(container)
@@ -135,8 +111,7 @@ let AnnotationPanel = {
       let rect = this.pinSelection.rect
       let viewportHeight = window.innerHeight
       
-      //if (rect.middle < viewportHeight / 2) {
-      if (rect.bottom < (viewportHeight - this.heightPX)) {
+      if (rect.middle < viewportHeight / 2) {
         return false  // 不做捲動
       }
       
@@ -170,57 +145,8 @@ let AnnotationPanel = {
     },
     
     onResizeStart: function (event) {
-      if (this.resizeLocker === true) {
-        return false
-      }
-      this.resizeLocker = true
-      
-      let body = $('body')
-      body.addClass('disable-user-select')
-      //console.log(event)
-      //console.log(event)
-      let currentY = event.clientY
-      
-      let moveEvent = (event) => {
-        if (event.clientY < 200
-                || (window.innerHeight - event.clientY) < 300) {
-          return false
-        }
-        
-        let interval = currentY - event.clientY
-        this.heightPX = this.heightPX + interval
-        currentY = event.clientY
-        //console.log(this.heightPX)
-        //console.log(event)
-        //event.preventDefault()
-        //event.stopPropagation()
-      }
-      
-      let removeMoveEvent = () => {
-        document.removeEventListener('mousemove', moveEvent)
-        document.removeEventListener('mouseup', removeMoveEvent)
-        
-        document.removeEventListener('touchmove', moveEvent)
-        document.removeEventListener('touchend', removeMoveEvent)
-        body.removeClass('disable-user-select')
-        this.resizeLocker = false
-        
-        // 計算最後的比例，然後存到preference去
-        let sizeRatio = ((window.innerHeight - currentY) / window.innerHeight)
-        console.log(sizeRatio)
-        localStorage.setItem(this.localStorageKeyPrefix + 'sizeRatio', sizeRatio)
-      }
-      
-      document.addEventListener('mousemove', moveEvent)
-      document.addEventListener('mouseup', removeMoveEvent)
-      
-      document.addEventListener('touchmove', moveEvent)
-      document.addEventListener('touchend', removeMoveEvent)
-      
-      event.preventDefault()
-      event.stopPropagation()
+      console.log(event)
     },
-    
   } // methods
 }
 

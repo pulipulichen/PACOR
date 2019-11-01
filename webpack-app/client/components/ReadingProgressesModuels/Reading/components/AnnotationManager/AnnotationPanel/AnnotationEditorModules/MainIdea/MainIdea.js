@@ -2,7 +2,7 @@ import UserInformation from './../components/UserInformation/UserInformation.vue
 import AnnotaionInstruction from './../components/AnnotaionInstruction/AnnotaionInstruction.vue'
 
 let MainIdea = {
-  props: ['lib', 'status', 'config', 'annotationModule', 'heightVH', 'error', 'view', 'annotationInstance'],
+  props: ['lib', 'status', 'config', 'annotationModule', 'heightPX', 'error', 'view', 'annotationInstance'],
   data() {    
     this.$i18n.locale = this.config.locale
     
@@ -39,7 +39,7 @@ let MainIdea = {
     
     computedEditorStyle () {
       return {
-        height: `calc(${this.heightVH}vh - 11em)`,
+        height: `calc(${this.heightPX}px - 12em)`,
         //border: '1px solid red'
       }
     },
