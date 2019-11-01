@@ -149,7 +149,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".column[data-v-45a0d506] {\n  border: 1px solid red !important;\n}\n", "",{"version":3,"sources":["MainIdea.less?vue&type=style&index=0&id=45a0d506&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gCAAgC;AAClC","file":"MainIdea.less?vue&type=style&index=0&id=45a0d506&lang=less&scoped=true&","sourcesContent":[".column[data-v-45a0d506] {\n  border: 1px solid red !important;\n}\n"]}]);
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"MainIdea.less?vue&type=style&index=0&id=45a0d506&lang=less&scoped=true&"}]);
 
 
 /***/ }),
@@ -324,7 +324,21 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "ui form" }, [
     _c("div", { staticClass: "ui middle aligned grid" }, [
-      _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "two columns row" }, [
+        _c(
+          "div",
+          { staticClass: "column" },
+          [
+            _c("user-information", {
+              attrs: {
+                annotationModule: _vm.annotationModule,
+                status: _vm.status
+              }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
         _c(
           "div",
           { staticClass: "column" },
@@ -334,13 +348,6 @@ var render = function() {
                 config: _vm.config,
                 status: _vm.status,
                 annotationModule: _vm.annotationModule
-              }
-            }),
-            _vm._v(" "),
-            _c("user-information", {
-              attrs: {
-                annotationModule: _vm.annotationModule,
-                status: _vm.status
               }
             })
           ],
@@ -381,7 +388,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "ui compact right floated segment" }, [
-    _vm._v("\r\n  " + _vm._s(_vm.hint) + "\r\n  "),
+    _vm._v("\r\n  " + _vm._s(_vm.instruction.summary) + "\r\n  "),
     _c(
       "button",
       {
@@ -1297,8 +1304,8 @@ let AnnotaionInstruction = {
   components: {
   },
   computed: {
-    hint () {
-      return 'ok'
+    instruction () {
+      return this.status.readingConfig.annotationTypeModules[this.annotationModule].instruction
     }
   },
   watch: {

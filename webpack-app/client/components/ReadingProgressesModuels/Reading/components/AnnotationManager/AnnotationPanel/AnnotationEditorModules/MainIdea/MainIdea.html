@@ -1,17 +1,17 @@
 <div class="ui form">
   <div class="ui middle aligned grid">
-    <div class="row">
+    <div class="two columns row">
       <div class="column">
-        
-    <annotaion-instruction v-bind:config="config"
-      v-bind:status="status"
-      v-bind:annotationModule="annotationModule"></annotaion-instruction>
+        <user-information v-bind:annotationModule="annotationModule"
+                          v-bind:status="status"></user-information>
+      </div>
 
-    <user-information v-bind:annotationModule="annotationModule"
-                      v-bind:status="status"></user-information>
+      <div class="column">
+        <annotaion-instruction v-bind:config="config"
+                               v-bind:status="status"
+                               v-bind:annotationModule="annotationModule"></annotaion-instruction>
       </div>
-    
-      </div>
+    </div>
   </div>
   <div class="field input">
     #Summernote

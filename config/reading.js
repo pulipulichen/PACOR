@@ -52,6 +52,10 @@ module.exports = {
   },
   annotationTypeModules: {
     'ConfusedClarified': {
+      'instruction': {
+        'summary': '你有什麼不懂的地方？',
+        'description': '你有什麼不懂的地方？你有什麼不懂的地方？你有什麼不懂的地方？你有什麼不懂的地方？你有什麼不懂的地方？'
+      },
       'minCharacters': 10,
       /**
        * {anchorText}
@@ -88,6 +92,10 @@ module.exports = {
     },
     'MainIdea': {
       'minCharacters': 10,
+      'instruction': {
+        'summary': '您覺得哪裡是重點？',
+        'description': '你有什麼不懂的地方？你有什麼不懂的地方？你有什麼不懂的地方？你有什麼不懂的地方？你有什麼不懂的地方？'
+      },
       "style": {
         'highlight': 'border-bottom: 1px solid red',
         'button': {

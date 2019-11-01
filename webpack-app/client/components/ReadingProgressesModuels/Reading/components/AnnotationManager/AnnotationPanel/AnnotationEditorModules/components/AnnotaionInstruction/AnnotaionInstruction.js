@@ -8,8 +8,8 @@ let AnnotaionInstruction = {
   components: {
   },
   computed: {
-    hint () {
-      return 'ok'
+    instruction () {
+      return this.status.readingConfig.annotationTypeModules[this.annotationModule].instruction
     }
   },
   watch: {
