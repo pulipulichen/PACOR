@@ -46,12 +46,12 @@ baseScript.before(`<div id="app"></div>`)
 
 window.onerror = function(message, source, lineno, colno, error) {
   //console.log(message, source, lineno, colno, error)
-  VueController.data.error = error
+  VueController.data.errors.push(error)
 }
 
 Vue.config.errorHandler  = function(err, vm, info) {
   //console.log(`Error: ${err.stack}\nInfo: ${info}`);
-  VueController.data.error = err
+  VueController.data.errors.push(err)
   console.error(err)
 }
 
@@ -86,7 +86,7 @@ let VueController = {
     },
     //view: 'Loading',
     view: null,
-    error: '',
+    errors: [],
     persistAttrs: [
     ]
   },
@@ -131,7 +131,7 @@ let VueController = {
     })
     
     this.lib.AxiosHelper.setErrorHandler((error) => {
-      this.error = error
+      this.errors.push(error)
     })
   },
   methods: {

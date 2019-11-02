@@ -14,7 +14,7 @@ class AnchorPositionsAnnotationSchema extends Schema {
   }
 
   down () {
-    this.drop('annotations')
+    this.drop('anchor_positions_annotations')
   }
 }
 

@@ -34,7 +34,7 @@ let Login = {
       
       if (typeof(result) !== 'object') {
         //this.errorMessage = this.$t(`Authentication failed.`)
-        this.error = this.$t(`Authentication failed.`)
+        throw this.$t(`Authentication failed.`)
         return false
       }      
       

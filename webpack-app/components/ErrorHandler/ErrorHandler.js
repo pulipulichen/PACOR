@@ -1,7 +1,8 @@
 let ErrorHandler = {
-  props: ['config', 'error', 'lib'],
+  props: ['config', 'errors', 'lib'],
   data() {    
     this.$i18n.locale = this.config.locale
+    //console.log(this.config)
     return {
       showError: false,
       showServerErrorStack: false,
@@ -9,6 +10,12 @@ let ErrorHandler = {
     }
   },
   computed: {
+    error () {
+      if (Array.isArray(this.errors)
+              && this.errors.length > 0) {
+        return this.errors[0]
+      }
+    },
     responseErrorMessage: function () {
       if (typeof(this.error) === 'object'
               && typeof(this.error.response) === 'object'
@@ -117,7 +124,14 @@ let ErrorHandler = {
   },
   methods: {
     close () {
-      this.showError = false
+      if (Array.isArray(this.errors) === true) {
+        if (this.errors.length > 0) {
+          this.errors.shift()
+        }
+        else {
+          this.showError = false
+        }
+      }
     },
     async retry (e) {
       if (typeof(this.error) !== 'object' 

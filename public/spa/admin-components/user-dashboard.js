@@ -523,7 +523,6 @@ var render = function() {
                 progress: _vm.progress,
                 lib: _vm.lib,
                 log: step.log,
-                error: _vm.error,
                 toc: _vm.toc
               }
             })

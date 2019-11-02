@@ -3,20 +3,18 @@
         v-bind:status="status"
         v-bind:progress="progress"
         v-bind:lib="lib"
-        v-bind:error="error"
         ref="auth"></auth>
 
   <template v-if="progress.display === true && status.needLogin === false">
     <navigation-items v-bind:config="config"
                 v-bind:status="status"
                 v-bind:progress="progress"
-                v-bind:error="error"
                 v-bind:lib="lib"></navigation-items>
   </template>
 
   <error-handler v-bind:config="config"
-                 v-bind:error="error"
                  v-bind:lib="lib"
+                 v-bind:errors="errors"
                  ref="ErrorHandler"></error-handler>
 
 
@@ -28,7 +26,6 @@
       <login v-bind:config="config"
              v-bind:status="status"
              v-bind:progress="progress"
-             v-bind:error="error"
              v-bind:lib="lib"></login>
     </template>
     <template v-else>
@@ -36,8 +33,7 @@
       <router-view v-bind:config="config"
                    v-bind:status="status"
                    v-bind:progress="progress"
-                   v-bind:lib="lib"
-                   v-bind:error="error"></router-view>
+                   v-bind:lib="lib"></router-view>
     </template>
   </template>
 </div>

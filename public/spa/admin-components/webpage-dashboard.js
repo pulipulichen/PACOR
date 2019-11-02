@@ -182,8 +182,7 @@ var render = function() {
           config: _vm.config,
           status: _vm.status,
           progress: _vm.progress,
-          lib: _vm.lib,
-          error: _vm.error
+          lib: _vm.lib
         }
       })
     ],

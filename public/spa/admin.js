@@ -851,12 +851,12 @@ baseScript.before(`<div id="app"></div>`)
 
 window.onerror = function(message, source, lineno, colno, error) {
   //console.log(message, source, lineno, colno, error)
-  VueController.data.error = error
+  VueController.data.errors.push(error)
 }
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].config.errorHandler  = function(err, vm, info) {
   //console.log(`Error: ${err.stack}\nInfo: ${info}`);
-  VueController.data.error = err
+  VueController.data.errors.push(err)
   console.error(err)
 }
 
@@ -891,7 +891,7 @@ let VueController = {
     },
     //view: 'Loading',
     view: null,
-    error: '',
+    errors: [],
     persistAttrs: [
     ]
   },
@@ -936,7 +936,7 @@ let VueController = {
     })
     
     this.lib.AxiosHelper.setErrorHandler((error) => {
-      this.error = error
+      this.errors.push(error)
     })
   },
   methods: {
@@ -979,7 +979,7 @@ window.VueController = VueController
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        ref=\"auth\"></auth>\r\n\r\n  <template v-if=\"progress.display === true && status.needLogin === false\">\r\n    <navigation-items v-bind:config=\"config\"\r\n                v-bind:status=\"status\"\r\n                v-bind:progress=\"progress\"\r\n                v-bind:error=\"error\"\r\n                v-bind:lib=\"lib\"></navigation-items>\r\n  </template>\r\n\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:error=\"error\"\r\n                 v-bind:lib=\"lib\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n\r\n\r\n  <template v-if=\"progress.display === false\">\r\n    <loading></loading>\r\n  </template>\r\n  <template v-else>\r\n    <template v-if=\"status.needLogin === true\">\r\n      <login v-bind:config=\"config\"\r\n             v-bind:status=\"status\"\r\n             v-bind:progress=\"progress\"\r\n             v-bind:error=\"error\"\r\n             v-bind:lib=\"lib\"></login>\r\n    </template>\r\n    <template v-else>\r\n\r\n      <router-view v-bind:config=\"config\"\r\n                   v-bind:status=\"status\"\r\n                   v-bind:progress=\"progress\"\r\n                   v-bind:lib=\"lib\"\r\n                   v-bind:error=\"error\"></router-view>\r\n    </template>\r\n  </template>\r\n</div>";
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        ref=\"auth\"></auth>\r\n\r\n  <template v-if=\"progress.display === true && status.needLogin === false\">\r\n    <navigation-items v-bind:config=\"config\"\r\n                v-bind:status=\"status\"\r\n                v-bind:progress=\"progress\"\r\n                v-bind:lib=\"lib\"></navigation-items>\r\n  </template>\r\n\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:lib=\"lib\"\r\n                 v-bind:errors=\"errors\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n\r\n\r\n  <template v-if=\"progress.display === false\">\r\n    <loading></loading>\r\n  </template>\r\n  <template v-else>\r\n    <template v-if=\"status.needLogin === true\">\r\n      <login v-bind:config=\"config\"\r\n             v-bind:status=\"status\"\r\n             v-bind:progress=\"progress\"\r\n             v-bind:lib=\"lib\"></login>\r\n    </template>\r\n    <template v-else>\r\n\r\n      <router-view v-bind:config=\"config\"\r\n                   v-bind:status=\"status\"\r\n                   v-bind:progress=\"progress\"\r\n                   v-bind:lib=\"lib\"></router-view>\r\n    </template>\r\n  </template>\r\n</div>";
 
 /***/ }),
 
@@ -1156,7 +1156,7 @@ let Login = {
       
       if (typeof(result) !== 'object') {
         //this.errorMessage = this.$t(`Authentication failed.`)
-        this.error = this.$t(`Authentication failed.`)
+        throw this.$t(`Authentication failed.`)
         return false
       }      
       

@@ -46,12 +46,12 @@ if (baseScript.length === 1) {
 
 window.onerror = function(message, source, lineno, colno, error) {
   //console.log(message, source, lineno, colno, error)
-  VueController.data.error = error
+  VueController.data.errors.push(error)
 }
 
 Vue.config.errorHandler  = function(err, vm, info) {
   //console.log(`Error: ${err.stack}\nInfo: ${info}`);
-  VueController.data.error = err
+  VueController.data.errors.push(err)
   console.error(err)
 }
 
@@ -84,7 +84,7 @@ let VueController = {
       style: StyleHelper.setConfig(config),
       auth: null
     },
-    error: '',
+    errors: [],
     persistAttrs: [
     ]
   },
@@ -99,7 +99,7 @@ let VueController = {
   },
   mounted: function () {
     this.lib.AxiosHelper.setErrorHandler((error) => {
-      this.error = error
+      this.errors.push(error)
     })
     
     this.lib.DayJSHelper.setI18N((name, data) => {

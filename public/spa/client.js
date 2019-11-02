@@ -363,7 +363,6 @@ var render = function() {
           config: _vm.config,
           status: _vm.status,
           progress: _vm.progress,
-          error: _vm.error,
           lib: _vm.lib,
           dimmerTransparent: "false",
           cancelable: "false"
@@ -815,12 +814,12 @@ if (baseScript.length === 1) {
 
 window.onerror = function(message, source, lineno, colno, error) {
   //console.log(message, source, lineno, colno, error)
-  VueController.data.error = error
+  VueController.data.errors.push(error)
 }
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].config.errorHandler  = function(err, vm, info) {
   //console.log(`Error: ${err.stack}\nInfo: ${info}`);
-  VueController.data.error = err
+  VueController.data.errors.push(err)
   console.error(err)
 }
 
@@ -853,7 +852,7 @@ let VueController = {
       style: _helpers_StyleHelper__WEBPACK_IMPORTED_MODULE_8__["default"].setConfig(_config_js__WEBPACK_IMPORTED_MODULE_11__["default"]),
       auth: null
     },
-    error: '',
+    errors: [],
     persistAttrs: [
     ]
   },
@@ -868,7 +867,7 @@ let VueController = {
   },
   mounted: function () {
     this.lib.AxiosHelper.setErrorHandler((error) => {
-      this.error = error
+      this.errors.push(error)
     })
     
     this.lib.DayJSHelper.setI18N((name, data) => {
@@ -912,7 +911,7 @@ window.VueController = VueController
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        ref=\"auth\"></auth>\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:error=\"error\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n  \r\n  <!--\r\n  <rangy-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></rangy-manager>\r\n  \r\n  <note-editor-manager v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        v-bind:error=\"error\"\r\n        v-bind:view=\"view\"></note-editor-manager>\r\n  -->\r\n  \r\n  <component v-bind:is=\"status.view\"\r\n      v-bind:config=\"config\"\r\n      v-bind:status=\"status\"\r\n      v-bind:progress=\"progress\"\r\n      v-bind:lib=\"lib\"\r\n      v-bind:error=\"error\"></component>\r\n</div>";
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        ref=\"auth\"></auth>\r\n  \r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:lib=\"lib\"\r\n                 v-bind:errors=\"errors\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n  \r\n  <component v-bind:is=\"status.view\"\r\n      v-bind:config=\"config\"\r\n      v-bind:status=\"status\"\r\n      v-bind:progress=\"progress\"\r\n      v-bind:lib=\"lib\"></component>\r\n</div>";
 
 /***/ }),
 

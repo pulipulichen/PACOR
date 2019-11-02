@@ -75,13 +75,6 @@ let AnnotationPanel = {
     computedSegmentClass () {
       return this.status.readingConfig.annotationTypeModules[this.annotationModule].style.segmentColor
     },
-    anchorPositions () {
-      if (this.pinSelection !== null 
-              && Array.isArray(this.pinSelection.anchorPositions)) {
-        return this.pinSelection.anchorPositions
-      }
-      return null
-    }
   },
   watch: {
     pinSelection: function (pinSelection) {

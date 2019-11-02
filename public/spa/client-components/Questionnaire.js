@@ -85,7 +85,6 @@ var render = function() {
           config: _vm.config,
           status: _vm.status,
           progress: _vm.progress,
-          error: _vm.error,
           lib: _vm.lib,
           dimmerTransparent: "false",
           cancelable: "false"
@@ -231,7 +230,6 @@ var render = function() {
           config: _vm.config,
           status: _vm.status,
           progress: _vm.progress,
-          error: _vm.error,
           lib: _vm.lib,
           dimmerTransparent: "false",
           cancelable: "false"

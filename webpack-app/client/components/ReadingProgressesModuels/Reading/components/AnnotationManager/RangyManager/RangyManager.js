@@ -342,6 +342,7 @@ let RangyManager = {
         }
       }*/
       
+      console.log(restoreSelection, this.selectionSaved)
       if (restoreSelection === true && this.selectionSaved !== null) {
         let selection = rangy.getSelection()
         if (selection.toString().length === 0) {
@@ -350,7 +351,7 @@ let RangyManager = {
       }
       return this
     },
-    highlightPinnedSelection: function (className) {
+    highlightPinnedSelection: function (className, anchorParagraphIds) {
       if (this.highlightClasses.indexOf(className) === -1
               || this.selectionSaved === null) {
         return false
@@ -421,17 +422,21 @@ let RangyManager = {
       //let ids = JSON.parse(JSON.stringify(this.selection.anchorPosition.paragraph_id))
       
       rangy.restoreSelection(this.selectionSaved)
-      let highlight = this.highlighter.highlightSelection(className, {
+      
+      this.highlighter.highlightSelection(className, {
         exclusive: false,
-        containerElementId: this.selection.anchorParagraphIds
+        containerElementId: anchorParagraphIds
       })
       //console.log(highlight[0])
-      this.selection.removeAllRanges()
+      let selection = rangy.getSelection()
+      selection.removeAllRanges()
+      
+      this.selectionSaved = null
       this.unpinSelection()
       
-      this.selection.highlight = highlight
+      //this.selection.highlight = highlight
       
-      return this.selection
+      //return this.selection
     },
     
     removeHighlightFromPinnedSelection: function (className) {
@@ -476,26 +481,21 @@ let RangyManager = {
         tagNames: ["span", "a", "b", "img"]
       }
       
-      let ownerClasses = ['my-', 'others-']
+      let ownerClasses = ['my', 'others']
       ownerClasses.forEach(ownerClass => {
         for (let moduleName in this.rangyConfig.annotationTypeModules) {
-          let className = ownerClass + moduleName
+          let className = ownerClass + '-' + moduleName
           let applier = rangy.createClassApplier(className, options)
           this.highlighter.addClassApplier(applier);
           this.highlightClasses.push(className)
 
           // 如果有css style的話
-          if (typeof(this.rangyConfig.annotationTypeModules[moduleName].style) === 'object'
-                  && typeof(this.rangyConfig.annotationTypeModules[moduleName].style.highlightColor) === 'string') {
-            let color = this.rangyConfig.annotationTypeModules[moduleName].style.highlightColor
-            let rule
-            if (ownerClass === 'my-') {
-              rule = `background-color: ${color};`
-            }
-            else if (ownerClass === 'others-') {
-              rule = `border-bottom: 1px solid ${color};`
-            }
-            
+          let config = this.rangyConfig.annotationTypeModules[moduleName]
+          if (typeof(config.style) === 'object'
+                  && typeof(config.style.highlight) === 'object'
+                  && typeof(config.style.highlight[ownerClass]) === 'string') {
+            let rule = config.style.highlight[ownerClass]
+            //console.log(rule)
             if (typeof(rule) === 'string') {
               let selector = `[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .${className}`
               rules.push(`${selector} {${rule}}`)

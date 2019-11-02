@@ -87,7 +87,10 @@ module.exports = {
       ],
       "style": {
         //'highlight': 'border-bottom: 1px solid green',
-        'hightlightColor': 'red',
+        'highlight': {
+          'my': 'background-color: red; color: white;',
+          'others': 'border-bottom: 1px solid red'
+        },
         'segmentColor': 'red',
         'button': {
           'icon': 'question',
@@ -104,7 +107,10 @@ module.exports = {
       },
       "style": {
         //'highlight': 'border-bottom: 1px solid red',
-        'hightlightColor': 'yellow',
+        'highlight': {
+          'my': 'background-color: yellow; color: black;',
+          'others': 'border-bottom: 1px solid yellow'
+        },
         'segmentColor': 'yellow',
         'button': {
           'icon': 'exclamation',

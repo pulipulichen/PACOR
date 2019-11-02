@@ -3,7 +3,7 @@ import AnnotationEditorHeader from './../components/AnnotationEditorHeader/Annot
 let MainIdea = {
   props: ['lib', 'status', 'config'
     , 'annotationModule', 'annotationInstance'
-    , 'heightPX', 'annotationConfig', 'anchorPositions'
+    , 'heightPX', 'annotationConfig', 'pinSelection'
     , 'rangy'],
   data() {
     this.$i18n.locale = this.config.locale
@@ -74,21 +74,21 @@ let MainIdea = {
     addAnnotation: async function () {
       
       let data = {
-        anchorPositions: this.anchorPositions,
+        anchorPositions: this.pinSelection.anchorPositions,
         type: this.annotationModule,
         note: this.note,
         public: this.public
       }
       
-      console.log(data)
+      //console.log(data)
       
       let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
       //console.log(id) // for test
       if (typeof(id) !== 'number') {
-        return
+        return false  // 新增失敗
       }
       
-      this.rangy.highlightPinnedSelection('my-' + this.annotationModule)
+      this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
       this.hide()
     },
     editAnnotation () {
