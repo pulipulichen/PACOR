@@ -40,12 +40,21 @@
         -->
       </template>
       <template v-else>
+        <!--
         <button type="button"
                 class="ui button"
                 v-bind:class="{'disabled': !enableAddAnnotation}"
                 v-on:click="addAnnotation">
           {{ $t('ADD') }}  
         </button>
+        -->
+        <countdown-button v-bind:minWordCount="moduleConfig.minWords"
+          v-bind:text="note"
+          v-bind:lib="lib"
+          v-bind:locale="status.preference.locale"
+          v-on:click="addAnnotation">
+          {{ $t('ADD') }}  
+        </countdown-button>
       </template>
     </div>
   </div>

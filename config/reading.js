@@ -11,7 +11,7 @@ module.exports = {
   readingProgressModules: {
     'PreImaginary': {
       message: '猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？',
-      minCharacters: 10,
+      minWords: 10,
       limitMinutes: 0.1
     },
     /**
@@ -47,7 +47,7 @@ module.exports = {
     },
     'PostRecall': {
       message: '請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！',
-      minCharacters: 10,
+      minWords: 10,
       limitMinutes: 0.1
     }
   },
@@ -60,7 +60,7 @@ module.exports = {
         'summary': '你有什麼不懂的地方？',
         'url': '/annotation-instruction/ConfusedClarified.html'
       },
-      'minCharacters': 10,
+      'minWords': 1,
       /**
        * {anchorText}
        * {questionText}
@@ -100,7 +100,7 @@ module.exports = {
       }
     },
     'MainIdea': {
-      'minCharacters': 10,
+      'minWords': 1,
       'instruction': {
         'summary': '您覺得哪裡是重點？',
         'url': '/annotation-instruction/MainIdea.html'

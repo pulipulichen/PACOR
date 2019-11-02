@@ -64,6 +64,9 @@ let MainIdea = {
       else {
         return 'column'
       }
+    },
+    moduleConfig () {
+      return this.status.readingConfig.annotationTypeModules[this.annotationModule]
     }
   },
 //  watch: {

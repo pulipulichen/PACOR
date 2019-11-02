@@ -1,19 +1,24 @@
 let CountdownButton = {
-  props: ['lib', 'countdownSec', 'minWordCount', 'maxWordCount', 'word'],
+  props: ['locale', 'lib', 'countdownSec', 'minWordCount', 'maxWordCount', 'text'],
   data() {    
-    this.$i18n.locale = this.config.locale
+    this.$i18n.locale = this.locale
     return {
       remainingSeconds: 0
     }
   },
   computed: {
+    wordCount () {
+      let count = this.lib.StringHelper.countWords(this.text)
+      //console.log(count)
+      return count
+    },
     validWordCount () {
       if (typeof(this.minWordCount) !== 'number'
               && typeof(this.maxWordCount) !== 'number') {
         return true
       }
       
-      let wordCount = this.lib.StringHelper.countWords(this.word)
+      let wordCount = this.wordCount
       if (typeof(this.minWordCount) === 'number'
               && wordCount < this.minWordCount) {
         return false
@@ -28,10 +33,30 @@ let CountdownButton = {
       return (this.remainingSeconds === 0 && this.validWordCount === true)
     },
     disabledMessage () {
+      let messages = []
+      if (this.remainingSeconds > 0) {
+        let remainingTime = this.lib.DayJSHelper.formatHHMMSS(this.remainingSeconds)
+        messages.push( this.$t('Remaining Time: {0}', [remainingTime]) )
+      }
       
+      let wordCount = this.wordCount
+      if (typeof(this.minWordCount) === 'number'
+              && wordCount < this.minWordCount) {
+        let interval = this.minWordCount - wordCount
+        messages.push( this.$t('You still need to write {0} words more', [interval]) )
+      }
+      else if (typeof(this.maxWordCount) === 'number'
+              && wordCount > this.maxWordCount) {
+        let interval = wordCount - this.maxWordCount
+        messages.push( this.$t('You still need to delete {0} words more', [interval]) )
+      }
+      
+      return messages.join(' / ')
     }
   },
   mounted () {
+    
+      console.log(this.minWordCount)
     this._initCountdown()
   },
   methods: {

@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 let StringHelper = {
   validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -5,13 +7,17 @@ let StringHelper = {
   },
   /**
    * https://www.thecodedeveloper.com/count-word-contain-utf-8-character-in-javascript/
-   * @param {type} str
-   * @returns {undefined}
    */
   countWords(string) {
     if (typeof(string) !== 'string') {
       return 0
     }
+    
+    string = string.trim()
+    if (string.startsWith('<') && string.endsWith('>')) {
+      string = $(string).text()
+    }
+    
     let r1 = new RegExp('[\u3000-\u4DFF]','g');
     let r2 = new RegExp('[\u4E00-\u9FFF]','g');
     let r3 = new RegExp('[\u0E00-\u0E7F]','g');

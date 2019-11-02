@@ -60,15 +60,15 @@ let PreImaginary = {
       
       let output = this.$t('{0} word', [this.wordCount])
       
-      if (this.wordCount < this.minCharacters) {
-        let needWordsCount = this.minCharacters - this.wordCount
+      if (this.wordCount < this.minWords) {
+        let needWordsCount = this.minWords - this.wordCount
         output = output + ' (' + this.$t('You still need to write {0} words more.', [needWordsCount]) + ')'
       }
       //console.log(output)
       return output
     },
     classWordCounter: function () {
-      if (this.wordCount < this.minCharacters) {
+      if (this.wordCount < this.minWords) {
         return 'red'
       }
       else {

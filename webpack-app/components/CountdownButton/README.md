@@ -1,7 +1,10 @@
 
 ````html
-<template v-bind:config="config"
-        v-bind:status="status"
+<countdown-button v-bind:countdownSec="countdownSec"
+        v-bind:minWordCount="minWordCount"
+        v-bind:maxWordCount="maxWordCount"
+        v-bind:text="text"
         v-bind:lib="lib"
-        ref="auth"></template>
+        v-bind:locale="locale"
+        v-on:click="submit"></countdown-button>
 ````

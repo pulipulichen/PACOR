@@ -428,11 +428,14 @@ var render = function() {
                 ? void 0
                 : [
                     _c(
-                      "button",
+                      "countdown-button",
                       {
-                        staticClass: "ui button",
-                        class: { disabled: !_vm.enableAddAnnotation },
-                        attrs: { type: "button" },
+                        attrs: {
+                          minWordCount: _vm.moduleConfig.minWords,
+                          text: _vm.note,
+                          lib: _vm.lib,
+                          locale: _vm.status.preference.locale
+                        },
                         on: { click: _vm.addAnnotation }
                       },
                       [
@@ -1487,6 +1490,9 @@ let MainIdea = {
       else {
         return 'column'
       }
+    },
+    moduleConfig () {
+      return this.status.readingConfig.annotationTypeModules[this.annotationModule]
     }
   },
 //  watch: {
@@ -2228,7 +2234,7 @@ let AnnotationPanel = {
     this._initHeightPX()
     
     this._initPlaceholder()
-    //this._test()
+    this._test()
     
     //$.extend(require('jquery-ui'))
     //$.extend(jQueryUI)

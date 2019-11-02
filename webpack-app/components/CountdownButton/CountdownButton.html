@@ -1,10 +1,11 @@
 <button type="button"
         class="ui button"
-        v-bind:class="{'disabled': !isEnable, 'active': isEnable}">
+        v-bind:class="{'disabled': !isEnable}"
+        v-on:click="$emit('click')">
   <template v-if="isEnable">
     <slot></slot>
   </template>
   <template v-else>
-    {{ disabledMessage }}
+    ({{ disabledMessage }})
   </template>
 </button>

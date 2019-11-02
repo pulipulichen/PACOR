@@ -2889,6 +2889,10 @@ let DayJSHelper = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 let StringHelper = {
   validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -2896,13 +2900,17 @@ let StringHelper = {
   },
   /**
    * https://www.thecodedeveloper.com/count-word-contain-utf-8-character-in-javascript/
-   * @param {type} str
-   * @returns {undefined}
    */
   countWords(string) {
     if (typeof(string) !== 'string') {
       return 0
     }
+    
+    string = string.trim()
+    if (string.startsWith('<') && string.endsWith('>')) {
+      string = jquery__WEBPACK_IMPORTED_MODULE_0___default()(string).text()
+    }
+    
     let r1 = new RegExp('[\u3000-\u4DFF]','g');
     let r2 = new RegExp('[\u4E00-\u9FFF]','g');
     let r3 = new RegExp('[\u0E00-\u0E7F]','g');
@@ -2996,6 +3004,9 @@ let i18nGlobal = {
     "in {0} year": "in {0} year | in {0} years",
     "{0} word": "{0} word | {0} words",
     "You still need to write {0} words more.": "You still need to write {0} word more. | You still need to write {0} words more.",
+    "You still need to delete {0} words more.": "You still need to delete {0} word more. | You still need to delete {0} words more.",
+    "You still need to write {0} words more": "You still need to write {0} word more | You still need to write {0} words more",
+    "You still need to delete {0} words more": "You still need to delete {0} word more | You still need to delete {0} words more",
     "Remaining Time: {0}": "Remaining Time: {0}"
   },
   "zh-TW": {
@@ -3032,6 +3043,9 @@ let i18nGlobal = {
     "in {0} year": "在{0}年內",
     "{0} word": "{0}字",
     "You still need to write {0} words more.": "你還需要寫{0}字。",
+    "You still need to delete {0} words more.": "你還需要刪除{0}字。",
+    "You still need to write {0} words more": "你還需要寫{0}字",
+    "You still need to delete {0} words more": "你還需要刪除{0}字",
     "Remaining Time: {0}": "剩餘時間：{0}",
     "ANNOTATION_TYPE.MainIdea": "重點",
     "ANNOTATION_TYPE.ConfusedClarified": "疑問",

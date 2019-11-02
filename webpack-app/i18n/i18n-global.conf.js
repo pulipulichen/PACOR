@@ -8,6 +8,9 @@ let i18nGlobal = {
     "in {0} year": "in {0} year | in {0} years",
     "{0} word": "{0} word | {0} words",
     "You still need to write {0} words more.": "You still need to write {0} word more. | You still need to write {0} words more.",
+    "You still need to delete {0} words more.": "You still need to delete {0} word more. | You still need to delete {0} words more.",
+    "You still need to write {0} words more": "You still need to write {0} word more | You still need to write {0} words more",
+    "You still need to delete {0} words more": "You still need to delete {0} word more | You still need to delete {0} words more",
     "Remaining Time: {0}": "Remaining Time: {0}"
   },
   "zh-TW": {
@@ -44,6 +47,9 @@ let i18nGlobal = {
     "in {0} year": "在{0}年內",
     "{0} word": "{0}字",
     "You still need to write {0} words more.": "你還需要寫{0}字。",
+    "You still need to delete {0} words more.": "你還需要刪除{0}字。",
+    "You still need to write {0} words more": "你還需要寫{0}字",
+    "You still need to delete {0} words more": "你還需要刪除{0}字",
     "Remaining Time: {0}": "剩餘時間：{0}",
     "ANNOTATION_TYPE.MainIdea": "重點",
     "ANNOTATION_TYPE.ConfusedClarified": "疑問",
