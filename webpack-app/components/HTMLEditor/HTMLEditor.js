@@ -1,7 +1,7 @@
 import './summernote/summernote-lite.webpack.js'
 
 let HTMLEditor = {
-  props: ['lib', 'status', 'config', 'note'],
+  props: ['lib', 'status', 'config', 'contents'],
   data() {
     if (typeof(this.config) === 'object') {
       this.$i18n.locale = this.config.locale
@@ -31,8 +31,8 @@ let HTMLEditor = {
       this.editor = window.$(this.$refs.editor)
       this.editor.summernote(options)
       
-      if (typeof(this.note) === 'string') {
-        this.html(this.note)
+      if (typeof(this.contents) === 'string') {
+        this.html(this.contents)
       }
       
       //$('<div class="editor-container"><div id="editor"><h1>Hello Summernote</h1></div></div>').appendTo('body')

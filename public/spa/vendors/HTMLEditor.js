@@ -59,7 +59,7 @@ exports.push([module.i, ".editor-container {\n  position: fixed;\n  top: 10vh;\n
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n}\n", "",{"version":3,"sources":["HTMLEditor.local.less?vue&type=style&index=1&id=5af2455c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;AACd","file":"HTMLEditor.local.less?vue&type=style&index=1&id=5af2455c&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n}\n"]}]);
+exports.push([module.i, ".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n", "",{"version":3,"sources":["HTMLEditor.local.less?vue&type=style&index=1&id=5af2455c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;EAClB,gBAAgB;AAClB","file":"HTMLEditor.local.less?vue&type=style&index=1&id=5af2455c&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n"]}]);
 
 
 /***/ }),
@@ -184,7 +184,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let HTMLEditor = {
-  props: ['lib', 'status', 'config', 'note'],
+  props: ['lib', 'status', 'config', 'contents'],
   data() {
     if (typeof(this.config) === 'object') {
       this.$i18n.locale = this.config.locale
@@ -214,8 +214,8 @@ let HTMLEditor = {
       this.editor = window.$(this.$refs.editor)
       this.editor.summernote(options)
       
-      if (typeof(this.note) === 'string') {
-        this.html(this.note)
+      if (typeof(this.contents) === 'string') {
+        this.html(this.contents)
       }
       
       //$('<div class="editor-container"><div id="editor"><h1>Hello Summernote</h1></div></div>').appendTo('body')

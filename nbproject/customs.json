@@ -36,7 +36,11 @@
     "fragment": {},
     "materials": {},
     "block-exit": {},
-    "HTMLEditor": {},
+    "HTMLEditor": {
+      "attributes": {
+        "v-bind:contents": {}
+      }
+    },
     "style": {
       "attributes": {
         "scoped": {},
@@ -61,6 +65,7 @@
       "context": "template"
     },
     "v-if": {},
+    "v-on:input": {},
     "v-bind:href": {},
     "v-html": {},
     "v-for": {},

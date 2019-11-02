@@ -101,7 +101,7 @@ let AnnotationPanel = {
     this._initHeightPX()
     
     this._initPlaceholder()
-    //this._test()
+    this._test()
     
     //$.extend(require('jquery-ui'))
     //$.extend(jQueryUI)

@@ -9,11 +9,13 @@ let MainIdea = {
     this.$i18n.locale = this.config.locale
     
     let note = ''
+    //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotationInstance !== null 
             && typeof(this.annotationInstance) === 'object'
             && typeof(this.annotationInstance.note) === 'string') {
       note = this.annotationInstance.note
     }
+    //console.log(note)
     
     return {
       note: note,
@@ -53,6 +55,7 @@ let MainIdea = {
       //console.log(height)
       return {
         height: height,
+        'max-height': height
         //border: '1px solid red'
       }
     },
