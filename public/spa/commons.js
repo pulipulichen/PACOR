@@ -3518,6 +3518,13 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'vue-fab',
   props: {
+    /**
+     * Options: 'bottom-left', 'bottom-right', 'top-left','top-right'
+     */
+    position: {
+      type: String,
+      default: 'bottom-right'
+    },
     icon: {
       type: String,
       default: 'add'
@@ -3620,11 +3627,11 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
       type: String,
       default: 'all'
     },
-    bottom: {
+    verticalMargin: {
       type: String,
       default: '10%'
     },
-    right: {
+    horizontalMargin: {
       type: String,
       default: '20%'
     },
@@ -3668,10 +3675,34 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
   },
   computed: {
     computedStyle: function () {
-      return {
-        'bottom': this.bottom,
-        'right': this.right
+      switch (this.position) {
+        case 'bottom-right': 
+          return {
+            'bottom': this.verticalMargin,
+            'right': this.horizontalMargin
+          }
+          break
+        case 'bottom-left': 
+          return {
+            'bottom': this.verticalMargin,
+            'left': this.horizontalMargin
+          }
+          break
+        case 'top-right': 
+          return {
+            'top': this.verticalMargin,
+            'right': this.horizontalMargin
+          }
+          break
+        case 'top-left': 
+          return {
+            'bottom': this.verticalMargin,
+            'right': this.horizontalMargin
+          }
+          break
       }
+      
+      
     },
     computedTransitionName: function () {
       if (this.transitionEnable === false

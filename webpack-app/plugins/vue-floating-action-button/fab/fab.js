@@ -5,6 +5,13 @@ const handleClass = util.handleClass
 export default {
   name: 'vue-fab',
   props: {
+    /**
+     * Options: 'bottom-left', 'bottom-right', 'top-left','top-right'
+     */
+    position: {
+      type: String,
+      default: 'bottom-right'
+    },
     icon: {
       type: String,
       default: 'add'
@@ -107,11 +114,11 @@ export default {
       type: String,
       default: 'all'
     },
-    bottom: {
+    verticalMargin: {
       type: String,
       default: '10%'
     },
-    right: {
+    horizontalMargin: {
       type: String,
       default: '20%'
     },
@@ -155,10 +162,34 @@ export default {
   },
   computed: {
     computedStyle: function () {
-      return {
-        'bottom': this.bottom,
-        'right': this.right
+      switch (this.position) {
+        case 'bottom-right': 
+          return {
+            'bottom': this.verticalMargin,
+            'right': this.horizontalMargin
+          }
+          break
+        case 'bottom-left': 
+          return {
+            'bottom': this.verticalMargin,
+            'left': this.horizontalMargin
+          }
+          break
+        case 'top-right': 
+          return {
+            'top': this.verticalMargin,
+            'right': this.horizontalMargin
+          }
+          break
+        case 'top-left': 
+          return {
+            'bottom': this.verticalMargin,
+            'right': this.horizontalMargin
+          }
+          break
       }
+      
+      
     },
     computedTransitionName: function () {
       if (this.transitionEnable === false

@@ -97,6 +97,8 @@ class Auth {
     await user.startReadingProgress(webpage)
     let readingProgresses = await user.getReadingProgressStatus(webpage)
     let userJSON = user.toJSON()
+    //console.log(userJSON)
+    //console.log(user.preference)
     let data = {
       username: user.username,
       displayName: user.display_name,
@@ -105,7 +107,7 @@ class Auth {
       readingProgresses: readingProgresses,
       //readingProgressesFinish: config.readingProgressesFinish,
       readingConfig: config,
-      preference: user.preference
+      preference: userJSON.preference
     }
     //console.log(data)
     await ReadingActivityLog.log(webpage, user, 'Auth.login', data)

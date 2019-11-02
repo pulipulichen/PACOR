@@ -396,7 +396,7 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "right aligned column" },
+            { class: _vm.computedButtonsClass },
             [
               _vm.annotationConfig.enableControlPermission
                 ? _c("checkbox-toggle", {
@@ -779,8 +779,9 @@ var render = function() {
             iconType: "SemanticUI",
             activeIcon: "angle down",
             clickAutoCloseType: "fab",
-            bottom: "10em",
-            right: "5em",
+            position: _vm.computedFABPosition,
+            verticalMargin: "10em",
+            horizontalMargin: "5em",
             hideOnStart: true,
             activeIconRotate: false,
             transitionEnable: true,
@@ -1479,6 +1480,15 @@ let MainIdea = {
         //border: '1px solid red'
       }
     },
+    computedButtonsClass () {
+      if (this.status.preference === null 
+              || this.status.preference.leftHanded === false) {
+        return 'right aligned column'
+      }
+      else {
+        return 'column'
+      }
+    }
   },
 //  watch: {
 //  },
@@ -2532,10 +2542,20 @@ let AnnotationTypeSelector = {
       }
       //console.log(modules)
       return modules
+    },
+    computedFABPosition () {
+      //console.log(this.status.preference.leftHanded)
+      if (this.status.preference.leftHanded === true) {
+        return 'bottom-left'
+      }
+      else {
+        return 'bottom-right'
+      }
     }
   },
-  mounted() {
-  },
+//  mounted() {
+//    console.log(this.status.preference.leftHanded)
+//  },
   methods: {
     clickItem: function (type) {
       //console.log('clickItem', type)

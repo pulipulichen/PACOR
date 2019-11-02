@@ -9,7 +9,7 @@
               v-bind:style="computedEditorStyle"></HTMLEditor>
 
   <div class="ui one column grid annotation-panel-buttons">
-    <div class="right aligned column">
+    <div v-bind:class="computedButtonsClass">
       <checkbox-toggle v-bind:label="$t('PUBLIC')"
         v-model="public"
         v-if="annotationConfig.enableControlPermission"></checkbox-toggle>

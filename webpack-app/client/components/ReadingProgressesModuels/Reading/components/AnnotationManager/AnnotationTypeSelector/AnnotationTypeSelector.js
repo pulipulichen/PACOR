@@ -43,10 +43,20 @@ let AnnotationTypeSelector = {
       }
       //console.log(modules)
       return modules
+    },
+    computedFABPosition () {
+      //console.log(this.status.preference.leftHanded)
+      if (this.status.preference.leftHanded === true) {
+        return 'bottom-left'
+      }
+      else {
+        return 'bottom-right'
+      }
     }
   },
-  mounted() {
-  },
+//  mounted() {
+//    console.log(this.status.preference.leftHanded)
+//  },
   methods: {
     clickItem: function (type) {
       //console.log('clickItem', type)

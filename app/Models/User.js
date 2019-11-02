@@ -12,6 +12,8 @@ const ReadingProgress = use('App/Models/ReadingProgress')
 
 const Cache = use('Cache')
 
+const Config = use('Config')
+
 /**
 table.integer('domain_id').notNullable().unsigned().references('id').inTable('domains').onDelete('cascade')
 table.string('username', 80).notNullable()
@@ -53,7 +55,7 @@ class User extends Model {
       }
     })
     
-    this.addTrait('JSONCase', 'perference')
+    this.addTrait('JSONCase', 'preference')
   } // static boot () {
   
   static async findByNameInWebpage (webpage, username) {
@@ -350,6 +352,19 @@ class User extends Model {
   
   notifications () {
     return this.hasMany('App/Models/UserNotification')
+  }
+  
+  getPreference (preference) {
+    let basePreference = Config.get('userPreference')
+    
+    if (preference !== null
+            && typeof(preference) === 'object') {
+      for (let key in preference) {
+        basePreference[key] = preference[key]
+      }
+    }
+    
+    return basePreference
   }
 }
 

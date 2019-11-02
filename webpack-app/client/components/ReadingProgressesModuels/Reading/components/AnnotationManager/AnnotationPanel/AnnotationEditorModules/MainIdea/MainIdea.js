@@ -55,6 +55,15 @@ let MainIdea = {
         //border: '1px solid red'
       }
     },
+    computedButtonsClass () {
+      if (this.status.preference === null 
+              || this.status.preference.leftHanded === false) {
+        return 'right aligned column'
+      }
+      else {
+        return 'column'
+      }
+    }
   },
 //  watch: {
 //  },
