@@ -55,6 +55,11 @@ class Annotation extends Model {
   
   static async create(webpage, user, data) {
     
+    if (Array.isArray(data.anchorPositions) === false 
+            || data.anchorPositions.length === 0) {
+      return false
+    }
+    
     /*
     let anchorTextInstance = new AnchorTextModel()
     anchorTextInstance.webpage_id = webpage.primaryKeyValue

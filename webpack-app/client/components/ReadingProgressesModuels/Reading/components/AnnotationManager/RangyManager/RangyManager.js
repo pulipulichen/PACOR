@@ -257,8 +257,8 @@ let RangyManager = {
     pinSelection: function (scrollOptions) {
       this.unpinSelection()
       if (this.selection === null 
-              || Array.isArray(this.selection.anchorPosition.paragraph_seq_id) === false
-              || this.selection.anchorPosition.paragraph_seq_id.length === 0) {
+              || Array.isArray(this.selection.anchorPositions) === false
+              || Array.isArray(this.selection.anchorParagraphIds) === false) {
         return false
       }
       
@@ -269,10 +269,35 @@ let RangyManager = {
       //console.log(this.selection.getRangeAt(0))
       
       //this.selectionApplier.toggleSelection(window, 'pacor-paragraph-id-0')
-      let highlight = this.selectionHighlighter.highlightSelection('pacor-selection', {
+      let highlights = this.selectionHighlighter.highlightSelection('pacor-selection', {
         exclusive: false,
         containerElementId: this.selection.anchorParagraphIds
       })
+      
+      // 在這裡為它們加上文字如何？
+      //console.log(highlights)
+      this.selection.anchorPositions.forEach((position, i) => {
+        let h = highlights[i]
+        
+        let start_pos = h.characterRange.start
+        let end_pos = h.characterRange.end
+        position.start_pos = start_pos
+        position.end_pos = end_pos
+        
+        let element = document.getElementById(h.containerElementId)
+        //console.log(element, h.containerElementId, i)
+        let anchor_text
+        if (start_pos > 0) {
+          anchor_text = element.innerText.slice(start_pos - 1, end_pos - 1)
+        }
+        else {
+          anchor_text = element.innerText.slice(0, end_pos)
+        }
+        position.anchor_text = anchor_text
+        //console.log(anchor_text)
+        //position.anchor_text = h.classApplier.toString()
+      })
+      //console.log(this.selection.anchorPositions)
       
       //console.log(highlight)
       //console.log(this.selectionHighlighter.serialize())

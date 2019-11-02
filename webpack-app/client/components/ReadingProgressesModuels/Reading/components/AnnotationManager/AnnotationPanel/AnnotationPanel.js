@@ -77,6 +77,11 @@ let AnnotationPanel = {
     anchorPositions () {
       if (this.pinSelection !== null 
               && Array.isArray(this.pinSelection.anchorPositions)) {
+        return this.pinSelection.anchorPositions
+        //console.log(this.pinSelection)
+        //console.log(p)
+        
+        /*
         let s = this.pinSelection
         let p = s.anchorPosition
         
@@ -86,6 +91,7 @@ let AnnotationPanel = {
           'start_pos': Math.min(s.anchorOffset, s.focusOffset),
           'end_pos': Math.max(s.anchorOffset, s.focusOffset),
         }
+        */
       }
       return null
     }
