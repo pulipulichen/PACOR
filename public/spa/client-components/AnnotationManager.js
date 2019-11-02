@@ -379,8 +379,7 @@ var render = function() {
       _vm._v(" "),
       _c("HTMLEditor", {
         ref: "editor",
-        style: _vm.computedEditorStyle,
-        attrs: { contents: _vm.note },
+        attrs: { contents: _vm.note, height: _vm.computedEditorHeight },
         on: {
           input: function(v) {
             _vm.note = v
@@ -1467,7 +1466,7 @@ let MainIdea = {
       return this.enableAddAnnotation
     },
     
-    computedEditorStyle () {
+    computedEditorHeight () {
       let height
       if (this.enableCollaboration === true
               && this.lib.style.isStackWidth()) {
@@ -1478,11 +1477,7 @@ let MainIdea = {
         height = `calc(${this.heightPX}px - 12em)`
       }
       //console.log(height)
-      return {
-        height: height,
-        'max-height': height
-        //border: '1px solid red'
-      }
+      return height
     },
     computedButtonsClass () {
       if (this.status.preference === null 

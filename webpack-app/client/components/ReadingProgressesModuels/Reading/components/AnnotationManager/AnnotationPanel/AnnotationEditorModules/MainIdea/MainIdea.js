@@ -42,7 +42,7 @@ let MainIdea = {
       return this.enableAddAnnotation
     },
     
-    computedEditorStyle () {
+    computedEditorHeight () {
       let height
       if (this.enableCollaboration === true
               && this.lib.style.isStackWidth()) {
@@ -53,11 +53,7 @@ let MainIdea = {
         height = `calc(${this.heightPX}px - 12em)`
       }
       //console.log(height)
-      return {
-        height: height,
-        'max-height': height
-        //border: '1px solid red'
-      }
+      return height
     },
     computedButtonsClass () {
       if (this.status.preference === null 

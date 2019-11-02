@@ -83,6 +83,7 @@ var render = function() {
     "div",
     {
       staticClass: "ui segment html-editor-container",
+      style: _vm.computedStyle,
       on: { click: _vm.focus }
     },
     [_c("div", { ref: "editor" })]
@@ -184,7 +185,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let HTMLEditor = {
-  props: ['lib', 'status', 'config', 'contents'],
+  props: ['lib', 'status', 'config', 'contents', 'height'],
   data() {
     if (typeof(this.config) === 'object') {
       this.$i18n.locale = this.config.locale
@@ -194,8 +195,17 @@ let HTMLEditor = {
       lastChangedContents: null
     }
   },  // data() {
-//  computed: {
-//  },  // computed: {
+  computed: {
+    computedStyle () {
+      if (typeof(this.height) === 'string') {
+        return {
+          height: this.height,
+          'max-height': this.height
+          //border: '1px solid red'
+        }
+      }
+    }
+  },  // computed: {
 //  watch: {
 //  },  // watch: {
   mounted() {
