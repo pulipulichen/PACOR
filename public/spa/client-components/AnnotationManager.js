@@ -703,10 +703,10 @@ var render = function() {
                     attrs: {
                       config: _vm.config,
                       status: _vm.status,
+                      anchorPositions: _vm.anchorPositions,
                       annotationModule: _vm.annotationModule,
                       annotationInstance: _vm.annotationInstance,
                       annotationConfig: _vm.annotationConfig,
-                      anchorPosition: _vm.anchorPosition,
                       lib: _vm.lib,
                       heightPX: _vm.heightPX,
                       error: _vm.error
@@ -1429,7 +1429,7 @@ __webpack_require__.r(__webpack_exports__);
 let MainIdea = {
   props: ['lib', 'status', 'config'
     , 'annotationModule', 'annotationInstance'
-    , 'heightPX', 'annotationConfig', 'anchorPosition'],
+    , 'heightPX', 'annotationConfig', 'anchorPositions'],
   data() {
     this.$i18n.locale = this.config.locale
     
@@ -1497,6 +1497,7 @@ let MainIdea = {
 //  },
   methods: {
     addAnnotation () {
+      /*
       console.warning('#TODO addAnnotation')
       
       let annotationInstance = {
@@ -1508,6 +1509,13 @@ let MainIdea = {
         'note': '',
         'private': false,
       }
+       */
+      
+      let data = {
+        anchorPositions: this.anchorPositions
+      }
+      
+      //this.$emit('add', data)
     },
     editAnnotation () {
       throw '#TODO editAnnotation'
@@ -2196,9 +2204,9 @@ let AnnotationPanel = {
     computedSegmentClass () {
       return this.status.readingConfig.annotationTypeModules[this.annotationModule].style.segmentColor
     },
-    anchorPosition () {
+    anchorPositions () {
       if (this.pinSelection !== null 
-              && typeof(this.pinSelection.anchorPosition) === 'object') {
+              && Array.isArray(this.pinSelection.anchorPositions)) {
         let s = this.pinSelection
         let p = s.anchorPosition
         

@@ -81,7 +81,7 @@ test('check login status before login', async ({ assert, client }) => {
 
 test('create an annotation', async ({ assert, client }) => {
   let data = {
-    highlights: [
+    anchorPositions: [
       {
         paragraphy_seq_id: 1,
         paragraphy_id: 'aaa1',
@@ -108,7 +108,7 @@ test('create an annotation', async ({ assert, client }) => {
           .send(data)
           .end()
   
-  //console.log(response.text)
+  console.log(response.text)
   //response.assertError([])
   response.assertStatus(200)
   response.assertText(1)
@@ -125,7 +125,7 @@ test('check annotation is logged', async ({ assert, client }) => {
           .end()
   
   //console.log(response.text)
-  console.log(response.body)
+  console.log(JSON.stringify(response.body, null, ' '))
   response.assertStatus(200)
   response.assertJSONSubset([
     {
@@ -134,8 +134,8 @@ test('check annotation is logged', async ({ assert, client }) => {
     }
   ])
   
-  let createdAt = response.body[0].created_at
-  assert.isNumber(createdAt)
+  let updated_at = response.body[0].updated_at
+  assert.isNumber(updated_at)
   
   let logs2 = await ReadingActivityLog.findLog(1, 1, 'Annotation.indexMy')
   assert.equal(logs2.length, 1)

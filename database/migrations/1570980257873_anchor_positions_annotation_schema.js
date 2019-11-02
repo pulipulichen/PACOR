@@ -3,11 +3,11 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
-class AnnotationSchema extends Schema {
+class AnchorPositionsAnnotationSchema extends Schema {
   up () {
-    this.create('anchor_texts_annotations', (table) => {
+    this.create('anchor_positions_annotations', (table) => {
       table.increments()
-      table.integer('anchor_text_id').notNullable().unsigned().references('id').inTable('anchor_texts').onDelete('cascade')
+      table.integer('anchor_position_id').notNullable().unsigned().references('id').inTable('anchor_positions').onDelete('cascade')
       table.integer('annotation_id').notNullable().unsigned().references('id').inTable('annotations').onDelete('cascade')
       table.timestamps()
     })
@@ -18,4 +18,4 @@ class AnnotationSchema extends Schema {
   }
 }
 
-module.exports = AnnotationSchema
+module.exports = AnchorPositionsAnnotationSchema

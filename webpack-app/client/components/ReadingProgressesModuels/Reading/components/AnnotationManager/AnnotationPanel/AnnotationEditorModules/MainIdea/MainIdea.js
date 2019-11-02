@@ -3,7 +3,7 @@ import AnnotationEditorHeader from './../components/AnnotationEditorHeader/Annot
 let MainIdea = {
   props: ['lib', 'status', 'config'
     , 'annotationModule', 'annotationInstance'
-    , 'heightPX', 'annotationConfig', 'anchorPosition'],
+    , 'heightPX', 'annotationConfig', 'anchorPositions'],
   data() {
     this.$i18n.locale = this.config.locale
     
@@ -71,6 +71,7 @@ let MainIdea = {
 //  },
   methods: {
     addAnnotation () {
+      /*
       console.warning('#TODO addAnnotation')
       
       let annotationInstance = {
@@ -82,6 +83,13 @@ let MainIdea = {
         'note': '',
         'private': false,
       }
+       */
+      
+      let data = {
+        anchorPositions: this.anchorPositions
+      }
+      
+      //this.$emit('add', data)
     },
     editAnnotation () {
       throw '#TODO editAnnotation'

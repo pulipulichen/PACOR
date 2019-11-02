@@ -31,7 +31,7 @@ class Annotation extends WebpageUserBaseController {
               .query()
               .where('webpage_id', webpage.primaryKeyValue)
               .where('user_id', user.primaryKeyValue)
-              .with('anchorTexts')
+              .with('anchorPositions')
               .orderBy('created_at', 'asc')
 
       if (this.hasDeletedColumn === true) {
@@ -58,7 +58,7 @@ class Annotation extends WebpageUserBaseController {
 
       let query = this.model
               .query()
-              .with('anchor_texts')
+              .with('anchorPositions')
               .where('webpage_id', webpage.primaryKeyValue)
               .whereIn('user_id', others)
               .where('public', true)  // 主要是多了這個
@@ -73,6 +73,7 @@ class Annotation extends WebpageUserBaseController {
       return output
     })
   }
+  
 }
 
 module.exports = Annotation
