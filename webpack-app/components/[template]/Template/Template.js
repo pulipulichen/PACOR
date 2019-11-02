@@ -1,5 +1,5 @@
 let Template = {
-  props: ['lib', 'status', 'config', 'progress'],
+  props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {

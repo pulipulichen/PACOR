@@ -1,0 +1,10 @@
+<button type="button"
+        class="ui button"
+        v-bind:class="{'disabled': !isEnable, 'active': isEnable}">
+  <template v-if="isEnable">
+    <slot></slot>
+  </template>
+  <template v-else>
+    {{ disabledMessage }}
+  </template>
+</button>
