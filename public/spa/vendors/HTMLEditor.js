@@ -228,6 +228,12 @@ let HTMLEditor = {
         contents = ''
       }
       
+      if (contents.indexOf('<p>') === -1
+              && contents.startsWith('<') === false
+              && contents.startsWith('>') === false) {
+        contents = `<p>${contents}</p>`
+      }
+      
       if (this.lastChangedContents === contents) {
         return false
       }

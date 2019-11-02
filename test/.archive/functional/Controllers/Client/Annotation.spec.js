@@ -97,7 +97,6 @@ test('create an annotation', async ({ assert, client }) => {
         anchor_text: 'AAA'
       }
     ],
-    anchorText: '測試測試',
     type: 'MainIdea',
     note: '測試筆記'
   }

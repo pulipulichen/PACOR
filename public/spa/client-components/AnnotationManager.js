@@ -1443,7 +1443,7 @@ let MainIdea = {
     return {
       note: note,
       noteReset: note,
-      public: true
+      public: (this.annotationConfig.defaultPermission === 'public')
     }
   },
   components: {
@@ -1512,10 +1512,13 @@ let MainIdea = {
        */
       
       let data = {
-        anchorPositions: this.anchorPositions
+        anchorPositions: this.anchorPositions,
+        type: this.annotationModule,
+        note: this.note,
+        public: this.public
       }
       
-      //this.$emit('add', data)
+      console.log(data)
     },
     editAnnotation () {
       throw '#TODO editAnnotation'
