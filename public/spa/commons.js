@@ -2998,6 +2998,7 @@ let i18nGlobal = {
     "Example": "範例",
     "DATABASE": "資料庫",
     "RESET": "重設",
+    "PUBLIC": "公開",
     "Path": "路徑",
     "Config": "設定",
     "Group": "分組",

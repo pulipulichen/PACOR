@@ -19,15 +19,16 @@
                      v-bind:status="status"
                      v-bind:annotationModule="annotationModule"
                      v-bind:annotationInstance="annotationInstance"
-                     v-bind:enableCollaboration="enableCollaboration"
+                     v-bind:annotationConfig="annotationConfig"
                      v-bind:lib="lib"
                      v-bind:heightPX="heightPX"
-                     v-bind:error="error"></component>
+                     v-bind:error="error"
+                     v-on:hide="hide"></component>
         </div>
         
         <!-- =========================================== -->
         <div class="column annotation-discussion" 
-             v-if="enableCollaboration">
+             v-if="annotationConfig.enableCollaboration">
           <annotation-discussion v-bind:config="config"
             v-bind:status="status"
             v-bind:progress="progress"

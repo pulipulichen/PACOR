@@ -23,3 +23,6 @@ Vue.component('annotation-module-button', AnnotationModuleButton)
 
 Vue.component('HTMLEditor', () => import(/* webpackChunkName: "vendors/HTMLEditor" */ './../components/HTMLEditor/HTMLEditor.vue'))
 
+import CheckboxToggle from './../components/CheckboxToggle/CheckboxToggle.vue'
+Vue.component('checkbox-toggle', CheckboxToggle)
+

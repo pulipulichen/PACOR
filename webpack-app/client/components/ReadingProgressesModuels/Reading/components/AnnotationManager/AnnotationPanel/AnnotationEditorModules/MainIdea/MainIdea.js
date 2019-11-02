@@ -1,27 +1,27 @@
-import UserInformation from './../components/UserInformation/UserInformation.vue'
-import AnnotaionInstruction from './../components/AnnotaionInstruction/AnnotaionInstruction.vue'
+import AnnotationEditorHeader from './../components/AnnotationEditorHeader/AnnotationEditorHeader.vue'
 
 let MainIdea = {
   props: ['lib', 'status', 'config'
     , 'annotationModule', 'annotationInstance'
-    , 'heightPX', 'enableCollaboration'],
-  data() {    
+    , 'heightPX', 'annotationConfig'],
+  data() {
     this.$i18n.locale = this.config.locale
     
     let note = ''
-    if (typeof(this.annotationInstance) === 'object'
+    if (this.annotationInstance !== null 
+            && typeof(this.annotationInstance) === 'object'
             && typeof(this.annotationInstance.note) === 'string') {
       note = this.annotationInstance.note
     }
     
     return {
       note: note,
-      noteReset: note
+      noteReset: note,
+      public: true
     }
   },
   components: {
-    'user-information': UserInformation,
-    'annotaion-instruction': AnnotaionInstruction
+    'annotation-editor-header': AnnotationEditorHeader
   },
   computed: {
     isNoteDifferent () {
@@ -55,33 +55,41 @@ let MainIdea = {
         //border: '1px solid red'
       }
     },
-    /*
-    editorConfig () {
-      return {
-        contents: this.note,
-        style: {
-          height: `calc(${this.heightVH}vh - 11em)`,
-          //border: '1px solid red'
-        }
-      }
-    }*/
   },
-  watch: {
-    'editorConfig.contents' (contents) {
-      console.log(contents)
-    }
-  },
-  mounted() {
-  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
   methods: {
+    addAnnotation () {
+      console.warning('#TODO addAnnotation')
+      
+      let annotationInstance = {
+        'paragraphy_seq_id': 0,
+        'paragraphy_id': 0,
+        'start_pos': 0,
+        'end_pos': 0,
+        'type': '',
+        'note': '',
+        'private': false,
+      }
+    },
     editAnnotation () {
-      console.error('#TODO editAnnotation')
+      throw '#TODO editAnnotation'
     },
     deleteAnnotation () {
+      if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
+        let data = {
+          id: this.annotationInstance.id
+        }
+        
+        throw '這邊要處理highlight的部分'
+        
+        this.lib.AxiosHelper.get('/client/resource/Annotation/destroy', data)
+        
+        return this.$emit('hide') // 跟上層說關閉視窗
+      }
       console.error('#TODO deleteAnnotation')
-    },
-    addAnnotation () {
-      console.error('#TODO addAnnotation')
     },
     hide () {
       this.$parent.hide()

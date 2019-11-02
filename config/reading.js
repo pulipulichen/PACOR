@@ -25,7 +25,9 @@ module.exports = {
       limitMinutes: 3,
       annotation: {
         types: ['ConfusedClarified', 'MainIdea'],
-        enableCollaboration: false
+        enableCollaboration: false,
+        enableControlPermission: false,
+        defaultPermission: 'public',
       },
       checklist: [
         'I have already read this section.',
@@ -38,7 +40,9 @@ module.exports = {
       message: '進入合作閱讀囉',
       annotation: {
         types: ['ConfusedClarified', 'MainIdea'],
-        enableCollaboration: false
+        enableCollaboration: false,
+        enableControlPermission: false,
+        defaultPermission: 'public',
       },
     },
     'PostRecall': {

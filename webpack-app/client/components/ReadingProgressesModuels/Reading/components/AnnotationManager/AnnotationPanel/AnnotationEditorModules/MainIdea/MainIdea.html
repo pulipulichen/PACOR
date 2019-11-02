@@ -1,18 +1,8 @@
 <div class="ui form">
-  <div class="ui middle aligned grid">
-    <div class="two columns row">
-      <div class="six wide column">
-        <user-information v-bind:annotationModule="annotationModule"
-                          v-bind:status="status"></user-information>
-      </div>
-
-      <div class="ten wide column">
-        <annotaion-instruction v-bind:config="config"
-                               v-bind:status="status"
-                               v-bind:annotationModule="annotationModule"></annotaion-instruction>
-      </div>
-    </div>
-  </div>
+  
+  <annotation-editor-header v-bind:config="config"
+        v-bind:status="status"
+        v-bind:annotationModule="annotationModule"></annotation-editor-header>
   
   <HTMLEditor ref="editor"
               v-model="note"
@@ -20,32 +10,43 @@
 
   <div class="ui one column grid annotation-panel-buttons">
     <div class="right aligned column">
-      <!--
-      #time
+      <checkbox-toggle v-bind:label="$t('PUBLIC')"
+        v-model="public"
+        v-if="annotationConfig.enableControlPermission"></checkbox-toggle>
       
-      <button type="button"
-              class="ui button"
-              v-bind:class="{'disabled': !enableAddAnnotation}"
-              v-on:click="editAnnotation">
-        {{ $t('EDIT') }}  
-      </button>
-      <button type="button"
-              class="ui button"
-              v-on:click="deleteAnnotation">
-        {{ $t('DELETE') }}  
-      </button>
-      -->
       <button type="button"
               class="ui button"
               v-on:click="hide">
         {{ $t('CANCEL') }}  
       </button>
-      <button type="button"
-              class="ui button"
-              v-bind:class="{'disabled': !enableAddAnnotation}"
-              v-on:click="addAnnotation">
-        {{ $t('ADD') }}  
-      </button>
+      
+      <!-- ============================== -->
+      
+      <template v-if="annotationInstance">
+        <!--
+        #time
+
+        <button type="button"
+                class="ui button"
+                v-bind:class="{'disabled': !enableAddAnnotation}"
+                v-on:click="editAnnotation">
+          {{ $t('EDIT') }}  
+        </button>
+        <button type="button"
+                class="ui button"
+                v-on:click="deleteAnnotation">
+          {{ $t('DELETE') }}  
+        </button>
+        -->
+      </template>
+      <template v-else>
+        <button type="button"
+                class="ui button"
+                v-bind:class="{'disabled': !enableAddAnnotation}"
+                v-on:click="addAnnotation">
+          {{ $t('ADD') }}  
+        </button>
+      </template>
     </div>
   </div>
 </div>

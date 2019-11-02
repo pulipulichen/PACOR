@@ -11,7 +11,7 @@ let AnnotationPanel = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      annotationInstance: {},
+      annotationInstance: null,
       
       //heightVH: 50,
       heightPX: 500,
@@ -29,19 +29,25 @@ let AnnotationPanel = {
     'MainIdea': AnnotationModuleMainIdea
   },
   computed: {
-    enableCollaboration () {
-      //return true // for test
-      
+    annotationConfig () {
       let stepConfig = this.lib.auth.currentStepConfig
-      return (stepConfig.annotation.enableCollaboration === true)
+      return stepConfig.annotation
     },
+//    enableCollaboration () {
+//      //return true // for test
+//      return this.annotationConfig.enableCollaboration
+//    },
+//    enablePermissionControll () {
+//      //return true // for test
+//      return this.annotationConfig.enablePermissionControll
+//    },
     computedPlaceholderHeight () {
       //return `calc(${this.heightVH}vh - ${this.navigationPlaceholderHeight}px)`
       return `calc(${this.heightPX}px - ${this.navigationPlaceholderHeight}px)`
     },
     computedGridClass () {
       let classList = []
-      if (this.enableCollaboration === true) {
+      if (this.annotationConfig.enableCollaboration === true) {
         classList.push('two')
       }
       else {
@@ -51,7 +57,7 @@ let AnnotationPanel = {
       return classList.join(' ') + ' column grid'
     },
     computedSegmentStyle () {
-      if (this.enableCollaboration === true
+      if (this.annotationConfig.enableCollaboration === true
               && this.lib.style.isStackWidth() === true) {
         return {
           'max-height': `${this.heightPX}px`,
