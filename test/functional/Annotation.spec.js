@@ -134,6 +134,9 @@ test('check annotation is logged', async ({ assert, client }) => {
     }
   ])
   
+  let createdAt = response.body[0].created_at
+  assert.isNumber(createdAt)
+  
   let logs2 = await ReadingActivityLog.findLog(1, 1, 'Annotation.indexMy')
   assert.equal(logs2.length, 1)
   

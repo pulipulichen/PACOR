@@ -6,6 +6,12 @@ const Model = use('Model')
 const AnchorTextModel = use('App/Models/AnchorText')
 
 class Annotation extends Model {
+  static boot () {
+    super.boot()
+    
+    this.addTrait('DateUnixMSCase')
+  } // static boot () {
+  
   user () {
     return this.belongsTo('App/Models/User')
   }
