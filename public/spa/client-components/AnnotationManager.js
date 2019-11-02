@@ -308,10 +308,9 @@ var render = function() {
         attrs: {
           config: _vm.config,
           status: _vm.status,
-          progress: _vm.progress,
           lib: _vm.lib,
-          error: _vm.error,
           pinSelection: _vm.pinSelection,
+          rangy: _vm.$refs.RangyManager,
           annotationModule: _vm.annotationModule
         },
         on: { hide: _vm.unpin }
@@ -708,8 +707,8 @@ var render = function() {
                       annotationInstance: _vm.annotationInstance,
                       annotationConfig: _vm.annotationConfig,
                       lib: _vm.lib,
-                      heightPX: _vm.heightPX,
-                      error: _vm.error
+                      rangy: _vm.rangy,
+                      heightPX: _vm.heightPX
                     },
                     on: { hide: _vm.hide }
                   })
@@ -1429,7 +1428,8 @@ __webpack_require__.r(__webpack_exports__);
 let MainIdea = {
   props: ['lib', 'status', 'config'
     , 'annotationModule', 'annotationInstance'
-    , 'heightPX', 'annotationConfig', 'anchorPositions'],
+    , 'heightPX', 'annotationConfig', 'anchorPositions'
+    , 'rangy'],
   data() {
     this.$i18n.locale = this.config.locale
     
@@ -1496,20 +1496,7 @@ let MainIdea = {
 //  mounted() {
 //  },
   methods: {
-    addAnnotation () {
-      /*
-      console.warning('#TODO addAnnotation')
-      
-      let annotationInstance = {
-        'paragraphy_seq_id': 0,
-        'paragraphy_id': 0,
-        'start_pos': 0,
-        'end_pos': 0,
-        'type': '',
-        'note': '',
-        'private': false,
-      }
-       */
+    addAnnotation: async function () {
       
       let data = {
         anchorPositions: this.anchorPositions,
@@ -1519,6 +1506,15 @@ let MainIdea = {
       }
       
       console.log(data)
+      
+      let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+      //console.log(id) // for test
+      if (typeof(id) !== 'number') {
+        return
+      }
+      
+      this.rangy.highlightPinnedSelection('my-' + this.annotationModule)
+      this.hide()
     },
     editAnnotation () {
       throw '#TODO editAnnotation'
@@ -2140,7 +2136,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AnnotationPanel = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'pinSelection', 'annotationModule'],
+  props: ['lib', 'status', 'config'
+    , 'pinSelection', 'annotationModule', 'rangy'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -2211,20 +2208,6 @@ let AnnotationPanel = {
       if (this.pinSelection !== null 
               && Array.isArray(this.pinSelection.anchorPositions)) {
         return this.pinSelection.anchorPositions
-        //console.log(this.pinSelection)
-        //console.log(p)
-        
-        /*
-        let s = this.pinSelection
-        let p = s.anchorPosition
-        
-        return {
-          'paragraphy_seq_id': p.paragraph_seq_id,
-          'paragraphy_id': p.paragraph_id,
-          'start_pos': Math.min(s.anchorOffset, s.focusOffset),
-          'end_pos': Math.max(s.anchorOffset, s.focusOffset),
-        }
-        */
       }
       return null
     }
@@ -3202,21 +3185,34 @@ let RangyManager = {
         ignoreWhiteSpace: true,
         tagNames: ["span", "a", "b", "img"]
       }
-      for (let className in this.rangyConfig.annotationTypeModules) {
-        let applier = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].createClassApplier(className, options)
-        this.highlighter.addClassApplier(applier);
-        this.highlightClasses.push(className)
-        
-        // 如果有css style的話
-        if (typeof(this.rangyConfig.annotationTypeModules[className].style) === 'object'
-                && typeof(this.rangyConfig.annotationTypeModules[className].style.highlight) === 'string') {
-          let rule = this.rangyConfig.annotationTypeModules[className].style.highlight
-          if (typeof(rule) === 'string') {
-            let selector = `[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .${className}`
-            rules.push(`${selector} {${rule}}`)
+      
+      let ownerClasses = ['my-', 'others-']
+      ownerClasses.forEach(ownerClass => {
+        for (let moduleName in this.rangyConfig.annotationTypeModules) {
+          let className = ownerClass + moduleName
+          let applier = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].createClassApplier(className, options)
+          this.highlighter.addClassApplier(applier);
+          this.highlightClasses.push(className)
+
+          // 如果有css style的話
+          if (typeof(this.rangyConfig.annotationTypeModules[moduleName].style) === 'object'
+                  && typeof(this.rangyConfig.annotationTypeModules[moduleName].style.highlightColor) === 'string') {
+            let color = this.rangyConfig.annotationTypeModules[moduleName].style.highlightColor
+            let rule
+            if (ownerClass === 'my-') {
+              rule = `background-color: ${color};`
+            }
+            else if (ownerClass === 'others-') {
+              rule = `border-bottom: 1px solid ${color};`
+            }
+            
+            if (typeof(rule) === 'string') {
+              let selector = `[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .${className}`
+              rules.push(`${selector} {${rule}}`)
+            }
           }
-        }
-      }
+        } // for (let className in this.rangyConfig.annotationTypeModules) {
+      })
       
       if (rules.length > 0) {
         let sheet
@@ -3234,7 +3230,7 @@ let RangyManager = {
           //console.log(rule)
           sheet.insertRule(rule, sheet.cssRules.length)
         })
-      }
+      } // if (rules.length > 0) {
       
     },
     
@@ -8876,7 +8872,7 @@ __webpack_require__.r(__webpack_exports__);
                 let globalContainerElement = getContainerElement(doc, null)
                 var globalSerializedSelection = converter.serializeSelection(selection, globalContainerElement);
                 containerElementIds.forEach(containerElementId => {
-                  console.log(containerElementId)
+                  //console.log(containerElementId)
                   containerElement = getContainerElement(doc, containerElementId);
 
                   if (!classApplier && className !== false) {

@@ -7,7 +7,8 @@ import AnnotationModuleMainIdea from './AnnotationEditorModules/MainIdea/MainIde
 import $ from 'jquery'
 
 let AnnotationPanel = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'pinSelection', 'annotationModule'],
+  props: ['lib', 'status', 'config'
+    , 'pinSelection', 'annotationModule', 'rangy'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -78,20 +79,6 @@ let AnnotationPanel = {
       if (this.pinSelection !== null 
               && Array.isArray(this.pinSelection.anchorPositions)) {
         return this.pinSelection.anchorPositions
-        //console.log(this.pinSelection)
-        //console.log(p)
-        
-        /*
-        let s = this.pinSelection
-        let p = s.anchorPosition
-        
-        return {
-          'paragraphy_seq_id': p.paragraph_seq_id,
-          'paragraphy_id': p.paragraph_id,
-          'start_pos': Math.min(s.anchorOffset, s.focusOffset),
-          'end_pos': Math.max(s.anchorOffset, s.focusOffset),
-        }
-        */
       }
       return null
     }

@@ -14,7 +14,7 @@ let AxiosHelper = {
   setErrorHandler: function (handler) {
     this.errorHandler = handler
   },
-  handleError: function (error, b) {
+  handleError: function (error) {
     //console.error(error.response)
     if (typeof(this.errorHandler) === 'function') {
       this.errorHandler(error)
@@ -70,6 +70,7 @@ let AxiosHelper = {
       return result.data
     }
     catch (error) {
+      console.log(error)
       if (typeof(errorHandler) !== 'function') {
         this.handleError(error)
       }

@@ -471,7 +471,7 @@ export default (rangy) => {
                 let globalContainerElement = getContainerElement(doc, null)
                 var globalSerializedSelection = converter.serializeSelection(selection, globalContainerElement);
                 containerElementIds.forEach(containerElementId => {
-                  console.log(containerElementId)
+                  //console.log(containerElementId)
                   containerElement = getContainerElement(doc, containerElementId);
 
                   if (!classApplier && className !== false) {

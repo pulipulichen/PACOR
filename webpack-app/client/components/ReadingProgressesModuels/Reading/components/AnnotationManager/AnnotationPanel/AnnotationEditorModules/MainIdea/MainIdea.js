@@ -3,7 +3,8 @@ import AnnotationEditorHeader from './../components/AnnotationEditorHeader/Annot
 let MainIdea = {
   props: ['lib', 'status', 'config'
     , 'annotationModule', 'annotationInstance'
-    , 'heightPX', 'annotationConfig', 'anchorPositions'],
+    , 'heightPX', 'annotationConfig', 'anchorPositions'
+    , 'rangy'],
   data() {
     this.$i18n.locale = this.config.locale
     
@@ -70,20 +71,7 @@ let MainIdea = {
 //  mounted() {
 //  },
   methods: {
-    addAnnotation () {
-      /*
-      console.warning('#TODO addAnnotation')
-      
-      let annotationInstance = {
-        'paragraphy_seq_id': 0,
-        'paragraphy_id': 0,
-        'start_pos': 0,
-        'end_pos': 0,
-        'type': '',
-        'note': '',
-        'private': false,
-      }
-       */
+    addAnnotation: async function () {
       
       let data = {
         anchorPositions: this.anchorPositions,
@@ -93,6 +81,15 @@ let MainIdea = {
       }
       
       console.log(data)
+      
+      let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+      //console.log(id) // for test
+      if (typeof(id) !== 'number') {
+        return
+      }
+      
+      this.rangy.highlightPinnedSelection('my-' + this.annotationModule)
+      this.hide()
     },
     editAnnotation () {
       throw '#TODO editAnnotation'

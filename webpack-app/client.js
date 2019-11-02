@@ -9,8 +9,6 @@ import './plugins/plugins'
 import './styles/styles'
 import i18n from './plugins/i18n'
 
-
-
 // ----------------------------------
 // Helpers
 import AxiosHelper from './helpers/AxiosHelper'

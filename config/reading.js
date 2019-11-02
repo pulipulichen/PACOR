@@ -86,7 +86,8 @@ module.exports = {
         }
       ],
       "style": {
-        'highlight': 'border-bottom: 1px solid green',
+        //'highlight': 'border-bottom: 1px solid green',
+        'hightlightColor': 'red',
         'segmentColor': 'red',
         'button': {
           'icon': 'question',
@@ -102,7 +103,8 @@ module.exports = {
         'url': '/annotation-instruction/MainIdea.html'
       },
       "style": {
-        'highlight': 'border-bottom: 1px solid red',
+        //'highlight': 'border-bottom: 1px solid red',
+        'hightlightColor': 'yellow',
         'segmentColor': 'yellow',
         'button': {
           'icon': 'exclamation',

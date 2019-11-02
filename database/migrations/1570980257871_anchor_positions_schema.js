@@ -8,8 +8,8 @@ class AnnotationAnchorPositionsSchema extends Schema {
     this.create('anchor_positions', (table) => {
       table.increments()
       table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
-      table.integer('paragraphy_seq_id').notNullable()
-      table.string('paragraphy_id', 256).notNullable()
+      table.integer('paragraph_seq_id').notNullable()
+      table.string('paragraph_id', 256).notNullable()
       table.integer('start_pos').notNullable()
       table.integer('end_pos').notNullable()
       table.text('anchor_text').notNullable()

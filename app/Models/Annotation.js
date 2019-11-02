@@ -22,7 +22,7 @@ class Annotation extends Model {
   
   anchorPositions () {
     return this.belongsToMany('App/Models/AnchorPosition')
-            .orderBy('paragraphy_seq_id', 'asc')
+            .orderBy('paragraph_seq_id', 'asc')
             .orderBy('start_pos', 'asc')
             .pivotTable('anchor_positions_annotations')
   }
@@ -83,8 +83,8 @@ class Annotation extends Model {
       
       let query = {
         webpage_id: webpage.primaryKeyValue,
-        paragraphy_seq_id: a.paragraphy_seq_id,
-        paragraphy_id: a.paragraphy_id,
+        paragraph_seq_id: a.paragraph_seq_id,
+        paragraph_id: a.paragraph_id,
         start_pos: a.start_pos,
         end_pos: a.end_pos,
         anchor_text: a.anchor_text

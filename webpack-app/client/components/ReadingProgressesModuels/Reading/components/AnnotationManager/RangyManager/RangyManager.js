@@ -475,21 +475,34 @@ let RangyManager = {
         ignoreWhiteSpace: true,
         tagNames: ["span", "a", "b", "img"]
       }
-      for (let className in this.rangyConfig.annotationTypeModules) {
-        let applier = rangy.createClassApplier(className, options)
-        this.highlighter.addClassApplier(applier);
-        this.highlightClasses.push(className)
-        
-        // 如果有css style的話
-        if (typeof(this.rangyConfig.annotationTypeModules[className].style) === 'object'
-                && typeof(this.rangyConfig.annotationTypeModules[className].style.highlight) === 'string') {
-          let rule = this.rangyConfig.annotationTypeModules[className].style.highlight
-          if (typeof(rule) === 'string') {
-            let selector = `[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .${className}`
-            rules.push(`${selector} {${rule}}`)
+      
+      let ownerClasses = ['my-', 'others-']
+      ownerClasses.forEach(ownerClass => {
+        for (let moduleName in this.rangyConfig.annotationTypeModules) {
+          let className = ownerClass + moduleName
+          let applier = rangy.createClassApplier(className, options)
+          this.highlighter.addClassApplier(applier);
+          this.highlightClasses.push(className)
+
+          // 如果有css style的話
+          if (typeof(this.rangyConfig.annotationTypeModules[moduleName].style) === 'object'
+                  && typeof(this.rangyConfig.annotationTypeModules[moduleName].style.highlightColor) === 'string') {
+            let color = this.rangyConfig.annotationTypeModules[moduleName].style.highlightColor
+            let rule
+            if (ownerClass === 'my-') {
+              rule = `background-color: ${color};`
+            }
+            else if (ownerClass === 'others-') {
+              rule = `border-bottom: 1px solid ${color};`
+            }
+            
+            if (typeof(rule) === 'string') {
+              let selector = `[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .${className}`
+              rules.push(`${selector} {${rule}}`)
+            }
           }
-        }
-      }
+        } // for (let className in this.rangyConfig.annotationTypeModules) {
+      })
       
       if (rules.length > 0) {
         let sheet
@@ -507,7 +520,7 @@ let RangyManager = {
           //console.log(rule)
           sheet.insertRule(rule, sheet.cssRules.length)
         })
-      }
+      } // if (rules.length > 0) {
       
     },
     
