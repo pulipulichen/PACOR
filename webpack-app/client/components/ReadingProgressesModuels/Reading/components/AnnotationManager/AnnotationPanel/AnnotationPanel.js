@@ -73,6 +73,21 @@ let AnnotationPanel = {
     },
     computedSegmentClass () {
       return this.status.readingConfig.annotationTypeModules[this.annotationModule].style.segmentColor
+    },
+    anchorPosition () {
+      if (this.pinSelection !== null 
+              && typeof(this.pinSelection.anchorPosition) === 'object') {
+        let s = this.pinSelection
+        let p = s.anchorPosition
+        
+        return {
+          'paragraphy_seq_id': p.paragraph_seq_id[0],
+          'paragraphy_id': p.paragraph_id[0],
+          'start_pos': Math.min(s.anchorOffset, s.focusOffset),
+          'end_pos': Math.max(s.anchorOffset, s.focusOffset),
+        }
+      }
+      return null
     }
   },
   watch: {

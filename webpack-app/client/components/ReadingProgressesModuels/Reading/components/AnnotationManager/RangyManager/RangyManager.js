@@ -161,7 +161,7 @@ let RangyManager = {
         }
         
         this.$emit('select', selection)
-        //console.log('onselect', selection)
+        console.log('onselect', selection)
         this.selection = selection
       }
       else {

@@ -706,6 +706,7 @@ var render = function() {
                       annotationModule: _vm.annotationModule,
                       annotationInstance: _vm.annotationInstance,
                       annotationConfig: _vm.annotationConfig,
+                      anchorPosition: _vm.anchorPosition,
                       lib: _vm.lib,
                       heightPX: _vm.heightPX,
                       error: _vm.error
@@ -1426,7 +1427,7 @@ __webpack_require__.r(__webpack_exports__);
 let MainIdea = {
   props: ['lib', 'status', 'config'
     , 'annotationModule', 'annotationInstance'
-    , 'heightPX', 'annotationConfig'],
+    , 'heightPX', 'annotationConfig', 'anchorPosition'],
   data() {
     this.$i18n.locale = this.config.locale
     
@@ -2183,6 +2184,21 @@ let AnnotationPanel = {
     },
     computedSegmentClass () {
       return this.status.readingConfig.annotationTypeModules[this.annotationModule].style.segmentColor
+    },
+    anchorPosition () {
+      if (this.pinSelection !== null 
+              && typeof(this.pinSelection.anchorPosition) === 'object') {
+        let s = this.pinSelection
+        let p = s.anchorPosition
+        
+        return {
+          'paragraphy_seq_id': p.paragraph_seq_id[0],
+          'paragraphy_id': p.paragraph_id[0],
+          'start_pos': Math.min(s.anchorOffset, s.focusOffset),
+          'end_pos': Math.max(s.anchorOffset, s.focusOffset),
+        }
+      }
+      return null
     }
   },
   watch: {
@@ -2829,7 +2845,7 @@ let RangyManager = {
         }
         
         this.$emit('select', selection)
-        //console.log('onselect', selection)
+        console.log('onselect', selection)
         this.selection = selection
       }
       else {
