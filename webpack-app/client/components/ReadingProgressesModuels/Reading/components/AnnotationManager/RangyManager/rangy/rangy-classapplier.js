@@ -935,9 +935,57 @@ export default (rangy) => {
         return ranges;
       },
 
-      applyToSelection: function (win) {
-        var sel = api.getSelection(win);
-        sel.setRanges(this.applyToRanges(sel.getAllRanges()));
+      applyToSelection: function (win, containerElementId) {
+        let sel = api.getSelection(win)
+        
+        let ranges = sel.getAllRanges()
+        /*
+        if (typeof(containerElementId) === 'string') {
+          // 這邊，要做點什麼
+          console.log(containerElementId)
+          
+          if (!this.doc) {
+            this.doc = win.document
+          }
+          
+          let containerElementCharRange
+          if (containerElementId) {
+            let containerElement = this.doc.getElementById(containerElementId);
+            if (containerElement) {
+              
+              let rangeToCharacterRange = function(range, containerNode) {
+                  return CharacterRange.fromCharacterRange( range.toCharacterRange(containerNode) );
+              }
+              
+              let containerElementRange = api.createRange(containerElement)
+              containerElementRange.selectNodeContents(containerElement);
+              console.log(containerElementRange)
+              
+              var selCharRanges = []
+              ranges.forEach(range => {
+                let scopedRange = containerElementRange.intersection(range)
+                console.log(scopedRange)
+                //scopedRange = rangeToCharacterRange(scopedRange, containerElement)
+                selCharRanges.push( scopedRange );
+              })
+                  
+
+              
+              containerElementRange.selectNodeContents(containerElement);
+              containerElementCharRange = new CharacterRange(0, containerElementRange.toString().length);
+              
+              if (containerElementCharRange) {
+                selCharRanges = selCharRanges.intersection(containerElementCharRange);
+              }
+              
+              console.log(selCharRanges)
+            }
+          }
+
+          
+        }
+        */
+        sel.setRanges(this.applyToRanges(ranges))
       },
 
       undoToRange: function (range, rangesToPreserve) {
@@ -1048,11 +1096,11 @@ export default (rangy) => {
         }
       },
 
-      toggleSelection: function (win) {
+      toggleSelection: function (win, containerElementId) {
         if (this.isAppliedToSelection(win)) {
           this.undoToSelection(win);
         } else {
-          this.applyToSelection(win);
+          this.applyToSelection(win, containerElementId);
         }
       },
 
@@ -1096,4 +1144,55 @@ export default (rangy) => {
     util.createAliasForDeprecatedMethod(api, "createCssClassApplier", "createClassApplier", module);
   });
   //console.log('rangy-classapplier ok')
+  
+  // --------------------------------------
+  
+  /*
+  function CharacterRange(start, end) {
+    this.start = start;
+    this.end = end;
+  }
+
+  CharacterRange.prototype = {
+    intersects: function (charRange) {
+      return this.start < charRange.end && this.end > charRange.start;
+    },
+
+    isContiguousWith: function (charRange) {
+      return this.start == charRange.end || this.end == charRange.start;
+    },
+
+    union: function (charRange) {
+      return new CharacterRange(Math.min(this.start, charRange.start), Math.max(this.end, charRange.end));
+    },
+
+    intersection: function (charRange) {
+      return new CharacterRange(Math.max(this.start, charRange.start), Math.min(this.end, charRange.end));
+    },
+
+    getComplements: function (charRange) {
+      var ranges = [];
+      if (this.start >= charRange.start) {
+        if (this.end <= charRange.end) {
+          return [];
+        }
+        ranges.push(new CharacterRange(charRange.end, this.end));
+      } else {
+        ranges.push(new CharacterRange(this.start, Math.min(this.end, charRange.start)));
+        if (this.end > charRange.end) {
+          ranges.push(new CharacterRange(charRange.end, this.end));
+        }
+      }
+      return ranges;
+    },
+
+    toString: function () {
+      return "[CharacterRange(" + this.start + ", " + this.end + ")]";
+    }
+  };
+
+  CharacterRange.fromCharacterRange = function (charRange) {
+    return new CharacterRange(charRange.start, charRange.end);
+  };
+  */
 }

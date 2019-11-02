@@ -20,7 +20,7 @@ let IndividualReading = {
   },
   mounted() {
     this.status.title = this.status.username
-    return
+    
     setTimeout(() => {
       this.t = `AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
@@ -38,7 +38,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />`
-    }, 1000 * 1)
+    }, 1000 * 0)
   },
   methods: {
   } // methods

@@ -129,7 +129,7 @@ export default (rangy) => {
                 var ranges = selection.getAllRanges(), rangeCount = ranges.length;
                 var rangeInfos = [];
 
-                var backward = rangeCount == 1 && selection.isBackward();
+                var backward = rangeCount === 1 && selection.isBackward();
 
                 for (var i = 0, len = ranges.length; i < len; ++i) {
                     rangeInfos[i] = {
@@ -348,7 +348,7 @@ export default (rangy) => {
                     }
 
                     // Ignore empty ranges
-                    if (charRange.start == charRange.end) {
+                    if (charRange.start === charRange.end) {
                         continue;
                     }
 
@@ -357,9 +357,9 @@ export default (rangy) => {
                     for (j = 0; j < highlights.length; ++j) {
                         removeHighlight = false;
 
-                        if (containerElementId == highlights[j].containerElementId) {
+                        if (containerElementId === highlights[j].containerElementId) {
                             highlightCharRange = highlights[j].characterRange;
-                            isSameClassApplier = (classApplier == highlights[j].classApplier);
+                            isSameClassApplier = (classApplier === highlights[j].classApplier);
                             splitHighlight = !isSameClassApplier && exclusive;
 
                             // Replace the existing highlight if it needs to be:

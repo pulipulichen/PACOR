@@ -2875,7 +2875,7 @@ let RangyManager = {
         }
         
         this.$emit('select', selection)
-        console.log('onselect', selection)
+        //console.log('onselect', selection)
         this.selection = selection
       }
       else {
@@ -2942,7 +2942,8 @@ let RangyManager = {
       // selections or TextRanges. Even IE 5 would pass this test.
       if (_rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].supported && classApplierModule && classApplierModule.supported) {
         this.selectionApplier = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].createClassApplier("pacor-selection", {
-          tagNames: ["span", "a", "b", "img"]
+          tagNames: ["span", "a", "b", "img"],
+          ignoreWhiteSpace: true,
         })
       }
     },
@@ -2956,12 +2957,12 @@ let RangyManager = {
       }
       
       this.selectionSaved = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].saveSelection()
-      
+      //console.log(this.selectionSaved)
       //let range = this.selection.saveRanges()
       //console.log(range)
       //console.log(this.selection.getRangeAt(0))
       
-      this.selectionApplier.toggleSelection()
+      this.selectionApplier.toggleSelection(window, 'pacor-paragraph-id-0')
       /*
       if (typeof(scrollOptions) === 'object') {
         if (typeof(scrollOptions.delay) === 'number') {
@@ -4211,9 +4212,57 @@ __webpack_require__.r(__webpack_exports__);
         return ranges;
       },
 
-      applyToSelection: function (win) {
-        var sel = api.getSelection(win);
-        sel.setRanges(this.applyToRanges(sel.getAllRanges()));
+      applyToSelection: function (win, containerElementId) {
+        let sel = api.getSelection(win)
+        
+        let ranges = sel.getAllRanges()
+        /*
+        if (typeof(containerElementId) === 'string') {
+          // 這邊，要做點什麼
+          console.log(containerElementId)
+          
+          if (!this.doc) {
+            this.doc = win.document
+          }
+          
+          let containerElementCharRange
+          if (containerElementId) {
+            let containerElement = this.doc.getElementById(containerElementId);
+            if (containerElement) {
+              
+              let rangeToCharacterRange = function(range, containerNode) {
+                  return CharacterRange.fromCharacterRange( range.toCharacterRange(containerNode) );
+              }
+              
+              let containerElementRange = api.createRange(containerElement)
+              containerElementRange.selectNodeContents(containerElement);
+              console.log(containerElementRange)
+              
+              var selCharRanges = []
+              ranges.forEach(range => {
+                let scopedRange = containerElementRange.intersection(range)
+                console.log(scopedRange)
+                //scopedRange = rangeToCharacterRange(scopedRange, containerElement)
+                selCharRanges.push( scopedRange );
+              })
+                  
+
+              
+              containerElementRange.selectNodeContents(containerElement);
+              containerElementCharRange = new CharacterRange(0, containerElementRange.toString().length);
+              
+              if (containerElementCharRange) {
+                selCharRanges = selCharRanges.intersection(containerElementCharRange);
+              }
+              
+              console.log(selCharRanges)
+            }
+          }
+
+          
+        }
+        */
+        sel.setRanges(this.applyToRanges(ranges))
       },
 
       undoToRange: function (range, rangesToPreserve) {
@@ -4324,11 +4373,11 @@ __webpack_require__.r(__webpack_exports__);
         }
       },
 
-      toggleSelection: function (win) {
+      toggleSelection: function (win, containerElementId) {
         if (this.isAppliedToSelection(win)) {
           this.undoToSelection(win);
         } else {
-          this.applyToSelection(win);
+          this.applyToSelection(win, containerElementId);
         }
       },
 
@@ -4372,6 +4421,57 @@ __webpack_require__.r(__webpack_exports__);
     util.createAliasForDeprecatedMethod(api, "createCssClassApplier", "createClassApplier", module);
   });
   //console.log('rangy-classapplier ok')
+  
+  // --------------------------------------
+  
+  /*
+  function CharacterRange(start, end) {
+    this.start = start;
+    this.end = end;
+  }
+
+  CharacterRange.prototype = {
+    intersects: function (charRange) {
+      return this.start < charRange.end && this.end > charRange.start;
+    },
+
+    isContiguousWith: function (charRange) {
+      return this.start == charRange.end || this.end == charRange.start;
+    },
+
+    union: function (charRange) {
+      return new CharacterRange(Math.min(this.start, charRange.start), Math.max(this.end, charRange.end));
+    },
+
+    intersection: function (charRange) {
+      return new CharacterRange(Math.max(this.start, charRange.start), Math.min(this.end, charRange.end));
+    },
+
+    getComplements: function (charRange) {
+      var ranges = [];
+      if (this.start >= charRange.start) {
+        if (this.end <= charRange.end) {
+          return [];
+        }
+        ranges.push(new CharacterRange(charRange.end, this.end));
+      } else {
+        ranges.push(new CharacterRange(this.start, Math.min(this.end, charRange.start)));
+        if (this.end > charRange.end) {
+          ranges.push(new CharacterRange(charRange.end, this.end));
+        }
+      }
+      return ranges;
+    },
+
+    toString: function () {
+      return "[CharacterRange(" + this.start + ", " + this.end + ")]";
+    }
+  };
+
+  CharacterRange.fromCharacterRange = function (charRange) {
+    return new CharacterRange(charRange.start, charRange.end);
+  };
+  */
 });
 
 /***/ }),
@@ -8362,7 +8462,7 @@ __webpack_require__.r(__webpack_exports__);
                 var ranges = selection.getAllRanges(), rangeCount = ranges.length;
                 var rangeInfos = [];
 
-                var backward = rangeCount == 1 && selection.isBackward();
+                var backward = rangeCount === 1 && selection.isBackward();
 
                 for (var i = 0, len = ranges.length; i < len; ++i) {
                     rangeInfos[i] = {
@@ -8581,7 +8681,7 @@ __webpack_require__.r(__webpack_exports__);
                     }
 
                     // Ignore empty ranges
-                    if (charRange.start == charRange.end) {
+                    if (charRange.start === charRange.end) {
                         continue;
                     }
 
@@ -8590,9 +8690,9 @@ __webpack_require__.r(__webpack_exports__);
                     for (j = 0; j < highlights.length; ++j) {
                         removeHighlight = false;
 
-                        if (containerElementId == highlights[j].containerElementId) {
+                        if (containerElementId === highlights[j].containerElementId) {
                             highlightCharRange = highlights[j].characterRange;
-                            isSameClassApplier = (classApplier == highlights[j].classApplier);
+                            isSameClassApplier = (classApplier === highlights[j].classApplier);
                             splitHighlight = !isSameClassApplier && exclusive;
 
                             // Replace the existing highlight if it needs to be:

@@ -171,7 +171,7 @@ let RangyManager = {
         }
         
         this.$emit('select', selection)
-        console.log('onselect', selection)
+        //console.log('onselect', selection)
         this.selection = selection
       }
       else {
@@ -238,7 +238,8 @@ let RangyManager = {
       // selections or TextRanges. Even IE 5 would pass this test.
       if (rangy.supported && classApplierModule && classApplierModule.supported) {
         this.selectionApplier = rangy.createClassApplier("pacor-selection", {
-          tagNames: ["span", "a", "b", "img"]
+          tagNames: ["span", "a", "b", "img"],
+          ignoreWhiteSpace: true,
         })
       }
     },
@@ -252,12 +253,12 @@ let RangyManager = {
       }
       
       this.selectionSaved = rangy.saveSelection()
-      
+      //console.log(this.selectionSaved)
       //let range = this.selection.saveRanges()
       //console.log(range)
       //console.log(this.selection.getRangeAt(0))
       
-      this.selectionApplier.toggleSelection()
+      this.selectionApplier.toggleSelection(window, 'pacor-paragraph-id-0')
       /*
       if (typeof(scrollOptions) === 'object') {
         if (typeof(scrollOptions.delay) === 'number') {

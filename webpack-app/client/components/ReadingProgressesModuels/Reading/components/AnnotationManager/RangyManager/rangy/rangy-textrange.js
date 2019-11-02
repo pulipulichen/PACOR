@@ -1836,7 +1836,7 @@
                     var ranges = this.getAllRanges(), rangeCount = ranges.length;
                     var rangeInfos = [];
 
-                    var backward = rangeCount == 1 && this.isBackward();
+                    var backward = rangeCount === 1 && this.isBackward();
 
                     for (var i = 0, len = ranges.length; i < len; ++i) {
                         rangeInfos[i] = {
