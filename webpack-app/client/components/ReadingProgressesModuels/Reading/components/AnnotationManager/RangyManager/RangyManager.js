@@ -1,5 +1,7 @@
 //import rangy from 'rangy-updated'
 import rangy from './rangy/rangy-webpack.js'
+import $ from 'jquery'
+
 let RangyManager = {
   props: ['lib', 'rangyConfig'],
   data() {
@@ -45,7 +47,7 @@ let RangyManager = {
   methods: {
     _initAnchorPosition: function () {
       for (let i = 0; i < this.rangyConfig.articleSelector.length; i++) {
-        let node = window.$(this.rangyConfig.articleSelector[i])
+        let node = $(this.rangyConfig.articleSelector[i])
         if (node.length > 0) {
           this.articleNode = node
           break
@@ -113,28 +115,34 @@ let RangyManager = {
         selection.rect = rect
         
         // 我想要知道它的id跟section做法
-        selection.anchorPosition = {}
+        selection.anchorPositions = []
+        selection.anchorParagraphIds = []
         
-        // 我放棄，只取第一個
         let nodes = this._getNodesInRange(selection.getAllRanges())
         //let nodes = [selection.anchorNode]
         
         
         //console.log(nodes)
-        let section_seq_id = []
-        let paragraph_seq_id = []
-        let paragraph_id = []
+        
+        //let section_seq_id = []
+        //let paragraph_seq_id = []
+        //let paragraph_id = []
         
         nodes.forEach(anchorNode => {
           //let anchorNode = window.$(selection.anchorNode)
-          anchorNode = window.$(anchorNode)
+          let position = {}
+          
+          anchorNode = $(anchorNode)
           let parentSection = anchorNode.parents('[data-pacor-section-seq-id]:first')
           if (parentSection.length === 1) {
             //selection.anchorPosition.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
-            let id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
+            position.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
+            /*
             if (section_seq_id.indexOf(id) === -1) {
               section_seq_id.push(id)
             }
+            */
+            
           }
           else {
             // we will not select out of scope.
@@ -145,30 +153,27 @@ let RangyManager = {
           if (parentParagraph.length === 1) {
             //selection.anchorPosition.paragraph_seq_id = parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10)
             //selection.anchorPosition.paragraph_id = parentParagraph.attr('id')
-            let seqID = parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10)
-            if (paragraph_seq_id.indexOf(seqID) === -1) {
-              paragraph_seq_id.push(seqID)
-            }
+            position.paragraph_seq_id = parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10)
+            //if (paragraph_seq_id.indexOf(seqID) === -1) {
+            //  paragraph_seq_id.push(seqID)
+            //}
             
-            let id = parentParagraph.attr('id')
-            if (paragraph_id.indexOf(id) === -1) {
-              paragraph_id.push(id)
-            }
+            position.paragraph_id = parentParagraph.attr('id')
+            selection.anchorParagraphIds.push(position.paragraph_id)
+            //if (paragraph_id.indexOf(id) === -1) {
+            //  paragraph_id.push(id)
+            //}
           }
           else {
             // we will not select out of scope.
             return false
           }
-        })
+          
+          selection.anchorPositions.push(position)
+        })  // nodes.forEach(anchorNode => {
         
-        if (section_seq_id.length === 0 || paragraph_seq_id.length === 0) {
+        if (selection.anchorPositions.length === 0) {
           return false
-        }
-        
-        selection.anchorPosition = {
-          section_seq_id,
-          paragraph_seq_id,
-          paragraph_id
         }
         
         this.$emit('select', selection)
@@ -266,7 +271,7 @@ let RangyManager = {
       //this.selectionApplier.toggleSelection(window, 'pacor-paragraph-id-0')
       let highlight = this.selectionHighlighter.highlightSelection('pacor-selection', {
         exclusive: false,
-        containerElementId: this.selection.anchorPosition.paragraph_id
+        containerElementId: this.selection.anchorParagraphIds
       })
       
       //console.log(highlight)
@@ -393,7 +398,7 @@ let RangyManager = {
       rangy.restoreSelection(this.selectionSaved)
       let highlight = this.highlighter.highlightSelection(className, {
         exclusive: false,
-        containerElementId: this.selection.anchorPosition.paragraph_id
+        containerElementId: this.selection.anchorParagraphIds
       })
       //console.log(highlight[0])
       this.selection.removeAllRanges()
