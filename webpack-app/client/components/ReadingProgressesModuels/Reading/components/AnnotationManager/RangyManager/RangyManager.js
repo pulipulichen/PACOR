@@ -342,7 +342,7 @@ let RangyManager = {
         }
       }*/
       
-      console.log(restoreSelection, this.selectionSaved)
+      //console.log(restoreSelection, this.selectionSaved)
       if (restoreSelection === true && this.selectionSaved !== null) {
         let selection = rangy.getSelection()
         if (selection.toString().length === 0) {

@@ -21,6 +21,8 @@ let PreImaginary = {
     }
     data.persistKey = key + '.log'
     data.remainingSeconds = null
+    data.answer = ''
+    data.header = this.$t(key)
     return data
   },
   //components: {
@@ -86,6 +88,12 @@ let PreImaginary = {
               && this.remainingSeconds > 0) {
         this.startCountdown()
       }
+    },
+    'answer' (answer) {
+      //console.log(answer)
+      if (answer !== this.log.answer) {
+        this.log.answer = answer
+      }
     }
   },
   mounted() {
@@ -99,8 +107,10 @@ let PreImaginary = {
       if (cache !== null) {
         try {
           this.log = JSON.parse(cache)
+          this.answer = this.log.answer
           
           this.remainingSeconds = this.limitMinutes * 60 - Math.round((this.lib.DayJSHelper.time() - this.log.start_timestamp) / 1000)
+          //console.log(this.remainingSeconds)
         }
         catch (e) {}
       }
@@ -116,7 +126,7 @@ let PreImaginary = {
       }
     },
     startCountdown: function () {
-      //return  // for test
+      return  // for test
       setTimeout(() => {
         if (this.remainingSeconds > 0) {
           this.remainingSeconds--

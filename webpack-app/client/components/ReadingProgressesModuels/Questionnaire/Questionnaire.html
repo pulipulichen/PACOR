@@ -1,39 +1,52 @@
-<div v-on:click="lib.auth.nextStep">
+<div>
   <modal ref="Modal"
          v-bind:config="config"
          v-bind:status="status"
-         v-bind:progress="progress"
          v-bind:lib="lib"
          dimmerTransparent="false"
          cancelable="false">
       <template v-slot:header>
-        {{ $t('Post Recall') }}
+        {{ header }}
       </template>
       <template v-slot:content inline-template>
         <div class="field hint ui segment" v-html="message"></div>
         <div class="field">
-            <textarea v-model="log.answer"
+            <textarea v-model="answer"
                       v-on:input="persist"
                       v-bind:disabled="isTimeUp"
                       class="answer"></textarea>
+            <!--
             <div class="ui pointing basic label"
                  v-bind:class="classWordCounter"
                  v-if="!isTimeUp">
               {{ displayCharacterCounter }}
             </div>
-            
+            -->
         </div>
       </template>
       <template v-slot:actions>
+        <!--
         <div class="ui button disabled" 
              v-if="!isTimeUp"
              v-html="buttonText"></div>
+        
         <div class="ui green right labeled icon button" 
              v-if="isTimeUp"
              v-on:click="nextStep">
             {{ $t('NEXT') }}
             <i class="angle right icon"></i>
         </div>
+        -->
+        <countdown-button v-bind:minWordCount="minWords"
+          enableClassNames="ui green right labeled icon button"
+          v-bind:text="answer"
+          v-bind:lib="lib"
+          v-bind:locale="status.preference.locale"
+          v-bind:countdownSec="remainingSeconds"
+          v-on:click="nextStep">
+            {{ $t('NEXT') }}
+            <i class="angle right icon"></i>
+        </countdown-button>
       </template>
   </modal>
   

@@ -1,6 +1,6 @@
 <button type="button"
         class="ui button"
-        v-bind:class="{'disabled': !isEnable}"
+        v-bind:class="computedClassName"
         v-on:click="$emit('click')">
   <template v-if="isEnable">
     <slot></slot>

@@ -2234,7 +2234,7 @@ let AnnotationPanel = {
     this._initHeightPX()
     
     this._initPlaceholder()
-    this._test()
+    //this._test()
     
     //$.extend(require('jquery-ui'))
     //$.extend(jQueryUI)
@@ -3049,7 +3049,7 @@ let RangyManager = {
         }
       }*/
       
-      console.log(restoreSelection, this.selectionSaved)
+      //console.log(restoreSelection, this.selectionSaved)
       if (restoreSelection === true && this.selectionSaved !== null) {
         let selection = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].getSelection()
         if (selection.toString().length === 0) {

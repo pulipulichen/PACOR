@@ -1,5 +1,5 @@
 let CountdownButton = {
-  props: ['locale', 'lib', 'countdownSec', 'minWordCount', 'maxWordCount', 'text'],
+  props: ['locale', 'lib', 'countdownSec', 'minWordCount', 'maxWordCount', 'text', 'enableClassNames'],
   data() {    
     this.$i18n.locale = this.locale
     return {
@@ -7,6 +7,14 @@ let CountdownButton = {
     }
   },
   computed: {
+    computedClassName () {
+      if (this.isEnable === false) {
+        return 'disabled'
+      }
+      else if (typeof(this.enableClassNames) === 'string') {
+        return this.enableClassNames
+      }
+    },
     wordCount () {
       let count = this.lib.StringHelper.countWords(this.text)
       //console.log(count)
@@ -30,10 +38,12 @@ let CountdownButton = {
       return true
     },
     isEnable () {
+      //console.log(this.remainingSeconds, this.validWordCount, this.wordCount)
       return (this.remainingSeconds === 0 && this.validWordCount === true)
     },
     disabledMessage () {
       let messages = []
+      //console.log(this.remainingSeconds)
       if (this.remainingSeconds > 0) {
         let remainingTime = this.lib.DayJSHelper.formatHHMMSS(this.remainingSeconds)
         messages.push( this.$t('Remaining Time: {0}', [remainingTime]) )
@@ -54,24 +64,36 @@ let CountdownButton = {
       return messages.join(' / ')
     }
   },
-  mounted () {
-    
-      console.log(this.minWordCount)
-    this._initCountdown()
+  watch: {
+    countdownSec (countdownSec) {
+      if (typeof(countdownSec) === 'number') {
+        this._initCountdown()
+      }
+    },
   },
+//  mounted () {
+//    
+//    //console.log(this.countdownSec)
+//    
+//  },
   methods: {
     _initCountdown() {
-      if (typeof(this.countdownSec) !== 'number') {
+      if (typeof(this.countdownSec) !== 'number'
+              || this.countdownSec <= 0) {
         return false
       }
-      
       this.remainingSeconds = this.countdownSec
+      //console.log(this.remainingSeconds)
       this.countdown()
     },
     countdown () {
+      //console.log('AAA')
       setTimeout(() => {
-        this.remainingSeconds--
-        this.countdown()
+        //console.log(this.remainingSeconds)
+        this.remainingSeconds = this.remainingSeconds - 1
+        if (this.remainingSeconds > 0) {
+          this.countdown()
+        }
       }, 1000)
     }
   }
