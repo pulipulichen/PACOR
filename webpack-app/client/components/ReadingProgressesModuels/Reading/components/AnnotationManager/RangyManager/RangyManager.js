@@ -15,6 +15,7 @@ let RangyManager = {
       paragraphNodes: null,
       
       selectionApplier: null,
+      selectionHighlighter: null,
       selection: null,
       selectionSaved: null,
       
@@ -241,6 +242,10 @@ let RangyManager = {
           tagNames: ["span", "a", "b", "img"],
           ignoreWhiteSpace: true,
         })
+        
+        
+        this.selectionHighlighter = rangy.createHighlighter()
+        this.selectionHighlighter.addClassApplier(this.selectionApplier)
       }
     },
     
@@ -258,7 +263,17 @@ let RangyManager = {
       //console.log(range)
       //console.log(this.selection.getRangeAt(0))
       
-      this.selectionApplier.toggleSelection(window, 'pacor-paragraph-id-0')
+      //this.selectionApplier.toggleSelection(window, 'pacor-paragraph-id-0')
+      let highlight = this.selectionHighlighter.highlightSelection('pacor-selection', {
+        exclusive: false,
+        containerElementId: this.selection.anchorPosition.paragraph_id[0]
+      })
+      
+      //console.log(highlight)
+      //console.log(this.selectionHighlighter.serialize())
+      //console.log(this.highlighter.serialize())
+      
+      
       /*
       if (typeof(scrollOptions) === 'object') {
         if (typeof(scrollOptions.delay) === 'number') {
@@ -279,7 +294,10 @@ let RangyManager = {
       return this.selection
     },
     unpinSelection : function (restoreSelection) {
-      window.$('.pacor-selection').removeClass('pacor-selection')
+      //window.$('.pacor-selection').removeClass('pacor-selection')
+      this.selectionHighlighter.removeAllHighlights()
+      
+      
       /*
       if (typeof(scrollOptions) === 'object') {
         if (typeof(scrollOptions.delay) === 'number') {
@@ -460,6 +478,7 @@ let RangyManager = {
           sheet.insertRule(rule, sheet.cssRules.length)
         })
       }
+      
     },
     
     /**
