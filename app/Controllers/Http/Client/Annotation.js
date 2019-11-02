@@ -3,7 +3,6 @@
 const WebpageUserBaseController = use('App/Controllers/Http/Client/WebpageUserBaseController')
 const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
 
-const AnnotationAnchorTextModel = use('App/Models/AnnotationAnchorText')
 const AnnotationModel = use('App/Models/Annotation')
 
 const Cache = use('Cache')
@@ -22,6 +21,33 @@ class Annotation extends WebpageUserBaseController {
     return instance.id
   }
   
+  async indexMy ({ request, webpage, user }) {
+    let condition = request.all()
+    await ReadingActivityLog.log(webpage, user, this.modelName + '.indexMy', condition)
+    
+    let cacheKey = `${this.modelName}.indexMy.${webpage.id}.${user.id}.${JSON.stringify(condition)}`
+    return await Cache.get(cacheKey, async () => {
+      let query = this.model
+              .query()
+              .where('webpage_id', webpage.primaryKeyValue)
+              .where('user_id', user.primaryKeyValue)
+              .with('anchorTexts')
+              .orderBy('created_at', 'asc')
+
+      if (this.hasDeletedColumn === true) {
+        query.where('deleted', false)
+      }
+
+      if (typeof(condition) === 'object') {
+        query.where(condition)
+      }
+
+      let output = await query.fetch()
+      await Cache.put(cacheKey, output, Config.get('view.indexCacheMinute'))
+      return output
+    })
+  }
+  
   async indexOthers ({ request, webpage, user }) {
     let condition = request.all()
     await ReadingActivityLog.log(webpage, user, this.modelName + '.indexOthers', condition)
@@ -32,9 +58,10 @@ class Annotation extends WebpageUserBaseController {
 
       let query = this.model
               .query()
+              .with('anchor_texts')
               .where('webpage_id', webpage.primaryKeyValue)
               .whereIn('user_id', others)
-              .where('private', false)
+              .where('public', true)  // 主要是多了這個
               .where('deleted', false)
 
       if (typeof(condition) === 'object') {

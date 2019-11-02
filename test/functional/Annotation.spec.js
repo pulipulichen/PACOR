@@ -81,10 +81,24 @@ test('check login status before login', async ({ assert, client }) => {
 
 test('create an annotation', async ({ assert, client }) => {
   let data = {
-    startPos: 2,
-    endPos: 4,
+    highlights: [
+      {
+        paragraphy_seq_id: 1,
+        paragraphy_id: 'aaa1',
+        start_pos: 2,
+        end_pos: 4,
+        anchor_text: 'AAA'
+      },
+      {
+        paragraphy_seq_id: 2,
+        paragraphy_id: 'aaa2',
+        start_pos: 2,
+        end_pos: 4,
+        anchor_text: 'AAA'
+      }
+    ],
     anchorText: '測試測試',
-    type: 'mainIdea',
+    type: 'MainIdea',
     note: '測試筆記'
   }
   
@@ -94,6 +108,7 @@ test('create an annotation', async ({ assert, client }) => {
           .send(data)
           .end()
   
+  //console.log(response.text)
   //response.assertError([])
   response.assertStatus(200)
   response.assertText(1)
@@ -109,10 +124,12 @@ test('check annotation is logged', async ({ assert, client }) => {
           .session('adonis-auth', 1)
           .end()
   
+  //console.log(response.text)
+  console.log(response.body)
   response.assertStatus(200)
   response.assertJSONSubset([
     {
-      type: 'mainIdea',
+      type: 'MainIdea',
       note: '測試筆記'
     }
   ])
