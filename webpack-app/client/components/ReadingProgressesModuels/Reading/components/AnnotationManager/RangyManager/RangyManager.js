@@ -266,7 +266,7 @@ let RangyManager = {
       //this.selectionApplier.toggleSelection(window, 'pacor-paragraph-id-0')
       let highlight = this.selectionHighlighter.highlightSelection('pacor-selection', {
         exclusive: false,
-        containerElementId: this.selection.anchorPosition.paragraph_id[0]
+        containerElementId: this.selection.anchorPosition.paragraph_id
       })
       
       //console.log(highlight)
@@ -393,13 +393,13 @@ let RangyManager = {
       rangy.restoreSelection(this.selectionSaved)
       let highlight = this.highlighter.highlightSelection(className, {
         exclusive: false,
-        containerElementId: this.selection.anchorPosition.paragraph_id[0]
+        containerElementId: this.selection.anchorPosition.paragraph_id
       })
       //console.log(highlight[0])
       this.selection.removeAllRanges()
       this.unpinSelection()
       
-      this.selection.highlight = highlight[0]
+      this.selection.highlight = highlight
       
       return this.selection
     },

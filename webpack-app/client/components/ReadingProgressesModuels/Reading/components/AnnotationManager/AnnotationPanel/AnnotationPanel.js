@@ -81,8 +81,8 @@ let AnnotationPanel = {
         let p = s.anchorPosition
         
         return {
-          'paragraphy_seq_id': p.paragraph_seq_id[0],
-          'paragraphy_id': p.paragraph_id[0],
+          'paragraphy_seq_id': p.paragraph_seq_id,
+          'paragraphy_id': p.paragraph_id,
           'start_pos': Math.min(s.anchorOffset, s.focusOffset),
           'end_pos': Math.max(s.anchorOffset, s.focusOffset),
         }
@@ -97,6 +97,9 @@ let AnnotationPanel = {
         //console.log(pinSelection)
         this.show()
         this.scrollToPinSelection()
+      }
+      else {
+        this.hide()
       }
     },
     heightVH: function (heightVH) {

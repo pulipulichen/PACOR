@@ -1123,7 +1123,8 @@ let AnnotationManager = {
   methods: {
     onselect: function (selection) {
       if (this.pinSelection !== null) {
-        return false
+        this.unpin()
+        //return false
       }
       //console.log(selection)
       this.selection = selection
@@ -1141,7 +1142,7 @@ let AnnotationManager = {
     },
     unpin: function () {
       this.$refs.RangyManager.unpinSelection(true)
-      this.selection = null
+      //this.selection = null
       this.pinSelection = null
     }
   } // methods
@@ -2202,8 +2203,8 @@ let AnnotationPanel = {
         let p = s.anchorPosition
         
         return {
-          'paragraphy_seq_id': p.paragraph_seq_id[0],
-          'paragraphy_id': p.paragraph_id[0],
+          'paragraphy_seq_id': p.paragraph_seq_id,
+          'paragraphy_id': p.paragraph_id,
           'start_pos': Math.min(s.anchorOffset, s.focusOffset),
           'end_pos': Math.max(s.anchorOffset, s.focusOffset),
         }
@@ -2218,6 +2219,9 @@ let AnnotationPanel = {
         //console.log(pinSelection)
         this.show()
         this.scrollToPinSelection()
+      }
+      else {
+        this.hide()
       }
     },
     heightVH: function (heightVH) {
@@ -2970,7 +2974,7 @@ let RangyManager = {
       //this.selectionApplier.toggleSelection(window, 'pacor-paragraph-id-0')
       let highlight = this.selectionHighlighter.highlightSelection('pacor-selection', {
         exclusive: false,
-        containerElementId: this.selection.anchorPosition.paragraph_id[0]
+        containerElementId: this.selection.anchorPosition.paragraph_id
       })
       
       //console.log(highlight)
@@ -3097,13 +3101,13 @@ let RangyManager = {
       _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].restoreSelection(this.selectionSaved)
       let highlight = this.highlighter.highlightSelection(className, {
         exclusive: false,
-        containerElementId: this.selection.anchorPosition.paragraph_id[0]
+        containerElementId: this.selection.anchorPosition.paragraph_id
       })
       //console.log(highlight[0])
       this.selection.removeAllRanges()
       this.unpinSelection()
       
-      this.selection.highlight = highlight[0]
+      this.selection.highlight = highlight
       
       return this.selection
     },
@@ -8794,17 +8798,87 @@ __webpack_require__.r(__webpack_exports__);
                     exclusive: options.exclusive
                 });
             },
-
+            
+            /**
+             * containerElementId可以用陣列了！
+             * @author Pulipuli Chen 20191102
+             */
             highlightSelection: function(className, options) {
                 var converter = this.converter;
                 var classApplier = className ? this.classAppliers[className] : false;
+                
 
                 options = createOptions(options, {
                     containerElementId: null,
                     exclusive: true
                 });
+                var newHighlights = []
+                
+                var exclusive = options.exclusive;
+                var selection = options.selection || api.getSelection(this.doc);
+                var doc = selection.win.document;
+                var containerElement
+                var containerElementIds = options.containerElementId;
+                
+                if (Array.isArray(containerElementIds) === false) {
+                  containerElementIds = [containerElementIds]
+                }
+                
+                let globalContainerElement = getContainerElement(doc, null)
+                var globalSerializedSelection = converter.serializeSelection(selection, globalContainerElement);
+                containerElementIds.forEach(containerElementId => {
+                  console.log(containerElementId)
+                  containerElement = getContainerElement(doc, containerElementId);
 
+                  if (!classApplier && className !== false) {
+                      throw new Error("No class applier found for class '" + className + "'");
+                  }
+
+                  // Store the existing selection as character ranges
+                  var serializedSelection = converter.serializeSelection(selection, containerElement);
+
+                  // Create an array of selected character ranges
+                  var selCharRanges = [];
+                  forEach(serializedSelection, function(rangeInfo) {
+                      selCharRanges.push( CharacterRange.fromCharacterRange(rangeInfo.characterRange) );
+                  });
+
+
+                  let ids = containerElementId
+                  if (Array.isArray(ids) === false) {
+                    ids = [ids]
+                  } 
+                  ids.forEach((id, i) => {
+                    let hl = this.highlightCharacterRanges(className, selCharRanges, {
+                       containerElementId: id,
+                       exclusive: exclusive
+                    });
+                    //console.log(hl)
+
+                    newHighlights = newHighlights.concat(hl)
+                  })
+
+
+                  // Restore selection
+                  //converter.restoreSelection(selection, serializedSelection, containerElement);
+                  converter.restoreSelection(selection, globalSerializedSelection, globalContainerElement);
+                })
+                
+                return newHighlights;
+            },
+            /*
+            highlightSelection: function(className, options) {
+                var converter = this.converter;
+                var classApplier = className ? this.classAppliers[className] : false;
+                
+
+                options = createOptions(options, {
+                    containerElementId: null,
+                    exclusive: true
+                });
+                var newHighlights = []
                 var containerElementId = options.containerElementId;
+                
                 var exclusive = options.exclusive;
                 var selection = options.selection || api.getSelection(this.doc);
                 var doc = selection.win.document;
@@ -8829,7 +8903,7 @@ __webpack_require__.r(__webpack_exports__);
                     selCharRanges.push( CharacterRange.fromCharacterRange(rangeInfo.characterRange) );
                 });
 
-                var newHighlights = []
+                
                 let ids = containerElementId
                 if (Array.isArray(ids) === false) {
                   ids = [ids]
@@ -8850,7 +8924,7 @@ __webpack_require__.r(__webpack_exports__);
 
                 return newHighlights;
             },
-
+            */
             unhighlightSelection: function(selection) {
                 let classNameList = []
                 if (Array.isArray(selection) && typeof(selection[0]) === 'string') {

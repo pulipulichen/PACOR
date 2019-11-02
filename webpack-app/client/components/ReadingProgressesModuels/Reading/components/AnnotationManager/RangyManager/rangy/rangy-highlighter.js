@@ -442,17 +442,87 @@ export default (rangy) => {
                     exclusive: options.exclusive
                 });
             },
-
+            
+            /**
+             * containerElementId可以用陣列了！
+             * @author Pulipuli Chen 20191102
+             */
             highlightSelection: function(className, options) {
                 var converter = this.converter;
                 var classApplier = className ? this.classAppliers[className] : false;
+                
 
                 options = createOptions(options, {
                     containerElementId: null,
                     exclusive: true
                 });
+                var newHighlights = []
+                
+                var exclusive = options.exclusive;
+                var selection = options.selection || api.getSelection(this.doc);
+                var doc = selection.win.document;
+                var containerElement
+                var containerElementIds = options.containerElementId;
+                
+                if (Array.isArray(containerElementIds) === false) {
+                  containerElementIds = [containerElementIds]
+                }
+                
+                let globalContainerElement = getContainerElement(doc, null)
+                var globalSerializedSelection = converter.serializeSelection(selection, globalContainerElement);
+                containerElementIds.forEach(containerElementId => {
+                  console.log(containerElementId)
+                  containerElement = getContainerElement(doc, containerElementId);
 
+                  if (!classApplier && className !== false) {
+                      throw new Error("No class applier found for class '" + className + "'");
+                  }
+
+                  // Store the existing selection as character ranges
+                  var serializedSelection = converter.serializeSelection(selection, containerElement);
+
+                  // Create an array of selected character ranges
+                  var selCharRanges = [];
+                  forEach(serializedSelection, function(rangeInfo) {
+                      selCharRanges.push( CharacterRange.fromCharacterRange(rangeInfo.characterRange) );
+                  });
+
+
+                  let ids = containerElementId
+                  if (Array.isArray(ids) === false) {
+                    ids = [ids]
+                  } 
+                  ids.forEach((id, i) => {
+                    let hl = this.highlightCharacterRanges(className, selCharRanges, {
+                       containerElementId: id,
+                       exclusive: exclusive
+                    });
+                    //console.log(hl)
+
+                    newHighlights = newHighlights.concat(hl)
+                  })
+
+
+                  // Restore selection
+                  //converter.restoreSelection(selection, serializedSelection, containerElement);
+                  converter.restoreSelection(selection, globalSerializedSelection, globalContainerElement);
+                })
+                
+                return newHighlights;
+            },
+            /*
+            highlightSelection: function(className, options) {
+                var converter = this.converter;
+                var classApplier = className ? this.classAppliers[className] : false;
+                
+
+                options = createOptions(options, {
+                    containerElementId: null,
+                    exclusive: true
+                });
+                var newHighlights = []
                 var containerElementId = options.containerElementId;
+                
                 var exclusive = options.exclusive;
                 var selection = options.selection || api.getSelection(this.doc);
                 var doc = selection.win.document;
@@ -477,7 +547,7 @@ export default (rangy) => {
                     selCharRanges.push( CharacterRange.fromCharacterRange(rangeInfo.characterRange) );
                 });
 
-                var newHighlights = []
+                
                 let ids = containerElementId
                 if (Array.isArray(ids) === false) {
                   ids = [ids]
@@ -498,7 +568,7 @@ export default (rangy) => {
 
                 return newHighlights;
             },
-
+            */
             unhighlightSelection: function(selection) {
                 let classNameList = []
                 if (Array.isArray(selection) && typeof(selection[0]) === 'string') {

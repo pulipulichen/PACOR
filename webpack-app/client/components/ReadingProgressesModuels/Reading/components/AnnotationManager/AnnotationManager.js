@@ -39,7 +39,8 @@ let AnnotationManager = {
   methods: {
     onselect: function (selection) {
       if (this.pinSelection !== null) {
-        return false
+        this.unpin()
+        //return false
       }
       //console.log(selection)
       this.selection = selection
@@ -57,7 +58,7 @@ let AnnotationManager = {
     },
     unpin: function () {
       this.$refs.RangyManager.unpinSelection(true)
-      this.selection = null
+      //this.selection = null
       this.pinSelection = null
     }
   } // methods
