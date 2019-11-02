@@ -3,7 +3,7 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
-class AnnotationAnchorText extends Model {
+class AnchorText extends Model {
   static boot () {
     super.boot()
     
@@ -11,7 +11,8 @@ class AnnotationAnchorText extends Model {
   }
   
   annotations () {
-    return this.hasMany('App/Models/Annotation')
+    return this.belongsToMany('App/Models/Annotation')
+            .pivotTable('anchor_texts_annotations')
   }
   
   webpage () {
@@ -19,4 +20,4 @@ class AnnotationAnchorText extends Model {
   }
 }
 
-module.exports = AnnotationAnchorText
+module.exports = AnchorText

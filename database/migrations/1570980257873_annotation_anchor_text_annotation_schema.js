@@ -5,9 +5,9 @@ const Schema = use('Schema')
 
 class AnnotationSchema extends Schema {
   up () {
-    this.create('annotation_anchor_texts_annotations', (table) => {
+    this.create('anchor_texts_annotations', (table) => {
       table.increments()
-      table.integer('annotation_anchor_text_id').notNullable().unsigned().references('id').inTable('annotation_anchor_texts').onDelete('cascade')
+      table.integer('anchor_text_id').notNullable().unsigned().references('id').inTable('anchor_texts').onDelete('cascade')
       table.integer('annotation_id').notNullable().unsigned().references('id').inTable('annotations').onDelete('cascade')
       table.timestamps()
     })

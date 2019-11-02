@@ -14,8 +14,11 @@ class Annotation extends Model {
     return this.belongsTo('App/Models/Webpage')
   }
   
-  anchorText () {
-    return this.belongsTo('App/Models/AnnotationAnchorText')
+  anchorTexts () {
+    return this.belongsToMany('App/Models/AnchorText')
+            .orderBy('paragraphy_seq_id', 'asc')
+            .orderBy('start_pos', 'asc')
+            .pivotTable('anchor_texts_annotations')
   }
   
   rates () {

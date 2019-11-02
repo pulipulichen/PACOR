@@ -38,7 +38,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />`
-    }, 1000 * 0)
+      console.log(window.$(`[data-pacor-section-seq-id="0"]`).length)
+      //window.$(`[data-pacor-section-seq-id="0"]`).after($(`<div>${this.t}</div>`))
+    }, 1000 * 1)
+    
+    
   },
   methods: {
   } // methods
