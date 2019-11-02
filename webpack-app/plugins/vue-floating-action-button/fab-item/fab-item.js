@@ -75,10 +75,19 @@ export default {
       return animateModel[this.$parent.fabItemAnimate]
     },
     titleStyle: function () {
-      return {
+      let style = {
         color: this.titleColor,
         background: this.titleBgColor
       }
+      
+      if (this.$parent.position.endsWith('-right')) {
+        style.right = '4em'
+      }
+      else {
+        style.left = '4em'
+      }
+      
+      return style
     },
     transitionName: function () {
       if (this.$parent.transitionEnable === false) {
