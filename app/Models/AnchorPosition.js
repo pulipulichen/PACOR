@@ -7,6 +7,17 @@ class AnchorPosition extends Model {
   static boot () {
     super.boot()
     
+    let orderPos = (instance) => {
+      if (instance.start_pos > instance.end_pos) {
+        let tmp = instance.start_pos
+        instance.start_pos = instance.end_pos
+        instance.end_pos = tmp
+      }
+    }
+    
+    this.addHook('beforeCreate', orderPos)
+    this.addHook('beforeUpdate', orderPos)
+    
     this.addTrait('JSONCase', 'properties')
   }
   

@@ -280,8 +280,8 @@ test('b: create a private annotation', async ({ assert, client }) => {
       {
         paragraph_seq_id: 2,
         paragraph_id: 'aaa2',
-        start_pos: 2,
-        end_pos: 4,
+        start_pos: 6,
+        end_pos: 8,
         anchor_text: 'AAA'
       }
     ],
@@ -310,7 +310,7 @@ test('b: test index', async ({ assert, client }) => {
           .session('adonis-auth', 2)
           .end()
   
-  //console.log(response.text)
+  //console.log(JSON.stringify(response, null, ' '))
   response.assertStatus(200)
   
   //console.log(response.body)
@@ -342,7 +342,7 @@ test('b: test highligh', async ({ assert, client }) => {
           .session('adonis-auth', 2)
           .end()
   
-  //console.log(response.text)
+  console.log(response.text)
   response.assertStatus(200)
   
   //console.log(response.body)

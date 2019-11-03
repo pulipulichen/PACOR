@@ -22,23 +22,23 @@ class Annotation extends WebpageUserBaseController {
   }
   
   async index ({request, webpage, user}) {
-    let { afterTime } = request.all()
-    return await AnnotationModel.findByWebpageGroup(webpage, user, afterTime)
+    let query = request.all()
+    return await AnnotationModel.findByWebpageGroup(webpage, user, query)
   }
   
   async highlights ({request, webpage, user}) {
-    let { afterTime } = request.all()
-    return await AnnotationModel.getHighlightsByWebpageGroup(webpage, user, afterTime)
+    let query = request.all()
+    return await AnnotationModel.getHighlightsByWebpageGroup(webpage, user, query)
   }
   
   async highlightsMy ({request, webpage, user}) {
-    let { afterTime } = request.all()
-    return await AnnotationModel.getMyHighlightsByWebpageGroup(webpage, user, afterTime)
+    let query = request.all()
+    return await AnnotationModel.getMyHighlightsByWebpageGroup(webpage, user, query)
   }
   
   async highlightsOthers ({request, webpage, user}) {
-    let { afterTime } = request.all()
-    return await AnnotationModel.getOthersHighlightsByWebpageGroup(webpage, user, afterTime)
+    let query = request.all()
+    return await AnnotationModel.getOthersHighlightsByWebpageGroup(webpage, user, query)
   }
   
   async indexMy ({ request, webpage, user }) {

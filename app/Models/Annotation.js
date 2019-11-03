@@ -229,13 +229,13 @@ class Annotation extends Model {
     return output.join('|')
   }
   
-  static async getOthersHighlightsArrayByWebpageGroup(webpage, user, afterTime) {
+  static async getOthersHighlightsArrayByWebpageGroup(webpage, user, options) {
     const doQuery = async evt => {
-      let annotations = await this.findOthersByWebpageGroup(webpage, user, afterTime)
+      let annotations = await this.findOthersByWebpageGroup(webpage, user, options)
       return this._convertToHighlighArray(annotations, user)
     }
     
-    if (afterTime !== undefined) {
+    if (options !== undefined) {
       return await doQuery()
     }
     else {
@@ -248,7 +248,7 @@ class Annotation extends Model {
     }
   }
   
-  static async findOthersByWebpageGroup(webpage, user, afterTime) {
+  static async findOthersByWebpageGroup(webpage, user, {afterTime, positions}) {
     const doQuery = async evt => {
       
       let userList = await user.getOtherUserIDsInGroup(webpage)
@@ -314,43 +314,47 @@ class Annotation extends Model {
     }
   } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
   
-  static async getHighlightsByWebpageGroup(webpage, user, afterTime) {
-    let highlights = await this.getMyHighlightsArrayByWebpageGroup(webpage, user, afterTime)
+  static async getHighlightsByWebpageGroup(webpage, user, query) {
+    let highlights = await this.getMyHighlightsArrayByWebpageGroup(webpage, user, query)
     //console.log(highlights)
-    let othersHighlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, afterTime)
+    let othersHighlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, query)
     //console.log(othersHighlights)
     
     highlights = highlights.concat(othersHighlights)
     return this._convertHighlighArrayToString(highlights, webpage, user)
   }
   
-  static async getMyHighlightsByWebpageGroup(webpage, user, afterTime) {
-    let highlights = await this.getMyHighlightsArrayByWebpageGroup(webpage, user, afterTime)
+  static async getMyHighlightsByWebpageGroup(webpage, user, query) {
+    let highlights = await this.getMyHighlightsArrayByWebpageGroup(webpage, user, query)
     return this._convertHighlighArrayToString(highlights, webpage, user)
   }
   
-  static async getOthersHighlightsByWebpageGroup(webpage, user, afterTime) {
-    let highlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, afterTime)
+  static async getOthersHighlightsByWebpageGroup(webpage, user, query) {
+    let highlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, query)
     return this._convertHighlighArrayToString(highlights, webpage, user)
   }
   
-  static async getMyHighlightsArrayByWebpageGroup(webpage, user, afterTime) {
+  static async getMyHighlightsArrayByWebpageGroup(webpage, user, query) {
     const doQuery = async evt => {
-      let annotations = await this.findMyByWebpageGroup(webpage, user, afterTime)
+      let annotations = await this.findMyByWebpageGroup(webpage, user, query)
       return this._convertToHighlighArray(annotations, user)
     }
     
     return await doQuery()
   }
   
-  static async findByWebpageGroup(webpage, user, afterTime) {
-    let myAnnotations = await this.findMyByWebpageGroup(webpage, user, afterTime)
-    let othersAnnotations = await this.findOthersByWebpageGroup(webpage, user, afterTime)
+  static async findByWebpageGroup(webpage, user, query) {
+    let myAnnotations = await this.findMyByWebpageGroup(webpage, user, query)
+    let othersAnnotations = await this.findOthersByWebpageGroup(webpage, user, query)
     
     return myAnnotations.toJSON().concat(othersAnnotations.toJSON())
   }
   
-  static async findMyByWebpageGroup(webpage, user, afterTime) {
+  static async findMyByWebpageGroup(webpage, user, options) {
+    if (options === undefined || options === null) {
+      options = {}
+    }
+    let {afterTime, positions} = options
     const doQuery = async evt => {
       
       let query = this.query()
