@@ -12,7 +12,13 @@ module.exports = {
     'PreImaginary': {
       message: '猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？',
       minWords: 10,
-      limitMinutes: 0.1
+      limitMinutes: 0.1,
+      annotation: {
+        types: ['ConfusedClarified', 'MainIdea'],
+        enableCollaboration: false,
+        enableControlPermission: true,
+        defaultPermission: 'public',
+      },
     },
     /**
      * include 'individual-reading' and 'collaborative-reading'

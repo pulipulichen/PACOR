@@ -4,6 +4,7 @@
 const Model = use('Model')
 
 const AnchorPositionModel = use('App/Models/AnchorPosition')
+const { HttpException } = use('@adonisjs/generic-exceptions') 
 
 class Annotation extends Model {
   static boot () {
@@ -11,6 +12,7 @@ class Annotation extends Model {
     
     this.addTrait('DateUnixMSCase')
     this.addTrait('BooleanCase', ['public', 'deleted'])
+    this.addTrait('BooleanCaseMutators', ['Public', 'Deleted'])
   } // static boot () {
   
   user () {
@@ -54,6 +56,49 @@ class Annotation extends Model {
     return this.hasMany('App/Models/AnnotationAttirbutes')
   }
   
+  static async _setPermission(webpage, user, data, instance) {
+    let config = await user.getCurrentReadingProgressStepConfig(webpage)
+    let annotationConfig = config.annotation
+    if (typeof(annotationConfig) !== 'object') {
+      throw new HttpException('You cannot use annotation in current step.')
+    }
+    
+    let {enableControlPermission, defaultPermission} = annotationConfig
+    if (enableControlPermission === true) {
+      if (typeof(data.public) === 'boolean') {
+        instance.public = data.public
+      }
+      else {
+        if (defaultPermission === 'public') {
+          instance.public = true
+        }
+        else {
+          instance.public = false
+        }
+      }
+    }
+    else if (typeof(data.public) !== 'undefined') {
+      throw new HttpException(`You cannot change annotation's premission in current step.`)
+    }
+    else {
+      if (defaultPermission === 'public') {
+        instance.public = true
+      }
+      else {
+        instance.public = false
+      }
+    }
+    
+    return instance
+  }
+  
+  static async _setPermissionTest(webpage, user, data, instance) {
+    if (typeof(data.public) === 'boolean') {
+      instance.public = data.public
+    }
+    return instance
+  }
+  
   static async create(webpage, user, data) {
     
     if (Array.isArray(data.anchorPositions) === false 
@@ -76,7 +121,10 @@ class Annotation extends Model {
     instance.user_id = user.primaryKeyValue
     instance.type = data.type
     instance.note = data.note
-    instance.public = data.public
+    
+    instance = await this._setPermission(webpage, user, data, instance)
+    //instance = await this._setPermissionTest(webpage, user, data, instance)
+    
     await instance.save()
     
     let anchorTextIds = []
@@ -124,27 +172,29 @@ class Annotation extends Model {
       userList = await webpage.getReaderIDsNotInGroup()
     }
     
-    
-    
     let query = this.query()
+            //.select('type')
             .where('webpage_id', webpage.primaryKeyValue)
             .whereIn('user_id', userList)
             .where('deleted', false)
-            .whereRaw('(user_id = ?) or (user_id <> ? and public = ?)', [user.primaryKeyValue, user.primaryKeyValue, true])
+            .whereRaw('((user_id = ?) or (user_id != ? and public IS ?))', [user.primaryKeyValue, user.primaryKeyValue, true])
+            //.whereRaw('user_id = ?', [user.primaryKeyValue])
             .with('anchorPositions')
 
     if (typeof(afterTime) === 'number') {
       // 這邊應該還要做些調整
       query.where('updated_at', '>' , afterTime)
     }
+    
+    //console.log(query.toSQL())
 
     return await query.fetch()
   }
   
-  
   static get hidden () {
     //return ['password']
     return ['webpage_id', 'deleted', 'created_at']
+    //return ['webpage_id', 'created_at']
   }
 }
 

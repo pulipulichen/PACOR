@@ -150,6 +150,11 @@ class User extends Model {
     return null
   }
   
+  async getCurrentReadingProgressStepConfig (webpage) {
+    let stepName = await this.getCurrentReadingProgressStepName(webpage)
+    return webpage.getStepConfig(stepName)
+  }
+  
   async getReadingProgressStatus (webpage, showDetails) {
     let cacheKey = Cache.key('User', 'getReadingProgressStatus', webpage, this, showDetails)
     return await Cache.get(cacheKey, async () => {

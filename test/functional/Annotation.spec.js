@@ -14,6 +14,8 @@ const AnnotationModel = use('App/Models/Annotation')
 
 const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
 
+const Sleep = use('Sleep')
+
 const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html'
 
 test('create group in webpage', async ({ assert, client }) => {
@@ -25,7 +27,7 @@ f g`
   
   let groups = await webpage.groups().fetch()
   assert.equal(groups.size(), 3)
-})
+}).timeout(0)
 /*
 test('logout', async ({ assert, client }) => {
   
@@ -151,7 +153,7 @@ test('a: create a private annotation', async ({ assert, client }) => {
 
 test('a: is it a private annotation', async ({ assert, client }) => {
   let annotation = await AnnotationModel.find(2)
-  console.log(annotation.toJSON())
+  //console.log(annotation.toJSON())
   assert.equal(annotation.public, false)
 })
 
@@ -195,6 +197,18 @@ test('a: test index', async ({ assert, client }) => {
   assert.equal(response.body.length, 2)
 })
 
+test('a: do logout', async ({ assert, client }) => {
+  let response
+  response = await client.get('/client/auth/logout')
+          .header('Referer', url)
+          .session('adonis-auth', 1)
+          .end()
+  
+  response.assertStatus(200)
+  
+  
+}).timeout(0)
+        
 // --------------------
 
 test('b: do login', async ({ assert, client }) => {
@@ -204,7 +218,7 @@ test('b: do login', async ({ assert, client }) => {
           .query({
             username: 'b'
           })
-          .session('adonis-auth', 1)
+          .session('adonis-auth', 2)
           .end()
   
   response.assertStatus(200)
@@ -238,7 +252,7 @@ test('b: create a public annotation', async ({ assert, client }) => {
   
   let response = await client.post('/client/Annotation/create')
           .header('Referer', url)
-          .session('adonis-auth', 1)
+          .session('adonis-auth', 2)
           .send(data)
           .end()
   
@@ -246,7 +260,9 @@ test('b: create a public annotation', async ({ assert, client }) => {
   //response.assertError([])
   response.assertStatus(200)
   response.assertText(3)
-})
+  
+  await Sleep(1)
+}).timeout(0)
 
 test('b: create a private annotation', async ({ assert, client }) => {
   let data = {
@@ -272,7 +288,7 @@ test('b: create a private annotation', async ({ assert, client }) => {
   
   let response = await client.post('/client/Annotation/create')
           .header('Referer', url)
-          .session('adonis-auth', 1)
+          .session('adonis-auth', 2)
           .send(data)
           .end()
   
@@ -285,11 +301,14 @@ test('b: create a private annotation', async ({ assert, client }) => {
 test('b: test index', async ({ assert, client }) => {
   let response = await client.get('/client/Annotation/index')
           .header('Referer', url)
-          .session('adonis-auth', 1)
+          .session('adonis-auth', 2)
           .end()
   
   //console.log(response.text)
   response.assertStatus(200)
+  
+  //console.log(response.body)
+  //console.log(JSON.stringify(response.body, null, ' '))
   assert.equal(response.body.length, 3)
 })
 

@@ -35,6 +35,7 @@ class Webpage extends Model {
       Cache.forget(Cache.key('Webpage', 'getReadingProgresses', instance))
       Cache.forget(Cache.key('Models.Webpage.getAgreement', this))
       Cache.forget(Cache.key('Models.Webpage.getConfig', this))
+      Cache.forget(Cache.key('Models.Webpage.getStepConfig', this))
     })
     
     this.addTrait('JSONCase', 'config')
@@ -316,9 +317,22 @@ class Webpage extends Model {
         }
       }
       //console.log(output)
-      //Cache.forever(cacheKey, output)
+      Cache.forever(cacheKey, output)
       return output
     })
+  }
+  
+  async getStepConfig(stepName) {
+    let cacheKey = Cache.key('Models.Webpage.getStepConfig', this)
+    return await Cache.get(cacheKey, async () => {
+      let config = await this.getConfig()
+      let output
+      if (typeof(config.readingProgressModules[stepName]) === 'object') {
+        output = config.readingProgressModules[stepName]
+      }
+      Cache.forever(cacheKey, output)
+      return output
+    })  // return await Cache.get(cacheKey, async () => {
   }
 }
 

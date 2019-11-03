@@ -38,9 +38,36 @@ class BooleanCase {
         if (instance[attr] !== null 
                 && typeof(instance[attr]) === 'number') {
           instance[attr] = (instance[attr] === 1)
-          //console.log(instance[attr])
+          console.log(instance[attr])
         }
       })
+    })
+    
+    attrs.forEach(attr => {
+      let setter = 'set' + attr
+      
+      Model.prototype[setter] = function (value) {
+        if (typeof(value) === 'boolean') {
+          if (value === true) {
+            return 1
+          }
+          else {
+            return 0
+          }
+        }
+        return null
+      }
+      
+      let getter = 'get' + attr
+      Model.prototype[getter] = function (value) {
+        if (value !== null 
+                && typeof(value) === 'number') {
+          return (value === 1)
+        }
+        else {
+          return null
+        }
+      }
     })
     
     // ------------------------------------------
