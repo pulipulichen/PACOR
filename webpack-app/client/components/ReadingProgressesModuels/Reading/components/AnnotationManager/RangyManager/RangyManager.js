@@ -485,13 +485,35 @@ let RangyManager = {
       if (highlights === null) {
         return null
       }
-      return highlights.map(highlight => {
-        return {
-          start_pos: highlight.characterRange.start,
-          end_pos: highlight.characterRange.end,
-          paragraph_id: highlight.containerElementId
+      
+      let pidJSON = {}
+      highlights.forEach(highlight => {
+        let start_pos = highlight.characterRange.start
+        let end_pos = highlight.characterRange.end
+        let paragraph_id = highlight.containerElementId
+        
+        if (typeof(pidJSON[paragraph_id]) === 'undefined') {
+          pidJSON[paragraph_id] = {
+            start_pos,
+            end_pos,
+            paragraph_id
+          }
+        }
+        else {
+          if (start_pos < pidJSON[paragraph_id].start_pos) {
+            pidJSON[paragraph_id].start_pos = start_pos
+          }
+          if (end_pos > pidJSON[paragraph_id].end_pos) {
+            pidJSON[paragraph_id].end_pos = end_pos
+          }
         }
       })
+      
+      let output = []
+      for (let key in pidJSON) {
+        output.push(pidJSON[key])
+      }
+      return output
     },
     
     _initHighlighter: function () {
