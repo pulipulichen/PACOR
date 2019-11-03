@@ -1253,8 +1253,11 @@ let AnnotationManager = {
     return {
       selection: null,
       pinSelection: null,
-      //annotationModule: null,
-      annotationModule: 'MainIdea', // for test
+      annotationModule: null,
+      //annotationModule: 'MainIdea', // for test
+      afterTime: null,
+      loadHighlightInterval: 60 * 1000,
+      //loadHighlightInterval: 3 * 1000  // for test
     }
   },
   components: {
@@ -1272,15 +1275,8 @@ let AnnotationManager = {
         output.annotationTypeModules = this.status.readingConfig.annotationTypeModules
       }
       return output
-    }
-  },
-//  watch: {
-//  },
-  mounted() {
-    this.initHighlights()
-  },
-  methods: {
-    initHighlights: async function () {
+    },
+    highlightsURL () {
       let highlightsURL
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === true) {
         highlightsURL = '/client/Annotation/highlights'
@@ -1288,10 +1284,31 @@ let AnnotationManager = {
       else {
         highlightsURL = '/client/Annotation/highlightsMy'
       }
+      return highlightsURL
+    }
+  },
+//  watch: {
+//  },
+  mounted() {
+    this.loadHighlights()
+  },
+  methods: {
+    loadHighlights: async function () {
+      let data = {}
+      if (typeof(this.afterTime) === 'number') {
+        data.afterTime = this.afterTime
+      }
       
-      let result = await this.lib.AxiosHelper.get(highlightsURL)
+      let result = await this.lib.AxiosHelper.get(this.highlightsURL, data)
       //console.log(result)
-      this.$refs.RangyManager.deserialize(result)
+      this.afterTime = (new Date()).getTime()
+      if (result !== 0) {
+        this.$refs.RangyManager.deserialize(result)
+      }
+      
+      setTimeout(() => {
+        this.loadHighlights()
+      }, this.loadHighlightInterval)
     },
     onselect: function (selection) {
       if (this.pinSelection !== null) {
@@ -2630,7 +2647,9 @@ let AnnotationPanel = {
       }
     },
     computedSegmentClass () {
-      return this.status.readingConfig.annotationTypeModules[this.annotationModule].style.segmentColor
+      if (typeof(this.annotationModule) === 'string') {
+        return this.status.readingConfig.annotationTypeModules[this.annotationModule].style.segmentColor
+      }
     },
   },
   watch: {
@@ -3754,7 +3773,9 @@ let RangyManager = {
         highlightJSONArray = highlightJSONArray.join('|')
       }
       
-      this.highlighter.deserialize(highlightJSONArray)
+      this.highlighter.deserialize(highlightJSONArray, {
+        append: true
+      })
     }
   } // methods
 }
@@ -9532,7 +9553,8 @@ __webpack_require__.r(__webpack_exports__);
                 return serializedHighlights.join("|");
             },
 
-            deserialize: function(serialized) {
+            deserialize: function(serialized, { append }) {
+              
                 var serializedHighlights = serialized.split("|");
                 var highlights = [];
 
@@ -9541,7 +9563,7 @@ __webpack_require__.r(__webpack_exports__);
                 var serializationType, serializationConverter, convertType = false;
                 if ( firstHighlight && (regexResult = /^type:(\w+)$/.exec(firstHighlight)) ) {
                     serializationType = regexResult[1];
-                    if (serializationType != this.converter.type) {
+                    if (serializationType !== this.converter.type) {
                         serializationConverter = getConverter(serializationType);
                         convertType = true;
                     }
@@ -9551,6 +9573,11 @@ __webpack_require__.r(__webpack_exports__);
                 }
 
                 var classApplier, highlight, characterRange, containerElementId, containerElement;
+                
+                let idCounter
+                if (append === true) {
+                  idCounter = this.highlights.length + 1
+                }
 
                 for (var i = serializedHighlights.length, parts; i-- > 0; ) {
                     parts = serializedHighlights[i].split("$");
@@ -9571,12 +9598,24 @@ __webpack_require__.r(__webpack_exports__);
                     if (!classApplier) {
                         throw new Error("No class applier found for class '" + parts[3] + "'");
                     }
+                    
+                    let id = parseInt(parts[2])
+                    if (typeof(idCounter) === 'number') {
+                      idCounter++
+                      id = idCounter
+                    }
 
-                    highlight = new Highlight(this.doc, characterRange, classApplier, this.converter, parseInt(parts[2]), containerElementId);
+                    highlight = new Highlight(this.doc, characterRange, classApplier, this.converter, id, containerElementId);
                     highlight.apply();
                     highlights.push(highlight);
                 }
-                this.highlights = highlights;
+                
+                if (append === true) {
+                  this.highlights = this.highlights.concat(highlights)
+                }
+                else {
+                  this.highlights = highlights;
+                }
             }
         };
 

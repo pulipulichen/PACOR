@@ -76,7 +76,9 @@ let AnnotationPanel = {
       }
     },
     computedSegmentClass () {
-      return this.status.readingConfig.annotationTypeModules[this.annotationModule].style.segmentColor
+      if (typeof(this.annotationModule) === 'string') {
+        return this.status.readingConfig.annotationTypeModules[this.annotationModule].style.segmentColor
+      }
     },
   },
   watch: {

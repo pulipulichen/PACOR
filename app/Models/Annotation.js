@@ -189,23 +189,25 @@ class Annotation extends Model {
    * @returns {String}
    */
   static async _convertHighlighArrayToString (highlights, webpage, user) {
-    let config = await user.getCurrentReadingProgressStepConfig(webpage)
-    let configTypes = config.annotation.types
-    
-    let typesArray = []
-    configTypes.forEach(() => {
-      typesArray.push([])
-    })
-    
-    highlights.forEach(h => {
-      let i = configTypes.indexOf(h.type)
-      typesArray[i].push(h)
-    })
-    
-    highlights = []
-    typesArray.forEach(typeArray => {
-      highlights = highlights.concat(typeArray)
-    })
+    if (highlights.length > 1) {
+      let config = await user.getCurrentReadingProgressStepConfig(webpage)
+      let configTypes = config.annotation.types
+
+      let typesArray = []
+      configTypes.forEach(() => {
+        typesArray.push([])
+      })
+
+      highlights.forEach(h => {
+        let i = configTypes.indexOf(h.type)
+        typesArray[i].push(h)
+      })
+
+      highlights = []
+      typesArray.forEach(typeArray => {
+        highlights = highlights.concat(typeArray)
+      })
+    }
     
     // --------------------------------
     

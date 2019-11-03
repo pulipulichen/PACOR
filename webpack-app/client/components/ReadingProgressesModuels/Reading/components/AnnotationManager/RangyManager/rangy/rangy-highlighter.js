@@ -649,7 +649,8 @@ export default (rangy) => {
                 return serializedHighlights.join("|");
             },
 
-            deserialize: function(serialized) {
+            deserialize: function(serialized, { append }) {
+              
                 var serializedHighlights = serialized.split("|");
                 var highlights = [];
 
@@ -658,7 +659,7 @@ export default (rangy) => {
                 var serializationType, serializationConverter, convertType = false;
                 if ( firstHighlight && (regexResult = /^type:(\w+)$/.exec(firstHighlight)) ) {
                     serializationType = regexResult[1];
-                    if (serializationType != this.converter.type) {
+                    if (serializationType !== this.converter.type) {
                         serializationConverter = getConverter(serializationType);
                         convertType = true;
                     }
@@ -668,6 +669,11 @@ export default (rangy) => {
                 }
 
                 var classApplier, highlight, characterRange, containerElementId, containerElement;
+                
+                let idCounter
+                if (append === true) {
+                  idCounter = this.highlights.length + 1
+                }
 
                 for (var i = serializedHighlights.length, parts; i-- > 0; ) {
                     parts = serializedHighlights[i].split("$");
@@ -688,12 +694,24 @@ export default (rangy) => {
                     if (!classApplier) {
                         throw new Error("No class applier found for class '" + parts[3] + "'");
                     }
+                    
+                    let id = parseInt(parts[2])
+                    if (typeof(idCounter) === 'number') {
+                      idCounter++
+                      id = idCounter
+                    }
 
-                    highlight = new Highlight(this.doc, characterRange, classApplier, this.converter, parseInt(parts[2]), containerElementId);
+                    highlight = new Highlight(this.doc, characterRange, classApplier, this.converter, id, containerElementId);
                     highlight.apply();
                     highlights.push(highlight);
                 }
-                this.highlights = highlights;
+                
+                if (append === true) {
+                  this.highlights = this.highlights.concat(highlights)
+                }
+                else {
+                  this.highlights = highlights;
+                }
             }
         };
 

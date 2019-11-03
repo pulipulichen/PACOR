@@ -9,8 +9,11 @@ let AnnotationManager = {
     return {
       selection: null,
       pinSelection: null,
-      //annotationModule: null,
-      annotationModule: 'MainIdea', // for test
+      annotationModule: null,
+      //annotationModule: 'MainIdea', // for test
+      afterTime: null,
+      loadHighlightInterval: 60 * 1000,
+      //loadHighlightInterval: 3 * 1000  // for test
     }
   },
   components: {
@@ -28,15 +31,8 @@ let AnnotationManager = {
         output.annotationTypeModules = this.status.readingConfig.annotationTypeModules
       }
       return output
-    }
-  },
-//  watch: {
-//  },
-  mounted() {
-    this.initHighlights()
-  },
-  methods: {
-    initHighlights: async function () {
+    },
+    highlightsURL () {
       let highlightsURL
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === true) {
         highlightsURL = '/client/Annotation/highlights'
@@ -44,10 +40,31 @@ let AnnotationManager = {
       else {
         highlightsURL = '/client/Annotation/highlightsMy'
       }
+      return highlightsURL
+    }
+  },
+//  watch: {
+//  },
+  mounted() {
+    this.loadHighlights()
+  },
+  methods: {
+    loadHighlights: async function () {
+      let data = {}
+      if (typeof(this.afterTime) === 'number') {
+        data.afterTime = this.afterTime
+      }
       
-      let result = await this.lib.AxiosHelper.get(highlightsURL)
+      let result = await this.lib.AxiosHelper.get(this.highlightsURL, data)
       //console.log(result)
-      this.$refs.RangyManager.deserialize(result)
+      this.afterTime = (new Date()).getTime()
+      if (result !== 0) {
+        this.$refs.RangyManager.deserialize(result)
+      }
+      
+      setTimeout(() => {
+        this.loadHighlights()
+      }, this.loadHighlightInterval)
     },
     onselect: function (selection) {
       if (this.pinSelection !== null) {

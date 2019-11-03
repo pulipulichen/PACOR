@@ -620,7 +620,9 @@ let RangyManager = {
         highlightJSONArray = highlightJSONArray.join('|')
       }
       
-      this.highlighter.deserialize(highlightJSONArray)
+      this.highlighter.deserialize(highlightJSONArray, {
+        append: true
+      })
     }
   } // methods
 }
