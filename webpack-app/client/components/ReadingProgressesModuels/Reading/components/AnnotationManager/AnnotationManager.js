@@ -46,7 +46,7 @@ let AnnotationManager = {
       }
       
       let result = await this.lib.AxiosHelper.get(highlightsURL)
-      console.log(result)
+      //console.log(result)
       this.$refs.RangyManager.deserialize(result)
     },
     onselect: function (selection) {
@@ -68,8 +68,11 @@ let AnnotationManager = {
       //this.$refs.AnnotationPanel.show()
       //console.log(type)
     },
-    unpin: function () {
-      this.$refs.RangyManager.unpinSelection(true)
+    unpin: function (doUnpin) {
+      //console.trace(doSelect)
+      if (doUnpin !== false) {
+        this.$refs.RangyManager.unpinSelection(true)
+      }
       //this.selection = null
       this.pinSelection = null
     }

@@ -334,8 +334,9 @@ let RangyManager = {
       return this.selection
     },
     unpinSelection : function (restoreSelection) {
-      //window.$('.pacor-selection').removeClass('pacor-selection')
+      //console.trace('unpinSelection')
       this.selectionHighlighter.removeAllHighlights()
+      window.$('.pacor-selection').removeClass('pacor-selection')
       
       
       /*
@@ -356,7 +357,9 @@ let RangyManager = {
       if (restoreSelection === true && this.selectionSaved !== null) {
         let selection = rangy.getSelection()
         if (selection.toString().length === 0) {
+          //console.log('是我嗎？')
           rangy.restoreSelection(this.selectionSaved)
+          this.selectionSaved = null
         }
       }
       return this
@@ -477,6 +480,18 @@ let RangyManager = {
     
     // -------------------
     
+    _getAnchorPositionFromElement (element) {
+      let highlight = this.highlighter.getHighlightForElement(element)
+      if (highlight === null) {
+        return null
+      }
+      return {
+        start_pos: highlight.characterRange.start,
+        end_pos: highlight.characterRange.end,
+        paragraph_id: highlight.containerElementId
+      }
+    },
+    
     _initHighlighter: function () {
       if (typeof(this.rangyConfig.annotationTypeModules) !== 'object') {
         return false
@@ -484,11 +499,29 @@ let RangyManager = {
       let rules = []
       rangy.init()
       this.highlighter = rangy.createHighlighter()
-      window.hl = this.highlighter
       
+      window.hl = this.highlighter  // @TODO for test
+      
+      let vm = this
       let options = {
         ignoreWhiteSpace: true,
-        tagNames: ["span", "a", "b", "img"]
+        tagNames: ["span", "a", "b", "img"],
+        elementAttributes: {
+          'data-pacor-highlight': ''
+        },
+        elementProperties: {
+          onclick: function () {
+            let pos = vm._getAnchorPositionFromElement(this)
+            console.log(pos)
+            vm.$emit('click', pos)
+          },
+          onmouseover: function () {
+            vm.$emit('mouseover', vm._getAnchorPositionFromElement(this))
+          },
+          onmouseout: function () {
+            vm.$emit('mouseout', vm._getAnchorPositionFromElement(this))
+          }
+        }
       }
       
       let ownerClasses = ['my', 'others']

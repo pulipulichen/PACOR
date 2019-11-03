@@ -156,10 +156,8 @@ class Annotation extends Model {
   
   /**
    * // "type:textContent|28$198$2$confused-clarified$pacor-paragraph-id-2"
-   * @param {Array} annotations
-   * @returns {Array}
    */
-  static _convertToHighlighArray (annotations) {
+  static _convertToHighlighArray (annotations, user) {
     let highlights = []
     
     if (typeof(annotations.toJSON) === 'function') {
@@ -168,8 +166,17 @@ class Annotation extends Model {
     
     annotations.forEach(annotation => {
       let type = annotation.type
+      let highlightType = type
+      if (annotation.user_id === user.primaryKeyValue) {
+        highlightType = 'my-' + type
+      }
+      else {
+        highlightType = 'others-' + type
+      }
+      
       annotation.anchorPositions.forEach(position => {
         position.type = type
+        position.highlightType = highlightType
         highlights.push(position)
       })
     })
@@ -181,13 +188,33 @@ class Annotation extends Model {
    * @param {Array} highlights
    * @returns {String}
    */
-  static _convertHighlighArrayToString (highlights) {
+  static async _convertHighlighArrayToString (highlights, webpage, user) {
+    let config = await user.getCurrentReadingProgressStepConfig(webpage)
+    let configTypes = config.annotation.types
+    
+    let typesArray = []
+    configTypes.forEach(() => {
+      typesArray.push([])
+    })
+    
+    highlights.forEach(h => {
+      let i = configTypes.indexOf(h.type)
+      typesArray[i].push(h)
+    })
+    
+    highlights = []
+    typesArray.forEach(typeArray => {
+      highlights = highlights.concat(typeArray)
+    })
+    
+    // --------------------------------
+    
     let output = highlights.map((h, i) => {
       return [
         h.start_pos,
         h.end_pos,
         (i+1),
-        h.type,
+        h.highlightType,
         h.paragraph_id
       ].join('$')
     })
@@ -199,7 +226,7 @@ class Annotation extends Model {
   static async getOthersHighlightsArrayByWebpageGroup(webpage, user, afterTime) {
     const doQuery = async evt => {
       let annotations = await this.findOthersByWebpageGroup(webpage, user, afterTime)
-      return this._convertToHighlighArray(annotations)
+      return this._convertToHighlighArray(annotations, user)
     }
     
     if (afterTime !== undefined) {
@@ -251,6 +278,7 @@ class Annotation extends Model {
               .whereRaw('(user_id != ? and public IS ?)', [user.primaryKeyValue, true])
               //.whereRaw('user_id = ?', [user.primaryKeyValue])
               .with('anchorPositions')
+              .orderBy('updated_at_unixms', 'desc')
 
       //console.log(afterTime, typeof(afterTime))
       if (typeof(afterTime) === 'string') {
@@ -287,18 +315,18 @@ class Annotation extends Model {
     //console.log(othersHighlights)
     
     highlights = highlights.concat(othersHighlights)
-    return this._convertHighlighArrayToString(highlights)
+    return this._convertHighlighArrayToString(highlights, webpage, user)
   }
   
   static async getMyHighlightsByWebpageGroup(webpage, user, afterTime) {
     let highlights = await this.getMyHighlightsArrayByWebpageGroup(webpage, user, afterTime)
-    return this._convertHighlighArrayToString(highlights)
+    return this._convertHighlighArrayToString(highlights, webpage, user)
   }
   
   static async getMyHighlightsArrayByWebpageGroup(webpage, user, afterTime) {
     const doQuery = async evt => {
       let annotations = await this.findMyByWebpageGroup(webpage, user, afterTime)
-      return this._convertToHighlighArray(annotations)
+      return this._convertToHighlighArray(annotations, user)
     }
     
     return await doQuery()
@@ -319,6 +347,7 @@ class Annotation extends Model {
               .where('user_id', user.primaryKeyValue)
               .where('deleted', false)
               .with('anchorPositions')
+              .orderBy('updated_at_unixms', 'desc')
 
       //console.log(afterTime, typeof(afterTime))
       if (typeof(afterTime) === 'string') {

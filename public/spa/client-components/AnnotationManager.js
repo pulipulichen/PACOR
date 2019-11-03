@@ -32,6 +32,22 @@ module.exports = function (Component) {
 
 /***/ }),
 
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationPanel%5CAnnotationEditorModules%5CConfusedClarified%5CConfusedClarified.vue&lang=yaml":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationPanel%5CAnnotationEditorModules%5CConfusedClarified%5CConfusedClarified.vue&lang=yaml ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationPanel%5CAnnotationEditorModules%5CMainIdea%5CMainIdea.vue&lang=yaml":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationPanel%5CAnnotationEditorModules%5CMainIdea%5CMainIdea.vue&lang=yaml ***!
@@ -152,6 +168,20 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
 exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"AnnotationDiscussion.less?vue&type=style&index=0&id=46d211aa&lang=less&scoped=true&"}]);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.less?vue&type=style&index=0&id=0c2da0b0&lang=less&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.less?vue&type=style&index=0&id=0c2da0b0&lang=less&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, ".annotation-panel-buttons[data-v-0c2da0b0] {\n  user-select: none;\n}\n", "",{"version":3,"sources":["ConfusedClarified.less?vue&type=style&index=0&id=0c2da0b0&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;AACnB","file":"ConfusedClarified.less?vue&type=style&index=0&id=0c2da0b0&lang=less&scoped=true&","sourcesContent":[".annotation-panel-buttons[data-v-0c2da0b0] {\n  user-select: none;\n}\n"]}]);
 
 
 /***/ }),
@@ -342,6 +372,117 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("fragment", [_vm._v("\r\n  [AnnotationDiscussion #TODO]\r\n")])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.html?vue&type=template&id=0c2da0b0&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.html?vue&type=template&id=0c2da0b0&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "ui form" },
+    [
+      _c("annotation-editor-header", {
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          annotationModule: _vm.annotationModule
+        }
+      }),
+      _vm._v(" "),
+      _c("HTMLEditor", {
+        ref: "editor",
+        attrs: { contents: _vm.note, height: _vm.computedEditorHeight },
+        on: {
+          input: function(v) {
+            _vm.note = v
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "ui one column grid annotation-panel-buttons" },
+        [
+          _c(
+            "div",
+            { class: _vm.computedButtonsClass },
+            [
+              _vm.annotationConfig.enableControlPermission
+                ? _c("checkbox-toggle", {
+                    attrs: { label: _vm.$t("PUBLIC") },
+                    model: {
+                      value: _vm.public,
+                      callback: function($$v) {
+                        _vm.public = $$v
+                      },
+                      expression: "public"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "ui button",
+                  attrs: { type: "button" },
+                  on: { click: _vm.hide }
+                },
+                [
+                  _vm._v(
+                    "\r\n        " + _vm._s(_vm.$t("CANCEL")) + "  \r\n      "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _vm.annotationInstance
+                ? void 0
+                : [
+                    _c(
+                      "countdown-button",
+                      {
+                        attrs: {
+                          minWordCount: _vm.moduleConfig.minWords,
+                          text: _vm.note,
+                          lib: _vm.lib,
+                          locale: _vm.status.preference.locale
+                        },
+                        on: { click: _vm.addAnnotation }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(_vm.$t("ADD")) +
+                            "  \r\n        "
+                        )
+                      ]
+                    )
+                  ]
+            ],
+            2
+          )
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -882,6 +1023,27 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.less?vue&type=style&index=0&id=0c2da0b0&lang=less&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.less?vue&type=style&index=0&id=0c2da0b0&lang=less&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./ConfusedClarified.less?vue&type=style&index=0&id=0c2da0b0&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.less?vue&type=style&index=0&id=0c2da0b0&lang=less&scoped=true&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("649b0d50", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.less?vue&type=style&index=0&id=45a0d506&lang=less&scoped=true&":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.less?vue&type=style&index=0&id=45a0d506&lang=less&scoped=true& ***!
@@ -1128,7 +1290,7 @@ let AnnotationManager = {
       }
       
       let result = await this.lib.AxiosHelper.get(highlightsURL)
-      console.log(result)
+      //console.log(result)
       this.$refs.RangyManager.deserialize(result)
     },
     onselect: function (selection) {
@@ -1150,8 +1312,11 @@ let AnnotationManager = {
       //this.$refs.AnnotationPanel.show()
       //console.log(type)
     },
-    unpin: function () {
-      this.$refs.RangyManager.unpinSelection(true)
+    unpin: function (doUnpin) {
+      //console.trace(doSelect)
+      if (doUnpin !== false) {
+        this.$refs.RangyManager.unpinSelection(true)
+      }
       //this.selection = null
       this.pinSelection = null
     }
@@ -1392,6 +1557,249 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.html?vue&type=template&id=0c2da0b0&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.html?vue&type=template&id=0c2da0b0&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_ConfusedClarified_html_vue_type_template_id_0c2da0b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./ConfusedClarified.html?vue&type=template&id=0c2da0b0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.html?vue&type=template&id=0c2da0b0&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_ConfusedClarified_html_vue_type_template_id_0c2da0b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_ConfusedClarified_html_vue_type_template_id_0c2da0b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.js?vue&type=script&lang=js&?ba34":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.js?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ConfusedClarified_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./ConfusedClarified.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.js?vue&type=script&lang=js&?c03c");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_ConfusedClarified_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.js?vue&type=script&lang=js&?c03c":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.js?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_AnnotationEditorHeader_AnnotationEditorHeader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../components/AnnotationEditorHeader/AnnotationEditorHeader.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/components/AnnotationEditorHeader/AnnotationEditorHeader.vue");
+
+
+let MainIdea = {
+  props: ['lib', 'status', 'config'
+    , 'annotationModule', 'annotationInstance'
+    , 'heightPX', 'annotationConfig', 'pinSelection'
+    , 'rangy'],
+  data() {
+    this.$i18n.locale = this.config.locale
+    
+    let note = ''
+    //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
+    if (this.annotationInstance !== null 
+            && typeof(this.annotationInstance) === 'object'
+            && typeof(this.annotationInstance.note) === 'string') {
+      note = this.annotationInstance.note
+    }
+    //console.log(note)
+    
+    return {
+      note: note,
+      noteReset: note,
+      public: (this.annotationConfig.defaultPermission === 'public')
+    }
+  },
+  components: {
+    'annotation-editor-header': _components_AnnotationEditorHeader_AnnotationEditorHeader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  computed: {
+    isNoteDifferent () {
+      return (this.note !== this.noteReset)
+    },
+    enableAddAnnotation () {
+      if (this.isNoteDifferent 
+              && typeof(this.note) === 'string'
+              && this.note !== '') {
+        return true
+      }
+      return false
+    },
+    enableEditAnnotation () {
+      return this.enableAddAnnotation
+    },
+    
+    computedEditorHeight () {
+      let height
+      if (this.enableCollaboration === true
+              && this.lib.style.isStackWidth()) {
+        height = (this.lib.style.getClientHeight() / 2)
+        height = `calc(${height}px - 12em)`
+      }
+      else {
+        height = `calc(${this.heightPX}px - 12em)`
+      }
+      //console.log(height)
+      return height
+    },
+    computedButtonsClass () {
+      if (this.status.preference === null 
+              || this.status.preference.leftHanded === false) {
+        return 'right aligned column'
+      }
+      else {
+        return 'column'
+      }
+    },
+    moduleConfig () {
+      return this.status.readingConfig.annotationTypeModules[this.annotationModule]
+    }
+  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
+  methods: {
+    addAnnotation: async function () {
+      
+      let data = {
+        anchorPositions: this.pinSelection.anchorPositions,
+        type: this.annotationModule,
+        note: this.note
+      }
+      
+      if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
+        data.public = this.public
+      }
+      
+      //console.log(data)
+      
+      let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+      //console.log(id) // for test
+      if (typeof(id) !== 'number') {
+        return false  // 新增失敗
+      }
+      
+      this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
+      this.$emit('hide', false)
+    },
+    editAnnotation () {
+      throw '#TODO editAnnotation'
+    },
+    deleteAnnotation () {
+      if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
+        let data = {
+          id: this.annotationInstance.id
+        }
+        
+        throw '這邊要處理highlight的部分'
+        
+        this.lib.AxiosHelper.get('/client/resource/Annotation/destroy', data)
+        
+        return this.$emit('hide') // 跟上層說關閉視窗
+      }
+      console.error('#TODO deleteAnnotation')
+    },
+    hide () {
+      this.$emit('hide', true)
+    }
+  } // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (MainIdea);
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.less?vue&type=style&index=0&id=0c2da0b0&lang=less&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.less?vue&type=style&index=0&id=0c2da0b0&lang=less&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_ConfusedClarified_less_vue_type_style_index_0_id_0c2da0b0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../../node_modules/vue-style-loader!../../../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./ConfusedClarified.less?vue&type=style&index=0&id=0c2da0b0&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.less?vue&type=style&index=0&id=0c2da0b0&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_ConfusedClarified_less_vue_type_style_index_0_id_0c2da0b0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_ConfusedClarified_less_vue_type_style_index_0_id_0c2da0b0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_ConfusedClarified_less_vue_type_style_index_0_id_0c2da0b0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_ConfusedClarified_less_vue_type_style_index_0_id_0c2da0b0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_ConfusedClarified_less_vue_type_style_index_0_id_0c2da0b0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.vue":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.vue ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ConfusedClarified_html_vue_type_template_id_0c2da0b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ConfusedClarified.html?vue&type=template&id=0c2da0b0&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.html?vue&type=template&id=0c2da0b0&scoped=true&");
+/* harmony import */ var _ConfusedClarified_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ConfusedClarified.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.js?vue&type=script&lang=js&?ba34");
+/* empty/unused harmony star reexport *//* harmony import */ var _ConfusedClarified_less_vue_type_style_index_0_id_0c2da0b0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ConfusedClarified.less?vue&type=style&index=0&id=0c2da0b0&lang=less&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.less?vue&type=style&index=0&id=0c2da0b0&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _ConfusedClarified_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationPanel_5CAnnotationEditorModules_5CConfusedClarified_5CConfusedClarified_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ConfusedClarified.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationPanel%5CAnnotationEditorModules%5CConfusedClarified%5CConfusedClarified.vue&lang=yaml */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationPanel%5CAnnotationEditorModules%5CConfusedClarified%5CConfusedClarified.vue&lang=yaml");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _ConfusedClarified_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ConfusedClarified_html_vue_type_template_id_0c2da0b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ConfusedClarified_html_vue_type_template_id_0c2da0b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "0c2da0b0",
+  null
+  
+)
+
+/* custom blocks */
+
+if (typeof _ConfusedClarified_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationPanel_5CAnnotationEditorModules_5CConfusedClarified_5CConfusedClarified_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_ConfusedClarified_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationPanel_5CAnnotationEditorModules_5CConfusedClarified_5CConfusedClarified_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationPanel%5CAnnotationEditorModules%5CConfusedClarified%5CConfusedClarified.vue&lang=yaml":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationPanel%5CAnnotationEditorModules%5CConfusedClarified%5CConfusedClarified.vue&lang=yaml ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_ConfusedClarified_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationPanel_5CAnnotationEditorModules_5CConfusedClarified_5CConfusedClarified_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./ConfusedClarified.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationPanel%5CAnnotationEditorModules%5CConfusedClarified%5CConfusedClarified.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationPanel%5CAnnotationEditorModules%5CConfusedClarified%5CConfusedClarified.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_ConfusedClarified_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationPanel_5CAnnotationEditorModules_5CConfusedClarified_5CConfusedClarified_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_ConfusedClarified_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationPanel_5CAnnotationEditorModules_5CConfusedClarified_5CConfusedClarified_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_ConfusedClarified_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationPanel_5CAnnotationEditorModules_5CConfusedClarified_5CConfusedClarified_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_ConfusedClarified_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationPanel_5CAnnotationEditorModules_5CConfusedClarified_5CConfusedClarified_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_ConfusedClarified_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationPanel_5CAnnotationEditorModules_5CConfusedClarified_5CConfusedClarified_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
 /***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.html?vue&type=template&id=45a0d506&scoped=true&":
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.html?vue&type=template&id=45a0d506&scoped=true& ***!
@@ -1530,7 +1938,7 @@ let MainIdea = {
       }
       
       this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
-      this.hide()
+      this.$emit('hide', false)
     },
     editAnnotation () {
       throw '#TODO editAnnotation'
@@ -1550,7 +1958,7 @@ let MainIdea = {
       console.error('#TODO deleteAnnotation')
     },
     hide () {
-      this.$parent.hide()
+      this.$emit('hide', true)
     }
   } // methods
 }
@@ -2141,10 +2549,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AnnotationDiscussion_AnnotationDiscussion_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AnnotationDiscussion/AnnotationDiscussion.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationDiscussion/AnnotationDiscussion.vue");
 /* harmony import */ var _AnnotationEditorModules_MainIdea_MainIdea_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AnnotationEditorModules/MainIdea/MainIdea.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.vue");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _AnnotationEditorModules_ConfusedClarified_ConfusedClarified_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AnnotationEditorModules/ConfusedClarified/ConfusedClarified.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.vue");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
 //import VueDraggableResizable from 'vue-draggable-resizable'
 //import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
+
+
 
 
 
@@ -2172,7 +2583,8 @@ let AnnotationPanel = {
     //'vue-draggable-resizable': VueDraggableResizable,
     
     'annotation-discussion': _AnnotationDiscussion_AnnotationDiscussion_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'MainIdea': _AnnotationEditorModules_MainIdea_MainIdea_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    'MainIdea': _AnnotationEditorModules_MainIdea_MainIdea_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    'ConfusedClarified': _AnnotationEditorModules_ConfusedClarified_ConfusedClarified_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   computed: {
     annotationConfig () {
@@ -2292,11 +2704,14 @@ let AnnotationPanel = {
         //this.placeholder.show()
       })
     },
-    hide () {
+    hide: function (doUnpin) {
       this.placeholder.transition(this.transitionMode)
       window.$(this.$refs.panel).transition(this.transitionMode, () => {
+        if (this.isHide === true) {
+          return false
+        }
         this.isHide = true
-        this.$emit('hide')
+        this.$emit('hide', doUnpin)
       })
     },
     scrollToPinSelection () {
@@ -2343,7 +2758,7 @@ let AnnotationPanel = {
       }
       this.resizeLocker = true
       
-      let body = jquery__WEBPACK_IMPORTED_MODULE_2___default()('body')
+      let body = jquery__WEBPACK_IMPORTED_MODULE_3___default()('body')
       body.addClass('disable-user-select')
       //console.log(event)
       //console.log(event)
@@ -3053,8 +3468,9 @@ let RangyManager = {
       return this.selection
     },
     unpinSelection : function (restoreSelection) {
-      //window.$('.pacor-selection').removeClass('pacor-selection')
+      //console.trace('unpinSelection')
       this.selectionHighlighter.removeAllHighlights()
+      window.$('.pacor-selection').removeClass('pacor-selection')
       
       
       /*
@@ -3075,7 +3491,9 @@ let RangyManager = {
       if (restoreSelection === true && this.selectionSaved !== null) {
         let selection = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].getSelection()
         if (selection.toString().length === 0) {
+          //console.log('是我嗎？')
           _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].restoreSelection(this.selectionSaved)
+          this.selectionSaved = null
         }
       }
       return this
@@ -3196,6 +3614,18 @@ let RangyManager = {
     
     // -------------------
     
+    _getAnchorPositionFromElement (element) {
+      let highlight = this.highlighter.getHighlightForElement(element)
+      if (highlight === null) {
+        return null
+      }
+      return {
+        start_pos: highlight.characterRange.start,
+        end_pos: highlight.characterRange.end,
+        paragraph_id: highlight.containerElementId
+      }
+    },
+    
     _initHighlighter: function () {
       if (typeof(this.rangyConfig.annotationTypeModules) !== 'object') {
         return false
@@ -3203,11 +3633,29 @@ let RangyManager = {
       let rules = []
       _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].init()
       this.highlighter = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].createHighlighter()
-      window.hl = this.highlighter
       
+      window.hl = this.highlighter  // @TODO for test
+      
+      let vm = this
       let options = {
         ignoreWhiteSpace: true,
-        tagNames: ["span", "a", "b", "img"]
+        tagNames: ["span", "a", "b", "img"],
+        elementAttributes: {
+          'data-pacor-highlight': ''
+        },
+        elementProperties: {
+          onclick: function () {
+            let pos = vm._getAnchorPositionFromElement(this)
+            console.log(pos)
+            vm.$emit('click', pos)
+          },
+          onmouseover: function () {
+            vm.$emit('mouseover', vm._getAnchorPositionFromElement(this))
+          },
+          onmouseout: function () {
+            vm.$emit('mouseout', vm._getAnchorPositionFromElement(this))
+          }
+        }
       }
       
       let ownerClasses = ['my', 'others']

@@ -2,7 +2,9 @@
 //import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
 
 import AnnotationDiscussion from './AnnotationDiscussion/AnnotationDiscussion.vue'
+
 import AnnotationModuleMainIdea from './AnnotationEditorModules/MainIdea/MainIdea.vue'
+import AnnotationModuleConfusedClarified from './AnnotationEditorModules/ConfusedClarified/ConfusedClarified.vue'
 
 import $ from 'jquery'
 
@@ -27,7 +29,8 @@ let AnnotationPanel = {
     //'vue-draggable-resizable': VueDraggableResizable,
     
     'annotation-discussion': AnnotationDiscussion,
-    'MainIdea': AnnotationModuleMainIdea
+    'MainIdea': AnnotationModuleMainIdea,
+    'ConfusedClarified': AnnotationModuleConfusedClarified
   },
   computed: {
     annotationConfig () {
@@ -147,11 +150,14 @@ let AnnotationPanel = {
         //this.placeholder.show()
       })
     },
-    hide () {
+    hide: function (doUnpin) {
       this.placeholder.transition(this.transitionMode)
       window.$(this.$refs.panel).transition(this.transitionMode, () => {
+        if (this.isHide === true) {
+          return false
+        }
         this.isHide = true
-        this.$emit('hide')
+        this.$emit('hide', doUnpin)
       })
     },
     scrollToPinSelection () {

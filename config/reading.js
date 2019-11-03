@@ -94,7 +94,7 @@ module.exports = {
       "style": {
         //'highlight': 'border-bottom: 1px solid green',
         'highlight': {
-          'my': 'background-color: red; color: white;',
+          'my': 'background-color: rgba(255,0,0,0.5); color: white;',
           'others': 'border-bottom: 1px solid red'
         },
         'segmentColor': 'red',
@@ -114,7 +114,7 @@ module.exports = {
       "style": {
         //'highlight': 'border-bottom: 1px solid red',
         'highlight': {
-          'my': 'background-color: yellow; color: black;',
+          'my': 'background-color: rgba(255,255,0,0.5); color: black;',
           'others': 'border-bottom: 1px solid yellow'
         },
         'segmentColor': 'yellow',
