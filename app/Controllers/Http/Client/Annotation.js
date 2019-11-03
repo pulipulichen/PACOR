@@ -23,7 +23,6 @@ class Annotation extends WebpageUserBaseController {
   
   async index ({request, webpage, user}) {
     let { afterTime } = request.all()
-    
     // 取出這一頁的annotation，然後開始組合...
     // 要怎麼做呢...
     

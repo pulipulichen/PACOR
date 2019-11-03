@@ -178,8 +178,8 @@ test('a: check annotation is logged', async ({ assert, client }) => {
     }
   ])
   
-  let updated_at = response.body[0].updated_at
-  assert.isNumber(updated_at)
+  let updated_at_unixms = response.body[0].updated_at_unixms
+  assert.isNumber(updated_at_unixms)
   
   let logs2 = await ReadingActivityLog.findLog(1, 1, 'Annotation.indexMy')
   assert.equal(logs2.length, 1)
@@ -261,7 +261,10 @@ test('b: create a public annotation', async ({ assert, client }) => {
   response.assertStatus(200)
   response.assertText(3)
   
-  await Sleep(1)
+  let afterTime = (new Date()).getTime()
+  
+  console.log('b public time', afterTime)
+  await Sleep(2)
 }).timeout(0)
 
 test('b: create a private annotation', async ({ assert, client }) => {
@@ -296,6 +299,9 @@ test('b: create a private annotation', async ({ assert, client }) => {
   //response.assertError([])
   response.assertStatus(200)
   response.assertText(4)
+  
+  let afterTime = (new Date()).getTime()
+  console.log('b private time', afterTime)
 })
 
 test('b: test index', async ({ assert, client }) => {
@@ -310,6 +316,24 @@ test('b: test index', async ({ assert, client }) => {
   //console.log(response.body)
   //console.log(JSON.stringify(response.body, null, ' '))
   assert.equal(response.body.length, 3)
+})
+
+test('b: test index with afterTime', async ({ assert, client }) => {
+  let afterTime = (new Date()).getTime() - (1000 * 2)
+  let response = await client.get('/client/Annotation/index')
+          .query({
+            afterTime: afterTime
+          })
+          .header('Referer', url)
+          .session('adonis-auth', 2)
+          .end()
+  
+  console.log(response.text)
+  response.assertStatus(200)
+  
+  console.log(response.body)
+  //console.log(JSON.stringify(response.body, null, ' '))
+  assert.equal(response.body.length, 1)
 })
 
 /*

@@ -10,7 +10,9 @@ class Annotation extends Model {
   static boot () {
     super.boot()
     
-    this.addTrait('DateUnixMSCase')
+    //this.addTrait('DateUnixMSCase')
+    this.addTrait('DateUnixMS')
+    
     this.addTrait('BooleanCase', ['public', 'deleted'])
     this.addTrait('BooleanCaseMutators', ['Public', 'Deleted'])
   } // static boot () {
@@ -173,7 +175,6 @@ class Annotation extends Model {
     }
     
     let query = this.query()
-            //.select('type')
             .where('webpage_id', webpage.primaryKeyValue)
             .whereIn('user_id', userList)
             .where('deleted', false)
@@ -181,9 +182,14 @@ class Annotation extends Model {
             //.whereRaw('user_id = ?', [user.primaryKeyValue])
             .with('anchorPositions')
 
+    //console.log(afterTime, typeof(afterTime))
+    if (typeof(afterTime) === 'string') {
+      afterTime = parseInt(afterTime, 10)
+    }
     if (typeof(afterTime) === 'number') {
+      //console.log(afterTime)
       // 這邊應該還要做些調整
-      query.where('updated_at', '>' , afterTime)
+      query.where('updated_at_unixms', '>', afterTime)
     }
     
     //console.log(query.toSQL())
@@ -191,9 +197,11 @@ class Annotation extends Model {
     return await query.fetch()
   }
   
+  
+  
   static get hidden () {
     //return ['password']
-    return ['webpage_id', 'deleted', 'created_at']
+    return ['webpage_id', 'deleted', 'created_at', 'updated_at', 'created_at_unixms']
     //return ['webpage_id', 'created_at']
   }
 }
