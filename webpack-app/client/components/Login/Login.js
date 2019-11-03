@@ -73,15 +73,16 @@ let Login = {
         this.status[name] = result[name]
       }
       this.status.username = this.username
+      
+      localStorage.setItem(this.key + 'login.username', this.username)
+      localStorage.setItem(this.key + 'login.password', this.password)
+      
       this.reset()
       this.$refs.LoginModal.hide()
       
       this.status.needLogin = false
       this.waiting = false
       //alert('成功登入了，然後呢？')
-      
-      localStorage.setItem(this.key + 'login.username', this.username)
-      localStorage.setItem(this.key + 'login.password', this.password)
     },
     reset: function () {
       this.username = ''

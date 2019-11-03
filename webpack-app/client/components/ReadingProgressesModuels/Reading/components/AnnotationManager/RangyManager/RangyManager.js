@@ -22,7 +22,9 @@ let RangyManager = {
       selectionSaved: null,
       
       highlighter: null,
-      highlightClasses: []
+      highlightClasses: [],
+      
+      hoverHighlighter: null,
     }
   },  // data() {
   /*
@@ -251,10 +253,18 @@ let RangyManager = {
         
         this.selectionHighlighter = rangy.createHighlighter()
         this.selectionHighlighter.addClassApplier(this.selectionApplier)
+        
+        let hoverApplier = rangy.createClassApplier("pacor-hover", {
+          tagNames: ["span", "a", "b", "img"],
+          ignoreWhiteSpace: true,
+        })
+        
+        this.hoverHighlighter = rangy.createHighlighter()
+        this.hoverHighlighter.addClassApplier(hoverApplier)
       }
     },
     
-    pinSelection: function (scrollOptions) {
+    pinSelection: function () {
       this.unpinSelection()
       if (this.selection === null 
               || Array.isArray(this.selection.anchorPositions) === false
@@ -523,6 +533,21 @@ let RangyManager = {
       } // if (rules.length > 0) {
       
     },
+    
+    // -----------------------------------------------------------------
+    
+    hoverIn: function (highlight) {
+      this.hoverOut()
+      console.log('@TODO 這邊要能夠接收annotation', highlight)
+      this.hoverHighlighter.deserialize(highlight)
+      return this
+    },
+    hoverOut : function () {
+      this.hoverHighlighter.removeAllHighlights()
+      return this
+    },
+    
+    // -----------------------------------------------------------------
     
     /**
      * highlightJSON = [

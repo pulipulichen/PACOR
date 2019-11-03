@@ -1,5 +1,7 @@
 let CountdownButton = {
-  props: ['locale', 'lib', 'countdownSec', 'minWordCount', 'maxWordCount', 'text', 'enableClassNames'],
+  props: ['locale', 'lib', 'countdownSec'
+    , 'minWordCount', 'maxWordCount', 'text', 'ignoreWordCount'
+    , 'enableClassNames'],
   data() {    
     this.$i18n.locale = this.locale
     return {
@@ -38,8 +40,13 @@ let CountdownButton = {
       return true
     },
     isEnable () {
-      //console.log(this.remainingSeconds, this.validWordCount, this.wordCount)
-      return (this.remainingSeconds === 0 && this.validWordCount === true)
+      if (this.ignoreWordCount === true) {
+        return (this.remainingSeconds === 0)
+      }
+      else {
+        //console.log(this.remainingSeconds, this.validWordCount, this.wordCount)
+        return (this.remainingSeconds === 0 && this.validWordCount === true)
+      }
     },
     disabledMessage () {
       let messages = []

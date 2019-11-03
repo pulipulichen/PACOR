@@ -68,6 +68,13 @@ let Auth = {
       }
       //console.log(modules)
       return null
+    },
+    currentStepAnnotationConfig () {
+      let config = this.currentStepConfig
+      if (config !== null) {
+        return config.annotation
+      }
+      return null
     }
   },
   methods: {

@@ -1,117 +1,16 @@
-@media print {
-    .annotate-panel {
-        display: none;
-    }
-
-    .highlight {
-        /*background-color: #333;*/
-        background-color: yellow;
-    }
+[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] {
+  .pacor-selection {
+    //background-color: rgba(255,255,0, 0.7);
+    //filter: invert(0.7)
+    background-color: rgba(0,0,255,0.7);
+    color: white;
+  }
+  
+  .pacor-hover {
+    //background-color: rgba(255,255,0, 0.7);
+    //filter: invert(0.7)
+    background-color: rgba(0,255,0,0.7);
+    color: white;
+  }
 }
-
-
-.highlight {
-    background-color: yellow;
-}
-.annotate-panel {
-    position: fixed;
-    /*right: 10px;*/
-    /*top: 10px;*/
-    display: none;
-    background-color: white;
-    background-color: #CCC;
-    border-radius: 10px;
-    /*padding: 5px;*/
-    box-shadow: 5px 5px 2px grey;
-    user-select: none;
-}
-.annotate-panel.show {
-    display: inline-block;
-}
-
-.annotate-panel .button {
-    border-width: 0;
-    background-color: transparent;
-    text-align: center;
-    display: inline-block;
-    /*border-right: 3px ridge white;*/
-    cursor: pointer;
-    font-size: 0.8em;
-    padding: 5px;
-}
-
-.annotate-panel .button.highlightSelectedText {
-    border-radius: 10px 0 0 10px;
-}
-
-.annotate-panel .button.removeHighlightFromSelectedText {
-    border-radius: 0 10px 10px 0 ;
-    margin-left: -5px;
-}
-
-
-
-.annotate-panel .button-container {
-    border-right: 3px ridge white;
-    display: inline-block;
-    /*padding-right: 4px;*/
-}
-
-.annotate-panel .button:hover {
-    background-color: yellow;
-}
-
-.annotate-panel .button-container:last-of-type {
-    border-right-width: 0;
-    padding-right: 0px;
-}
-
-.annotate-panel.hide-remove .button-container.remove {
-    display: none;
-}
-
-.annotate-panel.hide-remove .button-container {
-    border-right-width: 0;
-    padding-right: 0px;
-}
-
-.annotate-panel.hide-remove .button {
-    border-radius: 10px;
-}
-
-.rangy-container-test {
-  position: fixed;
-  top: 100px;
-  left: 100px;
-  background-color: red;
-}
-
-.note {
-  color :red ;
-}
-
-.italicYellowBg {
-    font-style: italic;
-    background-color: yellow;
-}
-
-.boldRed {
-    font-weight: bold;
-    color: red;
-}
-
-img.boldRed {
-    border: solid red 3px;
-}
-
-a.pinkLink {
-    color: #f66;
-    font-size: 1.2em;
-}
-
-.pacor-selection {
-  //background-color: rgba(255,255,0, 0.7);
-  //filter: invert(0.7)
-  background-color: rgba(0,0,255,0.7);
-  color: white;
-}
+  

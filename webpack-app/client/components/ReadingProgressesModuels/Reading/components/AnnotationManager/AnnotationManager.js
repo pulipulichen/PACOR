@@ -3,7 +3,7 @@ import AnnotationTypeSelector from './AnnotationTypeSelector/AnnotationTypeSelec
 import AnnotationPanel from './AnnotationPanel/AnnotationPanel.vue'
 
 let AnnotationManager = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+  props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -30,13 +30,25 @@ let AnnotationManager = {
       return output
     }
   },
-  /*
-  watch: {
-  },
+//  watch: {
+//  },
   mounted() {
+    this.initHighlights()
   },
-  */
   methods: {
+    initHighlights: async function () {
+      let highlightsURL
+      if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === true) {
+        highlightsURL = '/client/Annotation/highlights'
+      }
+      else {
+        highlightsURL = '/client/Annotation/highlightsMy'
+      }
+      
+      let result = await this.lib.AxiosHelper.get(highlightsURL)
+      console.log(result)
+      this.$refs.RangyManager.deserialize(result)
+    },
     onselect: function (selection) {
       if (this.pinSelection !== null) {
         this.unpin()

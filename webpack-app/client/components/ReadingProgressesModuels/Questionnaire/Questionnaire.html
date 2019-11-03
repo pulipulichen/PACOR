@@ -43,6 +43,7 @@
           v-bind:lib="lib"
           v-bind:locale="status.preference.locale"
           v-bind:countdownSec="remainingSeconds"
+          v-bind:ignoreWordCount="true"
           v-on:click="nextStep">
             {{ $t('NEXT') }}
             <i class="angle right icon"></i>

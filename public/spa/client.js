@@ -1119,6 +1119,13 @@ let Auth = {
       }
       //console.log(modules)
       return null
+    },
+    currentStepAnnotationConfig () {
+      let config = this.currentStepConfig
+      if (config !== null) {
+        return config.annotation
+      }
+      return null
     }
   },
   methods: {
@@ -1360,15 +1367,16 @@ let Login = {
         this.status[name] = result[name]
       }
       this.status.username = this.username
+      
+      localStorage.setItem(this.key + 'login.username', this.username)
+      localStorage.setItem(this.key + 'login.password', this.password)
+      
       this.reset()
       this.$refs.LoginModal.hide()
       
       this.status.needLogin = false
       this.waiting = false
       //alert('成功登入了，然後呢？')
-      
-      localStorage.setItem(this.key + 'login.username', this.username)
-      localStorage.setItem(this.key + 'login.password', this.password)
     },
     reset: function () {
       this.username = ''
@@ -2125,7 +2133,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let CountdownButton = {
-  props: ['locale', 'lib', 'countdownSec', 'minWordCount', 'maxWordCount', 'text', 'enableClassNames'],
+  props: ['locale', 'lib', 'countdownSec'
+    , 'minWordCount', 'maxWordCount', 'text', 'ignoreWordCount'
+    , 'enableClassNames'],
   data() {    
     this.$i18n.locale = this.locale
     return {
@@ -2164,8 +2174,13 @@ let CountdownButton = {
       return true
     },
     isEnable () {
-      //console.log(this.remainingSeconds, this.validWordCount, this.wordCount)
-      return (this.remainingSeconds === 0 && this.validWordCount === true)
+      if (this.ignoreWordCount === true) {
+        return (this.remainingSeconds === 0)
+      }
+      else {
+        //console.log(this.remainingSeconds, this.validWordCount, this.wordCount)
+        return (this.remainingSeconds === 0 && this.validWordCount === true)
+      }
     },
     disabledMessage () {
       let messages = []

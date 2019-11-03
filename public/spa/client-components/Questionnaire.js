@@ -149,7 +149,8 @@ var render = function() {
                       text: _vm.answer,
                       lib: _vm.lib,
                       locale: _vm.status.preference.locale,
-                      countdownSec: _vm.remainingSeconds
+                      countdownSec: _vm.remainingSeconds,
+                      ignoreWordCount: true
                     },
                     on: { click: _vm.nextStep }
                   },
@@ -272,7 +273,8 @@ var render = function() {
                       text: _vm.answer,
                       lib: _vm.lib,
                       locale: _vm.status.preference.locale,
-                      countdownSec: _vm.remainingSeconds
+                      countdownSec: _vm.remainingSeconds,
+                      ignoreWordCount: true
                     },
                     on: { click: _vm.nextStep }
                   },

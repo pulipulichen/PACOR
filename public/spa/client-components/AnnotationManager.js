@@ -263,7 +263,7 @@ exports.push([module.i, ".annotation-type-selector[data-v-0f3f24a4] {\n  /*\n  p
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "@media print {\n.annotate-panel {\n    display: none;\n}\n.highlight {\n    /*background-color: #333;*/\n    background-color: yellow;\n}\n}\n.highlight {\n  background-color: yellow;\n}\n.annotate-panel {\n  position: fixed;\n  /*right: 10px;*/\n  /*top: 10px;*/\n  display: none;\n  background-color: white;\n  background-color: #CCC;\n  border-radius: 10px;\n  /*padding: 5px;*/\n  box-shadow: 5px 5px 2px grey;\n  user-select: none;\n}\n.annotate-panel.show {\n  display: inline-block;\n}\n.annotate-panel .button {\n  border-width: 0;\n  background-color: transparent;\n  text-align: center;\n  display: inline-block;\n  /*border-right: 3px ridge white;*/\n  cursor: pointer;\n  font-size: 0.8em;\n  padding: 5px;\n}\n.annotate-panel .button.highlightSelectedText {\n  border-radius: 10px 0 0 10px;\n}\n.annotate-panel .button.removeHighlightFromSelectedText {\n  border-radius: 0 10px 10px 0 ;\n  margin-left: -5px;\n}\n.annotate-panel .button-container {\n  border-right: 3px ridge white;\n  display: inline-block;\n  /*padding-right: 4px;*/\n}\n.annotate-panel .button:hover {\n  background-color: yellow;\n}\n.annotate-panel .button-container:last-of-type {\n  border-right-width: 0;\n  padding-right: 0px;\n}\n.annotate-panel.hide-remove .button-container.remove {\n  display: none;\n}\n.annotate-panel.hide-remove .button-container {\n  border-right-width: 0;\n  padding-right: 0px;\n}\n.annotate-panel.hide-remove .button {\n  border-radius: 10px;\n}\n.rangy-container-test {\n  position: fixed;\n  top: 100px;\n  left: 100px;\n  background-color: red;\n}\n.note {\n  color: red ;\n}\n.italicYellowBg {\n  font-style: italic;\n  background-color: yellow;\n}\n.boldRed {\n  font-weight: bold;\n  color: red;\n}\nimg.boldRed {\n  border: solid red 3px;\n}\na.pinkLink {\n  color: #f66;\n  font-size: 1.2em;\n}\n.pacor-selection {\n  background-color: rgba(0, 0, 255, 0.7);\n  color: white;\n}\n", "",{"version":3,"sources":["RangyManager.global.less?vue&type=style&index=0&lang=less&"],"names":[],"mappings":"AAAA;AACA;IACI,aAAa;AACjB;AACA;IACI,0BAA0B;IAC1B,wBAAwB;AAC5B;AACA;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,eAAe;EACf,eAAe;EACf,aAAa;EACb,aAAa;EACb,uBAAuB;EACvB,sBAAsB;EACtB,mBAAmB;EACnB,gBAAgB;EAChB,4BAA4B;EAC5B,iBAAiB;AACnB;AACA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;EACf,6BAA6B;EAC7B,kBAAkB;EAClB,qBAAqB;EACrB,iCAAiC;EACjC,eAAe;EACf,gBAAgB;EAChB,YAAY;AACd;AACA;EACE,4BAA4B;AAC9B;AACA;EACE,6BAA6B;EAC7B,iBAAiB;AACnB;AACA;EACE,6BAA6B;EAC7B,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,aAAa;AACf;AACA;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,UAAU;EACV,WAAW;EACX,qBAAqB;AACvB;AACA;EACE,WAAW;AACb;AACA;EACE,kBAAkB;EAClB,wBAAwB;AAC1B;AACA;EACE,iBAAiB;EACjB,UAAU;AACZ;AACA;EACE,qBAAqB;AACvB;AACA;EACE,WAAW;EACX,gBAAgB;AAClB;AACA;EACE,sCAAsC;EACtC,YAAY;AACd","file":"RangyManager.global.less?vue&type=style&index=0&lang=less&","sourcesContent":["@media print {\n.annotate-panel {\n    display: none;\n}\n.highlight {\n    /*background-color: #333;*/\n    background-color: yellow;\n}\n}\n.highlight {\n  background-color: yellow;\n}\n.annotate-panel {\n  position: fixed;\n  /*right: 10px;*/\n  /*top: 10px;*/\n  display: none;\n  background-color: white;\n  background-color: #CCC;\n  border-radius: 10px;\n  /*padding: 5px;*/\n  box-shadow: 5px 5px 2px grey;\n  user-select: none;\n}\n.annotate-panel.show {\n  display: inline-block;\n}\n.annotate-panel .button {\n  border-width: 0;\n  background-color: transparent;\n  text-align: center;\n  display: inline-block;\n  /*border-right: 3px ridge white;*/\n  cursor: pointer;\n  font-size: 0.8em;\n  padding: 5px;\n}\n.annotate-panel .button.highlightSelectedText {\n  border-radius: 10px 0 0 10px;\n}\n.annotate-panel .button.removeHighlightFromSelectedText {\n  border-radius: 0 10px 10px 0 ;\n  margin-left: -5px;\n}\n.annotate-panel .button-container {\n  border-right: 3px ridge white;\n  display: inline-block;\n  /*padding-right: 4px;*/\n}\n.annotate-panel .button:hover {\n  background-color: yellow;\n}\n.annotate-panel .button-container:last-of-type {\n  border-right-width: 0;\n  padding-right: 0px;\n}\n.annotate-panel.hide-remove .button-container.remove {\n  display: none;\n}\n.annotate-panel.hide-remove .button-container {\n  border-right-width: 0;\n  padding-right: 0px;\n}\n.annotate-panel.hide-remove .button {\n  border-radius: 10px;\n}\n.rangy-container-test {\n  position: fixed;\n  top: 100px;\n  left: 100px;\n  background-color: red;\n}\n.note {\n  color: red ;\n}\n.italicYellowBg {\n  font-style: italic;\n  background-color: yellow;\n}\n.boldRed {\n  font-weight: bold;\n  color: red;\n}\nimg.boldRed {\n  border: solid red 3px;\n}\na.pinkLink {\n  color: #f66;\n  font-size: 1.2em;\n}\n.pacor-selection {\n  background-color: rgba(0, 0, 255, 0.7);\n  color: white;\n}\n"]}]);
+exports.push([module.i, "[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-selection {\n  background-color: rgba(0, 0, 255, 0.7);\n  color: white;\n}\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-hover {\n  background-color: rgba(0, 255, 0, 0.7);\n  color: white;\n}\n", "",{"version":3,"sources":["RangyManager.global.less?vue&type=style&index=0&lang=less&"],"names":[],"mappings":"AAAA;EACE,sCAAsC;EACtC,YAAY;AACd;AACA;EACE,sCAAsC;EACtC,YAAY;AACd","file":"RangyManager.global.less?vue&type=style&index=0&lang=less&","sourcesContent":["[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-selection {\n  background-color: rgba(0, 0, 255, 0.7);\n  color: white;\n}\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-hover {\n  background-color: rgba(0, 255, 0, 0.7);\n  color: white;\n}\n"]}]);
 
 
 /***/ }),
@@ -1085,7 +1085,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AnnotationManager = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+  props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -1112,13 +1112,25 @@ let AnnotationManager = {
       return output
     }
   },
-  /*
-  watch: {
-  },
+//  watch: {
+//  },
   mounted() {
+    this.initHighlights()
   },
-  */
   methods: {
+    initHighlights: async function () {
+      let highlightsURL
+      if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === true) {
+        highlightsURL = '/client/Annotation/highlights'
+      }
+      else {
+        highlightsURL = '/client/Annotation/highlightsMy'
+      }
+      
+      let result = await this.lib.AxiosHelper.get(highlightsURL)
+      console.log(result)
+      this.$refs.RangyManager.deserialize(result)
+    },
     onselect: function (selection) {
       if (this.pinSelection !== null) {
         this.unpin()
@@ -1502,8 +1514,11 @@ let MainIdea = {
       let data = {
         anchorPositions: this.pinSelection.anchorPositions,
         type: this.annotationModule,
-        note: this.note,
-        public: this.public
+        note: this.note
+      }
+      
+      if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
+        data.public = this.public
       }
       
       //console.log(data)
@@ -2231,7 +2246,7 @@ let AnnotationPanel = {
     this._initHeightPX()
     
     this._initPlaceholder()
-    this._test()
+    //this._test()
     
     //$.extend(require('jquery-ui'))
     //$.extend(jQueryUI)
@@ -2726,7 +2741,9 @@ let RangyManager = {
       selectionSaved: null,
       
       highlighter: null,
-      highlightClasses: []
+      highlightClasses: [],
+      
+      hoverHighlighter: null,
     }
   },  // data() {
   /*
@@ -2955,10 +2972,18 @@ let RangyManager = {
         
         this.selectionHighlighter = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].createHighlighter()
         this.selectionHighlighter.addClassApplier(this.selectionApplier)
+        
+        let hoverApplier = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].createClassApplier("pacor-hover", {
+          tagNames: ["span", "a", "b", "img"],
+          ignoreWhiteSpace: true,
+        })
+        
+        this.hoverHighlighter = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].createHighlighter()
+        this.hoverHighlighter.addClassApplier(hoverApplier)
       }
     },
     
-    pinSelection: function (scrollOptions) {
+    pinSelection: function () {
       this.unpinSelection()
       if (this.selection === null 
               || Array.isArray(this.selection.anchorPositions) === false
@@ -3227,6 +3252,21 @@ let RangyManager = {
       } // if (rules.length > 0) {
       
     },
+    
+    // -----------------------------------------------------------------
+    
+    hoverIn: function (highlight) {
+      this.hoverOut()
+      console.log('@TODO 這邊要能夠接收annotation', highlight)
+      this.hoverHighlighter.deserialize(highlight)
+      return this
+    },
+    hoverOut : function () {
+      this.hoverHighlighter.removeAllHighlights()
+      return this
+    },
+    
+    // -----------------------------------------------------------------
     
     /**
      * highlightJSON = [
