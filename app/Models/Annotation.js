@@ -10,6 +10,7 @@ class Annotation extends Model {
     super.boot()
     
     this.addTrait('DateUnixMSCase')
+    this.addTrait('BooleanCase', ['public', 'deleted'])
   } // static boot () {
   
   user () {
@@ -98,6 +99,45 @@ class Annotation extends Model {
     await instance.anchorPositions().attach(anchorTextIds)
     
     return instance
+  } // static async create(webpage, user, data) {
+  
+  static async findByWebpageGroup(webpage, user, afterTime) {
+    
+    // 要先取得user的group
+    let groups = await user.groups()
+            .where('webpage_id', webpage.primaryKeyValue)
+            .with('users')
+            .fetch()
+    
+    let userList = []
+    if (groups.size() > 0) { 
+      for (let i = 0; i < groups.size(); i++) {
+        let group = groups.nth(i)
+        let users = await group.users().fetch()
+        users.toJSON().forEach(user => {
+          userList.push(user.id)
+        })
+      }
+    }
+    else {
+      userList = await webpage.getReaderIDsNotInGroup()
+    }
+    
+    
+    
+    let query = this.query()
+            .where('webpage_id', webpage.primaryKeyValue)
+            .whereIn('user_id', userList)
+            .where('deleted', false)
+            .whereRaw('(user_id = ?) or (user_id <> ? and public = ?)', [user.primaryKeyValue, user.primaryKeyValue, true])
+            .with('anchorPositions')
+
+    if (typeof(afterTime) === 'number') {
+      // 這邊應該還要做些調整
+      query.where('updated_at', '>' , afterTime)
+    }
+
+    return await query.fetch()
   }
   
   

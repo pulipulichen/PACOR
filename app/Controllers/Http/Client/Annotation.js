@@ -21,6 +21,15 @@ class Annotation extends WebpageUserBaseController {
     return instance.id
   }
   
+  async index ({request, webpage, user}) {
+    let { afterTime } = request.all()
+    
+    // 取出這一頁的annotation，然後開始組合...
+    // 要怎麼做呢...
+    
+    return await AnnotationModel.findByWebpageGroup(webpage, user, afterTime)
+  }
+  
   async indexMy ({ request, webpage, user }) {
     let condition = request.all()
     await ReadingActivityLog.log(webpage, user, this.modelName + '.indexMy', condition)
