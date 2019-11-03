@@ -28,24 +28,17 @@ class Annotation extends WebpageUserBaseController {
   
   async highlights ({request, webpage, user}) {
     let { afterTime } = request.all()
-    let result = await AnnotationModel.getHighlightsByWebpageGroup(webpage, user, afterTime)
-    if (result === 'type:textContent') {
-      return 0
-    }
-    else {
-      return result
-    }
+    return await AnnotationModel.getHighlightsByWebpageGroup(webpage, user, afterTime)
   }
   
   async highlightsMy ({request, webpage, user}) {
     let { afterTime } = request.all()
-    let result = await AnnotationModel.getMyHighlightsByWebpageGroup(webpage, user, afterTime)
-    if (result === 'type:textContent') {
-      return 0
-    }
-    else {
-      return result
-    }
+    return await AnnotationModel.getMyHighlightsByWebpageGroup(webpage, user, afterTime)
+  }
+  
+  async highlightsOthers ({request, webpage, user}) {
+    let { afterTime } = request.all()
+    return await AnnotationModel.getOthersHighlightsByWebpageGroup(webpage, user, afterTime)
   }
   
   async indexMy ({ request, webpage, user }) {

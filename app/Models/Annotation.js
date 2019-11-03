@@ -189,6 +189,10 @@ class Annotation extends Model {
    * @returns {String}
    */
   static async _convertHighlighArrayToString (highlights, webpage, user) {
+    if (highlights.length === 0) {
+      return 0
+    }
+    
     if (highlights.length > 1) {
       let config = await user.getCurrentReadingProgressStepConfig(webpage)
       let configTypes = config.annotation.types
@@ -322,6 +326,11 @@ class Annotation extends Model {
   
   static async getMyHighlightsByWebpageGroup(webpage, user, afterTime) {
     let highlights = await this.getMyHighlightsArrayByWebpageGroup(webpage, user, afterTime)
+    return this._convertHighlighArrayToString(highlights, webpage, user)
+  }
+  
+  static async getOthersHighlightsByWebpageGroup(webpage, user, afterTime) {
+    let highlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, afterTime)
     return this._convertHighlighArrayToString(highlights, webpage, user)
   }
   

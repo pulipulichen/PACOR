@@ -1279,7 +1279,12 @@ let AnnotationManager = {
     highlightsURL () {
       let highlightsURL
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === true) {
-        highlightsURL = '/client/Annotation/highlights'
+        if (this.afterTime === null) {
+          highlightsURL = '/client/Annotation/highlights'
+        }
+        else {
+          highlightsURL = '/client/Annotation/highlightsOthers'
+        }
       }
       else {
         highlightsURL = '/client/Annotation/highlightsMy'
@@ -1304,6 +1309,11 @@ let AnnotationManager = {
       this.afterTime = (new Date()).getTime()
       if (result !== 0) {
         this.$refs.RangyManager.deserialize(result)
+      }
+      
+      if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
+        // 如果不是開放合作，那就不用讀取其他人的資料
+        return false
       }
       
       setTimeout(() => {
