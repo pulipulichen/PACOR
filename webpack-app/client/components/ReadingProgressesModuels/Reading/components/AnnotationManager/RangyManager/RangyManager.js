@@ -481,15 +481,17 @@ let RangyManager = {
     // -------------------
     
     _getAnchorPositionFromElement (element) {
-      let highlight = this.highlighter.getHighlightForElement(element)
-      if (highlight === null) {
+      let highlights = this.highlighter.getHighlightsForElement(element)
+      if (highlights === null) {
         return null
       }
-      return {
-        start_pos: highlight.characterRange.start,
-        end_pos: highlight.characterRange.end,
-        paragraph_id: highlight.containerElementId
-      }
+      return highlights.map(highlight => {
+        return {
+          start_pos: highlight.characterRange.start,
+          end_pos: highlight.characterRange.end,
+          paragraph_id: highlight.containerElementId
+        }
+      })
     },
     
     _initHighlighter: function () {
@@ -510,16 +512,24 @@ let RangyManager = {
           'data-pacor-highlight': ''
         },
         elementProperties: {
-          onclick: function () {
+          onclick: function (event) {
             let pos = vm._getAnchorPositionFromElement(this)
             console.log(pos)
             vm.$emit('click', pos)
+            event.stopPropagation()
+            event.preventDefault()
           },
-          onmouseover: function () {
+          onmouseover: function (event) {
             vm.$emit('mouseover', vm._getAnchorPositionFromElement(this))
+            
+            event.stopPropagation()
+            event.preventDefault()
           },
-          onmouseout: function () {
+          onmouseout: function (event) {
             vm.$emit('mouseout', vm._getAnchorPositionFromElement(this))
+            
+            event.stopPropagation()
+            event.preventDefault()
           }
         }
       }

@@ -280,6 +280,17 @@ export default (rangy) => {
                 }
                 return null;
             },
+            
+            getHighlightsForElement: function(el) {
+                var highlights = this.highlights;
+                let match = []
+                for (var i = 0, len = highlights.length; i < len; ++i) {
+                    if (highlights[i].containsElement(el)) {
+                        match.push(highlights[i])
+                    }
+                }
+                return match;
+            },
 
             removeHighlights: function(highlights) {
                 for (var i = 0, len = this.highlights.length, highlight; i < len; ++i) {
