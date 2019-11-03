@@ -6,7 +6,8 @@ let Login = {
       username: 'a',
       password: '',
       waiting: false,
-      adminMode: false
+      adminMode: false,
+      key: 'PACOR.client.components.Login.'
     }
   },
   computed: {
@@ -37,8 +38,21 @@ let Login = {
   },
   mounted() {
     this.$refs.LoginModal.show()
+    
+    this._loadFromLocalStorage()
   },
   methods: {
+    _loadFromLocalStorage () {
+      let username = localStorage.getItem(this.key + 'login.username')
+      if (typeof(username) === 'string') {
+        this.username = username
+      }
+      
+      let password = localStorage.getItem(this.key + 'login.password')
+      if (typeof(password) === 'string') {
+        this.password = password
+      }
+    },
     login: async function() {
       this.waiting = true
       let data = {
@@ -66,6 +80,8 @@ let Login = {
       this.waiting = false
       //alert('成功登入了，然後呢？')
       
+      localStorage.setItem(this.key + 'login.username', this.username)
+      localStorage.setItem(this.key + 'login.password', this.password)
     },
     reset: function () {
       this.username = ''
