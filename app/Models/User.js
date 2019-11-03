@@ -302,8 +302,8 @@ class User extends Model {
     return group
   }
   
-  async getOtherUserIDsInGroup(webpage) {
-    let cacheKey = `User.getOtherUserIDsInGroup.${webpage.primaryKeyValue}`
+  async getUserIDsInGroup(webpage) {
+    let cacheKey = Cache.key(`User.getUserIDsInGroup`, webpage)
     return await Cache.get(cacheKey, async () => {
       /*
       let groups = await this.manyThrough('App/Models/WebpageGroup', 'users')
@@ -315,24 +315,31 @@ class User extends Model {
       */
       let groups = await this.group()
               .where('webpage_id', webpage.primaryKeyValue)
-              .with('users', (builder) => {
-                builder.whereNot('users.id', this.primaryKeyValue)
-              })
-              .pick(1)
+              .with('users')
+              .fetch()
 
-      let userIds
+      let userIds = []
       if (groups.size() > 0) {
         //console.log(groups.first())
-        userIds = groups.first().toJSON().users.map(user => user.id)
+        groups.toJSON().map(group => {
+          group.users.map(user => {
+            userIds.push(user.id)
+          })
+        })
       }
       else {
         // 查詢沒有加入群組的使用者
-        userIds = await webpage.getReaderIDsNotInGroup(this)
+        userIds = await webpage.getReaderIDsNotInGroup()
       }
 
       await Cache.forever(cacheKey, userIds)
       return userIds
-    })
+    })  // return await Cache.get(cacheKey, async () => {
+  }
+  
+  async getOtherUserIDsInGroup(webpage) {
+    let userIds = await this.getUserIDsInGroup(webpage)
+    return userIds.filter(id => id !== this.primaryKeyValue)
   }
   
   static get computed () {

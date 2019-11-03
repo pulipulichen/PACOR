@@ -157,10 +157,12 @@ class Webpage extends Model {
       await groups[i].delete()
     }
     
-    await Cache.forget(`User.getOtherUserIDsInGroup.${this.primaryKeyValue}`)
+    await Cache.forget(`User.getUserIDsInGroup.${this.primaryKeyValue}`)
+    
     await Cache.forget(`Webpage.getReadersNotInGroup.${this.primaryKeyValue}`)
     await Cache.forget(`Webpage.getReaderIDsNotInGroup.${this.primaryKeyValue}`)
     await Cache.forget(`Webpage.getGroupsList.${this.primaryKeyValue}`)
+    
   }
   
   static get hidden () {
@@ -208,12 +210,7 @@ class Webpage extends Model {
     return readers
   }
   
-  async getReaderIDsNotInGroup(excludedUserID) {
-    if (typeof(excludedUserID) === 'object'
-            && typeof(excludedUserID.primaryKeyValue) === 'number') {
-      excludedUserID = excludedUserID.primaryKeyValue
-    }
-    
+  async getReaderIDsNotInGroup() {
     let cacheKey = `Webpage.getReaderIDsNotInGroup.${this.primaryKeyValue}`
     let output = await Cache.get(cacheKey, async () => {
       let relation = User
@@ -229,11 +226,6 @@ class Webpage extends Model {
         })
       })
 
-
-      if (typeof(excludedUserID) === 'number') {
-        usersInGroups.push(excludedUserID)
-      }
-
       if (usersInGroups.length > 0) {
         relation.whereNotIn('id', usersInGroups)
       }
@@ -241,11 +233,7 @@ class Webpage extends Model {
       let users = await relation.fetch()
       return users.toJSON().map(user => user.id)
     })
-    
-    if (typeof(excludedUserID) === 'number') {
-      output = output.filter(id => (id !== excludedUserID)) 
-    }
-    
+  
     await Cache.forever(cacheKey, output)
     return output
   }

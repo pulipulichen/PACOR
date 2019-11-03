@@ -6,6 +6,8 @@ const Model = use('Model')
 const AnchorPositionModel = use('App/Models/AnchorPosition')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
+const Cache = use('Cache')
+
 class Annotation extends Model {
   static boot () {
     super.boot()
@@ -152,52 +154,184 @@ class Annotation extends Model {
     return instance
   } // static async create(webpage, user, data) {
   
-  static async findByWebpageGroup(webpage, user, afterTime) {
+  /**
+   * // "type:textContent|28$198$2$confused-clarified$pacor-paragraph-id-2"
+   * @param {Array} annotations
+   * @returns {Array}
+   */
+  static _convertToHighlighArray (annotations) {
+    let highlights = []
     
-    // 要先取得user的group
-    let groups = await user.groups()
-            .where('webpage_id', webpage.primaryKeyValue)
-            .with('users')
-            .fetch()
-    
-    let userList = []
-    if (groups.size() > 0) { 
-      for (let i = 0; i < groups.size(); i++) {
-        let group = groups.nth(i)
-        let users = await group.users().fetch()
-        users.toJSON().forEach(user => {
-          userList.push(user.id)
-        })
-      }
-    }
-    else {
-      userList = await webpage.getReaderIDsNotInGroup()
+    if (typeof(annotations.toJSON) === 'function') {
+      annotations = annotations.toJSON()
     }
     
-    let query = this.query()
-            .where('webpage_id', webpage.primaryKeyValue)
-            .whereIn('user_id', userList)
-            .where('deleted', false)
-            .whereRaw('((user_id = ?) or (user_id != ? and public IS ?))', [user.primaryKeyValue, user.primaryKeyValue, true])
-            //.whereRaw('user_id = ?', [user.primaryKeyValue])
-            .with('anchorPositions')
-
-    //console.log(afterTime, typeof(afterTime))
-    if (typeof(afterTime) === 'string') {
-      afterTime = parseInt(afterTime, 10)
-    }
-    if (typeof(afterTime) === 'number') {
-      //console.log(afterTime)
-      // 這邊應該還要做些調整
-      query.where('updated_at_unixms', '>', afterTime)
-    }
-    
-    //console.log(query.toSQL())
-
-    return await query.fetch()
+    annotations.forEach(annotation => {
+      let type = annotation.type
+      annotation.anchorPositions.forEach(position => {
+        position.type = type
+        highlights.push(position)
+      })
+    })
+    return highlights
   }
   
+  /**
+   * // "type:textContent|28$198$2$confused-clarified$pacor-paragraph-id-2"
+   * @param {Array} highlights
+   * @returns {String}
+   */
+  static _convertHighlighArrayToString (highlights) {
+    let output = highlights.map((h, i) => {
+      return [
+        h.start_pos,
+        h.end_pos,
+        (i+1),
+        h.type,
+        h.paragraph_id
+      ].join('$')
+    })
+    
+    output.unshift('type:textContent')
+    return output.join('|')
+  }
   
+  static async getOthersHighlightsArrayByWebpageGroup(webpage, user, afterTime) {
+    const doQuery = async evt => {
+      let annotations = await this.findOthersByWebpageGroup(webpage, user, afterTime)
+      return this._convertToHighlighArray(annotations)
+    }
+    
+    if (afterTime !== undefined) {
+      return await doQuery()
+    }
+    else {
+      let cacheKey = Cache.key(`Annotation.getOthersHighlightsArrayByWebpageGroup`, webpage, user)
+      return await Cache.get(cacheKey, async () => {
+        let result = await doQuery()
+        await Cache.put(cacheKey, result, 2)
+        return result
+      })  // return await Cache.get(cacheKey, async () => {
+    }
+  }
+  
+  static async findOthersByWebpageGroup(webpage, user, afterTime) {
+    const doQuery = async evt => {
+      
+      let userList = await user.getOtherUserIDsInGroup(webpage)
+      //console.log(userList)
+
+      // 要先取得user的group
+      /*
+      let groups = await user.groups()
+              .where('webpage_id', webpage.primaryKeyValue)
+              .with('users')
+              .fetch()
+
+      let userList = []
+      if (groups.size() > 0) { 
+        for (let i = 0; i < groups.size(); i++) {
+          let group = groups.nth(i)
+          let users = await group.users().fetch()
+          users.toJSON().forEach(user => {
+            userList.push(user.id)
+          })
+        }
+      }
+      else {
+        userList = await webpage.getReaderIDsNotInGroup()
+      }
+      */
+      //console.log(userList)
+
+      let query = this.query()
+              .where('webpage_id', webpage.primaryKeyValue)
+              .whereIn('user_id', userList)
+              .where('deleted', false)
+              .whereRaw('(user_id != ? and public IS ?)', [user.primaryKeyValue, true])
+              //.whereRaw('user_id = ?', [user.primaryKeyValue])
+              .with('anchorPositions')
+
+      //console.log(afterTime, typeof(afterTime))
+      if (typeof(afterTime) === 'string') {
+        afterTime = parseInt(afterTime, 10)
+      }
+      if (typeof(afterTime) === 'number') {
+        //console.log(afterTime)
+        // 這邊應該還要做些調整
+        query.where('updated_at_unixms', '>', afterTime)
+      }
+
+      //console.log(query.toSQL())
+      let result = await query.fetch()
+      return result
+    }
+    
+    if (afterTime !== undefined) {
+      return await doQuery()
+    }
+    else {
+      let cacheKey = Cache.key(`Annotation.findOthersByWebpageGroup`, webpage, user)
+      return await Cache.get(cacheKey, async () => {
+        let result = await doQuery()
+        await Cache.put(cacheKey, result, 2)
+        return result
+      })  // return await Cache.get(cacheKey, async () => {
+    }
+  } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
+  
+  static async getHighlightsByWebpageGroup(webpage, user, afterTime) {
+    let highlights = await this.getMyHighlightsArrayByWebpageGroup(webpage, user, afterTime)
+    //console.log(highlights)
+    let othersHighlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, afterTime)
+    //console.log(othersHighlights)
+    
+    highlights = highlights.concat(othersHighlights)
+    return this._convertHighlighArrayToString(highlights)
+  }
+  
+  static async getMyHighlightsArrayByWebpageGroup(webpage, user, afterTime) {
+    const doQuery = async evt => {
+      let annotations = await this.findMyByWebpageGroup(webpage, user, afterTime)
+      return this._convertToHighlighArray(annotations)
+    }
+    
+    return await doQuery()
+  }
+  
+  static async findByWebpageGroup(webpage, user, afterTime) {
+    let myAnnotations = await this.findMyByWebpageGroup(webpage, user, afterTime)
+    let othersAnnotations = await this.findOthersByWebpageGroup(webpage, user, afterTime)
+    
+    return myAnnotations.toJSON().concat(othersAnnotations.toJSON())
+  }
+  
+  static async findMyByWebpageGroup(webpage, user, afterTime) {
+    const doQuery = async evt => {
+      
+      let query = this.query()
+              .where('webpage_id', webpage.primaryKeyValue)
+              .where('user_id', user.primaryKeyValue)
+              .where('deleted', false)
+              .with('anchorPositions')
+
+      //console.log(afterTime, typeof(afterTime))
+      if (typeof(afterTime) === 'string') {
+        afterTime = parseInt(afterTime, 10)
+      }
+      if (typeof(afterTime) === 'number') {
+        //console.log(afterTime)
+        // 這邊應該還要做些調整
+        query.where('updated_at_unixms', '>', afterTime)
+      }
+
+      //console.log(query.toSQL())
+      let result = await query.fetch()
+      return result
+    }
+    
+    return await doQuery()
+  } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
   
   static get hidden () {
     //return ['password']

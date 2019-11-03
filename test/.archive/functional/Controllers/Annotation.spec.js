@@ -263,7 +263,7 @@ test('b: create a public annotation', async ({ assert, client }) => {
   
   let afterTime = (new Date()).getTime()
   
-  console.log('b public time', afterTime)
+  //console.log('b public time', afterTime)
   await Sleep(2)
 }).timeout(0)
 
@@ -301,7 +301,7 @@ test('b: create a private annotation', async ({ assert, client }) => {
   response.assertText(4)
   
   let afterTime = (new Date()).getTime()
-  console.log('b private time', afterTime)
+  //console.log('b private time', afterTime)
 })
 
 test('b: test index', async ({ assert, client }) => {
@@ -328,27 +328,27 @@ test('b: test index with afterTime', async ({ assert, client }) => {
           .session('adonis-auth', 2)
           .end()
   
-  console.log(response.text)
+  //console.log(response.text)
   response.assertStatus(200)
   
-  console.log(response.body)
+  //console.log(response.body)
   //console.log(JSON.stringify(response.body, null, ' '))
   assert.equal(response.body.length, 1)
 })
 
-/*
-test('check login status after login', async ({ assert, client }) => {
-  let response
-  response = await client.get('/admin/auth/checkLogin')
-          .session('adonis-auth', 1)
+test('b: test highligh', async ({ assert, client }) => {
+  let response = await client.get('/client/Annotation/highlight')
+          .header('Referer', url)
+          .session('adonis-auth', 2)
           .end()
   
+  //console.log(response.text)
   response.assertStatus(200)
-  response.assertJSONSubset({
-    role: 'global_admin'
-  })
+  
+  //console.log(response.body)
+  //console.log(JSON.stringify(response.body, null, ' '))
+  assert.equal(response.text.split('|').length, 7) // 4個自己的，兩個別人的
 })
- */
 
 // Reset database
 //trait('DatabaseTransactions')
