@@ -337,7 +337,7 @@ test('b: test index with afterTime', async ({ assert, client }) => {
 })
 
 test('b: test highligh', async ({ assert, client }) => {
-  let response = await client.get('/client/Annotation/highlight')
+  let response = await client.get('/client/Annotation/highlights')
           .header('Referer', url)
           .session('adonis-auth', 2)
           .end()

@@ -23,18 +23,17 @@ class Annotation extends WebpageUserBaseController {
   
   async index ({request, webpage, user}) {
     let { afterTime } = request.all()
-    // 取出這一頁的annotation，然後開始組合...
-    // 要怎麼做呢...
-    
     return await AnnotationModel.findByWebpageGroup(webpage, user, afterTime)
   }
   
-  async highlight ({request, webpage, user}) {
+  async highlights ({request, webpage, user}) {
     let { afterTime } = request.all()
-    // 取出這一頁的annotation，然後開始組合...
-    // 要怎麼做呢...
-    
     return await AnnotationModel.getHighlightsByWebpageGroup(webpage, user, afterTime)
+  }
+  
+  async highlightsMy ({request, webpage, user}) {
+    let { afterTime } = request.all()
+    return await AnnotationModel.getMyHighlightsByWebpageGroup(webpage, user, afterTime)
   }
   
   async indexMy ({ request, webpage, user }) {

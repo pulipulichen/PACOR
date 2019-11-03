@@ -290,6 +290,11 @@ class Annotation extends Model {
     return this._convertHighlighArrayToString(highlights)
   }
   
+  static async getMyHighlightsByWebpageGroup(webpage, user, afterTime) {
+    let highlights = await this.getMyHighlightsArrayByWebpageGroup(webpage, user, afterTime)
+    return this._convertHighlighArrayToString(highlights)
+  }
+  
   static async getMyHighlightsArrayByWebpageGroup(webpage, user, afterTime) {
     const doQuery = async evt => {
       let annotations = await this.findMyByWebpageGroup(webpage, user, afterTime)
