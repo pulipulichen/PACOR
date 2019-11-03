@@ -350,5 +350,28 @@ test('b: test highligh', async ({ assert, client }) => {
   assert.equal(response.text.split('|').length, 7) // 4個自己的，兩個別人的
 })
 
+test('b: find annotations with positions', async ({ assert, client }) => {
+  let response = await client.get('/client/Annotation/index')
+          .query({
+            anchorPositions: [
+              {
+                paragraph_id: 'aaa2',
+                start_pos: 8,
+                end_pos: 6
+              }
+            ],
+          })
+          .header('Referer', url)
+          .session('adonis-auth', 2)
+          .end()
+  
+  //console.log(response.text)
+  response.assertStatus(200)
+  
+  //console.log(response.body)
+  //console.log(JSON.stringify(response.body, null, ' '))
+  assert.equal(response.body.length, 1) // 應該只找得到一個
+})
+
 // Reset database
 //trait('DatabaseTransactions')

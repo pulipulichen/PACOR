@@ -520,11 +520,13 @@ var render = function() {
       _vm._v(" "),
       _c("HTMLEditor", {
         ref: "editor",
-        attrs: { contents: _vm.note, height: _vm.computedEditorHeight },
-        on: {
-          input: function(v) {
-            _vm.note = v
-          }
+        attrs: { height: _vm.computedEditorHeight },
+        model: {
+          value: _vm.note,
+          callback: function($$v) {
+            _vm.note = $$v
+          },
+          expression: "note"
         }
       }),
       _vm._v(" "),

@@ -248,35 +248,10 @@ class Annotation extends Model {
     }
   }
   
-  static async findOthersByWebpageGroup(webpage, user, {afterTime, positions}) {
+  static async findOthersByWebpageGroup(webpage, user, {afterTime}) {
     const doQuery = async evt => {
       
       let userList = await user.getOtherUserIDsInGroup(webpage)
-      //console.log(userList)
-
-      // 要先取得user的group
-      /*
-      let groups = await user.groups()
-              .where('webpage_id', webpage.primaryKeyValue)
-              .with('users')
-              .fetch()
-
-      let userList = []
-      if (groups.size() > 0) { 
-        for (let i = 0; i < groups.size(); i++) {
-          let group = groups.nth(i)
-          let users = await group.users().fetch()
-          users.toJSON().forEach(user => {
-            userList.push(user.id)
-          })
-        }
-      }
-      else {
-        userList = await webpage.getReaderIDsNotInGroup()
-      }
-      */
-      //console.log(userList)
-
       let query = this.query()
               .where('webpage_id', webpage.primaryKeyValue)
               .whereIn('user_id', userList)
@@ -350,11 +325,7 @@ class Annotation extends Model {
     return myAnnotations.toJSON().concat(othersAnnotations.toJSON())
   }
   
-  static async findMyByWebpageGroup(webpage, user, options) {
-    if (options === undefined || options === null) {
-      options = {}
-    }
-    let {afterTime, positions} = options
+  static async findMyByWebpageGroup(webpage, user, {afterTime}) {
     const doQuery = async evt => {
       
       let query = this.query()
@@ -380,6 +351,92 @@ class Annotation extends Model {
     }
     
     return await doQuery()
+  } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
+  
+  static async findByWebpageGroupPosition(webpage, user, {afterTime, anchorPositions}) {
+    const doQuery = async evt => {
+      
+      let userList = await user.getUserIDsInGroup(webpage)
+      
+      let query = this.query()
+              .where('webpage_id', webpage.primaryKeyValue)
+              .whereIn('user_id', userList)
+              .with('user')
+              .where('deleted', false)
+              .whereRaw('((user_id = ? ) or (user_id != ? and public IS ?))', [user.primaryKeyValue, user.primaryKeyValue, true])
+              //.whereRaw('user_id = ?', [user.primaryKeyValue])
+              .with('anchorPositions')
+              .orderBy('updated_at_unixms', 'desc')
+
+      if (typeof(anchorPositions) === 'object') {
+        anchorPositions = [anchorPositions]
+      }
+      if (Array.isArray(anchorPositions)) {
+        query.whereHas('anchorPositions', (builder) => {
+          builder.where('webpage_id', webpage.primaryKeyValue)
+          
+          let whereOr = []
+          let bindValues = []
+          
+          anchorPositions.forEach(position => {
+            whereOr.push('(paragraph_id = ? and start_pos >= ? and end_pos <= ?)')
+            let start_pos = position.start_pos
+            if (typeof(start_pos) === 'string') {
+              start_pos = parseInt(start_pos, 10)
+            }
+            
+            let end_pos = position.end_pos
+            if (typeof(end_pos) === 'string') {
+              end_pos = parseInt(end_pos, 10)
+            }
+            
+            if (start_pos > end_pos) {
+              let tmp = start_pos
+              start_pos = end_pos
+              end_pos = tmp
+            }
+            
+            bindValues = bindValues.concat([
+              position.paragraph_id, 
+              start_pos, 
+              end_pos
+            ])
+          })
+          
+          let whereOrSQL = '(' + whereOr.join(' or ') + ')'
+          //console.log(whereOrSQL)
+          //console.log(bindValues)
+          builder.whereRaw(whereOrSQL, bindValues)
+        })
+      }
+
+      //console.log(afterTime, typeof(afterTime))
+      if (typeof(afterTime) === 'string') {
+        afterTime = parseInt(afterTime, 10)
+      }
+      if (typeof(afterTime) === 'number') {
+        //console.log(afterTime)
+        // 這邊應該還要做些調整
+        query.where('updated_at_unixms', '>', afterTime)
+      }
+
+      //console.log(query.toSQL())
+      
+      let result = await query.fetch()
+      return result
+    }
+    
+    if (afterTime !== undefined) {
+      return await doQuery()
+    }
+    else {
+      let cacheKey = Cache.key(`Annotation.findByWebpageGroupPosition`, webpage, user, anchorPositions)
+      return await Cache.get(cacheKey, async () => {
+        let result = await doQuery()
+        await Cache.put(cacheKey, result, 2)
+        return result
+      })  // return await Cache.get(cacheKey, async () => {
+    }
   } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
   
   static get hidden () {

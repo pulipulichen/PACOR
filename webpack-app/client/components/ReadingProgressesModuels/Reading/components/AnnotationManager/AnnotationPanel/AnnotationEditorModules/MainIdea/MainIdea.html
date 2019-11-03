@@ -5,8 +5,7 @@
         v-bind:annotationModule="annotationModule"></annotation-editor-header>
   
   <HTMLEditor ref="editor"
-              v-bind:contents="note"
-              v-on:input="(v) => {note = v}"
+              v-model:contents="note"
               v-bind:height="computedEditorHeight"></HTMLEditor>
 
   <div class="ui one column grid annotation-panel-buttons">

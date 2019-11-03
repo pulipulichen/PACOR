@@ -41,6 +41,12 @@ class Annotation extends WebpageUserBaseController {
     return await AnnotationModel.getOthersHighlightsByWebpageGroup(webpage, user, query)
   }
   
+  async index ({ request, webpage, user }) {
+    let query = request.all()
+    console.log(query)
+    return await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
+  }
+  
   async indexMy ({ request, webpage, user }) {
     let condition = request.all()
     await ReadingActivityLog.log(webpage, user, this.modelName + '.indexMy', condition)
