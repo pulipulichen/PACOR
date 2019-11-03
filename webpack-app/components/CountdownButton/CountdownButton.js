@@ -46,6 +46,10 @@ let CountdownButton = {
       //console.log(this.remainingSeconds)
       if (this.remainingSeconds > 0) {
         let remainingTime = this.lib.DayJSHelper.formatHHMMSS(this.remainingSeconds)
+        if (this.remainingSeconds <= 60) {
+          remainingTime = this.$t('{0} sec', [this.remainingSeconds])
+        }
+        //console.log(remainingTime)
         messages.push( this.$t('Remaining Time: {0}', [remainingTime]) )
       }
       
