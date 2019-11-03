@@ -76,6 +76,7 @@ class Annotation extends Model {
     instance.user_id = user.primaryKeyValue
     instance.type = data.type
     instance.note = data.note
+    instance.public = data.public
     await instance.save()
     
     let anchorTextIds = []

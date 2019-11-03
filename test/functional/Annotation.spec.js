@@ -151,6 +151,7 @@ test('a: create a private annotation', async ({ assert, client }) => {
 
 test('a: is it a private annotation', async ({ assert, client }) => {
   let annotation = await AnnotationModel.find(2)
+  console.log(annotation.toJSON())
   assert.equal(annotation.public, false)
 })
 
