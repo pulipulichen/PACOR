@@ -234,17 +234,10 @@ test('b: create a public annotation', async ({ assert, client }) => {
       {
         paragraph_seq_id: 1,
         paragraph_id: 'aaa1',
-        start_pos: 2,
-        end_pos: 4,
+        start_pos: 12,
+        end_pos: 14,
         anchor_text: 'AAA'
       },
-      {
-        paragraph_seq_id: 2,
-        paragraph_id: 'aaa2',
-        start_pos: 2,
-        end_pos: 4,
-        anchor_text: 'AAA'
-      }
     ],
     type: 'MainIdea',
     note: '測試筆記'
@@ -342,15 +335,15 @@ test('b: test highligh', async ({ assert, client }) => {
           .session('adonis-auth', 2)
           .end()
   
-  console.log(response.text)
+  //console.log(response.text)
   response.assertStatus(200)
   
   //console.log(response.body)
   //console.log(JSON.stringify(response.body, null, ' '))
-  assert.equal(response.text.split('|').length, 7) // 4個自己的，兩個別人的
+  assert.equal(response.text.split('|').length, 6) // 4個自己的，兩個別人的
 })
 
-test('b: find annotations with positions', async ({ assert, client }) => {
+test('b: find annotations with positions in overlap mode', async ({ assert, client }) => {
   let response = await client.get('/client/Annotation/index')
           .query({
             anchorPositions: [
@@ -360,6 +353,7 @@ test('b: find annotations with positions', async ({ assert, client }) => {
                 end_pos: 6
               }
             ],
+            anchorMode: 'overlap'
           })
           .header('Referer', url)
           .session('adonis-auth', 2)
@@ -371,6 +365,62 @@ test('b: find annotations with positions', async ({ assert, client }) => {
   //console.log(response.body)
   //console.log(JSON.stringify(response.body, null, ' '))
   assert.equal(response.body.length, 1) // 應該只找得到一個
+})
+
+test('b: find annotations with positions in exact mode', async ({ assert, client }) => {
+  let response = await client.get('/client/Annotation/index')
+          .query({
+            anchorPositions: [
+              {
+                paragraph_id: 'aaa1',
+                start_pos: 12,
+                end_pos: 14
+              }
+            ],
+            anchorMode: 'exact'
+          })
+          .header('Referer', url)
+          .session('adonis-auth', 2)
+          .end()
+  
+  //console.log(response.text)
+  response.assertStatus(200)
+  
+  //console.log(response.body)
+  //console.log(response.body.map(a => a.anchorPositions))
+  //console.log(JSON.stringify(response.body, null, ' '))
+  assert.equal(response.body.length, 1) // 應該只找得到一個
+})
+
+
+test('b: find annotations with positions in include mode', async ({ assert, client }) => {
+  
+  let annotation = await AnnotationModel.query().where('id', 3).with('anchorPositions').fetch()
+  //console.log(annotation.toJSON()[0].anchorPositions)
+  
+  
+  let response = await client.get('/client/Annotation/index')
+          .query({
+            anchorPositions: [
+              {
+                paragraph_id: 'aaa1',
+                start_pos: 11,
+                end_pos: 15
+              }
+            ],
+            anchorMode: 'include'
+          })
+          .header('Referer', url)
+          .session('adonis-auth', 2)
+          .end()
+  
+  //console.log(response.text)
+  response.assertStatus(200)
+  
+  //console.log(response.body.map(a => a.anchorPositions))
+  //console.log(JSON.stringify(response.body, null, ' '))
+  assert.equal(response.body.length, 1) // 應該只找得到一個
+  
 })
 
 // Reset database

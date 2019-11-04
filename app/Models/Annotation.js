@@ -353,7 +353,7 @@ class Annotation extends Model {
     return await doQuery()
   } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
   
-  static async findByWebpageGroupPosition(webpage, user, {afterTime, anchorPositions}) {
+  static async findByWebpageGroupPosition(webpage, user, {afterTime, anchorPositions, anchorMode}) {
     const doQuery = async evt => {
       
       let userList = await user.getUserIDsInGroup(webpage)
@@ -374,39 +374,7 @@ class Annotation extends Model {
       if (Array.isArray(anchorPositions)) {
         query.whereHas('anchorPositions', (builder) => {
           builder.where('webpage_id', webpage.primaryKeyValue)
-          
-          let whereOr = []
-          let bindValues = []
-          
-          anchorPositions.forEach(position => {
-            whereOr.push('(paragraph_id = ? and start_pos >= ? and end_pos <= ?)')
-            let start_pos = position.start_pos
-            if (typeof(start_pos) === 'string') {
-              start_pos = parseInt(start_pos, 10)
-            }
-            
-            let end_pos = position.end_pos
-            if (typeof(end_pos) === 'string') {
-              end_pos = parseInt(end_pos, 10)
-            }
-            
-            if (start_pos > end_pos) {
-              let tmp = start_pos
-              start_pos = end_pos
-              end_pos = tmp
-            }
-            
-            bindValues = bindValues.concat([
-              position.paragraph_id, 
-              start_pos, 
-              end_pos
-            ])
-          })
-          
-          let whereOrSQL = '(' + whereOr.join(' or ') + ')'
-          //console.log(whereOrSQL)
-          //console.log(bindValues)
-          builder.whereRaw(whereOrSQL, bindValues)
+          this._buildAnchorPositionWhere(builder, anchorMode, anchorPositions)
         })
       }
 
@@ -420,7 +388,8 @@ class Annotation extends Model {
         query.where('updated_at_unixms', '>', afterTime)
       }
 
-      //console.log(query.toSQL())
+      
+      //if (anchorMode === 'exact') console.log(query.toSQL())
       
       let result = await query.fetch()
       return result
@@ -438,6 +407,129 @@ class Annotation extends Model {
       })  // return await Cache.get(cacheKey, async () => {
     }
   } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
+  
+  static _buildAnchorPositionWhere (builder, anchorMode, anchorPositions) {
+
+    anchorPositions = this._filterAnchorPositions(anchorPositions)
+    
+    let whereQuery
+    switch (anchorMode) {
+      case 'include':
+        whereQuery = this._buildAnchorPositionWhereInclude(anchorPositions)
+        break
+      case 'exact':
+        whereQuery = this._buildAnchorPositionWhereExact(anchorPositions)
+        break
+      case 'overlap':
+        whereQuery = this._buildAnchorPositionWhereOverlap(anchorPositions)
+        break
+      default:
+        whereQuery = this._buildAnchorPositionWhereOverlap(anchorPositions)
+    }
+    
+    //console.log(whereQuery.whereSQL, whereQuery.bindValues)
+    
+    builder.whereRaw(whereQuery.whereSQL, whereQuery.bindValues)
+  }
+  
+  static _filterAnchorPositions (anchorPositions) {
+    return anchorPositions.map(position => {
+      let start_pos = position.start_pos
+      
+      if (typeof(start_pos) === 'string') {
+        start_pos = parseInt(start_pos, 10)
+      }
+
+      let end_pos = position.end_pos
+      if (typeof(end_pos) === 'string') {
+        end_pos = parseInt(end_pos, 10)
+      }
+
+      if (start_pos > end_pos) {
+        let tmp = start_pos
+        start_pos = end_pos
+        end_pos = tmp
+      }
+      
+      position.start_pos = start_pos
+      position.end_pos = end_pos
+      
+      return position
+    })
+  }
+  
+  static _buildAnchorPositionWhereInclude (anchorPositions) {
+    let whereAnd = []
+    let bindValues = []
+    
+    anchorPositions.forEach(position => {
+      whereAnd.push('(paragraph_id = ? and start_pos >= ? and end_pos <= ?)')
+      //console.log(position.end_pos, typeof(position.end_pos))
+
+      bindValues = bindValues.concat([
+        position.paragraph_id, 
+        position.start_pos, 
+        position.end_pos,
+      ])
+    })
+
+    let whereSQL = whereAnd.join(' and ')
+    if (whereAnd.length > 1) {
+      whereSQL = `(${whereSQL})`
+    }
+
+    return {
+      whereSQL: whereSQL,
+      bindValues: bindValues
+    }
+    //console.log(whereOrSQL)
+    //console.log(bindValues)
+  }
+  
+  static _buildAnchorPositionWhereExact (anchorPositions) {
+    let whereAnd = []
+    let bindValues = []
+    
+    anchorPositions.forEach(position => {
+      whereAnd.push('(paragraph_id = ? and start_pos = ? and end_pos = ?)')
+      //console.log(position.end_pos, typeof(position.end_pos))
+      
+      bindValues = bindValues.concat([
+        position.paragraph_id, 
+        position.start_pos, 
+        position.end_pos
+      ])
+    })
+
+    return {
+      whereSQL: '(' + whereAnd.join(' and ') + ')',
+      bindValues: bindValues
+    }
+  }
+  
+  static _buildAnchorPositionWhereOverlap (anchorPositions) {
+    let where = []
+    let bindValues = []
+
+    anchorPositions.forEach(position => {
+      where.push(`(paragraph_id = ? 
+        and ((start_pos >= ? and start_pos <= ?) 
+          or (end_pos >= ? and end_pos <= ?))
+        )`)
+      bindValues = bindValues.concat([
+        position.paragraph_id, 
+        position.start_pos, 
+        position.end_pos, 
+        position.start_pos, 
+        position.end_pos
+      ])
+    })
+
+    return {
+      whereSQL: '(' + where.join(' or ') + ')',
+      bindValues: bindValues
+    }
+  }
   
   static get hidden () {
     //return ['password']
