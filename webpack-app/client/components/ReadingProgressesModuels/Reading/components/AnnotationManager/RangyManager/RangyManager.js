@@ -536,19 +536,19 @@ let RangyManager = {
         elementProperties: {
           onclick: function (event) {
             let pos = vm._getAnchorPositionFromElement(this)
-            console.log(pos)
-            vm.$emit('click', pos)
+            //console.log(pos)
+            vm.$emit('highlightClick', pos)
             event.stopPropagation()
             event.preventDefault()
           },
           onmouseover: function (event) {
-            vm.$emit('mouseover', vm._getAnchorPositionFromElement(this))
+            vm.$emit('highlightMouseover', vm._getAnchorPositionFromElement(this))
             
             event.stopPropagation()
             event.preventDefault()
           },
           onmouseout: function (event) {
-            vm.$emit('mouseout', vm._getAnchorPositionFromElement(this))
+            vm.$emit('highlightMouseout', vm._getAnchorPositionFromElement(this))
             
             event.stopPropagation()
             event.preventDefault()

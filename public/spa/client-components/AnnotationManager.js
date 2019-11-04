@@ -319,7 +319,13 @@ var render = function() {
       _c("rangy", {
         ref: "RangyManager",
         attrs: { status: _vm.status, rangyConfig: _vm.rangyConfig },
-        on: { select: _vm.onselect, selectcollapsed: _vm.onselectcollapsed }
+        on: {
+          select: _vm.onselect,
+          selectcollapsed: _vm.onselectcollapsed,
+          highlightClick: _vm.toggleHighlightPos,
+          highlightMouseover: _vm.onHighlightPosMouseover,
+          highlightMouseout: _vm.onHighlightPosMouseout
+        }
       }),
       _vm._v(" "),
       _c("annotation-type-selector", {
@@ -1259,6 +1265,9 @@ let AnnotationManager = {
       //annotationModule: 'MainIdea', // for test
       afterTime: null,
       loadHighlightInterval: 60 * 1000,
+      
+      highlightPos: null,
+      highlightPosLock: false,
       //loadHighlightInterval: 3 * 1000  // for test
     }
   },
@@ -1294,8 +1303,16 @@ let AnnotationManager = {
       return highlightsURL
     }
   },
-//  watch: {
-//  },
+  watch: {
+    "highlightPos": function (highlightPos) {
+      if (highlightPos !== null) {
+        console.log(highlightPos)
+      }
+      else {
+        console.log('cancel highlight')
+      }
+    }
+  },
   mounted() {
     this.loadHighlights()
   },
@@ -1348,6 +1365,27 @@ let AnnotationManager = {
       }
       //this.selection = null
       this.pinSelection = null
+    },
+    toggleHighlightPos (pos) {
+      if (this.highlightPos === null) {
+        this.highlightPos = pos
+        this.highlightPosLock = true
+      }
+      else {
+        this.highlightPos = null
+        this.highlightPosLock = false
+      }
+    },
+    onHighlightPosMouseover (pos) {
+      if (this.highlightPosLock === false) {
+        this.highlightPos = pos
+      }
+    },
+    onHighlightPosMouseout () {
+      if (this.highlightPosLock === false
+           && this.highlightPos !== null) {
+        this.highlightPos = null
+      }
     }
   } // methods
 }
@@ -3701,19 +3739,19 @@ let RangyManager = {
         elementProperties: {
           onclick: function (event) {
             let pos = vm._getAnchorPositionFromElement(this)
-            console.log(pos)
-            vm.$emit('click', pos)
+            //console.log(pos)
+            vm.$emit('highlightClick', pos)
             event.stopPropagation()
             event.preventDefault()
           },
           onmouseover: function (event) {
-            vm.$emit('mouseover', vm._getAnchorPositionFromElement(this))
+            vm.$emit('highlightMouseover', vm._getAnchorPositionFromElement(this))
             
             event.stopPropagation()
             event.preventDefault()
           },
           onmouseout: function (event) {
-            vm.$emit('mouseout', vm._getAnchorPositionFromElement(this))
+            vm.$emit('highlightMouseout', vm._getAnchorPositionFromElement(this))
             
             event.stopPropagation()
             event.preventDefault()

@@ -4,6 +4,9 @@
          v-bind:rangyConfig="rangyConfig"
          v-on:select="onselect"
          v-on:selectcollapsed="onselectcollapsed"
+         v-on:highlightClick="toggleHighlightPos"
+         v-on:highlightMouseover="onHighlightPosMouseover"
+         v-on:highlightMouseout="onHighlightPosMouseout"
          ref="RangyManager"></rangy>
   
   <annotation-type-selector v-bind:config="config"

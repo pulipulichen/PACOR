@@ -13,6 +13,9 @@ let AnnotationManager = {
       //annotationModule: 'MainIdea', // for test
       afterTime: null,
       loadHighlightInterval: 60 * 1000,
+      
+      highlightPos: null,
+      highlightPosLock: false,
       //loadHighlightInterval: 3 * 1000  // for test
     }
   },
@@ -48,8 +51,16 @@ let AnnotationManager = {
       return highlightsURL
     }
   },
-//  watch: {
-//  },
+  watch: {
+    "highlightPos": function (highlightPos) {
+      if (highlightPos !== null) {
+        console.log(highlightPos)
+      }
+      else {
+        console.log('cancel highlight')
+      }
+    }
+  },
   mounted() {
     this.loadHighlights()
   },
@@ -102,6 +113,27 @@ let AnnotationManager = {
       }
       //this.selection = null
       this.pinSelection = null
+    },
+    toggleHighlightPos (pos) {
+      if (this.highlightPos === null) {
+        this.highlightPos = pos
+        this.highlightPosLock = true
+      }
+      else {
+        this.highlightPos = null
+        this.highlightPosLock = false
+      }
+    },
+    onHighlightPosMouseover (pos) {
+      if (this.highlightPosLock === false) {
+        this.highlightPos = pos
+      }
+    },
+    onHighlightPosMouseout () {
+      if (this.highlightPosLock === false
+           && this.highlightPos !== null) {
+        this.highlightPos = null
+      }
     }
   } // methods
 }
