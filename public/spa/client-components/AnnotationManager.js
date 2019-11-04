@@ -1314,7 +1314,7 @@ let AnnotationManager = {
       }
     }
   },
-  mounted() {
+  mounted () {
     this.loadHighlights()
   },
   methods: {

@@ -14,9 +14,11 @@ module.exports = {
   | using this caching library. This store is used when another is
   | not explicitly specified when executing a given caching function.
   |
+  | "object", "database", "redis"
+  | 
   */
 
-  default: Env.get('CACHE_STORE', 'object'),
+  default: Env.get('CACHE_STORE', 'database'),
 
   /*
   |--------------------------------------------------------------------------
@@ -43,7 +45,8 @@ module.exports = {
     database: {
       driver: 'database',
       table: 'cache',
-      connection: 'sqlite_cache'
+      //connection: 'sqlite_cache',
+      connection: 'pg'
     },
 
     redis: {

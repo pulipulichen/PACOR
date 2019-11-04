@@ -3,9 +3,6 @@
 const Schema = use('Schema')
 
 class CreateCacheTable extends Schema {
-  static get connection () {
-    return 'sqlite_cache'
-  }
   
   /**
    * Run the migrations.
