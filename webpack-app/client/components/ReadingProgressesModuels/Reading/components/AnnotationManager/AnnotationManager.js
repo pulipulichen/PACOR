@@ -15,6 +15,7 @@ let AnnotationManager = {
       loadHighlightInterval: 60 * 1000,
       
       highlightPos: null,
+      highlightEvent: null,
       highlightPosLock: false,
       //loadHighlightInterval: 3 * 1000  // for test
     }

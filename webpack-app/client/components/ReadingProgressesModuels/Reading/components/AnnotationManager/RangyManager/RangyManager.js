@@ -480,7 +480,7 @@ let RangyManager = {
     
     // -------------------
     
-    _getAnchorPositionFromElement (element) {
+    _getAnchorPositionFromElement (element, event) {
       let highlights = this.highlighter.getHighlightsForElement(element)
       if (highlights === null) {
         return null
@@ -513,7 +513,10 @@ let RangyManager = {
       for (let key in pidJSON) {
         output.push(pidJSON[key])
       }
-      return output
+      return {
+        anchorPositions: output,
+        event: event
+      }
     },
     
     _initHighlighter: function () {
@@ -535,20 +538,20 @@ let RangyManager = {
         },
         elementProperties: {
           onclick: function (event) {
-            let pos = vm._getAnchorPositionFromElement(this)
+            let pos = vm._getAnchorPositionFromElement(this, event)
             //console.log(pos)
             vm.$emit('highlightClick', pos)
             event.stopPropagation()
             event.preventDefault()
           },
           onmouseover: function (event) {
-            vm.$emit('highlightMouseover', vm._getAnchorPositionFromElement(this))
+            vm.$emit('highlightMouseover', vm._getAnchorPositionFromElement(this, event))
             
             event.stopPropagation()
             event.preventDefault()
           },
           onmouseout: function (event) {
-            vm.$emit('highlightMouseout', vm._getAnchorPositionFromElement(this))
+            vm.$emit('highlightMouseout')
             
             event.stopPropagation()
             event.preventDefault()
