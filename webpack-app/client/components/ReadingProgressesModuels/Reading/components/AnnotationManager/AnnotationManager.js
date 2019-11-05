@@ -161,7 +161,7 @@ let AnnotationManager = {
         this.highlightPosLockTimer = setTimeout(() => {
           this.highlightPos = null
           this.highlightEvent = null
-        }, 3000)
+        }, 0)
       }
     }
   } // methods

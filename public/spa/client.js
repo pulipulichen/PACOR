@@ -249,7 +249,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"{0} Comments":"{0} Comment | {0} Comments","{0} Likes":"{0} Likes | {0} Likes"},"zh-TW":{"{0} Comments":"{0}篇留言","{0} Likes":"{0}讚"}}')
+  Component.options.__i18n.push('{"en":{"{0} Comments":"{0} Comment | {0} Comments","{0} Likes":"{0} Likes | {0} Likes"},"zh-TW":{"{0} Comments":" {0}篇留言","{0} Likes":" {0}讚"}}')
   delete Component.options._Ctor
 }
 
@@ -343,7 +343,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&"}]);
+exports.push([module.i, ".AnnotationItem.compact .avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.AnnotationItem.compact .note[data-v-b2feccdc] {\n  display: inline-block;\n}\n.AnnotationItem.compact .note p[data-v-b2feccdc] {\n  display: inline;\n}\n", "",{"version":3,"sources":["AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,WAAW;AACb;AACA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;AACjB","file":"AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&","sourcesContent":[".AnnotationItem.compact .avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.AnnotationItem.compact .note[data-v-b2feccdc] {\n  display: inline-block;\n}\n.AnnotationItem.compact .note p[data-v-b2feccdc] {\n  display: inline;\n}\n"]}]);
 
 
 /***/ }),
@@ -399,7 +399,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"UserAvatarIcons.less?vue&type=style&index=0&id=016deec0&lang=less&scoped=true&"}]);
+exports.push([module.i, ".avatar[data-v-016deec0] {\n  max-height: 2em;\n  width: auto;\n}\n", "",{"version":3,"sources":["UserAvatarIcons.less?vue&type=style&index=0&id=016deec0&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,WAAW;AACb","file":"UserAvatarIcons.less?vue&type=style&index=0&id=016deec0&lang=less&scoped=true&","sourcesContent":[".avatar[data-v-016deec0] {\n  max-height: 2em;\n  width: auto;\n}\n"]}]);
 
 
 /***/ }),
@@ -679,9 +679,15 @@ var render = function() {
   return _vm.annotation
     ? _c(
         "div",
-        { staticClass: "ui segment AnnotationItem" },
+        {
+          staticClass: "ui segment AnnotationItem",
+          class: _vm.computedContainerClassNames
+        },
         [
-          _c("img", { attrs: { src: _vm.annotation.user.avatarURL } }),
+          _c("img", {
+            staticClass: "avatar",
+            attrs: { src: _vm.annotation.user.avatar_url }
+          }),
           _vm._v(" "),
           _c("span", { staticClass: "username" }, [
             _vm._v("\r\n    " + _vm._s(_vm.username) + "\r\n  ")
@@ -692,9 +698,9 @@ var render = function() {
           }),
           _vm._v(" "),
           _vm.annotation.note
-            ? _c("span", [
-                _vm._v("\r\n    " + _vm._s(_vm.annotation.note) + "\r\n  ")
-              ])
+            ? _c("span", {
+                domProps: { innerHTML: _vm._s(_vm.annotation.note) }
+              })
             : _vm._e(),
           _vm._v(" "),
           _c("span", [_vm._v("\r\n    " + _vm._s(_vm.displayTime) + "\r\n  ")]),
@@ -702,7 +708,7 @@ var render = function() {
           _c("span", [
             _vm._v(
               "\r\n    " +
-                _vm._s(_vm.$t("{0} Likes", _vm.annotation.likeCount)) +
+                _vm._s(_vm.$t("{0} Likes", [_vm.annotation.ratesCount])) +
                 "\r\n  "
             )
           ]),
@@ -710,7 +716,7 @@ var render = function() {
           _c("span", [
             _vm._v(
               "\r\n    " +
-                _vm._s(_vm.$t("{0} Comments", _vm.annotation.repliesCount)) +
+                _vm._s(_vm.$t("{0} Comments", [_vm.annotation.repliesCount])) +
                 "\r\n  "
             )
           ])
@@ -898,7 +904,9 @@ var render = function() {
     "div",
     [
       _vm._l(_vm.users, function(user) {
-        return [_c("img", { attrs: { src: user.avatarURL } })]
+        return [
+          _c("img", { staticClass: "avatar", attrs: { src: user.avatar_url } })
+        ]
       })
     ],
     2
@@ -1534,7 +1542,7 @@ let Login = {
   watch: {
   },
   mounted() {
-    console.log('掛載！')
+    //console.log('掛載！')
     this.$refs.LoginModal.show()
     this._loadFromLocalStorage()
   },
@@ -1847,8 +1855,8 @@ let ActivityTimer = {
       return Math.round(((new Date()).getTime() - lastTime) / 1000)
     },
     send: async function () {
-      this.lib.auth.logout()
-      return
+      //this.lib.auth.logout()
+      //return
       
       if (acted === true) {
         await this.lib.AxiosHelper.get('/client/ReadingProgress/activityTimer', {
@@ -1946,7 +1954,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let AnnotationItem = {
-  props: ['lib', 'status', 'config', 'annotation'],
+  props: ['lib', 'status', 'config', 'annotation', 'mode'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -1965,7 +1973,15 @@ let AnnotationItem = {
       }
     },
     displayTime () {
-      return this.lib.DayJSHelper.fromNow(this.annotation.updated_at_unixms)
+      return this.annotation.updated_at_unixms
+      //return this.lib.DayJSHelper.fromNow(this.annotation.updated_at_unixms)
+    },
+    computedContainerClassNames () {
+      let classNames = this.mode
+      if (classNames === undefined || classNames === null) {
+        classNames = 'compact'
+      }
+      return classNames
     }
   },
   watch: {

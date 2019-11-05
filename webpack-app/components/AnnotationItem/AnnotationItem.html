@@ -1,7 +1,9 @@
 <div class="ui segment AnnotationItem" 
-     v-if="annotation">
+     v-if="annotation"
+     v-bind:class="computedContainerClassNames">
   
-  <img v-bind:src="annotation.user.avatarURL" />
+  <img v-bind:src="annotation.user.avatar_url"
+       class="avatar"/>
   <span class="username">
     {{ username }}
   </span>
@@ -10,20 +12,18 @@
         v-bind:status="status"
         v-bind:annotationModule="annotation.type"></annotation-module-button>
   
-  <span v-if="annotation.note">
-    {{ annotation.note }}
-  </span>
+  <span v-if="annotation.note" v-html="annotation.note"></span>
   
   <span>
     {{ displayTime }}
   </span>
   
   <span>
-    {{ $t('{0} Likes', annotation.likeCount) }}
+    {{ $t('{0} Likes', [annotation.ratesCount]) }}
   </span>
   
   <span>
-    {{ $t('{0} Comments', annotation.repliesCount) }}
+    {{ $t('{0} Comments', [annotation.repliesCount]) }}
   </span>
   
 </div>

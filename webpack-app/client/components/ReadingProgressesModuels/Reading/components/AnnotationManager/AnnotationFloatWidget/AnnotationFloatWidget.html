@@ -1,7 +1,7 @@
 <div class="annotation-float-widget"
-     v-bind:class="computedContainerClassNames"
-     v-if="annotation">
-  <div class="ui secondary segment">
+     v-bind:class="computedContainerClassNames">
+  <div class="ui secondary segment"
+       v-if="annotationCount > 0">
     
     <annotation-item
         v-bind:config="config"
@@ -11,6 +11,7 @@
     
     <div class="ui column grid">
       <div v-bind:class="computedButtonsClassNames">
+        
         <user-avatar-icons 
           v-bind:config="config"
           v-bind:status="status"
@@ -21,13 +22,13 @@
           v-bind:lib="lib"
           v-bind:config="config"
           v-bind:status="status"
-          v-bind:annotationModule="t.annotationModule"
+          v-bind:annotationModule="t.type"
           v-bind:count="t.count"></annotation-module-button>
         
         <button type="button" 
                 class="ui button"
                 v-if="highlightPosLock">
-          {{ $t('List all {0} annotations...', annotationCount) }}
+          {{ $t('List all {0} annotations...', [annotationCount]) }}
         </button>
       </div>
       

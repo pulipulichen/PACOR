@@ -133,14 +133,14 @@ let AnnotationPanel = {
       this.show()
     },
     _initPlaceholder () {
-      let navPH = window.$('.Navigation.placeholder:first')
+      let navPH = $('.Navigation.placeholder:first')
       if (navPH.length === 1) { 
         this.navigationPlaceholderHeight = navPH.height()
       }
     
-      let container = window.$('<div class="non-invasive-web-style-framework"></div>')
+      let container = $('<div class="non-invasive-web-style-framework"></div>')
             .appendTo('body')
-      this.placeholder = window.$('<div class="AnnotationPanel placeholder"></div>')
+      this.placeholder = $('<div class="AnnotationPanel placeholder"></div>')
             .css('height', this.computedPlaceholderHeight)
             .hide()
             .appendTo(container)

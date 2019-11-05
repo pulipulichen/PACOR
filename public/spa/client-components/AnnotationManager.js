@@ -343,15 +343,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.annotation
-    ? _c(
-        "div",
-        {
-          staticClass: "annotation-float-widget",
-          class: _vm.computedContainerClassNames
-        },
-        [
-          _c(
+  return _c(
+    "div",
+    {
+      staticClass: "annotation-float-widget",
+      class: _vm.computedContainerClassNames
+    },
+    [
+      _vm.annotationCount > 0
+        ? _c(
             "div",
             { staticClass: "ui secondary segment" },
             [
@@ -384,7 +384,7 @@ var render = function() {
                           lib: _vm.lib,
                           config: _vm.config,
                           status: _vm.status,
-                          annotationModule: t.annotationModule,
+                          annotationModule: t.type,
                           count: t.count
                         }
                       })
@@ -401,10 +401,9 @@ var render = function() {
                             _vm._v(
                               "\r\n          " +
                                 _vm._s(
-                                  _vm.$t(
-                                    "List all {0} annotations...",
+                                  _vm.$t("List all {0} annotations...", [
                                     _vm.annotationCount
-                                  )
+                                  ])
                                 ) +
                                 "\r\n        "
                             )
@@ -418,9 +417,9 @@ var render = function() {
             ],
             1
           )
-        ]
-      )
-    : _vm._e()
+        : _vm._e()
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1470,10 +1469,17 @@ let AnnotationFloatWidget = {
       let query = {
         anchorPositions: this.highlightPos
       }
-      let url = 'client/Annotation/index'
+      let url = 'client/Annotation/floatWidget'
       
       let result = await this.lib.AxiosHelper.post(url, query)
+      if (result === null) {
+        return false
+      }
+      
       console.log(result)
+      for (let key in result) {
+        this[key] = result[key]
+      }
     }
   } // methods
 }
@@ -1752,7 +1758,7 @@ let AnnotationManager = {
         this.highlightPosLockTimer = setTimeout(() => {
           this.highlightPos = null
           this.highlightEvent = null
-        }, 3000)
+        }, 0)
       }
     }
   } // methods
@@ -3122,14 +3128,14 @@ let AnnotationPanel = {
       this.show()
     },
     _initPlaceholder () {
-      let navPH = window.$('.Navigation.placeholder:first')
+      let navPH = jquery__WEBPACK_IMPORTED_MODULE_3___default()('.Navigation.placeholder:first')
       if (navPH.length === 1) { 
         this.navigationPlaceholderHeight = navPH.height()
       }
     
-      let container = window.$('<div class="non-invasive-web-style-framework"></div>')
+      let container = jquery__WEBPACK_IMPORTED_MODULE_3___default()('<div class="non-invasive-web-style-framework"></div>')
             .appendTo('body')
-      this.placeholder = window.$('<div class="AnnotationPanel placeholder"></div>')
+      this.placeholder = jquery__WEBPACK_IMPORTED_MODULE_3___default()('<div class="AnnotationPanel placeholder"></div>')
             .css('height', this.computedPlaceholderHeight)
             .hide()
             .appendTo(container)

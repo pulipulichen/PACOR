@@ -1,5 +1,5 @@
 let AnnotationItem = {
-  props: ['lib', 'status', 'config', 'annotation'],
+  props: ['lib', 'status', 'config', 'annotation', 'mode'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -18,7 +18,15 @@ let AnnotationItem = {
       }
     },
     displayTime () {
-      return this.lib.DayJSHelper.fromNow(this.annotation.updated_at_unixms)
+      return this.annotation.updated_at_unixms
+      //return this.lib.DayJSHelper.fromNow(this.annotation.updated_at_unixms)
+    },
+    computedContainerClassNames () {
+      let classNames = this.mode
+      if (classNames === undefined || classNames === null) {
+        classNames = 'compact'
+      }
+      return classNames
     }
   },
   watch: {

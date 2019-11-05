@@ -43,8 +43,48 @@ class Annotation extends WebpageUserBaseController {
   
   async floatWidget({request, webpage, user}) {
     let query = request.all()
+    
     let annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
-    return annotations
+    
+    // 來做計算
+    let annotationCount = annotations.length
+    if (annotationCount === 0) {
+      return null
+    }
+    
+    query.pick = 1
+    query.withCount = true
+    let annotation = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
+    let usersMap = {}
+    annotations.forEach(annotation => {
+      let user = annotation.user
+      if (typeof(usersMap[user.username]) === 'undefined') {
+        usersMap[user.username] = user
+      }
+    })
+    let users = Object.keys(usersMap).map(key => usersMap[key])
+    
+    let typesMap = {}
+    annotations.forEach(annotation => {
+      let type = annotation.type
+      if (typeof(typesMap[type]) !== 'number') {
+        typesMap[type] = 0
+      }
+      typesMap[type]++
+    })
+    let types = Object.keys(typesMap).map(type => {
+      return {
+        type,
+        count: typesMap[type]
+      }
+    })
+    
+    return {
+      annotation,
+      users,
+      types,
+      annotationCount
+    }
   }
   
   async index ({ request, webpage, user }) {

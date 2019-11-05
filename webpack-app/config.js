@@ -7,7 +7,7 @@ let config = {
   
   locale: 'zh-TW',
   //clientConfigName: 'CONFIG',
-  detectActivitySeconds: 3,
+  detectActivitySeconds: 10,
   
 }
 

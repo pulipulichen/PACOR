@@ -41,10 +41,17 @@ let AnnotationFloatWidget = {
       let query = {
         anchorPositions: this.highlightPos
       }
-      let url = 'client/Annotation/index'
+      let url = 'client/Annotation/floatWidget'
       
       let result = await this.lib.AxiosHelper.post(url, query)
+      if (result === null) {
+        return false
+      }
+      
       console.log(result)
+      for (let key in result) {
+        this[key] = result[key]
+      }
     }
   } // methods
 }

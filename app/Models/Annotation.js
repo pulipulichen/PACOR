@@ -40,7 +40,7 @@ class Annotation extends Model {
   }
   
   ratesCount () {
-    return this.rate().getCount()
+    return this.rates().getCount()
   }
   
   replies () {
@@ -353,8 +353,9 @@ class Annotation extends Model {
     return await doQuery()
   } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
   
-  static async findByWebpageGroupPosition(webpage, user, {afterTime, anchorPositions, anchorMode}) {
+  static async findByWebpageGroupPosition(webpage, user, {afterTime, anchorPositions, anchorMode, withCount, pick}) {
     const doQuery = async evt => {
+      //console.log('findByWebpageGroupPosition', anchorPositions)
       
       let userList = await user.getUserIDsInGroup(webpage)
       
@@ -363,12 +364,17 @@ class Annotation extends Model {
               .whereIn('user_id', userList)
               .with('user')
               .where('deleted', false)
-              .whereRaw('((user_id = ? ) or (user_id != ? and public IS ?))', [user.primaryKeyValue, user.primaryKeyValue, true])
+              .whereRaw('((user_id = ? ) or (user_id != ? and public = ?))', [user.primaryKeyValue, user.primaryKeyValue, true])
               //.whereRaw('user_id = ?', [user.primaryKeyValue])
               .with('anchorPositions')
               .orderBy('updated_at_unixms', 'desc')
 
-      if (typeof(anchorPositions) === 'object') {
+      if (withCount === true) {
+        query.withCount('rates')
+        query.withCount('replies')
+      }
+
+      if (Array.isArray(anchorPositions) === false) {
         anchorPositions = [anchorPositions]
       }
       if (Array.isArray(anchorPositions)) {
@@ -390,8 +396,20 @@ class Annotation extends Model {
 
       
       //if (anchorMode === 'exact') console.log(query.toSQL())
+      //console.log(query.toSQL())
+      let result
+      //console.log(pick)
+      if (typeof(pick) !== 'number') {
+        result = await query.fetch()
+      }
+      else {
+        result = await query.pick(pick)
+        if (pick === 1) {
+          result = result[0]
+        }
+      }
+      //console.log(result)
       
-      let result = await query.fetch()
       return result
     }
     
@@ -399,7 +417,7 @@ class Annotation extends Model {
       return await doQuery()
     }
     else {
-      let cacheKey = Cache.key(`Annotation.findByWebpageGroupPosition`, webpage, user, anchorPositions)
+      let cacheKey = Cache.key(`Annotation.findByWebpageGroupPosition`, webpage, user, anchorPositions, withCount, pick)
       return await Cache.rememberWait(cacheKey, 2, async () => {
         let result = await doQuery()
         //await Cache.put(cacheKey, result, 2)
@@ -453,6 +471,7 @@ class Annotation extends Model {
       
       position.start_pos = start_pos
       position.end_pos = end_pos
+      //console.log('position', position)
       
       return position
     })
@@ -511,11 +530,11 @@ class Annotation extends Model {
     let where = []
     let bindValues = []
 
+    //console.log(anchorPositions)
     anchorPositions.forEach(position => {
-      where.push(`(paragraph_id = ? 
-        and ((start_pos >= ? and start_pos <= ?) 
-          or (end_pos >= ? and end_pos <= ?))
-        )`)
+      //console.log(position)
+      where.push(`(paragraph_id = ? and `
+        + `((start_pos >= ? and start_pos <= ?) or (end_pos >= ? and end_pos <= ?)))`)
       bindValues = bindValues.concat([
         position.paragraph_id, 
         position.start_pos, 
@@ -524,9 +543,19 @@ class Annotation extends Model {
         position.end_pos
       ])
     })
+    
+    let whereSQL = where.join(' or ')
+    if (where.length > 1) {
+      whereSQL = '(' + whereSQL + ')'
+    }
 
+    //console.log(whereSQL)
+    //console.log(bindValues)
+    //whereSQL = ''
+    //bindValues = []
+    
     return {
-      whereSQL: '(' + where.join(' or ') + ')',
+      whereSQL: whereSQL,
       bindValues: bindValues
     }
   }
