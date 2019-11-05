@@ -87,7 +87,7 @@ let AnnotationManager = {
         this.$refs.RangyManager.deserialize(result)
       }
       
-      $('[data-pacor-highlight]:first').click() // for test
+      //$('[data-pacor-highlight]:first').click() // for test
       
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
         // 如果不是開放合作，那就不用讀取其他人的資料
@@ -116,6 +116,10 @@ let AnnotationManager = {
       this.pinSelection = this.$refs.RangyManager.pinSelection()
       //this.$refs.AnnotationPanel.show()
       //console.log(type)
+    },
+    listFromSelection () {
+      this.selection = null
+      this.listPositions = this.$refs.RangyManager.pinSelection().anchorPositions
     },
     unpin: function (doUnpin) {
       //console.trace(doSelect)
@@ -159,6 +163,10 @@ let AnnotationManager = {
     onHighlightPosMouseover (data) {
       if (this.highlightPosLock === false) {
         clearTimeout(this.highlightPosLockTimer)
+        if (data.event.which !== 0) {
+          return false
+        }
+
         this.highlightPos = data.anchorPositions
         this.highlightEvent = data.event
       }

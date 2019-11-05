@@ -22,5 +22,10 @@
                 v-bind:title="$t('ANNOTATION_TYPE.' + module.type)"
                 v-bind:icon="module.style.button.icon"
                 v-bind:btnColor="module.style.button.backgroundColor"></fab-item>
+      <fab-item icon="list"
+                v-bind:idx="(modules.length)"
+                v-on:clickItem="list" 
+                v-bind:title="$t('List Annotations')"
+                v-if="enableList"></fab-item>
   </vue-fab>
 </div>

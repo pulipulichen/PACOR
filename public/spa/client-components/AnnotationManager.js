@@ -185,7 +185,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"List Annotations":"列出標註"}}')
   delete Component.options._Ctor
 }
 
@@ -561,7 +561,7 @@ var render = function() {
           lib: _vm.lib,
           selection: _vm.selection
         },
-        on: { selectAnnotation: _vm.pin }
+        on: { selectAnnotation: _vm.pin, list: _vm.listFromSelection }
       }),
       _vm._v(" "),
       _c("annotation-panel", {
@@ -1569,22 +1569,35 @@ var render = function() {
             autoOpenMenu: true
           }
         },
-        _vm._l(_vm.modules, function(module, i) {
-          return _c("fab-item", {
-            attrs: {
-              idx: i,
-              title: _vm.$t("ANNOTATION_TYPE." + module.type),
-              icon: module.style.button.icon,
-              btnColor: module.style.button.backgroundColor
-            },
-            on: {
-              clickItem: function($event) {
-                return _vm.clickItem(module.type)
+        [
+          _vm._l(_vm.modules, function(module, i) {
+            return _c("fab-item", {
+              attrs: {
+                idx: i,
+                title: _vm.$t("ANNOTATION_TYPE." + module.type),
+                icon: module.style.button.icon,
+                btnColor: module.style.button.backgroundColor
+              },
+              on: {
+                clickItem: function($event) {
+                  return _vm.clickItem(module.type)
+                }
               }
-            }
-          })
-        }),
-        1
+            })
+          }),
+          _vm._v(" "),
+          _vm.enableList
+            ? _c("fab-item", {
+                attrs: {
+                  icon: "list",
+                  idx: _vm.modules.length,
+                  title: _vm.$t("List Annotations")
+                },
+                on: { clickItem: _vm.list }
+              })
+            : _vm._e()
+        ],
+        2
       )
     ],
     1
@@ -2016,7 +2029,7 @@ let AnnotationFloatWidget = {
         this[key] = result[key]
       }
       
-      this.$emit('list', this.highlightPos) // for test
+      //this.$emit('list', this.highlightPos) // for test
     }
   } // methods
 }
@@ -2221,7 +2234,7 @@ let AnnotationManager = {
         this.$refs.RangyManager.deserialize(result)
       }
       
-      $('[data-pacor-highlight]:first').click() // for test
+      //$('[data-pacor-highlight]:first').click() // for test
       
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
         // 如果不是開放合作，那就不用讀取其他人的資料
@@ -2250,6 +2263,10 @@ let AnnotationManager = {
       this.pinSelection = this.$refs.RangyManager.pinSelection()
       //this.$refs.AnnotationPanel.show()
       //console.log(type)
+    },
+    listFromSelection () {
+      this.selection = null
+      this.listPositions = this.$refs.RangyManager.pinSelection().anchorPositions
     },
     unpin: function (doUnpin) {
       //console.trace(doSelect)
@@ -2293,6 +2310,10 @@ let AnnotationManager = {
     onHighlightPosMouseover (data) {
       if (this.highlightPosLock === false) {
         clearTimeout(this.highlightPosLockTimer)
+        if (data.event.which !== 0) {
+          return false
+        }
+
         this.highlightPos = data.anchorPositions
         this.highlightEvent = data.event
       }
@@ -4542,6 +4563,10 @@ let AnnotationTypeSelector = {
       else {
         return 'bottom-right'
       }
+    },
+    enableList () {
+      return (this.selection !== null 
+            && this.selection.highlights.length > 0)
     }
   },
 //  mounted() {
@@ -4551,6 +4576,9 @@ let AnnotationTypeSelector = {
     clickItem: function (type) {
       //console.log('clickItem', type)
       this.$emit('selectAnnotation', type)
+    },
+    list () {
+      this.$emit('list')
     }
   } // methods
 }
@@ -4821,7 +4849,8 @@ let RangyManager = {
         
         let nodes = this._getNodesInRange(selection.getAllRanges())
         //let nodes = [selection.anchorNode]
-        
+        //console.log(nodes)
+        let highlightClassList = []
         
         //console.log(nodes)
         
@@ -4830,10 +4859,27 @@ let RangyManager = {
         //let paragraph_id = []
         
         nodes.forEach(anchorNode => {
+          if (typeof(anchorNode.getAttribute) === 'function' 
+                  && anchorNode.getAttribute('data-pacor-highlight') !== 'undefined') {
+            anchorNode.classList.forEach(c => {
+              if ( (c.startsWith('my-') || c.endsWith('others-')) 
+                      && highlightClassList.indexOf(c) === -1) {
+                highlightClassList.push(c)
+              }
+            })
+          }
+          
+          
           //let anchorNode = window.$(selection.anchorNode)
           let position = {}
           
           anchorNode = jquery__WEBPACK_IMPORTED_MODULE_1___default()(anchorNode)
+          
+          // ------------------
+          
+          
+          // ------------------
+          
           let parentSection = anchorNode.parents('[data-pacor-section-seq-id]:first')
           if (parentSection.length === 1) {
             //selection.anchorPosition.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
@@ -4877,8 +4923,12 @@ let RangyManager = {
           return false
         }
         
+        selection.highlights = highlightClassList
+        
         this.$emit('select', selection)
-        //console.log('onselect', selection)
+        
+        //console.log(highlightClassList)
+        //console.log('onselect', this.highlighter.getHighlightsForElement(selection.getRangeAt(0)))
         this.selection = selection
       }
       else {
@@ -5240,20 +5290,19 @@ let RangyManager = {
             let pos = vm._getAnchorPositionFromElement(this, event)
             //console.log(pos)
             vm.$emit('highlightClick', pos)
-            event.stopPropagation()
-            event.preventDefault()
+            //event.stopPropagation()
+            //event.preventDefault()
           },
           onmouseover: function (event) {
             vm.$emit('highlightMouseover', vm._getAnchorPositionFromElement(this, event))
             
-            event.stopPropagation()
-            event.preventDefault()
+            //event.stopPropagation()
+            //event.preventDefault()
           },
           onmouseout: function (event) {
             vm.$emit('highlightMouseout')
-            
-            event.stopPropagation()
-            event.preventDefault()
+            //event.stopPropagation()
+            //event.preventDefault()
           }
         }
       }

@@ -124,7 +124,8 @@ let RangyManager = {
         
         let nodes = this._getNodesInRange(selection.getAllRanges())
         //let nodes = [selection.anchorNode]
-        
+        //console.log(nodes)
+        let highlightClassList = []
         
         //console.log(nodes)
         
@@ -133,10 +134,27 @@ let RangyManager = {
         //let paragraph_id = []
         
         nodes.forEach(anchorNode => {
+          if (typeof(anchorNode.getAttribute) === 'function' 
+                  && anchorNode.getAttribute('data-pacor-highlight') !== 'undefined') {
+            anchorNode.classList.forEach(c => {
+              if ( (c.startsWith('my-') || c.endsWith('others-')) 
+                      && highlightClassList.indexOf(c) === -1) {
+                highlightClassList.push(c)
+              }
+            })
+          }
+          
+          
           //let anchorNode = window.$(selection.anchorNode)
           let position = {}
           
           anchorNode = $(anchorNode)
+          
+          // ------------------
+          
+          
+          // ------------------
+          
           let parentSection = anchorNode.parents('[data-pacor-section-seq-id]:first')
           if (parentSection.length === 1) {
             //selection.anchorPosition.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
@@ -180,8 +198,12 @@ let RangyManager = {
           return false
         }
         
+        selection.highlights = highlightClassList
+        
         this.$emit('select', selection)
-        //console.log('onselect', selection)
+        
+        //console.log(highlightClassList)
+        //console.log('onselect', this.highlighter.getHighlightsForElement(selection.getRangeAt(0)))
         this.selection = selection
       }
       else {
@@ -543,20 +565,19 @@ let RangyManager = {
             let pos = vm._getAnchorPositionFromElement(this, event)
             //console.log(pos)
             vm.$emit('highlightClick', pos)
-            event.stopPropagation()
-            event.preventDefault()
+            //event.stopPropagation()
+            //event.preventDefault()
           },
           onmouseover: function (event) {
             vm.$emit('highlightMouseover', vm._getAnchorPositionFromElement(this, event))
             
-            event.stopPropagation()
-            event.preventDefault()
+            //event.stopPropagation()
+            //event.preventDefault()
           },
           onmouseout: function (event) {
             vm.$emit('highlightMouseout')
-            
-            event.stopPropagation()
-            event.preventDefault()
+            //event.stopPropagation()
+            //event.preventDefault()
           }
         }
       }

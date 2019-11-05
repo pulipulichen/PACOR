@@ -52,6 +52,10 @@ let AnnotationTypeSelector = {
       else {
         return 'bottom-right'
       }
+    },
+    enableList () {
+      return (this.selection !== null 
+            && this.selection.highlights.length > 0)
     }
   },
 //  mounted() {
@@ -61,6 +65,9 @@ let AnnotationTypeSelector = {
     clickItem: function (type) {
       //console.log('clickItem', type)
       this.$emit('selectAnnotation', type)
+    },
+    list () {
+      this.$emit('list')
     }
   } // methods
 }

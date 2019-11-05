@@ -58,7 +58,7 @@ let AnnotationFloatWidget = {
         this[key] = result[key]
       }
       
-      this.$emit('list', this.highlightPos) // for test
+      //this.$emit('list', this.highlightPos) // for test
     }
   } // methods
 }
