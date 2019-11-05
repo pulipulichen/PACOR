@@ -82,6 +82,8 @@ let AnnotationManager = {
         this.$refs.RangyManager.deserialize(result)
       }
       
+      $('[data-pacor-highlight]:first').click() // for test
+      
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
         // 如果不是開放合作，那就不用讀取其他人的資料
         return false
@@ -135,8 +137,10 @@ let AnnotationManager = {
       }
       else {
         // 在觸控的情況下
+        //console.log(data)
         if (this.highlightPos === null) {
-          this.highlightPos = data.pos
+          clearTimeout(this.highlightPosLockTimer)
+          this.highlightPos = data.anchorPositions
           this.highlightEvent = data.event
           this.highlightPosLock = true
         }

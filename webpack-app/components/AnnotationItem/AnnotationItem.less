@@ -2,8 +2,16 @@
   float: right;
 }
 
+
 .avatar, .username {
   margin-right: 0.5em;
+}
+
+.username {
+  max-width: 5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .text-container {
@@ -13,6 +21,14 @@
 }
 
 .annotation-item-compact {
+  
+  .left.column {
+    max-width: 70vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
   .avatar {
     max-height: 2em;
     width: auto;
@@ -21,6 +37,7 @@
   .note {
     display: inline-block;
     margin-left: 0.5em;
+    
     
     ::v-deep p {
       display: inline !important;

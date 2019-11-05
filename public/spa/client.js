@@ -343,7 +343,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".meta[data-v-b2feccdc] {\n  float: right;\n}\n.avatar[data-v-b2feccdc],\n.username[data-v-b2feccdc] {\n  margin-right: 0.5em;\n}\n.text-container[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.annotation-item-compact .note[data-v-b2feccdc] {\n  display: inline-block;\n  margin-left: 0.5em;\n}\n.annotation-item-compact .note[data-v-b2feccdc]  p {\n  display: inline !important;\n  line-height: 2em !important;\n}\n", "",{"version":3,"sources":["AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;AACd;AACA;;EAEE,mBAAmB;AACrB;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,WAAW;AACb;AACA;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,0BAA0B;EAC1B,2BAA2B;AAC7B","file":"AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&","sourcesContent":[".meta[data-v-b2feccdc] {\n  float: right;\n}\n.avatar[data-v-b2feccdc],\n.username[data-v-b2feccdc] {\n  margin-right: 0.5em;\n}\n.text-container[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.annotation-item-compact .note[data-v-b2feccdc] {\n  display: inline-block;\n  margin-left: 0.5em;\n}\n.annotation-item-compact .note[data-v-b2feccdc]  p {\n  display: inline !important;\n  line-height: 2em !important;\n}\n"]}]);
+exports.push([module.i, ".meta[data-v-b2feccdc] {\n  float: right;\n}\n.avatar[data-v-b2feccdc],\n.username[data-v-b2feccdc] {\n  margin-right: 0.5em;\n}\n.username[data-v-b2feccdc] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.text-container[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-b2feccdc] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.annotation-item-compact .note[data-v-b2feccdc] {\n  display: inline-block;\n  margin-left: 0.5em;\n}\n.annotation-item-compact .note[data-v-b2feccdc]  p {\n  display: inline !important;\n  line-height: 2em !important;\n}\n", "",{"version":3,"sources":["AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;AACd;AACA;;EAEE,mBAAmB;AACrB;AACA;EACE,cAAc;EACd,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,WAAW;AACb;AACA;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,0BAA0B;EAC1B,2BAA2B;AAC7B","file":"AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&","sourcesContent":[".meta[data-v-b2feccdc] {\n  float: right;\n}\n.avatar[data-v-b2feccdc],\n.username[data-v-b2feccdc] {\n  margin-right: 0.5em;\n}\n.username[data-v-b2feccdc] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.text-container[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-b2feccdc] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.annotation-item-compact .note[data-v-b2feccdc] {\n  display: inline-block;\n  margin-left: 0.5em;\n}\n.annotation-item-compact .note[data-v-b2feccdc]  p {\n  display: inline !important;\n  line-height: 2em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -712,27 +712,36 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("img", {
-            staticClass: "avatar",
-            attrs: { src: _vm.annotation.user.avatar_url }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "username text-container" }, [
-            _vm._v("\r\n    " + _vm._s(_vm.username) + "\r\n  ")
-          ]),
-          _vm._v(" "),
-          _c("annotation-module-button", {
-            attrs: { status: _vm.status, annotationModule: _vm.annotation.type }
-          }),
-          _vm._v(" "),
-          _vm.annotation.note
-            ? _c("div", {
-                staticClass: "note text-container",
-                domProps: { innerHTML: _vm._s(_vm.annotation.note) }
-              })
-            : _vm._e()
-        ],
-        1
+          _c(
+            "div",
+            { staticClass: "left column" },
+            [
+              _c("img", {
+                staticClass: "avatar",
+                attrs: { src: _vm.annotation.user.avatar_url }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "username text-container" }, [
+                _vm._v("\r\n      " + _vm._s(_vm.username) + "\r\n    ")
+              ]),
+              _vm._v(" "),
+              _c("annotation-module-button", {
+                attrs: {
+                  status: _vm.status,
+                  annotationModule: _vm.annotation.type
+                }
+              }),
+              _vm._v(" "),
+              _vm.annotation.note
+                ? _c("div", {
+                    staticClass: "note text-container",
+                    domProps: { innerHTML: _vm._s(_vm.annotation.note) }
+                  })
+                : _vm._e()
+            ],
+            1
+          )
+        ]
       )
     : _vm._e()
 }

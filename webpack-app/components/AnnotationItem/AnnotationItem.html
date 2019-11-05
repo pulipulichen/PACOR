@@ -16,15 +16,18 @@
     </span>
   </div>
 
-  <img v-bind:src="annotation.user.avatar_url"
-       class="avatar"/>
-  <div class="username text-container">
-    {{ username }}
+  <div class="left column">
+    <img v-bind:src="annotation.user.avatar_url"
+         class="avatar"/>
+    <div class="username text-container">
+      {{ username }}
+    </div>
+
+    <annotation-module-button 
+      v-bind:status="status"
+      v-bind:annotationModule="annotation.type"></annotation-module-button>
+
+    <div class="note text-container" v-if="annotation.note" v-html="annotation.note"></div>
   </div>
-
-  <annotation-module-button 
-    v-bind:status="status"
-    v-bind:annotationModule="annotation.type"></annotation-module-button>
-
-  <div class="note text-container" v-if="annotation.note" v-html="annotation.note"></div>
+    
 </div>

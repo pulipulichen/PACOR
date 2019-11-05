@@ -49,7 +49,7 @@ let AnnotationFloatWidget = {
         return false
       }
       
-      console.log(result)
+      //console.log(result)
       for (let key in result) {
         this[key] = result[key]
       }
