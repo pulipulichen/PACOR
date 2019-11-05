@@ -1,6 +1,6 @@
 en:
-  TEST_MESSAGE: Test Message
+  List all {0} annotations...: List all {0} annotation... | List all {0} annotations...
   
 zh-TW:
   # 這是註解
-  TEST_MESSAGE: 測試訊息
+  List all {0} annotations...: 列出全部{0}篇標註...

@@ -29,3 +29,6 @@ Vue.component('checkbox-toggle', CheckboxToggle)
 import CountdownButton from './../components/CountdownButton/CountdownButton.vue'
 Vue.component('countdown-button', CountdownButton)
 
+import UserAvatarIcons from './../components/UserAvatarIcons/UserAvatarIcons.vue'
+Vue.component('user-avatar-icons', UserAvatarIcons)
+

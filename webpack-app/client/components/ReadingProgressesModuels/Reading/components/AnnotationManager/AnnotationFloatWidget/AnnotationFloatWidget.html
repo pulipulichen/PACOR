@@ -1,22 +1,32 @@
 <div class="annotation-float-widget"
-     v-bind:class="computedClassNames">
+     v-bind:class="computedContainerClassNames">
   <div class="ui secondary segment">
     
     <div class="ui segment">
       [[ Most relevant annotation ]]
     </div>
     
-    <div>
-      [[authors]]
-      
-      [[type buttons]]
-      
-      <button type="button" 
-              class="ui button"
-              v-if="highlightPosLock">
-        [[full list link]]
-      </button>
-      
+    <div class="ui column grid">
+      <div v-bind:class="computedButtonsClassNames">
+        <user-avatar-icons 
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib"
+          v-bind:users="users"></template>
+        
+        <annotation-module-button v-for="t in types"
+          v-bind:lib="lib"
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:annotationModule="t.annotationModule"
+          v-bind:count="t.count"></annotation-module-button>
+        
+        <button type="button" 
+                class="ui button"
+                v-if="highlightPosLock">
+          {{ $t('List all {0} annotations...', annotationCount) }}
+        </button>
+      </div>
       
     </div>
     

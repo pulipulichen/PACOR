@@ -345,24 +345,44 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "annotation-float-widget", class: _vm.computedClassNames },
+    {
+      staticClass: "annotation-float-widget",
+      class: _vm.computedContainerClassNames
+    },
     [
       _c("div", { staticClass: "ui secondary segment" }, [
         _c("div", { staticClass: "ui segment" }, [
           _vm._v("\r\n      [[ Most relevant annotation ]]\r\n    ")
         ]),
         _vm._v(" "),
-        _c("div", [
-          _vm._v(
-            "\r\n      [[authors]]\r\n      \r\n      [[type buttons]]\r\n      \r\n      "
-          ),
-          _vm.highlightPosLock
-            ? _c(
-                "button",
-                { staticClass: "ui button", attrs: { type: "button" } },
-                [_vm._v("\r\n        [[full list link]]\r\n      ")]
-              )
-            : _vm._e()
+        _c("div", { staticClass: "ui column grid" }, [
+          _c(
+            "div",
+            { class: _vm.computedButtonsClassNames },
+            [
+              _vm._v("\r\n        [[authors]]\r\n\r\n        "),
+              _vm._l(_vm.types, function(t) {
+                return _c("annotation-module-button", {
+                  attrs: {
+                    lib: _vm.lib,
+                    config: _vm.config,
+                    status: _vm.status,
+                    annotationModule: t.annotationModule,
+                    count: t.count
+                  }
+                })
+              }),
+              _vm._v(" "),
+              _vm.highlightPosLock
+                ? _c(
+                    "button",
+                    { staticClass: "ui button", attrs: { type: "button" } },
+                    [_vm._v("\r\n          [[full list link]]\r\n        ")]
+                  )
+                : _vm._e()
+            ],
+            2
+          )
         ])
       ])
     ]
@@ -1379,13 +1399,14 @@ let AnnotationFloatWidget = {
     return {
       mostReleventAnnotation: null,
       users: [],
-      types: []
+      types: [],
+      annotationCount: 0
     }
   },
   components: {
   },
   computed: {
-    computedClassNames () {
+    computedContainerClassNames () {
       if (this.highlightPos !== null) {
         let windowHeight = window.innerHeight
         let clientY = this.highlightPos.event.clientY
@@ -1394,6 +1415,14 @@ let AnnotationFloatWidget = {
         }
       }
       //return 'bottom'
+    },
+    computedButtonsClassNames () {
+      if (this.status.preference.leftHanded === false) {
+        return 'right aligned column'
+      }
+      else {
+        return 'column'
+      }
     }
   },
   watch: {

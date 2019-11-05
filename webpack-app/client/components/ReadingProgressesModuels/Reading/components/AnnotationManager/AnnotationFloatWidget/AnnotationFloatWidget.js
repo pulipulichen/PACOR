@@ -5,13 +5,14 @@ let AnnotationFloatWidget = {
     return {
       mostReleventAnnotation: null,
       users: [],
-      types: []
+      types: [],
+      annotationCount: 0
     }
   },
   components: {
   },
   computed: {
-    computedClassNames () {
+    computedContainerClassNames () {
       if (this.highlightPos !== null) {
         let windowHeight = window.innerHeight
         let clientY = this.highlightPos.event.clientY
@@ -20,6 +21,14 @@ let AnnotationFloatWidget = {
         }
       }
       //return 'bottom'
+    },
+    computedButtonsClassNames () {
+      if (this.status.preference.leftHanded === false) {
+        return 'right aligned column'
+      }
+      else {
+        return 'column'
+      }
     }
   },
   watch: {
