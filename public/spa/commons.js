@@ -1987,8 +1987,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_media__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-media */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue-media\\dist\\vue-media.common.js");
-/* harmony import */ var vue_media__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_media__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_media__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-media */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue-media\\dist\\vue-media.common.js");
+/* harmony import */ var vue_media__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_media__WEBPACK_IMPORTED_MODULE_1__);
 
 
 let Navigation = {
@@ -2001,7 +2001,7 @@ let Navigation = {
     }
   },
   components: {
-    'media': vue_media__WEBPACK_IMPORTED_MODULE_0___default.a
+    'media': vue_media__WEBPACK_IMPORTED_MODULE_1___default.a
   },
   computed: {
     maxWidth: function () {
@@ -2616,10 +2616,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-axios__WEBPACK_IMPORTED_MODULE_1___default.a.defaults.withCredentials = true
+axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.withCredentials = true
 
 let AxiosHelper = {
   baseURL: '',
@@ -2662,7 +2662,7 @@ let AxiosHelper = {
     }
     
     try {
-      let result = await axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(path, options)
+      let result = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(path, options)
       return result.data
     }
     catch (error) {
@@ -2686,7 +2686,7 @@ let AxiosHelper = {
     }
     
     try {
-      let result = await axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(this.getURL(path), options)
+      let result = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(this.getURL(path), options)
       return result.data
     }
     catch (error) {
@@ -2720,7 +2720,7 @@ let AxiosHelper = {
     //console.log(formData)
     
     try {
-      let result = await axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(this.getURL(path), formData, {
+      let result = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(this.getURL(path), formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

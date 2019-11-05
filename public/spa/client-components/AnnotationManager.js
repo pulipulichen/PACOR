@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":{"List all {0} annotations...":"List all {0} annotation... | List all {0} annotations..."},"zh-TW":{"List all {0} annotations...":"列出全部{0}篇標註..."}}')
   delete Component.options._Ctor
 }
 
@@ -343,50 +343,84 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "annotation-float-widget",
-      class: _vm.computedContainerClassNames
-    },
-    [
-      _c("div", { staticClass: "ui secondary segment" }, [
-        _c("div", { staticClass: "ui segment" }, [
-          _vm._v("\r\n      [[ Most relevant annotation ]]\r\n    ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "ui column grid" }, [
+  return _vm.annotation
+    ? _c(
+        "div",
+        {
+          staticClass: "annotation-float-widget",
+          class: _vm.computedContainerClassNames
+        },
+        [
           _c(
             "div",
-            { class: _vm.computedButtonsClassNames },
+            { staticClass: "ui secondary segment" },
             [
-              _vm._v("\r\n        [[authors]]\r\n\r\n        "),
-              _vm._l(_vm.types, function(t) {
-                return _c("annotation-module-button", {
-                  attrs: {
-                    lib: _vm.lib,
-                    config: _vm.config,
-                    status: _vm.status,
-                    annotationModule: t.annotationModule,
-                    count: t.count
-                  }
-                })
+              _c("annotation-item", {
+                attrs: {
+                  config: _vm.config,
+                  status: _vm.status,
+                  lib: _vm.lib,
+                  annotation: _vm.annotation
+                }
               }),
               _vm._v(" "),
-              _vm.highlightPosLock
-                ? _c(
-                    "button",
-                    { staticClass: "ui button", attrs: { type: "button" } },
-                    [_vm._v("\r\n          [[full list link]]\r\n        ")]
-                  )
-                : _vm._e()
+              _c("div", { staticClass: "ui column grid" }, [
+                _c(
+                  "div",
+                  { class: _vm.computedButtonsClassNames },
+                  [
+                    _c("user-avatar-icons", {
+                      attrs: {
+                        config: _vm.config,
+                        status: _vm.status,
+                        lib: _vm.lib,
+                        users: _vm.users
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm._l(_vm.types, function(t) {
+                      return _c("annotation-module-button", {
+                        attrs: {
+                          lib: _vm.lib,
+                          config: _vm.config,
+                          status: _vm.status,
+                          annotationModule: t.annotationModule,
+                          count: t.count
+                        }
+                      })
+                    }),
+                    _vm._v(" "),
+                    _vm.highlightPosLock
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "ui button",
+                            attrs: { type: "button" }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n          " +
+                                _vm._s(
+                                  _vm.$t(
+                                    "List all {0} annotations...",
+                                    _vm.annotationCount
+                                  )
+                                ) +
+                                "\r\n        "
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ],
+                  2
+                )
+              ])
             ],
-            2
+            1
           )
-        ])
-      ])
-    ]
-  )
+        ]
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1397,7 +1431,7 @@ let AnnotationFloatWidget = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      mostReleventAnnotation: null,
+      annotation: null,
       users: [],
       types: [],
       annotationCount: 0

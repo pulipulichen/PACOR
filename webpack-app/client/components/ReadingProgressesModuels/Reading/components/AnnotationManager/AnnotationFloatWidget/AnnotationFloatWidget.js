@@ -3,7 +3,7 @@ let AnnotationFloatWidget = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      mostReleventAnnotation: null,
+      annotation: null,
       users: [],
       types: [],
       annotationCount: 0

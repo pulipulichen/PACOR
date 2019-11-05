@@ -1,10 +1,13 @@
 <div class="annotation-float-widget"
-     v-bind:class="computedContainerClassNames">
+     v-bind:class="computedContainerClassNames"
+     v-if="annotation">
   <div class="ui secondary segment">
     
-    <div class="ui segment">
-      [[ Most relevant annotation ]]
-    </div>
+    <annotation-item
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:annotation="annotation"></annotation-item>
     
     <div class="ui column grid">
       <div v-bind:class="computedButtonsClassNames">
@@ -12,7 +15,7 @@
           v-bind:config="config"
           v-bind:status="status"
           v-bind:lib="lib"
-          v-bind:users="users"></template>
+          v-bind:users="users"></user-avatar-icons >
         
         <annotation-module-button v-for="t in types"
           v-bind:lib="lib"
