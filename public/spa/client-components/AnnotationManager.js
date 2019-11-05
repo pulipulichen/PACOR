@@ -169,7 +169,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".segment[data-v-ca5d3b70] {\n  position: fixed !important;\n  left: 1em;\n  width: calc(100vw - 2em);\n  top: 1em;\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,SAAS;EACT,wBAAwB;EACxB,QAAQ;AACV","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&","sourcesContent":[".segment[data-v-ca5d3b70] {\n  position: fixed !important;\n  left: 1em;\n  width: calc(100vw - 2em);\n  top: 1em;\n}\n"]}]);
+exports.push([module.i, ".annotation-float-widget[data-v-ca5d3b70] {\n  position: fixed !important;\n  left: 1em;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,SAAS;EACT,wBAAwB;EACxB,qBAAqB;EACrB,mCAAmC;EACnC,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-ca5d3b70] {\n  position: fixed !important;\n  left: 1em;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n"]}]);
 
 
 /***/ }),
@@ -343,9 +343,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui segment" }, [
-    _vm._v("\r\n  AnnotationFloatWidget\r\n")
-  ])
+  return _c(
+    "div",
+    { staticClass: "annotation-float-widget", class: _vm.computedClassNames },
+    [
+      _c("div", { staticClass: "ui secondary segment" }, [
+        _vm._v("\r\n    AnnotationFloatWidget\r\n  ")
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -408,15 +414,17 @@ var render = function() {
         on: { hide: _vm.unpin }
       }),
       _vm._v(" "),
-      _c("annotation-float-widget", {
-        ref: "AnnotationFloatWidget",
-        attrs: {
-          config: _vm.config,
-          status: _vm.status,
-          lib: _vm.lib,
-          highlightPos: _vm.highlightPos
-        }
-      })
+      _vm.highlightPos
+        ? _c("annotation-float-widget", {
+            ref: "AnnotationFloatWidget",
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              highlightPos: _vm.highlightPos
+            }
+          })
+        : _vm._e()
     ],
     1
   )
@@ -1348,8 +1356,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let Template = {
-  props: ['lib', 'status', 'config'],
+let AnnotationFloatWidget = {
+  props: ['lib', 'status', 'config', 'highlightPos'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -1358,6 +1366,16 @@ let Template = {
   components: {
   },
   computed: {
+    computedClassNames () {
+      if (this.highlightPos !== null) {
+        let windowHeight = window.innerHeight
+        let clientY = this.highlightPos.event.clientY
+        if (clientY < (windowHeight / 2) ) {
+          return 'bottom'
+        }
+      }
+      //return 'bottom'
+    }
   },
   watch: {
   },
@@ -1367,7 +1385,7 @@ let Template = {
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Template);
+/* harmony default export */ __webpack_exports__["default"] = (AnnotationFloatWidget);
 
 /***/ }),
 
@@ -1534,14 +1552,14 @@ let AnnotationManager = {
     }
   },
   watch: {
-    "highlightPos": function (highlightPos) {
-      if (highlightPos !== null) {
-        console.log(highlightPos)
-      }
-      else {
-        console.log('cancel highlight')
-      }
-    }
+//    "highlightPos": function (highlightPos) {
+//      if (highlightPos !== null) {
+//        console.log(highlightPos)
+//      }
+//      else {
+//        console.log('cancel highlight')
+//      }
+//    }
   },
   mounted () {
     this.loadHighlights()

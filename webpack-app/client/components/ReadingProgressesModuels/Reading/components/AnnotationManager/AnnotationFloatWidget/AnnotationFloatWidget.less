@@ -1,6 +1,16 @@
-.segment {
+@verticalMargin: calc(@TopMenuHeight + 1em);
+
+.annotation-float-widget {
   position: fixed !important;
   left: 1em;
-  width: calc(100vw - 2em);
-  top: 1em;
+  width: calc(100vw - 3em);
+  top: @verticalMargin;
+  max-height: calc(50vh - @TopMenuHeight - 2em);
+  overflow-x: hidden;
+  overflow-y: auto;
+  
+  &.bottom {
+    top: auto;
+    bottom: @verticalMargin;
+  }
 }

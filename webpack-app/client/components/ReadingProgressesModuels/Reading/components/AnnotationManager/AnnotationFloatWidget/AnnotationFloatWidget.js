@@ -1,5 +1,5 @@
-let Template = {
-  props: ['lib', 'status', 'config'],
+let AnnotationFloatWidget = {
+  props: ['lib', 'status', 'config', 'highlightPos'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -8,6 +8,16 @@ let Template = {
   components: {
   },
   computed: {
+    computedClassNames () {
+      if (this.highlightPos !== null) {
+        let windowHeight = window.innerHeight
+        let clientY = this.highlightPos.event.clientY
+        if (clientY < (windowHeight / 2) ) {
+          return 'bottom'
+        }
+      }
+      //return 'bottom'
+    }
   },
   watch: {
   },
@@ -17,4 +27,4 @@ let Template = {
   } // methods
 }
 
-export default Template
+export default AnnotationFloatWidget

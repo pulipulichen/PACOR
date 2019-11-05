@@ -26,6 +26,7 @@
         ref="AnnotationPanel"></annotation-panel>
   
   <annotation-float-widget 
+        v-if="highlightPos"
         v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib"

@@ -54,14 +54,14 @@ let AnnotationManager = {
     }
   },
   watch: {
-    "highlightPos": function (highlightPos) {
-      if (highlightPos !== null) {
-        console.log(highlightPos)
-      }
-      else {
-        console.log('cancel highlight')
-      }
-    }
+//    "highlightPos": function (highlightPos) {
+//      if (highlightPos !== null) {
+//        console.log(highlightPos)
+//      }
+//      else {
+//        console.log('cancel highlight')
+//      }
+//    }
   },
   mounted () {
     this.loadHighlights()
