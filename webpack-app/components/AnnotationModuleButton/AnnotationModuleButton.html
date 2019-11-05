@@ -1,4 +1,7 @@
 <span class="ui mini button"
       v-bind:style="computedStyle">
   {{ $t('ANNOTATION_TYPE.' + annotationModule) }}
+  <template v-if="count">
+    : {{ count }}
+  </template>
 </span>

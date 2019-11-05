@@ -623,9 +623,13 @@ var render = function() {
       _vm._v(
         "\r\n  " +
           _vm._s(_vm.$t("ANNOTATION_TYPE." + _vm.annotationModule)) +
-          "\r\n"
-      )
-    ]
+          "\r\n  "
+      ),
+      _vm.count
+        ? [_vm._v("\r\n    : " + _vm._s(_vm.count) + "\r\n  ")]
+        : _vm._e()
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -1747,7 +1751,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let AnnotationModuleButton = {
-  props: ['status', 'annotationModule'],
+  props: ['status', 'annotationModule', 'count'],
   data() {
     return {
     }

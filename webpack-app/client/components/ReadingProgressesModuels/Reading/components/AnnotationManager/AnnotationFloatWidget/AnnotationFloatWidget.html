@@ -1,6 +1,24 @@
 <div class="annotation-float-widget"
      v-bind:class="computedClassNames">
   <div class="ui secondary segment">
-    AnnotationFloatWidget
+    
+    <div class="ui segment">
+      [[ Most relevant annotation ]]
+    </div>
+    
+    <div>
+      [[authors]]
+      
+      [[type buttons]]
+      
+      <button type="button" 
+              class="ui button"
+              v-if="highlightPosLock">
+        [[full list link]]
+      </button>
+      
+      
+    </div>
+    
   </div>
 </div>

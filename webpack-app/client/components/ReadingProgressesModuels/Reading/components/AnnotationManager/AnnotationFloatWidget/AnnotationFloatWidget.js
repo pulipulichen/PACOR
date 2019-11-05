@@ -1,8 +1,11 @@
 let AnnotationFloatWidget = {
-  props: ['lib', 'status', 'config', 'highlightPos'],
+  props: ['lib', 'status', 'config', 'highlightPos', 'highlightPosLock'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      mostReleventAnnotation: null,
+      users: [],
+      types: []
     }
   },
   components: {

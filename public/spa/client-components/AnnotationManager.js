@@ -348,7 +348,22 @@ var render = function() {
     { staticClass: "annotation-float-widget", class: _vm.computedClassNames },
     [
       _c("div", { staticClass: "ui secondary segment" }, [
-        _vm._v("\r\n    AnnotationFloatWidget\r\n  ")
+        _c("div", { staticClass: "ui segment" }, [
+          _vm._v("\r\n      [[ Most relevant annotation ]]\r\n    ")
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _vm._v(
+            "\r\n      [[authors]]\r\n      \r\n      [[type buttons]]\r\n      \r\n      "
+          ),
+          _vm.highlightPosLock
+            ? _c(
+                "button",
+                { staticClass: "ui button", attrs: { type: "button" } },
+                [_vm._v("\r\n        [[full list link]]\r\n      ")]
+              )
+            : _vm._e()
+        ])
       ])
     ]
   )
@@ -421,7 +436,8 @@ var render = function() {
               config: _vm.config,
               status: _vm.status,
               lib: _vm.lib,
-              highlightPos: _vm.highlightPos
+              highlightPos: _vm.highlightPos,
+              highlightPosLock: _vm.highlightPosLock
             }
           })
         : _vm._e()
@@ -1357,10 +1373,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let AnnotationFloatWidget = {
-  props: ['lib', 'status', 'config', 'highlightPos'],
+  props: ['lib', 'status', 'config', 'highlightPos', 'highlightPosLock'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      mostReleventAnnotation: null,
+      users: [],
+      types: []
     }
   },
   components: {
@@ -1515,6 +1534,7 @@ let AnnotationManager = {
       
       highlightPos: null,
       highlightPosLock: false,
+      highlightPosLockTimer: null,
       //loadHighlightInterval: 3 * 1000  // for test
     }
   },
@@ -1615,6 +1635,7 @@ let AnnotationManager = {
       this.pinSelection = null
     },
     toggleHighlightPos (pos) {
+      /*
       if (this.highlightPos === null) {
         this.highlightPos = pos
         this.highlightPosLock = true
@@ -1623,16 +1644,36 @@ let AnnotationManager = {
         this.highlightPos = null
         this.highlightPosLock = false
       }
+       */
+      if (this.highlightPos !== null && this.highlightPosLock !== true) {
+        this.highlightPosLock = !this.highlightPosLock
+        return
+      }
+      else {
+        // 在觸控的情況下
+        if (this.highlightPos === null) {
+          this.highlightPos = pos
+          this.highlightPosLock = true
+        }
+        else {
+          this.highlightPos = null
+          this.highlightPosLock = false
+        }
+      }
     },
     onHighlightPosMouseover (pos) {
       if (this.highlightPosLock === false) {
+        clearTimeout(this.highlightPosLockTimer)
         this.highlightPos = pos
       }
     },
     onHighlightPosMouseout () {
       if (this.highlightPosLock === false
            && this.highlightPos !== null) {
-        this.highlightPos = null
+        // 延遲一點再消失吧
+        this.highlightPosLockTimer = setTimeout(() => {
+          this.highlightPos = null
+        }, 3000)
       }
     }
   } // methods

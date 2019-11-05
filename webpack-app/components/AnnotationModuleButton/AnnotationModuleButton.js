@@ -1,5 +1,5 @@
 let AnnotationModuleButton = {
-  props: ['status', 'annotationModule'],
+  props: ['status', 'annotationModule', 'count'],
   data() {
     return {
     }
