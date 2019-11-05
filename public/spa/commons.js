@@ -2616,10 +2616,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 
-axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.withCredentials = true
+axios__WEBPACK_IMPORTED_MODULE_1___default.a.defaults.withCredentials = true
 
 let AxiosHelper = {
   baseURL: '',
@@ -2662,7 +2662,7 @@ let AxiosHelper = {
     }
     
     try {
-      let result = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(path, options)
+      let result = await axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(path, options)
       return result.data
     }
     catch (error) {
@@ -2686,7 +2686,7 @@ let AxiosHelper = {
     }
     
     try {
-      let result = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(this.getURL(path), options)
+      let result = await axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(this.getURL(path), options)
       return result.data
     }
     catch (error) {
@@ -2720,7 +2720,7 @@ let AxiosHelper = {
     //console.log(formData)
     
     try {
-      let result = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(this.getURL(path), formData, {
+      let result = await axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(this.getURL(path), formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -2752,9 +2752,9 @@ let AxiosHelper = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dayjs */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\dayjs\\dayjs.min.js");
 /* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var dayjs_plugin_relativeTime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dayjs/plugin/relativeTime */ "./node_modules/dayjs/plugin/relativeTime.js");
+/* harmony import */ var dayjs_plugin_relativeTime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dayjs/plugin/relativeTime */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\dayjs\\plugin\\relativeTime.js");
 /* harmony import */ var dayjs_plugin_relativeTime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dayjs_plugin_relativeTime__WEBPACK_IMPORTED_MODULE_1__);
 
 
@@ -2762,7 +2762,7 @@ __webpack_require__.r(__webpack_exports__);
 dayjs__WEBPACK_IMPORTED_MODULE_0___default.a.extend(dayjs_plugin_relativeTime__WEBPACK_IMPORTED_MODULE_1___default.a)
 
 // preload locales
-__webpack_require__(/*! dayjs/locale/zh-tw */ "./node_modules/dayjs/locale/zh-tw.js").default
+__webpack_require__(/*! dayjs/locale/zh-tw */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\dayjs\\locale\\zh-tw.js").default
 
 let DayJSHelper = {
   $t: null,
@@ -2889,7 +2889,7 @@ let DayJSHelper = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 
@@ -4217,7 +4217,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-let $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")
+let $ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js")
 window.jQuery = window.$ = $
 
 // Use Semantic UI original version

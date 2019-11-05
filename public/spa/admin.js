@@ -798,7 +798,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./helpers/StringHelper */ "./webpack-app/helpers/StringHelper.js");
 /* harmony import */ var _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./helpers/ValidateHelper */ "./webpack-app/helpers/ValidateHelper.js");
 /* harmony import */ var _admin_components_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./admin/components/Auth/Auth.vue */ "./webpack-app/admin/components/Auth/Auth.vue");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./admin/admin.tpl */ "./webpack-app/admin/admin.tpl");
 /* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_admin_admin_tpl__WEBPACK_IMPORTED_MODULE_13__);

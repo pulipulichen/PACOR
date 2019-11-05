@@ -2847,7 +2847,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AnnotationDiscussion_AnnotationDiscussion_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AnnotationDiscussion/AnnotationDiscussion.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationDiscussion/AnnotationDiscussion.vue");
 /* harmony import */ var _AnnotationEditorModules_MainIdea_MainIdea_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AnnotationEditorModules/MainIdea/MainIdea.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.vue");
 /* harmony import */ var _AnnotationEditorModules_ConfusedClarified_ConfusedClarified_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AnnotationEditorModules/ConfusedClarified/ConfusedClarified.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/ConfusedClarified/ConfusedClarified.vue");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
 //import VueDraggableResizable from 'vue-draggable-resizable'
 //import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
@@ -3429,7 +3429,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./rangy/rangy-webpack.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/RangyManager/rangy/rangy-webpack.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 //import rangy from 'rangy-updated'
 

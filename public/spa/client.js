@@ -852,7 +852,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./helpers/StringHelper */ "./webpack-app/helpers/StringHelper.js");
 /* harmony import */ var _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers/ValidateHelper */ "./webpack-app/helpers/ValidateHelper.js");
 /* harmony import */ var _helpers_StyleHelper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers/StyleHelper */ "./webpack-app/helpers/StyleHelper.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./client/client.tpl */ "./webpack-app/client/client.tpl");
 /* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_client_client_tpl__WEBPACK_IMPORTED_MODULE_10__);

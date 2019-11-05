@@ -118,6 +118,16 @@
   "globalDependencies": {
     "@adonisjs/cli": "^4.0.12"
   },
+  "adonisjsCommands": [
+    "npm i -g @adonisjs/cli",
+    "adonis install @adonisjs/auth",
+    "adonis install @adonisjs/cors",
+    "adonis install @adonisjs/drive",
+    "adonis install @adonisjs/redis",
+    "adonis install @adonisjs/websocket",
+    "adonis install @adonisjs/vow",
+    "adonis install @adonisjs/vow-browser"
+  ],
   "autoload": {
     "App": "./app"
   }
