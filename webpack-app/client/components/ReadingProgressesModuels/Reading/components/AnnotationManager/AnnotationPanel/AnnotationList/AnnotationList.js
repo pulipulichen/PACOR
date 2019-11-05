@@ -3,6 +3,9 @@ let AnnotationList = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      annotations: [],
+      users: [],
+      types: []
     }
   },
   components: {
@@ -14,6 +17,9 @@ let AnnotationList = {
   mounted() {
   },
   methods: {
+    onFindAnnotation (annotation) {
+      this.findAnnotation = annotation
+    }
   } // methods
 }
 

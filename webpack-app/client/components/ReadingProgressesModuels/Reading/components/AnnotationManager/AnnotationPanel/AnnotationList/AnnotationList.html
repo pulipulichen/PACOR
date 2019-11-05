@@ -1,3 +1,41 @@
-<div class="ui segment">
+<div class="AnnotationList">
+  
+  <div class="summary-information">
+    <button type="button" class="ui mini button"
+            v-if="findAnnotation">
+      {{ $t('Back to list') }}
+    </button>
+    
+    <user-avatar-icons 
+          style="margin-right: 0.5em;"
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib"
+          v-bind:users="users"></user-avatar-icons >
+        
+    <annotation-module-button v-for="t in types"
+          v-bind:lib="lib"
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:annotationModule="t.type"
+          v-bind:count="t.count"></annotation-module-button>
+  </div>
+  
+  <div class="list"
+       v-show="findAnnotation === null">
+    <annotation-item
+        v-for="annotation in annotations"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:isFull="false"
+        v-bind:annotation="annotation"
+        v-on:find="edit"></annotation-item>
+  </div>
+  <div class="find-annotation">
+    
+  </div>
+  
   AnnotationList
+  {{ listPositions }}
 </div>

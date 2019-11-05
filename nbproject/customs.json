@@ -100,6 +100,7 @@
     "v-on:click": {
       "context": "button"
     },
-    "v-else": {}
+    "v-else": {},
+    "v-show": {}
   }
 }

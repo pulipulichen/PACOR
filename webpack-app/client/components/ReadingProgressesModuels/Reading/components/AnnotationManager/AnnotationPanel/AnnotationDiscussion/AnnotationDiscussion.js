@@ -1,5 +1,5 @@
-let Template = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+let AnnotationDiscussion = {
+  props: ['lib', 'status', 'config', 'annotationInstance'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -17,4 +17,4 @@ let Template = {
   } // methods
 }
 
-export default Template
+export default AnnotationDiscussion

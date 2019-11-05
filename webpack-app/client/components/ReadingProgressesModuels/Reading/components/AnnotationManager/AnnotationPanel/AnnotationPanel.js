@@ -92,7 +92,15 @@ let AnnotationPanel = {
               && typeof(pinSelection) === 'object') {
         //console.log(pinSelection)
         this.show()
-        this.scrollToPinSelection()
+      }
+      else {
+        this.hide()
+      }
+    },
+    listPositions: function (listPositions) {
+      if (listPositions !== null 
+              && typeof(listPositions) === 'object') {
+        this.show()
       }
       else {
         this.hide()
@@ -156,6 +164,8 @@ let AnnotationPanel = {
       window.$(this.$refs.panel).transition(this.transitionMode, () => {
         //this.placeholder.show()
       })
+      
+      this.scrollToPinSelection()
     },
     hide: function (doUnpin) {
       this.placeholder.transition(this.transitionMode)
@@ -168,6 +178,10 @@ let AnnotationPanel = {
       })
     },
     scrollToPinSelection () {
+      if (this.pinSelection === null) {
+        return false
+      }
+      
       let rect = this.pinSelection.rect
       let viewportHeight = window.innerHeight
       

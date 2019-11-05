@@ -526,7 +526,9 @@ var render = function() {
           lib: _vm.lib,
           pinSelection: _vm.pinSelection,
           rangy: _vm.$refs.RangyManager,
-          annotationModule: _vm.annotationModule
+          annotationModule: _vm.annotationModule,
+          findAnnotation: _vm.findAnnotation,
+          listPositions: _vm.listPositions
         },
         on: { hide: _vm.unpin }
       }),
@@ -1014,8 +1016,80 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui segment" }, [
-    _vm._v("\r\n  AnnotationList\r\n")
+  return _c("div", { staticClass: "AnnotationList" }, [
+    _c(
+      "div",
+      { staticClass: "summary-information" },
+      [
+        _vm.findAnnotation
+          ? _c(
+              "button",
+              { staticClass: "ui mini button", attrs: { type: "button" } },
+              [
+                _vm._v(
+                  "\r\n      " + _vm._s(_vm.$t("Back to list")) + "\r\n    "
+                )
+              ]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c("user-avatar-icons", {
+          staticStyle: { "margin-right": "0.5em" },
+          attrs: {
+            config: _vm.config,
+            status: _vm.status,
+            lib: _vm.lib,
+            users: _vm.users
+          }
+        }),
+        _vm._v(" "),
+        _vm._l(_vm.types, function(t) {
+          return _c("annotation-module-button", {
+            attrs: {
+              lib: _vm.lib,
+              config: _vm.config,
+              status: _vm.status,
+              annotationModule: t.type,
+              count: t.count
+            }
+          })
+        })
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.findAnnotation === null,
+            expression: "findAnnotation === null"
+          }
+        ],
+        staticClass: "list"
+      },
+      _vm._l(_vm.annotations, function(annotation) {
+        return _c("annotation-item", {
+          attrs: {
+            config: _vm.config,
+            status: _vm.status,
+            lib: _vm.lib,
+            isFull: false,
+            annotation: annotation
+          },
+          on: { find: _vm.edit }
+        })
+      }),
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "find-annotation" }),
+    _vm._v(
+      "\r\n  \r\n  AnnotationList\r\n  " + _vm._s(_vm.listPositions) + "\r\n"
+    )
   ])
 }
 var staticRenderFns = []
@@ -1087,7 +1161,7 @@ var render = function() {
                             status: _vm.status,
                             pinSelection: _vm.pinSelection,
                             annotationModule: _vm.annotationModule,
-                            annotationInstance: _vm.annotationInstance,
+                            annotationInstance: _vm.findAnnotation,
                             annotationConfig: _vm.annotationConfig,
                             lib: _vm.lib,
                             rangy: _vm.rangy,
@@ -1109,7 +1183,8 @@ var render = function() {
                               attrs: {
                                 config: _vm.config,
                                 status: _vm.status,
-                                lib: _vm.lib
+                                lib: _vm.lib,
+                                annotationInstance: _vm.findAnnotation
                               }
                             })
                           ],
@@ -1593,6 +1668,8 @@ let AnnotationFloatWidget = {
       for (let key in result) {
         this[key] = result[key]
       }
+      
+      this.$emit('list', this.highlightPos)
     }
   } // methods
 }
@@ -1731,7 +1808,8 @@ let AnnotationManager = {
       highlightPosLockTimer: null,
       //loadHighlightInterval: 3 * 1000  // for test
       
-      listPos: null
+      findAnnotation: null,
+      listPositions: null
     }
   },
   components: {
@@ -1881,10 +1959,13 @@ let AnnotationManager = {
       }
     },
     onFindAnnotation (annotation) {
-      throw '編輯annotation ' +  annotation.id
+      //throw '編輯annotation ' +  annotation.id
+      this.findAnnotation = annotation
+      this.listPositions = this.highlightPos
     },
     onList (anchorPositions) {
-      throw '列出annotation ' +  anchorPositions.length
+      //throw '列出annotation ' +  anchorPositions.length
+      this.listPositions = anchorPositions
     }
   } // methods
 }
@@ -2024,8 +2105,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let Template = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+let AnnotationDiscussion = {
+  props: ['lib', 'status', 'config', 'annotationInstance'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -2043,7 +2124,7 @@ let Template = {
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Template);
+/* harmony default export */ __webpack_exports__["default"] = (AnnotationDiscussion);
 
 /***/ }),
 
@@ -3088,6 +3169,9 @@ let AnnotationList = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      annotations: [],
+      users: [],
+      types: []
     }
   },
   components: {
@@ -3099,6 +3183,9 @@ let AnnotationList = {
   mounted() {
   },
   methods: {
+    onFindAnnotation (annotation) {
+      this.findAnnotation = annotation
+    }
   } // methods
 }
 
@@ -3353,7 +3440,15 @@ let AnnotationPanel = {
               && typeof(pinSelection) === 'object') {
         //console.log(pinSelection)
         this.show()
-        this.scrollToPinSelection()
+      }
+      else {
+        this.hide()
+      }
+    },
+    listPositions: function (listPositions) {
+      if (listPositions !== null 
+              && typeof(listPositions) === 'object') {
+        this.show()
       }
       else {
         this.hide()
@@ -3417,6 +3512,8 @@ let AnnotationPanel = {
       window.$(this.$refs.panel).transition(this.transitionMode, () => {
         //this.placeholder.show()
       })
+      
+      this.scrollToPinSelection()
     },
     hide: function (doUnpin) {
       this.placeholder.transition(this.transitionMode)
@@ -3429,6 +3526,10 @@ let AnnotationPanel = {
       })
     },
     scrollToPinSelection () {
+      if (this.pinSelection === null) {
+        return false
+      }
+      
       let rect = this.pinSelection.rect
       let viewportHeight = window.innerHeight
       

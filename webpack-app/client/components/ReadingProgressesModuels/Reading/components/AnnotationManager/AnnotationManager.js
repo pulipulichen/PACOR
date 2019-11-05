@@ -21,7 +21,8 @@ let AnnotationManager = {
       highlightPosLockTimer: null,
       //loadHighlightInterval: 3 * 1000  // for test
       
-      listPos: null
+      findAnnotation: null,
+      listPositions: null
     }
   },
   components: {
@@ -171,10 +172,13 @@ let AnnotationManager = {
       }
     },
     onFindAnnotation (annotation) {
-      throw '編輯annotation ' +  annotation.id
+      //throw '編輯annotation ' +  annotation.id
+      this.findAnnotation = annotation
+      this.listPositions = this.highlightPos
     },
     onList (anchorPositions) {
-      throw '列出annotation ' +  anchorPositions.length
+      //throw '列出annotation ' +  anchorPositions.length
+      this.listPositions = anchorPositions
     }
   } // methods
 }
