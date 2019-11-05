@@ -2,11 +2,7 @@
 //import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
 
 import AnnotationList from './AnnotationList/AnnotationList.vue'
-
-import AnnotationDiscussion from './AnnotationDiscussion/AnnotationDiscussion.vue'
-
-import AnnotationModuleMainIdea from './AnnotationEditorModules/MainIdea/MainIdea.vue'
-import AnnotationModuleConfusedClarified from './AnnotationEditorModules/ConfusedClarified/ConfusedClarified.vue'
+import AnnotationEditorModules from './AnnotationEditorModules/AnnotationEditorModules.vue'
 
 import $ from 'jquery'
 
@@ -31,11 +27,9 @@ let AnnotationPanel = {
   components: {
     //'vue-draggable-resizable': VueDraggableResizable,
     
-    'annotation-discussion': AnnotationDiscussion,
     'annotation-list': AnnotationList,
+    'annotation-editor-modules': AnnotationEditorModules,
     
-    'MainIdea': AnnotationModuleMainIdea,
-    'ConfusedClarified': AnnotationModuleConfusedClarified
   },
   computed: {
     annotationConfig () {
@@ -54,17 +48,7 @@ let AnnotationPanel = {
       //return `calc(${this.heightVH}vh - ${this.navigationPlaceholderHeight}px)`
       return `calc(${this.heightPX}px - ${this.navigationPlaceholderHeight}px)`
     },
-    computedGridClass () {
-      let classList = []
-      if (this.annotationConfig.enableCollaboration === true) {
-        classList.push('two')
-      }
-      else {
-        classList.push('one')
-      }
-      
-      return classList.join(' ') + ' column grid'
-    },
+    
     computedSegmentStyle () {
       if (this.annotationConfig.enableCollaboration === true
               && this.lib.style.isStackWidth() === true) {

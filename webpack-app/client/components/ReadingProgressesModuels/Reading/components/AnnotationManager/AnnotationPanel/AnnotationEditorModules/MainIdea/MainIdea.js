@@ -10,23 +10,25 @@ let MainIdea = {
     
     let note = ''
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
-    if (this.annotationInstance !== null 
-            && typeof(this.annotationInstance) === 'object'
-            && typeof(this.annotationInstance.note) === 'string') {
-      note = this.annotationInstance.note
-    }
+    
     //console.log(note)
     
     return {
       note: note,
       noteReset: note,
-      public: (this.annotationConfig.defaultPermission === 'public')
+      //public: 
     }
   },
   components: {
     'annotation-editor-header': AnnotationEditorHeader
   },
   computed: {
+    annotationConfig () {
+      return this.lib.auth.currentStepAnnotationConfig
+    },
+    public () {
+      return (this.annotationConfig.defaultPermission === 'public')
+    },
     isNoteDifferent () {
       return (this.note !== this.noteReset)
     },
@@ -68,8 +70,16 @@ let MainIdea = {
       return this.status.readingConfig.annotationTypeModules[this.annotationModule]
     }
   },
-//  watch: {
-//  },
+  watch: {
+    annotationInstance (annotationInstance) {
+      if (annotationInstance !== null 
+            && typeof(annotationInstance) === 'object'
+            && typeof(annotationInstance.note) === 'string') {
+        this.note = annotationInstance.note
+        this.$refs.editor.html(this.note)
+      }
+    }
+  },
 //  mounted() {
 //  },
   methods: {

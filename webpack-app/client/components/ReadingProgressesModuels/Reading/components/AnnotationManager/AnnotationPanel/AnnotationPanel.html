@@ -17,36 +17,21 @@
           v-bind:config="config"
           v-bind:status="status"
           v-bind:listPositions="listPositions"
+          v-bind:findAnnotation="findAnnotation"
           v-bind:lib="lib"></annotation-list>
         
       </template> <!-- <template v-if="listPositions"> -->
       <template v-else>
-        <div class="ui stackable"
-             v-bind:class="computedGridClass">
-          <div class="column annotation-editor">
-            <component v-bind:is="annotationModule"
-                       v-bind:config="config"
-                       v-bind:status="status"
-                       v-bind:pinSelection="pinSelection"
-                       v-bind:annotationModule="annotationModule"
-                       v-bind:annotationInstance="findAnnotation"
-                       v-bind:annotationConfig="annotationConfig"
-                       v-bind:lib="lib"
-                       v-bind:rangy="rangy"
-                       v-bind:heightPX="heightPX"
-                       v-on:hide="hide"></component>
-          </div>
-
-          <!-- =========================================== -->
-          <div class="column annotation-discussion" 
-               v-if="annotationConfig.enableCollaboration">
-            <annotation-discussion ref="AnnotationDisscussion"
-              v-bind:config="config"
-              v-bind:status="status"
-              v-bind:lib="lib"
-              v-bind:annotationInstance="findAnnotation"></annotation-discussion>
-          </div>
-        </div>
+        <annotation-editor-modules ref="auth"
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib"
+          v-bind:annotationModule="annotationModule"
+          v-bind:pinSelection="pinSelection"
+          v-bind:annotationInstance="findAnnotation"
+          v-bind:rangy="rangy"
+          v-bind:heightPX="heightPX"
+          v-on:hide="hide"></annotation-editor-modules>
       </template> <!-- <template v-else> -->
         
     </div>

@@ -175,10 +175,12 @@ let AnnotationManager = {
       //throw '編輯annotation ' +  annotation.id
       this.findAnnotation = annotation
       this.listPositions = this.highlightPos
+      this.highlightPos = null
     },
     onList (anchorPositions) {
       //throw '列出annotation ' +  anchorPositions.length
       this.listPositions = anchorPositions
+      this.highlightPos = null
     }
   } // methods
 }
