@@ -370,6 +370,7 @@ var render = function() {
                   { class: _vm.computedButtonsClassNames },
                   [
                     _c("user-avatar-icons", {
+                      staticStyle: { "margin-right": "0.5em" },
                       attrs: {
                         config: _vm.config,
                         status: _vm.status,

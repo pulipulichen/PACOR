@@ -1,4 +1,4 @@
-let Template = {
+let UserAvatarIcons = {
   props: ['lib', 'status', 'config', 'users'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -14,7 +14,15 @@ let Template = {
   mounted() {
   },
   methods: {
+    username (user) {
+      if (typeof(user.displayName) === 'string') {
+        return user.displayName
+      }
+      else {
+        return user.username
+      }
+    },
   } // methods
 }
 
-export default Template
+export default UserAvatarIcons

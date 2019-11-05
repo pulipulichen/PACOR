@@ -929,14 +929,13 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "UserAvatarIcons" },
-    [
-      _vm._l(_vm.users, function(user) {
-        return [
-          _c("img", { staticClass: "avatar", attrs: { src: user.avatar_url } })
-        ]
+    _vm._l(_vm.users, function(user) {
+      return _c("img", {
+        staticClass: "avatar",
+        attrs: { title: _vm.username(user), src: user.avatar_url }
       })
-    ],
-    2
+    }),
+    0
   )
 }
 var staticRenderFns = []
@@ -2767,7 +2766,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let Template = {
+let UserAvatarIcons = {
   props: ['lib', 'status', 'config', 'users'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -2783,10 +2782,18 @@ let Template = {
   mounted() {
   },
   methods: {
+    username (user) {
+      if (typeof(user.displayName) === 'string') {
+        return user.displayName
+      }
+      else {
+        return user.username
+      }
+    },
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Template);
+/* harmony default export */ __webpack_exports__["default"] = (UserAvatarIcons);
 
 /***/ }),
 

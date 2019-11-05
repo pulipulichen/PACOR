@@ -1,6 +1,6 @@
 <div class="UserAvatarIcons">
-  <template v-for="user in users">
-    <img v-bind:src="user.avatar_url"
-         class="avatar"/>
-  </template>
+  <img v-for="user in users"
+       v-bind:title="username(user)"
+       v-bind:src="user.avatar_url"
+       class="avatar"/>
 </div>
