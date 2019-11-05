@@ -30431,15 +30431,7 @@ module.exports = json2mq;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var camel2hyphen = function (str) {
-  return str
-          .replace(/[A-Z]/g, function (match) {
-            return '-' + match.toLowerCase();
-          })
-          .toLowerCase();
-};
-
-module.exports = camel2hyphen;
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue-media\\node_modules\\string-convert\\camel2hyphen.js'");
 
 /***/ })
 

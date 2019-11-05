@@ -33,4 +33,4 @@ test('put cache', async ({ assert, client }) => {
 
 
 // Reset database
-//trait('DatabaseTransactions')
+trait('DatabaseTransactions')

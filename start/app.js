@@ -22,7 +22,8 @@ const providers = [
   '@adonisjs/ally/providers/AllyProvider',
   '@adonisjs/drive/providers/DriveProvider',
   '@adonisjs/websocket/providers/WsProvider',
-  'adonis-cache/providers/CacheProvider'
+  'adonis-cache/providers/CacheProvider',
+  '@adonisjs/redis/providers/RedisProvider'
 ]
 
 
@@ -57,7 +58,8 @@ const aceProviders = [
 const aliases = {
   //Cache: 'Adonis/Addons/Cache'
   Cache: 'App/Helpers/CacheHelper',
-  Sleep: 'App/Helpers/Sleep'
+  Sleep: 'App/Helpers/Sleep',
+  Redis: 'Adonis/Addons/Redis'
 }
 
 /*
