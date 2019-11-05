@@ -476,7 +476,30 @@ let RangyManager = {
       //return this.selection
     },
     
+    removeHighlightByAnnotation (annotation) {
+      let type = this.lib.auth.getHighlightAnnotationType(annotation)
+      this.highlighter.highlights.forEach(hl => {
+        let range = hl.characterRange
+        let className = hl.classApplier.className
+        console.log(className, type)
+        for (let i = 0; i < annotation.anchorPositions.length; i++) {
+          let pos = annotation.anchorPositions[i]
+          if (type === className 
+                  && hl.containerElementId === pos.paragraph_id
+                  && range.start === pos.start_pos
+                  && range.end === pos.end_pos) {
+            hl.unapply()
+            break
+          }
+        }
+      })
+      
+      this.unpinSelection()
+      this.hoverOut(true)
+    },
+    
     removeHighlightFromPinnedSelection: function (className) {
+      console.log([this.highlightClasses.indexOf(className), this.selectionSaved])
       if (this.highlightClasses.indexOf(className) === -1
               || this.selectionSaved === null) {
         return false
@@ -490,16 +513,20 @@ let RangyManager = {
       
       //let highlight = this.highlighter.getHighlightForElement(this.selection)
       //highlight.removeHighlights( [className] )
-      //console.log(className)
+      
+      console.log(className)
       this.highlighter.unhighlightSelection( [className] )
       
-      //console.log(className)
-      this.selection.removeAllRanges()
+      console.log(className)
+      if (this.selection !== null) {
+        this.selection.removeAllRanges()
+      }
       this.unpinSelection()
       
-      this.selection.highlightClassName = className
+      //this.selection.highlightClassName = className
       
-      return this.selection
+      //return this.selection
+      return this
     },
     
     // -------------------

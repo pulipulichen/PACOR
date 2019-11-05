@@ -86,7 +86,16 @@ var render = function() {
       style: _vm.computedStyle,
       on: { click: _vm.focus }
     },
-    [_c("div", { ref: "editor" })]
+    [
+      _vm.editable ? _c("div", { ref: "editor" }) : _vm._e(),
+      _vm._v(" "),
+      !_vm.editable
+        ? _c("div", {
+            ref: "editor",
+            domProps: { innerHTML: _vm._s(_vm.contents) }
+          })
+        : _vm._e()
+    ]
   )
 }
 var staticRenderFns = []
@@ -185,7 +194,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let HTMLEditor = {
-  props: ['lib', 'status', 'config', 'contents', 'height'],
+  props: ['lib', 'status', 'config', 'contents', 'height', 'editable'],
   data() {
     if (typeof(this.config) === 'object') {
       this.$i18n.locale = this.config.locale
@@ -224,6 +233,7 @@ let HTMLEditor = {
       this.editor = window.$(this.$refs.editor)
       this.editor.summernote(options)
       
+      //console.log(this.contents)
       if (typeof(this.contents) === 'string') {
         this.html(this.contents)
       }

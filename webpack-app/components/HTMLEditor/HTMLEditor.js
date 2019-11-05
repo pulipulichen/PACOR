@@ -1,7 +1,7 @@
 import './summernote/summernote-lite.webpack.js'
 
 let HTMLEditor = {
-  props: ['lib', 'status', 'config', 'contents', 'height'],
+  props: ['lib', 'status', 'config', 'contents', 'height', 'editable'],
   data() {
     if (typeof(this.config) === 'object') {
       this.$i18n.locale = this.config.locale
@@ -40,6 +40,7 @@ let HTMLEditor = {
       this.editor = window.$(this.$refs.editor)
       this.editor.summernote(options)
       
+      //console.log(this.contents)
       if (typeof(this.contents) === 'string') {
         this.html(this.contents)
       }

@@ -4,13 +4,17 @@ let MainIdea = {
   props: ['lib', 'status', 'config'
     , 'annotationModule', 'annotationInstance'
     , 'heightPX', 'pinSelection'
-    , 'rangy'],
+    , 'rangy', 'editable'],
   data() {
     this.$i18n.locale = this.config.locale
     
     let note = ''
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
-    
+    if (this.annotationInstance !== null 
+            && typeof(this.annotationInstance) === 'object'
+            && typeof(this.annotationInstance.note) === 'string') {
+      note = this.annotationInstance.note
+    }
     //console.log(note)
     
     return {
@@ -111,17 +115,19 @@ let MainIdea = {
     },
     deleteAnnotation () {
       if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
+        this.rangy.removeHighlightByAnnotation(this.annotationInstance)
+
         let data = {
           id: this.annotationInstance.id
         }
         
-        throw '這邊要處理highlight的部分'
+        //throw '這邊要處理highlight的部分'
         
         this.lib.AxiosHelper.get('/client/resource/Annotation/destroy', data)
         
         return this.$emit('hide') // 跟上層說關閉視窗
       }
-      console.error('#TODO deleteAnnotation')
+      //console.error('#TODO deleteAnnotation')
     },
     hide () {
       this.$emit('hide', true)

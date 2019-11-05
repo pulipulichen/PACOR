@@ -87,7 +87,7 @@ let AnnotationManager = {
         this.$refs.RangyManager.deserialize(result)
       }
       
-      //$('[data-pacor-highlight]:first').click() // for test
+      $('[data-pacor-highlight]:first').click() // for test
       
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
         // 如果不是開放合作，那就不用讀取其他人的資料

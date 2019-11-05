@@ -5,7 +5,9 @@
         v-bind:annotationModule="annotationModule"></annotation-editor-header>
   
   <HTMLEditor ref="editor"
-              v-model:contents="note"
+              v-bind:contents="note"
+              v-on:input="(c) => {note = c}"
+              v-bind:editable="editable"
               v-bind:height="computedEditorHeight"></HTMLEditor>
 
   <div class="ui one column grid annotation-panel-buttons">
@@ -22,10 +24,9 @@
       
       <!-- ============================== -->
       
+      <template v-if="editable">
+        
       <template v-if="annotationInstance">
-        <!--
-        #time
-
         <button type="button"
                 class="ui button"
                 v-bind:class="{'disabled': !enableAddAnnotation}"
@@ -33,21 +34,12 @@
           {{ $t('EDIT') }}  
         </button>
         <button type="button"
-                class="ui button"
+                class="ui red button"
                 v-on:click="deleteAnnotation">
           {{ $t('DELETE') }}  
         </button>
-        -->
       </template>
       <template v-else>
-        <!--
-        <button type="button"
-                class="ui button"
-                v-bind:class="{'disabled': !enableAddAnnotation}"
-                v-on:click="addAnnotation">
-          {{ $t('ADD') }}  
-        </button>
-        -->
         <countdown-button v-bind:minWordCount="moduleConfig.minWords"
           v-bind:text="note"
           v-bind:lib="lib"
@@ -55,6 +47,7 @@
           v-on:click="addAnnotation">
           {{ $t('ADD') }}  
         </countdown-button>
+      </template>
       </template>
     </div>
   </div>

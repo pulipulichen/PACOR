@@ -127,7 +127,7 @@ class WebpageUserBaseController {
     await ReadingActivityLog.log(webpage, user, this.modelName + '.update', data)
     
     let id = data.id
-    if (typeof(id) !== 'number') {
+    if (typeof(id) !== 'number' && typeof(id) !== 'string') {
       throw new HttpException('No id')
     }
     
@@ -155,7 +155,7 @@ class WebpageUserBaseController {
     await ReadingActivityLog.log(webpage, user, this.modelName + '.destroy', data)
     
     let id = data.id
-    if (typeof(id) !== 'number') {
+    if (typeof(id) !== 'number' && typeof(id) !== 'string') {
       throw new HttpException('No id')
     }
     

@@ -40,6 +40,11 @@ let AnnotationEditorModules = {
       else if (this.annotationInstance !== null) {
         return this.annotationInstance.type
       }
+    },
+    editable () {
+      return (typeof(this.annotationModule) === 'string' 
+              || this.status.role !== 'reader'
+              || ( this.annotationInstance !== null && this.annotationInstance.user_id === this.status.userID ))
     }
   },
   watch: {

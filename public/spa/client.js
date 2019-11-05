@@ -1529,6 +1529,16 @@ let Auth = {
         }
       }
       this.status.view = this.currentStep
+    },
+    getHighlightAnnotationType (annotation) {
+      let type = annotation.type
+      if (annotation.user_id === this.status.userID) {
+        type = 'my-' + type
+      }
+      else {
+        type = 'others-' + type
+      }
+      return type
     }
   } // methods
 }

@@ -133,11 +133,11 @@ let resourceControllerMapping = (options, model, action) => {
   const controllerPath = `App/Controllers/Http/Client`
   const url = `${controllerPath}/WebpageUserBaseController.${action}`
   const controllerInstance = ioc.makeFunc(url)
-  console.log(model)
+  //console.log(model)
   controllerInstance.instance.setModel(model)
   return controllerInstance.method.apply(controllerInstance.instance,[options])
 }
 
 Route.any('/client/resource/:model/:action', (options) => {
-  return resourceControllerMapping(options, 'client')
+  return resourceControllerMapping(options)
 }).middleware(['user', 'webpage'])

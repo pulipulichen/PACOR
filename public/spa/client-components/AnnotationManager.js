@@ -543,7 +543,11 @@ var render = function() {
     [
       _c("rangy", {
         ref: "RangyManager",
-        attrs: { status: _vm.status, rangyConfig: _vm.rangyConfig },
+        attrs: {
+          status: _vm.status,
+          rangyConfig: _vm.rangyConfig,
+          lib: _vm.lib
+        },
         on: {
           select: _vm.onselect,
           selectcollapsed: _vm.onselectcollapsed,
@@ -670,7 +674,8 @@ var render = function() {
               annotationConfig: _vm.annotationConfig,
               lib: _vm.lib,
               rangy: _vm.rangy,
-              heightPX: _vm.heightPX
+              heightPX: _vm.heightPX,
+              editable: _vm.editable
             },
             on: {
               hide: function($event) {
@@ -850,13 +855,15 @@ var render = function() {
       _vm._v(" "),
       _c("HTMLEditor", {
         ref: "editor",
-        attrs: { height: _vm.computedEditorHeight },
-        model: {
-          value: _vm.note,
-          callback: function($$v) {
-            _vm.note = $$v
-          },
-          expression: "note"
+        attrs: {
+          contents: _vm.note,
+          editable: _vm.editable,
+          height: _vm.computedEditorHeight
+        },
+        on: {
+          input: function(c) {
+            _vm.note = c
+          }
         }
       }),
       _vm._v(" "),
@@ -895,29 +902,66 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm.annotationInstance
-                ? void 0
-                : [
-                    _c(
-                      "countdown-button",
-                      {
-                        attrs: {
-                          minWordCount: _vm.moduleConfig.minWords,
-                          text: _vm.note,
-                          lib: _vm.lib,
-                          locale: _vm.status.preference.locale
-                        },
-                        on: { click: _vm.addAnnotation }
-                      },
-                      [
-                        _vm._v(
-                          "\r\n          " +
-                            _vm._s(_vm.$t("ADD")) +
-                            "  \r\n        "
-                        )
-                      ]
-                    )
+              _vm.editable
+                ? [
+                    _vm.annotationInstance
+                      ? [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "ui button",
+                              class: { disabled: !_vm.enableAddAnnotation },
+                              attrs: { type: "button" },
+                              on: { click: _vm.editAnnotation }
+                            },
+                            [
+                              _vm._v(
+                                "\r\n          " +
+                                  _vm._s(_vm.$t("EDIT")) +
+                                  "  \r\n        "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "ui red button",
+                              attrs: { type: "button" },
+                              on: { click: _vm.deleteAnnotation }
+                            },
+                            [
+                              _vm._v(
+                                "\r\n          " +
+                                  _vm._s(_vm.$t("DELETE")) +
+                                  "  \r\n        "
+                              )
+                            ]
+                          )
+                        ]
+                      : [
+                          _c(
+                            "countdown-button",
+                            {
+                              attrs: {
+                                minWordCount: _vm.moduleConfig.minWords,
+                                text: _vm.note,
+                                lib: _vm.lib,
+                                locale: _vm.status.preference.locale
+                              },
+                              on: { click: _vm.addAnnotation }
+                            },
+                            [
+                              _vm._v(
+                                "\r\n          " +
+                                  _vm._s(_vm.$t("ADD")) +
+                                  "  \r\n        "
+                              )
+                            ]
+                          )
+                        ]
                   ]
+                : _vm._e()
             ],
             2
           )
@@ -2029,7 +2073,7 @@ let AnnotationFloatWidget = {
         this[key] = result[key]
       }
       
-      //this.$emit('list', this.highlightPos) // for test
+      this.$emit('list', this.highlightPos) // for test
     }
   } // methods
 }
@@ -2234,7 +2278,7 @@ let AnnotationManager = {
         this.$refs.RangyManager.deserialize(result)
       }
       
-      //$('[data-pacor-highlight]:first').click() // for test
+      $('[data-pacor-highlight]:first').click() // for test
       
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
         // 如果不是開放合作，那就不用讀取其他人的資料
@@ -2672,6 +2716,11 @@ let AnnotationEditorModules = {
       else if (this.annotationInstance !== null) {
         return this.annotationInstance.type
       }
+    },
+    editable () {
+      return (typeof(this.annotationModule) === 'string' 
+              || this.status.role !== 'reader'
+              || ( this.annotationInstance !== null && this.annotationInstance.user_id === this.status.userID ))
     }
   },
   watch: {
@@ -3069,13 +3118,17 @@ let MainIdea = {
   props: ['lib', 'status', 'config'
     , 'annotationModule', 'annotationInstance'
     , 'heightPX', 'pinSelection'
-    , 'rangy'],
+    , 'rangy', 'editable'],
   data() {
     this.$i18n.locale = this.config.locale
     
     let note = ''
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
-    
+    if (this.annotationInstance !== null 
+            && typeof(this.annotationInstance) === 'object'
+            && typeof(this.annotationInstance.note) === 'string') {
+      note = this.annotationInstance.note
+    }
     //console.log(note)
     
     return {
@@ -3176,17 +3229,19 @@ let MainIdea = {
     },
     deleteAnnotation () {
       if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
+        this.rangy.removeHighlightByAnnotation(this.annotationInstance)
+
         let data = {
           id: this.annotationInstance.id
         }
         
-        throw '這邊要處理highlight的部分'
+        //throw '這邊要處理highlight的部分'
         
         this.lib.AxiosHelper.get('/client/resource/Annotation/destroy', data)
         
         return this.$emit('hide') // 跟上層說關閉視窗
       }
-      console.error('#TODO deleteAnnotation')
+      //console.error('#TODO deleteAnnotation')
     },
     hide () {
       this.$emit('hide', true)
@@ -5201,7 +5256,30 @@ let RangyManager = {
       //return this.selection
     },
     
+    removeHighlightByAnnotation (annotation) {
+      let type = this.lib.auth.getHighlightAnnotationType(annotation)
+      this.highlighter.highlights.forEach(hl => {
+        let range = hl.characterRange
+        let className = hl.classApplier.className
+        console.log(className, type)
+        for (let i = 0; i < annotation.anchorPositions.length; i++) {
+          let pos = annotation.anchorPositions[i]
+          if (type === className 
+                  && hl.containerElementId === pos.paragraph_id
+                  && range.start === pos.start_pos
+                  && range.end === pos.end_pos) {
+            hl.unapply()
+            break
+          }
+        }
+      })
+      
+      this.unpinSelection()
+      this.hoverOut(true)
+    },
+    
     removeHighlightFromPinnedSelection: function (className) {
+      console.log([this.highlightClasses.indexOf(className), this.selectionSaved])
       if (this.highlightClasses.indexOf(className) === -1
               || this.selectionSaved === null) {
         return false
@@ -5215,16 +5293,20 @@ let RangyManager = {
       
       //let highlight = this.highlighter.getHighlightForElement(this.selection)
       //highlight.removeHighlights( [className] )
-      //console.log(className)
+      
+      console.log(className)
       this.highlighter.unhighlightSelection( [className] )
       
-      //console.log(className)
-      this.selection.removeAllRanges()
+      console.log(className)
+      if (this.selection !== null) {
+        this.selection.removeAllRanges()
+      }
       this.unpinSelection()
       
-      this.selection.highlightClassName = className
+      //this.selection.highlightClassName = className
       
-      return this.selection
+      //return this.selection
+      return this
     },
     
     // -------------------
@@ -11175,7 +11257,7 @@ __webpack_require__.r(__webpack_exports__);
                   selection = selection || api.getSelection(this.doc);
                 }
                 let intersectingHighlights = this.getIntersectingHighlights( selection.getAllRanges() );
-                //console.log(intersectingHighlights)
+                console.log(intersectingHighlights)
                 if (classNameList.length > 0) {
                   intersectingHighlights = intersectingHighlights.filter(highlight => (classNameList.indexOf(highlight.classApplier.className) > -1))
                 }
