@@ -491,6 +491,7 @@ var render = function() {
               status: _vm.status,
               lib: _vm.lib,
               highlightPos: _vm.highlightPos,
+              highlightEvent: _vm.highlightEvent,
               highlightPosLock: _vm.highlightPosLock
             }
           })
@@ -1427,7 +1428,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let AnnotationFloatWidget = {
-  props: ['lib', 'status', 'config', 'highlightPos', 'highlightPosLock'],
+  props: ['lib', 'status', 'config', 'highlightPos', 'highlightEvent', 'highlightPosLock'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -1443,7 +1444,7 @@ let AnnotationFloatWidget = {
     computedContainerClassNames () {
       if (this.highlightPos !== null) {
         let windowHeight = window.innerHeight
-        let clientY = this.highlightPos.event.clientY
+        let clientY = this.highlightEvent.clientY
         if (clientY < (windowHeight / 2) ) {
           return 'bottom'
         }
@@ -1462,8 +1463,18 @@ let AnnotationFloatWidget = {
   watch: {
   },
   mounted() {
+    this.load()
   },
   methods: {
+    load: async function () {
+      let query = {
+        anchorPositions: this.highlightPos
+      }
+      let url = 'client/Annotation/index'
+      
+      let result = await this.lib.AxiosHelper.post(url, query)
+      console.log(result)
+    }
   } // methods
 }
 
@@ -1596,6 +1607,7 @@ let AnnotationManager = {
       loadHighlightInterval: 60 * 1000,
       
       highlightPos: null,
+      highlightEvent: null,
       highlightPosLock: false,
       highlightPosLockTimer: null,
       //loadHighlightInterval: 3 * 1000  // for test
@@ -1697,7 +1709,7 @@ let AnnotationManager = {
       //this.selection = null
       this.pinSelection = null
     },
-    toggleHighlightPos (pos) {
+    toggleHighlightPos (data) {
       /*
       if (this.highlightPos === null) {
         this.highlightPos = pos
@@ -1715,19 +1727,22 @@ let AnnotationManager = {
       else {
         // 在觸控的情況下
         if (this.highlightPos === null) {
-          this.highlightPos = pos
+          this.highlightPos = data.pos
+          this.highlightEvent = data.event
           this.highlightPosLock = true
         }
         else {
           this.highlightPos = null
+          this.highlightEvent = null
           this.highlightPosLock = false
         }
       }
     },
-    onHighlightPosMouseover (pos) {
+    onHighlightPosMouseover (data) {
       if (this.highlightPosLock === false) {
         clearTimeout(this.highlightPosLockTimer)
-        this.highlightPos = pos
+        this.highlightPos = data.anchorPositions
+        this.highlightEvent = data.event
       }
     },
     onHighlightPosMouseout () {
@@ -1736,6 +1751,7 @@ let AnnotationManager = {
         // 延遲一點再消失吧
         this.highlightPosLockTimer = setTimeout(() => {
           this.highlightPos = null
+          this.highlightEvent = null
         }, 3000)
       }
     }

@@ -16,6 +16,7 @@ let AnnotationManager = {
       loadHighlightInterval: 60 * 1000,
       
       highlightPos: null,
+      highlightEvent: null,
       highlightPosLock: false,
       highlightPosLockTimer: null,
       //loadHighlightInterval: 3 * 1000  // for test
@@ -117,7 +118,7 @@ let AnnotationManager = {
       //this.selection = null
       this.pinSelection = null
     },
-    toggleHighlightPos (pos) {
+    toggleHighlightPos (data) {
       /*
       if (this.highlightPos === null) {
         this.highlightPos = pos
@@ -135,19 +136,22 @@ let AnnotationManager = {
       else {
         // 在觸控的情況下
         if (this.highlightPos === null) {
-          this.highlightPos = pos
+          this.highlightPos = data.pos
+          this.highlightEvent = data.event
           this.highlightPosLock = true
         }
         else {
           this.highlightPos = null
+          this.highlightEvent = null
           this.highlightPosLock = false
         }
       }
     },
-    onHighlightPosMouseover (pos) {
+    onHighlightPosMouseover (data) {
       if (this.highlightPosLock === false) {
         clearTimeout(this.highlightPosLockTimer)
-        this.highlightPos = pos
+        this.highlightPos = data.anchorPositions
+        this.highlightEvent = data.event
       }
     },
     onHighlightPosMouseout () {
@@ -156,6 +160,7 @@ let AnnotationManager = {
         // 延遲一點再消失吧
         this.highlightPosLockTimer = setTimeout(() => {
           this.highlightPos = null
+          this.highlightEvent = null
         }, 3000)
       }
     }

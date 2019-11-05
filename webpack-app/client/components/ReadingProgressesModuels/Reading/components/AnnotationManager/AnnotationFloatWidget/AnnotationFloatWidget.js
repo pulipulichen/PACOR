@@ -1,5 +1,5 @@
 let AnnotationFloatWidget = {
-  props: ['lib', 'status', 'config', 'highlightPos', 'highlightPosLock'],
+  props: ['lib', 'status', 'config', 'highlightPos', 'highlightEvent', 'highlightPosLock'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -15,7 +15,7 @@ let AnnotationFloatWidget = {
     computedContainerClassNames () {
       if (this.highlightPos !== null) {
         let windowHeight = window.innerHeight
-        let clientY = this.highlightPos.event.clientY
+        let clientY = this.highlightEvent.clientY
         if (clientY < (windowHeight / 2) ) {
           return 'bottom'
         }
@@ -34,8 +34,18 @@ let AnnotationFloatWidget = {
   watch: {
   },
   mounted() {
+    this.load()
   },
   methods: {
+    load: async function () {
+      let query = {
+        anchorPositions: this.highlightPos
+      }
+      let url = 'client/Annotation/index'
+      
+      let result = await this.lib.AxiosHelper.post(url, query)
+      console.log(result)
+    }
   } // methods
 }
 

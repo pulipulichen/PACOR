@@ -48,7 +48,8 @@ module.exports = {
   sqlite_testing_memory: {
     client: 'sqlite3',
     connection: ':memory:',
-    useNullAsDefault: true
+    useNullAsDefault: true,
+    keepAlive: true
   },
   
   sqlite_cache: {

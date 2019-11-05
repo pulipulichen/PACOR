@@ -34,11 +34,14 @@ module.exports = (cli, runner) => {
     | Migrate the database before starting the tests.
     |
     */
-     /**
-      * keep alive
-      * https://forum.adonisjs.com/t/can-i-use-sqlite-in-memory/2154/2
-      */
-     await ace.call('migration:refresh', {}, { silent: true, keepAlive: true })
+    /**
+     * keep alive
+     * https://forum.adonisjs.com/t/can-i-use-sqlite-in-memory/2154/2
+     */
+    
+    const Cache = use('Cache')
+    await ace.call('migration:refresh', {}, { silent: true, keepAlive: true })
+    await Cache.flush()
   })
 
   runner.after(async () => {

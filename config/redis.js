@@ -36,7 +36,7 @@ module.exports = {
     port: 6379,
     password: null,
     db: 0,
-    keyPrefix: ''
+    keyPrefix: Env.get('REDIS_KEY_PREFIX', '')
   },
 
   /*

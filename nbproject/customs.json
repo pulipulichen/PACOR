@@ -9,7 +9,10 @@
       "attributes": {
         "v-bind:rangyConfig": {},
         "v-bind:status": {},
-        "v-on:select": {}
+        "v-on:select": {},
+        "v-on:selectcollapsed": {},
+        "v-on:highlightMouseover": {},
+        "v-on:highlightClick": {}
       }
     },
     "toc": {},
@@ -89,6 +92,7 @@
     "v-else": {},
     "v-bind:config": {},
     "v-slot:header": {},
-    "#header": {}
+    "#header": {},
+    "v-on:highlightMouseout": {}
   }
 }

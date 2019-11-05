@@ -145,7 +145,7 @@ test('a: create a private annotation', async ({ assert, client }) => {
           .send(data)
           .end()
   
-  //console.log(response.text)
+  console.log(response.text)
   //response.assertError([])
   response.assertStatus(200)
   response.assertText(2)
