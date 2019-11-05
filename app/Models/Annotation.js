@@ -7,6 +7,7 @@ const AnchorPositionModel = use('App/Models/AnchorPosition')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
 const Cache = use('Cache')
+const config = use('Config')
 
 class Annotation extends Model {
   static boot () {
@@ -354,7 +355,7 @@ class Annotation extends Model {
     return await doQuery()
   } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
   
-  static async findByWebpageGroupPosition(webpage, user, {afterTime, anchorPositions, anchorMode, withCount, pick, findUserID, findType}) {
+  static async findByWebpageGroupPosition(webpage, user, {afterTime, anchorPositions, anchorMode, withCount, pick, findUserID, findType, page}) {
     const doQuery = async evt => {
       //console.log('findByWebpageGroupPosition', anchorPositions)
       
@@ -381,6 +382,12 @@ class Annotation extends Model {
       
       if (typeof(findType) === 'string') {
         query.where('type', findType)
+      }
+      
+      if (typeof(page) === 'number') {
+        let itemsPerPage = config.get('view.itemsPerPage')
+        query.limit(itemsPerPage)
+        query.offset(itemsPerPage * page)
       }
 
       if (anchorPositions !== undefined) {

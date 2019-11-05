@@ -327,7 +327,7 @@ exports.push([module.i, "img[data-v-fa31e19a] {\n  height: 2em;\n  width: auto;\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".back-button[data-v-7508456a] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-7508456a] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["AnnotationList.less?vue&type=style&index=0&id=7508456a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;AACrB","file":"AnnotationList.less?vue&type=style&index=0&id=7508456a&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-7508456a] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-7508456a] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n"]}]);
+exports.push([module.i, ".back-button[data-v-7508456a] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-7508456a] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.list[data-v-7508456a] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-7508456a] {\n  text-align: center;\n  color: gray;\n}\n", "",{"version":3,"sources":["AnnotationList.less?vue&type=style&index=0&id=7508456a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb","file":"AnnotationList.less?vue&type=style&index=0&id=7508456a&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-7508456a] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-7508456a] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.list[data-v-7508456a] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-7508456a] {\n  text-align: center;\n  color: gray;\n}\n"]}]);
 
 
 /***/ }),
@@ -1310,30 +1310,45 @@ var render = function() {
             expression: "annotationInstance === null && isFiltering === false"
           }
         ],
-        staticClass: "list"
-      },
-      _vm._l(_vm.annotations, function(annotation) {
-        return _c("annotation-item", {
-          attrs: {
-            config: _vm.config,
-            status: _vm.status,
-            lib: _vm.lib,
-            isFull: false,
-            annotation: annotation,
-            findAnnotation: function(annotation) {
-              _vm.annotationInstance = annotation
-            },
-            findUser: function(user) {
-              _vm.findUser = user
-            },
-            findType: function(type) {
-              _vm.findType = type
-            },
-            rangy: _vm.rangy
+        staticClass: "list",
+        style: _vm.computedListStyle,
+        on: {
+          scroll: function($event) {
+            $event.stopPropagation()
+            return _vm.scrollList($event)
           }
-        })
-      }),
-      1
+        }
+      },
+      [
+        _vm._l(_vm.annotations, function(annotation) {
+          return _c("annotation-item", {
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              isFull: false,
+              annotation: annotation,
+              findAnnotation: function(annotation) {
+                _vm.annotationInstance = annotation
+              },
+              findUser: function(user) {
+                _vm.findUser = user
+              },
+              findType: function(type) {
+                _vm.findType = type
+              },
+              rangy: _vm.rangy
+            }
+          })
+        }),
+        _vm._v(" "),
+        _vm.noMore
+          ? _c("div", { staticClass: "ui segment no-more" }, [
+              _vm._v("\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    ")
+            ])
+          : _vm._e()
+      ],
+      2
     ),
     _vm._v(" "),
     _c(
@@ -1347,30 +1362,45 @@ var render = function() {
             expression: "annotationInstance === null && isFiltering === true"
           }
         ],
-        staticClass: "list"
-      },
-      _vm._l(_vm.filteredAnnotations, function(annotation) {
-        return _c("annotation-item", {
-          attrs: {
-            config: _vm.config,
-            status: _vm.status,
-            lib: _vm.lib,
-            isFull: false,
-            annotation: annotation,
-            findAnnotation: function(annotation) {
-              _vm.annotationInstance = annotation
-            },
-            findUser: function(user) {
-              _vm.findUser = user
-            },
-            findType: function(type) {
-              _vm.findType = type
-            },
-            rangy: _vm.rangy
+        staticClass: "list",
+        style: _vm.computedListStyle,
+        on: {
+          scroll: function($event) {
+            $event.stopPropagation()
+            return _vm.scrollFilterList($event)
           }
-        })
-      }),
-      1
+        }
+      },
+      [
+        _vm._l(_vm.filteredAnnotations, function(annotation) {
+          return _c("annotation-item", {
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              isFull: false,
+              annotation: annotation,
+              findAnnotation: function(annotation) {
+                _vm.annotationInstance = annotation
+              },
+              findUser: function(user) {
+                _vm.findUser = user
+              },
+              findType: function(type) {
+                _vm.findType = type
+              },
+              rangy: _vm.rangy
+            }
+          })
+        }),
+        _vm._v(" "),
+        _vm.filteredNoMore
+          ? _c("div", { staticClass: "ui segment no-more" }, [
+              _vm._v("\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    ")
+            ])
+          : _vm._e()
+      ],
+      2
     ),
     _vm._v(" "),
     _c(
@@ -3713,12 +3743,17 @@ let AnnotationList = {
       users: [],
       userCount: 0,
       types: [],
+      page: 0,
+      noMore: false,
+      
       filteredAnnotations: [],
       filteredAnnotationCount: 0,
       filteredUsers: [],
       filteredUserCount: 0,
       filteredTypes: [],
-      page: 0,
+      filteredPage: 0,
+      filteredNoMore: false,
+      
       annotationInstance: this.findAnnotation,
       findUser: this.propFindUser,
       findType: this.propFindType,
@@ -3740,6 +3775,12 @@ let AnnotationList = {
       if (this.findUser !== null) {
         return this.findUser.id
       }
+    },
+    computedListStyle () {
+      let style = {
+        'max-height': `${this.editorHeightPX - 50}px`
+      }
+      return style
     }
   },
   watch: {
@@ -3750,16 +3791,32 @@ let AnnotationList = {
       this.findType = propFindType
     },
     'listPositions' () {
+      this.page = 0
+      this.noMore = false
       this.loadInit()
     },
     'findAnnotation' (findAnnotation) {
       this.annotationInstance = findAnnotation
     },
     'findUser' () {
+      this.filterPage = 0
+      this.filterNoMore = false
       this.loadFilter()
     },
     'findType' () {
+      this.filterPage = 0
+      this.filterNoMore = false
       this.loadFilter()
+    },
+    'page' (page) {
+      if (page > 0) {
+        this.loadInitNext()
+      }
+    },
+    'filteredPage' (page) {
+      if (page > 0) {
+        this.loadFilterNext()
+      }
     },
     'hoverAnnotation' (annotation) {
       if (annotation !== null) {
@@ -3777,10 +3834,10 @@ let AnnotationList = {
   methods: {
     loadInit: async function () {
       if (Array.isArray(this.listPositions)) {
-        this.page = 0
         let query = {
           anchorPositions: this.listPositions,
-          withCount: true
+          withCount: true,
+          page: this.page
           // @TODO 這邊應該要加入page
         }
         let url = '/client/Annotation/list'
@@ -3793,17 +3850,36 @@ let AnnotationList = {
         }
       }
     },
+    loadInitNext: async function () {
+      if (Array.isArray(this.listPositions)) {
+        let query = {
+          anchorPositions: this.listPositions,
+          withCount: true,
+          page: this.page
+        }
+        let url = '/client/Annotation/listNext'
+        
+        let result = await this.lib.AxiosHelper.post(url, query)
+        //console.log(result)
+        if (Array.isArray(result)) {
+          this.annotations = this.annotations.concat(result)
+        }
+        else {
+          this.noMore = true
+        }
+      }
+    },
     loadFilter: async function () {
       if (Array.isArray(this.listPositions)
               && (this.findUserID !== null || this.findType !== null) ) {
-        this.page = 0
         
         let query = {
           anchorPositions: this.listPositions,
           withCount: true,
           // @TODO 這邊應該要加入page
           findUserID: this.findUserID,
-          findType: this.findType
+          findType: this.findType,
+          page: this.filteredPage
         }
         
         let url = '/client/Annotation/list'
@@ -3813,6 +3889,32 @@ let AnnotationList = {
         
         this.filteredAnnotations = result.annotations
         this.filteredAnnotationCount = result.annotationCount
+      }
+    },
+    loadFilterNext: async function () {
+      if (Array.isArray(this.listPositions)
+              && (this.findUserID !== null || this.findType !== null) ) {
+        
+        let query = {
+          anchorPositions: this.listPositions,
+          withCount: true,
+          // @TODO 這邊應該要加入page
+          findUserID: this.findUserID,
+          findType: this.findType,
+          page: this.filteredPage
+        }
+        
+        let url = '/client/Annotation/listNext'
+        
+        let result = await this.lib.AxiosHelper.post(url, query)
+        //console.log(result)
+        
+        if (Array.isArray(result)) {
+          this.filteredAnnotations = this.filteredAnnotations.concat(result)
+        }
+        else {
+          this.filteredNoMore = true
+        }
       }
     },
     clearFilter () {
@@ -3828,6 +3930,26 @@ let AnnotationList = {
     },
     hoverOut () {
       this.hoverAnnotation = null
+    },
+    scrollList (event) {
+      if (this.noMore === true) {
+        return false
+      }
+      let element = event.target;
+      if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+        //console.log('scrolled');
+        this.page++
+      }
+    },
+    scrollFilterList (event) {
+      if (this.filteredNoMore === true) {
+        return false
+      }
+      let element = event.target;
+      if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+        //console.log('scrolled');
+        this.filteredPage++
+      }
     }
   } // methods
 }
@@ -5198,7 +5320,7 @@ let RangyManager = {
       this.hoverHighlighter.deserialize(highlight)
       this.hoverAnnotation = annotation
       this.hoverAnnotationLock = doLock
-      console.log(this.hoverAnnotationLock)
+      //console.log(this.hoverAnnotationLock)
       return this
     },
     hoverOut : function (doUnlock) {

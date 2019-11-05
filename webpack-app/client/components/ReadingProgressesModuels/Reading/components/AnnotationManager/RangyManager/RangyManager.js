@@ -623,7 +623,7 @@ let RangyManager = {
       this.hoverHighlighter.deserialize(highlight)
       this.hoverAnnotation = annotation
       this.hoverAnnotationLock = doLock
-      console.log(this.hoverAnnotationLock)
+      //console.log(this.hoverAnnotationLock)
       return this
     },
     hoverOut : function (doUnlock) {

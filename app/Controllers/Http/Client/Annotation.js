@@ -44,7 +44,7 @@ class Annotation extends WebpageUserBaseController {
   async floatWidget({request, webpage, user}) {
     let query = request.all()
     let cacheKey = Cache.key('Controllers.Client.Annotation.floatWidget', query)
-    return await Cache.rememberWait(cacheKey, 0, async () => {
+    return await Cache.rememberWait(cacheKey, 3, async () => {
       
       let annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
 
@@ -88,6 +88,11 @@ class Annotation extends WebpageUserBaseController {
       if (annotationCount === 0) {
         return null
       }
+      
+      // for test
+      //for (let i = 0; i < 3; i++) {
+      //  annotations = annotations.concat(annotations)
+      //}
 
       // ---------------------
       let {users, userCount, types} = this._summaryAnnotations(annotations)
@@ -100,6 +105,27 @@ class Annotation extends WebpageUserBaseController {
         types
       }
     
+    })  // return await Cache.rememberWait(cacheKey, 2, async () => {
+  }
+  
+  async listNext({request, webpage, user}) {
+    let query = request.all()
+    if (query.page === 5) {
+      return null
+    }
+    
+    let cacheKey = Cache.key('Controllers.Client.Annotation.listNext', query)
+    return await Cache.rememberWait(cacheKey, 0, async () => {
+      query.withCount = true
+      let annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
+
+      // 來做計算
+      annotations = annotations.toJSON()
+      let annotationCount = annotations.length
+      if (annotationCount === 0) {
+        return null
+      }
+      return annotations
     })  // return await Cache.rememberWait(cacheKey, 2, async () => {
   }
   
