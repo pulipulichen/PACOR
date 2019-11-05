@@ -43,53 +43,57 @@ class Annotation extends WebpageUserBaseController {
   
   async floatWidget({request, webpage, user}) {
     let query = request.all()
-    
-    let annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
-    
-    // 來做計算
-    annotations = annotations.toJSON()
-    let annotationCount = annotations.length
-    if (annotationCount === 0) {
-      return null
-    }
-    
-    query.pick = 1
-    query.withCount = true
-    let annotation = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
-    annotation = annotation.toJSON()
-    //console.log('annotation', annotation)
-    
-    let usersMap = {}
-    
-    annotations.forEach(annotation => {
-      let user = annotation.user
-      if (typeof(usersMap[user.username]) === 'undefined') {
-        usersMap[user.username] = user
+    let cacheKey = Cache.key('Controllers.Client.Annotation', query)
+    return await Cache.rememberWait(cacheKey, 2, async () => {
+      
+      let annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
+
+      // 來做計算
+      annotations = annotations.toJSON()
+      let annotationCount = annotations.length
+      if (annotationCount === 0) {
+        return null
       }
-    })
-    let users = Object.keys(usersMap).map(key => usersMap[key])
-    
-    let typesMap = {}
-    annotations.forEach(annotation => {
-      let type = annotation.type
-      if (typeof(typesMap[type]) !== 'number') {
-        typesMap[type] = 0
-      }
-      typesMap[type]++
-    })
-    let types = Object.keys(typesMap).map(type => {
+
+      query.pick = 1
+      query.withCount = true
+      let annotation = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
+      annotation = annotation.toJSON()
+      //console.log('annotation', annotation)
+
+      let usersMap = {}
+
+      annotations.forEach(annotation => {
+        let user = annotation.user
+        if (typeof(usersMap[user.username]) === 'undefined') {
+          usersMap[user.username] = user
+        }
+      })
+      let users = Object.keys(usersMap).map(key => usersMap[key])
+
+      let typesMap = {}
+      annotations.forEach(annotation => {
+        let type = annotation.type
+        if (typeof(typesMap[type]) !== 'number') {
+          typesMap[type] = 0
+        }
+        typesMap[type]++
+      })
+      let types = Object.keys(typesMap).map(type => {
+        return {
+          type,
+          count: typesMap[type]
+        }
+      })
+
       return {
-        type,
-        count: typesMap[type]
+        annotation,
+        users,
+        types,
+        annotationCount
       }
-    })
     
-    return {
-      annotation,
-      users,
-      types,
-      annotationCount
-    }
+    })  // return await Cache.rememberWait(cacheKey, 2, async () => {
   }
   
   async index ({ request, webpage, user }) {
