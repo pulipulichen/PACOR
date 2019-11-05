@@ -1,6 +1,6 @@
 en:
-  TEST_MESSAGE: Test Message
+  Total {0} Readers: Total {0} Reader | Total {0} Readers
   
 zh-TW:
   # 這是註解
-  TEST_MESSAGE: 測試訊息
+  Total {0} Readers: 總共{0}位讀者

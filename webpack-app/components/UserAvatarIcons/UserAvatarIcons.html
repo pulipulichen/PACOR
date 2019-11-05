@@ -1,6 +1,10 @@
 <div class="UserAvatarIcons">
-  <img v-for="user in users"
+  <img v-for="(user, i) in users"
        v-bind:title="username(user)"
        v-bind:src="user.avatar_url"
+       v-bind:style="computedAvatarStyle(i)"
        class="avatar"/>
+  <div class="user-count">
+    {{ $t('Total {0} Readers', [users.length]) }}
+  </div>
 </div>

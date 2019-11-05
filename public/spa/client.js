@@ -313,7 +313,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":{"Total {0} Readers":"Total {0} Reader | Total {0} Readers"},"zh-TW":{"Total {0} Readers":"總共{0}位讀者"}}')
   delete Component.options._Ctor
 }
 
@@ -399,7 +399,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".UserAvatarIcons[data-v-016deec0] {\n  display: inline-block;\n}\n.UserAvatarIcons .avatar[data-v-016deec0] {\n  max-height: 2em;\n  width: auto;\n}\n", "",{"version":3,"sources":["UserAvatarIcons.less?vue&type=style&index=0&id=016deec0&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;EACf,WAAW;AACb","file":"UserAvatarIcons.less?vue&type=style&index=0&id=016deec0&lang=less&scoped=true&","sourcesContent":[".UserAvatarIcons[data-v-016deec0] {\n  display: inline-block;\n}\n.UserAvatarIcons .avatar[data-v-016deec0] {\n  max-height: 2em;\n  width: auto;\n}\n"]}]);
+exports.push([module.i, ".UserAvatarIcons[data-v-016deec0] {\n  display: inline-block;\n  user-select: none;\n}\n.UserAvatarIcons .avatar[data-v-016deec0] {\n  max-height: 2em;\n  width: auto;\n  margin-left: -0.8em;\n  position: relative;\n}\n.UserAvatarIcons .avatar[data-v-016deec0]:first-of-type {\n  margin-left: 0;\n}\n.UserAvatarIcons .user-count[data-v-016deec0] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n", "",{"version":3,"sources":["UserAvatarIcons.less?vue&type=style&index=0&id=016deec0&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,iBAAiB;AACnB;AACA;EACE,eAAe;EACf,WAAW;EACX,mBAAmB;EACnB,kBAAkB;AACpB;AACA;EACE,cAAc;AAChB;AACA;EACE,qBAAqB;EACrB,mBAAmB;EACnB,gBAAgB;AAClB","file":"UserAvatarIcons.less?vue&type=style&index=0&id=016deec0&lang=less&scoped=true&","sourcesContent":[".UserAvatarIcons[data-v-016deec0] {\n  display: inline-block;\n  user-select: none;\n}\n.UserAvatarIcons .avatar[data-v-016deec0] {\n  max-height: 2em;\n  width: auto;\n  margin-left: -0.8em;\n  position: relative;\n}\n.UserAvatarIcons .avatar[data-v-016deec0]:first-of-type {\n  margin-left: 0;\n}\n.UserAvatarIcons .user-count[data-v-016deec0] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n"]}]);
 
 
 /***/ }),
@@ -929,13 +929,24 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "UserAvatarIcons" },
-    _vm._l(_vm.users, function(user) {
-      return _c("img", {
-        staticClass: "avatar",
-        attrs: { title: _vm.username(user), src: user.avatar_url }
-      })
-    }),
-    0
+    [
+      _vm._l(_vm.users, function(user, i) {
+        return _c("img", {
+          staticClass: "avatar",
+          style: _vm.computedAvatarStyle(i),
+          attrs: { title: _vm.username(user), src: user.avatar_url }
+        })
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "user-count" }, [
+        _vm._v(
+          "\r\n    " +
+            _vm._s(_vm.$t("Total {0} Readers", [_vm.users.length])) +
+            "\r\n  "
+        )
+      ])
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -2790,6 +2801,15 @@ let UserAvatarIcons = {
         return user.username
       }
     },
+    computedAvatarStyle (i) {
+      // {'z-index': (users.length - i)}
+      let zIndex = (this.users.length - i)
+      let opacity = 1 - (0.2 * i)
+      return {
+        'z-index': zIndex,
+        opacity: opacity
+      }
+    }
   } // methods
 }
 

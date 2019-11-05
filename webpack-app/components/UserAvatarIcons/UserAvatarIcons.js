@@ -22,6 +22,15 @@ let UserAvatarIcons = {
         return user.username
       }
     },
+    computedAvatarStyle (i) {
+      // {'z-index': (users.length - i)}
+      let zIndex = (this.users.length - i)
+      let opacity = 1 - (0.2 * i)
+      return {
+        'z-index': zIndex,
+        opacity: opacity
+      }
+    }
   } // methods
 }
 

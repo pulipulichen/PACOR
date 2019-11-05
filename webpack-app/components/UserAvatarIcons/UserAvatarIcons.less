@@ -1,9 +1,22 @@
 .UserAvatarIcons {
   display: inline-block;
+  user-select: none;
   
   .avatar {
     max-height: 2em;
     width: auto;
+    margin-left: -0.8em;
+    position: relative;
+    
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+  
+  .user-count {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 2em;
   }
 }
 

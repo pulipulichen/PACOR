@@ -44,7 +44,7 @@ class Annotation extends WebpageUserBaseController {
   async floatWidget({request, webpage, user}) {
     let query = request.all()
     let cacheKey = Cache.key('Controllers.Client.Annotation', query)
-    return await Cache.rememberWait(cacheKey, 2, async () => {
+    return await Cache.rememberWait(cacheKey, 0, async () => {
       
       let annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
 
@@ -61,6 +61,8 @@ class Annotation extends WebpageUserBaseController {
       annotation = annotation.toJSON()
       //console.log('annotation', annotation)
 
+      // ---------------------
+
       let usersMap = {}
 
       annotations.forEach(annotation => {
@@ -70,6 +72,12 @@ class Annotation extends WebpageUserBaseController {
         }
       })
       let users = Object.keys(usersMap).map(key => usersMap[key])
+      for (let i = 0; i < 3; i++) {
+        users = users.concat(users)
+      }
+      users = users.slice(0, 3) // 最多三名
+
+      // ---------------------
 
       let typesMap = {}
       annotations.forEach(annotation => {
