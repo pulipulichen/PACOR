@@ -708,7 +708,7 @@ let RangyManager = {
         highlightJSONArray = this._annotationToHighlighString(highlightJSONArray)
       }
       
-      this.highlighter.deserialize(highlightJSONArray, {
+      this.highlighter.deserializeAsync(highlightJSONArray, {
         append: true
       })
     }

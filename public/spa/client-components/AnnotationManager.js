@@ -5405,7 +5405,7 @@ let RangyManager = {
         highlightJSONArray = this._annotationToHighlighString(highlightJSONArray)
       }
       
-      this.highlighter.deserialize(highlightJSONArray, {
+      this.highlighter.deserializeAsync(highlightJSONArray, {
         append: true
       })
     }
@@ -11264,7 +11264,91 @@ __webpack_require__.r(__webpack_exports__);
                 else {
                   this.highlights = highlights;
                 }
-            }
+            }, // deserialize: function(serialized, options) {
+            
+            deserializeAsync: function(serialized, options) {
+              if (typeof(serialized) !== 'string' || serialized === '') {
+                return false
+              }
+              options = options ? options : {}
+              let { append } = options
+              
+              return new Promise((resolve, reject) => {
+                //console.log(append)
+                var serializedHighlights = serialized.split("|");
+                var highlights = [];
+
+                var firstHighlight = serializedHighlights[0];
+                var regexResult;
+                var serializationType, serializationConverter, convertType = false;
+                if ( firstHighlight && (regexResult = /^type:(\w+)$/.exec(firstHighlight)) ) {
+                    serializationType = regexResult[1];
+                    if (serializationType !== this.converter.type) {
+                        serializationConverter = getConverter(serializationType);
+                        convertType = true;
+                    }
+                    serializedHighlights.shift();
+                } else {
+                    throw new Error("Serialized highlights are invalid.");
+                }
+
+                var classApplier, highlight, characterRange, containerElementId, containerElement;
+                
+                let idCounter
+                if (append === true) {
+                  idCounter = this.highlights.length + 1
+                }
+
+                let loop = (i) => {
+                  i--
+                  //console.log(i)
+                  if (i > -1) {
+                    let parts = serializedHighlights[i].split("$");
+                    characterRange = new CharacterRange(+parts[0], +parts[1]);
+                    containerElementId = parts[4] || null;
+
+                    // Convert to the current Highlighter's type, if different from the serialization type
+                    if (convertType) {
+                        containerElement = getContainerElement(this.doc, containerElementId);
+                        characterRange = this.converter.rangeToCharacterRange(
+                            serializationConverter.characterRangeToRange(this.doc, characterRange, containerElement),
+                            containerElement
+                        );
+                    }
+
+                    classApplier = this.classAppliers[ parts[3] ];
+
+                    if (!classApplier) {
+                        throw new Error("No class applier found for class '" + parts[3] + "'");
+                    }
+                    
+                    let id = parseInt(parts[2])
+                    if (typeof(idCounter) === 'number') {
+                      idCounter++
+                      id = idCounter
+                    }
+
+                    highlight = new Highlight(this.doc, characterRange, classApplier, this.converter, id, containerElementId);
+                    highlight.apply();
+                    highlights.push(highlight);
+                    
+                    setTimeout(() => {
+                      loop(i)
+                    }, 0)
+                  }
+                  else {
+                    if (append === true) {
+                      this.highlights = this.highlights.concat(highlights)
+                    }
+                    else {
+                      this.highlights = highlights;
+                    }
+                    resolve()
+                  }
+                }
+                loop(serializedHighlights.length)                
+              })  // return new Promise((resolve, reject) => {
+            } // deserialize: function(serialized, options) {
         };
 
         api.Highlighter = Highlighter;
