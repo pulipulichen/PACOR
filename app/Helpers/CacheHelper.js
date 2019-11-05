@@ -29,14 +29,83 @@ Cache.key = function (...args) {
 }
 
 Cache.rememberWaitLocks = {}
+Cache.rememberWaitLocksMS = 1000
 
 Cache.rememberWait = function (tags, cacheKey, minutes, callback) {
+  if (typeof(tags) === 'string'
+            && typeof(cacheKey) === 'function'
+            && minutes === undefined) {
+    return this.rememberForeverWait(null, tags, cacheKey)
+  }
+  else if ((typeof(tags) === 'string' || Array.isArray(tags))
+            && typeof(cacheKey) === 'string'
+            && typeof(minutes) === 'function'
+            && callback === undefined) {
+    return this.rememberForeverWait(tags, cacheKey, minutes)
+  }
+  else if (typeof(callback) !== 'function' 
+          && typeof(minutes) === 'function') {
+    callback = minutes
+    minutes = cacheKey
+    cacheKey = tags
+    tags = null
+  } 
+  
+  return new Promise(async (resolve, reject) => {
+    
+    // ------------------------------------------
+    // 先看看有沒有值
+
+    let cacheQuery
+    if (tags !== null) {
+      cacheQuery = Cache.tags(tags)
+    }
+    else {
+      cacheQuery = Cache
+    }
+
+    if (await cacheQuery.has(cacheKey)) {
+      let result = await cacheQuery.get(cacheKey)
+      resolve(result)
+      return true
+    }
+
+    // ------------------------------------------
+    let lockName = buildLockName(tags, cacheKey)
+    
+    if (typeof(this.rememberWaitLocks[lockName]) === 'boolean' 
+            && this.rememberWaitLocks[lockName] === true) {
+      // 被鎖定了
+      //console.log('被鎖定了', lockName)
+      setTimeout(async () => {
+        //console.log('再次嘗試')
+        let result = await this.rememberWait(tags, cacheKey, minutes, callback)
+        //console.log('鎖定解除', result)
+        resolve(result)
+        return true
+      }, Math.floor(Math.random() * this.rememberWaitLocksMS))
+      return false
+    }
+    else {
+      this.rememberWaitLocks[lockName] = true
+    }
+  
+    // ------------------------------
+    // 如果沒有被鎖定的話
+    let result = await cacheQuery.remember(cacheKey, minutes, callback)
+    delete this.rememberWaitLocks[lockName]
+    //console.log(this.rememberWaitLocks)
+    resolve(result)
+    return true
+  })  // return new Promise((resolve, reject) => {
+}
+
+Cache.rememberForeverWait = function (tags, cacheKey, callback) {
   return new Promise(async (resolve, reject) => {
     
     if (typeof(callback) !== 'function' 
-            && typeof(minutes) === 'function') {
-      callback = minutes
-      minutes = cacheKey
+            && typeof(cacheKey) === 'function') {
+      callback = cacheKey
       cacheKey = tags
       tags = null
     } 
@@ -53,24 +122,36 @@ Cache.rememberWait = function (tags, cacheKey, minutes, callback) {
     }
 
     if (await cacheQuery.has(cacheKey)) {
-      return await cacheQuery.get(cacheKey)
+      let result = await cacheQuery.get(cacheKey)
+      resolve(result)
+      return true
     }
 
     // ------------------------------------------
     let lockName = buildLockName(tags, cacheKey)
+    
     if (typeof(this.rememberWaitLocks[lockName]) === 'boolean' 
             && this.rememberWaitLocks[lockName] === true) {
       // 被鎖定了
+      //console.log('被鎖定了', lockName)
       setTimeout(async () => {
-        let result = await this.rememberWait(tags, cacheKey, minutes, callback)
-        return resolve(result)
-      }, Math.floor(Math.random() * 1000))
+        //console.log('再次嘗試')
+        let result = await this.rememberForeverWait(tags, cacheKey, callback)
+        //console.log('鎖定解除', result)
+        resolve(result)
+        return true
+      }, Math.floor(Math.random() * this.rememberWaitLocksMS))
       return false
+    }
+    else {
+      this.rememberWaitLocks[lockName] = true
     }
   
     // ------------------------------
     // 如果沒有被鎖定的話
-    let result = await cacheQuery.remember(cacheKey, minutes, callback)
+    let result = await cacheQuery.rememberForever(cacheKey, callback)
+    delete this.rememberWaitLocks[lockName]
+    //console.log(this.rememberWaitLocks)
     resolve(result)
     return true
   })  // return new Promise((resolve, reject) => {
