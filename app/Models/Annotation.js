@@ -240,9 +240,9 @@ class Annotation extends Model {
     }
     else {
       let cacheKey = Cache.key(`Annotation.getOthersHighlightsArrayByWebpageGroup`, webpage, user)
-      return await Cache.get(cacheKey, async () => {
+      return await Cache.rememberWait(cacheKey, 2, async () => {
         let result = await doQuery()
-        await Cache.put(cacheKey, result, 2)
+        //await Cache.put(cacheKey, result, 2)
         return result
       })  // return await Cache.get(cacheKey, async () => {
     }
@@ -281,9 +281,9 @@ class Annotation extends Model {
     }
     else {
       let cacheKey = Cache.key(`Annotation.findOthersByWebpageGroup`, webpage, user)
-      return await Cache.get(cacheKey, async () => {
+      return await Cache.rememberWait(cacheKey, 2, async () => {
         let result = await doQuery()
-        await Cache.put(cacheKey, result, 2)
+        //await Cache.put(cacheKey, result, 2)
         return result
       })  // return await Cache.get(cacheKey, async () => {
     }
@@ -400,9 +400,9 @@ class Annotation extends Model {
     }
     else {
       let cacheKey = Cache.key(`Annotation.findByWebpageGroupPosition`, webpage, user, anchorPositions)
-      return await Cache.get(cacheKey, async () => {
+      return await Cache.rememberWait(cacheKey, 2, async () => {
         let result = await doQuery()
-        await Cache.put(cacheKey, result, 2)
+        //await Cache.put(cacheKey, result, 2)
         return result
       })  // return await Cache.get(cacheKey, async () => {
     }

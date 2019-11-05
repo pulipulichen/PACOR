@@ -157,7 +157,7 @@ class User extends Model {
   
   async getReadingProgressStatus (webpage, showDetails) {
     let cacheKey = Cache.key('User', 'getReadingProgressStatus', webpage, this, showDetails)
-    return await Cache.get(cacheKey, async () => {
+    return await Cache.rememberWait(cacheKey, async () => {
       let readingProgresses
       if (Array.isArray(webpage) === false
               && typeof(webpage.primaryKeyValue) === 'number') {
@@ -187,7 +187,7 @@ class User extends Model {
 
         return output
       })
-      Cache.forever(cacheKey, readingProgresses)
+      //Cache.forever(cacheKey, readingProgresses)
       return readingProgresses
     })
   }
@@ -304,7 +304,7 @@ class User extends Model {
   
   async getUserIDsInGroup(webpage) {
     let cacheKey = Cache.key(`User.getUserIDsInGroup`, webpage)
-    return await Cache.get(cacheKey, async () => {
+    return await Cache.rememberWait(cacheKey, async () => {
       /*
       let groups = await this.manyThrough('App/Models/WebpageGroup', 'users')
               .where('webpage_id', webpage.primaryKeyValue)
@@ -332,7 +332,7 @@ class User extends Model {
         userIds = await webpage.getReaderIDsNotInGroup()
       }
 
-      await Cache.forever(cacheKey, userIds)
+      //await Cache.forever(cacheKey, userIds)
       return userIds
     })  // return await Cache.get(cacheKey, async () => {
   }

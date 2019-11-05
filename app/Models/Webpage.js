@@ -100,7 +100,7 @@ class Webpage extends Model {
   
   async getGroupsList() {
     let cacheKey = `Webpage.getGroupsList.${this.primaryKeyValue}`
-    return await Cache.get(cacheKey, async () => {
+    return await Cache.rememberWait(cacheKey, async () => {
       let groups = await this.groups().fetch()
 
       let list = groups.toJSON().map(group => {
@@ -108,7 +108,7 @@ class Webpage extends Model {
       })
 
       let output = list.join('\n')
-      await Cache.forever(cacheKey, output)
+      //await Cache.forever(cacheKey, output)
       return output
     })
   }
@@ -212,7 +212,7 @@ class Webpage extends Model {
   
   async getReaderIDsNotInGroup() {
     let cacheKey = `Webpage.getReaderIDsNotInGroup.${this.primaryKeyValue}`
-    let output = await Cache.get(cacheKey, async () => {
+    let output = await Cache.rememberWait(cacheKey, async () => {
       let relation = User
               .query()
               .where('role', 'reader')
@@ -234,13 +234,13 @@ class Webpage extends Model {
       return users.toJSON().map(user => user.id)
     })
   
-    await Cache.forever(cacheKey, output)
+    //await Cache.forever(cacheKey, output)
     return output
   }
   
   async getReadingProgresses () {
     let cacheKey = Cache.key('Webpage', 'getReadingProgresses', this)
-    return await Cache.get(cacheKey, async () => {
+    return await Cache.rememberWait(cacheKey, async () => {
       // 先看看自己有沒有
       let output
       
@@ -260,14 +260,14 @@ class Webpage extends Model {
           output = ReadingConfig.readingProgresses
         }
       }
-      await Cache.forever(cacheKey, output)
+      //await Cache.forever(cacheKey, output)
       return output
     })
   }
   
   async getAgreement() {
     let cacheKey = Cache.key('Models.Webpage.getAgreement', this)
-    return await Cache.get(cacheKey, async () => {
+    return await Cache.rememberWait(cacheKey, async () => {
       let output
       if (typeof(this.agreement) === 'string') {
         output = this.agreement
@@ -290,7 +290,7 @@ class Webpage extends Model {
   
   async getConfig() {
     let cacheKey = Cache.key('Models.Webpage.getConfig', this)
-    return await Cache.get(cacheKey, async () => {
+    return await Cache.rememberWait(cacheKey, async () => {
       let output
       if (typeof(this.config) === 'string') {
         output = this.config
@@ -305,20 +305,20 @@ class Webpage extends Model {
         }
       }
       //console.log(output)
-      Cache.forever(cacheKey, output)
+      //Cache.forever(cacheKey, output)
       return output
     })
   }
   
   async getStepConfig(stepName) {
     let cacheKey = Cache.key('Models.Webpage.getStepConfig', this)
-    return await Cache.get(cacheKey, async () => {
+    return await Cache.rememberWait(cacheKey, async () => {
       let config = await this.getConfig()
       let output
       if (typeof(config.readingProgressModules[stepName]) === 'object') {
         output = config.readingProgressModules[stepName]
       }
-      Cache.forever(cacheKey, output)
+      //Cache.forever(cacheKey, output)
       return output
     })  // return await Cache.get(cacheKey, async () => {
   }
