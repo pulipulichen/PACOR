@@ -1,9 +1,15 @@
 <div class="ui red floating message"
      v-if="showError && error">
   
-  <i class="close icon"
-     v-bind:title="$t('Click to close')"
-     v-on:click="close"></i>
+  <span class="close-container">
+    <template v-if="errors.length > 1">
+      {{ errors.length }}
+    </template>
+    <i class="close icon"
+       v-bind:title="$t('Click to close')"
+       v-on:click="close"></i>
+  </span>
+    
   
   <div class="ui relaxed divided list">
     

@@ -72,9 +72,9 @@ class Annotation extends WebpageUserBaseController {
         }
       })
       let users = Object.keys(usersMap).map(key => usersMap[key])
-      for (let i = 0; i < 3; i++) {
-        users = users.concat(users)
-      }
+      //for (let i = 0; i < 3; i++) {
+      //  users = users.concat(users)
+      //}
       users = users.slice(0, 3) // 最多三名
 
       // ---------------------

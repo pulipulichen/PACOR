@@ -362,60 +362,77 @@ var render = function() {
                   lib: _vm.lib,
                   mode: "full",
                   annotation: _vm.annotation
+                },
+                on: {
+                  find: function(annotation) {
+                    _vm.$emit("findAnnotation", annotation)
+                  }
                 }
               }),
               _vm._v(" "),
-              _c("div", { staticClass: "ui column grid" }, [
-                _c(
-                  "div",
-                  { class: _vm.computedButtonsClassNames },
-                  [
-                    _c("user-avatar-icons", {
-                      staticStyle: { "margin-right": "0.5em" },
-                      attrs: {
-                        config: _vm.config,
-                        status: _vm.status,
-                        lib: _vm.lib,
-                        users: _vm.users
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._l(_vm.types, function(t) {
-                      return _c("annotation-module-button", {
+              _c(
+                "div",
+                {
+                  staticClass: "ui column grid",
+                  on: {
+                    click: function($event) {
+                      $event.stopPropagation()
+                      return _vm.$emit("list", _vm.highlightPos)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "div",
+                    { class: _vm.computedButtonsClassNames },
+                    [
+                      _c("user-avatar-icons", {
+                        staticStyle: { "margin-right": "0.5em" },
                         attrs: {
-                          lib: _vm.lib,
                           config: _vm.config,
                           status: _vm.status,
-                          annotationModule: t.type,
-                          count: t.count
+                          lib: _vm.lib,
+                          users: _vm.users
                         }
-                      })
-                    }),
-                    _vm._v(" "),
-                    _vm.highlightPosLock
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "ui mini button list-button",
-                            attrs: { type: "button" }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(
-                                  _vm.$t("List all {0} annotations...", [
-                                    _vm.annotationCount
-                                  ])
-                                ) +
-                                "\r\n        "
-                            )
-                          ]
-                        )
-                      : _vm._e()
-                  ],
-                  2
-                )
-              ])
+                      }),
+                      _vm._v(" "),
+                      _vm._l(_vm.types, function(t) {
+                        return _c("annotation-module-button", {
+                          attrs: {
+                            lib: _vm.lib,
+                            config: _vm.config,
+                            status: _vm.status,
+                            annotationModule: t.type,
+                            count: t.count
+                          }
+                        })
+                      }),
+                      _vm._v(" "),
+                      _vm.highlightPosLock
+                        ? _c(
+                            "button",
+                            {
+                              staticClass: "ui mini button list-button",
+                              attrs: { type: "button" }
+                            },
+                            [
+                              _vm._v(
+                                "\r\n          " +
+                                  _vm._s(
+                                    _vm.$t("List all {0} annotations...", [
+                                      _vm.annotationCount
+                                    ])
+                                  ) +
+                                  "\r\n        "
+                              )
+                            ]
+                          )
+                        : _vm._e()
+                    ],
+                    2
+                  )
+                ]
+              )
             ],
             1
           )
@@ -494,7 +511,8 @@ var render = function() {
               highlightPos: _vm.highlightPos,
               highlightEvent: _vm.highlightEvent,
               highlightPosLock: _vm.highlightPosLock
-            }
+            },
+            on: { findAnnotation: _vm.onFindAnnotation, list: _vm.onList }
           })
         : _vm._e()
     ],
@@ -1620,6 +1638,8 @@ let AnnotationManager = {
       highlightPosLock: false,
       highlightPosLockTimer: null,
       //loadHighlightInterval: 3 * 1000  // for test
+      
+      listPos: null
     }
   },
   components: {
@@ -1733,7 +1753,7 @@ let AnnotationManager = {
        */
       if (this.highlightPos !== null && this.highlightPosLock !== true) {
         this.highlightPosLock = !this.highlightPosLock
-        return
+        return false
       }
       else {
         // 在觸控的情況下
@@ -1767,6 +1787,12 @@ let AnnotationManager = {
           this.highlightEvent = null
         }, 0)
       }
+    },
+    onFindAnnotation (annotation) {
+      throw '編輯annotation ' +  annotation.id
+    },
+    onList (anchorPositions) {
+      throw '列出annotation ' +  anchorPositions.length
     }
   } // methods
 }

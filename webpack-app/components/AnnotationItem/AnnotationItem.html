@@ -1,6 +1,7 @@
 <div class="ui segment AnnotationItem" 
      v-if="annotation"
-     v-bind:class="computedContainerClassNames">
+     v-bind:class="computedContainerClassNames"
+     v-on:click.stop="$emit('find', annotation)">
 
   <div class="meta text-container">
     <span>

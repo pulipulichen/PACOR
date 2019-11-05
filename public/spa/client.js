@@ -681,7 +681,13 @@ var render = function() {
         "div",
         {
           staticClass: "ui segment AnnotationItem",
-          class: _vm.computedContainerClassNames
+          class: _vm.computedContainerClassNames,
+          on: {
+            click: function($event) {
+              $event.stopPropagation()
+              return _vm.$emit("find", _vm.annotation)
+            }
+          }
         },
         [
           _c("div", { staticClass: "meta text-container" }, [
@@ -775,7 +781,16 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "span",
-    { staticClass: "ui mini button", style: _vm.computedStyle },
+    {
+      staticClass: "ui mini button",
+      style: _vm.computedStyle,
+      on: {
+        click: function($event) {
+          $event.stopPropagation()
+          return _vm.$emit("find", _vm.annotationModule)
+        }
+      }
+    },
     [
       _vm._v(
         "\r\n  " +
@@ -934,7 +949,13 @@ var render = function() {
         return _c("img", {
           staticClass: "avatar",
           style: _vm.computedAvatarStyle(i),
-          attrs: { title: _vm.username(user), src: user.avatar_url }
+          attrs: { title: _vm.username(user), src: user.avatar_url },
+          on: {
+            click: function($event) {
+              $event.stopPropagation()
+              return _vm.$emit("find", user)
+            }
+          }
         })
       }),
       _vm._v(" "),

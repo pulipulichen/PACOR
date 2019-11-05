@@ -68,37 +68,38 @@
     }
   },
   "attributes": {
-    "v-bind:class": {},
     "inline-template": {
       "context": "template"
     },
-    "v-if": {},
     "v-on:input": {},
-    "v-bind:href": {},
-    "v-html": {},
-    "v-for": {},
-    "v-bind:status": {},
-    "v-bind:lib": {},
     "v-bind:src": {
       "context": "img"
     },
-    "v-bind:reset": {},
     "v-bind:id": {},
     "v-model": {},
-    "v-bind:error": {},
     "ref": {},
     "v-slot:actions": {
       "context": "template"
     },
     "v-bind:style": {},
-    "v-on:click": {
-      "context": "button"
-    },
     "v-slot:content": {},
-    "v-else": {},
     "v-bind:config": {},
     "v-slot:header": {},
     "#header": {},
-    "v-on:highlightMouseout": {}
+    "v-on:highlightMouseout": {},
+    "v-on:click.stop": {},
+    "v-bind:class": {},
+    "v-if": {},
+    "v-bind:href": {},
+    "v-html": {},
+    "v-for": {},
+    "v-bind:status": {},
+    "v-bind:lib": {},
+    "v-bind:reset": {},
+    "v-bind:error": {},
+    "v-on:click": {
+      "context": "button"
+    },
+    "v-else": {}
   }
 }

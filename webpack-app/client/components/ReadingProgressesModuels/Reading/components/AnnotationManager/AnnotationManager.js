@@ -20,6 +20,8 @@ let AnnotationManager = {
       highlightPosLock: false,
       highlightPosLockTimer: null,
       //loadHighlightInterval: 3 * 1000  // for test
+      
+      listPos: null
     }
   },
   components: {
@@ -133,7 +135,7 @@ let AnnotationManager = {
        */
       if (this.highlightPos !== null && this.highlightPosLock !== true) {
         this.highlightPosLock = !this.highlightPosLock
-        return
+        return false
       }
       else {
         // 在觸控的情況下
@@ -167,6 +169,12 @@ let AnnotationManager = {
           this.highlightEvent = null
         }, 0)
       }
+    },
+    onFindAnnotation (annotation) {
+      throw '編輯annotation ' +  annotation.id
+    },
+    onList (anchorPositions) {
+      throw '列出annotation ' +  anchorPositions.length
     }
   } // methods
 }
