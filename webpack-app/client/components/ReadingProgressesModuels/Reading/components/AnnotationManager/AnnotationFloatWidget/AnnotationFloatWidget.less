@@ -3,6 +3,7 @@
 .annotation-float-widget {
   position: fixed !important;
   left: 1em;
+  z-index: 1;
   width: calc(100vw - 3em);
   top: @verticalMargin;
   max-height: calc(50vh - @TopMenuHeight - 2em);
@@ -12,5 +13,10 @@
   &.bottom {
     top: auto;
     bottom: @verticalMargin;
+  }
+  
+  .list-button {
+    margin-left: 0.5em;
+    vertical-align: top;
   }
 }
