@@ -3,7 +3,7 @@
  * https://www.chaijs.com/api/assert/
  * https://www.google.com/search?q=adonisjs+cache&oq=adonisjs+cache&aqs=chrome..69i57j69i60.8225j0j4&sourceid=chrome&ie=UTF-8
  */
-const { test, trait } = use('Test/Suite')('Controllers/Models/Cache')
+const { test, trait } = use('Test/Suite')('Controllers/Helpers/Cache')
 
 trait('Test/ApiClient')
 trait('Session/Client')
@@ -38,7 +38,7 @@ test('put cache', async ({ assert, client }) => {
 
 test('remember cache', async ({ assert, client }) => {
   let result = await Cache.remember(cacheKeyObject, 1, async () => {
-    //await Sleep(3)
+    await Sleep(1)
     return cacheData
   })
   
@@ -47,13 +47,54 @@ test('remember cache', async ({ assert, client }) => {
 
 test('remember cache again', async ({ assert, client }) => {
   let result = await Cache.remember(cacheKeyObject, 1, async () => {
-    //await Sleep(3)
+    await Sleep(1)
     return cacheData
   })
   
   assert.isObject(result)
 }).timeout(0)
 
+
+test('remember forever cache', async ({ assert, client }) => {
+  await Cache.flush()
+  
+  let result = await Cache.rememberForever(cacheKeyObject, async () => {
+    await Sleep(1)
+    return cacheData
+  })
+  
+  assert.isObject(result)
+}).timeout(0)
+
+test('remember forever cache again', async ({ assert, client }) => {
+  let result = await Cache.rememberForever(cacheKeyObject, async () => {
+    await Sleep(1)
+    return cacheData
+  })
+  
+  assert.isObject(result)
+}).timeout(0)
+
+
+test('tag remember forever cache', async ({ assert, client }) => {
+  await Cache.flush()
+  
+  let result = await Cache.tags(['a', 'b']).rememberForever(cacheKeyObject, async () => {
+    await Sleep(1)
+    return cacheData
+  })
+  
+  assert.isObject(result)
+}).timeout(0)
+
+test('tag remember forever cache again', async ({ assert, client }) => {
+  let result = await Cache.tags(['a', 'b']).rememberForever(cacheKeyObject, async () => {
+    await Sleep(1)
+    return cacheData
+  })
+  
+  assert.isObject(result)
+}).timeout(0)
 
 // Reset database
 trait('DatabaseTransactions')
