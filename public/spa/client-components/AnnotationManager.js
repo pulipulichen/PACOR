@@ -360,6 +360,7 @@ var render = function() {
                   config: _vm.config,
                   status: _vm.status,
                   lib: _vm.lib,
+                  mode: "full",
                   annotation: _vm.annotation
                 }
               }),

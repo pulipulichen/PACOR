@@ -3,6 +3,10 @@
   user-select: none;
 }
 
+.avatar {
+  max-height: 2em;
+  width: auto;
+}
 
 .avatar, .username {
   margin-right: 0.5em;
@@ -13,16 +17,30 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  
+  display: inline-block;
+  vertical-align: top;
+  line-height: 2em;
 }
 
-.text-container {
+.note {
   line-height: 2em;
   display: inline-block;
   vertical-align: top;
+  
+  ::v-deep p {
+    line-height: 2em !important;
+  }
 }
 
 .annotation-item-compact {
-  
+
+  .text-container {
+    line-height: 2em;
+    display: inline-block;
+    vertical-align: top;
+  }
+
   .left.column {
     max-width: 70vw;
     overflow: hidden;
@@ -30,10 +48,6 @@
     white-space: nowrap;
   }
   
-  .avatar {
-    max-height: 2em;
-    width: auto;
-  }
   
   .note {
     display: inline-block;
