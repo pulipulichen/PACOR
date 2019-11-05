@@ -22,7 +22,7 @@ const providers = [
   '@adonisjs/ally/providers/AllyProvider',
   '@adonisjs/drive/providers/DriveProvider',
   '@adonisjs/websocket/providers/WsProvider',
-   'adonis-cache/providers/CacheProvider'
+  'adonis-cache/providers/CacheProvider'
 ]
 
 

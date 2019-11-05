@@ -3,6 +3,8 @@
 const Env = use('Env')
 const Helpers = use('Helpers')
 
+// https://www.npmjs.com/package/adonis-cache
+
 module.exports = {
 
   /*

@@ -19,6 +19,7 @@ class CreateCacheTable extends Schema {
         table.integer('expiration')
       })
     }
+    
   }
 
   /**
