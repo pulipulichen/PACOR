@@ -7,11 +7,13 @@
       {{ displayTime }}
     </span>
 
-    <span>
+    <span class="likes"
+          v-if="annotation.__meta__.rates_count > 0">
       {{ $t('{0} Likes', [annotation.__meta__.rates_count]) }}
     </span>
 
-    <span>
+    <span class="comments"
+          v-if="annotation.__meta__.replies_count > 0">
       {{ $t('{0} Comments', [annotation.__meta__.replies_count]) }}
     </span>
   </div>

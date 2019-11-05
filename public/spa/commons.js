@@ -2795,9 +2795,21 @@ let DayJSHelper = {
     return this
   },
   fromNow: function (timestamp) {
+    if (isNaN(timestamp) === true) {
+      return ''
+    }
+    else if (typeof(timestamp) === 'string') {
+      timestamp = parseInt(timestamp, 10)
+    }
     return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).fromNow()
   },
   toNow: function (timestamp) {
+    if (isNaN(timestamp) === true) {
+      return ''
+    }
+    else if (typeof(timestamp) === 'string') {
+      timestamp = parseInt(timestamp, 10)
+    }
     return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).toNow()
   },
   _prefixZero: function (n) {

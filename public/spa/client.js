@@ -343,7 +343,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".meta[data-v-b2feccdc] {\n  float: right;\n}\n.avatar[data-v-b2feccdc],\n.username[data-v-b2feccdc] {\n  margin-right: 0.5em;\n}\n.username[data-v-b2feccdc] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.text-container[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-b2feccdc] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.annotation-item-compact .note[data-v-b2feccdc] {\n  display: inline-block;\n  margin-left: 0.5em;\n}\n.annotation-item-compact .note[data-v-b2feccdc]  p {\n  display: inline !important;\n  line-height: 2em !important;\n}\n", "",{"version":3,"sources":["AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;AACd;AACA;;EAEE,mBAAmB;AACrB;AACA;EACE,cAAc;EACd,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,WAAW;AACb;AACA;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,0BAA0B;EAC1B,2BAA2B;AAC7B","file":"AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&","sourcesContent":[".meta[data-v-b2feccdc] {\n  float: right;\n}\n.avatar[data-v-b2feccdc],\n.username[data-v-b2feccdc] {\n  margin-right: 0.5em;\n}\n.username[data-v-b2feccdc] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.text-container[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-b2feccdc] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.annotation-item-compact .note[data-v-b2feccdc] {\n  display: inline-block;\n  margin-left: 0.5em;\n}\n.annotation-item-compact .note[data-v-b2feccdc]  p {\n  display: inline !important;\n  line-height: 2em !important;\n}\n"]}]);
+exports.push([module.i, ".meta[data-v-b2feccdc] {\n  float: right;\n  user-select: none;\n}\n.avatar[data-v-b2feccdc],\n.username[data-v-b2feccdc] {\n  margin-right: 0.5em;\n}\n.username[data-v-b2feccdc] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.text-container[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-b2feccdc] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.annotation-item-compact .note[data-v-b2feccdc] {\n  display: inline-block;\n  margin-left: 0.5em;\n}\n.annotation-item-compact .note[data-v-b2feccdc]  p {\n  display: inline !important;\n  line-height: 2em !important;\n}\n", "",{"version":3,"sources":["AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,iBAAiB;AACnB;AACA;;EAEE,mBAAmB;AACrB;AACA;EACE,cAAc;EACd,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,WAAW;AACb;AACA;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,0BAA0B;EAC1B,2BAA2B;AAC7B","file":"AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&","sourcesContent":[".meta[data-v-b2feccdc] {\n  float: right;\n  user-select: none;\n}\n.avatar[data-v-b2feccdc],\n.username[data-v-b2feccdc] {\n  margin-right: 0.5em;\n}\n.username[data-v-b2feccdc] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.text-container[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-b2feccdc] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.annotation-item-compact .note[data-v-b2feccdc] {\n  display: inline-block;\n  margin-left: 0.5em;\n}\n.annotation-item-compact .note[data-v-b2feccdc]  p {\n  display: inline !important;\n  line-height: 2em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -689,27 +689,33 @@ var render = function() {
               _vm._v("\r\n      " + _vm._s(_vm.displayTime) + "\r\n    ")
             ]),
             _vm._v(" "),
-            _c("span", [
-              _vm._v(
-                "\r\n      " +
-                  _vm._s(
-                    _vm.$t("{0} Likes", [_vm.annotation.__meta__.rates_count])
-                  ) +
-                  "\r\n    "
-              )
-            ]),
+            _vm.annotation.__meta__.rates_count > 0
+              ? _c("span", { staticClass: "likes" }, [
+                  _vm._v(
+                    "\r\n      " +
+                      _vm._s(
+                        _vm.$t("{0} Likes", [
+                          _vm.annotation.__meta__.rates_count
+                        ])
+                      ) +
+                      "\r\n    "
+                  )
+                ])
+              : _vm._e(),
             _vm._v(" "),
-            _c("span", [
-              _vm._v(
-                "\r\n      " +
-                  _vm._s(
-                    _vm.$t("{0} Comments", [
-                      _vm.annotation.__meta__.replies_count
-                    ])
-                  ) +
-                  "\r\n    "
-              )
-            ])
+            _vm.annotation.__meta__.replies_count > 0
+              ? _c("span", { staticClass: "comments" }, [
+                  _vm._v(
+                    "\r\n      " +
+                      _vm._s(
+                        _vm.$t("{0} Comments", [
+                          _vm.annotation.__meta__.replies_count
+                        ])
+                      ) +
+                      "\r\n    "
+                  )
+                ])
+              : _vm._e()
           ]),
           _vm._v(" "),
           _c(
@@ -1994,8 +2000,16 @@ let AnnotationItem = {
       }
     },
     displayTime () {
-      return this.annotation.updated_at_unixms
-      //return this.lib.DayJSHelper.fromNow(this.annotation.updated_at_unixms)
+      //return this.annotation.updated_at_unixms + ' ' + (new Date()).getTime()
+      
+      //let n = (new Date()).getTime()
+      //let u = this.annotation.updated_at_unixms
+      //console.log([n, u, (n - u)])
+      //console.log([u])
+      
+      //return this.lib.DayJSHelper.toNow(this.annotation.updated_at_unixms)
+      //return this.lib.DayJSHelper.fromNow(u)
+      return this.lib.DayJSHelper.fromNow(this.annotation.updated_at_unixms)
     },
     computedContainerClassNames () {
       let classNames = this.mode
