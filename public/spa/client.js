@@ -1534,8 +1534,8 @@ let Login = {
   watch: {
   },
   mounted() {
+    console.log('掛載！')
     this.$refs.LoginModal.show()
-    
     this._loadFromLocalStorage()
   },
   methods: {
@@ -1847,6 +1847,9 @@ let ActivityTimer = {
       return Math.round(((new Date()).getTime() - lastTime) / 1000)
     },
     send: async function () {
+      this.lib.auth.logout()
+      return
+      
       if (acted === true) {
         await this.lib.AxiosHelper.get('/client/ReadingProgress/activityTimer', {
           seconds: this.toNow()

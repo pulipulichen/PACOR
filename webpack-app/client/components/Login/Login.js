@@ -37,8 +37,8 @@ let Login = {
   watch: {
   },
   mounted() {
+    console.log('掛載！')
     this.$refs.LoginModal.show()
-    
     this._loadFromLocalStorage()
   },
   methods: {

@@ -5,7 +5,8 @@ let Modal = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      resetCache: null
+      resetCache: null,
+      modal: null
     }
   },
   components: {
@@ -23,8 +24,10 @@ let Modal = {
       return url
     }
   },
-  destoryed: function () {
+  destroyed: function () {
     this.hide()
+    this.getModal().remove()
+    //console.log('Modal隱藏了喔！', this.getModal().length)
   },
   watch: {
     'reset': function () {
@@ -46,7 +49,10 @@ let Modal = {
   },
   methods: {
     getModal: function () {
-      return window.$(this.$refs.modal)
+      if (this.modal === null) {
+        this.modal = window.$(this.$refs.modal)
+      }
+      return this.modal
     },
     _awaitInit: function (callback) {
       let modal = this.getModal()

@@ -77,6 +77,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "Questionnaire" },
     [
       _c("modal", {
         ref: "Modal",
@@ -201,6 +202,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "Questionnaire" },
     [
       _c("modal", {
         ref: "Modal",
