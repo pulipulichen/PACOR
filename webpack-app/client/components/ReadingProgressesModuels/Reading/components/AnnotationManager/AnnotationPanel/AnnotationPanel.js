@@ -1,6 +1,8 @@
 //import VueDraggableResizable from 'vue-draggable-resizable'
 //import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
 
+import AnnotationList from './AnnotationList/AnnotationList.vue'
+
 import AnnotationDiscussion from './AnnotationDiscussion/AnnotationDiscussion.vue'
 
 import AnnotationModuleMainIdea from './AnnotationEditorModules/MainIdea/MainIdea.vue'
@@ -10,7 +12,8 @@ import $ from 'jquery'
 
 let AnnotationPanel = {
   props: ['lib', 'status', 'config'
-    , 'pinSelection', 'annotationModule', 'rangy'],
+    , 'pinSelection', 'annotationModule', 'rangy'
+    , 'findAnnotation', 'listPositions'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -29,6 +32,8 @@ let AnnotationPanel = {
     //'vue-draggable-resizable': VueDraggableResizable,
     
     'annotation-discussion': AnnotationDiscussion,
+    'annotation-list': AnnotationList,
+    
     'MainIdea': AnnotationModuleMainIdea,
     'ConfusedClarified': AnnotationModuleConfusedClarified
   },

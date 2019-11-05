@@ -11,31 +11,41 @@
            v-on:mousedown="onResizeStart"
            v-on:touchstart="onResizeStart"></div>
       
-      <div class="ui stackable"
-           v-bind:class="computedGridClass">
-        <div class="column annotation-editor">
-          <component v-bind:is="annotationModule"
-                     v-bind:config="config"
-                     v-bind:status="status"
-                     v-bind:pinSelection="pinSelection"
-                     v-bind:annotationModule="annotationModule"
-                     v-bind:annotationInstance="annotationInstance"
-                     v-bind:annotationConfig="annotationConfig"
-                     v-bind:lib="lib"
-                     v-bind:rangy="rangy"
-                     v-bind:heightPX="heightPX"
-                     v-on:hide="hide"></component>
+      <template v-if="listPositions">
+        <annotation-list ref="AnnotationList"
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:listPositions="listPositions"
+          v-bind:lib="lib"></annotation-list>
+      </template> <!-- <template v-if="listPositions"> -->
+      <template v-else>
+        <div class="ui stackable"
+             v-bind:class="computedGridClass">
+          <div class="column annotation-editor">
+            <component v-bind:is="annotationModule"
+                       v-bind:config="config"
+                       v-bind:status="status"
+                       v-bind:pinSelection="pinSelection"
+                       v-bind:annotationModule="annotationModule"
+                       v-bind:annotationInstance="annotationInstance"
+                       v-bind:annotationConfig="annotationConfig"
+                       v-bind:lib="lib"
+                       v-bind:rangy="rangy"
+                       v-bind:heightPX="heightPX"
+                       v-on:hide="hide"></component>
+          </div>
+
+          <!-- =========================================== -->
+          <div class="column annotation-discussion" 
+               v-if="annotationConfig.enableCollaboration">
+            <annotation-discussion v-bind:config="config"
+              v-bind:status="status"
+              v-bind:lib="lib"
+              ref="AnnotationDisscussion"></annotation-discussion>
+          </div>
         </div>
+      </template> <!-- <template v-else> -->
         
-        <!-- =========================================== -->
-        <div class="column annotation-discussion" 
-             v-if="annotationConfig.enableCollaboration">
-          <annotation-discussion v-bind:config="config"
-            v-bind:status="status"
-            v-bind:lib="lib"
-            ref="AnnotationDisscussion"></annotation-discussion>
-        </div>
-      </div>
     </div>
   </div>
   
