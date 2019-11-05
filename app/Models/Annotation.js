@@ -374,14 +374,16 @@ class Annotation extends Model {
         query.withCount('replies')
       }
 
-      if (Array.isArray(anchorPositions) === false) {
-        anchorPositions = [anchorPositions]
-      }
-      if (Array.isArray(anchorPositions)) {
-        query.whereHas('anchorPositions', (builder) => {
-          builder.where('webpage_id', webpage.primaryKeyValue)
-          this._buildAnchorPositionWhere(builder, anchorMode, anchorPositions)
-        })
+      if (anchorPositions !== undefined) {
+        if (Array.isArray(anchorPositions) === false) {
+          anchorPositions = [anchorPositions]
+        }
+        if (Array.isArray(anchorPositions)) {
+          query.whereHas('anchorPositions', (builder) => {
+            builder.where('webpage_id', webpage.primaryKeyValue)
+            this._buildAnchorPositionWhere(builder, anchorMode, anchorPositions)
+          })
+        }
       }
 
       //console.log(afterTime, typeof(afterTime))
@@ -413,11 +415,12 @@ class Annotation extends Model {
       return result
     }
     
-    if (afterTime !== undefined) {
+    if (afterTime !== undefined || true) {
       return await doQuery()
     }
     else {
       let cacheKey = Cache.key(`Annotation.findByWebpageGroupPosition`, webpage, user, anchorPositions, withCount, pick)
+      console.log(cacheKey)
       return await Cache.rememberWait(cacheKey, 2, async () => {
         let result = await doQuery()
         //await Cache.put(cacheKey, result, 2)
@@ -452,6 +455,9 @@ class Annotation extends Model {
   
   static _filterAnchorPositions (anchorPositions) {
     return anchorPositions.map(position => {
+      if (position === undefined) {
+        console.trace('_filterAnchorPositions', position)
+      }
       let start_pos = position.start_pos
       
       if (typeof(start_pos) === 'string') {

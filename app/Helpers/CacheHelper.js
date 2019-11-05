@@ -2,6 +2,36 @@
 
 const Cache = use('Adonis/Addons/Cache')
 
+let stringifyArray = (array) => {
+  return array.map(item => {
+    if (Array.isArray(item)) {
+      return stringifyArray(item)
+    }
+    else if (item !== null && typeof(item) === 'object') {
+      return stringifyObject(item)
+    }
+    else {
+      return item
+    }
+  }).join('.')
+}
+
+let stringifyObject = (object) => {
+  return Object.keys(object).map(key => {
+    let item = object[key]
+    
+    if (Array.isArray(item)) {
+      return stringifyArray(item)
+    }
+    else if (item !== null && typeof(item) === 'object') {
+      return stringifyObject(item)
+    }
+    else {
+      return item
+    }
+  }).join('.')
+}
+
 Cache.key = function (...args) {
   return args.filter(arg => {
     return (arg !== null && typeof(arg) !== 'undefined')
@@ -17,6 +47,12 @@ Cache.key = function (...args) {
     else if (typeof(arg) === 'object') {
       if (typeof(arg.primaryKeyValue) === 'number') {
         return arg.primaryKeyValue
+      }
+      else if (Array.isArray(arg)) {
+        return stringifyArray(arg)
+      }
+      else if (arg !== null && typeof(arg) === 'object') {
+        return stringifyObject(arg)
       }
       else {
         return JSON.stringify(arg)

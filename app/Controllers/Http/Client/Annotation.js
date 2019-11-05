@@ -47,6 +47,7 @@ class Annotation extends WebpageUserBaseController {
     let annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
     
     // 來做計算
+    annotations = annotations.toJSON()
     let annotationCount = annotations.length
     if (annotationCount === 0) {
       return null
@@ -56,6 +57,7 @@ class Annotation extends WebpageUserBaseController {
     query.withCount = true
     let annotation = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
     let usersMap = {}
+    
     annotations.forEach(annotation => {
       let user = annotation.user
       if (typeof(usersMap[user.username]) === 'undefined') {
