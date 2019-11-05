@@ -1,4 +1,18 @@
-.AnnotationItem.compact {
+.meta {
+  float: right;
+}
+
+.avatar, .username {
+  margin-right: 0.5em;
+}
+
+.text-container {
+  line-height: 2em;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.annotation-item-compact {
   .avatar {
     max-height: 2em;
     width: auto;
@@ -6,9 +20,11 @@
   
   .note {
     display: inline-block;
+    margin-left: 0.5em;
     
-    p {
-      display: inline;
+    ::v-deep p {
+      display: inline !important;
+      line-height: 2em !important;
     }
   }
 }

@@ -34,7 +34,12 @@
       }
     },
     "user-information": {},
-    "annotation-module-button": {},
+    "annotation-module-button": {
+      "attributes": {
+        "v-bind:annotationModule": {},
+        "v-bind:count": {}
+      }
+    },
     "component": {},
     "fragment": {},
     "materials": {},
@@ -72,6 +77,7 @@
     "v-bind:href": {},
     "v-html": {},
     "v-for": {},
+    "v-bind:status": {},
     "v-bind:lib": {},
     "v-bind:src": {
       "context": "img"

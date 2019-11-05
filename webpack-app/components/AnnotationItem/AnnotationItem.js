@@ -24,7 +24,7 @@ let AnnotationItem = {
     computedContainerClassNames () {
       let classNames = this.mode
       if (classNames === undefined || classNames === null) {
-        classNames = 'compact'
+        classNames = 'annotation-item-compact'
       }
       return classNames
     }

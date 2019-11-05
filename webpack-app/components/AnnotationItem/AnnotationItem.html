@@ -1,29 +1,30 @@
 <div class="ui segment AnnotationItem" 
      v-if="annotation"
      v-bind:class="computedContainerClassNames">
-  
+
+  <div class="meta text-container">
+    <span>
+      {{ displayTime }}
+    </span>
+
+    <span>
+      {{ $t('{0} Likes', [annotation.__meta__.rates_count]) }}
+    </span>
+
+    <span>
+      {{ $t('{0} Comments', [annotation.__meta__.replies_count]) }}
+    </span>
+  </div>
+
   <img v-bind:src="annotation.user.avatar_url"
        class="avatar"/>
-  <span class="username">
+  <div class="username text-container">
     {{ username }}
-  </span>
-  
+  </div>
+
   <annotation-module-button 
-        v-bind:status="status"
-        v-bind:annotationModule="annotation.type"></annotation-module-button>
-  
-  <span v-if="annotation.note" v-html="annotation.note"></span>
-  
-  <span>
-    {{ displayTime }}
-  </span>
-  
-  <span>
-    {{ $t('{0} Likes', [annotation.ratesCount]) }}
-  </span>
-  
-  <span>
-    {{ $t('{0} Comments', [annotation.repliesCount]) }}
-  </span>
-  
+    v-bind:status="status"
+    v-bind:annotationModule="annotation.type"></annotation-module-button>
+
+  <div class="note text-container" v-if="annotation.note" v-html="annotation.note"></div>
 </div>

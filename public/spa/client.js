@@ -343,7 +343,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationItem.compact .avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.AnnotationItem.compact .note[data-v-b2feccdc] {\n  display: inline-block;\n}\n.AnnotationItem.compact .note p[data-v-b2feccdc] {\n  display: inline;\n}\n", "",{"version":3,"sources":["AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,WAAW;AACb;AACA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;AACjB","file":"AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&","sourcesContent":[".AnnotationItem.compact .avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.AnnotationItem.compact .note[data-v-b2feccdc] {\n  display: inline-block;\n}\n.AnnotationItem.compact .note p[data-v-b2feccdc] {\n  display: inline;\n}\n"]}]);
+exports.push([module.i, ".meta[data-v-b2feccdc] {\n  float: right;\n}\n.avatar[data-v-b2feccdc],\n.username[data-v-b2feccdc] {\n  margin-right: 0.5em;\n}\n.text-container[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.annotation-item-compact .note[data-v-b2feccdc] {\n  display: inline-block;\n  margin-left: 0.5em;\n}\n.annotation-item-compact .note[data-v-b2feccdc]  p {\n  display: inline !important;\n  line-height: 2em !important;\n}\n", "",{"version":3,"sources":["AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;AACd;AACA;;EAEE,mBAAmB;AACrB;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,WAAW;AACb;AACA;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,0BAA0B;EAC1B,2BAA2B;AAC7B","file":"AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&","sourcesContent":[".meta[data-v-b2feccdc] {\n  float: right;\n}\n.avatar[data-v-b2feccdc],\n.username[data-v-b2feccdc] {\n  margin-right: 0.5em;\n}\n.text-container[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.annotation-item-compact .note[data-v-b2feccdc] {\n  display: inline-block;\n  margin-left: 0.5em;\n}\n.annotation-item-compact .note[data-v-b2feccdc]  p {\n  display: inline !important;\n  line-height: 2em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -399,7 +399,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".avatar[data-v-016deec0] {\n  max-height: 2em;\n  width: auto;\n}\n", "",{"version":3,"sources":["UserAvatarIcons.less?vue&type=style&index=0&id=016deec0&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,WAAW;AACb","file":"UserAvatarIcons.less?vue&type=style&index=0&id=016deec0&lang=less&scoped=true&","sourcesContent":[".avatar[data-v-016deec0] {\n  max-height: 2em;\n  width: auto;\n}\n"]}]);
+exports.push([module.i, ".UserAvatarIcons[data-v-016deec0] {\n  display: inline-block;\n}\n.UserAvatarIcons .avatar[data-v-016deec0] {\n  max-height: 2em;\n  width: auto;\n}\n", "",{"version":3,"sources":["UserAvatarIcons.less?vue&type=style&index=0&id=016deec0&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;EACf,WAAW;AACb","file":"UserAvatarIcons.less?vue&type=style&index=0&id=016deec0&lang=less&scoped=true&","sourcesContent":[".UserAvatarIcons[data-v-016deec0] {\n  display: inline-block;\n}\n.UserAvatarIcons .avatar[data-v-016deec0] {\n  max-height: 2em;\n  width: auto;\n}\n"]}]);
 
 
 /***/ }),
@@ -684,12 +684,40 @@ var render = function() {
           class: _vm.computedContainerClassNames
         },
         [
+          _c("div", { staticClass: "meta text-container" }, [
+            _c("span", [
+              _vm._v("\r\n      " + _vm._s(_vm.displayTime) + "\r\n    ")
+            ]),
+            _vm._v(" "),
+            _c("span", [
+              _vm._v(
+                "\r\n      " +
+                  _vm._s(
+                    _vm.$t("{0} Likes", [_vm.annotation.__meta__.rates_count])
+                  ) +
+                  "\r\n    "
+              )
+            ]),
+            _vm._v(" "),
+            _c("span", [
+              _vm._v(
+                "\r\n      " +
+                  _vm._s(
+                    _vm.$t("{0} Comments", [
+                      _vm.annotation.__meta__.replies_count
+                    ])
+                  ) +
+                  "\r\n    "
+              )
+            ])
+          ]),
+          _vm._v(" "),
           _c("img", {
             staticClass: "avatar",
             attrs: { src: _vm.annotation.user.avatar_url }
           }),
           _vm._v(" "),
-          _c("span", { staticClass: "username" }, [
+          _c("div", { staticClass: "username text-container" }, [
             _vm._v("\r\n    " + _vm._s(_vm.username) + "\r\n  ")
           ]),
           _vm._v(" "),
@@ -698,28 +726,11 @@ var render = function() {
           }),
           _vm._v(" "),
           _vm.annotation.note
-            ? _c("span", {
+            ? _c("div", {
+                staticClass: "note text-container",
                 domProps: { innerHTML: _vm._s(_vm.annotation.note) }
               })
-            : _vm._e(),
-          _vm._v(" "),
-          _c("span", [_vm._v("\r\n    " + _vm._s(_vm.displayTime) + "\r\n  ")]),
-          _vm._v(" "),
-          _c("span", [
-            _vm._v(
-              "\r\n    " +
-                _vm._s(_vm.$t("{0} Likes", [_vm.annotation.ratesCount])) +
-                "\r\n  "
-            )
-          ]),
-          _vm._v(" "),
-          _c("span", [
-            _vm._v(
-              "\r\n    " +
-                _vm._s(_vm.$t("{0} Comments", [_vm.annotation.repliesCount])) +
-                "\r\n  "
-            )
-          ])
+            : _vm._e()
         ],
         1
       )
@@ -902,6 +913,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "UserAvatarIcons" },
     [
       _vm._l(_vm.users, function(user) {
         return [
@@ -1979,7 +1991,7 @@ let AnnotationItem = {
     computedContainerClassNames () {
       let classNames = this.mode
       if (classNames === undefined || classNames === null) {
-        classNames = 'compact'
+        classNames = 'annotation-item-compact'
       }
       return classNames
     }

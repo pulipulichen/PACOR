@@ -394,7 +394,7 @@ var render = function() {
                       ? _c(
                           "button",
                           {
-                            staticClass: "ui button",
+                            staticClass: "ui mini button",
                             attrs: { type: "button" }
                           },
                           [
@@ -1451,6 +1451,7 @@ let AnnotationFloatWidget = {
       //return 'bottom'
     },
     computedButtonsClassNames () {
+      //console.log(this.status.preference.leftHanded)
       if (this.status.preference.leftHanded === false) {
         return 'right aligned column'
       }

@@ -56,6 +56,9 @@ class Annotation extends WebpageUserBaseController {
     query.pick = 1
     query.withCount = true
     let annotation = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
+    annotation = annotation.toJSON()
+    //console.log('annotation', annotation)
+    
     let usersMap = {}
     
     annotations.forEach(annotation => {

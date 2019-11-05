@@ -407,7 +407,7 @@ class Annotation extends Model {
       else {
         result = await query.pick(pick)
         if (pick === 1) {
-          result = result[0]
+          result = result.first()
         }
       }
       //console.log(result)
