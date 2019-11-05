@@ -1,0 +1,29 @@
+<div class="ui segment AnnotationItem" 
+     v-if="annotation">
+  
+  <img v-bind:src="annotation.user.avatarURL" />
+  <span class="username">
+    {{ username }}
+  </span>
+  
+  <annotation-module-button 
+        v-bind:status="status"
+        v-bind:annotationModule="annotation.type"></annotation-module-button>
+  
+  <span v-if="annotation.note">
+    {{ annotation.note }}
+  </span>
+  
+  <span>
+    {{ displayTime }}
+  </span>
+  
+  <span>
+    {{ $t('{0} Likes', annotation.likeCount) }}
+  </span>
+  
+  <span>
+    {{ $t('{0} Comments', annotation.repliesCount) }}
+  </span>
+  
+</div>

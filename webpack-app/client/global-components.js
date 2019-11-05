@@ -32,3 +32,5 @@ Vue.component('countdown-button', CountdownButton)
 import UserAvatarIcons from './../components/UserAvatarIcons/UserAvatarIcons.vue'
 Vue.component('user-avatar-icons', UserAvatarIcons)
 
+import AnnotationItem from './../components/AnnotationItem/AnnotationItem.vue'
+Vue.component('annotation-item', AnnotationItem)
