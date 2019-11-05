@@ -20,7 +20,7 @@ module.exports = {
   | 
   */
 
-  default: Env.get('CACHE_STORE', 'database'),
+  default: Env.get('CACHE_STORE', 'redis'),
 
   /*
   |--------------------------------------------------------------------------
