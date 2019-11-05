@@ -3,4 +3,6 @@ en:
   
 zh-TW:
   # 這是註解
-  TEST_MESSAGE: 測試訊息
+  Back to list: 回到列表
+  Back to full list: 回到完整列表
+  Finding: 正在搜尋

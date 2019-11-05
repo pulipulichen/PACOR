@@ -4,9 +4,10 @@ let AnnotationFloatWidget = {
     this.$i18n.locale = this.config.locale
     return {
       annotation: null,
+      annotationCount: 0,
       users: [],
+      userCount: 0,
       types: [],
-      annotationCount: 0
     }
   },
   components: {

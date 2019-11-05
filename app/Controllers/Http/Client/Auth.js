@@ -100,6 +100,7 @@ class Auth {
     //console.log(userJSON)
     //console.log(user.preference)
     let data = {
+      userID: user.id,
       username: user.username,
       displayName: user.display_name,
       avatar: userJSON.avatar_url,

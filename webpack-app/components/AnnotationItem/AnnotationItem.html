@@ -1,9 +1,13 @@
 <div class="ui segment AnnotationItem" 
      v-if="annotation"
      v-bind:class="computedContainerClassNames"
-     v-on:click.stop="$emit('find', annotation)">
+     v-on:mouseover="$emit('mouseover', annotation)"
+     v-on:mouseout="$emit('mouseout')"
+     v-on:click="$emit('click', annotation)">
 
-  <div class="meta text-container">
+  <div class="meta text-container ui basic right labeled button"
+       v-bind:class="{'clickable': findAnnotation}"
+       v-on:click.stop="onFindAnnotation(annotation)">
     <span>
       {{ displayTime }}
     </span>
@@ -17,18 +21,27 @@
           v-if="annotation.__meta__.replies_count > 0">
       {{ $t('{0} Comments', [annotation.__meta__.replies_count]) }}
     </span>
+    
+    <i class="right angle icon"
+       v-if="findAnnotation" />
   </div>
 
   <div class="left column">
-    <img v-bind:src="annotation.user.avatar_url"
-         class="avatar"/>
-    <div class="username text-container">
-      {{ username }}
+    <div v-on:click.stop="onFindUser(annotation.user)"
+         v-bind:class="{'clickable': findUser}"
+         class="user">
+      <img v-bind:src="annotation.user.avatar_url"
+           class="avatar"/>
+      <div class="username text-container">
+        {{ username }}
+      </div>
     </div>
 
     <annotation-module-button 
       v-bind:status="status"
-      v-bind:annotationModule="annotation.type"></annotation-module-button>
+      v-bind:annotationModule="annotation.type"
+      v-bind:clickable="(typeof(findType) === 'function')"
+      v-on:find="(type) => {onFindType(type)}"></annotation-module-button>
 
     <div class="note text-container" v-if="annotation.note" v-html="annotation.note"></div>
   </div>

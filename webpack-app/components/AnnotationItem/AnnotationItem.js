@@ -1,5 +1,5 @@
 let AnnotationItem = {
-  props: ['lib', 'status', 'config', 'annotation', 'mode'],
+  props: ['lib', 'status', 'config', 'annotation', 'mode', 'findUser', 'findType', 'findAnnotation'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -42,6 +42,21 @@ let AnnotationItem = {
   mounted() {
   },
   methods: {
+    onFindAnnotation (data) {
+      if (typeof(this.findAnnotation) === 'function') {
+        this.findAnnotation(data)
+      }
+    },
+    onFindUser (data) {
+      if (typeof(this.findUser) === 'function') {
+        this.findUser(data)
+      }
+    },
+    onFindType (data) {
+      if (typeof(this.findType) === 'function') {
+        this.findType(data)
+      }
+    }
   } // methods
 }
 

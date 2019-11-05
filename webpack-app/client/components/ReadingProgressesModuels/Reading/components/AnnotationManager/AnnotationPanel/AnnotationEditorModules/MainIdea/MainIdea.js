@@ -3,7 +3,7 @@ import AnnotationEditorHeader from './../components/AnnotationEditorHeader/Annot
 let MainIdea = {
   props: ['lib', 'status', 'config'
     , 'annotationModule', 'annotationInstance'
-    , 'heightPX', 'annotationConfig', 'pinSelection'
+    , 'heightPX', 'pinSelection'
     , 'rangy'],
   data() {
     this.$i18n.locale = this.config.locale

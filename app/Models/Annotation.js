@@ -354,7 +354,7 @@ class Annotation extends Model {
     return await doQuery()
   } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
   
-  static async findByWebpageGroupPosition(webpage, user, {afterTime, anchorPositions, anchorMode, withCount, pick}) {
+  static async findByWebpageGroupPosition(webpage, user, {afterTime, anchorPositions, anchorMode, withCount, pick, findUserID, findType}) {
     const doQuery = async evt => {
       //console.log('findByWebpageGroupPosition', anchorPositions)
       
@@ -373,6 +373,14 @@ class Annotation extends Model {
       if (withCount === true) {
         query.withCount('rates')
         query.withCount('replies')
+      }
+      
+      if (typeof(findUserID) === 'number') {
+        query.where('user_id', findUserID)
+      }
+      
+      if (typeof(findType) === 'string') {
+        query.where('type', findType)
       }
 
       if (anchorPositions !== undefined) {

@@ -660,7 +660,12 @@ export default (rangy) => {
                 return serializedHighlights.join("|");
             },
 
-            deserialize: function(serialized, { append }) {
+            deserialize: function(serialized, options) {
+              if (typeof(serialized) !== 'string' || serialized === '') {
+                return false
+              }
+              options = options ? options : {}
+              let { append } = options
               
                 var serializedHighlights = serialized.split("|");
                 var highlights = [];

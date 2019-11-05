@@ -34,6 +34,7 @@
       }
     },
     "user-information": {},
+    "div": {},
     "annotation-module-button": {
       "attributes": {
         "v-bind:annotationModule": {},
@@ -85,6 +86,7 @@
     "v-slot:content": {},
     "v-bind:config": {},
     "v-slot:header": {},
+    "class": {},
     "#header": {},
     "v-on:highlightMouseout": {},
     "v-on:click.stop": {},

@@ -62,6 +62,7 @@ let VueController = {
     config: config,
     status: {
       needLogin: true,
+      userID: 0,
       username: '',
       displayName: '',
       avatar: '',

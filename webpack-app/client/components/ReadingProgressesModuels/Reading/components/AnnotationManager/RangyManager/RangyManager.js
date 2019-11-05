@@ -3,7 +3,7 @@ import rangy from './rangy/rangy-webpack.js'
 import $ from 'jquery'
 
 let RangyManager = {
-  props: ['lib', 'rangyConfig'],
+  props: ['lib', 'status', 'rangyConfig'],
   data() {
     //console.log(this.status)
     //this.$i18n.locale = this.config.locale
@@ -604,9 +604,11 @@ let RangyManager = {
     
     // -----------------------------------------------------------------
     
-    hoverIn: function (highlight) {
+    hoverIn: function (annotation) {
       this.hoverOut()
-      console.log('@TODO 這邊要能夠接收annotation', highlight)
+      console.log(annotation)
+      let highlight = this._annotationToHighlighString(annotation, 'pacor-hover')
+      console.log(highlight)
       this.hoverHighlighter.deserialize(highlight)
       return this
     },
@@ -639,20 +641,48 @@ let RangyManager = {
         },
       ]
      */
+    _annotationToHighlighString (annotations, type) {
+      if (annotations === null || annotations === undefined) {
+        return ''
+      }
+      
+      if (Array.isArray(annotations) === false) {
+        annotations = [annotations]
+      }
+      
+      let highlightJSONArray = []
+      let id = 0
+      annotations.forEach((annotation) => {
+        if (type === undefined) {
+          type = annotation.type
+          if (annotation.user_id === this.status.userID) {
+            type = 'my-' + type
+          }
+          else {
+            type = 'others-' + type
+          }
+        }
+        
+        annotation.anchorPositions.forEach(pos => {
+          id++
+          highlightJSONArray.push([
+            pos.start_pos,
+            pos.end_pos,
+            id,
+            type,
+            pos.paragraph_id
+          ].join('$'))
+        })
+      })
+      highlightJSONArray.unshift('type:textContent')
+      highlightJSONArray = highlightJSONArray.join('|')
+      
+      return highlightJSONArray
+    },
     deserialize: function (highlightJSONArray) {
       // "type:textContent|28$198$2$confused-clarified$pacor-paragraph-id-2"
-      if (Array.isArray(highlightJSONArray)) {
-        highlightJSONArray = highlightJSONArray.map((json, id) => {
-          return [
-            json.start,
-            json.end,
-            id,
-            json.className,
-            json.paragraphID
-          ].join('$')
-        })
-        highlightJSONArray.unshift('type:textContent')
-        highlightJSONArray = highlightJSONArray.join('|')
+      if (typeof(highlightJSONArray) !== 'string') {
+        highlightJSONArray = this._annotationToHighlighString(highlightJSONArray)
       }
       
       this.highlighter.deserialize(highlightJSONArray, {

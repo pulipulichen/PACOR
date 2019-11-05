@@ -12,7 +12,9 @@ let i18nGlobal = {
     "You still need to write {0} words more": "You still need to write {0} word more | You still need to write {0} words more",
     "You still need to delete {0} words more": "You still need to delete {0} word more | You still need to delete {0} words more",
     "Remaining Time: {0}": "Remaining Time: {0}",
-    "{0} sec": "{0} sec"
+    "{0} sec": "{0} sec",
+    "{0} Annotations": "{0} Annotation | {0} Annotations",
+    "Total {0} Annotations": "Total {0} Annotation | Total {0} Annotations"
   },
   "zh-TW": {
     "LOGIN": "登入",
@@ -56,7 +58,9 @@ let i18nGlobal = {
     "ANNOTATION_TYPE.ConfusedClarified": "疑問",
     "ANNOTATION_TYPE.Confused": "疑問",
     "ANNOTATION_TYPE.Clarified": "已釐清",
-    "{0} sec": "{0}秒"
+    "{0} sec": "{0}秒",
+    "{0} Annotations": "{0}篇標註",
+    "Total {0} Annotations": "總共{0}篇標註",
   }
 }
 

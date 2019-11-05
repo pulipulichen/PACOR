@@ -1,28 +1,74 @@
 <div class="AnnotationList">
   
-  <div class="summary-information">
-    <button type="button" class="ui mini button"
-            v-if="findAnnotation">
+  <div class="summary-information"
+       v-if="!isFiltering">
+    <button type="button" class="ui mini labeled icon button back-button"
+            v-if="annotationInstance"
+            v-on:click.stop="annotationInstance = null">
+      <i class="angle left icon" />
       {{ $t('Back to list') }}
     </button>
+    
+    <div class="label">
+      {{ $t('{0} Annotations', [annotationCount]) }}:
+    </div>
     
     <user-avatar-icons 
           style="margin-right: 0.5em;"
           v-bind:config="config"
           v-bind:status="status"
           v-bind:lib="lib"
-          v-bind:users="users"></user-avatar-icons >
+          v-bind:users="users"
+          v-bind:userCount="userCount"
+          v-on:find="(user) => {findUser = user}"></user-avatar-icons >
         
     <annotation-module-button v-for="t in types"
           v-bind:lib="lib"
           v-bind:config="config"
           v-bind:status="status"
           v-bind:annotationModule="t.type"
-          v-bind:count="t.count"></annotation-module-button>
+          v-bind:count="t.count"
+          v-on:find="(type) => {findType = type}"></annotation-module-button>
   </div>
   
+  <div class="summary-information"
+       v-if="isFiltering">
+      <button type="button" class="ui mini labeled icon button back-button"
+            v-on:click.stop="clearFilter">
+        <i class="angle left icon"></i>
+      {{ $t('Back to full list') }}
+    </button>
+    
+    <div class="label">
+      {{ $t('Finding') }}:
+    </div>
+    
+    <user-avatar-icons 
+          style="margin-right: 0.5em;"
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib"
+          v-bind:users="[findUser]"
+          v-on:find="findUser = null"
+          v-if="findUser"></user-avatar-icons >
+        
+    <annotation-module-button
+          v-bind:lib="lib"
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:annotationModule="findType"
+          v-on:find="findType = null"
+          v-if="findType"></annotation-module-button>
+    
+    <div class="label">
+      {{ $t('Total {0} Annotations', [filteredAnnotationCount]) }}
+    </div>
+  </div>
+  
+  <div class="ui divider"></div>
+    
   <div class="list"
-       v-show="findAnnotation === null">
+       v-show="annotationInstance === null && isFiltering === false">
     <annotation-item
         v-for="annotation in annotations"
         v-bind:config="config"
@@ -30,21 +76,35 @@
         v-bind:lib="lib"
         v-bind:isFull="false"
         v-bind:annotation="annotation"
-        v-on:find="edit"></annotation-item>
+        v-bind:findAnnotation="(annotation) => {annotationInstance = annotation}"
+        v-bind:findUser="(user) => {findUser = user}"
+        v-bind:findType="(type) => {findType = type}"
+        v-on:click="hoverToggle"
+        v-on:mouseover="hoverIn"
+        v-on:mouseout="hoverOut"></annotation-item>
   </div>
+  <div class="list"
+       v-show="annotationInstance === null && isFiltering === true">
+    <annotation-item
+        v-for="annotation in filteredAnnotations"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:isFull="false"
+        v-bind:annotation="annotation"
+        v-bind:findAnnotation="(annotation) => {annotationInstance = annotation}"
+        v-bind:findUser="(user) => {findUser = user}"
+        v-bind:findType="(type) => {findType = type}"></annotation-item>
+  </div>
+  
   <div class="find-annotation">
     <annotation-editor-modules ref="auth"
           v-bind:config="config"
           v-bind:status="status"
           v-bind:lib="lib"
-          v-bind:annotationModule="annotationModule"
-          v-bind:pinSelection="pinSelection"
-          v-bind:annotationInstance="findAnnotation"
-          v-bind:rangy="rangy"
-          v-bind:heightPX="heightPX"
-          v-on:hide="hide"></annotation-editor-modules>
+          v-bind:annotationInstance="annotationInstance"
+          v-bind:heightPX="editorHeightPX"
+          v-on:hide="annotationInstance = null"></annotation-editor-modules>
   </div>
   
-  AnnotationList
-  {{ listPositions }}
 </div>

@@ -16,9 +16,11 @@
         <annotation-list ref="AnnotationList"
           v-bind:config="config"
           v-bind:status="status"
+          v-bind:lib="lib"
           v-bind:listPositions="listPositions"
           v-bind:findAnnotation="findAnnotation"
-          v-bind:lib="lib"></annotation-list>
+          v-bind:heightPX="heightPX"
+          v-bind:rangy="rangy"></annotation-list>
         
       </template> <!-- <template v-if="listPositions"> -->
       <template v-else>

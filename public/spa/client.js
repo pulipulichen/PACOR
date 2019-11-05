@@ -313,7 +313,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Total {0} Readers":"Total {0} Reader | Total {0} Readers"},"zh-TW":{"Total {0} Readers":"總共{0}位讀者"}}')
+  Component.options.__i18n.push('{"en":{"{0} Readers":"{0} Reader | {0} Readers"},"zh-TW":{"{0} Readers":"{0}位讀者"}}')
   delete Component.options._Ctor
 }
 
@@ -343,7 +343,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".meta[data-v-b2feccdc] {\n  float: right;\n  user-select: none;\n}\n.avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-b2feccdc],\n.username[data-v-b2feccdc] {\n  margin-right: 0.5em;\n}\n.username[data-v-b2feccdc] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.note[data-v-b2feccdc]  p {\n  line-height: 2em !important;\n}\n.annotation-item-compact .text-container[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-b2feccdc] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-b2feccdc] {\n  display: inline-block;\n  margin-left: 0.5em;\n}\n.annotation-item-compact .note[data-v-b2feccdc]  p {\n  display: inline !important;\n  line-height: 2em !important;\n}\n", "",{"version":3,"sources":["AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,iBAAiB;AACnB;AACA;EACE,eAAe;EACf,WAAW;AACb;AACA;;EAEE,mBAAmB;AACrB;AACA;EACE,cAAc;EACd,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;EACnB,qBAAqB;EACrB,mBAAmB;EACnB,gBAAgB;AAClB;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,0BAA0B;EAC1B,2BAA2B;AAC7B","file":"AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&","sourcesContent":[".meta[data-v-b2feccdc] {\n  float: right;\n  user-select: none;\n}\n.avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-b2feccdc],\n.username[data-v-b2feccdc] {\n  margin-right: 0.5em;\n}\n.username[data-v-b2feccdc] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.note[data-v-b2feccdc]  p {\n  line-height: 2em !important;\n}\n.annotation-item-compact .text-container[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-b2feccdc] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-b2feccdc] {\n  display: inline-block;\n  margin-left: 0.5em;\n}\n.annotation-item-compact .note[data-v-b2feccdc]  p {\n  display: inline !important;\n  line-height: 2em !important;\n}\n"]}]);
+exports.push([module.i, ".meta[data-v-b2feccdc] {\n  float: right;\n  user-select: none;\n  line-height: 2em !important;\n}\n.user[data-v-b2feccdc] {\n  display: inline-block;\n}\n.avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-b2feccdc],\n.username[data-v-b2feccdc] {\n  margin-right: 0.5em;\n}\n.username[data-v-b2feccdc] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.note[data-v-b2feccdc]  p {\n  line-height: 2em !important;\n}\n.clickable[data-v-b2feccdc] {\n  cursor: pointer !important;\n}\n.annotation-item-compact .text-container[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-b2feccdc] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-b2feccdc] {\n  display: inline-block;\n  margin-left: 0.5em;\n}\n.annotation-item-compact .note[data-v-b2feccdc]  p {\n  display: inline !important;\n  line-height: 2em !important;\n}\n", "",{"version":3,"sources":["AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,iBAAiB;EACjB,2BAA2B;AAC7B;AACA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;EACf,WAAW;AACb;AACA;;EAEE,mBAAmB;AACrB;AACA;EACE,cAAc;EACd,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;EACnB,qBAAqB;EACrB,mBAAmB;EACnB,gBAAgB;AAClB;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,0BAA0B;AAC5B;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,0BAA0B;EAC1B,2BAA2B;AAC7B","file":"AnnotationItem.less?vue&type=style&index=0&id=b2feccdc&lang=less&scoped=true&","sourcesContent":[".meta[data-v-b2feccdc] {\n  float: right;\n  user-select: none;\n  line-height: 2em !important;\n}\n.user[data-v-b2feccdc] {\n  display: inline-block;\n}\n.avatar[data-v-b2feccdc] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-b2feccdc],\n.username[data-v-b2feccdc] {\n  margin-right: 0.5em;\n}\n.username[data-v-b2feccdc] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.note[data-v-b2feccdc]  p {\n  line-height: 2em !important;\n}\n.clickable[data-v-b2feccdc] {\n  cursor: pointer !important;\n}\n.annotation-item-compact .text-container[data-v-b2feccdc] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-b2feccdc] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-b2feccdc] {\n  display: inline-block;\n  margin-left: 0.5em;\n}\n.annotation-item-compact .note[data-v-b2feccdc]  p {\n  display: inline !important;\n  line-height: 2em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -357,7 +357,7 @@ exports.push([module.i, ".meta[data-v-b2feccdc] {\n  float: right;\n  user-selec
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".button[data-v-50b9f39c] {\n  cursor: default !important;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n", "",{"version":3,"sources":["AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,mBAAmB;EACnB,uBAAuB;EACvB,gBAAgB;AAClB","file":"AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true&","sourcesContent":[".button[data-v-50b9f39c] {\n  cursor: default !important;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n"]}]);
+exports.push([module.i, ".button[data-v-50b9f39c] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n", "",{"version":3,"sources":["AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,uBAAuB;EACvB,gBAAgB;AAClB","file":"AnnotationModuleButton.less?vue&type=style&index=0&id=50b9f39c&lang=less&scoped=true&","sourcesContent":[".button[data-v-50b9f39c] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n"]}]);
 
 
 /***/ }),
@@ -683,64 +683,107 @@ var render = function() {
           staticClass: "ui segment AnnotationItem",
           class: _vm.computedContainerClassNames,
           on: {
+            mouseover: function($event) {
+              return _vm.$emit("mouseover", _vm.annotation)
+            },
+            mouseout: function($event) {
+              return _vm.$emit("mouseout")
+            },
             click: function($event) {
-              $event.stopPropagation()
-              return _vm.$emit("find", _vm.annotation)
+              return _vm.$emit("click", _vm.annotation)
             }
           }
         },
         [
-          _c("div", { staticClass: "meta text-container" }, [
-            _c("span", [
-              _vm._v("\r\n      " + _vm._s(_vm.displayTime) + "\r\n    ")
-            ]),
-            _vm._v(" "),
-            _vm.annotation.__meta__.rates_count > 0
-              ? _c("span", { staticClass: "likes" }, [
-                  _vm._v(
-                    "\r\n      " +
-                      _vm._s(
-                        _vm.$t("{0} Likes", [
-                          _vm.annotation.__meta__.rates_count
-                        ])
-                      ) +
-                      "\r\n    "
-                  )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.annotation.__meta__.replies_count > 0
-              ? _c("span", { staticClass: "comments" }, [
-                  _vm._v(
-                    "\r\n      " +
-                      _vm._s(
-                        _vm.$t("{0} Comments", [
-                          _vm.annotation.__meta__.replies_count
-                        ])
-                      ) +
-                      "\r\n    "
-                  )
-                ])
-              : _vm._e()
-          ]),
+          _c(
+            "div",
+            {
+              staticClass: "meta text-container ui basic right labeled button",
+              class: { clickable: _vm.findAnnotation },
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  return _vm.onFindAnnotation(_vm.annotation)
+                }
+              }
+            },
+            [
+              _c("span", [
+                _vm._v("\r\n      " + _vm._s(_vm.displayTime) + "\r\n    ")
+              ]),
+              _vm._v(" "),
+              _vm.annotation.__meta__.rates_count > 0
+                ? _c("span", { staticClass: "likes" }, [
+                    _vm._v(
+                      "\r\n      " +
+                        _vm._s(
+                          _vm.$t("{0} Likes", [
+                            _vm.annotation.__meta__.rates_count
+                          ])
+                        ) +
+                        "\r\n    "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.annotation.__meta__.replies_count > 0
+                ? _c("span", { staticClass: "comments" }, [
+                    _vm._v(
+                      "\r\n      " +
+                        _vm._s(
+                          _vm.$t("{0} Comments", [
+                            _vm.annotation.__meta__.replies_count
+                          ])
+                        ) +
+                        "\r\n    "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.findAnnotation
+                ? _c("i", { staticClass: "right angle icon" })
+                : _vm._e()
+            ]
+          ),
           _vm._v(" "),
           _c(
             "div",
             { staticClass: "left column" },
             [
-              _c("img", {
-                staticClass: "avatar",
-                attrs: { src: _vm.annotation.user.avatar_url }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "username text-container" }, [
-                _vm._v("\r\n      " + _vm._s(_vm.username) + "\r\n    ")
-              ]),
+              _c(
+                "div",
+                {
+                  staticClass: "user",
+                  class: { clickable: _vm.findUser },
+                  on: {
+                    click: function($event) {
+                      $event.stopPropagation()
+                      return _vm.onFindUser(_vm.annotation.user)
+                    }
+                  }
+                },
+                [
+                  _c("img", {
+                    staticClass: "avatar",
+                    attrs: { src: _vm.annotation.user.avatar_url }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "username text-container" }, [
+                    _vm._v("\r\n        " + _vm._s(_vm.username) + "\r\n      ")
+                  ])
+                ]
+              ),
               _vm._v(" "),
               _c("annotation-module-button", {
                 attrs: {
                   status: _vm.status,
-                  annotationModule: _vm.annotation.type
+                  annotationModule: _vm.annotation.type,
+                  clickable: typeof _vm.findType === "function"
+                },
+                on: {
+                  find: function(type) {
+                    _vm.onFindType(type)
+                  }
                 }
               }),
               _vm._v(" "),
@@ -959,13 +1002,15 @@ var render = function() {
         })
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "user-count" }, [
-        _vm._v(
-          "\r\n    " +
-            _vm._s(_vm.$t("Total {0} Readers", [_vm.users.length])) +
-            "\r\n  "
-        )
-      ])
+      _vm.userCount
+        ? _c("div", { staticClass: "user-count" }, [
+            _vm._v(
+              "\r\n    " +
+                _vm._s(_vm.$t("{0} Readers", [_vm.userCount])) +
+                "\r\n  "
+            )
+          ])
+        : _vm._e()
     ],
     2
   )
@@ -1192,6 +1237,7 @@ let VueController = {
     config: _config_js__WEBPACK_IMPORTED_MODULE_11__["default"],
     status: {
       needLogin: true,
+      userID: 0,
       username: '',
       displayName: '',
       avatar: '',
@@ -2012,7 +2058,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let AnnotationItem = {
-  props: ['lib', 'status', 'config', 'annotation', 'mode'],
+  props: ['lib', 'status', 'config', 'annotation', 'mode', 'findUser', 'findType', 'findAnnotation'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -2055,6 +2101,21 @@ let AnnotationItem = {
   mounted() {
   },
   methods: {
+    onFindAnnotation (data) {
+      if (typeof(this.findAnnotation) === 'function') {
+        this.findAnnotation(data)
+      }
+    },
+    onFindUser (data) {
+      if (typeof(this.findUser) === 'function') {
+        this.findUser(data)
+      }
+    },
+    onFindType (data) {
+      if (typeof(this.findType) === 'function') {
+        this.findType(data)
+      }
+    }
   } // methods
 }
 
@@ -2194,7 +2255,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let AnnotationModuleButton = {
-  props: ['status', 'annotationModule', 'count'],
+  props: ['status', 'annotationModule', 'count', 'clickable'],
   data() {
     return {
     }
@@ -2202,7 +2263,17 @@ let AnnotationModuleButton = {
   computed: {
     'computedStyle' () {
       let {color, backgroundColor} = this.status.readingConfig.annotationTypeModules[this.annotationModule].style.button
-      return {color, backgroundColor}
+      let style = {
+        color,
+        backgroundColor,
+        cursor: 'default'
+      }
+      
+      if (this.clickable !== false) {
+        style.cursor = 'pointer'
+      }
+      
+      return style
     }
   },
   /*
@@ -2799,7 +2870,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let UserAvatarIcons = {
-  props: ['lib', 'status', 'config', 'users'],
+  props: ['lib', 'status', 'config', 'users', 'userCount', 'clickable'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -2826,10 +2897,16 @@ let UserAvatarIcons = {
       // {'z-index': (users.length - i)}
       let zIndex = (this.users.length - i)
       let opacity = 1 - (0.2 * i)
-      return {
+      let style = {
         'z-index': zIndex,
         opacity: opacity
       }
+      
+      if (this.clickable !== false) {
+        style.cursor = 'pointer'
+      }
+      
+      return style
     }
   } // methods
 }

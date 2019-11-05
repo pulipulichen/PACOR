@@ -1,5 +1,5 @@
 let UserAvatarIcons = {
-  props: ['lib', 'status', 'config', 'users'],
+  props: ['lib', 'status', 'config', 'users', 'userCount', 'clickable'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -26,10 +26,16 @@ let UserAvatarIcons = {
       // {'z-index': (users.length - i)}
       let zIndex = (this.users.length - i)
       let opacity = 1 - (0.2 * i)
-      return {
+      let style = {
         'z-index': zIndex,
         opacity: opacity
       }
+      
+      if (this.clickable !== false) {
+        style.cursor = 'pointer'
+      }
+      
+      return style
     }
   } // methods
 }

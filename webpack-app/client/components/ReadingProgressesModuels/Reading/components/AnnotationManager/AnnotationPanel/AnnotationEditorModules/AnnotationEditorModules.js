@@ -30,6 +30,17 @@ let AnnotationEditorModules = {
       
       return classList.join(' ') + ' column grid'
     },
+    annotationConfig () {
+      return this.lib.auth.currentStepAnnotationConfig
+    },
+    type () {
+      if (typeof(this.annotationModule) === 'string') {
+        return this.annotationModule
+      }
+      else if (this.annotationInstance !== null) {
+        return this.annotationInstance.type
+      }
+    }
   },
   watch: {
   },

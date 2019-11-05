@@ -1,5 +1,5 @@
 let AnnotationModuleButton = {
-  props: ['status', 'annotationModule', 'count'],
+  props: ['status', 'annotationModule', 'count', 'clickable'],
   data() {
     return {
     }
@@ -7,7 +7,17 @@ let AnnotationModuleButton = {
   computed: {
     'computedStyle' () {
       let {color, backgroundColor} = this.status.readingConfig.annotationTypeModules[this.annotationModule].style.button
-      return {color, backgroundColor}
+      let style = {
+        color,
+        backgroundColor,
+        cursor: 'default'
+      }
+      
+      if (this.clickable !== false) {
+        style.cursor = 'pointer'
+      }
+      
+      return style
     }
   },
   /*

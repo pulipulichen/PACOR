@@ -153,7 +153,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Back to list":"回到列表","Back to full list":"回到完整列表","Finding":"正在搜尋"}}')
   delete Component.options._Ctor
 }
 
@@ -327,7 +327,7 @@ exports.push([module.i, "img[data-v-fa31e19a] {\n  height: 2em;\n  width: auto;\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"AnnotationList.less?vue&type=style&index=0&id=7508456a&lang=less&scoped=true&"}]);
+exports.push([module.i, ".back-button[data-v-7508456a] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-7508456a] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["AnnotationList.less?vue&type=style&index=0&id=7508456a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;AACrB","file":"AnnotationList.less?vue&type=style&index=0&id=7508456a&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-7508456a] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-7508456a] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -452,7 +452,8 @@ var render = function() {
                           config: _vm.config,
                           status: _vm.status,
                           lib: _vm.lib,
-                          users: _vm.users
+                          users: _vm.users,
+                          userCount: _vm.userCount
                         }
                       }),
                       _vm._v(" "),
@@ -635,13 +636,13 @@ var render = function() {
         "div",
         { staticClass: "column annotation-editor" },
         [
-          _c(_vm.annotationModule, {
+          _c(_vm.type, {
             tag: "component",
             attrs: {
               config: _vm.config,
               status: _vm.status,
               pinSelection: _vm.pinSelection,
-              annotationModule: _vm.annotationModule,
+              annotationModule: _vm.type,
               annotationInstance: _vm.annotationInstance,
               annotationConfig: _vm.annotationConfig,
               lib: _vm.lib,
@@ -1121,46 +1122,159 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "AnnotationList" }, [
-    _c(
-      "div",
-      { staticClass: "summary-information" },
-      [
-        _vm.findAnnotation
-          ? _c(
+    !_vm.isFiltering
+      ? _c(
+          "div",
+          { staticClass: "summary-information" },
+          [
+            _vm.annotationInstance
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "ui mini labeled icon button back-button",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        $event.stopPropagation()
+                        _vm.annotationInstance = null
+                      }
+                    }
+                  },
+                  [
+                    _c("i", { staticClass: "angle left icon" }),
+                    _vm._v(
+                      "\r\n      " + _vm._s(_vm.$t("Back to list")) + "\r\n    "
+                    )
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "label" }, [
+              _vm._v(
+                "\r\n      " +
+                  _vm._s(_vm.$t("{0} Annotations", [_vm.annotationCount])) +
+                  ":\r\n    "
+              )
+            ]),
+            _vm._v(" "),
+            _c("user-avatar-icons", {
+              staticStyle: { "margin-right": "0.5em" },
+              attrs: {
+                config: _vm.config,
+                status: _vm.status,
+                lib: _vm.lib,
+                users: _vm.users,
+                userCount: _vm.userCount
+              },
+              on: {
+                find: function(user) {
+                  _vm.findUser = user
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm._l(_vm.types, function(t) {
+              return _c("annotation-module-button", {
+                attrs: {
+                  lib: _vm.lib,
+                  config: _vm.config,
+                  status: _vm.status,
+                  annotationModule: t.type,
+                  count: t.count
+                },
+                on: {
+                  find: function(type) {
+                    _vm.findType = type
+                  }
+                }
+              })
+            })
+          ],
+          2
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.isFiltering
+      ? _c(
+          "div",
+          { staticClass: "summary-information" },
+          [
+            _c(
               "button",
-              { staticClass: "ui mini button", attrs: { type: "button" } },
+              {
+                staticClass: "ui mini labeled icon button back-button",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    $event.stopPropagation()
+                    return _vm.clearFilter($event)
+                  }
+                }
+              },
               [
+                _c("i", { staticClass: "angle left icon" }),
                 _vm._v(
-                  "\r\n      " + _vm._s(_vm.$t("Back to list")) + "\r\n    "
+                  "\r\n      " +
+                    _vm._s(_vm.$t("Back to full list")) +
+                    "\r\n    "
                 )
               ]
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _c("user-avatar-icons", {
-          staticStyle: { "margin-right": "0.5em" },
-          attrs: {
-            config: _vm.config,
-            status: _vm.status,
-            lib: _vm.lib,
-            users: _vm.users
-          }
-        }),
-        _vm._v(" "),
-        _vm._l(_vm.types, function(t) {
-          return _c("annotation-module-button", {
-            attrs: {
-              lib: _vm.lib,
-              config: _vm.config,
-              status: _vm.status,
-              annotationModule: t.type,
-              count: t.count
-            }
-          })
-        })
-      ],
-      2
-    ),
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "label" }, [
+              _vm._v("\r\n      " + _vm._s(_vm.$t("Finding")) + ":\r\n    ")
+            ]),
+            _vm._v(" "),
+            _vm.findUser
+              ? _c("user-avatar-icons", {
+                  staticStyle: { "margin-right": "0.5em" },
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib,
+                    users: [_vm.findUser]
+                  },
+                  on: {
+                    find: function($event) {
+                      _vm.findUser = null
+                    }
+                  }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.findType
+              ? _c("annotation-module-button", {
+                  attrs: {
+                    lib: _vm.lib,
+                    config: _vm.config,
+                    status: _vm.status,
+                    annotationModule: _vm.findType
+                  },
+                  on: {
+                    find: function($event) {
+                      _vm.findType = null
+                    }
+                  }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "label" }, [
+              _vm._v(
+                "\r\n      " +
+                  _vm._s(
+                    _vm.$t("Total {0} Annotations", [
+                      _vm.filteredAnnotationCount
+                    ])
+                  ) +
+                  "\r\n    "
+              )
+            ])
+          ],
+          1
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "ui divider" }),
     _vm._v(" "),
     _c(
       "div",
@@ -1169,8 +1283,8 @@ var render = function() {
           {
             name: "show",
             rawName: "v-show",
-            value: _vm.findAnnotation === null,
-            expression: "findAnnotation === null"
+            value: _vm.annotationInstance === null && _vm.isFiltering === false,
+            expression: "annotationInstance === null && isFiltering === false"
           }
         ],
         staticClass: "list"
@@ -1182,9 +1296,58 @@ var render = function() {
             status: _vm.status,
             lib: _vm.lib,
             isFull: false,
-            annotation: annotation
+            annotation: annotation,
+            findAnnotation: function(annotation) {
+              _vm.annotationInstance = annotation
+            },
+            findUser: function(user) {
+              _vm.findUser = user
+            },
+            findType: function(type) {
+              _vm.findType = type
+            }
           },
-          on: { find: _vm.edit }
+          on: {
+            click: _vm.hoverToggle,
+            mouseover: _vm.hoverIn,
+            mouseout: _vm.hoverOut
+          }
+        })
+      }),
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.annotationInstance === null && _vm.isFiltering === true,
+            expression: "annotationInstance === null && isFiltering === true"
+          }
+        ],
+        staticClass: "list"
+      },
+      _vm._l(_vm.filteredAnnotations, function(annotation) {
+        return _c("annotation-item", {
+          attrs: {
+            config: _vm.config,
+            status: _vm.status,
+            lib: _vm.lib,
+            isFull: false,
+            annotation: annotation,
+            findAnnotation: function(annotation) {
+              _vm.annotationInstance = annotation
+            },
+            findUser: function(user) {
+              _vm.findUser = user
+            },
+            findType: function(type) {
+              _vm.findType = type
+            }
+          }
         })
       }),
       1
@@ -1200,19 +1363,17 @@ var render = function() {
             config: _vm.config,
             status: _vm.status,
             lib: _vm.lib,
-            annotationModule: _vm.annotationModule,
-            pinSelection: _vm.pinSelection,
-            annotationInstance: _vm.findAnnotation,
-            rangy: _vm.rangy,
-            heightPX: _vm.heightPX
+            annotationInstance: _vm.annotationInstance,
+            heightPX: _vm.editorHeightPX
           },
-          on: { hide: _vm.hide }
+          on: {
+            hide: function($event) {
+              _vm.annotationInstance = null
+            }
+          }
         })
       ],
       1
-    ),
-    _vm._v(
-      "\r\n  \r\n  AnnotationList\r\n  " + _vm._s(_vm.listPositions) + "\r\n"
     )
   ])
 }
@@ -1264,9 +1425,11 @@ var render = function() {
                   attrs: {
                     config: _vm.config,
                     status: _vm.status,
+                    lib: _vm.lib,
                     listPositions: _vm.listPositions,
                     findAnnotation: _vm.findAnnotation,
-                    lib: _vm.lib
+                    heightPX: _vm.heightPX,
+                    rangy: _vm.rangy
                   }
                 })
               ]
@@ -1732,9 +1895,10 @@ let AnnotationFloatWidget = {
     this.$i18n.locale = this.config.locale
     return {
       annotation: null,
+      annotationCount: 0,
       users: [],
+      userCount: 0,
       types: [],
-      annotationCount: 0
     }
   },
   components: {
@@ -2395,6 +2559,17 @@ let AnnotationEditorModules = {
       
       return classList.join(' ') + ' column grid'
     },
+    annotationConfig () {
+      return this.lib.auth.currentStepAnnotationConfig
+    },
+    type () {
+      if (typeof(this.annotationModule) === 'string') {
+        return this.annotationModule
+      }
+      else if (this.annotationInstance !== null) {
+        return this.annotationInstance.type
+      }
+    }
   },
   watch: {
   },
@@ -2774,7 +2949,7 @@ __webpack_require__.r(__webpack_exports__);
 let MainIdea = {
   props: ['lib', 'status', 'config'
     , 'annotationModule', 'annotationInstance'
-    , 'heightPX', 'annotationConfig', 'pinSelection'
+    , 'heightPX', 'pinSelection'
     , 'rangy'],
   data() {
     this.$i18n.locale = this.config.locale
@@ -3458,27 +3633,122 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AnnotationList = {
-  props: ['lib', 'status', 'config', 'listPositions', 'findAnnotation'],
+  props: ['lib', 'status', 'config', 'listPositions', 'findAnnotation', 'heightPX', 'rangy'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
       annotations: [],
+      annotationCount: 0,
       users: [],
-      types: []
+      userCount: 0,
+      types: [],
+      filteredAnnotations: [],
+      filteredAnnotationCount: 0,
+      filteredUsers: [],
+      filteredUserCount: 0,
+      filteredTypes: [],
+      page: 0,
+      annotationInstance: this.findAnnotation,
+      findUser: null,
+      findType: null,
+      
+      hoverAnnotation: null
     }
   },
   components: {
     'annotation-editor-modules': _AnnotationEditorModules_AnnotationEditorModules_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
   },
   computed: {
+    'editorHeightPX' () {
+      return this.heightPX - 50
+    },
+    isFiltering () {
+      return (this.findUser !== null || this.findType !== null)
+    },
+    findUserID () {
+      if (this.findUser !== null) {
+        return this.findUser.id
+      }
+    }
   },
   watch: {
+    'listPositions' () {
+      this.loadInit()
+    },
+    'findAnnotation' (findAnnotation) {
+      this.annotationInstance = findAnnotation
+    },
+    'findUser' () {
+      this.loadFilter()
+    },
+    'findType' () {
+      this.loadFilter()
+    },
+    'hoverAnnotation' (annotation) {
+      if (annotation !== null) {
+        this.rangy.hoverIn(annotation)
+      }
+      else {
+        this.rangy.hoverOut(annotation)
+      }
+    }
   },
   mounted() {
+    this.loadInit()
   },
   methods: {
-    onFindAnnotation (annotation) {
-      this.findAnnotation = annotation
+    loadInit: async function () {
+      if (Array.isArray(this.listPositions)) {
+        this.page = 0
+        let query = {
+          anchorPositions: this.listPositions,
+          withCount: true
+          // @TODO 這邊應該要加入page
+        }
+        let url = '/client/Annotation/list'
+        
+        let result = await this.lib.AxiosHelper.post(url, query)
+        //console.log(result)
+        
+        for (let key in result) {
+          this[key] = result[key]
+        }
+      }
+    },
+    loadFilter: async function () {
+      if (Array.isArray(this.listPositions)) {
+        this.page = 0
+        
+        let query = {
+          anchorPositions: this.listPositions,
+          withCount: true,
+          // @TODO 這邊應該要加入page
+          findUserID: this.findUserID,
+          findType: this.findType
+        }
+        
+        let url = '/client/Annotation/list'
+        
+        let result = await this.lib.AxiosHelper.post(url, query)
+        //console.log(result)
+        
+        this.filteredAnnotations = result.annotations
+        this.filteredAnnotationCount = result.annotationCount
+      }
+    },
+    clearFilter () {
+      this.findUser = null
+      this.findType = null
+    },
+    
+    hoverToggle (annotation) {
+      this.hoverAnnotation = annotation
+    },
+    hoverIn (annotation) {
+      this.hoverAnnotation = annotation
+    },
+    hoverOut () {
+      this.hoverAnnotation = null
     }
   } // methods
 }
@@ -4228,7 +4498,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let RangyManager = {
-  props: ['lib', 'rangyConfig'],
+  props: ['lib', 'status', 'rangyConfig'],
   data() {
     //console.log(this.status)
     //this.$i18n.locale = this.config.locale
@@ -4829,9 +5099,11 @@ let RangyManager = {
     
     // -----------------------------------------------------------------
     
-    hoverIn: function (highlight) {
+    hoverIn: function (annotation) {
       this.hoverOut()
-      console.log('@TODO 這邊要能夠接收annotation', highlight)
+      console.log(annotation)
+      let highlight = this._annotationToHighlighString(annotation, 'pacor-hover')
+      console.log(highlight)
       this.hoverHighlighter.deserialize(highlight)
       return this
     },
@@ -4864,20 +5136,48 @@ let RangyManager = {
         },
       ]
      */
+    _annotationToHighlighString (annotations, type) {
+      if (annotations === null || annotations === undefined) {
+        return ''
+      }
+      
+      if (Array.isArray(annotations) === false) {
+        annotations = [annotations]
+      }
+      
+      let highlightJSONArray = []
+      let id = 0
+      annotations.forEach((annotation) => {
+        if (type === undefined) {
+          type = annotation.type
+          if (annotation.user_id === this.status.userID) {
+            type = 'my-' + type
+          }
+          else {
+            type = 'others-' + type
+          }
+        }
+        
+        annotation.anchorPositions.forEach(pos => {
+          id++
+          highlightJSONArray.push([
+            pos.start_pos,
+            pos.end_pos,
+            id,
+            type,
+            pos.paragraph_id
+          ].join('$'))
+        })
+      })
+      highlightJSONArray.unshift('type:textContent')
+      highlightJSONArray = highlightJSONArray.join('|')
+      
+      return highlightJSONArray
+    },
     deserialize: function (highlightJSONArray) {
       // "type:textContent|28$198$2$confused-clarified$pacor-paragraph-id-2"
-      if (Array.isArray(highlightJSONArray)) {
-        highlightJSONArray = highlightJSONArray.map((json, id) => {
-          return [
-            json.start,
-            json.end,
-            id,
-            json.className,
-            json.paragraphID
-          ].join('$')
-        })
-        highlightJSONArray.unshift('type:textContent')
-        highlightJSONArray = highlightJSONArray.join('|')
+      if (typeof(highlightJSONArray) !== 'string') {
+        highlightJSONArray = this._annotationToHighlighString(highlightJSONArray)
       }
       
       this.highlighter.deserialize(highlightJSONArray, {
@@ -10671,7 +10971,12 @@ __webpack_require__.r(__webpack_exports__);
                 return serializedHighlights.join("|");
             },
 
-            deserialize: function(serialized, { append }) {
+            deserialize: function(serialized, options) {
+              if (typeof(serialized) !== 'string' || serialized === '') {
+                return false
+              }
+              options = options ? options : {}
+              let { append } = options
               
                 var serializedHighlights = serialized.split("|");
                 var highlights = [];

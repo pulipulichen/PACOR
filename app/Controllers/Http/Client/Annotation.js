@@ -43,7 +43,7 @@ class Annotation extends WebpageUserBaseController {
   
   async floatWidget({request, webpage, user}) {
     let query = request.all()
-    let cacheKey = Cache.key('Controllers.Client.Annotation', query)
+    let cacheKey = Cache.key('Controllers.Client.Annotation.floatWidget', query)
     return await Cache.rememberWait(cacheKey, 0, async () => {
       
       let annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
@@ -62,46 +62,91 @@ class Annotation extends WebpageUserBaseController {
       //console.log('annotation', annotation)
 
       // ---------------------
-
-      let usersMap = {}
-
-      annotations.forEach(annotation => {
-        let user = annotation.user
-        if (typeof(usersMap[user.username]) === 'undefined') {
-          usersMap[user.username] = user
-        }
-      })
-      let users = Object.keys(usersMap).map(key => usersMap[key])
-      //for (let i = 0; i < 3; i++) {
-      //  users = users.concat(users)
-      //}
-      users = users.slice(0, 3) // 最多三名
-
-      // ---------------------
-
-      let typesMap = {}
-      annotations.forEach(annotation => {
-        let type = annotation.type
-        if (typeof(typesMap[type]) !== 'number') {
-          typesMap[type] = 0
-        }
-        typesMap[type]++
-      })
-      let types = Object.keys(typesMap).map(type => {
-        return {
-          type,
-          count: typesMap[type]
-        }
-      })
+      let {users, userCount, types} = this._summaryAnnotations(annotations)
 
       return {
         annotation,
+        annotationCount,
         users,
-        types,
-        annotationCount
+        userCount,
+        types
       }
     
     })  // return await Cache.rememberWait(cacheKey, 2, async () => {
+  }
+  
+  async list({request, webpage, user}) {
+    let query = request.all()
+    let cacheKey = Cache.key('Controllers.Client.Annotation.list', query)
+    return await Cache.rememberWait(cacheKey, 0, async () => {
+      query.withCount = true
+      let annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
+
+      // 來做計算
+      annotations = annotations.toJSON()
+      let annotationCount = annotations.length
+      if (annotationCount === 0) {
+        return null
+      }
+
+      // ---------------------
+      let {users, userCount, types} = this._summaryAnnotations(annotations)
+
+      return {
+        annotations,
+        annotationCount,
+        users,
+        userCount,
+        types
+      }
+    
+    })  // return await Cache.rememberWait(cacheKey, 2, async () => {
+  }
+  
+  _summaryAnnotations (annotations) {
+    if (typeof(annotations.toJSON) === 'function') {
+      annotations = annotations.toJSON()
+    }
+    let annotationCount = annotations.length
+    
+    let usersMap = {}
+
+    annotations.forEach(annotation => {
+      let user = annotation.user
+      if (typeof(usersMap[user.username]) === 'undefined') {
+        usersMap[user.username] = user
+      }
+    })
+    let users = Object.keys(usersMap).map(key => usersMap[key])
+    let userCount = users.length
+    //for (let i = 0; i < 3; i++) {
+    //  users = users.concat(users)
+    //}
+    users = users.slice(0, 3) // 最多三名
+
+    // ---------------------
+
+    let typesMap = {}
+    annotations.forEach(annotation => {
+      let type = annotation.type
+      if (typeof(typesMap[type]) !== 'number') {
+        typesMap[type] = 0
+      }
+      typesMap[type]++
+    })
+    let types = Object.keys(typesMap).map(type => {
+      return {
+        type,
+        count: typesMap[type]
+      }
+    })
+    
+    return {
+      annotationCount,
+      users,
+      userCount,
+      types
+    }
   }
   
   async index ({ request, webpage, user }) {
