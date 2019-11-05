@@ -22,6 +22,8 @@ let AnnotationManager = {
       //loadHighlightInterval: 3 * 1000  // for test
       
       findAnnotation: null,
+      findUser: null,
+      findType: null,
       listPositions: null
     }
   },
@@ -171,17 +173,27 @@ let AnnotationManager = {
         }, 0)
       }
     },
+    onList (anchorPositions) {
+      //throw '列出annotation ' +  anchorPositions.length
+      this.listPositions = anchorPositions
+      this.highlightPos = null
+    },
     onFindAnnotation (annotation) {
       //throw '編輯annotation ' +  annotation.id
       this.findAnnotation = annotation
       this.listPositions = this.highlightPos
       this.highlightPos = null
     },
-    onList (anchorPositions) {
-      //throw '列出annotation ' +  anchorPositions.length
-      this.listPositions = anchorPositions
+    onFindUser (user) {
+      this.findUser = user
+      this.listPositions = this.highlightPos
       this.highlightPos = null
-    }
+    },
+    onFindType (type) {
+      this.findType = type
+      this.listPositions = this.highlightPos
+      this.highlightPos = null
+    },
   } // methods
 }
 

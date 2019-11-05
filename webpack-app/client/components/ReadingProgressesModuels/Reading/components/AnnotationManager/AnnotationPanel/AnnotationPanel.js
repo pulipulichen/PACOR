@@ -9,7 +9,7 @@ import $ from 'jquery'
 let AnnotationPanel = {
   props: ['lib', 'status', 'config'
     , 'pinSelection', 'annotationModule', 'rangy'
-    , 'findAnnotation', 'listPositions'],
+    , 'findAnnotation', 'listPositions', 'findUser', 'findType'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -152,6 +152,7 @@ let AnnotationPanel = {
       this.scrollToPinSelection()
     },
     hide: function (doUnpin) {
+      this.rangy.hoverOut()
       this.placeholder.transition(this.transitionMode)
       window.$(this.$refs.panel).transition(this.transitionMode, () => {
         if (this.isHide === true) {

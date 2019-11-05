@@ -24,6 +24,8 @@
         v-bind:rangy="$refs.RangyManager"
         v-bind:annotationModule="annotationModule"
         v-bind:findAnnotation="findAnnotation"
+        v-bind:findUser="findUser"
+        v-bind:findType="findType"
         v-bind:listPositions="listPositions"
         ref="AnnotationPanel"></annotation-panel>
   
@@ -36,7 +38,10 @@
         v-bind:highlightEvent="highlightEvent"
         v-bind:highlightPosLock="highlightPosLock"
         v-on:findAnnotation="onFindAnnotation"
+        v-on:findUser="onFindUser"
+        v-on:findType="onFindType"
         v-on:list="onList"
+        v-bind:rangy="$refs.RangyManager"
         ref="AnnotationFloatWidget"></annotation-float-widget>
   
 </fragment>

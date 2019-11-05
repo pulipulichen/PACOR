@@ -1,9 +1,9 @@
 <div class="ui segment AnnotationItem" 
      v-if="annotation"
      v-bind:class="computedContainerClassNames"
-     v-on:mouseover="$emit('mouseover', annotation)"
-     v-on:mouseout="$emit('mouseout')"
-     v-on:click="$emit('click', annotation)">
+     v-on:mouseover="onMouseover"
+     v-on:mouseout="onMouseout"
+     v-on:click="onClick">
 
   <div class="meta text-container ui basic right labeled button"
        v-bind:class="{'clickable': findAnnotation}"

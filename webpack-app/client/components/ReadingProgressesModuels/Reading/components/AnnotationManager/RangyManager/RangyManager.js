@@ -25,6 +25,8 @@ let RangyManager = {
       highlightClasses: [],
       
       hoverHighlighter: null,
+      hoverAnnotation: null,
+      hoverAnnotationLock: false,
     }
   },  // data() {
   /*
@@ -604,16 +606,37 @@ let RangyManager = {
     
     // -----------------------------------------------------------------
     
-    hoverIn: function (annotation) {
+    hoverIn: function (annotation, doLock) {
+      //console.log(disableHoverout)
+      if (this.hoverAnnotation === annotation) {
+        if (doLock !== true) {
+          this.hoverOut()
+        }
+        this.hoverAnnotationLock = doLock
+        return false
+      }
+      
       this.hoverOut()
-      console.log(annotation)
+      //console.log(annotation)
       let highlight = this._annotationToHighlighString(annotation, 'pacor-hover')
-      console.log(highlight)
+      //console.log(highlight)
       this.hoverHighlighter.deserialize(highlight)
+      this.hoverAnnotation = annotation
+      this.hoverAnnotationLock = doLock
+      console.log(this.hoverAnnotationLock)
       return this
     },
-    hoverOut : function () {
+    hoverOut : function (doUnlock) {
+      if (doUnlock === true) {
+        this.hoverAnnotationLock = false
+      }
+      
+      if (this.hoverAnnotationLock === true) {
+        return false
+      }
+      //console.trace('hoverOut')
       this.hoverHighlighter.removeAllHighlights()
+      this.hoverAnnotation = null
       return this
     },
     

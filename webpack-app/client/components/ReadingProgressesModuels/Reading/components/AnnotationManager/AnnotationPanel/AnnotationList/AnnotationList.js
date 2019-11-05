@@ -1,7 +1,10 @@
 import AnnotationEditorModules from './../AnnotationEditorModules/AnnotationEditorModules.vue'
 
 let AnnotationList = {
-  props: ['lib', 'status', 'config', 'listPositions', 'findAnnotation', 'heightPX', 'rangy'],
+  props: ['lib', 'status', 'config', 'listPositions'
+    , 'findAnnotation', 'propFindUser', 'propFindType'
+    , 'heightPX'
+    , 'rangy'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -17,8 +20,8 @@ let AnnotationList = {
       filteredTypes: [],
       page: 0,
       annotationInstance: this.findAnnotation,
-      findUser: null,
-      findType: null,
+      findUser: this.propFindUser,
+      findType: this.propFindType,
       
       hoverAnnotation: null
     }
@@ -40,6 +43,12 @@ let AnnotationList = {
     }
   },
   watch: {
+    'propFindUser' (propFindUser) {
+      this.findUser = propFindUser
+    },
+    'propFindType' (propFindType) {
+      this.findType = propFindType
+    },
     'listPositions' () {
       this.loadInit()
     },
@@ -63,6 +72,7 @@ let AnnotationList = {
   },
   mounted() {
     this.loadInit()
+    this.loadFilter()
   },
   methods: {
     loadInit: async function () {
@@ -84,7 +94,8 @@ let AnnotationList = {
       }
     },
     loadFilter: async function () {
-      if (Array.isArray(this.listPositions)) {
+      if (Array.isArray(this.listPositions)
+              && (this.findUserID !== null || this.findType !== null) ) {
         this.page = 0
         
         let query = {

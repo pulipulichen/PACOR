@@ -683,15 +683,9 @@ var render = function() {
           staticClass: "ui segment AnnotationItem",
           class: _vm.computedContainerClassNames,
           on: {
-            mouseover: function($event) {
-              return _vm.$emit("mouseover", _vm.annotation)
-            },
-            mouseout: function($event) {
-              return _vm.$emit("mouseout")
-            },
-            click: function($event) {
-              return _vm.$emit("click", _vm.annotation)
-            }
+            mouseover: _vm.onMouseover,
+            mouseout: _vm.onMouseout,
+            click: _vm.onClick
           }
         },
         [
@@ -2058,7 +2052,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let AnnotationItem = {
-  props: ['lib', 'status', 'config', 'annotation', 'mode', 'findUser', 'findType', 'findAnnotation'],
+  props: ['lib', 'status', 'config'
+    , 'annotation', 'mode'
+    , 'findUser', 'findType', 'findAnnotation'
+    , 'rangy'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -2115,6 +2112,24 @@ let AnnotationItem = {
       if (typeof(this.findType) === 'function') {
         this.findType(data)
       }
+    },
+    onClick () {
+      if (this.rangy) {
+        this.rangy.hoverIn(this.annotation)
+      }
+      this.$emit('click', this.annotation)
+    },
+    onMouseover () {
+      if (this.rangy) {
+        this.rangy.hoverIn(this.annotation)
+      }
+      this.$emit('mouseover', this.annotation)
+    },
+    onMouseout () {
+      if (this.rangy) {
+        this.rangy.hoverOut()
+      }
+      this.$emit('mouseout', this.annotation)
     }
   } // methods
 }

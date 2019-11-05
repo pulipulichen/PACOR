@@ -6,6 +6,11 @@
          v-bind:style="computedSegmentStyle"
          ref="panel">
     
+      <div class="close-container"
+           v-on:click.stop="hide">
+        <i class="close icon"></i>
+      </div>
+      
       <div class="resize-handler"
            v-bind:class="{'moving': resizeLocker}"
            v-on:mousedown="onResizeStart"
@@ -19,6 +24,8 @@
           v-bind:lib="lib"
           v-bind:listPositions="listPositions"
           v-bind:findAnnotation="findAnnotation"
+          v-bind:propFindUser="findUser"
+          v-bind:propFindType="findType"
           v-bind:heightPX="heightPX"
           v-bind:rangy="rangy"></annotation-list>
         

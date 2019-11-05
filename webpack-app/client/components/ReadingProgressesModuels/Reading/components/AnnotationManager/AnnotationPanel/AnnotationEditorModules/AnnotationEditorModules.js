@@ -43,10 +43,26 @@ let AnnotationEditorModules = {
     }
   },
   watch: {
+    annotationInstance () {
+      this._initHover()
+    }
   },
   mounted() {
+    this._initHover()
   },
   methods: {
+    _initHover () {
+      //console.log(this.annotationInstance)
+      if (typeof(this.rangy) === 'object') {
+        if (this.annotationInstance !== null 
+                && typeof(this.annotationInstance) === 'object') {
+          this.rangy.hoverIn(this.annotationInstance, true)
+        }
+        else {
+          this.rangy.hoverOut(true)
+        }
+      }
+    }
   } // methods
 }
 

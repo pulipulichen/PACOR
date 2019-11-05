@@ -355,7 +355,7 @@ exports.push([module.i, "body.disable-user-select {\n  user-select: none;\n  cur
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-0a5b4950] {\n  cursor: grabbing;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,gCAAgC;EAChC,mCAAmC;AACrC;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,WAAW;EACX,WAAW;EACX,YAAY;EACZ,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,gBAAgB;AAClB","file":"AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&","sourcesContent":[".annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-0a5b4950] {\n  cursor: grabbing;\n}\n"]}]);
+exports.push([module.i, ".close-container[data-v-0a5b4950] {\n  float: right;\n  cursor: pointer;\n}\n.annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-0a5b4950] {\n  cursor: grabbing;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,eAAe;AACjB;AACA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,gCAAgC;EAChC,mCAAmC;AACrC;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,WAAW;EACX,WAAW;EACX,YAAY;EACZ,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,gBAAgB;AAClB","file":"AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&","sourcesContent":[".close-container[data-v-0a5b4950] {\n  float: right;\n  cursor: pointer;\n}\n.annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-0a5b4950] {\n  cursor: grabbing;\n}\n"]}]);
 
 
 /***/ }),
@@ -421,12 +421,17 @@ var render = function() {
                   status: _vm.status,
                   lib: _vm.lib,
                   mode: "full",
-                  annotation: _vm.annotation
-                },
-                on: {
-                  find: function(annotation) {
+                  annotation: _vm.annotation,
+                  findAnnotation: function(annotation) {
                     _vm.$emit("findAnnotation", annotation)
-                  }
+                  },
+                  findUser: function(user) {
+                    _vm.$emit("findUser", user)
+                  },
+                  findType: function(type) {
+                    _vm.$emit("findType", type)
+                  },
+                  rangy: _vm.rangy
                 }
               }),
               _vm._v(" "),
@@ -454,6 +459,11 @@ var render = function() {
                           lib: _vm.lib,
                           users: _vm.users,
                           userCount: _vm.userCount
+                        },
+                        on: {
+                          find: function(user) {
+                            _vm.$emit("findUser", user)
+                          }
                         }
                       }),
                       _vm._v(" "),
@@ -465,6 +475,11 @@ var render = function() {
                             status: _vm.status,
                             annotationModule: t.type,
                             count: t.count
+                          },
+                          on: {
+                            find: function(type) {
+                              _vm.$emit("findType", type)
+                            }
                           }
                         })
                       }),
@@ -559,6 +574,8 @@ var render = function() {
           rangy: _vm.$refs.RangyManager,
           annotationModule: _vm.annotationModule,
           findAnnotation: _vm.findAnnotation,
+          findUser: _vm.findUser,
+          findType: _vm.findType,
           listPositions: _vm.listPositions
         },
         on: { hide: _vm.unpin }
@@ -573,9 +590,15 @@ var render = function() {
               lib: _vm.lib,
               highlightPos: _vm.highlightPos,
               highlightEvent: _vm.highlightEvent,
-              highlightPosLock: _vm.highlightPosLock
+              highlightPosLock: _vm.highlightPosLock,
+              rangy: _vm.$refs.RangyManager
             },
-            on: { findAnnotation: _vm.onFindAnnotation, list: _vm.onList }
+            on: {
+              findAnnotation: _vm.onFindAnnotation,
+              findUser: _vm.onFindUser,
+              findType: _vm.onFindType,
+              list: _vm.onList
+            }
           })
         : _vm._e()
     ],
@@ -1305,12 +1328,8 @@ var render = function() {
             },
             findType: function(type) {
               _vm.findType = type
-            }
-          },
-          on: {
-            click: _vm.hoverToggle,
-            mouseover: _vm.hoverIn,
-            mouseout: _vm.hoverOut
+            },
+            rangy: _vm.rangy
           }
         })
       }),
@@ -1346,7 +1365,8 @@ var render = function() {
             },
             findType: function(type) {
               _vm.findType = type
-            }
+            },
+            rangy: _vm.rangy
           }
         })
       }),
@@ -1364,7 +1384,8 @@ var render = function() {
             status: _vm.status,
             lib: _vm.lib,
             annotationInstance: _vm.annotationInstance,
-            heightPX: _vm.editorHeightPX
+            heightPX: _vm.editorHeightPX,
+            rangy: _vm.rangy
           },
           on: {
             hide: function($event) {
@@ -1412,6 +1433,20 @@ var render = function() {
           style: _vm.computedSegmentStyle
         },
         [
+          _c(
+            "div",
+            {
+              staticClass: "close-container",
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  return _vm.hide($event)
+                }
+              }
+            },
+            [_c("i", { staticClass: "close icon" })]
+          ),
+          _vm._v(" "),
           _c("div", {
             staticClass: "resize-handler",
             class: { moving: _vm.resizeLocker },
@@ -1428,6 +1463,8 @@ var render = function() {
                     lib: _vm.lib,
                     listPositions: _vm.listPositions,
                     findAnnotation: _vm.findAnnotation,
+                    propFindUser: _vm.findUser,
+                    propFindType: _vm.findType,
                     heightPX: _vm.heightPX,
                     rangy: _vm.rangy
                   }
@@ -1890,7 +1927,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let AnnotationFloatWidget = {
-  props: ['lib', 'status', 'config', 'highlightPos', 'highlightEvent', 'highlightPosLock'],
+  props: ['lib', 'status', 'config', 'highlightPos', 'highlightEvent', 'highlightPosLock', 'rangy'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -1929,6 +1966,9 @@ let AnnotationFloatWidget = {
   mounted() {
     this.load()
   },
+  destroyed () {
+    this.rangy.hoverOut()
+  },
   methods: {
     load: async function () {
       let query = {
@@ -1946,7 +1986,7 @@ let AnnotationFloatWidget = {
         this[key] = result[key]
       }
       
-      this.$emit('list', this.highlightPos)
+      this.$emit('list', this.highlightPos) // for test
     }
   } // methods
 }
@@ -2086,6 +2126,8 @@ let AnnotationManager = {
       //loadHighlightInterval: 3 * 1000  // for test
       
       findAnnotation: null,
+      findUser: null,
+      findType: null,
       listPositions: null
     }
   },
@@ -2235,17 +2277,27 @@ let AnnotationManager = {
         }, 0)
       }
     },
+    onList (anchorPositions) {
+      //throw '列出annotation ' +  anchorPositions.length
+      this.listPositions = anchorPositions
+      this.highlightPos = null
+    },
     onFindAnnotation (annotation) {
       //throw '編輯annotation ' +  annotation.id
       this.findAnnotation = annotation
       this.listPositions = this.highlightPos
       this.highlightPos = null
     },
-    onList (anchorPositions) {
-      //throw '列出annotation ' +  anchorPositions.length
-      this.listPositions = anchorPositions
+    onFindUser (user) {
+      this.findUser = user
+      this.listPositions = this.highlightPos
       this.highlightPos = null
-    }
+    },
+    onFindType (type) {
+      this.findType = type
+      this.listPositions = this.highlightPos
+      this.highlightPos = null
+    },
   } // methods
 }
 
@@ -2572,10 +2624,26 @@ let AnnotationEditorModules = {
     }
   },
   watch: {
+    annotationInstance () {
+      this._initHover()
+    }
   },
   mounted() {
+    this._initHover()
   },
   methods: {
+    _initHover () {
+      //console.log(this.annotationInstance)
+      if (typeof(this.rangy) === 'object') {
+        if (this.annotationInstance !== null 
+                && typeof(this.annotationInstance) === 'object') {
+          this.rangy.hoverIn(this.annotationInstance, true)
+        }
+        else {
+          this.rangy.hoverOut(true)
+        }
+      }
+    }
   } // methods
 }
 
@@ -3633,7 +3701,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AnnotationList = {
-  props: ['lib', 'status', 'config', 'listPositions', 'findAnnotation', 'heightPX', 'rangy'],
+  props: ['lib', 'status', 'config', 'listPositions'
+    , 'findAnnotation', 'propFindUser', 'propFindType'
+    , 'heightPX'
+    , 'rangy'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -3649,8 +3720,8 @@ let AnnotationList = {
       filteredTypes: [],
       page: 0,
       annotationInstance: this.findAnnotation,
-      findUser: null,
-      findType: null,
+      findUser: this.propFindUser,
+      findType: this.propFindType,
       
       hoverAnnotation: null
     }
@@ -3672,6 +3743,12 @@ let AnnotationList = {
     }
   },
   watch: {
+    'propFindUser' (propFindUser) {
+      this.findUser = propFindUser
+    },
+    'propFindType' (propFindType) {
+      this.findType = propFindType
+    },
     'listPositions' () {
       this.loadInit()
     },
@@ -3695,6 +3772,7 @@ let AnnotationList = {
   },
   mounted() {
     this.loadInit()
+    this.loadFilter()
   },
   methods: {
     loadInit: async function () {
@@ -3716,7 +3794,8 @@ let AnnotationList = {
       }
     },
     loadFilter: async function () {
-      if (Array.isArray(this.listPositions)) {
+      if (Array.isArray(this.listPositions)
+              && (this.findUserID !== null || this.findType !== null) ) {
         this.page = 0
         
         let query = {
@@ -3919,7 +3998,7 @@ __webpack_require__.r(__webpack_exports__);
 let AnnotationPanel = {
   props: ['lib', 'status', 'config'
     , 'pinSelection', 'annotationModule', 'rangy'
-    , 'findAnnotation', 'listPositions'],
+    , 'findAnnotation', 'listPositions', 'findUser', 'findType'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -4062,6 +4141,7 @@ let AnnotationPanel = {
       this.scrollToPinSelection()
     },
     hide: function (doUnpin) {
+      this.rangy.hoverOut()
       this.placeholder.transition(this.transitionMode)
       window.$(this.$refs.panel).transition(this.transitionMode, () => {
         if (this.isHide === true) {
@@ -4520,6 +4600,8 @@ let RangyManager = {
       highlightClasses: [],
       
       hoverHighlighter: null,
+      hoverAnnotation: null,
+      hoverAnnotationLock: false,
     }
   },  // data() {
   /*
@@ -5099,16 +5181,37 @@ let RangyManager = {
     
     // -----------------------------------------------------------------
     
-    hoverIn: function (annotation) {
+    hoverIn: function (annotation, doLock) {
+      //console.log(disableHoverout)
+      if (this.hoverAnnotation === annotation) {
+        if (doLock !== true) {
+          this.hoverOut()
+        }
+        this.hoverAnnotationLock = doLock
+        return false
+      }
+      
       this.hoverOut()
-      console.log(annotation)
+      //console.log(annotation)
       let highlight = this._annotationToHighlighString(annotation, 'pacor-hover')
-      console.log(highlight)
+      //console.log(highlight)
       this.hoverHighlighter.deserialize(highlight)
+      this.hoverAnnotation = annotation
+      this.hoverAnnotationLock = doLock
+      console.log(this.hoverAnnotationLock)
       return this
     },
-    hoverOut : function () {
+    hoverOut : function (doUnlock) {
+      if (doUnlock === true) {
+        this.hoverAnnotationLock = false
+      }
+      
+      if (this.hoverAnnotationLock === true) {
+        return false
+      }
+      //console.trace('hoverOut')
       this.hoverHighlighter.removeAllHighlights()
+      this.hoverAnnotation = null
       return this
     },
     

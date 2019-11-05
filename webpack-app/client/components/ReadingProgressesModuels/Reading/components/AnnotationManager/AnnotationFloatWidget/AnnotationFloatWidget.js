@@ -1,5 +1,5 @@
 let AnnotationFloatWidget = {
-  props: ['lib', 'status', 'config', 'highlightPos', 'highlightEvent', 'highlightPosLock'],
+  props: ['lib', 'status', 'config', 'highlightPos', 'highlightEvent', 'highlightPosLock', 'rangy'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -38,6 +38,9 @@ let AnnotationFloatWidget = {
   mounted() {
     this.load()
   },
+  destroyed () {
+    this.rangy.hoverOut()
+  },
   methods: {
     load: async function () {
       let query = {
@@ -55,7 +58,7 @@ let AnnotationFloatWidget = {
         this[key] = result[key]
       }
       
-      this.$emit('list', this.highlightPos)
+      this.$emit('list', this.highlightPos) // for test
     }
   } // methods
 }
