@@ -19,6 +19,8 @@ class Annotation extends Model {
     this.addTrait('BooleanCase', ['public', 'deleted'])
     this.addTrait('BooleanCaseMutators', ['Public', 'Deleted'])
     this.addTrait('IntegerCase', ['getUpdatedAtUnixms'])
+    
+    this.addTrait('CacheRemove')
   } // static boot () {
   
   user () {

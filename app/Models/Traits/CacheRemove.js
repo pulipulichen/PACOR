@@ -5,37 +5,28 @@ const Cache = use('Cache')
 class CacheRemove {
   
   register (Model, attrs) {
-    if (this.getDatabaseClient() !== 'sqlite3') {
-      return
-    }
     
-    if (typeof(attrs) === 'string') {
-      attrs = [attrs]
+    let removeCache = async (instance) => {
+      let tags = []
+      if (typeof(instance.webpage_id) === 'number') {
+        tags.push('Webpage_' + instance.webpage_id)
+      }
+      if (typeof(instance.user_id) === 'number') {
+        tags.push('User_' + instance.user_id)
+      }
+      tags.push(instance.constructor.name)
+      
+      await Cache.tags(tags).flush()
     }
     
     // --------------------------
     
     Model.addHook('beforeSave', async (instance) => {
-      attrs.forEach(attr => {
-        if (instance[attr] !== null && typeof(instance[attr]) === 'boolean') {
-          if (instance[attr] === true) {
-            instance[attr] = 1
-          }
-          else {
-            instance[attr] = 0
-          }
-        }
-      })
+      await removeCache(instance)
     })
     
-    Model.addHook('afterFind', async (instance) => {
-      attrs.forEach(attr => {
-        if (instance[attr] !== null 
-                && typeof(instance[attr]) === 'number') {
-          instance[attr] = (instance[attr] === 1)
-          //console.log(instance[attr])
-        }
-      })
+    Model.addHook('beforeDelete', async (instance) => {
+      await removeCache(instance)
     })
     
     // ------------------------------------------
