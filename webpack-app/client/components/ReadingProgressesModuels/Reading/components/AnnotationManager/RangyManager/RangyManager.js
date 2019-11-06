@@ -361,7 +361,7 @@ let RangyManager = {
       //console.trace('unpinSelection')
       this.selectionHighlighter.removeAllHighlights()
       window.$('.pacor-selection').removeClass('pacor-selection')
-      
+      this.hoverOut(true)
       
       /*
       if (typeof(scrollOptions) === 'object') {

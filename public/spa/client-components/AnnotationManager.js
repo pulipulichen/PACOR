@@ -327,7 +327,7 @@ exports.push([module.i, "img[data-v-fa31e19a] {\n  height: 2em;\n  width: auto;\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".back-button[data-v-7508456a] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-7508456a] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.list[data-v-7508456a] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-7508456a] {\n  text-align: center;\n  color: gray;\n}\n", "",{"version":3,"sources":["AnnotationList.less?vue&type=style&index=0&id=7508456a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb","file":"AnnotationList.less?vue&type=style&index=0&id=7508456a&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-7508456a] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-7508456a] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.list[data-v-7508456a] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-7508456a] {\n  text-align: center;\n  color: gray;\n}\n"]}]);
+exports.push([module.i, ".back-button[data-v-7508456a] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-7508456a] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.list[data-v-7508456a] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-7508456a] {\n  text-align: center;\n  color: gray;\n}\n", "",{"version":3,"sources":["AnnotationList.less?vue&type=style&index=0&id=7508456a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb","file":"AnnotationList.less?vue&type=style&index=0&id=7508456a&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-7508456a] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-7508456a] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.list[data-v-7508456a] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-7508456a] {\n  text-align: center;\n  color: gray;\n}\n"]}]);
 
 
 /***/ }),
@@ -4389,7 +4389,7 @@ let AnnotationPanel = {
       this.scrollToPinSelection()
     },
     hide: function (doUnpin) {
-      this.rangy.hoverOut()
+      this.rangy.hoverOut(true)
       this.placeholder.transition(this.transitionMode)
       window.$(this.$refs.panel).transition(this.transitionMode, () => {
         if (this.isHide === true) {
@@ -5191,7 +5191,7 @@ let RangyManager = {
       //console.trace('unpinSelection')
       this.selectionHighlighter.removeAllHighlights()
       window.$('.pacor-selection').removeClass('pacor-selection')
-      
+      this.hoverOut(true)
       
       /*
       if (typeof(scrollOptions) === 'object') {
