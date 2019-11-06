@@ -892,20 +892,6 @@ var render = function() {
                   })
                 : _vm._e(),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "ui button",
-                  attrs: { type: "button" },
-                  on: { click: _vm.hide }
-                },
-                [
-                  _vm._v(
-                    "\r\n        " + _vm._s(_vm.$t("CANCEL")) + "  \r\n      "
-                  )
-                ]
-              ),
-              _vm._v(" "),
               _vm.editable
                 ? [
                     _vm.annotationInstance
