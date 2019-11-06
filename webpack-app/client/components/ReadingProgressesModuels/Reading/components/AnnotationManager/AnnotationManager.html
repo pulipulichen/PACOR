@@ -16,6 +16,7 @@
         v-bind:selection="selection"
         v-on:selectAnnotation="pin"
         v-on:list="listFromSelection"
+        v-show="isSelectorVisible"
         ref="AnnotationTypeSelector"></annotation-type-selector>
   
   <annotation-panel v-bind:config="config"

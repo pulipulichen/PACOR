@@ -10,6 +10,7 @@ let AnnotationManager = {
     return {
       selection: null,
       pinSelection: null,
+      restoreSelection: null,
       annotationModule: null,
       //annotationModule: 'MainIdea', // for test
       afterTime: null,
@@ -59,6 +60,13 @@ let AnnotationManager = {
       }
       return highlightsURL
     },
+    isSelectorVisible () {
+      //return (this.annotatioModule === null && this.listPositions === null)
+      //return true
+      //console.log(this.annotationModule, this.listPositions)
+      return (this.annotationModule === null
+              && (this.listPositions === null || this.listPositions.length === 0))
+    }
 //    enableHover () {
 //      console.log(['enableHover', this.listPositions])
 //      return (this.listPositions === null 
@@ -116,6 +124,7 @@ let AnnotationManager = {
       this.selection = null
     },
     pin: function (type) {
+      this.restoreSelection = this.selection
       this.selection = null
       this.annotationModule = type
       this.pinSelection = this.$refs.RangyManager.pinSelection()
@@ -125,14 +134,12 @@ let AnnotationManager = {
       this.onHighlightPosMouseout(true)
     },
     listFromSelection () {
-      this.selection = null
+      //this.selection = null
       this.listPositions = this.$refs.RangyManager.pinSelection().anchorPositions
     },
     unpin: function (doUnpin) {
+      //console.log(this.selection)
       //console.trace(doSelect)
-      if (doUnpin !== false) {
-        this.$refs.RangyManager.unpinSelection(true)
-      }
       //this.selection = null
       this.pinSelection = null
       this.onHighlightPosMouseout(true)
@@ -140,7 +147,15 @@ let AnnotationManager = {
       this.findUser = null
       this.findType = null
       this.annotationModule = null
-      //console.log('unpin', 'float widget有隱藏起來嗎？', this.highlightPos)
+      this.listPositions = null
+      
+      //this.selection = this.restoreSelection
+      if (doUnpin !== false) {
+        this.$refs.RangyManager.unpinSelection(true)
+        //this.selection = this.restoreSelection
+      }
+      //this.$refs.AnnotationTypeSelector.show()
+      //console.log('unpin', 'float widget有顯示嗎？', this.selection)
     },
     toggleHighlightPos (data) {
       if (this.selection !== null) {
@@ -163,7 +178,10 @@ let AnnotationManager = {
       }
        */
       if (this.highlightPos !== null && this.highlightPosLock !== true) {
-        this.highlightPosLock = !this.highlightPosLock
+        //console.log('這個時機對嗎')
+        this.onHighlightPosMouseout(true)
+        this.onList(this.highlightPos)
+        //this.highlightPosLock = !this.highlightPosLock
         return false
       }
       else {

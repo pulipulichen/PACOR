@@ -107,7 +107,9 @@ let RangyManager = {
     _initOnSelectEventListener: function () {
       
       let triggerSelect = () => {
-        this.onselect()
+        setTimeout(() => {
+          this.onselect()
+        }, 0)
       }
       
       document.addEventListener('touchend', triggerSelect)
@@ -119,7 +121,7 @@ let RangyManager = {
     },
     onselect: function () {
       let selection = rangy.getSelection()
-      if (selection.toString().length > 0) {
+      if (selection.toString().length > 0 && selection.isCollapsed === false) {
         let range = selection.getRangeAt(0).cloneRange()
         let rect = range.getBoundingDocumentRect()
         selection.rect = rect
@@ -205,6 +207,7 @@ let RangyManager = {
         }
         
         selection.highlights = highlightClassList
+        
         
         this.$emit('select', selection)
         
@@ -303,6 +306,9 @@ let RangyManager = {
       }
       
       this.selectionSaved = rangy.saveSelection()
+      //console.log(this.selectionSaved)
+      console.log(this.selection.getAllRanges())
+      
       //console.log(this.selectionSaved)
       //let range = this.selection.saveRanges()
       //console.log(range)
@@ -485,6 +491,10 @@ let RangyManager = {
     
     removeHighlightByAnnotation (annotation) {
       let type = this.lib.auth.getHighlightAnnotationType(annotation)
+      if (this.highlightClasses.indexOf(type) === -1) {
+        return false
+      }
+      
       //console.log(type)
       let highlightsToRemove = []
       
@@ -515,7 +525,7 @@ let RangyManager = {
     },
     
     removeHighlightFromPinnedSelection: function (className) {
-      console.log([this.highlightClasses.indexOf(className), this.selectionSaved])
+      //console.log([this.highlightClasses.indexOf(className), this.selectionSaved])
       if (this.highlightClasses.indexOf(className) === -1
               || this.selectionSaved === null) {
         return false

@@ -6,19 +6,27 @@ let AnnotationTypeSelector = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      timer: null
     }
   },
   watch: {
     'selection': function () {
       let fab = this.$refs.fab
+      clearTimeout(this.timer)
       if (this.selection !== null) {
         //console.log('open')
-        fab.onOffFab(true)
+        this.timer = setTimeout(() => {
+          fab.onOffFab(true)
+        }, 100)
       }
       else {
-        fab.onOffFab(false)
+        this.timer = setTimeout(() => {
+          fab.onOffFab(false)
+        }, 100)
       }
-      //console.log(this.selection)
+      //if (this.selection !== null) {
+      //  console.trace(this.selection)
+      //}
       //fab.onOffFab((this.selection !== null))
     }
   },
