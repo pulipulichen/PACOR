@@ -1,7 +1,9 @@
 import AnnotationDiscussion from './AnnotationDiscussion/AnnotationDiscussion.vue'
 
 import AnnotationModuleMainIdea from './MainIdea/MainIdea.vue'
-import AnnotationModuleConfusedClarified from './ConfusedClarified/ConfusedClarified.vue'
+//import AnnotationModuleConfusedClarified from './ConfusedClarified/ConfusedClarified.vue'
+import AnnotationModuleConfused from './Confused/Confused.vue'
+import AnnotationModuleClarified from './Clarified/Clarified.vue'
 
 let AnnotationEditorModules = {
   props: ['lib', 'status', 'config'
@@ -16,7 +18,9 @@ let AnnotationEditorModules = {
     'annotation-discussion': AnnotationDiscussion,
     
     'MainIdea': AnnotationModuleMainIdea,
-    'ConfusedClarified': AnnotationModuleConfusedClarified
+    //'ConfusedClarified': AnnotationModuleConfusedClarified
+    'Confused': AnnotationModuleConfused,
+    'Clarified': AnnotationModuleClarified
   },
   computed: {
     computedGridClass () {

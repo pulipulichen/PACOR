@@ -14,7 +14,7 @@ module.exports = {
       minWords: 10,
       limitMinutes: 0.1,
       annotation: {
-        types: ['ConfusedClarified', 'MainIdea'],
+        types: ['Confused', 'Clarified', 'MainIdea'],
         enableCollaboration: false,
         enableControlPermission: true,
         defaultPermission: 'public',
@@ -45,7 +45,7 @@ module.exports = {
     'CollaborativeReading': {
       message: '進入合作閱讀囉',
       annotation: {
-        types: ['ConfusedClarified', 'MainIdea'],
+        types: ['Confused', 'Clarified', 'MainIdea'],
         enableCollaboration: false,
         enableControlPermission: false,
         defaultPermission: 'public',
@@ -61,7 +61,7 @@ module.exports = {
     
   },
   annotationTypeModules: {
-    'ConfusedClarified': {
+    'Confused': {
       'instruction': {
         'summary': '你有什麼不懂的地方？',
         'url': '/annotation-instruction/ConfusedClarified.html'
@@ -101,11 +101,56 @@ module.exports = {
         'button': {
           'icon': 'question',
           'color': 'white',
+          'backgroundColor': 'red',
+        }
+      }
+    },
+    'Clarified': {
+      'instruction': {
+        'summary': '你有什麼不懂的地方？',
+        'url': '/annotation-instruction/ConfusedClarified.html'
+      },
+      'minWords': 1,
+      /**
+       * {anchorText}
+       * {questionText}
+       */
+      'questionTemplates': [
+        {
+          'hint': 'What is it?',
+          'template': `I don't know what is "{anchorText}"?`
+        },
+        {
+          'hint': 'Why is it?',
+          'template': `Why is "{anchorText}"?`
+        },
+      ],
+      'externalResourceSeachs': [
+        {
+          'name': 'Find answer in Wikipedia',
+          'urlPattern': 'https://zh.wikipedia.org/w/index.php?search={anchorText}&title=Special%3A搜索&go=執行&ns0=1'
+        },
+        {
+          'name': 'Find answer in Google',
+          'urlPattern': 'https://www.google.com/search?q={questionText}'
+        }
+      ],
+      "style": {
+        //'highlight': 'border-bottom: 1px solid green',
+        'highlight': {
+          'my': 'background-color: rgba(0,255,0,0.5); color: white;',
+          'others': 'border-bottom: 1px solid red'
+        },
+        'segmentColor': 'green',
+        'button': {
+          'icon': 'question',
+          'color': 'white',
           'backgroundColor': 'green',
         }
       }
     },
     'MainIdea': {
+      'enableAdd': true,
       'minWords': 1,
       'instruction': {
         'summary': '您覺得哪裡是重點？',
