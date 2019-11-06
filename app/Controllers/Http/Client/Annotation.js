@@ -235,6 +235,34 @@ class Annotation extends WebpageUserBaseController {
     })
   }
   
+  async update ({request, webpage, user}) {
+    let data = request.all()
+    
+    await ReadingActivityLog.log(webpage, user, this.modelName + '.update', data)
+    
+    let id = data.id
+    if (typeof(id) !== 'number' && typeof(id) !== 'string') {
+      throw new HttpException('No id')
+    }
+    
+    let instance = await this.model.find(id)
+    if (instance.user_id !== user.id) {
+      throw new HttpException('You are not owner of it.')
+    }
+    
+    for (let name in data) {
+      if (name === 'id') {
+        continue
+      }
+      else {
+        instance[name] = data[name]
+      }
+    }
+    
+    await instance.save()
+    return 1
+  }
+    
 }
 
 module.exports = Annotation

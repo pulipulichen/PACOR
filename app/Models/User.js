@@ -8,10 +8,6 @@ const Hash = use('Hash')
 const Model = use('Model')
 
 const AvatarHelper = use('App/Helpers/AvatarHelper')
-const ReadingProgress = use('App/Models/ReadingProgress')
-
-const Cache = use('Cache')
-
 const Config = use('Config')
 
 /**
@@ -46,6 +42,11 @@ class User extends Model {
         instance.display_name = instance.username
       }
       //console.log('user', userInstance.avatar)
+      
+      this.addTrait('User/UserConfig')
+      this.addTrait('User/UserReadingProgressConfig')
+      this.addTrait('User/UserReadingProgressAction')
+      this.addTrait('User/UserGroup')
     })
     
     this.addHook('afterSave', async (instance) => {
@@ -117,173 +118,8 @@ class User extends Model {
     return relation
   }
   
-  async getCurrentReadingProgressStepName (webpage) {
-    let status = await this.getReadingProgressStatus(webpage)
-    if (status.length === 0) {
-      return null
-    }
-    //let stepName = status[0].step_name
-    for (let i = 0; i < status.length; i++) {
-      let step = status[i]
-      if (step.isCompleted === true) {
-        continue
-      }
-      
-      if (typeof(step.start_timestamp) === 'number'
-              && typeof(step.end_timestamp) !== 'number') {
-        //console.log('step.step_name', step.step_name)
-        return step.step_name
-      }
-      
-      if (typeof(step.start_timestamp) !== 'number') {
-        //console.log('step.step_name', step.step_name)
-        return step.step_name
-      }
-      /*
-      if (typeof(step.start_timestamp) === 'number'
-              && typeof(step.end_timestamp) !== 'number') {
-        return step.step_name
-      }
-      */
-    }
-    //console.log('null')
-    return null
-  }
   
-  async getCurrentReadingProgressStepConfig (webpage) {
-    let stepName = await this.getCurrentReadingProgressStepName(webpage)
-    return webpage.getStepConfig(stepName)
-  }
   
-  async getCurrentReadingProgressStepAnnotationTypes (webpage) {
-    let config = await this.getCurrentReadingProgressStepConfig(webpage)
-    let types = config.annotation.types
-    return types
-  }
-  
-  async getReadingProgressStatus (webpage, showDetails) {
-    let cacheKey = Cache.key('User', 'getReadingProgressStatus', webpage, this, showDetails)
-    return await Cache.rememberWait(cacheKey, async () => {
-      let readingProgresses
-      if (Array.isArray(webpage) === false
-              && typeof(webpage.primaryKeyValue) === 'number') {
-        readingProgresses = await webpage.getReadingProgresses()
-      }
-      let status = await this.readingProgresses(webpage).fetch()
-      status = status.toJSON()
-      //console.log(status)
-      readingProgresses = readingProgresses.map(stepName => {
-        let output = {
-          'step_name': stepName
-        }
-
-        for (let i in status) {
-          let s = status[i]
-          if (s.step_name === stepName) {
-            output.start_timestamp = s.start_timestamp
-            output.end_timestamp = s.end_timestamp
-            output.duration = s.duration
-            output.isCompleted = s.isCompleted
-            if (showDetails === true) {
-              output.activity_seconds = s.activity_seconds
-              output.log = s.log
-            }
-          }
-        }
-
-        return output
-      })
-      //Cache.forever(cacheKey, readingProgresses)
-      return readingProgresses
-    })
-  }
-  
-  async startReadingProgress (webpage, stepName) {
-    let time = (new Date()).getTime()
-    if (typeof(stepName) !== 'string') {
-      stepName = await this.getCurrentReadingProgressStepName(webpage)
-    }
-    if (stepName === null) {
-      return null
-    }
-    //console.log('startReadingProgress', stepName)
-    let step = await ReadingProgress.findOrCreate({
-      'user_id': this.primaryKeyValue,
-      'webpage_id': webpage.primaryKeyValue,
-      'step_name': stepName
-    }, {
-      'user_id': this.primaryKeyValue,
-      'webpage_id': webpage.primaryKeyValue,
-      'step_name': stepName,
-      'start_timestamp': time
-    })
-    if (step.start_timestamp === time) {
-      // 表示這是新增的資料
-      await Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
-    }
-    //console.log('startReadingProgress AAA', step.start_timestamp)
-    //console.log('startReadingProgress', step.toJSON())
-    return step
-  }
-  
-  async endReadingProgress (webpage, stepName) {
-    let time = (new Date()).getTime()
-    
-    let step
-    if (typeof(stepName) === 'string') {
-      step = await this.readingProgresses(webpage, stepName).fetch()
-    }
-    else {
-      //console.log('AAAA')
-      step = await this.startReadingProgress(webpage)
-      if (step === null) {
-        return null
-      }
-    }
-    
-    //console.log(step.toJSON())
-    
-    if (typeof(step.end_timestamp) !== 'number') {
-      if (typeof(step.start_timestamp) !== 'number') {
-        step.start_timestamp = time
-      }
-      step.end_timestamp = time
-      //console.log('step.end_timestamp AAA', time)
-      await step.save()
-      //console.log('step.end_timestamp BBB', time)
-      Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
-      //console.log('step.end_timestamp CCC', time)
-    }
-    
-    return step
-  }
-  
-  async addActivitySeconds (webpage, seconds) {
-    //console.log('addActivitySeconds', seconds, typeof(seconds))
-    if (isNaN(seconds) === false) {
-      seconds = parseInt(seconds, 10)
-    }
-    if (typeof(seconds) !== 'number') {
-      return false
-    }
-    
-    let step = await this.startReadingProgress(webpage)
-    //console.log(activity_seconds)
-    if (step === null) {
-      return null
-    }
-    
-    //console.log(step.activity_seconds, typeof(step.activity_seconds))
-    if (isNaN(step.activity_seconds) === false) {
-      step.activity_seconds = parseInt(step.activity_seconds, 10)
-    }
-    if (typeof(step.activity_seconds) !== 'number') {
-      step.activity_seconds = 0
-    }
-    step.activity_seconds = step.activity_seconds + seconds
-    await step.save()
-    return step
-  }
   
   static get hidden () {
     //return ['password']
@@ -308,45 +144,6 @@ class User extends Model {
     return group
   }
   
-  async getUserIDsInGroup(webpage) {
-    let cacheKey = Cache.key(`User.getUserIDsInGroup`, webpage)
-    return await Cache.rememberWait(cacheKey, async () => {
-      /*
-      let groups = await this.manyThrough('App/Models/WebpageGroup', 'users')
-              .where('webpage_id', webpage.primaryKeyValue)
-              .with('users', (builder) => {
-                builder.where('users.id', '<>', this.primaryKeyValue)
-              })
-              .fetch()
-      */
-      let groups = await this.group()
-              .where('webpage_id', webpage.primaryKeyValue)
-              .with('users')
-              .fetch()
-
-      let userIds = []
-      if (groups.size() > 0) {
-        //console.log(groups.first())
-        groups.toJSON().map(group => {
-          group.users.map(user => {
-            userIds.push(user.id)
-          })
-        })
-      }
-      else {
-        // 查詢沒有加入群組的使用者
-        userIds = await webpage.getReaderIDsNotInGroup()
-      }
-
-      //await Cache.forever(cacheKey, userIds)
-      return userIds
-    })  // return await Cache.get(cacheKey, async () => {
-  }
-  
-  async getOtherUserIDsInGroup(webpage) {
-    let userIds = await this.getUserIDsInGroup(webpage)
-    return userIds.filter(id => id !== this.primaryKeyValue)
-  }
   
   static get computed () {
     return ['avatar_url']

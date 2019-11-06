@@ -64,6 +64,7 @@ test('a: do login', async ({ assert, client }) => {
           .session('adonis-auth', 1)
           .end()
   
+  //console.log(response.text)
   response.assertStatus(200)
   response.assertJSONSubset({
     displayName: 'a'

@@ -38,7 +38,7 @@ class BooleanCase {
         if (instance[attr] !== null 
                 && typeof(instance[attr]) === 'number') {
           instance[attr] = (instance[attr] === 1)
-          console.log(instance[attr])
+          //console.log(instance[attr])
         }
       })
     })

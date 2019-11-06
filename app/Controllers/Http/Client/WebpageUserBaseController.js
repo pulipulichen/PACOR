@@ -83,7 +83,7 @@ class WebpageUserBaseController {
       //await Cache.put(cacheKey, output, Config.get('view.indexCacheMinute'))
       return output
     })
-  }
+  } // async indexOthers ({ request, webpage, user }) {
   
   async create({request, webpage, user}) {
     let id = -1
@@ -122,7 +122,7 @@ class WebpageUserBaseController {
       }
     }
     return id
-  }
+  } // async create({request, webpage, user}) {
   
   async update ({request, webpage, user}) {
     let data = request.all()
@@ -150,7 +150,7 @@ class WebpageUserBaseController {
     
     await instance.save()
     return 1
-  }
+  } // async update ({request, webpage, user}) {
   
   async destroy({request, webpage, user}) {
     let data = request.all()
@@ -176,7 +176,7 @@ class WebpageUserBaseController {
       await instance.delete()
     }
     return 1
-  }
+  } // async destroy({request, webpage, user}) {
 }
 
 module.exports = WebpageUserBaseController
