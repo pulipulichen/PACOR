@@ -85,7 +85,14 @@ Cache.rememberWait = function (tags, cacheKey, minutes, callback) {
     minutes = cacheKey
     cacheKey = tags
     tags = null
-  } 
+  }
+  
+  if (tags !== null && tags !== undefined) {
+    tags = [tags]
+  }
+  if (Array.isArray(tags)) {
+    tags = filterTags(tags)
+  }
   
   return new Promise(async (resolve, reject) => {
     
@@ -144,7 +151,14 @@ Cache.rememberForeverWait = function (tags, cacheKey, callback) {
       callback = cacheKey
       cacheKey = tags
       tags = null
-    } 
+    }
+    
+    if (tags !== null && tags !== undefined) {
+      tags = [tags]
+    }
+    if (Array.isArray(tags)) {
+      tags = filterTags(tags)
+    }
 
     // ------------------------------------------
     // 先看看有沒有值
@@ -204,6 +218,18 @@ const buildLockName = (tags, cacheKey) => {
     lockName.push(cacheKey)
     lockName = lockName.join('.')
     return lockName
+}
+
+const filterTags = (tags) => {
+  return tags.map(tag => {
+    if (typeof(tag) === 'object'
+            && typeof(tag.primaryKeyValue) === 'number') {
+      return tag.constructor.name + '_' + tag.primaryKeyValue
+    }
+    else {
+      return tag
+    }
+  })
 }
 
 module.exports = Cache

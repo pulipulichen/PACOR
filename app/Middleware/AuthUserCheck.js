@@ -7,6 +7,7 @@ class AuthUserCheck {
     let auth = data.auth
     try {
       data.user = await auth.getUser()
+      //data.user.isAdmin = data.webpage.isAdmin(user)
     } catch (e) {
       throw new HttpException('Please login', 403)
     }

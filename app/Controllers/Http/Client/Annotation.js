@@ -44,7 +44,7 @@ class Annotation extends WebpageUserBaseController {
   async floatWidget({request, webpage, user}) {
     let query = request.all()
     let cacheKey = Cache.key('Controllers.Client.Annotation.floatWidget', query)
-    return await Cache.rememberWait(cacheKey, 3, async () => {
+    return await Cache.rememberWait([webpage, user, this.modelName], cacheKey, 3, async () => {
       
       let annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
 
@@ -78,7 +78,7 @@ class Annotation extends WebpageUserBaseController {
   async list({request, webpage, user}) {
     let query = request.all()
     let cacheKey = Cache.key('Controllers.Client.Annotation.list', query)
-    return await Cache.rememberWait(cacheKey, 0, async () => {
+    return await Cache.rememberWait([webpage, user, this.modelName], cacheKey, 3, async () => {
       query.withCount = true
       let annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
 
@@ -115,7 +115,7 @@ class Annotation extends WebpageUserBaseController {
     }
     
     let cacheKey = Cache.key('Controllers.Client.Annotation.listNext', query)
-    return await Cache.rememberWait(cacheKey, 0, async () => {
+    return await Cache.rememberWait([webpage, user, this.modelName], cacheKey, 0, async () => {
       query.withCount = true
       let annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
 
@@ -186,7 +186,7 @@ class Annotation extends WebpageUserBaseController {
     await ReadingActivityLog.log(webpage, user, this.modelName + '.indexMy', condition)
     
     let cacheKey = `${this.modelName}.indexMy.${webpage.id}.${user.id}.${JSON.stringify(condition)}`
-    return await Cache.get(cacheKey, async () => {
+    return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
       let query = this.model
               .query()
               .where('webpage_id', webpage.primaryKeyValue)
@@ -203,7 +203,7 @@ class Annotation extends WebpageUserBaseController {
       }
 
       let output = await query.fetch()
-      await Cache.put(cacheKey, output, Config.get('view.indexCacheMinute'))
+      //await Cache.put(cacheKey, output, Config.get('view.indexCacheMinute'))
       return output
     })
   }
@@ -213,7 +213,7 @@ class Annotation extends WebpageUserBaseController {
     await ReadingActivityLog.log(webpage, user, this.modelName + '.indexOthers', condition)
     
     let cacheKey = `${this.modelName}.indexOthers.${webpage.id}.${user.id}.${JSON.stringify(condition)}`
-    return await Cache.get(cacheKey, async () => {
+    return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
       let others = await user.getOtherUsersInGroup(webpage)
 
       let query = this.model
@@ -229,7 +229,7 @@ class Annotation extends WebpageUserBaseController {
       }
 
       let output = await query.fetch()
-      await Cache.put(cacheKey, output, Config.get('view.indexCacheMinute'))
+      //await Cache.put(cacheKey, output, Config.get('view.indexCacheMinute'))
       return output
     })
   }

@@ -322,6 +322,11 @@ class Webpage extends Model {
       return output
     })  // return await Cache.get(cacheKey, async () => {
   }
+  
+  isAdmin (user) {
+    return (user.role === 'global_admin'
+            || (user.role === 'domain_admin' && user.webpage_id === this.primaryKeyValue))
+  }
 }
 
 module.exports = Webpage
