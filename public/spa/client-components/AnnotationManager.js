@@ -2319,7 +2319,7 @@ let AnnotationManager = {
       //console.log(result)
       this.afterTime = (new Date()).getTime()
       if (result !== 0) {
-        this.$refs.RangyManager.deserialize(result)
+        this.$refs.RangyManager.deserializeAppend(result)
       }
       
       //$('[data-pacor-highlight]:first').click() // for test
@@ -2829,17 +2829,31 @@ let AnnotationEditorModules = {
         }
       }
     },
+    reloadMyHighlights: async function () {
+      // 先移除我的標註
+      this.rangy.removeMyHighlights()
+      //throw '等等'
+      
+      let data = {}
+      let result = await this.lib.AxiosHelper.get('/client/Annotation/highlightsMy', data)
+      //console.log(result)
+      if (result !== 0) {
+        this.rangy.deserializeAppend(result)
+      }
+    },
     onDelete: async function () {
-      if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
+      let test = false
+      
+      if (test || window.confirm(this.$t('Are you sure to delete this annotation?'))) {
         
         let data = {
           id: this.annotationInstance.id
         }
         
-        //throw '這邊要處理highlight的部分'
-        
-        await this.lib.AxiosHelper.get('/client/Annotation/destroy', data)
-        
+        if (test !== true) {
+          await this.lib.AxiosHelper.get('/client/Annotation/destroy', data)
+        }
+        await this.reloadMyHighlights()
         this.$emit('delete')
 
         return // 跟上層說關閉視窗
@@ -4155,9 +4169,10 @@ let AnnotationList = {
         this.filteredPage++
       }
     },
+    
     onDelete () {
       // 從列表中刪除這個標註
-      this.rangy.removeHighlightByAnnotation(this.annotationInstance)
+      //this.rangy.removeHighlightByAnnotation(this.annotationInstance)
       this.onUpdate()
     },
     onUpdate () {
@@ -5238,7 +5253,7 @@ let RangyManager = {
       
       this.selectionSaved = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].saveSelection()
       //console.log(this.selectionSaved)
-      console.log(this.selection.getAllRanges())
+      //.log(this.selection.getAllRanges())
       
       //console.log(this.selectionSaved)
       //let range = this.selection.saveRanges()
@@ -5420,11 +5435,29 @@ let RangyManager = {
       //return this.selection
     },
     
+    removeMyHighlights () {
+      
+      this.highlighter.highlights = this.highlighter.highlights.filter(hl => {
+        let className = hl.classApplier.className
+        if (className.startsWith('my-')) {
+          hl.unapply()
+          return false
+        }
+        else {
+          return true
+        }
+      })
+      
+    },
+    
     removeHighlightByAnnotation (annotation) {
       let type = this.lib.auth.getHighlightAnnotationType(annotation)
       if (this.highlightClasses.indexOf(type) === -1) {
         return false
       }
+      
+      //let range = this.highlighter.highlights[0].getRange().cloneRange()
+      //window.range = range // for test
       
       //console.log(type)
       let highlightsToRemove = []
@@ -5649,8 +5682,8 @@ let RangyManager = {
       annotation.anchorPositions = annotation.anchorPositions.map(pos => {
         pinHighlights.forEach(pin => {
           pin = this._highlightToAnchorPosition(pin)
-          console.log(pos)
-          console.log(pin)
+          //console.log(pos)
+          //console.log(pin)
           if (pin.paragraph_id !== pos.paragraph_id) {
             return false
           }
@@ -5762,13 +5795,17 @@ let RangyManager = {
       
       return highlightJSONArray
     },
-    deserialize: function (highlightJSONArray) {
+    deserialize: function (highlightJSONArray, options) {
       // "type:textContent|28$198$2$confused-clarified$pacor-paragraph-id-2"
       if (typeof(highlightJSONArray) !== 'string') {
         highlightJSONArray = this._annotationToHighlighString(highlightJSONArray)
       }
       
-      this.highlighter.deserializeAsync(highlightJSONArray, {
+      this.highlighter.deserializeAsync(highlightJSONArray, options)
+      return this
+    },
+    deserializeAppend: function (highlightJSONArray) {
+      return this.deserialize(highlightJSONArray, {
         append: true
       })
     }

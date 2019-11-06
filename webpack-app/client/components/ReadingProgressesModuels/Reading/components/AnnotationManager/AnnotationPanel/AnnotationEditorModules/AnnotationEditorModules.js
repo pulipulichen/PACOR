@@ -70,17 +70,31 @@ let AnnotationEditorModules = {
         }
       }
     },
+    reloadMyHighlights: async function () {
+      // 先移除我的標註
+      this.rangy.removeMyHighlights()
+      //throw '等等'
+      
+      let data = {}
+      let result = await this.lib.AxiosHelper.get('/client/Annotation/highlightsMy', data)
+      //console.log(result)
+      if (result !== 0) {
+        this.rangy.deserializeAppend(result)
+      }
+    },
     onDelete: async function () {
-      if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
+      let test = false
+      
+      if (test || window.confirm(this.$t('Are you sure to delete this annotation?'))) {
         
         let data = {
           id: this.annotationInstance.id
         }
         
-        //throw '這邊要處理highlight的部分'
-        
-        await this.lib.AxiosHelper.get('/client/Annotation/destroy', data)
-        
+        if (test !== true) {
+          await this.lib.AxiosHelper.get('/client/Annotation/destroy', data)
+        }
+        await this.reloadMyHighlights()
         this.$emit('delete')
 
         return // 跟上層說關閉視窗

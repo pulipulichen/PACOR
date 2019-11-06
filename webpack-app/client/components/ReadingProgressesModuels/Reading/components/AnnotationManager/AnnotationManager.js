@@ -97,7 +97,7 @@ let AnnotationManager = {
       //console.log(result)
       this.afterTime = (new Date()).getTime()
       if (result !== 0) {
-        this.$refs.RangyManager.deserialize(result)
+        this.$refs.RangyManager.deserializeAppend(result)
       }
       
       //$('[data-pacor-highlight]:first').click() // for test

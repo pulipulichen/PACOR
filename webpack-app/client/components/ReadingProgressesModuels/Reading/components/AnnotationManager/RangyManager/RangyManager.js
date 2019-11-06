@@ -307,7 +307,7 @@ let RangyManager = {
       
       this.selectionSaved = rangy.saveSelection()
       //console.log(this.selectionSaved)
-      console.log(this.selection.getAllRanges())
+      //.log(this.selection.getAllRanges())
       
       //console.log(this.selectionSaved)
       //let range = this.selection.saveRanges()
@@ -489,11 +489,29 @@ let RangyManager = {
       //return this.selection
     },
     
+    removeMyHighlights () {
+      
+      this.highlighter.highlights = this.highlighter.highlights.filter(hl => {
+        let className = hl.classApplier.className
+        if (className.startsWith('my-')) {
+          hl.unapply()
+          return false
+        }
+        else {
+          return true
+        }
+      })
+      
+    },
+    
     removeHighlightByAnnotation (annotation) {
       let type = this.lib.auth.getHighlightAnnotationType(annotation)
       if (this.highlightClasses.indexOf(type) === -1) {
         return false
       }
+      
+      //let range = this.highlighter.highlights[0].getRange().cloneRange()
+      //window.range = range // for test
       
       //console.log(type)
       let highlightsToRemove = []
@@ -718,8 +736,8 @@ let RangyManager = {
       annotation.anchorPositions = annotation.anchorPositions.map(pos => {
         pinHighlights.forEach(pin => {
           pin = this._highlightToAnchorPosition(pin)
-          console.log(pos)
-          console.log(pin)
+          //console.log(pos)
+          //console.log(pin)
           if (pin.paragraph_id !== pos.paragraph_id) {
             return false
           }
@@ -831,13 +849,17 @@ let RangyManager = {
       
       return highlightJSONArray
     },
-    deserialize: function (highlightJSONArray) {
+    deserialize: function (highlightJSONArray, options) {
       // "type:textContent|28$198$2$confused-clarified$pacor-paragraph-id-2"
       if (typeof(highlightJSONArray) !== 'string') {
         highlightJSONArray = this._annotationToHighlighString(highlightJSONArray)
       }
       
-      this.highlighter.deserializeAsync(highlightJSONArray, {
+      this.highlighter.deserializeAsync(highlightJSONArray, options)
+      return this
+    },
+    deserializeAppend: function (highlightJSONArray) {
+      return this.deserialize(highlightJSONArray, {
         append: true
       })
     }

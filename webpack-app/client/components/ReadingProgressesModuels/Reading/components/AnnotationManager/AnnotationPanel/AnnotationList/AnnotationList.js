@@ -248,9 +248,10 @@ let AnnotationList = {
         this.filteredPage++
       }
     },
+    
     onDelete () {
       // 從列表中刪除這個標註
-      this.rangy.removeHighlightByAnnotation(this.annotationInstance)
+      //this.rangy.removeHighlightByAnnotation(this.annotationInstance)
       this.onUpdate()
     },
     onUpdate () {
