@@ -1,16 +1,15 @@
-<div class="ui segment">
-  <div class="ui middle aligned two column grid">
-      <div class="ten wide column summary">
-        {{ instruction.summary }}
-      </div>
-      <div class="six wide right floated right aligned column">
-        <button type="button"
-          class="ui mini button"
-          v-on:click="showInstruction">
-          {{ $t('Hint') }}
-        </button>
-      </div>
+<div class="ui segment AnnotaionInstruction">
+  <div class="show-instruction">
+    <button type="button"
+            class="ui mini button"
+            v-on:click="showInstruction">
+      {{ $t('Hint') }}
+    </button>
   </div>
+  <div class="summary">
+    {{ instruction.summary }}
+  </div>
+        
   
   <!-- ================================= -->
   

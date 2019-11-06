@@ -85,8 +85,14 @@ let AnnotationManager = {
   },
   mounted () {
     this.loadHighlights()
+    
+    this._testPanel()
   },
   methods: {
+    _testPanel () {
+      this.annotationModule = 'Confused'
+      this.$refs.AnnotationPanel.show()
+    },
     loadHighlights: async function () {
       let data = {}
       if (typeof(this.afterTime) === 'number') {

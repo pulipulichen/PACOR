@@ -59,7 +59,7 @@ exports.push([module.i, ".editor-container {\n  position: fixed;\n  top: 10vh;\n
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n", "",{"version":3,"sources":["HTMLEditor.local.less?vue&type=style&index=1&id=5af2455c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;EAClB,gBAAgB;AAClB","file":"HTMLEditor.local.less?vue&type=style&index=1&id=5af2455c&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n"]}]);
+exports.push([module.i, ".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n}\n", "",{"version":3,"sources":["HTMLEditor.local.less?vue&type=style&index=1&id=5af2455c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;EAClB,gBAAgB;EAChB,WAAW;AACb","file":"HTMLEditor.local.less?vue&type=style&index=1&id=5af2455c&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n}\n"]}]);
 
 
 /***/ }),

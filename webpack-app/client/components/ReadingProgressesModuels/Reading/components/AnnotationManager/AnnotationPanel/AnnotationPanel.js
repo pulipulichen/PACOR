@@ -126,9 +126,6 @@ let AnnotationPanel = {
       //console.log(sizeRatio)
       this.heightPX = (window.innerHeight * sizeRatio)
     },
-    _test: function () {
-      this.show()
-    },
     _initPlaceholder () {
       let navPH = $('.Navigation.placeholder:first')
       if (navPH.length === 1) { 

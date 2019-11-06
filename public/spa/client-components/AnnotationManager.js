@@ -315,7 +315,7 @@ exports.push([module.i, ".annotation-panel-buttons[data-v-45a0d506] {\n  user-se
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".button[data-v-673c960f],\n.summary[data-v-673c960f] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n}\n.column[data-v-673c960f]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-673c960f] {\n  padding-left: 0 !important;\n}\n", "",{"version":3,"sources":["AnnotaionInstruction.less?vue&type=style&index=0&id=673c960f&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;EAEE,mBAAmB;EACnB,uBAAuB;EACvB,gBAAgB;EAChB,eAAe;AACjB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,0BAA0B;AAC5B","file":"AnnotaionInstruction.less?vue&type=style&index=0&id=673c960f&lang=less&scoped=true&","sourcesContent":[".button[data-v-673c960f],\n.summary[data-v-673c960f] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n}\n.column[data-v-673c960f]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-673c960f] {\n  padding-left: 0 !important;\n}\n"]}]);
+exports.push([module.i, ".AnnotaionInstruction[data-v-673c960f] {\n  vertical-align: top;\n  padding-top: 0.6em;\n  padding-bottom: 0.6em;\n}\n.show-instruction[data-v-673c960f],\n.summary[data-v-673c960f] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n  vertical-align: top;\n}\n.show-instruction[data-v-673c960f] {\n  float: right;\n  margin-left: 0.5em;\n  margin-top: -0.4em;\n}\n.column[data-v-673c960f]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-673c960f] {\n  padding-left: 0 !important;\n}\n", "",{"version":3,"sources":["AnnotaionInstruction.less?vue&type=style&index=0&id=673c960f&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,kBAAkB;EAClB,qBAAqB;AACvB;AACA;;EAEE,mBAAmB;EACnB,uBAAuB;EACvB,gBAAgB;EAChB,eAAe;EACf,mBAAmB;AACrB;AACA;EACE,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;AACpB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,0BAA0B;AAC5B","file":"AnnotaionInstruction.less?vue&type=style&index=0&id=673c960f&lang=less&scoped=true&","sourcesContent":[".AnnotaionInstruction[data-v-673c960f] {\n  vertical-align: top;\n  padding-top: 0.6em;\n  padding-bottom: 0.6em;\n}\n.show-instruction[data-v-673c960f],\n.summary[data-v-673c960f] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n  vertical-align: top;\n}\n.show-instruction[data-v-673c960f] {\n  float: right;\n  margin-left: 0.5em;\n  margin-top: -0.4em;\n}\n.column[data-v-673c960f]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-673c960f] {\n  padding-left: 0 !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -329,7 +329,7 @@ exports.push([module.i, ".button[data-v-673c960f],\n.summary[data-v-673c960f] {\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"AnnotationEditorHeader.less?vue&type=style&index=0&id=6cd6ece2&lang=less&scoped=true&"}]);
+exports.push([module.i, ".right[data-v-6cd6ece2] {\n  float: right;\n  margin-top: -0.5em;\n}\n", "",{"version":3,"sources":["AnnotationEditorHeader.less?vue&type=style&index=0&id=6cd6ece2&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;AACpB","file":"AnnotationEditorHeader.less?vue&type=style&index=0&id=6cd6ece2&lang=less&scoped=true&","sourcesContent":[".right[data-v-6cd6ece2] {\n  float: right;\n  margin-top: -0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -343,7 +343,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "img[data-v-fa31e19a] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-fa31e19a] {\n  display: inline-block;\n  max-width: 100%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n}\n", "",{"version":3,"sources":["UserInformation.less?vue&type=style&index=0&id=fa31e19a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,eAAe;EACf,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;AAClB","file":"UserInformation.less?vue&type=style&index=0&id=fa31e19a&lang=less&scoped=true&","sourcesContent":["img[data-v-fa31e19a] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-fa31e19a] {\n  display: inline-block;\n  max-width: 100%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n}\n"]}]);
+exports.push([module.i, "img[data-v-fa31e19a] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-fa31e19a] {\n  display: inline-block;\n  max-width: 100%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["UserInformation.less?vue&type=style&index=0&id=fa31e19a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,eAAe;EACf,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB","file":"UserInformation.less?vue&type=style&index=0&id=fa31e19a&lang=less&scoped=true&","sourcesContent":["img[data-v-fa31e19a] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-fa31e19a] {\n  display: inline-block;\n  max-width: 100%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -1188,34 +1188,22 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "ui segment" },
+    { staticClass: "ui segment AnnotaionInstruction" },
     [
-      _c("div", { staticClass: "ui middle aligned two column grid" }, [
-        _c("div", { staticClass: "ten wide column summary" }, [
-          _vm._v(
-            "\r\n        " + _vm._s(_vm.instruction.summary) + "\r\n      "
-          )
-        ]),
-        _vm._v(" "),
+      _c("div", { staticClass: "show-instruction" }, [
         _c(
-          "div",
-          { staticClass: "six wide right floated right aligned column" },
-          [
-            _c(
-              "button",
-              {
-                staticClass: "ui mini button",
-                attrs: { type: "button" },
-                on: { click: _vm.showInstruction }
-              },
-              [
-                _vm._v(
-                  "\r\n          " + _vm._s(_vm.$t("Hint")) + "\r\n        "
-                )
-              ]
-            )
-          ]
+          "button",
+          {
+            staticClass: "ui mini button",
+            attrs: { type: "button" },
+            on: { click: _vm.showInstruction }
+          },
+          [_vm._v("\r\n      " + _vm._s(_vm.$t("Hint")) + "\r\n    ")]
         )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "summary" }, [
+        _vm._v("\r\n    " + _vm._s(_vm.instruction.summary) + "\r\n  ")
       ]),
       _vm._v(" "),
       _c("modal", {
@@ -1276,37 +1264,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui middle aligned grid" }, [
-    _c("div", { staticClass: "two columns row" }, [
-      _c(
-        "div",
-        { staticClass: "six wide column" },
-        [
-          _c("user-information", {
-            attrs: {
-              annotationModule: _vm.annotationModule,
-              status: _vm.status
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "ten wide column" },
-        [
-          _c("annotaion-instruction", {
-            attrs: {
-              config: _vm.config,
-              status: _vm.status,
-              annotationModule: _vm.annotationModule
-            }
-          })
-        ],
-        1
-      )
-    ])
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "right column" },
+      [
+        _c("annotaion-instruction", {
+          attrs: {
+            config: _vm.config,
+            status: _vm.status,
+            annotationModule: _vm.annotationModule
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "left column" },
+      [
+        _c("user-information", {
+          attrs: { annotationModule: _vm.annotationModule, status: _vm.status }
+        })
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -1331,33 +1314,22 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui middle aligned grid" }, [
-    _c("div", { staticClass: "three column unstackable row" }, [
-      _c("div", { staticClass: "three wide column" }, [
-        _c("img", { attrs: { src: _vm.status.avatar } })
+  return _c(
+    "div",
+    { staticClass: "UserInformation" },
+    [
+      _c("img", { attrs: { src: _vm.status.avatar } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "username" }, [
+        _vm._v("\r\n    " + _vm._s(_vm.username) + "\r\n  ")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "seven wide column" }, [
-        _c("div", { staticClass: "username" }, [
-          _vm._v("\r\n        " + _vm._s(_vm.username) + "\r\n      ")
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "six wide column" },
-        [
-          _c("annotation-module-button", {
-            attrs: {
-              status: _vm.status,
-              annotationModule: _vm.annotationModule
-            }
-          })
-        ],
-        1
-      )
-    ])
-  ])
+      _c("annotation-module-button", {
+        attrs: { status: _vm.status, annotationModule: _vm.annotationModule }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2523,8 +2495,14 @@ let AnnotationManager = {
   },
   mounted () {
     this.loadHighlights()
+    
+    this._testPanel()
   },
   methods: {
+    _testPanel () {
+      this.annotationModule = 'Confused'
+      this.$refs.AnnotationPanel.show()
+    },
     loadHighlights: async function () {
       let data = {}
       if (typeof(this.afterTime) === 'number') {
@@ -4961,9 +4939,6 @@ let AnnotationPanel = {
       }
       //console.log(sizeRatio)
       this.heightPX = (window.innerHeight * sizeRatio)
-    },
-    _test: function () {
-      this.show()
     },
     _initPlaceholder () {
       let navPH = jquery__WEBPACK_IMPORTED_MODULE_2___default()('.Navigation.placeholder:first')
