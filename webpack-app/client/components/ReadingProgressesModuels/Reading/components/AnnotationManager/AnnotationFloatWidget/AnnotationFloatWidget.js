@@ -14,14 +14,22 @@ let AnnotationFloatWidget = {
   },
   computed: {
     computedContainerClassNames () {
+      let classList = []
       if (this.highlightPos !== null) {
         let windowHeight = window.innerHeight
         let clientY = this.highlightEvent.clientY
         if (clientY < (windowHeight / 2) ) {
-          return 'bottom'
+          classList.push('bottom')
         }
       }
+      
+      if (this.rangy.isSelecting) {
+        classList.push('selecting')
+      }
       //return 'bottom'
+      if (classList.length > 0) {
+        return classList.join(' ')
+      }
     },
     computedButtonsClassNames () {
       //console.log(this.status.preference.leftHanded)

@@ -32,6 +32,9 @@ let RangyManager = {
   computed: {
     isPinned () {
       return (this.selectionHighlighter.highlights.length > 0)
+    },
+    isSelecting () {
+      return (rangy.getSelection().toString() !== '')
     }
   },  // computed: {
   /*

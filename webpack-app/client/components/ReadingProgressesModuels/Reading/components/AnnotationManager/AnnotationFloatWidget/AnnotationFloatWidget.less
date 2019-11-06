@@ -13,6 +13,10 @@
   &.bottom {
     top: auto;
     bottom: @verticalMargin;
+    
+    &.selecting {
+      width: calc(100vw - 13em); // 保留FAB的寬度
+    }
   }
   
   .list-button {

@@ -67,6 +67,7 @@ let AnnotationList = {
     'listPositions' () {
       this.page = 0
       this.noMore = false
+      this.annotationInstance = this.findAnnotation
       this.loadInit()
     },
     'findAnnotation' (findAnnotation) {
@@ -123,6 +124,7 @@ let AnnotationList = {
           this[key] = result[key]
         }
         
+        //console.log(this.annotations.length)
         if (this.annotations.length === 1) {
           this.annotationInstance = this.annotations[0]
         }

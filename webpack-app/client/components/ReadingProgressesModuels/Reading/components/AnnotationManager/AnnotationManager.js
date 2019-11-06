@@ -136,6 +136,9 @@ let AnnotationManager = {
       //this.selection = null
       this.pinSelection = null
       this.onHighlightPosMouseout(true)
+      this.findAnnotation = null
+      this.findUser = null
+      this.findType = null
       //console.log('unpin', 'float widget有隱藏起來嗎？', this.highlightPos)
     },
     toggleHighlightPos (data) {

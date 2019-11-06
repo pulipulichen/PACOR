@@ -201,7 +201,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-float-widget[data-v-ca5d3b70] {\n  position: fixed !important;\n  left: 1em;\n  z-index: 1;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,SAAS;EACT,UAAU;EACV,wBAAwB;EACxB,qBAAqB;EACrB,mCAAmC;EACnC,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;EACE,kBAAkB;EAClB,mBAAmB;AACrB","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-ca5d3b70] {\n  position: fixed !important;\n  left: 1em;\n  z-index: 1;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top;\n}\n"]}]);
+exports.push([module.i, ".annotation-float-widget[data-v-ca5d3b70] {\n  position: fixed !important;\n  left: 1em;\n  z-index: 1;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 13em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,SAAS;EACT,UAAU;EACV,wBAAwB;EACxB,qBAAqB;EACrB,mCAAmC;EACnC,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,kBAAkB;EAClB,mBAAmB;AACrB","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-ca5d3b70] {\n  position: fixed !important;\n  left: 1em;\n  z-index: 1;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 13em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top;\n}\n"]}]);
 
 
 /***/ }),
@@ -2051,14 +2051,22 @@ let AnnotationFloatWidget = {
   },
   computed: {
     computedContainerClassNames () {
+      let classList = []
       if (this.highlightPos !== null) {
         let windowHeight = window.innerHeight
         let clientY = this.highlightEvent.clientY
         if (clientY < (windowHeight / 2) ) {
-          return 'bottom'
+          classList.push('bottom')
         }
       }
+      
+      if (this.rangy.isSelecting) {
+        classList.push('selecting')
+      }
       //return 'bottom'
+      if (classList.length > 0) {
+        return classList.join(' ')
+      }
     },
     computedButtonsClassNames () {
       //console.log(this.status.preference.leftHanded)
@@ -2349,6 +2357,9 @@ let AnnotationManager = {
       //this.selection = null
       this.pinSelection = null
       this.onHighlightPosMouseout(true)
+      this.findAnnotation = null
+      this.findUser = null
+      this.findType = null
       //console.log('unpin', 'float widget有隱藏起來嗎？', this.highlightPos)
     },
     toggleHighlightPos (data) {
@@ -3920,6 +3931,7 @@ let AnnotationList = {
     'listPositions' () {
       this.page = 0
       this.noMore = false
+      this.annotationInstance = this.findAnnotation
       this.loadInit()
     },
     'findAnnotation' (findAnnotation) {
@@ -3976,6 +3988,7 @@ let AnnotationList = {
           this[key] = result[key]
         }
         
+        //console.log(this.annotations.length)
         if (this.annotations.length === 1) {
           this.annotationInstance = this.annotations[0]
         }
@@ -4885,6 +4898,9 @@ let RangyManager = {
   computed: {
     isPinned () {
       return (this.selectionHighlighter.highlights.length > 0)
+    },
+    isSelecting () {
+      return (_rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].getSelection().toString() !== '')
     }
   },  // computed: {
   /*
