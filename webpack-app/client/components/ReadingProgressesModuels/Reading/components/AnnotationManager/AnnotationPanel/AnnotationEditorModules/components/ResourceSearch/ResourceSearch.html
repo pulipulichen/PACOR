@@ -1,0 +1,23 @@
+<div class="ExternalResource ui form">
+  <div class="fields">
+    <div class="inline field">
+      <label>
+        {{ $t('Find your answer') }}:
+      </label>
+      <select v-model="selectIndex">
+        <option v-for="(resource, i) in resourses" 
+                v-bind:value="i">
+          {{ $t(resource.name) }}
+        </option>
+      </select>
+    </div>
+    <div class="inline field">
+      <button type="button" 
+              class="ui mini button"
+              v-bind:class="computedButtonClass"
+              v-on:click="doSearch">
+        {{ $t('SEARCH') }}
+      </button>
+    </div>
+  </div>
+</div>

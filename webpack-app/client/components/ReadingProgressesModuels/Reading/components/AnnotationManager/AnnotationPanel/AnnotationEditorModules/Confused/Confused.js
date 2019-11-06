@@ -5,7 +5,7 @@ import CommonMethods from './../commons/CommonMethods'
 
 import AnnotationEditorHeader from './../components/AnnotationEditorHeader/AnnotationEditorHeader.vue'
 import QuestionTemplate from './../components/QuestionTemplate/QuestionTemplate.vue'
-import ExternalResource from './../components/ExternalResource/ExternalResource.vue'
+import ResourceSearch from './../components/ResourceSearch/ResourceSearch.vue'
 
 let Confused = {
   props: CommonProps,
@@ -43,7 +43,7 @@ let Confused = {
   components: {
     'annotation-editor-header': AnnotationEditorHeader,
     'question-template': QuestionTemplate,
-    'external-resource': ExternalResource,
+    'resource-search': ResourceSearch,
   },
   computed: {
     annotationConfig () {
