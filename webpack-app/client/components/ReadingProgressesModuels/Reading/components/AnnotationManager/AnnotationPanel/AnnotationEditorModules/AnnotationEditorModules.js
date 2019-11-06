@@ -69,6 +69,22 @@ let AnnotationEditorModules = {
           this.rangy.hoverOut(true)
         }
       }
+    },
+    onDelete () {
+      if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
+        
+        let data = {
+          id: this.annotationInstance.id
+        }
+        
+        //throw '這邊要處理highlight的部分'
+        
+        this.lib.AxiosHelper.get('/client/resource/Annotation/destroy', data)
+        
+        this.$emit('delete')
+
+        return // 跟上層說關閉視窗
+      }
     }
   } // methods
 }

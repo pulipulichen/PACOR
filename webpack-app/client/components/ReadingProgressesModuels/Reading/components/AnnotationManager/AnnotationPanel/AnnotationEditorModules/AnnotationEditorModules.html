@@ -12,7 +12,8 @@
                v-bind:rangy="rangy"
                v-bind:heightPX="heightPX"
                v-on:hide="$emit('hide', false)"
-               v-on:delete="$emit('delete', annotationInstance)"
+               v-on:delete="onDelete"
+               v-on:update="$emit('update')"
                v-bind:editable="editable"></component>
   </div>
 

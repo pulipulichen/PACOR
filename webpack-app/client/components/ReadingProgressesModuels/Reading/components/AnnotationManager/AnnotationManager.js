@@ -143,6 +143,10 @@ let AnnotationManager = {
       //console.log('unpin', 'float widget有隱藏起來嗎？', this.highlightPos)
     },
     toggleHighlightPos (data) {
+      if (this.selection !== null) {
+        return false
+      } 
+      
       //console.log(this.listPositions)
 //      if (!this.enableHover) {
 //        return false
@@ -181,6 +185,10 @@ let AnnotationManager = {
       }
     },
     onHighlightPosMouseover (data) {
+      if (this.selection !== null) {
+        return false
+      } 
+      
       if (this.highlightPosLock === false) {
         clearTimeout(this.highlightPosLockTimer)
         if (data.event.which !== 0) {

@@ -112,24 +112,21 @@ let MainIdea = {
       this.$emit('hide', false)
     },
     editAnnotation () {
-      throw '#TODO editAnnotation'
+      let data = {
+        id: this.annotationInstance.id
+        note: this.note
+      }
+      
+      let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      
+      if (result !== 1) {
+        throw this.$t('Update failed.')
+      }
+      
+      this.$emit('update')
     },
     deleteAnnotation () {
-      if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
-        
-        let data = {
-          id: this.annotationInstance.id
-        }
-        
-        //throw '這邊要處理highlight的部分'
-        
-        this.lib.AxiosHelper.get('/client/resource/Annotation/destroy', data)
-        
-        this.$emit('delete')
-
-        return // 跟上層說關閉視窗
-      }
-      //console.error('#TODO deleteAnnotation')
+      this.$emit('delete')
     },
     hide () {
       this.$emit('hide', true)

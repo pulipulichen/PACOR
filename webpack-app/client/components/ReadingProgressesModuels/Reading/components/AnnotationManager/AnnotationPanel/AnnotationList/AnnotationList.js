@@ -246,7 +246,9 @@ let AnnotationList = {
     onDelete () {
       // 從列表中刪除這個標註
       this.rangy.removeHighlightByAnnotation(this.annotationInstance)
-      
+      this.onUpdate()
+    },
+    onUpdate () {
       this.reload()
       //this.annotations = this.annotations.filter(annotation => annotation !== (this.annotationInstance))
       //this.filteredAnnotations = this.filteredAnnotations.filter(annotation => annotation !== (this.annotationInstance))

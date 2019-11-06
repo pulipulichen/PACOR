@@ -681,8 +681,9 @@ var render = function() {
               hide: function($event) {
                 return _vm.$emit("hide", false)
               },
-              delete: function($event) {
-                return _vm.$emit("delete", _vm.annotationInstance)
+              delete: _vm.onDelete,
+              update: function($event) {
+                return _vm.$emit("update")
               }
             }
           })
@@ -1484,7 +1485,8 @@ var render = function() {
               hide: function($event) {
                 _vm.annotationInstance = null
               },
-              delete: _vm.onDelete
+              delete: _vm.onDelete,
+              update: _vm.onUpdate
             }
           })
         ],
@@ -2364,6 +2366,10 @@ let AnnotationManager = {
       //console.log('unpin', 'float widget有隱藏起來嗎？', this.highlightPos)
     },
     toggleHighlightPos (data) {
+      if (this.selection !== null) {
+        return false
+      } 
+      
       //console.log(this.listPositions)
 //      if (!this.enableHover) {
 //        return false
@@ -2402,6 +2408,10 @@ let AnnotationManager = {
       }
     },
     onHighlightPosMouseover (data) {
+      if (this.selection !== null) {
+        return false
+      } 
+      
       if (this.highlightPosLock === false) {
         clearTimeout(this.highlightPosLockTimer)
         if (data.event.which !== 0) {
@@ -2801,6 +2811,22 @@ let AnnotationEditorModules = {
           this.rangy.hoverOut(true)
         }
       }
+    },
+    onDelete () {
+      if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
+        
+        let data = {
+          id: this.annotationInstance.id
+        }
+        
+        //throw '這邊要處理highlight的部分'
+        
+        this.lib.AxiosHelper.get('/client/resource/Annotation/destroy', data)
+        
+        this.$emit('delete')
+
+        return // 跟上層說關閉視窗
+      }
     }
   } // methods
 }
@@ -3150,13 +3176,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************************************************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.js?vue&type=script&lang=js& ***!
   \*******************************************************************************************************************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./MainIdea.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.js?vue&type=script&lang=js&?7041");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -3164,152 +3192,10 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************************************************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.js?vue&type=script&lang=js& ***!
   \*******************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_AnnotationEditorHeader_AnnotationEditorHeader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../components/AnnotationEditorHeader/AnnotationEditorHeader.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/components/AnnotationEditorHeader/AnnotationEditorHeader.vue");
-
-
-let MainIdea = {
-  props: ['lib', 'status', 'config'
-    , 'annotationModule', 'annotationInstance'
-    , 'heightPX', 'pinSelection'
-    , 'rangy', 'editable'],
-  data() {
-    this.$i18n.locale = this.config.locale
-    
-    let note = ''
-    //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
-    if (this.annotationInstance !== null 
-            && typeof(this.annotationInstance) === 'object'
-            && typeof(this.annotationInstance.note) === 'string') {
-      note = this.annotationInstance.note
-    }
-    //console.log(note)
-    
-    return {
-      note: note,
-      noteReset: note,
-      //public: 
-    }
-  },
-  components: {
-    'annotation-editor-header': _components_AnnotationEditorHeader_AnnotationEditorHeader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  computed: {
-    annotationConfig () {
-      return this.lib.auth.currentStepAnnotationConfig
-    },
-    public () {
-      return (this.annotationConfig.defaultPermission === 'public')
-    },
-    isNoteDifferent () {
-      return (this.note !== this.noteReset)
-    },
-    enableAddAnnotation () {
-      if (this.isNoteDifferent 
-              && typeof(this.note) === 'string'
-              && this.note !== '') {
-        return true
-      }
-      return false
-    },
-    enableEditAnnotation () {
-      return this.enableAddAnnotation
-    },
-    
-    computedEditorHeight () {
-      let height
-      if (this.enableCollaboration === true
-              && this.lib.style.isStackWidth()) {
-        height = (this.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 12em)`
-      }
-      else {
-        height = `calc(${this.heightPX}px - 12em)`
-      }
-      //console.log(height)
-      return height
-    },
-    computedButtonsClass () {
-      if (this.status.preference === null 
-              || this.status.preference.leftHanded === false) {
-        return 'right aligned column'
-      }
-      else {
-        return 'column'
-      }
-    },
-    moduleConfig () {
-      return this.status.readingConfig.annotationTypeModules[this.annotationModule]
-    }
-  },
-  watch: {
-    annotationInstance (annotationInstance) {
-      if (annotationInstance !== null 
-            && typeof(annotationInstance) === 'object'
-            && typeof(annotationInstance.note) === 'string') {
-        this.note = annotationInstance.note
-        this.$refs.editor.html(this.note)
-      }
-    }
-  },
-//  mounted() {
-//  },
-  methods: {
-    addAnnotation: async function () {
-      
-      let data = {
-        anchorPositions: this.pinSelection.anchorPositions,
-        type: this.annotationModule,
-        note: this.note
-      }
-      
-      if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
-        data.public = this.public
-      }
-      
-      //console.log(data)
-      
-      let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
-      //console.log(id) // for test
-      if (typeof(id) !== 'number') {
-        return false  // 新增失敗
-      }
-      
-      this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
-      this.$refs.editor.reset()
-      this.$emit('hide', false)
-    },
-    editAnnotation () {
-      throw '#TODO editAnnotation'
-    },
-    deleteAnnotation () {
-      if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
-        
-        let data = {
-          id: this.annotationInstance.id
-        }
-        
-        //throw '這邊要處理highlight的部分'
-        
-        this.lib.AxiosHelper.get('/client/resource/Annotation/destroy', data)
-        
-        this.$emit('delete')
-
-        return // 跟上層說關閉視窗
-      }
-      //console.error('#TODO deleteAnnotation')
-    },
-    hide () {
-      this.$emit('hide', true)
-    }
-  } // methods
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (MainIdea);
+throw new Error("Module parse failed: Unexpected token (117:8)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n|       let data = {\n|         id: this.annotationInstance.id\n>         note: this.note\n|       }\n|       ");
 
 /***/ }),
 
@@ -3333,14 +3219,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.vue ***!
   \*******************************************************************************************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MainIdea_html_vue_type_template_id_45a0d506_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MainIdea.html?vue&type=template&id=45a0d506&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.html?vue&type=template&id=45a0d506&scoped=true&");
 /* harmony import */ var _MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MainIdea.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.js?vue&type=script&lang=js&?5332");
-/* empty/unused harmony star reexport *//* harmony import */ var _MainIdea_less_vue_type_style_index_0_id_45a0d506_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MainIdea.less?vue&type=style&index=0&id=45a0d506&lang=less&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.less?vue&type=style&index=0&id=45a0d506&lang=less&scoped=true&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _MainIdea_less_vue_type_style_index_0_id_45a0d506_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MainIdea.less?vue&type=style&index=0&id=45a0d506&lang=less&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.less?vue&type=style&index=0&id=45a0d506&lang=less&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 /* harmony import */ var _MainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationPanel_5CAnnotationEditorModules_5CMainIdea_5CMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationPanel%5CAnnotationEditorModules%5CMainIdea%5CMainIdea.vue&lang=yaml */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationPanel%5CAnnotationEditorModules%5CMainIdea%5CMainIdea.vue&lang=yaml");
 
@@ -4112,7 +3999,9 @@ let AnnotationList = {
     onDelete () {
       // 從列表中刪除這個標註
       this.rangy.removeHighlightByAnnotation(this.annotationInstance)
-      
+      this.onUpdate()
+    },
+    onUpdate () {
       this.reload()
       //this.annotations = this.annotations.filter(annotation => annotation !== (this.annotationInstance))
       //this.filteredAnnotations = this.filteredAnnotations.filter(annotation => annotation !== (this.annotationInstance))
