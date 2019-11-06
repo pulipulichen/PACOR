@@ -107,7 +107,7 @@ let AnnotationList = {
     this.loadFilter()
   },
   methods: {
-    loadInit: async function () {
+    loadInit: async function (selectOnlyOne) {
       if (Array.isArray(this.listPositions)) {
         let query = {
           anchorPositions: this.listPositions,
@@ -128,8 +128,10 @@ let AnnotationList = {
         }
         
         //console.log(this.annotations.length)
-        if (this.annotations.length === 1) {
-          this.annotationInstance = this.annotations[0]
+        if (selectOnlyOne !== false) {
+          if (this.annotations.length === 1) {
+            this.annotationInstance = this.annotations[0]
+          }
         }
       }
     },
@@ -213,9 +215,9 @@ let AnnotationList = {
       this.filteredPage = 0
       this.filteredNoMore = false
       
-      this.loadInit()
+      this.loadInit(false)
       this.loadFilter()
-      console.log('do reload')
+      //console.log('do reload')
     },
     hoverToggle (annotation) {
       this.hoverAnnotation = annotation

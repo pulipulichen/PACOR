@@ -106,7 +106,7 @@ export default {
       default: () => {
         return {
           spacing: 40,
-          delay: 0.1
+          delay: 0
         }
       }
     },
@@ -303,7 +303,7 @@ export default {
       if (this.autoOpenMenu === true && onOff === true) {
         setTimeout(() => {
           this.openMenuForce()
-        }, 200)
+        }, 0)
       }
     },
     /**

@@ -1636,7 +1636,7 @@ var render = function() {
             horizontalMargin: "5em",
             hideOnStart: true,
             activeIconRotate: false,
-            transitionEnable: true,
+            transitionEnable: false,
             scrollAutoShow: false,
             clickOutsideCloseMenu: false,
             autoOpenMenu: true
@@ -4002,7 +4002,7 @@ let AnnotationList = {
     this.loadFilter()
   },
   methods: {
-    loadInit: async function () {
+    loadInit: async function (selectOnlyOne) {
       if (Array.isArray(this.listPositions)) {
         let query = {
           anchorPositions: this.listPositions,
@@ -4023,8 +4023,10 @@ let AnnotationList = {
         }
         
         //console.log(this.annotations.length)
-        if (this.annotations.length === 1) {
-          this.annotationInstance = this.annotations[0]
+        if (selectOnlyOne !== false) {
+          if (this.annotations.length === 1) {
+            this.annotationInstance = this.annotations[0]
+          }
         }
       }
     },
@@ -4108,9 +4110,9 @@ let AnnotationList = {
       this.filteredPage = 0
       this.filteredNoMore = false
       
-      this.loadInit()
+      this.loadInit(false)
       this.loadFilter()
-      console.log('do reload')
+      //console.log('do reload')
     },
     hoverToggle (annotation) {
       this.hoverAnnotation = annotation
@@ -4690,6 +4692,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/**
+ * https://www.npmjs.com/package/vue-float-action-button
+ */
 let AnnotationTypeSelector = {
   props: ['status', 'config', 'lib', 'selection'],
   data() {    
@@ -5391,24 +5396,30 @@ let RangyManager = {
     
     removeHighlightByAnnotation (annotation) {
       let type = this.lib.auth.getHighlightAnnotationType(annotation)
-      console.log(type)
+      //console.log(type)
+      let highlightsToRemove = []
+      
       this.highlighter.highlights.forEach(hl => {
         let range = hl.characterRange
-        console.log(range)
+        //console.log(range)
         let className = hl.classApplier.className
-        console.log(className, type)
+        //console.log(className, type)
         for (let i = 0; i < annotation.anchorPositions.length; i++) {
           let pos = annotation.anchorPositions[i]
-          console.log(pos)
+          //console.log(pos)
           if (type === className 
                   && hl.containerElementId === pos.paragraph_id
                   && range.start === pos.start_pos
                   && range.end === pos.end_pos) {
             hl.unapply()
+            highlightsToRemove.push(hl)
+            // 然後要把這個從highlights中移除
             break
           }
         }
       })
+      
+      this.highlighter.highlights = this.highlighter.highlights.filter(hl => (highlightsToRemove.indexOf(hl) === -1))
       
       this.unpinSelection()
       this.hoverOut(true)

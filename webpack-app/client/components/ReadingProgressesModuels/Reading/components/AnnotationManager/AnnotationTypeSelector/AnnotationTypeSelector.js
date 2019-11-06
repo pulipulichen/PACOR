@@ -1,3 +1,6 @@
+/**
+ * https://www.npmjs.com/package/vue-float-action-button
+ */
 let AnnotationTypeSelector = {
   props: ['status', 'config', 'lib', 'selection'],
   data() {    
