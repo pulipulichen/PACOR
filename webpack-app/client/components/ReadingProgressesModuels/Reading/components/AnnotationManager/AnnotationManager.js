@@ -58,7 +58,12 @@ let AnnotationManager = {
         highlightsURL = '/client/Annotation/highlightsMy'
       }
       return highlightsURL
-    }
+    },
+//    enableHover () {
+//      console.log(['enableHover', this.listPositions])
+//      return (this.listPositions === null 
+//        || (Array.isArray(this.listPositions) && this.listPositions.length === 0))
+//    }
   },
   watch: {
 //    "highlightPos": function (highlightPos) {
@@ -87,7 +92,7 @@ let AnnotationManager = {
         this.$refs.RangyManager.deserialize(result)
       }
       
-      $('[data-pacor-highlight]:first').click() // for test
+      //$('[data-pacor-highlight]:first').click() // for test
       
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
         // 如果不是開放合作，那就不用讀取其他人的資料
@@ -116,6 +121,8 @@ let AnnotationManager = {
       this.pinSelection = this.$refs.RangyManager.pinSelection()
       //this.$refs.AnnotationPanel.show()
       //console.log(type)
+      
+      this.onHighlightPosMouseout(true)
     },
     listFromSelection () {
       this.selection = null
@@ -128,8 +135,15 @@ let AnnotationManager = {
       }
       //this.selection = null
       this.pinSelection = null
+      this.onHighlightPosMouseout(true)
+      //console.log('unpin', 'float widget有隱藏起來嗎？', this.highlightPos)
     },
     toggleHighlightPos (data) {
+      //console.log(this.listPositions)
+//      if (!this.enableHover) {
+//        return false
+//      }
+      
       /*
       if (this.highlightPos === null) {
         this.highlightPos = pos
@@ -146,7 +160,9 @@ let AnnotationManager = {
       }
       else {
         // 在觸控的情況下
-        //console.log(data)
+        // 
+        //console.log('toggleHighlightPos 直接 click', data)
+        
         if (this.highlightPos === null) {
           clearTimeout(this.highlightPosLockTimer)
           this.highlightPos = data.anchorPositions
@@ -171,7 +187,11 @@ let AnnotationManager = {
         this.highlightEvent = data.event
       }
     },
-    onHighlightPosMouseout () {
+    onHighlightPosMouseout (doUnlock) {
+      if (doUnlock === true) {
+        this.highlightPosLock = false
+      }
+      
       if (this.highlightPosLock === false
            && this.highlightPos !== null) {
         // 延遲一點再消失吧
@@ -188,6 +208,7 @@ let AnnotationManager = {
       this.findAnnotation = null
     },
     onFindAnnotation (annotation) {
+      //console.log('onFindAnnotation', annotation)
       //throw '編輯annotation ' +  annotation.id
       this.findAnnotation = annotation
       this.listPositions = this.highlightPos

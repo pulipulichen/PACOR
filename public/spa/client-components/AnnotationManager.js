@@ -355,7 +355,7 @@ exports.push([module.i, "body.disable-user-select {\n  user-select: none;\n  cur
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".close-container[data-v-0a5b4950] {\n  float: right;\n  cursor: pointer;\n}\n.annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-0a5b4950] {\n  cursor: grabbing;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,eAAe;AACjB;AACA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,gCAAgC;EAChC,mCAAmC;AACrC;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,WAAW;EACX,WAAW;EACX,YAAY;EACZ,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,gBAAgB;AAClB","file":"AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&","sourcesContent":[".close-container[data-v-0a5b4950] {\n  float: right;\n  cursor: pointer;\n}\n.annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-0a5b4950] {\n  cursor: grabbing;\n}\n"]}]);
+exports.push([module.i, ".close-container[data-v-0a5b4950] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n}\n.annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-0a5b4950] {\n  cursor: grabbing;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;AACnB;AACA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,gCAAgC;EAChC,mCAAmC;AACrC;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,WAAW;EACX,WAAW;EACX,YAAY;EACZ,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,gBAAgB;AAClB","file":"AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&","sourcesContent":[".close-container[data-v-0a5b4950] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n}\n.annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-0a5b4950] {\n  cursor: grabbing;\n}\n"]}]);
 
 
 /***/ }),
@@ -2095,7 +2095,7 @@ let AnnotationFloatWidget = {
         this[key] = result[key]
       }
       
-      this.$emit('list', this.highlightPos) // for test
+      //this.$emit('list', this.highlightPos) // for test
     }
   } // methods
 }
@@ -2271,7 +2271,12 @@ let AnnotationManager = {
         highlightsURL = '/client/Annotation/highlightsMy'
       }
       return highlightsURL
-    }
+    },
+//    enableHover () {
+//      console.log(['enableHover', this.listPositions])
+//      return (this.listPositions === null 
+//        || (Array.isArray(this.listPositions) && this.listPositions.length === 0))
+//    }
   },
   watch: {
 //    "highlightPos": function (highlightPos) {
@@ -2300,7 +2305,7 @@ let AnnotationManager = {
         this.$refs.RangyManager.deserialize(result)
       }
       
-      $('[data-pacor-highlight]:first').click() // for test
+      //$('[data-pacor-highlight]:first').click() // for test
       
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
         // 如果不是開放合作，那就不用讀取其他人的資料
@@ -2329,6 +2334,8 @@ let AnnotationManager = {
       this.pinSelection = this.$refs.RangyManager.pinSelection()
       //this.$refs.AnnotationPanel.show()
       //console.log(type)
+      
+      this.onHighlightPosMouseout(true)
     },
     listFromSelection () {
       this.selection = null
@@ -2341,8 +2348,15 @@ let AnnotationManager = {
       }
       //this.selection = null
       this.pinSelection = null
+      this.onHighlightPosMouseout(true)
+      //console.log('unpin', 'float widget有隱藏起來嗎？', this.highlightPos)
     },
     toggleHighlightPos (data) {
+      //console.log(this.listPositions)
+//      if (!this.enableHover) {
+//        return false
+//      }
+      
       /*
       if (this.highlightPos === null) {
         this.highlightPos = pos
@@ -2359,7 +2373,9 @@ let AnnotationManager = {
       }
       else {
         // 在觸控的情況下
-        //console.log(data)
+        // 
+        //console.log('toggleHighlightPos 直接 click', data)
+        
         if (this.highlightPos === null) {
           clearTimeout(this.highlightPosLockTimer)
           this.highlightPos = data.anchorPositions
@@ -2384,7 +2400,11 @@ let AnnotationManager = {
         this.highlightEvent = data.event
       }
     },
-    onHighlightPosMouseout () {
+    onHighlightPosMouseout (doUnlock) {
+      if (doUnlock === true) {
+        this.highlightPosLock = false
+      }
+      
       if (this.highlightPosLock === false
            && this.highlightPos !== null) {
         // 延遲一點再消失吧
@@ -2401,6 +2421,7 @@ let AnnotationManager = {
       this.findAnnotation = null
     },
     onFindAnnotation (annotation) {
+      //console.log('onFindAnnotation', annotation)
       //throw '編輯annotation ' +  annotation.id
       this.findAnnotation = annotation
       this.listPositions = this.highlightPos
@@ -4396,8 +4417,8 @@ let AnnotationPanel = {
           return false
         }
         this.isHide = true
-        this.$emit('hide', doUnpin)
       })
+      this.$emit('hide', doUnpin)
     },
     scrollToPinSelection () {
       if (this.pinSelection === null) {

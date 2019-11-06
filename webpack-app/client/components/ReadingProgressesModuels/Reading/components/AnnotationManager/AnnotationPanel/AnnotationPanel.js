@@ -159,8 +159,8 @@ let AnnotationPanel = {
           return false
         }
         this.isHide = true
-        this.$emit('hide', doUnpin)
       })
+      this.$emit('hide', doUnpin)
     },
     scrollToPinSelection () {
       if (this.pinSelection === null) {
