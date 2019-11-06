@@ -29,9 +29,12 @@ let RangyManager = {
       hoverAnnotationLock: false,
     }
   },  // data() {
-  /*
   computed: {
+    isPinned () {
+      return (this.selectionHighlighter.highlights.length > 0)
+    }
   },  // computed: {
+  /*
   watch: {
   },  // watch: {
    */
@@ -352,6 +355,7 @@ let RangyManager = {
         }
       }
       */
+      //console.log('pinSelection', this.selection.anchorPositions[0])
       this.selection.removeAllRanges()
       //this.selection = null
       
@@ -517,10 +521,10 @@ let RangyManager = {
       //let highlight = this.highlighter.getHighlightForElement(this.selection)
       //highlight.removeHighlights( [className] )
       
-      console.log(className)
+      //console.log(className)
       this.highlighter.unhighlightSelection( [className] )
       
-      console.log(className)
+      //console.log(className)
       if (this.selection !== null) {
         this.selection.removeAllRanges()
       }
@@ -668,14 +672,69 @@ let RangyManager = {
       }
       
       this.hoverOut()
+      //$('.rangySelectionBoundary').html('')
+      //this.unpinSelection()
+      //annotation = this._adjustPositionWithPinnedSelection(annotation)
       //console.log(annotation)
-      let highlight = this._annotationToHighlighString(annotation, 'pacor-hover')
-      //console.log(highlight)
-      this.hoverHighlighter.deserialize(highlight)
-      this.hoverAnnotation = annotation
-      this.hoverAnnotationLock = doLock
+      setTimeout(() => {
+        let highlight = this._annotationToHighlighString(annotation, 'pacor-hover')
+        //console.log(highlight)
+        this.hoverHighlighter.deserialize(highlight)
+        this.hoverAnnotation = annotation
+        this.hoverAnnotationLock = doLock
+      }, 0)
+        
       //console.log(this.hoverAnnotationLock)
       return this
+    },
+    _adjustPositionWithPinnedSelection (annotation) {
+      if (this.isPinned === false) {
+        return annotation
+      }
+      
+      //console.log('hoverIn', annotation.anchorPositions[0])
+      //let shift = this.isPinned ? 1 : 0
+      //console.log(shift)
+      let pinHighlights = this.selectionHighlighter.highlights
+      annotation.anchorPositions = annotation.anchorPositions.map(pos => {
+        pinHighlights.forEach(pin => {
+          pin = this._highlightToAnchorPosition(pin)
+          console.log(pos)
+          console.log(pin)
+          if (pin.paragraph_id !== pos.paragraph_id) {
+            return false
+          }
+          
+          if (pos.start_pos > pin.start_pos 
+                  && pos.end_pos < pin.end_pos ) {
+            // 包含的狀態
+            pos.start_pos = pos.start_pos + 1
+            pos.end_pos = pos.end_pos + 1
+          }
+          else if (pos.end_pos === pin.end_pos) {
+            pos.start_pos = pos.start_pos + 1
+            pos.end_pos = pos.end_pos + 2
+          }
+          else if (pos.end_pos === pin.start_pos
+                  || pos.end_pos === pin.start_pos + 1) {
+            pos.end_pos = pos.end_pos + 1
+          }
+          else if (pos.start_pos === pin.start_pos + 1) {
+            pos.end_pos = pos.end_pos + 2
+          }
+        })
+        return pos
+      })
+      
+      return annotation
+    },
+    _highlightToAnchorPosition (highlight) {
+      let range = highlight.characterRange
+      return {
+        start_pos: range.start,
+        end_pos: range.end,
+        paragraph_id: highlight.containerElementId
+      }
     },
     hoverOut : function (doUnlock) {
       if (doUnlock === true) {
@@ -715,7 +774,7 @@ let RangyManager = {
         },
       ]
      */
-    _annotationToHighlighString (annotations, type) {
+    _annotationToHighlighString (annotations, type, doShift) {
       if (annotations === null || annotations === undefined) {
         return ''
       }

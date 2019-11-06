@@ -17,7 +17,8 @@ export default function(rangy) {
         var dom = api.dom;
         var removeNode = dom.removeNode;
         var isDirectionBackward = api.Selection.isDirectionBackward;
-        var markerTextChar = "\ufeff";
+        //var markerTextChar = "\ufeff";
+        var markerTextChar = "";  // 避免計算字數的錯誤
 
         function gEBI(id, doc) {
             return (doc || document).getElementById(id);

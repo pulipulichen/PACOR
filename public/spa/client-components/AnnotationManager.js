@@ -355,7 +355,7 @@ exports.push([module.i, "body.disable-user-select {\n  user-select: none;\n  cur
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".close-container[data-v-0a5b4950] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n}\n.annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-0a5b4950] {\n  cursor: grabbing;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;AACnB;AACA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,gCAAgC;EAChC,mCAAmC;AACrC;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,WAAW;EACX,WAAW;EACX,YAAY;EACZ,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,gBAAgB;AAClB","file":"AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&","sourcesContent":[".close-container[data-v-0a5b4950] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n}\n.annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-0a5b4950] {\n  cursor: grabbing;\n}\n"]}]);
+exports.push([module.i, ".close-container[data-v-0a5b4950] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  position: relative;\n  z-index: 2;\n}\n.annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-0a5b4950] {\n  cursor: grabbing;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,gCAAgC;EAChC,mCAAmC;AACrC;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,WAAW;EACX,WAAW;EACX,YAAY;EACZ,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,gBAAgB;AAClB","file":"AnnotationPanel.less?vue&type=style&index=0&id=0a5b4950&lang=less&scoped=true&","sourcesContent":[".close-container[data-v-0a5b4950] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  position: relative;\n  z-index: 2;\n}\n.annotation-panel[data-v-0a5b4950] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-0a5b4950] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-0a5b4950] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-0a5b4950] {\n  padding: 0;\n}\n.resize-handler[data-v-0a5b4950] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-0a5b4950] {\n  cursor: grabbing;\n}\n"]}]);
 
 
 /***/ }),
@@ -383,7 +383,7 @@ exports.push([module.i, ".annotation-type-selector[data-v-0f3f24a4] {\n  /*\n  p
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-selection {\n  background-color: rgba(0, 0, 255, 0.7);\n  color: white;\n}\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-hover {\n  background-color: rgba(0, 255, 0, 0.7);\n  color: white;\n}\n", "",{"version":3,"sources":["RangyManager.global.less?vue&type=style&index=0&lang=less&"],"names":[],"mappings":"AAAA;EACE,sCAAsC;EACtC,YAAY;AACd;AACA;EACE,sCAAsC;EACtC,YAAY;AACd","file":"RangyManager.global.less?vue&type=style&index=0&lang=less&","sourcesContent":["[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-selection {\n  background-color: rgba(0, 0, 255, 0.7);\n  color: white;\n}\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-hover {\n  background-color: rgba(0, 255, 0, 0.7);\n  color: white;\n}\n"]}]);
+exports.push([module.i, "[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-selection {\n  background-color: rgba(0, 0, 255, 0.7);\n  color: white;\n}\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-hover {\n  text-decoration: underline;\n}\n", "",{"version":3,"sources":["RangyManager.global.less?vue&type=style&index=0&lang=less&"],"names":[],"mappings":"AAAA;EACE,sCAAsC;EACtC,YAAY;AACd;AACA;EACE,0BAA0B;AAC5B","file":"RangyManager.global.less?vue&type=style&index=0&lang=less&","sourcesContent":["[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-selection {\n  background-color: rgba(0, 0, 255, 0.7);\n  color: white;\n}\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-hover {\n  text-decoration: underline;\n}\n"]}]);
 
 
 /***/ }),
@@ -2781,7 +2781,9 @@ let AnnotationEditorModules = {
       if (typeof(this.rangy) === 'object') {
         if (this.annotationInstance !== null 
                 && typeof(this.annotationInstance) === 'object') {
-          this.rangy.hoverIn(this.annotationInstance, true)
+          setTimeout(() => {
+            this.rangy.hoverIn(this.annotationInstance, true)
+          }, 100)
         }
         else {
           this.rangy.hoverOut(true)
@@ -4880,9 +4882,12 @@ let RangyManager = {
       hoverAnnotationLock: false,
     }
   },  // data() {
-  /*
   computed: {
+    isPinned () {
+      return (this.selectionHighlighter.highlights.length > 0)
+    }
   },  // computed: {
+  /*
   watch: {
   },  // watch: {
    */
@@ -5203,6 +5208,7 @@ let RangyManager = {
         }
       }
       */
+      //console.log('pinSelection', this.selection.anchorPositions[0])
       this.selection.removeAllRanges()
       //this.selection = null
       
@@ -5368,10 +5374,10 @@ let RangyManager = {
       //let highlight = this.highlighter.getHighlightForElement(this.selection)
       //highlight.removeHighlights( [className] )
       
-      console.log(className)
+      //console.log(className)
       this.highlighter.unhighlightSelection( [className] )
       
-      console.log(className)
+      //console.log(className)
       if (this.selection !== null) {
         this.selection.removeAllRanges()
       }
@@ -5519,14 +5525,69 @@ let RangyManager = {
       }
       
       this.hoverOut()
+      //$('.rangySelectionBoundary').html('')
+      //this.unpinSelection()
+      //annotation = this._adjustPositionWithPinnedSelection(annotation)
       //console.log(annotation)
-      let highlight = this._annotationToHighlighString(annotation, 'pacor-hover')
-      //console.log(highlight)
-      this.hoverHighlighter.deserialize(highlight)
-      this.hoverAnnotation = annotation
-      this.hoverAnnotationLock = doLock
+      setTimeout(() => {
+        let highlight = this._annotationToHighlighString(annotation, 'pacor-hover')
+        //console.log(highlight)
+        this.hoverHighlighter.deserialize(highlight)
+        this.hoverAnnotation = annotation
+        this.hoverAnnotationLock = doLock
+      }, 0)
+        
       //console.log(this.hoverAnnotationLock)
       return this
+    },
+    _adjustPositionWithPinnedSelection (annotation) {
+      if (this.isPinned === false) {
+        return annotation
+      }
+      
+      //console.log('hoverIn', annotation.anchorPositions[0])
+      //let shift = this.isPinned ? 1 : 0
+      //console.log(shift)
+      let pinHighlights = this.selectionHighlighter.highlights
+      annotation.anchorPositions = annotation.anchorPositions.map(pos => {
+        pinHighlights.forEach(pin => {
+          pin = this._highlightToAnchorPosition(pin)
+          console.log(pos)
+          console.log(pin)
+          if (pin.paragraph_id !== pos.paragraph_id) {
+            return false
+          }
+          
+          if (pos.start_pos > pin.start_pos 
+                  && pos.end_pos < pin.end_pos ) {
+            // 包含的狀態
+            pos.start_pos = pos.start_pos + 1
+            pos.end_pos = pos.end_pos + 1
+          }
+          else if (pos.end_pos === pin.end_pos) {
+            pos.start_pos = pos.start_pos + 1
+            pos.end_pos = pos.end_pos + 2
+          }
+          else if (pos.end_pos === pin.start_pos
+                  || pos.end_pos === pin.start_pos + 1) {
+            pos.end_pos = pos.end_pos + 1
+          }
+          else if (pos.start_pos === pin.start_pos + 1) {
+            pos.end_pos = pos.end_pos + 2
+          }
+        })
+        return pos
+      })
+      
+      return annotation
+    },
+    _highlightToAnchorPosition (highlight) {
+      let range = highlight.characterRange
+      return {
+        start_pos: range.start,
+        end_pos: range.end,
+        paragraph_id: highlight.containerElementId
+      }
     },
     hoverOut : function (doUnlock) {
       if (doUnlock === true) {
@@ -5566,7 +5627,7 @@ let RangyManager = {
         },
       ]
      */
-    _annotationToHighlighString (annotations, type) {
+    _annotationToHighlighString (annotations, type, doShift) {
       if (annotations === null || annotations === undefined) {
         return ''
       }
@@ -12152,7 +12213,8 @@ __webpack_require__.r(__webpack_exports__);
         var dom = api.dom;
         var removeNode = dom.removeNode;
         var isDirectionBackward = api.Selection.isDirectionBackward;
-        var markerTextChar = "\ufeff";
+        //var markerTextChar = "\ufeff";
+        var markerTextChar = "";  // 避免計算字數的錯誤
 
         function gEBI(id, doc) {
             return (doc || document).getElementById(id);

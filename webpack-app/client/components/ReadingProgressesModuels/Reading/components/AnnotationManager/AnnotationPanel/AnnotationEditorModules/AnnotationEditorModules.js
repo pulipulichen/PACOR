@@ -61,7 +61,9 @@ let AnnotationEditorModules = {
       if (typeof(this.rangy) === 'object') {
         if (this.annotationInstance !== null 
                 && typeof(this.annotationInstance) === 'object') {
-          this.rangy.hoverIn(this.annotationInstance, true)
+          setTimeout(() => {
+            this.rangy.hoverIn(this.annotationInstance, true)
+          }, 100)
         }
         else {
           this.rangy.hoverOut(true)
