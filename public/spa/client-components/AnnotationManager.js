@@ -680,6 +680,9 @@ var render = function() {
             on: {
               hide: function($event) {
                 return _vm.$emit("hide", false)
+              },
+              delete: function($event) {
+                return _vm.$emit("delete", _vm.annotationInstance)
               }
             }
           })
@@ -1188,289 +1191,308 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "AnnotationList" }, [
-    !_vm.isFiltering
-      ? _c(
-          "div",
-          { staticClass: "summary-information" },
-          [
-            _vm.annotationInstance
+  return _c(
+    "div",
+    { staticClass: "AnnotationList" },
+    [
+      _vm.annotations.length > 1
+        ? [
+            !_vm.isFiltering
               ? _c(
-                  "button",
-                  {
-                    staticClass: "ui mini labeled icon button back-button",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function($event) {
-                        $event.stopPropagation()
-                        _vm.annotationInstance = null
-                      }
-                    }
-                  },
+                  "div",
+                  { staticClass: "summary-information" },
                   [
-                    _c("i", { staticClass: "angle left icon" }),
-                    _vm._v(
-                      "\r\n      " + _vm._s(_vm.$t("Back to list")) + "\r\n    "
-                    )
-                  ]
+                    _vm.annotationInstance && _vm.annotations.length > 1
+                      ? _c(
+                          "button",
+                          {
+                            staticClass:
+                              "ui mini labeled icon button back-button",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                $event.stopPropagation()
+                                _vm.annotationInstance = null
+                              }
+                            }
+                          },
+                          [
+                            _c("i", { staticClass: "angle left icon" }),
+                            _vm._v(
+                              "\r\n      " +
+                                _vm._s(_vm.$t("Back to list")) +
+                                "\r\n    "
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "label" }, [
+                      _vm._v(
+                        "\r\n      " +
+                          _vm._s(
+                            _vm.$t("{0} Annotations", [_vm.annotationCount])
+                          ) +
+                          ":\r\n    "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("user-avatar-icons", {
+                      staticStyle: { "margin-right": "0.5em" },
+                      attrs: {
+                        config: _vm.config,
+                        status: _vm.status,
+                        lib: _vm.lib,
+                        users: _vm.users,
+                        userCount: _vm.userCount
+                      },
+                      on: {
+                        find: function(user) {
+                          _vm.findUser = user
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm._l(_vm.types, function(t) {
+                      return _c("annotation-module-button", {
+                        attrs: {
+                          lib: _vm.lib,
+                          config: _vm.config,
+                          status: _vm.status,
+                          annotationModule: t.type,
+                          count: t.count
+                        },
+                        on: {
+                          find: function(type) {
+                            _vm.findType = type
+                          }
+                        }
+                      })
+                    })
+                  ],
+                  2
                 )
               : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "label" }, [
-              _vm._v(
-                "\r\n      " +
-                  _vm._s(_vm.$t("{0} Annotations", [_vm.annotationCount])) +
-                  ":\r\n    "
-              )
-            ]),
+            _vm.isFiltering
+              ? _c(
+                  "div",
+                  { staticClass: "summary-information" },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "ui mini labeled icon button back-button",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            $event.stopPropagation()
+                            return _vm.clearFilter($event)
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "angle left icon" }),
+                        _vm._v(
+                          "\r\n      " +
+                            _vm._s(_vm.$t("Back to full list")) +
+                            "\r\n    "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "label" }, [
+                      _vm._v(
+                        "\r\n      " + _vm._s(_vm.$t("Finding")) + ":\r\n    "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm.findUser
+                      ? _c("user-avatar-icons", {
+                          staticStyle: { "margin-right": "0.5em" },
+                          attrs: {
+                            config: _vm.config,
+                            status: _vm.status,
+                            lib: _vm.lib,
+                            users: [_vm.findUser]
+                          },
+                          on: {
+                            find: function($event) {
+                              _vm.findUser = null
+                            }
+                          }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.findType
+                      ? _c("annotation-module-button", {
+                          attrs: {
+                            lib: _vm.lib,
+                            config: _vm.config,
+                            status: _vm.status,
+                            annotationModule: _vm.findType
+                          },
+                          on: {
+                            find: function($event) {
+                              _vm.findType = null
+                            }
+                          }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "label" }, [
+                      _vm._v(
+                        "\r\n      " +
+                          _vm._s(
+                            _vm.$t("Total {0} Annotations", [
+                              _vm.filteredAnnotationCount
+                            ])
+                          ) +
+                          "\r\n    "
+                      )
+                    ])
+                  ],
+                  1
+                )
+              : _vm._e(),
             _vm._v(" "),
-            _c("user-avatar-icons", {
-              staticStyle: { "margin-right": "0.5em" },
+            _c("div", { staticClass: "ui divider" })
+          ]
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value:
+                _vm.annotationInstance === null && _vm.isFiltering === false,
+              expression: "annotationInstance === null && isFiltering === false"
+            }
+          ],
+          staticClass: "list",
+          style: _vm.computedListStyle,
+          on: {
+            scroll: function($event) {
+              $event.stopPropagation()
+              return _vm.scrollList($event)
+            }
+          }
+        },
+        [
+          _vm._l(_vm.annotations, function(annotation) {
+            return _c("annotation-item", {
               attrs: {
                 config: _vm.config,
                 status: _vm.status,
                 lib: _vm.lib,
-                users: _vm.users,
-                userCount: _vm.userCount
-              },
-              on: {
-                find: function(user) {
-                  _vm.findUser = user
-                }
-              }
-            }),
-            _vm._v(" "),
-            _vm._l(_vm.types, function(t) {
-              return _c("annotation-module-button", {
-                attrs: {
-                  lib: _vm.lib,
-                  config: _vm.config,
-                  status: _vm.status,
-                  annotationModule: t.type,
-                  count: t.count
+                isFull: false,
+                annotation: annotation,
+                findAnnotation: function(annotation) {
+                  _vm.annotationInstance = annotation
                 },
-                on: {
-                  find: function(type) {
-                    _vm.findType = type
-                  }
-                }
-              })
+                findUser: function(user) {
+                  _vm.findUser = user
+                },
+                findType: function(type) {
+                  _vm.findType = type
+                },
+                rangy: _vm.rangy
+              }
             })
-          ],
-          2
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.isFiltering
-      ? _c(
-          "div",
-          { staticClass: "summary-information" },
-          [
-            _c(
-              "button",
-              {
-                staticClass: "ui mini labeled icon button back-button",
-                attrs: { type: "button" },
-                on: {
-                  click: function($event) {
-                    $event.stopPropagation()
-                    return _vm.clearFilter($event)
-                  }
-                }
-              },
-              [
-                _c("i", { staticClass: "angle left icon" }),
-                _vm._v(
-                  "\r\n      " +
-                    _vm._s(_vm.$t("Back to full list")) +
-                    "\r\n    "
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "label" }, [
-              _vm._v("\r\n      " + _vm._s(_vm.$t("Finding")) + ":\r\n    ")
-            ]),
-            _vm._v(" "),
-            _vm.findUser
-              ? _c("user-avatar-icons", {
-                  staticStyle: { "margin-right": "0.5em" },
-                  attrs: {
-                    config: _vm.config,
-                    status: _vm.status,
-                    lib: _vm.lib,
-                    users: [_vm.findUser]
-                  },
-                  on: {
-                    find: function($event) {
-                      _vm.findUser = null
-                    }
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.findType
-              ? _c("annotation-module-button", {
-                  attrs: {
-                    lib: _vm.lib,
-                    config: _vm.config,
-                    status: _vm.status,
-                    annotationModule: _vm.findType
-                  },
-                  on: {
-                    find: function($event) {
-                      _vm.findType = null
-                    }
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" "),
-            _c("div", { staticClass: "label" }, [
-              _vm._v(
-                "\r\n      " +
-                  _vm._s(
-                    _vm.$t("Total {0} Annotations", [
-                      _vm.filteredAnnotationCount
-                    ])
-                  ) +
-                  "\r\n    "
-              )
-            ])
-          ],
-          1
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _c("div", { staticClass: "ui divider" }),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.annotationInstance === null && _vm.isFiltering === false,
-            expression: "annotationInstance === null && isFiltering === false"
-          }
+          }),
+          _vm._v(" "),
+          _vm.noMore
+            ? _c("div", { staticClass: "ui segment no-more" }, [
+                _vm._v("\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    ")
+              ])
+            : _vm._e()
         ],
-        staticClass: "list",
-        style: _vm.computedListStyle,
-        on: {
-          scroll: function($event) {
-            $event.stopPropagation()
-            return _vm.scrollList($event)
-          }
-        }
-      },
-      [
-        _vm._l(_vm.annotations, function(annotation) {
-          return _c("annotation-item", {
-            attrs: {
-              config: _vm.config,
-              status: _vm.status,
-              lib: _vm.lib,
-              isFull: false,
-              annotation: annotation,
-              findAnnotation: function(annotation) {
-                _vm.annotationInstance = annotation
-              },
-              findUser: function(user) {
-                _vm.findUser = user
-              },
-              findType: function(type) {
-                _vm.findType = type
-              },
-              rangy: _vm.rangy
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value:
+                _vm.annotationInstance === null && _vm.isFiltering === true,
+              expression: "annotationInstance === null && isFiltering === true"
             }
-          })
-        }),
-        _vm._v(" "),
-        _vm.noMore
-          ? _c("div", { staticClass: "ui segment no-more" }, [
-              _vm._v("\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    ")
-            ])
-          : _vm._e()
-      ],
-      2
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.annotationInstance === null && _vm.isFiltering === true,
-            expression: "annotationInstance === null && isFiltering === true"
-          }
-        ],
-        staticClass: "list",
-        style: _vm.computedListStyle,
-        on: {
-          scroll: function($event) {
-            $event.stopPropagation()
-            return _vm.scrollFilterList($event)
-          }
-        }
-      },
-      [
-        _vm._l(_vm.filteredAnnotations, function(annotation) {
-          return _c("annotation-item", {
-            attrs: {
-              config: _vm.config,
-              status: _vm.status,
-              lib: _vm.lib,
-              isFull: false,
-              annotation: annotation,
-              findAnnotation: function(annotation) {
-                _vm.annotationInstance = annotation
-              },
-              findUser: function(user) {
-                _vm.findUser = user
-              },
-              findType: function(type) {
-                _vm.findType = type
-              },
-              rangy: _vm.rangy
-            }
-          })
-        }),
-        _vm._v(" "),
-        _vm.filteredNoMore
-          ? _c("div", { staticClass: "ui segment no-more" }, [
-              _vm._v("\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    ")
-            ])
-          : _vm._e()
-      ],
-      2
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "find-annotation" },
-      [
-        _c("annotation-editor-modules", {
-          ref: "auth",
-          attrs: {
-            config: _vm.config,
-            status: _vm.status,
-            lib: _vm.lib,
-            annotationInstance: _vm.annotationInstance,
-            heightPX: _vm.editorHeightPX,
-            rangy: _vm.rangy
-          },
+          ],
+          staticClass: "list",
+          style: _vm.computedListStyle,
           on: {
-            hide: function($event) {
-              _vm.annotationInstance = null
+            scroll: function($event) {
+              $event.stopPropagation()
+              return _vm.scrollFilterList($event)
             }
           }
-        })
-      ],
-      1
-    )
-  ])
+        },
+        [
+          _vm._l(_vm.filteredAnnotations, function(annotation) {
+            return _c("annotation-item", {
+              attrs: {
+                config: _vm.config,
+                status: _vm.status,
+                lib: _vm.lib,
+                isFull: false,
+                annotation: annotation,
+                findAnnotation: function(annotation) {
+                  _vm.annotationInstance = annotation
+                },
+                findUser: function(user) {
+                  _vm.findUser = user
+                },
+                findType: function(type) {
+                  _vm.findType = type
+                },
+                rangy: _vm.rangy
+              }
+            })
+          }),
+          _vm._v(" "),
+          _vm.filteredNoMore
+            ? _c("div", { staticClass: "ui segment no-more" }, [
+                _vm._v("\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    ")
+              ])
+            : _vm._e()
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "find-annotation" },
+        [
+          _c("annotation-editor-modules", {
+            ref: "auth",
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              annotationInstance: _vm.annotationInstance,
+              heightPX: _vm.editorHeightPX,
+              rangy: _vm.rangy
+            },
+            on: {
+              hide: function($event) {
+                _vm.annotationInstance = null
+              },
+              delete: _vm.onDelete
+            }
+          })
+        ],
+        1
+      )
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1527,7 +1549,7 @@ var render = function() {
             on: { mousedown: _vm.onResizeStart, touchstart: _vm.onResizeStart }
           }),
           _vm._v(" "),
-          _vm.listPositions
+          !_vm.annotationModule
             ? [
                 _c("annotation-list", {
                   ref: "AnnotationList",
@@ -2376,6 +2398,7 @@ let AnnotationManager = {
       //throw '列出annotation ' +  anchorPositions.length
       this.listPositions = anchorPositions
       this.highlightPos = null
+      this.findAnnotation = null
     },
     onFindAnnotation (annotation) {
       //throw '編輯annotation ' +  annotation.id
@@ -3222,6 +3245,7 @@ let MainIdea = {
       }
       
       this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
+      this.$refs.editor.reset()
       this.$emit('hide', false)
     },
     editAnnotation () {
@@ -3229,7 +3253,7 @@ let MainIdea = {
     },
     deleteAnnotation () {
       if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
-        this.rangy.removeHighlightByAnnotation(this.annotationInstance)
+        this.$emit('delete')
 
         let data = {
           id: this.annotationInstance.id
@@ -3239,7 +3263,7 @@ let MainIdea = {
         
         this.lib.AxiosHelper.get('/client/resource/Annotation/destroy', data)
         
-        return this.$emit('hide') // 跟上層說關閉視窗
+        return // 跟上層說關閉視窗
       }
       //console.error('#TODO deleteAnnotation')
     },
@@ -3842,7 +3866,11 @@ let AnnotationList = {
   },
   computed: {
     'editorHeightPX' () {
-      return this.heightPX - 50
+      let summeryHeight = 50
+      if (this.annotations.length < 2) {
+        summeryHeight = 0
+      }
+      return this.heightPX - summeryHeight
     },
     isFiltering () {
       return (this.findUser !== null || this.findType !== null)
@@ -3924,6 +3952,10 @@ let AnnotationList = {
         for (let key in result) {
           this[key] = result[key]
         }
+        
+        if (this.annotations.length === 1) {
+          this.annotationInstance = this.annotations[0]
+        }
       }
     },
     loadInitNext: async function () {
@@ -3937,7 +3969,7 @@ let AnnotationList = {
         
         let result = await this.lib.AxiosHelper.post(url, query)
         //console.log(result)
-        if (Array.isArray(result)) {
+        if (Array.isArray(result) && result.length > 0) {
           this.annotations = this.annotations.concat(result)
         }
         else {
@@ -3985,7 +4017,7 @@ let AnnotationList = {
         let result = await this.lib.AxiosHelper.post(url, query)
         //console.log(result)
         
-        if (Array.isArray(result)) {
+        if (Array.isArray(result) && result.length > 0) {
           this.filteredAnnotations = this.filteredAnnotations.concat(result)
         }
         else {
@@ -3997,7 +4029,15 @@ let AnnotationList = {
       this.findUser = null
       this.findType = null
     },
-    
+    reload () {
+      this.loadInit()
+      this.page = 0
+      this.noMore = false
+      
+      this.loadFilter()
+      this.filteredPage = 0
+      this.filteredNoMore = false
+    },
     hoverToggle (annotation) {
       this.hoverAnnotation = annotation
     },
@@ -4026,6 +4066,16 @@ let AnnotationList = {
         //console.log('scrolled');
         this.filteredPage++
       }
+    },
+    onDelete () {
+      // 從列表中刪除這個標註
+      this.rangy.removeHighlightByAnnotation(this.annotationInstance)
+      
+      this.reload()
+      //this.annotations = this.annotations.filter(annotation => annotation !== (this.annotationInstance))
+      //this.filteredAnnotations = this.filteredAnnotations.filter(annotation => annotation !== (this.annotationInstance))
+      
+      this.annotationInstance = null
     }
   } // methods
 }
@@ -5095,8 +5145,8 @@ let RangyManager = {
         
         let start_pos = h.characterRange.start
         let end_pos = h.characterRange.end
-        position.start_pos = start_pos
-        position.end_pos = end_pos
+        position.start_pos = start_pos - 1
+        position.end_pos = end_pos - 1
         
         let element = document.getElementById(h.containerElementId)
         //console.log(element, h.containerElementId, i)
@@ -5105,7 +5155,7 @@ let RangyManager = {
           anchor_text = element.innerText.slice(start_pos - 1, end_pos - 1)
         }
         else {
-          anchor_text = element.innerText.slice(0, end_pos)
+          anchor_text = element.innerText.slice(0, end_pos - 1)
         }
         position.anchor_text = anchor_text
         //console.log(anchor_text)
@@ -5258,12 +5308,15 @@ let RangyManager = {
     
     removeHighlightByAnnotation (annotation) {
       let type = this.lib.auth.getHighlightAnnotationType(annotation)
+      console.log(type)
       this.highlighter.highlights.forEach(hl => {
         let range = hl.characterRange
+        console.log(range)
         let className = hl.classApplier.className
         console.log(className, type)
         for (let i = 0; i < annotation.anchorPositions.length; i++) {
           let pos = annotation.anchorPositions[i]
+          console.log(pos)
           if (type === className 
                   && hl.containerElementId === pos.paragraph_id
                   && range.start === pos.start_pos
@@ -11257,7 +11310,7 @@ __webpack_require__.r(__webpack_exports__);
                   selection = selection || api.getSelection(this.doc);
                 }
                 let intersectingHighlights = this.getIntersectingHighlights( selection.getAllRanges() );
-                console.log(intersectingHighlights)
+                //console.log(intersectingHighlights)
                 if (classNameList.length > 0) {
                   intersectingHighlights = intersectingHighlights.filter(highlight => (classNameList.indexOf(highlight.classApplier.className) > -1))
                 }

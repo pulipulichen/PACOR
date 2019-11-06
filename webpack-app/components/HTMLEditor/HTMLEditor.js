@@ -22,8 +22,8 @@ let HTMLEditor = {
       }
     }
   },  // computed: {
-//  watch: {
-//  },  // watch: {
+  watch: {
+  },  // watch: {
   mounted() {
     this.initEditor()
   },  // mounted() {
@@ -82,6 +82,9 @@ let HTMLEditor = {
       else {
         return this.editor.summernote('code')
       }
+    },
+    reset () {
+      this.html('')
     }
   } // methods
 }

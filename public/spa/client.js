@@ -706,38 +706,43 @@ var render = function() {
                 _vm._v("\r\n      " + _vm._s(_vm.displayTime) + "\r\n    ")
               ]),
               _vm._v(" "),
-              _vm.annotation.__meta__.rates_count > 0
-                ? _c("span", { staticClass: "likes" }, [
-                    _vm._v(
-                      "\r\n      " +
-                        _vm._s(
-                          _vm.$t("{0} Likes", [
-                            _vm.annotation.__meta__.rates_count
-                          ])
-                        ) +
-                        "\r\n    "
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.annotation.__meta__.replies_count > 0
-                ? _c("span", { staticClass: "comments" }, [
-                    _vm._v(
-                      "\r\n      " +
-                        _vm._s(
-                          _vm.$t("{0} Comments", [
-                            _vm.annotation.__meta__.replies_count
-                          ])
-                        ) +
-                        "\r\n    "
-                    )
-                  ])
+              _vm.lib.auth.enableCollaboration
+                ? [
+                    _vm.annotation.__meta__.rates_count > 0
+                      ? _c("span", { staticClass: "likes" }, [
+                          _vm._v(
+                            "\r\n        " +
+                              _vm._s(
+                                _vm.$t("{0} Likes", [
+                                  _vm.annotation.__meta__.rates_count
+                                ])
+                              ) +
+                              "\r\n      "
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.annotation.__meta__.replies_count > 0
+                      ? _c("span", { staticClass: "comments" }, [
+                          _vm._v(
+                            "\r\n        " +
+                              _vm._s(
+                                _vm.$t("{0} Comments", [
+                                  _vm.annotation.__meta__.replies_count
+                                ])
+                              ) +
+                              "\r\n      "
+                          )
+                        ])
+                      : _vm._e()
+                  ]
                 : _vm._e(),
               _vm._v(" "),
               _vm.findAnnotation
                 ? _c("i", { staticClass: "right angle icon" })
                 : _vm._e()
-            ]
+            ],
+            2
           ),
           _vm._v(" "),
           _c(
@@ -1435,6 +1440,13 @@ let Auth = {
         return config.annotation
       }
       return null
+    },
+    enableCollaboration () {
+      let config = this.currentStepAnnotationConfig
+      if (config !== null) {
+        return config.enableCollaboration
+      }
+      return false
     }
   },
   methods: {

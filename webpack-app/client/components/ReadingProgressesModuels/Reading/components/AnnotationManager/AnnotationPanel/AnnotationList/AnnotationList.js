@@ -36,7 +36,11 @@ let AnnotationList = {
   },
   computed: {
     'editorHeightPX' () {
-      return this.heightPX - 50
+      let summeryHeight = 50
+      if (this.annotations.length < 2) {
+        summeryHeight = 0
+      }
+      return this.heightPX - summeryHeight
     },
     isFiltering () {
       return (this.findUser !== null || this.findType !== null)
@@ -118,6 +122,10 @@ let AnnotationList = {
         for (let key in result) {
           this[key] = result[key]
         }
+        
+        if (this.annotations.length === 1) {
+          this.annotationInstance = this.annotations[0]
+        }
       }
     },
     loadInitNext: async function () {
@@ -131,7 +139,7 @@ let AnnotationList = {
         
         let result = await this.lib.AxiosHelper.post(url, query)
         //console.log(result)
-        if (Array.isArray(result)) {
+        if (Array.isArray(result) && result.length > 0) {
           this.annotations = this.annotations.concat(result)
         }
         else {
@@ -179,7 +187,7 @@ let AnnotationList = {
         let result = await this.lib.AxiosHelper.post(url, query)
         //console.log(result)
         
-        if (Array.isArray(result)) {
+        if (Array.isArray(result) && result.length > 0) {
           this.filteredAnnotations = this.filteredAnnotations.concat(result)
         }
         else {
@@ -191,7 +199,15 @@ let AnnotationList = {
       this.findUser = null
       this.findType = null
     },
-    
+    reload () {
+      this.loadInit()
+      this.page = 0
+      this.noMore = false
+      
+      this.loadFilter()
+      this.filteredPage = 0
+      this.filteredNoMore = false
+    },
     hoverToggle (annotation) {
       this.hoverAnnotation = annotation
     },
@@ -220,6 +236,16 @@ let AnnotationList = {
         //console.log('scrolled');
         this.filteredPage++
       }
+    },
+    onDelete () {
+      // 從列表中刪除這個標註
+      this.rangy.removeHighlightByAnnotation(this.annotationInstance)
+      
+      this.reload()
+      //this.annotations = this.annotations.filter(annotation => annotation !== (this.annotationInstance))
+      //this.filteredAnnotations = this.filteredAnnotations.filter(annotation => annotation !== (this.annotationInstance))
+      
+      this.annotationInstance = null
     }
   } // methods
 }

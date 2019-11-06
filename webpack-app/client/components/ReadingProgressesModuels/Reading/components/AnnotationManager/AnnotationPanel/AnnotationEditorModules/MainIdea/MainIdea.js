@@ -108,6 +108,7 @@ let MainIdea = {
       }
       
       this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
+      this.$refs.editor.reset()
       this.$emit('hide', false)
     },
     editAnnotation () {
@@ -115,7 +116,7 @@ let MainIdea = {
     },
     deleteAnnotation () {
       if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
-        this.rangy.removeHighlightByAnnotation(this.annotationInstance)
+        this.$emit('delete')
 
         let data = {
           id: this.annotationInstance.id
@@ -125,7 +126,7 @@ let MainIdea = {
         
         this.lib.AxiosHelper.get('/client/resource/Annotation/destroy', data)
         
-        return this.$emit('hide') // 跟上層說關閉視窗
+        return // 跟上層說關閉視窗
       }
       //console.error('#TODO deleteAnnotation')
     },

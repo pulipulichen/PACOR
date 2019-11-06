@@ -75,6 +75,13 @@ let Auth = {
         return config.annotation
       }
       return null
+    },
+    enableCollaboration () {
+      let config = this.currentStepAnnotationConfig
+      if (config !== null) {
+        return config.enableCollaboration
+      }
+      return false
     }
   },
   methods: {

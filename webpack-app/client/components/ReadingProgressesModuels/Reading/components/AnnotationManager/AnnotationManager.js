@@ -185,6 +185,7 @@ let AnnotationManager = {
       //throw '列出annotation ' +  anchorPositions.length
       this.listPositions = anchorPositions
       this.highlightPos = null
+      this.findAnnotation = null
     },
     onFindAnnotation (annotation) {
       //throw '編輯annotation ' +  annotation.id

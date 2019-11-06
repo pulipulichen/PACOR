@@ -1,9 +1,12 @@
 <div class="AnnotationList">
   
+  <template v-if="annotations.length > 1">
+    
+  
   <div class="summary-information"
        v-if="!isFiltering">
     <button type="button" class="ui mini labeled icon button back-button"
-            v-if="annotationInstance"
+            v-if="annotationInstance && annotations.length > 1"
             v-on:click.stop="annotationInstance = null">
       <i class="angle left icon" />
       {{ $t('Back to list') }}
@@ -64,10 +67,13 @@
       {{ $t('Total {0} Annotations', [filteredAnnotationCount]) }}
     </div>
   </div>
-  
+    
   <!-- ============================================================================= -->
   
   <div class="ui divider"></div>
+  
+  </template> <!-- <template v-if="annotations.length > 1"> -->
+  
   
   <!-- ============================================================================= -->
     
@@ -120,6 +126,7 @@
           v-bind:annotationInstance="annotationInstance"
           v-bind:heightPX="editorHeightPX"
           v-on:hide="annotationInstance = null"
+          v-on:delete="onDelete"
           v-bind:rangy="rangy"></annotation-editor-modules>
   </div>
   

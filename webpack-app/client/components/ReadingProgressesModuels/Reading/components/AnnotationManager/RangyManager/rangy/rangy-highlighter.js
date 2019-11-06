@@ -590,7 +590,7 @@ export default (rangy) => {
                   selection = selection || api.getSelection(this.doc);
                 }
                 let intersectingHighlights = this.getIntersectingHighlights( selection.getAllRanges() );
-                console.log(intersectingHighlights)
+                //console.log(intersectingHighlights)
                 if (classNameList.length > 0) {
                   intersectingHighlights = intersectingHighlights.filter(highlight => (classNameList.indexOf(highlight.classApplier.className) > -1))
                 }

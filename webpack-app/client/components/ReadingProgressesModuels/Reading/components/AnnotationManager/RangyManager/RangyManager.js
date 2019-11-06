@@ -315,8 +315,8 @@ let RangyManager = {
         
         let start_pos = h.characterRange.start
         let end_pos = h.characterRange.end
-        position.start_pos = start_pos
-        position.end_pos = end_pos
+        position.start_pos = start_pos - 1
+        position.end_pos = end_pos - 1
         
         let element = document.getElementById(h.containerElementId)
         //console.log(element, h.containerElementId, i)
@@ -325,7 +325,7 @@ let RangyManager = {
           anchor_text = element.innerText.slice(start_pos - 1, end_pos - 1)
         }
         else {
-          anchor_text = element.innerText.slice(0, end_pos)
+          anchor_text = element.innerText.slice(0, end_pos - 1)
         }
         position.anchor_text = anchor_text
         //console.log(anchor_text)
@@ -478,12 +478,15 @@ let RangyManager = {
     
     removeHighlightByAnnotation (annotation) {
       let type = this.lib.auth.getHighlightAnnotationType(annotation)
+      console.log(type)
       this.highlighter.highlights.forEach(hl => {
         let range = hl.characterRange
+        console.log(range)
         let className = hl.classApplier.className
         console.log(className, type)
         for (let i = 0; i < annotation.anchorPositions.length; i++) {
           let pos = annotation.anchorPositions[i]
+          console.log(pos)
           if (type === className 
                   && hl.containerElementId === pos.paragraph_id
                   && range.start === pos.start_pos
