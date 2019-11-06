@@ -3,7 +3,7 @@
  * https://www.chaijs.com/api/assert/
  * @type type
  */
-const { test, trait } = use('Test/Suite')('Controllers/Client/Annotation')
+const { test, trait } = use('Test/Suite')('Controllers/Client/Annotation.floatWdiget')
 
 trait('Test/ApiClient')
 trait('Session/Client')
