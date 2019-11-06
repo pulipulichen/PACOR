@@ -89,7 +89,7 @@ Cache.rememberWait = function (tags, cacheKey, minutes, callback) {
     tags = null
   }
   
-  if (tags !== null && tags !== undefined) {
+  if (tags !== null && tags !== undefined && Array.isArray(tags) === false) {
     tags = [tags]
   }
   if (Array.isArray(tags)) {
@@ -109,6 +109,7 @@ Cache.rememberWait = function (tags, cacheKey, minutes, callback) {
 
     let cacheQuery
     if (tags !== null) {
+      //console.log(tags)
       cacheQuery = Cache.tags(tags)
     }
     else {
@@ -167,7 +168,7 @@ Cache.rememberForeverWait = function (tags, cacheKey, callback) {
       return resolve(result)
     }
     
-    if (tags !== null && tags !== undefined) {
+    if (tags !== null && tags !== undefined && Array.isArray(tags) === false) {
       tags = [tags]
     }
     if (Array.isArray(tags)) {
@@ -179,6 +180,7 @@ Cache.rememberForeverWait = function (tags, cacheKey, callback) {
 
     let cacheQuery
     if (tags !== null) {
+      //conosle.log(tags)
       cacheQuery = Cache.tags(tags)
     }
     else {
@@ -236,6 +238,7 @@ const buildLockName = (tags, cacheKey) => {
 
 const filterTags = (tags) => {
   return tags.map(tag => {
+    //console.log(tag.constructor.name, typeof(tag) === 'object', typeof(tag.primaryKeyValue))
     if (typeof(tag) === 'object'
             && typeof(tag.primaryKeyValue) === 'number') {
       return tag.constructor.name + '_' + tag.primaryKeyValue
@@ -244,6 +247,42 @@ const filterTags = (tags) => {
       return tag
     }
   })
+}
+
+Cache.buildTags = (webpage, user, instance) => {
+  //console.log([webpage, user, instance])
+  if (webpage !== undefined 
+          && user === undefined
+          && instance === undefined) {
+    instance = webpage
+    webpage = undefined
+    user = undefined
+  }
+  //console.log([webpage, user, instance])
+  
+  let tags = []
+  
+  if (webpage !== undefined) {
+    tags.push('Webpage_' + webpage.primaryKeyValue)
+  }
+  else if (typeof(instance.webpage_id) === 'number') {
+    tags.push('Webpage_' + instance.webpage_id)
+  }
+  
+  if (user !== undefined) {
+    tags.push('User_' + user.primaryKeyValue)
+  }
+  else if (typeof(instance.user_id) === 'number') {
+    tags.push('User_' + instance.user_id)
+  }
+  
+  let className = instance.constructor.name
+  if (className === 'Function'
+          && typeof(instance.name) === 'string') {
+    className = instance.name
+  }
+  tags.push(className)
+  return tags
 }
 
 module.exports = Cache

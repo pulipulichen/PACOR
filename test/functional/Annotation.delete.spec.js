@@ -15,6 +15,7 @@ const AnnotationModel = use('App/Models/Annotation')
 const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
 
 const Sleep = use('Sleep')
+const Cache = use('Cache')
 
 const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html'
 
@@ -260,6 +261,39 @@ test('b: create a public annotation', async ({ assert, client }) => {
   //await Sleep(2)
 }).timeout(0)
 
+
+test('b: create a public annotation 2', async ({ assert, client }) => {
+  let data = {
+    anchorPositions: [
+      {
+        paragraph_seq_id: 1,
+        paragraph_id: 'aaa1',
+        start_pos: 120,
+        end_pos: 140,
+        anchor_text: 'AAA'
+      },
+    ],
+    type: 'MainIdea',
+    note: '測試筆記'
+  }
+  
+  let response = await client.post('/client/Annotation/create')
+          .header('Referer', url)
+          .session('adonis-auth', 2)
+          .send(data)
+          .end()
+  
+  //console.log(response.text)
+  //response.assertError([])
+  response.assertStatus(200)
+  response.assertText(4)
+  
+  let afterTime = (new Date()).getTime()
+  
+  //console.log('b public time', afterTime)
+  //await Sleep(2)
+}).timeout(0)
+
 test('b: create a private annotation', async ({ assert, client }) => {
   let data = {
     anchorPositions: [
@@ -291,7 +325,7 @@ test('b: create a private annotation', async ({ assert, client }) => {
   //console.log(response.text)
   //response.assertError([])
   response.assertStatus(200)
-  response.assertText(4)
+  response.assertText(5)
   
   let afterTime = (new Date()).getTime()
   //console.log('b private time', afterTime)
@@ -320,14 +354,28 @@ test('b: test floatWidget', async ({ assert, client }) => {
   //console.log(JSON.stringify(response.body, null, ' '))
   assert.equal(response.body.annotationCount, 1)
   
-  console.log(response.body.annotation.id)
+  //console.log(response.body.annotation.id)
   assert.isObject(response.body.annotation)
 })
 
-test('b: remove and gt float widget ', async ({ assert, client }) => {
+test('b: remove annotation', async ({ assert, client }) => {
   let annotationID = 3
-  let annotation = await AnnotationModel.find(3)
-  await annotation.delete()
+  
+  let response = await client.get('/client/Annotation/destroy')
+          .query({
+            id: annotationID
+          })
+          .header('Referer', url)
+          .session('adonis-auth', 2)
+          .end()
+  
+  response.assertStatus(200)
+  
+}).timeout(0)
+
+test('b: query float widget again', async ({ assert, client }) => {
+  
+  //await Cache.flush()
   
   let response = await client.get('/client/Annotation/floatWidget')
           .query({
@@ -336,6 +384,76 @@ test('b: remove and gt float widget ', async ({ assert, client }) => {
                 paragraph_id: 'aaa1',
                 start_pos: 12,
                 end_pos: 14
+              }
+            ],
+          })
+          .header('Referer', url)
+          .session('adonis-auth', 2)
+          .end()
+  
+  //console.log(JSON.stringify(response, null, ' '))
+  //console.log(response.text)
+  response.assertStatus(200)
+  
+  //console.log(response.body)
+  //console.log(JSON.stringify(response.body, null, ' '))
+  assert.equal(response.text, '0')
+})
+
+
+test('b: test list', async ({ assert, client }) => {
+  let response = await client.get('/client/Annotation/list')
+          .query({
+            anchorPositions: [
+              {
+                paragraph_id: 'aaa1',
+                start_pos: 120,
+                end_pos: 140
+              }
+            ],
+          })
+          .header('Referer', url)
+          .session('adonis-auth', 2)
+          .end()
+  
+  //console.log(JSON.stringify(response, null, ' '))
+  //console.log(response.text)
+  response.assertStatus(200)
+  
+  //console.log(response.body)
+  //console.log(JSON.stringify(response.body, null, ' '))
+  assert.equal(response.body.annotationCount, 1)
+  
+  //console.log(response.body.annotation.id)
+  assert.isArray(response.body.annotations)
+})
+
+test('b: remove annotation', async ({ assert, client }) => {
+  let annotationID = 4
+  
+  let response = await client.get('/client/Annotation/destroy')
+          .query({
+            id: annotationID
+          })
+          .header('Referer', url)
+          .session('adonis-auth', 2)
+          .end()
+  
+  response.assertStatus(200)
+  
+}).timeout(0)
+
+test('b: query list again', async ({ assert, client }) => {
+  
+  //await Cache.flush()
+  
+  let response = await client.get('/client/Annotation/list')
+          .query({
+            anchorPositions: [
+              {
+                paragraph_id: 'aaa1',
+                start_pos: 120,
+                end_pos: 140
               }
             ],
           })

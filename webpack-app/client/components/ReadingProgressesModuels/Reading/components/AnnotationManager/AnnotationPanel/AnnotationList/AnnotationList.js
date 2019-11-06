@@ -112,19 +112,19 @@ let AnnotationList = {
         let query = {
           anchorPositions: this.listPositions,
           withCount: true,
-          page: this.page
-          // @TODO 這邊應該要加入page
+          page: this.page,
+          t: (new Date()).getTime()
         }
         let url = '/client/Annotation/list'
         
         let result = await this.lib.AxiosHelper.post(url, query)
-        //console.log(result)
+        console.log(result)
         
         for (let key in result) {
           this[key] = result[key]
         }
         
-        //console.log(this.annotations.length)
+        console.log(this.annotations.length)
         if (this.annotations.length === 1) {
           this.annotationInstance = this.annotations[0]
         }
@@ -202,13 +202,17 @@ let AnnotationList = {
       this.findType = null
     },
     reload () {
-      this.loadInit()
+      this.annotations = []
       this.page = 0
       this.noMore = false
       
-      this.loadFilter()
+      this.filteredAnnotation = []
       this.filteredPage = 0
       this.filteredNoMore = false
+      
+      this.loadInit()
+      this.loadFilter()
+      console.log('do reload')
     },
     hoverToggle (annotation) {
       this.hoverAnnotation = annotation

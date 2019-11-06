@@ -34,7 +34,9 @@ class WebpageUserBaseController {
     await ReadingActivityLog.log(webpage, user, this.modelName + '.indexMy', condition)
     
     let cacheKey = `${this.modelName}.indexMy.${webpage.id}.${user.id}.${JSON.stringify(condition)}`
-    return await Cache.get(cacheKey, async () => {
+    
+    return await Cache.rememberWait(Cache.buildTags(webpage, user, this.modelName), Config.get('view.indexCacheMinute'), cacheKey, async () => {
+    //return await Cache.get(cacheKey, async () => {
       let query = this.model
               .query()
               .where('webpage_id', webpage.primaryKeyValue)
@@ -50,7 +52,7 @@ class WebpageUserBaseController {
       }
 
       let output = await query.fetch()
-      await Cache.put(cacheKey, output, Config.get('view.indexCacheMinute'))
+      //await Cache.put(cacheKey, output, Config.get('view.indexCacheMinute'))
       return output
     })
   }
@@ -60,7 +62,8 @@ class WebpageUserBaseController {
     await ReadingActivityLog.log(webpage, user, this.modelName + '.indexOthers', condition)
     
     let cacheKey = `${this.modelName}.indexOthers.${webpage.id}.${user.id}.${JSON.stringify(condition)}`
-    return await Cache.get(cacheKey, async () => {
+    return await Cache.rememberWait(Cache.buildTags(webpage, user, this.modelName), Config.get('view.indexCacheMinute'), cacheKey, async () => {
+    //return await Cache.get(cacheKey, async () => {
       let others = await user.getOtherUsersInGroup(webpage)
 
       let query = this.model
@@ -77,7 +80,7 @@ class WebpageUserBaseController {
       }
 
       let output = await query.fetch()
-      await Cache.put(cacheKey, output, Config.get('view.indexCacheMinute'))
+      //await Cache.put(cacheKey, output, Config.get('view.indexCacheMinute'))
       return output
     })
   }

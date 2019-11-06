@@ -2360,6 +2360,7 @@ let AnnotationManager = {
       this.findAnnotation = null
       this.findUser = null
       this.findType = null
+      this.annotationModule = null
       //console.log('unpin', 'float widget有隱藏起來嗎？', this.highlightPos)
     },
     toggleHighlightPos (data) {
@@ -3287,8 +3288,7 @@ let MainIdea = {
     },
     deleteAnnotation () {
       if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
-        this.$emit('delete')
-
+        
         let data = {
           id: this.annotationInstance.id
         }
@@ -3297,6 +3297,8 @@ let MainIdea = {
         
         this.lib.AxiosHelper.get('/client/resource/Annotation/destroy', data)
         
+        this.$emit('delete')
+
         return // 跟上層說關閉視窗
       }
       //console.error('#TODO deleteAnnotation')
@@ -3976,19 +3978,19 @@ let AnnotationList = {
         let query = {
           anchorPositions: this.listPositions,
           withCount: true,
-          page: this.page
-          // @TODO 這邊應該要加入page
+          page: this.page,
+          t: (new Date()).getTime()
         }
         let url = '/client/Annotation/list'
         
         let result = await this.lib.AxiosHelper.post(url, query)
-        //console.log(result)
+        console.log(result)
         
         for (let key in result) {
           this[key] = result[key]
         }
         
-        //console.log(this.annotations.length)
+        console.log(this.annotations.length)
         if (this.annotations.length === 1) {
           this.annotationInstance = this.annotations[0]
         }
@@ -4066,13 +4068,17 @@ let AnnotationList = {
       this.findType = null
     },
     reload () {
-      this.loadInit()
+      this.annotations = []
       this.page = 0
       this.noMore = false
       
-      this.loadFilter()
+      this.filteredAnnotation = []
       this.filteredPage = 0
       this.filteredNoMore = false
+      
+      this.loadInit()
+      this.loadFilter()
+      console.log('do reload')
     },
     hoverToggle (annotation) {
       this.hoverAnnotation = annotation

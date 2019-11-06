@@ -139,6 +139,7 @@ let AnnotationManager = {
       this.findAnnotation = null
       this.findUser = null
       this.findType = null
+      this.annotationModule = null
       //console.log('unpin', 'float widget有隱藏起來嗎？', this.highlightPos)
     },
     toggleHighlightPos (data) {

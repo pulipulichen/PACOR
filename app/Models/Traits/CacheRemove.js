@@ -7,16 +7,10 @@ class CacheRemove {
   register (Model, attrs) {
     
     let removeCache = async (instance) => {
-      let tags = []
-      if (typeof(instance.webpage_id) === 'number') {
-        tags.push('Webpage_' + instance.webpage_id)
-      }
-      if (typeof(instance.user_id) === 'number') {
-        tags.push('User_' + instance.user_id)
-      }
-      tags.push(instance.constructor.name)
-      
+      let tags = Cache.buildTags(instance)
+      //console.log(tags)
       await Cache.tags(tags).flush()
+      //await Cache.flush()
     }
     
     // --------------------------

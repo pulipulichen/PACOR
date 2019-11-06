@@ -116,8 +116,7 @@ let MainIdea = {
     },
     deleteAnnotation () {
       if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
-        this.$emit('delete')
-
+        
         let data = {
           id: this.annotationInstance.id
         }
@@ -126,6 +125,8 @@ let MainIdea = {
         
         this.lib.AxiosHelper.get('/client/resource/Annotation/destroy', data)
         
+        this.$emit('delete')
+
         return // 跟上層說關閉視窗
       }
       //console.error('#TODO deleteAnnotation')
