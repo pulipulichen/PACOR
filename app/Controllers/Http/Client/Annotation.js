@@ -191,6 +191,7 @@ class Annotation extends WebpageUserBaseController {
               .query()
               .where('webpage_id', webpage.primaryKeyValue)
               .where('user_id', user.primaryKeyValue)
+              .with('notes')
               .with('anchorPositions')
               .orderBy('created_at', 'asc')
 

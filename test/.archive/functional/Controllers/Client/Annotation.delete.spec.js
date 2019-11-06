@@ -169,7 +169,7 @@ test('a: check annotation is logged', async ({ assert, client }) => {
           .end()
   
   //console.log(response.text)
-  //console.log(JSON.stringify(response.body, null, ' '))
+  console.log(JSON.stringify(response.body, null, ' '))
   response.assertStatus(200)
   assert.equal(response.body.length, 2)
   response.assertJSONSubset([

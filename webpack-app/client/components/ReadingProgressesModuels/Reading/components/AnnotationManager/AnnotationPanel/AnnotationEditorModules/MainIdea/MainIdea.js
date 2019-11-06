@@ -92,7 +92,9 @@ let MainIdea = {
       let data = {
         anchorPositions: this.pinSelection.anchorPositions,
         type: this.annotationModule,
-        note: this.note
+        notes: {
+          'default': this.note
+        }
       }
       
       if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {

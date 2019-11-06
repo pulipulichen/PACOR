@@ -4,6 +4,7 @@
 const Model = use('Model')
 
 const AnchorPositionModel = use('App/Models/AnchorPosition')
+const AnnotationNoteModel = use('App/Models/AnnotationNote')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
 const Cache = use('Cache')
@@ -21,6 +22,8 @@ class Annotation extends Model {
     this.addTrait('IntegerCase', ['getUpdatedAtUnixms'])
     
     this.addTrait('CacheRemove')
+    
+    this.addHook('afterFetch', 'AnnotationNoteHook.getNote')
   } // static boot () {
   
   user () {
@@ -36,6 +39,10 @@ class Annotation extends Model {
             .orderBy('paragraph_seq_id', 'asc')
             .orderBy('start_pos', 'asc')
             .pivotTable('anchor_positions_annotations')
+  }
+  
+  notes () {
+    return this.hasMany('App/Models/AnnotationNote')
   }
   
   rates () {
@@ -128,7 +135,6 @@ class Annotation extends Model {
     //instance.end_pos = data.endPos
     instance.user_id = user.primaryKeyValue
     instance.type = data.type
-    instance.note = data.note
     
     instance = await this._setPermission(webpage, user, data, instance)
     //instance = await this._setPermissionTest(webpage, user, data, instance)
@@ -154,6 +160,29 @@ class Annotation extends Model {
     }
     //console.log(anchorTextIds)
     await instance.anchorPositions().attach(anchorTextIds)
+    
+    // ---------------------------------------
+    
+    let noteIds = []
+    
+    if (typeof(data.notes) === 'undefined'
+            && typeof(data.note) === 'string') {
+      data.notes = {
+        'default': data.note
+      }
+    }
+    
+    await Object.keys(data.notes).map(async function(type) {
+      let noteInstance = new AnnotationNoteModel()
+      noteInstance.type = type
+      noteInstance.note = data.notes[type]
+      await instance.notes().save(noteInstance)
+      //await anchorTextInstance.annotations().attach.save(instance)
+    })  // Object.keys(data.notes).forEach(type => {
+    //console.log(anchorTextIds)
+    
+    instance.note = data.note
+    
     
     return instance
   } // static async create(webpage, user, data) {
@@ -373,6 +402,7 @@ class Annotation extends Model {
               .where('webpage_id', webpage.primaryKeyValue)
               .whereIn('user_id', userList)
               .with('user')
+              .with('notes')
               .where('deleted', false)
               .whereRaw('((user_id = ? ) or (user_id != ? and public = ?))', [user.primaryKeyValue, user.primaryKeyValue, true])
               //.whereRaw('user_id = ?', [user.primaryKeyValue])
@@ -557,6 +587,8 @@ class Annotation extends Model {
     }
   }
   
+  
+  
   static _buildAnchorPositionWhereOverlap (anchorPositions) {
     let where = []
     let bindValues = []
@@ -590,6 +622,8 @@ class Annotation extends Model {
       bindValues: bindValues
     }
   }
+  
+  // -----------------------------
   
   static get hidden () {
     //return ['password']
