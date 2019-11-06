@@ -30,7 +30,7 @@ module.exports = {
       message: '進入個人閱讀囉',
       limitMinutes: 3,
       annotation: {
-        types: ['ConfusedClarified', 'MainIdea'],
+        types: ['Confused', 'Clarified', 'MainIdea'],
         enableCollaboration: false,
         enableControlPermission: false,
         defaultPermission: 'public',
@@ -62,6 +62,7 @@ module.exports = {
   },
   annotationTypeModules: {
     'Confused': {
+      'addable': true,
       'instruction': {
         'summary': '你有什麼不懂的地方？',
         'url': '/annotation-instruction/ConfusedClarified.html'
@@ -106,6 +107,7 @@ module.exports = {
       }
     },
     'Clarified': {
+      'addable': false,
       'instruction': {
         'summary': '你有什麼不懂的地方？',
         'url': '/annotation-instruction/ConfusedClarified.html'
@@ -150,7 +152,7 @@ module.exports = {
       }
     },
     'MainIdea': {
-      'enableAdd': true,
+      'addable': true,
       'minWords': 1,
       'instruction': {
         'summary': '您覺得哪裡是重點？',
@@ -166,7 +168,7 @@ module.exports = {
         'button': {
           'icon': 'exclamation',
           'color': 'white',
-          'backgroundColor': 'red',
+          'backgroundColor': 'orange',
         }
       }
     }

@@ -5259,7 +5259,9 @@ let AnnotationTypeSelector = {
           if (Array.isArray(annotationTypes)) {
             annotationTypes.forEach(type => {
               let module = config.annotationTypeModules[type]
-              if (typeof(module) === 'object') {
+              //console.log(module)
+              if (typeof(module) === 'object'
+                      && module.addable === true) {
                 module.type = type
                 modules.push(module)
               }
@@ -5268,6 +5270,7 @@ let AnnotationTypeSelector = {
         }
       }
       //console.log(modules)
+      modules.reverse()
       return modules
     },
     computedFABPosition () {

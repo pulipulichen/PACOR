@@ -5,6 +5,9 @@ const User = use('App/Models/User')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
 const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
+const Cache = use('Cache')
+
+let flushCache = true // for test
 
 /**
  * 登入
@@ -118,6 +121,9 @@ class Auth {
   // -----------------------------
   
   async checkLogin ({auth, webpage}) {
+    if (flushCache === true) {
+      await Cache.flush()
+    }
     
     try {
       let user = await auth.getUser()

@@ -265,6 +265,9 @@ class Annotation extends Model {
               .with('anchorPositions')
               .orderBy('updated_at_unixms', 'desc')
 
+      let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
+      query.whereIn('type', types)
+
       //console.log(afterTime, typeof(afterTime))
       if (typeof(afterTime) === 'string') {
         afterTime = parseInt(afterTime, 10)
@@ -338,6 +341,9 @@ class Annotation extends Model {
               .where('deleted', false)
               .with('anchorPositions')
               .orderBy('updated_at_unixms', 'desc')
+
+      let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
+      query.whereIn('type', types)
 
       //console.log(afterTime, typeof(afterTime))
       if (typeof(afterTime) === 'string') {

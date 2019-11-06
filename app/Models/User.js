@@ -155,6 +155,12 @@ class User extends Model {
     return webpage.getStepConfig(stepName)
   }
   
+  async getCurrentReadingProgressStepAnnotationTypes (webpage) {
+    let config = await this.getCurrentReadingProgressStepConfig(webpage)
+    let types = config.annotation.types
+    return types
+  }
+  
   async getReadingProgressStatus (webpage, showDetails) {
     let cacheKey = Cache.key('User', 'getReadingProgressStatus', webpage, this, showDetails)
     return await Cache.rememberWait(cacheKey, async () => {
