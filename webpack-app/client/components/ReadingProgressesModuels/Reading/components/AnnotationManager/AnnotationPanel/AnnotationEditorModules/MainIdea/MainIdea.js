@@ -1,10 +1,12 @@
 import AnnotationEditorHeader from './../components/AnnotationEditorHeader/AnnotationEditorHeader.vue'
 
+import CommonProps from './../commons/CommonProps'
+import CommonComputed from './../commons/CommonComputed'
+import CommonWatch from './../commons/CommonWatch'
+import CommonMethods from './../commons/CommonMethods'
+
 let MainIdea = {
-  props: ['lib', 'status', 'config'
-    , 'annotationModule', 'annotationInstance'
-    , 'heightPX', 'pinSelection'
-    , 'rangy', 'editable'],
+  props: CommonProps,
   data() {
     this.$i18n.locale = this.config.locale
     
@@ -47,28 +49,11 @@ let MainIdea = {
     enableEditAnnotation () {
       return this.enableAddAnnotation
     },
-    
     computedEditorHeight () {
-      let height
-      if (this.enableCollaboration === true
-              && this.lib.style.isStackWidth()) {
-        height = (this.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 12em)`
-      }
-      else {
-        height = `calc(${this.heightPX}px - 12em)`
-      }
-      //console.log(height)
-      return height
+      return CommonComputed.computedEditorHeight(this)
     },
     computedButtonsClass () {
-      if (this.status.preference === null 
-              || this.status.preference.leftHanded === false) {
-        return 'right aligned column'
-      }
-      else {
-        return 'column'
-      }
+      return CommonComputed.computedButtonsClass(this)
     },
     moduleConfig () {
       return this.status.readingConfig.annotationTypeModules[this.annotationModule]

@@ -44,7 +44,7 @@ class Webpage extends Model {
   async _crawlTitleFromURL (instance) {
     if (typeof(instance.title) === 'string' 
             && instance.title !== '') {
-      return
+      return false
     }
 
     let url = instance.url

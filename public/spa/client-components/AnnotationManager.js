@@ -3441,37 +3441,47 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_AnnotationEditorHeader_AnnotationEditorHeader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../components/AnnotationEditorHeader/AnnotationEditorHeader.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/components/AnnotationEditorHeader/AnnotationEditorHeader.vue");
+/* harmony import */ var _commons_CommonProps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../commons/CommonProps */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/commons/CommonProps.js");
+/* harmony import */ var _commons_CommonComputed__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../commons/CommonComputed */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/commons/CommonComputed.js");
+/* harmony import */ var _commons_CommonWatch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../commons/CommonWatch */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/commons/CommonWatch.js");
+/* harmony import */ var _commons_CommonMethods__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../commons/CommonMethods */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/commons/CommonMethods.js");
 
 
-let MainIdea = {
-  props: ['lib', 'status', 'config'
-    , 'annotationModule', 'annotationInstance'
-    , 'heightPX', 'pinSelection'
-    , 'rangy', 'editable'],
+
+
+
+
+
+let Confused = {
+  props: _commons_CommonProps__WEBPACK_IMPORTED_MODULE_1__["default"],
   data() {
     this.$i18n.locale = this.config.locale
     
-    let note = ''
-    //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
-    if (this.annotationInstance !== null 
-            && typeof(this.annotationInstance) === 'object'
-            && typeof(this.annotationInstance.note) === 'string') {
-      note = this.annotationInstance.note
-    }
-    //console.log(note)
+    let question = ''
     let answer = ''
+    let properties = null
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotationInstance !== null 
-            && typeof(this.annotationInstance) === 'object'
-            && typeof(this.annotationInstance.note) === 'string') {
-      note = this.annotationInstance.note
+            && typeof(this.annotationInstance) === 'object') {
+      
+      if (this.annotationInstance.note !== null 
+              && typeof(this.annotationInstance.note) === 'object') {
+        let note = this.annotationInstance.note
+        ({question, answer} = note)
+      }
+      
+      if (this.annotationInstance.properties !== null 
+              && typeof(this.annotationInstance.properties) === 'object') {
+        properties = this.annotationInstance.properties
+      }
     }
     
     return {
-      note: note,
-      noteReset: note,
+      question: question,
+      questionReset: question,
       answer: answer,
       answerReset: answer,
+      properties: properties
       //public: 
     }
   },
@@ -3485,13 +3495,19 @@ let MainIdea = {
     public () {
       return (this.annotationConfig.defaultPermission === 'public')
     },
+    isAnswerDifferent () {
+      return (this.answer !== this.answerReset)
+    },
+    isQuestionDifferent () {
+      return (this.question !== this.questionReset)
+    },
     isNoteDifferent () {
-      return (this.note !== this.noteReset)
+      return (this.isAnswerDifferent || this.isAnswerDifferent)
     },
     enableAddAnnotation () {
       if (this.isNoteDifferent 
-              && typeof(this.note) === 'string'
-              && this.note !== '') {
+              && typeof(this.question) === 'string'
+              && this.question !== '') {
         return true
       }
       return false
@@ -3499,28 +3515,11 @@ let MainIdea = {
     enableEditAnnotation () {
       return this.enableAddAnnotation
     },
-    
     computedEditorHeight () {
-      let height
-      if (this.enableCollaboration === true
-              && this.lib.style.isStackWidth()) {
-        height = (this.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 12em)`
-      }
-      else {
-        height = `calc(${this.heightPX}px - 12em)`
-      }
-      //console.log(height)
-      return height
+      return _commons_CommonComputed__WEBPACK_IMPORTED_MODULE_2__["default"].computedEditorHeight(this)
     },
     computedButtonsClass () {
-      if (this.status.preference === null 
-              || this.status.preference.leftHanded === false) {
-        return 'right aligned column'
-      }
-      else {
-        return 'column'
-      }
+      return _commons_CommonComputed__WEBPACK_IMPORTED_MODULE_2__["default"].computedButtonsClass(this)
     },
     moduleConfig () {
       return this.status.readingConfig.annotationTypeModules[this.annotationModule]
@@ -3586,7 +3585,7 @@ let MainIdea = {
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (MainIdea);
+/* harmony default export */ __webpack_exports__["default"] = (Confused);
 
 /***/ }),
 
@@ -3708,13 +3707,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_AnnotationEditorHeader_AnnotationEditorHeader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../components/AnnotationEditorHeader/AnnotationEditorHeader.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/components/AnnotationEditorHeader/AnnotationEditorHeader.vue");
+/* harmony import */ var _commons_CommonProps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../commons/CommonProps */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/commons/CommonProps.js");
+/* harmony import */ var _commons_CommonComputed__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../commons/CommonComputed */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/commons/CommonComputed.js");
+/* harmony import */ var _commons_CommonWatch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../commons/CommonWatch */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/commons/CommonWatch.js");
+/* harmony import */ var _commons_CommonMethods__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../commons/CommonMethods */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/commons/CommonMethods.js");
+
+
+
+
+
 
 
 let MainIdea = {
-  props: ['lib', 'status', 'config'
-    , 'annotationModule', 'annotationInstance'
-    , 'heightPX', 'pinSelection'
-    , 'rangy', 'editable'],
+  props: _commons_CommonProps__WEBPACK_IMPORTED_MODULE_1__["default"],
   data() {
     this.$i18n.locale = this.config.locale
     
@@ -3757,28 +3762,11 @@ let MainIdea = {
     enableEditAnnotation () {
       return this.enableAddAnnotation
     },
-    
     computedEditorHeight () {
-      let height
-      if (this.enableCollaboration === true
-              && this.lib.style.isStackWidth()) {
-        height = (this.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 12em)`
-      }
-      else {
-        height = `calc(${this.heightPX}px - 12em)`
-      }
-      //console.log(height)
-      return height
+      return _commons_CommonComputed__WEBPACK_IMPORTED_MODULE_2__["default"].computedEditorHeight(this)
     },
     computedButtonsClass () {
-      if (this.status.preference === null 
-              || this.status.preference.leftHanded === false) {
-        return 'right aligned column'
-      }
-      else {
-        return 'column'
-      }
+      return _commons_CommonComputed__WEBPACK_IMPORTED_MODULE_2__["default"].computedButtonsClass(this)
     },
     moduleConfig () {
       return this.status.readingConfig.annotationTypeModules[this.annotationModule]
@@ -3924,6 +3912,88 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_MainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationPanel_5CAnnotationEditorModules_5CMainIdea_5CMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_MainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationPanel_5CAnnotationEditorModules_5CMainIdea_5CMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_MainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationPanel_5CAnnotationEditorModules_5CMainIdea_5CMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_MainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationPanel_5CAnnotationEditorModules_5CMainIdea_5CMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_MainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationPanel_5CAnnotationEditorModules_5CMainIdea_5CMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/commons/CommonComputed.js":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/commons/CommonComputed.js ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const CommonComputed = {
+  computedButtonsClass(vm) {
+    if (vm.status.preference === null
+            || vm.status.preference.leftHanded === false) {
+      return 'right aligned column'
+    } else {
+      return 'column'
+    }
+  },
+  computedEditorHeight(vm) {
+    let height
+    if (vm.enableCollaboration === true
+            && vm.lib.style.isStackWidth()) {
+      height = (vm.lib.style.getClientHeight() / 2)
+      height = `calc(${height}px - 12em)`
+    } else {
+      height = `calc(${vm.heightPX}px - 12em)`
+    }
+    //console.log(height)
+    return height
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (CommonComputed);
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/commons/CommonMethods.js":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/commons/CommonMethods.js ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const CommonMethods = {}
+
+/* harmony default export */ __webpack_exports__["default"] = (CommonMethods);
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/commons/CommonProps.js":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/commons/CommonProps.js ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (['lib', 'status', 'config'
+    , 'annotationModule', 'annotationInstance'
+    , 'heightPX', 'pinSelection'
+    , 'rangy', 'editable']);
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/commons/CommonWatch.js":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/commons/CommonWatch.js ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const CommonWatch = {}
+
+/* harmony default export */ __webpack_exports__["default"] = (CommonWatch);
 
 /***/ }),
 

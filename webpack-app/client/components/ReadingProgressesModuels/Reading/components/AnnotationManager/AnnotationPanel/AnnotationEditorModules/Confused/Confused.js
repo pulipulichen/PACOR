@@ -1,34 +1,40 @@
 import AnnotationEditorHeader from './../components/AnnotationEditorHeader/AnnotationEditorHeader.vue'
 
-let MainIdea = {
-  props: ['lib', 'status', 'config'
-    , 'annotationModule', 'annotationInstance'
-    , 'heightPX', 'pinSelection'
-    , 'rangy', 'editable'],
+import CommonProps from './../commons/CommonProps'
+import CommonComputed from './../commons/CommonComputed'
+import CommonWatch from './../commons/CommonWatch'
+import CommonMethods from './../commons/CommonMethods'
+
+let Confused = {
+  props: CommonProps,
   data() {
     this.$i18n.locale = this.config.locale
     
-    let note = ''
-    //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
-    if (this.annotationInstance !== null 
-            && typeof(this.annotationInstance) === 'object'
-            && typeof(this.annotationInstance.note) === 'string') {
-      note = this.annotationInstance.note
-    }
-    //console.log(note)
+    let question = ''
     let answer = ''
+    let properties = null
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotationInstance !== null 
-            && typeof(this.annotationInstance) === 'object'
-            && typeof(this.annotationInstance.note) === 'string') {
-      note = this.annotationInstance.note
+            && typeof(this.annotationInstance) === 'object') {
+      
+      if (this.annotationInstance.note !== null 
+              && typeof(this.annotationInstance.note) === 'object') {
+        let note = this.annotationInstance.note
+        ({question, answer} = note)
+      }
+      
+      if (this.annotationInstance.properties !== null 
+              && typeof(this.annotationInstance.properties) === 'object') {
+        properties = this.annotationInstance.properties
+      }
     }
     
     return {
-      note: note,
-      noteReset: note,
+      question: question,
+      questionReset: question,
       answer: answer,
       answerReset: answer,
+      properties: properties
       //public: 
     }
   },
@@ -42,13 +48,19 @@ let MainIdea = {
     public () {
       return (this.annotationConfig.defaultPermission === 'public')
     },
+    isAnswerDifferent () {
+      return (this.answer !== this.answerReset)
+    },
+    isQuestionDifferent () {
+      return (this.question !== this.questionReset)
+    },
     isNoteDifferent () {
-      return (this.note !== this.noteReset)
+      return (this.isAnswerDifferent || this.isAnswerDifferent)
     },
     enableAddAnnotation () {
       if (this.isNoteDifferent 
-              && typeof(this.note) === 'string'
-              && this.note !== '') {
+              && typeof(this.question) === 'string'
+              && this.question !== '') {
         return true
       }
       return false
@@ -56,28 +68,11 @@ let MainIdea = {
     enableEditAnnotation () {
       return this.enableAddAnnotation
     },
-    
     computedEditorHeight () {
-      let height
-      if (this.enableCollaboration === true
-              && this.lib.style.isStackWidth()) {
-        height = (this.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 12em)`
-      }
-      else {
-        height = `calc(${this.heightPX}px - 12em)`
-      }
-      //console.log(height)
-      return height
+      return CommonComputed.computedEditorHeight(this)
     },
     computedButtonsClass () {
-      if (this.status.preference === null 
-              || this.status.preference.leftHanded === false) {
-        return 'right aligned column'
-      }
-      else {
-        return 'column'
-      }
+      return CommonComputed.computedButtonsClass(this)
     },
     moduleConfig () {
       return this.status.readingConfig.annotationTypeModules[this.annotationModule]
@@ -143,4 +138,4 @@ let MainIdea = {
   } // methods
 }
 
-export default MainIdea
+export default Confused
