@@ -1,5 +1,6 @@
 'use strict'
 
+const Config = use('Config')
 const Cache = use('Adonis/Addons/Cache')
 
 let stringifyArray = (array) => {
@@ -68,6 +69,7 @@ Cache.rememberWaitLocks = {}
 Cache.rememberWaitLocksMS = 1000
 
 Cache.rememberWait = function (tags, cacheKey, minutes, callback) {
+  
   if (typeof(tags) === 'string'
             && typeof(cacheKey) === 'function'
             && minutes === undefined) {
@@ -95,6 +97,12 @@ Cache.rememberWait = function (tags, cacheKey, minutes, callback) {
   }
   
   return new Promise(async (resolve, reject) => {
+    if (Config.get('cache.default') === 'null' 
+            || Config.get('cache.default') === null) {
+      let result = await callback()
+      return resolve(result)
+    }
+  
     
     // ------------------------------------------
     // 先看看有沒有值
@@ -151,6 +159,12 @@ Cache.rememberForeverWait = function (tags, cacheKey, callback) {
       callback = cacheKey
       cacheKey = tags
       tags = null
+    }
+    
+    if (Config.get('cache.default') === 'null' 
+            || Config.get('cache.default') === null) {
+      let result = await callback()
+      return resolve(result)
     }
     
     if (tags !== null && tags !== undefined) {

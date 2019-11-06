@@ -52,7 +52,7 @@ class Annotation extends WebpageUserBaseController {
       annotations = annotations.toJSON()
       let annotationCount = annotations.length
       if (annotationCount === 0) {
-        return null
+        return 0
       }
 
       query.pick = 1

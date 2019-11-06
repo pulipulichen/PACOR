@@ -349,7 +349,7 @@ test('b: remove and gt float widget ', async ({ assert, client }) => {
   
   //console.log(response.body)
   //console.log(JSON.stringify(response.body, null, ' '))
-  assert.isNull(response.body)
+  assert.equal(response.text, '0')
 })
 
 
