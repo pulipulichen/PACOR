@@ -1,9 +1,11 @@
-import AnnotationEditorHeader from './../components/AnnotationEditorHeader/AnnotationEditorHeader.vue'
-
 import CommonProps from './../commons/CommonProps'
 import CommonComputed from './../commons/CommonComputed'
 import CommonWatch from './../commons/CommonWatch'
 import CommonMethods from './../commons/CommonMethods'
+
+import AnnotationEditorHeader from './../components/AnnotationEditorHeader/AnnotationEditorHeader.vue'
+import QuestionTemplate from './../components/QuestionTemplate/QuestionTemplate.vue'
+import ExternalResource from './../components/ExternalResource/ExternalResource.vue'
 
 let Confused = {
   props: CommonProps,
@@ -39,7 +41,9 @@ let Confused = {
     }
   },
   components: {
-    'annotation-editor-header': AnnotationEditorHeader
+    'annotation-editor-header': AnnotationEditorHeader,
+    'question-template': QuestionTemplate,
+    'external-resource': ExternalResource,
   },
   computed: {
     annotationConfig () {
@@ -56,6 +60,12 @@ let Confused = {
     },
     isNoteDifferent () {
       return (this.isAnswerDifferent || this.isAnswerDifferent)
+    },
+    isQuestionExists () {
+      return (typeof(this.properties.question.updated_at) === 'number')
+    },
+    isAnswerExists () {
+      return (typeof(this.properties.answer.updated_at) === 'number')
     },
     enableAddAnnotation () {
       if (this.isNoteDifferent 
@@ -91,7 +101,8 @@ let Confused = {
 //  mounted() {
 //  },
   methods: {
-    addAnnotation: async function () {
+    submitQuestion: async function () {
+      throw 'submitQuestion'
       
       let data = {
         anchorPositions: this.pinSelection.anchorPositions,
@@ -114,6 +125,9 @@ let Confused = {
       this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
       this.$refs.editor.reset()
       this.$emit('hide', false)
+    },
+    submitAnwser: async function () {
+      throw 'submitAnwser'
     },
     editAnnotation: async function () {
       let data = {

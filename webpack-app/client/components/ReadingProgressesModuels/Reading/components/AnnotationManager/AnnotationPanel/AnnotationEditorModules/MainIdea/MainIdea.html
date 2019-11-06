@@ -8,7 +8,8 @@
               v-bind:contents="note"
               v-on:input="(c) => {note = c}"
               v-bind:editable="editable"
-              v-bind:height="computedEditorHeight"></HTMLEditor>
+              v-bind:height="computedEditorHeight"
+              v-bind:placeholder"editorPlaceholder"></HTMLEditor>
 
   <div class="ui one column grid annotation-panel-buttons">
     <div v-bind:class="computedButtonsClass">

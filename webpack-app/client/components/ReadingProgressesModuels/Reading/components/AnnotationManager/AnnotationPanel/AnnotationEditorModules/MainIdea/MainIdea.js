@@ -57,6 +57,9 @@ let MainIdea = {
     },
     moduleConfig () {
       return this.status.readingConfig.annotationTypeModules[this.annotationModule]
+    },
+    editorPlaceholder () {
+      return this.$t(this.moduleConfig.placeholder)
     }
   },
   watch: {

@@ -1,0 +1,13 @@
+<div class="QuestionTemplate ui form">
+  <div class="inline field">
+    <label>
+      {{ $t('Write your question') }}:
+    </label>
+    <select v-model="selectIndex">
+      <option v-for="(question, i) in questions" 
+              v-bind:value="i">
+        {{ $t(question.hint) }}
+      </option>
+    </select>
+  </div>
+</div>

@@ -194,7 +194,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let HTMLEditor = {
-  props: ['lib', 'status', 'config', 'contents', 'height', 'editable'],
+  props: ['lib', 'status', 'config', 'contents', 'height', 'editable', 'placeholder'],
   data() {
     if (typeof(this.config) === 'object') {
       this.$i18n.locale = this.config.locale
@@ -236,6 +236,11 @@ let HTMLEditor = {
       //console.log(this.contents)
       if (typeof(this.contents) === 'string') {
         this.html(this.contents)
+      }
+      if (typeof(this.placeholder) === 'string') {
+        this.editor.summernote({
+          placeholder: this.placeholder
+        })
       }
       
       //$('<div class="editor-container"><div id="editor"><h1>Hello Summernote</h1></div></div>').appendTo('body')

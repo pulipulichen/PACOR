@@ -76,6 +76,7 @@
     "v-bind:src": {
       "context": "img"
     },
+    "v-modal": {},
     "v-bind:id": {},
     "v-model": {},
     "ref": {},
