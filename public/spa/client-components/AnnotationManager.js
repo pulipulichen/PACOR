@@ -3459,10 +3459,19 @@ let MainIdea = {
       note = this.annotationInstance.note
     }
     //console.log(note)
+    let answer = ''
+    //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
+    if (this.annotationInstance !== null 
+            && typeof(this.annotationInstance) === 'object'
+            && typeof(this.annotationInstance.note) === 'string') {
+      note = this.annotationInstance.note
+    }
     
     return {
       note: note,
       noteReset: note,
+      answer: answer,
+      answerReset: answer,
       //public: 
     }
   },
