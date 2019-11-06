@@ -27,7 +27,8 @@
           v-bind:propFindUser="findUser"
           v-bind:propFindType="findType"
           v-bind:heightPX="heightPX"
-          v-bind:rangy="rangy"></annotation-list>
+          v-bind:rangy="rangy"
+          v-on:close="hide(true)"></annotation-list>
         
       </template> <!-- <template v-if="listPositions"> -->
       <template v-else>

@@ -1565,6 +1565,11 @@ var render = function() {
                     propFindType: _vm.findType,
                     heightPX: _vm.heightPX,
                     rangy: _vm.rangy
+                  },
+                  on: {
+                    close: function($event) {
+                      return _vm.hide(true)
+                    }
                   }
                 })
               ]
@@ -2812,7 +2817,7 @@ let AnnotationEditorModules = {
         }
       }
     },
-    onDelete () {
+    onDelete: async function () {
       if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
         
         let data = {
@@ -2821,7 +2826,7 @@ let AnnotationEditorModules = {
         
         //throw '這邊要處理highlight的部分'
         
-        this.lib.AxiosHelper.get('/client/resource/Annotation/destroy', data)
+        await this.lib.AxiosHelper.get('/client/Annotation/destroy', data)
         
         this.$emit('delete')
 
@@ -3182,9 +3187,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./MainIdea.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.js?vue&type=script&lang=js&?7041");
-/* harmony import */ var _MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -3192,10 +3195,149 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************************************************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.js?vue&type=script&lang=js& ***!
   \*******************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module parse failed: Unexpected token (117:8)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n|       let data = {\n|         id: this.annotationInstance.id\n>         note: this.note\n|       }\n|       ");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_AnnotationEditorHeader_AnnotationEditorHeader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../components/AnnotationEditorHeader/AnnotationEditorHeader.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/components/AnnotationEditorHeader/AnnotationEditorHeader.vue");
+
+
+let MainIdea = {
+  props: ['lib', 'status', 'config'
+    , 'annotationModule', 'annotationInstance'
+    , 'heightPX', 'pinSelection'
+    , 'rangy', 'editable'],
+  data() {
+    this.$i18n.locale = this.config.locale
+    
+    let note = ''
+    //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
+    if (this.annotationInstance !== null 
+            && typeof(this.annotationInstance) === 'object'
+            && typeof(this.annotationInstance.note) === 'string') {
+      note = this.annotationInstance.note
+    }
+    //console.log(note)
+    
+    return {
+      note: note,
+      noteReset: note,
+      //public: 
+    }
+  },
+  components: {
+    'annotation-editor-header': _components_AnnotationEditorHeader_AnnotationEditorHeader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  computed: {
+    annotationConfig () {
+      return this.lib.auth.currentStepAnnotationConfig
+    },
+    public () {
+      return (this.annotationConfig.defaultPermission === 'public')
+    },
+    isNoteDifferent () {
+      return (this.note !== this.noteReset)
+    },
+    enableAddAnnotation () {
+      if (this.isNoteDifferent 
+              && typeof(this.note) === 'string'
+              && this.note !== '') {
+        return true
+      }
+      return false
+    },
+    enableEditAnnotation () {
+      return this.enableAddAnnotation
+    },
+    
+    computedEditorHeight () {
+      let height
+      if (this.enableCollaboration === true
+              && this.lib.style.isStackWidth()) {
+        height = (this.lib.style.getClientHeight() / 2)
+        height = `calc(${height}px - 12em)`
+      }
+      else {
+        height = `calc(${this.heightPX}px - 12em)`
+      }
+      //console.log(height)
+      return height
+    },
+    computedButtonsClass () {
+      if (this.status.preference === null 
+              || this.status.preference.leftHanded === false) {
+        return 'right aligned column'
+      }
+      else {
+        return 'column'
+      }
+    },
+    moduleConfig () {
+      return this.status.readingConfig.annotationTypeModules[this.annotationModule]
+    }
+  },
+  watch: {
+    annotationInstance (annotationInstance) {
+      if (annotationInstance !== null 
+            && typeof(annotationInstance) === 'object'
+            && typeof(annotationInstance.note) === 'string') {
+        this.note = annotationInstance.note
+        this.$refs.editor.html(this.note)
+      }
+    }
+  },
+//  mounted() {
+//  },
+  methods: {
+    addAnnotation: async function () {
+      
+      let data = {
+        anchorPositions: this.pinSelection.anchorPositions,
+        type: this.annotationModule,
+        note: this.note
+      }
+      
+      if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
+        data.public = this.public
+      }
+      
+      //console.log(data)
+      
+      let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+      //console.log(id) // for test
+      if (typeof(id) !== 'number') {
+        return false  // 新增失敗
+      }
+      
+      this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
+      this.$refs.editor.reset()
+      this.$emit('hide', false)
+    },
+    editAnnotation: async function () {
+      let data = {
+        id: this.annotationInstance.id,
+        note: this.note
+      }
+      
+      let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      
+      if (result !== 1) {
+        throw this.$t('Update failed.')
+      }
+      
+      this.$emit('update')
+    },
+    deleteAnnotation () {
+      this.$emit('delete')
+    },
+    hide () {
+      this.$emit('hide', true)
+    }
+  } // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (MainIdea);
 
 /***/ }),
 
@@ -3866,18 +4008,21 @@ let AnnotationList = {
           anchorPositions: this.listPositions,
           withCount: true,
           page: this.page,
-          t: (new Date()).getTime()
+          //t: (new Date()).getTime()
         }
         let url = '/client/Annotation/list'
         
         let result = await this.lib.AxiosHelper.post(url, query)
-        console.log(result)
+        if (result === 0) {
+          return this.$emit('close')
+        }
+        //console.log(result)
         
         for (let key in result) {
           this[key] = result[key]
         }
         
-        console.log(this.annotations.length)
+        //console.log(this.annotations.length)
         if (this.annotations.length === 1) {
           this.annotationInstance = this.annotations[0]
         }
@@ -5082,8 +5227,8 @@ let RangyManager = {
         
         let start_pos = h.characterRange.start
         let end_pos = h.characterRange.end
-        position.start_pos = start_pos - 1
-        position.end_pos = end_pos - 1
+        position.start_pos = start_pos
+        position.end_pos = end_pos
         
         let element = document.getElementById(h.containerElementId)
         //console.log(element, h.containerElementId, i)

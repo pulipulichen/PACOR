@@ -70,7 +70,7 @@ let AnnotationEditorModules = {
         }
       }
     },
-    onDelete () {
+    onDelete: async function () {
       if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
         
         let data = {
@@ -79,7 +79,7 @@ let AnnotationEditorModules = {
         
         //throw '這邊要處理highlight的部分'
         
-        this.lib.AxiosHelper.get('/client/resource/Annotation/destroy', data)
+        await this.lib.AxiosHelper.get('/client/Annotation/destroy', data)
         
         this.$emit('delete')
 

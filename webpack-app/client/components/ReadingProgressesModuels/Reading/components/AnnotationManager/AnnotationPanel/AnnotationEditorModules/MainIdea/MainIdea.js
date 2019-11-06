@@ -111,9 +111,9 @@ let MainIdea = {
       this.$refs.editor.reset()
       this.$emit('hide', false)
     },
-    editAnnotation () {
+    editAnnotation: async function () {
       let data = {
-        id: this.annotationInstance.id
+        id: this.annotationInstance.id,
         note: this.note
       }
       

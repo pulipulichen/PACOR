@@ -113,18 +113,21 @@ let AnnotationList = {
           anchorPositions: this.listPositions,
           withCount: true,
           page: this.page,
-          t: (new Date()).getTime()
+          //t: (new Date()).getTime()
         }
         let url = '/client/Annotation/list'
         
         let result = await this.lib.AxiosHelper.post(url, query)
-        console.log(result)
+        if (result === 0) {
+          return this.$emit('close')
+        }
+        //console.log(result)
         
         for (let key in result) {
           this[key] = result[key]
         }
         
-        console.log(this.annotations.length)
+        //console.log(this.annotations.length)
         if (this.annotations.length === 1) {
           this.annotationInstance = this.annotations[0]
         }

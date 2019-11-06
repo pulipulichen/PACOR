@@ -321,8 +321,8 @@ let RangyManager = {
         
         let start_pos = h.characterRange.start
         let end_pos = h.characterRange.end
-        position.start_pos = start_pos - 1
-        position.end_pos = end_pos - 1
+        position.start_pos = start_pos
+        position.end_pos = end_pos
         
         let element = document.getElementById(h.containerElementId)
         //console.log(element, h.containerElementId, i)
