@@ -14,7 +14,7 @@ module.exports = {
       minWords: 10,
       limitMinutes: 0.1,
       annotation: {
-        types: ['Confused', 'Clarified', 'MainIdea'],
+        types: ['Clarified', 'Confused', 'MainIdea'],
         enableCollaboration: false,
         enableControlPermission: true,
         defaultPermission: 'public',
@@ -30,7 +30,7 @@ module.exports = {
       message: '進入個人閱讀囉',
       limitMinutes: 3,
       annotation: {
-        types: ['Confused', 'Clarified', 'MainIdea'],
+        types: ['Clarified', 'Confused', 'MainIdea'],
         enableCollaboration: false,
         enableControlPermission: false,
         defaultPermission: 'public',
@@ -45,7 +45,7 @@ module.exports = {
     'CollaborativeReading': {
       message: '進入合作閱讀囉',
       annotation: {
-        types: ['Confused', 'Clarified', 'MainIdea'],
+        types: ['Clarified', 'Confused', 'MainIdea'],
         enableCollaboration: false,
         enableControlPermission: false,
         defaultPermission: 'public',
