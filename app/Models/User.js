@@ -57,19 +57,8 @@ class User extends Model {
     this.addTrait('User/UserReadingProgressConfig')
     this.addTrait('User/UserReadingProgressAction')
     this.addTrait('User/UserGroup')
+    this.addTrait('User/UserFind')
   } // static boot () {
-  
-  static async findByNameInWebpage (webpage, username) {
-    let users = await User
-            .query()
-            .where('domain_id', webpage.domain_id)
-            .where('username', username)
-            .pick(1)
-    
-    if (users.size() > 0) {
-      return users.first()
-    }
-  }
   
   async validatePassword (queryPassword) {
     if (typeof(queryPassword) !== 'string') {
@@ -117,9 +106,6 @@ class User extends Model {
     }
     return relation
   }
-  
-  
-  
   
   static get hidden () {
     //return ['password']
