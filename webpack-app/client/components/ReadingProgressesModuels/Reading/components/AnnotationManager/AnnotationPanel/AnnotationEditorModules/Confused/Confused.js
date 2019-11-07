@@ -37,6 +37,7 @@ let Confused = {
       isQuestionEdited: false,
       answer: answer,
       answerReset: answer,
+      isAnswerEdited: false,
       properties: properties
       //public: 
     }
@@ -62,11 +63,11 @@ let Confused = {
     isNoteDifferent () {
       return (this.isAnswerDifferent || this.isAnswerDifferent)
     },
-    isQuestionExists () {
-      return (typeof(this.properties.question.updated_at) === 'number')
+    isQuestionSubmitted () {
+      return (typeof(this.properties.question.submitted_at) === 'number')
     },
-    isAnswerExists () {
-      return (typeof(this.properties.answer.updated_at) === 'number')
+    isAnswerSubmitted () {
+      return (typeof(this.properties.answer.submitted_at) === 'number')
     },
     enableAddAnnotation () {
       if (this.isNoteDifferent 

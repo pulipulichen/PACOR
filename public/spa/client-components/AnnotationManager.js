@@ -1003,6 +1003,36 @@ var render = function() {
         }
       }),
       _vm._v(" "),
+      _vm.isQuestionSubmitted
+        ? [
+            _c("resource-search", {
+              ref: "auth",
+              attrs: {
+                config: _vm.config,
+                status: _vm.status,
+                lib: _vm.lib,
+                selectIndex: _vm.recommandResourceSearchIndex,
+                anchorText: _vm.anchorText
+              }
+            }),
+            _vm._v(" "),
+            _c("HTMLEditor", {
+              ref: "AnswerEditor",
+              attrs: {
+                contents: _vm.answer,
+                editable: _vm.editable,
+                height: _vm.computedEditorHeight
+              },
+              on: {
+                input: function(c) {
+                  _vm.answer = c
+                  _vm.isAnswerEdited = true
+                }
+              }
+            })
+          ]
+        : _vm._e(),
+      _vm._v(" "),
       _c(
         "div",
         { staticClass: "ui one column grid annotation-panel-buttons" },
@@ -1090,7 +1120,7 @@ var render = function() {
         ]
       )
     ],
-    1
+    2
   )
 }
 var staticRenderFns = []
@@ -3738,6 +3768,7 @@ let Confused = {
       isQuestionEdited: false,
       answer: answer,
       answerReset: answer,
+      isAnswerEdited: false,
       properties: properties
       //public: 
     }
@@ -3763,11 +3794,11 @@ let Confused = {
     isNoteDifferent () {
       return (this.isAnswerDifferent || this.isAnswerDifferent)
     },
-    isQuestionExists () {
-      return (typeof(this.properties.question.updated_at) === 'number')
+    isQuestionSubmitted () {
+      return (typeof(this.properties.question.submitted_at) === 'number')
     },
-    isAnswerExists () {
-      return (typeof(this.properties.answer.updated_at) === 'number')
+    isAnswerSubmitted () {
+      return (typeof(this.properties.answer.submitted_at) === 'number')
     },
     enableAddAnnotation () {
       if (this.isNoteDifferent 

@@ -4,6 +4,8 @@
         v-bind:status="status"
         v-bind:annotationModule="annotationModule"></annotation-editor-header>
   
+  <!-- ====================================== -->
+  
   <question-template ref="QuestionTemplate"
         v-bind:config="config"
         v-bind:status="status"
@@ -16,6 +18,27 @@
               v-bind:editable="editable"
               v-bind:height="computedEditorHeight"></HTMLEditor>
 
+  <!-- ====================================== -->
+  
+  <template v-if="isQuestionSubmitted">
+    
+    <resource-search ref="auth"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:selectIndex="recommandResourceSearchIndex"
+        v-bind:anchorText="anchorText"></resource-search>
+    
+    <HTMLEditor ref="AnswerEditor"
+              v-bind:contents="answer"
+              v-on:input="(c) => {answer = c; isAnswerEdited = true}"
+              v-bind:editable="editable"
+              v-bind:height="computedEditorHeight"></HTMLEditor>
+
+  </template>
+  
+  <!-- ====================================== -->
+  
   <div class="ui one column grid annotation-panel-buttons">
     <div v-bind:class="computedButtonsClass">
       <checkbox-toggle v-bind:label="$t('PUBLIC')"
