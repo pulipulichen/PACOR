@@ -73,7 +73,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":{"I don\u0027t know what is \\"{0}\\"?":"I don\u0027t know what is \\"{0}\\"?","Why is \\"{0}\\"?":"Why is \\"{0}\\"?"},"zh-TW":{"I don\u0027t know what is \\"{0}\\"?":"我不知道什麼是「{0}」？","Why is \\"{0}\\"?":"為什麼是「{0}」？"}}')
   delete Component.options._Ctor
 }
 
@@ -1349,7 +1349,7 @@ var render = function() {
               }
             }
           },
-          _vm._l(_vm.resourses, function(resource, i) {
+          _vm._l(_vm.resources, function(resource, i) {
             return _c("option", { domProps: { value: i } }, [
               _vm._v(
                 "\r\n          " +
@@ -3429,6 +3429,7 @@ let Confused = {
       if (anchorText === undefined) {
         anchorText = ''
       }
+      //console.log(anchorText)
       return anchorText
     },
     isEditable () {
@@ -3469,7 +3470,7 @@ let Confused = {
       //console.log(data)
       
       let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
-      //console.log(id) // for test
+      console.log(id) // for test
       if (typeof(id) !== 'number') {
         throw 'Create failed'
         return false  // 新增失敗
@@ -3477,7 +3478,7 @@ let Confused = {
       
       this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
     },
-    submitAnwser: async function () {
+    submitAnswer: async function () {
       let type = 'Clearified'
       this.annotationInstance.type = type
       this.properties.answer_submitted_at = (new Date()).getTime()
@@ -3498,7 +3499,7 @@ let Confused = {
       //console.log(data)
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
-      //console.log(id) // for test
+      console.log(result) // for test
       if (typeof(result) !== 1) {
         throw 'Update failed'
         return false  // 新增失敗
@@ -3553,6 +3554,7 @@ let Confused = {
       }
       //console.log(question)
       let q = question.template.replace(`{anchorText}`, '{0}')
+      //console.log(this.anchorText)
       q = this.$t(q, [this.anchorText])
       this.$refs.QuestionEditor.html(q)
       this.isQuestionEdited = false
@@ -4469,7 +4471,7 @@ let ResourceSearch = {
 //  components: {
 //  },
   computed: {
-    resourses() {
+    resources() {
       return this.status.readingConfig.annotationTypeModules['ConfusedClarified'].externalResourceSearches
     },
     computedButtonClass() {
@@ -6217,7 +6219,8 @@ let RangyManager = {
       //console.log(element, h.containerElementId, i)
       let anchor_text
       if (start_pos > 0) {
-        anchor_text = element.innerText.slice(start_pos - 1, end_pos - 1)
+        //anchor_text = element.innerText.slice(start_pos - 1, end_pos - 1)
+        anchor_text = element.innerText.slice(start_pos, end_pos)
       }
       else {
         anchor_text = element.innerText.slice(0, end_pos - 1)
@@ -6651,7 +6654,9 @@ let RangyManager = {
     },
     getPinSelectionAnchorText () {
       let highlight = this.selectionHighlighter.highlights[0]
+      //console.log(highlight)
       let {anchor_text} = this._getAnchorPositionFromHighlight(highlight)
+      //console.log(anchor_text)
       return anchor_text
     },
     // -----------------------------------------------------------------

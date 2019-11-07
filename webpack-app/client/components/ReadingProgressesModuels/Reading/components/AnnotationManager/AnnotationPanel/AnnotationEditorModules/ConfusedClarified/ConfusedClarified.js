@@ -132,6 +132,7 @@ let Confused = {
       if (anchorText === undefined) {
         anchorText = ''
       }
+      //console.log(anchorText)
       return anchorText
     },
     isEditable () {
@@ -172,7 +173,7 @@ let Confused = {
       //console.log(data)
       
       let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
-      //console.log(id) // for test
+      console.log(id) // for test
       if (typeof(id) !== 'number') {
         throw 'Create failed'
         return false  // 新增失敗
@@ -180,7 +181,7 @@ let Confused = {
       
       this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
     },
-    submitAnwser: async function () {
+    submitAnswer: async function () {
       let type = 'Clearified'
       this.annotationInstance.type = type
       this.properties.answer_submitted_at = (new Date()).getTime()
@@ -201,7 +202,7 @@ let Confused = {
       //console.log(data)
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
-      //console.log(id) // for test
+      console.log(result) // for test
       if (typeof(result) !== 1) {
         throw 'Update failed'
         return false  // 新增失敗
@@ -256,6 +257,7 @@ let Confused = {
       }
       //console.log(question)
       let q = question.template.replace(`{anchorText}`, '{0}')
+      //console.log(this.anchorText)
       q = this.$t(q, [this.anchorText])
       this.$refs.QuestionEditor.html(q)
       this.isQuestionEdited = false

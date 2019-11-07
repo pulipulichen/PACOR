@@ -9,7 +9,7 @@ let ResourceSearch = {
 //  components: {
 //  },
   computed: {
-    resourses() {
+    resources() {
       return this.status.readingConfig.annotationTypeModules['ConfusedClarified'].externalResourceSearches
     },
     computedButtonClass() {

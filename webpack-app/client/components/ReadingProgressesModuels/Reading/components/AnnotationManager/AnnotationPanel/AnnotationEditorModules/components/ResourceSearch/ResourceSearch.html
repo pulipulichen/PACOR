@@ -5,7 +5,7 @@
         {{ $t('Find your answer') }}:
       </label>
       <select v-model="selectIndex">
-        <option v-for="(resource, i) in resourses" 
+        <option v-for="(resource, i) in resources" 
                 v-bind:value="i">
           {{ $t(resource.name) }}
         </option>

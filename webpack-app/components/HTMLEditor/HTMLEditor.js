@@ -83,6 +83,13 @@ let HTMLEditor = {
       this.editor.summernote('focus')
     },
     html (html) {
+      if (this.editor === null) {
+        setTimeout(() => {
+          this.html(html)
+        }, 100)
+        return
+      }
+      
       if (typeof(html) === 'string') {
         this.editor.summernote('code', html)
       }

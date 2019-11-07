@@ -370,7 +370,8 @@ let RangyManager = {
       //console.log(element, h.containerElementId, i)
       let anchor_text
       if (start_pos > 0) {
-        anchor_text = element.innerText.slice(start_pos - 1, end_pos - 1)
+        //anchor_text = element.innerText.slice(start_pos - 1, end_pos - 1)
+        anchor_text = element.innerText.slice(start_pos, end_pos)
       }
       else {
         anchor_text = element.innerText.slice(0, end_pos - 1)
@@ -804,7 +805,9 @@ let RangyManager = {
     },
     getPinSelectionAnchorText () {
       let highlight = this.selectionHighlighter.highlights[0]
+      //console.log(highlight)
       let {anchor_text} = this._getAnchorPositionFromHighlight(highlight)
+      //console.log(anchor_text)
       return anchor_text
     },
     // -----------------------------------------------------------------
