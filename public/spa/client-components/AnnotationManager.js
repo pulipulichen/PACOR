@@ -992,7 +992,7 @@ var render = function() {
         ref: "questionEditor",
         attrs: {
           contents: _vm.note,
-          editable: _vm.editable,
+          editable: _vm.isEditable,
           height: _vm.computedQuestionEditorHeight
         },
         on: {
@@ -1033,107 +1033,105 @@ var render = function() {
           ]
         : _vm._e(),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "ui one column grid annotation-panel-buttons" },
-        [
-          _c(
+      _vm.isEditable
+        ? _c(
             "div",
-            { class: _vm.computedButtonsClass },
+            { staticClass: "ui one column grid annotation-panel-buttons" },
             [
-              _vm.editable
-                ? [
-                    _vm.annotationConfig.enableControlPermission
-                      ? _c("checkbox-toggle", {
-                          attrs: { label: _vm.$t("PUBLIC") },
-                          model: {
-                            value: _vm.public,
-                            callback: function($$v) {
-                              _vm.public = $$v
-                            },
-                            expression: "public"
-                          }
-                        })
-                      : _vm._e(),
-                    _vm._v(" "),
-                    !_vm.isQuestionSubmitted
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "ui button",
-                            attrs: { type: "button" },
-                            on: { click: _vm.submitQuestion }
+              _c(
+                "div",
+                { class: _vm.computedButtonsClass },
+                [
+                  _vm.annotationConfig.enableControlPermission
+                    ? _c("checkbox-toggle", {
+                        attrs: { label: _vm.$t("PUBLIC") },
+                        model: {
+                          value: _vm.public,
+                          callback: function($$v) {
+                            _vm.public = $$v
                           },
-                          [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(_vm.$t("SUBMIT QUESTION")) +
-                                "  \r\n        "
-                            )
-                          ]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.isQuestionSubmitted
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "ui button",
-                            attrs: { type: "button" },
-                            on: { click: _vm.writeLater }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(_vm.$t("WRTIE LATER")) +
-                                "  \r\n        "
-                            )
-                          ]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.isQuestionSubmitted
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "ui button",
-                            attrs: { type: "button" },
-                            on: { click: _vm.saveAnswer }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(_vm.$t("SAVE ANSWER")) +
-                                "  \r\n        "
-                            )
-                          ]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.isQuestionSubmiited
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "ui red button",
-                            attrs: { type: "button" },
-                            on: { click: _vm.deleteAnnotation }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n            " +
-                                _vm._s(_vm.$t("DELETE")) +
-                                "  \r\n        "
-                            )
-                          ]
-                        )
-                      : _vm._e()
-                  ]
-                : _vm._e()
-            ],
-            2
+                          expression: "public"
+                        }
+                      })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.isQuestionSubmitted
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "ui button",
+                          attrs: { type: "button" },
+                          on: { click: _vm.submitQuestion }
+                        },
+                        [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("SUBMIT QUESTION")) +
+                              "  \r\n        "
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.isQuestionSubmitted
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "ui button",
+                          attrs: { type: "button" },
+                          on: { click: _vm.writeLater }
+                        },
+                        [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("WRTIE LATER")) +
+                              "  \r\n        "
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.isQuestionSubmitted
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "ui button",
+                          attrs: { type: "button" },
+                          on: { click: _vm.submitAnswer }
+                        },
+                        [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("SAVE ANSWER")) +
+                              "  \r\n        "
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.isQuestionSubmiited
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "ui red button",
+                          attrs: { type: "button" },
+                          on: { click: _vm.deleteAnnotation }
+                        },
+                        [
+                          _vm._v(
+                            "\r\n            " +
+                              _vm._s(_vm.$t("DELETE")) +
+                              "  \r\n        "
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            ]
           )
-        ]
-      )
+        : _vm._e()
     ],
     2
   )
@@ -3811,10 +3809,14 @@ let Confused = {
       return (this.isAnswerDifferent || this.isAnswerDifferent)
     },
     isQuestionSubmitted () {
-      return (typeof(this.properties.question.submitted_at) === 'number')
+      return (this.properties !== null 
+              && typeof(this.properties) === 'object'
+              && typeof(this.properties.question_submitted_at) === 'number')
     },
     isAnswerSubmitted () {
-      return (typeof(this.properties.answer.submitted_at) === 'number')
+      return (this.properties !== null 
+              && typeof(this.properties) === 'object'
+              && typeof(this.properties.answer_submitted_at) === 'number')
     },
     enableAddAnnotation () {
       if (this.isNoteDifferent 
@@ -3879,12 +3881,17 @@ let Confused = {
 //  },
   methods: {
     submitQuestion: async function () {
-      throw 'submitQuestion'
+      this.properties = {
+        question_submitted_at: (new Date()).getTime()
+      }
       
       let data = {
         anchorPositions: this.pinSelection.anchorPositions,
         type: this.annotationModule,
-        note: this.note
+        notes: {
+          'question': this.question
+        },
+        properties: this.properties
       }
       
       if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
@@ -3896,26 +3903,60 @@ let Confused = {
       let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
       //console.log(id) // for test
       if (typeof(id) !== 'number') {
+        throw 'Create failed'
         return false  // 新增失敗
       }
       
       this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
-      this.$refs.editor.reset()
-      this.$emit('hide', false)
     },
     submitAnwser: async function () {
-      throw 'submitAnwser'
-    },
-    editAnnotation: async function () {
+      this.properties.answer_submitted_at = (new Date()).getTime()
+      
       let data = {
-        id: this.annotationInstance.id,
-        note: this.note
+        type: 'Clearified',
+        notes: {
+          'question': this.question,
+          'answer': this.answer
+        },
+        properties: this.properties
       }
       
-      let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
+        data.public = this.public
+      }
       
-      if (result !== 1) {
-        throw this.$t('Update failed.')
+      //console.log(data)
+      
+      let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      //console.log(id) // for test
+      if (typeof(result) !== 1) {
+        throw 'Update failed'
+        return false  // 新增失敗
+      }
+      
+      //this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
+      this.rangy.reloadMyHighlights()
+      this.$emit('update')
+    },
+    writeLater: async function () {
+      let data = {
+        notes: {
+          'question': this.question,
+          'answer': this.answer
+        }
+      }
+      
+      if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
+        data.public = this.public
+      }
+      
+      //console.log(data)
+      
+      let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      //console.log(id) // for test
+      if (typeof(result) !== 1) {
+        throw 'Update failed'
+        return false  // 新增失敗
       }
       
       this.$emit('update')

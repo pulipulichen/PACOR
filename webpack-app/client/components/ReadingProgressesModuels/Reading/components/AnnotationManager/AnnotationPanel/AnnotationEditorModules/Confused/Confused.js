@@ -65,10 +65,14 @@ let Confused = {
       return (this.isAnswerDifferent || this.isAnswerDifferent)
     },
     isQuestionSubmitted () {
-      return (typeof(this.properties.question.submitted_at) === 'number')
+      return (this.properties !== null 
+              && typeof(this.properties) === 'object'
+              && typeof(this.properties.question_submitted_at) === 'number')
     },
     isAnswerSubmitted () {
-      return (typeof(this.properties.answer.submitted_at) === 'number')
+      return (this.properties !== null 
+              && typeof(this.properties) === 'object'
+              && typeof(this.properties.answer_submitted_at) === 'number')
     },
     enableAddAnnotation () {
       if (this.isNoteDifferent 
@@ -133,12 +137,17 @@ let Confused = {
 //  },
   methods: {
     submitQuestion: async function () {
-      throw 'submitQuestion'
+      this.properties = {
+        question_submitted_at: (new Date()).getTime()
+      }
       
       let data = {
         anchorPositions: this.pinSelection.anchorPositions,
         type: this.annotationModule,
-        note: this.note
+        notes: {
+          'question': this.question
+        },
+        properties: this.properties
       }
       
       if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
@@ -150,26 +159,60 @@ let Confused = {
       let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
       //console.log(id) // for test
       if (typeof(id) !== 'number') {
+        throw 'Create failed'
         return false  // 新增失敗
       }
       
       this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
-      this.$refs.editor.reset()
-      this.$emit('hide', false)
     },
     submitAnwser: async function () {
-      throw 'submitAnwser'
-    },
-    editAnnotation: async function () {
+      this.properties.answer_submitted_at = (new Date()).getTime()
+      
       let data = {
-        id: this.annotationInstance.id,
-        note: this.note
+        type: 'Clearified',
+        notes: {
+          'question': this.question,
+          'answer': this.answer
+        },
+        properties: this.properties
       }
       
-      let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
+        data.public = this.public
+      }
       
-      if (result !== 1) {
-        throw this.$t('Update failed.')
+      //console.log(data)
+      
+      let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      //console.log(id) // for test
+      if (typeof(result) !== 1) {
+        throw 'Update failed'
+        return false  // 新增失敗
+      }
+      
+      //this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
+      this.rangy.reloadMyHighlights()
+      this.$emit('update')
+    },
+    writeLater: async function () {
+      let data = {
+        notes: {
+          'question': this.question,
+          'answer': this.answer
+        }
+      }
+      
+      if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
+        data.public = this.public
+      }
+      
+      //console.log(data)
+      
+      let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      //console.log(id) // for test
+      if (typeof(result) !== 1) {
+        throw 'Update failed'
+        return false  // 新增失敗
       }
       
       this.$emit('update')

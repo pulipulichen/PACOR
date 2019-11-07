@@ -15,7 +15,7 @@
   <HTMLEditor ref="questionEditor"
               v-bind:contents="note"
               v-on:input="(c) => {question = c; isQuestionEdited = true}"
-              v-bind:editable="editable"
+              v-bind:editable="isEditable"
               v-bind:height="computedQuestionEditorHeight"></HTMLEditor>
 
   <!-- ====================================== -->
@@ -39,7 +39,8 @@
 
   <!-- ====================================== -->
 
-  <div class="ui one column grid annotation-panel-buttons">
+  <div class="ui one column grid annotation-panel-buttons"
+       v-if="isEditable">
     <div v-bind:class="computedButtonsClass">
 
       <!--
@@ -54,7 +55,6 @@
 
       <!-- ============================== -->
 
-      <template v-if="editable">
         <checkbox-toggle v-bind:label="$t('PUBLIC')"
                          v-model="public"
                          v-if="annotationConfig.enableControlPermission"></checkbox-toggle>
@@ -75,7 +75,7 @@
         
         <button type="button"
                 class="ui button"
-                v-on:click="saveAnswer"
+                v-on:click="submitAnswer"
                 v-if="isQuestionSubmitted">
           {{ $t('SAVE ANSWER') }}  
         </button>
@@ -87,7 +87,6 @@
             {{ $t('DELETE') }}  
         </button>
         
-      </template>
     </div>
   </div>
 </div>
