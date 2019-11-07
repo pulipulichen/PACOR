@@ -18,6 +18,12 @@ const CommonComputed = {
     }
     //console.log(height)
     return height
+  },
+  isEditable (vm) {
+    if (vm.annotationInstance === null) {
+      return true
+    }
+    return vm.lib.auth.isEditable(vm.annotationInstance)
   }
 }
 

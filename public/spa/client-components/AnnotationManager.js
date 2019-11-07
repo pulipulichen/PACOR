@@ -993,7 +993,7 @@ var render = function() {
         attrs: {
           contents: _vm.note,
           editable: _vm.editable,
-          height: _vm.computedEditorHeight
+          height: _vm.computedQuestionEditorHeight
         },
         on: {
           input: function(c) {
@@ -1006,12 +1006,12 @@ var render = function() {
       _vm.isQuestionSubmitted
         ? [
             _c("resource-search", {
-              ref: "auth",
+              ref: "ResourceSearch",
               attrs: {
                 config: _vm.config,
                 status: _vm.status,
                 lib: _vm.lib,
-                selectIndex: _vm.recommandResourceSearchIndex,
+                propSelectIndex: _vm.recommandResourceSearchIndex,
                 anchorText: _vm.anchorText
               }
             }),
@@ -1021,7 +1021,7 @@ var render = function() {
               attrs: {
                 contents: _vm.answer,
                 editable: _vm.editable,
-                height: _vm.computedEditorHeight
+                height: _vm.computedAnswerEditorHeight
               },
               on: {
                 input: function(c) {
@@ -1041,77 +1041,92 @@ var render = function() {
             "div",
             { class: _vm.computedButtonsClass },
             [
-              _vm.annotationConfig.enableControlPermission
-                ? _c("checkbox-toggle", {
-                    attrs: { label: _vm.$t("PUBLIC") },
-                    model: {
-                      value: _vm.public,
-                      callback: function($$v) {
-                        _vm.public = $$v
-                      },
-                      expression: "public"
-                    }
-                  })
-                : _vm._e(),
-              _vm._v(" "),
               _vm.editable
                 ? [
-                    _vm.annotationInstance
-                      ? [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "ui button",
-                              class: { disabled: !_vm.enableAddAnnotation },
-                              attrs: { type: "button" },
-                              on: { click: _vm.editAnnotation }
+                    _vm.annotationConfig.enableControlPermission
+                      ? _c("checkbox-toggle", {
+                          attrs: { label: _vm.$t("PUBLIC") },
+                          model: {
+                            value: _vm.public,
+                            callback: function($$v) {
+                              _vm.public = $$v
                             },
-                            [
-                              _vm._v(
-                                "\r\n          " +
-                                  _vm._s(_vm.$t("EDIT")) +
-                                  "  \r\n        "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "ui red button",
-                              attrs: { type: "button" },
-                              on: { click: _vm.deleteAnnotation }
-                            },
-                            [
-                              _vm._v(
-                                "\r\n          " +
-                                  _vm._s(_vm.$t("DELETE")) +
-                                  "  \r\n        "
-                              )
-                            ]
-                          )
-                        ]
-                      : [
-                          _c(
-                            "countdown-button",
-                            {
-                              attrs: {
-                                minWordCount: _vm.moduleConfig.minWords,
-                                text: _vm.note,
-                                lib: _vm.lib,
-                                locale: _vm.status.preference.locale
-                              },
-                              on: { click: _vm.addAnnotation }
-                            },
-                            [
-                              _vm._v(
-                                "\r\n          " +
-                                  _vm._s(_vm.$t("ADD")) +
-                                  "  \r\n        "
-                              )
-                            ]
-                          )
-                        ]
+                            expression: "public"
+                          }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    !_vm.isQuestionSubmitted
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "ui button",
+                            attrs: { type: "button" },
+                            on: { click: _vm.submitQuestion }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n          " +
+                                _vm._s(_vm.$t("SUBMIT QUESTION")) +
+                                "  \r\n        "
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.isQuestionSubmitted
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "ui button",
+                            attrs: { type: "button" },
+                            on: { click: _vm.writeLater }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n          " +
+                                _vm._s(_vm.$t("WRTIE LATER")) +
+                                "  \r\n        "
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.isQuestionSubmitted
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "ui button",
+                            attrs: { type: "button" },
+                            on: { click: _vm.saveAnswer }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n          " +
+                                _vm._s(_vm.$t("SAVE ANSWER")) +
+                                "  \r\n        "
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.isQuestionSubmiited
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "ui red button",
+                            attrs: { type: "button" },
+                            on: { click: _vm.deleteAnnotation }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n            " +
+                                _vm._s(_vm.$t("DELETE")) +
+                                "  \r\n        "
+                            )
+                          ]
+                        )
+                      : _vm._e()
                   ]
                 : _vm._e()
             ],
@@ -1167,21 +1182,21 @@ var render = function() {
             "div",
             { class: _vm.computedButtonsClass },
             [
-              _vm.annotationConfig.enableControlPermission
-                ? _c("checkbox-toggle", {
-                    attrs: { label: _vm.$t("PUBLIC") },
-                    model: {
-                      value: _vm.public,
-                      callback: function($$v) {
-                        _vm.public = $$v
-                      },
-                      expression: "public"
-                    }
-                  })
-                : _vm._e(),
-              _vm._v(" "),
               _vm.editable
                 ? [
+                    _vm.annotationConfig.enableControlPermission
+                      ? _c("checkbox-toggle", {
+                          attrs: { label: _vm.$t("PUBLIC") },
+                          model: {
+                            value: _vm.public,
+                            callback: function($$v) {
+                              _vm.public = $$v
+                            },
+                            expression: "public"
+                          }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
                     _vm.annotationInstance
                       ? [
                           _c(
@@ -1194,9 +1209,9 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\r\n          " +
+                                "\r\n            " +
                                   _vm._s(_vm.$t("EDIT")) +
-                                  "  \r\n        "
+                                  "  \r\n          "
                               )
                             ]
                           ),
@@ -1210,9 +1225,9 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\r\n          " +
+                                "\r\n            " +
                                   _vm._s(_vm.$t("DELETE")) +
-                                  "  \r\n        "
+                                  "  \r\n          "
                               )
                             ]
                           )
@@ -1231,9 +1246,9 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\r\n          " +
+                                "\r\n            " +
                                   _vm._s(_vm.$t("ADD")) +
-                                  "  \r\n        "
+                                  "  \r\n          "
                               )
                             ]
                           )
@@ -3769,7 +3784,8 @@ let Confused = {
       answer: answer,
       answerReset: answer,
       isAnswerEdited: false,
-      properties: properties
+      properties: properties,
+      recommandResourceSearchIndex: 0
       //public: 
     }
   },
@@ -3811,14 +3827,42 @@ let Confused = {
     enableEditAnnotation () {
       return this.enableAddAnnotation
     },
-    computedEditorHeight () {
-      return _commons_CommonComputed__WEBPACK_IMPORTED_MODULE_1__["default"].computedEditorHeight(this)
+    computedQuestionEditorHeight () {
+      if (this.isQuestionSubmitted === false) {
+        return _commons_CommonComputed__WEBPACK_IMPORTED_MODULE_1__["default"].computedEditorHeight(this)
+      }
+      else {
+        return this.computedAnswerEditorHeight
+      }
+    },
+    computedAnswerEditorHeight () {
+      let height
+      if (this.enableCollaboration === true
+              && this.lib.style.isStackWidth()) {
+        height = (this.lib.style.getClientHeight() / 3)
+        height = `calc(${height}px - 6em)`
+      } else {
+        height = `calc(${this.heightPX}px - 12em)`
+      }
+      //console.log(height)
+      return height
     },
     computedButtonsClass () {
       return _commons_CommonComputed__WEBPACK_IMPORTED_MODULE_1__["default"].computedButtonsClass(this)
     },
     moduleConfig () {
       return this.status.readingConfig.annotationTypeModules[this.annotationModule]
+    },
+    anchorText () {
+      if (this.annotationInstance === null) {
+        return this.rangy.getPinSelectionAnchorText()
+      }
+      else {
+        return this.rangy.getHoverAnchorText()
+      }
+    },
+    isEditable () {
+      return _commons_CommonComputed__WEBPACK_IMPORTED_MODULE_1__["default"].isEditable(this)
     }
   },
   watch: {
@@ -3882,14 +3926,18 @@ let Confused = {
     hide () {
       this.$emit('hide', true)
     },
-    selectQuestion (template) {
+    selectQuestion (question) {
       if (this.isQuestionEdited === false) {
         if (!window.confirm($t('New question will overwrite your question. Are you sure?'))) {
           return false
         }
       }
-      this.$refs.questionEditor.html(template)
+      
+      let q = question.template.replace(`{anchorText}`, '{0}')
+      q = this.$t(q, [this.anchorText])
+      this.$refs.questionEditor.html(q)
       this.isQuestionEdited = false
+      this.recommandResourceSearchIndex = question.searchIndex
     }
   } // methods
 }
@@ -4082,6 +4130,9 @@ let MainIdea = {
     },
     editorPlaceholder () {
       return this.$t(this.moduleConfig.placeholder)
+    },
+    isEditable () {
+      return _commons_CommonComputed__WEBPACK_IMPORTED_MODULE_2__["default"].isEditable(this)
     }
   },
   watch: {
@@ -4256,6 +4307,12 @@ const CommonComputed = {
     }
     //console.log(height)
     return height
+  },
+  isEditable (vm) {
+    if (vm.annotationInstance === null) {
+      return true
+    }
+    return vm.lib.auth.isEditable(vm.annotationInstance)
   }
 }
 
@@ -4783,17 +4840,18 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let ResourceSearch = {
-  props: ['lib', 'status', 'config', 'selectIndex', 'anchorText'],
+  props: ['lib', 'status', 'config', 'propSelectIndex', 'anchorText'],
   data() {
     this.$i18n.locale = this.config.locale
     return {
+      selectIndex: this.propSelectIndex
     }
   },
 //  components: {
 //  },
   computed: {
     resourses() {
-      return this.status.readingConfig.annotationTypeModules['ConfusedClarified'].externalResourceSeachs
+      return this.status.readingConfig.annotationTypeModules['ConfusedClarified'].externalResourceSearches
     },
     computedButtonClass() {
       let i = this.selectIndex
@@ -4831,8 +4889,11 @@ let ResourceSearch = {
       return this.resources[this.selectIndexInteger].urlPattern
     }
   },
-//  watch: {
-//  },
+  watch: {
+    propSelectIndex (propSelectIndex) {
+      this.selectIndex = propSelectIndex
+    } 
+  },
 //  mounted() {
 //  },
   methods: {

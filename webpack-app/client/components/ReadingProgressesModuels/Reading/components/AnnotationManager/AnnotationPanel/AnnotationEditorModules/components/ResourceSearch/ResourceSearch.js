@@ -1,15 +1,16 @@
 let ResourceSearch = {
-  props: ['lib', 'status', 'config', 'selectIndex', 'anchorText'],
+  props: ['lib', 'status', 'config', 'propSelectIndex', 'anchorText'],
   data() {
     this.$i18n.locale = this.config.locale
     return {
+      selectIndex: this.propSelectIndex
     }
   },
 //  components: {
 //  },
   computed: {
     resourses() {
-      return this.status.readingConfig.annotationTypeModules['ConfusedClarified'].externalResourceSeachs
+      return this.status.readingConfig.annotationTypeModules['ConfusedClarified'].externalResourceSearches
     },
     computedButtonClass() {
       let i = this.selectIndex
@@ -47,8 +48,11 @@ let ResourceSearch = {
       return this.resources[this.selectIndexInteger].urlPattern
     }
   },
-//  watch: {
-//  },
+  watch: {
+    propSelectIndex (propSelectIndex) {
+      this.selectIndex = propSelectIndex
+    } 
+  },
 //  mounted() {
 //  },
   methods: {

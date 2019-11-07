@@ -1,50 +1,47 @@
 <div class="ui form">
-  
+
   <annotation-editor-header v-bind:config="config"
-        v-bind:status="status"
-        v-bind:annotationModule="annotationModule"></annotation-editor-header>
-  
+                            v-bind:status="status"
+                            v-bind:annotationModule="annotationModule"></annotation-editor-header>
+
   <!-- ====================================== -->
-  
+
   <question-template ref="QuestionTemplate"
-        v-bind:config="config"
-        v-bind:status="status"
-        v-bind:lib="lib"
-        v-on:selectQuestion="selectQuestion"></question-template>
-  
+                     v-bind:config="config"
+                     v-bind:status="status"
+                     v-bind:lib="lib"
+                     v-on:selectQuestion="selectQuestion"></question-template>
+
   <HTMLEditor ref="questionEditor"
               v-bind:contents="note"
               v-on:input="(c) => {question = c; isQuestionEdited = true}"
               v-bind:editable="editable"
-              v-bind:height="computedEditorHeight"></HTMLEditor>
+              v-bind:height="computedQuestionEditorHeight"></HTMLEditor>
 
   <!-- ====================================== -->
-  
+
   <template v-if="isQuestionSubmitted">
-    
-    <resource-search ref="auth"
-        v-bind:config="config"
-        v-bind:status="status"
-        v-bind:lib="lib"
-        v-bind:selectIndex="recommandResourceSearchIndex"
-        v-bind:anchorText="anchorText"></resource-search>
-    
+
+    <resource-search ref="ResourceSearch"
+                     v-bind:config="config"
+                     v-bind:status="status"
+                     v-bind:lib="lib"
+                     v-bind:propSelectIndex="recommandResourceSearchIndex"
+                     v-bind:anchorText="anchorText"></resource-search>
+
     <HTMLEditor ref="AnswerEditor"
-              v-bind:contents="answer"
-              v-on:input="(c) => {answer = c; isAnswerEdited = true}"
-              v-bind:editable="editable"
-              v-bind:height="computedEditorHeight"></HTMLEditor>
+                v-bind:contents="answer"
+                v-on:input="(c) => {answer = c; isAnswerEdited = true}"
+                v-bind:editable="editable"
+                v-bind:height="computedAnswerEditorHeight"></HTMLEditor>
 
   </template>
-  
+
   <!-- ====================================== -->
-  
+
   <div class="ui one column grid annotation-panel-buttons">
     <div v-bind:class="computedButtonsClass">
-      <checkbox-toggle v-bind:label="$t('PUBLIC')"
-        v-model="public"
-        v-if="annotationConfig.enableControlPermission"></checkbox-toggle>
-      
+
       <!--
       <button type="button"
               class="ui button"
@@ -52,32 +49,44 @@
         {{ $t('CANCEL') }}  
       </button>
       -->
+
+
+
       <!-- ============================== -->
-      
+
       <template v-if="editable">
-        
-      <template v-if="annotationInstance">
+        <checkbox-toggle v-bind:label="$t('PUBLIC')"
+                         v-model="public"
+                         v-if="annotationConfig.enableControlPermission"></checkbox-toggle>
+
         <button type="button"
                 class="ui button"
-                v-bind:class="{'disabled': !enableAddAnnotation}"
-                v-on:click="editAnnotation">
-          {{ $t('EDIT') }}  
+                v-on:click="submitQuestion"
+                v-if="!isQuestionSubmitted">
+          {{ $t('SUBMIT QUESTION') }}  
         </button>
+        
         <button type="button"
-                class="ui red button"
-                v-on:click="deleteAnnotation">
-          {{ $t('DELETE') }}  
+                class="ui button"
+                v-on:click="writeLater"
+                v-if="isQuestionSubmitted">
+          {{ $t('WRTIE LATER') }}  
         </button>
-      </template>
-      <template v-else>
-        <countdown-button v-bind:minWordCount="moduleConfig.minWords"
-          v-bind:text="note"
-          v-bind:lib="lib"
-          v-bind:locale="status.preference.locale"
-          v-on:click="addAnnotation">
-          {{ $t('ADD') }}  
-        </countdown-button>
-      </template>
+        
+        <button type="button"
+                class="ui button"
+                v-on:click="saveAnswer"
+                v-if="isQuestionSubmitted">
+          {{ $t('SAVE ANSWER') }}  
+        </button>
+        
+        <button type="button"
+                  class="ui red button"
+                  v-on:click="deleteAnnotation"
+                  v-if="isQuestionSubmiited">
+            {{ $t('DELETE') }}  
+        </button>
+        
       </template>
     </div>
   </div>

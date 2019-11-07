@@ -186,6 +186,13 @@ let Auth = {
         type = 'others-' + type
       }
       return type
+    },
+    isEditable (instance) {
+      if (['domain_admin', 'global_admin'].indexOf(this.status.role) > -1) {
+        return true
+      }
+      
+      return (instance.user_id === this.status.userID)
     }
   } // methods
 }

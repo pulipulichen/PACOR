@@ -38,7 +38,8 @@ let Confused = {
       answer: answer,
       answerReset: answer,
       isAnswerEdited: false,
-      properties: properties
+      properties: properties,
+      recommandResourceSearchIndex: 0
       //public: 
     }
   },
@@ -80,14 +81,42 @@ let Confused = {
     enableEditAnnotation () {
       return this.enableAddAnnotation
     },
-    computedEditorHeight () {
-      return CommonComputed.computedEditorHeight(this)
+    computedQuestionEditorHeight () {
+      if (this.isQuestionSubmitted === false) {
+        return CommonComputed.computedEditorHeight(this)
+      }
+      else {
+        return this.computedAnswerEditorHeight
+      }
+    },
+    computedAnswerEditorHeight () {
+      let height
+      if (this.enableCollaboration === true
+              && this.lib.style.isStackWidth()) {
+        height = (this.lib.style.getClientHeight() / 3)
+        height = `calc(${height}px - 6em)`
+      } else {
+        height = `calc(${this.heightPX}px - 12em)`
+      }
+      //console.log(height)
+      return height
     },
     computedButtonsClass () {
       return CommonComputed.computedButtonsClass(this)
     },
     moduleConfig () {
       return this.status.readingConfig.annotationTypeModules[this.annotationModule]
+    },
+    anchorText () {
+      if (this.annotationInstance === null) {
+        return this.rangy.getPinSelectionAnchorText()
+      }
+      else {
+        return this.rangy.getHoverAnchorText()
+      }
+    },
+    isEditable () {
+      return CommonComputed.isEditable(this)
     }
   },
   watch: {
@@ -151,14 +180,18 @@ let Confused = {
     hide () {
       this.$emit('hide', true)
     },
-    selectQuestion (template) {
+    selectQuestion (question) {
       if (this.isQuestionEdited === false) {
         if (!window.confirm($t('New question will overwrite your question. Are you sure?'))) {
           return false
         }
       }
-      this.$refs.questionEditor.html(template)
+      
+      let q = question.template.replace(`{anchorText}`, '{0}')
+      q = this.$t(q, [this.anchorText])
+      this.$refs.questionEditor.html(q)
       this.isQuestionEdited = false
+      this.recommandResourceSearchIndex = question.searchIndex
     }
   } // methods
 }

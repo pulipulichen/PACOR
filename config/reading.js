@@ -77,14 +77,16 @@ module.exports = {
       'questionTemplates': [
         {
           'hint': 'What is it?',
-          'template': `I don't know what is "{anchorText}"?`
+          'template': `I don't know what is "{anchorText}"?`,
+          'searchIndex': 0
         },
         {
           'hint': 'Why is it?',
-          'template': `Why is "{anchorText}"?`
+          'template': `Why is "{anchorText}"?`,
+          'searchIndex': 1
         },
       ],
-      'externalResourceSeachs': [
+      'externalResourceSearches': [
         {
           'name': 'Find answer in Wikipedia',
           'urlPattern': 'https://zh.wikipedia.org/w/index.php?search={anchorText}&title=Special%3A搜索&go=執行&ns0=1'

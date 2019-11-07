@@ -60,6 +60,9 @@ let MainIdea = {
     },
     editorPlaceholder () {
       return this.$t(this.moduleConfig.placeholder)
+    },
+    isEditable () {
+      return CommonComputed.isEditable(this)
     }
   },
   watch: {
