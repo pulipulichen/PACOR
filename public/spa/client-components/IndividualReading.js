@@ -130,7 +130,7 @@ var render = function() {
   return _c(
     "fragment",
     [
-      _c("navigation", {
+      _c("compact-navigation", {
         ref: "nav",
         attrs: { config: _vm.config, compactWidth: "400", position: "bottom" },
         scopedSlots: _vm._u([

@@ -18,6 +18,12 @@ Vue.component('activity-timer', ActivityTimer)
 import Navigation from './../components/Navigation/Navigation.vue'
 Vue.component('navigation', Navigation)
 
+//import CompactNavigation from './../components/CompactNavigation/CompactNavigation.vue'
+//Vue.component('compact-navigation', CompactNavigation)
+
+import Clock from './../components/Clock/Clock.vue'
+Vue.component('clock', Clock)
+
 import AnnotationModuleButton from './../components/AnnotationModuleButton/AnnotationModuleButton.vue'
 Vue.component('annotation-module-button', AnnotationModuleButton)
 
