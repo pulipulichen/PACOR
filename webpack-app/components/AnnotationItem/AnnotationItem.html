@@ -45,7 +45,7 @@
       v-bind:clickable="(typeof(findType) === 'function')"
       v-on:find="(type) => {onFindType(type)}"></annotation-module-button>
 
-    <div class="note text-container" v-if="annotation.note" v-html="annotation.note"></div>
+    <div class="note text-container" v-if="note" v-html="note"></div>
   </div>
     
 </div>

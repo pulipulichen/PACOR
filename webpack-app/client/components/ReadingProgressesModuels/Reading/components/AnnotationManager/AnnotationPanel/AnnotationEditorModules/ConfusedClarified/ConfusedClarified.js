@@ -15,14 +15,31 @@ let Confused = {
     let question = ''
     let answer = ''
     let properties = null
+    let notes
+    let type
+    let id
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotationInstance !== null 
             && typeof(this.annotationInstance) === 'object') {
       
-      if (this.annotationInstance.note !== null 
-              && typeof(this.annotationInstance.note) === 'object') {
-        let note = this.annotationInstance.note
-        ({question, answer} = note)
+      ({type, id} = this.annotationInstance)
+      
+      //console.log(this.annotationInstance)
+//      if (this.annotationInstance.note !== null 
+//              && this.annotationInstance.note !== undefined
+//              && typeof(this.annotationInstance.note) === 'object') {
+//        notes = this.annotationInstance.note
+//        ({question, answer} = notes)
+//      }
+      if (Array.isArray(this.annotationInstance.notes)) {
+        this.annotationInstance.notes.forEach(note => {
+          if (note.type === 'question') {
+            question = note.note
+          }
+          else if (note.type === 'answer') {
+            answer = note.note
+          }
+        })
       }
       
       if (this.annotationInstance.properties !== null 
@@ -38,9 +55,12 @@ let Confused = {
       answer: answer,
       answerReset: answer,
       isAnswerEdited: false,
-      properties: properties,
       recommandResourceSearchIndex: 0,
-      id: null
+      
+      id: id,
+      type: type,
+      notes: notes,
+      properties: properties
       //public: 
     }
   },
@@ -105,9 +125,9 @@ let Confused = {
         if (this.enableCollaboration === true
                 && this.lib.style.isStackWidth()) {
           height = (this.lib.style.getClientHeight() / 2)
-          height = `calc(${height}px - 23em)`
+          height = `calc(${height}px - 21em)`
         } else {
-          height = `calc(${this.heightPX}px - 23em)`
+          height = `calc(${this.heightPX}px - 21em)`
         }
         //console.log(height)
         return height
@@ -202,13 +222,19 @@ let Confused = {
         throw 'Create failed'
         return false  // 新增失敗
       }
+      //this.id = id
+      // 請在這裡建立annotationInstance，然後轉換成edit狀態
       this.id = id
+      this.type = this.annotationModule,
+      this.notes = {
+        'question': this.question
+      }
       
       this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds, false)
     },
     submitAnswer: async function () {
-      let type = 'Clearified'
-      this.annotationInstance.type = type
+      let type = 'Clarified'
+      this.type = type
       this.properties.answer_submitted_at = (new Date()).getTime()
       
       let data = {
@@ -228,18 +254,20 @@ let Confused = {
       //console.log(data)
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
-      console.log(result) // for test
-      if (typeof(result) !== 1) {
+      //console.log(result) // for test
+      if (result !== 1) {
         throw 'Update failed'
         return false  // 新增失敗
       }
       
       //this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
-      this.rangy.reloadMyHighlights()
+      //this.rangy.reloadMyHighlights()
+      this.$emit('reloadMyHighlights')
       this.$emit('update')
     },
     writeLater: async function () {
       let data = {
+        id: this.id,
         notes: {
           'question': this.question,
           'answer': this.answer
@@ -254,7 +282,7 @@ let Confused = {
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
       //console.log(id) // for test
-      if (typeof(result) !== 1) {
+      if (result !== 1) {
         throw 'Update failed'
         return false  // 新增失敗
       }

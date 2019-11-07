@@ -206,7 +206,7 @@ let AnnotationList = {
       this.findUser = null
       this.findType = null
     },
-    reload () {
+    reload: async function () {
       this.annotations = []
       this.page = 0
       this.noMore = false
@@ -215,8 +215,8 @@ let AnnotationList = {
       this.filteredPage = 0
       this.filteredNoMore = false
       
-      this.loadInit(false)
-      this.loadFilter()
+      await this.loadInit(false)
+      await this.loadFilter()
       //console.log('do reload')
     },
     hoverToggle (annotation) {
@@ -254,12 +254,15 @@ let AnnotationList = {
       //this.rangy.removeHighlightByAnnotation(this.annotationInstance)
       this.onUpdate()
     },
-    onUpdate () {
-      this.reload()
+    onUpdate: async function () {
+      await this.reload()
       //this.annotations = this.annotations.filter(annotation => annotation !== (this.annotationInstance))
       //this.filteredAnnotations = this.filteredAnnotations.filter(annotation => annotation !== (this.annotationInstance))
       
       this.annotationInstance = null
+      if (this.annotations.length < 2) {
+        this.$emit('close')
+      }
     }
   } // methods
 }

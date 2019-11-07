@@ -4,6 +4,7 @@ const WebpageUserBaseController = use('App/Controllers/Http/Client/WebpageUserBa
 const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
 
 const AnnotationModel = use('App/Models/Annotation')
+const AnnotationNoteModel = use('App/Models/AnnotationNote')
 
 const Cache = use('Cache')
 const Config = use('Config')
@@ -239,7 +240,7 @@ class Annotation extends WebpageUserBaseController {
   
   async update ({request, webpage, user}) {
     let data = request.all()
-    
+    //console.log('update')
     await ReadingActivityLog.log(webpage, user, this.modelName + '.update', data)
     
     let id = data.id
@@ -255,6 +256,21 @@ class Annotation extends WebpageUserBaseController {
     for (let name in data) {
       if (name === 'id') {
         continue
+      }
+      else if (name === 'notes') {
+        for (let type in data[name]) {
+          let note = data[name][type]
+          
+          let query = {
+            annotation_id: id,
+            type: type
+          }
+          let noteInstance = await AnnotationNoteModel.findOrCreate(query, query)
+          if (note !== noteInstance.note) {
+            noteInstance.note = note
+            await noteInstance.save()
+          }
+        }
       }
       else {
         instance[name] = data[name]

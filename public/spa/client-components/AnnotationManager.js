@@ -752,7 +752,8 @@ var render = function() {
               delete: _vm.onDelete,
               update: function($event) {
                 return _vm.$emit("update")
-              }
+              },
+              reloadMyHighlights: _vm.reloadMyHighlights
             }
           })
         ],
@@ -814,11 +815,13 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("question-template", {
-        ref: "QuestionTemplate",
-        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib },
-        on: { selectQuestion: _vm.selectQuestion }
-      }),
+      !_vm.isQuestionSubmitted
+        ? _c("question-template", {
+            ref: "QuestionTemplate",
+            attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib },
+            on: { selectQuestion: _vm.selectQuestion }
+          })
+        : _vm._e(),
       _vm._v(" "),
       _c("HTMLEditor", {
         ref: "QuestionEditor",
@@ -909,7 +912,7 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.isQuestionSubmitted
+                  _vm.isQuestionSubmitted && !_vm.isAnswerSubmitted
                     ? _c(
                         "button",
                         {
@@ -932,6 +935,7 @@ var render = function() {
                         "button",
                         {
                           staticClass: "ui button",
+                          class: { disabled: _vm.answer === "" },
                           attrs: { type: "button" },
                           on: { click: _vm.submitAnswer }
                         },
@@ -3354,14 +3358,31 @@ let Confused = {
     let question = ''
     let answer = ''
     let properties = null
+    let notes
+    let type
+    let id
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotationInstance !== null 
             && typeof(this.annotationInstance) === 'object') {
       
-      if (this.annotationInstance.note !== null 
-              && typeof(this.annotationInstance.note) === 'object') {
-        let note = this.annotationInstance.note
-        ({question, answer} = note)
+      ({type, id} = this.annotationInstance)
+      
+      //console.log(this.annotationInstance)
+//      if (this.annotationInstance.note !== null 
+//              && this.annotationInstance.note !== undefined
+//              && typeof(this.annotationInstance.note) === 'object') {
+//        notes = this.annotationInstance.note
+//        ({question, answer} = notes)
+//      }
+      if (Array.isArray(this.annotationInstance.notes)) {
+        this.annotationInstance.notes.forEach(note => {
+          if (note.type === 'question') {
+            question = note.note
+          }
+          else if (note.type === 'answer') {
+            answer = note.note
+          }
+        })
       }
       
       if (this.annotationInstance.properties !== null 
@@ -3377,9 +3398,12 @@ let Confused = {
       answer: answer,
       answerReset: answer,
       isAnswerEdited: false,
-      properties: properties,
       recommandResourceSearchIndex: 0,
-      id: null
+      
+      id: id,
+      type: type,
+      notes: notes,
+      properties: properties
       //public: 
     }
   },
@@ -3444,9 +3468,9 @@ let Confused = {
         if (this.enableCollaboration === true
                 && this.lib.style.isStackWidth()) {
           height = (this.lib.style.getClientHeight() / 2)
-          height = `calc(${height}px - 23em)`
+          height = `calc(${height}px - 21em)`
         } else {
-          height = `calc(${this.heightPX}px - 23em)`
+          height = `calc(${this.heightPX}px - 21em)`
         }
         //console.log(height)
         return height
@@ -3541,13 +3565,19 @@ let Confused = {
         throw 'Create failed'
         return false  // 新增失敗
       }
+      //this.id = id
+      // 請在這裡建立annotationInstance，然後轉換成edit狀態
       this.id = id
+      this.type = this.annotationModule,
+      this.notes = {
+        'question': this.question
+      }
       
       this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds, false)
     },
     submitAnswer: async function () {
-      let type = 'Clearified'
-      this.annotationInstance.type = type
+      let type = 'Clarified'
+      this.type = type
       this.properties.answer_submitted_at = (new Date()).getTime()
       
       let data = {
@@ -3567,18 +3597,20 @@ let Confused = {
       //console.log(data)
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
-      console.log(result) // for test
-      if (typeof(result) !== 1) {
+      //console.log(result) // for test
+      if (result !== 1) {
         throw 'Update failed'
         return false  // 新增失敗
       }
       
       //this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
-      this.rangy.reloadMyHighlights()
+      //this.rangy.reloadMyHighlights()
+      this.$emit('reloadMyHighlights')
       this.$emit('update')
     },
     writeLater: async function () {
       let data = {
+        id: this.id,
         notes: {
           'question': this.question,
           'answer': this.answer
@@ -3593,7 +3625,7 @@ let Confused = {
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
       //console.log(id) // for test
-      if (typeof(result) !== 1) {
+      if (result !== 1) {
         throw 'Update failed'
         return false  // 新增失敗
       }
@@ -4598,25 +4630,45 @@ let ResourceSearch = {
 
       //window.open(url, '_blank')
       //window.open(url, windowname, "resizable=no, toolbar=no, scrollbars=no, menubar=no, status=no, directories=no, width=" + w + ", height=" + h + ", left=" + x + ", top=" + y)
-      this._popupCenter(url, '_blank', 800, 600)
+      
+      let ratio = 0.8
+      
+      
+      this._popupCenter(url, '_blank', screen.availWidth * ratio, screen.availHeight * ratio)
     },
     _popupCenter: function (url, title, w, h) {
-      // Fixes dual-screen position                         Most browsers      Firefox
-      var dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : window.screenX;
-      var dualScreenTop = window.screenTop !== undefined ? window.screenTop : window.screenY;
+      var userAgent = navigator.userAgent,
+      mobile = function() {
+        return /\b(iPhone|iP[ao]d)/.test(userAgent) ||
+          /\b(iP[ao]d)/.test(userAgent) ||
+          /Android/i.test(userAgent) ||
+          /Mobile/i.test(userAgent);
+      },
+      screenX = typeof window.screenX != 'undefined' ? window.screenX : window.screenLeft,
+      screenY = typeof window.screenY != 'undefined' ? window.screenY : window.screenTop,
+      outerWidth = typeof window.outerWidth != 'undefined' ? window.outerWidth : document.documentElement.clientWidth,
+      outerHeight = typeof window.outerHeight != 'undefined' ? window.outerHeight : document.documentElement.clientHeight - 22,
+      targetWidth = mobile() ? null : w,
+      targetHeight = mobile() ? null : h,
+      V = screenX < 0 ? window.screen.width + screenX : screenX,
+      left = parseInt(V + (outerWidth - targetWidth) / 2, 10),
+      right = parseInt(screenY + (outerHeight - targetHeight) / 2.5, 10),
+      features = [];
+  if (targetWidth !== null) {
+    features.push('width=' + targetWidth);
+  }
+  if (targetHeight !== null) {
+    features.push('height=' + targetHeight);
+  }
+  features.push('left=' + left);
+  features.push('top=' + right);
+  features.push('scrollbars=1');
 
-      var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
-      var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+  var newWindow = window.open(url, title, features.join(','));
 
-      var systemZoom = width / window.screen.availWidth;
-      var left = (width - w) / 2 / systemZoom + dualScreenLeft
-      var top = (height - h) / 2 / systemZoom + dualScreenTop
-      var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w / systemZoom + ', height=' + h / systemZoom + ', top=' + top + ', left=' + left);
-
-      // Puts focus on the newWindow
-      if (window.focus) {
-        newWindow.focus();
-      }
+  if (window.focus) {
+    newWindow.focus();
+  }
     }
   } // methods
 }
@@ -5102,7 +5154,7 @@ let AnnotationList = {
       this.findUser = null
       this.findType = null
     },
-    reload () {
+    reload: async function () {
       this.annotations = []
       this.page = 0
       this.noMore = false
@@ -5111,8 +5163,8 @@ let AnnotationList = {
       this.filteredPage = 0
       this.filteredNoMore = false
       
-      this.loadInit(false)
-      this.loadFilter()
+      await this.loadInit(false)
+      await this.loadFilter()
       //console.log('do reload')
     },
     hoverToggle (annotation) {
@@ -5150,12 +5202,15 @@ let AnnotationList = {
       //this.rangy.removeHighlightByAnnotation(this.annotationInstance)
       this.onUpdate()
     },
-    onUpdate () {
-      this.reload()
+    onUpdate: async function () {
+      await this.reload()
       //this.annotations = this.annotations.filter(annotation => annotation !== (this.annotationInstance))
       //this.filteredAnnotations = this.filteredAnnotations.filter(annotation => annotation !== (this.annotationInstance))
       
       this.annotationInstance = null
+      if (this.annotations.length < 2) {
+        this.$emit('close')
+      }
     }
   } // methods
 }

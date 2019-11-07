@@ -38,6 +38,12 @@ let AnnotationItem = {
         classNames = 'annotation-item-compact'
       }
       return classNames
+    },
+    note () {
+      //console.log(this.annotation.notes)
+      return this.annotation.notes.map(note => {
+        return note.note
+      }).join(' ')
     }
   },
   watch: {

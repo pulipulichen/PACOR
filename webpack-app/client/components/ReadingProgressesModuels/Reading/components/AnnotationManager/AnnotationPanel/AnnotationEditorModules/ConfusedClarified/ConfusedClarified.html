@@ -10,6 +10,7 @@
                      v-bind:config="config"
                      v-bind:status="status"
                      v-bind:lib="lib"
+                     v-if="!isQuestionSubmitted"
                      v-on:selectQuestion="selectQuestion"></question-template>
 
   <HTMLEditor ref="QuestionEditor"
@@ -74,12 +75,13 @@
         <button type="button"
                 class="ui button"
                 v-on:click="writeLater"
-                v-if="isQuestionSubmitted">
+                v-if="isQuestionSubmitted && !isAnswerSubmitted">
           {{ $t('WRTIE LATER') }}  
         </button>
         
         <button type="button"
                 class="ui button"
+                v-bind:class="{'disabled': (answer === '')}"
                 v-on:click="submitAnswer"
                 v-if="isQuestionSubmitted">
           {{ $t('SAVE ANSWER') }}  

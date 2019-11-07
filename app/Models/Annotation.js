@@ -21,8 +21,7 @@ class Annotation extends Model {
     this.addTrait('Annotation/AnnotationFind')
     this.addTrait('Annotation/AnnotationPermission')
     this.addTrait('Annotation/AnnotationAnchorPositions')
-    
-    this.addHook('afterFetch', 'AnnotationNoteHook.getNote')
+    //this.addTrait('Annotation/AnnotationNote')
     
   } // static boot () {
   
@@ -43,6 +42,7 @@ class Annotation extends Model {
   
   notes () {
     return this.hasMany('App/Models/AnnotationNote')
+            .orderBy('created_at', 'asc')
   }
   
   rates () {

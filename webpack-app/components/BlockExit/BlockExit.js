@@ -18,6 +18,7 @@ let BlockExit = {
     }
   },
   created: function () {
+    return // for test
     window.addEventListener('beforeunload', listener, true)
   },
   destroyed: function () {

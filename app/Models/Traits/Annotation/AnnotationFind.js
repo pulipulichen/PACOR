@@ -68,6 +68,7 @@ class AnnotationFind {
                 .orderBy('updated_at_unixms', 'desc')
 
         let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
+        //console.log(types)
         query.whereIn('type', types)
 
         //console.log(afterTime, typeof(afterTime))
@@ -104,6 +105,10 @@ class AnnotationFind {
                 //.whereRaw('user_id = ?', [user.primaryKeyValue])
                 .with('anchorPositions')
                 .orderBy('updated_at_unixms', 'desc')
+
+        let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
+        //console.log(types)
+        query.whereIn('type', types)
 
         if (withCount === true) {
           query.withCount('rates')

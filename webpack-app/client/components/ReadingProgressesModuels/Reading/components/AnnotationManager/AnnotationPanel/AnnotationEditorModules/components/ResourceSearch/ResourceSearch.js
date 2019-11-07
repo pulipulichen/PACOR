@@ -68,25 +68,45 @@ let ResourceSearch = {
 
       //window.open(url, '_blank')
       //window.open(url, windowname, "resizable=no, toolbar=no, scrollbars=no, menubar=no, status=no, directories=no, width=" + w + ", height=" + h + ", left=" + x + ", top=" + y)
-      this._popupCenter(url, '_blank', 800, 600)
+      
+      let ratio = 0.8
+      
+      
+      this._popupCenter(url, '_blank', screen.availWidth * ratio, screen.availHeight * ratio)
     },
     _popupCenter: function (url, title, w, h) {
-      // Fixes dual-screen position                         Most browsers      Firefox
-      var dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : window.screenX;
-      var dualScreenTop = window.screenTop !== undefined ? window.screenTop : window.screenY;
+      var userAgent = navigator.userAgent,
+      mobile = function() {
+        return /\b(iPhone|iP[ao]d)/.test(userAgent) ||
+          /\b(iP[ao]d)/.test(userAgent) ||
+          /Android/i.test(userAgent) ||
+          /Mobile/i.test(userAgent);
+      },
+      screenX = typeof window.screenX != 'undefined' ? window.screenX : window.screenLeft,
+      screenY = typeof window.screenY != 'undefined' ? window.screenY : window.screenTop,
+      outerWidth = typeof window.outerWidth != 'undefined' ? window.outerWidth : document.documentElement.clientWidth,
+      outerHeight = typeof window.outerHeight != 'undefined' ? window.outerHeight : document.documentElement.clientHeight - 22,
+      targetWidth = mobile() ? null : w,
+      targetHeight = mobile() ? null : h,
+      V = screenX < 0 ? window.screen.width + screenX : screenX,
+      left = parseInt(V + (outerWidth - targetWidth) / 2, 10),
+      right = parseInt(screenY + (outerHeight - targetHeight) / 2.5, 10),
+      features = [];
+  if (targetWidth !== null) {
+    features.push('width=' + targetWidth);
+  }
+  if (targetHeight !== null) {
+    features.push('height=' + targetHeight);
+  }
+  features.push('left=' + left);
+  features.push('top=' + right);
+  features.push('scrollbars=1');
 
-      var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
-      var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+  var newWindow = window.open(url, title, features.join(','));
 
-      var systemZoom = width / window.screen.availWidth;
-      var left = (width - w) / 2 / systemZoom + dualScreenLeft
-      var top = (height - h) / 2 / systemZoom + dualScreenTop
-      var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w / systemZoom + ', height=' + h / systemZoom + ', top=' + top + ', left=' + left);
-
-      // Puts focus on the newWindow
-      if (window.focus) {
-        newWindow.focus();
-      }
+  if (window.focus) {
+    newWindow.focus();
+  }
     }
   } // methods
 }
