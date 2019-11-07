@@ -39,7 +39,8 @@ let Confused = {
       answerReset: answer,
       isAnswerEdited: false,
       properties: properties,
-      recommandResourceSearchIndex: 0
+      recommandResourceSearchIndex: 0,
+      id: null
       //public: 
     }
   },
@@ -65,6 +66,7 @@ let Confused = {
       return (this.isAnswerDifferent || this.isAnswerDifferent)
     },
     isQuestionSubmitted () {
+      //console.log(this.properties)
       return (this.properties !== null 
               && typeof(this.properties) === 'object'
               && typeof(this.properties.question_submitted_at) === 'number')
@@ -99,17 +101,26 @@ let Confused = {
         return height
       }
       else {
-        return this.computedAnswerEditorHeight
+        let height
+        if (this.enableCollaboration === true
+                && this.lib.style.isStackWidth()) {
+          height = (this.lib.style.getClientHeight() / 2)
+          height = `calc(${height}px - 23em)`
+        } else {
+          height = `calc(${this.heightPX}px - 23em)`
+        }
+        //console.log(height)
+        return height
       }
     },
     computedAnswerEditorHeight () {
       let height
       if (this.enableCollaboration === true
               && this.lib.style.isStackWidth()) {
-        height = (this.lib.style.getClientHeight() / 3)
-        height = `calc(${height}px - 6em)`
+        height = (this.lib.style.getClientHeight() / 2)
+        height = `calc(${height}px - 10em)`
       } else {
-        height = `calc(${this.heightPX}px - 12em)`
+        height = `calc(${this.heightPX}px - 21em)`
       }
       //console.log(height)
       return height
@@ -132,6 +143,10 @@ let Confused = {
       if (anchorText === undefined) {
         anchorText = ''
       }
+      
+      // 刪除標點符號
+      anchorText = this.lib.StringHelper.removePunctuations(anchorText)
+      
       //console.log(anchorText)
       return anchorText
     },
@@ -174,12 +189,14 @@ let Confused = {
       
       let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
       console.log(id) // for test
+      
       if (typeof(id) !== 'number') {
         throw 'Create failed'
         return false  // 新增失敗
       }
+      this.id = id
       
-      this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
+      this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds, false)
     },
     submitAnswer: async function () {
       let type = 'Clearified'
@@ -187,6 +204,7 @@ let Confused = {
       this.properties.answer_submitted_at = (new Date()).getTime()
       
       let data = {
+        id: this.id,
         type: type,
         notes: {
           'question': this.question,

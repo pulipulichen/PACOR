@@ -413,7 +413,7 @@ let RangyManager = {
       }
       return this
     },
-    highlightPinnedSelection: function (className, anchorParagraphIds) {
+    highlightPinnedSelection: function (className, anchorParagraphIds, doUnpin) {
       if (this.highlightClasses.indexOf(className) === -1
               || this.selectionSaved === null) {
         return false
@@ -490,11 +490,14 @@ let RangyManager = {
         containerElementId: anchorParagraphIds
       })
       //console.log(highlight[0])
-      let selection = rangy.getSelection()
-      selection.removeAllRanges()
       
-      this.selectionSaved = null
-      this.unpinSelection()
+      if (doUnpin !== false) {
+        let selection = rangy.getSelection()
+        selection.removeAllRanges()
+
+        this.selectionSaved = null
+        this.unpinSelection()
+      }
       
       //this.selection.highlight = highlight
       

@@ -27,7 +27,7 @@
                      v-bind:status="status"
                      v-bind:lib="lib"
                      v-bind:propSelectIndex="recommandResourceSearchIndex"
-                     v-bind:anchorText="anchorText"></resource-search>
+                     v-bind:propAnchorText="anchorText"></resource-search>
 
     <HTMLEditor ref="AnswerEditor"
                 v-bind:contents="answer"
@@ -41,6 +41,9 @@
 
   <div class="ui one column grid annotation-panel-buttons"
        v-if="isEditable">
+    
+    <block-exit></block-exit>
+    
     <div v-bind:class="computedButtonsClass">
 
       <!--

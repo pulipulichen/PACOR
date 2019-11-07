@@ -8,6 +8,8 @@ const AnnotationModel = use('App/Models/Annotation')
 const Cache = use('Cache')
 const Config = use('Config')
 
+const { HttpException } = use('@adonisjs/generic-exceptions') 
+
 class Annotation extends WebpageUserBaseController {
   constructor () {
     super('Annotation')

@@ -4,6 +4,9 @@
       <label>
         {{ $t('Find your answer') }}:
       </label>
+      <input type="text" v-model="anchorText" />
+    </div>
+    <div class="inline field">
       <select v-model="selectIndex">
         <option v-for="(resource, i) in resources" 
                 v-bind:value="i">

@@ -4007,7 +4007,7 @@ let StringHelper = {
   /**
    * https://www.thecodedeveloper.com/count-word-contain-utf-8-character-in-javascript/
    */
-  countWords(string) {
+  countWords (string) {
     if (typeof(string) !== 'string') {
       return 0
     }
@@ -4043,6 +4043,13 @@ let StringHelper = {
     }
     count += Math.ceil(pnkCounter/3) + Math.ceil(thiCounter/4);
     return count;
+  },
+  removePunctuations (s) {
+    s = s.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()。，、；：「」『』（）—？！…《》～〔〕［］・　]/g, " ")
+    while (s.indexOf('  ') > -1) {
+      s = s.replace(/  /g, ' ')
+    }
+    return s
   }
 }
 

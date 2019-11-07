@@ -1,9 +1,10 @@
 let ResourceSearch = {
-  props: ['lib', 'status', 'config', 'propSelectIndex', 'anchorText'],
+  props: ['lib', 'status', 'config', 'propSelectIndex', 'propAnchorText'],
   data() {
     this.$i18n.locale = this.config.locale
     return {
-      selectIndex: this.propSelectIndex
+      selectIndex: this.propSelectIndex,
+      anchorText: this.propAnchorText
     }
   },
 //  components: {
@@ -51,6 +52,9 @@ let ResourceSearch = {
   watch: {
     propSelectIndex (propSelectIndex) {
       this.selectIndex = propSelectIndex
+    },
+    propAnchorText (propAnchorText) {
+      this.anchorText = propAnchorText
     } 
   },
 //  mounted() {
