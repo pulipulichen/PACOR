@@ -166,10 +166,12 @@ let Confused = {
       this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
     },
     submitAnwser: async function () {
+      let type = 'Clearified'
+      this.annotationInstance.type = type
       this.properties.answer_submitted_at = (new Date()).getTime()
       
       let data = {
-        type: 'Clearified',
+        type: type,
         notes: {
           'question': this.question,
           'answer': this.answer

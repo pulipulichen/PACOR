@@ -28,6 +28,10 @@ class AnnotationCreate {
       //instance.end_pos = data.endPos
       instance.user_id = user.primaryKeyValue
       instance.type = data.type
+      if (typeof(data.properties) === 'object'
+              && data.properties !== null) {
+        instance.properties = data.properties
+      }
 
       instance = await this._setPermission(webpage, user, data, instance)
       //instance = await this._setPermissionTest(webpage, user, data, instance)
