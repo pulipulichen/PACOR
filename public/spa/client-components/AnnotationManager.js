@@ -825,7 +825,8 @@ var render = function() {
         attrs: {
           contents: _vm.question,
           editable: _vm.isEditable,
-          height: _vm.computedQuestionEditorHeight
+          height: _vm.computedQuestionEditorHeight,
+          placeholder: _vm.questionPlaceholder
         },
         on: {
           input: function(c) {
@@ -853,7 +854,8 @@ var render = function() {
               attrs: {
                 contents: _vm.answer,
                 editable: _vm.editable,
-                height: _vm.computedAnswerEditorHeight
+                height: _vm.computedAnswerEditorHeight,
+                placeholder: _vm.answerPlaceholder
               },
               on: {
                 input: function(c) {
@@ -1005,7 +1007,20 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _vm._v('"editorPlaceholder">'),
+      _c("HTMLEditor", {
+        ref: "editor",
+        attrs: {
+          contents: _vm.note,
+          editable: _vm.editable,
+          height: _vm.computedEditorHeight,
+          placeholder: _vm.editorPlaceholder
+        },
+        on: {
+          input: function(c) {
+            _vm.note = c
+          }
+        }
+      }),
       _vm._v(" "),
       _vm.editable
         ? _c(
@@ -3476,6 +3491,14 @@ let Confused = {
     },
     isEditable () {
       return _commons_CommonComputed__WEBPACK_IMPORTED_MODULE_1__["default"].isEditable(this)
+    },
+    questionPlaceholder () {
+      let config = this.status.readingConfig.annotationTypeModules['ConfusedClarified']
+      return this.$t(config.questionPlaceholder)
+    },
+    answerPlaceholder () {
+      let config = this.status.readingConfig.annotationTypeModules['ConfusedClarified']
+      return this.$t(config.answerPlaceholder)
     }
   },
   watch: {

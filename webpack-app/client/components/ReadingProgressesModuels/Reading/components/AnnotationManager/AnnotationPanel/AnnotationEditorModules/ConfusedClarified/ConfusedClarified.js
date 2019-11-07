@@ -152,6 +152,14 @@ let Confused = {
     },
     isEditable () {
       return CommonComputed.isEditable(this)
+    },
+    questionPlaceholder () {
+      let config = this.status.readingConfig.annotationTypeModules['ConfusedClarified']
+      return this.$t(config.questionPlaceholder)
+    },
+    answerPlaceholder () {
+      let config = this.status.readingConfig.annotationTypeModules['ConfusedClarified']
+      return this.$t(config.answerPlaceholder)
     }
   },
   watch: {

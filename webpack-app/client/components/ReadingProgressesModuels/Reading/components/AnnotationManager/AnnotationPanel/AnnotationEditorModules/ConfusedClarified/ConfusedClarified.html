@@ -16,7 +16,8 @@
               v-bind:contents="question"
               v-on:input="(c) => {question = c; isQuestionEdited = true}"
               v-bind:editable="isEditable"
-              v-bind:height="computedQuestionEditorHeight"></HTMLEditor>
+              v-bind:height="computedQuestionEditorHeight"
+              v-bind:placeholder="questionPlaceholder"></HTMLEditor>
 
   <!-- ====================================== -->
 
@@ -33,7 +34,8 @@
                 v-bind:contents="answer"
                 v-on:input="(c) => {answer = c; isAnswerEdited = true}"
                 v-bind:editable="editable"
-                v-bind:height="computedAnswerEditorHeight"></HTMLEditor>
+                v-bind:height="computedAnswerEditorHeight"
+                v-bind:placeholder="answerPlaceholder"></HTMLEditor>
 
   </template>
 

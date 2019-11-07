@@ -37,17 +37,16 @@ let HTMLEditor = {
         }
       }
       
+      if (typeof(this.placeholder) === 'string') {
+        options.placeholder = this.placeholder
+      }
+      
       this.editor = window.$(this.$refs.editor)
       this.editor.summernote(options)
       
       //console.log(this.contents)
       if (typeof(this.contents) === 'string') {
         this.html(this.contents)
-      }
-      if (typeof(this.placeholder) === 'string') {
-        this.editor.summernote({
-          placeholder: this.placeholder
-        })
       }
       
       //$('<div class="editor-container"><div id="editor"><h1>Hello Summernote</h1></div></div>').appendTo('body')
