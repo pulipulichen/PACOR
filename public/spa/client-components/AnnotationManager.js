@@ -989,7 +989,7 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("HTMLEditor", {
-        ref: "editor",
+        ref: "questionEditor",
         attrs: {
           contents: _vm.note,
           editable: _vm.editable,
@@ -997,7 +997,8 @@ var render = function() {
         },
         on: {
           input: function(c) {
-            _vm.note = c
+            _vm.question = c
+            _vm.isQuestionEdited = true
           }
         }
       }),
@@ -3734,6 +3735,7 @@ let Confused = {
     return {
       question: question,
       questionReset: question,
+      isQuestionEdited: false,
       answer: answer,
       answerReset: answer,
       properties: properties
@@ -3848,6 +3850,15 @@ let Confused = {
     },
     hide () {
       this.$emit('hide', true)
+    },
+    selectQuestion (template) {
+      if (this.isQuestionEdited === false) {
+        if (!window.confirm($t('New question will overwrite your question. Are you sure?'))) {
+          return false
+        }
+      }
+      this.$refs.questionEditor.html(template)
+      this.isQuestionEdited = false
     }
   } // methods
 }
