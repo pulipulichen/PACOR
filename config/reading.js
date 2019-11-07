@@ -89,7 +89,7 @@ module.exports = {
         },
         {
           'name': 'Find answer in Google',
-          'urlPattern': 'https://www.google.com/search?q={questionText}'
+          'urlPattern': 'https://www.google.com/search?q={anchorText}'
         }
       ],
     },

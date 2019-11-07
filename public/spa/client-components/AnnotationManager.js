@@ -1336,15 +1336,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ExternalResource ui form" }, [
-    _c("div", { staticClass: "fields" }, [
-      _c("div", { staticClass: "inline field" }, [
-        _c("label", [
+  return _c(
+    "div",
+    { staticClass: "ExternalResource ui form middle aligned column grid" },
+    [
+      _c("div", { staticClass: "three wide column" }, [
+        _c("label", { on: { click: _vm.focus } }, [
           _vm._v(
             "\r\n        " + _vm._s(_vm.$t("Find your answer")) + ":\r\n      "
           )
-        ]),
-        _vm._v(" "),
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "three wide column" }, [
         _c("input", {
           directives: [
             {
@@ -1354,6 +1358,7 @@ var render = function() {
               expression: "anchorText"
             }
           ],
+          ref: "input",
           attrs: { type: "text" },
           domProps: { value: _vm.anchorText },
           on: {
@@ -1367,7 +1372,7 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "inline field" }, [
+      _c("div", { staticClass: "eight wide column" }, [
         _c(
           "select",
           {
@@ -1379,6 +1384,7 @@ var render = function() {
                 expression: "selectIndex"
               }
             ],
+            staticClass: "ui fluid input",
             on: {
               change: function($event) {
                 var $$selectedVal = Array.prototype.filter
@@ -1408,11 +1414,11 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "inline field" }, [
+      _c("div", { staticClass: "two wide column inline field" }, [
         _c(
           "button",
           {
-            staticClass: "ui mini button",
+            staticClass: "ui fluid button",
             class: _vm.computedButtonClass,
             attrs: { type: "button" },
             on: { click: _vm.doSearch }
@@ -1420,8 +1426,8 @@ var render = function() {
           [_vm._v("\r\n        " + _vm._s(_vm.$t("SEARCH")) + "\r\n      ")]
         )
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -4576,6 +4582,10 @@ let ResourceSearch = {
       return this.status.readingConfig.annotationTypeModules['ConfusedClarified'].externalResourceSearches
     },
     computedButtonClass() {
+      if (this.anchorText === '') {
+        return 'disabled'
+      }
+      
       let i = this.selectIndex
       if (i === null || i === undefined) {
         return 'disabled'
@@ -4669,6 +4679,9 @@ let ResourceSearch = {
   if (window.focus) {
     newWindow.focus();
   }
+    },
+    focus () {
+      this.$refs.input.focus()
     }
   } // methods
 }

@@ -14,6 +14,10 @@ let ResourceSearch = {
       return this.status.readingConfig.annotationTypeModules['ConfusedClarified'].externalResourceSearches
     },
     computedButtonClass() {
+      if (this.anchorText === '') {
+        return 'disabled'
+      }
+      
       let i = this.selectIndex
       if (i === null || i === undefined) {
         return 'disabled'
@@ -107,6 +111,9 @@ let ResourceSearch = {
   if (window.focus) {
     newWindow.focus();
   }
+    },
+    focus () {
+      this.$refs.input.focus()
     }
   } // methods
 }
