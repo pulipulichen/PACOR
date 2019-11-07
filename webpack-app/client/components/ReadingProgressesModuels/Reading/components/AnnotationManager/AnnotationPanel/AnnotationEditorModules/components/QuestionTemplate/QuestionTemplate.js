@@ -21,8 +21,8 @@ let QuestionTemplate = {
   },
   methods: {
     onSelect () {
-      let template = this.questions[this.selectIndex].template
-      this.$emit('selectQuestion', template)
+      let question = this.questions[this.selectIndex]
+      this.$emit('selectQuestion', question)
     }
   } // methods
 }

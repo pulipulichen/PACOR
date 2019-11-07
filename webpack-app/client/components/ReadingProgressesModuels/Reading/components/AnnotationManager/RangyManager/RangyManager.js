@@ -360,6 +360,9 @@ let RangyManager = {
       return this.selection
     },
     _getAnchorPositionFromHighlight (highlight) {
+      if (highlight === undefined) {
+        return ''
+      }
       let start_pos = highlight.characterRange.start
       let end_pos = highlight.characterRange.end
 

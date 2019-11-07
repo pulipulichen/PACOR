@@ -821,7 +821,7 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("HTMLEditor", {
-        ref: "questionEditor",
+        ref: "QuestionEditor",
         attrs: {
           contents: _vm.question,
           editable: _vm.isEditable,
@@ -3522,15 +3522,18 @@ let Confused = {
       this.$emit('hide', true)
     },
     selectQuestion (question) {
-      if (this.isQuestionEdited === false) {
+      if (this.isQuestionEdited === true
+        && this.question !== '') {
         if (!window.confirm(this.$t('New question will overwrite your question. Are you sure?'))) {
           return false
         }
       }
-      
+      //console.log(question)
       let q = question.template.replace(`{anchorText}`, '{0}')
       q = this.$t(q, [this.anchorText])
-      this.$refs.questionEditor.html(q)
+      setTimeout(() => {
+        this.$refs.QuestionEditor.html(q)
+      }, 0)
       this.isQuestionEdited = false
       this.recommandResourceSearchIndex = question.searchIndex
     }
@@ -4321,8 +4324,8 @@ let QuestionTemplate = {
   },
   methods: {
     onSelect () {
-      let template = this.questions[this.selectIndex].template
-      this.$emit('selectQuestion', template)
+      let question = this.questions[this.selectIndex]
+      this.$emit('selectQuestion', question)
     }
   } // methods
 }
@@ -6183,6 +6186,9 @@ let RangyManager = {
       return this.selection
     },
     _getAnchorPositionFromHighlight (highlight) {
+      if (highlight === undefined) {
+        return ''
+      }
       let start_pos = highlight.characterRange.start
       let end_pos = highlight.characterRange.end
 

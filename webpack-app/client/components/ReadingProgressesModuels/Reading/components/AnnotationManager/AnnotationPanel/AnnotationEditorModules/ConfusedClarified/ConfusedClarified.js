@@ -226,15 +226,18 @@ let Confused = {
       this.$emit('hide', true)
     },
     selectQuestion (question) {
-      if (this.isQuestionEdited === false) {
+      if (this.isQuestionEdited === true
+        && this.question !== '') {
         if (!window.confirm(this.$t('New question will overwrite your question. Are you sure?'))) {
           return false
         }
       }
-      
+      //console.log(question)
       let q = question.template.replace(`{anchorText}`, '{0}')
       q = this.$t(q, [this.anchorText])
-      this.$refs.questionEditor.html(q)
+      setTimeout(() => {
+        this.$refs.QuestionEditor.html(q)
+      }, 0)
       this.isQuestionEdited = false
       this.recommandResourceSearchIndex = question.searchIndex
     }
