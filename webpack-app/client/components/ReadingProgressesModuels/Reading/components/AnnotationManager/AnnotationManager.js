@@ -86,7 +86,7 @@ let AnnotationManager = {
   mounted () {
     this.loadHighlights()
     
-    this._testPanel()
+    //this._testPanel()
   },
   methods: {
     _testPanel () {

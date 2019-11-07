@@ -1872,7 +1872,8 @@ var render = function() {
         {
           ref: "fab",
           attrs: {
-            mainBtnColor: "#E6AD07",
+            mainBtnColor: "white",
+            mainColor: "#666",
             size: "big",
             iconType: "SemanticUI",
             activeIcon: "angle down",
@@ -2602,7 +2603,7 @@ let AnnotationManager = {
   mounted () {
     this.loadHighlights()
     
-    this._testPanel()
+    //this._testPanel()
   },
   methods: {
     _testPanel () {

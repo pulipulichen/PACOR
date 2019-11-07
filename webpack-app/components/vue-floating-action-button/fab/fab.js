@@ -20,6 +20,10 @@ export default {
       type: String,
       default: '#E64C3B'
     },
+    mainColor: {
+      type: String,
+      default: '#FFFFFF'
+    },
     activeIcon: {
       type: String,
       //default: 'add'
@@ -236,6 +240,7 @@ export default {
         transitionTimingFunction: /,/.test(this.fabAnimateBezier) ? `cubic-bezier(${this.fabAnimateBezier})` : this.fabAnimateBezier,
         zIndex: this.zIndex,
         background: this.mainBtnColor,
+        color: this.mainColor,
         boxShadow: this.shadow ? '0px 2px 8px #666' : '',
       }
     },
