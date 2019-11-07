@@ -87,7 +87,16 @@ let Confused = {
     },
     computedQuestionEditorHeight () {
       if (this.isQuestionSubmitted === false) {
-        return CommonComputed.computedEditorHeight(this)
+        let height
+        if (this.enableCollaboration === true
+                && this.lib.style.isStackWidth()) {
+          height = (this.lib.style.getClientHeight() / 2)
+          height = `calc(${height}px - 14em)`
+        } else {
+          height = `calc(${this.heightPX}px - 14em)`
+        }
+        //console.log(height)
+        return height
       }
       else {
         return this.computedAnswerEditorHeight
@@ -112,12 +121,18 @@ let Confused = {
       return this.status.readingConfig.annotationTypeModules[this.annotationModule]
     },
     anchorText () {
+      let anchorText
       if (this.annotationInstance === null) {
-        return this.rangy.getPinSelectionAnchorText()
+        anchorText = this.rangy.getPinSelectionAnchorText()
       }
       else {
-        return this.rangy.getHoverAnchorText()
+        anchorText = this.rangy.getHoverAnchorText()
       }
+      
+      if (anchorText === undefined) {
+        anchorText = ''
+      }
+      return anchorText
     },
     isEditable () {
       return CommonComputed.isEditable(this)
@@ -226,8 +241,15 @@ let Confused = {
       this.$emit('hide', true)
     },
     selectQuestion (question) {
+      if (!this.$refs.QuestionEditor) {
+        setTimeout(() => {
+          this.selectQuestion(question)
+        }, 100)
+        return false
+      }
+      //console.log([this.isQuestionEdited, this.question])
       if (this.isQuestionEdited === true
-        && this.question !== '') {
+          && this.question !== '') {
         if (!window.confirm(this.$t('New question will overwrite your question. Are you sure?'))) {
           return false
         }
@@ -235,9 +257,7 @@ let Confused = {
       //console.log(question)
       let q = question.template.replace(`{anchorText}`, '{0}')
       q = this.$t(q, [this.anchorText])
-      setTimeout(() => {
-        this.$refs.QuestionEditor.html(q)
-      }, 0)
+      this.$refs.QuestionEditor.html(q)
       this.isQuestionEdited = false
       this.recommandResourceSearchIndex = question.searchIndex
     }

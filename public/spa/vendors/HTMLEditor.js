@@ -249,11 +249,13 @@ let HTMLEditor = {
       //})
     },
     _callbacksOnChange (contents) {
-      if (contents === '<p><br></p>') {
+      if (contents === '<p><br></p>'
+          || contents === '<p></p>') {
         contents = ''
       }
       
-      if (contents.indexOf('<p>') === -1
+      if (contents !== '' 
+              && contents.indexOf('<p>') === -1
               && contents.startsWith('<') === false
               && contents.startsWith('>') === false) {
         contents = `<p>${contents}</p>`
