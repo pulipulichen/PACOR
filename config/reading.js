@@ -64,10 +64,6 @@ module.exports = {
     'ConfusedClarified': {
       'questionPlaceholder': 'Question placeholder',
       'answerPlaceholder': 'Answer placeholder',
-      'instruction': {
-        'summary': '你有什麼不懂的地方？',
-        'url': '/annotation-instruction/ConfusedClarified.html'
-      },
       'questionMinWords': 1,
       'answerMinWords': 1,
       /**
@@ -99,6 +95,10 @@ module.exports = {
     },
     'Confused': {
       'addable': true,
+      'instruction': {
+        'summary': '你有什麼不懂的地方？',
+        'url': '/annotation-instruction/ConfusedClarified.html'
+      },
       "style": {
         //'highlight': 'border-bottom: 1px solid green',
         'highlight': {
@@ -115,6 +115,10 @@ module.exports = {
     },
     'Clarified': {
       'addable': false,
+      'instruction': {
+        'summary': '你有什麼不懂的地方？',
+        'url': '/annotation-instruction/ConfusedClarified.html'
+      },
       "style": {
         //'highlight': 'border-bottom: 1px solid green',
         'highlight': {

@@ -227,7 +227,7 @@ let Confused = {
     },
     selectQuestion (question) {
       if (this.isQuestionEdited === false) {
-        if (!window.confirm($t('New question will overwrite your question. Are you sure?'))) {
+        if (!window.confirm(this.$t('New question will overwrite your question. Are you sure?'))) {
           return false
         }
       }

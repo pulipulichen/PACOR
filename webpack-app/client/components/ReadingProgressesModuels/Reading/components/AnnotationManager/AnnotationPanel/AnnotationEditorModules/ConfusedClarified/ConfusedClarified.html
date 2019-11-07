@@ -13,7 +13,7 @@
                      v-on:selectQuestion="selectQuestion"></question-template>
 
   <HTMLEditor ref="questionEditor"
-              v-bind:contents="note"
+              v-bind:contents="question"
               v-on:input="(c) => {question = c; isQuestionEdited = true}"
               v-bind:editable="isEditable"
               v-bind:height="computedQuestionEditorHeight"></HTMLEditor>
@@ -83,7 +83,7 @@
         <button type="button"
                   class="ui red button"
                   v-on:click="deleteAnnotation"
-                  v-if="isQuestionSubmiited">
+                  v-if="isQuestionSubmitted">
             {{ $t('DELETE') }}  
         </button>
         

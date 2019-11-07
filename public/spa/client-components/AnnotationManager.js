@@ -823,7 +823,7 @@ var render = function() {
       _c("HTMLEditor", {
         ref: "questionEditor",
         attrs: {
-          contents: _vm.note,
+          contents: _vm.question,
           editable: _vm.isEditable,
           height: _vm.computedQuestionEditorHeight
         },
@@ -941,7 +941,7 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.isQuestionSubmiited
+                  _vm.isQuestionSubmitted
                     ? _c(
                         "button",
                         {
@@ -3523,7 +3523,7 @@ let Confused = {
     },
     selectQuestion (question) {
       if (this.isQuestionEdited === false) {
-        if (!window.confirm($t('New question will overwrite your question. Are you sure?'))) {
+        if (!window.confirm(this.$t('New question will overwrite your question. Are you sure?'))) {
           return false
         }
       }
@@ -5849,7 +5849,7 @@ let RangyManager = {
       
       hoverHighlighter: null,
       hoverAnnotation: null,
-      hoverAnnotationLock: false,
+      hoverAnnotationLock: false
     }
   },  // data() {
   computed: {
@@ -6147,21 +6147,10 @@ let RangyManager = {
       //console.log(highlights)
       this.selection.anchorPositions.forEach((position, i) => {
         let h = highlights[i]
+        let {start_pos, end_pos, anchor_text} = this._getAnchorPositionFromHighlight(h)
         
-        let start_pos = h.characterRange.start
-        let end_pos = h.characterRange.end
         position.start_pos = start_pos
         position.end_pos = end_pos
-        
-        let element = document.getElementById(h.containerElementId)
-        //console.log(element, h.containerElementId, i)
-        let anchor_text
-        if (start_pos > 0) {
-          anchor_text = element.innerText.slice(start_pos - 1, end_pos - 1)
-        }
-        else {
-          anchor_text = element.innerText.slice(0, end_pos - 1)
-        }
         position.anchor_text = anchor_text
         //console.log(anchor_text)
         //position.anchor_text = h.classApplier.toString()
@@ -6192,6 +6181,25 @@ let RangyManager = {
       //this.selection = null
       
       return this.selection
+    },
+    _getAnchorPositionFromHighlight (highlight) {
+      let start_pos = highlight.characterRange.start
+      let end_pos = highlight.characterRange.end
+
+      let element = document.getElementById(highlight.containerElementId)
+      //console.log(element, h.containerElementId, i)
+      let anchor_text
+      if (start_pos > 0) {
+        anchor_text = element.innerText.slice(start_pos - 1, end_pos - 1)
+      }
+      else {
+        anchor_text = element.innerText.slice(0, end_pos - 1)
+      }
+      return {
+        start_pos,
+        end_pos,
+        anchor_text
+      }
     },
     unpinSelection : function (restoreSelection) {
       //console.trace('unpinSelection')
@@ -6609,7 +6617,16 @@ let RangyManager = {
       this.hoverAnnotation = null
       return this
     },
-    
+    getHoverAnchorText () {
+      let highlight = this.hoverHighlighter.highlights[0]
+      let {anchor_text} = this._getAnchorPositionFromHighlight(highlight)
+      return anchor_text
+    },
+    getPinSelectionAnchorText () {
+      let highlight = this.selectionHighlighter.highlights[0]
+      let {anchor_text} = this._getAnchorPositionFromHighlight(highlight)
+      return anchor_text
+    },
     // -----------------------------------------------------------------
     
     /**

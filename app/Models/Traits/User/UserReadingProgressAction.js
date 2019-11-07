@@ -4,7 +4,6 @@ const ReadingProgress = use('App/Models/ReadingProgress')
 const Cache = use('Cache')
 
 class UserReadingProgressAction {
-
   register(Model) {
     Model.prototype.startReadingProgress = async function (webpage, stepName) {
       let time = (new Date()).getTime()
