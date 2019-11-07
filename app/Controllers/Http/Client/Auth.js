@@ -34,6 +34,7 @@ class Auth {
       user = user.first()
       await this._forceLogout(auth)
       await auth.loginViaId(user.id)
+      //console.log(user)
       let data = await this._getLoginedUserData(webpage, user)
       return data
     }
@@ -97,7 +98,9 @@ class Auth {
   
   async _getLoginedUserData (webpage, user) {
     let config = await webpage.getConfig()
+    //console.log(1, typeof(user.constuctor.name))
     await user.startReadingProgress(webpage)
+    //console.log(2)
     let readingProgresses = await user.getReadingProgressStatus(webpage)
     let userJSON = user.toJSON()
     //console.log(userJSON)
@@ -131,6 +134,7 @@ class Auth {
         await this._forceLogout(auth)
         return 0
       }
+      //console.log(4, user.id)
       let data = await this._getLoginedUserData(webpage, user)
       return data
     }

@@ -41,12 +41,6 @@ class User extends Model {
               || instance.display_name === '') {
         instance.display_name = instance.username
       }
-      //console.log('user', userInstance.avatar)
-      
-      this.addTrait('User/UserConfig')
-      this.addTrait('User/UserReadingProgressConfig')
-      this.addTrait('User/UserReadingProgressAction')
-      this.addTrait('User/UserGroup')
     })
     
     this.addHook('afterSave', async (instance) => {
@@ -57,6 +51,12 @@ class User extends Model {
     })
     
     this.addTrait('JSONCase', 'preference')
+    //console.log('user', userInstance.avatar)
+      
+    this.addTrait('User/UserConfig')
+    this.addTrait('User/UserReadingProgressConfig')
+    this.addTrait('User/UserReadingProgressAction')
+    this.addTrait('User/UserGroup')
   } // static boot () {
   
   static async findByNameInWebpage (webpage, username) {
