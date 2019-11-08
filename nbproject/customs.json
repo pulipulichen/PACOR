@@ -22,6 +22,7 @@
         "v-bind:query": {}
       }
     },
+    "clock": {},
     "i18n": {
       "attributes": {
         "src": {},

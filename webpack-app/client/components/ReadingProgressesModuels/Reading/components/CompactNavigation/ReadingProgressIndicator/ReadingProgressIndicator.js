@@ -1,0 +1,35 @@
+let ReadingProgressIndicator = {
+  data() {
+    return {
+      percent: 0
+    }
+  },
+  //computed: {
+  //},
+  mounted() {
+    window.addEventListener('scroll', this.calculateProgress)
+    window.addEventListener('resize', this.calculateProgress)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.calculateProgress)
+    window.removeEventListener('resize', this.calculateProgress)
+  },
+  methods: {
+    calculateProgress() {
+      let viewport = window.innerHeight
+      let middleViewport = viewport / 2
+
+      let page = document.body.scrollHeight
+      let scrollTop = window.scrollY
+
+      let min = middleViewport
+      let max = page - middleViewport
+      let scrollMiddle = scrollTop - middleViewport
+
+      this.percent = parseInt(((scrollMiddle - min) / (max - min) * 100), 10)
+      //ReadingProgressIndicator.data.percent = percent
+    }
+  }
+}
+
+export default ReadingProgressIndicator
