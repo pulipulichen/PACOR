@@ -1,6 +1,9 @@
+import $ from 'jquery'
+
 let ReadingProgressIndicator = {
   data() {
     return {
+      display: false,
       percent: 0
     }
   },
@@ -9,6 +12,14 @@ let ReadingProgressIndicator = {
   mounted() {
     window.addEventListener('scroll', this.calculateProgress)
     window.addEventListener('resize', this.calculateProgress)
+    
+    $(() => {
+      setTimeout(() => {
+        this.display = true
+        this.calculateProgress()
+      }, 1500)
+    })
+    this.calculateProgress()
   },
   destroyed() {
     window.removeEventListener('scroll', this.calculateProgress)
@@ -16,6 +27,9 @@ let ReadingProgressIndicator = {
   },
   methods: {
     calculateProgress() {
+      if (this.display === false) {
+        return ''
+      }
       let viewport = window.innerHeight
       let middleViewport = viewport / 2
       
@@ -38,7 +52,10 @@ let ReadingProgressIndicator = {
       }
       else if (p > 100) {
         p = 100
-      }
+      }      
+      
+      //console.log(p)
+      
       this.percent = p
       //ReadingProgressIndicator.data.percent = percent
     }

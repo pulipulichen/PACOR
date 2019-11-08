@@ -2,14 +2,24 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  width: calc(100vw - 2em);
+  z-index: 1;
+  //width: calc(100vw - 2em);
+  width: calc(100vw - 15px);
+  cursor: pointer;
+  padding-top: 2em;
+  //background-color: rgba(255,0,0,0.2);
+  
+  &> .grid {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
   
   .column {
     padding: 0 0.5em !important;
     //padding: 2em;
     
     &.left {
-      padding-left: 1.5em !important;
+      //padding-left: 1.5em !important;
     }
   }
   
@@ -23,7 +33,6 @@
   }
 }
 
-/*
 .vertical.menu {
   z-index: 103 !important;
   
@@ -66,6 +75,12 @@
   height: 100vh;
   background-color: rgba(255,255,255,0.7);
   z-index: 102;
+  cursor: pointer;
+  
+  &.normal-menu-overlay {
+    z-index: 1;
+    //background-color: transparent;
+  }
 }
 
 .ui.vertical.menu {
@@ -95,4 +110,3 @@
 .ui.top.menu.compact-mode .item.title {
   max-width: calc(100vw - 8rem);
 }
-*/

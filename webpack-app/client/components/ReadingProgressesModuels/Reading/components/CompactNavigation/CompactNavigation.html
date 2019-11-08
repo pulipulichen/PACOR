@@ -1,6 +1,7 @@
-<fragment>
+<div>
   <div class="CompactMenu"
-       v-on:click="showNormalMenu">
+       v-on:click="normalMenuDisplay = true"
+       v-show="!normalMenuDisplay">
     <div class="ui three column grid"
          ref="Menu">
       <div class="left column">
@@ -16,54 +17,58 @@
       </div>
     </div>
   </div>
-  
-  
+
+
   <!-- ===================================== -->
-  
-  <!--
-  <div class="ui inverted"
-       ref="Menu"
-       v-bind:class="computedClass">
-    <slot name="header"></slot>
-    
-    <media v-bind:query="{minWidth: maxWidth}"
-           v-on:media-enter="isCompactMode = false"
-           v-on:media-leave="isCompactMode = true">
-      <div class="menu-full right menu">
-        <slot name="items"></slot>
-      </div>
-    </media>
-    
-    <media v-bind:query="{maxWidth: maxWidth}">
-      <div class="menu-compact right menu">
-        <a class="icon item"
-           v-on:click="showSideMenu">
-          <i class="ellipsis vertical icon"></i>
-        </a>
-      </div>
-    </media>
-  </div>
-  
-  <div class="ui inverted right fixed vertical menu"
-       v-bind:class="{hide: !sideMenuDisplay}">
-    
-    <div class="item in-vertical close"
-         v-on:click="hideSideMenu">
-      
-      <img v-bind:src="config.baseURL + '/imgs/pacor.svg'" />
-      
-      <div class="site-header">
-        {{ $t('PACOR') }}
-      </div>
-      
-      
-      <i class="close icon"></i>
+
+    <div class="overlay normal-menu-overlay"
+         v-on:click="normalMenuDisplay = false"
+         v-if="normalMenuDisplay"></div>
+
+    <div class="ui inverted"
+         ref="NormalMenu"
+         v-if="normalMenuDisplay"
+         v-bind:class="computedClass">
+
+      <slot name="header"></slot>
+
+      <media v-bind:query="{minWidth: maxWidth}"
+             v-on:media-enter="isCompactMode = false"
+             v-on:media-leave="isCompactMode = true">
+        <div class="menu-full right menu">
+          <slot name="items"></slot>
+        </div>
+      </media>
+
+      <media v-bind:query="{maxWidth: maxWidth}">
+        <div class="menu-compact right menu">
+          <a class="icon item"
+             v-on:click="showSideMenu">
+            <i class="ellipsis vertical icon"></i>
+          </a>
+        </div>
+      </media>
     </div>
-    
-    <slot name="items"></slot>
-  </div>
-  
-  <div class="overlay"
-       v-if="sideMenuDisplay"></div>
-  -->
-</fragment>
+
+    <div class="ui inverted right fixed vertical menu"
+         v-bind:class="{hide: !sideMenuDisplay}">
+      <div class="item in-vertical close"
+           v-on:click="hideSideMenu">
+
+        <img v-bind:src="config.baseURL + '/imgs/pacor.svg'" />
+
+        <div class="site-header">
+          {{ $t('PACOR') }}
+        </div>
+
+
+        <i class="close icon"></i>
+      </div>
+
+      <slot name="items"></slot>
+    </div>
+
+
+    <div class="overlay"
+         v-if="sideMenuDisplay"></div>
+</div>

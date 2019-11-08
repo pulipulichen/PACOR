@@ -99,7 +99,7 @@ exports.push([module.i, "body > .placeholder:first-of-type {\n  padding-top: 60p
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".CompactMenu[data-v-f1ec6df6] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  width: calc(100vw - 2em);\n}\n.CompactMenu .column[data-v-f1ec6df6] {\n  padding: 0 0.5em !important;\n}\n.CompactMenu .column.left[data-v-f1ec6df6] {\n  padding-left: 1.5em !important;\n}\n.CompactMenu > div[data-v-f1ec6df6] {\n  margin-top: 2em;\n  user-select: none;\n  background-color: rgba(64, 64, 64, 0.7);\n  color: #FFF;\n  font-size: 0.7em;\n}\n/*\n.vertical.menu {\n  z-index: 103 !important;\n  \n  &.hide {\n    display: none !important;\n  }\n  \n}\n\n.top.menu ::v-deep {\n  .in-vertical {\n    display: none !important;\n  }\n}\n\n.vertical.menu ::v-deep {\n  .menu-compact {\n    display: none !important;\n  }\n  \n  .right.menu > .item {\n    line-height: 3rem;\n    color: white !important;\n  }\n  \n  .menu-full {\n    display: block !important;\n  }\n  \n  .in-top {\n    display: none !important;\n  }\n}\n\n.overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(255,255,255,0.7);\n  z-index: 102;\n}\n\n.ui.vertical.menu {\n  .close.item {\n    cursor: pointer;\n    height: 3rem;\n    line-height: inherit;\n    border-bottom: 1px solid #ccc;\n\n    img {\n      width: 1.5em;\n      float: left;\n      margin-top: -0.2em;\n    }\n\n    .site-header {\n      display: inline-block;\n      padding-left: 1em;\n    }\n  }\n\n  .right.menu ::v-deep .item {\n    font-size: 16px;\n  }\n}\n\n.ui.top.menu.compact-mode .item.title {\n  max-width: calc(100vw - 8rem);\n}\n*/\n", "",{"version":3,"sources":["CompactNavigation.less?vue&type=style&index=0&id=f1ec6df6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,SAAS;EACT,OAAO;EACP,wBAAwB;AAC1B;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,8BAA8B;AAChC;AACA;EACE,eAAe;EACf,iBAAiB;EACjB,uCAAuC;EACvC,WAAW;EACX,gBAAgB;AAClB;AACA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;CAwEC","file":"CompactNavigation.less?vue&type=style&index=0&id=f1ec6df6&lang=less&scoped=true&","sourcesContent":[".CompactMenu[data-v-f1ec6df6] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  width: calc(100vw - 2em);\n}\n.CompactMenu .column[data-v-f1ec6df6] {\n  padding: 0 0.5em !important;\n}\n.CompactMenu .column.left[data-v-f1ec6df6] {\n  padding-left: 1.5em !important;\n}\n.CompactMenu > div[data-v-f1ec6df6] {\n  margin-top: 2em;\n  user-select: none;\n  background-color: rgba(64, 64, 64, 0.7);\n  color: #FFF;\n  font-size: 0.7em;\n}\n/*\n.vertical.menu {\n  z-index: 103 !important;\n  \n  &.hide {\n    display: none !important;\n  }\n  \n}\n\n.top.menu ::v-deep {\n  .in-vertical {\n    display: none !important;\n  }\n}\n\n.vertical.menu ::v-deep {\n  .menu-compact {\n    display: none !important;\n  }\n  \n  .right.menu > .item {\n    line-height: 3rem;\n    color: white !important;\n  }\n  \n  .menu-full {\n    display: block !important;\n  }\n  \n  .in-top {\n    display: none !important;\n  }\n}\n\n.overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(255,255,255,0.7);\n  z-index: 102;\n}\n\n.ui.vertical.menu {\n  .close.item {\n    cursor: pointer;\n    height: 3rem;\n    line-height: inherit;\n    border-bottom: 1px solid #ccc;\n\n    img {\n      width: 1.5em;\n      float: left;\n      margin-top: -0.2em;\n    }\n\n    .site-header {\n      display: inline-block;\n      padding-left: 1em;\n    }\n  }\n\n  .right.menu ::v-deep .item {\n    font-size: 16px;\n  }\n}\n\n.ui.top.menu.compact-mode .item.title {\n  max-width: calc(100vw - 8rem);\n}\n*/\n"]}]);
+exports.push([module.i, ".CompactMenu[data-v-f1ec6df6] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  z-index: 1;\n  width: calc(100vw - 15px);\n  cursor: pointer;\n  padding-top: 2em;\n}\n.CompactMenu > .grid[data-v-f1ec6df6] {\n  margin-left: 0 !important;\n  margin-right: 0 !important;\n}\n.CompactMenu .column[data-v-f1ec6df6] {\n  padding: 0 0.5em !important;\n}\n.CompactMenu > div[data-v-f1ec6df6] {\n  margin-top: 2em;\n  user-select: none;\n  background-color: rgba(64, 64, 64, 0.7);\n  color: #FFF;\n  font-size: 0.7em;\n}\n.vertical.menu[data-v-f1ec6df6] {\n  z-index: 103 !important;\n}\n.vertical.menu.hide[data-v-f1ec6df6] {\n  display: none !important;\n}\n.top.menu[data-v-f1ec6df6]  .in-vertical {\n  display: none !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .menu-compact {\n  display: none !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .right.menu > .item {\n  line-height: 3rem;\n  color: white !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .menu-full {\n  display: block !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .in-top {\n  display: none !important;\n}\n.overlay[data-v-f1ec6df6] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(255, 255, 255, 0.7);\n  z-index: 102;\n  cursor: pointer;\n}\n.overlay.normal-menu-overlay[data-v-f1ec6df6] {\n  z-index: 1;\n}\n.ui.vertical.menu .close.item[data-v-f1ec6df6] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n  border-bottom: 1px solid #ccc;\n}\n.ui.vertical.menu .close.item img[data-v-f1ec6df6] {\n  width: 1.5em;\n  float: left;\n  margin-top: -0.2em;\n}\n.ui.vertical.menu .close.item .site-header[data-v-f1ec6df6] {\n  display: inline-block;\n  padding-left: 1em;\n}\n.ui.vertical.menu .right.menu[data-v-f1ec6df6]  .item {\n  font-size: 16px;\n}\n.ui.top.menu.compact-mode .item.title[data-v-f1ec6df6] {\n  max-width: calc(100vw - 8rem);\n}\n", "",{"version":3,"sources":["CompactNavigation.less?vue&type=style&index=0&id=f1ec6df6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,SAAS;EACT,OAAO;EACP,UAAU;EACV,yBAAyB;EACzB,eAAe;EACf,gBAAgB;AAClB;AACA;EACE,yBAAyB;EACzB,0BAA0B;AAC5B;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,eAAe;EACf,iBAAiB;EACjB,uCAAuC;EACvC,WAAW;EACX,gBAAgB;AAClB;AACA;EACE,uBAAuB;AACzB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,iBAAiB;EACjB,uBAAuB;AACzB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,YAAY;EACZ,aAAa;EACb,0CAA0C;EAC1C,YAAY;EACZ,eAAe;AACjB;AACA;EACE,UAAU;AACZ;AACA;EACE,eAAe;EACf,YAAY;EACZ,oBAAoB;EACpB,6BAA6B;AAC/B;AACA;EACE,YAAY;EACZ,WAAW;EACX,kBAAkB;AACpB;AACA;EACE,qBAAqB;EACrB,iBAAiB;AACnB;AACA;EACE,eAAe;AACjB;AACA;EACE,6BAA6B;AAC/B","file":"CompactNavigation.less?vue&type=style&index=0&id=f1ec6df6&lang=less&scoped=true&","sourcesContent":[".CompactMenu[data-v-f1ec6df6] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  z-index: 1;\n  width: calc(100vw - 15px);\n  cursor: pointer;\n  padding-top: 2em;\n}\n.CompactMenu > .grid[data-v-f1ec6df6] {\n  margin-left: 0 !important;\n  margin-right: 0 !important;\n}\n.CompactMenu .column[data-v-f1ec6df6] {\n  padding: 0 0.5em !important;\n}\n.CompactMenu > div[data-v-f1ec6df6] {\n  margin-top: 2em;\n  user-select: none;\n  background-color: rgba(64, 64, 64, 0.7);\n  color: #FFF;\n  font-size: 0.7em;\n}\n.vertical.menu[data-v-f1ec6df6] {\n  z-index: 103 !important;\n}\n.vertical.menu.hide[data-v-f1ec6df6] {\n  display: none !important;\n}\n.top.menu[data-v-f1ec6df6]  .in-vertical {\n  display: none !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .menu-compact {\n  display: none !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .right.menu > .item {\n  line-height: 3rem;\n  color: white !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .menu-full {\n  display: block !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .in-top {\n  display: none !important;\n}\n.overlay[data-v-f1ec6df6] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(255, 255, 255, 0.7);\n  z-index: 102;\n  cursor: pointer;\n}\n.overlay.normal-menu-overlay[data-v-f1ec6df6] {\n  z-index: 1;\n}\n.ui.vertical.menu .close.item[data-v-f1ec6df6] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n  border-bottom: 1px solid #ccc;\n}\n.ui.vertical.menu .close.item img[data-v-f1ec6df6] {\n  width: 1.5em;\n  float: left;\n  margin-top: -0.2em;\n}\n.ui.vertical.menu .close.item .site-header[data-v-f1ec6df6] {\n  display: inline-block;\n  padding-left: 1em;\n}\n.ui.vertical.menu .right.menu[data-v-f1ec6df6]  .item {\n  font-size: 16px;\n}\n.ui.top.menu.compact-mode .item.title[data-v-f1ec6df6] {\n  max-width: calc(100vw - 8rem);\n}\n"]}]);
 
 
 /***/ }),
@@ -240,10 +240,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("fragment", [
+  return _c("div", [
     _c(
       "div",
-      { staticClass: "CompactMenu", on: { click: _vm.showNormalMenu } },
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.normalMenuDisplay,
+            expression: "!normalMenuDisplay"
+          }
+        ],
+        staticClass: "CompactMenu",
+        on: {
+          click: function($event) {
+            _vm.normalMenuDisplay = true
+          }
+        }
+      },
       [
         _c("div", { ref: "Menu", staticClass: "ui three column grid" }, [
           _c(
@@ -273,7 +288,101 @@ var render = function() {
           _c("div", { staticClass: "right aligned column" }, [_c("clock")], 1)
         ])
       ]
-    )
+    ),
+    _vm._v(" "),
+    _vm.normalMenuDisplay
+      ? _c("div", {
+          staticClass: "overlay normal-menu-overlay",
+          on: {
+            click: function($event) {
+              _vm.normalMenuDisplay = false
+            }
+          }
+        })
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.normalMenuDisplay
+      ? _c(
+          "div",
+          {
+            ref: "NormalMenu",
+            staticClass: "ui inverted",
+            class: _vm.computedClass
+          },
+          [
+            _vm._t("header"),
+            _vm._v(" "),
+            _c(
+              "media",
+              {
+                attrs: { query: { minWidth: _vm.maxWidth } },
+                on: {
+                  "media-enter": function($event) {
+                    _vm.isCompactMode = false
+                  },
+                  "media-leave": function($event) {
+                    _vm.isCompactMode = true
+                  }
+                }
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "menu-full right menu" },
+                  [_vm._t("items")],
+                  2
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("media", { attrs: { query: { maxWidth: _vm.maxWidth } } }, [
+              _c("div", { staticClass: "menu-compact right menu" }, [
+                _c(
+                  "a",
+                  { staticClass: "icon item", on: { click: _vm.showSideMenu } },
+                  [_c("i", { staticClass: "ellipsis vertical icon" })]
+                )
+              ])
+            ])
+          ],
+          2
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "ui inverted right fixed vertical menu",
+        class: { hide: !_vm.sideMenuDisplay }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "item in-vertical close",
+            on: { click: _vm.hideSideMenu }
+          },
+          [
+            _c("img", {
+              attrs: { src: _vm.config.baseURL + "/imgs/pacor.svg" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "site-header" }, [
+              _vm._v(
+                "\r\n          " + _vm._s(_vm.$t("PACOR")) + "\r\n        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("i", { staticClass: "close icon" })
+          ]
+        ),
+        _vm._v(" "),
+        _vm._t("items")
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _vm.sideMenuDisplay ? _c("div", { staticClass: "overlay" }) : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -298,7 +407,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("fragment", [_vm._v("\r\n  " + _vm._s(_vm.percent) + "%\r\n")])
+  return this.display
+    ? _c("fragment", [_vm._v("\r\n  " + _vm._s(_vm.percent) + "%\r\n")])
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -775,6 +886,7 @@ let CompactNavigation = {
   props: ['lib', 'status', 'config', 'compactWidth', 'position'],
   data() {
     return {
+      normalMenuDisplay: true,
       
       sideMenuDisplay: false,
       isCompactMode: false,
@@ -829,7 +941,8 @@ let CompactNavigation = {
   },
   methods: {
     showNormalMenu () {
-      
+      console.log('1')
+      this.normalMenuDisplay = true
     },
     initCompactMode () {
       let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
@@ -983,9 +1096,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 let ReadingProgressIndicator = {
   data() {
     return {
+      display: false,
       percent: 0
     }
   },
@@ -994,6 +1112,14 @@ let ReadingProgressIndicator = {
   mounted() {
     window.addEventListener('scroll', this.calculateProgress)
     window.addEventListener('resize', this.calculateProgress)
+    
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(() => {
+      setTimeout(() => {
+        this.display = true
+        this.calculateProgress()
+      }, 1500)
+    })
+    this.calculateProgress()
   },
   destroyed() {
     window.removeEventListener('scroll', this.calculateProgress)
@@ -1001,6 +1127,9 @@ let ReadingProgressIndicator = {
   },
   methods: {
     calculateProgress() {
+      if (this.display === false) {
+        return ''
+      }
       let viewport = window.innerHeight
       let middleViewport = viewport / 2
       
@@ -1023,7 +1152,10 @@ let ReadingProgressIndicator = {
       }
       else if (p > 100) {
         p = 100
-      }
+      }      
+      
+      //console.log(p)
+      
       this.percent = p
       //ReadingProgressIndicator.data.percent = percent
     }

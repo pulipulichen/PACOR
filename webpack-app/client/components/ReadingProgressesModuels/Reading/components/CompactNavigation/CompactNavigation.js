@@ -5,6 +5,7 @@ let CompactNavigation = {
   props: ['lib', 'status', 'config', 'compactWidth', 'position'],
   data() {
     return {
+      normalMenuDisplay: true,
       
       sideMenuDisplay: false,
       isCompactMode: false,
@@ -59,7 +60,8 @@ let CompactNavigation = {
   },
   methods: {
     showNormalMenu () {
-      
+      console.log('1')
+      this.normalMenuDisplay = true
     },
     initCompactMode () {
       let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
