@@ -1,3 +1,11 @@
-<div class="ui field">
-  
+<div class="ui action input">
+  <input type="text" 
+         v-bind="keyword"
+         v-bind:placeholder="$t('Search...')">
+  <button type="button"
+          class="ui icon button"
+          v-on:click="doSearch"
+          v-bind:class="{'disabled': (keyword.trim() === '')}">
+    <i class="search icon"></i>
+  </button>
 </div>
