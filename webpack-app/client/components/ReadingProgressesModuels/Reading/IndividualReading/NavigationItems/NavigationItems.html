@@ -22,11 +22,12 @@
       <!-- for test -->
       <a class="item"
          v-on:click="lib.auth.nextStep">
-        Next Step
+        Next Step (for test)
       </a>
       
       <div class="item">
         <search-input v-bind:status="status"
+                      v-bind:lib="lib"
                       v-on:search="(keyword) => {$emit('search', keyword)}"
                       v-on:input="(keyword) => {$emit('input', keyword)}"></search-input>
       </div>

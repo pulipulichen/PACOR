@@ -5,7 +5,11 @@
   <button type="button"
           class="ui icon button"
           v-on:click="status.search.showAnnotationList = true"
-          v-bind:class="{'disabled': (status.search.keyword.trim() === '')}">
+          v-bind:class="{'disabled': (count === 0)}">
+    <div v-if="count > 0" 
+         class="floating ui red label">
+      {{ count }}
+    </div>
     <i class="search icon"></i>
   </button>
 </div>

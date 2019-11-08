@@ -111,6 +111,16 @@ class Annotation extends WebpageUserBaseController {
     })  // return await Cache.rememberWait(cacheKey, 2, async () => {
   }
   
+  async listCount({request, webpage, user}) {
+    let query = request.all()
+    let cacheKey = Cache.key('Controllers.Client.Annotation.listCount', query)
+    return await Cache.rememberWait([webpage, user, this.modelName], cacheKey, 3, async () => {
+      query.withCount = true
+      let annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
+      return annotations.size()
+    })  // return await Cache.rememberWait(cacheKey, 2, async () => {
+  }
+  
   async listNext({request, webpage, user}) {
     let query = request.all()
     if (query.page === 5) {

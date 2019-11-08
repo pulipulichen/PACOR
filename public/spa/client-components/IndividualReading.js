@@ -87,7 +87,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".username[data-v-2f10c4fe] {\n  margin-left: 1em;\n  font-size: 1.5em;\n}\n", "",{"version":3,"sources":["NavigationItems.less?vue&type=style&index=0&id=2f10c4fe&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,gBAAgB;AAClB","file":"NavigationItems.less?vue&type=style&index=0&id=2f10c4fe&lang=less&scoped=true&","sourcesContent":[".username[data-v-2f10c4fe] {\n  margin-left: 1em;\n  font-size: 1.5em;\n}\n"]}]);
+exports.push([module.i, ".username[data-v-2f10c4fe] {\n  margin-left: 1em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n", "",{"version":3,"sources":["NavigationItems.less?vue&type=style&index=0&id=2f10c4fe&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,gBAAgB;EAChB,iBAAiB;AACnB","file":"NavigationItems.less?vue&type=style&index=0&id=2f10c4fe&lang=less&scoped=true&","sourcesContent":[".username[data-v-2f10c4fe] {\n  margin-left: 1em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n"]}]);
 
 
 /***/ }),
@@ -129,7 +129,7 @@ exports.push([module.i, ".CompactMenu[data-v-f1ec6df6] {\n  position: fixed;\n  
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"SearchInput.less?vue&type=style&index=0&id=fcc8117a&lang=less&scoped=true&"}]);
+exports.push([module.i, ".floating.label[data-v-fcc8117a] {\n  padding-top: 0;\n  line-height: 0.5em;\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n  /* margin-right: -1em !important; */\n  left: 103% !important;\n  top: -0.5em !important;\n}\n", "",{"version":3,"sources":["SearchInput.less?vue&type=style&index=0&id=fcc8117a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,kBAAkB;EAClB,mBAAmB;EACnB,oBAAoB;EACpB,mCAAmC;EACnC,qBAAqB;EACrB,sBAAsB;AACxB","file":"SearchInput.less?vue&type=style&index=0&id=fcc8117a&lang=less&scoped=true&","sourcesContent":[".floating.label[data-v-fcc8117a] {\n  padding-top: 0;\n  line-height: 0.5em;\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n  /* margin-right: -1em !important; */\n  left: 103% !important;\n  top: -0.5em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -240,7 +240,7 @@ var render = function() {
                 _c(
                   "a",
                   { staticClass: "item", on: { click: _vm.lib.auth.nextStep } },
-                  [_vm._v("\r\n        Next Step\r\n      ")]
+                  [_vm._v("\r\n        Next Step (for test)\r\n      ")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -248,7 +248,7 @@ var render = function() {
                   { staticClass: "item" },
                   [
                     _c("search-input", {
-                      attrs: { status: _vm.status },
+                      attrs: { status: _vm.status, lib: _vm.lib },
                       on: {
                         search: function(keyword) {
                           _vm.$emit("search", keyword)
@@ -512,7 +512,7 @@ var render = function() {
       "button",
       {
         staticClass: "ui icon button",
-        class: { disabled: _vm.status.search.keyword.trim() === "" },
+        class: { disabled: _vm.count === 0 },
         attrs: { type: "button" },
         on: {
           click: function($event) {
@@ -520,7 +520,15 @@ var render = function() {
           }
         }
       },
-      [_c("i", { staticClass: "search icon" })]
+      [
+        _vm.count > 0
+          ? _c("div", { staticClass: "floating ui red label" }, [
+              _vm._v("\r\n      " + _vm._s(_vm.count) + "\r\n    ")
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("i", { staticClass: "search icon" })
+      ]
     )
   ])
 }
@@ -1079,11 +1087,13 @@ let CompactNavigation = {
     this.initCompactMode()
     this.initPlaceholder()
     
+    /*
     setTimeout(() => {
       this.normalMenuDisplay = true
       this.status.search.keyword = '天'
       this.status.search.showAnnotationList = true
     }, 500)
+    */
   },
   destroyed () {
     this.removePlaceholder()
@@ -1394,26 +1404,44 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let SearchInput = {
-  props: ['status'],
+  props: ['status', 'lib'],
   data() {    
     return {
-      //keyword: ''
+      enableShowList: false,
+      count: 0
     }
   },
 //  components: {
 //  },
 //  computed: {
 //  },
-//  watch: {
-//  },
+  watch: {
+    'status.search.keyword': async function (keyword) {
+      //console.log()
+      //this.count = 0
+      if (keyword === '') {
+        this.count = 0
+        return false
+      }
+      
+      let query = {
+        withCount: true,
+        keyword: keyword
+        //t: (new Date()).getTime()
+      }
+      let url = '/client/Annotation/listCount'
+
+      this.count = await this.lib.AxiosHelper.post(url, query)
+    }
+  },
 //  mounted() {
 //  },
-  methods: {
+  //methods: {
     //doSearch () {
       //throw '#TDOO: ' + this.keyword
     //  this.$emit('search', this.keyword)
     //}
-  } // methods
+  //} // methods
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (SearchInput);
