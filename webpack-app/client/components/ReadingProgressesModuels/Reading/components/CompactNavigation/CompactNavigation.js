@@ -1,3 +1,4 @@
+import ReadingProgressIndicator from './ReadingProgressIndicator/ReadingProgressIndicator.vue'
 import Media from 'vue-media'
 
 let Navigation = {
@@ -10,7 +11,8 @@ let Navigation = {
     }
   },
   components: {
-    'media': Media
+    'media': Media,
+    'reading-progress-indicator': ReadingProgressIndicator
   },
   computed: {
     maxWidth: function () {

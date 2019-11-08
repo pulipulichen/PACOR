@@ -58,6 +58,7 @@ class User extends Model {
     this.addTrait('User/UserReadingProgressAction')
     this.addTrait('User/UserGroup')
     this.addTrait('User/UserFind')
+    this.addTrait('User/UserNotification')
   } // static boot () {
   
   async validatePassword (queryPassword) {

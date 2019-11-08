@@ -76,7 +76,8 @@ let VueController = {
       readingProgresses: [],
       title: '',
       view: 'Loading',
-      preference: {}
+      preference: {},
+      notifications: []
     },
     progress: {
       component: false,
