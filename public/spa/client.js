@@ -1277,7 +1277,7 @@ let VueController = {
       title: '',
       view: 'Loading',
       preference: {},
-      notifications: []
+      notificationUnreadCount: 0
     },
     progress: {
       component: false,

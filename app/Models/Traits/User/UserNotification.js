@@ -32,11 +32,17 @@ class UserNotification {
       })
     }
     
+    Model.prototype.getNotificationUnreadCount = async function () {
+      return await this.notifications()
+              .where('has_read', false)
+              .count()
+    }
+    /*
     Model.prototype.getNotificationSummary = async function (webpage) {
       let cacheKey = 'getNotificationSummary'
       return await Cache.rememberWait([webpage, this, 'UserNotification'], cacheKey, async () => {
         let notifications = await this.getNotifications(webpage, 0)
-        let count = await this.notifications().count()
+        let count = await this.getNotificationCount()
         
         return {
           notifications,
@@ -44,13 +50,16 @@ class UserNotification {
         }
       })
     }
-    
+    */
+    /*
     Model.prototype.getNotificationNext = async function (webpage, page) {
       let cacheKey = Cache.key('getNotificationNext', page)
       return await Cache.rememberWait([webpage, this, 'UserNotification'], cacheKey, async () => {
         return await this.getNotifications(webpage, page)
       })
     }
+     * 
+     */
     
     Model.prototype.setNotificationRead = async function (id) {
       let n = await this.notifications()
