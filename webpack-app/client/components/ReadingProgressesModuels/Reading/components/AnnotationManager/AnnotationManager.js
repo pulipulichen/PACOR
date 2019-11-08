@@ -2,6 +2,7 @@ import RangyManager from './RangyManager/RangyManager.vue'
 import AnnotationTypeSelector from './AnnotationTypeSelector/AnnotationTypeSelector.vue'
 import AnnotationPanel from './AnnotationPanel/AnnotationPanel.vue'
 import AnnotationFloatWidget from './AnnotationFloatWidget/AnnotationFloatWidget.vue'
+import SectionAnnotationManager from './SectionAnnotationManager/SectionAnnotationManager.vue'
 
 let AnnotationManager = {
   props: ['lib', 'status', 'config'],
@@ -33,6 +34,7 @@ let AnnotationManager = {
     'annotation-type-selector': AnnotationTypeSelector,
     'annotation-panel': AnnotationPanel,
     'annotation-float-widget': AnnotationFloatWidget,
+    'section-annotation-manager': SectionAnnotationManager
   },
   computed: {
     rangyConfig: function () {
