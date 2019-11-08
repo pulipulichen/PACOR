@@ -12,7 +12,7 @@ let IndividualReading = {
   components: {
     //'navigation-items': () => import(/* webpackChunkName: "client-components/IndividualReading" */ './NavigationItems/NavigationItems.vue'),
     'navigation-items': NavigationItems,
-    'annotation': () => import(/* webpackChunkName: "client-components/AnnotationManager" */ './../components/AnnotationManager/AnnotationManager.vue'),
+    'annotation-manager': () => import(/* webpackChunkName: "client-components/AnnotationManager" */ './../components/AnnotationManager/AnnotationManager.vue'),
   },
   computed: {
   },
@@ -45,6 +45,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />`
     
   },
   methods: {
+    search (keyword) {
+      this.$refs.AnnotationManager.search(keyword)
+    },
+    searchInArticle (keyword) {
+      this.$refs.AnnotationManager.searchInArticle(keyword)
+    }
   } // methods
 }
 

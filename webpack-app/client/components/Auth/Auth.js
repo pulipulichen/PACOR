@@ -82,6 +82,14 @@ let Auth = {
         return config.enableCollaboration
       }
       return false
+    },
+    username () {
+      if (this.status.displayName !== this.status.username) {
+        return this.status.displayName
+      }
+      else {
+        return this.status.username
+      }
     }
   },
   methods: {

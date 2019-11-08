@@ -73,7 +73,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "/*\ndiv {\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 255, 0, 0.5);\n}\n*/\n", "",{"version":3,"sources":["IndividualReading.less?vue&type=style&index=0&id=4d0f6488&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;;;;;;CAOC","file":"IndividualReading.less?vue&type=style&index=0&id=4d0f6488&lang=less&scoped=true&","sourcesContent":["/*\ndiv {\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 255, 0, 0.5);\n}\n*/\n"]}]);
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"IndividualReading.less?vue&type=style&index=0&id=4d0f6488&lang=less&scoped=true&"}]);
 
 
 /***/ }),
@@ -87,7 +87,7 @@ exports.push([module.i, "/*\ndiv {\n  position: fixed;\n  top: 0;\n  left: 0;\n 
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"NavigationItems.less?vue&type=style&index=0&id=2f10c4fe&lang=less&scoped=true&"}]);
+exports.push([module.i, ".username[data-v-2f10c4fe] {\n  margin-left: 1em;\n  font-size: 1.5em;\n}\n", "",{"version":3,"sources":["NavigationItems.less?vue&type=style&index=0&id=2f10c4fe&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,gBAAgB;AAClB","file":"NavigationItems.less?vue&type=style&index=0&id=2f10c4fe&lang=less&scoped=true&","sourcesContent":[".username[data-v-2f10c4fe] {\n  margin-left: 1em;\n  font-size: 1.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -159,11 +159,12 @@ var render = function() {
           status: _vm.status,
           progress: _vm.progress,
           lib: _vm.lib
-        }
+        },
+        on: { search: _vm.search, input: _vm.searchInArticle }
       }),
       _vm._v(" "),
-      _c("annotation", {
-        ref: "auth",
+      _c("annotation-manager", {
+        ref: "AnnotationManager",
         attrs: {
           config: _vm.config,
           status: _vm.status,
@@ -219,7 +220,15 @@ var render = function() {
             fn: function() {
               return [
                 _c("a", { staticClass: "item avatar in-top" }, [
-                  _c("img", { attrs: { src: _vm.status.avatar } })
+                  _c("img", { attrs: { src: _vm.status.avatar } }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "username" }, [
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(_vm.lib.auth.username) +
+                        "\r\n        "
+                    )
+                  ])
                 ])
               ]
             },
@@ -243,6 +252,9 @@ var render = function() {
                       on: {
                         search: function(keyword) {
                           _vm.$emit("search", keyword)
+                        },
+                        input: function(keyword) {
+                          _vm.$emit("input", keyword)
                         }
                       }
                     })
@@ -487,12 +499,17 @@ var render = function() {
       attrs: { type: "text", placeholder: _vm.$t("Search...") },
       domProps: { value: _vm.keyword },
       on: {
-        input: function($event) {
-          if ($event.target.composing) {
-            return
+        input: [
+          function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.keyword = $event.target.value
+          },
+          function($event) {
+            return _vm.$emit("input", _vm.keyword)
           }
-          _vm.keyword = $event.target.value
-        }
+        ]
       }
     }),
     _vm._v(" "),
@@ -662,7 +679,7 @@ let IndividualReading = {
   components: {
     //'navigation-items': () => import(/* webpackChunkName: "client-components/IndividualReading" */ './NavigationItems/NavigationItems.vue'),
     'navigation-items': _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'annotation': () => __webpack_require__.e(/*! import() | client-components/AnnotationManager */ "client-components/AnnotationManager").then(__webpack_require__.bind(null, /*! ./../components/AnnotationManager/AnnotationManager.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationManager.vue")),
+    'annotation-manager': () => __webpack_require__.e(/*! import() | client-components/AnnotationManager */ "client-components/AnnotationManager").then(__webpack_require__.bind(null, /*! ./../components/AnnotationManager/AnnotationManager.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationManager.vue")),
   },
   computed: {
   },
@@ -695,6 +712,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />`
     
   },
   methods: {
+    search (keyword) {
+      this.$refs.AnnotationManager.search(keyword)
+    },
+    searchInArticle (keyword) {
+      this.$refs.AnnotationManager.searchInArticle(keyword)
+    }
   } // methods
 }
 
@@ -1007,7 +1030,7 @@ let CompactNavigation = {
   props: ['lib', 'status', 'config', 'compactWidth', 'position'],
   data() {
     return {
-      normalMenuDisplay: true,
+      normalMenuDisplay: false,
       
       sideMenuDisplay: false,
       isCompactMode: false,

@@ -3,13 +3,15 @@
                 v-bind:status="status"
                 v-bind:progress="progress"
                 v-bind:lib="lib"
+                v-on:search="search"
+                v-on:input="searchInArticle"
                 ref="nav"></navigation-items>
   
-  <annotation v-bind:config="config"
+  <annotation-manager v-bind:config="config"
         v-bind:status="status"
         v-bind:progress="progress"
         v-bind:lib="lib"
-        ref="auth"></annotation>
+        ref="AnnotationManager"></annotation-manager>
   
   <!-- <block-exit></block-exit> -->
   <activity-timer v-bind:config="config"

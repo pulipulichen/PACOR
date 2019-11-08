@@ -2656,6 +2656,7 @@ let AnnotationManager = {
     this.loadHighlights()
     
     //this._testPanel()
+    this.searchInArticle('少年')
   },
   methods: {
     _testPanel () {
@@ -2829,6 +2830,12 @@ let AnnotationManager = {
       this.listPositions = this.highlightPos
       this.highlightPos = null
     },
+    searchInArticle (keyword) {
+      throw '#TODO search searchInArticle' + keyword
+    },
+    search (keyword) {
+      throw '#TODO search ' + keyword
+    }
   } // methods
 }
 

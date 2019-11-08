@@ -5,7 +5,7 @@ let CompactNavigation = {
   props: ['lib', 'status', 'config', 'compactWidth', 'position'],
   data() {
     return {
-      normalMenuDisplay: true,
+      normalMenuDisplay: false,
       
       sideMenuDisplay: false,
       isCompactMode: false,

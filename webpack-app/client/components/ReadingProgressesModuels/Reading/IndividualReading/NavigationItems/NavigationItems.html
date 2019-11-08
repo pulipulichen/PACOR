@@ -8,6 +8,9 @@
     <template v-slot:header>
       <a class="item avatar in-top">
         <img v-bind:src="status.avatar">
+        <div class="username">
+          {{ lib.auth.username }}
+        </div>
       </a>
     </template>
     
@@ -16,12 +19,15 @@
     
     <template v-slot:items>
 
+      <!-- for test -->
       <a class="item"
          v-on:click="lib.auth.nextStep">
         Next Step
       </a>
+      
       <div class="item">
-        <search-input v-on:search="(keyword) => {$emit('search', keyword)}"></search-input>
+        <search-input v-on:search="(keyword) => {$emit('search', keyword)}"
+                      v-on:input="(keyword) => {$emit('input', keyword)}"></search-input>
       </div>
 
     </template>
