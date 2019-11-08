@@ -2170,7 +2170,7 @@ var render = function() {
     { ref: "panel", staticClass: "non-invasive-web-style-framework" },
     [
       _c("div", { staticClass: "ui segment" }, [
-        _vm._v("\r\n    Template\r\n  ")
+        _vm._v("\r\n    " + _vm._s(_vm.status.search.keyword) + "\r\n  ")
       ])
     ]
   )

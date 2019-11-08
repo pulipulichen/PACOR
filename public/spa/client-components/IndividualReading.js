@@ -496,7 +496,12 @@ var render = function() {
           expression: "status.search.keyword"
         }
       ],
-      attrs: { type: "text", placeholder: _vm.$t("Search...") },
+      ref: "input",
+      attrs: {
+        type: "text",
+        placeholder: _vm.$t("Search..."),
+        onclick: "this.select()"
+      },
       domProps: { value: _vm.status.search.keyword },
       on: {
         input: function($event) {
@@ -1408,7 +1413,8 @@ let SearchInput = {
   data() {    
     return {
       enableShowList: false,
-      count: 0
+      count: 0,
+      composition: false
     }
   },
 //  components: {
@@ -1436,12 +1442,8 @@ let SearchInput = {
   },
 //  mounted() {
 //  },
-  //methods: {
-    //doSearch () {
-      //throw '#TDOO: ' + this.keyword
-    //  this.$emit('search', this.keyword)
-    //}
-  //} // methods
+//  methods: {
+//  } // methods
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (SearchInput);

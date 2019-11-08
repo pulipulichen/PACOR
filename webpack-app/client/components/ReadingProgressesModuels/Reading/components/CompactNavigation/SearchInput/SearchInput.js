@@ -3,7 +3,8 @@ let SearchInput = {
   data() {    
     return {
       enableShowList: false,
-      count: 0
+      count: 0,
+      composition: false
     }
   },
 //  components: {
@@ -31,12 +32,8 @@ let SearchInput = {
   },
 //  mounted() {
 //  },
-  //methods: {
-    //doSearch () {
-      //throw '#TDOO: ' + this.keyword
-    //  this.$emit('search', this.keyword)
-    //}
-  //} // methods
+//  methods: {
+//  } // methods
 }
 
 export default SearchInput
