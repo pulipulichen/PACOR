@@ -1,19 +1,24 @@
 <fragment>
-  <div class="CompactMenu ui three column grid">
-    <div class="column">
-      <reading-progress-indicator></reading-progress-indicator>
-    </div>
-    <div class="column">
-      [通知]      
-    </div>
-    <div class="column">
-      <clock></clock>
+  <div class="CompactMenu"
+       v-on:click="showNormalMenu">
+    <div class="ui three column grid"
+         ref="Menu">
+      <div class="column">
+        <reading-progress-indicator></reading-progress-indicator>
+      </div>
+      <div class="center aligned column">
+        {{ status.notificationUnreadCount }}
+      </div>
+      <div class="right aligned column">
+        <clock></clock>
+      </div>
     </div>
   </div>
   
   
   <!-- ===================================== -->
   
+  <!--
   <div class="ui inverted"
        ref="Menu"
        v-bind:class="computedClass">
@@ -58,4 +63,5 @@
   
   <div class="overlay"
        v-if="sideMenuDisplay"></div>
+  -->
 </fragment>

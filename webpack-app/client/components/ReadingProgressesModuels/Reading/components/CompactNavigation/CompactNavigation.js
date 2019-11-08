@@ -1,10 +1,11 @@
 import ReadingProgressIndicator from './ReadingProgressIndicator/ReadingProgressIndicator.vue'
 import Media from 'vue-media'
 
-let Navigation = {
-  props: ['config', 'compactWidth', 'position'],
+let CompactNavigation = {
+  props: ['status', 'config', 'compactWidth', 'position'],
   data() {
     return {
+      
       sideMenuDisplay: false,
       isCompactMode: false,
       placeholder: null
@@ -50,14 +51,20 @@ let Navigation = {
   },
    */
   mounted() {
-    let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-    this.isCompactMode = (width < this.compactWidth)
+    this.initCompactMode()
     this.initPlaceholder()
   },
   destroyed () {
     this.removePlaceholder()
   },
   methods: {
+    showNormalMenu () {
+      
+    },
+    initCompactMode () {
+      let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+      this.isCompactMode = (width < this.compactWidth)
+    },
     initPlaceholder: function () {
       this.placeholder = window.$(`<div class="Navigation placeholder"></div>`)
       
@@ -83,4 +90,4 @@ let Navigation = {
   } // methods
 }
 
-export default Navigation
+export default CompactNavigation

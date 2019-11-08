@@ -33,9 +33,10 @@ class UserNotification {
     }
     
     Model.prototype.getNotificationUnreadCount = async function () {
-      return await this.notifications()
+      let count = await this.notifications()
               .where('has_read', false)
               .count()
+      return parseInt(count[0].count, 10)
     }
     /*
     Model.prototype.getNotificationSummary = async function (webpage) {

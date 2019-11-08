@@ -22,9 +22,9 @@ class Webpage extends Model {
   static boot () {
     super.boot()
 
-    this.addHook('afterCreate', async (instance) => {
-      instance._crawlTitleFromURL(instance)
-    })
+    //this.addHook('afterCreate', async (instance) => {
+    //  instance._crawlTitleFromURL(instance)
+    //})
     
     this.addHook('beforeSave', async (instance) => {
       Cache.forget(Cache.key('Webpage', 'getReadingProgresses', instance))

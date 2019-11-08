@@ -1,3 +1,5 @@
+import CompactNavigation from './../../components/CompactNavigation/CompactNavigation.vue'
+
 let NavigationItems = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {    
@@ -5,14 +7,18 @@ let NavigationItems = {
     return {
     }
   },
-  computed: {
-  },
-  watch: {
-  },
-  mounted() {
-  },
-  methods: {
-  } // methods
+  components: {
+    'compact-navigation': CompactNavigation
+  }
+//  
+//  computed: {
+//  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
+//  methods: {
+//  } // methods
 }
 
 export default NavigationItems
