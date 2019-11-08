@@ -115,7 +115,7 @@ exports.push([module.i, "body > .placeholder:first-of-type {\n  padding-top: 60p
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".CompactMenu[data-v-f1ec6df6] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  z-index: 1;\n  width: calc(100vw - 15px);\n  cursor: pointer;\n  padding-top: 2em;\n}\n.CompactMenu > .grid[data-v-f1ec6df6] {\n  margin-left: 0 !important;\n  margin-right: 0 !important;\n}\n.CompactMenu .column[data-v-f1ec6df6] {\n  padding: 0 0.5em !important;\n}\n.CompactMenu > div[data-v-f1ec6df6] {\n  margin-top: 2em;\n  user-select: none;\n  background-color: rgba(64, 64, 64, 0.7);\n  color: #FFF;\n  font-size: 0.7em;\n}\n.vertical.menu[data-v-f1ec6df6] {\n  z-index: 103 !important;\n}\n.vertical.menu.hide[data-v-f1ec6df6] {\n  display: none !important;\n}\n.top.menu[data-v-f1ec6df6]  .in-vertical {\n  display: none !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .menu-compact {\n  display: none !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .right.menu > .item {\n  line-height: 3rem;\n  color: white !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .menu-full {\n  display: block !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .in-top {\n  display: none !important;\n}\n.overlay[data-v-f1ec6df6] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(255, 255, 255, 0.7);\n  z-index: 102;\n  cursor: pointer;\n}\n.overlay.normal-menu-overlay[data-v-f1ec6df6] {\n  z-index: 1;\n}\n.ui.vertical.menu .close.item[data-v-f1ec6df6] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n  border-bottom: 1px solid #ccc;\n}\n.ui.vertical.menu .close.item img[data-v-f1ec6df6] {\n  width: 1.5em;\n  float: left;\n  margin-top: -0.2em;\n}\n.ui.vertical.menu .close.item .site-header[data-v-f1ec6df6] {\n  display: inline-block;\n  padding-left: 1em;\n}\n.ui.vertical.menu .right.menu[data-v-f1ec6df6]  .item {\n  font-size: 16px;\n}\n.ui.top.menu.compact-mode .item.title[data-v-f1ec6df6] {\n  max-width: calc(100vw - 8rem);\n}\n", "",{"version":3,"sources":["CompactNavigation.less?vue&type=style&index=0&id=f1ec6df6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,SAAS;EACT,OAAO;EACP,UAAU;EACV,yBAAyB;EACzB,eAAe;EACf,gBAAgB;AAClB;AACA;EACE,yBAAyB;EACzB,0BAA0B;AAC5B;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,eAAe;EACf,iBAAiB;EACjB,uCAAuC;EACvC,WAAW;EACX,gBAAgB;AAClB;AACA;EACE,uBAAuB;AACzB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,iBAAiB;EACjB,uBAAuB;AACzB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,YAAY;EACZ,aAAa;EACb,0CAA0C;EAC1C,YAAY;EACZ,eAAe;AACjB;AACA;EACE,UAAU;AACZ;AACA;EACE,eAAe;EACf,YAAY;EACZ,oBAAoB;EACpB,6BAA6B;AAC/B;AACA;EACE,YAAY;EACZ,WAAW;EACX,kBAAkB;AACpB;AACA;EACE,qBAAqB;EACrB,iBAAiB;AACnB;AACA;EACE,eAAe;AACjB;AACA;EACE,6BAA6B;AAC/B","file":"CompactNavigation.less?vue&type=style&index=0&id=f1ec6df6&lang=less&scoped=true&","sourcesContent":[".CompactMenu[data-v-f1ec6df6] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  z-index: 1;\n  width: calc(100vw - 15px);\n  cursor: pointer;\n  padding-top: 2em;\n}\n.CompactMenu > .grid[data-v-f1ec6df6] {\n  margin-left: 0 !important;\n  margin-right: 0 !important;\n}\n.CompactMenu .column[data-v-f1ec6df6] {\n  padding: 0 0.5em !important;\n}\n.CompactMenu > div[data-v-f1ec6df6] {\n  margin-top: 2em;\n  user-select: none;\n  background-color: rgba(64, 64, 64, 0.7);\n  color: #FFF;\n  font-size: 0.7em;\n}\n.vertical.menu[data-v-f1ec6df6] {\n  z-index: 103 !important;\n}\n.vertical.menu.hide[data-v-f1ec6df6] {\n  display: none !important;\n}\n.top.menu[data-v-f1ec6df6]  .in-vertical {\n  display: none !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .menu-compact {\n  display: none !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .right.menu > .item {\n  line-height: 3rem;\n  color: white !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .menu-full {\n  display: block !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .in-top {\n  display: none !important;\n}\n.overlay[data-v-f1ec6df6] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(255, 255, 255, 0.7);\n  z-index: 102;\n  cursor: pointer;\n}\n.overlay.normal-menu-overlay[data-v-f1ec6df6] {\n  z-index: 1;\n}\n.ui.vertical.menu .close.item[data-v-f1ec6df6] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n  border-bottom: 1px solid #ccc;\n}\n.ui.vertical.menu .close.item img[data-v-f1ec6df6] {\n  width: 1.5em;\n  float: left;\n  margin-top: -0.2em;\n}\n.ui.vertical.menu .close.item .site-header[data-v-f1ec6df6] {\n  display: inline-block;\n  padding-left: 1em;\n}\n.ui.vertical.menu .right.menu[data-v-f1ec6df6]  .item {\n  font-size: 16px;\n}\n.ui.top.menu.compact-mode .item.title[data-v-f1ec6df6] {\n  max-width: calc(100vw - 8rem);\n}\n"]}]);
+exports.push([module.i, ".CompactMenu[data-v-f1ec6df6] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  z-index: 1;\n  width: calc(100vw - 15px);\n  cursor: pointer;\n  padding-top: 2em;\n}\n.CompactMenu > .grid[data-v-f1ec6df6] {\n  margin-left: 0 !important;\n  margin-right: 0 !important;\n}\n.CompactMenu .column[data-v-f1ec6df6] {\n  padding: 0 0.5em !important;\n}\n.CompactMenu > div[data-v-f1ec6df6] {\n  margin-top: 2em;\n  user-select: none;\n  background-color: rgba(64, 64, 64, 0.7);\n  color: #FFF;\n  font-size: 0.7em;\n}\n.vertical.menu[data-v-f1ec6df6] {\n  z-index: 103 !important;\n}\n.vertical.menu.hide[data-v-f1ec6df6] {\n  display: none !important;\n}\n.top.menu[data-v-f1ec6df6]  .in-vertical {\n  display: none !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .menu-compact {\n  display: none !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .right.menu > .item {\n  line-height: 3rem;\n  color: white !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .menu-full {\n  display: block !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .in-top {\n  display: none !important;\n}\n.overlay[data-v-f1ec6df6] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(255, 255, 255, 0.7);\n  z-index: 102;\n  cursor: pointer;\n}\n.overlay.normal-menu-overlay[data-v-f1ec6df6] {\n  z-index: 1;\n  background-color: transparent;\n}\n.ui.vertical.menu .close.item[data-v-f1ec6df6] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n  border-bottom: 1px solid #ccc;\n}\n.ui.vertical.menu .close.item img[data-v-f1ec6df6] {\n  width: 1.5em;\n  float: left;\n  margin-top: -0.2em;\n}\n.ui.vertical.menu .close.item .site-header[data-v-f1ec6df6] {\n  display: inline-block;\n  padding-left: 1em;\n}\n.ui.vertical.menu .right.menu[data-v-f1ec6df6]  .item {\n  font-size: 16px;\n}\n.ui.top.menu.compact-mode .item.title[data-v-f1ec6df6] {\n  max-width: calc(100vw - 8rem);\n}\n", "",{"version":3,"sources":["CompactNavigation.less?vue&type=style&index=0&id=f1ec6df6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,SAAS;EACT,OAAO;EACP,UAAU;EACV,yBAAyB;EACzB,eAAe;EACf,gBAAgB;AAClB;AACA;EACE,yBAAyB;EACzB,0BAA0B;AAC5B;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,eAAe;EACf,iBAAiB;EACjB,uCAAuC;EACvC,WAAW;EACX,gBAAgB;AAClB;AACA;EACE,uBAAuB;AACzB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,iBAAiB;EACjB,uBAAuB;AACzB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,YAAY;EACZ,aAAa;EACb,0CAA0C;EAC1C,YAAY;EACZ,eAAe;AACjB;AACA;EACE,UAAU;EACV,6BAA6B;AAC/B;AACA;EACE,eAAe;EACf,YAAY;EACZ,oBAAoB;EACpB,6BAA6B;AAC/B;AACA;EACE,YAAY;EACZ,WAAW;EACX,kBAAkB;AACpB;AACA;EACE,qBAAqB;EACrB,iBAAiB;AACnB;AACA;EACE,eAAe;AACjB;AACA;EACE,6BAA6B;AAC/B","file":"CompactNavigation.less?vue&type=style&index=0&id=f1ec6df6&lang=less&scoped=true&","sourcesContent":[".CompactMenu[data-v-f1ec6df6] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  z-index: 1;\n  width: calc(100vw - 15px);\n  cursor: pointer;\n  padding-top: 2em;\n}\n.CompactMenu > .grid[data-v-f1ec6df6] {\n  margin-left: 0 !important;\n  margin-right: 0 !important;\n}\n.CompactMenu .column[data-v-f1ec6df6] {\n  padding: 0 0.5em !important;\n}\n.CompactMenu > div[data-v-f1ec6df6] {\n  margin-top: 2em;\n  user-select: none;\n  background-color: rgba(64, 64, 64, 0.7);\n  color: #FFF;\n  font-size: 0.7em;\n}\n.vertical.menu[data-v-f1ec6df6] {\n  z-index: 103 !important;\n}\n.vertical.menu.hide[data-v-f1ec6df6] {\n  display: none !important;\n}\n.top.menu[data-v-f1ec6df6]  .in-vertical {\n  display: none !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .menu-compact {\n  display: none !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .right.menu > .item {\n  line-height: 3rem;\n  color: white !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .menu-full {\n  display: block !important;\n}\n.vertical.menu[data-v-f1ec6df6]  .in-top {\n  display: none !important;\n}\n.overlay[data-v-f1ec6df6] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(255, 255, 255, 0.7);\n  z-index: 102;\n  cursor: pointer;\n}\n.overlay.normal-menu-overlay[data-v-f1ec6df6] {\n  z-index: 1;\n  background-color: transparent;\n}\n.ui.vertical.menu .close.item[data-v-f1ec6df6] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n  border-bottom: 1px solid #ccc;\n}\n.ui.vertical.menu .close.item img[data-v-f1ec6df6] {\n  width: 1.5em;\n  float: left;\n  margin-top: -0.2em;\n}\n.ui.vertical.menu .close.item .site-header[data-v-f1ec6df6] {\n  display: inline-block;\n  padding-left: 1em;\n}\n.ui.vertical.menu .right.menu[data-v-f1ec6df6]  .item {\n  font-size: 16px;\n}\n.ui.top.menu.compact-mode .item.title[data-v-f1ec6df6] {\n  max-width: calc(100vw - 8rem);\n}\n"]}]);
 
 
 /***/ }),
@@ -492,19 +492,19 @@ var render = function() {
         {
           name: "model",
           rawName: "v-model",
-          value: _vm.keyword,
-          expression: "keyword"
+          value: _vm.status.searchKeyword,
+          expression: "status.searchKeyword"
         }
       ],
       attrs: { type: "text", placeholder: _vm.$t("Search...") },
-      domProps: { value: _vm.keyword },
+      domProps: { value: _vm.status.searchKeyword },
       on: {
         input: [
           function($event) {
             if ($event.target.composing) {
               return
             }
-            _vm.keyword = $event.target.value
+            _vm.$set(_vm.status, "searchKeyword", $event.target.value)
           },
           function($event) {
             return _vm.$emit("input", _vm.keyword)
@@ -1389,9 +1389,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let SearchInput = {
+  props: ['status'],
   data() {    
     return {
-      keyword: ''
+      //keyword: ''
     }
   },
 //  components: {
@@ -1403,10 +1404,10 @@ let SearchInput = {
 //  mounted() {
 //  },
   methods: {
-    doSearch () {
+    //doSearch () {
       //throw '#TDOO: ' + this.keyword
-      this.$emit('search', this.keyword)
-    }
+    //  this.$emit('search', this.keyword)
+    //}
   } // methods
 }
 

@@ -1,6 +1,6 @@
 <div class="ui action input">
   <input type="text" 
-         v-model="keyword"
+         v-model="status.searchKeyword"
          v-bind:placeholder="$t('Search...')"
          v-on:input="$emit('input', keyword)">
   <button type="button"

@@ -626,6 +626,12 @@ export default function(rangy) {
                         return true;
                     }
                 }
+                // Ensure that a block element containing a <svg> is considered to have inner text
+                // as otherwise it will crash IE11
+                var svgs = el.getElementsByTagName("svg");
+                if (svgs.length) {
+                    return true;
+                }
                 return this.hasInnerText();
             }, "node"),
 
@@ -1695,6 +1701,7 @@ export default function(rangy) {
                     }
 
                     var backward = isDirectionBackward(findOptions.direction);
+                    //console.log(backward)
 
                     // Create a range representing the search scope if none was provided
                     var searchScopeRange = findOptions.withinRange;
@@ -1714,15 +1721,18 @@ export default function(rangy) {
                     }
 
                     var initialPos = session.getRangeBoundaryPosition(this, !backward);
+                    
 
                     // Adjust initial position if it lies outside the search scope
                     var comparison = searchScopeRange.comparePoint(initialPos.node, initialPos.offset);
-
+                    //console.log(comparison)
                     if (comparison === -1) {
                         initialPos = session.getRangeBoundaryPosition(searchScopeRange, true);
                     } else if (comparison === 1) {
-                        initialPos = session.getRangeBoundaryPosition(searchScopeRange, false);
+                        //initialPos = session.getRangeBoundaryPosition(searchScopeRange, false);
                     }
+                    
+                    //console.log(initialPos)
 
                     var pos = initialPos;
                     var wrappedAround = false;
@@ -1730,16 +1740,24 @@ export default function(rangy) {
                     // Try to find a match and ignore invalid ones
                     var findResult;
                     while (true) {
-                        findResult = findTextFromPosition(pos, searchTerm, isRegex, searchScopeRange, findOptions);
-
+                        try {
+                          findResult = findTextFromPosition(pos, searchTerm, isRegex, searchScopeRange, findOptions);
+                        }
+                        catch (e) {
+                          return false
+                        }
                         if (findResult) {
                             if (findResult.valid) {
                                 this.setStartAndEnd(findResult.startPos.node, findResult.startPos.offset, findResult.endPos.node, findResult.endPos.offset);
+                                //pos = findResult.startPos;
+                                //pos = backward ? findResult.startPos : findResult.endPos;
+                                //console.log(findResult.startPos.offset)
                                 return true;
                             } else {
                                 // We've found a match that is not a whole word, so we carry on searching from the point immediately
                                 // after the match
                                 pos = backward ? findResult.startPos : findResult.endPos;
+                                //console.log(findResult.startPos)
                             }
                         } else if (findOptions.wrap && !wrappedAround) {
                             // No result found but we're wrapping around and limiting the scope to the unsearched part of the range
@@ -1747,6 +1765,8 @@ export default function(rangy) {
                             pos = session.getRangeBoundaryPosition(searchScopeRange, !backward);
                             searchScopeRange.setBoundary(initialPos.node, initialPos.offset, backward);
                             wrappedAround = true;
+                            
+                            console.log(1)
                         } else {
                             // Nothing found and we can't wrap around, so we're done
                             return false;
@@ -1825,7 +1845,7 @@ export default function(rangy) {
                     var ranges = this.getAllRanges(), rangeCount = ranges.length;
                     var rangeInfos = [];
 
-                    var backward = rangeCount === 1 && this.isBackward();
+                    var backward = rangeCount == 1 && this.isBackward();
 
                     for (var i = 0, len = ranges.length; i < len; ++i) {
                         rangeInfos[i] = {

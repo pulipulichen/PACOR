@@ -2656,7 +2656,7 @@ let AnnotationManager = {
     this.loadHighlights()
     
     //this._testPanel()
-    this.searchInArticle('天')
+    //this.searchInArticle('天')
   },
   methods: {
     _testPanel () {
@@ -6884,8 +6884,8 @@ let RangyManager = {
       var searchScopeRange = _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].createRange();
       
       //searchScopeRange.selectNodeContents(document.body);
-      //let node = this.articleNode[0]
-      let node = document.body
+      let node = this.articleNode[0]
+      //let node = document.body
       range.selectNodeContents(node);
 
       var options = {
@@ -6896,30 +6896,29 @@ let RangyManager = {
       };
 
       range.selectNodeContents(node);
-      this.searchResultApplier.undoToRange(range);
+      //this.searchResultApplier.undoToRange(range);
       
       if (searchTerm !== "") {
 
         // Iterate over matches
-        /*
         while (range.findText(searchTerm, options)) {
             // range now encompasses the first text match
             this.searchResultApplier.applyToRange(range)
             // Collapse the range to the position immediately after the match
             range.collapse(false);
         }
+        /*
+        for (let i = 0; i < 10; i++) {
+          let result = range.findText(searchTerm, options)
+          if (result === false) {
+            break
+          }
+          console.log(result)
+          this.searchResultApplier.applyToRange(range)
+          // Collapse the range to the position immediately after the match
+          range.collapse(false);
+        }
          */
-        
-        let result = range.findText(searchTerm, options)
-        console.log(result)
-        this.searchResultApplier.applyToRange(range)
-        // Collapse the range to the position immediately after the match
-        range.collapse(false);
-        
-        
-        console.log(range.findText(searchTerm, options))
-        this.searchResultApplier.applyToRange(range)
-        range.collapse(false);
       }
     }
     
@@ -14324,6 +14323,12 @@ __webpack_require__.r(__webpack_exports__);
                         return true;
                     }
                 }
+                // Ensure that a block element containing a <svg> is considered to have inner text
+                // as otherwise it will crash IE11
+                var svgs = el.getElementsByTagName("svg");
+                if (svgs.length) {
+                    return true;
+                }
                 return this.hasInnerText();
             }, "node"),
 
@@ -15393,6 +15398,7 @@ __webpack_require__.r(__webpack_exports__);
                     }
 
                     var backward = isDirectionBackward(findOptions.direction);
+                    //console.log(backward)
 
                     // Create a range representing the search scope if none was provided
                     var searchScopeRange = findOptions.withinRange;
@@ -15412,15 +15418,18 @@ __webpack_require__.r(__webpack_exports__);
                     }
 
                     var initialPos = session.getRangeBoundaryPosition(this, !backward);
+                    
 
                     // Adjust initial position if it lies outside the search scope
                     var comparison = searchScopeRange.comparePoint(initialPos.node, initialPos.offset);
-
+                    //console.log(comparison)
                     if (comparison === -1) {
                         initialPos = session.getRangeBoundaryPosition(searchScopeRange, true);
                     } else if (comparison === 1) {
-                        initialPos = session.getRangeBoundaryPosition(searchScopeRange, false);
+                        //initialPos = session.getRangeBoundaryPosition(searchScopeRange, false);
                     }
+                    
+                    //console.log(initialPos)
 
                     var pos = initialPos;
                     var wrappedAround = false;
@@ -15428,16 +15437,24 @@ __webpack_require__.r(__webpack_exports__);
                     // Try to find a match and ignore invalid ones
                     var findResult;
                     while (true) {
-                        findResult = findTextFromPosition(pos, searchTerm, isRegex, searchScopeRange, findOptions);
-
+                        try {
+                          findResult = findTextFromPosition(pos, searchTerm, isRegex, searchScopeRange, findOptions);
+                        }
+                        catch (e) {
+                          return false
+                        }
                         if (findResult) {
                             if (findResult.valid) {
                                 this.setStartAndEnd(findResult.startPos.node, findResult.startPos.offset, findResult.endPos.node, findResult.endPos.offset);
+                                //pos = findResult.startPos;
+                                //pos = backward ? findResult.startPos : findResult.endPos;
+                                //console.log(findResult.startPos.offset)
                                 return true;
                             } else {
                                 // We've found a match that is not a whole word, so we carry on searching from the point immediately
                                 // after the match
                                 pos = backward ? findResult.startPos : findResult.endPos;
+                                //console.log(findResult.startPos)
                             }
                         } else if (findOptions.wrap && !wrappedAround) {
                             // No result found but we're wrapping around and limiting the scope to the unsearched part of the range
@@ -15445,6 +15462,8 @@ __webpack_require__.r(__webpack_exports__);
                             pos = session.getRangeBoundaryPosition(searchScopeRange, !backward);
                             searchScopeRange.setBoundary(initialPos.node, initialPos.offset, backward);
                             wrappedAround = true;
+                            
+                            console.log(1)
                         } else {
                             // Nothing found and we can't wrap around, so we're done
                             return false;
@@ -15523,7 +15542,7 @@ __webpack_require__.r(__webpack_exports__);
                     var ranges = this.getAllRanges(), rangeCount = ranges.length;
                     var rangeInfos = [];
 
-                    var backward = rangeCount === 1 && this.isBackward();
+                    var backward = rangeCount == 1 && this.isBackward();
 
                     for (var i = 0, len = ranges.length; i < len; ++i) {
                         rangeInfos[i] = {

@@ -1,7 +1,8 @@
 let SearchInput = {
+  props: ['status'],
   data() {    
     return {
-      keyword: ''
+      //keyword: ''
     }
   },
 //  components: {
@@ -13,10 +14,10 @@ let SearchInput = {
 //  mounted() {
 //  },
   methods: {
-    doSearch () {
+    //doSearch () {
       //throw '#TDOO: ' + this.keyword
-      this.$emit('search', this.keyword)
-    }
+    //  this.$emit('search', this.keyword)
+    //}
   } // methods
 }
 

@@ -87,7 +87,7 @@ let AnnotationManager = {
     this.loadHighlights()
     
     //this._testPanel()
-    this.searchInArticle('天')
+    //this.searchInArticle('天')
   },
   methods: {
     _testPanel () {

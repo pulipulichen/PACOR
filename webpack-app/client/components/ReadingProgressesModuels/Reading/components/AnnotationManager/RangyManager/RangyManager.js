@@ -888,8 +888,8 @@ let RangyManager = {
       var searchScopeRange = rangy.createRange();
       
       //searchScopeRange.selectNodeContents(document.body);
-      //let node = this.articleNode[0]
-      let node = document.body
+      let node = this.articleNode[0]
+      //let node = document.body
       range.selectNodeContents(node);
 
       var options = {
@@ -900,30 +900,29 @@ let RangyManager = {
       };
 
       range.selectNodeContents(node);
-      this.searchResultApplier.undoToRange(range);
+      //this.searchResultApplier.undoToRange(range);
       
       if (searchTerm !== "") {
 
         // Iterate over matches
-        /*
         while (range.findText(searchTerm, options)) {
             // range now encompasses the first text match
             this.searchResultApplier.applyToRange(range)
             // Collapse the range to the position immediately after the match
             range.collapse(false);
         }
+        /*
+        for (let i = 0; i < 10; i++) {
+          let result = range.findText(searchTerm, options)
+          if (result === false) {
+            break
+          }
+          console.log(result)
+          this.searchResultApplier.applyToRange(range)
+          // Collapse the range to the position immediately after the match
+          range.collapse(false);
+        }
          */
-        
-        let result = range.findText(searchTerm, options)
-        console.log(result)
-        this.searchResultApplier.applyToRange(range)
-        // Collapse the range to the position immediately after the match
-        range.collapse(false);
-        
-        
-        console.log(range.findText(searchTerm, options))
-        this.searchResultApplier.applyToRange(range)
-        range.collapse(false);
       }
     }
     
