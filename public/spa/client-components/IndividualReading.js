@@ -99,7 +99,7 @@ exports.push([module.i, "body > .placeholder:first-of-type {\n  padding-top: 60p
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".CompactMenu[data-v-f1ec6df6] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  width: calc(100vw - 2em);\n}\n.CompactMenu > div[data-v-f1ec6df6] {\n  margin-top: 2em;\n  user-select: none;\n  background-color: rgba(64, 64, 64, 0.7);\n  color: #FFF;\n  font-size: 0.7em;\n}\n/*\n.vertical.menu {\n  z-index: 103 !important;\n  \n  &.hide {\n    display: none !important;\n  }\n  \n}\n\n.top.menu ::v-deep {\n  .in-vertical {\n    display: none !important;\n  }\n}\n\n.vertical.menu ::v-deep {\n  .menu-compact {\n    display: none !important;\n  }\n  \n  .right.menu > .item {\n    line-height: 3rem;\n    color: white !important;\n  }\n  \n  .menu-full {\n    display: block !important;\n  }\n  \n  .in-top {\n    display: none !important;\n  }\n}\n\n.overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(255,255,255,0.7);\n  z-index: 102;\n}\n\n.ui.vertical.menu {\n  .close.item {\n    cursor: pointer;\n    height: 3rem;\n    line-height: inherit;\n    border-bottom: 1px solid #ccc;\n\n    img {\n      width: 1.5em;\n      float: left;\n      margin-top: -0.2em;\n    }\n\n    .site-header {\n      display: inline-block;\n      padding-left: 1em;\n    }\n  }\n\n  .right.menu ::v-deep .item {\n    font-size: 16px;\n  }\n}\n\n.ui.top.menu.compact-mode .item.title {\n  max-width: calc(100vw - 8rem);\n}\n*/\n", "",{"version":3,"sources":["CompactNavigation.less?vue&type=style&index=0&id=f1ec6df6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,SAAS;EACT,OAAO;EACP,wBAAwB;AAC1B;AACA;EACE,eAAe;EACf,iBAAiB;EACjB,uCAAuC;EACvC,WAAW;EACX,gBAAgB;AAClB;AACA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;CAwEC","file":"CompactNavigation.less?vue&type=style&index=0&id=f1ec6df6&lang=less&scoped=true&","sourcesContent":[".CompactMenu[data-v-f1ec6df6] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  width: calc(100vw - 2em);\n}\n.CompactMenu > div[data-v-f1ec6df6] {\n  margin-top: 2em;\n  user-select: none;\n  background-color: rgba(64, 64, 64, 0.7);\n  color: #FFF;\n  font-size: 0.7em;\n}\n/*\n.vertical.menu {\n  z-index: 103 !important;\n  \n  &.hide {\n    display: none !important;\n  }\n  \n}\n\n.top.menu ::v-deep {\n  .in-vertical {\n    display: none !important;\n  }\n}\n\n.vertical.menu ::v-deep {\n  .menu-compact {\n    display: none !important;\n  }\n  \n  .right.menu > .item {\n    line-height: 3rem;\n    color: white !important;\n  }\n  \n  .menu-full {\n    display: block !important;\n  }\n  \n  .in-top {\n    display: none !important;\n  }\n}\n\n.overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(255,255,255,0.7);\n  z-index: 102;\n}\n\n.ui.vertical.menu {\n  .close.item {\n    cursor: pointer;\n    height: 3rem;\n    line-height: inherit;\n    border-bottom: 1px solid #ccc;\n\n    img {\n      width: 1.5em;\n      float: left;\n      margin-top: -0.2em;\n    }\n\n    .site-header {\n      display: inline-block;\n      padding-left: 1em;\n    }\n  }\n\n  .right.menu ::v-deep .item {\n    font-size: 16px;\n  }\n}\n\n.ui.top.menu.compact-mode .item.title {\n  max-width: calc(100vw - 8rem);\n}\n*/\n"]}]);
+exports.push([module.i, ".CompactMenu[data-v-f1ec6df6] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  width: calc(100vw - 2em);\n}\n.CompactMenu .column[data-v-f1ec6df6] {\n  padding: 0 0.5em !important;\n}\n.CompactMenu .column.left[data-v-f1ec6df6] {\n  padding-left: 1.5em !important;\n}\n.CompactMenu > div[data-v-f1ec6df6] {\n  margin-top: 2em;\n  user-select: none;\n  background-color: rgba(64, 64, 64, 0.7);\n  color: #FFF;\n  font-size: 0.7em;\n}\n/*\n.vertical.menu {\n  z-index: 103 !important;\n  \n  &.hide {\n    display: none !important;\n  }\n  \n}\n\n.top.menu ::v-deep {\n  .in-vertical {\n    display: none !important;\n  }\n}\n\n.vertical.menu ::v-deep {\n  .menu-compact {\n    display: none !important;\n  }\n  \n  .right.menu > .item {\n    line-height: 3rem;\n    color: white !important;\n  }\n  \n  .menu-full {\n    display: block !important;\n  }\n  \n  .in-top {\n    display: none !important;\n  }\n}\n\n.overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(255,255,255,0.7);\n  z-index: 102;\n}\n\n.ui.vertical.menu {\n  .close.item {\n    cursor: pointer;\n    height: 3rem;\n    line-height: inherit;\n    border-bottom: 1px solid #ccc;\n\n    img {\n      width: 1.5em;\n      float: left;\n      margin-top: -0.2em;\n    }\n\n    .site-header {\n      display: inline-block;\n      padding-left: 1em;\n    }\n  }\n\n  .right.menu ::v-deep .item {\n    font-size: 16px;\n  }\n}\n\n.ui.top.menu.compact-mode .item.title {\n  max-width: calc(100vw - 8rem);\n}\n*/\n", "",{"version":3,"sources":["CompactNavigation.less?vue&type=style&index=0&id=f1ec6df6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,SAAS;EACT,OAAO;EACP,wBAAwB;AAC1B;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,8BAA8B;AAChC;AACA;EACE,eAAe;EACf,iBAAiB;EACjB,uCAAuC;EACvC,WAAW;EACX,gBAAgB;AAClB;AACA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;CAwEC","file":"CompactNavigation.less?vue&type=style&index=0&id=f1ec6df6&lang=less&scoped=true&","sourcesContent":[".CompactMenu[data-v-f1ec6df6] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  width: calc(100vw - 2em);\n}\n.CompactMenu .column[data-v-f1ec6df6] {\n  padding: 0 0.5em !important;\n}\n.CompactMenu .column.left[data-v-f1ec6df6] {\n  padding-left: 1.5em !important;\n}\n.CompactMenu > div[data-v-f1ec6df6] {\n  margin-top: 2em;\n  user-select: none;\n  background-color: rgba(64, 64, 64, 0.7);\n  color: #FFF;\n  font-size: 0.7em;\n}\n/*\n.vertical.menu {\n  z-index: 103 !important;\n  \n  &.hide {\n    display: none !important;\n  }\n  \n}\n\n.top.menu ::v-deep {\n  .in-vertical {\n    display: none !important;\n  }\n}\n\n.vertical.menu ::v-deep {\n  .menu-compact {\n    display: none !important;\n  }\n  \n  .right.menu > .item {\n    line-height: 3rem;\n    color: white !important;\n  }\n  \n  .menu-full {\n    display: block !important;\n  }\n  \n  .in-top {\n    display: none !important;\n  }\n}\n\n.overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(255,255,255,0.7);\n  z-index: 102;\n}\n\n.ui.vertical.menu {\n  .close.item {\n    cursor: pointer;\n    height: 3rem;\n    line-height: inherit;\n    border-bottom: 1px solid #ccc;\n\n    img {\n      width: 1.5em;\n      float: left;\n      margin-top: -0.2em;\n    }\n\n    .site-header {\n      display: inline-block;\n      padding-left: 1em;\n    }\n  }\n\n  .right.menu ::v-deep .item {\n    font-size: 16px;\n  }\n}\n\n.ui.top.menu.compact-mode .item.title {\n  max-width: calc(100vw - 8rem);\n}\n*/\n"]}]);
 
 
 /***/ }),
@@ -179,6 +179,7 @@ var render = function() {
         attrs: {
           config: _vm.config,
           status: _vm.status,
+          lib: _vm.lib,
           compactWidth: "400",
           position: "bottom"
         },
@@ -247,18 +248,27 @@ var render = function() {
         _c("div", { ref: "Menu", staticClass: "ui three column grid" }, [
           _c(
             "div",
-            { staticClass: "column" },
+            { staticClass: "left column" },
             [_c("reading-progress-indicator")],
             1
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "center aligned column" }, [
-            _vm._v(
-              "\r\n        " +
-                _vm._s(_vm.status.notificationUnreadCount) +
-                "\r\n      "
-            )
-          ]),
+          _c(
+            "div",
+            { staticClass: "center aligned column" },
+            [
+              _vm.lib.auth.enableCollaboration
+                ? [
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(_vm.status.notificationUnreadCount) +
+                        "\r\n        "
+                    )
+                  ]
+                : _vm._e()
+            ],
+            2
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "right aligned column" }, [_c("clock")], 1)
         ])
@@ -762,7 +772,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CompactNavigation = {
-  props: ['status', 'config', 'compactWidth', 'position'],
+  props: ['lib', 'status', 'config', 'compactWidth', 'position'],
   data() {
     return {
       
@@ -993,15 +1003,28 @@ let ReadingProgressIndicator = {
     calculateProgress() {
       let viewport = window.innerHeight
       let middleViewport = viewport / 2
-
+      
       let page = document.body.scrollHeight
       let scrollTop = window.scrollY
+      //let scrollTop = window.scrollY
+      
+      
 
       let min = middleViewport
       let max = page - middleViewport
-      let scrollMiddle = scrollTop - middleViewport
-
-      this.percent = parseInt(((scrollMiddle - min) / (max - min) * 100), 10)
+      let scrollMiddle = scrollTop + middleViewport
+      
+      //console.log([viewport, middleViewport, page, scrollTop])
+      //console.log([min, max, scrollMiddle, scrollTop, (scrollTop + viewport), (page)])
+      
+      let p = parseInt(((scrollMiddle - min) / (max - min) * 100), 10)
+      if (p < 0) {
+        p = 0
+      }
+      else if (p > 100) {
+        p = 100
+      }
+      this.percent = p
       //ReadingProgressIndicator.data.percent = percent
     }
   }

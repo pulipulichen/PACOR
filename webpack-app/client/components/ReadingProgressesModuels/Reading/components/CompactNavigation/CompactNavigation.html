@@ -3,11 +3,13 @@
        v-on:click="showNormalMenu">
     <div class="ui three column grid"
          ref="Menu">
-      <div class="column">
+      <div class="left column">
         <reading-progress-indicator></reading-progress-indicator>
       </div>
       <div class="center aligned column">
-        {{ status.notificationUnreadCount }}
+        <template v-if="lib.auth.enableCollaboration">
+          {{ status.notificationUnreadCount }}
+        </template>
       </div>
       <div class="right aligned column">
         <clock></clock>
