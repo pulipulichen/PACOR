@@ -15,6 +15,9 @@ Position(rangy)
 
 import Selection from './rangy-selectionsaverestore.js'
 Selection(rangy)
+
+import TextRange from './rangy-textrange.js'
+TextRange(rangy)
 //console.log(HighlighterModule)
 //rangy = HighlighterModule(rangy)
 //console.log(rangy)

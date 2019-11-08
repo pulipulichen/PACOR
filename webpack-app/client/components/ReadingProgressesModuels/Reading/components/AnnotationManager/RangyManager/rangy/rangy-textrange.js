@@ -63,18 +63,7 @@
  * Problem is whether Rangy should ever acknowledge the space and if so, when. Another problem is whether this can be
  * feature-tested
  */
-(function(factory, root) {
-    if (typeof define == "function" && define.amd) {
-        // AMD. Register as an anonymous module with a dependency on Rangy.
-        define(["./rangy-core"], factory);
-    } else if (typeof module != "undefined" && typeof exports == "object") {
-        // Node/CommonJS style
-        module.exports = factory( require("rangy") );
-    } else {
-        // No AMD or CommonJS support so we use the rangy property of root (probably the global variable)
-        factory(root.rangy);
-    }
-})(function(rangy) {
+export default function(rangy) {
     rangy.createModule("TextRange", ["WrappedSelection"], function(api, module) {
         var UNDEF = "undefined";
         var CHARACTER = "character", WORD = "word";
@@ -1927,4 +1916,4 @@
     });
     
     return rangy;
-}, this);
+}

@@ -26,7 +26,9 @@ let RangyManager = {
       
       hoverHighlighter: null,
       hoverAnnotation: null,
-      hoverAnnotationLock: false
+      hoverAnnotationLock: false,
+      
+      searchResultApplier: null
     }
   },  // data() {
   computed: {
@@ -53,6 +55,8 @@ let RangyManager = {
     //});
     this._initAnchorPosition()
     this._initOnSelectEventListener()
+    
+    this._initSearch()
   },  // mounted() {
   methods: {
     _initAnchorPosition: function () {
@@ -813,31 +817,10 @@ let RangyManager = {
       //console.log(anchor_text)
       return anchor_text
     },
+    
     // -----------------------------------------------------------------
     
-    /**
-     * highlightJSON = [
-        {
-          className: 'mainIdea',
-          paragraphID: 'pacor-paragraph-id-1',
-          start: 1,
-          end: 5
-        },
-        {
-          className: 'mainIdea',
-          paragraphID: 'pacor-paragraph-id-2',
-          start: 3,
-          end: 7
-        },
-        {
-          className: 'mainIdea',
-          paragraphID: 'pacor-paragraph-id-0',
-          start: 10,
-          end: 15
-        },
-      ]
-     */
-    _annotationToHighlighString (annotations, type, doShift) {
+    _annotationToHighlighString (annotations, type) {
       if (annotations === null || annotations === undefined) {
         return ''
       }
@@ -888,7 +871,62 @@ let RangyManager = {
       return this.deserialize(highlightJSONArray, {
         append: true
       })
+    },
+    
+    // -----------------------------
+    
+    _initSearch () {
+      var classApplierModule = rangy.modules.ClassApplier;
+      if (!(rangy.supported && classApplierModule && classApplierModule.supported)) {
+        return false
+      }
+      
+      this.searchResultApplier = rangy.createClassApplier("pacor-search-result")
+    },
+    searchInArticle (searchTerm) {
+      var range = rangy.createRange();
+      var searchScopeRange = rangy.createRange();
+      
+      //searchScopeRange.selectNodeContents(document.body);
+      //let node = this.articleNode[0]
+      let node = document.body
+      range.selectNodeContents(node);
+
+      var options = {
+          caseSensitive: false,
+          wholeWordsOnly: false,
+          withinRange: searchScopeRange,
+          direction: "forward" // This is redundant because "forward" is the default
+      };
+
+      range.selectNodeContents(node);
+      this.searchResultApplier.undoToRange(range);
+      
+      if (searchTerm !== "") {
+
+        // Iterate over matches
+        /*
+        while (range.findText(searchTerm, options)) {
+            // range now encompasses the first text match
+            this.searchResultApplier.applyToRange(range)
+            // Collapse the range to the position immediately after the match
+            range.collapse(false);
+        }
+         */
+        
+        let result = range.findText(searchTerm, options)
+        console.log(result)
+        this.searchResultApplier.applyToRange(range)
+        // Collapse the range to the position immediately after the match
+        range.collapse(false);
+        
+        
+        console.log(range.findText(searchTerm, options))
+        this.searchResultApplier.applyToRange(range)
+        range.collapse(false);
+      }
     }
+    
   } // methods
 }
 

@@ -87,7 +87,7 @@ let AnnotationManager = {
     this.loadHighlights()
     
     //this._testPanel()
-    this.searchInArticle('少年')
+    this.searchInArticle('天')
   },
   methods: {
     _testPanel () {
@@ -262,7 +262,7 @@ let AnnotationManager = {
       this.highlightPos = null
     },
     searchInArticle (keyword) {
-      throw '#TODO search searchInArticle' + keyword
+      this.$refs.RangyManager.searchInArticle(keyword)
     },
     search (keyword) {
       throw '#TODO search ' + keyword
