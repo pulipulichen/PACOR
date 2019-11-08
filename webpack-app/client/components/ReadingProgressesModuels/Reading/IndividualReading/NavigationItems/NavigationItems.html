@@ -16,14 +16,14 @@
     
     <template v-slot:items>
 
-      <a class="item">
-        Test Button
-      </a>
-
       <a class="item"
          v-on:click="lib.auth.nextStep">
         Next Step
       </a>
+      <div class="item">
+        <search-input v-on:search="(keyword) => {$emit('search', keyword)}"></search-input>
+      </div>
+
     </template>
     
   </compact-navigation>

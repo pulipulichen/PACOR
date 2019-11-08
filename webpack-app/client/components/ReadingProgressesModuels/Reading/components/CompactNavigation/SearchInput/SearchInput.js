@@ -1,7 +1,5 @@
 let SearchInput = {
-  props: ['lib', 'status', 'config'],
   data() {    
-    this.$i18n.locale = this.config.locale
     return {
       keyword: ''
     }
@@ -16,7 +14,8 @@ let SearchInput = {
 //  },
   methods: {
     doSearch () {
-      throw this.keyword
+      //throw '#TDOO: ' + this.keyword
+      this.$emit('search', this.keyword)
     }
   } // methods
 }
