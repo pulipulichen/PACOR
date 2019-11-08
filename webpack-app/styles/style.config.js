@@ -7,5 +7,6 @@ module.exports = {
   "CompactTopMenuHeight": "20px",
   "TocbotWidth": "200px",  // @TODO 應該要用media來改造
   "StackWidth": 767,
-  "SmallHeight": 640
+  "SmallHeight": 640,
+  "PacorSearchResult": '{font-weight: bold !important;background-color: yellow !important;}'
 }

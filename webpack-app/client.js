@@ -78,7 +78,10 @@ let VueController = {
       view: 'Loading',
       preference: {},
       notificationUnreadCount: 0,
-      searchKeyword: ''
+      search: {
+        keyword: '',
+        showAnnotationList: false
+      }
     },
     progress: {
       component: false,

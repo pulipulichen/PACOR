@@ -387,7 +387,7 @@ exports.push([module.i, "img[data-v-fa31e19a] {\n  height: 2em;\n  width: auto;\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".back-button[data-v-7508456a] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-7508456a] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.list[data-v-7508456a] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-7508456a] {\n  text-align: center;\n  color: gray;\n}\n", "",{"version":3,"sources":["AnnotationList.less?vue&type=style&index=0&id=7508456a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb","file":"AnnotationList.less?vue&type=style&index=0&id=7508456a&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-7508456a] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-7508456a] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.list[data-v-7508456a] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-7508456a] {\n  text-align: center;\n  color: gray;\n}\n"]}]);
+exports.push([module.i, ".back-button[data-v-7508456a] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-7508456a] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.list[data-v-7508456a] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-7508456a] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-7508456a] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n}\n", "",{"version":3,"sources":["AnnotationList.less?vue&type=style&index=0&id=7508456a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,4BAA4B;EAC5B,mCAAmC;AACrC","file":"AnnotationList.less?vue&type=style&index=0&id=7508456a&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-7508456a] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-7508456a] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.list[data-v-7508456a] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-7508456a] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-7508456a] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -1526,6 +1526,24 @@ var render = function() {
                         )
                       : _vm._e(),
                     _vm._v(" "),
+                    _vm.status.search.showAnnotationList &&
+                    _vm.status.search.keyword !== ""
+                      ? _c("div", { staticClass: "label" }, [
+                          _vm._v(
+                            "\r\n      " +
+                              _vm._s(_vm.$t("Searching: ")) +
+                              "\r\n      "
+                          ),
+                          _c("span", { staticClass: "pacor-search-result" }, [
+                            _vm._v(
+                              "\r\n        " +
+                                _vm._s(_vm.status.search.keyword) +
+                                "\r\n      "
+                            )
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
                     _c("div", { staticClass: "label" }, [
                       _vm._v(
                         "\r\n      " +
@@ -1704,9 +1722,28 @@ var render = function() {
           }),
           _vm._v(" "),
           _vm.noMore
-            ? _c("div", { staticClass: "ui segment no-more" }, [
-                _vm._v("\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    ")
-              ])
+            ? _c(
+                "div",
+                { staticClass: "ui segment no-more" },
+                [
+                  _vm.annotations.length > 0
+                    ? [
+                        _vm._v(
+                          "\r\n        " +
+                            _vm._s(_vm.$t("No More")) +
+                            "\r\n      "
+                        )
+                      ]
+                    : [
+                        _vm._v(
+                          "\r\n        " +
+                            _vm._s(_vm.$t("No Search Result")) +
+                            "\r\n      "
+                        )
+                      ]
+                ],
+                2
+              )
             : _vm._e()
         ],
         2
@@ -1862,7 +1899,7 @@ var render = function() {
                     propFindUser: _vm.findUser,
                     propFindType: _vm.findType,
                     heightPX: _vm.heightPX,
-                    rangy: _vm.rangy
+                    rangy: _vm.lib.rangy
                   },
                   on: {
                     close: function($event) {
@@ -1881,7 +1918,7 @@ var render = function() {
                     annotationModule: _vm.annotationModule,
                     pinSelection: _vm.pinSelection,
                     annotationInstance: _vm.findAnnotation,
-                    rangy: _vm.rangy,
+                    rangy: _vm.lib.rangy,
                     heightPX: _vm.heightPX
                   },
                   on: { hide: _vm.hide }
@@ -2655,8 +2692,11 @@ let AnnotationManager = {
   mounted () {
     this.loadHighlights()
     
+    //console.log(this.$refs.RangyManager)
     //this._testPanel()
     //this.searchInArticle('天')
+    
+    this.lib.rangy = this.$refs.RangyManager
   },
   methods: {
     _testPanel () {
@@ -2830,12 +2870,6 @@ let AnnotationManager = {
       this.listPositions = this.highlightPos
       this.highlightPos = null
     },
-    searchInArticle (keyword) {
-      this.$refs.RangyManager.searchInArticle(keyword)
-    },
-    search (keyword) {
-      throw '#TODO search ' + keyword
-    }
   } // methods
 }
 
@@ -3778,7 +3812,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************************************************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.js?vue&type=script&lang=js& ***!
   \*******************************************************************************************************************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3955,15 +3989,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.vue ***!
   \*******************************************************************************************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MainIdea_html_vue_type_template_id_45a0d506_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MainIdea.html?vue&type=template&id=45a0d506&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.html?vue&type=template&id=45a0d506&scoped=true&");
 /* harmony import */ var _MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MainIdea.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.js?vue&type=script&lang=js&?5332");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _MainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _MainIdea_less_vue_type_style_index_0_id_45a0d506_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MainIdea.less?vue&type=style&index=0&id=45a0d506&lang=less&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.less?vue&type=style&index=0&id=45a0d506&lang=less&scoped=true&");
+/* empty/unused harmony star reexport *//* harmony import */ var _MainIdea_less_vue_type_style_index_0_id_45a0d506_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MainIdea.less?vue&type=style&index=0&id=45a0d506&lang=less&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.less?vue&type=style&index=0&id=45a0d506&lang=less&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 /* harmony import */ var _MainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationPanel_5CAnnotationEditorModules_5CMainIdea_5CMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationPanel%5CAnnotationEditorModules%5CMainIdea%5CMainIdea.vue&lang=yaml */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationPanel/AnnotationEditorModules/MainIdea/MainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationPanel%5CAnnotationEditorModules%5CMainIdea%5CMainIdea.vue&lang=yaml");
 
@@ -5068,6 +5101,26 @@ let AnnotationList = {
       else {
         this.rangy.hoverOut(annotation)
       }
+    },
+    'status.search.showAnnotationList': async function (show) {
+      let query = {
+        withCount: true,
+        page: this.page,
+        keyword: this.status.search.keyword
+        //t: (new Date()).getTime()
+      }
+      let url = '/client/Annotation/list'
+
+      let result = await this.lib.AxiosHelper.post(url, query)
+      if (result === 0) {
+        this.noMore = true
+        return false
+      }
+      //console.log(result)
+
+      for (let key in result) {
+        this[key] = result[key]
+      }
     }
   },
   mounted() {
@@ -5487,6 +5540,12 @@ let AnnotationPanel = {
         this.placeholder.css('height', heightVH + 'vh')
       }
     },
+    'status.search.showAnnotationList' (show) {
+      //console.log(show)
+      if (show === true) {
+        this.show()
+      }
+    }
 //    isHide () {
 //      
 //    }
@@ -5532,6 +5591,7 @@ let AnnotationPanel = {
             .appendTo(container)
     },
     show () {
+      //console.log(this.lib.rangy) // for test
       this.isHide = false
       this.placeholder.transition(this.transitionMode)
       window.$(this.$refs.panel).transition(this.transitionMode, () => {
@@ -5541,7 +5601,7 @@ let AnnotationPanel = {
       this.scrollToPinSelection()
     },
     hide: function (doUnpin) {
-      this.rangy.hoverOut(true)
+      this.lib.rangy.hoverOut(true)
       this.placeholder.transition(this.transitionMode)
       window.$(this.$refs.panel).transition(this.transitionMode, () => {
         if (this.isHide === true) {
@@ -5549,6 +5609,9 @@ let AnnotationPanel = {
         }
         this.isHide = true
       })
+      if (this.status.search.showAnnotationList === true) {
+        this.status.search.showAnnotationList = false
+      }
       this.$emit('hide', doUnpin)
     },
     scrollToPinSelection () {
@@ -6024,7 +6087,8 @@ let RangyManager = {
       hoverAnnotation: null,
       hoverAnnotationLock: false,
       
-      searchResultApplier: null
+      searchResultApplier: null,
+      searchResultTimer: null
     }
   },  // data() {
   computed: {
@@ -6035,10 +6099,16 @@ let RangyManager = {
       return (_rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"].getSelection().toString() !== '')
     }
   },  // computed: {
-  /*
+  
   watch: {
+    'status.search.keyword' (keyword) {
+      clearTimeout(this.searchResultTimer)
+      this.searchResultTimer = setTimeout(() => {
+        this.searchInArticle(keyword)
+      }, 100)
+      
+    }
   },  // watch: {
-   */
   mounted() {
     //console.log('ok')
     //console.log(rangy)
@@ -6053,6 +6123,8 @@ let RangyManager = {
     this._initOnSelectEventListener()
     
     this._initSearch()
+    
+    //this.status.search.keyword = '天' // for test
   },  // mounted() {
   methods: {
     _initAnchorPosition: function () {
@@ -6898,27 +6970,19 @@ let RangyManager = {
       range.selectNodeContents(node);
       //this.searchResultApplier.undoToRange(range);
       
-      if (searchTerm !== "") {
+      jquery__WEBPACK_IMPORTED_MODULE_1___default()('.pacor-search-result').removeClass('pacor-search-result')
+      if (searchTerm === "") {
+        //this.searchResultApplier.detach()
+        //console.log('移除嗎？')
+        return false
+      }
 
-        // Iterate over matches
-        while (range.findText(searchTerm, options)) {
-            // range now encompasses the first text match
-            this.searchResultApplier.applyToRange(range)
-            // Collapse the range to the position immediately after the match
-            range.collapse(false);
-        }
-        /*
-        for (let i = 0; i < 10; i++) {
-          let result = range.findText(searchTerm, options)
-          if (result === false) {
-            break
-          }
-          console.log(result)
-          this.searchResultApplier.applyToRange(range)
-          // Collapse the range to the position immediately after the match
-          range.collapse(false);
-        }
-         */
+      // Iterate over matches
+      while (range.findText(searchTerm, options)) {
+        // range now encompasses the first text match
+        this.searchResultApplier.applyToRange(range)
+        // Collapse the range to the position immediately after the match
+        range.collapse(false);
       }
     }
     

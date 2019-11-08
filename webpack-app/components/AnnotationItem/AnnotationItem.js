@@ -42,7 +42,15 @@ let AnnotationItem = {
     note () {
       //console.log(this.annotation.notes)
       return this.annotation.notes.map(note => {
-        return note.note
+        let result = note.note
+        
+        if (typeof(this.status.search.keyword) === 'string'
+                && this.status.search.keyword !== '') {
+          let keyword = this.status.search.keyword
+          result = result.split(keyword).join(`<span data-pacor-search-result>${keyword}</span>`)
+        }
+        
+        return result
       }).join(' ')
     }
   },

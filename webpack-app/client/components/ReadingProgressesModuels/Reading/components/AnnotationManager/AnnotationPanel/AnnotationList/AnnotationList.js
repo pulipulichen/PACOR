@@ -100,6 +100,26 @@ let AnnotationList = {
       else {
         this.rangy.hoverOut(annotation)
       }
+    },
+    'status.search.showAnnotationList': async function (show) {
+      let query = {
+        withCount: true,
+        page: this.page,
+        keyword: this.status.search.keyword
+        //t: (new Date()).getTime()
+      }
+      let url = '/client/Annotation/list'
+
+      let result = await this.lib.AxiosHelper.post(url, query)
+      if (result === 0) {
+        this.noMore = true
+        return false
+      }
+      //console.log(result)
+
+      for (let key in result) {
+        this[key] = result[key]
+      }
     }
   },
   mounted() {

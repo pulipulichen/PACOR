@@ -26,7 +26,8 @@
       </a>
       
       <div class="item">
-        <search-input v-on:search="(keyword) => {$emit('search', keyword)}"
+        <search-input v-bind:status="status"
+                      v-on:search="(keyword) => {$emit('search', keyword)}"
                       v-on:input="(keyword) => {$emit('input', keyword)}"></search-input>
       </div>
 

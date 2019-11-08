@@ -12,6 +12,14 @@
       {{ $t('Back to list') }}
     </button>
     
+    <div class="label"
+         v-if="status.search.showAnnotationList && status.search.keyword !== ''">
+      {{ $t('Searching: ') }}
+      <span class="pacor-search-result">
+        {{ status.search.keyword }}
+      </span>
+    </div>
+    
     <div class="label">
       {{ $t('{0} Annotations', [annotationCount]) }}:
     </div>
@@ -94,7 +102,12 @@
         v-bind:rangy="rangy"></annotation-item>
     <div class="ui segment no-more"
          v-if="noMore">
-      {{ $t('No More') }}
+      <template v-if="annotations.length > 0">
+        {{ $t('No More') }}
+      </template>
+      <template v-else>
+        {{ $t('No Search Result') }}
+      </template>
     </div>
   </div>
   <div class="list"

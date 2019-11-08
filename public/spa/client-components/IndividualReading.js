@@ -159,8 +159,7 @@ var render = function() {
           status: _vm.status,
           progress: _vm.progress,
           lib: _vm.lib
-        },
-        on: { search: _vm.search, input: _vm.searchInArticle }
+        }
       }),
       _vm._v(" "),
       _c("annotation-manager", {
@@ -249,6 +248,7 @@ var render = function() {
                   { staticClass: "item" },
                   [
                     _c("search-input", {
+                      attrs: { status: _vm.status },
                       on: {
                         search: function(keyword) {
                           _vm.$emit("search", keyword)
@@ -492,24 +492,19 @@ var render = function() {
         {
           name: "model",
           rawName: "v-model",
-          value: _vm.status.searchKeyword,
-          expression: "status.searchKeyword"
+          value: _vm.status.search.keyword,
+          expression: "status.search.keyword"
         }
       ],
       attrs: { type: "text", placeholder: _vm.$t("Search...") },
-      domProps: { value: _vm.status.searchKeyword },
+      domProps: { value: _vm.status.search.keyword },
       on: {
-        input: [
-          function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.status, "searchKeyword", $event.target.value)
-          },
-          function($event) {
-            return _vm.$emit("input", _vm.keyword)
+        input: function($event) {
+          if ($event.target.composing) {
+            return
           }
-        ]
+          _vm.$set(_vm.status.search, "keyword", $event.target.value)
+        }
       }
     }),
     _vm._v(" "),
@@ -517,9 +512,13 @@ var render = function() {
       "button",
       {
         staticClass: "ui icon button",
-        class: { disabled: _vm.keyword.trim() === "" },
+        class: { disabled: _vm.status.search.keyword.trim() === "" },
         attrs: { type: "button" },
-        on: { click: _vm.doSearch }
+        on: {
+          click: function($event) {
+            _vm.status.search.showAnnotationList = true
+          }
+        }
       },
       [_c("i", { staticClass: "search icon" })]
     )
@@ -713,10 +712,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />`
   },
   methods: {
     search (keyword) {
-      this.$refs.AnnotationManager.search(keyword)
+      //this.$refs.AnnotationManager.search(keyword)
     },
     searchInArticle (keyword) {
-      this.$refs.AnnotationManager.searchInArticle(keyword)
+      //this.$refs.AnnotationManager.searchInArticle(keyword)
     }
   } // methods
 }
@@ -1079,6 +1078,12 @@ let CompactNavigation = {
   mounted() {
     this.initCompactMode()
     this.initPlaceholder()
+    
+    setTimeout(() => {
+      this.normalMenuDisplay = true
+      this.status.search.keyword = '天'
+      this.status.search.showAnnotationList = true
+    }, 500)
   },
   destroyed () {
     this.removePlaceholder()

@@ -71,9 +71,16 @@
     overflow: hidden;
     
     
-    ::v-deep p {
-      display: inline !important;
-      line-height: 2em !important;
+    ::v-deep {
+      [data-pacor-search-result] {
+        @PacorSearchResult();
+      }
+      
+      p {
+        display: inline !important;
+        line-height: 2em !important;
+      }
     }
   }
 }
+

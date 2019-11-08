@@ -95,6 +95,12 @@ let AnnotationPanel = {
         this.placeholder.css('height', heightVH + 'vh')
       }
     },
+    'status.search.showAnnotationList' (show) {
+      //console.log(show)
+      if (show === true) {
+        this.show()
+      }
+    }
 //    isHide () {
 //      
 //    }
@@ -140,6 +146,7 @@ let AnnotationPanel = {
             .appendTo(container)
     },
     show () {
+      //console.log(this.lib.rangy) // for test
       this.isHide = false
       this.placeholder.transition(this.transitionMode)
       window.$(this.$refs.panel).transition(this.transitionMode, () => {
@@ -149,7 +156,7 @@ let AnnotationPanel = {
       this.scrollToPinSelection()
     },
     hide: function (doUnpin) {
-      this.rangy.hoverOut(true)
+      this.lib.rangy.hoverOut(true)
       this.placeholder.transition(this.transitionMode)
       window.$(this.$refs.panel).transition(this.transitionMode, () => {
         if (this.isHide === true) {
@@ -157,6 +164,9 @@ let AnnotationPanel = {
         }
         this.isHide = true
       })
+      if (this.status.search.showAnnotationList === true) {
+        this.status.search.showAnnotationList = false
+      }
       this.$emit('hide', doUnpin)
     },
     scrollToPinSelection () {

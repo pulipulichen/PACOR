@@ -46,10 +46,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />`
   },
   methods: {
     search (keyword) {
-      this.$refs.AnnotationManager.search(keyword)
+      //this.$refs.AnnotationManager.search(keyword)
     },
     searchInArticle (keyword) {
-      this.$refs.AnnotationManager.searchInArticle(keyword)
+      //this.$refs.AnnotationManager.searchInArticle(keyword)
     }
   } // methods
 }

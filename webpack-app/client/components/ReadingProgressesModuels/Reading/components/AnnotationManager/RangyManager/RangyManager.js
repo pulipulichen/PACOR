@@ -28,7 +28,8 @@ let RangyManager = {
       hoverAnnotation: null,
       hoverAnnotationLock: false,
       
-      searchResultApplier: null
+      searchResultApplier: null,
+      searchResultTimer: null
     }
   },  // data() {
   computed: {
@@ -39,10 +40,16 @@ let RangyManager = {
       return (rangy.getSelection().toString() !== '')
     }
   },  // computed: {
-  /*
+  
   watch: {
+    'status.search.keyword' (keyword) {
+      clearTimeout(this.searchResultTimer)
+      this.searchResultTimer = setTimeout(() => {
+        this.searchInArticle(keyword)
+      }, 100)
+      
+    }
   },  // watch: {
-   */
   mounted() {
     //console.log('ok')
     //console.log(rangy)
@@ -57,6 +64,8 @@ let RangyManager = {
     this._initOnSelectEventListener()
     
     this._initSearch()
+    
+    //this.status.search.keyword = '天' // for test
   },  // mounted() {
   methods: {
     _initAnchorPosition: function () {
@@ -902,27 +911,19 @@ let RangyManager = {
       range.selectNodeContents(node);
       //this.searchResultApplier.undoToRange(range);
       
-      if (searchTerm !== "") {
+      $('.pacor-search-result').removeClass('pacor-search-result')
+      if (searchTerm === "") {
+        //this.searchResultApplier.detach()
+        //console.log('移除嗎？')
+        return false
+      }
 
-        // Iterate over matches
-        while (range.findText(searchTerm, options)) {
-            // range now encompasses the first text match
-            this.searchResultApplier.applyToRange(range)
-            // Collapse the range to the position immediately after the match
-            range.collapse(false);
-        }
-        /*
-        for (let i = 0; i < 10; i++) {
-          let result = range.findText(searchTerm, options)
-          if (result === false) {
-            break
-          }
-          console.log(result)
-          this.searchResultApplier.applyToRange(range)
-          // Collapse the range to the position immediately after the match
-          range.collapse(false);
-        }
-         */
+      // Iterate over matches
+      while (range.findText(searchTerm, options)) {
+        // range now encompasses the first text match
+        this.searchResultApplier.applyToRange(range)
+        // Collapse the range to the position immediately after the match
+        range.collapse(false);
       }
     }
     

@@ -27,7 +27,7 @@
           v-bind:propFindUser="findUser"
           v-bind:propFindType="findType"
           v-bind:heightPX="heightPX"
-          v-bind:rangy="rangy"
+          v-bind:rangy="lib.rangy"
           v-on:close="hide(true)"></annotation-list>
         
       </template> <!-- <template v-if="listPositions"> -->
@@ -39,7 +39,7 @@
           v-bind:annotationModule="annotationModule"
           v-bind:pinSelection="pinSelection"
           v-bind:annotationInstance="findAnnotation"
-          v-bind:rangy="rangy"
+          v-bind:rangy="lib.rangy"
           v-bind:heightPX="heightPX"
           v-on:hide="hide"></annotation-editor-modules>
       </template> <!-- <template v-else> -->

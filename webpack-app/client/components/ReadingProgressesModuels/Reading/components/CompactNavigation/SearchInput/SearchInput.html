@@ -1,12 +1,11 @@
 <div class="ui action input">
   <input type="text" 
-         v-model="status.searchKeyword"
-         v-bind:placeholder="$t('Search...')"
-         v-on:input="$emit('input', keyword)">
+         v-model="status.search.keyword"
+         v-bind:placeholder="$t('Search...')">
   <button type="button"
           class="ui icon button"
-          v-on:click="doSearch"
-          v-bind:class="{'disabled': (keyword.trim() === '')}">
+          v-on:click="status.search.showAnnotationList = true"
+          v-bind:class="{'disabled': (status.search.keyword.trim() === '')}">
     <i class="search icon"></i>
   </button>
 </div>

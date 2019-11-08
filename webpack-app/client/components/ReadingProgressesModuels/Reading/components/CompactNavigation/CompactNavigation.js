@@ -54,6 +54,12 @@ let CompactNavigation = {
   mounted() {
     this.initCompactMode()
     this.initPlaceholder()
+    
+    setTimeout(() => {
+      this.normalMenuDisplay = true
+      this.status.search.keyword = '天'
+      this.status.search.showAnnotationList = true
+    }, 500)
   },
   destroyed () {
     this.removePlaceholder()

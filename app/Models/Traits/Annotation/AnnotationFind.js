@@ -89,7 +89,7 @@ class AnnotationFind {
       return await doQuery()
     } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
 
-    Model.findByWebpageGroupPosition = async function (webpage, user, {afterTime, anchorPositions, anchorMode, withCount, pick, findUserID, findType, page}) {
+    Model.findByWebpageGroupPosition = async function (webpage, user, {afterTime, anchorPositions, anchorMode, withCount, pick, findUserID, findType, page, keyword}) {
       const doQuery = async evt => {
         //console.log('findByWebpageGroupPosition', anchorPositions)
 
@@ -139,6 +139,12 @@ class AnnotationFind {
               this._buildAnchorPositionWhere(builder, anchorMode, anchorPositions)
             })
           }
+        }
+        
+        if (typeof (keyword) === 'string') {
+          query.whereHas('notes', (builder) => {
+            builder.whereRaw('note like ?', `%${keyword}%`)
+          })
         }
 
         //console.log(afterTime, typeof(afterTime))

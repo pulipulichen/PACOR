@@ -105,7 +105,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "/*\nTo change this license header, choose License Headers in Project Properties.\nTo change this template file, choose Tools | Templates\nand open the template in the editor.\n*/\n/*\n    Created on : Oct 4, 2019, 5:33:39 PM\n    Author     : pudding\n*/\n", "",{"version":3,"sources":["global.less"],"names":[],"mappings":"AAAA;;;;CAIC;AACD;;;CAGC","file":"global.less","sourcesContent":["/*\nTo change this license header, choose License Headers in Project Properties.\nTo change this template file, choose Tools | Templates\nand open the template in the editor.\n*/\n/*\n    Created on : Oct 4, 2019, 5:33:39 PM\n    Author     : pudding\n*/\n"]}]);
+exports.push([module.i, "/*\nTo change this license header, choose License Headers in Project Properties.\nTo change this template file, choose Tools | Templates\nand open the template in the editor.\n*/\n/*\n    Created on : Oct 4, 2019, 5:33:39 PM\n    Author     : pudding\n*/\n.PacorSearchResult {\n  font-weight: bold !important;\n  background-color: yellow !important;\n}\n", "",{"version":3,"sources":["global.less"],"names":[],"mappings":"AAAA;;;;CAIC;AACD;;;CAGC;AACD;EACE,4BAA4B;EAC5B,mCAAmC;AACrC","file":"global.less","sourcesContent":["/*\nTo change this license header, choose License Headers in Project Properties.\nTo change this template file, choose Tools | Templates\nand open the template in the editor.\n*/\n/*\n    Created on : Oct 4, 2019, 5:33:39 PM\n    Author     : pudding\n*/\n.PacorSearchResult {\n  font-weight: bold !important;\n  background-color: yellow !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -4295,7 +4295,8 @@ module.exports = {
   "CompactTopMenuHeight": "20px",
   "TocbotWidth": "200px",  // @TODO 應該要用media來改造
   "StackWidth": 767,
-  "SmallHeight": 640
+  "SmallHeight": 640,
+  "PacorSearchResult": '{font-weight: bold !important;background-color: yellow !important;}'
 }
 
 /***/ }),

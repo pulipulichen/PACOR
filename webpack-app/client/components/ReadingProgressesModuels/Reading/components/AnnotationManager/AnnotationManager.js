@@ -86,8 +86,11 @@ let AnnotationManager = {
   mounted () {
     this.loadHighlights()
     
+    //console.log(this.$refs.RangyManager)
     //this._testPanel()
     //this.searchInArticle('天')
+    
+    this.lib.rangy = this.$refs.RangyManager
   },
   methods: {
     _testPanel () {
@@ -261,12 +264,6 @@ let AnnotationManager = {
       this.listPositions = this.highlightPos
       this.highlightPos = null
     },
-    searchInArticle (keyword) {
-      this.$refs.RangyManager.searchInArticle(keyword)
-    },
-    search (keyword) {
-      throw '#TODO search ' + keyword
-    }
   } // methods
 }
 
