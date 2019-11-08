@@ -1,7 +1,7 @@
 'use strict'
 
 const Cache = use('Cache')
-const config = use('Config')
+const Config = use('Config')
 
 class AnnotationFind {
 
@@ -124,7 +124,7 @@ class AnnotationFind {
         }
 
         if (typeof (page) === 'number') {
-          let itemsPerPage = config.get('view.itemsPerPage')
+          let itemsPerPage = Config.get('view.itemsPerPage')
           query.limit(itemsPerPage)
           query.offset(itemsPerPage * page)
         }

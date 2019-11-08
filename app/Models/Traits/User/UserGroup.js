@@ -8,7 +8,7 @@ class UserGroup {
 
     Model.prototype.getUserIDsInGroup = async function (webpage) {
       let cacheKey = Cache.key(`User.getUserIDsInGroup`, webpage)
-      return await Cache.rememberWait(cacheKey, async () => {
+      return await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
         /*
          let groups = await this.manyThrough('App/Models/WebpageGroup', 'users')
          .where('webpage_id', webpage.primaryKeyValue)
