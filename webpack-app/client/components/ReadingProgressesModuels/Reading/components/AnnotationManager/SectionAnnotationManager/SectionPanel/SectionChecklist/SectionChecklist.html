@@ -1,0 +1,42 @@
+<div class="ui segment">
+  {{ $t("Check list") }}:
+
+  <button type="button"
+          class="ui fluid button"
+          v-on:click="openSectionMainIdeaEditor">
+    {{ $t('Write section main ideas') }}
+  </button>
+
+  <ul>
+    <template v-for="(item, i) in checklist">
+      <li v-if="item !== 'SectionMainIdea'"
+          v-on:change="onChecklistItemChange(i)">
+        <div class="ui checkbox">
+          <input type="checkbox"
+                 v-model="checklistData[i]">
+          <label>
+            {{ $t(item) }}
+          </label>
+        </div>
+      </li>
+      <li v-else v-on:click="openSectionMainIdeaEditor">
+        <div class="ui checkbox">
+          <input type="checkbox"
+                 v-model="checklistData[i]">
+          <label>
+            {{ $t('I have already written the main ideas of this section.') }}
+          </label>
+        </div>
+      </li>
+    </template>
+
+  </ul>
+
+  <button type="button"
+          class="ui fluid button"
+          v-bind:class="computedSubmitClass"
+          v-on:click="submitChecklist">
+    {{ $t('I have read this section!') }}
+  </button>
+
+</div>

@@ -240,6 +240,22 @@ module.exports = function (Component) {
 
 /***/ }),
 
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CSectionAnnotationManager%5CSectionPanel%5CSectionChecklist%5CSectionChecklist.vue&lang=yaml":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CSectionAnnotationManager%5CSectionPanel%5CSectionChecklist%5CSectionChecklist.vue&lang=yaml ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionPanel.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CSectionAnnotationManager%5CSectionPanel%5CSectionPanel.vue&lang=yaml":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionPanel.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CSectionAnnotationManager%5CSectionPanel%5CSectionPanel.vue&lang=yaml ***!
@@ -490,6 +506,20 @@ exports.push([module.i, "[data-pacor-section-seq-id] [data-pacor-paragraph-seq-i
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
 exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"SectionAnnotationManager.less?vue&type=style&index=0&id=d9b324f8&lang=less&scoped=true&"}]);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true&"}]);
 
 
 /***/ }),
@@ -2125,7 +2155,7 @@ var render = function() {
   return _c(
     "fragment",
     [
-      _vm._l(_vm.sectionNodes, function(node) {
+      _vm._l(_vm.sectionNodes, function(node, i) {
         return [
           _c("section-panel", {
             ref: "auth",
@@ -2134,7 +2164,9 @@ var render = function() {
               config: _vm.config,
               status: _vm.status,
               lib: _vm.lib,
-              node: node
+              node: node,
+              sectionSeqID: i,
+              sectionData: _vm.sectionData[i]
             }
           })
         ]
@@ -2142,6 +2174,198 @@ var render = function() {
     ],
     2
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.html?vue&type=template&id=2fc0758a&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.html?vue&type=template&id=2fc0758a&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "ui segment" }, [
+    _vm._v("\r\n  " + _vm._s(_vm.$t("Check list")) + ":\r\n\r\n  "),
+    _c(
+      "button",
+      {
+        staticClass: "ui fluid button",
+        attrs: { type: "button" },
+        on: { click: _vm.openSectionMainIdeaEditor }
+      },
+      [
+        _vm._v(
+          "\r\n    " + _vm._s(_vm.$t("Write section main ideas")) + "\r\n  "
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "ul",
+      [
+        _vm._l(_vm.checklist, function(item, i) {
+          return [
+            item !== "SectionMainIdea"
+              ? _c(
+                  "li",
+                  {
+                    on: {
+                      change: function($event) {
+                        return _vm.onChecklistItemChange(i)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "ui checkbox" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.checklistData[i],
+                            expression: "checklistData[i]"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.checklistData[i])
+                            ? _vm._i(_vm.checklistData[i], null) > -1
+                            : _vm.checklistData[i]
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.checklistData[i],
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  _vm.$set(
+                                    _vm.checklistData,
+                                    i,
+                                    $$a.concat([$$v])
+                                  )
+                              } else {
+                                $$i > -1 &&
+                                  _vm.$set(
+                                    _vm.checklistData,
+                                    i,
+                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                  )
+                              }
+                            } else {
+                              _vm.$set(_vm.checklistData, i, $$c)
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", [
+                        _vm._v(
+                          "\r\n            " +
+                            _vm._s(_vm.$t(item)) +
+                            "\r\n          "
+                        )
+                      ])
+                    ])
+                  ]
+                )
+              : _c("li", { on: { click: _vm.openSectionMainIdeaEditor } }, [
+                  _c("div", { staticClass: "ui checkbox" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.checklistData[i],
+                          expression: "checklistData[i]"
+                        }
+                      ],
+                      attrs: { type: "checkbox" },
+                      domProps: {
+                        checked: Array.isArray(_vm.checklistData[i])
+                          ? _vm._i(_vm.checklistData[i], null) > -1
+                          : _vm.checklistData[i]
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$a = _vm.checklistData[i],
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = null,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                _vm.$set(
+                                  _vm.checklistData,
+                                  i,
+                                  $$a.concat([$$v])
+                                )
+                            } else {
+                              $$i > -1 &&
+                                _vm.$set(
+                                  _vm.checklistData,
+                                  i,
+                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                )
+                            }
+                          } else {
+                            _vm.$set(_vm.checklistData, i, $$c)
+                          }
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("label", [
+                      _vm._v(
+                        "\r\n            " +
+                          _vm._s(
+                            _vm.$t(
+                              "I have already written the main ideas of this section."
+                            )
+                          ) +
+                          "\r\n          "
+                      )
+                    ])
+                  ])
+                ])
+          ]
+        })
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "ui fluid button",
+        class: _vm.computedSubmitClass,
+        attrs: { type: "button" },
+        on: { click: _vm.submitChecklist }
+      },
+      [
+        _vm._v(
+          "\r\n    " + _vm._s(_vm.$t("I have read this section!")) + "\r\n  "
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2165,15 +2389,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { ref: "panel", staticClass: "non-invasive-web-style-framework" },
-    [
-      _c("div", { staticClass: "ui segment" }, [
-        _vm._v("\r\n    " + _vm._s(_vm.status.search.keyword) + "\r\n  ")
-      ])
-    ]
-  )
+  return _c("div", {
+    ref: "panel",
+    staticClass: "non-invasive-web-style-framework"
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2534,6 +2753,27 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("561a4e83", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("07affa73", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -15979,7 +16219,8 @@ let SectionAnnotationManager = {
   data() {
     this.$i18n.locale = this.config.locale
     return {
-      sectionNodes: []
+      sectionNodes: [],
+      sectionData: []
     }
   },
   components: {
@@ -15993,7 +16234,9 @@ let SectionAnnotationManager = {
     this.initSectionNodes()
   },
   methods: {
-    initSectionNodes () {
+    initSectionNodes: async function () {
+      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
+      
       this.sectionNodes = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-section-seq-id]').toArray()
     }
   } // methods
@@ -16079,6 +16322,185 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.html?vue&type=template&id=2fc0758a&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.html?vue&type=template&id=2fc0758a&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_SectionChecklist_html_vue_type_template_id_2fc0758a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./SectionChecklist.html?vue&type=template&id=2fc0758a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.html?vue&type=template&id=2fc0758a&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_SectionChecklist_html_vue_type_template_id_2fc0758a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_SectionChecklist_html_vue_type_template_id_2fc0758a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.js?vue&type=script&lang=js&?6d6b":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.js?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SectionChecklist_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./SectionChecklist.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.js?vue&type=script&lang=js&?d07c");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_SectionChecklist_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.js?vue&type=script&lang=js&?d07c":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.js?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let SectionChecklist = {
+  props: ['lib', 'status', 'config'],
+  data() {    
+    this.$i18n.locale = this.config.locale
+    return {
+    }
+  },
+  components: {
+  },
+  computed: {
+    localStorageKeyPrefix () {
+      return `Pacor.SectionPanel.${this.sectionSeqID}.`
+    },
+    checklist () {
+      if (Array.isArray(this.lib.auth.currentStepConfig.checklist)) {
+        let checklist = this.lib.auth.currentStepConfig.checklist
+        
+        let checklistData = this.sectionData.checklistData
+        if (Array.isArray(checklistData) === false) {
+          //checklistData = []
+          let itemsFromLocalStorage = localStorage
+                    .getItem(this.localStorageKeyPrefix + 'checklistData')
+          if (itemsFromLocalStorage !== null) {
+            checklistData = JSON.parse(itemsFromLocalStorage)
+          }
+        }
+        checklist.forEach((item, i) => {
+          if (typeof(checklistData[i]) !== 'boolean') {
+            checklistData[i] = false
+          }
+        })
+        this.checklistData = checklistData
+        
+        return checklist
+      }
+    },
+    isChecklistCompleted () {
+      console.error('#TODO')
+      return false
+    },
+  },
+  watch: {
+  },
+  mounted() {
+  },
+  methods: {
+    onChecklistItemChange (i) {
+      this.checklistData[i] = !this.checklistData[i]
+      
+      let data = JSON.stringify(this.checklistData)
+      localStorage.setItem(this.localStorageKeyPrefix + 'checklist', data)
+    },
+    openSectionMainIdeaEditor () {
+      throw '@TODO'
+    }
+  } // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (SectionChecklist);
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SectionChecklist_less_vue_type_style_index_0_id_2fc0758a_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../../node_modules/vue-style-loader!../../../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SectionChecklist_less_vue_type_style_index_0_id_2fc0758a_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SectionChecklist_less_vue_type_style_index_0_id_2fc0758a_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SectionChecklist_less_vue_type_style_index_0_id_2fc0758a_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SectionChecklist_less_vue_type_style_index_0_id_2fc0758a_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SectionChecklist_less_vue_type_style_index_0_id_2fc0758a_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.vue":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.vue ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SectionChecklist_html_vue_type_template_id_2fc0758a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SectionChecklist.html?vue&type=template&id=2fc0758a&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.html?vue&type=template&id=2fc0758a&scoped=true&");
+/* harmony import */ var _SectionChecklist_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SectionChecklist.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.js?vue&type=script&lang=js&?6d6b");
+/* empty/unused harmony star reexport *//* harmony import */ var _SectionChecklist_less_vue_type_style_index_0_id_2fc0758a_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _SectionChecklist_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CSectionAnnotationManager_5CSectionPanel_5CSectionChecklist_5CSectionChecklist_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SectionChecklist.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CSectionAnnotationManager%5CSectionPanel%5CSectionChecklist%5CSectionChecklist.vue&lang=yaml */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CSectionAnnotationManager%5CSectionPanel%5CSectionChecklist%5CSectionChecklist.vue&lang=yaml");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _SectionChecklist_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SectionChecklist_html_vue_type_template_id_2fc0758a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SectionChecklist_html_vue_type_template_id_2fc0758a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "2fc0758a",
+  null
+  
+)
+
+/* custom blocks */
+
+if (typeof _SectionChecklist_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CSectionAnnotationManager_5CSectionPanel_5CSectionChecklist_5CSectionChecklist_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_SectionChecklist_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CSectionAnnotationManager_5CSectionPanel_5CSectionChecklist_5CSectionChecklist_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CSectionAnnotationManager%5CSectionPanel%5CSectionChecklist%5CSectionChecklist.vue&lang=yaml":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CSectionAnnotationManager%5CSectionPanel%5CSectionChecklist%5CSectionChecklist.vue&lang=yaml ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionChecklist_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CSectionAnnotationManager_5CSectionPanel_5CSectionChecklist_5CSectionChecklist_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./SectionChecklist.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CSectionAnnotationManager%5CSectionPanel%5CSectionChecklist%5CSectionChecklist.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CSectionAnnotationManager%5CSectionPanel%5CSectionChecklist%5CSectionChecklist.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionChecklist_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CSectionAnnotationManager_5CSectionPanel_5CSectionChecklist_5CSectionChecklist_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionChecklist_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CSectionAnnotationManager_5CSectionPanel_5CSectionChecklist_5CSectionChecklist_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionChecklist_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CSectionAnnotationManager_5CSectionPanel_5CSectionChecklist_5CSectionChecklist_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionChecklist_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CSectionAnnotationManager_5CSectionPanel_5CSectionChecklist_5CSectionChecklist_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionChecklist_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CSectionAnnotationManager_5CSectionPanel_5CSectionChecklist_5CSectionChecklist_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
 /***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionPanel.html?vue&type=template&id=24156f54&scoped=true&":
 /*!********************************************************************************************************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionPanel.html?vue&type=template&id=24156f54&scoped=true& ***!
@@ -16120,16 +16542,22 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SectionChecklist_SectionChecklist_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SectionChecklist/SectionChecklist.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/SectionAnnotationManager/SectionPanel/SectionChecklist/SectionChecklist.vue");
+
+
 let SectionPanel = {
-  props: ['lib', 'status', 'config', 'node'],
+  props: ['lib', 'status', 'config', 'node', 'sectionSeqID', 'sectionData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      checklistData: []
     }
   },
   components: {
+    'section-checklist': _SectionChecklist_SectionChecklist_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   computed: {
+    
   },
   watch: {
   },
@@ -16140,7 +16568,8 @@ let SectionPanel = {
     initPanel () {
       console.log(this.node)
       this.node.parentNode.insertBefore(this.$refs.panel, this.node.nextSibling)
-    }
+    },
+    
   } // methods
 }
 

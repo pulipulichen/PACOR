@@ -6,7 +6,8 @@ let SectionAnnotationManager = {
   data() {
     this.$i18n.locale = this.config.locale
     return {
-      sectionNodes: []
+      sectionNodes: [],
+      sectionData: []
     }
   },
   components: {
@@ -20,7 +21,9 @@ let SectionAnnotationManager = {
     this.initSectionNodes()
   },
   methods: {
-    initSectionNodes () {
+    initSectionNodes: async function () {
+      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
+      
       this.sectionNodes = $('[data-pacor-section-seq-id]').toArray()
     }
   } // methods

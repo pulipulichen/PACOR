@@ -38,7 +38,7 @@ module.exports = {
       checklist: [
         'I have already read this section.',
         'I have already written annotations on a sentence I don\'t understand.',
-        'I have already written the main ideas of this section.',
+        'SectionMainIdea', // 'I have already written the main ideas of this section.',
       ],
       
     },
