@@ -22,7 +22,7 @@ Route.on('/chat').render('chat')
 Route.on('/').render('index')
 
 // ------------------------------------------
-
+/*
 Route.get('/client/user/login', 'Client/UserController.login').middleware(['origin', 'referer'])
 Route.get('/client/user/register', 'Client/UserController.register').middleware(['origin', 'referer'])
 Route.get('/client/user/logout', 'Client/UserController.logout')
@@ -37,7 +37,7 @@ Route.post('/client/message/upload', 'Client/MessageController.upload').middlewa
 Route.get('/client/oauth/request/:driver', 'Client/UserController.oauthRequest').middleware(['origin', 'referer'])
 Route.get('/client/oauth/authenticated/:driver', 'Client/UserController.oauthAuthenticated').middleware(['origin', 'referer'])
 Route.get('/client/oauth/login', 'Client/UserController.oauthLogin').middleware(['origin', 'referer'])
-
+*/
 // ---------------------------
 
 const ioc = require('@adonisjs/fold').ioc
@@ -113,6 +113,10 @@ Route.any('/client/Annotation/:action', (options) => {
 
 Route.any('/client/ReadingProgress/:action', (options) => {
   return controllerMapping(options, 'client', 'ReadingProgress')
+}).middleware(['user', 'webpage'])
+
+Route.any('/client/File/:action', (options) => {
+  return controllerMapping(options, 'client', 'File')
 }).middleware(['user', 'webpage'])
 
 // -------------------------------

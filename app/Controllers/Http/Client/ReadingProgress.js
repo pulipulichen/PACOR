@@ -53,8 +53,33 @@ class ReadingProgress {
     //  log: log
     //})
     step.log = log
-    step.activity_seconds = 2
+    //step.activity_seconds = 2
     let result = await step.save()
+    
+//    console.log(result)
+//    console.log(step.step_name)
+//    console.log(step.log)
+//    console.log(typeof(step.log))
+//    console.log(step.toJSON())
+    return 1
+  }
+  
+  async setLogAttr({request, webpage, user}) {
+    let attrs = request.all()
+    if (typeof(attrs) !== 'object' || JSON.stringify(attrs) === '{}') {
+      throw new HttpException('No attrs')
+      return 0
+    }
+    
+    let step = await user.startReadingProgress(webpage)
+    if (step.log === null) {
+      step.log = {}
+    }
+    Object.keys(attrs).forEach(key => {
+      step.log[key] = attrs[key]
+    })
+    //step.activity_seconds = 2
+    await step.save()
     
 //    console.log(result)
 //    console.log(step.step_name)
