@@ -1,6 +1,6 @@
 'use strict'
 
-const $ from 'jquery'
+const $ = use('cheerio')
 const Segment = use('novel-segment')
 
 let TokenizationHelper = {
@@ -73,17 +73,121 @@ let TokenizationHelper = {
     return this._segment
   },
   parseWordFrequency (text) {
-    let result = this.getSegment().doSegment(text)
+    let segment = this.getSegment()
+    let result = segment.doSegment(text)
+    
+    console.log(segment.POSTAG)
     
     let output = {}
+    
+    result = result.map(r => {
+      if (typeof(r.p) !== 'undefined') {
+        //r.pn = segment.POSTAG[r.p]
+        r.pn = segment.POSTAG.enName(r.p)
+      }
+      return r
+    })
     
     output = result
     
     
     return output
   },
+  PosRemap: {
+    NovelSegment: {
+      bad: 'unknown',
+      d_a: 'adj',
+      d_b: 'adj',
+      d_c: 'conj',
+      d_d: 'adv',
+      d_e: 'int',
+      d_f: 'v',
+      d_i: 'adj',
+      d_l: 'n',
+      a_m: 'm',
+      d_mq: 'q',
+      d_n: 'n',
+      d_o: 'o',
+      d_p: 'prep',
+      a_q: 'q',
+      d_r: 'pron',
+      d_s: 'n',
+      d_t: 'adv',
+      d_u: 'u',
+      d_v: 'v',
+      d_w: 'punc',
+      d_x: 'unknown',
+      d_y: 'u',
+      d_z: 'adj',
+      a_nr: 'n',
+      a_ns: 'n',
+      a_nt: 'n',
+      a_nx: '外文字符', // 這個要丟給pos去判斷
+      a_nz: 'n',
+      d_zh: 'adv',
+      d_k: 'pron',
+      url: 'n',
+      unk: 'unknown'
+    },
+    PosJS: {
+      "CC": "conj",
+      "CD": "n",
+      "DT": "n",
+      "EX": "n",
+      "FW": "unknown",
+      "IN": "prep",
+      "JJ": "adj",
+      "JJR": "adj",
+      "JJS": "adj",
+      "LS": "punc",
+      "MD": "v",
+      "NN": "n",
+      "NNS": "n",
+      "NNP": "n",
+      "NNPS": "n",
+      "POS": "prep",
+      "PDT": "adj",
+      "PP$": "pron",
+      "PRP": "pron",
+      "RB": "adv",
+      "RBR": "adv",
+      "RBS": "adv",
+      "RP": "prep",
+      "SYM": "punc",
+      "TO": "prep",
+      "UH": "int",
+      "URL": "n",
+      "VB": "v",
+      "VBD": "v",
+      "VBG": "v",
+      "VBN": "v",
+      "VBP": "v",
+      "VBZ": "v",
+      "WDT": "n",
+      "WP": "pron",
+      "WP$": "pron",
+      "WRB": "adv",
+      ",": "punc",
+      ".": "punc",
+      ":": "punc",
+      "$": "punc",
+      "#": "punc",
+      "\"": "punc",
+      "(": "punc",
+      ")": "punc"
+    }
+  },
   remapPos (p) {
-    return p
+    if (p === undefined) {
+      return []
+    }
+    
+    let segment = this.getSegment()
+    let posList = segment.POSTAG.enName(p).split(',')
+    
+    return posList.map(pos => {
+      
+    })
   }
 }
 
