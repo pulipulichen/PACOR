@@ -1,4 +1,5 @@
 import SectionChecklist from './SectionChecklist/SectionChecklist.vue'
+import SectionAnnotationList from './SectionAnnotationList/SectionAnnotationList.vue'
 
 let SectionPanel = {
   props: ['lib', 'status', 'config', 'node', 'sectionSeqID', 'sectionData'],
@@ -9,7 +10,8 @@ let SectionPanel = {
     }
   },
   components: {
-    'section-checklist': SectionChecklist
+    'section-checklist': SectionChecklist,
+    'section-annotation-list': SectionAnnotationList
   },
   computed: {
     isChecklistSubmitted () {
