@@ -2283,66 +2283,78 @@ var render = function() {
                     ])
                   ]
                 )
-              : _c("li", { on: { click: _vm.openSectionMainIdeaEditor } }, [
-                  _c("div", { staticClass: "ui checkbox" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.checklistData[i],
-                          expression: "checklistData[i]"
-                        }
-                      ],
-                      attrs: { type: "checkbox" },
-                      domProps: {
-                        checked: Array.isArray(_vm.checklistData[i])
-                          ? _vm._i(_vm.checklistData[i], null) > -1
-                          : _vm.checklistData[i]
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.checklistData[i],
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 &&
-                                _vm.$set(
-                                  _vm.checklistData,
-                                  i,
-                                  $$a.concat([$$v])
-                                )
+              : _c(
+                  "li",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.openSectionAnnotationEditor(
+                          "SectionMainIdea"
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "ui checkbox" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.checklistData[i],
+                            expression: "checklistData[i]"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.checklistData[i])
+                            ? _vm._i(_vm.checklistData[i], null) > -1
+                            : _vm.checklistData[i]
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.checklistData[i],
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  _vm.$set(
+                                    _vm.checklistData,
+                                    i,
+                                    $$a.concat([$$v])
+                                  )
+                              } else {
+                                $$i > -1 &&
+                                  _vm.$set(
+                                    _vm.checklistData,
+                                    i,
+                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                  )
+                              }
                             } else {
-                              $$i > -1 &&
-                                _vm.$set(
-                                  _vm.checklistData,
-                                  i,
-                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                )
+                              _vm.$set(_vm.checklistData, i, $$c)
                             }
-                          } else {
-                            _vm.$set(_vm.checklistData, i, $$c)
                           }
                         }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", [
-                      _vm._v(
-                        "\r\n            " +
-                          _vm._s(
-                            _vm.$t(
-                              "I have already written the main ideas of this section."
-                            )
-                          ) +
-                          "\r\n          "
-                      )
+                      }),
+                      _vm._v(" "),
+                      _c("label", [
+                        _vm._v(
+                          "\r\n            " +
+                            _vm._s(
+                              _vm.$t(
+                                "I have already written the main ideas of this section."
+                              )
+                            ) +
+                            "\r\n          "
+                        )
+                      ])
                     ])
-                  ])
-                ])
+                  ]
+                )
           ]
         })
       ],

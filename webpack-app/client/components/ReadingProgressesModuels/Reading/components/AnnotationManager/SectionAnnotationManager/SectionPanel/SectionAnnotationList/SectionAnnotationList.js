@@ -21,7 +21,8 @@ let SectionAnnotationList = {
   },
   methods: {
     findAnnotation (annotation) {
-      throw '@TODO ' + annotation.id
+      //throw '@TODO ' + annotation.id
+      this.sectionData.findAnnotation = annotation
     },
     reloadList () {
       
