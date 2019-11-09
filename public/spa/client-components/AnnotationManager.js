@@ -2158,8 +2158,6 @@ var render = function() {
       _vm._l(_vm.sectionNodes, function(node, i) {
         return [
           _c("section-panel", {
-            ref: "auth",
-            refInFor: true,
             attrs: {
               config: _vm.config,
               status: _vm.status,
@@ -2197,7 +2195,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui segment" }, [
+  return _c("div", { staticClass: "SectionChecklist" }, [
     _vm._v("\r\n  " + _vm._s(_vm.$t("Check list")) + ":\r\n\r\n  "),
     _c(
       "button",
@@ -2389,10 +2387,44 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {
-    ref: "panel",
-    staticClass: "non-invasive-web-style-framework"
-  })
+  return _c(
+    "div",
+    { ref: "panel", staticClass: "non-invasive-web-style-framework" },
+    [
+      _c(
+        "div",
+        { staticClass: "ui segment" },
+        [
+          !_vm.isChecklistSubmitted
+            ? _c("section-checklist", {
+                attrs: {
+                  config: _vm.config,
+                  status: _vm.status,
+                  lib: _vm.lib,
+                  node: _vm.node,
+                  sectionSeqID: _vm.i,
+                  sectionData: _vm.sectionData
+                }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.isChecklistSubmitted
+            ? _c("section-annotation-list", {
+                attrs: {
+                  config: _vm.config,
+                  status: _vm.status,
+                  lib: _vm.lib,
+                  node: _vm.node,
+                  sectionSeqID: _vm.i,
+                  sectionData: _vm.sectionData
+                }
+              })
+            : _vm._e()
+        ],
+        1
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -16364,7 +16396,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let SectionChecklist = {
-  props: ['lib', 'status', 'config'],
+  props: ['lib', 'status', 'config', 'sectionSeqID', 'sectionData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -16399,10 +16431,22 @@ let SectionChecklist = {
         return checklist
       }
     },
-    isChecklistCompleted () {
-      console.error('#TODO')
-      return false
+    isChecklistCompleted () { 
+      for (let i = 0; i < this.checklistData.length; i++) {
+        if (this.checklistData[i] === false) {
+          return false
+        }
+      }
+      return true
     },
+    computedSubmitButtonClass () {
+      if (this.isChecklistCompleted === false) {
+        return 'disabled'
+      }
+      else {
+        return 'positive'
+      }
+    }
   },
   watch: {
   },
@@ -16417,6 +16461,16 @@ let SectionChecklist = {
     },
     openSectionMainIdeaEditor () {
       throw '@TODO'
+    },
+    submitChecklist: async function () {
+      this.sectionData[this.sectionSeqID].checklistData = this.checklistData
+      this.sectionData[this.sectionSeqID].checklistSubmittedAt = (new Data()).getTime()
+      
+      let data = {
+        sectionData: this.sectionData
+      }
+      
+      await this.lib.AxiosHelper.post('/client/ReadingProgress/setAttr', data)
     }
   } // methods
 }
@@ -16557,7 +16611,9 @@ let SectionPanel = {
     'section-checklist': _SectionChecklist_SectionChecklist_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   computed: {
-    
+    isChecklistSubmitted () {
+      return (this.sectionData.checklistSubmittedAt === 'number')
+    }
   },
   watch: {
   },

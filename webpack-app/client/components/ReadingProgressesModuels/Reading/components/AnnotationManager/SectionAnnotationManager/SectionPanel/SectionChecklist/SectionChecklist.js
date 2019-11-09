@@ -1,5 +1,5 @@
 let SectionChecklist = {
-  props: ['lib', 'status', 'config'],
+  props: ['lib', 'status', 'config', 'sectionSeqID', 'sectionData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -34,10 +34,22 @@ let SectionChecklist = {
         return checklist
       }
     },
-    isChecklistCompleted () {
-      console.error('#TODO')
-      return false
+    isChecklistCompleted () { 
+      for (let i = 0; i < this.checklistData.length; i++) {
+        if (this.checklistData[i] === false) {
+          return false
+        }
+      }
+      return true
     },
+    computedSubmitButtonClass () {
+      if (this.isChecklistCompleted === false) {
+        return 'disabled'
+      }
+      else {
+        return 'positive'
+      }
+    }
   },
   watch: {
   },
@@ -52,6 +64,16 @@ let SectionChecklist = {
     },
     openSectionMainIdeaEditor () {
       throw '@TODO'
+    },
+    submitChecklist: async function () {
+      this.sectionData[this.sectionSeqID].checklistData = this.checklistData
+      this.sectionData[this.sectionSeqID].checklistSubmittedAt = (new Data()).getTime()
+      
+      let data = {
+        sectionData: this.sectionData
+      }
+      
+      await this.lib.AxiosHelper.post('/client/ReadingProgress/setAttr', data)
     }
   } // methods
 }

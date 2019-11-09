@@ -12,7 +12,9 @@ let SectionPanel = {
     'section-checklist': SectionChecklist
   },
   computed: {
-    
+    isChecklistSubmitted () {
+      return (this.sectionData.checklistSubmittedAt === 'number')
+    }
   },
   watch: {
   },

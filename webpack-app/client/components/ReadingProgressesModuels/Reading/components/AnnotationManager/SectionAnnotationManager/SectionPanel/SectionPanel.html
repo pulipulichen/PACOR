@@ -1,3 +1,21 @@
 <div class="non-invasive-web-style-framework" ref="panel">
-  
+  <div class="ui segment">
+    <section-checklist
+      v-if="!isChecklistSubmitted"
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+      v-bind:node="node"
+      v-bind:sectionSeqID="i"
+      v-bind:sectionData="sectionData"></section-checklist>
+    
+    <section-annotation-list
+      v-if="isChecklistSubmitted"
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+      v-bind:node="node"
+      v-bind:sectionSeqID="i"
+      v-bind:sectionData="sectionData"></section-annotation-list>
+  </div>
 </div>
