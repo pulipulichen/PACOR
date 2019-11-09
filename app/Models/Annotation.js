@@ -21,6 +21,7 @@ class Annotation extends Model {
     this.addTrait('Annotation/AnnotationFind')
     this.addTrait('Annotation/AnnotationPermission')
     this.addTrait('Annotation/AnnotationAnchorPositions')
+    this.addTrait('Annotation/AnnotationSection')
     //this.addTrait('Annotation/AnnotationNote')
     
   } // static boot () {

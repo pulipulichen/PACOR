@@ -4,7 +4,14 @@
 const Model = use('Model')
 
 class AnnotationNote extends Model {
-
+  static boot () {
+    super.boot()
+    
+    this.addTrait('AnnotationNote/AnnotationNoteTokenization')
+    //this.addTrait('Annotation/AnnotationNote')
+    
+  } // static boot () {
+  
   static get hidden () {
     return ['annotation_id', 'created_at', 'updated_at', 'properties', 'id']
   }

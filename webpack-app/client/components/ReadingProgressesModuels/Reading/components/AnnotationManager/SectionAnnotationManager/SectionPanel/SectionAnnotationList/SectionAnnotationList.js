@@ -5,8 +5,8 @@ let SectionAnnotationList = {
     return {
     }
   },
-  components: {
-  },
+//  components: {
+//  },
   computed: {
     users () {
       return this.sectionData.annotationUsers
@@ -17,8 +17,8 @@ let SectionAnnotationList = {
   },
   //watch: {
   //},
-  mounted() {
-  },
+//  mounted() {
+//  },
   methods: {
     findAnnotation (annotation) {
       //throw '@TODO ' + annotation.id

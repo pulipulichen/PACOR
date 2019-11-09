@@ -47,6 +47,10 @@ let AnnotationManager = {
       }
       return output
     },
+    /**
+     * @deprecated 20191110 Pulipuli Chen
+     * @returns {String}
+     */
     highlightsURL () {
       let highlightsURL
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === true) {
@@ -105,7 +109,8 @@ let AnnotationManager = {
         data.afterTime = this.afterTime
       }
       
-      let result = await this.lib.AxiosHelper.get(this.highlightsURL, data)
+      let annotationInitURL = '/client/Annotation/init'
+      let result = await this.lib.AxiosHelper.get(annotationInitURL, data)
       //console.log(result)
       this.afterTime = (new Date()).getTime()
       if (result !== 0) {

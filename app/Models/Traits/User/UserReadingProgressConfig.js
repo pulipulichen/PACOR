@@ -77,8 +77,59 @@ class UserReadingProgressConfig {
         //Cache.forever(cacheKey, readingProgresses)
         return readingProgresses
       })
+    } //  Model.prototype.getReadingProgressStatus = async function (webpage, showDetails) {
+    
+    Model.prototype.setReadingProgressLog = async function (webpage, log) {
+      
+      if (typeof(log) !== 'object' || JSON.stringify(log) === '{}') {
+        throw new HttpException('No log' + JSON.stringify(log))
+      }
+
+      let step = await this.startReadingProgress(webpage)
+      step.log = log
+      
+      await step.save()
+      
+      return this
+    } // Model.prototype.setReadingProgressLog = async function (webpage, log) {
+    
+    Model.prototype.setReadingProgressLogAttr = async function (webpage, attrs) {
+      if (typeof(attrs) !== 'object' || JSON.stringify(attrs) === '{}') {
+        throw new HttpException('No attrs')
+        //return 0
+      }
+
+      let step = await this.startReadingProgress(webpage)
+      if (step.log === null) {
+        step.log = {}
+      }
+      Object.keys(attrs).forEach(key => {
+        step.log[key] = attrs[key]
+      })
+      //step.activity_seconds = 2
+      await step.save()
+      return this
+    } // Model.prototype.setReadingProgressLogAttr = async function (webpage, log) {
+    
+    Model.prototype.getReadingProgressLog = async function (webpage) {
+      let step = await this.startReadingProgress(webpage)
+      //    console.log(step.toJSON())
+      //    console.log(step.step_name)
+      //    console.log(step.log)
+
+      let log = step.log
+      if (typeof(log) === 'string' && log.startsWith('{') && log.endsWith('}')) {
+        try {
+          log = JSON.parse(log)
+        } catch (e) {}
+      } 
+      if (log === null || typeof(log) !== 'object') {
+        log = {}
+      }
+      return log
     }
   } // register (Model) {
+  
 }
 
 module.exports = UserReadingProgressConfig

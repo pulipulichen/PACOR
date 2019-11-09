@@ -42,6 +42,8 @@ class ReadingProgress {
   
   async setLog({request, webpage, user}) {
     let log = request.all()
+    await user.setReadingProgressLog(webpage, log)
+    /*
     if (typeof(log) !== 'object' || JSON.stringify(log) === '{}') {
       throw new HttpException('No log' + JSON.stringify(log))
       return 0
@@ -55,7 +57,7 @@ class ReadingProgress {
     step.log = log
     //step.activity_seconds = 2
     let result = await step.save()
-    
+    */
 //    console.log(result)
 //    console.log(step.step_name)
 //    console.log(step.log)
@@ -66,20 +68,7 @@ class ReadingProgress {
   
   async setLogAttr({request, webpage, user}) {
     let attrs = request.all()
-    if (typeof(attrs) !== 'object' || JSON.stringify(attrs) === '{}') {
-      throw new HttpException('No attrs')
-      return 0
-    }
-    
-    let step = await user.startReadingProgress(webpage)
-    if (step.log === null) {
-      step.log = {}
-    }
-    Object.keys(attrs).forEach(key => {
-      step.log[key] = attrs[key]
-    })
-    //step.activity_seconds = 2
-    await step.save()
+    await user.setReadingProgressLogAttr(webpage, attrs)
     
 //    console.log(result)
 //    console.log(step.step_name)
@@ -90,21 +79,7 @@ class ReadingProgress {
   }
   
   async getLog({request, webpage, user}) {
-    let step = await user.startReadingProgress(webpage)
-//    console.log(step.toJSON())
-//    console.log(step.step_name)
-//    console.log(step.log)
-    
-    let log = step.log
-    if (typeof(log) === 'string' && log.startsWith('{') && log.endsWith('}')) {
-      try {
-        log = JSON.parse(log)
-      } catch (e) {}
-    } 
-    if (log === null || typeof(log) !== 'object') {
-      log = {}
-    }
-    return log
+    return await user.getReadingProgressLog(webpage)
   }
 }
 

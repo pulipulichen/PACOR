@@ -59,6 +59,7 @@ class User extends Model {
     this.addTrait('User/UserGroup')
     this.addTrait('User/UserFind')
     this.addTrait('User/UserNotification')
+    this.addTrait('User/UserSection')
   } // static boot () {
   
   async validatePassword (queryPassword) {
