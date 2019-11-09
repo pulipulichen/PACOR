@@ -82,6 +82,7 @@
     "v-modal": {},
     "v-bind:id": {},
     "v-model": {},
+    "v-on:mousedown": {},
     "ref": {},
     "v-slot:actions": {
       "context": "template"
@@ -89,6 +90,7 @@
     "v-bind:style": {},
     "v-slot:content": {},
     "v-bind:config": {},
+    "v-on:touchstart": {},
     "v-slot:header": {},
     "class": {},
     "#header": {},

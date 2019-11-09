@@ -18,6 +18,7 @@ module.exports = {
         enableCollaboration: false,
         enableControlPermission: true,
         defaultPermission: 'public',
+        enableSectionAnnotation: true
       },
     },
     /**
@@ -34,6 +35,7 @@ module.exports = {
         enableCollaboration: false,
         enableControlPermission: false,
         defaultPermission: 'public',
+        enableSectionAnnotation: true
       },
       checklist: [
         'I have already read this section.',

@@ -104,7 +104,7 @@ class Auth {
     let readingProgresses = await user.getReadingProgressStatus(webpage)
     let userJSON = user.toJSON()
     
-    let notificationUnreadCount = await user.getNotificationUnreadCount()
+    let notificationUnreadCount = await user.getNotificationUnreadCount(webpage)
     //console.log(userJSON)
     //console.log(user.preference)
     let data = {

@@ -1,6 +1,7 @@
 'use strict'
 
 const Cache = use('Cache')
+const HttpException = use('HttpException')
 
 class UserReadingProgressConfig {
 
@@ -39,8 +40,11 @@ class UserReadingProgressConfig {
     }
 
     Model.prototype.getReadingProgressStatus = async function (webpage, showDetails) {
+      if (webpage === undefined) {
+        throw new HttpException('Webpage object is required.')
+      }
       let cacheKey = Cache.key('User', 'getReadingProgressStatus', webpage, this, showDetails)
-      return await Cache.rememberWait(cacheKey, async () => {
+      return await Cache.rememberWait([webpage, this, 'ReadingProgresses'], cacheKey, async () => {
         let readingProgresses
         if (Array.isArray(webpage) === false
                 && typeof (webpage.primaryKeyValue) === 'number') {

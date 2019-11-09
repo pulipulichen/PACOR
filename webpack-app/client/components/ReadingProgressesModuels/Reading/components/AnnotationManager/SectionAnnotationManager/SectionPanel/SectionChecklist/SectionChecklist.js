@@ -5,8 +5,8 @@ let SectionChecklist = {
     return {
     }
   },
-  components: {
-  },
+//  components: {
+//  },
   computed: {
     localStorageKeyPrefix () {
       return `Pacor.SectionPanel.${this.sectionSeqID}.`

@@ -15,7 +15,9 @@ let SectionPanel = {
   },
   computed: {
     isChecklistSubmitted () {
-      return (this.sectionData.checklistSubmittedAt === 'number')
+      return (this.sectionData !== null 
+              && typeof(this.sectionData) === 'object'
+              && this.sectionData.checklistSubmittedAt === 'number')
     }
   },
   watch: {

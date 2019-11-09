@@ -32,8 +32,14 @@ class UserNotification {
       })
     }
     
-    Model.prototype.getNotificationUnreadCount = async function () {
+    Model.prototype.getNotificationUnreadCount = async function (webpage) {
+      let config = await this.isEnableCollaboration(webpage)
+      if (config === false) {
+        return 0
+      }
+      
       let count = await this.notifications()
+              .where('webpage_id', webpage.primaryKeyValue)
               .where('has_read', false)
               .count()
       return parseInt(count[0].count, 10)

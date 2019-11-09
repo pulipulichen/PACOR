@@ -13,6 +13,11 @@ class UserConfig {
       let types = config.annotation.types
       return types
     }
+    
+    Model.prototype.isEnableCollaboration = async function (webpage) {
+      let config = await this.getCurrentReadingProgressStepConfig(webpage)
+      return config.annotation.enableCollaboration
+    }
   } // register (Model) {
 }
 

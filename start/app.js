@@ -59,7 +59,8 @@ const aliases = {
   //Cache: 'Adonis/Addons/Cache'
   Cache: 'App/Helpers/CacheHelper',
   Sleep: 'App/Helpers/Sleep',
-  Redis: 'Adonis/Addons/Redis'
+  Redis: 'Adonis/Addons/Redis',
+  HttpException: 'App/Helpers/HttpException',
 }
 
 /*
