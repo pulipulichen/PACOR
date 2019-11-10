@@ -28,7 +28,7 @@ class AnnotationCreate {
       //instance.end_pos = data.endPos
       instance.user_id = user.primaryKeyValue
       instance.type = data.type
-      if (typeof(data.properties) === 'object'
+      if (typeof (data.properties) === 'object'
               && data.properties !== null) {
         instance.properties = data.properties
       }
@@ -53,12 +53,11 @@ class AnnotationCreate {
         }
         if (a.type === 'textContent') {
           query.paragraph_id = a.paragraph_id,
-          query.start_pos = a.start_pos
+                  query.start_pos = a.start_pos
           query.end_pos = a.end_pos,
-          query.anchor_text = a.anchor_text
+                  query.anchor_text = a.anchor_text
         }
 
-        
         //console.log(query)
         let anchorTextInstance = await AnchorPositionModel.findOrCreate(query, query)
         anchorTextIds.push(anchorTextInstance.primaryKeyValue)

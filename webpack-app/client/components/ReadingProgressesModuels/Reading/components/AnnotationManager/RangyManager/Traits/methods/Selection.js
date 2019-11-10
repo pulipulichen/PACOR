@@ -170,7 +170,7 @@ export default (RangyManager) => {
     // Next line is pure paranoia: it will only return false if the browser has no support for ranges,
     // selections or TextRanges. Even IE 5 would pass this test.
     if (this.rangy.supported && classApplierModule && classApplierModule.supported) {
-      this.selectionApplier = rangy.createClassApplier("pacor-selection", {
+      this.selectionApplier = this.rangy.createClassApplier("pacor-selection", {
         tagNames: ["span", "a", "b", "img"],
         ignoreWhiteSpace: true,
       })
@@ -216,11 +216,12 @@ export default (RangyManager) => {
     //console.log(highlights)
     this.selection.anchorPositions.forEach((position, i) => {
       let h = highlights[i]
-      let {start_pos, end_pos, anchor_text} = this._getAnchorPositionFromHighlight(h)
+      let { start_pos, end_pos, anchor_text } = this._getAnchorPositionFromHighlight(h)
 
       position.start_pos = start_pos
       position.end_pos = end_pos
       position.anchor_text = anchor_text
+      position.type = 'textContent'
       //console.log(anchor_text)
       //position.anchor_text = h.classApplier.toString()
     })
@@ -256,7 +257,7 @@ export default (RangyManager) => {
   RangyManager.methods.unpinSelection = function (restoreSelection) {
     //console.trace('unpinSelection')
     this.selectionHighlighter.removeAllHighlights()
-    this.$('.pacor-selection').removeClass('pacor-selection')
+    this.jquery('.pacor-selection').removeClass('pacor-selection')
     this.hoverOut(true)
 
     /*
@@ -288,7 +289,7 @@ export default (RangyManager) => {
   RangyManager.methods.getPinSelectionAnchorText = function () {
     let highlight = this.selectionHighlighter.highlights[0]
     //console.log(highlight)
-    let {anchor_text} = this._getAnchorPositionFromHighlight(highlight)
+    let { anchor_text } = this._getAnchorPositionFromHighlight(highlight)
     //console.log(anchor_text)
     return anchor_text
   }

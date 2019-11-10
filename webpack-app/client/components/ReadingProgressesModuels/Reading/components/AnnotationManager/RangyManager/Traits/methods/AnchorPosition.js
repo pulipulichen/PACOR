@@ -88,44 +88,44 @@ export default (RangyManager) => {
     }
   }
 
-  RangyManager.methods._adjustPositionWithPinnedSelection = function (annotation) {
-    if (this.isPinned === false) {
-      return annotation
-    }
-
-    //console.log('hoverIn', annotation.anchorPositions[0])
-    //let shift = this.isPinned ? 1 : 0
-    //console.log(shift)
-    let pinHighlights = this.selectionHighlighter.highlights
-    annotation.anchorPositions = annotation.anchorPositions.map(pos => {
-      pinHighlights.forEach(pin => {
-        pin = this._highlightToAnchorPosition(pin)
-        //console.log(pos)
-        //console.log(pin)
-        if (pin.paragraph_id !== pos.paragraph_id) {
-          return false
-        }
-
-        if (pos.start_pos > pin.start_pos
-                && pos.end_pos < pin.end_pos) {
-          // 包含的狀態
-          pos.start_pos = pos.start_pos + 1
-          pos.end_pos = pos.end_pos + 1
-        } else if (pos.end_pos === pin.end_pos) {
-          pos.start_pos = pos.start_pos + 1
-          pos.end_pos = pos.end_pos + 2
-        } else if (pos.end_pos === pin.start_pos
-                || pos.end_pos === pin.start_pos + 1) {
-          pos.end_pos = pos.end_pos + 1
-        } else if (pos.start_pos === pin.start_pos + 1) {
-          pos.end_pos = pos.end_pos + 2
-        }
-      })
-      return pos
-    })
-
-    return annotation
-  }
+//  RangyManager.methods._adjustPositionWithPinnedSelection = function (annotation) {
+//    if (this.isPinned === false) {
+//      return annotation
+//    }
+//
+//    //console.log('hoverIn', annotation.anchorPositions[0])
+//    //let shift = this.isPinned ? 1 : 0
+//    //console.log(shift)
+//    let pinHighlights = this.selectionHighlighter.highlights
+//    annotation.anchorPositions = annotation.anchorPositions.map(pos => {
+//      pinHighlights.forEach(pin => {
+//        pin = this._highlightToAnchorPosition(pin)
+//        //console.log(pos)
+//        //console.log(pin)
+//        if (pin.paragraph_id !== pos.paragraph_id) {
+//          return false
+//        }
+//
+//        if (pos.start_pos > pin.start_pos
+//                && pos.end_pos < pin.end_pos) {
+//          // 包含的狀態
+//          pos.start_pos = pos.start_pos + 1
+//          pos.end_pos = pos.end_pos + 1
+//        } else if (pos.end_pos === pin.end_pos) {
+//          pos.start_pos = pos.start_pos + 1
+//          pos.end_pos = pos.end_pos + 2
+//        } else if (pos.end_pos === pin.start_pos
+//                || pos.end_pos === pin.start_pos + 1) {
+//          pos.end_pos = pos.end_pos + 1
+//        } else if (pos.start_pos === pin.start_pos + 1) {
+//          pos.end_pos = pos.end_pos + 2
+//        }
+//      })
+//      return pos
+//    })
+//
+//    return annotation
+//  }
 
 }
 

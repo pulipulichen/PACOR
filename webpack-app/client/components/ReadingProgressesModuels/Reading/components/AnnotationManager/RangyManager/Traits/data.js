@@ -2,7 +2,7 @@ import rangy from './../rangy/rangy-webpack.js'
 import $ from 'jquery'
 
 export default {
-  $: $,
+  jquery: $,
   rangy: rangy,
   //serializedHighlights: null,
 

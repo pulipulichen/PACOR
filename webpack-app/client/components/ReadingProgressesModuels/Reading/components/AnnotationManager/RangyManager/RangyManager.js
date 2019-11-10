@@ -9,10 +9,10 @@ let RangyManager = {
     //this.$i18n.locale = this.config.locale
     return data
   },  // data() {
-//  computed: {
-//  },  // computed: {
-//  watch: {
-//  },  // watch: {
+  computed: {
+  },  // computed: {
+  watch: {
+  },  // watch: {
   mounted() {
     this._initRangy()
     

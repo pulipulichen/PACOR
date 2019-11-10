@@ -27,7 +27,7 @@ export default (RangyManager) => {
     range.selectNodeContents(node);
     //this.searchResultApplier.undoToRange(range);
 
-    this.$('.pacor-search-result').removeClass('pacor-search-result')
+    this.jquery('.pacor-search-result').removeClass('pacor-search-result')
     if (searchTerm === "") {
       //this.searchResultApplier.detach()
       //console.log('移除嗎？')

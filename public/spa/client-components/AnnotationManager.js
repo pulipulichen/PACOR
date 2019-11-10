@@ -2165,27 +2165,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "fragment",
-    [
-      _c("anchor-position", {
-        ref: "AnchorPosition",
-        attrs: { rangy: _vm.rangy }
-      }),
-      _vm._v(" "),
-      _c("selection", { ref: "Selection", attrs: { rangy: _vm.rangy } }),
-      _vm._v(" "),
-      _c("hover", { ref: "Hover", attrs: { rangy: _vm.rangy } }),
-      _vm._v(" "),
-      _c("highlight", { ref: "Highlight", attrs: { rangy: _vm.rangy } }),
-      _vm._v(" "),
-      _c("search", {
-        ref: "Search",
-        attrs: { rangy: _vm.rangy, status: _vm.status }
-      })
-    ],
-    1
-  )
+  return _c("fragment")
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -6674,10 +6654,10 @@ let RangyManager = {
     //this.$i18n.locale = this.config.locale
     return _Traits_data_js__WEBPACK_IMPORTED_MODULE_0__["default"]
   },  // data() {
-//  computed: {
-//  },  // computed: {
-//  watch: {
-//  },  // watch: {
+  computed: {
+  },  // computed: {
+  watch: {
+  },  // watch: {
   mounted() {
     this._initRangy()
     
@@ -6820,7 +6800,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  $: jquery__WEBPACK_IMPORTED_MODULE_1___default.a,
+  jquery: jquery__WEBPACK_IMPORTED_MODULE_1___default.a,
   rangy: _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   //serializedHighlights: null,
 
@@ -6947,44 +6927,44 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 
-  RangyManager.methods._adjustPositionWithPinnedSelection = function (annotation) {
-    if (this.isPinned === false) {
-      return annotation
-    }
-
-    //console.log('hoverIn', annotation.anchorPositions[0])
-    //let shift = this.isPinned ? 1 : 0
-    //console.log(shift)
-    let pinHighlights = this.selectionHighlighter.highlights
-    annotation.anchorPositions = annotation.anchorPositions.map(pos => {
-      pinHighlights.forEach(pin => {
-        pin = this._highlightToAnchorPosition(pin)
-        //console.log(pos)
-        //console.log(pin)
-        if (pin.paragraph_id !== pos.paragraph_id) {
-          return false
-        }
-
-        if (pos.start_pos > pin.start_pos
-                && pos.end_pos < pin.end_pos) {
-          // 包含的狀態
-          pos.start_pos = pos.start_pos + 1
-          pos.end_pos = pos.end_pos + 1
-        } else if (pos.end_pos === pin.end_pos) {
-          pos.start_pos = pos.start_pos + 1
-          pos.end_pos = pos.end_pos + 2
-        } else if (pos.end_pos === pin.start_pos
-                || pos.end_pos === pin.start_pos + 1) {
-          pos.end_pos = pos.end_pos + 1
-        } else if (pos.start_pos === pin.start_pos + 1) {
-          pos.end_pos = pos.end_pos + 2
-        }
-      })
-      return pos
-    })
-
-    return annotation
-  }
+//  RangyManager.methods._adjustPositionWithPinnedSelection = function (annotation) {
+//    if (this.isPinned === false) {
+//      return annotation
+//    }
+//
+//    //console.log('hoverIn', annotation.anchorPositions[0])
+//    //let shift = this.isPinned ? 1 : 0
+//    //console.log(shift)
+//    let pinHighlights = this.selectionHighlighter.highlights
+//    annotation.anchorPositions = annotation.anchorPositions.map(pos => {
+//      pinHighlights.forEach(pin => {
+//        pin = this._highlightToAnchorPosition(pin)
+//        //console.log(pos)
+//        //console.log(pin)
+//        if (pin.paragraph_id !== pos.paragraph_id) {
+//          return false
+//        }
+//
+//        if (pos.start_pos > pin.start_pos
+//                && pos.end_pos < pin.end_pos) {
+//          // 包含的狀態
+//          pos.start_pos = pos.start_pos + 1
+//          pos.end_pos = pos.end_pos + 1
+//        } else if (pos.end_pos === pin.end_pos) {
+//          pos.start_pos = pos.start_pos + 1
+//          pos.end_pos = pos.end_pos + 2
+//        } else if (pos.end_pos === pin.start_pos
+//                || pos.end_pos === pin.start_pos + 1) {
+//          pos.end_pos = pos.end_pos + 1
+//        } else if (pos.start_pos === pin.start_pos + 1) {
+//          pos.end_pos = pos.end_pos + 2
+//        }
+//      })
+//      return pos
+//    })
+//
+//    return annotation
+//  }
 
 });
 
@@ -7447,7 +7427,7 @@ __webpack_require__.r(__webpack_exports__);
     range.selectNodeContents(node);
     //this.searchResultApplier.undoToRange(range);
 
-    this.$('.pacor-search-result').removeClass('pacor-search-result')
+    this.jquery('.pacor-search-result').removeClass('pacor-search-result')
     if (searchTerm === "") {
       //this.searchResultApplier.detach()
       //console.log('移除嗎？')
@@ -7649,7 +7629,7 @@ __webpack_require__.r(__webpack_exports__);
     // Next line is pure paranoia: it will only return false if the browser has no support for ranges,
     // selections or TextRanges. Even IE 5 would pass this test.
     if (this.rangy.supported && classApplierModule && classApplierModule.supported) {
-      this.selectionApplier = rangy.createClassApplier("pacor-selection", {
+      this.selectionApplier = this.rangy.createClassApplier("pacor-selection", {
         tagNames: ["span", "a", "b", "img"],
         ignoreWhiteSpace: true,
       })
@@ -7695,11 +7675,12 @@ __webpack_require__.r(__webpack_exports__);
     //console.log(highlights)
     this.selection.anchorPositions.forEach((position, i) => {
       let h = highlights[i]
-      let {start_pos, end_pos, anchor_text} = this._getAnchorPositionFromHighlight(h)
+      let { start_pos, end_pos, anchor_text } = this._getAnchorPositionFromHighlight(h)
 
       position.start_pos = start_pos
       position.end_pos = end_pos
       position.anchor_text = anchor_text
+      position.type = 'textContent'
       //console.log(anchor_text)
       //position.anchor_text = h.classApplier.toString()
     })
@@ -7735,7 +7716,7 @@ __webpack_require__.r(__webpack_exports__);
   RangyManager.methods.unpinSelection = function (restoreSelection) {
     //console.trace('unpinSelection')
     this.selectionHighlighter.removeAllHighlights()
-    this.$('.pacor-selection').removeClass('pacor-selection')
+    this.jquery('.pacor-selection').removeClass('pacor-selection')
     this.hoverOut(true)
 
     /*
@@ -7767,7 +7748,7 @@ __webpack_require__.r(__webpack_exports__);
   RangyManager.methods.getPinSelectionAnchorText = function () {
     let highlight = this.selectionHighlighter.highlights[0]
     //console.log(highlight)
-    let {anchor_text} = this._getAnchorPositionFromHighlight(highlight)
+    let { anchor_text } = this._getAnchorPositionFromHighlight(highlight)
     //console.log(anchor_text)
     return anchor_text
   }
