@@ -2192,7 +2192,7 @@ var render = function() {
   return _c(
     "fragment",
     [
-      _vm._l(_vm.sectionNodes, function(node, i) {
+      _vm._l(_vm.sectionNodes, function(node, index) {
         return [
           _c("section-panel", {
             attrs: {
@@ -2200,8 +2200,8 @@ var render = function() {
               status: _vm.status,
               lib: _vm.lib,
               node: node,
-              sectionSeqID: i,
-              sectionData: _vm.sectionsData[i]
+              sectionSeqID: index,
+              sectionsData: _vm.sectionsData
             }
           })
         ]
@@ -2442,7 +2442,7 @@ var render = function() {
       "button",
       {
         staticClass: "ui fluid button",
-        class: _vm.computedSubmitClass,
+        class: _vm.computedSubmitButtonClass,
         attrs: { type: "button" },
         on: { click: _vm.submitChecklist }
       },
@@ -2491,8 +2491,8 @@ var render = function() {
                   status: _vm.status,
                   lib: _vm.lib,
                   node: _vm.node,
-                  sectionSeqID: _vm.i,
-                  sectionData: _vm.sectionData
+                  sectionSeqID: _vm.sectionSeqID,
+                  sectionsData: _vm.sectionsData
                 }
               })
             : _vm._e(),
@@ -2504,8 +2504,8 @@ var render = function() {
                   status: _vm.status,
                   lib: _vm.lib,
                   node: _vm.node,
-                  sectionSeqID: _vm.i,
-                  sectionData: _vm.sectionData
+                  sectionSeqID: _vm.sectionSeqID,
+                  sectionsData: _vm.sectionsData
                 }
               })
             : _vm._e()
@@ -3198,7 +3198,10 @@ let AnnotationManager = {
       findType: null,
       listPositions: null,
       
-      sectionsData: null
+      sectionsData: {
+        checklist: [],
+        annotations: []
+      }
     }
   },
   components: {
@@ -3293,7 +3296,12 @@ let AnnotationManager = {
           this.$refs.RangyManager.deserializeAppend(result.highlights)
         }
         if (typeof(result.sections) !== 'undefined') {
-          this.sectionsData = result.sections
+          //console.log(result.sections)
+          Object.keys(result.sections).forEach(key => {
+            if (Array.isArray(result.sections[key])) {
+              this.sectionsData[key] = result.sections[key]
+            }
+          })
         }
       }
       
@@ -16540,14 +16548,28 @@ let SectionAnnotationManager = {
   watch: {
   },
   mounted() {
-    //this.initSectionNodes()
+    this.initSectionNodes()
   },
   methods: {
-//    initSectionNodes: async function () {
+    initSectionNodes: async function () {
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
-//      
-//      this.sectionNodes = $('[data-pacor-section-seq-id]').toArray()
-//    }
+      let sectionNodes = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-section-seq-id]').toArray()
+      
+      //while (this.sectionsData.length < sectionNodes.length) {
+      //  this.sectionsData.push({})
+      //}
+      
+      //console.log()
+      
+//      sectionNodes.forEach((node, i) => {
+//        if (typeof(this.sectionsData[i]) === 'undefined') {
+//          this.sectionsData[i] = {}
+//        }
+//      })
+      
+      
+      this.sectionNodes = sectionNodes
+    }
   } // methods
 }
 
@@ -16826,7 +16848,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let SectionChecklist = {
-  props: ['lib', 'status', 'config', 'sectionSeqID', 'sectionData'],
+  props: ['lib', 'status', 'config', 'sectionSeqID', 'sectionsData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -16842,7 +16864,16 @@ let SectionChecklist = {
       if (Array.isArray(this.lib.auth.currentStepConfig.checklist)) {
         let checklist = this.lib.auth.currentStepConfig.checklist
         
-        let checklistData = this.sectionData.checklistData
+        //console.log(this.sectionSeqID)
+        console.log(this.sectionsData)
+        if (typeof(this.sectionsData.checklist[this.sectionSeqID]) === 'undefined') {
+          //this.sectionsData.checklist
+          this.sectionsData.checklist[this.sectionSeqID] = {}
+        }
+        
+        let checklistData = this.sectionsData.checklist[this.sectionSeqID].checked
+        checklistData = checklistData ? checklistData : {}
+        
         if (Array.isArray(checklistData) === false) {
           //checklistData = []
           let itemsFromLocalStorage = localStorage
@@ -16851,6 +16882,7 @@ let SectionChecklist = {
             checklistData = JSON.parse(itemsFromLocalStorage)
           }
         }
+        
         checklist.forEach((item, i) => {
           if (typeof(checklistData[i]) !== 'boolean') {
             checklistData[i] = false
@@ -17032,7 +17064,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SectionPanel = {
-  props: ['lib', 'status', 'config', 'node', 'sectionSeqID', 'sectionData'],
+  props: ['lib', 'status', 'config', 'node', 'sectionSeqID', 'sectionsData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -17045,9 +17077,10 @@ let SectionPanel = {
   },
   computed: {
     isChecklistSubmitted () {
-      return (this.sectionData !== null 
-              && typeof(this.sectionData) === 'object'
-              && this.sectionData.checklistSubmittedAt === 'number')
+      return (this.sectionsData !== null 
+              && typeof(this.sectionsData) === 'object'
+              && typeof(this.sectionsData[this.sectionSeqID]) === 'object'
+              && this.sectionsData.checklist[this.sectionSeqID].submittedAt === 'number')
     }
   },
   watch: {

@@ -4,15 +4,15 @@ class UserSection {
 
   register(Model) {
     
-    
     Model.prototype.getSectionsChecklist = async function (webpage) {
       let log = await this.getReadingProgressLog(webpage)
       
-      if (Array.isArray(log.checklist)) {
+      if (typeof(log.checklist) === 'object' 
+              && log.checklist !== null) {
         return log.checklist
       }
       else {
-        return []
+        return null
       }
     }
   } // register (Model) {

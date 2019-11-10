@@ -1,11 +1,11 @@
 <fragment>
-  <template v-for="(node, i) in sectionNodes">
+  <template v-for="(node, index) in sectionNodes">
     <section-panel
         v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib"
         v-bind:node="node"
-        v-bind:sectionSeqID="i"
-        v-bind:sectionData="sectionsData[i]"></section-panel>
+        v-bind:sectionSeqID="index"
+        v-bind:sectionsData="sectionsData"></section-panel>
   </template>
 </fragment>

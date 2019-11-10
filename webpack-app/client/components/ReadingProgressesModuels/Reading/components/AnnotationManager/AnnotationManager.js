@@ -28,7 +28,10 @@ let AnnotationManager = {
       findType: null,
       listPositions: null,
       
-      sectionsData: null
+      sectionsData: {
+        checklist: [],
+        annotations: []
+      }
     }
   },
   components: {
@@ -123,7 +126,12 @@ let AnnotationManager = {
           this.$refs.RangyManager.deserializeAppend(result.highlights)
         }
         if (typeof(result.sections) !== 'undefined') {
-          this.sectionsData = result.sections
+          //console.log(result.sections)
+          Object.keys(result.sections).forEach(key => {
+            if (Array.isArray(result.sections[key])) {
+              this.sectionsData[key] = result.sections[key]
+            }
+          })
         }
       }
       

@@ -2,7 +2,7 @@ import SectionChecklist from './SectionChecklist/SectionChecklist.vue'
 import SectionAnnotationList from './SectionAnnotationList/SectionAnnotationList.vue'
 
 let SectionPanel = {
-  props: ['lib', 'status', 'config', 'node', 'sectionSeqID', 'sectionData'],
+  props: ['lib', 'status', 'config', 'node', 'sectionSeqID', 'sectionsData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -15,9 +15,10 @@ let SectionPanel = {
   },
   computed: {
     isChecklistSubmitted () {
-      return (this.sectionData !== null 
-              && typeof(this.sectionData) === 'object'
-              && this.sectionData.checklistSubmittedAt === 'number')
+      return (this.sectionsData !== null 
+              && typeof(this.sectionsData) === 'object'
+              && typeof(this.sectionsData[this.sectionSeqID]) === 'object'
+              && this.sectionsData.checklist[this.sectionSeqID].submittedAt === 'number')
     }
   },
   watch: {

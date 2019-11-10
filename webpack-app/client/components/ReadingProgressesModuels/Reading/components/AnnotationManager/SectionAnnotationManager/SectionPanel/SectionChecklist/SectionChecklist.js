@@ -1,5 +1,5 @@
 let SectionChecklist = {
-  props: ['lib', 'status', 'config', 'sectionSeqID', 'sectionData'],
+  props: ['lib', 'status', 'config', 'sectionSeqID', 'sectionsData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -15,7 +15,16 @@ let SectionChecklist = {
       if (Array.isArray(this.lib.auth.currentStepConfig.checklist)) {
         let checklist = this.lib.auth.currentStepConfig.checklist
         
-        let checklistData = this.sectionData.checklistData
+        //console.log(this.sectionSeqID)
+        console.log(this.sectionsData)
+        if (typeof(this.sectionsData.checklist[this.sectionSeqID]) === 'undefined') {
+          //this.sectionsData.checklist
+          this.sectionsData.checklist[this.sectionSeqID] = {}
+        }
+        
+        let checklistData = this.sectionsData.checklist[this.sectionSeqID].checked
+        checklistData = checklistData ? checklistData : {}
+        
         if (Array.isArray(checklistData) === false) {
           //checklistData = []
           let itemsFromLocalStorage = localStorage
@@ -24,6 +33,7 @@ let SectionChecklist = {
             checklistData = JSON.parse(itemsFromLocalStorage)
           }
         }
+        
         checklist.forEach((item, i) => {
           if (typeof(checklistData[i]) !== 'boolean') {
             checklistData[i] = false

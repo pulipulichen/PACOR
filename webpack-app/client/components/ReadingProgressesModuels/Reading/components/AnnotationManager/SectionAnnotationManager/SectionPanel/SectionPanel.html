@@ -6,8 +6,8 @@
       v-bind:status="status"
       v-bind:lib="lib"
       v-bind:node="node"
-      v-bind:sectionSeqID="i"
-      v-bind:sectionData="sectionData"></section-checklist>
+      v-bind:sectionSeqID="sectionSeqID"
+      v-bind:sectionsData="sectionsData"></section-checklist>
     
     <section-annotation-list
       v-if="isChecklistSubmitted"
@@ -15,7 +15,7 @@
       v-bind:status="status"
       v-bind:lib="lib"
       v-bind:node="node"
-      v-bind:sectionSeqID="i"
-      v-bind:sectionData="sectionData"></section-annotation-list>
+      v-bind:sectionSeqID="sectionSeqID"
+      v-bind:sectionsData="sectionsData"></section-annotation-list>
   </div>
 </div>
