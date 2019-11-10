@@ -33,7 +33,7 @@ class AnchorPosition extends Model {
   
   static get hidden () {
     //return ['password']
-    return ['anchor_text', 'properties', 'created_at', 'updated_at', 'pivot', 'id', 'webpage_id', 'seq_id']
+    return ['anchor_text', 'properties', 'created_at', 'updated_at', 'pivot', 'id', 'webpage_id']
   }
 }
 
