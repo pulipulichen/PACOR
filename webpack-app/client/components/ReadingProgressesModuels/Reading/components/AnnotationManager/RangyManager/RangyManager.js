@@ -27,9 +27,9 @@ let RangyManager = {
     highlight: Highlight,
     search: Search,
   },
-  watch: {
-    
-  },  // watch: {
+//  watch: {
+//    
+//  },  // watch: {
   mounted() {
     //console.log('ok')
     //console.log(rangy)
@@ -53,9 +53,28 @@ let RangyManager = {
   methods: {
     initRangy () {
       
-    }
-
+    },
     
+    // ------------------------------
+    highlightPinnedSelection (className, anchorParagraphIds, doUnpin) {
+      return this.$refs.Highlight.highlightPinnedSelection(className, anchorParagraphIds, doUnpin)
+    },
+    removeMyHighlights () {
+      return this.$refs.Highlight.removeMyHighlights()
+    },
+    removeHighlightByAnnotation (annotation) {
+      return this.$refs.Highlight.removeHighlightByAnnotation(annotation)
+    },
+    removeHighlightFromPinnedSelection(className) {
+      return this.$refs.Highlight.removeHighlightFromPinnedSelection(className)
+    },
+    
+    deserialize (highlightJSONArray, options) {
+      return this.$refs.Highlight.deserialize(highlightJSONArray, options)
+    },
+    deserializeAppend (highlightJSONArray) {
+      return this.$refs.Highlight.deserializeAppend(highlightJSONArray)
+    }
     
     
     

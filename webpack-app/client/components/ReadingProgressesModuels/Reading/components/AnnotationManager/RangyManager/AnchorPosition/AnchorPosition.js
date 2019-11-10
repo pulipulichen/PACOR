@@ -1,10 +1,12 @@
+import $ from 'jquery'
+
 let AnchorPosition = {
   props: ['lib', 'status', 'config', 'rangy'],
   data() {
     return {
-      articleNode: null,
+      //articleNode: null,
       sectionNodes: null,
-      paragraphNodes: null,
+      //paragraphNodes: null,
     }
   },
 //  components: {
@@ -64,28 +66,6 @@ let AnchorPosition = {
           let id = 'pacor-paragraph-id-' + i
           node.setAttribute('id', id)
         }
-      })
-    },
-    _highlightToAnchorPosition (highlight) {
-      let range = highlight.characterRange
-      return {
-        start_pos: range.start,
-        end_pos: range.end,
-        paragraph_id: highlight.containerElementId
-      }
-    },
-    deserialize: function (highlightJSONArray, options) {
-      // "type:textContent|28$198$2$confused-clarified$pacor-paragraph-id-2"
-      if (typeof(highlightJSONArray) !== 'string') {
-        highlightJSONArray = this._annotationToHighlighString(highlightJSONArray)
-      }
-      
-      this.highlighter.deserializeAsync(highlightJSONArray, options)
-      return this
-    },
-    deserializeAppend: function (highlightJSONArray) {
-      return this.deserialize(highlightJSONArray, {
-        append: true
       })
     },
   } // methods

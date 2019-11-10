@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 let Selection = {
   props: ['lib', 'status', 'config', 'rangy'],
   data() {
@@ -38,7 +40,7 @@ let Selection = {
       this._initSelectionApplier()
     },
     onselect: function () {
-      let selection = rangy.getSelection()
+      let selection = this.rangy.getSelection()
       if (selection.toString().length > 0 && selection.isCollapsed === false) {
         let range = selection.getRangeAt(0).cloneRange()
         let rect = range.getBoundingDocumentRect()
@@ -191,26 +193,26 @@ let Selection = {
     
     _initSelectionApplier: function () {
       // Enable buttons
-      let classApplierModule = rangy.modules.ClassApplier;
+      let classApplierModule = this.rangy.modules.ClassApplier;
 
       // Next line is pure paranoia: it will only return false if the browser has no support for ranges,
       // selections or TextRanges. Even IE 5 would pass this test.
-      if (rangy.supported && classApplierModule && classApplierModule.supported) {
-        this.selectionApplier = rangy.createClassApplier("pacor-selection", {
+      if (this.rangy.supported && classApplierModule && classApplierModule.supported) {
+        this.selectionApplier = this.rangy.createClassApplier("pacor-selection", {
           tagNames: ["span", "a", "b", "img"],
           ignoreWhiteSpace: true,
         })
         
         
-        this.selectionHighlighter = rangy.createHighlighter()
+        this.selectionHighlighter = this.rangy.createHighlighter()
         this.selectionHighlighter.addClassApplier(this.selectionApplier)
         
-        let hoverApplier = rangy.createClassApplier("pacor-hover", {
+        let hoverApplier = this.rangy.createClassApplier("pacor-hover", {
           tagNames: ["span", "a", "b", "img"],
           ignoreWhiteSpace: true,
         })
         
-        this.hoverHighlighter = rangy.createHighlighter()
+        this.hoverHighlighter = this.rangy.createHighlighter()
         this.hoverHighlighter.addClassApplier(hoverApplier)
       }
     },
@@ -223,7 +225,7 @@ let Selection = {
         return false
       }
       
-      this.selectionSaved = rangy.saveSelection()
+      this.selectionSaved = this.rangy.saveSelection()
       //console.log(this.selectionSaved)
       //.log(this.selection.getAllRanges())
       
@@ -281,7 +283,7 @@ let Selection = {
     unpinSelection : function (restoreSelection) {
       //console.trace('unpinSelection')
       this.selectionHighlighter.removeAllHighlights()
-      window.$('.pacor-selection').removeClass('pacor-selection')
+      $('.pacor-selection').removeClass('pacor-selection')
       this.hoverOut(true)
       
       /*

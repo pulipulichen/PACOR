@@ -8,10 +8,10 @@ let Highlight = {
   },
 //  components: {
 //  },
-  computed: {
-  },
-  watch: {
-  },
+//  computed: {
+//  },
+//  watch: {
+//  },
   mounted() {
     this._initHighlighter()
   },
@@ -60,8 +60,8 @@ let Highlight = {
         return false
       }
       let rules = []
-      rangy.init()
-      this.highlighter = rangy.createHighlighter()
+      this.rangy.init()
+      this.highlighter = this.rangy.createHighlighter()
       
       window.hl = this.highlighter  // @TODO for test
       
@@ -98,7 +98,7 @@ let Highlight = {
       ownerClasses.forEach(ownerClass => {
         for (let moduleName in this.rangyConfig.annotationTypeModules) {
           let className = ownerClass + '-' + moduleName
-          let applier = rangy.createClassApplier(className, options)
+          let applier = this.rangy.createClassApplier(className, options)
           this.highlighter.addClassApplier(applier);
           this.highlightClasses.push(className)
 
@@ -229,7 +229,7 @@ let Highlight = {
       
       //let ids = JSON.parse(JSON.stringify(this.selection.anchorPosition.paragraph_id))
       
-      rangy.restoreSelection(this.selectionSaved)
+      this.rangy.restoreSelection(this.selectionSaved)
       
       this.highlighter.highlightSelection(className, {
         exclusive: false,
@@ -238,7 +238,7 @@ let Highlight = {
       //console.log(highlight[0])
       
       if (doUnpin !== false) {
-        let selection = rangy.getSelection()
+        let selection = this.rangy.getSelection()
         selection.removeAllRanges()
 
         this.selectionSaved = null
@@ -251,7 +251,6 @@ let Highlight = {
     },
     
     removeMyHighlights () {
-      
       this.highlighter.highlights = this.highlighter.highlights.filter(hl => {
         let className = hl.classApplier.className
         if (className.startsWith('my-')) {
@@ -262,8 +261,7 @@ let Highlight = {
           return true
         }
       })
-      
-    },
+    },  // removeMyHighlights () {
     
     removeHighlightByAnnotation (annotation) {
       let type = this.lib.auth.getHighlightAnnotationType(annotation)
@@ -310,7 +308,7 @@ let Highlight = {
         return false
       }
       
-      rangy.restoreSelection(this.selectionSaved);
+      this.rangy.restoreSelection(this.selectionSaved);
       //let sel = rangy.getSelection()
       //let id = window.$(sel.anchorNode).parents("[data-pacor-paragraph-seq-id]:first").prop('id')
       //return
@@ -370,6 +368,28 @@ let Highlight = {
       highlightJSONArray = highlightJSONArray.join('|')
       
       return highlightJSONArray
+    },
+    _highlightToAnchorPosition (highlight) {
+      let range = highlight.characterRange
+      return {
+        start_pos: range.start,
+        end_pos: range.end,
+        paragraph_id: highlight.containerElementId
+      }
+    },
+    deserialize: function (highlightJSONArray, options) {
+      // "type:textContent|28$198$2$confused-clarified$pacor-paragraph-id-2"
+      if (typeof(highlightJSONArray) !== 'string') {
+        highlightJSONArray = this._annotationToHighlighString(highlightJSONArray)
+      }
+      
+      this.highlighter.deserializeAsync(highlightJSONArray, options)
+      return this
+    },
+    deserializeAppend: function (highlightJSONArray) {
+      return this.deserialize(highlightJSONArray, {
+        append: true
+      })
     },
     // -------------------
   } // methods
