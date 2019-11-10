@@ -36,7 +36,7 @@
         v-if="isInited"></annotation-panel>
   
   <annotation-float-widget 
-        v-if="highlightPos"
+        v-if="isInited && highlightPos"
         v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib"
@@ -48,14 +48,12 @@
         v-on:findType="onFindType"
         v-on:list="onList"
         v-bind:rangy="$refs.RangyManager"
-        ref="AnnotationFloatWidget"
-        v-if="isInited"></annotation-float-widget>
+        ref="AnnotationFloatWidget"></annotation-float-widget>
   
   <section-annotation-manager
-        v-if="isEnableSectionAnnotation"
+        v-if="isInited && isEnableSectionAnnotation"
         v-bind:sectionsData="sectionsData"
         v-bind:config="config"
         v-bind:status="status"
-        v-bind:lib="lib"
-        v-if="isInited"></section-annotation-manager>
+        v-bind:lib="lib"></section-annotation-manager>
 </fragment>

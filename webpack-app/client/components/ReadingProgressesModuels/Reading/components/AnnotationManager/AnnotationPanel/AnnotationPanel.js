@@ -166,6 +166,11 @@ let AnnotationPanel = {
       this.scrollToPinSelection()
     },
     hide: function (doUnpin) {
+      if (this.sectionsData.sectionAnnotation.instance !== null) {
+        this.sectionsData.sectionAnnotation.instance = null
+        return false
+      }
+      
       this.lib.rangy.hoverOut(true)
       this.placeholder.transition(this.transitionMode)
       window.$(this.$refs.panel).transition(this.transitionMode, () => {

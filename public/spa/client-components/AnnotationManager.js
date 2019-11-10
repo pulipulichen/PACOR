@@ -767,44 +767,48 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("annotation-type-selector", {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.isSelectorVisible,
-            expression: "isSelectorVisible"
-          }
-        ],
-        ref: "AnnotationTypeSelector",
-        attrs: {
-          config: _vm.config,
-          status: _vm.status,
-          lib: _vm.lib,
-          selection: _vm.selection
-        },
-        on: { selectAnnotation: _vm.pin, list: _vm.listFromSelection }
-      }),
+      _vm.isInited
+        ? _c("annotation-type-selector", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.isSelectorVisible,
+                expression: "isSelectorVisible"
+              }
+            ],
+            ref: "AnnotationTypeSelector",
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              selection: _vm.selection
+            },
+            on: { selectAnnotation: _vm.pin, list: _vm.listFromSelection }
+          })
+        : _vm._e(),
       _vm._v(" "),
-      _c("annotation-panel", {
-        ref: "AnnotationPanel",
-        attrs: {
-          config: _vm.config,
-          status: _vm.status,
-          lib: _vm.lib,
-          pinSelection: _vm.pinSelection,
-          rangy: _vm.$refs.RangyManager,
-          annotationModule: _vm.annotationModule,
-          findAnnotation: _vm.findAnnotation,
-          findUser: _vm.findUser,
-          findType: _vm.findType,
-          listPositions: _vm.listPositions,
-          sectionsData: _vm.sectionsData
-        },
-        on: { hide: _vm.unpin }
-      }),
+      _vm.isInited
+        ? _c("annotation-panel", {
+            ref: "AnnotationPanel",
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              pinSelection: _vm.pinSelection,
+              rangy: _vm.$refs.RangyManager,
+              annotationModule: _vm.annotationModule,
+              findAnnotation: _vm.findAnnotation,
+              findUser: _vm.findUser,
+              findType: _vm.findType,
+              listPositions: _vm.listPositions,
+              sectionsData: _vm.sectionsData
+            },
+            on: { hide: _vm.unpin }
+          })
+        : _vm._e(),
       _vm._v(" "),
-      _vm.highlightPos
+      _vm.isInited && _vm.highlightPos
         ? _c("annotation-float-widget", {
             ref: "AnnotationFloatWidget",
             attrs: {
@@ -825,7 +829,7 @@ var render = function() {
           })
         : _vm._e(),
       _vm._v(" "),
-      _vm.isEnableSectionAnnotation
+      _vm.isInited && _vm.isEnableSectionAnnotation
         ? _c("section-annotation-manager", {
             attrs: {
               sectionsData: _vm.sectionsData,
@@ -2419,24 +2423,28 @@ var render = function() {
       }
     },
     [
-      _vm._l(_vm.annotations, function(annotation) {
-        return _c("annotation-item", {
-          attrs: {
-            config: _vm.config,
-            status: _vm.status,
-            lib: _vm.lib,
-            annotation: annotation,
-            findAnnotation: _vm.findAnnotation
-          }
-        })
-      }),
+      _vm._l(
+        _vm.sectionsData.annotation[_vm.sectionSeqID].annotations,
+        function(annotation) {
+          return _c("annotation-item", {
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              annotation: annotation,
+              findAnnotation: _vm.findAnnotation
+            }
+          })
+        }
+      ),
       _vm._v(" "),
       _vm.noMore
         ? _c(
             "div",
             { staticClass: "ui secondary segment no-more" },
             [
-              _vm.annotations.length > 0
+              _vm.sectionsData.annotation[_vm.sectionSeqID].annotations.length >
+              0
                 ? [
                     _vm._v(
                       "\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    "
@@ -4981,6 +4989,7 @@ let SectionMainIdea = {
         throw this.$t('Update failed.')
       }
       
+      //console.log('AAA')
       if (typeof(this.sectionsData.sectionAnnotation.callback) === 'function') {
         this.sectionsData.sectionAnnotation.callback()
       }
@@ -6655,6 +6664,11 @@ let AnnotationPanel = {
       this.scrollToPinSelection()
     },
     hide: function (doUnpin) {
+      if (this.sectionsData.sectionAnnotation.instance !== null) {
+        this.sectionsData.sectionAnnotation.instance = null
+        return false
+      }
+      
       this.lib.rangy.hoverOut(true)
       this.placeholder.transition(this.transitionMode)
       window.$(this.$refs.panel).transition(this.transitionMode, () => {
@@ -17174,15 +17188,15 @@ let SectionAnnotationList = {
       return this.instance.userCount
     },
     annotations () {
-      if (Array.isArray(this.instance.annotations) === false) {
-        this.instance.annotations = []
+      if (Array.isArray(this.sectionsData.annotation[this.sectionSeqID].annotations) === false) {
+        this.sectionsData.annotation[this.sectionSeqID].annotations = []
       }
-      return this.instance.annotations
+      return this.sectionsData.annotation[this.sectionSeqID].annotations
     }
   },
   watch: {
     'page' (page) {
-      if (page > 0) {
+      if (page > -1) {
         this.loadNext()
       }
     },
@@ -17205,7 +17219,7 @@ let SectionAnnotationList = {
       }
       
       let result = await this.lib.AxiosHelper.get('/client/Annotation/listSectionNext', query)
-      
+      //console.log(result)
       if (Array.isArray(result) && result.length > 0) {
         //console.log(this.sectionsData.annotation[this.sectionSeqID].annotations.length)
         
@@ -17222,7 +17236,14 @@ let SectionAnnotationList = {
       }
     },
     reloadList: async function () {
-      this.page = 0
+      this.sectionsData.annotation[this.sectionSeqID].annotations = this.sectionsData.annotation[this.sectionSeqID].annotations.slice(0, 0)
+      //console.log(this.sectionsData.annotation[this.sectionSeqID].annotations.length)
+      if (this.page === 0) {
+        await this.loadNext()
+      }
+      else {
+        this.page = 0
+      }
     },
     scrollList (event) {
       if (this.noMore === true) {

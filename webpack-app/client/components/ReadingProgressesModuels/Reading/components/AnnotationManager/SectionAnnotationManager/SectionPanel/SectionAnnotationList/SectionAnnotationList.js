@@ -27,10 +27,10 @@ let SectionAnnotationList = {
       return this.instance.userCount
     },
     annotations () {
-      if (Array.isArray(this.instance.annotations) === false) {
-        this.instance.annotations = []
+      if (Array.isArray(this.sectionsData.annotation[this.sectionSeqID].annotations) === false) {
+        this.sectionsData.annotation[this.sectionSeqID].annotations = []
       }
-      return this.instance.annotations
+      return this.sectionsData.annotation[this.sectionSeqID].annotations
     }
   },
   watch: {
@@ -58,7 +58,7 @@ let SectionAnnotationList = {
       }
       
       let result = await this.lib.AxiosHelper.get('/client/Annotation/listSectionNext', query)
-      
+      //console.log(result)
       if (Array.isArray(result) && result.length > 0) {
         //console.log(this.sectionsData.annotation[this.sectionSeqID].annotations.length)
         
@@ -75,9 +75,14 @@ let SectionAnnotationList = {
       }
     },
     reloadList: async function () {
-      this.sectionsData.annotation[this.sectionSeqID].annotations.splice(this.annotations.length)
-      console.log(this.annotations.length)
-      this.page = 0
+      this.sectionsData.annotation[this.sectionSeqID].annotations = this.sectionsData.annotation[this.sectionSeqID].annotations.slice(0, 0)
+      //console.log(this.sectionsData.annotation[this.sectionSeqID].annotations.length)
+      if (this.page === 0) {
+        await this.loadNext()
+      }
+      else {
+        this.page = 0
+      }
     },
     scrollList (event) {
       if (this.noMore === true) {

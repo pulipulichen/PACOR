@@ -1,7 +1,7 @@
 <div class="SectionAnnotationList"
      v-on:scroll.stop="scrollList">
   <annotation-item
-    v-for="annotation in annotations"
+    v-for="annotation in sectionsData.annotation[sectionSeqID].annotations"
     v-bind:config="config"
     v-bind:status="status"
     v-bind:lib="lib"
@@ -10,7 +10,7 @@
 
   <div class="ui secondary segment no-more"
        v-if="noMore">
-    <template v-if="annotations.length > 0">
+    <template v-if="sectionsData.annotation[sectionSeqID].annotations.length > 0">
       {{ $t('No More') }}
     </template>
     <template v-else>
