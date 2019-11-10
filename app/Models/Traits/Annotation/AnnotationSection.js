@@ -106,9 +106,9 @@ class AnnotationSection {
     
     Model.getSectionAnnotations = async function (webpage, user, query) {
       let cacheKey = Cache.key(`Annotation.getSectionAnnotations`, query)
-      return await Cache.rememberWait(Cache.buildTags(webpage, user, this), cacheKey, cacheMinute, async () => {
+      return await Cache.rememberWait(Cache.buildTags(webpage, user, this), cacheKey, 2, async () => {
         //let itemsPerPage = Config.get('view.itemsPerPage')
-        
+        //console.log(query)
         return await this.findByWebpageGroupPosition(webpage, user, {
           onlySectionAnnotation: true,
           seq_id: query.seq_id,

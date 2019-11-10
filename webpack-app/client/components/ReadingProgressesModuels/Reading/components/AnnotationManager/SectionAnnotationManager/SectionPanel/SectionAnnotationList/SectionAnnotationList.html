@@ -1,10 +1,20 @@
 <div class="SectionAnnotationList"
      v-on:scroll.stop="scrollList">
   <annotation-item
-        v-for="annotation in annotations"
-        v-bind:config="config"
-        v-bind:status="status"
-        v-bind:lib="lib"
-        v-bind:annotation="annotation"
-        v-bind:findAnnotation="findAnnotation"></annotation-item>
+    v-for="annotation in annotations"
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+    v-bind:annotation="annotation"
+    v-bind:findAnnotation="findAnnotation"></annotation-item>
+
+  <div class="ui secondary segment no-more"
+       v-if="noMore">
+    <template v-if="annotations.length > 0">
+      {{ $t('No More') }}
+    </template>
+    <template v-else>
+      {{ $t('No Search Result') }}
+    </template>
+  </div>
 </div>

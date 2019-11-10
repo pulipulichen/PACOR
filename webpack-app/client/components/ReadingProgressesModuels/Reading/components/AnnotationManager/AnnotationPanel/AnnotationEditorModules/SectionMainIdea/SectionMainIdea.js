@@ -131,6 +131,7 @@ let SectionMainIdea = {
         throw this.$t('Update failed.')
       }
       
+      console.log('AAA')
       if (typeof(this.sectionsData.sectionAnnotation.callback) === 'function') {
         this.sectionsData.sectionAnnotation.callback()
       }

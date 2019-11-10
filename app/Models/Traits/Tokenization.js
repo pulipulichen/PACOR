@@ -15,16 +15,16 @@ class Tokenization {
       if (typeof(html) !== 'string') {
         return false
       }
-      console.log('Tokenization', 1)
+      //console.log('Tokenization', 1)
       properties.rawText = TokenizationHelper.htmlToText(html)
       properties.rawText = TokenizationHelper.removePunctuations(properties.rawText)
-      console.log('Tokenization', 2)
+      //console.log('Tokenization', 2)
       properties.charFrequency = TokenizationHelper.parseCharFrequency(properties.rawText)
       properties.wordFrequency = TokenizationHelper.parseWordFrequency(properties.rawText, ['n', 'v', 'adj'])
-      console.log('Tokenization', 3)
+      //console.log('Tokenization', 3)
       instance[toField] = properties
       //await instance.save()
-      console.log('Tokenization', 4)
+      //console.log('Tokenization', 4)
     })
   } // register (Model) {
 }

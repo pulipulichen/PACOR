@@ -137,11 +137,19 @@ class AnnotationFind {
           query.where('type', findType)
         }
 
+        // -------------------------
+
+        if (typeof(page) === 'string' 
+                && isNaN(page) === false) {
+          page = parseInt(page, 10)
+        }
         if (typeof (page) === 'number') {
           let itemsPerPage = Config.get('view.itemsPerPage')
           query.limit(itemsPerPage)
           query.offset(itemsPerPage * page)
         }
+        
+        // -------------------------
 
         if (anchorPositions !== undefined) {
           if (Array.isArray(anchorPositions) === false) {

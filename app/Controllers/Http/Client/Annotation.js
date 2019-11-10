@@ -310,7 +310,7 @@ class Annotation extends WebpageUserBaseController {
       // ------------------------------
 
       let sectionsChecklist = await user.getSectionsChecklist(webpage, query)
-      let sectionsAnnotation = await AnnotationModel.getSectionsAnnotation(webpage, user, query)
+      let sectionsAnnotation = await AnnotationModel.buildSectionsAnnotationSummary(webpage, user, query)
       
       return {
         highlights,
@@ -324,7 +324,7 @@ class Annotation extends WebpageUserBaseController {
   
   async listSectionNext ({request, webpage, user}) {
     let query = request.all()
-    return await AnnotationModel.getSectionsAnnotations(webpage, user, query)
+    return await AnnotationModel.getSectionAnnotations(webpage, user, query)
   }
 }
 

@@ -100,7 +100,7 @@
         v-bind:findUser="(user) => {findUser = user}"
         v-bind:findType="(type) => {findType = type}"
         v-bind:rangy="rangy"></annotation-item>
-    <div class="ui segment no-more"
+    <div class="ui secondary segment no-more"
          v-if="noMore">
       <template v-if="annotations.length > 0">
         {{ $t('No More') }}
@@ -125,7 +125,7 @@
         v-bind:findUser="(user) => {findUser = user}"
         v-bind:findType="(type) => {findType = type}"
         v-bind:rangy="rangy"></annotation-item>
-    <div class="ui segment no-more"
+    <div class="ui secondary segment no-more"
          v-if="filteredNoMore">
       {{ $t('No More') }}
     </div>

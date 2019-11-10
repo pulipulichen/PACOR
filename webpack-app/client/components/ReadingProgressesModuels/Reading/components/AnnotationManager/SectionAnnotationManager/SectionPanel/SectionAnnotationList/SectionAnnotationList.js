@@ -35,7 +35,7 @@ let SectionAnnotationList = {
   },
   watch: {
     'page' (page) {
-      if (page > 0) {
+      if (page > -1) {
         this.loadNext()
       }
     },
@@ -59,8 +59,15 @@ let SectionAnnotationList = {
       
       let result = await this.lib.AxiosHelper.get('/client/Annotation/listSectionNext', query)
       
-      if (Array.isArray(result)) {
-        this.sectionsData.annotation[this.sectionSeqID].annotations = this.annotations.concat(result)
+      if (Array.isArray(result) && result.length > 0) {
+        //console.log(this.sectionsData.annotation[this.sectionSeqID].annotations.length)
+        
+        result.forEach(a => {
+          this.sectionsData.annotation[this.sectionSeqID].annotations.push(a)
+        })
+        
+        //console.log(this.sectionsData.annotation[this.sectionSeqID].annotations.length)
+        this.$forceUpdate()
         //this.page++
       }
       else {
@@ -68,6 +75,8 @@ let SectionAnnotationList = {
       }
     },
     reloadList: async function () {
+      this.sectionsData.annotation[this.sectionSeqID].annotations.splice(this.annotations.length)
+      console.log(this.annotations.length)
       this.page = 0
     },
     scrollList (event) {

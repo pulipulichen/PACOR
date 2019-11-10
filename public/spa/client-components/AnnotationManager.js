@@ -565,7 +565,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".SectionAnnotationList[data-v-5aa27950] {\n  max-height: 5em;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n", "",{"version":3,"sources":["SectionAnnotationList.less?vue&type=style&index=0&id=5aa27950&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,kBAAkB;EAClB,gBAAgB;AAClB","file":"SectionAnnotationList.less?vue&type=style&index=0&id=5aa27950&lang=less&scoped=true&","sourcesContent":[".SectionAnnotationList[data-v-5aa27950] {\n  max-height: 5em;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n"]}]);
+exports.push([module.i, ".SectionAnnotationList[data-v-5aa27950] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.no-more[data-v-5aa27950] {\n  text-align: center;\n  color: gray;\n}\n", "",{"version":3,"sources":["SectionAnnotationList.less?vue&type=style&index=0&id=5aa27950&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb","file":"SectionAnnotationList.less?vue&type=style&index=0&id=5aa27950&lang=less&scoped=true&","sourcesContent":[".SectionAnnotationList[data-v-5aa27950] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.no-more[data-v-5aa27950] {\n  text-align: center;\n  color: gray;\n}\n"]}]);
 
 
 /***/ }),
@@ -2011,7 +2011,7 @@ var render = function() {
           _vm.noMore
             ? _c(
                 "div",
-                { staticClass: "ui segment no-more" },
+                { staticClass: "ui secondary segment no-more" },
                 [
                   _vm.annotations.length > 0
                     ? [
@@ -2081,7 +2081,7 @@ var render = function() {
           }),
           _vm._v(" "),
           _vm.filteredNoMore
-            ? _c("div", { staticClass: "ui segment no-more" }, [
+            ? _c("div", { staticClass: "ui secondary segment no-more" }, [
                 _vm._v("\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    ")
               ])
             : _vm._e()
@@ -2418,18 +2418,43 @@ var render = function() {
         }
       }
     },
-    _vm._l(_vm.annotations, function(annotation) {
-      return _c("annotation-item", {
-        attrs: {
-          config: _vm.config,
-          status: _vm.status,
-          lib: _vm.lib,
-          annotation: annotation,
-          findAnnotation: _vm.findAnnotation
-        }
-      })
-    }),
-    1
+    [
+      _vm._l(_vm.annotations, function(annotation) {
+        return _c("annotation-item", {
+          attrs: {
+            config: _vm.config,
+            status: _vm.status,
+            lib: _vm.lib,
+            annotation: annotation,
+            findAnnotation: _vm.findAnnotation
+          }
+        })
+      }),
+      _vm._v(" "),
+      _vm.noMore
+        ? _c(
+            "div",
+            { staticClass: "ui secondary segment no-more" },
+            [
+              _vm.annotations.length > 0
+                ? [
+                    _vm._v(
+                      "\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    "
+                    )
+                  ]
+                : [
+                    _vm._v(
+                      "\r\n      " +
+                        _vm._s(_vm.$t("No Search Result")) +
+                        "\r\n    "
+                    )
+                  ]
+            ],
+            2
+          )
+        : _vm._e()
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -3320,6 +3345,8 @@ let AnnotationManager = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      isInited: false,
+      
       selection: null,
       pinSelection: null,
       restoreSelection: null,
@@ -3453,6 +3480,7 @@ let AnnotationManager = {
         }
       }
       
+      this.isInited = true
       //$('[data-pacor-highlight]:first').click() // for test
       
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
@@ -17178,8 +17206,15 @@ let SectionAnnotationList = {
       
       let result = await this.lib.AxiosHelper.get('/client/Annotation/listSectionNext', query)
       
-      if (Array.isArray(result)) {
-        this.sectionsData.annotation[this.sectionSeqID].annotations = this.annotations.concat(result)
+      if (Array.isArray(result) && result.length > 0) {
+        //console.log(this.sectionsData.annotation[this.sectionSeqID].annotations.length)
+        
+        result.forEach(a => {
+          this.sectionsData.annotation[this.sectionSeqID].annotations.push(a)
+        })
+        
+        //console.log(this.sectionsData.annotation[this.sectionSeqID].annotations.length)
+        this.$forceUpdate()
         //this.page++
       }
       else {

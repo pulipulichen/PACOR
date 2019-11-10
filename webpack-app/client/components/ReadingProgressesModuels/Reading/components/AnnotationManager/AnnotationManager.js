@@ -9,6 +9,8 @@ let AnnotationManager = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      isInited: false,
+      
       selection: null,
       pinSelection: null,
       restoreSelection: null,
@@ -142,6 +144,7 @@ let AnnotationManager = {
         }
       }
       
+      this.isInited = true
       //$('[data-pacor-highlight]:first').click() // for test
       
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
