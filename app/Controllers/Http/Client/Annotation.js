@@ -24,6 +24,14 @@ class Annotation extends WebpageUserBaseController {
     return instance.id
   }
   
+  async createSectionAnnotation({request, webpage, user}) {
+    let data = request.all()
+    await ReadingActivityLog.log(webpage, user, 'Annotation.crecreateSectionAnnotationateSection', data)
+    
+    let instance = await AnnotationModel.createSectionAnnotation(webpage, user, data)
+    return instance.id
+  }
+  
   async index ({request, webpage, user}) {
     let query = request.all()
     return await AnnotationModel.findByWebpageGroup(webpage, user, query)

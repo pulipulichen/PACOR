@@ -11,9 +11,11 @@ class AnnotationSection {
       //throw new HttpException('@TODO')
       //return []
       
-      let annotations = this.findByWebpageGroupPosition(webpage, user, {
+      let annotations = await this.findByWebpageGroupPosition(webpage, user, {
         onlySectionAnnotation: true
       })
+      
+      console.log(annotations.size())
       
       return []
     }

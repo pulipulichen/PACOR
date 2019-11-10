@@ -4914,7 +4914,7 @@ let SectionMainIdea = {
       
       //console.log(data)
       
-      let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+      let id = await this.lib.AxiosHelper.post('/client/Annotation/createSectionAnnotation', data)
       //console.log(id) // for test
       if (typeof(id) !== 'number') {
         return false  // 新增失敗

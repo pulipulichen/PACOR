@@ -88,6 +88,52 @@ class AnnotationCreate {
 
       return instance
     } // static async create(webpage, user, data) {
+    
+    
+    Model.createSectionAnnotation = async function (webpage, user, data) {
+
+      if (Array.isArray(data.anchorPositions) === false
+              || data.anchorPositions.length === 0) {
+        return false
+      }
+
+      /*
+       let anchorTextInstance = new AnchorTextModel()
+       anchorTextInstance.webpage_id = webpage.primaryKeyValue
+       anchorTextInstance.start_pos = data.startPos
+       anchorTextInstance.end_pos = data.endPos
+       anchorTextInstance.anchor_text = data.anchorText
+       */
+      
+      let annotation = await AnnotationModel
+              .query()
+              .where('webpage_id', webpage.primaryKeyValue)
+              .where('user_id', user.primaryKeyValue)
+              .where('deteled', false)
+              .whereHas('anchorPositions', (builder) => {
+                builder.where('webpage_id', webpage.primaryKeyValue)
+                  .where('seq_id')
+              })
+              .pick(1)
+      
+      if (annotation.size() > 0) {
+        annotation = annotation.first()
+        let notes = await annotation.notes().fetch()
+        for (let i = 0; i < notes.size(); i++) {
+          let note = notes.nth(i)
+          let type = note.type
+          
+          if (typeof(data.notes[type]) === 'string') {
+            note.note = data.notes[type]
+            await note.save()
+          }
+        }
+        return annotation
+      }
+      else {
+        return await this.create(webpage, user, data)
+      }
+    } // static async create(webpage, user, data) {
   } // register (Model) {
 }
 
