@@ -3,8 +3,10 @@ let SectionChecklist = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      checked: []
     }
   },
+  
 //  components: {
 //  },
   computed: {
@@ -16,7 +18,7 @@ let SectionChecklist = {
         let checklist = this.lib.auth.currentStepConfig.checklist
         
         //console.log(this.sectionSeqID)
-        console.log(this.sectionsData)
+        //console.log(this.sectionsData)
         if (typeof(this.sectionsData.checklist[this.sectionSeqID]) === 'undefined') {
           //this.sectionsData.checklist
           this.sectionsData.checklist[this.sectionSeqID] = {}
@@ -39,13 +41,14 @@ let SectionChecklist = {
             checklistData[i] = false
           }
         })
-        this.checklistData = checklistData
+        //this.checklistData = checklistData
+        this.sectionsData.checklist[this.sectionSeqID].checked = checklistData
         
         return checklist
       }
     },
     isChecklistCompleted () { 
-      for (let i = 0; i < this.checklistData.length; i++) {
+      for (let i = 0; i < this.checked.length; i++) {
         if (this.checklistData[i] === false) {
           return false
         }
@@ -61,26 +64,27 @@ let SectionChecklist = {
       }
     }
   },
-  watch: {
-  },
+//  watch: {
+//  },
   mounted() {
+    this.checked = this.sectionsData.checklist[this.sectionSeqID].checked
   },
   methods: {
     onChecklistItemChange (i) {
-      this.checklistData[i] = !this.checklistData[i]
+      this.checked[i] = !this.checked[i]
       
-      let data = JSON.stringify(this.checklistData)
+      let data = JSON.stringify(this.checked)
       localStorage.setItem(this.localStorageKeyPrefix + 'checklist', data)
     },
-    openSectionMainIdeaEditor () {
+    openSectionAnnotationEditor () {
       throw '@TODO'
     },
     submitChecklist: async function () {
-      this.sectionData[this.sectionSeqID].checklistData = this.checklistData
-      this.sectionData[this.sectionSeqID].checklistSubmittedAt = (new Data()).getTime()
+      this.sectionsData.checklist[this.sectionSeqID].checked = this.checklistData
+      this.sectionsData.checklist[this.sectionSeqID].submittedAt = (new Data()).getTime()
       
       let data = {
-        sectionData: this.sectionData
+        checklist: this.sectionsData.checklist
       }
       
       await this.lib.AxiosHelper.post('/client/ReadingProgress/setAttr', data)

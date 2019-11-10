@@ -549,7 +549,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true&"}]);
+exports.push([module.i, ".header[data-v-2fc0758a] {\n  user-select: none;\n}\n.item[data-v-2fc0758a] {\n  line-height: 2em !important;\n  cursor: pointer;\n}\n.item label[data-v-2fc0758a] {\n  cursor: pointer !important;\n  user-select: none;\n}\n.item[data-v-2fc0758a]:hover {\n  font-weight: bold;\n}\n", "",{"version":3,"sources":["SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;AACnB;AACA;EACE,2BAA2B;EAC3B,eAAe;AACjB;AACA;EACE,0BAA0B;EAC1B,iBAAiB;AACnB;AACA;EACE,iBAAiB;AACnB","file":"SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true&","sourcesContent":[".header[data-v-2fc0758a] {\n  user-select: none;\n}\n.item[data-v-2fc0758a] {\n  line-height: 2em !important;\n  cursor: pointer;\n}\n.item label[data-v-2fc0758a] {\n  cursor: pointer !important;\n  user-select: none;\n}\n.item[data-v-2fc0758a]:hover {\n  font-weight: bold;\n}\n"]}]);
 
 
 /***/ }),
@@ -2273,13 +2273,26 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "SectionChecklist" }, [
-    _vm._v("\r\n  " + _vm._s(_vm.$t("Check list")) + ":\r\n\r\n  "),
+    _c("div", { staticClass: "ui tiny header" }, [
+      _c("i", { staticClass: "check square outline icon" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "content" }, [
+        _vm._v(
+          "\r\n      #" +
+            _vm._s(_vm.sectionSeqID + 1) +
+            "\r\n      " +
+            _vm._s(_vm.$t("Check list")) +
+            "\r\n    "
+        )
+      ])
+    ]),
+    _vm._v(" "),
     _c(
       "button",
       {
         staticClass: "ui fluid button",
         attrs: { type: "button" },
-        on: { click: _vm.openSectionMainIdeaEditor }
+        on: { click: _vm.openSectionAnnotationEditor }
       },
       [
         _vm._v(
@@ -2289,16 +2302,18 @@ var render = function() {
     ),
     _vm._v(" "),
     _c(
-      "ul",
+      "div",
+      { staticClass: "ui list" },
       [
         _vm._l(_vm.checklist, function(item, i) {
           return [
             item !== "SectionMainIdea"
               ? _c(
-                  "li",
+                  "a",
                   {
+                    staticClass: "item",
                     on: {
-                      change: function($event) {
+                      click: function($event) {
                         return _vm.onChecklistItemChange(i)
                       }
                     }
@@ -2310,19 +2325,19 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.checklistData[i],
-                            expression: "checklistData[i]"
+                            value: _vm.checked[i],
+                            expression: "checked[i]"
                           }
                         ],
                         attrs: { type: "checkbox" },
                         domProps: {
-                          checked: Array.isArray(_vm.checklistData[i])
-                            ? _vm._i(_vm.checklistData[i], null) > -1
-                            : _vm.checklistData[i]
+                          checked: Array.isArray(_vm.checked[i])
+                            ? _vm._i(_vm.checked[i], null) > -1
+                            : _vm.checked[i]
                         },
                         on: {
                           change: function($event) {
-                            var $$a = _vm.checklistData[i],
+                            var $$a = _vm.checked[i],
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
@@ -2330,21 +2345,17 @@ var render = function() {
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
                                 $$i < 0 &&
-                                  _vm.$set(
-                                    _vm.checklistData,
-                                    i,
-                                    $$a.concat([$$v])
-                                  )
+                                  _vm.$set(_vm.checked, i, $$a.concat([$$v]))
                               } else {
                                 $$i > -1 &&
                                   _vm.$set(
-                                    _vm.checklistData,
+                                    _vm.checked,
                                     i,
                                     $$a.slice(0, $$i).concat($$a.slice($$i + 1))
                                   )
                               }
                             } else {
-                              _vm.$set(_vm.checklistData, i, $$c)
+                              _vm.$set(_vm.checked, i, $$c)
                             }
                           }
                         }
@@ -2361,8 +2372,9 @@ var render = function() {
                   ]
                 )
               : _c(
-                  "li",
+                  "a",
                   {
+                    staticClass: "item",
                     on: {
                       click: function($event) {
                         return _vm.openSectionAnnotationEditor(
@@ -2378,19 +2390,19 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.checklistData[i],
-                            expression: "checklistData[i]"
+                            value: _vm.checked[i],
+                            expression: "checked[i]"
                           }
                         ],
                         attrs: { type: "checkbox" },
                         domProps: {
-                          checked: Array.isArray(_vm.checklistData[i])
-                            ? _vm._i(_vm.checklistData[i], null) > -1
-                            : _vm.checklistData[i]
+                          checked: Array.isArray(_vm.checked[i])
+                            ? _vm._i(_vm.checked[i], null) > -1
+                            : _vm.checked[i]
                         },
                         on: {
                           change: function($event) {
-                            var $$a = _vm.checklistData[i],
+                            var $$a = _vm.checked[i],
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
@@ -2398,21 +2410,17 @@ var render = function() {
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
                                 $$i < 0 &&
-                                  _vm.$set(
-                                    _vm.checklistData,
-                                    i,
-                                    $$a.concat([$$v])
-                                  )
+                                  _vm.$set(_vm.checked, i, $$a.concat([$$v]))
                               } else {
                                 $$i > -1 &&
                                   _vm.$set(
-                                    _vm.checklistData,
+                                    _vm.checked,
                                     i,
                                     $$a.slice(0, $$i).concat($$a.slice($$i + 1))
                                   )
                               }
                             } else {
-                              _vm.$set(_vm.checklistData, i, $$c)
+                              _vm.$set(_vm.checked, i, $$c)
                             }
                           }
                         }
@@ -16852,8 +16860,10 @@ let SectionChecklist = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      checked: []
     }
   },
+  
 //  components: {
 //  },
   computed: {
@@ -16865,7 +16875,7 @@ let SectionChecklist = {
         let checklist = this.lib.auth.currentStepConfig.checklist
         
         //console.log(this.sectionSeqID)
-        console.log(this.sectionsData)
+        //console.log(this.sectionsData)
         if (typeof(this.sectionsData.checklist[this.sectionSeqID]) === 'undefined') {
           //this.sectionsData.checklist
           this.sectionsData.checklist[this.sectionSeqID] = {}
@@ -16888,13 +16898,14 @@ let SectionChecklist = {
             checklistData[i] = false
           }
         })
-        this.checklistData = checklistData
+        //this.checklistData = checklistData
+        this.sectionsData.checklist[this.sectionSeqID].checked = checklistData
         
         return checklist
       }
     },
     isChecklistCompleted () { 
-      for (let i = 0; i < this.checklistData.length; i++) {
+      for (let i = 0; i < this.checked.length; i++) {
         if (this.checklistData[i] === false) {
           return false
         }
@@ -16910,26 +16921,27 @@ let SectionChecklist = {
       }
     }
   },
-  watch: {
-  },
+//  watch: {
+//  },
   mounted() {
+    this.checked = this.sectionsData.checklist[this.sectionSeqID].checked
   },
   methods: {
     onChecklistItemChange (i) {
-      this.checklistData[i] = !this.checklistData[i]
+      this.checked[i] = !this.checked[i]
       
-      let data = JSON.stringify(this.checklistData)
+      let data = JSON.stringify(this.checked)
       localStorage.setItem(this.localStorageKeyPrefix + 'checklist', data)
     },
-    openSectionMainIdeaEditor () {
+    openSectionAnnotationEditor () {
       throw '@TODO'
     },
     submitChecklist: async function () {
-      this.sectionData[this.sectionSeqID].checklistData = this.checklistData
-      this.sectionData[this.sectionSeqID].checklistSubmittedAt = (new Data()).getTime()
+      this.sectionsData.checklist[this.sectionSeqID].checked = this.checklistData
+      this.sectionsData.checklist[this.sectionSeqID].submittedAt = (new Data()).getTime()
       
       let data = {
-        sectionData: this.sectionData
+        checklist: this.sectionsData.checklist
       }
       
       await this.lib.AxiosHelper.post('/client/ReadingProgress/setAttr', data)
