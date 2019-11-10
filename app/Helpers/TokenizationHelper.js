@@ -2,6 +2,7 @@
 
 const $ = use('cheerio')
 const Segment = use('novel-segment')
+const pos = use('pos')
 
 let TokenizationHelper = {
   htmlToText (html) {
@@ -63,7 +64,7 @@ let TokenizationHelper = {
     return output
   },
   _segment: null,
-  getSegment () {
+  getChineseSegment () {
     if (this._segment === null) {
       let segment = new Segment
       segment.useDefault()
@@ -71,6 +72,41 @@ let TokenizationHelper = {
     }
     
     return this._segment
+  },
+  parseEnglishPos (text) {
+    let words = new pos.Lexer().lex(text)
+    let tagger = new pos.Tagger()
+    let taggedWords = tagger.tag(words)
+    
+    return taggedWords.map(taggedWord => {
+      let w = taggedWord[0]
+      let p = taggedWord[1]
+      //console.log(pList)
+      if (typeof(this.PosRemap.EnglishPosJS[p]) === 'string') {
+        p = this.PosRemap.EnglishPosJS[p]
+      }
+      else {
+        console.log('Remap not found: ' + p)
+      }
+      /*
+      let output = []
+      for (let i in pList) {
+        let p = pList[i]
+        
+        if (typeof(this.PosRemap.EnglishPosJS[p]) === 'string') {
+          p = this.PosRemap.EnglishPosJS[p]
+        }
+        else {
+          console.log('Remap not found: ' + p)
+        }
+        output.push(p)
+      }
+      */
+      return {
+        w,
+        p
+      }
+    })
   },
   parseWordFrequency (text) {
     let segment = this.getSegment()
@@ -93,8 +129,45 @@ let TokenizationHelper = {
     
     return output
   },
+  parseSegment (text) {
+    let segment = this.getChineseSegment()
+    let result = segment.doSegment(text)
+    
+    //console.log(segment.POSTAG)
+    
+    let output = []
+    result.map(r => {
+      if (typeof(r.p) !== 'undefined') {
+        //r.pn = segment.POSTAG[r.p]
+        //r.pn = segment.POSTAG.enName(r.p)
+        let posList = segment.POSTAG.enName(r.p)
+        
+        if (this.PosRemap.ChineseToEng.indexOf(posList) === -1) {
+          r.p = posList.split(',').map(p => {
+            if (typeof(this.PosRemap.ChineseNovelSegment[p]) === 'string') {
+              p = this.PosRemap.ChineseNovelSegment[p]
+            }
+            return p
+          })
+          
+          output.push(r)
+        }
+        else {
+          console.log(r.w)
+          let eng = this.parseEnglishPos(r.w)
+          output = output.concat(eng)
+        }
+      }
+      else {
+        output.push(r)
+      }
+    })
+    
+    return output
+  },
   PosRemap: {
-    NovelSegment: {
+    ChineseToEng: ['a_nx', 'nx'],
+    ChineseNovelSegment: {
       bad: 'unknown',
       d_a: 'adj',
       d_b: 'adj',
@@ -127,9 +200,12 @@ let TokenizationHelper = {
       d_zh: 'adv',
       d_k: 'pron',
       url: 'n',
-      unk: 'unknown'
+      unk: 'unknown',
+      w: 'punc',
+      nx: '外文字符'  // 需要丟給pos判斷
     },
-    PosJS: {
+    EnglishPosJS: {
+      "B": 'adj',
       "CC": "conj",
       "CD": "n",
       "DT": "n",
@@ -141,14 +217,17 @@ let TokenizationHelper = {
       "JJS": "adj",
       "LS": "punc",
       "MD": "v",
+      //"N": "n",
       "NN": "n",
       "NNS": "n",
       "NNP": "n",
       "NNPS": "n",
+      //"P": 'prep',
       "POS": "prep",
       "PDT": "adj",
       "PP$": "pron",
       "PRP": "pron",
+      //"R": "pron",
       "RB": "adv",
       "RBR": "adv",
       "RBS": "adv",
@@ -157,6 +236,7 @@ let TokenizationHelper = {
       "TO": "prep",
       "UH": "int",
       "URL": "n",
+      //"V": "v",
       "VB": "v",
       "VBD": "v",
       "VBG": "v",
@@ -177,7 +257,8 @@ let TokenizationHelper = {
       ")": "punc"
     }
   },
-  remapPos (p) {
+  
+  remapChinesePos (p) {
     if (p === undefined) {
       return []
     }
@@ -186,7 +267,10 @@ let TokenizationHelper = {
     let posList = segment.POSTAG.enName(p).split(',')
     
     return posList.map(pos => {
-      
+      if (pos === 'a_nx') {
+        // 交給pos
+        
+      }
     })
   }
 }

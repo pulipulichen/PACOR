@@ -15,8 +15,14 @@ test('htmlToText', async ({ assert, client }) => {
   assert.equal(result, 'abc')
 }).timeout(0)
 
-test('parseWordFrequency', async ({ assert, client }) => {
-  let result = TokenizationHelper.parseWordFrequency('我來測試看看')
+test('parseEnglishSegement', async ({ assert, client }) => {
+  let result = TokenizationHelper.parseEnglishPos(`On Saturday, the fire emergency's second day, officials warned the death toll was likely to continue to rise.`)
+  console.log(result)
+  assert.isArray(result)
+}).timeout(0)
+
+test('parseSegement', async ({ assert, client }) => {
+  let result = TokenizationHelper.parseSegment('我來測試看看，遊戲boy, are you ok?')
   console.log(result)
   assert.isArray(result)
 }).timeout(0)
