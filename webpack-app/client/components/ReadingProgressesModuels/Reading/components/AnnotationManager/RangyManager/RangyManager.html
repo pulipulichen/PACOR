@@ -1,1 +1,13 @@
-<fragment></fragment>
+<fragment>
+  <anchor-position ref="AnchorPosition"
+             v-bind:rangy="rangy"></anchor-position>
+  <selection ref="Selection"
+             v-bind:rangy="rangy"></selection>
+  <hover ref="Hover"
+         v-bind:rangy="rangy"></hover>
+  <highlight ref="Highlight"
+             v-bind:rangy="rangy"></highlight>
+  <search ref="Search"
+             v-bind:rangy="rangy"
+             v-bind:status="status"></search>
+</fragment>
