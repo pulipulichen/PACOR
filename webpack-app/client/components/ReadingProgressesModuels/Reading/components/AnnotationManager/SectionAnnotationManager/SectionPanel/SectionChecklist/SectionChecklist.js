@@ -40,13 +40,15 @@ let SectionChecklist = {
         let checklistData = this.sectionsData.checklist[this.sectionSeqID].checked
         checklistData = checklistData ? checklistData : []
         
-        if (Array.isArray(checklistData) === false) {
+        if (Array.isArray(checklistData) === false
+                || checklistData.length === 0) {
           //checklistData = []
           let itemsFromLocalStorage = localStorage
-                    .getItem(this.localStorageKeyPrefix + 'checklistData')
+                    .getItem(this.localStorageKeyPrefix + 'checklist')
           if (itemsFromLocalStorage !== null) {
             checklistData = JSON.parse(itemsFromLocalStorage)
           }
+          //console.log(this.localStorageKeyPrefix + 'checklist')
         }
         
         checklist.forEach((item, i) => {
@@ -76,6 +78,10 @@ let SectionChecklist = {
       else {
         return 'positive'
       }
+    },
+    isWrottenAnnotation () {
+      return (this.checked[this.sectionAnnotationIndex] === true 
+              || this.wroteAnnotationAt !== null)
     }
   },
 //  watch: {
@@ -98,18 +104,26 @@ let SectionChecklist = {
     },
     openSectionAnnotationEditor () {
       
-      this.sectionsData.sectionAnnotationCallback = () => {
-        this.wroteAnnotationAt = (new Date()).getTime
-        this.checked.splice(this.sectionAnnotationIndex, 1, true)
-        this.sectionsData.sectionAnnotationCallback = null
+//      this.wroteAnnotationAt = (new Date()).getTime
+//        this.checked.splice(this.sectionAnnotationIndex, 1, true)
+//        this.sectionsData.sectionAnnotationCallback = null
+//        return
+      
+      if (this.isWrottenAnnotation === false) {
+        this.sectionsData.sectionAnnotation.callback = () => {
+          this.wroteAnnotationAt = (new Date()).getTime
+          this.checked.splice(this.sectionAnnotationIndex, 1, true)
+          this.sectionsData.sectionAnnotation.callback = null
+        }
+
+        
       }
-      
-      this.sectionsData.sectionAnnotationSeqID = this.sectionSeqID
-      this.sectionsData.sectionAnnotation = {
-        type: 'SectionMainIdea'
+      this.sectionsData.sectionAnnotation.seqID = this.sectionSeqID
+      this.sectionsData.sectionAnnotation.instance = {
+        id: this.sectionsData.sectionAnnotation.id,
+        type: 'SectionMainIdea',
+        note: this.sectionsData.sectionAnnotation.draftNote
       }
-      
-      
       
       //this.checked.splice(this.sectionAnnotationIndex, 1, true)
       //this.wroteAnnotationAt = 1
@@ -123,7 +137,7 @@ let SectionChecklist = {
         checklist: this.sectionsData.checklist
       }
       
-      await this.lib.AxiosHelper.post('/client/ReadingProgress/setAttr', data)
+      await this.lib.AxiosHelper.post('/client/ReadingProgress/setLogAttr', data)
     }
   } // methods
 }

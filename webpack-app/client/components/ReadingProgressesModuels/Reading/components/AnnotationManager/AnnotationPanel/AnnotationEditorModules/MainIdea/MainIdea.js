@@ -107,7 +107,9 @@ let MainIdea = {
     editAnnotation: async function () {
       let data = {
         id: this.annotationInstance.id,
-        note: this.note
+        notes: {
+          'default': this.note
+        }
       }
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)

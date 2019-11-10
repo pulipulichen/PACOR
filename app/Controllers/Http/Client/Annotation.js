@@ -325,13 +325,13 @@ class Annotation extends WebpageUserBaseController {
       // ------------------------------
 
       let sectionsChecklist = await user.getSectionsChecklist(webpage, query)
-      let sectionsAnnotation = await AnnotationModel.getSectionsAnnotation(webpage, query)
+      let sectionsAnnotation = await AnnotationModel.getSectionsAnnotation(webpage, user, query)
       
       return {
         highlights,
         sections: {
           checklist: sectionsChecklist,
-          annotations: sectionsAnnotation
+          annotation: sectionsAnnotation
         }
       }
     })  // return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {

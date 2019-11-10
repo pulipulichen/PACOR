@@ -1306,9 +1306,6 @@ var render = function() {
     "div",
     { staticClass: "ui form" },
     [
-      _vm._v(
-        "\r\n  " + _vm._s(_vm.sectionsData.sectionAnnotationSeqID) + "\r\n  "
-      ),
       _c("annotation-editor-header", {
         attrs: {
           config: _vm.config,
@@ -1370,22 +1367,6 @@ var render = function() {
                             _vm._v(
                               "\r\n          " +
                                 _vm._s(_vm.$t("EDIT")) +
-                                "  \r\n        "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "ui red button",
-                            attrs: { type: "button" },
-                            on: { click: _vm.deleteAnnotation }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(_vm.$t("DELETE")) +
                                 "  \r\n        "
                             )
                           ]
@@ -2211,7 +2192,7 @@ var render = function() {
               ]
             : _vm._e(),
           _vm._v(" "),
-          _vm.sectionsData.sectionAnnotation
+          _vm.sectionsData.sectionAnnotation.instance
             ? [
                 _c("annotation-editor-modules", {
                   ref: "auth",
@@ -2220,8 +2201,10 @@ var render = function() {
                     status: _vm.status,
                     lib: _vm.lib,
                     sectionsData: _vm.sectionsData,
-                    annotationModule: _vm.sectionsData.sectionAnnotation.type,
-                    annotationInstance: _vm.sectionsData.sectionAnnotation,
+                    annotationModule:
+                      _vm.sectionsData.sectionAnnotation.instance.type,
+                    annotationInstance:
+                      _vm.sectionsData.sectionAnnotation.instance,
                     heightPX: _vm.heightPX
                   }
                 })
@@ -2467,8 +2450,6 @@ var render = function() {
   return _c("div", { staticClass: "SectionChecklist" }, [
     _c("div", { staticClass: "header-container" }, [
       _c("div", { staticClass: "ui tiny header" }, [
-        _c("i", { staticClass: "check square outline icon" }),
-        _vm._v(" "),
         _c("div", { staticClass: "content" }, [
           _vm._v(
             "\r\n        #" +
@@ -2545,9 +2526,7 @@ var render = function() {
                     _c("div", { staticClass: "ui checkbox" }, [
                       _c("input", {
                         attrs: { type: "checkbox" },
-                        domProps: {
-                          checked: typeof _vm.wroteAnnotationAt === "number"
-                        },
+                        domProps: { checked: _vm.isWrottenAnnotation },
                         on: {
                           click: function($event) {
                             $event.preventDefault()
@@ -3356,9 +3335,13 @@ let AnnotationManager = {
       sectionsData: {
         checklist: [],
         annotations: [],
-        sectionAnnotation: null,
-        sectionAnnotationSeqID: null,
-        sectionAnnotationCallback: null
+        sectionAnnotation: {
+          instance: null,
+          seqID: null,
+          callback: null,
+          draftNote: 'AAA',
+          id: null,
+        },
       }
     }
   },
@@ -3450,11 +3433,11 @@ let AnnotationManager = {
       //console.log(result)
       this.afterTime = (new Date()).getTime()
       if (result !== 0) {
-        if (typeof(result.highlights) !== 'undefined') {
+        if (typeof(result.highlights) === 'string') {
           this.$refs.RangyManager.deserializeAppend(result.highlights)
         }
         if (typeof(result.sections) !== 'undefined') {
-          //console.log(result.sections)
+          console.log(result.sections)
           Object.keys(result.sections).forEach(key => {
             if (Array.isArray(result.sections[key])) {
               this.sectionsData[key] = result.sections[key]
@@ -4695,7 +4678,9 @@ let MainIdea = {
     editAnnotation: async function () {
       let data = {
         id: this.annotationInstance.id,
-        note: this.note
+        notes: {
+          'default': this.note
+        }
       }
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
@@ -4902,6 +4887,9 @@ let SectionMainIdea = {
         this.note = annotationInstance.note
         this.$refs.editor.html(this.note)
       }
+    },
+    note (note) {
+      this.sectionsData.sectionAnnotation.draftNote = note
     }
   },
 //  mounted() {
@@ -4912,7 +4900,7 @@ let SectionMainIdea = {
       let data = {
         anchorPositions: [{
             type: 'section',
-            seq_id: this.sectionsData.sectionAnnotationSeqID
+            seq_id: this.sectionsData.sectionAnnotation.seqID
         }],
         type: this.annotationModule,
         notes: {
@@ -4936,13 +4924,18 @@ let SectionMainIdea = {
       this.$refs.editor.reset()
       //this.$emit('hide', false)
       
-      this.sectionsData.sectionAnnotationCallback()
-      this.sectionsData.sectionAnnotation = null
+      this.sectionsData.sectionAnnotation.id = id
+      if (typeof(this.sectionsData.sectionAnnotation.callback) === 'function') {
+        this.sectionsData.sectionAnnotation.callback()
+      }
+      this.sectionsData.sectionAnnotation.instance = null
     },
     editAnnotation: async function () {
       let data = {
         id: this.annotationInstance.id,
-        note: this.note
+        notes: {
+          'default': this.note
+        }
       }
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
@@ -6558,7 +6551,7 @@ let AnnotationPanel = {
         this.show()
       }
     },
-    'sectionsData.sectionAnnotation' (instance) {
+    'sectionsData.sectionAnnotation.instance' (instance) {
       if (typeof(instance) === 'object') {
         this.show()
       }
@@ -17113,20 +17106,37 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let SectionAnnotationList = {
-  props: ['lib', 'status', 'config', 'sectionSeqID', 'sectionData'],
+  props: ['lib', 'status', 'config', 'sectionSeqID', 'sectionsData'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
     return {
+      page: 0
     }
   },
 //  components: {
 //  },
   computed: {
+    instance () {
+      if (typeof(this.sectionsData.annotation[this.sectionSeqID]) !== 'object') {
+        this.sectionsData.annotation[this.sectionSeqID] = {}
+      }
+      return this.sectionsData.annotation[this.sectionSeqID]
+    },
     users () {
-      return this.sectionData.annotationUsers
+      if (Array.isArray(this.instance.users) === false) {
+        this.instance.users = []
+      }
+      return this.instance.users
+    },
+    userCount () {
+      return this.instance.userCount
     },
     annotations () {
-      return this.sectionData.annotations
+      if (Array.isArray(this.instance.annotations) === false) {
+        this.instance.annotations = []
+      }
+      return this.instance.annotations
     }
   },
   //watch: {
@@ -17321,13 +17331,15 @@ let SectionChecklist = {
         let checklistData = this.sectionsData.checklist[this.sectionSeqID].checked
         checklistData = checklistData ? checklistData : []
         
-        if (Array.isArray(checklistData) === false) {
+        if (Array.isArray(checklistData) === false
+                || checklistData.length === 0) {
           //checklistData = []
           let itemsFromLocalStorage = localStorage
-                    .getItem(this.localStorageKeyPrefix + 'checklistData')
+                    .getItem(this.localStorageKeyPrefix + 'checklist')
           if (itemsFromLocalStorage !== null) {
             checklistData = JSON.parse(itemsFromLocalStorage)
           }
+          //console.log(this.localStorageKeyPrefix + 'checklist')
         }
         
         checklist.forEach((item, i) => {
@@ -17357,6 +17369,10 @@ let SectionChecklist = {
       else {
         return 'positive'
       }
+    },
+    isWrottenAnnotation () {
+      return (this.checked[this.sectionAnnotationIndex] === true 
+              || this.wroteAnnotationAt !== null)
     }
   },
 //  watch: {
@@ -17379,18 +17395,26 @@ let SectionChecklist = {
     },
     openSectionAnnotationEditor () {
       
-      this.sectionsData.sectionAnnotationCallback = () => {
-        this.wroteAnnotationAt = (new Date()).getTime
-        this.checked.splice(this.sectionAnnotationIndex, 1, true)
-        this.sectionsData.sectionAnnotationCallback = null
+//      this.wroteAnnotationAt = (new Date()).getTime
+//        this.checked.splice(this.sectionAnnotationIndex, 1, true)
+//        this.sectionsData.sectionAnnotationCallback = null
+//        return
+      
+      if (this.isWrottenAnnotation === false) {
+        this.sectionsData.sectionAnnotation.callback = () => {
+          this.wroteAnnotationAt = (new Date()).getTime
+          this.checked.splice(this.sectionAnnotationIndex, 1, true)
+          this.sectionsData.sectionAnnotation.callback = null
+        }
+
+        
       }
-      
-      this.sectionsData.sectionAnnotationSeqID = this.sectionSeqID
-      this.sectionsData.sectionAnnotation = {
-        type: 'SectionMainIdea'
+      this.sectionsData.sectionAnnotation.seqID = this.sectionSeqID
+      this.sectionsData.sectionAnnotation.instance = {
+        id: this.sectionsData.sectionAnnotation.id,
+        type: 'SectionMainIdea',
+        note: this.sectionsData.sectionAnnotation.draftNote
       }
-      
-      
       
       //this.checked.splice(this.sectionAnnotationIndex, 1, true)
       //this.wroteAnnotationAt = 1
@@ -17404,7 +17428,7 @@ let SectionChecklist = {
         checklist: this.sectionsData.checklist
       }
       
-      await this.lib.AxiosHelper.post('/client/ReadingProgress/setAttr', data)
+      await this.lib.AxiosHelper.post('/client/ReadingProgress/setLogAttr', data)
     }
   } // methods
 }
@@ -17549,10 +17573,12 @@ let SectionPanel = {
   },
   computed: {
     isChecklistSubmitted () {
+      //console.log(this.sectionsData.checklist[this.sectionSeqID])
+      
       return (this.sectionsData !== null 
               && typeof(this.sectionsData) === 'object'
-              && typeof(this.sectionsData[this.sectionSeqID]) === 'object'
-              && this.sectionsData.checklist[this.sectionSeqID].submittedAt === 'number')
+              && typeof(this.sectionsData.checklist[this.sectionSeqID]) === 'object'
+              && typeof(this.sectionsData.checklist[this.sectionSeqID].submittedAt) === 'number')
     }
   },
   watch: {

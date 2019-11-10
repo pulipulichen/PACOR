@@ -1,5 +1,4 @@
 <div class="ui form">
-  {{ sectionsData.sectionAnnotationSeqID }}
   <annotation-editor-header v-bind:config="config"
                             v-bind:status="status"
                             v-bind:annotationModule="annotationModule"></annotation-editor-header>
@@ -28,11 +27,13 @@
                 v-on:click="editAnnotation">
           {{ $t('EDIT') }}  
         </button>
+        <!--
         <button type="button"
                 class="ui red button"
                 v-on:click="deleteAnnotation">
           {{ $t('DELETE') }}  
         </button>
+        -->
       </template>
       <template v-else>
         <countdown-button v-bind:minWordCount="moduleConfig.minWords"

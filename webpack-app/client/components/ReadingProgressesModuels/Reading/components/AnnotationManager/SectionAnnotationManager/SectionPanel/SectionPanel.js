@@ -15,10 +15,12 @@ let SectionPanel = {
   },
   computed: {
     isChecklistSubmitted () {
+      //console.log(this.sectionsData.checklist[this.sectionSeqID])
+      
       return (this.sectionsData !== null 
               && typeof(this.sectionsData) === 'object'
-              && typeof(this.sectionsData[this.sectionSeqID]) === 'object'
-              && this.sectionsData.checklist[this.sectionSeqID].submittedAt === 'number')
+              && typeof(this.sectionsData.checklist[this.sectionSeqID]) === 'object'
+              && typeof(this.sectionsData.checklist[this.sectionSeqID].submittedAt) === 'number')
     }
   },
   watch: {

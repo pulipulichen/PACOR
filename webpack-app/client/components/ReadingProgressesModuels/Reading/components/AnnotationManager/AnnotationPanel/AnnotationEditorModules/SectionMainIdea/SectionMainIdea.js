@@ -73,6 +73,9 @@ let SectionMainIdea = {
         this.note = annotationInstance.note
         this.$refs.editor.html(this.note)
       }
+    },
+    note (note) {
+      this.sectionsData.sectionAnnotation.draftNote = note
     }
   },
 //  mounted() {
@@ -83,7 +86,7 @@ let SectionMainIdea = {
       let data = {
         anchorPositions: [{
             type: 'section',
-            seq_id: this.sectionsData.sectionAnnotationSeqID
+            seq_id: this.sectionsData.sectionAnnotation.seqID
         }],
         type: this.annotationModule,
         notes: {
@@ -107,13 +110,18 @@ let SectionMainIdea = {
       this.$refs.editor.reset()
       //this.$emit('hide', false)
       
-      this.sectionsData.sectionAnnotationCallback()
-      this.sectionsData.sectionAnnotation = null
+      this.sectionsData.sectionAnnotation.id = id
+      if (typeof(this.sectionsData.sectionAnnotation.callback) === 'function') {
+        this.sectionsData.sectionAnnotation.callback()
+      }
+      this.sectionsData.sectionAnnotation.instance = null
     },
     editAnnotation: async function () {
       let data = {
         id: this.annotationInstance.id,
-        note: this.note
+        notes: {
+          'default': this.note
+        }
       }
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)

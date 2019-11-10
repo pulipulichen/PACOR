@@ -102,7 +102,7 @@ let AnnotationPanel = {
         this.show()
       }
     },
-    'sectionsData.sectionAnnotation' (instance) {
+    'sectionsData.sectionAnnotation.instance' (instance) {
       if (typeof(instance) === 'object') {
         this.show()
       }

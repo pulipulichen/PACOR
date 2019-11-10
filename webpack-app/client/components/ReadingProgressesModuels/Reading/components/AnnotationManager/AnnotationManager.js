@@ -31,9 +31,13 @@ let AnnotationManager = {
       sectionsData: {
         checklist: [],
         annotations: [],
-        sectionAnnotation: null,
-        sectionAnnotationSeqID: null,
-        sectionAnnotationCallback: null
+        sectionAnnotation: {
+          instance: null,
+          seqID: null,
+          callback: null,
+          draftNote: 'AAA',
+          id: null,
+        },
       }
     }
   },
@@ -125,11 +129,11 @@ let AnnotationManager = {
       //console.log(result)
       this.afterTime = (new Date()).getTime()
       if (result !== 0) {
-        if (typeof(result.highlights) !== 'undefined') {
+        if (typeof(result.highlights) === 'string') {
           this.$refs.RangyManager.deserializeAppend(result.highlights)
         }
         if (typeof(result.sections) !== 'undefined') {
-          //console.log(result.sections)
+          console.log(result.sections)
           Object.keys(result.sections).forEach(key => {
             if (Array.isArray(result.sections[key])) {
               this.sectionsData[key] = result.sections[key]

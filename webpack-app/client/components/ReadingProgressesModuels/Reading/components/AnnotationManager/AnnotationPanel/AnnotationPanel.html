@@ -28,14 +28,14 @@
           v-bind:heightPX="heightPX"
           v-on:hide="hide"></annotation-editor-modules>
       </template> <!-- <template v-else> -->
-      <template v-if="sectionsData.sectionAnnotation">
+      <template v-if="sectionsData.sectionAnnotation.instance">
         <annotation-editor-modules ref="auth"
           v-bind:config="config"
           v-bind:status="status"
           v-bind:lib="lib"
           v-bind:sectionsData="sectionsData"
-          v-bind:annotationModule="sectionsData.sectionAnnotation.type"
-          v-bind:annotationInstance="sectionsData.sectionAnnotation"
+          v-bind:annotationModule="sectionsData.sectionAnnotation.instance.type"
+          v-bind:annotationInstance="sectionsData.sectionAnnotation.instance"
           v-bind:heightPX="heightPX"></annotation-editor-modules>
       </template> <!-- <template v-else> -->
       <template v-else>

@@ -109,6 +109,7 @@
       "context": "button"
     },
     "v-else": {},
-    "v-show": {}
+    "v-show": {},
+    "v-bind:checked": {}
   }
 }

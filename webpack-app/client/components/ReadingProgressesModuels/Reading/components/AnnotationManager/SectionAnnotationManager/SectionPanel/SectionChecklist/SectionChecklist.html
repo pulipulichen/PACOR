@@ -1,7 +1,9 @@
 <div class="SectionChecklist">
   <div class="header-container">
     <div class="ui tiny header">
+      <!--
       <i class="check square outline icon"></i>
+      -->
       <div class="content">
         #{{ sectionSeqID + 1 }}
         {{ $t("Check list") }}
@@ -20,6 +22,7 @@
       <a class="item" v-if="item !== 'SectionMainIdea'"
           v-on:click="onChecklistItemChange(i)">
         <div class="ui checkbox">
+          
           <input type="checkbox"
                  v-bind:checked="checked[i]" />
           <label>
@@ -31,7 +34,7 @@
           v-on:click="openSectionAnnotationEditor('SectionMainIdea')">
         <div class="ui checkbox">
           <input type="checkbox"
-                 v-bind:checked="(typeof(wroteAnnotationAt) === 'number')"
+                 v-bind:checked="isWrottenAnnotation"
                  v-on:click.prevent="()=>{}">
           <label>
             {{ $t('I have already written the main ideas of this section.') }}

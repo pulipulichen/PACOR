@@ -14,6 +14,8 @@ class AnnotationSection {
       let annotations = this.findByWebpageGroupPosition(webpage, user, {
         onlySectionAnnotation: true
       })
+      
+      return []
     }
   } // register (Model) {
 }
