@@ -27,10 +27,9 @@ let SectionPanel = {
   },
   methods: {
     initPanel () {
-      console.log(this.node)
+      //console.log(this.node)
       this.node.parentNode.insertBefore(this.$refs.panel, this.node.nextSibling)
     },
-    
   } // methods
 }
 

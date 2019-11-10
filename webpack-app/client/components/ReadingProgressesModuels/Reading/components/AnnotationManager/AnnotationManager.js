@@ -26,7 +26,9 @@ let AnnotationManager = {
       findAnnotation: null,
       findUser: null,
       findType: null,
-      listPositions: null
+      listPositions: null,
+      
+      sectionsData: null
     }
   },
   components: {
@@ -47,31 +49,34 @@ let AnnotationManager = {
       }
       return output
     },
-    /**
-     * @deprecated 20191110 Pulipuli Chen
-     * @returns {String}
-     */
-    highlightsURL () {
-      let highlightsURL
-      if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === true) {
-        if (this.afterTime === null) {
-          highlightsURL = '/client/Annotation/highlights'
-        }
-        else {
-          highlightsURL = '/client/Annotation/highlightsOthers'
-        }
-      }
-      else {
-        highlightsURL = '/client/Annotation/highlightsMy'
-      }
-      return highlightsURL
-    },
+//    /**
+//     * @deprecated 20191110 Pulipuli Chen
+//     * @returns {String}
+//     */
+//    highlightsURL () {
+//      let highlightsURL
+//      if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === true) {
+//        if (this.afterTime === null) {
+//          highlightsURL = '/client/Annotation/highlights'
+//        }
+//        else {
+//          highlightsURL = '/client/Annotation/highlightsOthers'
+//        }
+//      }
+//      else {
+//        highlightsURL = '/client/Annotation/highlightsMy'
+//      }
+//      return highlightsURL
+//    },
     isSelectorVisible () {
       //return (this.annotatioModule === null && this.listPositions === null)
       //return true
       //console.log(this.annotationModule, this.listPositions)
       return (this.annotationModule === null
               && (this.listPositions === null || this.listPositions.length === 0))
+    },
+    isEnableSectionAnnotation () {
+      return this.lib.auth.currentStepAnnotationConfig.enableSectionAnnotation
     }
 //    enableHover () {
 //      console.log(['enableHover', this.listPositions])
@@ -114,7 +119,12 @@ let AnnotationManager = {
       //console.log(result)
       this.afterTime = (new Date()).getTime()
       if (result !== 0) {
-        this.$refs.RangyManager.deserializeAppend(result)
+        if (typeof(result.highlights) !== 'undefined') {
+          this.$refs.RangyManager.deserializeAppend(result.highlights)
+        }
+        if (typeof(result.sections) !== 'undefined') {
+          this.sectionsData = result.sections
+        }
       }
       
       //$('[data-pacor-highlight]:first').click() // for test

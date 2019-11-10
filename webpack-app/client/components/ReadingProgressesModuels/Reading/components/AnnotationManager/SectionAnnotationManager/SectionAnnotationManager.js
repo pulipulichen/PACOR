@@ -2,12 +2,12 @@ import $ from 'jquery'
 import SectionPanel from './SectionPanel/SectionPanel.vue'
 
 let SectionAnnotationManager = {
-  props: ['lib', 'status', 'config'],
+  props: ['lib', 'status', 'config', 'sectionsData'],
   data() {
     this.$i18n.locale = this.config.locale
     return {
       sectionNodes: [],
-      sectionData: []
+      //sectionData: []
     }
   },
   components: {
@@ -18,14 +18,14 @@ let SectionAnnotationManager = {
   watch: {
   },
   mounted() {
-    this.initSectionNodes()
+    //this.initSectionNodes()
   },
   methods: {
-    initSectionNodes: async function () {
-      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
-      
-      this.sectionNodes = $('[data-pacor-section-seq-id]').toArray()
-    }
+//    initSectionNodes: async function () {
+//      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
+//      
+//      this.sectionNodes = $('[data-pacor-section-seq-id]').toArray()
+//    }
   } // methods
 }
 

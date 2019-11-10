@@ -46,10 +46,19 @@ class AnnotationCreate {
           webpage_id: webpage.primaryKeyValue,
           paragraph_seq_id: a.paragraph_seq_id,
           paragraph_id: a.paragraph_id,
-          start_pos: a.start_pos,
-          end_pos: a.end_pos,
-          anchor_text: a.anchor_text
+          type: a.type,
+          //start_pos: a.start_pos,
+          //end_pos: a.end_pos,
+          //anchor_text: a.anchor_text
         }
+        if (a.type === 'textContent') {
+          query.paragraph_id = a.paragraph_id,
+          query.start_pos = a.start_pos
+          query.end_pos = a.end_pos,
+          query.anchor_text = a.anchor_text
+        }
+
+        
         //console.log(query)
         let anchorTextInstance = await AnchorPositionModel.findOrCreate(query, query)
         anchorTextIds.push(anchorTextInstance.primaryKeyValue)

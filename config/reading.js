@@ -17,8 +17,7 @@ module.exports = {
         types: ['Clarified', 'Confused', 'MainIdea'],
         enableCollaboration: false,
         enableControlPermission: true,
-        defaultPermission: 'public',
-        enableSectionAnnotation: true
+        defaultPermission: 'public'
       },
     },
     /**
@@ -51,7 +50,9 @@ module.exports = {
         enableCollaboration: false,
         enableControlPermission: false,
         defaultPermission: 'public',
+        eanbleSectionAnnotation: true
       },
+      
     },
     'PostRecall': {
       message: '請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！',

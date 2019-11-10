@@ -321,7 +321,7 @@ class Annotation extends WebpageUserBaseController {
       } else {
         highlights = await AnnotationModel.getMyHighlightsByWebpageGroup(webpage, user, query)
       }
-
+      
       // ------------------------------
 
       let sectionsChecklist = await user.getSectionsChecklist(webpage, query)

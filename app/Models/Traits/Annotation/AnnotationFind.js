@@ -89,7 +89,20 @@ class AnnotationFind {
       return await doQuery()
     } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
 
-    Model.findByWebpageGroupPosition = async function (webpage, user, {afterTime, anchorPositions, anchorMode, withCount, pick, findUserID, findType, page, keyword}) {
+    Model.findByWebpageGroupPosition = async function (webpage, user, options) {
+      options = options ? options : {}
+      
+      let { afterTime
+        , anchorPositions
+        , anchorMode
+        , withCount
+        , pick
+        , findUserID
+        , findType
+        , page
+        , keyword
+        , onlySectionAnnotation
+      } = options
       const doQuery = async evt => {
         //console.log('findByWebpageGroupPosition', anchorPositions)
 
@@ -136,9 +149,16 @@ class AnnotationFind {
           if (Array.isArray(anchorPositions)) {
             query.whereHas('anchorPositions', (builder) => {
               builder.where('webpage_id', webpage.primaryKeyValue)
+                      .where('type', 'textContent')
               this._buildAnchorPositionWhere(builder, anchorMode, anchorPositions)
             })
           }
+        }
+        else if (onlySectionAnnotation === true) {
+          query.whereHas('anchorPositions', (builder) => {
+            builder.where('webpage_id', webpage.primaryKeyValue)
+                    .where('type', 'section')
+          })
         }
         
         if (typeof (keyword) === 'string') {

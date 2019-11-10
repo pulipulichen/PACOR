@@ -794,9 +794,16 @@ var render = function() {
           })
         : _vm._e(),
       _vm._v(" "),
-      _c("section-annotation-manager", {
-        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
-      })
+      _vm.isEnableSectionAnnotation
+        ? _c("section-annotation-manager", {
+            attrs: {
+              sectionsData: _vm.sectionsData,
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib
+            }
+          })
+        : _vm._e()
     ],
     1
   )
@@ -2194,7 +2201,7 @@ var render = function() {
               lib: _vm.lib,
               node: node,
               sectionSeqID: i,
-              sectionData: _vm.sectionData[i]
+              sectionData: _vm.sectionsData[i]
             }
           })
         ]
@@ -3189,7 +3196,9 @@ let AnnotationManager = {
       findAnnotation: null,
       findUser: null,
       findType: null,
-      listPositions: null
+      listPositions: null,
+      
+      sectionsData: null
     }
   },
   components: {
@@ -3210,31 +3219,34 @@ let AnnotationManager = {
       }
       return output
     },
-    /**
-     * @deprecated 20191110 Pulipuli Chen
-     * @returns {String}
-     */
-    highlightsURL () {
-      let highlightsURL
-      if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === true) {
-        if (this.afterTime === null) {
-          highlightsURL = '/client/Annotation/highlights'
-        }
-        else {
-          highlightsURL = '/client/Annotation/highlightsOthers'
-        }
-      }
-      else {
-        highlightsURL = '/client/Annotation/highlightsMy'
-      }
-      return highlightsURL
-    },
+//    /**
+//     * @deprecated 20191110 Pulipuli Chen
+//     * @returns {String}
+//     */
+//    highlightsURL () {
+//      let highlightsURL
+//      if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === true) {
+//        if (this.afterTime === null) {
+//          highlightsURL = '/client/Annotation/highlights'
+//        }
+//        else {
+//          highlightsURL = '/client/Annotation/highlightsOthers'
+//        }
+//      }
+//      else {
+//        highlightsURL = '/client/Annotation/highlightsMy'
+//      }
+//      return highlightsURL
+//    },
     isSelectorVisible () {
       //return (this.annotatioModule === null && this.listPositions === null)
       //return true
       //console.log(this.annotationModule, this.listPositions)
       return (this.annotationModule === null
               && (this.listPositions === null || this.listPositions.length === 0))
+    },
+    isEnableSectionAnnotation () {
+      return this.lib.auth.currentStepAnnotationConfig.enableSectionAnnotation
     }
 //    enableHover () {
 //      console.log(['enableHover', this.listPositions])
@@ -3277,7 +3289,12 @@ let AnnotationManager = {
       //console.log(result)
       this.afterTime = (new Date()).getTime()
       if (result !== 0) {
-        this.$refs.RangyManager.deserializeAppend(result)
+        if (typeof(result.highlights) !== 'undefined') {
+          this.$refs.RangyManager.deserializeAppend(result.highlights)
+        }
+        if (typeof(result.sections) !== 'undefined') {
+          this.sectionsData = result.sections
+        }
       }
       
       //$('[data-pacor-highlight]:first').click() // for test
@@ -16355,12 +16372,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SectionAnnotationManager = {
-  props: ['lib', 'status', 'config'],
+  props: ['lib', 'status', 'config', 'sectionsData'],
   data() {
     this.$i18n.locale = this.config.locale
     return {
       sectionNodes: [],
-      sectionData: []
+      //sectionData: []
     }
   },
   components: {
@@ -16371,14 +16388,14 @@ let SectionAnnotationManager = {
   watch: {
   },
   mounted() {
-    this.initSectionNodes()
+    //this.initSectionNodes()
   },
   methods: {
-    initSectionNodes: async function () {
-      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
-      
-      this.sectionNodes = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-section-seq-id]').toArray()
-    }
+//    initSectionNodes: async function () {
+//      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
+//      
+//      this.sectionNodes = $('[data-pacor-section-seq-id]').toArray()
+//    }
   } // methods
 }
 
@@ -16888,10 +16905,9 @@ let SectionPanel = {
   },
   methods: {
     initPanel () {
-      console.log(this.node)
+      //console.log(this.node)
       this.node.parentNode.insertBefore(this.$refs.panel, this.node.nextSibling)
     },
-    
   } // methods
 }
 
