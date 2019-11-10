@@ -8,7 +8,7 @@ class AnnotationNote extends Model {
     super.boot()
     
     this.addTrait('JSONCase', 'properties')
-    this.addTrait('Tokenization', 'properties')
+    this.addTrait('Tokenization', 'note', 'properties')
     //this.addTrait('Annotation/AnnotationNote')
     
   } // static boot () {

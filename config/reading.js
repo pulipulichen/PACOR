@@ -13,8 +13,10 @@ module.exports = {
       message: '猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？',
       minWords: 10,
       limitMinutes: 0.1,
+      
+      // for test
       annotation: {
-        types: ['Clarified', 'Confused', 'MainIdea'],
+        types: ['Clarified', 'Confused', 'MainIdea', 'SectionMainIdea'],
         enableCollaboration: false,
         enableControlPermission: true,
         defaultPermission: 'public'
@@ -30,7 +32,7 @@ module.exports = {
       message: '進入個人閱讀囉',
       limitMinutes: 3,
       annotation: {
-        types: ['Clarified', 'Confused', 'MainIdea'],
+        types: ['Clarified', 'Confused', 'MainIdea', 'SectionMainIdea'],
         enableCollaboration: false,
         enableControlPermission: false,
         defaultPermission: 'public',
@@ -46,7 +48,7 @@ module.exports = {
     'CollaborativeReading': {
       message: '進入合作閱讀囉',
       annotation: {
-        types: ['Clarified', 'Confused', 'MainIdea'],
+        types: ['Clarified', 'Confused', 'MainIdea', 'SectionMainIdea'],
         enableCollaboration: false,
         enableControlPermission: false,
         defaultPermission: 'public',
@@ -130,10 +132,10 @@ module.exports = {
         },
         'segmentColor': 'green',
         'button': {
-          'icon': 'question',
+          'icon': 'check',
           'color': 'white',
           'backgroundColor': 'green',
-        }
+      }
       }
     },
     'MainIdea': {
@@ -143,6 +145,28 @@ module.exports = {
       'instruction': {
         'summary': '您覺得哪裡是重點？',
         'url': '/annotation-instruction/MainIdea.html'
+      },
+      "style": {
+        //'highlight': 'border-bottom: 1px solid red',
+        'highlight': {
+          'my': 'background-color: rgba(255,255,0,0.5); color: black;',
+          'others': 'border-bottom: 1px solid yellow'
+        },
+        'segmentColor': 'yellow',
+        'button': {
+          'icon': 'exclamation',
+          'color': 'white',
+          'backgroundColor': 'orange',
+        }
+      }
+    },
+    'SectionMainIdea': {
+      'addable': false,
+      'minWords': 1,
+      'placeholder': 'Why do you think it is a main idea?',
+      'instruction': {
+        'summary': '您覺得哪裡是重點？',
+        'url': '/annotation-instruction/SectionMainIdea.html'
       },
       "style": {
         //'highlight': 'border-bottom: 1px solid red',

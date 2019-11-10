@@ -60,6 +60,7 @@ let i18nGlobal = {
     "ANNOTATION_TYPE.ConfusedClarified": "疑問",
     "ANNOTATION_TYPE.Confused": "疑問",
     "ANNOTATION_TYPE.Clarified": "已釐清",
+    "ANNOTATION_TYPE.SectionMainIdea": "重點",
     "{0} sec": "{0}秒",
     "{0} Annotations": "{0}篇標註",
     "Total {0} Annotations": "總共{0}篇標註",

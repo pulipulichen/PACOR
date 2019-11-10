@@ -9,7 +9,8 @@ import $ from 'jquery'
 let AnnotationPanel = {
   props: ['lib', 'status', 'config'
     , 'pinSelection', 'annotationModule', 'rangy'
-    , 'findAnnotation', 'listPositions', 'findUser', 'findType'],
+    , 'findAnnotation', 'listPositions', 'findUser', 'findType'
+    , 'sectionsData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -100,7 +101,16 @@ let AnnotationPanel = {
       if (show === true) {
         this.show()
       }
+    },
+    'sectionsData.sectionAnnotation' (instance) {
+      if (typeof(instance) === 'object') {
+        this.show()
+      }
+      else {
+        this.hide()
+      }
     }
+    
 //    isHide () {
 //      
 //    }

@@ -2,14 +2,15 @@ import AnnotationDiscussion from './AnnotationDiscussion/AnnotationDiscussion.vu
 
 import AnnotationModuleMainIdea from './MainIdea/MainIdea.vue'
 import AnnotationModuleConfusedClarified from './ConfusedClarified/ConfusedClarified.vue'
+import AnnotationModuleSectionMainIdea from './SectionMainIdea/SectionMainIdea.vue'
 //import AnnotationModuleConfused from './Confused/Confused.vue'
 //import AnnotationModuleClarified from './Clarified/Clarified.vue'
 
 let AnnotationEditorModules = {
   props: ['lib', 'status', 'config'
     , 'annotationModule', 'pinSelection', 'annotationInstance'
-    , 'rangy', 'heightPX'],
-  data() {    
+    , 'rangy', 'heightPX', 'sectionsData'],
+  data() {
     this.$i18n.locale = this.config.locale
     return {
     }
@@ -20,7 +21,8 @@ let AnnotationEditorModules = {
     'MainIdea': AnnotationModuleMainIdea,
     //'ConfusedClarified': AnnotationModuleConfusedClarified
     'Confused': AnnotationModuleConfusedClarified,
-    'Clarified': AnnotationModuleConfusedClarified
+    'Clarified': AnnotationModuleConfusedClarified,
+    "SectionMainIdea": AnnotationModuleSectionMainIdea
   },
   computed: {
     computedGridClass () {

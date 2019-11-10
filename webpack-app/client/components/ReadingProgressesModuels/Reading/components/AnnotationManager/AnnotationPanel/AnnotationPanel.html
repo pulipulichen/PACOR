@@ -16,22 +16,7 @@
            v-on:mousedown="onResizeStart"
            v-on:touchstart="onResizeStart"></div>
       
-      <template v-if="!annotationModule">
-        
-        <annotation-list ref="AnnotationList"
-          v-bind:config="config"
-          v-bind:status="status"
-          v-bind:lib="lib"
-          v-bind:listPositions="listPositions"
-          v-bind:findAnnotation="findAnnotation"
-          v-bind:propFindUser="findUser"
-          v-bind:propFindType="findType"
-          v-bind:heightPX="heightPX"
-          v-bind:rangy="lib.rangy"
-          v-on:close="hide(true)"></annotation-list>
-        
-      </template> <!-- <template v-if="listPositions"> -->
-      <template v-else>
+      <template v-if="annotationModule">
         <annotation-editor-modules ref="auth"
           v-bind:config="config"
           v-bind:status="status"
@@ -43,6 +28,30 @@
           v-bind:heightPX="heightPX"
           v-on:hide="hide"></annotation-editor-modules>
       </template> <!-- <template v-else> -->
+      <template v-if="sectionsData.sectionAnnotation">
+        <annotation-editor-modules ref="auth"
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib"
+          v-bind:sectionsData="sectionsData"
+          v-bind:annotationModule="sectionsData.sectionAnnotation.type"
+          v-bind:annotationInstance="sectionsData.sectionAnnotation"
+          v-bind:heightPX="heightPX"></annotation-editor-modules>
+      </template> <!-- <template v-else> -->
+      <template v-else>
+        <annotation-list ref="AnnotationList"
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib"
+          v-bind:listPositions="listPositions"
+          v-bind:findAnnotation="findAnnotation"
+          v-bind:propFindUser="findUser"
+          v-bind:propFindType="findType"
+          v-bind:heightPX="heightPX"
+          v-bind:rangy="lib.rangy"
+          v-on:close="hide(true)"></annotation-list>
+      </template> <!-- <template v-if="listPositions"> -->
+      
         
     </div>
   </div>

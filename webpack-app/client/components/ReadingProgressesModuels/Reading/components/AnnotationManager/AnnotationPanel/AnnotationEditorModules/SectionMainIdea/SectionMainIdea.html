@@ -1,0 +1,48 @@
+<div class="ui form">
+  {{ sectionsData.sectionAnnotationSeqID }}
+  <annotation-editor-header v-bind:config="config"
+                            v-bind:status="status"
+                            v-bind:annotationModule="annotationModule"></annotation-editor-header>
+
+  <HTMLEditor ref="editor"
+              v-bind:contents="note"
+              v-on:input="(c) => {note = c}"
+              v-bind:editable="editable"
+              v-bind:height="computedEditorHeight"
+              v-bind:placeholder="editorPlaceholder"></HTMLEditor>
+
+  <div class="ui one column grid annotation-panel-buttons"
+       v-if="editable">
+    <block-exit></block-exit>
+    <div v-bind:class="computedButtonsClass">
+
+      <checkbox-toggle v-bind:label="$t('PUBLIC')"
+                       v-model="public"
+                       v-if="annotationConfig.enableControlPermission"></checkbox-toggle>
+
+
+      <template v-if="annotationInstance.id">
+        <button type="button"
+                class="ui button"
+                v-bind:class="{'disabled': !enableAddAnnotation}"
+                v-on:click="editAnnotation">
+          {{ $t('EDIT') }}  
+        </button>
+        <button type="button"
+                class="ui red button"
+                v-on:click="deleteAnnotation">
+          {{ $t('DELETE') }}  
+        </button>
+      </template>
+      <template v-else>
+        <countdown-button v-bind:minWordCount="moduleConfig.minWords"
+                          v-bind:text="note"
+                          v-bind:lib="lib"
+                          v-bind:locale="status.preference.locale"
+                          v-on:click="addAnnotation">
+          {{ $t('ADD') }}  
+        </countdown-button>
+      </template>
+    </div>
+  </div>
+</div>

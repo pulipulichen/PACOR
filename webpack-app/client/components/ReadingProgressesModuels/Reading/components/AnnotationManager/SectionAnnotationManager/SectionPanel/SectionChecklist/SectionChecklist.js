@@ -97,17 +97,23 @@ let SectionChecklist = {
       localStorage.setItem(this.localStorageKeyPrefix + 'checklist', data)
     },
     openSectionAnnotationEditor () {
-      //console.log(this.sectionAnnotationIndex)
-      this.checked.splice(this.sectionAnnotationIndex, 1, true)
-      //this.checked[this.sectionAnnotationIndex] = true
-      //this.hasAnnotationWritten = true
-      this.wroteAnnotationAt = 1
       
-      //console.log(this.checked)
+      this.sectionsData.sectionAnnotationCallback = () => {
+        this.wroteAnnotationAt = (new Date()).getTime
+        this.checked.splice(this.sectionAnnotationIndex, 1, true)
+        this.sectionsData.sectionAnnotationCallback = null
+      }
       
-      //this.$forceUpdate()
-      //console.log(this.isChecklistCompleted)
-      //throw '@TODO'
+      this.sectionsData.sectionAnnotationSeqID = this.sectionSeqID
+      this.sectionsData.sectionAnnotation = {
+        type: 'SectionMainIdea'
+      }
+      
+      
+      
+      //this.checked.splice(this.sectionAnnotationIndex, 1, true)
+      //this.wroteAnnotationAt = 1
+      
     },
     submitChecklist: async function () {
       this.sectionsData.checklist[this.sectionSeqID].checked = this.checked

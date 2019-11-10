@@ -19,7 +19,7 @@ class AnchorPosition extends Model {
     this.addHook('beforeUpdate', orderPos)
     
     this.addTrait('JSONCase', 'properties')
-    this.addTrait('Tokenization', 'properties')
+    this.addTrait('Tokenization', 'anchor_text', 'properties')
   }
   
   annotations () {

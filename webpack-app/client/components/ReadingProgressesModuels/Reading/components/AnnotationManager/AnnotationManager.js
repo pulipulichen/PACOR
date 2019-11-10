@@ -30,7 +30,10 @@ let AnnotationManager = {
       
       sectionsData: {
         checklist: [],
-        annotations: []
+        annotations: [],
+        sectionAnnotation: null,
+        sectionAnnotationSeqID: null,
+        sectionAnnotationCallback: null
       }
     }
   },
