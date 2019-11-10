@@ -21,7 +21,7 @@
           v-on:click="onChecklistItemChange(i)">
         <div class="ui checkbox">
           <input type="checkbox"
-                 v-model="checked[i]">
+                 v-bind:checked="checked[i]" />
           <label>
             {{ $t(item) }}
           </label>
@@ -31,7 +31,8 @@
           v-on:click="openSectionAnnotationEditor('SectionMainIdea')">
         <div class="ui checkbox">
           <input type="checkbox"
-                 v-model="checked[i]">
+                 v-bind:checked="(typeof(wroteAnnotationAt) === 'number')"
+                 v-on:click.prevent="()=>{}">
           <label>
             {{ $t('I have already written the main ideas of this section.') }}
           </label>
@@ -45,7 +46,7 @@
           class="ui fluid button"
           v-bind:class="computedSubmitButtonClass"
           v-on:click="submitChecklist">
-    {{ $t('I have read this section!') }}
+    {{ computedSubmitButtonText }}
   </button>
 
 </div>

@@ -3,19 +3,32 @@ let SectionChecklist = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      checked: []
+      checked: [],
+      sectionAnnotationIndex: -1,
+      wroteAnnotationAt: null
     }
   },
   
 //  components: {
 //  },
   computed: {
+    computedSubmitButtonText () {
+      if (this.isChecklistCompleted) {
+        return this.$t('I have read this section!')
+      }
+      else {
+        return this.$t('Please finish checklist.')
+      }
+    },
     localStorageKeyPrefix () {
       return `Pacor.SectionPanel.${this.sectionSeqID}.`
     },
     checklist () {
       if (Array.isArray(this.lib.auth.currentStepConfig.checklist)) {
         let checklist = this.lib.auth.currentStepConfig.checklist
+        //console.log(checklist)
+        
+        this.sectionAnnotationIndex = checklist.indexOf('SectionMainIdea')
         
         //console.log(this.sectionSeqID)
         //console.log(this.sectionsData)
@@ -25,7 +38,7 @@ let SectionChecklist = {
         }
         
         let checklistData = this.sectionsData.checklist[this.sectionSeqID].checked
-        checklistData = checklistData ? checklistData : {}
+        checklistData = checklistData ? checklistData : []
         
         if (Array.isArray(checklistData) === false) {
           //checklistData = []
@@ -42,14 +55,15 @@ let SectionChecklist = {
           }
         })
         //this.checklistData = checklistData
-        this.sectionsData.checklist[this.sectionSeqID].checked = checklistData
-        
+        this.checked = checklistData
+        //console.log(this.checked)
         return checklist
       }
     },
     isChecklistCompleted () { 
+      //console.log(this.checked)
       for (let i = 0; i < this.checked.length; i++) {
-        if (this.checklistData[i] === false) {
+        if (this.checked[i] === false) {
           return false
         }
       }
@@ -67,21 +81,37 @@ let SectionChecklist = {
 //  watch: {
 //  },
   mounted() {
-    this.checked = this.sectionsData.checklist[this.sectionSeqID].checked
+    if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID].checked)) {
+      this.checked = this.sectionsData.checklist[this.sectionSeqID].checked
+    }
   },
   methods: {
     onChecklistItemChange (i) {
-      this.checked[i] = !this.checked[i]
+      this.checked.splice(i, 1, !this.checked[i])
+      //this.checked[i] = !this.checked[i]
+      //this.$forceUpdate()
       
+      //console.log(this.checked)
+      //console.log(this.isChecklistCompleted)
       let data = JSON.stringify(this.checked)
       localStorage.setItem(this.localStorageKeyPrefix + 'checklist', data)
     },
     openSectionAnnotationEditor () {
-      throw '@TODO'
+      //console.log(this.sectionAnnotationIndex)
+      this.checked.splice(this.sectionAnnotationIndex, 1, true)
+      //this.checked[this.sectionAnnotationIndex] = true
+      //this.hasAnnotationWritten = true
+      this.wroteAnnotationAt = 1
+      
+      //console.log(this.checked)
+      
+      //this.$forceUpdate()
+      //console.log(this.isChecklistCompleted)
+      //throw '@TODO'
     },
     submitChecklist: async function () {
-      this.sectionsData.checklist[this.sectionSeqID].checked = this.checklistData
-      this.sectionsData.checklist[this.sectionSeqID].submittedAt = (new Data()).getTime()
+      this.sectionsData.checklist[this.sectionSeqID].checked = this.checked
+      this.sectionsData.checklist[this.sectionSeqID].submittedAt = (new Date()).getTime()
       
       let data = {
         checklist: this.sectionsData.checklist

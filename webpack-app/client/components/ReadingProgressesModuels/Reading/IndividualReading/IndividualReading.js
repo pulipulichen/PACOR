@@ -22,6 +22,7 @@ let IndividualReading = {
     this.status.title = this.status.username
     
     setTimeout(() => {
+      return
       this.t = `AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
 AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />
