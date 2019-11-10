@@ -549,7 +549,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".header[data-v-2fc0758a] {\n  user-select: none;\n}\n.item[data-v-2fc0758a] {\n  line-height: 2em !important;\n  cursor: pointer;\n}\n.item label[data-v-2fc0758a] {\n  cursor: pointer !important;\n  user-select: none;\n}\n.item[data-v-2fc0758a]:hover {\n  font-weight: bold;\n}\n", "",{"version":3,"sources":["SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;AACnB;AACA;EACE,2BAA2B;EAC3B,eAAe;AACjB;AACA;EACE,0BAA0B;EAC1B,iBAAiB;AACnB;AACA;EACE,iBAAiB;AACnB","file":"SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true&","sourcesContent":[".header[data-v-2fc0758a] {\n  user-select: none;\n}\n.item[data-v-2fc0758a] {\n  line-height: 2em !important;\n  cursor: pointer;\n}\n.item label[data-v-2fc0758a] {\n  cursor: pointer !important;\n  user-select: none;\n}\n.item[data-v-2fc0758a]:hover {\n  font-weight: bold;\n}\n"]}]);
+exports.push([module.i, ".header-container[data-v-2fc0758a] {\n  text-align: center;\n  margin-bottom: 0.5em;\n}\n.header[data-v-2fc0758a] {\n  user-select: none;\n  display: inline-block;\n}\n.item[data-v-2fc0758a] {\n  line-height: 2em !important;\n  cursor: pointer;\n}\n.item label[data-v-2fc0758a] {\n  cursor: pointer !important;\n  user-select: none;\n}\n.item[data-v-2fc0758a]:hover {\n  font-weight: bold;\n}\n", "",{"version":3,"sources":["SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,oBAAoB;AACtB;AACA;EACE,iBAAiB;EACjB,qBAAqB;AACvB;AACA;EACE,2BAA2B;EAC3B,eAAe;AACjB;AACA;EACE,0BAA0B;EAC1B,iBAAiB;AACnB;AACA;EACE,iBAAiB;AACnB","file":"SectionChecklist.less?vue&type=style&index=0&id=2fc0758a&lang=less&scoped=true&","sourcesContent":[".header-container[data-v-2fc0758a] {\n  text-align: center;\n  margin-bottom: 0.5em;\n}\n.header[data-v-2fc0758a] {\n  user-select: none;\n  display: inline-block;\n}\n.item[data-v-2fc0758a] {\n  line-height: 2em !important;\n  cursor: pointer;\n}\n.item label[data-v-2fc0758a] {\n  cursor: pointer !important;\n  user-select: none;\n}\n.item[data-v-2fc0758a]:hover {\n  font-weight: bold;\n}\n"]}]);
 
 
 /***/ }),
@@ -2273,17 +2273,19 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "SectionChecklist" }, [
-    _c("div", { staticClass: "ui tiny header" }, [
-      _c("i", { staticClass: "check square outline icon" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "content" }, [
-        _vm._v(
-          "\r\n      #" +
-            _vm._s(_vm.sectionSeqID + 1) +
-            "\r\n      " +
-            _vm._s(_vm.$t("Check list")) +
-            "\r\n    "
-        )
+    _c("div", { staticClass: "header-container" }, [
+      _c("div", { staticClass: "ui tiny header" }, [
+        _c("i", { staticClass: "check square outline icon" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "content" }, [
+          _vm._v(
+            "\r\n        #" +
+              _vm._s(_vm.sectionSeqID + 1) +
+              "\r\n        " +
+              _vm._s(_vm.$t("Check list")) +
+              "\r\n      "
+          )
+        ])
       ])
     ]),
     _vm._v(" "),
