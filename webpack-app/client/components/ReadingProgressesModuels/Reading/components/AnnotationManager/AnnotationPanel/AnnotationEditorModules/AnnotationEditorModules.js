@@ -105,7 +105,7 @@ let AnnotationEditorModules = {
 
         return // 跟上層說關閉視窗
       }
-    }
+    },
   } // methods
 }
 

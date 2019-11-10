@@ -14,10 +14,11 @@ let SectionMainIdea = {
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotationInstance !== null 
             && typeof(this.annotationInstance) === 'object'
-            && typeof(this.annotationInstance.note) === 'string') {
-      note = this.annotationInstance.note
+            && Array.isArray(this.annotationInstance.notes)
+            && this.annotationInstance.notes.length > 0) {
+      note = this.annotationInstance.notes[0].note
     }
-    //console.log(note)
+    //console.log(this.annotationInstance)
     
     return {
       note: note,
@@ -130,14 +131,17 @@ let SectionMainIdea = {
         throw this.$t('Update failed.')
       }
       
-      this.$emit('update')
+      if (typeof(this.sectionsData.sectionAnnotation.callback) === 'function') {
+        this.sectionsData.sectionAnnotation.callback()
+      }
+      this.sectionsData.sectionAnnotation.instance = null
     },
     deleteAnnotation () {
-      this.$emit('delete')
+      if (typeof(this.sectionsData.sectionAnnotation.callback) === 'function') {
+        this.sectionsData.sectionAnnotation.callback()
+      }
+      this.sectionsData.sectionAnnotation.instance = null
     },
-    hide () {
-      //this.$emit('hide', true)
-    }
   } // methods
 }
 

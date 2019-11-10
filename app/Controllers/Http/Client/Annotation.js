@@ -28,7 +28,7 @@ class Annotation extends WebpageUserBaseController {
     let data = request.all()
     await ReadingActivityLog.log(webpage, user, 'Annotation.crecreateSectionAnnotationateSection', data)
     
-    let instance = await AnnotationModel.createSectionAnnotation(webpage, user, data)
+    let instance = await AnnotationModel.buildSectionsAnnotationSummary(webpage, user, data)
     return instance.id
   }
   
@@ -37,29 +37,29 @@ class Annotation extends WebpageUserBaseController {
     return await AnnotationModel.findByWebpageGroup(webpage, user, query)
   }
   
-  /**
-   * @deprecated 20191110
-   */
-  async highlights ({request, webpage, user}) {
-    let query = request.all()
-    return await AnnotationModel.getHighlightsByWebpageGroup(webpage, user, query)
-  }
-  
-  /**
-   * @deprecated 20191110
-   */
-  async highlightsMy ({request, webpage, user}) {
-    let query = request.all()
-    return await AnnotationModel.getMyHighlightsByWebpageGroup(webpage, user, query)
-  }
-  
-  /**
-   * @deprecated 20191110
-   */
-  async highlightsOthers ({request, webpage, user}) {
-    let query = request.all()
-    return await AnnotationModel.getOthersHighlightsByWebpageGroup(webpage, user, query)
-  }
+//  /**
+//   * @deprecated 20191110
+//   */
+//  async highlights ({request, webpage, user}) {
+//    let query = request.all()
+//    return await AnnotationModel.getHighlightsByWebpageGroup(webpage, user, query)
+//  }
+//  
+//  /**
+//   * @deprecated 20191110
+//   */
+//  async highlightsMy ({request, webpage, user}) {
+//    let query = request.all()
+//    return await AnnotationModel.getMyHighlightsByWebpageGroup(webpage, user, query)
+//  }
+//  
+//  /**
+//   * @deprecated 20191110
+//   */
+//  async highlightsOthers ({request, webpage, user}) {
+//    let query = request.all()
+//    return await AnnotationModel.getOthersHighlightsByWebpageGroup(webpage, user, query)
+//  }
   
   async floatWidget({request, webpage, user}) {
     let query = request.all()
@@ -266,45 +266,22 @@ class Annotation extends WebpageUserBaseController {
   }
   
   async update ({request, webpage, user}) {
+    //console.log('ready to update 4')
     let data = request.all()
     //console.log('update')
     await ReadingActivityLog.log(webpage, user, this.modelName + '.update', data)
-    
+    //console.log('ready to update 3')
     let id = data.id
     if (typeof(id) !== 'number' && typeof(id) !== 'string') {
       throw new HttpException('No id')
     }
-    
+    //console.log('ready to update 2')
     let instance = await this.model.find(id)
     if (instance.user_id !== user.id) {
       throw new HttpException('You are not owner of it.')
     }
-    
-    for (let name in data) {
-      if (name === 'id') {
-        continue
-      }
-      else if (name === 'notes') {
-        for (let type in data[name]) {
-          let note = data[name][type]
-          
-          let query = {
-            annotation_id: id,
-            type: type
-          }
-          let noteInstance = await AnnotationNoteModel.findOrCreate(query, query)
-          if (note !== noteInstance.note) {
-            noteInstance.note = note
-            await noteInstance.save()
-          }
-        }
-      }
-      else {
-        instance[name] = data[name]
-      }
-    }
-    
-    await instance.save()
+    //console.log('ready to update 1')
+    await instance.updateAnnotation(data)
     return 1
   }
   
@@ -343,6 +320,11 @@ class Annotation extends WebpageUserBaseController {
         }
       }
     })  // return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
+  }
+  
+  async listSectionNext ({request, webpage, user}) {
+    let query = request.all()
+    return await AnnotationModel.getSectionsAnnotations(webpage, user, query)
   }
 }
 

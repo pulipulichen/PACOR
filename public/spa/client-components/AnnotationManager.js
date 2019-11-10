@@ -565,7 +565,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"SectionAnnotationList.less?vue&type=style&index=0&id=5aa27950&lang=less&scoped=true&"}]);
+exports.push([module.i, ".SectionAnnotationList[data-v-5aa27950] {\n  max-height: 5em;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n", "",{"version":3,"sources":["SectionAnnotationList.less?vue&type=style&index=0&id=5aa27950&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,kBAAkB;EAClB,gBAAgB;AAClB","file":"SectionAnnotationList.less?vue&type=style&index=0&id=5aa27950&lang=less&scoped=true&","sourcesContent":[".SectionAnnotationList[data-v-5aa27950] {\n  max-height: 5em;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n"]}]);
 
 
 /***/ }),
@@ -2409,14 +2409,21 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "SectionAnnotationList" },
+    {
+      staticClass: "SectionAnnotationList",
+      on: {
+        scroll: function($event) {
+          $event.stopPropagation()
+          return _vm.scrollList($event)
+        }
+      }
+    },
     _vm._l(_vm.annotations, function(annotation) {
       return _c("annotation-item", {
         attrs: {
           config: _vm.config,
           status: _vm.status,
           lib: _vm.lib,
-          mode: "compact",
           annotation: annotation,
           findAnnotation: _vm.findAnnotation
         }
@@ -3989,7 +3996,7 @@ let AnnotationEditorModules = {
 
         return // 跟上層說關閉視窗
       }
-    }
+    },
   } // methods
 }
 
@@ -4585,8 +4592,9 @@ let MainIdea = {
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotationInstance !== null 
             && typeof(this.annotationInstance) === 'object'
-            && typeof(this.annotationInstance.note) === 'string') {
-      note = this.annotationInstance.note
+            && Array.isArray(this.annotationInstance.notes)
+            && this.annotationInstance.notes.length > 0) {
+      note = this.annotationInstance.notes[0].note
     }
     //console.log(note)
     
@@ -4828,10 +4836,11 @@ let SectionMainIdea = {
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotationInstance !== null 
             && typeof(this.annotationInstance) === 'object'
-            && typeof(this.annotationInstance.note) === 'string') {
-      note = this.annotationInstance.note
+            && Array.isArray(this.annotationInstance.notes)
+            && this.annotationInstance.notes.length > 0) {
+      note = this.annotationInstance.notes[0].note
     }
-    //console.log(note)
+    //console.log(this.annotationInstance)
     
     return {
       note: note,
@@ -4944,14 +4953,17 @@ let SectionMainIdea = {
         throw this.$t('Update failed.')
       }
       
-      this.$emit('update')
+      if (typeof(this.sectionsData.sectionAnnotation.callback) === 'function') {
+        this.sectionsData.sectionAnnotation.callback()
+      }
+      this.sectionsData.sectionAnnotation.instance = null
     },
     deleteAnnotation () {
-      this.$emit('delete')
+      if (typeof(this.sectionsData.sectionAnnotation.callback) === 'function') {
+        this.sectionsData.sectionAnnotation.callback()
+      }
+      this.sectionsData.sectionAnnotation.instance = null
     },
-    hide () {
-      //this.$emit('hide', true)
-    }
   } // methods
 }
 
@@ -17111,7 +17123,8 @@ let SectionAnnotationList = {
     this.$i18n.locale = this.config.locale
     
     return {
-      page: 0
+      page: 0,
+      noMore: false
     }
   },
 //  components: {
@@ -17139,18 +17152,53 @@ let SectionAnnotationList = {
       return this.instance.annotations
     }
   },
-  //watch: {
-  //},
+  watch: {
+    'page' (page) {
+      if (page > 0) {
+        this.loadNext()
+      }
+    },
+  },
 //  mounted() {
 //  },
   methods: {
     findAnnotation (annotation) {
       //throw '@TODO ' + annotation.id
-      this.sectionData.findAnnotation = annotation
-    },
-    reloadList () {
+      this.sectionsData.sectionAnnotation.callback = () => {
+        this.reloadList()
+      }
       
-    }
+      this.sectionsData.sectionAnnotation.instance = annotation
+    },
+    loadNext: async function () {
+      let query = {
+        page: this.page,
+        seq_id: this.sectionSeqID
+      }
+      
+      let result = await this.lib.AxiosHelper.get('/client/Annotation/listSectionNext', query)
+      
+      if (Array.isArray(result)) {
+        this.sectionsData.annotation[this.sectionSeqID].annotations = this.annotations.concat(result)
+        //this.page++
+      }
+      else {
+        this.noMore = true
+      }
+    },
+    reloadList: async function () {
+      this.page = 0
+    },
+    scrollList (event) {
+      if (this.noMore === true) {
+        return false
+      }
+      let element = event.target;
+      if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+        //console.log('scrolled');
+        this.page++
+      }
+    },
   } // methods
 }
 

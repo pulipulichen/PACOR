@@ -102,6 +102,7 @@ class AnnotationFind {
         , page
         , keyword
         , onlySectionAnnotation
+        , seq_id
       } = options
       const doQuery = async evt => {
         //console.log('findByWebpageGroupPosition', anchorPositions)
@@ -158,6 +159,10 @@ class AnnotationFind {
           query.whereHas('anchorPositions', (builder) => {
             builder.where('webpage_id', webpage.primaryKeyValue)
                     .where('type', 'section')
+            
+            if (typeof(seq_id) === 'number') {
+              builder.where('seq_id', seq_id)
+            }
           })
         }
         

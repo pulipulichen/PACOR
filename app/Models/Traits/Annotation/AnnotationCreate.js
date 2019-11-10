@@ -134,6 +134,34 @@ class AnnotationCreate {
         return await this.create(webpage, user, data)
       }
     } // static async create(webpage, user, data) {
+    
+    Model.prototype.updateAnnotation = async function (data) {
+      let id = data.id
+      for (let name in data) {
+        if (name === 'id') {
+          continue
+        } else if (name === 'notes') {
+          for (let type in data[name]) {
+            let note = data[name][type]
+
+            let query = {
+              annotation_id: id,
+              type: type
+            }
+            let noteInstance = await AnnotationNoteModel.findOrCreate(query, query)
+            if (note !== noteInstance.note) {
+              noteInstance.note = note
+              //console.log('before save note')
+              await noteInstance.save()
+            }
+          }
+        } else {
+          this[name] = data[name]
+        }
+      }
+      //console.log('ready to update')
+      await this.save()
+    }
   } // register (Model) {
 }
 

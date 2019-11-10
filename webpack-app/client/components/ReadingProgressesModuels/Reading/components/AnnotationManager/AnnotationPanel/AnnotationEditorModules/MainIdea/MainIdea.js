@@ -14,8 +14,9 @@ let MainIdea = {
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotationInstance !== null 
             && typeof(this.annotationInstance) === 'object'
-            && typeof(this.annotationInstance.note) === 'string') {
-      note = this.annotationInstance.note
+            && Array.isArray(this.annotationInstance.notes)
+            && this.annotationInstance.notes.length > 0) {
+      note = this.annotationInstance.notes[0].note
     }
     //console.log(note)
     
