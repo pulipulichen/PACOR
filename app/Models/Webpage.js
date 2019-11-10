@@ -67,7 +67,7 @@ class Webpage extends Model {
   static get hidden () {
     //return ['password']
     return ['created_at', 'updated_at'
-      //, 'title', 'config', 'agreement'
+      , 'title', 'config', 'agreement'
     ]
   }
   

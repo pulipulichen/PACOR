@@ -104,30 +104,63 @@ let TokenizationHelper = {
       */
       return {
         w,
-        p
+        p: [p]
       }
     })
   },
-  parseWordFrequency (text) {
-    let segment = this.getSegment()
-    let result = segment.doSegment(text)
-    
-    console.log(segment.POSTAG)
+  parseCharFrequency (text) {
+    let array = this.parseSingleCharacter(text)
     
     let output = {}
-    
-    result = result.map(r => {
-      if (typeof(r.p) !== 'undefined') {
-        //r.pn = segment.POSTAG[r.p]
-        r.pn = segment.POSTAG.enName(r.p)
+    array.forEach(item => {
+      if (typeof(output[item]) !== 'number') {
+        output[item] = 0
       }
-      return r
+      output[item]++
     })
     
-    output = result
-    
-    
     return output
+  },
+  parseWordFrequency (text, pos) {
+    if (typeof(pos) === 'string') {
+      pos = [pos]
+    }
+    
+    let result = this.parseSegment(text)
+    let output = {}
+        
+    result.forEach(({w, p}) => {
+      p.forEach(p => {
+        if (pos !== undefined && pos.indexOf(p) === -1) {
+          return false
+        }
+        
+        if (typeof(output[p]) !== 'object') {
+          output[p] = {}
+        }
+
+        if (typeof(output[p][w]) !== 'number') {
+          output[p][w] = 1
+        }
+        else {
+          output[p][w]++
+        }
+      })
+    })
+    
+    let outputMerge = {}
+    Object.keys(output).forEach(p => {
+      Object.keys(output[p]).forEach(w => {
+        if (typeof(outputMerge[w]) === 'undefined') {
+          outputMerge[w] = output[p][w]
+        }
+        else {
+          outputMerge[w] = outputMerge[w] + output[p][w]
+        }
+      })
+    })
+    
+    return outputMerge
   },
   parseSegment (text) {
     let segment = this.getChineseSegment()
@@ -153,12 +186,13 @@ let TokenizationHelper = {
           output.push(r)
         }
         else {
-          console.log(r.w)
+          //console.log(r.w)
           let eng = this.parseEnglishPos(r.w)
           output = output.concat(eng)
         }
       }
       else {
+        r.p = ['unknown']
         output.push(r)
       }
     })
@@ -257,22 +291,6 @@ let TokenizationHelper = {
       ")": "punc"
     }
   },
-  
-  remapChinesePos (p) {
-    if (p === undefined) {
-      return []
-    }
-    
-    let segment = this.getSegment()
-    let posList = segment.POSTAG.enName(p).split(',')
-    
-    return posList.map(pos => {
-      if (pos === 'a_nx') {
-        // 交給pos
-        
-      }
-    })
-  }
 }
 
 module.exports = TokenizationHelper
