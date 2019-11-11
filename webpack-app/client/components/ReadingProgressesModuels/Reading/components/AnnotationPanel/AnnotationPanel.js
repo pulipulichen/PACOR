@@ -58,4 +58,7 @@ Placeholder(AnnotationPanel)
 import Query from './Traits/methods/Query'
 Query(AnnotationPanel)
 
+import Event from './Traits/methods/Event'
+Event(AnnotationPanel)
+
 export default AnnotationPanel

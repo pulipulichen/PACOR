@@ -15,4 +15,6 @@ export default {
   
   isHide: true, // 好像跟動畫捲動有關係，目前不能省略
   placeholder: null,
+  
+  events: {}
 }

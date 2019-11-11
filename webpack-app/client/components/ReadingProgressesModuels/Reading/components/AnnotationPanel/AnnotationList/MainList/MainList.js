@@ -43,6 +43,7 @@ let List = {
     }
   },
   mounted() {
+    this.initEventListener()
     this.loadSummary()
   },
   methods: {
@@ -60,5 +61,8 @@ Scroll(List)
 
 import Load from './../Traits/methods/Load'
 Load(List)
+
+import Event from './../Traits/methods/Event'
+Event(List)
 
 export default List

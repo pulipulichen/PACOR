@@ -37,8 +37,21 @@ let SearchInput = {
   },
 //  mounted() {
 //  },
-//  methods: {
-//  } // methods
+  methods: {
+    searchAnnotation () {
+      let query = {}
+      
+      if (this.status.search.keyword !== '') {
+        query.keyword = this.status.search.keyword
+      }
+      
+      this.lib.AnnotationPanel.setQuery(query, {
+        'delete' () {
+          this.count--
+        }
+      })
+    }
+  } // methods
 }
 
 export default SearchInput

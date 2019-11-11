@@ -6,8 +6,7 @@
          onclick="this.select()">
   <button type="button"
           class="ui icon button"
-          v-on:click="status.search.showAnnotationList = true"
-          v-bind:class="{'disabled': (count === 0)}">
+          v-on:click="searchAnnotation">
     <div v-if="count > 0" 
          class="floating ui red label">
       {{ count }}

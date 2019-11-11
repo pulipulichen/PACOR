@@ -47,11 +47,11 @@ let AnnotationList = {
 //    isFiltering () {
 //      return (this.findUser !== null || this.findType !== null)
 //    },
-    findUserID () {
-      if (this.findUser !== null) {
-        return this.findUser.id
-      }
-    }
+//    findUserID () {
+//      if (this.findUser !== null) {
+//        return this.findUser.id
+//      }
+//    }
   },
   watch: {
 //    'propFindUser' (propFindUser) {
@@ -89,197 +89,197 @@ let AnnotationList = {
 //        this.loadFilterNext()
 //      }
 //    },
-    'hoverAnnotation' (annotation) {
-      if (annotation !== null) {
-        this.rangy.hoverIn(annotation)
-      }
-      else {
-        this.rangy.hoverOut(annotation)
-      }
-    },
-    'status.search.showAnnotationList': async function (show) {
-      let query = {
-        withCount: true,
-        page: this.page,
-        keyword: this.status.search.keyword
-        //t: (new Date()).getTime()
-      }
-      let url = '/client/Annotation/list'
-
-      let result = await this.lib.AxiosHelper.post(url, query)
-      if (result === 0) {
-        this.noMore = true
-        return false
-      }
-      //console.log(result)
-
-      for (let key in result) {
-        this[key] = result[key]
-      }
-    }
+//    'hoverAnnotation' (annotation) {
+//      if (annotation !== null) {
+//        this.rangy.hoverIn(annotation)
+//      }
+//      else {
+//        this.rangy.hoverOut(annotation)
+//      }
+//    },
+//    'status.search.showAnnotationList': async function (show) {
+//      let query = {
+//        withCount: true,
+//        page: this.page,
+//        keyword: this.status.search.keyword
+//        //t: (new Date()).getTime()
+//      }
+//      let url = '/client/Annotation/list'
+//
+//      let result = await this.lib.AxiosHelper.post(url, query)
+//      if (result === 0) {
+//        this.noMore = true
+//        return false
+//      }
+//      //console.log(result)
+//
+//      for (let key in result) {
+//        this[key] = result[key]
+//      }
+//    }
   },
   mounted() {
-    this.loadInit()
-    this.loadFilter()
+//    this.loadInit()
+//    this.loadFilter()
   },
   methods: {
-    loadInit: async function (selectOnlyOne) {
-      if (Array.isArray(this.listPositions)) {
-        let query = {
-          anchorPositions: this.listPositions,
-          withCount: true,
-          page: this.page,
-          //t: (new Date()).getTime()
-        }
-        let url = '/client/Annotation/list'
-        
-        let result = await this.lib.AxiosHelper.post(url, query)
-        if (result === 0) {
-          return this.$emit('close')
-        }
-        //console.log(result)
-        
-        for (let key in result) {
-          this[key] = result[key]
-        }
-        
-        //console.log(this.annotations.length)
-        if (selectOnlyOne !== false) {
-          if (this.annotations.length === 1) {
-            this.annotationInstance = this.annotations[0]
-          }
-        }
-      }
-    },
-    loadInitNext: async function () {
-      if (Array.isArray(this.listPositions)) {
-        let query = {
-          anchorPositions: this.listPositions,
-          withCount: true,
-          page: this.page
-        }
-        let url = '/client/Annotation/listNext'
-        
-        let result = await this.lib.AxiosHelper.post(url, query)
-        //console.log(result)
-        if (Array.isArray(result) && result.length > 0) {
-          this.annotations = this.annotations.concat(result)
-        }
-        else {
-          this.noMore = true
-        }
-      }
-    },
-    loadFilter: async function () {
-      if (Array.isArray(this.listPositions)
-              && (this.findUserID !== null || this.findType !== null) ) {
-        
-        let query = {
-          anchorPositions: this.listPositions,
-          withCount: true,
-          // @TODO 這邊應該要加入page
-          findUserID: this.findUserID,
-          findType: this.findType,
-          page: this.filteredPage
-        }
-        
-        let url = '/client/Annotation/list'
-        
-        let result = await this.lib.AxiosHelper.post(url, query)
-        //console.log(result)
-        
-        this.filteredAnnotations = result.annotations
-        this.filteredAnnotationCount = result.annotationCount
-      }
-    },
-    loadFilterNext: async function () {
-      if (Array.isArray(this.listPositions)
-              && (this.findUserID !== null || this.findType !== null) ) {
-        
-        let query = {
-          anchorPositions: this.listPositions,
-          withCount: true,
-          // @TODO 這邊應該要加入page
-          findUserID: this.findUserID,
-          findType: this.findType,
-          page: this.filteredPage
-        }
-        
-        let url = '/client/Annotation/listNext'
-        
-        let result = await this.lib.AxiosHelper.post(url, query)
-        //console.log(result)
-        
-        if (Array.isArray(result) && result.length > 0) {
-          this.filteredAnnotations = this.filteredAnnotations.concat(result)
-        }
-        else {
-          this.filteredNoMore = true
-        }
-      }
-    },
-    clearFilter () {
-      this.findUser = null
-      this.findType = null
-    },
-    reload: async function () {
-      this.annotations = []
-      this.page = 0
-      this.noMore = false
-      
-      this.filteredAnnotation = []
-      this.filteredPage = 0
-      this.filteredNoMore = false
-      
-      await this.loadInit(false)
-      await this.loadFilter()
-      //console.log('do reload')
-    },
-    hoverToggle (annotation) {
-      this.hoverAnnotation = annotation
-    },
-    hoverIn (annotation) {
-      this.hoverAnnotation = annotation
-    },
-    hoverOut () {
-      this.hoverAnnotation = null
-    },
-    scrollList (event) {
-      if (this.noMore === true) {
-        return false
-      }
-      let element = event.target;
-      if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-        //console.log('scrolled');
-        this.page++
-      }
-    },
-    scrollFilterList (event) {
-      if (this.filteredNoMore === true) {
-        return false
-      }
-      let element = event.target;
-      if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-        //console.log('scrolled');
-        this.filteredPage++
-      }
-    },
-    
-    onDelete () {
-      // 從列表中刪除這個標註
-      //this.rangy.removeHighlightByAnnotation(this.annotationInstance)
-      this.onUpdate()
-    },
-    onUpdate: async function () {
-      await this.reload()
-      //this.annotations = this.annotations.filter(annotation => annotation !== (this.annotationInstance))
-      //this.filteredAnnotations = this.filteredAnnotations.filter(annotation => annotation !== (this.annotationInstance))
-      
-      this.annotationInstance = null
-      if (this.annotations.length < 2) {
-        this.$emit('close')
-      }
-    }
+//    loadInit: async function (selectOnlyOne) {
+//      if (Array.isArray(this.listPositions)) {
+//        let query = {
+//          anchorPositions: this.listPositions,
+//          withCount: true,
+//          page: this.page,
+//          //t: (new Date()).getTime()
+//        }
+//        let url = '/client/Annotation/list'
+//        
+//        let result = await this.lib.AxiosHelper.post(url, query)
+//        if (result === 0) {
+//          return this.$emit('close')
+//        }
+//        //console.log(result)
+//        
+//        for (let key in result) {
+//          this[key] = result[key]
+//        }
+//        
+//        //console.log(this.annotations.length)
+//        if (selectOnlyOne !== false) {
+//          if (this.annotations.length === 1) {
+//            this.annotationInstance = this.annotations[0]
+//          }
+//        }
+//      }
+//    },
+//    loadInitNext: async function () {
+//      if (Array.isArray(this.listPositions)) {
+//        let query = {
+//          anchorPositions: this.listPositions,
+//          withCount: true,
+//          page: this.page
+//        }
+//        let url = '/client/Annotation/listNext'
+//        
+//        let result = await this.lib.AxiosHelper.post(url, query)
+//        //console.log(result)
+//        if (Array.isArray(result) && result.length > 0) {
+//          this.annotations = this.annotations.concat(result)
+//        }
+//        else {
+//          this.noMore = true
+//        }
+//      }
+//    },
+//    loadFilter: async function () {
+//      if (Array.isArray(this.listPositions)
+//              && (this.findUserID !== null || this.findType !== null) ) {
+//        
+//        let query = {
+//          anchorPositions: this.listPositions,
+//          withCount: true,
+//          // @TODO 這邊應該要加入page
+//          findUserID: this.findUserID,
+//          findType: this.findType,
+//          page: this.filteredPage
+//        }
+//        
+//        let url = '/client/Annotation/list'
+//        
+//        let result = await this.lib.AxiosHelper.post(url, query)
+//        //console.log(result)
+//        
+//        this.filteredAnnotations = result.annotations
+//        this.filteredAnnotationCount = result.annotationCount
+//      }
+//    },
+//    loadFilterNext: async function () {
+//      if (Array.isArray(this.listPositions)
+//              && (this.findUserID !== null || this.findType !== null) ) {
+//        
+//        let query = {
+//          anchorPositions: this.listPositions,
+//          withCount: true,
+//          // @TODO 這邊應該要加入page
+//          findUserID: this.findUserID,
+//          findType: this.findType,
+//          page: this.filteredPage
+//        }
+//        
+//        let url = '/client/Annotation/listNext'
+//        
+//        let result = await this.lib.AxiosHelper.post(url, query)
+//        //console.log(result)
+//        
+//        if (Array.isArray(result) && result.length > 0) {
+//          this.filteredAnnotations = this.filteredAnnotations.concat(result)
+//        }
+//        else {
+//          this.filteredNoMore = true
+//        }
+//      }
+//    },
+//    clearFilter () {
+//      this.findUser = null
+//      this.findType = null
+//    },
+//    reload: async function () {
+//      this.annotations = []
+//      this.page = 0
+//      this.noMore = false
+//      
+//      this.filteredAnnotation = []
+//      this.filteredPage = 0
+//      this.filteredNoMore = false
+//      
+//      await this.loadInit(false)
+//      await this.loadFilter()
+//      //console.log('do reload')
+//    },
+//    hoverToggle (annotation) {
+//      this.hoverAnnotation = annotation
+//    },
+//    hoverIn (annotation) {
+//      this.hoverAnnotation = annotation
+//    },
+//    hoverOut () {
+//      this.hoverAnnotation = null
+//    },
+//    scrollList (event) {
+//      if (this.noMore === true) {
+//        return false
+//      }
+//      let element = event.target;
+//      if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+//        //console.log('scrolled');
+//        this.page++
+//      }
+//    },
+//    scrollFilterList (event) {
+//      if (this.filteredNoMore === true) {
+//        return false
+//      }
+//      let element = event.target;
+//      if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+//        //console.log('scrolled');
+//        this.filteredPage++
+//      }
+//    },
+//    
+//    onDelete () {
+//      // 從列表中刪除這個標註
+//      //this.rangy.removeHighlightByAnnotation(this.annotationInstance)
+//      this.onUpdate()
+//    },
+//    onUpdate: async function () {
+//      await this.reload()
+//      //this.annotations = this.annotations.filter(annotation => annotation !== (this.annotationInstance))
+//      //this.filteredAnnotations = this.filteredAnnotations.filter(annotation => annotation !== (this.annotationInstance))
+//      
+//      this.annotationInstance = null
+//      if (this.annotations.length < 2) {
+//        this.$emit('close')
+//      }
+//    }
   } // methods
 }
 
