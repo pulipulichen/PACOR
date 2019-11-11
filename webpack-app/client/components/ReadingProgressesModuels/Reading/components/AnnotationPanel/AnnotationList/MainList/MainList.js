@@ -1,7 +1,8 @@
 import AnnotationSingle from './../../AnnotationSingle/AnnotationSingle.vue'
 
 let List = {
-  props: ['lib', 'status', 'config', 'panelData'],
+  props: ['lib', 'status', 'config'
+    , 'panelData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -14,9 +15,9 @@ let List = {
       noMore: false,
       
       annotation: null,
-      listConfig: {
-        enterSingleWhenOnlyOne: true
-      }
+      //listConfig: {
+      //  enterSingleWhenOnlyOne: true
+      //}
     }
   },
   components: {
