@@ -282,7 +282,9 @@ let AnnotationList = {
 //      }
 //    }
     scrollTo () {
-      throw '@TODO'
+      let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.panelData.query.anchorPositions)
+      this.lib.AnnotationPanel.scrollToRect(rect)
+      //throw '@TODO'
     }
   } // methods
 }

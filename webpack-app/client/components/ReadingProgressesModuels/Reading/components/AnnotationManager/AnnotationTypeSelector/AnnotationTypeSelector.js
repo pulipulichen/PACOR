@@ -87,7 +87,6 @@ let AnnotationTypeSelector = {
       
       this.lib.RangyManager.pinSelection()
       
-      this.lib.AnnotationPanel.setSelection(this.selection)
       this.lib.AnnotationPanel.setAnnotation(annotation, {
         'cancel': () => {
           // 如果取消的話，那就恢復選取
@@ -101,7 +100,6 @@ let AnnotationTypeSelector = {
         anchorPositions: this.selection.anchorPositions
       }
       
-      this.lib.AnnotationPanel.setSelection(this.selection)
       this.lib.AnnotationPanel.setQuery(query)
     }
   } // methods

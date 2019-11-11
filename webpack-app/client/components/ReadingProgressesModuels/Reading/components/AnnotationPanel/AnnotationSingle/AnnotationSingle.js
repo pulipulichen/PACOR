@@ -66,6 +66,7 @@ let AnnotationEditorModules = {
   },
   mounted() {
     this.initHover()
+    this.scrollToAnnotation()
   },
   methods: {
     initHover () {
@@ -83,7 +84,9 @@ let AnnotationEditorModules = {
       }
     },
     scrollToAnnotation () {
-      throw '@TODO'
+      //throw '@TODO'
+      let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.annotation.anchorPositions)
+      this.lib.AnnotationPanel.scrollToRect(rect)
     },
     reloadMyHighlights: async function () {
       if (this.annotation.anchorPositions[0].type !== 'textContent') {

@@ -7,7 +7,6 @@ export default {
     
     filter: null,
     hooks: null,
-    selection: null,
     
     heightPX: 500,  // 記錄目前使用的高度，不可省略
   },

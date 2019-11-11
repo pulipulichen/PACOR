@@ -27,5 +27,7 @@ export default {
   searchResultApplier: null,
   searchResultTimer: null,
   
-  events: {}
+  events: {},
+  
+  rectHighlighter: null
 }

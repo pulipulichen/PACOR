@@ -45,49 +45,4 @@ export default (AnnotationPanel) => {
       this.triggerEvent('cancel')
     }
   }
-
-  AnnotationPanel.methods.scrollToPinSelection = function () {
-    if (this.pinSelection === null) {
-      return false
-    }
-
-    let rect = this.pinSelection.rect
-    let viewportHeight = window.innerHeight
-
-    throw '捲動到指定位置的功能還沒做完'
-
-    //if (rect.middle < viewportHeight / 2) {
-    if (rect.bottom < (viewportHeight - this.panelData.heightPX)) {
-      return false  // 不做捲動
-    }
-
-    //let middle = this.pinSelection.rect.middle
-    let middle = ((viewportHeight - this.panelData.heightPX) / 2)
-    let scrollTop = this.getScrollTop()
-    //console.log(scrollTop, rect.middle, middle)
-
-    window.scrollTo({
-      top: (scrollTop + rect.middle - middle), // 等於是往上捲半個可顯示的畫面
-      behavior: 'smooth'
-    })
-  }
-  
-  /**
-   * @author http://www.eion.com.tw/Blogger/?Pid=1154
-   */
-  AnnotationPanel.methods.getScrollTop = function () {
-    let bodyTop = 0;
-    if (typeof window.pageYOffset !== "undefined") {
-      bodyTop = window.pageYOffset;
-
-    } else if (typeof document.compatMode === "undefined"
-            && document.compatMode !== "BackCompat") {
-      bodyTop = document.documentElement.scrollTop;
-
-    } else if (typeof document.body !== "undefined") {
-      bodyTop = document.body.scrollTop;
-    }
-    /*顯示出捲動後的高度值*/
-    return bodyTop
-  }
 }

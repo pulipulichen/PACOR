@@ -52,6 +52,9 @@ watch(AnnotationPanel)
 import Display from './Traits/methods/Display'
 Display(AnnotationPanel)
 
+import Scroll from './Traits/methods/Scroll'
+Scroll(AnnotationPanel)
+
 import Placeholder from './Traits/methods/Placeholder'
 Placeholder(AnnotationPanel)
 

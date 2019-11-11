@@ -155,5 +155,31 @@ export default (RangyManager) => {
       return anchor_text
     })
   }
+  
+  RangyManager.methods.getRectFromAnchorPositions = function (anchorPositions) {
+    // 先把位置資訊變成字串
+    let highlightJSONArray = anchorPositions.map((pos, i) => {
+        return [
+          pos.start_pos,
+          pos.end_pos,
+          (i+1),
+          'pacor-rect',
+          pos.paragraph_id
+        ].join('$')
+      })
+      
+    highlightJSONArray.unshift('type:textContent')
+    let highlightString = highlightJSONArray.join('|')
+    
+    this.rectHighlighter.deserialize(highlightString)
+    
+    console.log('@TODO 這裡可能有錯')
+    let range = this.rectHighlighter.highlights[0].getRangeAt(0).cloneRange()
+    let rect = range.getBoundingDocumentRect()
+    
+    this.rectHighlighter.removeAllHighlights()
+    
+    return rect
+  }
 }
 
