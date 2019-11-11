@@ -22,7 +22,7 @@ export default (RangyManager) => {
           let pos = vm._getAnchorPositionFromElement(this, event)
           //console.log(pos)
           //vm.$emit('highlightClick', pos)
-          this.triggerEvent('highlightClick', pos)
+          vm.triggerEvent('highlightClick', pos)
           //event.stopPropagation()
           //event.preventDefault()
         },
@@ -30,21 +30,21 @@ export default (RangyManager) => {
           let pos = vm._getAnchorPositionFromElement(this, event)
           //console.log(pos)
           //vm.$emit('highlightClick', pos)
-          this.triggerEvent('highlightClick', pos)
+          vm.triggerEvent('highlightClick', pos)
           //event.stopPropagation()
           //event.preventDefault()
         },
         onmouseover: function (event) {
           let data = vm._getAnchorPositionFromElement(this, event)
           //vm.$emit('highlightMouseover', data)
-          this.triggerEvent('highlightMouseover', data)
+          vm.triggerEvent('highlightMouseover', data)
 
           //event.stopPropagation()
           //event.preventDefault()
         },
         onmouseout: function (event) {
           //vm.$emit('highlightMouseout')
-          this.triggerEvent('highlightMouseout')
+          vm.triggerEvent('highlightMouseout')
           
           //event.stopPropagation()
           //event.preventDefault()

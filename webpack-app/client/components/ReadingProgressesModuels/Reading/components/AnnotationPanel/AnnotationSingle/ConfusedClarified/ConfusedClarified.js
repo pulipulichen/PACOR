@@ -245,7 +245,7 @@ let Confused = {
       //  'question': this.question
       //}
       
-      this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds, false)
+      this.lib.RangyManager.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds, false)
     },
     submitAnswer: async function () {
       let type = 'Clarified'

@@ -1293,7 +1293,9 @@ let VueController = {
       StringHelper: _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_6__["default"],
       ValidateHelper: _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_7__["default"],
       style: _helpers_StyleHelper__WEBPACK_IMPORTED_MODULE_8__["default"].setConfig(_config_js__WEBPACK_IMPORTED_MODULE_11__["default"]),
-      auth: null
+      auth: null,
+      RangyManager: null,
+      AnnotationPanel: null
     },
     errors: [],
     persistAttrs: [

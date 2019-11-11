@@ -86,6 +86,7 @@ let AnnotationManager = {
   },
   watch: {
     'lib.RangyManager' (rangy) {
+      //console.log('ok')
       if (!rangy) {
         return false
       }

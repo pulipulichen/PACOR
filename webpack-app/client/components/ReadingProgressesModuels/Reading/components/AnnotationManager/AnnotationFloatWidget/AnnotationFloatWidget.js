@@ -28,7 +28,7 @@ let AnnotationFloatWidget = {
         }
       }
       
-      if (this.lib.rangy.isSelecting) {
+      if (this.lib.RangyManager.isSelecting) {
         classList.push('selecting')
       }
       //return 'bottom'
@@ -50,10 +50,19 @@ let AnnotationFloatWidget = {
     anchorPositions () {
       this.load()
     },
-    'lib.RangyManager' (rangy) {
-      if (!rangy) {
-        return false
-      }
+  },
+  mounted() {
+    this.initRangyEvents()
+//    
+//    //this.load()
+    
+  },
+  destroyed () {
+    this.lib.RangyManager.hoverOut()
+  },
+  methods: {
+    initRangyEvents () {
+      let rangy = this.lib.RangyManager
       
       let useMouse = false
       
@@ -85,22 +94,7 @@ let AnnotationFloatWidget = {
         this.anchorPositions = null
         useMouse = false
       })
-    }
-  },
-//  mounted() {
-//    this.initRangyEvents()
-//    
-//    //this.load()
-//  },
-  destroyed () {
-    this.lib.rangy.hoverOut()
-  },
-  methods: {
-//    initRangyEvents () {
-//      let rangy = this.lib.RangyManager
-//      
-//      
-//    },
+    },
 //    
     load: async function () {
       if (!this.anchorPositions) {

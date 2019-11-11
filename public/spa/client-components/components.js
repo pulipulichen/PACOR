@@ -3119,7 +3119,7 @@ let AnnotationFloatWidget = {
         }
       }
       
-      if (this.lib.rangy.isSelecting) {
+      if (this.lib.RangyManager.isSelecting) {
         classList.push('selecting')
       }
       //return 'bottom'
@@ -3141,10 +3141,19 @@ let AnnotationFloatWidget = {
     anchorPositions () {
       this.load()
     },
-    'lib.RangyManager' (rangy) {
-      if (!rangy) {
-        return false
-      }
+  },
+  mounted() {
+    this.initRangyEvents()
+//    
+//    //this.load()
+    
+  },
+  destroyed () {
+    this.lib.RangyManager.hoverOut()
+  },
+  methods: {
+    initRangyEvents () {
+      let rangy = this.lib.RangyManager
       
       let useMouse = false
       
@@ -3176,22 +3185,7 @@ let AnnotationFloatWidget = {
         this.anchorPositions = null
         useMouse = false
       })
-    }
-  },
-//  mounted() {
-//    this.initRangyEvents()
-//    
-//    //this.load()
-//  },
-  destroyed () {
-    this.lib.rangy.hoverOut()
-  },
-  methods: {
-//    initRangyEvents () {
-//      let rangy = this.lib.RangyManager
-//      
-//      
-//    },
+    },
 //    
     load: async function () {
       if (!this.anchorPositions) {
@@ -3436,6 +3430,7 @@ let AnnotationManager = {
   },
   watch: {
     'lib.RangyManager' (rangy) {
+      //console.log('ok')
       if (!rangy) {
         return false
       }
@@ -3783,24 +3778,6 @@ let AnnotationTypeSelector = {
       //}
       //fab.onOffFab((this.selection !== null))
     },
-    'lib.RangyManager' (rangy) {
-      if (!rangy) {
-        return false
-      }
-      
-      rangy.addEventListener('select', (data) => {
-        // 如果AnnotationPanel已經顯示，則不動作
-        if (this.lib.AnnotationPanel.isHide === false) {
-          return false
-        }
-        
-        this.selection = data
-      })
-      
-      rangy.addEventListener('selectcollapsed', (data) => {
-        this.selection = null
-      })
-    }
   },
   computed: {
     annotationModules: function () {
@@ -3844,11 +3821,26 @@ let AnnotationTypeSelector = {
             && this.selection.highlights.length > 0)
     }
   },
-//  mounted() {
+  mounted() {
 //    //console.log(this.status.preference.leftHanded)
-//    this.initRangyEvent()
-//  },
+    this.initRangyEvent()
+  },
   methods: {
+    initRangyEvent () {
+      let rangy = this.lib.RangyManager
+      rangy.addEventListener('select', (data) => {
+        // 如果AnnotationPanel已經顯示，則不動作
+        if (this.lib.AnnotationPanel.isHide === false) {
+          return false
+        }
+        
+        this.selection = data
+      })
+      
+      rangy.addEventListener('selectcollapsed', (data) => {
+        this.selection = null
+      })
+    },
     addAnnotation: function (type) {
       //console.log('clickItem', type)
       //this.$emit('selectAnnotation', type)
@@ -5456,15 +5448,15 @@ let AnnotationEditorModules = {
   methods: {
     initHover () {
       //console.log(this.annotationInstance)
-      if (typeof(this.lib.rangy) === 'object') {
+      if (typeof(this.lib.RangyManager) === 'object') {
         if (this.annotation !== null 
                 && typeof(this.annotation) === 'object') {
           setTimeout(() => {
-            this.rangy.hoverIn(this.annotation, true)
+            this.RangyManager.hoverIn(this.annotation, true)
           }, 100)
         }
         else {
-          this.rangy.hoverOut(true)
+          this.RangyManager.hoverOut(true)
         }
       }
     },
@@ -5884,7 +5876,7 @@ let Confused = {
       //  'question': this.question
       //}
       
-      this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds, false)
+      this.lib.RangyManager.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds, false)
     },
     submitAnswer: async function () {
       let type = 'Clarified'
@@ -7918,7 +7910,7 @@ __webpack_require__.r(__webpack_exports__);
     this.panelData.hooks = null
     this.panelData.filter = null
     this.panelData.annotation = null
-    this.lib.rangy.hoverOut(true)
+    this.lib.RangyManager.hoverOut(true)
   }
   
   AnnotationPanel.methods.triggerHook = async function (type) {
@@ -8563,6 +8555,7 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   RangyManager.methods.triggerEvent = async function (event, data) {
+    //console.log(this.events)
     if (Array.isArray(this.events[event])) {
       let events = this.events[event]
       for (let i = 0; i < events.length; i++) {
@@ -8609,7 +8602,7 @@ __webpack_require__.r(__webpack_exports__);
           let pos = vm._getAnchorPositionFromElement(this, event)
           //console.log(pos)
           //vm.$emit('highlightClick', pos)
-          this.triggerEvent('highlightClick', pos)
+          vm.triggerEvent('highlightClick', pos)
           //event.stopPropagation()
           //event.preventDefault()
         },
@@ -8617,21 +8610,21 @@ __webpack_require__.r(__webpack_exports__);
           let pos = vm._getAnchorPositionFromElement(this, event)
           //console.log(pos)
           //vm.$emit('highlightClick', pos)
-          this.triggerEvent('highlightClick', pos)
+          vm.triggerEvent('highlightClick', pos)
           //event.stopPropagation()
           //event.preventDefault()
         },
         onmouseover: function (event) {
           let data = vm._getAnchorPositionFromElement(this, event)
           //vm.$emit('highlightMouseover', data)
-          this.triggerEvent('highlightMouseover', data)
+          vm.triggerEvent('highlightMouseover', data)
 
           //event.stopPropagation()
           //event.preventDefault()
         },
         onmouseout: function (event) {
           //vm.$emit('highlightMouseout')
-          this.triggerEvent('highlightMouseout')
+          vm.triggerEvent('highlightMouseout')
           
           //event.stopPropagation()
           //event.preventDefault()

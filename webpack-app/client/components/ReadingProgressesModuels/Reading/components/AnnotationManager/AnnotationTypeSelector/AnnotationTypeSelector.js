@@ -31,24 +31,6 @@ let AnnotationTypeSelector = {
       //}
       //fab.onOffFab((this.selection !== null))
     },
-    'lib.RangyManager' (rangy) {
-      if (!rangy) {
-        return false
-      }
-      
-      rangy.addEventListener('select', (data) => {
-        // 如果AnnotationPanel已經顯示，則不動作
-        if (this.lib.AnnotationPanel.isHide === false) {
-          return false
-        }
-        
-        this.selection = data
-      })
-      
-      rangy.addEventListener('selectcollapsed', (data) => {
-        this.selection = null
-      })
-    }
   },
   computed: {
     annotationModules: function () {
@@ -92,11 +74,26 @@ let AnnotationTypeSelector = {
             && this.selection.highlights.length > 0)
     }
   },
-//  mounted() {
+  mounted() {
 //    //console.log(this.status.preference.leftHanded)
-//    this.initRangyEvent()
-//  },
+    this.initRangyEvent()
+  },
   methods: {
+    initRangyEvent () {
+      let rangy = this.lib.RangyManager
+      rangy.addEventListener('select', (data) => {
+        // 如果AnnotationPanel已經顯示，則不動作
+        if (this.lib.AnnotationPanel.isHide === false) {
+          return false
+        }
+        
+        this.selection = data
+      })
+      
+      rangy.addEventListener('selectcollapsed', (data) => {
+        this.selection = null
+      })
+    },
     addAnnotation: function (type) {
       //console.log('clickItem', type)
       //this.$emit('selectAnnotation', type)

@@ -71,15 +71,15 @@ let AnnotationEditorModules = {
   methods: {
     initHover () {
       //console.log(this.annotationInstance)
-      if (typeof(this.lib.rangy) === 'object') {
+      if (typeof(this.lib.RangyManager) === 'object') {
         if (this.annotation !== null 
                 && typeof(this.annotation) === 'object') {
           setTimeout(() => {
-            this.rangy.hoverIn(this.annotation, true)
+            this.RangyManager.hoverIn(this.annotation, true)
           }, 100)
         }
         else {
-          this.rangy.hoverOut(true)
+          this.RangyManager.hoverOut(true)
         }
       }
     },

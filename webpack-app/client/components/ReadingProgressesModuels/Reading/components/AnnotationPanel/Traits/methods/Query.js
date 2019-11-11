@@ -31,7 +31,7 @@ export default (AnnotationPanel) => {
     this.panelData.hooks = null
     this.panelData.filter = null
     this.panelData.annotation = null
-    this.lib.rangy.hoverOut(true)
+    this.lib.RangyManager.hoverOut(true)
   }
   
   AnnotationPanel.methods.triggerHook = async function (type) {

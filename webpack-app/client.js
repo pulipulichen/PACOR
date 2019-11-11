@@ -94,7 +94,9 @@ let VueController = {
       StringHelper: StringHelper,
       ValidateHelper: ValidateHelper,
       style: StyleHelper.setConfig(config),
-      auth: null
+      auth: null,
+      RangyManager: null,
+      AnnotationPanel: null
     },
     errors: [],
     persistAttrs: [

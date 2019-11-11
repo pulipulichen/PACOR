@@ -20,6 +20,7 @@ export default (RangyManager) => {
   }
   
   RangyManager.methods.triggerEvent = async function (event, data) {
+    //console.log(this.events)
     if (Array.isArray(this.events[event])) {
       let events = this.events[event]
       for (let i = 0; i < events.length; i++) {
