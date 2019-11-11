@@ -1,5 +1,6 @@
-<div class="annotation-float-widget"
+<div class="annotation-float-widget AnnotationFloatWidget"
      v-bind:class="computedContainerClassNames">
+  
   <div class="ui tertiary segment"
        v-if="annotationCount > 0">
     
@@ -9,13 +10,12 @@
         v-bind:lib="lib"
         mode="full"
         v-bind:annotation="annotation"
-        v-bind:findAnnotation="(annotation) => {$emit('findAnnotation', annotation)}"
-        v-bind:findUser="(user) => {$emit('findUser', user)}"
-        v-bind:findType="(type) => {$emit('findType', type)}"
+        v-bind:findAnnotation="viewAnnotation"
+        v-bind:findUser="findUser"
+        v-bind:findType="findType"
         v-bind:rangy="rangy"></annotation-item>
     
-    <div class="ui column grid"
-         v-on:click.stop="$emit('list', highlightPos)">
+    <div class="ui column grid">
       <div v-bind:class="computedButtonsClassNames">
         
         <user-avatar-icons 
@@ -25,19 +25,23 @@
           v-bind:lib="lib"
           v-bind:users="users"
           v-bind:userCount="userCount"
-          v-on:find="(user) => {$emit('findUser', user)}"></user-avatar-icons >
+          v-on:find="findUser">
+        </user-avatar-icons >
         
-        <annotation-type-button v-for="t in types"
+        <annotation-type-button 
+          v-for="t in types"
           v-bind:lib="lib"
           v-bind:config="config"
           v-bind:status="status"
           v-bind:type="t.type"
           v-bind:count="t.count"
-          v-on:find="(type) => {$emit('findType', type)}"></annotation-type-button>
+          v-on:find="findType">
+        </annotation-type-button>
         
-        <button type="button" 
-                class="ui mini button list-button"
-                v-if="highlightPosLock">
+        <button v-if="isFixed"
+                type="button" 
+                v-on:click.stop="list"
+                class="ui mini button list-button">
           {{ $t('List all {0} annotations...', [annotationCount]) }}
         </button>
       </div>

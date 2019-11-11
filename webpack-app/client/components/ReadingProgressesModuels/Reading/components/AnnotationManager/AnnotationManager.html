@@ -1,5 +1,5 @@
 <fragment>
-  
+
   <!--
   <rangy v-bind:status="status"
          v-bind:rangyConfig="rangyConfig"
@@ -11,15 +11,16 @@
          v-on:highlightMouseout="onHighlightPosMouseout"
          ref="RangyManager"></rangy>
   -->
-  <annotation-type-selector v-bind:config="config"
-        v-bind:status="status"
-        v-bind:lib="lib"
-        v-bind:selection="selection"
-        v-on:selectAnnotation="pin"
-        v-on:list="listFromSelection"
-        v-show="isSelectorVisible"
-        ref="AnnotationTypeSelector"
-        v-if="isInited"></annotation-type-selector>
+
+  <annotation-type-selector 
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+
+    ref="AnnotationTypeSelector"
+    v-if="isLoaded">
+  </annotation-type-selector>
+
   <!--
   <annotation-panel v-bind:config="config"
         v-bind:status="status"
@@ -37,19 +38,15 @@
         v-if="isInited"></annotation-panel>
   -->
   <annotation-float-widget 
-        v-if="isInited && highlightPos"
-        v-bind:config="config"
-        v-bind:status="status"
-        v-bind:lib="lib"
-        v-bind:highlightPos="highlightPos"
-        v-bind:highlightEvent="highlightEvent"
-        v-bind:highlightPosLock="highlightPosLock"
-        v-on:findAnnotation="onFindAnnotation"
-        v-on:findUser="onFindUser"
-        v-on:findType="onFindType"
-        v-on:list="onList"
-        v-bind:rangy="$refs.RangyManager"
-        ref="AnnotationFloatWidget"></annotation-float-widget>
+    v-if="isInited"
+
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+
+    ref="AnnotationFloatWidget">
+  </annotation-float-widget>
+
   <!--
   <section-annotation-manager
         v-if="isInited && isEnableSectionAnnotation"

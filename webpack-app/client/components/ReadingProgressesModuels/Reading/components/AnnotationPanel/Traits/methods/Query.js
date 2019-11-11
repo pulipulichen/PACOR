@@ -1,14 +1,18 @@
 export default (AnnotationPanel) => {
   AnnotationPanel.methods.setQuery = function (query, hooks) {
     this.panelData.query = query
-    this.panelData.hooks = hooks
+    if (hooks) {
+      this.panelData.hooks = hooks
+    }
     
     this.show()
   }
   
   AnnotationPanel.methods.setAnnotation = function (annotation, hooks) {
     this.panelData.annotation = annotation
-    this.panelData.hooks = hooks
+    if (hooks) {
+      this.panelData.hooks = hooks
+    }
     
     this.show()
   }

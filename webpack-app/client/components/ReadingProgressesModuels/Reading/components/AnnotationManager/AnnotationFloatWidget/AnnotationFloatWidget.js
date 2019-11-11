@@ -1,8 +1,13 @@
 let AnnotationFloatWidget = {
-  props: ['lib', 'status', 'config', 'highlightPos', 'highlightEvent', 'highlightPosLock', 'rangy'],
+  props: ['lib', 'status', 'config'
+  ],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      anchorPositions: null,
+      triggerEvent: null,
+      isFixed: false,
+      
       annotation: null,
       annotationCount: 0,
       users: [],
@@ -10,20 +15,20 @@ let AnnotationFloatWidget = {
       types: [],
     }
   },
-  components: {
-  },
+//  components: {
+//  },
   computed: {
     computedContainerClassNames () {
       let classList = []
-      if (this.highlightPos !== null) {
+      if (this.anchorPositions !== null) {
         let windowHeight = window.innerHeight
-        let clientY = this.highlightEvent.clientY
+        let clientY = this.triggerEvent.clientY
         if (clientY < (windowHeight / 2) ) {
           classList.push('bottom')
         }
       }
       
-      if (this.rangy.isSelecting) {
+      if (this.lib.rangy.isSelecting) {
         classList.push('selecting')
       }
       //return 'bottom'
@@ -42,17 +47,61 @@ let AnnotationFloatWidget = {
     }
   },
   watch: {
+    anchorPositions () {
+      this.load()
+    }
   },
   mounted() {
-    this.load()
+    this.initRangyEvents()
+    
+    //this.load()
   },
   destroyed () {
-    this.rangy.hoverOut()
+    this.lib.rangy.hoverOut()
   },
   methods: {
+    initRangyEvents () {
+      let rangy = this.lib.RangyManager
+      
+      let useMouse = false
+      
+      rangy.addEventListener('highlightClick', (data) => {
+        if (useMouse === true) {
+          this.isFixed = !this.isFixed
+        }
+        else {
+          this.triggerEvent = data.event
+          this.anchorPositions = data.anchorPositions
+        }
+      })
+      
+      rangy.addEventListener('highlightMouseover', (data) => {
+        if (this.isFixed === true) {
+          return false
+        }
+        
+        this.triggerEvent = data.event
+        this.anchorPositions = data.anchorPositions
+        useMouse = true
+      })
+      
+      rangy.addEventListener('highlightMouseout', (data) => {
+        if (this.isFixed === true) {
+          return false
+        }
+        
+        this.anchorPositions = null
+        useMouse = false
+      })
+    },
+    
     load: async function () {
+      if (!this.anchorPositions) {
+        return false
+      }
+      
       let query = {
-        anchorPositions: this.highlightPos
+        anchorPositions: this.anchorPositions
       }
       let url = 'client/Annotation/floatWidget'
       
@@ -65,8 +114,29 @@ let AnnotationFloatWidget = {
       for (let key in result) {
         this[key] = result[key]
       }
-      
       //this.$emit('list', this.highlightPos) // for test
+    },
+    
+    viewAnnotation: function (annotation) {
+      //(annotation) => {$emit('findAnnotation', annotation)}
+      
+      this.lib.AnnotationPanel.setAnnotation(annotation)
+    },
+    
+    findUser: function (user) {
+      this.lib.AnnotationPanel.findUser(user)
+      this.list()
+    }, 
+    
+    findType: function (type) {
+      this.lib.AnnotationPanel.findType(type)
+      this.list()
+    }, 
+    
+    list: function () {
+      this.lib.AnnotationPanel.setQuery({
+        anchorPositions: this.anchorPositions
+      })
     }
   } // methods
 }

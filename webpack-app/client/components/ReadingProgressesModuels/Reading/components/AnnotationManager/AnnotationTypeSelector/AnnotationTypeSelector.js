@@ -2,17 +2,19 @@
  * https://www.npmjs.com/package/vue-float-action-button
  */
 let AnnotationTypeSelector = {
-  props: ['status', 'config', 'lib', 'selection'],
+  props: ['status', 'config', 'lib'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      timer: null
+      timer: null,
+      selection: null
     }
   },
   watch: {
     'selection': function () {
       let fab = this.$refs.fab
       clearTimeout(this.timer)
+      
       if (this.selection !== null) {
         //console.log('open')
         this.timer = setTimeout(() => {
@@ -72,10 +74,27 @@ let AnnotationTypeSelector = {
             && this.selection.highlights.length > 0)
     }
   },
-//  mounted() {
-//    console.log(this.status.preference.leftHanded)
-//  },
+  mounted() {
+    //console.log(this.status.preference.leftHanded)
+    this.initRangyEvent()
+  },
   methods: {
+    initRangyEvents () {
+      let rangy = this.lib.RangyManager
+      
+      rangy.addEventListener('select', (data) => {
+        // 如果AnnotationPanel已經顯示，則不動作
+        if (this.lib.AnnotationPanel.isHide === false) {
+          return false
+        }
+        
+        this.selection = data
+      })
+      
+      rangy.addEventListener('selectcollapsed', (data) => {
+        this.selection = null
+      })
+    },
     addAnnotation: function (type) {
       //console.log('clickItem', type)
       //this.$emit('selectAnnotation', type)

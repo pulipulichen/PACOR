@@ -1,32 +1,39 @@
 <div class="annotation-type-selector"
      ref="Selector">
-  
-  <vue-fab ref="fab"
-           mainBtnColor="white"
-           mainColor="#666"
-           size="big"
-           iconType="SemanticUI"
-           activeIcon="angle down"
-           clickAutoCloseType="fab"
-           v-bind:position="computedFABPosition"
-           verticalMargin="10em"
-           horizontalMargin="5em"
-           v-bind:hideOnStart="true"
-           v-bind:activeIconRotate="false"
-           v-bind:transitionEnable="false"
-           v-bind:scrollAutoShow="false"
-           v-bind:clickOutsideCloseMenu="false"
-           v-bind:autoOpenMenu="true">
-      <fab-item v-for="(module, i) in annotationModules"
-                v-on:clickItem="addAnnotation(module.type)" 
-                v-bind:idx="i"
-                v-bind:title="$t('ANNOTATION_TYPE.' + module.type)"
-                v-bind:icon="module.style.button.icon"
-                v-bind:btnColor="module.style.button.backgroundColor"></fab-item>
-      <fab-item icon="list"
-                v-bind:idx="(annotationModules.length)"
-                v-on:clickItem="list" 
-                v-bind:title="$t('List Annotations')"
-                v-if="enableList"></fab-item>
+
+  <vue-fab 
+    ref="fab"
+    mainBtnColor="white"
+    mainColor="#666"
+    size="big"
+    iconType="SemanticUI"
+    activeIcon="angle down"
+    clickAutoCloseType="fab"
+    v-bind:position="computedFABPosition"
+    verticalMargin="10em"
+    horizontalMargin="5em"
+    v-bind:hideOnStart="true"
+    v-bind:activeIconRotate="false"
+    v-bind:transitionEnable="false"
+    v-bind:scrollAutoShow="false"
+    v-bind:clickOutsideCloseMenu="false"
+    v-bind:autoOpenMenu="true">
+
+    <fab-item 
+      v-for="(module, i) in annotationModules"
+      v-on:clickItem="addAnnotation(module.type)" 
+      v-bind:idx="i"
+      v-bind:title="$t('ANNOTATION_TYPE.' + module.type)"
+      v-bind:icon="module.style.button.icon"
+      v-bind:btnColor="module.style.button.backgroundColor">
+    </fab-item>
+
+    <fab-item 
+      icon="list"
+      v-bind:idx="(annotationModules.length)"
+      v-on:clickItem="list" 
+      v-bind:title="$t('List Annotations')"
+      v-if="enableList">
+    </fab-item>
   </vue-fab>
 </div>
