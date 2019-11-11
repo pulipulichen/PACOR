@@ -1,5 +1,7 @@
-
 const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Reading.components.AnnotationManager.AnnotationPanel.'
+const disableSelectClass = 'pacor-disable-user-select'
+
+import $ from 'jquery'
 
 export default (AnnotationPanel) => {
 
@@ -35,7 +37,7 @@ export default (AnnotationPanel) => {
     this.resizeLocker = true
 
     let body = $('body')
-    body.addClass('disable-user-select')
+    body.addClass(disableSelectClass)
     //console.log(event)
     //console.log(event)
     let currentY = event.clientY
@@ -69,7 +71,7 @@ export default (AnnotationPanel) => {
 
       document.removeEventListener('touchmove', moveEvent)
       document.removeEventListener('touchend', removeMoveEvent)
-      body.removeClass('disable-user-select')
+      body.removeClass(disableSelectClass)
       this.resizeLocker = false
 
       // 計算最後的比例，然後存到preference去
