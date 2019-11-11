@@ -1,11 +1,11 @@
 <fragment>
   
-  <main-list v-if="!isFiltering"
+  <main-list v-show="!isFiltering"
         v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib"></main-list>
   
-  <filtered-list v-if="isFiltering"
+  <filtered-list v-show="isFiltering"
         v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib"></filtered-list>

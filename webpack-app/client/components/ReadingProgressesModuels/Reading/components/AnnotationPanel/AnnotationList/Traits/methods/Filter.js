@@ -1,3 +1,5 @@
+/* global this */
+
 export default (List) => {
   List.methods.viewAnnotation = function (annotation) {
     this.annotation = annotation
@@ -22,4 +24,5 @@ export default (List) => {
   List.methods.clearFilter = function () {
     this.panel.filter = {}
   }
+  
 }
