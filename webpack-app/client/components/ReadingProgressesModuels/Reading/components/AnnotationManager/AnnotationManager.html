@@ -1,5 +1,6 @@
 <fragment>
   
+  <!--
   <rangy v-bind:status="status"
          v-bind:rangyConfig="rangyConfig"
          v-on:select="onselect"
@@ -9,7 +10,7 @@
          v-on:highlightMouseover="onHighlightPosMouseover"
          v-on:highlightMouseout="onHighlightPosMouseout"
          ref="RangyManager"></rangy>
-  
+  -->
   <annotation-type-selector v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib"
@@ -19,7 +20,7 @@
         v-show="isSelectorVisible"
         ref="AnnotationTypeSelector"
         v-if="isInited"></annotation-type-selector>
-  
+  <!--
   <annotation-panel v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib"
@@ -34,7 +35,7 @@
         v-bind:sectionsData="sectionsData"
         ref="AnnotationPanel"
         v-if="isInited"></annotation-panel>
-  
+  -->
   <annotation-float-widget 
         v-if="isInited && highlightPos"
         v-bind:config="config"
@@ -49,11 +50,12 @@
         v-on:list="onList"
         v-bind:rangy="$refs.RangyManager"
         ref="AnnotationFloatWidget"></annotation-float-widget>
-  
+  <!--
   <section-annotation-manager
         v-if="isInited && isEnableSectionAnnotation"
         v-bind:sectionsData="sectionsData"
         v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib"></section-annotation-manager>
+  -->
 </fragment>
