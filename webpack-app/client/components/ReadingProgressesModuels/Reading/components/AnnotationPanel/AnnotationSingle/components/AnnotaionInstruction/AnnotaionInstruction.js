@@ -1,5 +1,5 @@
 let AnnotaionInstruction = {
-  props: ['config', 'status', 'annotationModule'],
+  props: ['config', 'status', 'type'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -9,7 +9,7 @@ let AnnotaionInstruction = {
   },
   computed: {
     instruction () {
-      return this.status.readingConfig.annotationTypeModules[this.annotationModule].instruction
+      return this.status.readingConfig.annotationTypeModules[this.type].instruction
     }
   },
   watch: {

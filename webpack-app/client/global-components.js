@@ -24,8 +24,8 @@ Vue.component('navigation', Navigation)
 import Clock from './../components/Clock/Clock.vue'
 Vue.component('clock', Clock)
 
-import AnnotationModuleButton from './../components/AnnotationModuleButton/AnnotationModuleButton.vue'
-Vue.component('annotation-module-button', AnnotationModuleButton)
+import AnnotationTypeButton from './../components/AnnotationTypeButton/AnnotationTypeButton.vue'
+Vue.component('annotation-type-button', AnnotationTypeButton)
 
 Vue.component('HTMLEditor', () => import(/* webpackChunkName: "vendors/HTMLEditor" */ './../components/HTMLEditor/HTMLEditor.vue'))
 

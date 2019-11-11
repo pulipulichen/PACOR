@@ -35,7 +35,7 @@
   <div class="list"
        v-bind:style="computedListStyle"
        v-on:scroll.stop="scrollList"
-       v-if="annotation === null">
+       v-if="!annotation">
     
     <!--
     <annotation-item
@@ -96,6 +96,7 @@
   
   <annotation-single
           v-if="annotation"
+          
           v-bind:config="config"
           v-bind:status="status"
           v-bind:lib="lib"

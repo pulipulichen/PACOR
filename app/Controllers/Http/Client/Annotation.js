@@ -86,7 +86,7 @@ class Annotation extends WebpageUserBaseController {
     })  // return await Cache.rememberWait(cacheKey, 2, async () => {
   }
   
-  async list({request, webpage, user}) {
+  async listSummary({request, webpage, user}) {
     let query = request.all()
     let cacheKey = Cache.key('Controllers.Client.Annotation.list', query)
     return await Cache.rememberWait([webpage, user, this.modelName], cacheKey, 3, async () => {

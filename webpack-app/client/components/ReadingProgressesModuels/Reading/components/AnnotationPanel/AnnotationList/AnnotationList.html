@@ -75,13 +75,13 @@
           v-on:find="findUser = null"
           v-if="findUser"></user-avatar-icons >
         
-    <annotation-module-button
+    <annotation-type-button
           v-bind:lib="lib"
           v-bind:config="config"
           v-bind:status="status"
-          v-bind:annotationModule="findType"
+          v-bind:type="findType"
           v-on:find="findType = null"
-          v-if="findType"></annotation-module-button>
+          v-if="findType"></annotation-type-button>
     
     <div class="label">
       {{ $t('Total {0} Annotations', [filteredAnnotationCount]) }}

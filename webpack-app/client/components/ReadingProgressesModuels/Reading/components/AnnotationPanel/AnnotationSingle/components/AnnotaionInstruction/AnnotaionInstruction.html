@@ -20,10 +20,12 @@
          cancelButtonText="CLOSE"
          cancelable="true">
       <template v-slot:header>
-        <annotation-module-button 
+        
+        <annotation-type-button 
           v-bind:status="status"
           v-bind:style="{float: 'left', 'margin-right': '1em'}"
-          v-bind:annotationModule="annotationModule"></annotation-module-button>
+          v-bind:type="type"></annotation-type-button>
+        
         {{ instruction.summary }}
       </template>
   </modal>

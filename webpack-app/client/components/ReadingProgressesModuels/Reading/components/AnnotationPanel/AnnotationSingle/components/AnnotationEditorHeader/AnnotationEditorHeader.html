@@ -1,11 +1,13 @@
 <div>
   <div class="right column">
-    <annotaion-instruction v-bind:config="config"
-                           v-bind:status="status"
-                           v-bind:annotationModule="annotationModule"></annotaion-instruction>
+    <annotaion-instruction 
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:type="type"></annotaion-instruction>
   </div>
   <div class="left column">
-    <user-information v-bind:annotationModule="annotationModule"
-                      v-bind:status="status"></user-information>
+    <user-information 
+      v-bind:type="type"
+      v-bind:status="status"></user-information>
   </div>
 </div>

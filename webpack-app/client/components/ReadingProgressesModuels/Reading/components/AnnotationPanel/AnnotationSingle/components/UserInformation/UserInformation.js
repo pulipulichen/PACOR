@@ -1,5 +1,5 @@
 let UserInformation = {
-  props: ['status', 'annotationModule'],
+  props: ['status', 'type'],
   data() {    
     //this.$i18n.locale = this.config.locale
     return {

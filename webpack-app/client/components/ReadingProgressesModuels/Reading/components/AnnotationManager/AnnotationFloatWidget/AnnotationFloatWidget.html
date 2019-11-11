@@ -27,13 +27,13 @@
           v-bind:userCount="userCount"
           v-on:find="(user) => {$emit('findUser', user)}"></user-avatar-icons >
         
-        <annotation-module-button v-for="t in types"
+        <annotation-type-button v-for="t in types"
           v-bind:lib="lib"
           v-bind:config="config"
           v-bind:status="status"
-          v-bind:annotationModule="t.type"
+          v-bind:type="t.type"
           v-bind:count="t.count"
-          v-on:find="(type) => {$emit('findType', type)}"></annotation-module-button>
+          v-on:find="(type) => {$emit('findType', type)}"></annotation-type-button>
         
         <button type="button" 
                 class="ui mini button list-button"

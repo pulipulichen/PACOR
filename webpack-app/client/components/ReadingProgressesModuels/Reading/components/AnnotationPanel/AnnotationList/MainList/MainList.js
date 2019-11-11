@@ -1,3 +1,5 @@
+import AnnotationSingle from './../../AnnotationSingle/AnnotationSingle.vue'
+
 let List = {
   props: ['lib', 'status', 'config', 'panelData'],
   data() {    
@@ -11,16 +13,25 @@ let List = {
       page: 0,
       noMore: false,
       
-      annotation: null
+      annotation: null,
+      listConfig: {
+        enterSingleWhenOnlyOne: true
+      }
     }
   },
   components: {
+    'annotation-single': AnnotationSingle
   },
-  computed: {
-  },
+  computed: {},
   watch: {
+    annotations (annotations) {
+      if (annotations.length === 1) {
+        this.annotation = annotations[0]
+      }
+    }
   },
   mounted() {
+    this.loadSummary()
   },
   methods: {
   } // methods
@@ -31,5 +42,11 @@ Height(List)
 
 import Filter from './../Traits/methods/Filter'
 Filter(List)
+
+import Scroll from './../Traits/methods/Scroll'
+Scroll(List)
+
+import Load from './../Traits/methods/Load'
+Load(List)
 
 export default List

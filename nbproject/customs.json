@@ -106,6 +106,7 @@
     "v-bind:lib": {},
     "v-bind:reset": {},
     "v-bind:error": {},
+    "v-on:scroll.stop": {},
     "v-on:click": {
       "context": "button"
     },

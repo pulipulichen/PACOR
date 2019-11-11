@@ -1,0 +1,9 @@
+<span class="ui mini button AnnotationTypeButton"
+      v-bind:style="computedStyle"
+      v-on:click.stop="$emit('find', type)"
+      v-bind:title="$t('ANNOTATION_TYPE.' + type)">
+  {{ $t('ANNOTATION_TYPE.' + type) }}
+  <template v-if="count">
+    : {{ count }}
+  </template>
+</span>
