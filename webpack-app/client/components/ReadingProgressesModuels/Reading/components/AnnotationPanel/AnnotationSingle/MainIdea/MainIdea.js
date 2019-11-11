@@ -1,4 +1,4 @@
-import AnnotationEditorHeader from './../components/AnnotationEditorHeader/AnnotationEditorHeader.vue'
+
 
 import props from './../Traits/props'
 //import CommonComputed from './../commons/CommonComputed'
@@ -31,9 +31,9 @@ let Editor = {
       //public: 
     }
   },
-  components: {
-    'annotation-editor-header': AnnotationEditorHeader
-  },
+//  components: {
+//    'annotation-editor-header': AnnotationEditorHeader
+//  },
   computed: {
 //    annotationConfig () {
 //      return this.lib.auth.currentStepAnnotationConfig

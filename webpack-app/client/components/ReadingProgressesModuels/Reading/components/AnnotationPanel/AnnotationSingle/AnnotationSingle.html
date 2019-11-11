@@ -24,6 +24,13 @@
       v-bind:editable="editable"
       v-bind:sectionsData="sectionsData"></component>
     -->
+    <annotation-editor-header 
+      v-bind:config="config"
+      v-bind:status="status"
+
+      v-bind:type="type">
+    </annotation-editor-header>
+    
     <component 
       v-bind:is="type"
       

@@ -1,4 +1,5 @@
 import AnnotationDiscussion from './AnnotationDiscussion/AnnotationDiscussion.vue'
+import AnnotationEditorHeader from './components/AnnotationEditorHeader/AnnotationEditorHeader.vue'
 
 import AnnotationModuleMainIdea from './MainIdea/MainIdea.vue'
 import AnnotationModuleConfusedClarified from './ConfusedClarified/ConfusedClarified.vue'
@@ -18,6 +19,7 @@ let AnnotationEditorModules = {
     }
   },
   components: {
+    'annotation-editor-header': AnnotationEditorHeader,
     'annotation-discussion': AnnotationDiscussion,
     
     // 編輯器的元件
