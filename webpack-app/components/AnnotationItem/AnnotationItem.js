@@ -1,15 +1,14 @@
 let AnnotationItem = {
   props: ['lib', 'status', 'config'
     , 'annotation', 'mode'
-    , 'findUser', 'findType', 'findAnnotation'
-    , 'rangy'],
+    , 'findUser', 'findType', 'findAnnotation'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
     }
   },
-  components: {
-  },
+//  components: {
+//  },
   computed: {
     username () {
       let user = this.annotation.user
@@ -54,10 +53,10 @@ let AnnotationItem = {
       }).join(' ')
     }
   },
-  watch: {
-  },
-  mounted() {
-  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
   methods: {
     onFindAnnotation (data) {
       if (typeof(this.findAnnotation) === 'function') {
@@ -75,19 +74,19 @@ let AnnotationItem = {
       }
     },
     onClick () {
-      if (this.rangy) {
+      if (this.lib.rangy) {
         this.rangy.hoverIn(this.annotation)
       }
       this.$emit('click', this.annotation)
     },
     onMouseover () {
-      if (this.rangy) {
+      if (this.lib.rangy) {
         this.rangy.hoverIn(this.annotation)
       }
       this.$emit('mouseover', this.annotation)
     },
     onMouseout () {
-      if (this.rangy) {
+      if (this.lib.rangy) {
         this.rangy.hoverOut()
       }
       this.$emit('mouseout', this.annotation)

@@ -29,13 +29,13 @@
           v-bind:heightPX="heightPX"
           v-on:hide="hide"></annotation-editor-modules>
         -->
-        <annotation-editor-modules
+        <annotation-single
           v-bind:config="config"
           v-bind:status="status"
           v-bind:lib="lib"
-          v-bind:panelData="panelData"></annotation-editor-modules>
+          v-bind:panelData="panelData"></annotation-single>
       </template>
-      <template v-else>
+      <template v-if="query">
         <!--
         <annotation-list ref="AnnotationList"
           v-bind:config="config"

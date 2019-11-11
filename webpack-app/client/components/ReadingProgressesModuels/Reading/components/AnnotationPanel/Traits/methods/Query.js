@@ -13,6 +13,14 @@ export default (AnnotationPanel) => {
     this.show()
   }
   
+  AnnotationPanel.methods.setFilter = function (filter) {
+    this.panelData.filter = filter
+  }
+  
+  AnnotationPanel.methods.setHooks = function (hooks) {
+    this.panelData.hooks = hooks
+  }
+  
   AnnotationPanel.methods.reset = function () {
     this.panelData.query = null
     this.panelData.hooks = null

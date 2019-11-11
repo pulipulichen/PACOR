@@ -11,7 +11,7 @@ let List = {
       page: 0,
       noMore: false,
       
-      
+      annotation: null
     }
   },
   components: {
@@ -28,5 +28,8 @@ let List = {
 
 import Height from './../Traits/computed/Height'
 Height(List)
+
+import Filter from './../Traits/methods/Filter'
+Filter(List)
 
 export default List

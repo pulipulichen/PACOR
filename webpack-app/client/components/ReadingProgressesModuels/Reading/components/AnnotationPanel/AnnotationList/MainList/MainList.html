@@ -1,40 +1,43 @@
 <fragment>
+  <!-- == Header == -->
+  
   <template v-if="annotations.length > 1">
 
-  <div class="summary-information">
-    <div class="label">
-      {{ $t('{0} Annotations', [annotationCount]) }}:
+    <div class="summary-information">
+      <div class="label">
+        {{ $t('{0} Annotations', [annotationCount]) }}:
+      </div>
+
+      <user-avatar-icons
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:users="users"
+        v-bind:userCount="userCount"
+        v-on:find="findUser"></user-avatar-icons >
+
+      <annotation-module-button 
+        v-for="t in types"
+        v-bind:lib="lib"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:annotationModule="t.type"
+        v-bind:count="t.count"
+        v-on:find="findType"></annotation-module-button>
     </div>
-    
-    <user-avatar-icons 
-          style="margin-right: 0.5em;"
-          v-bind:config="config"
-          v-bind:status="status"
-          v-bind:lib="lib"
-          v-bind:users="users"
-          v-bind:userCount="userCount"
-          v-on:find="(user) => {findUser = user}"></user-avatar-icons >
-        
-    <annotation-module-button v-for="t in types"
-          v-bind:lib="lib"
-          v-bind:config="config"
-          v-bind:status="status"
-          v-bind:annotationModule="t.type"
-          v-bind:count="t.count"
-          v-on:find="(type) => {findType = type}"></annotation-module-button>
-  </div>
-  
-  <div class="ui divider"></div>
-  
+
+    <div class="ui divider"></div>
+
   </template> <!-- <template v-if="annotations.length > 1"> -->
+
+  <!-- == List == -->
   
-  
-  <!-- ============================================================================= -->
-    
   <div class="list"
        v-bind:style="computedListStyle"
-       v-show="annotationInstance === null && isFiltering === false"
-       v-on:scroll.stop="scrollList">
+       v-on:scroll.stop="scrollList"
+       v-if="annotation === null">
+    
+    <!--
     <annotation-item
         v-for="annotation in annotations"
         v-bind:config="config"
@@ -42,10 +45,25 @@
         v-bind:lib="lib"
         v-bind:isFull="false"
         v-bind:annotation="annotation"
-        v-bind:findAnnotation="(annotation) => {annotationInstance = annotation}"
-        v-bind:findUser="(user) => {findUser = user}"
-        v-bind:findType="(type) => {findType = type}"
+        v-bind:findAnnotation="viewAnnotation"
+        v-bind:findUser="findUser"
+        v-bind:findType="findType"
         v-bind:rangy="rangy"></annotation-item>
+    -->
+    
+    <annotation-item
+        v-for="a in annotations"
+        v-bind:annotation="a"
+        
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:isFull="false"
+        
+        v-bind:findAnnotation="viewAnnotation"
+        v-bind:findUser="findUser"
+        v-bind:findType="findType"></annotation-item>
+    
     <div class="ui secondary segment no-more"
          v-if="noMore">
       <template v-if="annotations.length > 0">
@@ -56,37 +74,30 @@
       </template>
     </div>
   </div>
-  <div class="list"
-       v-bind:style="computedListStyle"
-       v-show="annotationInstance === null && isFiltering === true"
-       v-on:scroll.stop="scrollFilterList">
-    <annotation-item
-        v-for="annotation in filteredAnnotations"
-        v-bind:config="config"
-        v-bind:status="status"
-        v-bind:lib="lib"
-        v-bind:isFull="false"
-        v-bind:annotation="annotation"
-        v-bind:findAnnotation="(annotation) => {annotationInstance = annotation}"
-        v-bind:findUser="(user) => {findUser = user}"
-        v-bind:findType="(type) => {findType = type}"
-        v-bind:rangy="rangy"></annotation-item>
-    <div class="ui secondary segment no-more"
-         v-if="filteredNoMore">
-      {{ $t('No More') }}
-    </div>
-  </div>
   
+  <!-- ================================== -->
+
+  <!--
   <div class="find-annotation">
-    <annotation-editor-modules ref="auth"
+    <annotation-single
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+      v-bind:annotationInstance="annotationInstance"
+      v-bind:heightPX="editorHeightPX"
+      v-on:hide="annotationInstance = null"
+      v-on:delete="onDelete"
+      v-on:update="onUpdate"
+      v-bind:rangy="rangy"></annotation-single>
+  </div>
+  -->
+  
+  <!-- == Editor == -->
+  
+  <annotation-single
+          v-if="annotation"
           v-bind:config="config"
           v-bind:status="status"
           v-bind:lib="lib"
-          v-bind:annotationInstance="annotationInstance"
-          v-bind:heightPX="editorHeightPX"
-          v-on:hide="annotationInstance = null"
-          v-on:delete="onDelete"
-          v-on:update="onUpdate"
-          v-bind:rangy="rangy"></annotation-editor-modules>
-  </div>
+          v-bind:panelData="panelData"></annotation-single>
 </fragment>

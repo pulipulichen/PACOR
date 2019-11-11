@@ -1,3 +1,98 @@
-<div class="ui segment">
-  Template
-</div>
+<fragment>
+ 
+  <template v-if="annotations.length > 1">
+    
+  <div class="summary-information">
+      <button type="button" class="ui mini labeled icon button back-button"
+            v-on:click.stop="clearFilter">
+        <i class="angle left icon"></i>
+      {{ $t('Back to full list') }}
+    </button>
+    
+    <div class="label">
+      {{ $t('Finding') }}:
+    </div>
+    
+    <user-avatar-icons 
+          style="margin-right: 0.5em;"
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib"
+          v-bind:users="[findUser]"
+          v-on:find="findUser = null"
+          v-if="findUser"></user-avatar-icons >
+        
+    <annotation-module-button
+          v-bind:lib="lib"
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:annotationModule="findType"
+          v-on:find="findType = null"
+          v-if="findType"></annotation-module-button>
+    
+    <div class="label">
+      {{ $t('Total {0} Annotations', [filteredAnnotationCount]) }}
+    </div>
+  </div>
+    
+  <!-- ============================================================================= -->
+  
+  <div class="ui divider"></div>
+  
+  </template> <!-- <template v-if="annotations.length > 1"> -->
+  
+  
+  <!-- ============================================================================= -->
+    
+  <div class="list"
+       v-bind:style="computedListStyle"
+       v-show="annotationInstance === null && isFiltering === false"
+       v-on:scroll.stop="scrollList">
+    <annotation-item
+        v-for="annotation in annotations"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:isFull="false"
+        v-bind:annotation="annotation"
+        v-bind:findAnnotation="(annotation) => {annotationInstance = annotation}"
+        v-bind:findUser="(user) => {findUser = user}"
+        v-bind:findType="(type) => {findType = type}"
+        v-bind:rangy="rangy"></annotation-item>
+    
+    <div class="ui secondary segment no-more"
+         v-if="noMore">
+      <template v-if="annotations.length > 0">
+        {{ $t('No More') }}
+      </template>
+      <template v-else>
+        {{ $t('No Search Result') }}
+      </template>
+    </div>
+  </div>
+  
+  
+  <!--
+  <annotation-single
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:annotationInstance="annotationInstance"
+        v-bind:heightPX="editorHeightPX"
+        v-on:hide="annotationInstance = null"
+        v-on:delete="onDelete"
+        v-on:update="onUpdate"
+        v-bind:rangy="rangy"></annotation-single>
+  -->
+  <annotation-single
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:annotationInstance="annotationInstance"
+        v-bind:heightPX="editorHeightPX"
+        v-on:hide="annotationInstance = null"
+        v-on:delete="onDelete"
+        v-on:update="onUpdate"
+        v-bind:rangy="rangy"></annotation-single>
+  
+</fragment>
