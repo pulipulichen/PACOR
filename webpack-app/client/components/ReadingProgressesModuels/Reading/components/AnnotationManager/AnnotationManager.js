@@ -52,16 +52,6 @@ let AnnotationManager = {
     'section-annotation-manager': SectionAnnotationManager
   },
   computed: {
-    rangyConfig: function () {
-      let output = {}
-      if (typeof(this.status) === 'object'
-              && typeof(this.status.readingConfig) === 'object') {
-        output.articleSelector = this.status.readingConfig.articleSelector
-        output.sectionSelector = this.status.readingConfig.sectionSelector
-        output.annotationTypeModules = this.status.readingConfig.annotationTypeModules
-      }
-      return output
-    },
 //    /**
 //     * @deprecated 20191110 Pulipuli Chen
 //     * @returns {String}
@@ -108,15 +98,42 @@ let AnnotationManager = {
 //    }
   },
   mounted () {
+    this.initRangyEvent()    
+    
+    // 最後讀取
     this.loadHighlights()
     
     //console.log(this.$refs.RangyManager)
     //this._testPanel()
     //this.searchInArticle('天')
     
-    this.lib.rangy = this.$refs.RangyManager
+    //this.lib.rangy = this.$refs.RangyManager
+    
   },
   methods: {
+    initRangyEvent () {
+      let rangy = this.lib.RangyManager
+      
+      rangy.addEventListener('select', (data) => {
+        this.onselect(data)
+      })
+      
+      rangy.addEventListener('selectcollapsed', (data) => {
+        this.onselectcollapsed(data)
+      })
+      
+      rangy.addEventListener('highlightClick', (data) => {
+        this.toggleHighlightPos(data)
+      })
+      
+      rangy.addEventListener('highlightMouseover', (data) => {
+        this.onHighlightPosMouseover(data)
+      })
+      
+      rangy.addEventListener('highlightMouseout', (data) => {
+        this.onHighlightPosMouseout(data)
+      })
+    },
     _testPanel () {
       this.annotationModule = 'Confused'
       this.$refs.AnnotationPanel.show()

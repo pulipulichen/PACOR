@@ -60,4 +60,7 @@ Search(RangyManager)
 import Selection from './Traits/methods/Selection'
 Selection(RangyManager)
 
+import Event from './Traits/methods/Event'
+Event(RangyManager)
+
 export default RangyManager

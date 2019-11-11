@@ -25,5 +25,7 @@ export default {
   hoverAnnotationLock: false,
 
   searchResultApplier: null,
-  searchResultTimer: null
+  searchResultTimer: null,
+  
+  events: {}
 }

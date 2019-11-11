@@ -103,7 +103,8 @@ export default (RangyManager) => {
       selection.highlights = highlightClassList
 
 
-      this.$emit('select', selection)
+      //this.$emit('select', selection)
+      this.triggerEvent('select', selection)
 
       //console.log(highlightClassList)
       //console.log('onselect', this.highlighter.getHighlightsForElement(selection.getRangeAt(0)))
@@ -111,7 +112,8 @@ export default (RangyManager) => {
     } else {
       if (this.selection !== null) {
         this.selection = null
-        this.$emit('selectcollapsed')
+        //this.$emit('selectcollapsed')
+        this.triggerEvent('selectcollapsed')
       }
     }
   }
