@@ -38,7 +38,7 @@
   <div class="list"
        v-bind:style="computedListStyle"
        v-on:scroll.stop="scrollList"
-       v-if="!annotation">
+       v-show="!annotation">
     
     <!--
     <annotation-item
@@ -80,6 +80,8 @@
   
   <!-- ================================== -->
 
+  <!-- == Editor == -->
+  
   <!--
   <div class="find-annotation">
     <annotation-single
@@ -95,14 +97,12 @@
   </div>
   -->
   
-  <!-- == Editor == -->
-  
   <annotation-single
-          v-if="annotation"
-          
-          v-bind:config="config"
-          v-bind:status="status"
-          v-bind:lib="lib"
-          
-          v-bind:panelData="panelData"></annotation-single>
+    v-if="annotation"
+
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+
+    v-bind:panelData="panelData"></annotation-single>
 </fragment>

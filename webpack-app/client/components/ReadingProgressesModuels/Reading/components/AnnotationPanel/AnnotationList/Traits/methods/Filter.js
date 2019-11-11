@@ -6,12 +6,20 @@ export default (List) => {
   List.methods.findUser = function (user) {
     this.panel.filter.user = user
   }
+  
+  List.methods.clearFindUser = function () {
+    this.panel.filter.user = null
+  }
 
   List.methods.findType = function (type) {
     this.panel.filter.type = type
   }
   
-  List.methods.resetFilter = function () {
+  List.methods.clearFindType = function () {
+    this.panel.filter.type = null
+  }
+  
+  List.methods.clearFilter = function () {
     this.panel.filter = {}
   }
 }

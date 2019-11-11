@@ -15,15 +15,26 @@ let List = {
       noMore: false,
       
       annotation: null,
-      //listConfig: {
-      //  enterSingleWhenOnlyOne: true
-      //}
     }
   },
   components: {
     'annotation-single': AnnotationSingle
   },
-  computed: {},
+  computed: {
+    query () {
+      let query = {
+        withCount: true,
+        page: this.page
+      }
+      
+      if (this.panelData.query
+              && this.panelData.query.anchorPositions) {
+        query.anchorPositions = this.panelData.query.anchorPositions
+      }
+      
+      return query
+    }
+  },
   watch: {
     annotations (annotations) {
       if (annotations.length === 1) {
