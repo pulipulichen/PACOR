@@ -81,6 +81,10 @@ let Editor = {
       return this.$t(this.annotationModuleConfig.placeholder)
     },
     
+    enableDelete () {
+      return true
+    }
+    
 //    isEditable () {
 //      return CommonComputed.isEditable(this)
 //    }

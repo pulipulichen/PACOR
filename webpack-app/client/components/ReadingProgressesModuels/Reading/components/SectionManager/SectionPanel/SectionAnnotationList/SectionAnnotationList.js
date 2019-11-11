@@ -1,5 +1,6 @@
 let SectionAnnotationList = {
-  props: ['lib', 'status', 'config', 'sectionSeqID', 'sectionsData'],
+  props: ['lib', 'status', 'config'
+    , 'sectionSeqID', 'sectionsData'],
   data() {    
     this.$i18n.locale = this.config.locale
     
@@ -45,11 +46,17 @@ let SectionAnnotationList = {
   methods: {
     findAnnotation (annotation) {
       //throw '@TODO ' + annotation.id
-      this.sectionsData.sectionAnnotation.callback = () => {
-        this.reloadList()
-      }
+      //this.sectionsData.sectionAnnotation.callback = () => {
+      //  this.reloadList()
+      //}
       
-      this.sectionsData.sectionAnnotation.instance = annotation
+      //this.sectionsData.sectionAnnotation.instance = annotation
+      
+      this.lib.AnnotationPanel.setAnnotation(annotation, {
+        'update': () => {
+          this.reloadList()
+        }
+      })
     },
     loadNext: async function () {
       let query = {
@@ -57,7 +64,7 @@ let SectionAnnotationList = {
         seq_id: this.sectionSeqID
       }
       
-      let result = await this.lib.AxiosHelper.get('/client/Annotation/listSectionNext', query)
+      let result = await this.lib.AxiosHelper.get('/client/Section/annotationsNext', query)
       //console.log(result)
       if (Array.isArray(result) && result.length > 0) {
         //console.log(this.sectionsData.annotation[this.sectionSeqID].annotations.length)

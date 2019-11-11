@@ -39,6 +39,7 @@
         </countdown-button>
         
         <button 
+          v-if="enableDelete"
           type="button"
           class="ui button"
           v-on:click="deleteAnnotation">
