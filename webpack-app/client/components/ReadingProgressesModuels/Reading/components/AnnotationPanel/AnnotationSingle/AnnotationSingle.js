@@ -82,11 +82,15 @@ let AnnotationEditorModules = {
         }
       }
     },
-    /*
+    scrollToAnnotation () {
+      throw '@TODO'
+    },
     reloadMyHighlights: async function () {
-      // 先移除我的標註
+      if (this.annotation.anchorPositions[0].type !== 'textContent') {
+        // 如果不是網頁上的，則不重新整理
+        return false
+      }
       
-      // @TODO 這件事情不應該在這裡做
       this.rangy.removeMyHighlights()
       //throw '等等'
       
@@ -97,7 +101,6 @@ let AnnotationEditorModules = {
         this.rangy.deserializeAppend(result)
       }
     },
-     */
     onAdd: async function () {
       this.lib.AnnotationPanel.triggerEvent('add')
     },
@@ -118,8 +121,7 @@ let AnnotationEditorModules = {
         
         await this.lib.AxiosHelper.get('/client/Annotation/destroy', data)
         
-        // 不要在這裡做啊
-        //await this.reloadMyHighlights()
+        await this.reloadMyHighlights()
         
         //this.$emit('delete')
         this.lib.AnnotationPanel.triggerEvent('delete')

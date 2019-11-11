@@ -121,6 +121,7 @@ let AnnotationList = {
   mounted() {
 //    this.loadInit()
 //    this.loadFilter()
+    this.scrollTo()
   },
   methods: {
 //    loadInit: async function (selectOnlyOne) {
@@ -280,6 +281,9 @@ let AnnotationList = {
 //        this.$emit('close')
 //      }
 //    }
+    scrollTo () {
+      throw '@TODO'
+    }
   } // methods
 }
 

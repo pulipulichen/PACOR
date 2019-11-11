@@ -42,7 +42,7 @@ export default (RangyManager) => {
 
   RangyManager.methods.getHoverAnchorText = function () {
     let highlight = this.hoverHighlighter.highlights[0]
-    let {anchor_text} = this._getAnchorPositionFromHighlight(highlight)
+    let { anchor_text } = this._getAnchorPositionFromHighlight(highlight)
     return anchor_text
   }
 }

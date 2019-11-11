@@ -17,14 +17,14 @@
            v-bind:scrollAutoShow="false"
            v-bind:clickOutsideCloseMenu="false"
            v-bind:autoOpenMenu="true">
-      <fab-item v-for="(module, i) in modules"
-                v-on:clickItem="clickItem(module.type)" 
+      <fab-item v-for="(module, i) in annotationModules"
+                v-on:clickItem="addAnnotation(module.type)" 
                 v-bind:idx="i"
                 v-bind:title="$t('ANNOTATION_TYPE.' + module.type)"
                 v-bind:icon="module.style.button.icon"
                 v-bind:btnColor="module.style.button.backgroundColor"></fab-item>
       <fab-item icon="list"
-                v-bind:idx="(modules.length)"
+                v-bind:idx="(annotationModules.length)"
                 v-on:clickItem="list" 
                 v-bind:title="$t('List Annotations')"
                 v-if="enableList"></fab-item>

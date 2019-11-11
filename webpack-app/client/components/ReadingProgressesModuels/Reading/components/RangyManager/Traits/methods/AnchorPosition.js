@@ -126,6 +126,34 @@ export default (RangyManager) => {
 //
 //    return annotation
 //  }
+  RangyManager.methods.getAnchorTextArrayFromAnnotation = function (annotation) {
+    return annotation.anchorPositions.forEach(pos => {
+      if (pos.anchor_text) {
+        return pos.anchor_text
+      }
+      
+      if (!pos.paragraph_id 
+              || !pos.start_pos 
+              || !pos.end_pos) {
+        throw 'Anchor Positions is not well defined.'
+      }
+      
+      let {start_pos, end_pos, paragraph_id} = pos
 
+      let element = document.getElementById(paragraph_id)
+      //console.log(element, h.containerElementId, i)
+      let anchor_text
+      if (start_pos > 0) {
+        //anchor_text = element.innerText.slice(start_pos - 1, end_pos - 1)
+        anchor_text = element.innerText.slice(start_pos, end_pos)
+      } else {
+        anchor_text = element.innerText.slice(0, end_pos - 1)
+      }
+      
+      pos.anchor_text = anchor_text
+      
+      return anchor_text
+    })
+  }
 }
 

@@ -12,17 +12,17 @@ export default (AnnotationPanel) => {
       //this.placeholder.show()
     })
 
-    this.scrollToPinSelection()
+    //this.scrollToPinSelection()
   }
-  AnnotationPanel.methods.hide = function (doUnpin) {
+  AnnotationPanel.methods.hide = function (doEmitCancel) {
     
     // 這個太怪了，根本就不應該在這裡使用
-    if (this.sectionsData.sectionAnnotation.instance !== null) {
-      this.sectionsData.sectionAnnotation.instance = null
-      return false
-    }
+//    if (this.sectionsData.sectionAnnotation.instance !== null) {
+//      this.sectionsData.sectionAnnotation.instance = null
+//      return false
+//    }
 
-    this.lib.rangy.hoverOut(true)
+//    this.lib.rangy.hoverOut(true)
     this.placeholder.transition(transitionMode)
     
     // @TODO Semantic UI的jQuery
@@ -32,10 +32,18 @@ export default (AnnotationPanel) => {
       }
       this.isHide = true
     })
-    if (this.status.search.showAnnotationList === true) {
-      this.status.search.showAnnotationList = false
+    
+//    if (this.status.search.showAnnotationList === true) {
+//      this.status.search.showAnnotationList = false
+//    }
+//    this.$emit('hide', doUnpin)
+
+    this.reset()
+    
+    doEmitCancel = doEmitCancel ? doEmitCancel : false
+    if (doEmitCancel) {
+      this.triggerEvent('cancel')
     }
-    this.$emit('hide', doUnpin)
   }
 
   AnnotationPanel.methods.scrollToPinSelection = function () {
@@ -63,6 +71,7 @@ export default (AnnotationPanel) => {
       behavior: 'smooth'
     })
   }
+  
   /**
    * @author http://www.eion.com.tw/Blogger/?Pid=1154
    */

@@ -1,5 +1,3 @@
-
-
 import props from './../Traits/props'
 //import CommonComputed from './../commons/CommonComputed'
 //import CommonWatch from './../commons/CommonWatch'
@@ -45,7 +43,7 @@ let Editor = {
       return (this.note !== this.noteReset)
     },
     
-    enableSubmitAdd () {
+    isEnableSubmitAdd () {
       if (this.isNoteDifferent 
               && typeof(this.note) === 'string'
               && this.note !== '') {
@@ -53,7 +51,7 @@ let Editor = {
       }
       return false
     },
-    enableSubmitEdit () {
+    isEnableSubmitEdit () {
       return this.enableAddAnnotation
     },
     
@@ -120,6 +118,7 @@ let Editor = {
       let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
       //console.log(id) // for test
       if (typeof(id) !== 'number') {
+        throw 'Create failed'
         return false  // 新增失敗
       }
       
@@ -146,6 +145,10 @@ let Editor = {
       
       this.$emit('update')
     },
+    
+    onNoteChange: function (content) {
+      this.note = content
+    }
     
 //    deleteAnnotation () {
 //      this.$emit('delete')

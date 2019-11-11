@@ -19,7 +19,7 @@
       <!-- ============================ -->
       <!-- 下面才是真正顯示的元件內容 -->
       
-      <template v-if="annotation">
+      <template v-if="panelData.annotation">
         <!--
         <annotation-editor-modules
           v-bind:config="config"
@@ -34,9 +34,9 @@
           v-bind:status="status"
           v-bind:lib="lib"
           v-bind:panelData="panelData"
-          v-bind:annotation="annotation"></annotation-single>
+          v-bind:annotation="panelData.annotation"></annotation-single>
       </template>
-      <template v-if="query">
+      <template v-if="panelData.query">
         <!--
         <annotation-list ref="AnnotationList"
           v-bind:config="config"

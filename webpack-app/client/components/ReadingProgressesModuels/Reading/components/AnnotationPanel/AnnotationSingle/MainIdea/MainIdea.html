@@ -1,12 +1,10 @@
 <div class="ui form">
 
-  
-
   <HTMLEditor 
     ref="editor"
     
     v-bind:contents="note"
-    v-on:input="(c) => {note = c}"
+    v-on:input="onNoteChange"
     
     v-bind:editable="isEditable"
     v-bind:height="editorHeight"
@@ -34,7 +32,7 @@
           v-bind:text="note"
           v-bind:minWordCount="minWords"
           v-bind:locale="status.preference.locale"
-          v-bind:enable="enableSubmitEdit"
+          v-bind:enable="isEnableSubmitEdit"
           
           v-on:click="editAnnotation">
           {{ $t('EDIT') }}  
@@ -57,7 +55,7 @@
           v-bind:text="note"
           
           v-bind:locale="status.preference.locale"
-          v-bind:enable="enableSubmitAdd"
+          v-bind:enable="isEnableSubmitAdd"
           
           v-on:click="addAnnotation">
           {{ $t('ADD') }}  

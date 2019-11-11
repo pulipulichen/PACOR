@@ -1,27 +1,22 @@
 <div class="ui form">
 
-  <annotation-editor-header 
-    v-bind:config="config"
-    v-bind:status="status"
-
-    v-bind:annotationModule="type">
-  </annotation-editor-header>
-
-  <!-- ====================================== -->
-
   <question-template 
     ref="QuestionTemplate"
+    
     v-bind:config="config"
     v-bind:status="status"
     v-bind:lib="lib"
+    
     v-if="!isQuestionSubmitted"
     v-on:selectQuestion="selectQuestion">
   </question-template>
 
   <HTMLEditor 
     ref="QuestionEditor"
+    
     v-bind:contents="question"
     v-on:input="(c) => {question = c; isQuestionEdited = true}"
+    
     v-bind:editable="isEditable"
     v-bind:height="computedQuestionEditorHeight"
     v-bind:placeholder="questionPlaceholder">

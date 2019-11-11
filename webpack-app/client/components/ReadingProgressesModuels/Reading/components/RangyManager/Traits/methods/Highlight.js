@@ -114,8 +114,7 @@ export default (RangyManager) => {
             || this.selectionSaved === null) {
       return false
     }
-
-
+    
     //let sel = rangy.getSelection()
     //let id = window.$(sel.anchorNode).parents("[data-pacor-paragraph-seq-id]:first").prop('id')
     //return

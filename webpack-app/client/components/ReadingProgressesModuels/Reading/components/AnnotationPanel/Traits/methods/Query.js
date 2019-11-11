@@ -21,10 +21,17 @@ export default (AnnotationPanel) => {
     this.panelData.hooks = hooks
   }
   
+  AnnotationPanel.methods.setSelection = function (selection) {
+    this.panelData.selection = selection
+  }
+  
   AnnotationPanel.methods.reset = function () {
     this.panelData.query = null
     this.panelData.hooks = null
+    this.panelData.filter = null
     this.panelData.annotation = null
+    this.panelData.selection = null
+    this.lib.rangy.hoverOut(true)
   }
   
   AnnotationPanel.methods.triggerHook = async function (type) {

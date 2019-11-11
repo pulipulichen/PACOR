@@ -1,32 +1,31 @@
-import CommonProps from './../commons/CommonProps'
-import CommonComputed from './../commons/CommonComputed'
-import CommonWatch from './../commons/CommonWatch'
-import CommonMethods from './../commons/CommonMethods'
+import props from './../Traits/props'
 
-import AnnotationEditorHeader from './../components/AnnotationEditorHeader/AnnotationEditorHeader.vue'
 import QuestionTemplate from './../components/QuestionTemplate/QuestionTemplate.vue'
 import ResourceSearch from './../components/ResourceSearch/ResourceSearch.vue'
 
 let Confused = {
-  props: CommonProps,
+  props: props,
   data() {
+    if (!this.annotation) {
+      throw 'No annotation'
+    }
+    
     this.$i18n.locale = this.config.locale
     
     let question = ''
     let answer = ''
-    let properties = null
-    let notes
-    let type
-    let id
+    //let properties = null
+    //let notes
+    //let type
+    //let id
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     
     
     //console.log(this.annotationInstance)
     
-    if (this.annotationInstance !== null 
-            && typeof(this.annotationInstance) === 'object') {
+    if (this.annotation) {
       
-      ({type, id} = this.annotationInstance)
+      ({type, id} = this.annotation)
       
       //console.log(this.annotationInstance)
 //      if (this.annotationInstance.note !== null 
@@ -35,8 +34,8 @@ let Confused = {
 //        notes = this.annotationInstance.note
 //        ({question, answer} = notes)
 //      }
-      if (Array.isArray(this.annotationInstance.notes)) {
-        this.annotationInstance.notes.forEach(note => {
+      if (Array.isArray(this.annotation.notes)) {
+        this.annotation.notes.forEach(note => {
           if (note.type === 'question') {
             question = note.note
           }
@@ -46,10 +45,9 @@ let Confused = {
         })
       }
       
-      if (this.annotationInstance.properties !== null 
-              && typeof(this.annotationInstance.properties) === 'object') {
-        properties = this.annotationInstance.properties
-      }
+      //if (this.annotation.properties) {
+      //  properties = this.annotation.properties
+      //}
     }
     
     //console.log(question, answer)
@@ -57,62 +55,64 @@ let Confused = {
     return {
       question: question,
       questionReset: question,
-      isQuestionEdited: false,
+      
       answer: answer,
       answerReset: answer,
-      isAnswerEdited: false,
+      
       recommandResourceSearchIndex: 0,
       
-      id: id,
-      type: type,
-      notes: notes,
-      properties: properties
+      //id: id,
+      //type: type,
+      //notes: notes,
+      //properties: properties
       //public: 
     }
   },
   components: {
-    'annotation-editor-header': AnnotationEditorHeader,
+//    'annotation-editor-header': AnnotationEditorHeader,
     'question-template': QuestionTemplate,
     'resource-search': ResourceSearch,
   },
   computed: {
-    annotationConfig () {
-      return this.lib.auth.currentStepAnnotationConfig
-    },
-    public () {
-      return (this.annotationConfig.defaultPermission === 'public')
-    },
-    isAnswerDifferent () {
-      return (this.answer !== this.answerReset)
-    },
+
     isQuestionDifferent () {
       return (this.question !== this.questionReset)
     },
-    isNoteDifferent () {
-      return (this.isAnswerDifferent || this.isAnswerDifferent)
-    },
+    
     isQuestionSubmitted () {
       //console.log(this.properties)
-      return (this.properties !== null 
-              && typeof(this.properties) === 'object'
-              && typeof(this.properties.question_submitted_at) === 'number')
+      return (this.annotation 
+              && this.annotation.properties
+              && typeof(this.annotation.properties.question_submitted_at) === 'number')
     },
-    isAnswerSubmitted () {
-      return (this.properties !== null 
-              && typeof(this.properties) === 'object'
-              && typeof(this.properties.answer_submitted_at) === 'number')
-    },
-    enableAddAnnotation () {
-      if (this.isNoteDifferent 
+    
+    isEnableSubmitQuestion () {
+      return (this.isQuestionDifferent 
               && typeof(this.question) === 'string'
-              && this.question !== '') {
-        return true
-      }
-      return false
+              && this.question !== '')
     },
-    enableEditAnnotation () {
-      return this.enableAddAnnotation
+    
+    // ----------------------------------
+    
+    
+    isAnswerDifferent () {
+      return (this.answer !== this.answerReset)
     },
+    
+    isAnswerSubmitted () {
+      return (this.annotation 
+              && this.annotation.properties
+              && typeof(this.annotation.properties.answer_submitted_at) === 'number')
+    },
+    
+    isEnableSubmitAnswer () {
+      return (this.isAnswerDifferent 
+              && typeof(this.answer) === 'string'
+              && this.answer !== '')
+    },
+    
+    // ----------------------------------
+    
     computedQuestionEditorHeight () {
       if (this.isQuestionSubmitted === false) {
         let height
@@ -139,6 +139,7 @@ let Confused = {
         return height
       }
     },
+    
     computedAnswerEditorHeight () {
       let height
       if (this.enableCollaboration === true
@@ -151,23 +152,12 @@ let Confused = {
       //console.log(height)
       return height
     },
-    computedButtonsClass () {
-      return CommonComputed.computedButtonsClass(this)
-    },
-    moduleConfig () {
-      return this.status.readingConfig.annotationTypeModules[this.annotationModule]
-    },
+    
     anchorText () {
-      let anchorText
-      if (this.annotationInstance === null) {
-        anchorText = this.rangy.getPinSelectionAnchorText()
-      }
-      else {
-        anchorText = this.rangy.getHoverAnchorText()
-      }
+      let anchorText = this.lib.RangyManager.getAnchorTextArrayFromAnnotation(this.annotation).join(' ')
       
       if (anchorText === undefined) {
-        anchorText = ''
+        return ''
       }
       
       // 刪除標點符號
@@ -176,9 +166,9 @@ let Confused = {
       //console.log(anchorText)
       return anchorText
     },
-    isEditable () {
-      return CommonComputed.isEditable(this)
-    },
+//    isEditable () {
+//      return CommonComputed.isEditable(this)
+//    },
     questionPlaceholder () {
       let config = this.status.readingConfig.annotationTypeModules['ConfusedClarified']
       return this.$t(config.questionPlaceholder)
@@ -189,30 +179,49 @@ let Confused = {
     }
   },
   watch: {
-    annotationInstance (annotationInstance) {
-      if (annotationInstance !== null 
-            && typeof(annotationInstance) === 'object'
-            && typeof(annotationInstance.note) === 'string') {
-        this.note = annotationInstance.note
-        this.$refs.editor.html(this.note)
+    annotation (annotation) {
+      if (annotation
+            && Array.isArray(annotation.notes)
+            && annotation.notes.length > 0) {
+        let question = ''
+        let answer = ''
+        
+        annotation.notes.forEach(note => {
+          if (note.type === 'question') {
+            question = note.note
+          }
+          else if (note.type === 'answer') {
+            answer = note.note
+          }
+        })
+      
+        this.question = question
+        this.questionReset = question
+        
+        this.answer = answer
+        this.answerReset = answer
       }
     }
   },
 //  mounted() {
 //  },
   methods: {
+    onQuestionChange (content) {
+      this.question = content
+    },
+    
     submitQuestion: async function () {
-      this.properties = {
+      this.annotation.properties = {
         question_submitted_at: (new Date()).getTime()
       }
       
       let data = {
-        anchorPositions: this.pinSelection.anchorPositions,
-        type: this.annotationModule,
+        anchorPositions: this.annotation.anchorPositions,
+        type: this.annotation.type,
         notes: {
           'question': this.question
         },
-        properties: this.properties
+        properties: this.annotation.properties
       }
       
       if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
@@ -230,11 +239,11 @@ let Confused = {
       }
       //this.id = id
       // 請在這裡建立annotationInstance，然後轉換成edit狀態
-      this.id = id
-      this.type = this.annotationModule,
-      this.notes = {
-        'question': this.question
-      }
+      //this.id = id
+      //this.type = this.annotationModule,
+      //this.notes = {
+      //  'question': this.question
+      //}
       
       this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds, false)
     },
@@ -294,12 +303,6 @@ let Confused = {
       }
       
       this.$emit('update')
-    },
-    deleteAnnotation () {
-      this.$emit('delete')
-    },
-    hide () {
-      this.$emit('hide', true)
     },
     selectQuestion (question) {
       if (!this.$refs.QuestionEditor) {

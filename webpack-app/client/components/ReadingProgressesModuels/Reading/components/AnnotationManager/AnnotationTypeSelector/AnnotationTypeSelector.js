@@ -31,7 +31,7 @@ let AnnotationTypeSelector = {
     }
   },
   computed: {
-    modules: function () {
+    annotationModules: function () {
       let modules = []
       
       let currentStep = this.lib.auth.currentStep
@@ -76,12 +76,33 @@ let AnnotationTypeSelector = {
 //    console.log(this.status.preference.leftHanded)
 //  },
   methods: {
-    clickItem: function (type) {
+    addAnnotation: function (type) {
       //console.log('clickItem', type)
-      this.$emit('selectAnnotation', type)
+      //this.$emit('selectAnnotation', type)
+      
+      let annotation = {
+        anchorPositions: this.selection.anchorPositions,
+        type: type
+      }
+      
+      this.lib.RangyManager.pinSelection()
+      
+      this.lib.AnnotationPanel.setSelection(this.selection)
+      this.lib.AnnotationPanel.setAnnotation(annotation, {
+        'cancel': () => {
+          // 如果取消的話，那就恢復選取
+          this.lib.RangyManager.unpinSelection(true)
+        }
+      })
     },
     list () {
-      this.$emit('list')
+      //this.$emit('list')
+      let query = {
+        anchorPositions: this.selection.anchorPositions
+      }
+      
+      this.lib.AnnotationPanel.setSelection(this.selection)
+      this.lib.AnnotationPanel.setQuery(query)
     }
   } // methods
 }

@@ -1,6 +1,6 @@
-export default (RangyManager) => {
+export default (AnnotationPanel) => {
     
-  RangyManager.methods.addEventListenser = function (event, callback) {
+  AnnotationPanel.methods.addEventListenser = function (event, callback) {
     if (typeof(callback) !== 'function') {
       return false
     }
@@ -19,12 +19,18 @@ export default (RangyManager) => {
     return this
   }
   
-  RangyManager.methods.triggerEvent = async function (event, data) {
+  AnnotationPanel.methods.triggerEvent = async function (event) {
     if (Array.isArray(this.events[event])) {
       let events = this.events[event]
       for (let i = 0; i < events.length; i++) {
-        await events[i](data)
+        await events[i](this.panelData.annotation)
       }
+    }
+    
+    this.triggerHook(event)
+    
+    if (event === 'add') {
+      this.hide(false)
     }
   }
 }
