@@ -6,24 +6,14 @@ import AnnotationEditorModules from './AnnotationEditorModules/AnnotationEditorM
 
 import $ from 'jquery'
 
+import props from './Traits/props'
+import data from './Traits/data'
+
 let AnnotationPanel = {
-  props: ['lib', 'status', 'config'
-    , 'pinSelection', 'annotationModule', 'rangy'
-    , 'findAnnotation', 'listPositions', 'findUser', 'findType'
-    , 'sectionsData'],
+  props: props,
   data() {    
-    this.$i18n.locale = this.config.locale
-    return {
-      annotationInstance: null,
-      
-      //heightVH: 50,
-      heightPX: 500,
-      isHide: true,
-      placeholder: null,
-      transitionMode: 'slide up',
-      resizeLocker: false,
-      localStorageKeyPrefix: 'client.components.ReadingProgressesModuels.Reading.components.AnnotationManager.AnnotationPanel.'
-    }
+    //this.$i18n.locale = this.config.locale
+    return data
   },
   components: {
     //'vue-draggable-resizable': VueDraggableResizable,
@@ -32,89 +22,8 @@ let AnnotationPanel = {
     'annotation-editor-modules': AnnotationEditorModules,
     
   },
-  computed: {
-    annotationConfig () {
-      let stepConfig = this.lib.auth.currentStepConfig
-      return stepConfig.annotation
-    },
-//    enableCollaboration () {
-//      //return true // for test
-//      return this.annotationConfig.enableCollaboration
-//    },
-//    enablePermissionControll () {
-//      //return true // for test
-//      return this.annotationConfig.enablePermissionControll
-//    },
-    computedPlaceholderHeight () {
-      //return `calc(${this.heightVH}vh - ${this.navigationPlaceholderHeight}px)`
-      return `calc(${this.heightPX}px - ${this.navigationPlaceholderHeight}px)`
-    },
-    
-    computedSegmentStyle () {
-      if (this.annotationConfig.enableCollaboration === true
-              && this.lib.style.isStackWidth() === true) {
-        return {
-          'max-height': `${this.heightPX}px`,
-          'overflow-y': 'auto',
-          'overflow-x': 'hidden'
-        }
-      }
-      else {
-        return {
-          'height': `${this.heightPX}px`
-        }
-      }
-    },
-    computedSegmentClass () {
-      if (typeof(this.annotationModule) === 'string') {
-        return this.status.readingConfig.annotationTypeModules[this.annotationModule].style.segmentColor
-      }
-    },
-  },
-  watch: {
-    pinSelection: function (pinSelection) {
-      if (pinSelection !== null 
-              && typeof(pinSelection) === 'object') {
-        //console.log(pinSelection)
-        this.show()
-      }
-      else {
-        this.hide()
-      }
-    },
-    listPositions: function (listPositions) {
-      if (listPositions !== null 
-              && typeof(listPositions) === 'object') {
-        this.show()
-      }
-      else {
-        this.hide()
-      }
-    },
-    heightVH: function (heightVH) {
-      if (typeof(heightVH) === 'number') {
-        this.placeholder.css('height', heightVH + 'vh')
-      }
-    },
-    'status.search.showAnnotationList' (show) {
-      //console.log(show)
-      if (show === true) {
-        this.show()
-      }
-    },
-    'sectionsData.sectionAnnotation.instance' (instance) {
-      if (typeof(instance) === 'object') {
-        this.show()
-      }
-      else {
-        this.hide()
-      }
-    }
-    
-//    isHide () {
-//      
-//    }
-  },
+  computed: {}, // ./Traits/computed.js
+  watch: {},// ./Traits/watch.js
   mounted() {
     this._initHeightPX()
     
@@ -131,163 +40,22 @@ let AnnotationPanel = {
     this.placeholder.remove()
   },
   methods: {
-    _initHeightPX () {
-      let sizeRatio = localStorage.getItem(this.localStorageKeyPrefix + 'sizeRatio')
-      if (sizeRatio === null) {
-        sizeRatio = 0.5
-      }
-      else {
-        sizeRatio = parseFloat(sizeRatio)
-      }
-      //console.log(sizeRatio)
-      this.heightPX = (window.innerHeight * sizeRatio)
-    },
-    _initPlaceholder () {
-      let navPH = $('.Navigation.placeholder:first')
-      if (navPH.length === 1) { 
-        this.navigationPlaceholderHeight = navPH.height()
-      }
-    
-      let container = $('<div class="non-invasive-web-style-framework"></div>')
-            .appendTo('body')
-      this.placeholder = $('<div class="AnnotationPanel placeholder"></div>')
-            .css('height', this.computedPlaceholderHeight)
-            .hide()
-            .appendTo(container)
-    },
-    show () {
-      //console.log(this.lib.rangy) // for test
-      this.isHide = false
-      this.placeholder.transition(this.transitionMode)
-      window.$(this.$refs.panel).transition(this.transitionMode, () => {
-        //this.placeholder.show()
-      })
-      
-      this.scrollToPinSelection()
-    },
-    hide: function (doUnpin) {
-      if (this.sectionsData.sectionAnnotation.instance !== null) {
-        this.sectionsData.sectionAnnotation.instance = null
-        return false
-      }
-      
-      this.lib.rangy.hoverOut(true)
-      this.placeholder.transition(this.transitionMode)
-      window.$(this.$refs.panel).transition(this.transitionMode, () => {
-        if (this.isHide === true) {
-          return false
-        }
-        this.isHide = true
-      })
-      if (this.status.search.showAnnotationList === true) {
-        this.status.search.showAnnotationList = false
-      }
-      this.$emit('hide', doUnpin)
-    },
-    scrollToPinSelection () {
-      if (this.pinSelection === null) {
-        return false
-      }
-      
-      let rect = this.pinSelection.rect
-      let viewportHeight = window.innerHeight
-      
-      //if (rect.middle < viewportHeight / 2) {
-      if (rect.bottom < (viewportHeight - this.heightPX)) {
-        return false  // 不做捲動
-      }
-      
-      //let middle = this.pinSelection.rect.middle
-      let middle = ((viewportHeight - this.heightPX) / 2)
-      let scrollTop = this.getScrollTop()
-      //console.log(scrollTop, rect.middle, middle)
-      
-      window.scrollTo({
-        top: (scrollTop + rect.middle - middle),  // 等於是往上捲半個可顯示的畫面
-        behavior: 'smooth'
-      })
-    },
-    /**
-     * @author http://www.eion.com.tw/Blogger/?Pid=1154
-     */
-    getScrollTop () {
-      let bodyTop = 0;
-      if (typeof window.pageYOffset !== "undefined") {
-        bodyTop = window.pageYOffset;
-
-      } else if (typeof document.compatMode === "undefined"
-                 && document.compatMode !== "BackCompat") {
-        bodyTop = document.documentElement.scrollTop;
-
-      } else if (typeof document.body !== "undefined") {
-        bodyTop = document.body.scrollTop;
-      }
-      /*顯示出捲動後的高度值*/
-      return bodyTop
-    },
-    
-    onResizeStart: function (event) {
-      if (this.resizeLocker === true) {
-        return false
-      }
-      this.resizeLocker = true
-      
-      let body = $('body')
-      body.addClass('disable-user-select')
-      //console.log(event)
-      //console.log(event)
-      let currentY = event.clientY
-      
-      let moveEvent = (event) => {
-        if (this.lib.style.isSmallHeight() === false) {
-          if (event.clientY < 100
-                  || (window.innerHeight - event.clientY) < 200) {
-            return false
-          }
-        }
-        else {
-          if (event.clientY < 50
-                  || (window.innerHeight - event.clientY) < 100) {
-            return false
-          }
-        }
-          
-        
-        let interval = currentY - event.clientY
-        this.heightPX = this.heightPX + interval
-        currentY = event.clientY
-        //console.log(this.heightPX)
-        //console.log(event)
-        //event.preventDefault()
-        //event.stopPropagation()
-      }
-      
-      let removeMoveEvent = () => {
-        document.removeEventListener('mousemove', moveEvent)
-        document.removeEventListener('mouseup', removeMoveEvent)
-        
-        document.removeEventListener('touchmove', moveEvent)
-        document.removeEventListener('touchend', removeMoveEvent)
-        body.removeClass('disable-user-select')
-        this.resizeLocker = false
-        
-        // 計算最後的比例，然後存到preference去
-        let sizeRatio = ((window.innerHeight - currentY) / window.innerHeight)
-        //console.log(sizeRatio)
-        localStorage.setItem(this.localStorageKeyPrefix + 'sizeRatio', sizeRatio)
-      }
-      
-      document.addEventListener('mousemove', moveEvent)
-      document.addEventListener('mouseup', removeMoveEvent)
-      
-      document.addEventListener('touchmove', moveEvent)
-      document.addEventListener('touchend', removeMoveEvent)
-      
-      event.preventDefault()
-      event.stopPropagation()
-    },
-    
   } // methods
 }
+
+import computed from './Traits/computed'
+computed(AnnotationPanel)
+
+import watch from './Traits/watch'
+watch(AnnotationPanel)
+
+import Display from './Traits/methods/Display'
+Display(AnnotationPanel)
+
+import Placeholder from './Traits/methods/Placeholder'
+Placeholder(AnnotationPanel)
+
+import Query from './Traits/methods/Query'
+Query(AnnotationPanel)
 
 export default AnnotationPanel
