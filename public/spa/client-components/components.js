@@ -614,6 +614,14 @@ var render = function() {
   return _c(
     "div",
     {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.anchorPositions,
+          expression: "anchorPositions"
+        }
+      ],
       staticClass: "annotation-float-widget AnnotationFloatWidget",
       class: _vm.computedContainerClassNames
     },
@@ -632,8 +640,7 @@ var render = function() {
                   annotation: _vm.annotation,
                   findAnnotation: _vm.viewAnnotation,
                   findUser: _vm.findUser,
-                  findType: _vm.findType,
-                  rangy: _vm.rangy
+                  findType: _vm.findType
                 }
               }),
               _vm._v(" "),
@@ -3213,6 +3220,7 @@ let AnnotationFloatWidget = {
       //(annotation) => {$emit('findAnnotation', annotation)}
       
       this.lib.AnnotationPanel.setAnnotation(annotation)
+      this.anchorPositions = null
     },
     
     findUser: function (user) {
@@ -3229,6 +3237,7 @@ let AnnotationFloatWidget = {
       this.lib.AnnotationPanel.setQuery({
         anchorPositions: this.anchorPositions
       })
+      this.anchorPositions = null
     }
   } // methods
 }

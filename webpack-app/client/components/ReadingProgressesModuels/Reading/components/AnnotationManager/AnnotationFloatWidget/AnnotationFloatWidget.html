@@ -1,5 +1,6 @@
 <div class="annotation-float-widget AnnotationFloatWidget"
-     v-bind:class="computedContainerClassNames">
+     v-bind:class="computedContainerClassNames"
+     v-show="anchorPositions">
   
   <div class="ui tertiary segment"
        v-if="annotationCount > 0">
@@ -12,8 +13,7 @@
         v-bind:annotation="annotation"
         v-bind:findAnnotation="viewAnnotation"
         v-bind:findUser="findUser"
-        v-bind:findType="findType"
-        v-bind:rangy="rangy"></annotation-item>
+        v-bind:findType="findType"></annotation-item>
     
     <div class="ui column grid">
       <div v-bind:class="computedButtonsClassNames">
