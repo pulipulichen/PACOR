@@ -12,6 +12,7 @@ const Config = use('Config')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
 class Section extends Annotation {
+  
   async init ({request, webpage, user}) {
     let enableCollaborative = await user.isEnableCollaboration(webpage)
     let cacheKey = Cache.key('Section', 'init', enableCollaborative)
@@ -19,10 +20,12 @@ class Section extends Annotation {
     return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
       let query = {}
       let sectionsChecklist = await user.getSectionsChecklist(webpage, query)
+      let checklistAnnotation = await AnnotationModel.getSectionsChecklistAnnotation(webpage, user, query)
       let sectionsAnnotation = await AnnotationModel.buildSectionsAnnotationSummary(webpage, user, query)
       
       return {
         checklist: sectionsChecklist,
+        checklistAnnotation: checklistAnnotation,
         annotation: sectionsAnnotation
       }
     })  // return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
@@ -36,6 +39,12 @@ class Section extends Annotation {
   async annotationsNext ({request, webpage, user}) {
     let query = request.all()
     return await AnnotationModel.getSectionAnnotations(webpage, user, query)
+  }
+  
+  async setChecklist({request, webpage, user}) {
+    let attrs = request.all()
+    await user.setReadingProgressLogAttr(webpage, attrs)
+    return 1
   }
 }
 

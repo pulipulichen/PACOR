@@ -122,6 +122,39 @@ class AnnotationSection {
         })
       })
     }
+    
+    Model.getSectionsChecklistAnnotation = async function (webpage, user, query) {
+      let cacheKey = Cache.key(`Annotation.getSectionsChecklistAnnotation`, query)
+      return await Cache.rememberWait(Cache.buildTags(webpage, user, this), cacheKey, async () => {
+        //let itemsPerPage = Config.get('view.itemsPerPage')
+        //console.log(query)
+        let annotations = await this.findByWebpageGroupPosition(webpage, user, {
+          onlySectionAnnotation: true,
+          findUserID: user.primaryKeyValue
+        })
+        
+        annotations = annotations.toJSON()
+        
+        let map = {}
+        let maxSectionSeqID = -1
+        
+        annotations.forEach(annotation => {
+          let seq_id = annotation.anchorPositions[0].seq_id
+          if (seq_id > maxSectionSeqID) {
+            maxSectionSeqID = seq_id
+          }
+          map[seq_id] = annotation
+        })
+        
+        let output = new Array(maxSectionSeqID + 1)
+        Object.keys(map).forEach(seq_id => {
+          let i = parseInt(seq_id, 10)
+          output[i] = map[seq_id]
+        })
+        
+        return output
+      })
+    }
   } // register (Model) {
 }
 

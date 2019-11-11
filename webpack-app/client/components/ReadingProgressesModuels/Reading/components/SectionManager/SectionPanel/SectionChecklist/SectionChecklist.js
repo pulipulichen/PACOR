@@ -1,17 +1,43 @@
 let SectionChecklist = {
-  props: ['lib', 'status', 'config', 'sectionSeqID', 'sectionsData'],
+  props: ['lib', 'status', 'config'
+    , 'sectionSeqID', 'sectionsData'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
+    let checked = []
+    if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID].checked)) {
+      checked = this.sectionsData.checklist[this.sectionSeqID].checked
+    }
+    
     return {
-      checked: [],
-      sectionAnnotationIndex: -1,
-      wroteAnnotationAt: null
+      checked: checked,
+      checklistAnnotationIndex: -1,
+      
+      //wroteAnnotationAt: null
     }
   },
   
 //  components: {
 //  },
   computed: {
+    annotation () {
+      if (this.sectionsData.checklistAnnotation[this.sectionSeqID]) {
+        return this.sectionsData.checklistAnnotation[this.sectionSeqID]
+      }
+      else {
+        return {
+          type: 'SectionMainIdea',
+          anchorPositions: [{
+              type: 'section',
+              seq_id: this.sectionSeqID
+          }],
+          notes: [{
+              type: 'default',
+              note: ''
+          }]
+        }
+      }
+    },
     computedSubmitButtonText () {
       if (this.isChecklistCompleted) {
         return this.$t('I have read this section!')
@@ -21,14 +47,14 @@ let SectionChecklist = {
       }
     },
     localStorageKeyPrefix () {
-      return `Pacor.SectionPanel.${this.sectionSeqID}.`
+      return `Pacor.SectionChecklist.${this.sectionSeqID}.`
     },
     checklist () {
       if (Array.isArray(this.lib.auth.currentStepConfig.checklist)) {
         let checklist = this.lib.auth.currentStepConfig.checklist
         //console.log(checklist)
         
-        this.sectionAnnotationIndex = checklist.indexOf('SectionMainIdea')
+        this.checklistAnnotationIndex = checklist.indexOf('SectionMainIdea')
         
         //console.log(this.sectionSeqID)
         //console.log(this.sectionsData)
@@ -79,18 +105,15 @@ let SectionChecklist = {
         return 'positive'
       }
     },
-    isWrottenAnnotation () {
-      return (this.checked[this.sectionAnnotationIndex] === true 
-              || this.wroteAnnotationAt !== null)
+    isChecklistAnnotationSubmitted () {
+      return (typeof(this.annotation.id) === 'number')
     }
   },
 //  watch: {
 //  },
-  mounted() {
-    if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID].checked)) {
-      this.checked = this.sectionsData.checklist[this.sectionSeqID].checked
-    }
-  },
+//  mounted() {
+//    
+//  },
   methods: {
     onChecklistItemChange (i) {
       this.checked.splice(i, 1, !this.checked[i])
@@ -103,7 +126,7 @@ let SectionChecklist = {
       localStorage.setItem(this.localStorageKeyPrefix + 'checklist', data)
     },
     openSectionAnnotationEditor () {
-      
+      /*
 //      this.wroteAnnotationAt = (new Date()).getTime
 //        this.checked.splice(this.sectionAnnotationIndex, 1, true)
 //        this.sectionsData.sectionAnnotationCallback = null
@@ -127,7 +150,16 @@ let SectionChecklist = {
       
       //this.checked.splice(this.sectionAnnotationIndex, 1, true)
       //this.wroteAnnotationAt = 1
-      
+      */
+      this.lib.AnnotationPanel.setAnnotation(this.annotation, {
+        'add': (annotation) => {
+          this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
+          this.sectionsData.checklist[this.checklistAnnotationIndex] = true
+        },
+        'update': (annotation) => {
+          this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
+        },
+      })
     },
     submitChecklist: async function () {
       this.sectionsData.checklist[this.sectionSeqID].checked = this.checked
@@ -137,7 +169,7 @@ let SectionChecklist = {
         checklist: this.sectionsData.checklist
       }
       
-      await this.lib.AxiosHelper.post('/client/ReadingProgress/setLogAttr', data)
+      await this.lib.AxiosHelper.post('/client/Section/setChecklist', data)
     }
   } // methods
 }

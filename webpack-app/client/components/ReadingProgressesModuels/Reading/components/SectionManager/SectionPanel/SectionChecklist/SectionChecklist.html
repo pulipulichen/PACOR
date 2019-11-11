@@ -11,31 +11,40 @@
     </div>
   </div>
 
-  <button type="button"
-          class="ui fluid button"
-          v-on:click="openSectionAnnotationEditor">
+  <button 
+    type="button"
+    class="ui fluid button"
+    v-on:click="openSectionAnnotationEditor">
     {{ $t('Write section main ideas') }}
   </button>
 
   <div class="ui list">
-    <template v-for="(item, i) in checklist">
-      <a class="item" v-if="item !== 'SectionMainIdea'"
-          v-on:click="onChecklistItemChange(i)">
+    
+    <template 
+      v-for="(item, i) in checklist">
+      
+      <a class="item" 
+         v-if="i !== checklistAnnotationIndex"
+         v-on:click="onChecklistItemChange(i)">
+        
         <div class="ui checkbox">
-          
           <input type="checkbox"
                  v-bind:checked="checked[i]" />
           <label>
             {{ $t(item) }}
           </label>
         </div>
+        
       </a>
-      <a class="item" v-else 
-          v-on:click="openSectionAnnotationEditor('SectionMainIdea')">
+      <a v-else 
+         class="item" 
+         v-on:click="openSectionAnnotationEditor()">
+        
         <div class="ui checkbox">
-          <input type="checkbox"
-                 v-bind:checked="isWrottenAnnotation"
-                 v-on:click.prevent="()=>{}">
+          <input 
+            type="checkbox"
+            v-bind:checked="isChecklistAnnotationSubmitted"
+            v-on:click.prevent="()=>{}" />
           <label>
             {{ $t('I have already written the main ideas of this section.') }}
           </label>
@@ -45,10 +54,11 @@
 
   </div>
 
-  <button type="button"
-          class="ui fluid button"
-          v-bind:class="computedSubmitButtonClass"
-          v-on:click="submitChecklist">
+  <button 
+    type="button"
+    class="ui fluid button"
+    v-bind:class="computedSubmitButtonClass"
+    v-on:click="submitChecklist">
     {{ computedSubmitButtonText }}
   </button>
 
