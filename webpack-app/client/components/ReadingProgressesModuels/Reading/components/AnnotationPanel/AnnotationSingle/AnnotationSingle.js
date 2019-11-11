@@ -10,7 +10,7 @@ let AnnotationEditorModules = {
   props: ['lib', 'status', 'config'
     //, 'annotationModule', 'pinSelection', 'annotationInstance'
     //, 'rangy', 'heightPX', 'sectionsData'
-    , 'panelData'
+    , 'panelData', 'annotation'
   ],
   data() {
     //this.$i18n.locale = this.config.locale
@@ -28,6 +28,9 @@ let AnnotationEditorModules = {
     "SectionMainIdea": AnnotationModuleSectionMainIdea
   },
   computed: {
+    annotationConfig () {
+      return this.lib.auth.currentStepAnnotationConfig
+    },
     computedGridClass () {
       let classList = []
       if (this.annotationConfig.enableCollaboration === true) {
@@ -39,39 +42,37 @@ let AnnotationEditorModules = {
       
       return classList.join(' ') + ' column grid'
     },
-    annotationConfig () {
-      return this.lib.auth.currentStepAnnotationConfig
-    },
     type () {
-      if (typeof(this.annotationModule) === 'string') {
-        return this.annotationModule
-      }
-      else if (this.annotationInstance !== null) {
-        return this.annotationInstance.type
+      if (this.annotation !== null) {
+        return this.annotation.type
       }
     },
-    editable () {
-      return (typeof(this.annotationModule) === 'string' 
-              || this.status.role !== 'reader'
-              || ( this.annotationInstance !== null && this.annotationInstance.user_id === this.status.userID ))
-    }
+//    isAdding () {
+//      return (this.annotation
+//              && typeof(this.annotation.id) === 'number' )
+//    },
+//    editable () {
+//      return (this.isAdding 
+//              || this.status.role !== 'reader'
+//              || ( this.annotation !== null && this.annotation.user_id === this.status.userID ))
+//    }
   },
   watch: {
-    annotationInstance () {
-      this._initHover()
+    annotation () {
+      this.initHover()
     }
   },
   mounted() {
-    this._initHover()
+    this.initHover()
   },
   methods: {
-    _initHover () {
+    initHover () {
       //console.log(this.annotationInstance)
-      if (typeof(this.rangy) === 'object') {
-        if (this.annotationInstance !== null 
-                && typeof(this.annotationInstance) === 'object') {
+      if (typeof(this.lib.rangy) === 'object') {
+        if (this.annotation !== null 
+                && typeof(this.annotation) === 'object') {
           setTimeout(() => {
-            this.rangy.hoverIn(this.annotationInstance, true)
+            this.rangy.hoverIn(this.annotation, true)
           }, 100)
         }
         else {
@@ -79,6 +80,7 @@ let AnnotationEditorModules = {
         }
       }
     },
+    /*
     reloadMyHighlights: async function () {
       // 先移除我的標註
       
@@ -93,18 +95,34 @@ let AnnotationEditorModules = {
         this.rangy.deserializeAppend(result)
       }
     },
+     */
+    onAdd: async function () {
+      this.lib.AnnotationPanel.triggerEvent('add')
+    },
+    onUpdate: async function () {
+      this.lib.AnnotationPanel.triggerEvent('update')
+    },
     onDelete: async function () {
+      if (this.annotation 
+              && typeof(this.annotation.id) !== 'number') {
+        throw 'Annotation ID is not existed.'
+      }
+      
       if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
         
         let data = {
-          id: this.annotationInstance.id
+          id: this.annotation.id
         }
         
         await this.lib.AxiosHelper.get('/client/Annotation/destroy', data)
-        await this.reloadMyHighlights()
-        this.$emit('delete')
+        
+        // 不要在這裡做啊
+        //await this.reloadMyHighlights()
+        
+        //this.$emit('delete')
+        this.lib.AnnotationPanel.triggerEvent('delete')
 
-        return // 跟上層說關閉視窗
+        //return // 跟上層說關閉視窗
       }
     },
   } // methods

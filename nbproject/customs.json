@@ -112,6 +112,7 @@
     },
     "v-else": {},
     "v-show": {},
-    "v-bind:checked": {}
+    "v-bind:checked": {},
+    "v-bind:placeholder": {}
   }
 }

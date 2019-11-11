@@ -1,31 +1,55 @@
 <div class="ui stackable"
      v-bind:class="computedGridClass">
+  
   <div class="column annotation-editor">
-    <component v-bind:is="type"
-               v-bind:config="config"
-               v-bind:status="status"
-               v-bind:pinSelection="pinSelection"
-               v-bind:annotationModule="type"
-               v-bind:annotationInstance="annotationInstance"
-               v-bind:annotationConfig="annotationConfig"
-               v-bind:lib="lib"
-               v-bind:rangy="rangy"
-               v-bind:heightPX="heightPX"
-               v-on:hide="$emit('hide', false)"
-               v-on:delete="onDelete"
-               v-on:update="$emit('update')"
-               v-on:reloadMyHighlights="reloadMyHighlights"
-               v-bind:editable="editable"
-               v-bind:sectionsData="sectionsData"></component>
+    
+    <!--
+    <component 
+      v-bind:is="type"
+      
+      v-bind:config="config"
+      v-bind:status="status"
+      
+      v-bind:pinSelection="pinSelection"
+      v-bind:annotationModule="type"
+      v-bind:annotationInstance="annotationInstance"
+      v-bind:annotationConfig="annotationConfig"
+      v-bind:lib="lib"
+      v-bind:rangy="rangy"
+      v-bind:heightPX="heightPX"
+      v-on:hide="$emit('hide', false)"
+      v-on:delete="onDelete"
+      v-on:update="$emit('update')"
+      v-on:reloadMyHighlights="reloadMyHighlights"
+      v-bind:editable="editable"
+      v-bind:sectionsData="sectionsData"></component>
+    -->
+    <component 
+      v-bind:is="type"
+      
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+      
+      v-bind:panelData="panelData"
+      v-bind:annotation="annotation"
+      
+      v-on:add="onAdd"
+      v-on:delete="onDelete"
+      v-on:update="onUpdate"></component>
+    
   </div>
 
   <!-- =========================================== -->
+  
   <div class="column annotation-discussion" 
        v-if="annotationConfig.enableCollaboration">
-    <annotation-discussion ref="AnnotationDisscussion"
-                           v-bind:config="config"
-                           v-bind:status="status"
-                           v-bind:lib="lib"
-                           v-bind:annotationInstance="annotationInstance"></annotation-discussion>
+    
+    <annotation-discussion 
+      ref="AnnotationDisscussion"
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+      v-bind:annotationInstance="annotationInstance"></annotation-discussion>
   </div>
 </div>

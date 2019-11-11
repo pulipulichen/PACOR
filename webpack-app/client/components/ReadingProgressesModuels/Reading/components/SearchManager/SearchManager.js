@@ -39,13 +39,17 @@ let SearchInput = {
 //  },
   methods: {
     searchAnnotation () {
-      let query = {}
+      let filter = {}
       
       if (this.status.search.keyword !== '') {
-        query.keyword = this.status.search.keyword
+        filter.keyword = this.status.search.keyword
       }
       
-      this.lib.AnnotationPanel.setQuery(query, {
+      // 先設定篩選條件
+      this.lib.AnnotationPanel.setFilter(filter)
+      
+      // 再來顯示
+      this.lib.AnnotationPanel.setQuery({}, {
         'delete' () {
           this.count--
         }

@@ -90,6 +90,9 @@ let Auth = {
       else {
         return this.status.username
       }
+    },
+    defaultPremission () {
+      return this.currentStepAnnotationConfig.defaultPermission
     }
   },
   methods: {
@@ -196,6 +199,10 @@ let Auth = {
       return type
     },
     isEditable (instance) {
+      if (!instance || typeof(instance.id) !== 'number') {
+        return true
+      }
+      
       if (['domain_admin', 'global_admin'].indexOf(this.status.role) > -1) {
         return true
       }

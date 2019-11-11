@@ -21,6 +21,14 @@ export default (List) => {
     this.panel.filter.type = null
   }
   
+  List.methods.findKeyword = function (keyword) {
+    this.panel.filter.keyword = keyword
+  }
+  
+  List.methods.clearFindKeyword = function () {
+    this.panel.filter.keyword = null
+  }
+  
   List.methods.clearFilter = function () {
     this.panel.filter = {}
   }

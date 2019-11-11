@@ -35,11 +35,11 @@ let AnnotationList = {
   },
   computed: {
     isFiltering () {
-      if (this.panelData.query !== null) {
-        let q = this.panelData.query
-        return (typeof(q.user_id) !== 'undefined'
-                || typeof(q.type) !== 'undefined'
-                || typeof(q.keyword) !== 'undefined')
+      if (this.panelData.filter) {
+        let f = this.panelData.filter
+        return (typeof(f.user) !== 'undefined'
+                || typeof(f.type) !== 'undefined'
+                || typeof(f.keyword) !== 'undefined')
       }
       return false
     },

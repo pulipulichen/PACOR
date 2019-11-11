@@ -1,7 +1,7 @@
 let CountdownButton = {
   props: ['locale', 'lib', 'countdownSec'
     , 'minWordCount', 'maxWordCount', 'text', 'ignoreWordCount'
-    , 'enableClassNames'],
+    , 'enableClassNames', 'enable'],
   data() {    
     this.$i18n.locale = this.locale
     return {
@@ -40,6 +40,9 @@ let CountdownButton = {
       return true
     },
     isEnable () {
+      if (this.enable === false) {
+        return false
+      }
       if (this.ignoreWordCount === true) {
         return (this.remainingSeconds === 0)
       }
