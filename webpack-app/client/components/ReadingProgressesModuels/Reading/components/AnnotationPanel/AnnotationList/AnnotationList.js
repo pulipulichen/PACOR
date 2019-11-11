@@ -1,20 +1,19 @@
-import AnnotationEditorModules from './../AnnotationEditorModules/AnnotationEditorModules.vue'
+//import AnnotationSingle from './../AnnotationSingle/AnnotationSingle.vue'
+
+import MainList from './MainList/MainList.vue'
+import SearchList from './SearchList/SearchList.vue'
 
 let AnnotationList = {
-  props: ['lib', 'status', 'config', 'listPositions'
-    , 'findAnnotation', 'propFindUser', 'propFindType'
-    , 'heightPX'
-    , 'rangy'],
+  props: ['lib', 'status', 'config'
+    // , 'listPositions'
+    //, 'findAnnotation', 'propFindUser', 'propFindType'
+    //, 'heightPX', 'rangy'
+    , 'panelData'
+  ],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      annotations: [],
-      annotationCount: 0,
-      users: [],
-      userCount: 0,
-      types: [],
-      page: 0,
-      noMore: false,
+      
       
       filteredAnnotations: [],
       filteredAnnotationCount: 0,
@@ -32,16 +31,12 @@ let AnnotationList = {
     }
   },
   components: {
-    'annotation-editor-modules': AnnotationEditorModules,
+    //'annotation-single': AnnotationSingle,
+    'main-list': MainList,
+    'search-list': SearchList
   },
   computed: {
-    'editorHeightPX' () {
-      let summeryHeight = 50
-      if (this.annotations.length < 2) {
-        summeryHeight = 0
-      }
-      return this.heightPX - summeryHeight
-    },
+    
     isFiltering () {
       return (this.findUser !== null || this.findType !== null)
     },
@@ -49,12 +44,6 @@ let AnnotationList = {
       if (this.findUser !== null) {
         return this.findUser.id
       }
-    },
-    computedListStyle () {
-      let style = {
-        'max-height': `${this.editorHeightPX - 50}px`
-      }
-      return style
     }
   },
   watch: {

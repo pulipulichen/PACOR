@@ -1,22 +1,28 @@
 export default (AnnotationPanel) => {
-  AnnotationPanel.methods.setQuery = function (query, hideCallback) {
-    this.query = query
-    this.hideCallback = hideCallback
+  AnnotationPanel.methods.setQuery = function (query, hooks) {
+    this.panelData.query = query
+    this.panelData.hooks = hooks
+    
+    this.show()
   }
   
-  AnnotationPanel.methods.setAnnotation = function (annotation, hideCallback) {
-    this.annotation = annotation
-    this.hideCallback = hideCallback
+  AnnotationPanel.methods.setAnnotation = function (annotation, hooks) {
+    this.panelData.annotation = annotation
+    this.panelData.hooks = hooks
+    
+    this.show()
   }
   
   AnnotationPanel.methods.reset = function () {
-    this.query = null
-    
-    if (typeof(this.hideCallback) === 'function') {
-      this.hideCallback(this.annotation)
+    this.panelData.query = null
+    this.panelData.hooks = null
+    this.panelData.annotation = null
+  }
+  
+  AnnotationPanel.methods.triggerHook = async function (type) {
+    if (typeof(this.panelData.hooks[type]) === 'function') {
+      await this.panelData.hooks[type](this.panelData.annotation)
+      delete this.panelData.hooks[type]
     }
-    
-    this.hideCallback = null
-    this.annotation = null
   }
 }

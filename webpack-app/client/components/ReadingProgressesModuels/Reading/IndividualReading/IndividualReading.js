@@ -53,7 +53,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAA<br />`
   methods: {
     initComponentToLib () {
       this.lib.RangyManager = this.$refs.RangyManager
-      
+      this.lib.AnnotationPanel = this.$refs.AnnotationPanel
     }
   } // methods
 }

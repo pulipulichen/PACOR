@@ -15,20 +15,20 @@ export default (AnnotationPanel) => {
 
   AnnotationPanel.computed.computedPlaceholderHeight = function () {
     //return `calc(${this.heightVH}vh - ${this.navigationPlaceholderHeight}px)`
-    return `calc(${this.heightPX}px - ${this.navigationPlaceholderHeight}px)`
+    return `calc(${this.panelData.heightPX}px - ${this.navigationPlaceholderHeight}px)`
   }
 
   AnnotationPanel.computed.computedSegmentStyle = function () {
     if (this.annotationConfig.enableCollaboration === true
             && this.lib.style.isStackWidth() === true) {
       return {
-        'max-height': `${this.heightPX}px`,
+        'max-height': `${this.panelData.heightPX}px`,
         'overflow-y': 'auto',
         'overflow-x': 'hidden'
       }
     } else {
       return {
-        'height': `${this.heightPX}px`
+        'height': `${this.panelData.heightPX}px`
       }
     }
   }

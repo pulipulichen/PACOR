@@ -8,16 +8,19 @@ import AnnotationModuleSectionMainIdea from './SectionMainIdea/SectionMainIdea.v
 
 let AnnotationEditorModules = {
   props: ['lib', 'status', 'config'
-    , 'annotationModule', 'pinSelection', 'annotationInstance'
-    , 'rangy', 'heightPX', 'sectionsData'],
+    //, 'annotationModule', 'pinSelection', 'annotationInstance'
+    //, 'rangy', 'heightPX', 'sectionsData'
+    , 'panelData'
+  ],
   data() {
-    this.$i18n.locale = this.config.locale
+    //this.$i18n.locale = this.config.locale
     return {
     }
   },
   components: {
     'annotation-discussion': AnnotationDiscussion,
     
+    // 編輯器的元件
     'MainIdea': AnnotationModuleMainIdea,
     //'ConfusedClarified': AnnotationModuleConfusedClarified
     'Confused': AnnotationModuleConfusedClarified,
@@ -78,6 +81,8 @@ let AnnotationEditorModules = {
     },
     reloadMyHighlights: async function () {
       // 先移除我的標註
+      
+      // @TODO 這件事情不應該在這裡做
       this.rangy.removeMyHighlights()
       //throw '等等'
       
@@ -89,17 +94,13 @@ let AnnotationEditorModules = {
       }
     },
     onDelete: async function () {
-      let test = false
-      
-      if (test || window.confirm(this.$t('Are you sure to delete this annotation?'))) {
+      if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
         
         let data = {
           id: this.annotationInstance.id
         }
         
-        if (test !== true) {
-          await this.lib.AxiosHelper.get('/client/Annotation/destroy', data)
-        }
+        await this.lib.AxiosHelper.get('/client/Annotation/destroy', data)
         await this.reloadMyHighlights()
         this.$emit('delete')
 

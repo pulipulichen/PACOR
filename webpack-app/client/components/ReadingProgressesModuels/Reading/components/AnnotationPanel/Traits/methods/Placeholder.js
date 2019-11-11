@@ -1,5 +1,6 @@
 const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Reading.components.AnnotationManager.AnnotationPanel.'
 const disableSelectClass = 'pacor-disable-user-select'
+let resizeLocker = false
 
 import $ from 'jquery'
 
@@ -13,7 +14,7 @@ export default (AnnotationPanel) => {
       sizeRatio = parseFloat(sizeRatio)
     }
     //console.log(sizeRatio)
-    this.heightPX = (window.innerHeight * sizeRatio)
+    this.panelData.heightPX = (window.innerHeight * sizeRatio)
   }
   AnnotationPanel.methods._initPlaceholder = function () {
     let navPH = $('.Navigation.placeholder:first')
@@ -31,10 +32,10 @@ export default (AnnotationPanel) => {
   
   
   AnnotationPanel.methods.onResizeStart = function (event) {
-    if (this.resizeLocker === true) {
+    if (resizeLocker === true) {
       return false
     }
-    this.resizeLocker = true
+    resizeLocker = true
 
     let body = $('body')
     body.addClass(disableSelectClass)
@@ -57,7 +58,7 @@ export default (AnnotationPanel) => {
 
 
       let interval = currentY - event.clientY
-      this.heightPX = this.heightPX + interval
+      this.panelData.heightPX = this.panelData.heightPX + interval
       currentY = event.clientY
       //console.log(this.heightPX)
       //console.log(event)
@@ -72,7 +73,7 @@ export default (AnnotationPanel) => {
       document.removeEventListener('touchmove', moveEvent)
       document.removeEventListener('touchend', removeMoveEvent)
       body.removeClass(disableSelectClass)
-      this.resizeLocker = false
+      resizeLocker = false
 
       // 計算最後的比例，然後存到preference去
       let sizeRatio = ((window.innerHeight - currentY) / window.innerHeight)

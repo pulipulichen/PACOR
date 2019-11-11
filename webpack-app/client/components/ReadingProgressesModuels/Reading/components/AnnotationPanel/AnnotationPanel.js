@@ -2,7 +2,7 @@
 //import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
 
 import AnnotationList from './AnnotationList/AnnotationList.vue'
-import AnnotationEditorModules from './AnnotationEditorModules/AnnotationEditorModules.vue'
+import AnnotationSingle from './AnnotationSingle/AnnotationSingle.vue'
 
 import $ from 'jquery'
 
@@ -19,7 +19,7 @@ let AnnotationPanel = {
     //'vue-draggable-resizable': VueDraggableResizable,
     
     'annotation-list': AnnotationList,
-    'annotation-editor-modules': AnnotationEditorModules,
+    'annotation-single': AnnotationSingle,
     
   },
   computed: {}, // ./Traits/computed.js

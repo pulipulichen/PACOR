@@ -49,12 +49,12 @@ export default (AnnotationPanel) => {
     throw '捲動到指定位置的功能還沒做完'
 
     //if (rect.middle < viewportHeight / 2) {
-    if (rect.bottom < (viewportHeight - this.heightPX)) {
+    if (rect.bottom < (viewportHeight - this.panelData.heightPX)) {
       return false  // 不做捲動
     }
 
     //let middle = this.pinSelection.rect.middle
-    let middle = ((viewportHeight - this.heightPX) / 2)
+    let middle = ((viewportHeight - this.panelData.heightPX) / 2)
     let scrollTop = this.getScrollTop()
     //console.log(scrollTop, rect.middle, middle)
 
