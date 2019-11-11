@@ -19,6 +19,7 @@ let SectionAnnotationManager = {
   },
   mounted() {
     this.initSectionNodes()
+    this.setRefreshInterval()
   },
   methods: {
     initSectionNodes: async function () {
@@ -39,6 +40,19 @@ let SectionAnnotationManager = {
       
       
       this.sectionNodes = sectionNodes
+    },
+    setRefreshInterval: async function () {
+      if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
+        //return false
+      }
+      
+      setTimeout(async () => {
+        if (this.sectionsData.enableRefresh === true) {
+          this.sectionsData.annotation = await this.lib.AxiosHelper.get('/client/Annotation/sectionsAnnotation')
+        }
+        
+        this.setRefreshInterval()
+      }, 30 * 1000)
     }
   } // methods
 }

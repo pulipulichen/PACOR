@@ -10,7 +10,7 @@ let SectionMainIdea = {
   data() {
     this.$i18n.locale = this.config.locale
     
-    let note = ''
+    let note = '這邊要加入前面寫過的MainIdea'
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotationInstance !== null 
             && typeof(this.annotationInstance) === 'object'

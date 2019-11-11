@@ -37,29 +37,20 @@ class Annotation extends WebpageUserBaseController {
     return await AnnotationModel.findByWebpageGroup(webpage, user, query)
   }
   
-//  /**
-//   * @deprecated 20191110
-//   */
-//  async highlights ({request, webpage, user}) {
-//    let query = request.all()
-//    return await AnnotationModel.getHighlightsByWebpageGroup(webpage, user, query)
-//  }
-//  
-//  /**
-//   * @deprecated 20191110
-//   */
-//  async highlightsMy ({request, webpage, user}) {
-//    let query = request.all()
-//    return await AnnotationModel.getMyHighlightsByWebpageGroup(webpage, user, query)
-//  }
-//  
-//  /**
-//   * @deprecated 20191110
-//   */
-//  async highlightsOthers ({request, webpage, user}) {
-//    let query = request.all()
-//    return await AnnotationModel.getOthersHighlightsByWebpageGroup(webpage, user, query)
-//  }
+  async highlights ({request, webpage, user}) {
+    let query = request.all()
+    return await AnnotationModel.getHighlightsByWebpageGroup(webpage, user, query)
+  }
+  
+  async highlightsMy ({request, webpage, user}) {
+    let query = request.all()
+    return await AnnotationModel.getMyHighlightsByWebpageGroup(webpage, user, query)
+  }
+
+  async highlightsOthers ({request, webpage, user}) {
+    let query = request.all()
+    return await AnnotationModel.getOthersHighlightsByWebpageGroup(webpage, user, query)
+  }
   
   async floatWidget({request, webpage, user}) {
     let query = request.all()
@@ -320,6 +311,11 @@ class Annotation extends WebpageUserBaseController {
         }
       }
     })  // return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
+  }
+  
+  async sectionsAnnotation ({request, webpage, user}) {
+    let query = request.all()
+    return await AnnotationModel.buildSectionsAnnotationSummary(webpage, user, query)
   }
   
   async listSectionNext ({request, webpage, user}) {

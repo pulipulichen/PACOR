@@ -28,6 +28,7 @@ class Annotation extends Model {
   
   user () {
     return this.belongsTo('App/Models/User')
+            .setHidden(['domain_id', 'password', 'preference', 'created_at', 'updated_at'])
   }
   
   webpage () {
@@ -76,7 +77,7 @@ class Annotation extends Model {
   
   static get hidden () {
     //return ['password']
-    return ['webpage_id', 'deleted', 'created_at', 'updated_at', 'created_at_unixms', 'properties']
+    return ['webpage_id', 'deleted', 'created_at', 'updated_at', 'created_at_unixms']
     //return ['webpage_id', 'created_at']
   }
 }

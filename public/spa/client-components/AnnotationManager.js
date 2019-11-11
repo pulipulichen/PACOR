@@ -623,7 +623,7 @@ var render = function() {
       _vm.annotationCount > 0
         ? _c(
             "div",
-            { staticClass: "ui secondary segment" },
+            { staticClass: "ui tertiary segment" },
             [
               _c("annotation-item", {
                 attrs: {
@@ -1090,7 +1090,7 @@ var render = function() {
                         [
                           _vm._v(
                             "\r\n          " +
-                              _vm._s(_vm.$t("WRTIE LATER")) +
+                              _vm._s(_vm.$t("WRITE LATER")) +
                               "  \r\n        "
                           )
                         ]
@@ -2419,10 +2419,51 @@ var render = function() {
         scroll: function($event) {
           $event.stopPropagation()
           return _vm.scrollList($event)
+        },
+        mouseover: function($event) {
+          _vm.sectionsData.enableRefresh = false
+        },
+        mouseout: function($event) {
+          _vm.sectionsData.enableRefresh = true
+        },
+        touchstart: function($event) {
+          _vm.sectionsData.enableRefresh = false
+        },
+        touchend: function($event) {
+          _vm.sectionsData.enableRefresh = true
         }
       }
     },
     [
+      _vm.userCount > 1
+        ? [
+            _c(
+              "div",
+              { staticClass: "summary-information" },
+              [
+                _c("user-avatar-icons", {
+                  staticStyle: { "margin-right": "0.5em" },
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib,
+                    users: _vm.users,
+                    userCount: _vm.userCount
+                  },
+                  on: {
+                    find: function(user) {
+                      _vm.findUser = user
+                    }
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "ui divider" })
+          ]
+        : _vm._e(),
+      _vm._v(" "),
       _vm._l(
         _vm.sectionsData.annotation[_vm.sectionSeqID].annotations,
         function(annotation) {
@@ -3377,6 +3418,7 @@ let AnnotationManager = {
       sectionsData: {
         checklist: [],
         annotations: [],
+        enableRefresh: true,
         sectionAnnotation: {
           instance: null,
           seqID: null,
@@ -3479,7 +3521,7 @@ let AnnotationManager = {
           this.$refs.RangyManager.deserializeAppend(result.highlights)
         }
         if (typeof(result.sections) !== 'undefined') {
-          console.log(result.sections)
+          //console.log(result.sections)
           Object.keys(result.sections).forEach(key => {
             if (Array.isArray(result.sections[key])) {
               this.sectionsData[key] = result.sections[key]
@@ -4185,6 +4227,10 @@ let Confused = {
     let type
     let id
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
+    
+    
+    //console.log(this.annotationInstance)
+    
     if (this.annotationInstance !== null 
             && typeof(this.annotationInstance) === 'object') {
       
@@ -4213,6 +4259,8 @@ let Confused = {
         properties = this.annotationInstance.properties
       }
     }
+    
+    //console.log(question, answer)
     
     return {
       question: question,
@@ -4382,7 +4430,7 @@ let Confused = {
       //console.log(data)
       
       let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
-      console.log(id) // for test
+      //console.log(id) // for test
       
       if (typeof(id) !== 'number') {
         throw 'Create failed'
@@ -4624,7 +4672,7 @@ let MainIdea = {
   data() {
     this.$i18n.locale = this.config.locale
     
-    let note = ''
+    let note = this.lib.rangy.getPinSelectionAnchorText()
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotationInstance !== null 
             && typeof(this.annotationInstance) === 'object'
@@ -4868,7 +4916,7 @@ let SectionMainIdea = {
   data() {
     this.$i18n.locale = this.config.locale
     
-    let note = ''
+    let note = '這邊要加入前面寫過的MainIdea'
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotationInstance !== null 
             && typeof(this.annotationInstance) === 'object'
@@ -17028,6 +17076,7 @@ let SectionAnnotationManager = {
   },
   mounted() {
     this.initSectionNodes()
+    this.setRefreshInterval()
   },
   methods: {
     initSectionNodes: async function () {
@@ -17048,6 +17097,19 @@ let SectionAnnotationManager = {
       
       
       this.sectionNodes = sectionNodes
+    },
+    setRefreshInterval: async function () {
+      if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
+        //return false
+      }
+      
+      setTimeout(async () => {
+        if (this.sectionsData.enableRefresh === true) {
+          this.sectionsData.annotation = await this.lib.AxiosHelper.get('/client/Annotation/sectionsAnnotation')
+        }
+        
+        this.setRefreshInterval()
+      }, 30 * 1000)
     }
   } // methods
 }

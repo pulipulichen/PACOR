@@ -29,6 +29,7 @@ class AnnotationSection {
         })
 
         annotations = annotations.toJSON()
+        
         //console.log(annotations.size())
         let sectionAnnotations = {}
         let maxSectionID = -1
@@ -40,6 +41,8 @@ class AnnotationSection {
         let sectionUserCountID = {}
         
         annotations.forEach(annotation => {
+          //console.log(annotation.id, annotation.anchorPositions[0])
+          
           let sectionSeqID = annotation.anchorPositions[0].seq_id
           if (sectionSeqID > maxSectionID) {
             maxSectionID = sectionSeqID
@@ -48,15 +51,16 @@ class AnnotationSection {
           if (Array.isArray(sectionAnnotations[sectionSeqID]) === false) {
             sectionAnnotations[sectionSeqID] = []
           }
-          else if (sectionAnnotations[sectionSeqID].length <= itemsPerPage) {
+          if (sectionAnnotations[sectionSeqID].length <= itemsPerPage) {
             sectionAnnotations[sectionSeqID].push(annotation)
           }
+          //console.log(sectionAnnotations[sectionSeqID].length)
           
           if (Array.isArray(sectionUsers[sectionSeqID]) === false) {
             sectionUsers[sectionSeqID] = []
             sectionUsersID[sectionSeqID] = []
           }
-          else if (sectionUsers[sectionSeqID].length <= 3) {
+          if (sectionUsers[sectionSeqID].length <= 3) {
             if (sectionUsersID[sectionSeqID].indexOf(annotation.user_id) === -1) {
               sectionUsersID[sectionSeqID].push(annotation.user_id)
               sectionUsers[sectionSeqID].push(annotation.user)
@@ -67,12 +71,14 @@ class AnnotationSection {
             sectionUserCount[sectionSeqID] = 0
             sectionUserCountID[sectionSeqID] = []
           }
-          else if (sectionUserCountID[sectionSeqID].indexOf(annotation.user_id) === -1) {
+          if (sectionUserCountID[sectionSeqID].indexOf(annotation.user_id) === -1) {
             sectionUserCountID[sectionSeqID].push(annotation.user_id)
             sectionUserCount[sectionSeqID]++
           }
           
         })
+        
+        //console.log(sectionAnnotations)
         
         //console.log(sectionUsers)
         /*

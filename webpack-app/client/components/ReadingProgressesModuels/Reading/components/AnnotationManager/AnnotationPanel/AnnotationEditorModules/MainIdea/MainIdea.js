@@ -10,7 +10,7 @@ let MainIdea = {
   data() {
     this.$i18n.locale = this.config.locale
     
-    let note = ''
+    let note = this.lib.rangy.getPinSelectionAnchorText()
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotationInstance !== null 
             && typeof(this.annotationInstance) === 'object'

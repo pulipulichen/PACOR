@@ -19,6 +19,10 @@ let Confused = {
     let type
     let id
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
+    
+    
+    //console.log(this.annotationInstance)
+    
     if (this.annotationInstance !== null 
             && typeof(this.annotationInstance) === 'object') {
       
@@ -47,6 +51,8 @@ let Confused = {
         properties = this.annotationInstance.properties
       }
     }
+    
+    //console.log(question, answer)
     
     return {
       question: question,
@@ -216,7 +222,7 @@ let Confused = {
       //console.log(data)
       
       let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
-      console.log(id) // for test
+      //console.log(id) // for test
       
       if (typeof(id) !== 'number') {
         throw 'Create failed'

@@ -84,3 +84,26 @@
   }
 }
 
+@media (max-width: 480px) {
+  .AnnotationItem.annotation-item-compact {
+    ::v-deep .AnnotationModuleButton {
+      //display: none;
+      //width: 1em;
+      //text-overflow: clip;
+      text-indent: -9999px;
+      padding-left: 0;
+      padding-right: 0;
+      width: 1em;
+    }
+    
+    .note {
+      max-width: calc(100vw - 10em);
+    }
+    
+    .display-time {
+      max-width: 0;
+      overflow-x: hidden;
+    }
+  }
+}
+  

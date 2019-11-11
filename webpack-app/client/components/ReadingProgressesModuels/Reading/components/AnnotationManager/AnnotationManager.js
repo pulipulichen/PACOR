@@ -33,6 +33,7 @@ let AnnotationManager = {
       sectionsData: {
         checklist: [],
         annotations: [],
+        enableRefresh: true,
         sectionAnnotation: {
           instance: null,
           seqID: null,
@@ -135,7 +136,7 @@ let AnnotationManager = {
           this.$refs.RangyManager.deserializeAppend(result.highlights)
         }
         if (typeof(result.sections) !== 'undefined') {
-          console.log(result.sections)
+          //console.log(result.sections)
           Object.keys(result.sections).forEach(key => {
             if (Array.isArray(result.sections[key])) {
               this.sectionsData[key] = result.sections[key]
