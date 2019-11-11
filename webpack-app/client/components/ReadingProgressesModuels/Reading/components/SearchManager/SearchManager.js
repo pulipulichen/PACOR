@@ -28,6 +28,11 @@ let SearchInput = {
       let url = '/client/Annotation/listCount'
 
       this.count = await this.lib.AxiosHelper.post(url, query)
+      
+      if (this.status.search.keyword === '') {
+        this.count = 0
+        return false
+      }
     }
   },
 //  mounted() {
