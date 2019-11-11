@@ -1,13 +1,13 @@
 export default (AnnotationPanel) => {
     
-  AnnotationPanel.methods.addEventListenser = function (event, callback) {
+  AnnotationPanel.methods.addEventListener = function (event, callback) {
     if (typeof(callback) !== 'function') {
       return false
     }
     
     if (Array.isArray(event)) {
       event.forEach(e => {
-        this.addEventListenser(e, callback)
+        this.addEventListener(e, callback)
       })
       return this
     }

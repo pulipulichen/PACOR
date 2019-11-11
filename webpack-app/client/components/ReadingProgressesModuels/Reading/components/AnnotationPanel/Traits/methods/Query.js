@@ -21,6 +21,20 @@ export default (AnnotationPanel) => {
     this.panelData.filter = filter
   }
   
+  AnnotationPanel.methods.findType = function (type) {
+    if (!this.panelData.filter) {
+      this.panelData.filter = {}
+    }
+    this.panelData.filter.type = type
+  }
+  
+  AnnotationPanel.methods.findUser = function (user) {
+    if (!this.panelData.filter) {
+      this.panelData.filter = {}
+    }
+    this.panelData.filter.user = user
+  }
+  
   AnnotationPanel.methods.setHooks = function (hooks) {
     this.panelData.hooks = hooks
   }
@@ -35,7 +49,8 @@ export default (AnnotationPanel) => {
   }
   
   AnnotationPanel.methods.triggerHook = async function (type) {
-    if (typeof(this.panelData.hooks[type]) === 'function') {
+    if (this.panelData.hooks 
+            && typeof(this.panelData.hooks[type]) === 'function') {
       await this.panelData.hooks[type](this.panelData.annotation)
       delete this.panelData.hooks[type]
     }

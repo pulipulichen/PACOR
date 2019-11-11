@@ -869,7 +869,12 @@ var render = function() {
             expression: "!isFiltering"
           }
         ],
-        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          lib: _vm.lib,
+          panelData: _vm.panelData
+        }
       }),
       _vm._v(" "),
       _c("filtered-list", {
@@ -881,7 +886,12 @@ var render = function() {
             expression: "isFiltering"
           }
         ],
-        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          lib: _vm.lib,
+          panelData: _vm.panelData
+        }
       })
     ],
     1
@@ -4820,6 +4830,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((List) => {
   List.computed.editorHeightPX = function () {
+    if (!this.panelData) {
+      return
+    }
+    
     let summeryHeight = 50
 
     if (this.annotations.length < 2) {
@@ -4831,6 +4845,10 @@ __webpack_require__.r(__webpack_exports__);
   }
 
   List.computed.computedListStyle = function () {
+    if (!this.panelData) {
+      return
+    }
+    
     let style = {
       'max-height': `${this.editorHeightPX - 50}px`
     }
@@ -5461,11 +5479,11 @@ let AnnotationEditorModules = {
         if (this.annotation !== null 
                 && typeof(this.annotation) === 'object') {
           setTimeout(() => {
-            this.RangyManager.hoverIn(this.annotation, true)
+            this.lib.RangyManager.hoverIn(this.annotation, true)
           }, 100)
         }
         else {
-          this.RangyManager.hoverOut(true)
+          this.lib.RangyManager.hoverOut(true)
         }
       }
     },
@@ -5480,14 +5498,14 @@ let AnnotationEditorModules = {
         return false
       }
       
-      this.rangy.removeMyHighlights()
+      this.lib.RangyManager.removeMyHighlights()
       //throw '等等'
       
       let data = {}
       let result = await this.lib.AxiosHelper.get('/client/Annotation/highlightsMy', data)
       //console.log(result)
       if (result !== 0) {
-        this.rangy.deserializeAppend(result)
+        this.lib.RangyManager.deserializeAppend(result)
       }
     },
     onAdd: async function () {
@@ -7731,14 +7749,14 @@ const transitionMode = 'slide up'
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((AnnotationPanel) => {
     
-  AnnotationPanel.methods.addEventListenser = function (event, callback) {
+  AnnotationPanel.methods.addEventListener = function (event, callback) {
     if (typeof(callback) !== 'function') {
       return false
     }
     
     if (Array.isArray(event)) {
       event.forEach(e => {
-        this.addEventListenser(e, callback)
+        this.addEventListener(e, callback)
       })
       return this
     }
@@ -7909,6 +7927,20 @@ __webpack_require__.r(__webpack_exports__);
     this.panelData.filter = filter
   }
   
+  AnnotationPanel.methods.findType = function (type) {
+    if (!this.panelData.filter) {
+      this.panelData.filter = {}
+    }
+    this.panelData.filter.type = type
+  }
+  
+  AnnotationPanel.methods.findUser = function (user) {
+    if (!this.panelData.filter) {
+      this.panelData.filter = {}
+    }
+    this.panelData.filter.user = user
+  }
+  
   AnnotationPanel.methods.setHooks = function (hooks) {
     this.panelData.hooks = hooks
   }
@@ -7923,7 +7955,8 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   AnnotationPanel.methods.triggerHook = async function (type) {
-    if (typeof(this.panelData.hooks[type]) === 'function') {
+    if (this.panelData.hooks 
+            && typeof(this.panelData.hooks[type]) === 'function') {
       await this.panelData.hooks[type](this.panelData.annotation)
       delete this.panelData.hooks[type]
     }

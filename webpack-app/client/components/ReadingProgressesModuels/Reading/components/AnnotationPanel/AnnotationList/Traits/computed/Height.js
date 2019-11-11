@@ -1,5 +1,9 @@
 export default (List) => {
   List.computed.editorHeightPX = function () {
+    if (!this.panelData) {
+      return
+    }
+    
     let summeryHeight = 50
 
     if (this.annotations.length < 2) {
@@ -11,6 +15,10 @@ export default (List) => {
   }
 
   List.computed.computedListStyle = function () {
+    if (!this.panelData) {
+      return
+    }
+    
     let style = {
       'max-height': `${this.editorHeightPX - 50}px`
     }

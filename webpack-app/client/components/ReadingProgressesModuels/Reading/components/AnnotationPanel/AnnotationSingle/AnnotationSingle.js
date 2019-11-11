@@ -75,11 +75,11 @@ let AnnotationEditorModules = {
         if (this.annotation !== null 
                 && typeof(this.annotation) === 'object') {
           setTimeout(() => {
-            this.RangyManager.hoverIn(this.annotation, true)
+            this.lib.RangyManager.hoverIn(this.annotation, true)
           }, 100)
         }
         else {
-          this.RangyManager.hoverOut(true)
+          this.lib.RangyManager.hoverOut(true)
         }
       }
     },
@@ -94,14 +94,14 @@ let AnnotationEditorModules = {
         return false
       }
       
-      this.rangy.removeMyHighlights()
+      this.lib.RangyManager.removeMyHighlights()
       //throw '等等'
       
       let data = {}
       let result = await this.lib.AxiosHelper.get('/client/Annotation/highlightsMy', data)
       //console.log(result)
       if (result !== 0) {
-        this.rangy.deserializeAppend(result)
+        this.lib.RangyManager.deserializeAppend(result)
       }
     },
     onAdd: async function () {
