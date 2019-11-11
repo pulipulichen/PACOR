@@ -7,7 +7,11 @@ let SectionManager = {
     this.$i18n.locale = this.config.locale
     return {
       sectionNodes: [],
-      sectionsData: null,
+      sectionsData: {
+        checklist: [],
+        checklistAnnotation: [],
+        annotation: []
+      },
       //sectionData: []
     }
   },

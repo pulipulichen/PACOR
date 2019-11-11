@@ -1,6 +1,6 @@
 export default (RangyManager) => {
     
-  RangyManager.methods.addEventListenser = function (event, callback) {
+  RangyManager.methods.addEventListener = function (event, callback) {
     if (typeof(callback) !== 'function') {
       return false
     }

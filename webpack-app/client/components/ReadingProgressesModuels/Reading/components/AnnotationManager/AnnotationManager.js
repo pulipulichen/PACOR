@@ -85,52 +85,27 @@ let AnnotationManager = {
 //    }
   },
   watch: {
-//    "highlightPos": function (highlightPos) {
-//      if (highlightPos !== null) {
-//        console.log(highlightPos)
-//      }
-//      else {
-//        console.log('cancel highlight')
-//      }
-//    }
+    'lib.RangyManager' (rangy) {
+      if (!rangy) {
+        return false
+      }
+      
+      this.loadHighlights()
+    }
   },
-  mounted () {
-    this.initRangyEvent()    
-    
-    // 最後讀取
-    this.loadHighlights()
-    
-    //console.log(this.$refs.RangyManager)
-    //this._testPanel()
-    //this.searchInArticle('天')
-    
-    //this.lib.rangy = this.$refs.RangyManager
-    
-  },
+//  mounted () {  
+//    
+//    // 最後讀取
+//    this.loadHighlights()
+//    
+//    //console.log(this.$refs.RangyManager)
+//    //this._testPanel()
+//    //this.searchInArticle('天')
+//    
+//    //this.lib.rangy = this.$refs.RangyManager
+//    
+//  },
   methods: {
-    initRangyEvent () {
-      let rangy = this.lib.RangyManager
-      
-//      rangy.addEventListener('select', (data) => {
-//        this.onselect(data)
-//      })
-//      
-//      rangy.addEventListener('selectcollapsed', (data) => {
-//        this.onselectcollapsed(data)
-//      })
-      
-      rangy.addEventListener('highlightClick', (data) => {
-        this.toggleHighlightPos(data)
-      })
-      
-      rangy.addEventListener('highlightMouseover', (data) => {
-        this.onHighlightPosMouseover(data)
-      })
-      
-      rangy.addEventListener('highlightMouseout', (data) => {
-        this.onHighlightPosMouseout(data)
-      })
-    },
 //    _testPanel () {
 //      this.annotationModule = 'Confused'
 //      this.$refs.AnnotationPanel.show()
@@ -140,13 +115,11 @@ let AnnotationManager = {
       if (typeof(this.afterTime) === 'number') {
         data.afterTime = this.afterTime
       }
-      
-      let annotationInitURL = this.highlightURL
-      let result = await this.lib.AxiosHelper.get(annotationInitURL, data)
+      let result = await this.lib.AxiosHelper.get(this.highlightsURL, data)
       //console.log(result)
       this.afterTime = (new Date()).getTime()
       if (result !== 0) {
-        this.$refs.RangyManager.deserializeAppend(result)
+        this.lib.RangyManager.deserializeAppend(result)
       }
       this.isLoaded = true
       //$('[data-pacor-highlight]:first').click() // for test

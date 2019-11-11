@@ -3,7 +3,7 @@
 import data from './Traits/data.js'
 
 let RangyManager = {
-  props: ['lib', 'status', 'rangyConfig'],
+  props: ['lib', 'status'],
   data() {
     //console.log(this.status)
     //this.$i18n.locale = this.config.locale

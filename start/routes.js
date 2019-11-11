@@ -111,6 +111,10 @@ Route.any('/client/Annotation/:action', (options) => {
   return controllerMapping(options, 'client', 'Annotation')
 }).middleware(['user', 'webpage'])
 
+Route.any('/client/Section/:action', (options) => {
+  return controllerMapping(options, 'client', 'Section')
+}).middleware(['user', 'webpage'])
+
 Route.any('/client/ReadingProgress/:action', (options) => {
   return controllerMapping(options, 'client', 'ReadingProgress')
 }).middleware(['user', 'webpage'])

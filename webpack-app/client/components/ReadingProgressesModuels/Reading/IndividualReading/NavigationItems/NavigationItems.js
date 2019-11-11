@@ -1,5 +1,5 @@
 import CompactNavigation from './../../components/CompactNavigation/CompactNavigation.vue'
-import SearchInput from './../../components/CompactNavigation/SearchInput/SearchInput.vue'
+import SearchManager from './../../components/SearchManager/SearchManager.vue'
 
 let NavigationItems = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
@@ -10,7 +10,7 @@ let NavigationItems = {
   },
   components: {
     'compact-navigation': CompactNavigation,
-    'search-input': SearchInput
+    'search-manager': SearchManager
   }
 //  
 //  computed: {

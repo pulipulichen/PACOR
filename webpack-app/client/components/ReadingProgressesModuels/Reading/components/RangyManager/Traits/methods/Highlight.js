@@ -26,6 +26,14 @@ export default (RangyManager) => {
           //event.stopPropagation()
           //event.preventDefault()
         },
+        ontouch: function (event) {
+          let pos = vm._getAnchorPositionFromElement(this, event)
+          //console.log(pos)
+          //vm.$emit('highlightClick', pos)
+          this.triggerEvent('highlightClick', pos)
+          //event.stopPropagation()
+          //event.preventDefault()
+        },
         onmouseover: function (event) {
           let data = vm._getAnchorPositionFromElement(this, event)
           //vm.$emit('highlightMouseover', data)

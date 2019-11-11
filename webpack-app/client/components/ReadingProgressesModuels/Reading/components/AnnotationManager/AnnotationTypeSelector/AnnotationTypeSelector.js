@@ -30,6 +30,24 @@ let AnnotationTypeSelector = {
       //  console.trace(this.selection)
       //}
       //fab.onOffFab((this.selection !== null))
+    },
+    'lib.RangyManager' (rangy) {
+      if (!rangy) {
+        return false
+      }
+      
+      rangy.addEventListener('select', (data) => {
+        // 如果AnnotationPanel已經顯示，則不動作
+        if (this.lib.AnnotationPanel.isHide === false) {
+          return false
+        }
+        
+        this.selection = data
+      })
+      
+      rangy.addEventListener('selectcollapsed', (data) => {
+        this.selection = null
+      })
     }
   },
   computed: {
@@ -74,27 +92,11 @@ let AnnotationTypeSelector = {
             && this.selection.highlights.length > 0)
     }
   },
-  mounted() {
-    //console.log(this.status.preference.leftHanded)
-    this.initRangyEvent()
-  },
+//  mounted() {
+//    //console.log(this.status.preference.leftHanded)
+//    this.initRangyEvent()
+//  },
   methods: {
-    initRangyEvents () {
-      let rangy = this.lib.RangyManager
-      
-      rangy.addEventListener('select', (data) => {
-        // 如果AnnotationPanel已經顯示，則不動作
-        if (this.lib.AnnotationPanel.isHide === false) {
-          return false
-        }
-        
-        this.selection = data
-      })
-      
-      rangy.addEventListener('selectcollapsed', (data) => {
-        this.selection = null
-      })
-    },
     addAnnotation: function (type) {
       //console.log('clickItem', type)
       //this.$emit('selectAnnotation', type)

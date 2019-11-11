@@ -12,12 +12,12 @@ let Editor = {
     
     this.$i18n.locale = this.config.locale
     
-    let note = this.lib.rangy.getPinSelectionAnchorText()
+    let note = this.lib.RangyManager.getPinSelectionAnchorText()
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotation
-            && Array.isArray(this.annotationInstance.notes)
-            && this.annotationInstance.notes.length > 0) {
-      note = this.annotationInstance.notes[0].note
+            && Array.isArray(this.annotation.notes)
+            && this.annotation.notes.length > 0) {
+      note = this.annotation.notes[0].note
     }
     //console.log(note)
     
@@ -126,7 +126,7 @@ let Editor = {
         return false  // 新增失敗
       }
       
-      this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
+      this.lib.RangyManager.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
       this.$refs.editor.reset()
       
       this.$emit('add')

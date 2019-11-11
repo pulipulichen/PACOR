@@ -173,8 +173,9 @@ export default (RangyManager) => {
     
     this.rectHighlighter.deserialize(highlightString)
     
-    console.log('@TODO 這裡可能有錯')
-    let range = this.rectHighlighter.highlights[0].getRangeAt(0).cloneRange()
+    //window.rl = this.rectHighlighter
+    //console.log('@TODO 這裡可能有錯')
+    let range = this.rectHighlighter.highlights[0].getRange()
     let rect = range.getBoundingDocumentRect()
     
     this.rectHighlighter.removeAllHighlights()

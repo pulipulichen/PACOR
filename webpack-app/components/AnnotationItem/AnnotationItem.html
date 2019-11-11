@@ -40,11 +40,12 @@
       </div>
     </div>
 
-    <annotation-module-button 
+    <annotation-type-button 
       v-bind:status="status"
-      v-bind:annotationModule="annotation.type"
+      v-bind:type="annotation.type"
       v-bind:clickable="(typeof(findType) === 'function')"
-      v-on:find="(type) => {onFindType(type)}"></annotation-module-button>
+      v-on:find="(type) => {onFindType(type)}">
+    </annotation-type-button>
 
     <div class="note text-container" v-if="note" v-html="note"></div>
   </div>

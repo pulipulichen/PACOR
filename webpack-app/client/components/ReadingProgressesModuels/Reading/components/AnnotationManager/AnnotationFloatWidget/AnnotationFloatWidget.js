@@ -49,19 +49,11 @@ let AnnotationFloatWidget = {
   watch: {
     anchorPositions () {
       this.load()
-    }
-  },
-  mounted() {
-    this.initRangyEvents()
-    
-    //this.load()
-  },
-  destroyed () {
-    this.lib.rangy.hoverOut()
-  },
-  methods: {
-    initRangyEvents () {
-      let rangy = this.lib.RangyManager
+    },
+    'lib.RangyManager' (rangy) {
+      if (!rangy) {
+        return false
+      }
       
       let useMouse = false
       
@@ -93,8 +85,23 @@ let AnnotationFloatWidget = {
         this.anchorPositions = null
         useMouse = false
       })
-    },
-    
+    }
+  },
+//  mounted() {
+//    this.initRangyEvents()
+//    
+//    //this.load()
+//  },
+  destroyed () {
+    this.lib.rangy.hoverOut()
+  },
+  methods: {
+//    initRangyEvents () {
+//      let rangy = this.lib.RangyManager
+//      
+//      
+//    },
+//    
     load: async function () {
       if (!this.anchorPositions) {
         return false

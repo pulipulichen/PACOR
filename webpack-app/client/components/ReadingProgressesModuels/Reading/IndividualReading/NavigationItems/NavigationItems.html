@@ -1,10 +1,11 @@
 <fragment>
-  <compact-navigation ref="nav" 
-              v-bind:config="config"
-              v-bind:status="status"
-              v-bind:lib="lib"
-              compactWidth="400"
-              position="bottom">
+  <compact-navigation 
+    ref="nav" 
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+    compactWidth="400"
+    position="bottom">
     <template v-slot:header>
       <a class="item avatar in-top">
         <img v-bind:src="status.avatar">
@@ -13,10 +14,10 @@
         </div>
       </a>
     </template>
-    
+
 
     <!-- ========================= -->
-    
+
     <template v-slot:items>
 
       <!-- for test -->
@@ -24,15 +25,15 @@
          v-on:click="lib.auth.nextStep">
         Next Step (for test)
       </a>
-      
+
       <div class="item">
-        <search-input v-bind:status="status"
-                      v-bind:lib="lib"
-                      v-on:search="(keyword) => {$emit('search', keyword)}"
-                      v-on:input="(keyword) => {$emit('input', keyword)}"></search-input>
+        <search-manager 
+          v-bind:status="status"
+          v-bind:lib="lib">
+        </search-manager>
       </div>
 
     </template>
-    
+
   </compact-navigation>
 </fragment>
