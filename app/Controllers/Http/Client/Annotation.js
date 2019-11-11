@@ -276,42 +276,42 @@ class Annotation extends WebpageUserBaseController {
     return 1
   }
   
-  async init ({request, webpage, user}) {
-    let query = request.all()
-    
-    let highlights
-    //let sections
-    
-    let enableCollaborative = await user.isEnableCollaboration(webpage)
-    
-    let cacheKey = Cache.key('init', enableCollaborative, query)
-    return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
-
-      if (enableCollaborative === true) {
-        let hasAfterTime = (typeof (query.afterTime) === 'number')
-        if (hasAfterTime === false) {
-          highlights = await AnnotationModel.getHighlightsByWebpageGroup(webpage, user, query)
-        } else {
-          highlights = await AnnotationModel.getOthersHighlightsByWebpageGroup(webpage, user, query)
-        }
-      } else {
-        highlights = await AnnotationModel.getMyHighlightsByWebpageGroup(webpage, user, query)
-      }
-      
-      // ------------------------------
-
-      let sectionsChecklist = await user.getSectionsChecklist(webpage, query)
-      let sectionsAnnotation = await AnnotationModel.buildSectionsAnnotationSummary(webpage, user, query)
-      
-      return {
-        highlights,
-        sections: {
-          checklist: sectionsChecklist,
-          annotation: sectionsAnnotation
-        }
-      }
-    })  // return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
-  }
+//  async init ({request, webpage, user}) {
+//    let query = request.all()
+//    
+//    let highlights
+//    //let sections
+//    
+//    let enableCollaborative = await user.isEnableCollaboration(webpage)
+//    
+//    let cacheKey = Cache.key('init', enableCollaborative, query)
+//    return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
+//
+//      if (enableCollaborative === true) {
+//        let hasAfterTime = (typeof (query.afterTime) === 'number')
+//        if (hasAfterTime === false) {
+//          highlights = await AnnotationModel.getHighlightsByWebpageGroup(webpage, user, query)
+//        } else {
+//          highlights = await AnnotationModel.getOthersHighlightsByWebpageGroup(webpage, user, query)
+//        }
+//      } else {
+//        highlights = await AnnotationModel.getMyHighlightsByWebpageGroup(webpage, user, query)
+//      }
+//      
+//      // ------------------------------
+//
+//      let sectionsChecklist = await user.getSectionsChecklist(webpage, query)
+//      let sectionsAnnotation = await AnnotationModel.buildSectionsAnnotationSummary(webpage, user, query)
+//      
+//      return {
+//        highlights,
+//        sections: {
+//          checklist: sectionsChecklist,
+//          annotation: sectionsAnnotation
+//        }
+//      }
+//    })  // return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
+//  }
   
   async sectionsAnnotation ({request, webpage, user}) {
     let query = request.all()

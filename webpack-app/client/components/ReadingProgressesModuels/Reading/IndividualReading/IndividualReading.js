@@ -15,8 +15,10 @@ let IndividualReading = {
   components: {
     //'navigation-items': () => import(/* webpackChunkName: "client-components/IndividualReading" */ './NavigationItems/NavigationItems.vue'),
     'navigation-items': NavigationItems,
-    'rangy': () => import(/* webpackChunkName: "client-components/RangyManager" */ './../components/RangyManager/RangyManager.vue'),
-    'annotation-manager': () => import(/* webpackChunkName: "client-components/AnnotationManager" */ './../components/AnnotationManager/AnnotationManager.vue'),
+    'rangy': () => import(/* webpackChunkName: "client-components/components" */ './../components/RangyManager/RangyManager.vue'),
+    'annotation-panel': () => import(/* webpackChunkName: "client-components/components" */ './../components/AnnotationPanel/AnnotationPanel.vue'),
+    'annotation-manager': () => import(/* webpackChunkName: "client-components/components" */ './../components/AnnotationManager/AnnotationManager.vue'),
+    'section-manager': () => import(/* webpackChunkName: "client-components/components" */ './../components/SectionManager/SectionManager.vue'),
   },
   computed: {
   },

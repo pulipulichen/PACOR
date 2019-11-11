@@ -1,6 +1,6 @@
 <fragment>
   <!-- 共用元件 -->
-  
+
   <!--
   整理好再移除這一段
   <rangy v-bind:status="status"
@@ -13,11 +13,13 @@
          v-on:highlightMouseout="onHighlightPosMouseout"
          ref="RangyManager"></rangy>
   -->
-  <rangy v-bind:status="status"
-         v-bind:lib="lib"
-         v-bind:stepData="stepData"
-         ref="RangyManager"></rangy>
-  
+  <rangy 
+    v-bind:status="status"
+    v-bind:lib="lib"
+    
+    ref="RangyManager">
+  </rangy>
+
   <!--
   <annotation-panel v-bind:config="config"
         v-bind:status="status"
@@ -34,30 +36,45 @@
         ref="AnnotationPanel"
         v-if="isInited"></annotation-panel>
   -->
-  
-  <annotation-panel v-bind:config="config"
-        v-bind:status="status"
-        v-bind:lib="lib"
-        v-bind:stepData="stepData"
-        ref="AnnotationPanel"></annotation-panel>
-  
+
+  <annotation-panel 
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+    
+    ref="AnnotationPanel">
+  </annotation-panel>
+
   <!-- 邏輯控制 -->
+
+  <navigation-items 
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+    ref="nav">
+  </navigation-items>
+
+  <annotation-manager 
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+    
+    ref="AnnotationManager">
+  </annotation-manager>
   
-  <navigation-items v-bind:config="config"
-                v-bind:status="status"
-                v-bind:progress="progress"
-                v-bind:lib="lib"
-                ref="nav"></navigation-items>
-  
-  <annotation-manager v-bind:config="config"
-        v-bind:status="status"
-        v-bind:progress="progress"
-        v-bind:lib="lib"
-        ref="AnnotationManager"></annotation-manager>
-  
+  <section-manager 
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+    
+    ref="SectionManager">
+  </section-manager>
+
   <!-- <block-exit></block-exit> -->
-  <activity-timer v-bind:config="config"
-        v-bind:lib="lib"></activity-timer>
-  
-  
+  <activity-timer 
+    v-bind:config="config"
+    v-bind:lib="lib">
+  </activity-timer>
+
+
 </fragment>
