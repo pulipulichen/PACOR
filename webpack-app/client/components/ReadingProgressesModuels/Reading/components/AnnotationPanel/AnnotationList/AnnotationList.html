@@ -1,4 +1,16 @@
-<div class="AnnotationList">
+<fragment>
+  
+  <main-list v-if="!isFiltering"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"></main-list>
+  
+  <filtered-list v-if="isFiltering"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"></filtered-list>
+  
+  <!-- ================================================= -->
   
   <template v-if="annotations.length > 1">
     
@@ -144,4 +156,4 @@
           v-bind:rangy="rangy"></annotation-editor-modules>
   </div>
   
-</div>
+</fragment>

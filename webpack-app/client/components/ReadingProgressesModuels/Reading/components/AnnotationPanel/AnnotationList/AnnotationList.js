@@ -1,7 +1,7 @@
 //import AnnotationSingle from './../AnnotationSingle/AnnotationSingle.vue'
 
 import MainList from './MainList/MainList.vue'
-import SearchList from './SearchList/SearchList.vue'
+import FilteredList from './FilteredList/FilteredList.vue'
 
 let AnnotationList = {
   props: ['lib', 'status', 'config'
@@ -13,33 +13,40 @@ let AnnotationList = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      
-      
-      filteredAnnotations: [],
-      filteredAnnotationCount: 0,
-      filteredUsers: [],
-      filteredUserCount: 0,
-      filteredTypes: [],
-      filteredPage: 0,
-      filteredNoMore: false,
-      
-      annotationInstance: this.findAnnotation,
-      findUser: this.propFindUser,
-      findType: this.propFindType,
-      
-      hoverAnnotation: null
+//      filteredAnnotations: [],
+//      filteredAnnotationCount: 0,
+//      filteredUsers: [],
+//      filteredUserCount: 0,
+//      filteredTypes: [],
+//      filteredPage: 0,
+//      filteredNoMore: false,
+//      
+//      annotationInstance: this.findAnnotation,
+//      findUser: this.propFindUser,
+//      findType: this.propFindType,
+//      
+//      hoverAnnotation: null
     }
   },
   components: {
     //'annotation-single': AnnotationSingle,
     'main-list': MainList,
-    'search-list': SearchList
+    'filtered-list': FilteredList
   },
   computed: {
-    
     isFiltering () {
-      return (this.findUser !== null || this.findType !== null)
+      if (this.panelData.query !== null) {
+        let q = this.panelData.query
+        return (typeof(q.user_id) !== 'undefined'
+                || typeof(q.type) !== 'undefined'
+                || typeof(q.keyword) !== 'undefined')
+      }
+      return false
     },
+    
+//    isFiltering () {
+//      return (this.findUser !== null || this.findType !== null)
+//    },
     findUserID () {
       if (this.findUser !== null) {
         return this.findUser.id
@@ -47,41 +54,41 @@ let AnnotationList = {
     }
   },
   watch: {
-    'propFindUser' (propFindUser) {
-      this.findUser = propFindUser
-    },
-    'propFindType' (propFindType) {
-      this.findType = propFindType
-    },
-    'listPositions' () {
-      this.page = 0
-      this.noMore = false
-      this.annotationInstance = this.findAnnotation
-      this.loadInit()
-    },
-    'findAnnotation' (findAnnotation) {
-      this.annotationInstance = findAnnotation
-    },
-    'findUser' () {
-      this.filterPage = 0
-      this.filterNoMore = false
-      this.loadFilter()
-    },
-    'findType' () {
-      this.filterPage = 0
-      this.filterNoMore = false
-      this.loadFilter()
-    },
-    'page' (page) {
-      if (page > 0) {
-        this.loadInitNext()
-      }
-    },
-    'filteredPage' (page) {
-      if (page > 0) {
-        this.loadFilterNext()
-      }
-    },
+//    'propFindUser' (propFindUser) {
+//      this.findUser = propFindUser
+//    },
+//    'propFindType' (propFindType) {
+//      this.findType = propFindType
+//    },
+//    'listPositions' () {
+//      this.page = 0
+//      this.noMore = false
+//      this.annotationInstance = this.findAnnotation
+//      this.loadInit()
+//    },
+//    'findAnnotation' (findAnnotation) {
+//      this.annotationInstance = findAnnotation
+//    },
+//    'findUser' () {
+//      this.filterPage = 0
+//      this.filterNoMore = false
+//      this.loadFilter()
+//    },
+//    'findType' () {
+//      this.filterPage = 0
+//      this.filterNoMore = false
+//      this.loadFilter()
+//    },
+//    'page' (page) {
+//      if (page > 0) {
+//        this.loadInitNext()
+//      }
+//    },
+//    'filteredPage' (page) {
+//      if (page > 0) {
+//        this.loadFilterNext()
+//      }
+//    },
     'hoverAnnotation' (annotation) {
       if (annotation !== null) {
         this.rangy.hoverIn(annotation)

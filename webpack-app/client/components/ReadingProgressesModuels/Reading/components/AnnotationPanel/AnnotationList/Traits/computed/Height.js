@@ -10,7 +10,7 @@ export default (List) => {
     return this.panelData.heightPX - summeryHeight
   }
 
-  List.computed.computedListStyle () {
+  List.computed.computedListStyle = function () {
     let style = {
       'max-height': `${this.editorHeightPX - 50}px`
     }
