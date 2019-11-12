@@ -1670,7 +1670,7 @@ var render = function() {
                   _vm.annotation.id
                     ? [
                         _c(
-                          "countdown-button",
+                          "validation-button",
                           {
                             attrs: {
                               lib: _vm.lib,
@@ -1710,7 +1710,7 @@ var render = function() {
                       ]
                     : [
                         _c(
-                          "countdown-button",
+                          "validation-button",
                           {
                             attrs: {
                               lib: _vm.lib,
@@ -1805,7 +1805,7 @@ var render = function() {
                   _vm.annotation.id
                     ? [
                         _c(
-                          "countdown-button",
+                          "validation-button",
                           {
                             attrs: {
                               lib: _vm.lib,
@@ -1845,7 +1845,7 @@ var render = function() {
                       ]
                     : [
                         _c(
-                          "countdown-button",
+                          "validation-button",
                           {
                             attrs: {
                               lib: _vm.lib,
@@ -2280,6 +2280,19 @@ var render = function() {
   return _c(
     "fragment",
     [
+      _c(
+        "validation-button",
+        {
+          attrs: {
+            lib: _vm.lib,
+            text: "aaaa",
+            minWordCount: 1,
+            locale: _vm.status.preference.locale
+          }
+        },
+        [_vm._v("\r\n      " + _vm._s(_vm.$t("EDIT")) + "  \r\n    ")]
+      ),
+      _vm._v(" "),
       _vm._l(_vm.sectionNodes, function(node, index) {
         return [
           _c("section-panel", {
@@ -6221,10 +6234,12 @@ let Editor = {
 //      return (this.annotationConfig.defaultPermission === 'public')
 //    },
     isNoteDifferent () {
+      //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
       return (this.note !== this.noteReset)
     },
     
     isEnableSubmitAdd () {
+      //console.log(this.isNoteDifferent )
       if (this.isNoteDifferent 
               && typeof(this.note) === 'string'
               && this.note !== '') {
@@ -6233,7 +6248,7 @@ let Editor = {
       return false
     },
     isEnableSubmitEdit () {
-      return this.enableAddAnnotation
+      return this.isEnableSubmitAdd
     },
     
     editorHeight () {
@@ -6283,8 +6298,9 @@ let Editor = {
       }
     }
   },
-//  mounted() {
-//  },
+  mounted() {
+    console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
+  },
   methods: {
     addAnnotation: async function () {
       
@@ -6323,6 +6339,8 @@ let Editor = {
           'default': this.note
         }
       }
+      throw 'Test'
+      return 
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
       
@@ -6330,7 +6348,7 @@ let Editor = {
         throw this.$t('Update failed.')
       }
       
-      console.log('AAA?')
+      //console.log('AAA?')
       
       this.$emit('update')
     },
@@ -6427,10 +6445,12 @@ let Editor = {
 //      return (this.annotationConfig.defaultPermission === 'public')
 //    },
     isNoteDifferent () {
+      //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
       return (this.note !== this.noteReset)
     },
     
     isEnableSubmitAdd () {
+      //console.log(this.isNoteDifferent )
       if (this.isNoteDifferent 
               && typeof(this.note) === 'string'
               && this.note !== '') {
@@ -6439,7 +6459,7 @@ let Editor = {
       return false
     },
     isEnableSubmitEdit () {
-      return this.enableAddAnnotation
+      return this.isEnableSubmitAdd
     },
     
     editorHeight () {
@@ -6489,8 +6509,9 @@ let Editor = {
       }
     }
   },
-//  mounted() {
-//  },
+  mounted() {
+    console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
+  },
   methods: {
     addAnnotation: async function () {
       
@@ -6529,6 +6550,8 @@ let Editor = {
           'default': this.note
         }
       }
+      throw 'Test'
+      return 
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
       
@@ -6536,7 +6559,7 @@ let Editor = {
         throw this.$t('Update failed.')
       }
       
-      console.log('AAA?')
+      //console.log('AAA?')
       
       this.$emit('update')
     },

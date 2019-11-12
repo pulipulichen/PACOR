@@ -93,6 +93,7 @@
     "v-slot:content": {},
     "v-bind:panelData": {},
     "v-bind:config": {},
+    "v-else-if": {},
     "v-on:touchstart": {},
     "v-on:mouseout": {},
     "v-slot:header": {},

@@ -25,8 +25,7 @@
       </checkbox-toggle>
 
       <template v-if="annotation.id">
-        
-        <countdown-button 
+        <validation-button 
           v-bind:lib="lib"
           
           v-bind:text="note"
@@ -36,7 +35,7 @@
           
           v-on:click="editAnnotation">
           {{ $t('EDIT') }}  
-        </countdown-button>
+        </validation-button>
         
         <button 
           v-if="enableDelete"
@@ -48,7 +47,7 @@
       </template>
       
       <template v-else>
-        <countdown-button 
+        <validation-button 
           v-bind:lib="lib"
           
           v-bind:minWordCount="minWords"
@@ -59,7 +58,7 @@
           
           v-on:click="addAnnotation">
           {{ $t('ADD') }}  
-        </countdown-button>
+        </validation-button>
       </template>
       
     </div>

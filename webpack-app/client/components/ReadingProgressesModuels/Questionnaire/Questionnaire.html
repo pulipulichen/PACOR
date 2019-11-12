@@ -37,7 +37,7 @@
             <i class="angle right icon"></i>
         </div>
         -->
-        <countdown-button v-bind:minWordCount="minWords"
+        <validation-button v-bind:minWordCount="minWords"
           enableClassNames="ui green right labeled icon button"
           v-bind:text="answer"
           v-bind:lib="lib"
@@ -47,7 +47,7 @@
           v-on:click="nextStep">
             {{ $t('NEXT') }}
             <i class="angle right icon"></i>
-        </countdown-button>
+        </validation-button>
       </template>
   </modal>
   

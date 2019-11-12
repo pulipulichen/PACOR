@@ -32,8 +32,11 @@ Vue.component('HTMLEditor', () => import(/* webpackChunkName: "vendors/HTMLEdito
 import CheckboxToggle from './../components/CheckboxToggle/CheckboxToggle.vue'
 Vue.component('checkbox-toggle', CheckboxToggle)
 
-import CountdownButton from './../components/CountdownButton/CountdownButton.vue'
-Vue.component('countdown-button', CountdownButton)
+//import CountdownButton from './../components/CountdownButton/CountdownButton.vue'
+//Vue.component('countdown-button', CountdownButton)
+
+import ValidationButton from './../components/ValidationButton/ValidationButton.vue'
+Vue.component('validation-button', ValidationButton)
 
 import UserAvatarIcons from './../components/UserAvatarIcons/UserAvatarIcons.vue'
 Vue.component('user-avatar-icons', UserAvatarIcons)

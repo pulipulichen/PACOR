@@ -1,0 +1,19 @@
+<button type="button"
+        class="ui button ValidationButton"
+        v-bind:class="computedClassName"
+        v-on:click="onclick">
+  
+  <div class="ui active mini inline loader"></div>
+  
+  <div class="message">
+    <template v-if="isEnable">
+      <slot></slot>
+    </template>
+    <template v-else-if="!enable">
+      <slot></slot>
+    </template>
+    <template v-else>
+      ({{ disabledMessage }})
+    </template>
+  </div>
+</button>

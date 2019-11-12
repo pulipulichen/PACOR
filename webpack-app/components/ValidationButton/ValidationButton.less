@@ -1,0 +1,25 @@
+.non-invasive-web-style-framework .ValidationButton {
+  overflow-y: hidden;
+  max-height: 2.5em;
+  
+  .loader {
+    display: none !important;
+  }
+  
+  &.await.ui.button.disabled {
+    overflow-y: hidden;
+    max-height: 2.5em;
+    
+    pointer-events: all !important;
+    cursor: wait !important;
+
+    
+    .loader {
+      display: inline-block !important;
+    }
+    .message {
+      margin-top: 50px;
+    }
+  }
+}
+  

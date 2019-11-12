@@ -142,7 +142,7 @@ var render = function() {
             fn: function() {
               return [
                 _c(
-                  "countdown-button",
+                  "validation-button",
                   {
                     attrs: {
                       minWordCount: _vm.minWords,
@@ -267,7 +267,7 @@ var render = function() {
             fn: function() {
               return [
                 _c(
-                  "countdown-button",
+                  "validation-button",
                   {
                     attrs: {
                       minWordCount: _vm.minWords,

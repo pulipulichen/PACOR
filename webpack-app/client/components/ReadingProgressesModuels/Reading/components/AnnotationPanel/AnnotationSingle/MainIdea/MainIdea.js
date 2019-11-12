@@ -40,10 +40,12 @@ let Editor = {
 //      return (this.annotationConfig.defaultPermission === 'public')
 //    },
     isNoteDifferent () {
+      //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
       return (this.note !== this.noteReset)
     },
     
     isEnableSubmitAdd () {
+      //console.log(this.isNoteDifferent )
       if (this.isNoteDifferent 
               && typeof(this.note) === 'string'
               && this.note !== '') {
@@ -52,7 +54,7 @@ let Editor = {
       return false
     },
     isEnableSubmitEdit () {
-      return this.enableAddAnnotation
+      return this.isEnableSubmitAdd
     },
     
     editorHeight () {
@@ -102,8 +104,9 @@ let Editor = {
       }
     }
   },
-//  mounted() {
-//  },
+  mounted() {
+    console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
+  },
   methods: {
     addAnnotation: async function () {
       
@@ -142,6 +145,8 @@ let Editor = {
           'default': this.note
         }
       }
+      throw 'Test'
+      return 
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
       
@@ -149,7 +154,7 @@ let Editor = {
         throw this.$t('Update failed.')
       }
       
-      console.log('AAA?')
+      //console.log('AAA?')
       
       this.$emit('update')
     },
