@@ -65,7 +65,7 @@ let Editor = {
         height = (vm.lib.style.getClientHeight() / 2)
         height = `calc(${height}px - 9em)`
       } else {
-        height = `calc(${this.panelData.heightPX}px - 9em)`
+        height = `calc(${this.heightPX}px - 9em)`
       }
       
       //console.log(height, this.panelData.heightPX)

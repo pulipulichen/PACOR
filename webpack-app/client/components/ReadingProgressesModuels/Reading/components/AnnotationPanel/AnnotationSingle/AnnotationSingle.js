@@ -11,7 +11,7 @@ let AnnotationEditorModules = {
   props: ['lib', 'status', 'config'
     //, 'annotationModule', 'pinSelection', 'annotationInstance'
     //, 'rangy', 'heightPX', 'sectionsData'
-    , 'panelData', 'annotation'
+    , 'panelData', 'annotation', 'heightPX'
   ],
   data() {
     //this.$i18n.locale = this.config.locale
@@ -51,6 +51,9 @@ let AnnotationEditorModules = {
         return this.annotation.type
       }
     },
+    componentHeightPX () {
+      return this.heightPX - 70
+    }
 //    isAdding () {
 //      return (this.annotation
 //              && typeof(this.annotation.id) === 'number' )

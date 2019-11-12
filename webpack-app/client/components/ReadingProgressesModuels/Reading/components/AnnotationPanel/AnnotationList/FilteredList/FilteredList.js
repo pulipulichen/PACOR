@@ -87,9 +87,24 @@ let List = {
     isActive () {
       //console.log(this.hasFilter)
       return (this.hasFilter !== null)
+    },
+    editorHeightPX () {
+      if (!this.panelData) {
+        return null
+      }
+
+      let summeryHeight = 0
+      console.log([this.panelData.heightPX, summeryHeight])
+
+      return this.panelData.heightPX - summeryHeight
     }
   },
 //  watch: {
+//    annotations (annotations) {
+//      if (annotations.length === 1) {
+//        this.annotation = annotations[0]
+//      }
+//    }
 //  },
   mounted() {
     this.initEventListener()

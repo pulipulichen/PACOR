@@ -4,4 +4,4 @@
 //    , 'rangy', 'editable', 'sectionsData']
 
 export default ['lib', 'status', 'config'
-    , 'panelData', 'annotation']
+    , 'panelData', 'annotation', 'heightPX']

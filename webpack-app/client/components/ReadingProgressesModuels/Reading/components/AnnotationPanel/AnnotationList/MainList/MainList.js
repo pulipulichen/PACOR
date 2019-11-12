@@ -36,6 +36,22 @@ let List = {
     },
     isActive () {
       return true
+    },
+    editorHeightPX () {
+      //console.log('aaaa')
+      if (!this.panelData) {
+        return
+      }
+
+      let summeryHeight = 0
+      //console.log(this.annotations.length)
+      if (this.annotations.length < 2) {
+        summeryHeight = -50
+        //console.log('aaa')
+        // 表示不顯示標頭
+      }
+      //console.log(this.panelData.heightPX, summeryHeight)
+      return this.panelData.heightPX - summeryHeight
     }
   },
   watch: {

@@ -283,6 +283,11 @@ let AnnotationList = {
 //      }
 //    }
     scrollTo () {
+      if (!this.panelData.query.anchorPositions) {
+        // 沒有這個參數的話，不捲動
+        return false
+      }
+      
       let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.panelData.query.anchorPositions)
       this.lib.AnnotationPanel.scrollToRect(rect)
       //throw '@TODO'

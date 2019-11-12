@@ -921,30 +921,52 @@ var render = function() {
         "div",
         { staticClass: "summary-information" },
         [
-          _c(
-            "button",
-            {
-              staticClass: "ui mini labeled icon button back-button",
-              attrs: { type: "button" },
-              on: {
-                click: function($event) {
-                  $event.stopPropagation()
-                  return _vm.clearFilter($event)
-                }
-              }
-            },
-            [
-              _c("i", { staticClass: "angle left icon" }),
-              _vm._v(
-                "\r\n        " +
-                  _vm._s(_vm.$t("Back to full list")) +
-                  "\r\n      "
+          _vm.annotation
+            ? _c(
+                "button",
+                {
+                  staticClass: "ui mini labeled icon button back-button",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      $event.stopPropagation()
+                      return (function() {
+                        _vm.annotation = null
+                      })($event)
+                    }
+                  }
+                },
+                [
+                  _c("i", { staticClass: "angle left icon" }),
+                  _vm._v(
+                    "\r\n      " + _vm._s(_vm.$t("Back to list")) + "\r\n    "
+                  )
+                ]
               )
-            ]
-          ),
+            : _c(
+                "button",
+                {
+                  staticClass: "ui mini labeled icon button back-button",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      $event.stopPropagation()
+                      return _vm.clearFilter($event)
+                    }
+                  }
+                },
+                [
+                  _c("i", { staticClass: "angle left icon" }),
+                  _vm._v(
+                    "\r\n      " +
+                      _vm._s(_vm.$t("Back to full list")) +
+                      "\r\n    "
+                  )
+                ]
+              ),
           _vm._v(" "),
           _c("div", { staticClass: "label" }, [
-            _vm._v("\r\n        " + _vm._s(_vm.$t("Finding")) + ":\r\n      ")
+            _vm._v("\r\n      " + _vm._s(_vm.$t("Finding")) + ":\r\n    ")
           ]),
           _vm._v(" "),
           _vm.hasUserFilter
@@ -973,9 +995,9 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "label" }, [
             _vm._v(
-              "\r\n        " +
+              "\r\n      " +
                 _vm._s(_vm.$t("Total {0} Annotations", [_vm.annotationCount])) +
-                "\r\n      "
+                "\r\n    "
             )
           ])
         ],
@@ -1055,7 +1077,8 @@ var render = function() {
               status: _vm.status,
               lib: _vm.lib,
               panelData: _vm.panelData,
-              annotation: _vm.annotation
+              annotation: _vm.annotation,
+              heightPX: _vm.editorHeightPX
             },
             on: { update: _vm.onUpdate, delete: _vm.onDelete }
           })
@@ -1096,6 +1119,32 @@ var render = function() {
               "div",
               { staticClass: "summary-information" },
               [
+                _vm.annotation
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "ui mini labeled icon button back-button",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            $event.stopPropagation()
+                            return (function() {
+                              _vm.annotation = null
+                            })($event)
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "angle left icon" }),
+                        _vm._v(
+                          "\r\n        " +
+                            _vm._s(_vm.$t("Back to list")) +
+                            "\r\n      "
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
                 _c("div", { staticClass: "label" }, [
                   _vm._v(
                     "\r\n        " +
@@ -1206,7 +1255,8 @@ var render = function() {
               status: _vm.status,
               lib: _vm.lib,
               panelData: _vm.panelData,
-              annotation: _vm.annotation
+              annotation: _vm.annotation,
+              heightPX: _vm.editorHeightPX
             },
             on: { update: _vm.onUpdate, delete: _vm.onDelete }
           })
@@ -1281,7 +1331,8 @@ var render = function() {
                     status: _vm.status,
                     lib: _vm.lib,
                     panelData: _vm.panelData,
-                    annotation: _vm.panelData.annotation
+                    annotation: _vm.panelData.annotation,
+                    heightPX: _vm.panelData.heightPX
                   },
                   on: { update: _vm.hide }
                 })
@@ -1375,7 +1426,8 @@ var render = function() {
               status: _vm.status,
               lib: _vm.lib,
               panelData: _vm.panelData,
-              annotation: _vm.annotation
+              annotation: _vm.annotation,
+              heightPX: _vm.componentHeightPX
             },
             on: { add: _vm.onAdd, delete: _vm.onDelete, update: _vm.onUpdate }
           })
@@ -4339,6 +4391,11 @@ let AnnotationList = {
 //      }
 //    }
     scrollTo () {
+      if (!this.panelData.query.anchorPositions) {
+        // 沒有這個參數的話，不捲動
+        return false
+      }
+      
       let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.panelData.query.anchorPositions)
       this.lib.AnnotationPanel.scrollToRect(rect)
       //throw '@TODO'
@@ -4564,9 +4621,24 @@ let List = {
     isActive () {
       //console.log(this.hasFilter)
       return (this.hasFilter !== null)
+    },
+    editorHeightPX () {
+      if (!this.panelData) {
+        return null
+      }
+
+      let summeryHeight = 0
+      console.log([this.panelData.heightPX, summeryHeight])
+
+      return this.panelData.heightPX - summeryHeight
     }
   },
 //  watch: {
+//    annotations (annotations) {
+//      if (annotations.length === 1) {
+//        this.annotation = annotations[0]
+//      }
+//    }
 //  },
   mounted() {
     this.initEventListener()
@@ -4736,6 +4808,22 @@ let List = {
     },
     isActive () {
       return true
+    },
+    editorHeightPX () {
+      //console.log('aaaa')
+      if (!this.panelData) {
+        return
+      }
+
+      let summeryHeight = 0
+      //console.log(this.annotations.length)
+      if (this.annotations.length < 2) {
+        summeryHeight = -50
+        //console.log('aaa')
+        // 表示不顯示標頭
+      }
+      //console.log(this.panelData.heightPX, summeryHeight)
+      return this.panelData.heightPX - summeryHeight
     }
   },
   watch: {
@@ -4915,21 +5003,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((List) => {
-  List.computed.editorHeightPX = function () {
-    if (!this.panelData) {
-      return
-    }
-    
-    let summeryHeight = 50
-
-    if (this.annotations.length < 2) {
-      summeryHeight = 0
-      // 表示不顯示標頭
-    }
-
-    return this.panelData.heightPX - summeryHeight
-  }
-
   List.computed.computedListStyle = function () {
     if (!this.panelData) {
       return
@@ -4966,10 +5039,12 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     this.panelData.filter.user = user
+    this.annotation = null
   }
   
   List.methods.clearFindUser = function () {
     this.panelData.filter.user = null
+    this.annotation = null
   }
 
   List.methods.findType = function (type) {
@@ -4979,10 +5054,12 @@ __webpack_require__.r(__webpack_exports__);
     
     //console.log(type)
     this.panelData.filter.type = type
+    this.annotation = null
   }
   
   List.methods.clearFindType = function () {
     this.panelData.filter.type = null
+    this.annotation = null
   }
   
   List.methods.findKeyword = function (keyword) {
@@ -4991,15 +5068,18 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     this.panelData.filter.keyword = keyword
+    this.annotation = null
   }
   
   List.methods.clearFindKeyword = function () {
     this.panelData.filter.keyword = null
+    this.annotation = null
   }
   
   List.methods.clearFilter = function () {
     this.panelData.filter = null
     //console.log('clearFilter')
+    this.annotation = null
   }
   
 });
@@ -5507,7 +5587,7 @@ let AnnotationEditorModules = {
   props: ['lib', 'status', 'config'
     //, 'annotationModule', 'pinSelection', 'annotationInstance'
     //, 'rangy', 'heightPX', 'sectionsData'
-    , 'panelData', 'annotation'
+    , 'panelData', 'annotation', 'heightPX'
   ],
   data() {
     //this.$i18n.locale = this.config.locale
@@ -5547,6 +5627,9 @@ let AnnotationEditorModules = {
         return this.annotation.type
       }
     },
+    componentHeightPX () {
+      return this.heightPX - 70
+    }
 //    isAdding () {
 //      return (this.annotation
 //              && typeof(this.annotation.id) === 'number' )
@@ -6280,7 +6363,7 @@ let Editor = {
         height = (vm.lib.style.getClientHeight() / 2)
         height = `calc(${height}px - 9em)`
       } else {
-        height = `calc(${this.panelData.heightPX}px - 9em)`
+        height = `calc(${this.heightPX}px - 9em)`
       }
       
       //console.log(height, this.panelData.heightPX)
@@ -6492,7 +6575,7 @@ let Editor = {
         height = (vm.lib.style.getClientHeight() / 2)
         height = `calc(${height}px - 9em)`
       } else {
-        height = `calc(${this.panelData.heightPX}px - 9em)`
+        height = `calc(${this.heightPX}px - 9em)`
       }
       
       //console.log(height, this.panelData.heightPX)
@@ -6889,7 +6972,7 @@ __webpack_require__.r(__webpack_exports__);
 //    , 'rangy', 'editable', 'sectionsData']
 
 /* harmony default export */ __webpack_exports__["default"] = (['lib', 'status', 'config'
-    , 'panelData', 'annotation']);
+    , 'panelData', 'annotation', 'heightPX']);
 
 /***/ }),
 

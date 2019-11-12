@@ -3,6 +3,15 @@
   <template v-if="annotations.length > 1">
 
     <div class="summary-information">
+
+      <button v-if="annotation"
+              type="button" 
+              class="ui mini labeled icon button back-button"
+              v-on:click.stop="() => {annotation = null}">
+        <i class="angle left icon"></i>
+        {{ $t('Back to list') }}
+      </button>
+
       <div class="label">
         {{ $t('{0} Annotations', [annotationCount]) }}:
       </div>
@@ -11,18 +20,18 @@
         v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib"
-        
+
         v-bind:users="users"
         v-bind:userCount="userCount"
         v-on:find="findUser"></user-avatar-icons >
 
       <annotation-type-button 
         v-for="t in types"
-        
+
         v-bind:lib="lib"
         v-bind:config="config"
         v-bind:status="status"
-        
+
         v-bind:type="t.type"
         v-bind:count="t.count"
         v-on:find="findType"></annotation-type-button>
@@ -33,12 +42,12 @@
   </template> <!-- <template v-if="annotations.length > 1"> -->
 
   <!-- == List == -->
-  
+
   <div class="list"
        v-bind:style="computedListStyle"
        v-on:scroll.stop="scrollList"
        v-show="!annotation">
-    
+
     <!--
     <annotation-item
         v-for="annotation in annotations"
@@ -52,20 +61,20 @@
         v-bind:findType="findType"
         v-bind:rangy="rangy"></annotation-item>
     -->
-    
+
     <annotation-item
-        v-for="a in annotations"
-        v-bind:annotation="a"
-        
-        v-bind:config="config"
-        v-bind:status="status"
-        v-bind:lib="lib"
-        
-        v-bind:isFull="false"
-        v-bind:findAnnotation="viewAnnotation"
-        v-bind:findUser="findUser"
-        v-bind:findType="findType"></annotation-item>
-    
+      v-for="a in annotations"
+      v-bind:annotation="a"
+
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+
+      v-bind:isFull="false"
+      v-bind:findAnnotation="viewAnnotation"
+      v-bind:findUser="findUser"
+      v-bind:findType="findType"></annotation-item>
+
     <div class="ui secondary segment no-more"
          v-if="noMore">
       <template v-if="annotations.length > 0">
@@ -76,11 +85,11 @@
       </template>
     </div>
   </div>
-  
+
   <!-- ================================== -->
 
   <!-- == Editor == -->
-  
+
   <!--
   <div class="find-annotation">
     <annotation-single
@@ -95,7 +104,7 @@
       v-bind:rangy="rangy"></annotation-single>
   </div>
   -->
-  
+
   <annotation-single
     v-if="annotation"
 
@@ -105,6 +114,8 @@
 
     v-bind:panelData="panelData"
     v-bind:annotation="annotation"
+    v-bind:heightPX='editorHeightPX'
+
     v-on:update="onUpdate"
     v-on:delete="onDelete">
   </annotation-single>
