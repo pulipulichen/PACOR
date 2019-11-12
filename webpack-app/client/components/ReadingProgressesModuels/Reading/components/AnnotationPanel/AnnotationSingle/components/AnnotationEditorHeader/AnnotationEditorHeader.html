@@ -1,13 +1,18 @@
-<div>
+<div class="AnnotationEditorHeader">
   <div class="right column">
     <annotaion-instruction 
       v-bind:config="config"
       v-bind:status="status"
-      v-bind:type="type"></annotaion-instruction>
+      v-bind:type="type"
+      
+      ref="AnnotationInstruction">
+    </annotaion-instruction>
   </div>
   <div class="left column">
     <user-information 
       v-bind:type="type"
-      v-bind:status="status"></user-information>
+      v-bind:status="status"
+      v-on:showInstruction="() => {$refs.AnnotationInstruction.showInstruction()}">
+    </user-information>
   </div>
 </div>

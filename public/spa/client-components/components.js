@@ -479,7 +479,7 @@ exports.push([module.i, ".annotation-panel-buttons[data-v-67599d3b] {\n  user-se
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotaionInstruction[data-v-c0b50c8c] {\n  vertical-align: top;\n  padding-top: 0.6em;\n  padding-bottom: 0.6em;\n}\n.show-instruction[data-v-c0b50c8c],\n.summary[data-v-c0b50c8c] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n  vertical-align: top;\n}\n.show-instruction[data-v-c0b50c8c] {\n  float: right;\n  margin-left: 0.5em;\n  margin-top: -0.4em;\n}\n.column[data-v-c0b50c8c]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-c0b50c8c] {\n  padding-left: 0 !important;\n}\n", "",{"version":3,"sources":["AnnotaionInstruction.less?vue&type=style&index=0&id=c0b50c8c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,kBAAkB;EAClB,qBAAqB;AACvB;AACA;;EAEE,mBAAmB;EACnB,uBAAuB;EACvB,gBAAgB;EAChB,eAAe;EACf,mBAAmB;AACrB;AACA;EACE,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;AACpB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,0BAA0B;AAC5B","file":"AnnotaionInstruction.less?vue&type=style&index=0&id=c0b50c8c&lang=less&scoped=true&","sourcesContent":[".AnnotaionInstruction[data-v-c0b50c8c] {\n  vertical-align: top;\n  padding-top: 0.6em;\n  padding-bottom: 0.6em;\n}\n.show-instruction[data-v-c0b50c8c],\n.summary[data-v-c0b50c8c] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n  vertical-align: top;\n}\n.show-instruction[data-v-c0b50c8c] {\n  float: right;\n  margin-left: 0.5em;\n  margin-top: -0.4em;\n}\n.column[data-v-c0b50c8c]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-c0b50c8c] {\n  padding-left: 0 !important;\n}\n"]}]);
+exports.push([module.i, ".AnnotaionInstruction[data-v-c0b50c8c] {\n  vertical-align: top;\n  padding-top: 0.6em;\n  padding-bottom: 0.6em;\n  margin-top: -0.1em;\n}\n.show-instruction[data-v-c0b50c8c],\n.summary[data-v-c0b50c8c] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n  vertical-align: top;\n}\n.show-instruction[data-v-c0b50c8c] {\n  float: right;\n  margin-left: 0.5em;\n  margin-top: -0.4em;\n}\n.column[data-v-c0b50c8c]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-c0b50c8c] {\n  padding-left: 0 !important;\n}\n@media (max-width: 480px) {\n.summary[data-v-c0b50c8c] {\n    text-indent: -9999px;\n}\n.AnnotaionInstruction[data-v-c0b50c8c] {\n    padding-left: 0;\n    padding-right: 0.5em;\n}\n}\n@media (max-width: 360px) {\n.AnnotaionInstruction[data-v-c0b50c8c] {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["AnnotaionInstruction.less?vue&type=style&index=0&id=c0b50c8c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,kBAAkB;EAClB,qBAAqB;EACrB,kBAAkB;AACpB;AACA;;EAEE,mBAAmB;EACnB,uBAAuB;EACvB,gBAAgB;EAChB,eAAe;EACf,mBAAmB;AACrB;AACA;EACE,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;AACpB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,0BAA0B;AAC5B;AACA;AACA;IACI,oBAAoB;AACxB;AACA;IACI,eAAe;IACf,oBAAoB;AACxB;AACA;AACA;AACA;IACI,aAAa;AACjB;AACA","file":"AnnotaionInstruction.less?vue&type=style&index=0&id=c0b50c8c&lang=less&scoped=true&","sourcesContent":[".AnnotaionInstruction[data-v-c0b50c8c] {\n  vertical-align: top;\n  padding-top: 0.6em;\n  padding-bottom: 0.6em;\n  margin-top: -0.1em;\n}\n.show-instruction[data-v-c0b50c8c],\n.summary[data-v-c0b50c8c] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n  vertical-align: top;\n}\n.show-instruction[data-v-c0b50c8c] {\n  float: right;\n  margin-left: 0.5em;\n  margin-top: -0.4em;\n}\n.column[data-v-c0b50c8c]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-c0b50c8c] {\n  padding-left: 0 !important;\n}\n@media (max-width: 480px) {\n.summary[data-v-c0b50c8c] {\n    text-indent: -9999px;\n}\n.AnnotaionInstruction[data-v-c0b50c8c] {\n    padding-left: 0;\n    padding-right: 0.5em;\n}\n}\n@media (max-width: 360px) {\n.AnnotaionInstruction[data-v-c0b50c8c] {\n    display: none;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -493,7 +493,7 @@ exports.push([module.i, ".AnnotaionInstruction[data-v-c0b50c8c] {\n  vertical-al
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".right[data-v-163d9fba] {\n  float: right;\n  margin-top: -0.5em;\n}\n", "",{"version":3,"sources":["AnnotationEditorHeader.less?vue&type=style&index=0&id=163d9fba&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;AACpB","file":"AnnotationEditorHeader.less?vue&type=style&index=0&id=163d9fba&lang=less&scoped=true&","sourcesContent":[".right[data-v-163d9fba] {\n  float: right;\n  margin-top: -0.5em;\n}\n"]}]);
+exports.push([module.i, ".right[data-v-163d9fba] {\n  float: right;\n  margin-top: -0.5em;\n}\n.AnnotationEditorHeader[data-v-163d9fba] {\n  margin-bottom: 1em;\n}\n", "",{"version":3,"sources":["AnnotationEditorHeader.less?vue&type=style&index=0&id=163d9fba&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;AACpB;AACA;EACE,kBAAkB;AACpB","file":"AnnotationEditorHeader.less?vue&type=style&index=0&id=163d9fba&lang=less&scoped=true&","sourcesContent":[".right[data-v-163d9fba] {\n  float: right;\n  margin-top: -0.5em;\n}\n.AnnotationEditorHeader[data-v-163d9fba] {\n  margin-bottom: 1em;\n}\n"]}]);
 
 
 /***/ }),
@@ -535,7 +535,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "img[data-v-6b1d7c9e] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-6b1d7c9e] {\n  display: inline-block;\n  max-width: 100%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["UserInformation.less?vue&type=style&index=0&id=6b1d7c9e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,eAAe;EACf,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB","file":"UserInformation.less?vue&type=style&index=0&id=6b1d7c9e&lang=less&scoped=true&","sourcesContent":["img[data-v-6b1d7c9e] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-6b1d7c9e] {\n  display: inline-block;\n  max-width: 100%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n"]}]);
+exports.push([module.i, "img[data-v-6b1d7c9e] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-6b1d7c9e] {\n  display: inline-block;\n  max-width: 100%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.UserInformation[data-v-6b1d7c9e] {\n  white-space: nowrap;\n  overflow: hidden;\n}\n", "",{"version":3,"sources":["UserInformation.less?vue&type=style&index=0&id=6b1d7c9e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,eAAe;EACf,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,mBAAmB;EACnB,gBAAgB;AAClB","file":"UserInformation.less?vue&type=style&index=0&id=6b1d7c9e&lang=less&scoped=true&","sourcesContent":["img[data-v-6b1d7c9e] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-6b1d7c9e] {\n  display: inline-block;\n  max-width: 100%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.UserInformation[data-v-6b1d7c9e] {\n  white-space: nowrap;\n  overflow: hidden;\n}\n"]}]);
 
 
 /***/ }),
@@ -920,7 +920,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "fragment",
+    "div",
+    { staticClass: "FilteredList" },
     [
       _vm.annotations.length > 1
         ? [
@@ -1061,7 +1062,7 @@ var render = function() {
         2
       ),
       _vm._v(" "),
-      _vm.annotation
+      _vm.annotation !== null
         ? _c("annotation-single", {
             attrs: {
               config: _vm.config,
@@ -1099,7 +1100,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "fragment",
+    "div",
+    { staticClass: "MainList" },
     [
       _vm.annotations.length > 1
         ? [
@@ -1962,12 +1964,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "AnnotationEditorHeader" }, [
     _c(
       "div",
       { staticClass: "right column" },
       [
         _c("annotaion-instruction", {
+          ref: "AnnotationInstruction",
           attrs: { config: _vm.config, status: _vm.status, type: _vm.type }
         })
       ],
@@ -1979,7 +1982,12 @@ var render = function() {
       { staticClass: "left column" },
       [
         _c("user-information", {
-          attrs: { type: _vm.type, status: _vm.status }
+          attrs: { type: _vm.type, status: _vm.status },
+          on: {
+            showInstruction: function() {
+              _vm.$refs.AnnotationInstruction.showInstruction()
+            }
+          }
         })
       ],
       1
@@ -2203,7 +2211,12 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("annotation-type-button", {
-        attrs: { status: _vm.status, type: _vm.type }
+        attrs: { status: _vm.status, type: _vm.type },
+        on: {
+          find: function() {
+            _vm.$emit("showInstruction")
+          }
+        }
       })
     ],
     1
@@ -2268,6 +2281,11 @@ var render = function() {
               node: node,
               sectionSeqID: index,
               sectionsData: _vm.sectionsData
+            },
+            on: {
+              complete: function($event) {
+                return _vm.$emit("complete")
+              }
             }
           })
         ]
@@ -2574,6 +2592,11 @@ var render = function() {
                   node: _vm.node,
                   sectionSeqID: _vm.sectionSeqID,
                   sectionsData: _vm.sectionsData
+                },
+                on: {
+                  complete: function($event) {
+                    return _vm.$emit("complete")
+                  }
                 }
               })
             : _vm._e(),
@@ -3175,6 +3198,10 @@ let AnnotationFloatWidget = {
       let useMouse = false
       
       rangy.addEventListener('highlightClick', (data) => {
+        if (this.lib.AnnotationPanel.isHide === false) {
+          return false
+        }
+        
         if (useMouse === true) {
           this.isFixed = !this.isFixed
         }
@@ -3185,6 +3212,9 @@ let AnnotationFloatWidget = {
       })
       
       rangy.addEventListener('highlightMouseover', (data) => {
+        if (this.lib.AnnotationPanel.isHide === false) {
+          return false
+        }
         if (this.isFixed === true) {
           return false
         }
@@ -3195,6 +3225,9 @@ let AnnotationFloatWidget = {
       })
       
       rangy.addEventListener('highlightMouseout', (data) => {
+        if (this.lib.AnnotationPanel.isHide === false) {
+          return false
+        }
         if (this.isFixed === true) {
           return false
         }
@@ -4495,11 +4528,11 @@ let List = {
       
       if (this.panelData.filter) {
         if (this.panelData.filter.user) {
-          query.findUserID = this.panelData.query.filter.user.id
+          query.findUserID = this.panelData.filter.user.id
         }
         
         if (this.panelData.filter.type) {
-          query.findType = this.panelData.query.filter.type
+          query.findType = this.panelData.filter.type
         }
       }
       
@@ -5439,14 +5472,16 @@ let AnnotationEditorModules = {
     },
     computedGridClass () {
       let classList = []
+      //console.log(this.annotationConfig)
       if (this.annotationConfig.enableCollaboration === true) {
         classList.push('two')
       }
       else {
         classList.push('one')
       }
-      
-      return classList.join(' ') + ' column grid'
+      //console.log(classList)
+      //return classList.join(' ') + ' column grid'
+      return undefined
     },
     type () {
       if (this.annotation !== null) {
@@ -5469,8 +5504,10 @@ let AnnotationEditorModules = {
     }
   },
   mounted() {
+    //console.log(this.annotation)
     this.initHover()
     this.scrollToAnnotation()
+    //console.log(111)
   },
   methods: {
     initHover () {
@@ -6179,10 +6216,12 @@ let Editor = {
       if (vm.enableCollaboration === true
               && vm.lib.style.isStackWidth()) {
         height = (vm.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 12em)`
+        height = `calc(${height}px - 9em)`
       } else {
-        height = `calc(${vm.heightPX}px - 12em)`
+        height = `calc(${this.panelData.heightPX}px - 9em)`
       }
+      
+      //console.log(height, this.panelData.heightPX)
       //console.log(height)
       return height
     },
@@ -6381,10 +6420,12 @@ let Editor = {
       if (vm.enableCollaboration === true
               && vm.lib.style.isStackWidth()) {
         height = (vm.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 12em)`
+        height = `calc(${height}px - 9em)`
       } else {
-        height = `calc(${vm.heightPX}px - 12em)`
+        height = `calc(${this.panelData.heightPX}px - 9em)`
       }
+      
+      //console.log(height, this.panelData.heightPX)
       //console.log(height)
       return height
     },
@@ -7904,6 +7945,8 @@ let resizeLocker = false
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* global this */
+
 /* harmony default export */ __webpack_exports__["default"] = ((AnnotationPanel) => {
   AnnotationPanel.methods.setQuery = function (query, hooks) {
     this.panelData.query = query
@@ -18690,6 +18733,29 @@ let SectionChecklist = {
           return false
         }
       }
+      
+      // 觀察看看有沒有機會完全完成
+      let isCompleted = true
+      for (let i = 0; i < this.sectionsData.checklist.length; i++) {
+        if (i === this.sectionSeqID) {
+          continue
+        }
+        let checked = this.sectionsData.checklist[i]
+        for (let j = 0; j < checked.length; j++) {
+          if (checked[j] === false) {
+            isCompleted = false
+            break
+          }
+        }
+        
+        if (isCompleted === false) {
+          break
+        }
+      }
+      if (isCompleted === true) {
+        this.$emit('complete')
+      }
+      
       return true
     },
     computedSubmitButtonClass () {

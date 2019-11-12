@@ -174,7 +174,8 @@ var render = function() {
       _vm._v(" "),
       _c("section-manager", {
         ref: "SectionManager",
-        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib },
+        on: { complete: _vm.onChecklistComplete }
       }),
       _vm._v(" "),
       _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
@@ -703,6 +704,9 @@ let IndividualReading = {
       this.lib.RangyManager = this.$refs.RangyManager
       this.lib.AnnotationPanel = this.$refs.AnnotationPanel
       //console.log(this.lib.AnnotationPanel)
+    },
+    onChecklistComplete () {
+      throw 'onChecklistComplete'
     }
   } // methods
 }

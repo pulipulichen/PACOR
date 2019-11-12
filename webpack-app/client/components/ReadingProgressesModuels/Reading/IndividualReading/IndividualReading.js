@@ -34,6 +34,9 @@ let IndividualReading = {
       this.lib.RangyManager = this.$refs.RangyManager
       this.lib.AnnotationPanel = this.$refs.AnnotationPanel
       //console.log(this.lib.AnnotationPanel)
+    },
+    onChecklistComplete () {
+      throw 'onChecklistComplete'
     }
   } // methods
 }

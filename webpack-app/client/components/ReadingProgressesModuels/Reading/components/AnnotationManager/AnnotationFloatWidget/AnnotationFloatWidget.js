@@ -67,6 +67,10 @@ let AnnotationFloatWidget = {
       let useMouse = false
       
       rangy.addEventListener('highlightClick', (data) => {
+        if (this.lib.AnnotationPanel.isHide === false) {
+          return false
+        }
+        
         if (useMouse === true) {
           this.isFixed = !this.isFixed
         }
@@ -77,6 +81,9 @@ let AnnotationFloatWidget = {
       })
       
       rangy.addEventListener('highlightMouseover', (data) => {
+        if (this.lib.AnnotationPanel.isHide === false) {
+          return false
+        }
         if (this.isFixed === true) {
           return false
         }
@@ -87,6 +94,9 @@ let AnnotationFloatWidget = {
       })
       
       rangy.addEventListener('highlightMouseout', (data) => {
+        if (this.lib.AnnotationPanel.isHide === false) {
+          return false
+        }
         if (this.isFixed === true) {
           return false
         }

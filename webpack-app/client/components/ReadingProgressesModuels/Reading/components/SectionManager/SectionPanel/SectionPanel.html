@@ -7,7 +7,8 @@
       v-bind:lib="lib"
       v-bind:node="node"
       v-bind:sectionSeqID="sectionSeqID"
-      v-bind:sectionsData="sectionsData">
+      v-bind:sectionsData="sectionsData"
+      v-on:complete="$emit('complete')">
     </section-checklist>
 
     <section-annotation-list

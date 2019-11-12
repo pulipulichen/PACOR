@@ -7,7 +7,9 @@
       
       v-bind:node="node"
       v-bind:sectionSeqID="index"
-      v-bind:sectionsData="sectionsData">
+      v-bind:sectionsData="sectionsData"
+      
+      v-on:complete="$emit('complete')">
     </section-panel>
   </template>
 </fragment>

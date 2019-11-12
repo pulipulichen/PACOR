@@ -1,3 +1,5 @@
+/* global this */
+
 export default (AnnotationPanel) => {
   AnnotationPanel.methods.setQuery = function (query, hooks) {
     this.panelData.query = query

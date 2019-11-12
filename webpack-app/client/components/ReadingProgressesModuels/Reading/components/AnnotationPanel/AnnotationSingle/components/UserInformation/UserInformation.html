@@ -5,8 +5,11 @@
   <div class="username">
     {{ username }}
   </div>
+  
   <annotation-type-button 
     v-bind:status="status"
-    v-bind:type="type"></annotation-type-button>
+    v-bind:type="type"
+    v-on:find="() => {$emit('showInstruction')}">
+  </annotation-type-button>
 
 </div>

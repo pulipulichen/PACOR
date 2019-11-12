@@ -35,14 +35,16 @@ let AnnotationEditorModules = {
     },
     computedGridClass () {
       let classList = []
+      //console.log(this.annotationConfig)
       if (this.annotationConfig.enableCollaboration === true) {
         classList.push('two')
       }
       else {
         classList.push('one')
       }
-      
-      return classList.join(' ') + ' column grid'
+      //console.log(classList)
+      //return classList.join(' ') + ' column grid'
+      return undefined
     },
     type () {
       if (this.annotation !== null) {
@@ -65,8 +67,10 @@ let AnnotationEditorModules = {
     }
   },
   mounted() {
+    //console.log(this.annotation)
     this.initHover()
     this.scrollToAnnotation()
+    //console.log(111)
   },
   methods: {
     initHover () {

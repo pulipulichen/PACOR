@@ -27,7 +27,7 @@
     <annotation-editor-header 
       v-bind:config="config"
       v-bind:status="status"
-
+    
       v-bind:type="type">
     </annotation-editor-header>
     
@@ -43,7 +43,8 @@
       
       v-on:add="onAdd"
       v-on:delete="onDelete"
-      v-on:update="onUpdate"></component>
+      v-on:update="onUpdate">
+    </component>
     
   </div>
 
@@ -57,6 +58,7 @@
       v-bind:config="config"
       v-bind:status="status"
       v-bind:lib="lib"
-      v-bind:annotationInstance="annotationInstance"></annotation-discussion>
+      v-bind:annotationInstance="annotationInstance">
+    </annotation-discussion>
   </div>
 </div>

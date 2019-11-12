@@ -63,11 +63,11 @@ let List = {
       
       if (this.panelData.filter) {
         if (this.panelData.filter.user) {
-          query.findUserID = this.panelData.query.filter.user.id
+          query.findUserID = this.panelData.filter.user.id
         }
         
         if (this.panelData.filter.type) {
-          query.findType = this.panelData.query.filter.type
+          query.findType = this.panelData.filter.type
         }
       }
       

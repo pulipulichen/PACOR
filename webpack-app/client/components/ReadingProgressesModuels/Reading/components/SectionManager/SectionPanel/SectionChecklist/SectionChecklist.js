@@ -95,6 +95,29 @@ let SectionChecklist = {
           return false
         }
       }
+      
+      // 觀察看看有沒有機會完全完成
+      let isCompleted = true
+      for (let i = 0; i < this.sectionsData.checklist.length; i++) {
+        if (i === this.sectionSeqID) {
+          continue
+        }
+        let checked = this.sectionsData.checklist[i]
+        for (let j = 0; j < checked.length; j++) {
+          if (checked[j] === false) {
+            isCompleted = false
+            break
+          }
+        }
+        
+        if (isCompleted === false) {
+          break
+        }
+      }
+      if (isCompleted === true) {
+        this.$emit('complete')
+      }
+      
       return true
     },
     computedSubmitButtonClass () {

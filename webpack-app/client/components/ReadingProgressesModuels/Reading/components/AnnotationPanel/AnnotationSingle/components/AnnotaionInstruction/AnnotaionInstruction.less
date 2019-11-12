@@ -2,6 +2,8 @@
   vertical-align: top;
   padding-top: 0.6em;
   padding-bottom: 0.6em;
+  
+  margin-top: -0.1em;
 }
 
 .show-instruction, .summary {
@@ -25,5 +27,24 @@
   
   &.right {
     padding-left: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .summary {
+    //max-width: 15vw;
+    //display: none;
+    text-indent: -9999px;
+  }
+  
+  .AnnotaionInstruction {
+    padding-left: 0;
+    padding-right: 0.5em;
+  }
+}
+
+@media (max-width: 360px) {
+  .AnnotaionInstruction {
+    display: none;
   }
 }
