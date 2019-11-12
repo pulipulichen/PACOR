@@ -28,7 +28,8 @@ let AnnotationFloatWidget = {
         }
       }
       
-      if (this.lib.RangyManager.isSelecting) {
+      //console.log(this.lib.RangyManager.isSelecting())
+      if (this.lib.RangyManager.isSelecting()) {
         classList.push('selecting')
       }
       //return 'bottom'

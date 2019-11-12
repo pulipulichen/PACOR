@@ -311,5 +311,9 @@ export default (RangyManager) => {
     this.rangy.getSelection().removeAllRanges()
   }
   
+  RangyManager.methods.isSelecting = function () {
+    //console.log(this.rangy.getSelection().toString())
+    return (this.rangy.getSelection().toString() !== '')
+  }
 }
 

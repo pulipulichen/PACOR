@@ -3,9 +3,6 @@ export default (RangyManager) => {
     return (this.selectionHighlighter.highlights.length > 0)
   }
   
-  RangyManager.computed.isSelecting = function () {
-    return (this.rangy.getSelection().toString() !== '')
-  }
   
   RangyManager.computed.rangyConfig = function () {
     let output = {}
