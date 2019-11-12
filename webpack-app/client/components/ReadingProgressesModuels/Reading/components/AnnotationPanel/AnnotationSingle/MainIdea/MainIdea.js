@@ -125,7 +125,9 @@ let Editor = {
       //console.log(data)
       
       let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+      //let id = 1
       //console.log(id) // for test
+      
       if (typeof(id) !== 'number') {
         throw 'Create failed'
         return false  // 新增失敗

@@ -16,10 +16,15 @@ let SectionChecklist = {
       checked = this.sectionsData.checklist[this.sectionSeqID].checked
     }
     
+    let isChecklistAnnotationSubmitted = false
+    if (this.sectionsData.checklistAnnotation[this.sectionSeqID]) {
+      isChecklistAnnotationSubmitted = true
+    }
+    
     return {
       checked: checked,
       checklistAnnotationIndex: -1,
-      
+      isChecklistAnnotationSubmitted: isChecklistAnnotationSubmitted
       //wroteAnnotationAt: null
     }
   },
@@ -115,15 +120,15 @@ let SectionChecklist = {
         return 'positive'
       }
     },
-    isChecklistAnnotationSubmitted () {
-      return (typeof(this.annotation.id) === 'number')
-    }
+//    isChecklistAnnotationSubmitted () {
+//      return (typeof(this.annotation.id) === 'number')
+//    }
   },
   watch: {
     checklistAnnotationIndex (checklistAnnotationIndex) {
       if (checklistAnnotationIndex !== -1 
-              && typeof(this.annotation.id) === 'number') {
-        this.checked.splice(checklistAnnotationIndex, 1, true)
+              && this.annotation) {
+        this.checked.splice(checklistAnnotationIndex, 1, (typeof(this.annotation.id) === 'number'))
       } 
     }
   },
@@ -169,13 +174,23 @@ let SectionChecklist = {
       */
       this.lib.AnnotationPanel.setAnnotation(this.annotation, {
         'add': (annotation) => {
-          console.log(annotation)
-          this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
-          this.sectionsData.checklist[this.checklistAnnotationIndex] = true
+          //console.log(annotation)
+          //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
+          this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
+          
+          //this.sectionsData.checklist[this.checklistAnnotationIndex] = true
+          this.sectionsData.checklist.splice(this.checklistAnnotationIndex, 1, true)
+          this.checked.splice(this.checklistAnnotationIndex, 1, true)
+          //this.annotation.id = annotation.id
+          //this.$forceUpdate()
+          this.isChecklistAnnotationSubmitted = true
+          
+          this.sectionsData.annotation.splice(this.sectionSeqID, 1, annotation)
         },
         'update': (annotation) => {
-          console.log(annotation)
-          this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
+          //console.log(annotation)
+          //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
+          this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
         },
       })
     },
@@ -189,10 +204,22 @@ let SectionChecklist = {
       
       await this.lib.AxiosHelper.post('/client/Section/setChecklist', data)
       
-      this.sectionsData.checklistSubmitted[this.sectionSeqID] = true
+      //this.sectionsData.checklistSubmitted[this.sectionSeqID] = true
+      this.sectionsData.checklistSubmitted.splice(this.sectionSeqID, 1, true)
+      this.checkAllChecklistsIsComplete()
+    },
+    checkAllChecklistsIsComplete () {
       
       // 觀察看看有沒有機會完全完成
-      let isAllCompleted = (this.sectionsData.checklistSubmitted.filter(c => (c === false)).length === 0)
+      //console.log(this.sectionsData.checklistSubmitted)
+      let isAllCompleted = true
+      for (let i = 0; i < this.sectionsData.checklistSubmitted.length; i++) {
+        if (this.sectionsData.checklistSubmitted[i] !== true) {
+          isAllCompleted = false
+          break
+        }
+      }
+      //let isAllCompleted = (this.sectionsData.checklistSubmitted.filter(c => (c !== true)).length === 0)
       if (isAllCompleted === true) {
         this.$emit('complete')
       }
