@@ -4297,7 +4297,10 @@ module.exports = {
   "TocbotWidth": "200px",  // @TODO 應該要用media來改造
   "StackWidth": 767,
   "SmallHeight": 640,
-  "PacorSearchResult": '{font-weight: bold !important;background-color: yellow !important;color: red !important;}'
+  "PacorSearchResult": '{font-weight: bold !important;background-color: yellow !important;color: red !important;}',
+  "AnnotationPanelMaxTopGap": 50,
+  "AnnotationPanelMinPanelHeight": 100,
+  "AnnotationPanelDisplayMinPanelHeight": 300,
 }
 
 /***/ }),

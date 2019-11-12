@@ -7,6 +7,10 @@ export default (AnnotationPanel) => {
     this.isHide = false
     this.placeholder.transition(transitionMode)
     
+    if (this.panelData.heightPX < this.lib.style.config.AnnotationPanelDisplayMinPanelHeight) {
+      this.panelData.heightPX = this.lib.style.config.AnnotationPanelDisplayMinPanelHeight
+    }
+    
     // @TODO Semantic UI的jQuery
     window.$(this.$refs.panel).transition(transitionMode, () => {
       //this.placeholder.show()

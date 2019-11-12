@@ -465,7 +465,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "label[data-v-0fea2a5c] {\n  vertical-align: middle;\n}\n.search-keyword[data-v-0fea2a5c] {\n  width: calc(100% - 9em);\n}\n", "",{"version":3,"sources":["ResourceSearch.less?vue&type=style&index=0&id=0fea2a5c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,sBAAsB;AACxB;AACA;EACE,uBAAuB;AACzB","file":"ResourceSearch.less?vue&type=style&index=0&id=0fea2a5c&lang=less&scoped=true&","sourcesContent":["label[data-v-0fea2a5c] {\n  vertical-align: middle;\n}\n.search-keyword[data-v-0fea2a5c] {\n  width: calc(100% - 9em);\n}\n"]}]);
+exports.push([module.i, "label[data-v-0fea2a5c] {\n  vertical-align: middle;\n}\n.search-keyword[data-v-0fea2a5c] {\n  width: calc(100% - 9em) !important;\n  height: 40px;\n}\n.select-question[data-v-0fea2a5c],\n.search-button[data-v-0fea2a5c] {\n  height: 43px !important;\n}\n", "",{"version":3,"sources":["ResourceSearch.less?vue&type=style&index=0&id=0fea2a5c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,sBAAsB;AACxB;AACA;EACE,kCAAkC;EAClC,YAAY;AACd;AACA;;EAEE,uBAAuB;AACzB","file":"ResourceSearch.less?vue&type=style&index=0&id=0fea2a5c&lang=less&scoped=true&","sourcesContent":["label[data-v-0fea2a5c] {\n  vertical-align: middle;\n}\n.search-keyword[data-v-0fea2a5c] {\n  width: calc(100% - 9em) !important;\n  height: 40px;\n}\n.select-question[data-v-0fea2a5c],\n.search-button[data-v-0fea2a5c] {\n  height: 43px !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -1601,7 +1601,7 @@ var render = function() {
                       })
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.annotation.id
+                  !_vm.annotation.id
                     ? [
                         _c(
                           "validation-button",
@@ -1826,7 +1826,7 @@ var render = function() {
               expression: "selectIndex"
             }
           ],
-          staticClass: "ui small fluid input",
+          staticClass: "ui small fluid input select-question",
           on: {
             change: function($event) {
               var $$selectedVal = Array.prototype.filter
@@ -1858,7 +1858,7 @@ var render = function() {
       _c(
         "button",
         {
-          staticClass: "ui fluid button",
+          staticClass: "ui small fluid button search-button",
           class: _vm.computedButtonClass,
           attrs: { type: "button" },
           on: { click: _vm.doSearch }
@@ -5155,6 +5155,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Traits_methods_Placeholder__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Traits/methods/Placeholder */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Placeholder.js");
 /* harmony import */ var _Traits_methods_Query__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Traits/methods/Query */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Query.js");
 /* harmony import */ var _Traits_methods_Event__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Traits/methods/Event */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Event.js");
+/* harmony import */ var _Traits_methods_Resize__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Traits/methods/Resize */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Resize.js");
 //import VueDraggableResizable from 'vue-draggable-resizable'
 //import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
 
@@ -5220,6 +5221,9 @@ Object(_Traits_methods_Query__WEBPACK_IMPORTED_MODULE_10__["default"])(Annotatio
 
 
 Object(_Traits_methods_Event__WEBPACK_IMPORTED_MODULE_11__["default"])(AnnotationPanel)
+
+
+Object(_Traits_methods_Resize__WEBPACK_IMPORTED_MODULE_12__["default"])(AnnotationPanel)
 
 /* harmony default export */ __webpack_exports__["default"] = (AnnotationPanel);
 
@@ -6332,14 +6336,18 @@ __webpack_require__.r(__webpack_exports__);
         }
         //console.log(height)
         return height
+        
       } else {
+        
         let height
         if (this.enableCollaboration === true
                 && this.lib.style.isStackWidth()) {
           height = (this.lib.style.getClientHeight() / 2)
           height = `calc(${height}px - 21em)`
+          
         } else {
-          height = `calc(${this.heightPX}px - 21em)`
+          
+          height = `5em`
         }
         //console.log(height)
         return height
@@ -6353,7 +6361,7 @@ __webpack_require__.r(__webpack_exports__);
         height = (this.lib.style.getClientHeight() / 2)
         height = `calc(${height}px - 10em)`
       } else {
-        height = `calc(${this.heightPX}px - 21em)`
+        height = `calc(${this.heightPX}px - 15em)`
       }
       //console.log(height)
       return height
@@ -7911,6 +7919,10 @@ const transitionMode = 'slide up'
     this.isHide = false
     this.placeholder.transition(transitionMode)
     
+    if (this.panelData.heightPX < this.lib.style.config.AnnotationPanelDisplayMinPanelHeight) {
+      this.panelData.heightPX = this.lib.style.config.AnnotationPanelDisplayMinPanelHeight
+    }
+    
     // @TODO Semantic UI的jQuery
     window.$(this.$refs.panel).transition(transitionMode, () => {
       //this.placeholder.show()
@@ -8015,9 +8027,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Reading.components.AnnotationManager.AnnotationPanel.'
-const disableSelectClass = 'pacor-disable-user-select'
-let resizeLocker = false
-
 
 
 /* harmony default export */ __webpack_exports__["default"] = ((AnnotationPanel) => {
@@ -8029,8 +8038,20 @@ let resizeLocker = false
     } else {
       sizeRatio = parseFloat(sizeRatio)
     }
+    
+    if (sizeRatio < this.lib.style.config.AnnotationPanelDisplayMinPanelRatio) {
+      sizeRatio = this.lib.style.config.AnnotationPanelDisplayMinPanelRatio
+    }
+    //console.log(sizeRatio, this.lib.style.config.AnnotationPanelDisplayMinPanelRatio)
+    
     //console.log(sizeRatio)
-    this.panelData.heightPX = (window.innerHeight * sizeRatio)
+    let height = (window.innerHeight * sizeRatio)
+    
+    if (height < this.lib.style.config.AnnotationPanelDisplayMinPanelHeight) {
+      height = this.lib.style.config.AnnotationPanelDisplayMinPanelHeight
+    }
+    
+    this.panelData.heightPX = height
   }
   AnnotationPanel.methods._initPlaceholder = function () {
     let navPH = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.Navigation.placeholder:first')
@@ -8044,67 +8065,6 @@ let resizeLocker = false
             .css('height', this.computedPlaceholderHeight)
             .hide()
             .appendTo(container)
-  }
-  
-  
-  AnnotationPanel.methods.onResizeStart = function (event) {
-    if (resizeLocker === true) {
-      return false
-    }
-    resizeLocker = true
-
-    let body = jquery__WEBPACK_IMPORTED_MODULE_0___default()('body')
-    body.addClass(disableSelectClass)
-    //console.log(event)
-    //console.log(event)
-    let currentY = event.clientY
-
-    let moveEvent = (event) => {
-      if (this.lib.style.isSmallHeight() === false) {
-        if (event.clientY < 100
-                || (window.innerHeight - event.clientY) < 200) {
-          return false
-        }
-      } else {
-        if (event.clientY < 50
-                || (window.innerHeight - event.clientY) < 100) {
-          return false
-        }
-      }
-
-
-      let interval = currentY - event.clientY
-      this.panelData.heightPX = this.panelData.heightPX + interval
-      currentY = event.clientY
-      //console.log(this.heightPX)
-      //console.log(event)
-      //event.preventDefault()
-      //event.stopPropagation()
-    }
-
-    let removeMoveEvent = () => {
-      document.removeEventListener('mousemove', moveEvent)
-      document.removeEventListener('mouseup', removeMoveEvent)
-
-      document.removeEventListener('touchmove', moveEvent)
-      document.removeEventListener('touchend', removeMoveEvent)
-      body.removeClass(disableSelectClass)
-      resizeLocker = false
-
-      // 計算最後的比例，然後存到preference去
-      let sizeRatio = ((window.innerHeight - currentY) / window.innerHeight)
-      //console.log(sizeRatio)
-      localStorage.setItem(localStorageKeyPrefix + 'sizeRatio', sizeRatio)
-    }
-
-    document.addEventListener('mousemove', moveEvent)
-    document.addEventListener('mouseup', removeMoveEvent)
-
-    document.addEventListener('touchmove', moveEvent)
-    document.addEventListener('touchend', removeMoveEvent)
-
-    event.preventDefault()
-    event.stopPropagation()
   }
 });
 
@@ -8191,6 +8151,96 @@ __webpack_require__.r(__webpack_exports__);
       await this.panelData.hooks[type](this.panelData.annotation)
       delete this.panelData.hooks[type]
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Resize.js":
+/*!****************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Resize.js ***!
+  \****************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Reading.components.AnnotationManager.AnnotationPanel.'
+const disableSelectClass = 'pacor-disable-user-select'
+let resizeLocker = false
+
+
+
+let body = null
+
+/* harmony default export */ __webpack_exports__["default"] = ((AnnotationPanel) => {
+
+  AnnotationPanel.methods.onResizeStart = function (event) {
+    if (resizeLocker === true) {
+      return false
+    }
+    resizeLocker = true
+
+    //let body = $('body')
+    if (!body) {
+      body = jquery__WEBPACK_IMPORTED_MODULE_0___default()('body')
+    }
+    body.addClass(disableSelectClass)
+    //console.log(event)
+    //console.log(event)
+    let currentY = event.clientY
+    
+    let maxTopGap = this.lib.style.config.AnnotationPanelMaxTopGap
+    let minPanelHeight = this.lib.style.config.AnnotationPanelMinPanelHeight
+
+    let moveEvent = (event) => {
+      if (this.lib.style.isSmallHeight() === false) {
+        if (event.clientY < maxTopGap
+                || (window.innerHeight - event.clientY) < minPanelHeight) {
+          return false
+        }
+      } else {
+        if (event.clientY < (maxTopGap / 2)
+                || (window.innerHeight - event.clientY) < (minPanelHeight / 2)) {
+          return false
+        }
+      }
+
+
+      let interval = currentY - event.clientY
+      this.panelData.heightPX = this.panelData.heightPX + interval
+      currentY = event.clientY
+      //console.log(this.heightPX)
+      //console.log(event)
+      //event.preventDefault()
+      //event.stopPropagation()
+    }
+
+    let removeMoveEvent = () => {
+      document.removeEventListener('mousemove', moveEvent)
+      document.removeEventListener('mouseup', removeMoveEvent)
+
+      document.removeEventListener('touchmove', moveEvent)
+      document.removeEventListener('touchend', removeMoveEvent)
+      body.removeClass(disableSelectClass)
+      resizeLocker = false
+
+      // 計算最後的比例，然後存到preference去
+      let sizeRatio = ((window.innerHeight - currentY) / window.innerHeight)
+      //console.log(sizeRatio)
+      localStorage.setItem(localStorageKeyPrefix + 'sizeRatio', sizeRatio)
+    }
+
+    document.addEventListener('mousemove', moveEvent)
+    document.addEventListener('mouseup', removeMoveEvent)
+
+    document.addEventListener('touchmove', moveEvent)
+    document.addEventListener('touchend', removeMoveEvent)
+
+    event.preventDefault()
+    event.stopPropagation()
   }
 });
 

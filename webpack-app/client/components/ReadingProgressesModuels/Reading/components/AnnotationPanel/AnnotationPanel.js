@@ -64,4 +64,7 @@ Query(AnnotationPanel)
 import Event from './Traits/methods/Event'
 Event(AnnotationPanel)
 
+import Resize from './Traits/methods/Resize'
+Resize(AnnotationPanel)
+
 export default AnnotationPanel

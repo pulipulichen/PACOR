@@ -10,7 +10,7 @@
 
   </div>
   <div class="seven wide field">
-    <select v-model="selectIndex" class="ui small fluid input">
+    <select v-model="selectIndex" class="ui small fluid input select-question">
       <option v-for="(resource, i) in resources" 
               v-bind:value="i">
         {{ $t(resource.name) }}
@@ -19,7 +19,7 @@
   </div>
   <div class="two wide column field">
     <button type="button" 
-            class="ui fluid button"
+            class="ui small fluid button search-button"
             v-bind:class="computedButtonClass"
             v-on:click="doSearch">
       {{ $t('SEARCH') }}
