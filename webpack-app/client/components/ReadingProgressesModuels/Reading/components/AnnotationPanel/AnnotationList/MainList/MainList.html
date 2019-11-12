@@ -3,6 +3,13 @@
   <template v-if="annotations.length > 1">
 
     <div class="summary-information">
+      
+      <div class="ui icon mini input search-input">
+        <input type="text" 
+               v-model="panelData.query.keyword"
+               v-bind:placeholder="$t('Search...')">
+        <i class="search icon"></i>
+      </div>
 
       <button v-if="annotation"
               type="button" 

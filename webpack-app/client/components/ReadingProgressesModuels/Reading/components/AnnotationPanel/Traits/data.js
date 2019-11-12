@@ -1,13 +1,15 @@
 export default {
   
   panelData: {
-    query: null,
+    query: {
+      anchorPositions: null,
+      keyword: ''
+    },
     annotation: null,
     
     filter: {
       user: null,
       type: null,
-      keyword: null
     },
     hooks: null,
     

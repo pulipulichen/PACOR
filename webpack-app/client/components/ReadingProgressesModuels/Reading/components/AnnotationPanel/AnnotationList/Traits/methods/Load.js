@@ -7,7 +7,7 @@ export default (List) => {
     
     //if (Array.isArray(this.listPositions)) {
     let query = this.query
-    //console.log(query)
+    console.log(query)
     
     let url = '/client/Annotation/listSummary'
 

@@ -37,6 +37,13 @@ export default (AnnotationPanel) => {
     this.panelData.filter.user = user
   }
   
+  AnnotationPanel.methods.findKeyword = function (keyword) {
+    if (!this.panelData.query) {
+      this.panelData.query = {}
+    }
+    this.panelData.query.keyword = keyword
+  }
+  
   AnnotationPanel.methods.setHooks = function (hooks) {
     this.panelData.hooks = hooks
   }

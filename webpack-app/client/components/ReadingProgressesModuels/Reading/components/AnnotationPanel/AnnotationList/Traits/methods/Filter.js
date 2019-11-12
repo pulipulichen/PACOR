@@ -35,16 +35,16 @@ export default (List) => {
   }
   
   List.methods.findKeyword = function (keyword) {
-    if (!this.panelData.filter) {
-      this.panelData.filter = {}
+    if (!this.panelData.query) {
+      this.panelData.query = {}
     }
     
-    this.panelData.filter.keyword = keyword
+    this.panelData.query.keyword = keyword
     this.annotation = null
   }
   
   List.methods.clearFindKeyword = function () {
-    this.panelData.filter.keyword = null
+    this.panelData.query.keyword = null
     this.annotation = null
   }
   

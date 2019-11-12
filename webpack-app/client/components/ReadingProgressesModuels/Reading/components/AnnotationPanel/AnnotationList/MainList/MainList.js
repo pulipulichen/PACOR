@@ -27,10 +27,21 @@ let List = {
         page: this.page
       }
       
-      if (this.panelData.query
-              && this.panelData.query.anchorPositions) {
-        query.anchorPositions = this.panelData.query.anchorPositions
+      if (this.panelData.query) {
+        if (this.panelData.query.anchorPositions) {
+          query.anchorPositions = this.panelData.query.anchorPositions
+        }
+        
+        console.log(this.panelData.query.keyword)
+        if (this.panelData.query.keyword 
+                && this.panelData.query.keyword !== '') {
+          query.keyword = this.panelData.query.keyword
+        }
       }
+      
+      window.qqq = this.panelData.query
+      //console.log(this.panelData.query)
+      //console.log(this.$get('panelData.query.keyword'))
       
       return query
     },
@@ -40,7 +51,7 @@ let List = {
     editorHeightPX () {
       //console.log('aaaa')
       if (!this.panelData) {
-        return
+        return null
       }
 
       let summeryHeight = 0
@@ -59,6 +70,14 @@ let List = {
       if (annotations.length === 1) {
         this.annotation = annotations[0]
       }
+    },
+    'lib.AnnotationPanel' (AnnotationPanel) {
+      if (AnnotationPanel) {
+        this.initEventListener()
+      }
+    },
+    'panelData.query.keyword' () {
+      this.loadSummary()
     }
   },
   mounted() {
@@ -73,6 +92,9 @@ let List = {
       this.annotation = null
     },
     initEventListener: function () {
+      if (!this.lib.AnnotationPanel) {
+        return null
+      }
       this.lib.AnnotationPanel.addEventListener(['delete', 'update'], () => {
         this.reload()
       })
@@ -91,6 +113,9 @@ Scroll(List)
 
 import Load from './../Traits/methods/Load'
 Load(List)
+
+import Keyword from './../Traits/methods/Keyword'
+Keyword(List)
 
 //import Event from './../Traits/methods/Event'
 //Event(List)

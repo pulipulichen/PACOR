@@ -38,25 +38,24 @@ let List = {
       } 
     },
     
-    filteringKeyword () {
-      return this.panelData.filter.keyword
-    },
+//    filteringKeyword () {
+//      return this.panelData.filter.keyword
+//    },
     
     hasTypeFilter () {
       return (this.panelData.filter
               && typeof(this.panelData.filter.type) === 'string')
     },
     
-    hasKeywordFilter () {
-      return (this.panelData.filter 
-              && this.panelData.filter.keyword
-              && this.panelData.filter.keyword !== '')
-    },
+//    hasKeywordFilter () {
+//      return (this.panelData.filter 
+//              && this.panelData.filter.keyword
+//              && this.panelData.filter.keyword !== '')
+//    },
     
     hasFilter () {
       return (this.hasTypeFilter 
-              || this.hasUserFilter
-              || this.hasKeywordFilter)
+              || this.hasUserFilter)
     },
     
     filteringType () {
@@ -71,9 +70,14 @@ let List = {
         page: this.page
       }
       
-      if (this.panelData.query
-              && this.panelData.query.anchorPositions) {
-        query.anchorPositions = this.panelData.query.anchorPositions
+      if (this.panelData.query) {
+        if (this.panelData.query.anchorPositions) {
+          query.anchorPositions = this.panelData.query.anchorPositions
+        }
+        if (this.panelData.query.keyword 
+                && this.panelData.query.keyword !== '') {
+          query.keyword = this.panelData.query.keyword
+        }
       }
       
       if (this.panelData.filter) {
@@ -101,6 +105,14 @@ let List = {
       //console.log([this.panelData.heightPX, summeryHeight])
 
       return this.panelData.heightPX - summeryHeight
+    },
+    
+    searchingKeyword () {
+      if (this.panelData.query 
+              && this.panelData.query.keyword
+              && this.panelData.query.keyword !== '') {
+        return this.panelData.query.keyword
+      }
     }
   },
 //  watch: {
@@ -142,6 +154,9 @@ Scroll(List)
 
 import Load from './../Traits/methods/Load'
 Load(List)
+
+import Keyword from './../Traits/methods/Keyword'
+Keyword(List)
 
 //import Event from './../Traits/methods/Event'
 //Event(List)
