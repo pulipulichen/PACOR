@@ -70,6 +70,9 @@ let AnnotationEditorModules = {
       this.initHover()
     }
   },
+  destroyed () {
+    this.lib.RangyManager.hoverOut(true)
+  },
   mounted() {
     //console.log(this.annotation)
     this.initHover()

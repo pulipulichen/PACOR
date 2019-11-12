@@ -2236,20 +2236,20 @@ let AnnotationItem = {
       }
     },
     onClick () {
-      if (this.lib.rangy) {
-        this.rangy.hoverIn(this.annotation)
+      if (this.lib.RangyManager) {
+        this.lib.RangyManager.hoverIn(this.annotation)
       }
       this.$emit('click', this.annotation)
     },
     onMouseover () {
-      if (this.lib.rangy) {
-        this.rangy.hoverIn(this.annotation)
+      if (this.lib.RangyManager) {
+        this.lib.RangyManager.hoverIn(this.annotation)
       }
       this.$emit('mouseover', this.annotation)
     },
     onMouseout () {
-      if (this.lib.rangy) {
-        this.rangy.hoverOut()
+      if (this.lib.RangyManager) {
+        this.lib.RangyManager.hoverOut()
       }
       this.$emit('mouseout', this.annotation)
     }
