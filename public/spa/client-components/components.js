@@ -395,7 +395,7 @@ exports.push([module.i, "body.pacor-disable-user-select {\n  user-select: none;\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationPanel[data-v-030c1501] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n}\n.annotation-panel[data-v-030c1501] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 1.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 4em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-030c1501] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-030c1501] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-030c1501] {\n  padding: 0;\n}\n.annotation-panel .close-container.floating.ui.label[data-v-030c1501] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.5em !important;\n  padding-left: 0.2em !important;\n  top: -0.5em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.annotation-panel .close-container.floating.ui.label .close.icon[data-v-030c1501] {\n  opacity: 1 !important;\n  color: white;\n}\n.resize-handler[data-v-030c1501] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-030c1501] {\n  cursor: grabbing;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=030c1501&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0CAA0C;AAC5C;AACA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,gCAAgC;EAChC,mCAAmC;AACrC;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,UAAU;EACV,mCAAmC;EACnC,yBAAyB;EACzB,8BAA8B;EAC9B,sBAAsB;EACtB,kCAAkC;EAClC,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,YAAY;AACd;AACA;EACE,WAAW;EACX,WAAW;EACX,YAAY;EACZ,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,gBAAgB;AAClB","file":"AnnotationPanel.less?vue&type=style&index=0&id=030c1501&lang=less&scoped=true&","sourcesContent":[".AnnotationPanel[data-v-030c1501] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n}\n.annotation-panel[data-v-030c1501] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 1.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 4em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-030c1501] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-030c1501] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-030c1501] {\n  padding: 0;\n}\n.annotation-panel .close-container.floating.ui.label[data-v-030c1501] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.5em !important;\n  padding-left: 0.2em !important;\n  top: -0.5em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.annotation-panel .close-container.floating.ui.label .close.icon[data-v-030c1501] {\n  opacity: 1 !important;\n  color: white;\n}\n.resize-handler[data-v-030c1501] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-030c1501] {\n  cursor: grabbing;\n}\n"]}]);
+exports.push([module.i, ".AnnotationPanel[data-v-030c1501] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n}\n.annotation-panel[data-v-030c1501] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 1.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 4em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-030c1501] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-030c1501] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-030c1501] {\n  padding: 0;\n}\n.annotation-panel .close-container.floating.ui.label[data-v-030c1501] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.5em !important;\n  padding-left: 0.2em !important;\n  top: -0.5em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.annotation-panel .close-container.floating.ui.label .close.icon[data-v-030c1501] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n.resize-handler[data-v-030c1501] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-030c1501] {\n  cursor: grabbing;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=030c1501&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0CAA0C;AAC5C;AACA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,gCAAgC;EAChC,mCAAmC;AACrC;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,UAAU;EACV,mCAAmC;EACnC,yBAAyB;EACzB,8BAA8B;EAC9B,sBAAsB;EACtB,kCAAkC;EAClC,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,qBAAqB;AACvB;AACA;EACE,WAAW;EACX,WAAW;EACX,YAAY;EACZ,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,gBAAgB;AAClB","file":"AnnotationPanel.less?vue&type=style&index=0&id=030c1501&lang=less&scoped=true&","sourcesContent":[".AnnotationPanel[data-v-030c1501] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n}\n.annotation-panel[data-v-030c1501] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 1.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 4em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-030c1501] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-030c1501] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-030c1501] {\n  padding: 0;\n}\n.annotation-panel .close-container.floating.ui.label[data-v-030c1501] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.5em !important;\n  padding-left: 0.2em !important;\n  top: -0.5em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.annotation-panel .close-container.floating.ui.label .close.icon[data-v-030c1501] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n.resize-handler[data-v-030c1501] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-030c1501] {\n  cursor: grabbing;\n}\n"]}]);
 
 
 /***/ }),
@@ -465,7 +465,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"ResourceSearch.less?vue&type=style&index=0&id=0fea2a5c&lang=less&scoped=true&"}]);
+exports.push([module.i, "label[data-v-0fea2a5c] {\n  vertical-align: middle;\n}\n.search-keyword[data-v-0fea2a5c] {\n  width: calc(100% - 9em);\n}\n", "",{"version":3,"sources":["ResourceSearch.less?vue&type=style&index=0&id=0fea2a5c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,sBAAsB;AACxB;AACA;EACE,uBAAuB;AACzB","file":"ResourceSearch.less?vue&type=style&index=0&id=0fea2a5c&lang=less&scoped=true&","sourcesContent":["label[data-v-0fea2a5c] {\n  vertical-align: middle;\n}\n.search-keyword[data-v-0fea2a5c] {\n  width: calc(100% - 9em);\n}\n"]}]);
 
 
 /***/ }),
@@ -1784,98 +1784,89 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "ExternalResource ui form middle aligned column grid" },
-    [
-      _c("div", { staticClass: "three wide column" }, [
-        _c("label", { on: { click: _vm.focus } }, [
-          _vm._v(
-            "\r\n        " + _vm._s(_vm.$t("Find your answer")) + ":\r\n      "
-          )
-        ])
+  return _c("div", { staticClass: "ResourceSearch fields" }, [
+    _c("div", { staticClass: "seven wide inline field" }, [
+      _c("label", { on: { click: _vm.focus } }, [
+        _vm._v("\r\n      " + _vm._s(_vm.$t("Find your answer")) + ":\r\n    ")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "three wide column" }, [
-        _c("input", {
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.anchorText,
+            expression: "anchorText"
+          }
+        ],
+        ref: "input",
+        staticClass: "search-keyword",
+        attrs: { type: "text" },
+        domProps: { value: _vm.anchorText },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.anchorText = $event.target.value
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "seven wide field" }, [
+      _c(
+        "select",
+        {
           directives: [
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.anchorText,
-              expression: "anchorText"
+              value: _vm.selectIndex,
+              expression: "selectIndex"
             }
           ],
-          ref: "input",
-          attrs: { type: "text" },
-          domProps: { value: _vm.anchorText },
+          staticClass: "ui small fluid input",
           on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.anchorText = $event.target.value
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.selectIndex = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
             }
           }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "eight wide column" }, [
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.selectIndex,
-                expression: "selectIndex"
-              }
-            ],
-            staticClass: "ui fluid input",
-            on: {
-              change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.selectIndex = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              }
-            }
-          },
-          _vm._l(_vm.resources, function(resource, i) {
-            return _c("option", { domProps: { value: i } }, [
-              _vm._v(
-                "\r\n          " +
-                  _vm._s(_vm.$t(resource.name)) +
-                  "\r\n        "
-              )
-            ])
-          }),
-          0
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "two wide column inline field" }, [
-        _c(
-          "button",
-          {
-            staticClass: "ui fluid button",
-            class: _vm.computedButtonClass,
-            attrs: { type: "button" },
-            on: { click: _vm.doSearch }
-          },
-          [_vm._v("\r\n        " + _vm._s(_vm.$t("SEARCH")) + "\r\n      ")]
-        )
-      ])
-    ]
-  )
+        },
+        _vm._l(_vm.resources, function(resource, i) {
+          return _c("option", { domProps: { value: i } }, [
+            _vm._v(
+              "\r\n        " + _vm._s(_vm.$t(resource.name)) + "\r\n      "
+            )
+          ])
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "two wide column field" }, [
+      _c(
+        "button",
+        {
+          staticClass: "ui fluid button",
+          class: _vm.computedButtonClass,
+          attrs: { type: "button" },
+          on: { click: _vm.doSearch }
+        },
+        [_vm._v("\r\n      " + _vm._s(_vm.$t("SEARCH")) + "\r\n    ")]
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3896,6 +3887,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+let debugEnableAutoList = false
+
 /**
  * https://www.npmjs.com/package/vue-float-action-button
  */
@@ -3988,9 +3981,11 @@ let AnnotationTypeSelector = {
         this.selection = data
         
         // For test
-        setTimeout(() => {
-          this.list()
-        }, 100)
+        if (debugEnableAutoList) {
+          setTimeout(() => {
+            this.list()
+          }, 100)
+        }
       })
       
       rangy.addEventListener('selectcollapsed', (data) => {

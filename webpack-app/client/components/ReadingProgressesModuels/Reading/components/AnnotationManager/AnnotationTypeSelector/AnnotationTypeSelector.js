@@ -1,3 +1,5 @@
+let debugEnableAutoList = false
+
 /**
  * https://www.npmjs.com/package/vue-float-action-button
  */
@@ -90,9 +92,11 @@ let AnnotationTypeSelector = {
         this.selection = data
         
         // For test
-        setTimeout(() => {
-          this.list()
-        }, 100)
+        if (debugEnableAutoList) {
+          setTimeout(() => {
+            this.list()
+          }, 100)
+        }
       })
       
       rangy.addEventListener('selectcollapsed', (data) => {

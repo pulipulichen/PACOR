@@ -1,29 +1,28 @@
-<div class="ExternalResource ui form middle aligned column grid">
-  <div class="three wide column">
-    
-      <label v-on:click="focus">
-        {{ $t('Find your answer') }}:
-      </label>
+<div class="ResourceSearch fields">
+  <div class="seven wide inline field">
+    <label v-on:click="focus">
+      {{ $t('Find your answer') }}:
+    </label>
+    <input type="text" 
+           v-model="anchorText" 
+           class="search-keyword"
+           ref="input" />
+
   </div>
-    <div class="three wide column">
-      <input type="text" v-model="anchorText" ref="input" />
-      
-    </div>
-    <div class="eight wide column">
-      <select v-model="selectIndex" class="ui fluid input">
-        <option v-for="(resource, i) in resources" 
-                v-bind:value="i">
-          {{ $t(resource.name) }}
-        </option>
-      </select>
-    </div>
-    <div class="two wide column inline field">
-      <button type="button" 
-              class="ui fluid button"
-              v-bind:class="computedButtonClass"
-              v-on:click="doSearch">
-        {{ $t('SEARCH') }}
-      </button>
-    </div>
+  <div class="seven wide field">
+    <select v-model="selectIndex" class="ui small fluid input">
+      <option v-for="(resource, i) in resources" 
+              v-bind:value="i">
+        {{ $t(resource.name) }}
+      </option>
+    </select>
+  </div>
+  <div class="two wide column field">
+    <button type="button" 
+            class="ui fluid button"
+            v-bind:class="computedButtonClass"
+            v-on:click="doSearch">
+      {{ $t('SEARCH') }}
+    </button>
   </div>
 </div>
