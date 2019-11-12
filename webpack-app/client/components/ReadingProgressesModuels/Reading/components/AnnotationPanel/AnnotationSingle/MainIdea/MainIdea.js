@@ -137,7 +137,7 @@ let Editor = {
     editAnnotation: async function () {
       
       let data = {
-        id: this.annotationInstance.id,
+        id: this.annotation.id,
         notes: {
           'default': this.note
         }
@@ -148,6 +148,8 @@ let Editor = {
       if (result !== 1) {
         throw this.$t('Update failed.')
       }
+      
+      console.log('AAA?')
       
       this.$emit('update')
     },

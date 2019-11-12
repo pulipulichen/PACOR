@@ -1,4 +1,4 @@
-  <div class="annotation-panel"
+  <div class="annotation-panel AnnotationPanel"
        v-bind:class="{'hidden': isHide}">
   
     <div class="ui secondary segment form "
@@ -35,7 +35,8 @@
           v-bind:lib="lib"
           
           v-bind:panelData="panelData"
-          v-bind:annotation="panelData.annotation">
+          v-bind:annotation="panelData.annotation"
+          v-on:update="hide">
         </annotation-single>
       </template>
       <template v-if="panelData.query">

@@ -44,6 +44,18 @@ let List = {
               && typeof(this.panelData.query.type) === 'string')
     },
     
+    hasKeywordFilter () {
+      return (this.panelData.filter 
+              && this.panelData.filter.keyword
+              && this.panelData.filter.keyword !== '')
+    },
+    
+    hasFilter () {
+      return (this.hasTypeFilter 
+              || this.hasUserFilter
+              || this.hasKeywordFilter)
+    },
+    
     filteredType () {
       if (this.hasTypeFilter) {
         return this.panelData.query.type
@@ -81,6 +93,19 @@ let List = {
     this.loadSummary()
   },
   methods: {
+    initEventListener: function () {
+      this.lib.AnnotationPanel.addEventListener(['delete', 'update'], () => {
+        if (this.hasFilter) {
+          this.reload()
+        }
+      })
+    },
+    onUpdate () {
+      this.annotation = null
+    },
+    onDelete() {
+      this.annotation = null
+    },
   } // methods
 }
 
@@ -96,7 +121,7 @@ Scroll(List)
 import Load from './../Traits/methods/Load'
 Load(List)
 
-import Event from './../Traits/methods/Event'
-Event(List)
+//import Event from './../Traits/methods/Event'
+//Event(List)
 
 export default List

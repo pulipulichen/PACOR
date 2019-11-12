@@ -1,11 +1,14 @@
 export default {
   
-  //heightVH: 50,
   panelData: {
     query: null,
     annotation: null,
     
-    filter: null,
+    filter: {
+      user: null,
+      type: null,
+      keyword: null
+    },
     hooks: null,
     
     heightPX: 500,  // 記錄目前使用的高度，不可省略

@@ -297,7 +297,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-float-widget[data-v-ca5d3b70] {\n  position: fixed !important;\n  left: 1em;\n  z-index: 1;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 13em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,SAAS;EACT,UAAU;EACV,wBAAwB;EACxB,qBAAqB;EACrB,mCAAmC;EACnC,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,kBAAkB;EAClB,mBAAmB;AACrB","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-ca5d3b70] {\n  position: fixed !important;\n  left: 1em;\n  z-index: 1;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 13em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top;\n}\n"]}]);
+exports.push([module.i, ".annotation-float-widget[data-v-ca5d3b70] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: 1;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 13em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0CAA0C;EAC1C,0BAA0B;EAC1B,SAAS;EACT,UAAU;EACV,wBAAwB;EACxB,qBAAqB;EACrB,mCAAmC;EACnC,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,kBAAkB;EAClB,mBAAmB;AACrB","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-ca5d3b70] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: 1;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 13em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top;\n}\n"]}]);
 
 
 /***/ }),
@@ -395,7 +395,7 @@ exports.push([module.i, "body.pacor-disable-user-select {\n  user-select: none;\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".close-container[data-v-030c1501] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  position: relative;\n  z-index: 2;\n}\n.annotation-panel[data-v-030c1501] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-030c1501] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-030c1501] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-030c1501] {\n  padding: 0;\n}\n.resize-handler[data-v-030c1501] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-030c1501] {\n  cursor: grabbing;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=030c1501&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,gCAAgC;EAChC,mCAAmC;AACrC;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,WAAW;EACX,WAAW;EACX,YAAY;EACZ,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,gBAAgB;AAClB","file":"AnnotationPanel.less?vue&type=style&index=0&id=030c1501&lang=less&scoped=true&","sourcesContent":[".close-container[data-v-030c1501] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  position: relative;\n  z-index: 2;\n}\n.annotation-panel[data-v-030c1501] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-030c1501] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-030c1501] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-030c1501] {\n  padding: 0;\n}\n.resize-handler[data-v-030c1501] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-030c1501] {\n  cursor: grabbing;\n}\n"]}]);
+exports.push([module.i, ".AnnotationPanel[data-v-030c1501] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n}\n.close-container[data-v-030c1501] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  position: relative;\n  z-index: 2;\n}\n.annotation-panel[data-v-030c1501] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-030c1501] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-030c1501] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-030c1501] {\n  padding: 0;\n}\n.resize-handler[data-v-030c1501] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-030c1501] {\n  cursor: grabbing;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=030c1501&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0CAA0C;AAC5C;AACA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,gCAAgC;EAChC,mCAAmC;AACrC;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,WAAW;EACX,WAAW;EACX,YAAY;EACZ,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,gBAAgB;AAClB","file":"AnnotationPanel.less?vue&type=style&index=0&id=030c1501&lang=less&scoped=true&","sourcesContent":[".AnnotationPanel[data-v-030c1501] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n}\n.close-container[data-v-030c1501] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  position: relative;\n  z-index: 2;\n}\n.annotation-panel[data-v-030c1501] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 0.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 2em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-030c1501] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-030c1501] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-030c1501] {\n  padding: 0;\n}\n.resize-handler[data-v-030c1501] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-030c1501] {\n  cursor: grabbing;\n}\n"]}]);
 
 
 /***/ }),
@@ -1070,7 +1070,8 @@ var render = function() {
               lib: _vm.lib,
               panelData: _vm.panelData,
               annotation: _vm.annotation
-            }
+            },
+            on: { update: _vm.onUpdate, delete: _vm.onDelete }
           })
         : _vm._e()
     ],
@@ -1220,7 +1221,8 @@ var render = function() {
               lib: _vm.lib,
               panelData: _vm.panelData,
               annotation: _vm.annotation
-            }
+            },
+            on: { update: _vm.onUpdate, delete: _vm.onDelete }
           })
         : _vm._e()
     ],
@@ -1251,7 +1253,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "annotation-panel", class: { hidden: _vm.isHide } },
+    {
+      staticClass: "annotation-panel AnnotationPanel",
+      class: { hidden: _vm.isHide }
+    },
     [
       _c(
         "div",
@@ -1291,7 +1296,8 @@ var render = function() {
                     lib: _vm.lib,
                     panelData: _vm.panelData,
                     annotation: _vm.panelData.annotation
-                  }
+                  },
+                  on: { update: _vm.hide }
                 })
               ]
             : _vm._e(),
@@ -4332,6 +4338,9 @@ let AnnotationList = {
       let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.panelData.query.anchorPositions)
       this.lib.AnnotationPanel.scrollToRect(rect)
       //throw '@TODO'
+    },
+    onUpdate () {
+      this.annotation = null
     }
   } // methods
 }
@@ -4462,7 +4471,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Traits_methods_Filter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Traits/methods/Filter */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Filter.js");
 /* harmony import */ var _Traits_methods_Scroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Traits/methods/Scroll */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Scroll.js");
 /* harmony import */ var _Traits_methods_Load__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Traits/methods/Load */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Load.js");
-/* harmony import */ var _Traits_methods_Event__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../Traits/methods/Event */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Event.js");
 
 
 let List = {
@@ -4509,6 +4517,18 @@ let List = {
               && typeof(this.panelData.query.type) === 'string')
     },
     
+    hasKeywordFilter () {
+      return (this.panelData.filter 
+              && this.panelData.filter.keyword
+              && this.panelData.filter.keyword !== '')
+    },
+    
+    hasFilter () {
+      return (this.hasTypeFilter 
+              || this.hasUserFilter
+              || this.hasKeywordFilter)
+    },
+    
     filteredType () {
       if (this.hasTypeFilter) {
         return this.panelData.query.type
@@ -4546,6 +4566,19 @@ let List = {
     this.loadSummary()
   },
   methods: {
+    initEventListener: function () {
+      this.lib.AnnotationPanel.addEventListener(['delete', 'update'], () => {
+        if (this.hasFilter) {
+          this.reload()
+        }
+      })
+    },
+    onUpdate () {
+      this.annotation = null
+    },
+    onDelete() {
+      this.annotation = null
+    },
   } // methods
 }
 
@@ -4561,8 +4594,8 @@ Object(_Traits_methods_Scroll__WEBPACK_IMPORTED_MODULE_3__["default"])(List)
 
 Object(_Traits_methods_Load__WEBPACK_IMPORTED_MODULE_4__["default"])(List)
 
-
-Object(_Traits_methods_Event__WEBPACK_IMPORTED_MODULE_5__["default"])(List)
+//import Event from './../Traits/methods/Event'
+//Event(List)
 
 /* harmony default export */ __webpack_exports__["default"] = (List);
 
@@ -4658,7 +4691,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Traits_methods_Filter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Traits/methods/Filter */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Filter.js");
 /* harmony import */ var _Traits_methods_Scroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Traits/methods/Scroll */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Scroll.js");
 /* harmony import */ var _Traits_methods_Load__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Traits/methods/Load */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Load.js");
-/* harmony import */ var _Traits_methods_Event__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../Traits/methods/Event */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Event.js");
 
 
 let List = {
@@ -4708,6 +4740,17 @@ let List = {
     this.loadSummary()
   },
   methods: {
+    onUpdate () {
+      this.annotation = null
+    },
+    onDelete() {
+      this.annotation = null
+    },
+    initEventListener: function () {
+      this.lib.AnnotationPanel.addEventListener(['delete', 'update'], () => {
+        this.reload()
+      })
+    }
   } // methods
 }
 
@@ -4723,8 +4766,8 @@ Object(_Traits_methods_Scroll__WEBPACK_IMPORTED_MODULE_3__["default"])(List)
 
 Object(_Traits_methods_Load__WEBPACK_IMPORTED_MODULE_4__["default"])(List)
 
-
-Object(_Traits_methods_Event__WEBPACK_IMPORTED_MODULE_5__["default"])(List)
+//import Event from './../Traits/methods/Event'
+//Event(List)
 
 /* harmony default export */ __webpack_exports__["default"] = (List);
 
@@ -4886,27 +4929,6 @@ __webpack_require__.r(__webpack_exports__);
       'max-height': `${this.editorHeightPX - 50}px`
     }
     return style
-  }
-});
-
-/***/ }),
-
-/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Event.js":
-/*!******************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Event.js ***!
-  \******************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ((List) => {
-  List.methods.initEventListener = function () {
-    
-    this.lib.AnnotationPanel.addEventListener(['delete', 'update'], () => {
-      this.reload()
-    })
-    
   }
 });
 
@@ -5550,6 +5572,7 @@ let AnnotationEditorModules = {
     },
     onUpdate: async function () {
       this.lib.AnnotationPanel.triggerEvent('update')
+      this.$emit('update')
     },
     onDelete: async function () {
       if (this.annotation 
@@ -6292,7 +6315,7 @@ let Editor = {
     editAnnotation: async function () {
       
       let data = {
-        id: this.annotationInstance.id,
+        id: this.annotation.id,
         notes: {
           'default': this.note
         }
@@ -6303,6 +6326,8 @@ let Editor = {
       if (result !== 1) {
         throw this.$t('Update failed.')
       }
+      
+      console.log('AAA?')
       
       this.$emit('update')
     },
@@ -6496,7 +6521,7 @@ let Editor = {
     editAnnotation: async function () {
       
       let data = {
-        id: this.annotationInstance.id,
+        id: this.annotation.id,
         notes: {
           'default': this.note
         }
@@ -6507,6 +6532,8 @@ let Editor = {
       if (result !== 1) {
         throw this.$t('Update failed.')
       }
+      
+      console.log('AAA?')
       
       this.$emit('update')
     },
@@ -7697,12 +7724,15 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   
-  //heightVH: 50,
   panelData: {
     query: null,
     annotation: null,
     
-    filter: null,
+    filter: {
+      user: null,
+      type: null,
+      keyword: null
+    },
     hooks: null,
     
     heightPX: 500,  // 記錄目前使用的高度，不可省略

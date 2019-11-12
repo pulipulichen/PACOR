@@ -113,6 +113,7 @@ let AnnotationEditorModules = {
     },
     onUpdate: async function () {
       this.lib.AnnotationPanel.triggerEvent('update')
+      this.$emit('update')
     },
     onDelete: async function () {
       if (this.annotation 

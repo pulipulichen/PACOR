@@ -47,6 +47,17 @@ let List = {
     this.loadSummary()
   },
   methods: {
+    onUpdate () {
+      this.annotation = null
+    },
+    onDelete() {
+      this.annotation = null
+    },
+    initEventListener: function () {
+      this.lib.AnnotationPanel.addEventListener(['delete', 'update'], () => {
+        this.reload()
+      })
+    }
   } // methods
 }
 
@@ -62,7 +73,7 @@ Scroll(List)
 import Load from './../Traits/methods/Load'
 Load(List)
 
-import Event from './../Traits/methods/Event'
-Event(List)
+//import Event from './../Traits/methods/Event'
+//Event(List)
 
 export default List

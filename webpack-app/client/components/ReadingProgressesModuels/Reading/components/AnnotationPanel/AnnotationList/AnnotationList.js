@@ -285,6 +285,9 @@ let AnnotationList = {
       let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.panelData.query.anchorPositions)
       this.lib.AnnotationPanel.scrollToRect(rect)
       //throw '@TODO'
+    },
+    onUpdate () {
+      this.annotation = null
     }
   } // methods
 }
