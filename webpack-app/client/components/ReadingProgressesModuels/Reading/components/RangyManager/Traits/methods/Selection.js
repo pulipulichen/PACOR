@@ -307,5 +307,9 @@ export default (RangyManager) => {
     return anchor_text
   }
   
+  RangyManager.methods.cancelSelection = function () {
+    this.rangy.getSelection().removeAllRanges()
+  }
+  
 }
 

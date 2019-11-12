@@ -4025,20 +4025,23 @@ let AnnotationTypeSelector = {
         type: type
       }
       
-      //this.lib.RangyManager.pinSelection(this.selection)
+      this.lib.RangyManager.pinSelection(this.selection)
       
       this.lib.AnnotationPanel.setAnnotation(annotation, {
         'cancel': () => {
           // 如果取消的話，那就恢復選取
+          //console.log('有嗎？')
           this.lib.RangyManager.unpinSelection(true)
         }
       })
     },
     list () {
       //this.$emit('list')
+      
       let ancrhoPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
       
       this.lib.AnnotationPanel.setAnchorPositions(ancrhoPositions)
+      this.lib.RangyManager.cancelSelection()
       //throw '有改變嗎'
     }
   } // methods
@@ -5599,16 +5602,24 @@ let AnnotationEditorModules = {
   methods: {
     initHover () {
       //console.log(this.annotationInstance)
-      if (typeof(this.lib.RangyManager) === 'object') {
-        if (this.annotation !== null 
-                && typeof(this.annotation) === 'object') {
-          setTimeout(() => {
-            this.lib.RangyManager.hoverIn(this.annotation, true)
-          }, 100)
+      //console.log(this.annotation)
+      
+      if (typeof(this.annotation.id) === 'number') {
+        if (typeof(this.lib.RangyManager) === 'object') {
+          if (this.annotation !== null 
+                  && typeof(this.annotation) === 'object') {
+            setTimeout(() => {
+              this.lib.RangyManager.hoverIn(this.annotation, true)
+            }, 100)
+          }
+          else {
+            this.lib.RangyManager.hoverOut(true)
+          }
         }
-        else {
-          this.lib.RangyManager.hoverOut(true)
-        }
+      }
+      else {
+        //console.log('這裡要用pin')
+        //this.lib.RangyManager.pinSelection()
       }
     },
     scrollToAnnotation () {
@@ -7913,7 +7924,12 @@ __webpack_require__.r(__webpack_exports__);
       user: null,
       type: null,
     },
-    hooks: null,
+    hooks: {
+      cancel: null,
+      add: null,
+      update: null,
+      delete: null
+    },
     
     keyword: '',
     
@@ -7961,7 +7977,6 @@ const transitionMode = 'slide up'
     //this.scrollToPinSelection()
   }
   AnnotationPanel.methods.hide = function (doEmitCancel) {
-    
     // 這個太怪了，根本就不應該在這裡使用
 //    if (this.sectionsData.sectionAnnotation.instance !== null) {
 //      this.sectionsData.sectionAnnotation.instance = null
@@ -7984,12 +7999,15 @@ const transitionMode = 'slide up'
 //    }
 //    this.$emit('hide', doUnpin)
 
-    this.reset()
-    
-    doEmitCancel = doEmitCancel ? doEmitCancel : false
+    doEmitCancel = (typeof(doEmitCancel) === 'boolean') ? doEmitCancel : true
+    //console.log(doEmitCancel)
     if (doEmitCancel) {
+      //console.log('呼叫')
       this.triggerEvent('cancel')
     }
+    
+    this.reset()
+    
   }
 });
 
@@ -8033,6 +8051,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     }
     
+    //console.log('triggerEvent', event)
     this.triggerHook(event)
     
     if (event === 'add') {
@@ -8130,8 +8149,10 @@ __webpack_require__.r(__webpack_exports__);
   
   AnnotationPanel.methods.setAnnotation = function (annotation, hooks) {
     this.panelData.annotation = annotation
+    //console.log(hooks)
     if (hooks) {
       this.panelData.hooks = hooks
+      //console.log(this.panelData.hooks)
     }
     
     this.show()
@@ -8177,10 +8198,16 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   AnnotationPanel.methods.triggerHook = async function (type) {
+    //console.log(this.panelData.hooks)
     if (this.panelData.hooks 
             && typeof(this.panelData.hooks[type]) === 'function') {
+      //console.log('呼叫')
       await this.panelData.hooks[type](this.panelData.annotation)
-      delete this.panelData.hooks[type]
+      //delete this.panelData.hooks[type]
+      if (this.panelData.hooks
+              && typeof(this.panelData.hooks) === 'object') {
+        this.panelData.hooks[type] = null
+      }
     }
   }
 });
@@ -9757,6 +9784,10 @@ __webpack_require__.r(__webpack_exports__);
     let { anchor_text } = this._getAnchorPositionFromHighlight(highlight)
     //console.log(anchor_text)
     return anchor_text
+  }
+  
+  RangyManager.methods.cancelSelection = function () {
+    this.rangy.getSelection().removeAllRanges()
   }
   
 });

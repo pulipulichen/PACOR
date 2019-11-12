@@ -19,7 +19,6 @@ export default (AnnotationPanel) => {
     //this.scrollToPinSelection()
   }
   AnnotationPanel.methods.hide = function (doEmitCancel) {
-    
     // 這個太怪了，根本就不應該在這裡使用
 //    if (this.sectionsData.sectionAnnotation.instance !== null) {
 //      this.sectionsData.sectionAnnotation.instance = null
@@ -42,11 +41,14 @@ export default (AnnotationPanel) => {
 //    }
 //    this.$emit('hide', doUnpin)
 
-    this.reset()
-    
-    doEmitCancel = doEmitCancel ? doEmitCancel : false
+    doEmitCancel = (typeof(doEmitCancel) === 'boolean') ? doEmitCancel : true
+    //console.log(doEmitCancel)
     if (doEmitCancel) {
+      //console.log('呼叫')
       this.triggerEvent('cancel')
     }
+    
+    this.reset()
+    
   }
 }

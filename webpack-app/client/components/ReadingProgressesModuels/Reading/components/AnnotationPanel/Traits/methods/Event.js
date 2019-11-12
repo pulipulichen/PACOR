@@ -27,6 +27,7 @@ export default (AnnotationPanel) => {
       }
     }
     
+    //console.log('triggerEvent', event)
     this.triggerHook(event)
     
     if (event === 'add') {

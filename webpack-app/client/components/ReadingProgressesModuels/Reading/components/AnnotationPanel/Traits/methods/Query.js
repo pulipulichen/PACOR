@@ -19,8 +19,10 @@ export default (AnnotationPanel) => {
   
   AnnotationPanel.methods.setAnnotation = function (annotation, hooks) {
     this.panelData.annotation = annotation
+    //console.log(hooks)
     if (hooks) {
       this.panelData.hooks = hooks
+      //console.log(this.panelData.hooks)
     }
     
     this.show()
@@ -66,10 +68,16 @@ export default (AnnotationPanel) => {
   }
   
   AnnotationPanel.methods.triggerHook = async function (type) {
+    //console.log(this.panelData.hooks)
     if (this.panelData.hooks 
             && typeof(this.panelData.hooks[type]) === 'function') {
+      //console.log('呼叫')
       await this.panelData.hooks[type](this.panelData.annotation)
-      delete this.panelData.hooks[type]
+      //delete this.panelData.hooks[type]
+      if (this.panelData.hooks
+              && typeof(this.panelData.hooks) === 'object') {
+        this.panelData.hooks[type] = null
+      }
     }
   }
 }

@@ -79,16 +79,24 @@ let AnnotationEditorModules = {
   methods: {
     initHover () {
       //console.log(this.annotationInstance)
-      if (typeof(this.lib.RangyManager) === 'object') {
-        if (this.annotation !== null 
-                && typeof(this.annotation) === 'object') {
-          setTimeout(() => {
-            this.lib.RangyManager.hoverIn(this.annotation, true)
-          }, 100)
+      //console.log(this.annotation)
+      
+      if (typeof(this.annotation.id) === 'number') {
+        if (typeof(this.lib.RangyManager) === 'object') {
+          if (this.annotation !== null 
+                  && typeof(this.annotation) === 'object') {
+            setTimeout(() => {
+              this.lib.RangyManager.hoverIn(this.annotation, true)
+            }, 100)
+          }
+          else {
+            this.lib.RangyManager.hoverOut(true)
+          }
         }
-        else {
-          this.lib.RangyManager.hoverOut(true)
-        }
+      }
+      else {
+        //console.log('這裡要用pin')
+        //this.lib.RangyManager.pinSelection()
       }
     },
     scrollToAnnotation () {

@@ -115,20 +115,23 @@ let AnnotationTypeSelector = {
         type: type
       }
       
-      //this.lib.RangyManager.pinSelection(this.selection)
+      this.lib.RangyManager.pinSelection(this.selection)
       
       this.lib.AnnotationPanel.setAnnotation(annotation, {
         'cancel': () => {
           // 如果取消的話，那就恢復選取
+          //console.log('有嗎？')
           this.lib.RangyManager.unpinSelection(true)
         }
       })
     },
     list () {
       //this.$emit('list')
+      
       let ancrhoPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
       
       this.lib.AnnotationPanel.setAnchorPositions(ancrhoPositions)
+      this.lib.RangyManager.cancelSelection()
       //throw '有改變嗎'
     }
   } // methods

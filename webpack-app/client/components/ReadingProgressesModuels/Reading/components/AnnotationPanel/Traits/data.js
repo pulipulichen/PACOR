@@ -8,7 +8,12 @@ export default {
       user: null,
       type: null,
     },
-    hooks: null,
+    hooks: {
+      cancel: null,
+      add: null,
+      update: null,
+      delete: null
+    },
     
     keyword: '',
     
