@@ -4628,7 +4628,7 @@ let List = {
       }
 
       let summeryHeight = 0
-      console.log([this.panelData.heightPX, summeryHeight])
+      //console.log([this.panelData.heightPX, summeryHeight])
 
       return this.panelData.heightPX - summeryHeight
     }
