@@ -353,7 +353,7 @@ exports.push([module.i, ".back-button[data-v-d0a3714a] {\n  vertical-align: top 
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".back-button[data-v-85bd389e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-85bd389e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-85bd389e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-85bd389e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-85bd389e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-85bd389e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n.keyword[data-v-85bd389e] {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}\n.search-input[data-v-85bd389e] {\n  float: right;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=85bd389e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;EACE,iBAAiB;EACjB,qBAAqB;EACrB,gBAAgB;AAClB;AACA;EACE,YAAY;EACZ,mBAAmB;AACrB","file":"List.less?vue&type=style&index=0&id=85bd389e&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-85bd389e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-85bd389e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-85bd389e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-85bd389e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-85bd389e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-85bd389e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n.keyword[data-v-85bd389e] {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}\n.search-input[data-v-85bd389e] {\n  float: right;\n  vertical-align: top;\n}\n"]}]);
+exports.push([module.i, ".back-button[data-v-85bd389e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-85bd389e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-85bd389e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-85bd389e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-85bd389e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-85bd389e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-85bd389e] {\n  float: right;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=85bd389e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;;;;EAIE;AACF;EACE,YAAY;EACZ,mBAAmB;AACrB","file":"List.less?vue&type=style&index=0&id=85bd389e&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-85bd389e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-85bd389e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-85bd389e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-85bd389e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-85bd389e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-85bd389e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-85bd389e] {\n  float: right;\n  vertical-align: top;\n}\n"]}]);
 
 
 /***/ }),
@@ -367,7 +367,7 @@ exports.push([module.i, ".back-button[data-v-85bd389e] {\n  vertical-align: top 
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".back-button[data-v-cba2731e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-cba2731e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-cba2731e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-cba2731e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-cba2731e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-cba2731e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n.keyword[data-v-cba2731e] {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}\n.search-input[data-v-cba2731e] {\n  float: right;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=cba2731e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;EACE,iBAAiB;EACjB,qBAAqB;EACrB,gBAAgB;AAClB;AACA;EACE,YAAY;EACZ,mBAAmB;AACrB","file":"List.less?vue&type=style&index=0&id=cba2731e&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-cba2731e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-cba2731e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-cba2731e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-cba2731e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-cba2731e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-cba2731e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n.keyword[data-v-cba2731e] {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}\n.search-input[data-v-cba2731e] {\n  float: right;\n  vertical-align: top;\n}\n"]}]);
+exports.push([module.i, ".back-button[data-v-cba2731e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-cba2731e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-cba2731e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-cba2731e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-cba2731e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-cba2731e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-cba2731e] {\n  float: right;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=cba2731e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;;;;EAIE;AACF;EACE,YAAY;EACZ,mBAAmB;AACrB","file":"List.less?vue&type=style&index=0&id=cba2731e&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-cba2731e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-cba2731e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-cba2731e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-cba2731e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-cba2731e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-cba2731e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-cba2731e] {\n  float: right;\n  vertical-align: top;\n}\n"]}]);
 
 
 /***/ }),
@@ -921,6 +921,31 @@ var render = function() {
         "div",
         { staticClass: "summary-information" },
         [
+          _c("div", { staticClass: "ui icon mini input search-input" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.panelData.keyword,
+                  expression: "panelData.keyword"
+                }
+              ],
+              attrs: { type: "text", placeholder: _vm.$t("Search...") },
+              domProps: { value: _vm.panelData.keyword },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.panelData, "keyword", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("i", { staticClass: "search icon" })
+          ]),
+          _vm._v(" "),
           _vm.annotation
             ? _c(
                 "button",
@@ -991,12 +1016,6 @@ var render = function() {
                 },
                 on: { find: _vm.clearFindType }
               })
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.filteringKeyword
-            ? _c("div", { staticClass: "keyword" }, [
-                _vm._v("\r\n      " + _vm._s(_vm.searchingKeyword) + "\r\n    ")
-              ])
             : _vm._e(),
           _vm._v(" "),
           _c("div", { staticClass: "label" }, [
@@ -4931,8 +4950,10 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   List.methods.clearFindType = function () {
+
     this.panelData.filter.type = null
     this.annotation = null
+    //console.log(this.panelData.filter)
   }
   
   List.methods.findKeyword = function (keyword) {
@@ -4946,7 +4967,8 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   List.methods.clearFilter = function () {
-    this.panelData.filter = null
+    this.panelData.filter.user = null
+    this.panelData.filter.type = null
     //console.log('clearFilter')
     this.annotation = null
   }
@@ -5001,14 +5023,16 @@ __webpack_require__.r(__webpack_exports__);
     
     //if (Array.isArray(this.listPositions)) {
     let query = this.query
-    console.log(query)
+    //console.log(query)
     
     let url = '/client/Annotation/listSummary'
 
     let result = await this.lib.AxiosHelper.post(url, query)
 
     if (result === 0) {
-      console.error('not found.')
+      //console.error('not found.')
+      this.annotations = []
+      this.noMore = true
       return
       //return this.$emit('close')
     }
@@ -8067,6 +8091,7 @@ __webpack_require__.r(__webpack_exports__);
     this.panelData.hooks = null
     this.panelData.filter = null
     this.panelData.annotation = null
+    this.panelData.keyword = ''
     this.lib.RangyManager.hoverOut(true)
   }
   

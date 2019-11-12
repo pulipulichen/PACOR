@@ -39,14 +39,9 @@ let SearchInput = {
 //  },
   methods: {
     searchAnnotation () {
-      let filter = {}
-      
-      if (this.status.search.keyword !== '') {
-        filter.keyword = this.status.search.keyword
-      }
       
       // 先設定篩選條件
-      this.lib.AnnotationPanel.setFilter(filter)
+      this.lib.AnnotationPanel.findKeyword(this.status.search.keyword)
       
       // 再來顯示
       this.lib.AnnotationPanel.setAnchorPositions({

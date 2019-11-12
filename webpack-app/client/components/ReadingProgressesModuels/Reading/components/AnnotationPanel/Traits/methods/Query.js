@@ -60,6 +60,7 @@ export default (AnnotationPanel) => {
     this.panelData.hooks = null
     this.panelData.filter = null
     this.panelData.annotation = null
+    this.panelData.keyword = ''
     this.lib.RangyManager.hoverOut(true)
   }
   

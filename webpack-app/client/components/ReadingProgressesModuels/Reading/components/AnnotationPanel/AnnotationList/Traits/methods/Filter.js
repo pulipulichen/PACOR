@@ -30,8 +30,10 @@ export default (List) => {
   }
   
   List.methods.clearFindType = function () {
+
     this.panelData.filter.type = null
     this.annotation = null
+    //console.log(this.panelData.filter)
   }
   
   List.methods.findKeyword = function (keyword) {
@@ -45,7 +47,8 @@ export default (List) => {
   }
   
   List.methods.clearFilter = function () {
-    this.panelData.filter = null
+    this.panelData.filter.user = null
+    this.panelData.filter.type = null
     //console.log('clearFilter')
     this.annotation = null
   }
