@@ -2,6 +2,7 @@
 
 export default (AnnotationPanel) => {
   AnnotationPanel.methods.setAnchorPositions = function (anchorPositions, hooks) {
+    
     if (hooks === undefined 
             && Array.isArray(anchorPositions) === false) {
       hooks = anchorPositions

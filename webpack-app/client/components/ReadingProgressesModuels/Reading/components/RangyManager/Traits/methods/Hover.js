@@ -1,5 +1,7 @@
 export default (RangyManager) => {
   RangyManager.methods.hoverIn = function (annotation, doLock) {
+    //throw '錯誤'
+    
     //console.log(disableHoverout)
     if (this.hoverAnnotation === annotation) {
       if (doLock !== true) {
@@ -27,6 +29,8 @@ export default (RangyManager) => {
   }
 
   RangyManager.methods.hoverOut = function (doUnlock) {
+    //throw '錯誤'
+    
     if (doUnlock === true) {
       this.hoverAnnotationLock = false
     }
@@ -41,6 +45,7 @@ export default (RangyManager) => {
   }
 
   RangyManager.methods.getHoverAnchorText = function () {
+    
     let highlight = this.hoverHighlighter.highlights[0]
     let { anchor_text } = this._getAnchorPositionFromHighlight(highlight)
     return anchor_text

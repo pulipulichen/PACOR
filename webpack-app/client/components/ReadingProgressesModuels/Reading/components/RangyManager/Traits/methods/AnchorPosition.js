@@ -88,44 +88,6 @@ export default (RangyManager) => {
     }
   }
 
-//  RangyManager.methods._adjustPositionWithPinnedSelection = function (annotation) {
-//    if (this.isPinned === false) {
-//      return annotation
-//    }
-//
-//    //console.log('hoverIn', annotation.anchorPositions[0])
-//    //let shift = this.isPinned ? 1 : 0
-//    //console.log(shift)
-//    let pinHighlights = this.selectionHighlighter.highlights
-//    annotation.anchorPositions = annotation.anchorPositions.map(pos => {
-//      pinHighlights.forEach(pin => {
-//        pin = this._highlightToAnchorPosition(pin)
-//        //console.log(pos)
-//        //console.log(pin)
-//        if (pin.paragraph_id !== pos.paragraph_id) {
-//          return false
-//        }
-//
-//        if (pos.start_pos > pin.start_pos
-//                && pos.end_pos < pin.end_pos) {
-//          // 包含的狀態
-//          pos.start_pos = pos.start_pos + 1
-//          pos.end_pos = pos.end_pos + 1
-//        } else if (pos.end_pos === pin.end_pos) {
-//          pos.start_pos = pos.start_pos + 1
-//          pos.end_pos = pos.end_pos + 2
-//        } else if (pos.end_pos === pin.start_pos
-//                || pos.end_pos === pin.start_pos + 1) {
-//          pos.end_pos = pos.end_pos + 1
-//        } else if (pos.start_pos === pin.start_pos + 1) {
-//          pos.end_pos = pos.end_pos + 2
-//        }
-//      })
-//      return pos
-//    })
-//
-//    return annotation
-//  }
   RangyManager.methods.getAnchorTextArrayFromAnnotation = function (annotation) {
     return annotation.anchorPositions.map(pos => {
       if (pos.anchor_text) {
@@ -157,6 +119,7 @@ export default (RangyManager) => {
   }
   
   RangyManager.methods.getRectFromAnchorPositions = function (anchorPositions) {
+    let selectionSaved = this.rangy.saveSelection()
     // 先把位置資訊變成字串
     let highlightJSONArray = anchorPositions.map((pos, i) => {
         return [
@@ -179,11 +142,14 @@ export default (RangyManager) => {
     let rect = range.getBoundingDocumentRect()
     
     this.rectHighlighter.removeAllHighlights()
-    
+    this.rangy.restoreSelection(selectionSaved)
     return rect
   }
   
   RangyManager.methods.getAnchorPositionsFromSelection = function (selection) {
+    let selectionSaved = this.rangy.saveSelection()
+    //console.log(selectionSaved)
+    
     //console.log(selection.anchorPositions)
     let highlights = this.rectHighlighter.highlightSelection('pacor-rect', {
       exclusive: false,
@@ -203,6 +169,9 @@ export default (RangyManager) => {
     })
     
     this.rectHighlighter.removeAllHighlights()
+    //throw '有嗎'
+    this.rangy.restoreSelection(selectionSaved)
+    //throw '有嗎'
     
     return selection.anchorPositions
   }

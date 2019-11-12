@@ -114,7 +114,7 @@ let AnnotationTypeSelector = {
         type: type
       }
       
-      this.lib.RangyManager.pinSelection()
+      //this.lib.RangyManager.pinSelection(this.selection)
       
       this.lib.AnnotationPanel.setAnnotation(annotation, {
         'cancel': () => {
@@ -128,6 +128,7 @@ let AnnotationTypeSelector = {
       let ancrhoPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
       
       this.lib.AnnotationPanel.setAnchorPositions(ancrhoPositions)
+      //throw '有改變嗎'
     }
   } // methods
 }

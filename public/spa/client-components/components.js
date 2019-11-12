@@ -4003,7 +4003,7 @@ let AnnotationTypeSelector = {
         type: type
       }
       
-      this.lib.RangyManager.pinSelection()
+      //this.lib.RangyManager.pinSelection(this.selection)
       
       this.lib.AnnotationPanel.setAnnotation(annotation, {
         'cancel': () => {
@@ -4017,6 +4017,7 @@ let AnnotationTypeSelector = {
       let ancrhoPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
       
       this.lib.AnnotationPanel.setAnchorPositions(ancrhoPositions)
+      //throw '有改變嗎'
     }
   } // methods
 }
@@ -8087,6 +8088,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ((AnnotationPanel) => {
   AnnotationPanel.methods.setAnchorPositions = function (anchorPositions, hooks) {
+    
     if (hooks === undefined 
             && Array.isArray(anchorPositions) === false) {
       hooks = anchorPositions
@@ -8755,44 +8757,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 
-//  RangyManager.methods._adjustPositionWithPinnedSelection = function (annotation) {
-//    if (this.isPinned === false) {
-//      return annotation
-//    }
-//
-//    //console.log('hoverIn', annotation.anchorPositions[0])
-//    //let shift = this.isPinned ? 1 : 0
-//    //console.log(shift)
-//    let pinHighlights = this.selectionHighlighter.highlights
-//    annotation.anchorPositions = annotation.anchorPositions.map(pos => {
-//      pinHighlights.forEach(pin => {
-//        pin = this._highlightToAnchorPosition(pin)
-//        //console.log(pos)
-//        //console.log(pin)
-//        if (pin.paragraph_id !== pos.paragraph_id) {
-//          return false
-//        }
-//
-//        if (pos.start_pos > pin.start_pos
-//                && pos.end_pos < pin.end_pos) {
-//          // 包含的狀態
-//          pos.start_pos = pos.start_pos + 1
-//          pos.end_pos = pos.end_pos + 1
-//        } else if (pos.end_pos === pin.end_pos) {
-//          pos.start_pos = pos.start_pos + 1
-//          pos.end_pos = pos.end_pos + 2
-//        } else if (pos.end_pos === pin.start_pos
-//                || pos.end_pos === pin.start_pos + 1) {
-//          pos.end_pos = pos.end_pos + 1
-//        } else if (pos.start_pos === pin.start_pos + 1) {
-//          pos.end_pos = pos.end_pos + 2
-//        }
-//      })
-//      return pos
-//    })
-//
-//    return annotation
-//  }
   RangyManager.methods.getAnchorTextArrayFromAnnotation = function (annotation) {
     return annotation.anchorPositions.map(pos => {
       if (pos.anchor_text) {
@@ -8824,6 +8788,7 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   RangyManager.methods.getRectFromAnchorPositions = function (anchorPositions) {
+    let selectionSaved = this.rangy.saveSelection()
     // 先把位置資訊變成字串
     let highlightJSONArray = anchorPositions.map((pos, i) => {
         return [
@@ -8846,11 +8811,14 @@ __webpack_require__.r(__webpack_exports__);
     let rect = range.getBoundingDocumentRect()
     
     this.rectHighlighter.removeAllHighlights()
-    
+    this.rangy.restoreSelection(selectionSaved)
     return rect
   }
   
   RangyManager.methods.getAnchorPositionsFromSelection = function (selection) {
+    let selectionSaved = this.rangy.saveSelection()
+    //console.log(selectionSaved)
+    
     //console.log(selection.anchorPositions)
     let highlights = this.rectHighlighter.highlightSelection('pacor-rect', {
       exclusive: false,
@@ -8870,6 +8838,9 @@ __webpack_require__.r(__webpack_exports__);
     })
     
     this.rectHighlighter.removeAllHighlights()
+    //throw '有嗎'
+    this.rangy.restoreSelection(selectionSaved)
+    //throw '有嗎'
     
     return selection.anchorPositions
   }
@@ -9303,6 +9274,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
   RangyManager.methods.hoverIn = function (annotation, doLock) {
+    //throw '錯誤'
+    
     //console.log(disableHoverout)
     if (this.hoverAnnotation === annotation) {
       if (doLock !== true) {
@@ -9330,6 +9303,8 @@ __webpack_require__.r(__webpack_exports__);
   }
 
   RangyManager.methods.hoverOut = function (doUnlock) {
+    //throw '錯誤'
+    
     if (doUnlock === true) {
       this.hoverAnnotationLock = false
     }
@@ -9344,6 +9319,7 @@ __webpack_require__.r(__webpack_exports__);
   }
 
   RangyManager.methods.getHoverAnchorText = function () {
+    
     let highlight = this.hoverHighlighter.highlights[0]
     let { anchor_text } = this._getAnchorPositionFromHighlight(highlight)
     return anchor_text
