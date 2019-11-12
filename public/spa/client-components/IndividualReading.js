@@ -691,6 +691,8 @@ let IndividualReading = {
 //  },
   mounted() {
     this.initComponentToLib()
+    
+    this._testSearch()
   },
   methods: {
     initComponentToLib () {
@@ -707,6 +709,28 @@ let IndividualReading = {
     },
     onChecklistComplete () {
       throw 'onChecklistComplete'
+    },
+    _testSearch () {
+      if (!this.lib.AnnotationPanel) {
+        setTimeout(() => {
+          this._testSearch()
+        }, 100)
+        return
+      }
+      
+      this.status.search.keyword = "w"
+      
+      let filter = {}
+      
+      if (this.status.search.keyword !== '') {
+        filter.keyword = this.status.search.keyword
+      }
+      
+      // 先設定篩選條件
+      this.lib.AnnotationPanel.setFilter(filter)
+      
+      // 再來顯示
+      this.lib.AnnotationPanel.setQuery({})
     }
   } // methods
 }

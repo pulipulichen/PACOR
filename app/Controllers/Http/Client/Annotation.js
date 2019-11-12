@@ -104,6 +104,17 @@ class Annotation extends WebpageUserBaseController {
       //for (let i = 0; i < 3; i++) {
       //  annotations = annotations.concat(annotations)
       //}
+      
+      // ------------------------------------------------------------------
+      query.page = null
+      annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
+
+      // 來做計算
+      annotations = annotations.toJSON()
+      annotationCount = annotations.length
+      if (annotationCount === 0) {
+        return 0
+      }
 
       // ---------------------
       let {users, userCount, types} = this._summaryAnnotations(annotations)

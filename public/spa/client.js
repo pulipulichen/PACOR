@@ -2156,6 +2156,7 @@ __webpack_require__.r(__webpack_exports__);
 let AnnotationItem = {
   props: ['lib', 'status', 'config'
     , 'annotation', 'mode'
+    , 'searchKeyword'
     , 'findUser', 'findType', 'findAnnotation'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -2198,9 +2199,12 @@ let AnnotationItem = {
       return this.annotation.notes.map(note => {
         let result = note.note
         
-        if (typeof(this.status.search.keyword) === 'string'
-                && this.status.search.keyword !== '') {
-          let keyword = this.status.search.keyword
+        let keyword = this.searchKeyword
+        if (!keyword || keyword === '') {
+          keyword = this.status.search.keyword
+        }
+        
+        if (keyword && keyword !== '') {
           result = result.split(keyword).join(`<span data-pacor-search-result>${keyword}</span>`)
         }
         

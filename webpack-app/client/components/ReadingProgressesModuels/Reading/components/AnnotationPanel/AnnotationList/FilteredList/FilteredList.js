@@ -26,16 +26,20 @@ let List = {
               && this.panelData.filter.user)
     },
     
-    computedFilteredUsers () {
+    filteringUsers () {
       if (this.hasUserFilter) {
         return [this.panelData.filter.user]
       } 
     },
     
-    computedFilteredUserID () {
+    filteringUserID () {
       if (this.hasUserFilter) {
         return this.panelData.filter.user.id
       } 
+    },
+    
+    filteringKeyword () {
+      return this.panelData.filter.keyword
     },
     
     hasTypeFilter () {
@@ -55,7 +59,7 @@ let List = {
               || this.hasKeywordFilter)
     },
     
-    filteredType () {
+    filteringType () {
       if (this.hasTypeFilter) {
         return this.panelData.filter.type
       }

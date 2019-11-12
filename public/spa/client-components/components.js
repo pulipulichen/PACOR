@@ -353,7 +353,7 @@ exports.push([module.i, ".back-button[data-v-d0a3714a] {\n  vertical-align: top 
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".back-button[data-v-85bd389e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-85bd389e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-85bd389e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-85bd389e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-85bd389e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-85bd389e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=85bd389e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB","file":"List.less?vue&type=style&index=0&id=85bd389e&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-85bd389e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-85bd389e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-85bd389e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-85bd389e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-85bd389e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-85bd389e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n"]}]);
+exports.push([module.i, ".back-button[data-v-85bd389e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-85bd389e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-85bd389e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-85bd389e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-85bd389e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-85bd389e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n.keyword[data-v-85bd389e] {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=85bd389e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;EACE,iBAAiB;EACjB,qBAAqB;EACrB,gBAAgB;AAClB","file":"List.less?vue&type=style&index=0&id=85bd389e&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-85bd389e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-85bd389e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-85bd389e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-85bd389e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-85bd389e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-85bd389e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n.keyword[data-v-85bd389e] {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}\n"]}]);
 
 
 /***/ }),
@@ -367,7 +367,7 @@ exports.push([module.i, ".back-button[data-v-85bd389e] {\n  vertical-align: top 
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".back-button[data-v-cba2731e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-cba2731e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-cba2731e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-cba2731e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-cba2731e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-cba2731e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=cba2731e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB","file":"List.less?vue&type=style&index=0&id=cba2731e&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-cba2731e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-cba2731e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-cba2731e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-cba2731e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-cba2731e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-cba2731e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n"]}]);
+exports.push([module.i, ".back-button[data-v-cba2731e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-cba2731e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-cba2731e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-cba2731e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-cba2731e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-cba2731e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n.keyword[data-v-cba2731e] {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=cba2731e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;EACE,iBAAiB;EACjB,qBAAqB;EACrB,gBAAgB;AAClB","file":"List.less?vue&type=style&index=0&id=cba2731e&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-cba2731e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-cba2731e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-cba2731e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-cba2731e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-cba2731e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-cba2731e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n.keyword[data-v-cba2731e] {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}\n"]}]);
 
 
 /***/ }),
@@ -975,7 +975,7 @@ var render = function() {
                   config: _vm.config,
                   status: _vm.status,
                   lib: _vm.lib,
-                  users: _vm.computedFilteredUsers
+                  users: _vm.filteringUser
                 },
                 on: { find: _vm.clearFindUser }
               })
@@ -987,10 +987,16 @@ var render = function() {
                   lib: _vm.lib,
                   config: _vm.config,
                   status: _vm.status,
-                  type: _vm.filteredType
+                  type: _vm.filteringType
                 },
                 on: { find: _vm.clearFindType }
               })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.filteringKeyword
+            ? _c("div", { staticClass: "keyword" }, [
+                _vm._v("\r\n      " + _vm._s(_vm.filteringKeyword) + "\r\n    ")
+              ])
             : _vm._e(),
           _vm._v(" "),
           _c("div", { staticClass: "label" }, [
@@ -4560,16 +4566,20 @@ let List = {
               && this.panelData.filter.user)
     },
     
-    computedFilteredUsers () {
+    filteringUsers () {
       if (this.hasUserFilter) {
         return [this.panelData.filter.user]
       } 
     },
     
-    computedFilteredUserID () {
+    filteringUserID () {
       if (this.hasUserFilter) {
         return this.panelData.filter.user.id
       } 
+    },
+    
+    filteringKeyword () {
+      return this.panelData.filter.keyword
     },
     
     hasTypeFilter () {
@@ -4589,7 +4599,7 @@ let List = {
               || this.hasKeywordFilter)
     },
     
-    filteredType () {
+    filteringType () {
       if (this.hasTypeFilter) {
         return this.panelData.filter.type
       }
