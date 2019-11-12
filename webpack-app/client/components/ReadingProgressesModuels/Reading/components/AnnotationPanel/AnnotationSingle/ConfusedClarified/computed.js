@@ -5,20 +5,19 @@ export default (Editor) => {
       return (this.question !== this.questionReset)
     },
 
-    isQuestionSubmitted() {
-      return (this.annotation 
-              && typeof(this.annotation.id) === 'number' )
-      //console.log(this.properties)
-      /*
-      return (this.annotation
-              && this.annotation.properties
-              && typeof (this.annotation.properties.question_submitted_at) === 'number')
-       */
-    },
+//    isQuestionSubmitted() {
+//      return (this.annotation 
+//              && typeof(this.annotation.id) === 'number' )
+//      //console.log(this.properties)
+//      /*
+//      return (this.annotation
+//              && this.annotation.properties
+//              && typeof (this.annotation.properties.question_submitted_at) === 'number')
+//       */
+//    },
 
     isEnableSubmitQuestion() {
-      return (this.isQuestionEdited
-              && typeof (this.question) === 'string'
+      return (typeof (this.question) === 'string'
               && this.question !== '')
     },
 

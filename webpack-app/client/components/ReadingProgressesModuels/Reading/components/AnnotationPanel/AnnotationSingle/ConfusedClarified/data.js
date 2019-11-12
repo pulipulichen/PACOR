@@ -18,6 +18,16 @@ export default (Editor) => {
         }
       })
     }
+    
+    if (question === '') {
+      let template = this.status.readingConfig.annotationTypeModules['ConfusedClarified'].questionTemplates[0].template
+      question = this._convertQuestionTemplate(template)
+    }
+    
+    let isQuestionSubmitted = false
+    if (typeof(this.annotation.id) === 'number') {
+      isQuestionSubmitted = true
+    }
 
     //console.log(question, answer)
 
@@ -29,6 +39,8 @@ export default (Editor) => {
       answerReset: answer,
 
       recommandResourceSearchIndex: 0,
+      
+      isQuestionSubmitted: isQuestionSubmitted
     }
   }
 }

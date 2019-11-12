@@ -118,7 +118,15 @@ export default (RangyManager) => {
     })
   }
   
+  RangyManager.methods.getAnchorTextFromSelection = function () {
+    return this.rangy.getSelection().toString()
+  }
+  
   RangyManager.methods.getRectFromAnchorPositions = function (anchorPositions) {
+    if (anchorPositions[0].type === 'section') {
+      return this.getRectFromSection(anchorPositions[0].seq_id)
+    }
+    
     let selectionSaved = this.rangy.saveSelection()
     // 先把位置資訊變成字串
     let highlightJSONArray = anchorPositions.map((pos, i) => {
@@ -174,6 +182,25 @@ export default (RangyManager) => {
     //throw '有嗎'
     
     return selection.anchorPositions
+  }
+  
+  RangyManager.methods.getRectFromSection = function (seq_id) {
+    let selector = `[data-pacor-section-seq-id="${seq_id}"]`
+    //console.log(selector)
+    let section = document.querySelector(selector)
+    
+    return {
+      top: section.offsetTop,
+      height: section.offsetHeight,
+      bottom: section.offsetTop + section.offsetHeight,
+      
+      left: section.offsetLeft,
+      width: section.offsetWidth,
+      right: section.offsetLeft + section.offsetWidth,
+      
+      center: (section.offsetLeft + (section.offsetWidth / 2)),
+      middle: (section.offsetTop + (section.offsetHeight / 2))
+    }
   }
 }
 

@@ -131,7 +131,8 @@ let Editor = {
         return false  // 新增失敗
       }
       
-      this.lib.RangyManager.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
+      //this.lib.RangyManager.highlightPinnedSelectionFromAnnotation('my-' + this.annotation.type, this.pinSelection.anchorParagraphIds)
+      this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
       this.$refs.editor.reset()
       
       this.$emit('add')

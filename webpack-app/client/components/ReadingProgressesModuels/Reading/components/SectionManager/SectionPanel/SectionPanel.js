@@ -19,8 +19,8 @@ let SectionPanel = {
       //console.log(this.sectionsData.checklist[this.sectionSeqID])
       
       return (this.sectionsData
-              && typeof(this.sectionsData.checklist[this.sectionSeqID]) === 'object'
-              && typeof(this.sectionsData.checklist[this.sectionSeqID].submittedAt) === 'number')
+              && this.sectionsData.checklistSubmitted
+              && this.sectionsData.checklistSubmitted[this.sectionSeqID])
     }
   },
 //  watch: {

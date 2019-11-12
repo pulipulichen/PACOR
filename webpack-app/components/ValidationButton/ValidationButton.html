@@ -3,17 +3,27 @@
         v-bind:class="computedClassName"
         v-on:click="onclick">
   
-  <div class="ui active mini inline loader"></div>
-  
-  <div class="message">
-    <template v-if="isEnable">
+  <template v-if="isEnable || !enable">
+    <template v-if="hasLabeledIcon">
+      <i v-if="leftLabeledIcon"
+       v-bind:class="computedLeftLabeledIcon"></i>
+
       <slot></slot>
-    </template>
-    <template v-else-if="!enable">
-      <slot></slot>
+
+      <i v-if="rightLabeledIcon"
+       v-bind:class="computedRightLabeledIcon"></i>
     </template>
     <template v-else>
-      ({{ disabledMessage }})
+      <div class="ui active mini inline loader"></div>
+      <div class="message">
+        <slot></slot>
+      </div>
     </template>
-  </div>
+  </template>
+  <template v-else>
+    ({{ disabledMessage }})
+  </template>
+  
+  
+  
 </button>

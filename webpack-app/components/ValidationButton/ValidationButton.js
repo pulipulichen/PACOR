@@ -1,7 +1,8 @@
 let ValidationButton = {
   props: ['locale', 'lib', 'countdownSec'
     , 'minWordCount', 'maxWordCount', 'text', 'ignoreWordCount'
-    , 'enableClassNames', 'enable'],
+    , 'color', 'enable'
+    , 'rightLabeledIcon', 'leftLabeledIcon'],
   data() {    
     this.$i18n.locale = this.locale
     return {
@@ -13,15 +14,25 @@ let ValidationButton = {
     computedClassName () {
       //return 'await disabled' // for test
       
-      if (this.await) {
-        return 'await disabled'
-      }
-      else if (this.isEnable === false) {
+      if (this.isEnable === false) {
         return 'disabled'
       }
-      else if (typeof(this.enableClassNames) === 'string') {
-        return this.enableClassNames
+      
+      let classList = []
+      if (typeof(this.color) === 'string') {
+        classList.push(this.color)
       }
+      if (this.leftLabeledIcon) {
+        classList.push('labeled icon button')
+      }
+      if (this.rightLabeledIcon) {
+        classList.push('right labeled icon button')
+      }
+      if (this.await) {
+        classList.push('await disabled')
+      }
+      
+      return classList.join(' ')
     },
     wordCount () {
       let count = this.lib.StringHelper.countWords(this.text)
@@ -82,6 +93,26 @@ let ValidationButton = {
       }
       
       return messages.join(' / ')
+    },
+    hasLabeledIcon () {
+      return !(this.leftLabeledIcon === null 
+              && this.rightLabeledIcon === null)
+    },
+    computedLeftLabeledIcon () {
+      if (this.await === true) {
+        return 'hourglass icon'
+      }
+      else {
+        return this.leftLabeledIcon
+      }
+    },
+    computedRightLabeledIcon () {
+      if (this.await === true) {
+        return 'hourglass icon'
+      }
+      else {
+        return this.rightLabeledIcon
+      }
     }
   },
   watch: {
@@ -121,6 +152,7 @@ let ValidationButton = {
     },
     onclick () {
       this.await = true
+      //return  // for test
       this.$emit('click')
     }
   }

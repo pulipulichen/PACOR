@@ -5,7 +5,14 @@ let SectionChecklist = {
     this.$i18n.locale = this.config.locale
     
     let checked = []
-    if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID].checked)) {
+    
+    if (!this.sectionsData.checklist[this.sectionSeqID]) {
+      this.sectionsData.checklist[this.sectionSeqID] = {}
+    }
+    
+    if (this.sectionsData.checklist 
+            && this.sectionsData.checklist[this.sectionSeqID]
+            && Array.isArray(this.sectionsData.checklist[this.sectionSeqID].checked)) {
       checked = this.sectionsData.checklist[this.sectionSeqID].checked
     }
     
@@ -58,10 +65,12 @@ let SectionChecklist = {
         
         //console.log(this.sectionSeqID)
         //console.log(this.sectionsData)
-        if (typeof(this.sectionsData.checklist[this.sectionSeqID]) === 'undefined') {
-          //this.sectionsData.checklist
-          this.sectionsData.checklist[this.sectionSeqID] = {}
-        }
+//        if (!this.sectionsData.checklist 
+//                || typeof(this.sectionsData.checklist[this.sectionSeqID]) === 'undefined') {
+//          //this.sectionsData.checklist
+//          this.sectionsData.checklist = []
+//          this.sectionsData.checklist[this.sectionSeqID] = {}
+//        }
         
         let checklistData = this.sectionsData.checklist[this.sectionSeqID].checked
         checklistData = checklistData ? checklistData : []
@@ -96,28 +105,6 @@ let SectionChecklist = {
         }
       }
       
-      // 觀察看看有沒有機會完全完成
-      let isCompleted = true
-      for (let i = 0; i < this.sectionsData.checklist.length; i++) {
-        if (i === this.sectionSeqID) {
-          continue
-        }
-        let checked = this.sectionsData.checklist[i]
-        for (let j = 0; j < checked.length; j++) {
-          if (checked[j] === false) {
-            isCompleted = false
-            break
-          }
-        }
-        
-        if (isCompleted === false) {
-          break
-        }
-      }
-      if (isCompleted === true) {
-        this.$emit('complete')
-      }
-      
       return true
     },
     computedSubmitButtonClass () {
@@ -132,8 +119,14 @@ let SectionChecklist = {
       return (typeof(this.annotation.id) === 'number')
     }
   },
-//  watch: {
-//  },
+  watch: {
+    checklistAnnotationIndex (checklistAnnotationIndex) {
+      if (checklistAnnotationIndex !== -1 
+              && typeof(this.annotation.id) === 'number') {
+        this.checked.splice(checklistAnnotationIndex, 1, true)
+      } 
+    }
+  },
 //  mounted() {
 //    
 //  },
@@ -176,10 +169,12 @@ let SectionChecklist = {
       */
       this.lib.AnnotationPanel.setAnnotation(this.annotation, {
         'add': (annotation) => {
+          console.log(annotation)
           this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
           this.sectionsData.checklist[this.checklistAnnotationIndex] = true
         },
         'update': (annotation) => {
+          console.log(annotation)
           this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
         },
       })
@@ -193,6 +188,14 @@ let SectionChecklist = {
       }
       
       await this.lib.AxiosHelper.post('/client/Section/setChecklist', data)
+      
+      this.sectionsData.checklistSubmitted[this.sectionSeqID] = true
+      
+      // 觀察看看有沒有機會完全完成
+      let isAllCompleted = (this.sectionsData.checklistSubmitted.filter(c => (c === false)).length === 0)
+      if (isAllCompleted === true) {
+        this.$emit('complete')
+      }
     }
   } // methods
 }

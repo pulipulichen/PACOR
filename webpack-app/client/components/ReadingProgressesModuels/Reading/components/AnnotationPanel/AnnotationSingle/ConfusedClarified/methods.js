@@ -16,12 +16,12 @@ export default (Editor) => {
     
     selectQuestion (question) {
       if (!this.$refs.QuestionEditor) {
-        setTimeout(() => {
-          this.selectQuestion(question)
-        }, 100)
+        //setTimeout(() => {
+        //  this.selectQuestion(question)
+        //}, 100)
         return false
       }
-      //console.log([this.isQuestionEdited, this.question])
+      //console.log([this.isQuestionEdited, this.question, this.questionReset])
       if (this.isQuestionEdited === true
           && this.question !== '') {
         if (!window.confirm(this.$t('New question will overwrite your question. Are you sure?'))) {
@@ -29,13 +29,25 @@ export default (Editor) => {
         }
       }
       //console.log(question)
-      let q = question.template.replace(`{anchorText}`, '{0}')
-      //console.log(this.anchorText)
-      q = this.$t(q, [this.anchorText])
-      //this.$refs.QuestionEditor.html(q)
+      let q = this._convertQuestionTemplate(question.template)
+      this.$refs.QuestionEditor.html(q)
       this.question = q
       this.questionReset = q
       this.recommandResourceSearchIndex = question.searchIndex
+    },
+    
+    _convertQuestionTemplate (template) {
+      let q = template.replace(`{anchorText}`, '{0}')
+      let anchorText = this.anchorText
+      //console.log(anchorText)
+      if (anchorText === undefined) {
+        anchorText = this.lib.RangyManager.getPinSelectionAnchorText()
+        //console.log(anchorText)
+        anchorText = this.lib.StringHelper.removePunctuations(anchorText)
+      }
+      
+      q = '<p>' + this.$t(q, [anchorText]) + '</p>'
+      return q
     },
     
     // ------------------
@@ -80,9 +92,21 @@ export default (Editor) => {
       //  'question': this.question
       //}
       
-      this.lib.RangyManager.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds, false)
+      //this.lib.RangyManager.highlightPinnedSelection('my-' + this.annotation.type, this.pinSelection.anchorParagraphIds, false)
+      this.lib.RangyManager.unpinSelection()
+      this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
       
       // this.$emit('add')
+      //this.$forceUpdate()
+      //console.log(this.isQuestionSubmitted)
+      this.isQuestionSubmitted = true
+      //console.log(this.answer)
+      //this.answer = ''
+      //this.answerReset = ''
+      //this.$refs.AnswerEditor.html('')
+      setTimeout(() => {
+        console.log(this.answer)
+      }, 100)
     },
     
     submitAnswer: async function () {

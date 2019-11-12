@@ -23,6 +23,9 @@ let QuestionTemplate = {
     onSelect () {
       let question = this.questions[this.selectIndex]
       this.$emit('selectQuestion', question)
+    },
+    getDefaultQuestion () {
+      return 'AAA'
     }
   } // methods
 }

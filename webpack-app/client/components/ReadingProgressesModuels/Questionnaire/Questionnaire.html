@@ -38,15 +38,15 @@
         </div>
         -->
         <validation-button v-bind:minWordCount="minWords"
-          enableClassNames="ui green right labeled icon button"
+          color="green"
           v-bind:text="answer"
           v-bind:lib="lib"
           v-bind:locale="status.preference.locale"
           v-bind:countdownSec="remainingSeconds"
           v-bind:ignoreWordCount="true"
-          v-on:click="nextStep">
-            {{ $t('NEXT') }}
-            <i class="angle right icon"></i>
+          v-on:click="nextStep"
+          rightLabeledIcon="angle right icon">
+          {{ $t('NEXT') }}
         </validation-button>
       </template>
   </modal>

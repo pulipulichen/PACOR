@@ -10,6 +10,7 @@ let SectionManager = {
       sectionsData: {
         checklist: [],
         checklistAnnotation: [],
+        checklistSubmitted: [],
         annotation: []
       },
       //sectionData: []
@@ -27,7 +28,7 @@ let SectionManager = {
   },
   methods: {
     initSectionNodes: async function () {
-      await this.loadSectionData()
+      this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init')
       
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = $('[data-pacor-section-seq-id]').toArray()
@@ -44,13 +45,18 @@ let SectionManager = {
 //        }
 //      })
       
+      // 根據數量來初始化資料
+      let nodeCount = sectionNodes.length
+      
       
       this.sectionNodes = sectionNodes
+      Object.keys(this.sectionsData).forEach(key => {
+        if (Array.isArray(this.sectionsData[key]) === false) {
+          this.sectionsData[key] = new Array(nodeCount)
+        }
+      })
       
       this.setRefreshInterval()
-    },
-    loadSectionData: async function () {
-      this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init')
     },
     setRefreshInterval: async function () {
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {

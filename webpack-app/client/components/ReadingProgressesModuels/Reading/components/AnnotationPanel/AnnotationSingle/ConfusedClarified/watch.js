@@ -21,6 +21,8 @@ export default (Editor) => {
         
         this.answer = answer
         this.answerReset = answer
+        
+        console.log(answer)
       }
     }
   }

@@ -66,4 +66,7 @@ Event(RangyManager)
 import Load from './Traits/methods/Load'
 Load(RangyManager)
 
+import Annotation from './Traits/methods/Annotation'
+Annotation(RangyManager)
+
 export default RangyManager

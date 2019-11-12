@@ -20,11 +20,24 @@ class Section extends Annotation {
     return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
       let query = {}
       let sectionsChecklist = await user.getSectionsChecklist(webpage, query)
+      let sectionsChecklistSubmitted = null
+      if (Array.isArray(sectionsChecklist)) {
+        sectionsChecklistSubmitted = sectionsChecklist.map(checklist => {
+          for (let i = 0; i < checklist.length; i++) {
+            if (checklist[i] === false) {
+              return false
+            }
+          }
+          return true
+        })
+      }
+      
       let checklistAnnotation = await AnnotationModel.getSectionsChecklistAnnotation(webpage, user, query)
       let sectionsAnnotation = await AnnotationModel.buildSectionsAnnotationSummary(webpage, user, query)
       
       return {
         checklist: sectionsChecklist,
+        checklistSubmitted: sectionsChecklistSubmitted,
         checklistAnnotation: checklistAnnotation,
         annotation: sectionsAnnotation
       }

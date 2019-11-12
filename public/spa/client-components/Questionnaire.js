@@ -146,22 +146,20 @@ var render = function() {
                   {
                     attrs: {
                       minWordCount: _vm.minWords,
-                      enableClassNames: "ui green right labeled icon button",
+                      color: "green",
                       text: _vm.answer,
                       lib: _vm.lib,
                       locale: _vm.status.preference.locale,
                       countdownSec: _vm.remainingSeconds,
-                      ignoreWordCount: true
+                      ignoreWordCount: true,
+                      rightLabeledIcon: "angle right icon"
                     },
                     on: { click: _vm.nextStep }
                   },
                   [
                     _vm._v(
-                      "\r\n            " +
-                        _vm._s(_vm.$t("NEXT")) +
-                        "\r\n            "
-                    ),
-                    _c("i", { staticClass: "angle right icon" })
+                      "\r\n          " + _vm._s(_vm.$t("NEXT")) + "\r\n        "
+                    )
                   ]
                 )
               ]
@@ -271,22 +269,20 @@ var render = function() {
                   {
                     attrs: {
                       minWordCount: _vm.minWords,
-                      enableClassNames: "ui green right labeled icon button",
+                      color: "green",
                       text: _vm.answer,
                       lib: _vm.lib,
                       locale: _vm.status.preference.locale,
                       countdownSec: _vm.remainingSeconds,
-                      ignoreWordCount: true
+                      ignoreWordCount: true,
+                      rightLabeledIcon: "angle right icon"
                     },
                     on: { click: _vm.nextStep }
                   },
                   [
                     _vm._v(
-                      "\r\n            " +
-                        _vm._s(_vm.$t("NEXT")) +
-                        "\r\n            "
-                    ),
-                    _c("i", { staticClass: "angle right icon" })
+                      "\r\n          " + _vm._s(_vm.$t("NEXT")) + "\r\n        "
+                    )
                   ]
                 )
               ]

@@ -1620,7 +1620,7 @@ var render = function() {
                           [
                             _vm._v(
                               "\r\n          " +
-                                _vm._s(_vm.$t("SUBMIT QUESTION")) +
+                                _vm._s(_vm.$t("SAVE")) +
                                 "  \r\n        "
                             )
                           ]
@@ -5632,6 +5632,7 @@ let AnnotationEditorModules = {
     scrollToAnnotation () {
       //throw '@TODO'
       let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.annotation.anchorPositions)
+      //console.log(rect)
       this.lib.AnnotationPanel.scrollToRect(rect)
     },
     reloadMyHighlights: async function () {
@@ -5970,6 +5971,9 @@ let QuestionTemplate = {
     onSelect () {
       let question = this.questions[this.selectIndex]
       this.$emit('selectQuestion', question)
+    },
+    getDefaultQuestion () {
+      return 'AAA'
     }
   } // methods
 }
@@ -6325,20 +6329,19 @@ __webpack_require__.r(__webpack_exports__);
       return (this.question !== this.questionReset)
     },
 
-    isQuestionSubmitted() {
-      return (this.annotation 
-              && typeof(this.annotation.id) === 'number' )
-      //console.log(this.properties)
-      /*
-      return (this.annotation
-              && this.annotation.properties
-              && typeof (this.annotation.properties.question_submitted_at) === 'number')
-       */
-    },
+//    isQuestionSubmitted() {
+//      return (this.annotation 
+//              && typeof(this.annotation.id) === 'number' )
+//      //console.log(this.properties)
+//      /*
+//      return (this.annotation
+//              && this.annotation.properties
+//              && typeof (this.annotation.properties.question_submitted_at) === 'number')
+//       */
+//    },
 
     isEnableSubmitQuestion() {
-      return (this.isQuestionEdited
-              && typeof (this.question) === 'string'
+      return (typeof (this.question) === 'string'
               && this.question !== '')
     },
 
@@ -6483,6 +6486,16 @@ __webpack_require__.r(__webpack_exports__);
         }
       })
     }
+    
+    if (question === '') {
+      let template = this.status.readingConfig.annotationTypeModules['ConfusedClarified'].questionTemplates[0].template
+      question = this._convertQuestionTemplate(template)
+    }
+    
+    let isQuestionSubmitted = false
+    if (typeof(this.annotation.id) === 'number') {
+      isQuestionSubmitted = true
+    }
 
     //console.log(question, answer)
 
@@ -6494,6 +6507,8 @@ __webpack_require__.r(__webpack_exports__);
       answerReset: answer,
 
       recommandResourceSearchIndex: 0,
+      
+      isQuestionSubmitted: isQuestionSubmitted
     }
   }
 });
@@ -6527,12 +6542,12 @@ __webpack_require__.r(__webpack_exports__);
     
     selectQuestion (question) {
       if (!this.$refs.QuestionEditor) {
-        setTimeout(() => {
-          this.selectQuestion(question)
-        }, 100)
+        //setTimeout(() => {
+        //  this.selectQuestion(question)
+        //}, 100)
         return false
       }
-      //console.log([this.isQuestionEdited, this.question])
+      //console.log([this.isQuestionEdited, this.question, this.questionReset])
       if (this.isQuestionEdited === true
           && this.question !== '') {
         if (!window.confirm(this.$t('New question will overwrite your question. Are you sure?'))) {
@@ -6540,13 +6555,25 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
       //console.log(question)
-      let q = question.template.replace(`{anchorText}`, '{0}')
-      //console.log(this.anchorText)
-      q = this.$t(q, [this.anchorText])
-      //this.$refs.QuestionEditor.html(q)
+      let q = this._convertQuestionTemplate(question.template)
+      this.$refs.QuestionEditor.html(q)
       this.question = q
       this.questionReset = q
       this.recommandResourceSearchIndex = question.searchIndex
+    },
+    
+    _convertQuestionTemplate (template) {
+      let q = template.replace(`{anchorText}`, '{0}')
+      let anchorText = this.anchorText
+      //console.log(anchorText)
+      if (anchorText === undefined) {
+        anchorText = this.lib.RangyManager.getPinSelectionAnchorText()
+        //console.log(anchorText)
+        anchorText = this.lib.StringHelper.removePunctuations(anchorText)
+      }
+      
+      q = '<p>' + this.$t(q, [anchorText]) + '</p>'
+      return q
     },
     
     // ------------------
@@ -6591,9 +6618,21 @@ __webpack_require__.r(__webpack_exports__);
       //  'question': this.question
       //}
       
-      this.lib.RangyManager.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds, false)
+      //this.lib.RangyManager.highlightPinnedSelection('my-' + this.annotation.type, this.pinSelection.anchorParagraphIds, false)
+      this.lib.RangyManager.unpinSelection()
+      this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
       
       // this.$emit('add')
+      //this.$forceUpdate()
+      //console.log(this.isQuestionSubmitted)
+      this.isQuestionSubmitted = true
+      //console.log(this.answer)
+      //this.answer = ''
+      //this.answerReset = ''
+      //this.$refs.AnswerEditor.html('')
+      setTimeout(() => {
+        console.log(this.answer)
+      }, 100)
     },
     
     submitAnswer: async function () {
@@ -6698,6 +6737,8 @@ __webpack_require__.r(__webpack_exports__);
         
         this.answer = answer
         this.answerReset = answer
+        
+        console.log(answer)
       }
     }
   }
@@ -6887,7 +6928,8 @@ let Editor = {
         return false  // 新增失敗
       }
       
-      this.lib.RangyManager.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
+      //this.lib.RangyManager.highlightPinnedSelectionFromAnnotation('my-' + this.annotation.type, this.pinSelection.anchorParagraphIds)
+      this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
       this.$refs.editor.reset()
       
       this.$emit('add')
@@ -7099,7 +7141,8 @@ let Editor = {
         return false  // 新增失敗
       }
       
-      this.lib.RangyManager.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
+      //this.lib.RangyManager.highlightPinnedSelectionFromAnnotation('my-' + this.annotation.type, this.pinSelection.anchorParagraphIds)
+      this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
       this.$refs.editor.reset()
       
       this.$emit('add')
@@ -8525,6 +8568,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Traits_methods_Selection__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Traits/methods/Selection */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Selection.js");
 /* harmony import */ var _Traits_methods_Event__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Traits/methods/Event */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Event.js");
 /* harmony import */ var _Traits_methods_Load__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Traits/methods/Load */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Load.js");
+/* harmony import */ var _Traits_methods_Annotation__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Traits/methods/Annotation */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Annotation.js");
 //import rangy from 'rangy-updated'
 
 
@@ -8592,6 +8636,9 @@ Object(_Traits_methods_Event__WEBPACK_IMPORTED_MODULE_8__["default"])(RangyManag
 
 
 Object(_Traits_methods_Load__WEBPACK_IMPORTED_MODULE_9__["default"])(RangyManager)
+
+
+Object(_Traits_methods_Annotation__WEBPACK_IMPORTED_MODULE_10__["default"])(RangyManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (RangyManager);
 
@@ -8843,7 +8890,15 @@ __webpack_require__.r(__webpack_exports__);
     })
   }
   
+  RangyManager.methods.getAnchorTextFromSelection = function () {
+    return this.rangy.getSelection().toString()
+  }
+  
   RangyManager.methods.getRectFromAnchorPositions = function (anchorPositions) {
+    if (anchorPositions[0].type === 'section') {
+      return this.getRectFromSection(anchorPositions[0].seq_id)
+    }
+    
     let selectionSaved = this.rangy.saveSelection()
     // 先把位置資訊變成字串
     let highlightJSONArray = anchorPositions.map((pos, i) => {
@@ -8900,6 +8955,53 @@ __webpack_require__.r(__webpack_exports__);
     
     return selection.anchorPositions
   }
+  
+  RangyManager.methods.getRectFromSection = function (seq_id) {
+    let selector = `[data-pacor-section-seq-id="${seq_id}"]`
+    //console.log(selector)
+    let section = document.querySelector(selector)
+    
+    return {
+      top: section.offsetTop,
+      height: section.offsetHeight,
+      bottom: section.offsetTop + section.offsetHeight,
+      
+      left: section.offsetLeft,
+      width: section.offsetWidth,
+      right: section.offsetLeft + section.offsetWidth,
+      
+      center: (section.offsetLeft + (section.offsetWidth / 2)),
+      middle: (section.offsetTop + (section.offsetHeight / 2))
+    }
+  }
+});
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Annotation.js":
+/*!*****************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Annotation.js ***!
+  \*****************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
+
+  RangyManager.methods.highlightPinnedSelectionFromAnnotation = function (annotation) {
+    if (annotation.anchorPositions[0].type !== 'textContent') {
+      return null
+    }
+    
+    let anchorParagraphIds = annotation.anchorPositions.map(pos => {
+      return pos.paragraph_id
+    })
+    this.highlightPinnedSelection('my-' + annotation.type, anchorParagraphIds)
+  }
+
 });
 
 
@@ -18605,6 +18707,7 @@ let SectionManager = {
       sectionsData: {
         checklist: [],
         checklistAnnotation: [],
+        checklistSubmitted: [],
         annotation: []
       },
       //sectionData: []
@@ -18622,7 +18725,7 @@ let SectionManager = {
   },
   methods: {
     initSectionNodes: async function () {
-      await this.loadSectionData()
+      this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init')
       
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-section-seq-id]').toArray()
@@ -18639,13 +18742,18 @@ let SectionManager = {
 //        }
 //      })
       
+      // 根據數量來初始化資料
+      let nodeCount = sectionNodes.length
+      
       
       this.sectionNodes = sectionNodes
+      Object.keys(this.sectionsData).forEach(key => {
+        if (Array.isArray(this.sectionsData[key]) === false) {
+          this.sectionsData[key] = new Array(nodeCount)
+        }
+      })
       
       this.setRefreshInterval()
-    },
-    loadSectionData: async function () {
-      this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init')
     },
     setRefreshInterval: async function () {
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
@@ -19018,7 +19126,14 @@ let SectionChecklist = {
     this.$i18n.locale = this.config.locale
     
     let checked = []
-    if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID].checked)) {
+    
+    if (!this.sectionsData.checklist[this.sectionSeqID]) {
+      this.sectionsData.checklist[this.sectionSeqID] = {}
+    }
+    
+    if (this.sectionsData.checklist 
+            && this.sectionsData.checklist[this.sectionSeqID]
+            && Array.isArray(this.sectionsData.checklist[this.sectionSeqID].checked)) {
       checked = this.sectionsData.checklist[this.sectionSeqID].checked
     }
     
@@ -19071,10 +19186,12 @@ let SectionChecklist = {
         
         //console.log(this.sectionSeqID)
         //console.log(this.sectionsData)
-        if (typeof(this.sectionsData.checklist[this.sectionSeqID]) === 'undefined') {
-          //this.sectionsData.checklist
-          this.sectionsData.checklist[this.sectionSeqID] = {}
-        }
+//        if (!this.sectionsData.checklist 
+//                || typeof(this.sectionsData.checklist[this.sectionSeqID]) === 'undefined') {
+//          //this.sectionsData.checklist
+//          this.sectionsData.checklist = []
+//          this.sectionsData.checklist[this.sectionSeqID] = {}
+//        }
         
         let checklistData = this.sectionsData.checklist[this.sectionSeqID].checked
         checklistData = checklistData ? checklistData : []
@@ -19109,28 +19226,6 @@ let SectionChecklist = {
         }
       }
       
-      // 觀察看看有沒有機會完全完成
-      let isCompleted = true
-      for (let i = 0; i < this.sectionsData.checklist.length; i++) {
-        if (i === this.sectionSeqID) {
-          continue
-        }
-        let checked = this.sectionsData.checklist[i]
-        for (let j = 0; j < checked.length; j++) {
-          if (checked[j] === false) {
-            isCompleted = false
-            break
-          }
-        }
-        
-        if (isCompleted === false) {
-          break
-        }
-      }
-      if (isCompleted === true) {
-        this.$emit('complete')
-      }
-      
       return true
     },
     computedSubmitButtonClass () {
@@ -19145,8 +19240,14 @@ let SectionChecklist = {
       return (typeof(this.annotation.id) === 'number')
     }
   },
-//  watch: {
-//  },
+  watch: {
+    checklistAnnotationIndex (checklistAnnotationIndex) {
+      if (checklistAnnotationIndex !== -1 
+              && typeof(this.annotation.id) === 'number') {
+        this.checked.splice(checklistAnnotationIndex, 1, true)
+      } 
+    }
+  },
 //  mounted() {
 //    
 //  },
@@ -19189,10 +19290,12 @@ let SectionChecklist = {
       */
       this.lib.AnnotationPanel.setAnnotation(this.annotation, {
         'add': (annotation) => {
+          console.log(annotation)
           this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
           this.sectionsData.checklist[this.checklistAnnotationIndex] = true
         },
         'update': (annotation) => {
+          console.log(annotation)
           this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
         },
       })
@@ -19206,6 +19309,14 @@ let SectionChecklist = {
       }
       
       await this.lib.AxiosHelper.post('/client/Section/setChecklist', data)
+      
+      this.sectionsData.checklistSubmitted[this.sectionSeqID] = true
+      
+      // 觀察看看有沒有機會完全完成
+      let isAllCompleted = (this.sectionsData.checklistSubmitted.filter(c => (c === false)).length === 0)
+      if (isAllCompleted === true) {
+        this.$emit('complete')
+      }
     }
   } // methods
 }
@@ -19354,8 +19465,8 @@ let SectionPanel = {
       //console.log(this.sectionsData.checklist[this.sectionSeqID])
       
       return (this.sectionsData
-              && typeof(this.sectionsData.checklist[this.sectionSeqID]) === 'object'
-              && typeof(this.sectionsData.checklist[this.sectionSeqID].submittedAt) === 'number')
+              && this.sectionsData.checklistSubmitted
+              && this.sectionsData.checklistSubmitted[this.sectionSeqID])
     }
   },
 //  watch: {

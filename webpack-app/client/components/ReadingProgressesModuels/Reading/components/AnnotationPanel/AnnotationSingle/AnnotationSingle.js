@@ -105,6 +105,7 @@ let AnnotationEditorModules = {
     scrollToAnnotation () {
       //throw '@TODO'
       let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.annotation.anchorPositions)
+      //console.log(rect)
       this.lib.AnnotationPanel.scrollToRect(rect)
     },
     reloadMyHighlights: async function () {
