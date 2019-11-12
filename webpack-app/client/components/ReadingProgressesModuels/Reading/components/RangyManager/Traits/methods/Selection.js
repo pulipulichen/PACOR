@@ -295,5 +295,6 @@ export default (RangyManager) => {
     //console.log(anchor_text)
     return anchor_text
   }
+  
 }
 

@@ -33,6 +33,9 @@ let List = {
       }
       
       return query
+    },
+    isActive () {
+      return true
     }
   },
   watch: {

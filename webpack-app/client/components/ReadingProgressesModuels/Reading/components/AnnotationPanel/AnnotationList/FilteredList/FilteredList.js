@@ -22,9 +22,8 @@ let List = {
   },
   computed: {
     hasUserFilter () {
-      return (typeof(this.panelData.filter) === 'object'
-              && typeof(this.panelData.filter.user) === 'object'
-              && this.panelData.filter.user !== null)
+      return (this.panelData.filter
+              && this.panelData.filter.user)
     },
     
     computedFilteredUsers () {
@@ -40,7 +39,7 @@ let List = {
     },
     
     hasTypeFilter () {
-      return (typeof(this.panelData.filter) === 'object'
+      return (this.panelData.filter
               && typeof(this.panelData.filter.type) === 'string')
     },
     
@@ -84,10 +83,14 @@ let List = {
       }
       
       return query
+    },
+    isActive () {
+      //console.log(this.hasFilter)
+      return (this.hasFilter !== null)
     }
   },
-  watch: {
-  },
+//  watch: {
+//  },
   mounted() {
     this.initEventListener()
     this.loadSummary()

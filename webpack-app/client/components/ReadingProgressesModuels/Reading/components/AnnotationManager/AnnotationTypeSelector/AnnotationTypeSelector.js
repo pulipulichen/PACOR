@@ -98,8 +98,10 @@ let AnnotationTypeSelector = {
       //console.log('clickItem', type)
       //this.$emit('selectAnnotation', type)
       
+      let ancrhoPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
+      
       let annotation = {
-        anchorPositions: this.selection.anchorPositions,
+        anchorPositions: ancrhoPositions,
         type: type
       }
       
@@ -114,8 +116,10 @@ let AnnotationTypeSelector = {
     },
     list () {
       //this.$emit('list')
+      let ancrhoPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
+      
       let query = {
-        anchorPositions: this.selection.anchorPositions
+        anchorPositions: ancrhoPositions
       }
       
       this.lib.AnnotationPanel.setQuery(query)

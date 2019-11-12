@@ -182,5 +182,29 @@ export default (RangyManager) => {
     
     return rect
   }
+  
+  RangyManager.methods.getAnchorPositionsFromSelection = function (selection) {
+    
+    let highlights = this.rectHighlighter.highlightSelection('pacor-rect', {
+      exclusive: false,
+      containerElementId: this.selection.anchorParagraphIds
+    })
+    
+    selection.anchorPositions.forEach((position, i) => {
+      let h = highlights[i]
+      let { start_pos, end_pos, anchor_text } = this._getAnchorPositionFromHighlight(h)
+
+      position.start_pos = start_pos
+      position.end_pos = end_pos
+      position.anchor_text = anchor_text
+      position.type = 'textContent'
+      //console.log(anchor_text)
+      //position.anchor_text = h.classApplier.toString()
+    })
+    
+    this.rectHighlighter.removeAllHighlights()
+    
+    return selection.anchorPositions
+  }
 }
 

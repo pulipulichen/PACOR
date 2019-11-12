@@ -1,9 +1,14 @@
 export default (List) => {
 
   List.methods.loadSummary = async function () {
+    if (this.isActive === false) {
+      return false
+    }
+    
     //if (Array.isArray(this.listPositions)) {
     let query = this.query
-
+    console.log(query)
+    
     let url = '/client/Annotation/listSummary'
 
     let result = await this.lib.AxiosHelper.post(url, query)
@@ -22,6 +27,10 @@ export default (List) => {
   }
 
   List.methods.loadNextPage = async function () {
+    if (this.isActive === false) {
+      return false
+    }
+    
     this.page++
 
     //if (Array.isArray(this.listPositions)) {
@@ -40,6 +49,10 @@ export default (List) => {
   }
   
   List.methods.reload = async function () {
+    if (this.isActive === false) {
+      return false
+    }
+    
     this.annotations = []
     this.page = 0
     this.noMore = false

@@ -37,9 +37,10 @@ let AnnotationList = {
     isFiltering () {
       if (this.panelData.filter) {
         let f = this.panelData.filter
-        return (typeof(f.user) !== 'undefined'
-                || typeof(f.type) !== 'undefined'
-                || typeof(f.keyword) !== 'undefined')
+        //console.log(f, (f.user !== null && typeof(f.user) === 'object' ), (typeof(f.type) === 'string'), (typeof(f.keyword) === 'string'))
+        return ( (f.user !== null && typeof(f.user) === 'object' )
+                || (typeof(f.type) === 'string')
+                || (typeof(f.keyword) === 'string') )
       }
       return false
     },

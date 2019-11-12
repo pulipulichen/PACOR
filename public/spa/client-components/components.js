@@ -3911,8 +3911,10 @@ let AnnotationTypeSelector = {
       //console.log('clickItem', type)
       //this.$emit('selectAnnotation', type)
       
+      let ancrhoPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
+      
       let annotation = {
-        anchorPositions: this.selection.anchorPositions,
+        anchorPositions: ancrhoPositions,
         type: type
       }
       
@@ -3927,8 +3929,10 @@ let AnnotationTypeSelector = {
     },
     list () {
       //this.$emit('list')
+      let ancrhoPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
+      
       let query = {
-        anchorPositions: this.selection.anchorPositions
+        anchorPositions: ancrhoPositions
       }
       
       this.lib.AnnotationPanel.setQuery(query)
@@ -4098,9 +4102,10 @@ let AnnotationList = {
     isFiltering () {
       if (this.panelData.filter) {
         let f = this.panelData.filter
-        return (typeof(f.user) !== 'undefined'
-                || typeof(f.type) !== 'undefined'
-                || typeof(f.keyword) !== 'undefined')
+        //console.log(f, (f.user !== null && typeof(f.user) === 'object' ), (typeof(f.type) === 'string'), (typeof(f.keyword) === 'string'))
+        return ( (f.user !== null && typeof(f.user) === 'object' )
+                || (typeof(f.type) === 'string')
+                || (typeof(f.keyword) === 'string') )
       }
       return false
     },
@@ -4503,9 +4508,8 @@ let List = {
   },
   computed: {
     hasUserFilter () {
-      return (typeof(this.panelData.filter) === 'object'
-              && typeof(this.panelData.filter.user) === 'object'
-              && this.panelData.filter.user !== null)
+      return (this.panelData.filter
+              && this.panelData.filter.user)
     },
     
     computedFilteredUsers () {
@@ -4521,7 +4525,7 @@ let List = {
     },
     
     hasTypeFilter () {
-      return (typeof(this.panelData.filter) === 'object'
+      return (this.panelData.filter
               && typeof(this.panelData.filter.type) === 'string')
     },
     
@@ -4565,10 +4569,14 @@ let List = {
       }
       
       return query
+    },
+    isActive () {
+      //console.log(this.hasFilter)
+      return (this.hasFilter !== null)
     }
   },
-  watch: {
-  },
+//  watch: {
+//  },
   mounted() {
     this.initEventListener()
     this.loadSummary()
@@ -4734,6 +4742,9 @@ let List = {
       }
       
       return query
+    },
+    isActive () {
+      return true
     }
   },
   watch: {
@@ -5002,9 +5013,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((List) => {
 
   List.methods.loadSummary = async function () {
+    if (this.isActive === false) {
+      return false
+    }
+    
     //if (Array.isArray(this.listPositions)) {
     let query = this.query
-
+    console.log(query)
+    
     let url = '/client/Annotation/listSummary'
 
     let result = await this.lib.AxiosHelper.post(url, query)
@@ -5023,6 +5039,10 @@ __webpack_require__.r(__webpack_exports__);
   }
 
   List.methods.loadNextPage = async function () {
+    if (this.isActive === false) {
+      return false
+    }
+    
     this.page++
 
     //if (Array.isArray(this.listPositions)) {
@@ -5041,6 +5061,10 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   List.methods.reload = async function () {
+    if (this.isActive === false) {
+      return false
+    }
+    
     this.annotations = []
     this.page = 0
     this.noMore = false
@@ -8653,6 +8677,30 @@ __webpack_require__.r(__webpack_exports__);
     
     return rect
   }
+  
+  RangyManager.methods.getAnchorPositionsFromSelection = function (selection) {
+    
+    let highlights = this.rectHighlighter.highlightSelection('pacor-rect', {
+      exclusive: false,
+      containerElementId: this.selection.anchorParagraphIds
+    })
+    
+    selection.anchorPositions.forEach((position, i) => {
+      let h = highlights[i]
+      let { start_pos, end_pos, anchor_text } = this._getAnchorPositionFromHighlight(h)
+
+      position.start_pos = start_pos
+      position.end_pos = end_pos
+      position.anchor_text = anchor_text
+      position.type = 'textContent'
+      //console.log(anchor_text)
+      //position.anchor_text = h.classApplier.toString()
+    })
+    
+    this.rectHighlighter.removeAllHighlights()
+    
+    return selection.anchorPositions
+  }
 });
 
 
@@ -9498,6 +9546,7 @@ __webpack_require__.r(__webpack_exports__);
     //console.log(anchor_text)
     return anchor_text
   }
+  
 });
 
 
