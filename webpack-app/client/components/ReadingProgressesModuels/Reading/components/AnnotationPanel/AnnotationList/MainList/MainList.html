@@ -1,12 +1,12 @@
 <div class="MainList">
   <!-- == Header == -->
-  <template v-if="annotations.length > 1">
+  <template v-if="isHeaderVisible">
 
     <div class="summary-information">
       
       <div class="ui icon mini input search-input">
         <input type="text" 
-               v-model="panelData.query.keyword"
+               v-model="panelData.keyword"
                v-bind:placeholder="$t('Search...')">
         <i class="search icon"></i>
       </div>

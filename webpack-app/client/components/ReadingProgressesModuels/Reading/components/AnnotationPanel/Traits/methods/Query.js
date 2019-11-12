@@ -1,8 +1,14 @@
 /* global this */
 
 export default (AnnotationPanel) => {
-  AnnotationPanel.methods.setQuery = function (query, hooks) {
-    this.panelData.query = query
+  AnnotationPanel.methods.setAnchorPositions = function (anchorPositions, hooks) {
+    if (hooks === undefined 
+            && Array.isArray(anchorPositions) === false) {
+      hooks = anchorPositions
+      anchorPositions = []
+    }
+    
+    this.panelData.anchorPositions = anchorPositions
     if (hooks) {
       this.panelData.hooks = hooks
     }
@@ -38,10 +44,10 @@ export default (AnnotationPanel) => {
   }
   
   AnnotationPanel.methods.findKeyword = function (keyword) {
-    if (!this.panelData.query) {
-      this.panelData.query = {}
-    }
-    this.panelData.query.keyword = keyword
+    this.panelData.keyword = keyword
+    
+    //console.log(this.panelData)
+    //console.log(this.panelData.keyword)
   }
   
   AnnotationPanel.methods.setHooks = function (hooks) {
@@ -50,7 +56,7 @@ export default (AnnotationPanel) => {
   
   
   AnnotationPanel.methods.reset = function () {
-    this.panelData.query = null
+    this.panelData.anchorPositions = null
     this.panelData.hooks = null
     this.panelData.filter = null
     this.panelData.annotation = null

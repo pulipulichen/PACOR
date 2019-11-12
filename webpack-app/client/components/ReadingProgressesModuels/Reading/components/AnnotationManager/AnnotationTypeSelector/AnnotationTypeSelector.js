@@ -123,11 +123,7 @@ let AnnotationTypeSelector = {
       //this.$emit('list')
       let ancrhoPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
       
-      let query = {
-        anchorPositions: ancrhoPositions
-      }
-      
-      this.lib.AnnotationPanel.setQuery(query)
+      this.lib.AnnotationPanel.setAnchorPositions(ancrhoPositions)
     }
   } // methods
 }

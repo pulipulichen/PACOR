@@ -21,25 +21,26 @@ let List = {
     'annotation-single': AnnotationSingle
   },
   computed: {
+    isHeaderVisible () {
+      console.log([this.hasKeywordFilter, this.annotations.length])
+      return (this.hasKeywordFilter || this.annotations.length > 1)
+    },
     query () {
       let query = {
         withCount: true,
         page: this.page
       }
       
-      if (this.panelData.query) {
-        if (this.panelData.query.anchorPositions) {
-          query.anchorPositions = this.panelData.query.anchorPositions
+        if (this.panelData.anchorPositions) {
+          query.anchorPositions = this.panelData.anchorPositions
         }
-        
-        console.log(this.panelData.query.keyword)
-        if (this.panelData.query.keyword 
-                && this.panelData.query.keyword !== '') {
-          query.keyword = this.panelData.query.keyword
-        }
+      
+      if (this.panelData.keyword 
+              && this.panelData.keyword !== '') {
+        query.keyword = this.panelData.keyword
       }
       
-      window.qqq = this.panelData.query
+      //window.qqq = this.panelData.query
       //console.log(this.panelData.query)
       //console.log(this.$get('panelData.query.keyword'))
       
@@ -67,6 +68,11 @@ let List = {
   },
   watch: {
     annotations (annotations) {
+      if (this.panelData.keyword 
+              && this.panelData.keyword !== '') {
+        return null
+      }
+      
       if (annotations.length === 1) {
         this.annotation = annotations[0]
       }
@@ -76,7 +82,7 @@ let List = {
         this.initEventListener()
       }
     },
-    'panelData.query.keyword' () {
+    'panelData.keyword' () {
       this.loadSummary()
     }
   },
@@ -104,6 +110,9 @@ let List = {
 
 import Height from './../Traits/computed/Height'
 Height(List)
+
+import ComputedFilter from './../Traits/computed/ComputedFilter'
+ComputedFilter(List)
 
 import Filter from './../Traits/methods/Filter'
 Filter(List)

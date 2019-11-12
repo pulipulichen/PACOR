@@ -146,9 +146,7 @@ let AnnotationFloatWidget = {
     }, 
     
     list: function () {
-      this.lib.AnnotationPanel.setQuery({
-        anchorPositions: this.anchorPositions
-      })
+      this.lib.AnnotationPanel.setAnchorPositions(this.anchorPositions)
       this.reset()
     },
     

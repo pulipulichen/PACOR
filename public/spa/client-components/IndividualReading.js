@@ -724,7 +724,7 @@ let IndividualReading = {
       this.lib.AnnotationPanel.findKeyword('w')
       
       // 再來顯示
-      this.lib.AnnotationPanel.setQuery({})
+      this.lib.AnnotationPanel.setAnchorPositions()
     }
   } // methods
 }
@@ -1455,7 +1455,7 @@ let SearchInput = {
       this.lib.AnnotationPanel.setFilter(filter)
       
       // 再來顯示
-      this.lib.AnnotationPanel.setQuery({}, {
+      this.lib.AnnotationPanel.setAnchorPositions({
         'delete' () {
           this.count--
         }

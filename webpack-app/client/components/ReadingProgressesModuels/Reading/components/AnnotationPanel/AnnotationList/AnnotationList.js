@@ -40,12 +40,13 @@ let AnnotationList = {
   },
   methods: {
     scrollTo () {
-      if (!this.panelData.query.anchorPositions) {
+      if (!this.panelData.anchorPositions
+              || this.panelData.anchorPositions.length === 0) {
         // 沒有這個參數的話，不捲動
         return false
       }
       
-      let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.panelData.query.anchorPositions)
+      let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.panelData.anchorPositions)
       this.lib.AnnotationPanel.scrollToRect(rect)
       //throw '@TODO'
     },

@@ -70,14 +70,17 @@ let List = {
         page: this.page
       }
       
-      if (this.panelData.query) {
-        if (this.panelData.query.anchorPositions) {
-          query.anchorPositions = this.panelData.query.anchorPositions
+        if (this.panelData.anchorPositions) {
+          query.anchorPositions = this.panelData.anchorPositions
         }
-        if (this.panelData.query.keyword 
-                && this.panelData.query.keyword !== '') {
-          query.keyword = this.panelData.query.keyword
-        }
+//        if (this.panelData.query.keyword 
+//                && this.panelData.query.keyword !== '') {
+//          query.keyword = this.panelData.query.keyword
+//        }
+      
+      if (this.panelData.keyword 
+              && this.panelData.keyword !== '') {
+        query.keyword = this.panelData.keyword
       }
       
       if (this.panelData.filter) {
@@ -108,10 +111,9 @@ let List = {
     },
     
     searchingKeyword () {
-      if (this.panelData.query 
-              && this.panelData.query.keyword
-              && this.panelData.query.keyword !== '') {
-        return this.panelData.query.keyword
+      if (this.panelData.keyword
+              && this.panelData.keyword !== '') {
+        return this.panelData.keyword
       }
     }
   },
@@ -145,6 +147,9 @@ let List = {
 
 import Height from './../Traits/computed/Height'
 Height(List)
+
+import ComputedFilter from './../Traits/computed/ComputedFilter'
+ComputedFilter(List)
 
 import Filter from './../Traits/methods/Filter'
 Filter(List)

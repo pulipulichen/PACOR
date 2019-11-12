@@ -1,10 +1,7 @@
 export default {
   
   panelData: {
-    query: {
-      anchorPositions: null,
-      keyword: ''
-    },
+    anchorPositions: null,
     annotation: null,
     
     filter: {
@@ -12,6 +9,8 @@ export default {
       type: null,
     },
     hooks: null,
+    
+    keyword: '',
     
     heightPX: 500,  // 記錄目前使用的高度，不可省略
   },
