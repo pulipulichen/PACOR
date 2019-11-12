@@ -26,7 +26,7 @@ let List = {
               && this.panelData.filter.user)
     },
     
-    filteringUsers () {
+    filteringUser () {
       if (this.hasUserFilter) {
         return [this.panelData.filter.user]
       } 

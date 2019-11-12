@@ -19,10 +19,6 @@
         {{ $t('Back to list') }}
       </button>
 
-      <div class="label">
-        {{ $t('{0} Annotations', [annotationCount]) }}:
-      </div>
-
       <user-avatar-icons
         v-bind:config="config"
         v-bind:status="status"
@@ -42,6 +38,11 @@
         v-bind:type="t.type"
         v-bind:count="t.count"
         v-on:find="findType"></annotation-type-button>
+      
+      <div class="label">
+        {{ $t('Total {0} Annotations', [ annotationCount ]) }}
+      </div>
+
     </div>
 
     <div class="ui divider"></div>

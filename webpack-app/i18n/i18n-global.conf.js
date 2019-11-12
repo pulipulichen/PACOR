@@ -30,6 +30,7 @@ let i18nGlobal = {
     "DELETE": "刪除",
     "CANCEL": "取消",
     "CLOSE": "關閉",
+    "SAVE": "儲存",
     "Example": "範例",
     "DATABASE": "資料庫",
     "RESET": "重設",

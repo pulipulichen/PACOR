@@ -1195,14 +1195,6 @@ var render = function() {
                     )
                   : _vm._e(),
                 _vm._v(" "),
-                _c("div", { staticClass: "label" }, [
-                  _vm._v(
-                    "\r\n        " +
-                      _vm._s(_vm.$t("{0} Annotations", [_vm.annotationCount])) +
-                      ":\r\n      "
-                  )
-                ]),
-                _vm._v(" "),
                 _c("user-avatar-icons", {
                   attrs: {
                     config: _vm.config,
@@ -1225,7 +1217,17 @@ var render = function() {
                     },
                     on: { find: _vm.findType }
                   })
-                })
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "label" }, [
+                  _vm._v(
+                    "\r\n        " +
+                      _vm._s(
+                        _vm.$t("Total {0} Annotations", [_vm.annotationCount])
+                      ) +
+                      "\r\n      "
+                  )
+                ])
               ],
               2
             ),
@@ -1658,7 +1660,7 @@ var render = function() {
                           [
                             _vm._v(
                               "\r\n          " +
-                                _vm._s(_vm.$t("SAVE ANSWER")) +
+                                _vm._s(_vm.$t("SAVE")) +
                                 "  \r\n        "
                             )
                           ]
@@ -1967,7 +1969,7 @@ var render = function() {
                           [
                             _vm._v(
                               "\r\n          " +
-                                _vm._s(_vm.$t("EDIT")) +
+                                _vm._s(_vm.$t("SAVE")) +
                                 "  \r\n        "
                             )
                           ]
@@ -2102,7 +2104,7 @@ var render = function() {
                           [
                             _vm._v(
                               "\r\n          " +
-                                _vm._s(_vm.$t("EDIT")) +
+                                _vm._s(_vm.$t("SAVE")) +
                                 "  \r\n        "
                             )
                           ]
@@ -4384,7 +4386,7 @@ let List = {
               && this.panelData.filter.user)
     },
     
-    filteringUsers () {
+    filteringUser () {
       if (this.hasUserFilter) {
         return [this.panelData.filter.user]
       } 
@@ -4991,8 +4993,9 @@ __webpack_require__.r(__webpack_exports__);
   List.methods.clearFilter = function () {
     this.panelData.filter.user = null
     this.panelData.filter.type = null
-    //console.log('clearFilter')
+    
     this.annotation = null
+    //console.log('clearFilter', this.panelData.filter)
   }
   
 });
@@ -6351,9 +6354,9 @@ __webpack_require__.r(__webpack_exports__);
     },
 
     isEnableSubmitAnswer() {
-      return (this.isAnswerEdited
+      return ((this.isAnswerEdited 
               && typeof (this.answer) === 'string'
-              && this.answer !== '')
+              && this.answer !== '') || this.isEnableSubmitQuestion)
     },
 
     // ----------------------------------
@@ -8972,6 +8975,22 @@ __webpack_require__.r(__webpack_exports__);
     //window.hl = this.highlighter  // @TODO for test
 
     let vm = this
+    
+    let lock = {}
+    let triggerEvent = (ele, event, type) => {
+      if (lock[type] && lock[type] === true) {
+        return null
+      }
+      
+      let pos = this._getAnchorPositionFromElement(ele, event)
+      
+      lock[type] = true
+      this.triggerEvent(type, pos)
+      setTimeout(() => {
+        lock[type] = false
+      }, 0)
+    }
+    
     let options = {
       ignoreWhiteSpace: true,
       tagNames: ["span", "a", "b", "img"],
@@ -8980,35 +8999,44 @@ __webpack_require__.r(__webpack_exports__);
       },
       elementProperties: {
         onclick: function (event) {
-          let pos = vm._getAnchorPositionFromElement(this, event)
-          //console.log(pos)
-          //vm.$emit('highlightClick', pos)
-          vm.triggerEvent('highlightClick', pos)
-          //event.stopPropagation()
-          //event.preventDefault()
+          triggerEvent(this, event, 'highlightClick')
+//          let pos = vm._getAnchorPositionFromElement(this, event)
+//          //console.log(pos)
+//          //vm.$emit('highlightClick', pos)
+//          vm.triggerEvent('highlightClick', pos)
+//          
+//          event.stopPropagation()
+//          event.preventDefault()
         },
         ontouch: function (event) {
-          let pos = vm._getAnchorPositionFromElement(this, event)
-          //console.log(pos)
-          //vm.$emit('highlightClick', pos)
-          vm.triggerEvent('highlightClick', pos)
-          //event.stopPropagation()
-          //event.preventDefault()
+          triggerEvent(this, event, 'highlightClick')
+//          
+//          let pos = vm._getAnchorPositionFromElement(this, event)
+//          //console.log(pos)
+//          //vm.$emit('highlightClick', pos)
+//          vm.triggerEvent('highlightClick', pos)
+//          
+//          event.stopPropagation()
+//          event.preventDefault()
         },
         onmouseover: function (event) {
-          let data = vm._getAnchorPositionFromElement(this, event)
-          //vm.$emit('highlightMouseover', data)
-          vm.triggerEvent('highlightMouseover', data)
-
-          //event.stopPropagation()
-          //event.preventDefault()
+          triggerEvent(this, event, 'highlightMouseover')
+//          
+//          let data = vm._getAnchorPositionFromElement(this, event)
+//          //vm.$emit('highlightMouseover', data)
+//          vm.triggerEvent('highlightMouseover', data)
+//
+//          event.stopPropagation()
+//          event.preventDefault()
         },
         onmouseout: function (event) {
-          //vm.$emit('highlightMouseout')
-          vm.triggerEvent('highlightMouseout')
-          
-          //event.stopPropagation()
-          //event.preventDefault()
+          triggerEvent(this, event, 'highlightMouseout')
+//          
+//          //vm.$emit('highlightMouseout')
+//          vm.triggerEvent('highlightMouseout')
+//          
+//          event.stopPropagation()
+//          event.preventDefault()
         }
       }
     }

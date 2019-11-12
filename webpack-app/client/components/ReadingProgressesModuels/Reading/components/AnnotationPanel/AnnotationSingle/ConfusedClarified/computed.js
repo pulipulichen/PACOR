@@ -35,9 +35,9 @@ export default (Editor) => {
     },
 
     isEnableSubmitAnswer() {
-      return (this.isAnswerEdited
+      return ((this.isAnswerEdited 
               && typeof (this.answer) === 'string'
-              && this.answer !== '')
+              && this.answer !== '') || this.isEnableSubmitQuestion)
     },
 
     // ----------------------------------

@@ -49,8 +49,9 @@ export default (List) => {
   List.methods.clearFilter = function () {
     this.panelData.filter.user = null
     this.panelData.filter.type = null
-    //console.log('clearFilter')
+    
     this.annotation = null
+    //console.log('clearFilter', this.panelData.filter)
   }
   
 }

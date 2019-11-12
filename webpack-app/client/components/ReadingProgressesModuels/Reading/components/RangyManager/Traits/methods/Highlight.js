@@ -11,6 +11,22 @@ export default (RangyManager) => {
     //window.hl = this.highlighter  // @TODO for test
 
     let vm = this
+    
+    let lock = {}
+    let triggerEvent = (ele, event, type) => {
+      if (lock[type] && lock[type] === true) {
+        return null
+      }
+      
+      let pos = this._getAnchorPositionFromElement(ele, event)
+      
+      lock[type] = true
+      this.triggerEvent(type, pos)
+      setTimeout(() => {
+        lock[type] = false
+      }, 0)
+    }
+    
     let options = {
       ignoreWhiteSpace: true,
       tagNames: ["span", "a", "b", "img"],
@@ -19,35 +35,44 @@ export default (RangyManager) => {
       },
       elementProperties: {
         onclick: function (event) {
-          let pos = vm._getAnchorPositionFromElement(this, event)
-          //console.log(pos)
-          //vm.$emit('highlightClick', pos)
-          vm.triggerEvent('highlightClick', pos)
-          //event.stopPropagation()
-          //event.preventDefault()
+          triggerEvent(this, event, 'highlightClick')
+//          let pos = vm._getAnchorPositionFromElement(this, event)
+//          //console.log(pos)
+//          //vm.$emit('highlightClick', pos)
+//          vm.triggerEvent('highlightClick', pos)
+//          
+//          event.stopPropagation()
+//          event.preventDefault()
         },
         ontouch: function (event) {
-          let pos = vm._getAnchorPositionFromElement(this, event)
-          //console.log(pos)
-          //vm.$emit('highlightClick', pos)
-          vm.triggerEvent('highlightClick', pos)
-          //event.stopPropagation()
-          //event.preventDefault()
+          triggerEvent(this, event, 'highlightClick')
+//          
+//          let pos = vm._getAnchorPositionFromElement(this, event)
+//          //console.log(pos)
+//          //vm.$emit('highlightClick', pos)
+//          vm.triggerEvent('highlightClick', pos)
+//          
+//          event.stopPropagation()
+//          event.preventDefault()
         },
         onmouseover: function (event) {
-          let data = vm._getAnchorPositionFromElement(this, event)
-          //vm.$emit('highlightMouseover', data)
-          vm.triggerEvent('highlightMouseover', data)
-
-          //event.stopPropagation()
-          //event.preventDefault()
+          triggerEvent(this, event, 'highlightMouseover')
+//          
+//          let data = vm._getAnchorPositionFromElement(this, event)
+//          //vm.$emit('highlightMouseover', data)
+//          vm.triggerEvent('highlightMouseover', data)
+//
+//          event.stopPropagation()
+//          event.preventDefault()
         },
         onmouseout: function (event) {
-          //vm.$emit('highlightMouseout')
-          vm.triggerEvent('highlightMouseout')
-          
-          //event.stopPropagation()
-          //event.preventDefault()
+          triggerEvent(this, event, 'highlightMouseout')
+//          
+//          //vm.$emit('highlightMouseout')
+//          vm.triggerEvent('highlightMouseout')
+//          
+//          event.stopPropagation()
+//          event.preventDefault()
         }
       }
     }
