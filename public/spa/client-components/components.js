@@ -4436,8 +4436,7 @@ let List = {
         return null
       }
 
-      let summeryHeight = 0
-      //console.log([this.panelData.heightPX, summeryHeight])
+      let summeryHeight = 80
 
       return this.panelData.heightPX - summeryHeight
     },
@@ -4652,12 +4651,15 @@ let List = {
       }
 
       let summeryHeight = 0
-      //console.log(this.annotations.length)
-      if (this.annotations.length < 2) {
-        summeryHeight = -50
-        //console.log('aaa')
-        // 表示不顯示標頭
+      if (this.isHeaderVisible) {
+        summeryHeight = 80
       }
+      //console.log(this.annotations.length)
+//      if (this.annotations.length < 2) {
+//        summeryHeight = -50
+//        //console.log('aaa')
+//        // 表示不顯示標頭
+//      }
       //console.log(this.panelData.heightPX, summeryHeight)
       return this.panelData.heightPX - summeryHeight
     }
@@ -5547,6 +5549,7 @@ let AnnotationEditorModules = {
       }
     },
     componentHeightPX () {
+      // 這個是header的高度
       return this.heightPX - 70
     }
 //    isAdding () {
@@ -6361,6 +6364,7 @@ __webpack_require__.r(__webpack_exports__);
         height = (this.lib.style.getClientHeight() / 2)
         height = `calc(${height}px - 10em)`
       } else {
+        //console.log(this.heightPX)
         height = `calc(${this.heightPX}px - 15em)`
       }
       //console.log(height)
@@ -6771,9 +6775,9 @@ let Editor = {
       if (vm.enableCollaboration === true
               && vm.lib.style.isStackWidth()) {
         height = (vm.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 9em)`
+        height = `calc(${height}px - 5em)`
       } else {
-        height = `calc(${this.heightPX}px - 9em)`
+        height = `calc(${this.heightPX}px - 5em)`
       }
       
       //console.log(height, this.panelData.heightPX)
@@ -6983,9 +6987,9 @@ let Editor = {
       if (vm.enableCollaboration === true
               && vm.lib.style.isStackWidth()) {
         height = (vm.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 9em)`
+        height = `calc(${height}px - 5em)`
       } else {
-        height = `calc(${this.heightPX}px - 9em)`
+        height = `calc(${this.heightPX}px - 5em)`
       }
       
       //console.log(height, this.panelData.heightPX)

@@ -52,6 +52,7 @@ let AnnotationEditorModules = {
       }
     },
     componentHeightPX () {
+      // 這個是header的高度
       return this.heightPX - 70
     }
 //    isAdding () {

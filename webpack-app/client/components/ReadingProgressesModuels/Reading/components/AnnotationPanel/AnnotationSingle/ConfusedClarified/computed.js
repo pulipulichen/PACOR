@@ -85,6 +85,7 @@ export default (Editor) => {
         height = (this.lib.style.getClientHeight() / 2)
         height = `calc(${height}px - 10em)`
       } else {
+        //console.log(this.heightPX)
         height = `calc(${this.heightPX}px - 15em)`
       }
       //console.log(height)

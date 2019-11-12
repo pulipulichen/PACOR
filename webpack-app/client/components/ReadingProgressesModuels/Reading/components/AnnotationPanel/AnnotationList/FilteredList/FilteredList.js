@@ -104,8 +104,7 @@ let List = {
         return null
       }
 
-      let summeryHeight = 0
-      //console.log([this.panelData.heightPX, summeryHeight])
+      let summeryHeight = 80
 
       return this.panelData.heightPX - summeryHeight
     },

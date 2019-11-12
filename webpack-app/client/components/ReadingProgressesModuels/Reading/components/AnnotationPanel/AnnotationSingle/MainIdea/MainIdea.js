@@ -63,9 +63,9 @@ let Editor = {
       if (vm.enableCollaboration === true
               && vm.lib.style.isStackWidth()) {
         height = (vm.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 9em)`
+        height = `calc(${height}px - 5em)`
       } else {
-        height = `calc(${this.heightPX}px - 9em)`
+        height = `calc(${this.heightPX}px - 5em)`
       }
       
       //console.log(height, this.panelData.heightPX)
