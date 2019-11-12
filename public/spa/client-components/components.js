@@ -877,22 +877,16 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("filtered-list", {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.isFiltering,
-            expression: "isFiltering"
-          }
-        ],
-        attrs: {
-          config: _vm.config,
-          status: _vm.status,
-          lib: _vm.lib,
-          panelData: _vm.panelData
-        }
-      })
+      _vm.isFiltering
+        ? _c("filtered-list", {
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              panelData: _vm.panelData
+            }
+          })
+        : _vm._e()
     ],
     1
   )
@@ -923,80 +917,72 @@ var render = function() {
     "div",
     { staticClass: "FilteredList" },
     [
-      _vm.annotations.length > 1
-        ? [
-            _c(
-              "div",
-              { staticClass: "summary-information" },
-              [
-                _c(
-                  "button",
-                  {
-                    staticClass: "ui mini labeled icon button back-button",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function($event) {
-                        $event.stopPropagation()
-                        return _vm.clearFilter($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "angle left icon" }),
-                    _vm._v(
-                      "\r\n        " +
-                        _vm._s(_vm.$t("Back to full list")) +
-                        "\r\n      "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "label" }, [
-                  _vm._v(
-                    "\r\n        " + _vm._s(_vm.$t("Finding")) + ":\r\n      "
-                  )
-                ]),
-                _vm._v(" "),
-                _vm.hasUserFilter
-                  ? _c("user-avatar-icons", {
-                      attrs: {
-                        config: _vm.config,
-                        status: _vm.status,
-                        lib: _vm.lib,
-                        users: _vm.computedFilteredUsers
-                      },
-                      on: { find: _vm.clearFindUser }
-                    })
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.hasTypeFilter
-                  ? _c("annotation-type-button", {
-                      attrs: {
-                        lib: _vm.lib,
-                        config: _vm.config,
-                        status: _vm.status,
-                        type: _vm.filteredType
-                      },
-                      on: { find: _vm.clearFindType }
-                    })
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("div", { staticClass: "label" }, [
-                  _vm._v(
-                    "\r\n        " +
-                      _vm._s(
-                        _vm.$t("Total {0} Annotations", [_vm.annotationCount])
-                      ) +
-                      "\r\n      "
-                  )
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "ui divider" })
-          ]
-        : _vm._e(),
+      _c(
+        "div",
+        { staticClass: "summary-information" },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "ui mini labeled icon button back-button",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  return _vm.clearFilter($event)
+                }
+              }
+            },
+            [
+              _c("i", { staticClass: "angle left icon" }),
+              _vm._v(
+                "\r\n        " +
+                  _vm._s(_vm.$t("Back to full list")) +
+                  "\r\n      "
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "label" }, [
+            _vm._v("\r\n        " + _vm._s(_vm.$t("Finding")) + ":\r\n      ")
+          ]),
+          _vm._v(" "),
+          _vm.hasUserFilter
+            ? _c("user-avatar-icons", {
+                attrs: {
+                  config: _vm.config,
+                  status: _vm.status,
+                  lib: _vm.lib,
+                  users: _vm.computedFilteredUsers
+                },
+                on: { find: _vm.clearFindUser }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.hasTypeFilter
+            ? _c("annotation-type-button", {
+                attrs: {
+                  lib: _vm.lib,
+                  config: _vm.config,
+                  status: _vm.status,
+                  type: _vm.filteredType
+                },
+                on: { find: _vm.clearFindType }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _c("div", { staticClass: "label" }, [
+            _vm._v(
+              "\r\n        " +
+                _vm._s(_vm.$t("Total {0} Annotations", [_vm.annotationCount])) +
+                "\r\n      "
+            )
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "ui divider" }),
       _vm._v(" "),
       _c(
         "div",
@@ -1075,7 +1061,7 @@ var render = function() {
           })
         : _vm._e()
     ],
-    2
+    1
   )
 }
 var staticRenderFns = []
@@ -3901,6 +3887,11 @@ let AnnotationTypeSelector = {
         }
         
         this.selection = data
+        
+        // For test
+        setTimeout(() => {
+          this.list()
+        }, 100)
       })
       
       rangy.addEventListener('selectcollapsed', (data) => {
@@ -4543,7 +4534,7 @@ let List = {
     
     filteredType () {
       if (this.hasTypeFilter) {
-        return this.panelData.query.type
+        return this.panelData.filter.type
       }
     },
     
@@ -4986,6 +4977,7 @@ __webpack_require__.r(__webpack_exports__);
       this.panelData.filter = {}
     }
     
+    //console.log(type)
     this.panelData.filter.type = type
   }
   
@@ -5006,7 +4998,8 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   List.methods.clearFilter = function () {
-    this.panelData.filter = {}
+    this.panelData.filter = null
+    //console.log('clearFilter')
   }
   
 });
@@ -5031,7 +5024,7 @@ __webpack_require__.r(__webpack_exports__);
     
     //if (Array.isArray(this.listPositions)) {
     let query = this.query
-    console.log(query)
+    //console.log(query)
     
     let url = '/client/Annotation/listSummary'
 
@@ -5042,7 +5035,7 @@ __webpack_require__.r(__webpack_exports__);
       return
       //return this.$emit('close')
     }
-    console.log(result)
+    //console.log(result)
 
     for (let key in result) {
       this[key] = result[key]

@@ -22,6 +22,7 @@ export default (List) => {
       this.panelData.filter = {}
     }
     
+    //console.log(type)
     this.panelData.filter.type = type
   }
   
@@ -42,7 +43,8 @@ export default (List) => {
   }
   
   List.methods.clearFilter = function () {
-    this.panelData.filter = {}
+    this.panelData.filter = null
+    //console.log('clearFilter')
   }
   
 }

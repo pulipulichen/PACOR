@@ -10,7 +10,7 @@
   </main-list>
 
   <filtered-list 
-    v-show="isFiltering"
+    v-if="isFiltering"
     
     v-bind:config="config"
     v-bind:status="status"

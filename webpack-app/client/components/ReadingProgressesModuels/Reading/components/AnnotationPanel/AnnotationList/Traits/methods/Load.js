@@ -7,7 +7,7 @@ export default (List) => {
     
     //if (Array.isArray(this.listPositions)) {
     let query = this.query
-    console.log(query)
+    //console.log(query)
     
     let url = '/client/Annotation/listSummary'
 
@@ -18,7 +18,7 @@ export default (List) => {
       return
       //return this.$emit('close')
     }
-    console.log(result)
+    //console.log(result)
 
     for (let key in result) {
       this[key] = result[key]

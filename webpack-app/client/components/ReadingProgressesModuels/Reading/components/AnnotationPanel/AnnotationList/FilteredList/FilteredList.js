@@ -57,7 +57,7 @@ let List = {
     
     filteredType () {
       if (this.hasTypeFilter) {
-        return this.panelData.query.type
+        return this.panelData.filter.type
       }
     },
     
