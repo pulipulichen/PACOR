@@ -99,6 +99,10 @@ let Confused = {
       return (this.answer !== this.answerReset)
     },
     
+    isNoteDifferent () {
+      return (this.isQuestionDifferent || this.isAnswerDifferent)
+    },
+    
     isAnswerSubmitted () {
       return (this.annotation 
               && this.annotation.properties
@@ -208,6 +212,11 @@ let Confused = {
   methods: {
     onQuestionChange (content) {
       this.question = content
+      //this.isQuestionEdited = true  // 不應該用這個，應該要用reset
+    },
+    onAnswerChange (content) {
+      this.answer = content
+      //this.isQuestionEdited = true  // 不應該用這個，應該要用reset
     },
     
     submitQuestion: async function () {

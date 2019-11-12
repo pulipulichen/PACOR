@@ -15,7 +15,7 @@
     ref="QuestionEditor"
     
     v-bind:contents="question"
-    v-on:input="(c) => {question = c; isQuestionEdited = true}"
+    v-on:input="onQuestionChange"
     
     v-bind:editable="isEditable"
     v-bind:height="computedQuestionEditorHeight"
@@ -31,14 +31,17 @@
       v-bind:config="config"
       v-bind:status="status"
       v-bind:lib="lib"
+      
       v-bind:propSelectIndex="recommandResourceSearchIndex"
       v-bind:propAnchorText="anchorText">
     </resource-search>
 
     <HTMLEditor 
       ref="AnswerEditor"
+      
       v-bind:contents="answer"
-      v-on:input="(c) => {answer = c; isAnswerEdited = true}"
+      v-on:input="onAnswerChange"
+      
       v-bind:editable="editable"
       v-bind:height="computedAnswerEditorHeight"
       v-bind:placeholder="answerPlaceholder">
@@ -51,7 +54,9 @@
   <div class="ui one column grid annotation-panel-buttons"
        v-if="isEditable">
 
-    <block-exit></block-exit>
+    <block-exit
+      v-if="isNoteDifferent">
+    </block-exit>
 
     <div v-bind:class="computedButtonsClass">
 
@@ -68,40 +73,74 @@
       <!-- ============================== -->
 
       <checkbox-toggle 
+        v-if="annotationConfig.enableControlPermission"
         v-bind:label="$t('PUBLIC')"
-        v-model="public"
-        v-if="annotationConfig.enableControlPermission">
+        v-model="public">
       </checkbox-toggle>
 
-      <button type="button"
-              class="ui button"
-              v-on:click="submitQuestion"
-              v-if="!isQuestionSubmitted">
-        {{ $t('SUBMIT QUESTION') }}  
-      </button>
+      <template v-if="annotation.id">
+        <!--
+        <button type="button"
+                class="ui button"
+                v-on:click="submitQuestion"
+                v-if="!isQuestionSubmitted">
+          {{ $t('SUBMIT QUESTION') }}  
+        </button>
+        -->
+        <validation-button 
+          v-bind:lib="lib"
+          
+          v-bind:text="question"
+          v-bind:minWordCount="minWords"
+          v-bind:locale="status.preference.locale"
+          v-bind:enable="isEnableSubmitQuestion"
+          
+          v-on:click="submitQuestion">
+          {{ $t('SUBMIT QUESTION') }}  
+        </validation-button>
+      </template>
+      
+      <!-- ======================================== -->
+      
+      <template v-else>
+        <button type="button"
+                class="ui button"
+                v-on:click="writeLater"
+                v-if="isQuestionSubmitted && !isAnswerSubmitted">
+          {{ $t('WRITE LATER') }}  
+        </button>
 
-      <button type="button"
-              class="ui button"
-              v-on:click="writeLater"
-              v-if="isQuestionSubmitted && !isAnswerSubmitted">
-        {{ $t('WRITE LATER') }}  
-      </button>
+        <!--
+        <button type="button"
+                class="ui button"
+                v-bind:class="{'disabled': (answer === '')}"
+                v-on:click="submitAnswer"
+                v-if="isQuestionSubmitted">
+          {{ $t('SAVE ANSWER') }}  
+        </button>
+        -->
+        <validation-button 
+          v-bind:lib="lib"
+          
+          v-bind:text="answer"
+          v-bind:minWordCount="minWords"
+          v-bind:locale="status.preference.locale"
+          v-bind:enable="isEnableSubmitAnswer"
+          
+          v-on:click="submitAnswer">
+          {{ $t('SAVE ANSWER') }}  
+        </validation-button>
 
-      <button type="button"
-              class="ui button"
-              v-bind:class="{'disabled': (answer === '')}"
-              v-on:click="submitAnswer"
-              v-if="isQuestionSubmitted">
-        {{ $t('SAVE ANSWER') }}  
-      </button>
-
-      <button type="button"
-              class="ui red button"
-              v-on:click="deleteAnnotation"
-              v-if="isQuestionSubmitted">
-        {{ $t('DELETE') }}  
-      </button>
-
+        <!-- ======================================== -->
+        
+        <button type="button"
+                class="ui red button"
+                v-on:click="deleteAnnotation"
+                v-if="isQuestionSubmitted">
+          {{ $t('DELETE') }}  
+        </button>
+      </template>
+        
     </div>
   </div>
 </div>

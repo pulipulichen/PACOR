@@ -14,7 +14,9 @@
   <div class="ui one column grid annotation-panel-buttons"
        v-if="isEditable">
     
-    <block-exit></block-exit>
+    <block-exit
+      v-if="isNoteDifferent">
+    </block-exit>
     
     <div v-bind:class="computedButtonsClass">
 

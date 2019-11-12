@@ -1548,12 +1548,7 @@ var render = function() {
           height: _vm.computedQuestionEditorHeight,
           placeholder: _vm.questionPlaceholder
         },
-        on: {
-          input: function(c) {
-            _vm.question = c
-            _vm.isQuestionEdited = true
-          }
-        }
+        on: { input: _vm.onQuestionChange }
       }),
       _vm._v(" "),
       _vm.isQuestionSubmitted
@@ -1577,12 +1572,7 @@ var render = function() {
                 height: _vm.computedAnswerEditorHeight,
                 placeholder: _vm.answerPlaceholder
               },
-              on: {
-                input: function(c) {
-                  _vm.answer = c
-                  _vm.isAnswerEdited = true
-                }
-              }
+              on: { input: _vm.onAnswerChange }
             })
           ]
         : _vm._e(),
@@ -1592,7 +1582,7 @@ var render = function() {
             "div",
             { staticClass: "ui one column grid annotation-panel-buttons" },
             [
-              _c("block-exit"),
+              _vm.isNoteDifferent ? _c("block-exit") : _vm._e(),
               _vm._v(" "),
               _c(
                 "div",
@@ -1611,80 +1601,89 @@ var render = function() {
                       })
                     : _vm._e(),
                   _vm._v(" "),
-                  !_vm.isQuestionSubmitted
-                    ? _c(
-                        "button",
-                        {
-                          staticClass: "ui button",
-                          attrs: { type: "button" },
-                          on: { click: _vm.submitQuestion }
-                        },
-                        [
-                          _vm._v(
-                            "\r\n        " +
-                              _vm._s(_vm.$t("SUBMIT QUESTION")) +
-                              "  \r\n      "
-                          )
-                        ]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.isQuestionSubmitted && !_vm.isAnswerSubmitted
-                    ? _c(
-                        "button",
-                        {
-                          staticClass: "ui button",
-                          attrs: { type: "button" },
-                          on: { click: _vm.writeLater }
-                        },
-                        [
-                          _vm._v(
-                            "\r\n        " +
-                              _vm._s(_vm.$t("WRITE LATER")) +
-                              "  \r\n      "
-                          )
-                        ]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.isQuestionSubmitted
-                    ? _c(
-                        "button",
-                        {
-                          staticClass: "ui button",
-                          class: { disabled: _vm.answer === "" },
-                          attrs: { type: "button" },
-                          on: { click: _vm.submitAnswer }
-                        },
-                        [
-                          _vm._v(
-                            "\r\n        " +
-                              _vm._s(_vm.$t("SAVE ANSWER")) +
-                              "  \r\n      "
-                          )
-                        ]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.isQuestionSubmitted
-                    ? _c(
-                        "button",
-                        {
-                          staticClass: "ui red button",
-                          attrs: { type: "button" },
-                          on: { click: _vm.deleteAnnotation }
-                        },
-                        [
-                          _vm._v(
-                            "\r\n        " +
-                              _vm._s(_vm.$t("DELETE")) +
-                              "  \r\n      "
-                          )
-                        ]
-                      )
-                    : _vm._e()
+                  _vm.annotation.id
+                    ? [
+                        _c(
+                          "validation-button",
+                          {
+                            attrs: {
+                              lib: _vm.lib,
+                              text: _vm.question,
+                              minWordCount: _vm.minWords,
+                              locale: _vm.status.preference.locale,
+                              enable: _vm.isEnableSubmitQuestion
+                            },
+                            on: { click: _vm.submitQuestion }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n          " +
+                                _vm._s(_vm.$t("SUBMIT QUESTION")) +
+                                "  \r\n        "
+                            )
+                          ]
+                        )
+                      ]
+                    : [
+                        _vm.isQuestionSubmitted && !_vm.isAnswerSubmitted
+                          ? _c(
+                              "button",
+                              {
+                                staticClass: "ui button",
+                                attrs: { type: "button" },
+                                on: { click: _vm.writeLater }
+                              },
+                              [
+                                _vm._v(
+                                  "\r\n          " +
+                                    _vm._s(_vm.$t("WRITE LATER")) +
+                                    "  \r\n        "
+                                )
+                              ]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "validation-button",
+                          {
+                            attrs: {
+                              lib: _vm.lib,
+                              text: _vm.answer,
+                              minWordCount: _vm.minWords,
+                              locale: _vm.status.preference.locale,
+                              enable: _vm.isEnableSubmitAnswer
+                            },
+                            on: { click: _vm.submitAnswer }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n          " +
+                                _vm._s(_vm.$t("SAVE ANSWER")) +
+                                "  \r\n        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm.isQuestionSubmitted
+                          ? _c(
+                              "button",
+                              {
+                                staticClass: "ui red button",
+                                attrs: { type: "button" },
+                                on: { click: _vm.deleteAnnotation }
+                              },
+                              [
+                                _vm._v(
+                                  "\r\n          " +
+                                    _vm._s(_vm.$t("DELETE")) +
+                                    "  \r\n        "
+                                )
+                              ]
+                            )
+                          : _vm._e()
+                      ]
                 ],
-                1
+                2
               )
             ],
             1
@@ -1736,7 +1735,7 @@ var render = function() {
             "div",
             { staticClass: "ui one column grid annotation-panel-buttons" },
             [
-              _c("block-exit"),
+              _vm.isNoteDifferent ? _c("block-exit") : _vm._e(),
               _vm._v(" "),
               _c(
                 "div",
@@ -1871,7 +1870,7 @@ var render = function() {
             "div",
             { staticClass: "ui one column grid annotation-panel-buttons" },
             [
-              _c("block-exit"),
+              _vm.isNoteDifferent ? _c("block-exit") : _vm._e(),
               _vm._v(" "),
               _c(
                 "div",
@@ -5858,6 +5857,10 @@ let Confused = {
       return (this.answer !== this.answerReset)
     },
     
+    isNoteDifferent () {
+      return (this.isQuestionDifferent || this.isAnswerDifferent)
+    },
+    
     isAnswerSubmitted () {
       return (this.annotation 
               && this.annotation.properties
@@ -5967,6 +5970,11 @@ let Confused = {
   methods: {
     onQuestionChange (content) {
       this.question = content
+      //this.isQuestionEdited = true  // 不應該用這個，應該要用reset
+    },
+    onAnswerChange (content) {
+      this.answer = content
+      //this.isQuestionEdited = true  // 不應該用這個，應該要用reset
     },
     
     submitQuestion: async function () {
