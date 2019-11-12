@@ -1568,7 +1568,7 @@ var render = function() {
               ref: "AnswerEditor",
               attrs: {
                 contents: _vm.answer,
-                editable: _vm.editable,
+                editable: _vm.isEditable,
                 height: _vm.computedAnswerEditorHeight,
                 placeholder: _vm.answerPlaceholder
               },
@@ -4623,7 +4623,7 @@ let List = {
   },
   computed: {
     isHeaderVisible () {
-      console.log([this.hasKeywordFilter, this.annotations.length])
+      //console.log([this.hasKeywordFilter, this.annotations.length])
       return (this.hasKeywordFilter || this.annotations.length > 1)
     },
     query () {
@@ -5752,6 +5752,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _computed__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./computed */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationSingle/ConfusedClarified/computed.js");
 /* harmony import */ var _watch__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./watch */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationSingle/ConfusedClarified/watch.js");
 /* harmony import */ var _methods__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./methods */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationSingle/ConfusedClarified/methods.js");
+/* harmony import */ var _Traits_computed_ComputedConfig__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../Traits/computed/ComputedConfig */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationSingle/Traits/computed/ComputedConfig.js");
+/* harmony import */ var _Traits_computed_ComputedButtons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../Traits/computed/ComputedButtons */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationSingle/Traits/computed/ComputedButtons.js");
+/* harmony import */ var _Traits_methods_MethodsAnnotation__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../Traits/methods/MethodsAnnotation */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationSingle/Traits/methods/MethodsAnnotation.js");
 
 
 
@@ -5782,6 +5785,15 @@ Object(_watch__WEBPACK_IMPORTED_MODULE_5__["default"])(Editor)
 
 
 Object(_methods__WEBPACK_IMPORTED_MODULE_6__["default"])(Editor)
+
+
+Object(_Traits_computed_ComputedConfig__WEBPACK_IMPORTED_MODULE_7__["default"])(Editor)
+
+
+Object(_Traits_computed_ComputedButtons__WEBPACK_IMPORTED_MODULE_8__["default"])(Editor)
+
+
+Object(_Traits_methods_MethodsAnnotation__WEBPACK_IMPORTED_MODULE_9__["default"])(Editor)
 
 /* harmony default export */ __webpack_exports__["default"] = (Editor);
 
@@ -6365,7 +6377,10 @@ __webpack_require__.r(__webpack_exports__);
     // ------------------------------------------
 
     anchorText() {
-      let anchorText = this.lib.RangyManager.getAnchorTextArrayFromAnnotation(this.annotation).join(' ')
+      //console.log(this.annotation)
+      
+      let anchorTexts = this.lib.RangyManager.getAnchorTextArrayFromAnnotation(this.annotation)
+      let anchorText = anchorTexts.join(' ')
 
       if (anchorText === undefined) {
         return ''
@@ -8730,7 +8745,7 @@ __webpack_require__.r(__webpack_exports__);
 //    return annotation
 //  }
   RangyManager.methods.getAnchorTextArrayFromAnnotation = function (annotation) {
-    return annotation.anchorPositions.forEach(pos => {
+    return annotation.anchorPositions.map(pos => {
       if (pos.anchor_text) {
         return pos.anchor_text
       }

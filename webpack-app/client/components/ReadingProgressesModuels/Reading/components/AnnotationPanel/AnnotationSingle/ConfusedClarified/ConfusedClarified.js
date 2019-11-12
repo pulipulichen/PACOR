@@ -29,4 +29,13 @@ watch(Editor)
 import methods from './methods'
 methods(Editor)
 
+import ComputedConfig from './../Traits/computed/ComputedConfig'
+ComputedConfig(Editor)
+
+import ComputedButtons from './../Traits/computed/ComputedButtons'
+ComputedButtons(Editor)
+
+import MethodsAnnotation from './../Traits/methods/MethodsAnnotation'
+MethodsAnnotation(Editor)
+
 export default Editor

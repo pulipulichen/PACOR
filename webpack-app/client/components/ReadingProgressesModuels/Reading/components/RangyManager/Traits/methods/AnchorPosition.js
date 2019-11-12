@@ -127,7 +127,7 @@ export default (RangyManager) => {
 //    return annotation
 //  }
   RangyManager.methods.getAnchorTextArrayFromAnnotation = function (annotation) {
-    return annotation.anchorPositions.forEach(pos => {
+    return annotation.anchorPositions.map(pos => {
       if (pos.anchor_text) {
         return pos.anchor_text
       }

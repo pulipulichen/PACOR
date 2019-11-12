@@ -100,7 +100,10 @@ export default (Editor) => {
     // ------------------------------------------
 
     anchorText() {
-      let anchorText = this.lib.RangyManager.getAnchorTextArrayFromAnnotation(this.annotation).join(' ')
+      //console.log(this.annotation)
+      
+      let anchorTexts = this.lib.RangyManager.getAnchorTextArrayFromAnnotation(this.annotation)
+      let anchorText = anchorTexts.join(' ')
 
       if (anchorText === undefined) {
         return ''

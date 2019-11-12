@@ -22,7 +22,7 @@ let List = {
   },
   computed: {
     isHeaderVisible () {
-      console.log([this.hasKeywordFilter, this.annotations.length])
+      //console.log([this.hasKeywordFilter, this.annotations.length])
       return (this.hasKeywordFilter || this.annotations.length > 1)
     },
     query () {
