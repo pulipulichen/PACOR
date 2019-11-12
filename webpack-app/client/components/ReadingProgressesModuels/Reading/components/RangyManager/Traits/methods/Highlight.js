@@ -350,5 +350,6 @@ export default (RangyManager) => {
       append: true
     })
   }
+  
 }
 

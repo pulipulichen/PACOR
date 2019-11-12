@@ -63,4 +63,7 @@ Selection(RangyManager)
 import Event from './Traits/methods/Event'
 Event(RangyManager)
 
+import Load from './Traits/methods/Load'
+Load(RangyManager)
+
 export default RangyManager

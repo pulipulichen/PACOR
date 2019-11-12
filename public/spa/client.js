@@ -1200,13 +1200,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./helpers/StringHelper */ "./webpack-app/helpers/StringHelper.js");
 /* harmony import */ var _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers/ValidateHelper */ "./webpack-app/helpers/ValidateHelper.js");
 /* harmony import */ var _helpers_StyleHelper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers/StyleHelper */ "./webpack-app/helpers/StyleHelper.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./client/client.tpl */ "./webpack-app/client/client.tpl");
-/* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_client_client_tpl__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
-/* harmony import */ var _client_global_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./client/global-components */ "./webpack-app/client/global-components.js");
-/* harmony import */ var _client_local_components__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./client/local-components */ "./webpack-app/client/local-components.js");
+/* harmony import */ var _helpers_AnnotationHelper__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./helpers/AnnotationHelper */ "./webpack-app/helpers/AnnotationHelper.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./client/client.tpl */ "./webpack-app/client/client.tpl");
+/* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_client_client_tpl__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
+/* harmony import */ var _client_global_components__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./client/global-components */ "./webpack-app/client/global-components.js");
+/* harmony import */ var _client_local_components__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./client/local-components */ "./webpack-app/client/local-components.js");
 /* global __webpack_public_path__ */
 
 
@@ -1220,6 +1221,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // ----------------------------------
 // Helpers
+
 
 
 
@@ -1243,9 +1245,9 @@ __webpack_require__.r(__webpack_exports__);
 
 let baseURL = __webpack_require__.p
 baseURL = baseURL.split('/').slice(0, 3).join('/')
-_config_js__WEBPACK_IMPORTED_MODULE_11__["default"].baseURL = baseURL
+_config_js__WEBPACK_IMPORTED_MODULE_12__["default"].baseURL = baseURL
 
-let baseScript = jquery__WEBPACK_IMPORTED_MODULE_9___default()(document.currentScript)
+let baseScript = jquery__WEBPACK_IMPORTED_MODULE_10___default()(document.currentScript)
 if (baseScript.length === 1) {
   baseScript.before(`<div id="app"></div>`)
 }
@@ -1274,7 +1276,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].config.errorHandler  = function(err,
 
 let VueController = {
   data: {
-    config: _config_js__WEBPACK_IMPORTED_MODULE_11__["default"],
+    config: _config_js__WEBPACK_IMPORTED_MODULE_12__["default"],
     status: {
       needLogin: true,
       userID: 0,
@@ -1302,7 +1304,8 @@ let VueController = {
       DayJSHelper: _helpers_DayJSHelper__WEBPACK_IMPORTED_MODULE_5__["default"],
       StringHelper: _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_6__["default"],
       ValidateHelper: _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_7__["default"],
-      style: _helpers_StyleHelper__WEBPACK_IMPORTED_MODULE_8__["default"].setConfig(_config_js__WEBPACK_IMPORTED_MODULE_11__["default"]),
+      style: _helpers_StyleHelper__WEBPACK_IMPORTED_MODULE_8__["default"].setConfig(_config_js__WEBPACK_IMPORTED_MODULE_12__["default"]),
+      AnnotationHelper: _helpers_AnnotationHelper__WEBPACK_IMPORTED_MODULE_9__["default"],
       auth: null,
       RangyManager: null,
       AnnotationPanel: null
@@ -1342,15 +1345,15 @@ let VueController = {
   el: '#app',
   i18n: _plugins_i18n__WEBPACK_IMPORTED_MODULE_3__["default"],
   
-  template: _client_client_tpl__WEBPACK_IMPORTED_MODULE_10___default.a,
-  components: _client_local_components__WEBPACK_IMPORTED_MODULE_13__["default"]
+  template: _client_client_tpl__WEBPACK_IMPORTED_MODULE_11___default.a,
+  components: _client_local_components__WEBPACK_IMPORTED_MODULE_14__["default"]
 }
 
 if (typeof(baseURL) === 'string') {
-  jquery__WEBPACK_IMPORTED_MODULE_9___default()(() => {
+  jquery__WEBPACK_IMPORTED_MODULE_10___default()(() => {
     new vue__WEBPACK_IMPORTED_MODULE_0__["default"](VueController)
     
-    jquery__WEBPACK_IMPORTED_MODULE_9___default()('body > #TestMessage').remove()
+    jquery__WEBPACK_IMPORTED_MODULE_10___default()('body > #TestMessage').remove()
   })
 }
 
@@ -3270,6 +3273,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_ValidationButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CValidationButton_5CValidationButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_ValidationButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CValidationButton_5CValidationButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_ValidationButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CValidationButton_5CValidationButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_ValidationButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CValidationButton_5CValidationButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_ValidationButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CValidationButton_5CValidationButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/helpers/AnnotationHelper.js":
+/*!*************************************************!*\
+  !*** ./webpack-app/helpers/AnnotationHelper.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let AnnotationHelper = {
+  note (annotation, type, note) {
+    let found = false
+    if (!annotation.notes) {
+      annotation.notes = [{
+          type: type,
+          note: note
+      }]
+    return annotation
+    }
+    
+    annotation.notes.forEach(n => {
+      if (n.type === type) {
+        n.note = note
+        found = true
+      }
+    })
+    
+    if (!found) {
+      annotation.notes.push({
+          type: type,
+          note: note
+      })
+    }
+    
+    return annotation
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (AnnotationHelper);
 
 /***/ }),
 

@@ -101,15 +101,7 @@ let AnnotationEditorModules = {
         return false
       }
       
-      this.lib.RangyManager.removeMyHighlights()
-      //throw '等等'
-      
-      let data = {}
-      let result = await this.lib.AxiosHelper.get('/client/Annotation/highlightsMy', data)
-      //console.log(result)
-      if (result !== 0) {
-        this.lib.RangyManager.deserializeAppend(result)
-      }
+      await this.lib.RangyManager.reloadMyHighlights()
     },
     onAdd: async function () {
       this.lib.AnnotationPanel.triggerEvent('add')

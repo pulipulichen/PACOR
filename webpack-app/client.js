@@ -16,6 +16,7 @@ import DayJSHelper from './helpers/DayJSHelper'
 import StringHelper from './helpers/StringHelper'
 import ValidateHelper from './helpers/ValidateHelper'
 import StyleHelper from './helpers/StyleHelper'
+import AnnotationHelper from './helpers/AnnotationHelper'
 
 // ----------------------
 
@@ -94,6 +95,7 @@ let VueController = {
       StringHelper: StringHelper,
       ValidateHelper: ValidateHelper,
       style: StyleHelper.setConfig(config),
+      AnnotationHelper: AnnotationHelper,
       auth: null,
       RangyManager: null,
       AnnotationPanel: null
