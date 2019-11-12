@@ -127,7 +127,7 @@ module.exports = {
       "style": {
         //'highlight': 'border-bottom: 1px solid green',
         'highlight': {
-          'my': 'background-color: rgba(0,255,0,0.5); color: white;',
+          'my': 'background-color: rgba(0,128,0,0.5); color: white;',
           'others': 'border-bottom: 1px solid red'
         },
         'segmentColor': 'green',

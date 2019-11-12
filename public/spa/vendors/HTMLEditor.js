@@ -239,7 +239,7 @@ let HTMLEditor = {
       
       //console.log(this.contents)
       if (typeof(this.contents) === 'string') {
-        console.log(this.contents)
+        //console.log(this.contents)
         this.html(this.contents)
       }
       

@@ -116,12 +116,14 @@ let AnnotationEditorModules = {
       
       await this.lib.RangyManager.reloadMyHighlights()
     },
-    onAdd: async function () {
+    onAdd: function () {
       this.lib.AnnotationPanel.triggerEvent('add')
     },
-    onUpdate: async function () {
+    onUpdate: function () {
+      //console.log('update')
       this.lib.AnnotationPanel.triggerEvent('update')
       this.$emit('update')
+      //console.log('update')
     },
     onDelete: async function () {
       if (this.annotation 

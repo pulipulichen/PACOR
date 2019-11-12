@@ -1553,31 +1553,43 @@ var render = function() {
         on: { input: _vm.onQuestionChange }
       }),
       _vm._v(" "),
-      _vm.isQuestionSubmitted
-        ? [
-            _c("resource-search", {
-              ref: "ResourceSearch",
-              attrs: {
-                config: _vm.config,
-                status: _vm.status,
-                lib: _vm.lib,
-                propSelectIndex: _vm.recommandResourceSearchIndex,
-                propAnchorText: _vm.anchorText
-              }
-            }),
-            _vm._v(" "),
-            _c("HTMLEditor", {
-              ref: "AnswerEditor",
-              attrs: {
-                contents: _vm.answer,
-                editable: _vm.isEditable,
-                height: _vm.computedAnswerEditorHeight,
-                placeholder: _vm.answerPlaceholder
-              },
-              on: { input: _vm.onAnswerChange }
-            })
-          ]
-        : _vm._e(),
+      _c("resource-search", {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.isQuestionSubmitted,
+            expression: "isQuestionSubmitted"
+          }
+        ],
+        ref: "ResourceSearch",
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          lib: _vm.lib,
+          propSelectIndex: _vm.recommandResourceSearchIndex,
+          propAnchorText: _vm.anchorText
+        }
+      }),
+      _vm._v(" "),
+      _c("HTMLEditor", {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.isQuestionSubmitted,
+            expression: "isQuestionSubmitted"
+          }
+        ],
+        ref: "AnswerEditor",
+        attrs: {
+          contents: _vm.answer,
+          editable: _vm.isEditable,
+          height: _vm.computedAnswerEditorHeight,
+          placeholder: _vm.answerPlaceholder
+        },
+        on: { input: _vm.onAnswerChange }
+      }),
       _vm._v(" "),
       _vm.isEditable
         ? _c(
@@ -1692,7 +1704,7 @@ var render = function() {
           )
         : _vm._e()
     ],
-    2
+    1
   )
 }
 var staticRenderFns = []
@@ -5643,12 +5655,14 @@ let AnnotationEditorModules = {
       
       await this.lib.RangyManager.reloadMyHighlights()
     },
-    onAdd: async function () {
+    onAdd: function () {
       this.lib.AnnotationPanel.triggerEvent('add')
     },
-    onUpdate: async function () {
+    onUpdate: function () {
+      //console.log('update')
       this.lib.AnnotationPanel.triggerEvent('update')
       this.$emit('update')
+      //console.log('update')
     },
     onDelete: async function () {
       if (this.annotation 
@@ -6358,9 +6372,15 @@ __webpack_require__.r(__webpack_exports__);
     },
 
     isEnableSubmitAnswer() {
-      return ((this.isAnswerEdited 
-              && typeof (this.answer) === 'string'
-              && this.answer !== '') || this.isEnableSubmitQuestion)
+      if (typeof(this.answer) === 'string' 
+              && this.answer === '') {
+        return false
+      }
+      if (typeof(this.question) === 'string'
+              && this.question === '') {
+        return false
+      }
+      return (this.isAnswerEdited || this.isQuestionEdited)
     },
 
     // ----------------------------------
@@ -6601,6 +6621,8 @@ __webpack_require__.r(__webpack_exports__);
       //console.log(data)
       
       let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+      //let id = 1
+      
       //console.log(id) // for test
       
       if (typeof(id) !== 'number') {
@@ -6626,17 +6648,18 @@ __webpack_require__.r(__webpack_exports__);
       //this.$forceUpdate()
       //console.log(this.isQuestionSubmitted)
       this.isQuestionSubmitted = true
+      
       //console.log(this.answer)
       //this.answer = ''
       //this.answerReset = ''
       //this.$refs.AnswerEditor.html('')
-      setTimeout(() => {
-        console.log(this.answer)
-      }, 100)
+//      setTimeout(() => {
+//        console.log(this.answer)
+//      }, 100)
     },
     
     submitAnswer: async function () {
-      this.annotation.type = 'Clarified'
+      let type = 'Clarified'
       this.annotation.properties.answer_submitted_at = (new Date()).getTime()
       
       this.lib.AnnotationHelper.note(this.annotation, 'question', this.question)
@@ -6644,7 +6667,7 @@ __webpack_require__.r(__webpack_exports__);
       
       let data = {
         id: this.annotation.id,
-        type: this.annotation.type,
+        type: type,
         notes: {
           'question': this.question,
           'answer': this.answer
@@ -6659,6 +6682,8 @@ __webpack_require__.r(__webpack_exports__);
       //console.log(data)
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      //let result = 1
+      
       //console.log(result) // for test
       if (result !== 1) {
         throw 'Update failed'
@@ -6669,7 +6694,10 @@ __webpack_require__.r(__webpack_exports__);
       //this.rangy.reloadMyHighlights()
       //this.$emit('reloadMyHighlights')
       await this.lib.RangyManager.reloadMyHighlights()
+      
       this.$emit('update')
+      //console.log('update')
+      this.annotation.type = type
     },
     
     writeLater: async function () {

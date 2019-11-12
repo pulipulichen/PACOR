@@ -34,9 +34,15 @@ export default (Editor) => {
     },
 
     isEnableSubmitAnswer() {
-      return ((this.isAnswerEdited 
-              && typeof (this.answer) === 'string'
-              && this.answer !== '') || this.isEnableSubmitQuestion)
+      if (typeof(this.answer) === 'string' 
+              && this.answer === '') {
+        return false
+      }
+      if (typeof(this.question) === 'string'
+              && this.question === '') {
+        return false
+      }
+      return (this.isAnswerEdited || this.isQuestionEdited)
     },
 
     // ----------------------------------

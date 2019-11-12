@@ -24,9 +24,9 @@
 
   <!-- ====================================== -->
 
-  <template v-if="isQuestionSubmitted">
-
     <resource-search 
+      v-show="isQuestionSubmitted"
+      
       ref="ResourceSearch"
       v-bind:config="config"
       v-bind:status="status"
@@ -37,6 +37,7 @@
     </resource-search>
 
     <HTMLEditor 
+      v-show="isQuestionSubmitted"
       ref="AnswerEditor"
       
       v-bind:contents="answer"
@@ -46,8 +47,6 @@
       v-bind:height="computedAnswerEditorHeight"
       v-bind:placeholder="answerPlaceholder">
     </HTMLEditor>
-
-  </template>
 
   <!-- ====================================== -->
 

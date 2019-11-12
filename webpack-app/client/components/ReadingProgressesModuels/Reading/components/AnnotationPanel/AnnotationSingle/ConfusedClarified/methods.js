@@ -75,6 +75,8 @@ export default (Editor) => {
       //console.log(data)
       
       let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+      //let id = 1
+      
       //console.log(id) // for test
       
       if (typeof(id) !== 'number') {
@@ -100,17 +102,18 @@ export default (Editor) => {
       //this.$forceUpdate()
       //console.log(this.isQuestionSubmitted)
       this.isQuestionSubmitted = true
+      
       //console.log(this.answer)
       //this.answer = ''
       //this.answerReset = ''
       //this.$refs.AnswerEditor.html('')
-      setTimeout(() => {
-        console.log(this.answer)
-      }, 100)
+//      setTimeout(() => {
+//        console.log(this.answer)
+//      }, 100)
     },
     
     submitAnswer: async function () {
-      this.annotation.type = 'Clarified'
+      let type = 'Clarified'
       this.annotation.properties.answer_submitted_at = (new Date()).getTime()
       
       this.lib.AnnotationHelper.note(this.annotation, 'question', this.question)
@@ -118,7 +121,7 @@ export default (Editor) => {
       
       let data = {
         id: this.annotation.id,
-        type: this.annotation.type,
+        type: type,
         notes: {
           'question': this.question,
           'answer': this.answer
@@ -133,6 +136,8 @@ export default (Editor) => {
       //console.log(data)
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      //let result = 1
+      
       //console.log(result) // for test
       if (result !== 1) {
         throw 'Update failed'
@@ -143,7 +148,10 @@ export default (Editor) => {
       //this.rangy.reloadMyHighlights()
       //this.$emit('reloadMyHighlights')
       await this.lib.RangyManager.reloadMyHighlights()
+      
       this.$emit('update')
+      //console.log('update')
+      this.annotation.type = type
     },
     
     writeLater: async function () {
