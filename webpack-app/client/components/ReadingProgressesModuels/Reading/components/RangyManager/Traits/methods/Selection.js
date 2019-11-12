@@ -38,10 +38,6 @@ export default (RangyManager) => {
       //let paragraph_id = []
 
       nodes.forEach(anchorNode => {
-        if (typeof (anchorNode.getAttribute) !== 'function'
-                || anchorNode.getAttribute('data-pacor-paragraph-seq-id') === 'undefined') {
-          return false
-        }
         
         if (typeof (anchorNode.getAttribute) === 'function'
                 && anchorNode.getAttribute('data-pacor-highlight') !== 'undefined') {
@@ -52,7 +48,12 @@ export default (RangyManager) => {
             }
           })
         }
-
+        
+        if (typeof (anchorNode.getAttribute) === 'function') {
+          return false
+        }
+        
+        //console.log(anchorNode)
 
         //let anchorNode = window.$(selection.anchorNode)
         let position = {}
@@ -111,6 +112,8 @@ export default (RangyManager) => {
       //this.$emit('select', selection)
       //console.log(selection.anchorPositions)
       //return
+      
+      //console.log('select', selection.anchorPositions)
       
       this.triggerEvent('select', selection)
 

@@ -85,6 +85,7 @@ let AnnotationTypeSelector = {
       let rangy = this.lib.RangyManager
       rangy.addEventListener('select', (data) => {
         // 如果AnnotationPanel已經顯示，則不動作
+        //console.log(this.lib.AnnotationPanel.isHide)
         if (this.lib.AnnotationPanel.isHide === false) {
           return false
         }

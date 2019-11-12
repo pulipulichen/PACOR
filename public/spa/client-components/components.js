@@ -3974,6 +3974,7 @@ let AnnotationTypeSelector = {
       let rangy = this.lib.RangyManager
       rangy.addEventListener('select', (data) => {
         // 如果AnnotationPanel已經顯示，則不動作
+        //console.log(this.lib.AnnotationPanel.isHide)
         if (this.lib.AnnotationPanel.isHide === false) {
           return false
         }
@@ -9465,10 +9466,6 @@ __webpack_require__.r(__webpack_exports__);
       //let paragraph_id = []
 
       nodes.forEach(anchorNode => {
-        if (typeof (anchorNode.getAttribute) !== 'function'
-                || anchorNode.getAttribute('data-pacor-paragraph-seq-id') === 'undefined') {
-          return false
-        }
         
         if (typeof (anchorNode.getAttribute) === 'function'
                 && anchorNode.getAttribute('data-pacor-highlight') !== 'undefined') {
@@ -9479,7 +9476,12 @@ __webpack_require__.r(__webpack_exports__);
             }
           })
         }
-
+        
+        if (typeof (anchorNode.getAttribute) === 'function') {
+          return false
+        }
+        
+        //console.log(anchorNode)
 
         //let anchorNode = window.$(selection.anchorNode)
         let position = {}
@@ -9538,6 +9540,8 @@ __webpack_require__.r(__webpack_exports__);
       //this.$emit('select', selection)
       //console.log(selection.anchorPositions)
       //return
+      
+      //console.log('select', selection.anchorPositions)
       
       this.triggerEvent('select', selection)
 
