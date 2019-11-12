@@ -104,9 +104,9 @@ let Editor = {
       }
     }
   },
-  mounted() {
-    console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
-  },
+  //mounted() {
+    //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
+  //},
   methods: {
     addAnnotation: async function () {
       
@@ -145,8 +145,9 @@ let Editor = {
           'default': this.note
         }
       }
-      throw 'Test'
-      return 
+      
+      //throw 'Test'
+      //return 
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
       

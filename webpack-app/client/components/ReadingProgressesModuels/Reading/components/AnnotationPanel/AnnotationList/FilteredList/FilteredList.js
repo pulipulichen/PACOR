@@ -22,26 +22,26 @@ let List = {
   },
   computed: {
     hasUserFilter () {
-      return (typeof(this.panelData.query) === 'object'
-              && typeof(this.panelData.query.user) === 'object'
-              && this.panelData.query.user !== null)
+      return (typeof(this.panelData.filter) === 'object'
+              && typeof(this.panelData.filter.user) === 'object'
+              && this.panelData.filter.user !== null)
     },
     
     computedFilteredUsers () {
       if (this.hasUserFilter) {
-        return [this.panelData.query.user]
+        return [this.panelData.filter.user]
       } 
     },
     
     computedFilteredUserID () {
       if (this.hasUserFilter) {
-        return this.panelData.query.user.id
+        return this.panelData.filter.user.id
       } 
     },
     
     hasTypeFilter () {
-      return (typeof(this.panelData.query) === 'object'
-              && typeof(this.panelData.query.type) === 'string')
+      return (typeof(this.panelData.filter) === 'object'
+              && typeof(this.panelData.filter.type) === 'string')
     },
     
     hasKeywordFilter () {

@@ -1,13 +1,4 @@
 <fragment>
-  <validation-button 
-      v-bind:lib="lib"
-
-      text="aaaa"
-      v-bind:minWordCount="1"
-      v-bind:locale="status.preference.locale">
-      {{ $t('EDIT') }}  
-    </validation-button>
-  
   <template v-for="(node, index) in sectionNodes">
     <section-panel
       v-bind:config="config"

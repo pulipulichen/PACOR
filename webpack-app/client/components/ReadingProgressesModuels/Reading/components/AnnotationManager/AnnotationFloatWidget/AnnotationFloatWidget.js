@@ -132,7 +132,7 @@ let AnnotationFloatWidget = {
       //(annotation) => {$emit('findAnnotation', annotation)}
       
       this.lib.AnnotationPanel.setAnnotation(annotation)
-      this.anchorPositions = null
+      this.reset()
     },
     
     findUser: function (user) {
@@ -149,7 +149,12 @@ let AnnotationFloatWidget = {
       this.lib.AnnotationPanel.setQuery({
         anchorPositions: this.anchorPositions
       })
+      this.reset()
+    },
+    
+    reset () {
       this.anchorPositions = null
+      this.isFixed = false
     }
   } // methods
 }

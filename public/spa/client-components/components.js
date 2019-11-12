@@ -2280,19 +2280,6 @@ var render = function() {
   return _c(
     "fragment",
     [
-      _c(
-        "validation-button",
-        {
-          attrs: {
-            lib: _vm.lib,
-            text: "aaaa",
-            minWordCount: 1,
-            locale: _vm.status.preference.locale
-          }
-        },
-        [_vm._v("\r\n      " + _vm._s(_vm.$t("EDIT")) + "  \r\n    ")]
-      ),
-      _vm._v(" "),
       _vm._l(_vm.sectionNodes, function(node, index) {
         return [
           _c("section-panel", {
@@ -3285,7 +3272,7 @@ let AnnotationFloatWidget = {
       //(annotation) => {$emit('findAnnotation', annotation)}
       
       this.lib.AnnotationPanel.setAnnotation(annotation)
-      this.anchorPositions = null
+      this.reset()
     },
     
     findUser: function (user) {
@@ -3302,7 +3289,12 @@ let AnnotationFloatWidget = {
       this.lib.AnnotationPanel.setQuery({
         anchorPositions: this.anchorPositions
       })
+      this.reset()
+    },
+    
+    reset () {
       this.anchorPositions = null
+      this.isFixed = false
     }
   } // methods
 }
@@ -4511,26 +4503,26 @@ let List = {
   },
   computed: {
     hasUserFilter () {
-      return (typeof(this.panelData.query) === 'object'
-              && typeof(this.panelData.query.user) === 'object'
-              && this.panelData.query.user !== null)
+      return (typeof(this.panelData.filter) === 'object'
+              && typeof(this.panelData.filter.user) === 'object'
+              && this.panelData.filter.user !== null)
     },
     
     computedFilteredUsers () {
       if (this.hasUserFilter) {
-        return [this.panelData.query.user]
+        return [this.panelData.filter.user]
       } 
     },
     
     computedFilteredUserID () {
       if (this.hasUserFilter) {
-        return this.panelData.query.user.id
+        return this.panelData.filter.user.id
       } 
     },
     
     hasTypeFilter () {
-      return (typeof(this.panelData.query) === 'object'
-              && typeof(this.panelData.query.type) === 'string')
+      return (typeof(this.panelData.filter) === 'object'
+              && typeof(this.panelData.filter.type) === 'string')
     },
     
     hasKeywordFilter () {
@@ -6298,9 +6290,9 @@ let Editor = {
       }
     }
   },
-  mounted() {
-    console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
-  },
+  //mounted() {
+    //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
+  //},
   methods: {
     addAnnotation: async function () {
       
@@ -6339,8 +6331,9 @@ let Editor = {
           'default': this.note
         }
       }
-      throw 'Test'
-      return 
+      
+      //throw 'Test'
+      //return 
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
       
@@ -6509,9 +6502,9 @@ let Editor = {
       }
     }
   },
-  mounted() {
-    console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
-  },
+  //mounted() {
+    //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
+  //},
   methods: {
     addAnnotation: async function () {
       
@@ -6550,8 +6543,9 @@ let Editor = {
           'default': this.note
         }
       }
-      throw 'Test'
-      return 
+      
+      //throw 'Test'
+      //return 
       
       let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
       
