@@ -184,7 +184,7 @@ export default (RangyManager) => {
   }
   
   RangyManager.methods.getAnchorPositionsFromSelection = function (selection) {
-    
+    //console.log(selection.anchorPositions)
     let highlights = this.rectHighlighter.highlightSelection('pacor-rect', {
       exclusive: false,
       containerElementId: this.selection.anchorParagraphIds

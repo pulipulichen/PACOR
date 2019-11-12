@@ -8679,7 +8679,7 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   RangyManager.methods.getAnchorPositionsFromSelection = function (selection) {
-    
+    //console.log(selection.anchorPositions)
     let highlights = this.rectHighlighter.highlightSelection('pacor-rect', {
       exclusive: false,
       containerElementId: this.selection.anchorParagraphIds
@@ -9289,6 +9289,11 @@ __webpack_require__.r(__webpack_exports__);
       //let paragraph_id = []
 
       nodes.forEach(anchorNode => {
+        if (typeof (anchorNode.getAttribute) !== 'function'
+                || anchorNode.getAttribute('data-pacor-paragraph-seq-id') === 'undefined') {
+          return false
+        }
+        
         if (typeof (anchorNode.getAttribute) === 'function'
                 && anchorNode.getAttribute('data-pacor-highlight') !== 'undefined') {
           anchorNode.classList.forEach(c => {
@@ -9355,6 +9360,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
       //this.$emit('select', selection)
+      //console.log(selection.anchorPositions)
+      //return
+      
       this.triggerEvent('select', selection)
 
       //console.log(highlightClassList)
