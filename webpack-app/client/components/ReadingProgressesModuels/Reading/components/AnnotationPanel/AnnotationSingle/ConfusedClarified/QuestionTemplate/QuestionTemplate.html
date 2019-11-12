@@ -1,13 +1,20 @@
 <div class="QuestionTemplate ui form">
-  <div class="inline field">
-    <label>
-      {{ $t('Write your question') }}:
-    </label>
-    <select v-model="selectIndex">
-      <option v-for="(question, i) in questions" 
-              v-bind:value="i">
-        {{ $t(question.hint) }}
-      </option>
-    </select>
+  <div class="fields">
+    <div class="three wide field label"
+         v-on:click="() => {$refs.select.focus()}">
+      <label>
+        {{ $t('Write your question') }}:
+      </label>
+    </div>
+    <div class="thirteen wide select field">
+      <select v-model="selectIndex"
+              ref="select"
+              class="ui small fluid input select-question">
+        <option v-for="(question, i) in questions" 
+                v-bind:value="i">
+          {{ $t(question.hint) }}
+        </option>
+      </select>
+    </div>
   </div>
 </div>

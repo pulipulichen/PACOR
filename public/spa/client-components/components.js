@@ -451,7 +451,7 @@ exports.push([module.i, ".annotation-panel-buttons[data-v-637396c6] {\n  user-se
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"QuestionTemplate.less?vue&type=style&index=0&id=20be06dc&lang=less&scoped=true&"}]);
+exports.push([module.i, ".QuestionTemplate[data-v-20be06dc] {\n  line-height: 2em;\n}\n.label.field[data-v-20be06dc] {\n  line-height: 40px;\n  width: 10em !important;\n  cursor: pointer;\n}\n.label.field label[data-v-20be06dc] {\n  cursor: pointer;\n}\n.select.field[data-v-20be06dc] {\n  width: calc(100% - 10em) !important;\n}\n", "",{"version":3,"sources":["QuestionTemplate.less?vue&type=style&index=0&id=20be06dc&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;AACA;EACE,iBAAiB;EACjB,sBAAsB;EACtB,eAAe;AACjB;AACA;EACE,eAAe;AACjB;AACA;EACE,mCAAmC;AACrC","file":"QuestionTemplate.less?vue&type=style&index=0&id=20be06dc&lang=less&scoped=true&","sourcesContent":[".QuestionTemplate[data-v-20be06dc] {\n  line-height: 2em;\n}\n.label.field[data-v-20be06dc] {\n  line-height: 40px;\n  width: 10em !important;\n  cursor: pointer;\n}\n.label.field label[data-v-20be06dc] {\n  cursor: pointer;\n}\n.select.field[data-v-20be06dc] {\n  width: calc(100% - 10em) !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -1716,49 +1716,70 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "QuestionTemplate ui form" }, [
-    _c("div", { staticClass: "inline field" }, [
-      _c("label", [
-        _vm._v(
-          "\r\n      " + _vm._s(_vm.$t("Write your question")) + ":\r\n    "
-        )
-      ]),
-      _vm._v(" "),
+    _c("div", { staticClass: "fields" }, [
       _c(
-        "select",
+        "div",
         {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.selectIndex,
-              expression: "selectIndex"
-            }
-          ],
+          staticClass: "three wide field label",
           on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.selectIndex = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
+            click: function() {
+              _vm.$refs.select.focus()
             }
           }
         },
-        _vm._l(_vm.questions, function(question, i) {
-          return _c("option", { domProps: { value: i } }, [
+        [
+          _c("label", [
             _vm._v(
-              "\r\n        " + _vm._s(_vm.$t(question.hint)) + "\r\n      "
+              "\r\n        " +
+                _vm._s(_vm.$t("Write your question")) +
+                ":\r\n      "
             )
           ])
-        }),
-        0
-      )
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "thirteen wide select field" }, [
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.selectIndex,
+                expression: "selectIndex"
+              }
+            ],
+            ref: "select",
+            staticClass: "ui small fluid input select-question",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.selectIndex = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          _vm._l(_vm.questions, function(question, i) {
+            return _c("option", { domProps: { value: i } }, [
+              _vm._v(
+                "\r\n          " +
+                  _vm._s(_vm.$t(question.hint)) +
+                  "\r\n        "
+              )
+            ])
+          }),
+          0
+        )
+      ])
     ])
   ])
 }
@@ -6331,31 +6352,34 @@ __webpack_require__.r(__webpack_exports__);
 
     computedQuestionEditorHeight() {
       if (this.isQuestionSubmitted === false) {
+        
         let height
         if (this.enableCollaboration === true
                 && this.lib.style.isStackWidth()) {
           height = (this.lib.style.getClientHeight() / 2)
-          height = `calc(${height}px - 14em)`
+          height = `calc(${height}px - 9em)`
         } else {
-          height = `calc(${this.heightPX}px - 14em)`
+          height = `calc(${this.heightPX}px - 9em)`
         }
         //console.log(height)
         return height
         
       } else {
         
-        let height
-        if (this.enableCollaboration === true
-                && this.lib.style.isStackWidth()) {
-          height = (this.lib.style.getClientHeight() / 2)
-          height = `calc(${height}px - 21em)`
-          
-        } else {
-          
-          height = `5em`
-        }
-        //console.log(height)
-        return height
+        return '5em'
+        
+//        let height
+//        if (this.enableCollaboration === true
+//                && this.lib.style.isStackWidth()) {
+//          height = (this.lib.style.getClientHeight() / 2)
+//          height = `calc(${height}px - 21em)`
+//          
+//        } else {
+//          
+//          height = `5em`
+//        }
+//        //console.log(height)
+//        return height
       }
     },
 

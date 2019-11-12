@@ -50,31 +50,34 @@ export default (Editor) => {
 
     computedQuestionEditorHeight() {
       if (this.isQuestionSubmitted === false) {
+        
         let height
         if (this.enableCollaboration === true
                 && this.lib.style.isStackWidth()) {
           height = (this.lib.style.getClientHeight() / 2)
-          height = `calc(${height}px - 14em)`
+          height = `calc(${height}px - 9em)`
         } else {
-          height = `calc(${this.heightPX}px - 14em)`
+          height = `calc(${this.heightPX}px - 9em)`
         }
         //console.log(height)
         return height
         
       } else {
         
-        let height
-        if (this.enableCollaboration === true
-                && this.lib.style.isStackWidth()) {
-          height = (this.lib.style.getClientHeight() / 2)
-          height = `calc(${height}px - 21em)`
-          
-        } else {
-          
-          height = `5em`
-        }
-        //console.log(height)
-        return height
+        return '5em'
+        
+//        let height
+//        if (this.enableCollaboration === true
+//                && this.lib.style.isStackWidth()) {
+//          height = (this.lib.style.getClientHeight() / 2)
+//          height = `calc(${height}px - 21em)`
+//          
+//        } else {
+//          
+//          height = `5em`
+//        }
+//        //console.log(height)
+//        return height
       }
     },
 
