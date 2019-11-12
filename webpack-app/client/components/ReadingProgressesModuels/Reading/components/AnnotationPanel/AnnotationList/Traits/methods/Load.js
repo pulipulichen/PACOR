@@ -18,7 +18,7 @@ export default (List) => {
       return
       //return this.$emit('close')
     }
-    //console.log(result)
+    console.log(result)
 
     for (let key in result) {
       this[key] = result[key]

@@ -6,31 +6,43 @@ export default (List) => {
   }
 
   List.methods.findUser = function (user) {
-    this.panel.filter.user = user
+    if (!this.panelData.filter) {
+      this.panelData.filter = {}
+    }
+    
+    this.panelData.filter.user = user
   }
   
   List.methods.clearFindUser = function () {
-    this.panel.filter.user = null
+    this.panelData.filter.user = null
   }
 
   List.methods.findType = function (type) {
-    this.panel.filter.type = type
+    if (!this.panelData.filter) {
+      this.panelData.filter = {}
+    }
+    
+    this.panelData.filter.type = type
   }
   
   List.methods.clearFindType = function () {
-    this.panel.filter.type = null
+    this.panelData.filter.type = null
   }
   
   List.methods.findKeyword = function (keyword) {
-    this.panel.filter.keyword = keyword
+    if (!this.panelData.filter) {
+      this.panelData.filter = {}
+    }
+    
+    this.panelData.filter.keyword = keyword
   }
   
   List.methods.clearFindKeyword = function () {
-    this.panel.filter.keyword = null
+    this.panelData.filter.keyword = null
   }
   
   List.methods.clearFilter = function () {
-    this.panel.filter = {}
+    this.panelData.filter = {}
   }
   
 }
