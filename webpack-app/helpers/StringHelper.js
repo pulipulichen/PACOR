@@ -51,6 +51,9 @@ let StringHelper = {
       s = s.replace(/  /g, ' ')
     }
     return s
+  },
+  htmlToText (s) {
+    return $(s).text()
   }
 }
 

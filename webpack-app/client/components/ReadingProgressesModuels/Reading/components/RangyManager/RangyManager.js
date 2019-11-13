@@ -69,4 +69,7 @@ Load(RangyManager)
 import Annotation from './Traits/methods/Annotation'
 Annotation(RangyManager)
 
+import Init from './Traits/methods/Init'
+Init(RangyManager)
+
 export default RangyManager

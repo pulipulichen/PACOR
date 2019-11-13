@@ -1,16 +1,20 @@
-<div class="ResourceSearch fields">
-  <div class="seven wide inline field">
+<div class="ResourceSearch unstackable fields">
+  <div class="four wide inline label field">
     <label v-on:click="focus">
       {{ $t('Find your answer') }}:
     </label>
+    <!--
     <input type="text" 
            v-model="anchorText" 
            class="search-keyword"
            ref="input" />
-
+    -->
   </div>
-  <div class="seven wide field">
-    <select v-model="selectIndex" class="ui small fluid input select-question">
+  <div class="ten wide field">
+    <select 
+      ref="input"
+      v-model="selectIndex" 
+      class="ui small fluid input select-question">
       <option v-for="(resource, i) in resources" 
               v-bind:value="i">
         {{ $t(resource.name) }}

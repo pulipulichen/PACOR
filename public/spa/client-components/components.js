@@ -451,7 +451,7 @@ exports.push([module.i, ".annotation-panel-buttons[data-v-637396c6] {\n  user-se
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".QuestionTemplate[data-v-20be06dc] {\n  line-height: 2em;\n}\n.label.field[data-v-20be06dc] {\n  line-height: 40px;\n  width: 10em !important;\n  cursor: pointer;\n}\n.label.field label[data-v-20be06dc] {\n  cursor: pointer;\n}\n.select.field[data-v-20be06dc] {\n  width: calc(100% - 10em) !important;\n}\n", "",{"version":3,"sources":["QuestionTemplate.less?vue&type=style&index=0&id=20be06dc&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;AACA;EACE,iBAAiB;EACjB,sBAAsB;EACtB,eAAe;AACjB;AACA;EACE,eAAe;AACjB;AACA;EACE,mCAAmC;AACrC","file":"QuestionTemplate.less?vue&type=style&index=0&id=20be06dc&lang=less&scoped=true&","sourcesContent":[".QuestionTemplate[data-v-20be06dc] {\n  line-height: 2em;\n}\n.label.field[data-v-20be06dc] {\n  line-height: 40px;\n  width: 10em !important;\n  cursor: pointer;\n}\n.label.field label[data-v-20be06dc] {\n  cursor: pointer;\n}\n.select.field[data-v-20be06dc] {\n  width: calc(100% - 10em) !important;\n}\n"]}]);
+exports.push([module.i, ".QuestionTemplate[data-v-20be06dc] {\n  line-height: 2em;\n}\n.label.field[data-v-20be06dc] {\n  line-height: 40px;\n  width: 10em !important;\n  cursor: pointer;\n  white-space: nowrap;\n  overflow: hidden;\n}\n.label.field label[data-v-20be06dc] {\n  cursor: pointer;\n}\n.select.field[data-v-20be06dc] {\n  width: calc(100% - 10em) !important;\n}\n", "",{"version":3,"sources":["QuestionTemplate.less?vue&type=style&index=0&id=20be06dc&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;AACA;EACE,iBAAiB;EACjB,sBAAsB;EACtB,eAAe;EACf,mBAAmB;EACnB,gBAAgB;AAClB;AACA;EACE,eAAe;AACjB;AACA;EACE,mCAAmC;AACrC","file":"QuestionTemplate.less?vue&type=style&index=0&id=20be06dc&lang=less&scoped=true&","sourcesContent":[".QuestionTemplate[data-v-20be06dc] {\n  line-height: 2em;\n}\n.label.field[data-v-20be06dc] {\n  line-height: 40px;\n  width: 10em !important;\n  cursor: pointer;\n  white-space: nowrap;\n  overflow: hidden;\n}\n.label.field label[data-v-20be06dc] {\n  cursor: pointer;\n}\n.select.field[data-v-20be06dc] {\n  width: calc(100% - 10em) !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -465,7 +465,7 @@ exports.push([module.i, ".QuestionTemplate[data-v-20be06dc] {\n  line-height: 2e
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "label[data-v-0fea2a5c] {\n  vertical-align: middle;\n}\n.search-keyword[data-v-0fea2a5c] {\n  width: calc(100% - 9em) !important;\n  height: 40px;\n}\n.select-question[data-v-0fea2a5c],\n.search-button[data-v-0fea2a5c] {\n  height: 43px !important;\n}\n", "",{"version":3,"sources":["ResourceSearch.less?vue&type=style&index=0&id=0fea2a5c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,sBAAsB;AACxB;AACA;EACE,kCAAkC;EAClC,YAAY;AACd;AACA;;EAEE,uBAAuB;AACzB","file":"ResourceSearch.less?vue&type=style&index=0&id=0fea2a5c&lang=less&scoped=true&","sourcesContent":["label[data-v-0fea2a5c] {\n  vertical-align: middle;\n}\n.search-keyword[data-v-0fea2a5c] {\n  width: calc(100% - 9em) !important;\n  height: 40px;\n}\n.select-question[data-v-0fea2a5c],\n.search-button[data-v-0fea2a5c] {\n  height: 43px !important;\n}\n"]}]);
+exports.push([module.i, "label[data-v-0fea2a5c] {\n  vertical-align: middle;\n}\n.search-keyword[data-v-0fea2a5c] {\n  width: calc(100% - 9em) !important;\n  height: 40px;\n}\n.select-question[data-v-0fea2a5c],\n.search-button[data-v-0fea2a5c] {\n  height: 43px !important;\n}\n.label.field[data-v-0fea2a5c] {\n  line-height: 40px;\n  white-space: nowrap;\n  overflow: hidden;\n}\n", "",{"version":3,"sources":["ResourceSearch.less?vue&type=style&index=0&id=0fea2a5c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,sBAAsB;AACxB;AACA;EACE,kCAAkC;EAClC,YAAY;AACd;AACA;;EAEE,uBAAuB;AACzB;AACA;EACE,iBAAiB;EACjB,mBAAmB;EACnB,gBAAgB;AAClB","file":"ResourceSearch.less?vue&type=style&index=0&id=0fea2a5c&lang=less&scoped=true&","sourcesContent":["label[data-v-0fea2a5c] {\n  vertical-align: middle;\n}\n.search-keyword[data-v-0fea2a5c] {\n  width: calc(100% - 9em) !important;\n  height: 40px;\n}\n.select-question[data-v-0fea2a5c],\n.search-button[data-v-0fea2a5c] {\n  height: 43px !important;\n}\n.label.field[data-v-0fea2a5c] {\n  line-height: 40px;\n  white-space: nowrap;\n  overflow: hidden;\n}\n"]}]);
 
 
 /***/ }),
@@ -1568,7 +1568,8 @@ var render = function() {
           status: _vm.status,
           lib: _vm.lib,
           propSelectIndex: _vm.recommandResourceSearchIndex,
-          propAnchorText: _vm.anchorText
+          propAnchorText: _vm.anchorText,
+          propQuestion: _vm.question
         }
       }),
       _vm._v(" "),
@@ -1730,7 +1731,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "QuestionTemplate ui form" }, [
-    _c("div", { staticClass: "fields" }, [
+    _c("div", { staticClass: "unstackable fields" }, [
       _c(
         "div",
         {
@@ -1819,37 +1820,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ResourceSearch fields" }, [
-    _c("div", { staticClass: "seven wide inline field" }, [
+  return _c("div", { staticClass: "ResourceSearch unstackable fields" }, [
+    _c("div", { staticClass: "four wide inline label field" }, [
       _c("label", { on: { click: _vm.focus } }, [
         _vm._v("\r\n      " + _vm._s(_vm.$t("Find your answer")) + ":\r\n    ")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.anchorText,
-            expression: "anchorText"
-          }
-        ],
-        ref: "input",
-        staticClass: "search-keyword",
-        attrs: { type: "text" },
-        domProps: { value: _vm.anchorText },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.anchorText = $event.target.value
-          }
-        }
-      })
+      ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "seven wide field" }, [
+    _c("div", { staticClass: "ten wide field" }, [
       _c(
         "select",
         {
@@ -1861,6 +1839,7 @@ var render = function() {
               expression: "selectIndex"
             }
           ],
+          ref: "input",
           staticClass: "ui small fluid input select-question",
           on: {
             change: function($event) {
@@ -6114,12 +6093,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let ResourceSearch = {
-  props: ['lib', 'status', 'config', 'propSelectIndex', 'propAnchorText'],
+  props: ['lib', 'status', 'config'
+    , 'propSelectIndex', 'propAnchorText', 'propQuestion'],
   data() {
     this.$i18n.locale = this.config.locale
     return {
       selectIndex: this.propSelectIndex,
-      anchorText: this.propAnchorText
+      anchorText: this.propAnchorText,
+      question: this.lib.StringHelper.htmlToText(this.propQuestion)
     }
   },
 //  components: {
@@ -6132,7 +6113,7 @@ let ResourceSearch = {
       if (this.anchorText === '') {
         return 'disabled'
       }
-      
+
       let i = this.selectIndex
       if (i === null || i === undefined) {
         return 'disabled'
@@ -6169,12 +6150,16 @@ let ResourceSearch = {
     }
   },
   watch: {
-    propSelectIndex (propSelectIndex) {
+    propSelectIndex(propSelectIndex) {
       this.selectIndex = propSelectIndex
     },
-    propAnchorText (propAnchorText) {
+    propAnchorText(propAnchorText) {
       this.anchorText = propAnchorText
-    } 
+    },
+    propQuestion(question) {
+      question = this.lib.StringHelper.htmlToText(question)
+      this.question = question
+    }
   },
 //  mounted() {
 //  },
@@ -6184,50 +6169,51 @@ let ResourceSearch = {
         return false
       }
       let url = this.urlPattern.replace('{anchorText}', this.anchorText)
+      url = url.replace('{question}', this.question)
 
       //window.open(url, '_blank')
       //window.open(url, windowname, "resizable=no, toolbar=no, scrollbars=no, menubar=no, status=no, directories=no, width=" + w + ", height=" + h + ", left=" + x + ", top=" + y)
-      
+
       let ratio = 0.8
-      
-      
+
+
       this._popupCenter(url, '_blank', screen.availWidth * ratio, screen.availHeight * ratio)
     },
     _popupCenter: function (url, title, w, h) {
       var userAgent = navigator.userAgent,
-      mobile = function() {
-        return /\b(iPhone|iP[ao]d)/.test(userAgent) ||
-          /\b(iP[ao]d)/.test(userAgent) ||
-          /Android/i.test(userAgent) ||
-          /Mobile/i.test(userAgent);
-      },
-      screenX = typeof window.screenX != 'undefined' ? window.screenX : window.screenLeft,
-      screenY = typeof window.screenY != 'undefined' ? window.screenY : window.screenTop,
-      outerWidth = typeof window.outerWidth != 'undefined' ? window.outerWidth : document.documentElement.clientWidth,
-      outerHeight = typeof window.outerHeight != 'undefined' ? window.outerHeight : document.documentElement.clientHeight - 22,
-      targetWidth = mobile() ? null : w,
-      targetHeight = mobile() ? null : h,
-      V = screenX < 0 ? window.screen.width + screenX : screenX,
-      left = parseInt(V + (outerWidth - targetWidth) / 2, 10),
-      right = parseInt(screenY + (outerHeight - targetHeight) / 2.5, 10),
-      features = [];
-  if (targetWidth !== null) {
-    features.push('width=' + targetWidth);
-  }
-  if (targetHeight !== null) {
-    features.push('height=' + targetHeight);
-  }
-  features.push('left=' + left);
-  features.push('top=' + right);
-  features.push('scrollbars=1');
+              mobile = function () {
+                return /\b(iPhone|iP[ao]d)/.test(userAgent) ||
+                        /\b(iP[ao]d)/.test(userAgent) ||
+                        /Android/i.test(userAgent) ||
+                        /Mobile/i.test(userAgent);
+              },
+              screenX = typeof window.screenX !== 'undefined' ? window.screenX : window.screenLeft,
+              screenY = typeof window.screenY !== 'undefined' ? window.screenY : window.screenTop,
+              outerWidth = typeof window.outerWidth !== 'undefined' ? window.outerWidth : document.documentElement.clientWidth,
+              outerHeight = typeof window.outerHeight !== 'undefined' ? window.outerHeight : document.documentElement.clientHeight - 22,
+              targetWidth = mobile() ? null : w,
+              targetHeight = mobile() ? null : h,
+              V = screenX < 0 ? window.screen.width + screenX : screenX,
+              left = parseInt(V + (outerWidth - targetWidth) / 2, 10),
+              right = parseInt(screenY + (outerHeight - targetHeight) / 2.5, 10),
+              features = [];
+      if (targetWidth !== null) {
+        features.push('width=' + targetWidth);
+      }
+      if (targetHeight !== null) {
+        features.push('height=' + targetHeight);
+      }
+      features.push('left=' + left);
+      features.push('top=' + right);
+      features.push('scrollbars=1');
 
-  var newWindow = window.open(url, title, features.join(','));
+      var newWindow = window.open(url, title, features.join(','));
 
-  if (window.focus) {
-    newWindow.focus();
-  }
+      if (window.focus) {
+        newWindow.focus();
+      }
     },
-    focus () {
+    focus() {
       this.$refs.input.focus()
     }
   } // methods
@@ -8601,6 +8587,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Traits_methods_Event__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Traits/methods/Event */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Event.js");
 /* harmony import */ var _Traits_methods_Load__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Traits/methods/Load */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Load.js");
 /* harmony import */ var _Traits_methods_Annotation__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Traits/methods/Annotation */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Annotation.js");
+/* harmony import */ var _Traits_methods_Init__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Traits/methods/Init */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Init.js");
 //import rangy from 'rangy-updated'
 
 
@@ -8671,6 +8658,9 @@ Object(_Traits_methods_Load__WEBPACK_IMPORTED_MODULE_9__["default"])(RangyManage
 
 
 Object(_Traits_methods_Annotation__WEBPACK_IMPORTED_MODULE_10__["default"])(RangyManager)
+
+
+Object(_Traits_methods_Init__WEBPACK_IMPORTED_MODULE_11__["default"])(RangyManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (RangyManager);
 
@@ -8803,56 +8793,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
-
-  RangyManager.methods._initAnchorPosition = function () {
-    for (let i = 0; i < this.rangyConfig.articleSelector.length; i++) {
-      let node = $(this.rangyConfig.articleSelector[i])
-      if (node.length > 0) {
-        this.articleNode = node
-        break
-      }
-    }
-
-    if (this.articleNode === null) {
-      //console.warn('Cannot found any article node.')
-      throw this.$t('Cannot found any article node.')
-      return false
-    }
-
-    let children = this.articleNode.children()
-    for (let i = 0; i < this.rangyConfig.sectionSelector.length; i++) {
-      let nodes = children.filter(this.rangyConfig.sectionSelector[i])
-      if (nodes.length > 0) {
-        this.sectionNodes = nodes
-        break
-      }
-    }
-
-    if (this.sectionNodes === null) {
-      //console.warn('Cannot found any article node.')
-      throw this.$t('Cannot found any section node.')
-      return false
-    }
-
-    this.sectionNodes.each((i, node) => {
-      //node = window.$(node)
-      //node.attr('data-pacor-section-seq-id', i)
-
-      node.setAttribute('data-pacor-section-seq-id', i)
-    })
-
-    this.sectionNodes.children().each((i, node) => {
-      //node = window.$(node)
-      //node.attr('data-pacor-section-seq-id', i)
-
-      node.setAttribute('data-pacor-paragraph-seq-id', i)
-      //console.log(typeof(node.id), node.id)
-      if (typeof (node.id) !== 'string' || node.id === '') {
-        let id = 'pacor-paragraph-id-' + i
-        node.setAttribute('id', id)
-      }
-    })
-  }
 
   RangyManager.methods._getAnchorPositionFromElement = function (element, event) {
     let highlights = this.highlighter.getHighlightsForElement(element)
@@ -9545,6 +9485,119 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Init.js":
+/*!***********************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Init.js ***!
+  \***********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
+
+  RangyManager.methods._initOnSelectEventListener = function () {
+
+    let triggerSelect = () => {
+      setTimeout(() => {
+        this.onselect()
+      }, 0)
+    }
+
+    document.addEventListener('touchend', triggerSelect)
+    document.addEventListener('keyup', triggerSelect)
+    document.addEventListener('mouseup', triggerSelect)
+    document.addEventListener('mousedown', triggerSelect)
+
+    this._initSelectionApplier()
+  }
+  
+  RangyManager.methods._initSelectionApplier = function () {
+    // Enable buttons
+    let classApplierModule = this.rangy.modules.ClassApplier
+
+    // Next line is pure paranoia: it will only return false if the browser has no support for ranges,
+    // selections or TextRanges. Even IE 5 would pass this test.
+    if (this.rangy.supported && classApplierModule && classApplierModule.supported) {
+      let options = {
+        tagNames: ["span", "a", "b", "img"],
+        ignoreWhiteSpace: true,
+      }
+      
+      let selectionApplier = this.rangy.createClassApplier("pacor-selection", options)
+      this.selectionHighlighter = this.rangy.createHighlighter()
+      this.selectionHighlighter.addClassApplier(selectionApplier)
+
+      let hoverApplier = this.rangy.createClassApplier("pacor-hover", options)
+      this.hoverHighlighter = this.rangy.createHighlighter()
+      this.hoverHighlighter.addClassApplier(hoverApplier)
+      
+      let rectApplier = this.rangy.createClassApplier("pacor-rect", options)
+      this.rectHighlighter = this.rangy.createHighlighter()
+      this.rectHighlighter.addClassApplier(rectApplier)
+    }
+  }
+
+  RangyManager.methods._initAnchorPosition = function () {
+    if (document.querySelector('[data-pacor-section-seq-id]') !== null) {
+      return false // 已經初始化完成
+    }
+    
+    for (let i = 0; i < this.rangyConfig.articleSelector.length; i++) {
+      let node = $(this.rangyConfig.articleSelector[i])
+      if (node.length > 0) {
+        this.articleNode = node
+        break
+      }
+    }
+
+    if (this.articleNode === null) {
+      //console.warn('Cannot found any article node.')
+      throw this.$t('Cannot found any article node.')
+      return false
+    }
+
+    let children = this.articleNode.children()
+    for (let i = 0; i < this.rangyConfig.sectionSelector.length; i++) {
+      let nodes = children.filter(this.rangyConfig.sectionSelector[i])
+      if (nodes.length > 0) {
+        this.sectionNodes = nodes
+        break
+      }
+    }
+
+    if (this.sectionNodes === null) {
+      //console.warn('Cannot found any article node.')
+      throw this.$t('Cannot found any section node.')
+      return false
+    }
+
+    this.sectionNodes.each((i, node) => {
+      //node = window.$(node)
+      //node.attr('data-pacor-section-seq-id', i)
+
+      node.setAttribute('data-pacor-section-seq-id', i)
+    })
+
+    this.sectionNodes.children().each((i, node) => {
+      //node = window.$(node)
+      //node.attr('data-pacor-section-seq-id', i)
+
+      node.setAttribute('data-pacor-paragraph-seq-id', i)
+      //console.log(typeof(node.id), node.id)
+      if (typeof (node.id) !== 'string' || node.id === '') {
+        let id = 'pacor-paragraph-id-' + i
+        node.setAttribute('id', id)
+      }
+    })
+  }
+
+});
+
+
+
+/***/ }),
+
 /***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Load.js":
 /*!***********************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Load.js ***!
@@ -9641,21 +9694,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
-  RangyManager.methods._initOnSelectEventListener = function () {
-
-    let triggerSelect = () => {
-      setTimeout(() => {
-        this.onselect()
-      }, 0)
-    }
-
-    document.addEventListener('touchend', triggerSelect)
-    document.addEventListener('keyup', triggerSelect)
-    document.addEventListener('mouseup', triggerSelect)
-    document.addEventListener('mousedown', triggerSelect)
-
-    this._initSelectionApplier()
-  }
+  
 
   RangyManager.methods.onselect = function () {
     let selection = this.rangy.getSelection()
@@ -9818,32 +9857,7 @@ __webpack_require__.r(__webpack_exports__);
 
   // ------------------------------------------------------
 
-  RangyManager.methods._initSelectionApplier = function () {
-    // Enable buttons
-    let classApplierModule = this.rangy.modules.ClassApplier
-
-    // Next line is pure paranoia: it will only return false if the browser has no support for ranges,
-    // selections or TextRanges. Even IE 5 would pass this test.
-    if (this.rangy.supported && classApplierModule && classApplierModule.supported) {
-      let options = {
-        tagNames: ["span", "a", "b", "img"],
-        ignoreWhiteSpace: true,
-      }
-      
-      let selectionApplier = this.rangy.createClassApplier("pacor-selection", options)
-      this.selectionHighlighter = this.rangy.createHighlighter()
-      this.selectionHighlighter.addClassApplier(selectionApplier)
-
-      let hoverApplier = this.rangy.createClassApplier("pacor-hover", options)
-      this.hoverHighlighter = this.rangy.createHighlighter()
-      this.hoverHighlighter.addClassApplier(hoverApplier)
-      
-      let rectApplier = this.rangy.createClassApplier("pacor-rect", options)
-      this.rectHighlighter = this.rangy.createHighlighter()
-      this.rectHighlighter.addClassApplier(rectApplier)
-    }
-  }
-
+  
   RangyManager.methods.pinSelection = function () {
     this.unpinSelection()
     if (this.selection === null
@@ -18761,6 +18775,8 @@ let SectionManager = {
       
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-section-seq-id]').toArray()
+      
+      console.log('是因為這裡切換的時候沒有初始化到嗎？', sectionNodes.length)
       
       //while (this.sectionsData.length < sectionNodes.length) {
       //  this.sectionsData.push({})

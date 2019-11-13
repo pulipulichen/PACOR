@@ -4050,6 +4050,9 @@ let StringHelper = {
       s = s.replace(/  /g, ' ')
     }
     return s
+  },
+  htmlToText (s) {
+    return jquery__WEBPACK_IMPORTED_MODULE_0___default()(s).text()
   }
 }
 

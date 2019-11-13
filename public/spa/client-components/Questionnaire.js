@@ -142,24 +142,26 @@ var render = function() {
             fn: function() {
               return [
                 _c(
-                  "validation-button",
+                  "countdown-button",
                   {
                     attrs: {
                       minWordCount: _vm.minWords,
-                      color: "green",
+                      enableClassNames: "ui green right labeled icon button",
                       text: _vm.answer,
                       lib: _vm.lib,
                       locale: _vm.status.preference.locale,
                       countdownSec: _vm.remainingSeconds,
-                      ignoreWordCount: true,
-                      rightLabeledIcon: "angle right icon"
+                      ignoreWordCount: true
                     },
                     on: { click: _vm.nextStep }
                   },
                   [
                     _vm._v(
-                      "\r\n          " + _vm._s(_vm.$t("NEXT")) + "\r\n        "
-                    )
+                      "\r\n            " +
+                        _vm._s(_vm.$t("NEXT")) +
+                        "\r\n            "
+                    ),
+                    _c("i", { staticClass: "angle right icon" })
                   ]
                 )
               ]
@@ -265,24 +267,26 @@ var render = function() {
             fn: function() {
               return [
                 _c(
-                  "validation-button",
+                  "countdown-button",
                   {
                     attrs: {
                       minWordCount: _vm.minWords,
-                      color: "green",
+                      enableClassNames: "ui green right labeled icon button",
                       text: _vm.answer,
                       lib: _vm.lib,
                       locale: _vm.status.preference.locale,
                       countdownSec: _vm.remainingSeconds,
-                      ignoreWordCount: true,
-                      rightLabeledIcon: "angle right icon"
+                      ignoreWordCount: true
                     },
                     on: { click: _vm.nextStep }
                   },
                   [
                     _vm._v(
-                      "\r\n          " + _vm._s(_vm.$t("NEXT")) + "\r\n        "
-                    )
+                      "\r\n            " +
+                        _vm._s(_vm.$t("NEXT")) +
+                        "\r\n            "
+                    ),
+                    _c("i", { staticClass: "angle right icon" })
                   ]
                 )
               ]

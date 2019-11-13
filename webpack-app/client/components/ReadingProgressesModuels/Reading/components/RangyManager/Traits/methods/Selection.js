@@ -1,19 +1,5 @@
 export default (RangyManager) => {
-  RangyManager.methods._initOnSelectEventListener = function () {
-
-    let triggerSelect = () => {
-      setTimeout(() => {
-        this.onselect()
-      }, 0)
-    }
-
-    document.addEventListener('touchend', triggerSelect)
-    document.addEventListener('keyup', triggerSelect)
-    document.addEventListener('mouseup', triggerSelect)
-    document.addEventListener('mousedown', triggerSelect)
-
-    this._initSelectionApplier()
-  }
+  
 
   RangyManager.methods.onselect = function () {
     let selection = this.rangy.getSelection()
@@ -176,32 +162,7 @@ export default (RangyManager) => {
 
   // ------------------------------------------------------
 
-  RangyManager.methods._initSelectionApplier = function () {
-    // Enable buttons
-    let classApplierModule = this.rangy.modules.ClassApplier
-
-    // Next line is pure paranoia: it will only return false if the browser has no support for ranges,
-    // selections or TextRanges. Even IE 5 would pass this test.
-    if (this.rangy.supported && classApplierModule && classApplierModule.supported) {
-      let options = {
-        tagNames: ["span", "a", "b", "img"],
-        ignoreWhiteSpace: true,
-      }
-      
-      let selectionApplier = this.rangy.createClassApplier("pacor-selection", options)
-      this.selectionHighlighter = this.rangy.createHighlighter()
-      this.selectionHighlighter.addClassApplier(selectionApplier)
-
-      let hoverApplier = this.rangy.createClassApplier("pacor-hover", options)
-      this.hoverHighlighter = this.rangy.createHighlighter()
-      this.hoverHighlighter.addClassApplier(hoverApplier)
-      
-      let rectApplier = this.rangy.createClassApplier("pacor-rect", options)
-      this.rectHighlighter = this.rangy.createHighlighter()
-      this.rectHighlighter.addClassApplier(rectApplier)
-    }
-  }
-
+  
   RangyManager.methods.pinSelection = function () {
     this.unpinSelection()
     if (this.selection === null

@@ -84,17 +84,17 @@ module.exports = {
         {
           'hint': 'Why is it?',
           'template': `Why is "{anchorText}"?`,
-          'searchIndex': 1
+          'searchIndex': 0
         },
       ],
       'externalResourceSearches': [
         {
-          'name': 'Find answer in Wikipedia',
-          'urlPattern': 'https://zh.wikipedia.org/w/index.php?search={anchorText}&title=Special%3A搜索&go=執行&ns0=1'
+          'name': 'Find answer in Google',
+          'urlPattern': 'https://www.google.com/search?q={question}'
         },
         {
-          'name': 'Find answer in Google',
-          'urlPattern': 'https://www.google.com/search?q={anchorText}'
+          'name': 'Find answer in Wikipedia',
+          'urlPattern': 'https://zh.wikipedia.org/w/index.php?search={anchorText}&title=Special%3A搜索&go=執行&ns0=1'
         }
       ],
     },

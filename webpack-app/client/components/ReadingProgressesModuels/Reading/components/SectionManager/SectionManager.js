@@ -33,6 +33,8 @@ let SectionManager = {
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = $('[data-pacor-section-seq-id]').toArray()
       
+      console.log('是因為這裡切換的時候沒有初始化到嗎？', sectionNodes.length)
+      
       //while (this.sectionsData.length < sectionNodes.length) {
       //  this.sectionsData.push({})
       //}
