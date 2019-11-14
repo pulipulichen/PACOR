@@ -82,7 +82,8 @@ let VueController = {
       search: {
         keyword: '',
         showAnnotationList: false
-      }
+      },
+      readingConfig: {}
     },
     progress: {
       component: false,

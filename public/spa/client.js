@@ -345,7 +345,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"Login.less?vue&type=style&index=0&id=7f785ee2&lang=less&scoped=true&"}]);
+exports.push([module.i, ".message[data-v-7f785ee2] {\n  text-align: center;\n  max-height: calc(100vh - 30em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n", "",{"version":3,"sources":["Login.less?vue&type=style&index=0&id=7f785ee2&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,8BAA8B;EAC9B,kBAAkB;EAClB,gBAAgB;AAClB","file":"Login.less?vue&type=style&index=0&id=7f785ee2&lang=less&scoped=true&","sourcesContent":[".message[data-v-7f785ee2] {\n  text-align: center;\n  max-height: calc(100vh - 30em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n"]}]);
 
 
 /***/ }),
@@ -526,9 +526,13 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "ten wide column" }, [
-                    _vm._v(
-                      "\r\n            \r\n            #TODO 這裡要顯示設定檔的問候訊息\r\n            \r\n            "
-                    ),
+                    _c("div", {
+                      staticClass: "ui message",
+                      domProps: {
+                        innerHTML: _vm._s(_vm.status.readingConfig.loginMessage)
+                      }
+                    }),
+                    _vm._v(" "),
                     _c("div", { staticClass: "ui field" }, [
                       _c("label", { attrs: { for: "loginUsername" } }, [
                         _vm._v(
@@ -1389,7 +1393,8 @@ let VueController = {
       search: {
         keyword: '',
         showAnnotationList: false
-      }
+      },
+      readingConfig: {}
     },
     progress: {
       component: false,
@@ -1630,10 +1635,22 @@ let Auth = {
     checkLogin: async function () {
       var result = await this.lib.AxiosHelper.get(`/client/auth/checkLogin`)
       //console.log(result.preferenceAAA)
-      if (typeof(result) === 'object') {
-        for (let name in result) {
-          this.status[name] = result[name]
-        }
+//      if (typeof(result) === 'object') {
+//        for (let name in result) {
+//          this.status[name] = result[name]
+//        }
+//        this.status.needLogin = false
+//      }
+//      else {
+//        this.showLogin()
+//      }
+      //console.log(result)
+      for (let name in result.status) {
+        //console.log(name)
+        this.status[name] = result.status[name]
+      }
+      
+      if (result.needLogin === false) {
         this.status.needLogin = false
       }
       else {
@@ -3420,7 +3437,11 @@ let ValidationButton = {
       return classList.join(' ')
     },
     wordCount () {
-      let count = this.lib.StringHelper.countWords(this.text)
+      let text = this.text
+      text = this.lib.StringHelper.htmlToText(text)
+      text = this.lib.StringHelper.removePunctuations(text)
+      text = this.lib.StringHelper.removeSpaces(text)
+      let count = this.lib.StringHelper.countWords(text)
       //console.log(count)
       return count
     },

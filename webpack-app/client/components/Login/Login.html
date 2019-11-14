@@ -1,5 +1,6 @@
 <div class="login-modal">
-  <modal ref="LoginModal"
+  <modal 
+    ref="LoginModal"
          v-bind:config="config"
          v-bind:status="status"
          v-bind:progress="progress"
@@ -20,7 +21,9 @@
           </div>
           <div class="ten wide column">
             
-            #TODO 這裡要顯示設定檔的問候訊息
+            <div class="ui message"
+                 v-html="status.readingConfig.loginMessage">
+            </div>
             
             <div class="ui field">
               <label for="loginUsername">

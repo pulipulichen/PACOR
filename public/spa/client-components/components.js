@@ -1624,7 +1624,7 @@ var render = function() {
                             attrs: {
                               lib: _vm.lib,
                               text: _vm.question,
-                              minWordCount: _vm.minWords,
+                              minWordCount: _vm.questionMinWords,
                               locale: _vm.status.preference.locale,
                               enable: _vm.isEnableSubmitQuestion
                             },
@@ -1664,7 +1664,7 @@ var render = function() {
                             attrs: {
                               lib: _vm.lib,
                               text: _vm.answer,
-                              minWordCount: _vm.minWords,
+                              minWordCount: _vm.answerMinWords,
                               locale: _vm.status.preference.locale,
                               enable: _vm.isEnableSubmitAnswer
                             },
@@ -6502,7 +6502,7 @@ __webpack_require__.r(__webpack_exports__);
     if (typeof(this.annotation.id) === 'number') {
       isQuestionSubmitted = true
     }
-
+    
     //console.log(question, answer)
 
     return {
@@ -6514,7 +6514,10 @@ __webpack_require__.r(__webpack_exports__);
 
       recommandResourceSearchIndex: 0,
       
-      isQuestionSubmitted: isQuestionSubmitted
+      isQuestionSubmitted: isQuestionSubmitted,
+      
+      questionMinWords: this.status.readingConfig.annotationTypeModules['ConfusedClarified'].questionMinWords,
+      answerMinWords: this.status.readingConfig.annotationTypeModules['ConfusedClarified'].answerMinWords,
     }
   }
 });

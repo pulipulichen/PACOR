@@ -35,7 +35,11 @@ let ValidationButton = {
       return classList.join(' ')
     },
     wordCount () {
-      let count = this.lib.StringHelper.countWords(this.text)
+      let text = this.text
+      text = this.lib.StringHelper.htmlToText(text)
+      text = this.lib.StringHelper.removePunctuations(text)
+      text = this.lib.StringHelper.removeSpaces(text)
+      let count = this.lib.StringHelper.countWords(text)
       //console.log(count)
       return count
     },

@@ -28,7 +28,7 @@ export default (Editor) => {
     if (typeof(this.annotation.id) === 'number') {
       isQuestionSubmitted = true
     }
-
+    
     //console.log(question, answer)
 
     return {
@@ -40,7 +40,10 @@ export default (Editor) => {
 
       recommandResourceSearchIndex: 0,
       
-      isQuestionSubmitted: isQuestionSubmitted
+      isQuestionSubmitted: isQuestionSubmitted,
+      
+      questionMinWords: this.status.readingConfig.annotationTypeModules['ConfusedClarified'].questionMinWords,
+      answerMinWords: this.status.readingConfig.annotationTypeModules['ConfusedClarified'].answerMinWords,
     }
   }
 }

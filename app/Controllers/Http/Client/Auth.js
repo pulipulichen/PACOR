@@ -97,7 +97,7 @@ class Auth {
   }
   
   async _getLoginedUserData (webpage, user) {
-    let config = await webpage.getConfig()
+    //let config = await webpage.getConfig()
     //console.log(1, typeof(user.constuctor.name))
     await user.startReadingProgress(webpage)
     //console.log(2)
@@ -115,7 +115,7 @@ class Auth {
       role: user.role,
       readingProgresses: readingProgresses,
       //readingProgressesFinish: config.readingProgressesFinish,
-      readingConfig: config,
+      //readingConfig: config,
       preference: userJSON.preference,
       notificationUnreadCount: notificationUnreadCount
     }
@@ -131,6 +131,8 @@ class Auth {
       await Cache.flush()
     }
     
+    let config = await webpage.getConfig()
+    
     try {
       let user = await auth.getUser()
       if (webpage.domain_id !== user.domain_id) {
@@ -138,12 +140,22 @@ class Auth {
         return 0
       }
       //console.log(4, user.id)
-      let data = await this._getLoginedUserData(webpage, user)
-      return data
+      let status = await this._getLoginedUserData(webpage, user)
+      status.readingConfig = config
+      
+      return {
+        status,
+        needLogin: false
+      }
     }
     catch (error) {
       //throw new HttpException(error)
-      return 0
+      return {
+        status: {
+          readingConfig: config,
+        },
+        needLogin: true
+      }
     }
   }
 }

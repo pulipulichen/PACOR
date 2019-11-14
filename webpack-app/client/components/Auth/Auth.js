@@ -117,10 +117,22 @@ let Auth = {
     checkLogin: async function () {
       var result = await this.lib.AxiosHelper.get(`/client/auth/checkLogin`)
       //console.log(result.preferenceAAA)
-      if (typeof(result) === 'object') {
-        for (let name in result) {
-          this.status[name] = result[name]
-        }
+//      if (typeof(result) === 'object') {
+//        for (let name in result) {
+//          this.status[name] = result[name]
+//        }
+//        this.status.needLogin = false
+//      }
+//      else {
+//        this.showLogin()
+//      }
+      //console.log(result)
+      for (let name in result.status) {
+        //console.log(name)
+        this.status[name] = result.status[name]
+      }
+      
+      if (result.needLogin === false) {
         this.status.needLogin = false
       }
       else {

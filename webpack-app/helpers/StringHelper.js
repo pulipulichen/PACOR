@@ -56,6 +56,9 @@ let StringHelper = {
     }
     return s
   },
+  removeSpaces (s) {
+    return s.replace(/ /g, '')
+  },
   htmlToText (s) {
     return $(s).text()
   }

@@ -4,7 +4,7 @@ module.exports = {
   
   // 依序判斷article下面可能會有的section選取器
   sectionSelector: ['section','.section','p','div'],
-  loginMessage: 'Hello',
+  loginMessage: '猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？',
   allowLoginWithoutGrop: true,
   readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
   readingProgressesFinish: 'Exit',  // 'Exit', 'FreeReading', 'http://blog.pulipuli.info'
@@ -69,8 +69,8 @@ module.exports = {
     'ConfusedClarified': {
       'questionPlaceholder': 'Question placeholder',
       'answerPlaceholder': 'Answer placeholder',
-      'questionMinWords': 3,
-      'answerMinWords': 3,
+      'questionMinWords': 10,
+      'answerMinWords': 10,
       /**
        * {anchorText}
        * {questionText}
