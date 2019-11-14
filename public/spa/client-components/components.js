@@ -6823,7 +6823,8 @@ let Editor = {
     
     this.$i18n.locale = this.config.locale
     
-    let note = this.lib.RangyManager.getPinSelectionAnchorText()
+    //let note = this.lib.RangyManager.getPinSelectionAnchorText()
+    let note = ''
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotation
             && Array.isArray(this.annotation.notes)
@@ -6898,7 +6899,7 @@ let Editor = {
     
     enableDelete () {
       return true
-    }
+    },
     
 //    isEditable () {
 //      return CommonComputed.isEditable(this)
@@ -7038,7 +7039,8 @@ let Editor = {
     
     this.$i18n.locale = this.config.locale
     
-    let note = this.lib.RangyManager.getPinSelectionAnchorText()
+    //let note = this.lib.RangyManager.getPinSelectionAnchorText()
+    let note = ''
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotation
             && Array.isArray(this.annotation.notes)
@@ -7113,7 +7115,7 @@ let Editor = {
     
     enableDelete () {
       return true
-    }
+    },
     
 //    isEditable () {
 //      return CommonComputed.isEditable(this)
@@ -7332,8 +7334,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../MainIdea/MainIdea.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationSingle/MainIdea/MainIdea.js");
 
 
-_MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"].computed.enableDelete = () => {
+_MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"].mounted = function () {
+  this.loadDraft()
+}
+
+_MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"].computed.enableDelete = function () {
   return false
+}
+
+_MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"].methods.loadDraft = async function () {
+  //console.log(this.note)
+  if (this.note && this.note !== '') {
+    return false
+  }
+  
+  //setTimeout(async () => {
+    this.note = await this.lib.AxiosHelper.get('/client/Section/getMainIdeasInSection', {
+      seq_id: this.annotation.anchorPositions[0].seq_id
+    })
+    //console.log(this.note)
+    if (this.$refs.editor) {
+      this.$refs.editor.html(this.note)
+    }
+  //}, 100)
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (_MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"]);

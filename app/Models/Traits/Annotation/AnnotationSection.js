@@ -154,7 +154,29 @@ class AnnotationSection {
         
         return output
       })
-    }
+    } // Model.getSectionsChecklistAnnotation = async function (webpage, user, query) {
+    
+    Model.getMainIdeasInSection = async function (webpage, user, query) {
+      let cacheKey = Cache.key(`Annotation.getSectionAnnotationsDraft`, query)
+      return await Cache.rememberWait(Cache.buildTags(webpage, user, this), cacheKey, async () => {
+        let { seq_id } = query
+        
+        let annotations = await this.findByWebpageGroupPosition(webpage, user, {
+          findUserID: user.primaryKeyValue,
+          findType: 'MainIdea',
+          seq_id: seq_id
+        })
+        
+        if (annotations.size() === 0) {
+          return ''
+        }
+        
+        annotations = annotations.toJSON()
+        return annotations.map(annotation => {
+          return annotation.notes.map(note => note.note).join('\n')
+        }).join('\n')
+      })
+    } // Model.getMainIdeasInSection = async function (webpage, user, query) {
   } // register (Model) {
 }
 

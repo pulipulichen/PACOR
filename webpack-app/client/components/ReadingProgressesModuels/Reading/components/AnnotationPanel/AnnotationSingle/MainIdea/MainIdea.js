@@ -12,7 +12,8 @@ let Editor = {
     
     this.$i18n.locale = this.config.locale
     
-    let note = this.lib.RangyManager.getPinSelectionAnchorText()
+    //let note = this.lib.RangyManager.getPinSelectionAnchorText()
+    let note = ''
     //let note = '<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>' // for test
     if (this.annotation
             && Array.isArray(this.annotation.notes)
@@ -87,7 +88,7 @@ let Editor = {
     
     enableDelete () {
       return true
-    }
+    },
     
 //    isEditable () {
 //      return CommonComputed.isEditable(this)

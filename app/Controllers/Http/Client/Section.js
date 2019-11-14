@@ -59,6 +59,11 @@ class Section extends Annotation {
     await user.setReadingProgressLogAttr(webpage, attrs)
     return 1
   }
+  
+  async getMainIdeasInSection({request, webpage, user}) {
+    let query = request.all()
+    return await AnnotationModel.getMainIdeasInSection(webpage, user, query)
+  }
 }
 
 module.exports = Section
