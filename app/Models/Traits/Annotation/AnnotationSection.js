@@ -167,6 +167,8 @@ class AnnotationSection {
           seq_id: seq_id
         })
         
+        console.log(annotations.size())
+        
         if (annotations.size() === 0) {
           return ''
         }

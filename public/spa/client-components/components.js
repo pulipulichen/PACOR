@@ -9772,7 +9772,10 @@ __webpack_require__.r(__webpack_exports__);
         let parentSection = anchorNode.parents('[data-pacor-section-seq-id]:first')
         if (parentSection.length === 1) {
           //selection.anchorPosition.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
-          position.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
+          
+          //position.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
+          position.seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
+          
           /*
            if (section_seq_id.indexOf(id) === -1) {
            section_seq_id.push(id)
@@ -9788,7 +9791,9 @@ __webpack_require__.r(__webpack_exports__);
         if (parentParagraph.length === 1) {
           //selection.anchorPosition.paragraph_seq_id = parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10)
           //selection.anchorPosition.paragraph_id = parentParagraph.attr('id')
-          position.seq_id = parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10)
+          
+          position.paragraph_seq_id = parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10)
+          
           //if (paragraph_seq_id.indexOf(seqID) === -1) {
           //  paragraph_seq_id.push(seqID)
           //}
