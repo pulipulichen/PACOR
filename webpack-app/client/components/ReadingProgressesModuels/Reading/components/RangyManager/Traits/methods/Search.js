@@ -8,23 +8,14 @@ export default (RangyManager) => {
     this.searchResultApplier = this.rangy.createClassApplier("pacor-search-result")
   }
 
+  let range
+  let searchScopeRange
+  let sections
+  let options
+
   RangyManager.methods.searchInArticle = function (searchTerm) {
-    var range = this.rangy.createRange();
-    var searchScopeRange = this.rangy.createRange();
-
-    //searchScopeRange.selectNodeContents(document.body);
-    let node = this.articleNode[0]
-    //let node = document.body
-    range.selectNodeContents(node);
-
-    var options = {
-      caseSensitive: false,
-      wholeWordsOnly: false,
-      withinRange: searchScopeRange,
-      direction: "forward" // This is redundant because "forward" is the default
-    };
-
-    range.selectNodeContents(node);
+    
+    //range.selectNodeContents(node);
     //this.searchResultApplier.undoToRange(range);
 
     this.jquery('.pacor-search-result').removeClass('pacor-search-result')
@@ -33,14 +24,40 @@ export default (RangyManager) => {
       //console.log('移除嗎？')
       return false
     }
-
-    // Iterate over matches
-    while (range.findText(searchTerm, options)) {
-      // range now encompasses the first text match
-      this.searchResultApplier.applyToRange(range)
-      // Collapse the range to the position immediately after the match
-      range.collapse(false);
+    
+    // ---------------
+    
+    if (!range) {
+      range = this.rangy.createRange()
+      searchScopeRange = this.rangy.createRange()
+      sections = this.articleNode.find('[data-pacor-section-seq-id]')
+      
+      options = {
+        caseSensitive: false,
+        wholeWordsOnly: false,
+        withinRange: searchScopeRange,
+        direction: "forward" // This is redundant because "forward" is the default
+      }
     }
+
+    //searchScopeRange.selectNodeContents(document.body);
+    
+    //console.log(this.articleNode.length)
+    //let node = this.articleNode[0]
+    sections.each((i, node) => {
+      
+      //let node = document.body
+      range.selectNodeContents(node)
+      
+      // Iterate over matches
+      while (range.findText(searchTerm, options)) {
+        // range now encompasses the first text match
+        this.searchResultApplier.applyToRange(range)
+        // Collapse the range to the position immediately after the match
+        range.collapse(false)
+      }
+    })
+
   }
 }
 
