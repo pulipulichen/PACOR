@@ -105,10 +105,20 @@ let Editor = {
       }
     }
   },
-  //mounted() {
+  mounted() {
     //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
-  //},
+    this.loadDraft()
+  },
   methods: {
+    loadDraft: async function () {
+      let note = this.lib.RangyManager.getPinSelectionAnchorText()
+      note = this.lib.StringHelper.removePunctuations(note).trim()
+      this.note = note
+      this.noteReset = note
+      if (this.$refs.editor) {
+        this.$refs.editor.html(this.note)
+      }
+    },
     addAnnotation: async function () {
       
       let data = {

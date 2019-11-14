@@ -21,6 +21,7 @@ class AnnotationFind {
         , keyword
         , onlySectionAnnotation
         , seq_id
+        , orderBy
       } = options
       const doQuery = async evt => {
         //console.log('findByWebpageGroupPosition', anchorPositions)
@@ -36,7 +37,6 @@ class AnnotationFind {
                 .whereRaw('((user_id = ? ) or (user_id != ? and public = ?))', [user.primaryKeyValue, user.primaryKeyValue, true])
                 //.whereRaw('user_id = ?', [user.primaryKeyValue])
                 .with('anchorPositions')
-                .orderBy('updated_at_unixms', 'desc')
 
         let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
         //console.log(types)
@@ -121,7 +121,19 @@ class AnnotationFind {
           // 這邊應該還要做些調整
           query.where('updated_at_unixms', '>', afterTime)
         }
-
+        
+        // ---------------------------------------------------
+        
+        if (!orderBy) {
+          query.orderBy('updated_at_unixms', 'desc')
+        }
+        else {
+          Object.keys(orderBy).forEach(field => {
+            query.orderBy(field, orderBy[field])
+          })
+        }
+        
+        // ---------------------------------------------------
 
         //if (anchorMode === 'exact') console.log(query.toSQL())
         //console.log(query.toSQL())

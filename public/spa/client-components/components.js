@@ -6916,10 +6916,20 @@ let Editor = {
       }
     }
   },
-  //mounted() {
+  mounted() {
     //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
-  //},
+    this.loadDraft()
+  },
   methods: {
+    loadDraft: async function () {
+      let note = this.lib.RangyManager.getPinSelectionAnchorText()
+      note = this.lib.StringHelper.removePunctuations(note).trim()
+      this.note = note
+      this.noteReset = note
+      if (this.$refs.editor) {
+        this.$refs.editor.html(this.note)
+      }
+    },
     addAnnotation: async function () {
       
       let data = {
@@ -7132,10 +7142,20 @@ let Editor = {
       }
     }
   },
-  //mounted() {
+  mounted() {
     //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
-  //},
+    this.loadDraft()
+  },
   methods: {
+    loadDraft: async function () {
+      let note = this.lib.RangyManager.getPinSelectionAnchorText()
+      note = this.lib.StringHelper.removePunctuations(note).trim()
+      this.note = note
+      this.noteReset = note
+      if (this.$refs.editor) {
+        this.$refs.editor.html(this.note)
+      }
+    },
     addAnnotation: async function () {
       
       let data = {
@@ -7349,9 +7369,12 @@ _MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"].methods.loadDraft 
   }
   
   //setTimeout(async () => {
-    this.note = await this.lib.AxiosHelper.get('/client/Section/getMainIdeasInSection', {
+    let note = await this.lib.AxiosHelper.get('/client/Section/getMainIdeasInSection', {
       seq_id: this.annotation.anchorPositions[0].seq_id
     })
+    
+    this.note = note
+    this.noteReset = note
     //console.log(this.note)
     if (this.$refs.editor) {
       this.$refs.editor.html(this.note)

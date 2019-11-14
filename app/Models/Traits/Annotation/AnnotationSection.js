@@ -167,15 +167,29 @@ class AnnotationSection {
           seq_id: seq_id
         })
         
-        console.log(annotations.size())
+        //console.log(annotations.size())
         
         if (annotations.size() === 0) {
           return ''
         }
         
         annotations = annotations.toJSON()
-        return annotations.map(annotation => {
-          return annotation.notes.map(note => note.note).join('\n')
+        
+        // 依照順序排序
+        let noteMap = []
+        annotations.forEach(annotation => {
+          noteMap.push({
+            start_pos: annotation.anchorPositions[0].start_pos,
+            note: annotation.notes[0].note
+          })
+        })
+        
+        noteMap.sort((a, b) => {
+          return a.start_pos - b.start_pos
+        })
+        
+        return noteMap.map(annotation => {
+          return annotation.note
         }).join('\n')
       })
     } // Model.getMainIdeasInSection = async function (webpage, user, query) {
