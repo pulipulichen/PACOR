@@ -12,8 +12,8 @@ let SectionChecklist = {
     
     if (this.sectionsData.checklist 
             && this.sectionsData.checklist[this.sectionSeqID]
-            && Array.isArray(this.sectionsData.checklist[this.sectionSeqID].checked)) {
-      checked = this.sectionsData.checklist[this.sectionSeqID].checked
+            && Array.isArray(this.sectionsData.checklist[this.sectionSeqID])) {
+      checked = this.sectionsData.checklist[this.sectionSeqID]
     }
     
     let isChecklistAnnotationSubmitted = false
@@ -77,7 +77,7 @@ let SectionChecklist = {
 //          this.sectionsData.checklist[this.sectionSeqID] = {}
 //        }
         
-        let checklistData = this.sectionsData.checklist[this.sectionSeqID].checked
+        let checklistData = this.sectionsData.checklist[this.sectionSeqID]
         checklistData = checklistData ? checklistData : []
         
         if (Array.isArray(checklistData) === false
@@ -103,22 +103,33 @@ let SectionChecklist = {
       }
     },
     isChecklistCompleted () { 
+      //console.log(this.checked.length, this.checked)
+      //let a = this.checked.length
+      //console.log(a)
       //console.log(this.checked)
       for (let i = 0; i < this.checked.length; i++) {
+        //console.log(i , this.checked[i], (this.checked[i] === false))
         if (this.checked[i] === false) {
           return false
         }
       }
-      
+      //this.$forceUpdate()
       return true
     },
     computedSubmitButtonClass () {
+      //console.log(this.isChecklistCompleted)
+      let classList = []
       if (this.isChecklistCompleted === false) {
-        return 'disabled'
+        //return 'disabled'
+        classList.push('disabled')
       }
       else {
-        return 'positive'
+        //return 'positive'
+        classList.push('positive')
       }
+      //console.trace(classList)
+      //this.$forceUpdate()
+      return classList.join(' ')
     },
 //    isChecklistAnnotationSubmitted () {
 //      return (typeof(this.annotation.id) === 'number')
@@ -176,10 +187,25 @@ let SectionChecklist = {
         'add': (annotation) => {
           //console.log(annotation)
           //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
+          
+          //console.log(this.sectionSeqID)
           this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
           
+          if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID]) === false) {
+            this.sectionsData.checklist[this.sectionSeqID] = []
+          }
+          
+          this.sectionsData.checklist[this.sectionSeqID].splice(this.checklistAnnotationIndex, 1, true)
+          
+          //console.log(this.sectionsData.checklist[this.sectionSeqID].checked)
+          
           //this.sectionsData.checklist[this.checklistAnnotationIndex] = true
-          this.sectionsData.checklist.splice(this.checklistAnnotationIndex, 1, true)
+          //this.sectionsData.checklist.splice(this.sectionSeqID, 1, true)
+          //this.sectionsData.checklist[this.sectionSeqID]
+          
+          //console.log(this.sectionsData.checklist)
+          
+          
           this.checked.splice(this.checklistAnnotationIndex, 1, true)
           //this.annotation.id = annotation.id
           //this.$forceUpdate()
@@ -195,8 +221,8 @@ let SectionChecklist = {
       })
     },
     submitChecklist: async function () {
-      this.sectionsData.checklist[this.sectionSeqID].checked = this.checked
-      this.sectionsData.checklist[this.sectionSeqID].submittedAt = (new Date()).getTime()
+      this.sectionsData.checklist[this.sectionSeqID] = this.checked
+      //this.sectionsData.checklist[this.sectionSeqID].submittedAt = (new Date()).getTime()
       
       let data = {
         checklist: this.sectionsData.checklist

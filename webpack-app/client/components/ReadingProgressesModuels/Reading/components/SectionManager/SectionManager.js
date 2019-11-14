@@ -29,11 +29,11 @@ let SectionManager = {
   methods: {
     initSectionNodes: async function () {
       this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init')
-      
+      console.log(this.sectionsData)
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = $('[data-pacor-section-seq-id]').toArray()
       
-      console.log('是因為這裡切換的時候沒有初始化到嗎？', sectionNodes.length)
+      console.log('是因為這裡切換的時候沒有初始化到嗎？似乎是，這邊連切換都沒切換到', sectionNodes.length)
       
       //while (this.sectionsData.length < sectionNodes.length) {
       //  this.sectionsData.push({})
@@ -59,9 +59,12 @@ let SectionManager = {
       })
       
       this.setRefreshInterval()
+      
+      //console.log(this.sectionsData)
     },
     setRefreshInterval: async function () {
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
+        // 如果不是在合作的場合，那就不自動更新
         return false
       }
       

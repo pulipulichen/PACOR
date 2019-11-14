@@ -82,6 +82,7 @@ var render = function() {
   return _c(
     "div",
     {
+      ref: "editorContainer",
       staticClass: "ui segment html-editor-container",
       style: _vm.computedStyle,
       on: { click: _vm.focus }
@@ -91,7 +92,7 @@ var render = function() {
       _vm._v(" "),
       !_vm.editable
         ? _c("div", {
-            ref: "editor",
+            ref: "display",
             domProps: { innerHTML: _vm._s(_vm.contents) }
           })
         : _vm._e()
@@ -274,6 +275,12 @@ let HTMLEditor = {
     },
     focus () {
       this.editor.summernote('focus')
+      
+      $(this.$refs.editorContainer).find(".note-editable:first")[0].focus();
+      // select all the content in the element
+      document.execCommand('selectAll', false, null)
+      // collapse selection to the end
+      document.getSelection().collapseToEnd()
     },
     html (html) {
       if (this.editor === null) {

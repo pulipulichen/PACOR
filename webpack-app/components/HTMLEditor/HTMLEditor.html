@@ -1,6 +1,7 @@
 <div class="ui segment html-editor-container"
      v-on:click="focus"
-     v-bind:style="computedStyle">
+     v-bind:style="computedStyle"
+     ref="editorContainer">
   <div ref="editor" v-if="editable"></div>
-  <div ref="editor" v-if="!editable" v-html="contents"></div>
+  <div ref="display" v-if="!editable" v-html="contents"></div>
 </div>

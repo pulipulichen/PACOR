@@ -1807,20 +1807,15 @@ let Login = {
   },
   computed: {
     isDisableLogin: function () {
-      if (this.username === '') {
+      if (this.waiting === true) {
         return true
       }
       
       if (this.adminMode === false) {
-        return false
+        return !(this.username === '')
       }
-      
-      if (this.password === '') {
-        return false
-      }
-      
-      if (this.waiting === true) {
-        return false
+      else {
+        return (this.username === '' || this.password === '')
       }
       
       return true

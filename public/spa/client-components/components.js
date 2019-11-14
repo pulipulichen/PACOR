@@ -297,7 +297,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-float-widget[data-v-ca5d3b70] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: 1;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0CAA0C;EAC1C,0BAA0B;EAC1B,SAAS;EACT,UAAU;EACV,wBAAwB;EACxB,qBAAqB;EACrB,mCAAmC;EACnC,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,kBAAkB;EAClB,mBAAmB;AACrB","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-ca5d3b70] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: 1;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top;\n}\n"]}]);
+exports.push([module.i, ".annotation-float-widget[data-v-ca5d3b70] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: 1;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top !important;\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0CAA0C;EAC1C,0BAA0B;EAC1B,SAAS;EACT,UAAU;EACV,wBAAwB;EACxB,qBAAqB;EACrB,mCAAmC;EACnC,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,kBAAkB;EAClB,8BAA8B;AAChC","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-ca5d3b70] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: 1;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -353,7 +353,7 @@ exports.push([module.i, ".back-button[data-v-d0a3714a] {\n  vertical-align: top 
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".back-button[data-v-85bd389e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-85bd389e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-85bd389e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-85bd389e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-85bd389e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-85bd389e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-85bd389e] {\n  float: right;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=85bd389e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;;;;EAIE;AACF;EACE,YAAY;EACZ,mBAAmB;AACrB","file":"List.less?vue&type=style&index=0&id=85bd389e&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-85bd389e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-85bd389e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-85bd389e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-85bd389e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-85bd389e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-85bd389e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-85bd389e] {\n  float: right;\n  vertical-align: top;\n}\n"]}]);
+exports.push([module.i, ".back-button[data-v-85bd389e] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-85bd389e] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-85bd389e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-85bd389e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-85bd389e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-85bd389e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-85bd389e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-85bd389e] {\n  float: right;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=85bd389e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;;;;EAIE;AACF;EACE,YAAY;EACZ,mBAAmB;AACrB","file":"List.less?vue&type=style&index=0&id=85bd389e&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-85bd389e] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-85bd389e] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-85bd389e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-85bd389e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-85bd389e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-85bd389e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-85bd389e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-85bd389e] {\n  float: right;\n  vertical-align: top;\n}\n"]}]);
 
 
 /***/ }),
@@ -367,7 +367,7 @@ exports.push([module.i, ".back-button[data-v-85bd389e] {\n  vertical-align: top 
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".back-button[data-v-cba2731e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-cba2731e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-cba2731e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-cba2731e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-cba2731e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-cba2731e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-cba2731e] {\n  float: right;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=cba2731e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;;;;EAIE;AACF;EACE,YAAY;EACZ,mBAAmB;AACrB","file":"List.less?vue&type=style&index=0&id=cba2731e&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-cba2731e] {\n  vertical-align: top !important;\n}\n.summary-information .label[data-v-cba2731e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-cba2731e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-cba2731e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-cba2731e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-cba2731e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-cba2731e] {\n  float: right;\n  vertical-align: top;\n}\n"]}]);
+exports.push([module.i, ".back-button[data-v-cba2731e] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-cba2731e] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-cba2731e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-cba2731e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-cba2731e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-cba2731e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-cba2731e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-cba2731e] {\n  float: right;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=cba2731e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;;;;EAIE;AACF;EACE,YAAY;EACZ,mBAAmB;AACrB","file":"List.less?vue&type=style&index=0&id=cba2731e&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-cba2731e] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-cba2731e] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-cba2731e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-cba2731e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-cba2731e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-cba2731e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-cba2731e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-cba2731e] {\n  float: right;\n  vertical-align: top;\n}\n"]}]);
 
 
 /***/ }),
@@ -6946,8 +6946,8 @@ let Editor = {
       
       //console.log(data)
       
-      let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
-      //let id = 1
+      //let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+      let id = 1
       //console.log(id) // for test
       
       if (typeof(id) !== 'number') {
@@ -7172,8 +7172,8 @@ let Editor = {
       
       //console.log(data)
       
-      let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
-      //let id = 1
+      //let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+      let id = 1
       //console.log(id) // for test
       
       if (typeof(id) !== 'number') {
@@ -7374,7 +7374,7 @@ _MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"].methods.loadDraft 
     })
     
     this.note = note
-    this.noteReset = note
+    //this.noteReset = note
     //console.log(this.note)
     if (this.$refs.editor) {
       this.$refs.editor.html(this.note)
@@ -18823,11 +18823,11 @@ let SectionManager = {
   methods: {
     initSectionNodes: async function () {
       this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init')
-      
+      console.log(this.sectionsData)
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-section-seq-id]').toArray()
       
-      console.log('是因為這裡切換的時候沒有初始化到嗎？', sectionNodes.length)
+      console.log('是因為這裡切換的時候沒有初始化到嗎？似乎是，這邊連切換都沒切換到', sectionNodes.length)
       
       //while (this.sectionsData.length < sectionNodes.length) {
       //  this.sectionsData.push({})
@@ -18853,9 +18853,12 @@ let SectionManager = {
       })
       
       this.setRefreshInterval()
+      
+      //console.log(this.sectionsData)
     },
     setRefreshInterval: async function () {
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
+        // 如果不是在合作的場合，那就不自動更新
         return false
       }
       
@@ -19232,8 +19235,8 @@ let SectionChecklist = {
     
     if (this.sectionsData.checklist 
             && this.sectionsData.checklist[this.sectionSeqID]
-            && Array.isArray(this.sectionsData.checklist[this.sectionSeqID].checked)) {
-      checked = this.sectionsData.checklist[this.sectionSeqID].checked
+            && Array.isArray(this.sectionsData.checklist[this.sectionSeqID])) {
+      checked = this.sectionsData.checklist[this.sectionSeqID]
     }
     
     let isChecklistAnnotationSubmitted = false
@@ -19297,7 +19300,7 @@ let SectionChecklist = {
 //          this.sectionsData.checklist[this.sectionSeqID] = {}
 //        }
         
-        let checklistData = this.sectionsData.checklist[this.sectionSeqID].checked
+        let checklistData = this.sectionsData.checklist[this.sectionSeqID]
         checklistData = checklistData ? checklistData : []
         
         if (Array.isArray(checklistData) === false
@@ -19323,22 +19326,33 @@ let SectionChecklist = {
       }
     },
     isChecklistCompleted () { 
+      //console.log(this.checked.length, this.checked)
+      //let a = this.checked.length
+      //console.log(a)
       //console.log(this.checked)
       for (let i = 0; i < this.checked.length; i++) {
+        //console.log(i , this.checked[i], (this.checked[i] === false))
         if (this.checked[i] === false) {
           return false
         }
       }
-      
+      //this.$forceUpdate()
       return true
     },
     computedSubmitButtonClass () {
+      //console.log(this.isChecklistCompleted)
+      let classList = []
       if (this.isChecklistCompleted === false) {
-        return 'disabled'
+        //return 'disabled'
+        classList.push('disabled')
       }
       else {
-        return 'positive'
+        //return 'positive'
+        classList.push('positive')
       }
+      //console.trace(classList)
+      //this.$forceUpdate()
+      return classList.join(' ')
     },
 //    isChecklistAnnotationSubmitted () {
 //      return (typeof(this.annotation.id) === 'number')
@@ -19396,10 +19410,25 @@ let SectionChecklist = {
         'add': (annotation) => {
           //console.log(annotation)
           //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
+          
+          //console.log(this.sectionSeqID)
           this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
           
+          if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID]) === false) {
+            this.sectionsData.checklist[this.sectionSeqID] = []
+          }
+          
+          this.sectionsData.checklist[this.sectionSeqID].splice(this.checklistAnnotationIndex, 1, true)
+          
+          //console.log(this.sectionsData.checklist[this.sectionSeqID].checked)
+          
           //this.sectionsData.checklist[this.checklistAnnotationIndex] = true
-          this.sectionsData.checklist.splice(this.checklistAnnotationIndex, 1, true)
+          //this.sectionsData.checklist.splice(this.sectionSeqID, 1, true)
+          //this.sectionsData.checklist[this.sectionSeqID]
+          
+          //console.log(this.sectionsData.checklist)
+          
+          
           this.checked.splice(this.checklistAnnotationIndex, 1, true)
           //this.annotation.id = annotation.id
           //this.$forceUpdate()
@@ -19415,8 +19444,8 @@ let SectionChecklist = {
       })
     },
     submitChecklist: async function () {
-      this.sectionsData.checklist[this.sectionSeqID].checked = this.checked
-      this.sectionsData.checklist[this.sectionSeqID].submittedAt = (new Date()).getTime()
+      this.sectionsData.checklist[this.sectionSeqID] = this.checked
+      //this.sectionsData.checklist[this.sectionSeqID].submittedAt = (new Date()).getTime()
       
       let data = {
         checklist: this.sectionsData.checklist

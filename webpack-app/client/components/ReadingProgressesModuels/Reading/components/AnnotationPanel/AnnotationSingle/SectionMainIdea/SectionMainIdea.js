@@ -20,7 +20,7 @@ Editor.methods.loadDraft = async function () {
     })
     
     this.note = note
-    this.noteReset = note
+    //this.noteReset = note
     //console.log(this.note)
     if (this.$refs.editor) {
       this.$refs.editor.html(this.note)

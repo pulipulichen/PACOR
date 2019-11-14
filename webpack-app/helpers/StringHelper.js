@@ -46,6 +46,10 @@ let StringHelper = {
     return count;
   },
   removePunctuations (s) {
+    if (typeof(s) !== 'string') {
+      return ''
+    }
+    
     s = s.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()。，、；：「」『』（）—？！…《》～〔〕［］・　]/g, " ")
     while (s.indexOf('  ') > -1) {
       s = s.replace(/  /g, ' ')
