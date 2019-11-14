@@ -69,8 +69,8 @@ module.exports = {
     'ConfusedClarified': {
       'questionPlaceholder': 'Question placeholder',
       'answerPlaceholder': 'Answer placeholder',
-      'questionMinWords': 1,
-      'answerMinWords': 1,
+      'questionMinWords': 3,
+      'answerMinWords': 3,
       /**
        * {anchorText}
        * {questionText}
@@ -140,7 +140,7 @@ module.exports = {
     },
     'MainIdea': {
       'addable': true,
-      'minWords': 1,
+      'minWords': 3,
       'placeholder': 'Why do you think it is a main idea?',
       'instruction': {
         'summary': '您覺得哪裡是重點？',
@@ -162,7 +162,7 @@ module.exports = {
     },
     'SectionMainIdea': {
       'addable': false,
-      'minWords': 1,
+      'minWords': 3,
       'placeholder': 'Why do you think it is a main idea?',
       'instruction': {
         'summary': '您覺得哪裡是重點？',

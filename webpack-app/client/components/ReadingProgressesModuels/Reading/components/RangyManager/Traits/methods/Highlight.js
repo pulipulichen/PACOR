@@ -21,6 +21,7 @@ export default (RangyManager) => {
       let pos = this._getAnchorPositionFromElement(ele, event)
       
       lock[type] = true
+      //console.log(type)
       this.triggerEvent(type, pos)
       setTimeout(() => {
         lock[type] = false
