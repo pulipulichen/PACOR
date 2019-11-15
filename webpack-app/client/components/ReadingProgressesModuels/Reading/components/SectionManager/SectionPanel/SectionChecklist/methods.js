@@ -1,3 +1,5 @@
+let debugMockUpdate = true
+
 export default (SectionChecklist) => {
 //    initData () {
 //      //console.log(this.sectionsData.checklist)
@@ -117,12 +119,18 @@ export default (SectionChecklist) => {
       checklist: this.sectionsData.checklist
     }
 
-    await this.lib.AxiosHelper.post('/client/Section/setChecklist', data)
+    if (debugMockUpdate === false) {
+      await this.lib.AxiosHelper.post('/client/Section/setChecklist', data)
+    }
 
-    //this.sectionsData.checklistSubmitted[this.sectionSeqID] = true
-    this.sectionsData.checklistSubmitted.splice(this.sectionSeqID, 1, true)
+    this.sectionsData.checklistSubmitted[this.sectionSeqID] = true
+    //this.sectionsData.checklistSubmitted.splice(this.sectionSeqID, 1, true)
     this.checkAllChecklistsIsComplete()
+
+    //this.$forceUpdate()
+    this.$emit('checklistComplete')
   }
+  
   SectionChecklist.methods.checkAllChecklistsIsComplete = function () {
 
     // 觀察看看有沒有機會完全完成
@@ -136,9 +144,10 @@ export default (SectionChecklist) => {
     }
     //let isAllCompleted = (this.sectionsData.checklistSubmitted.filter(c => (c !== true)).length === 0)
     if (isAllCompleted === true) {
-      this.$emit('complete')
+      this.$emit('allComplete')
     }
   }
+  
   SectionChecklist.methods.checkIsChecklistCompleted = function () {
     //console.log(this.checked.length, this.checked)
     //let a = this.checked.length

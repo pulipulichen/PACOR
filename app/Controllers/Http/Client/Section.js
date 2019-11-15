@@ -21,10 +21,15 @@ class Section extends Annotation {
       let query = {}
       let sectionsChecklist = await user.getSectionsChecklist(webpage, query)
       
-      /*
+      
       let sectionsChecklistSubmitted = null
       if (Array.isArray(sectionsChecklist)) {
         sectionsChecklistSubmitted = sectionsChecklist.map(checklist => {
+          if (Array.isArray(checklist) === false
+                  || checklist.length === 0) {
+            return false
+          }
+          
           for (let i = 0; i < checklist.length; i++) {
             if (checklist[i] === false) {
               return false
@@ -33,13 +38,13 @@ class Section extends Annotation {
           return true
         })
       }
-      */
+      
       let checklistAnnotation = await AnnotationModel.getSectionsChecklistAnnotation(webpage, user, query)
       let sectionsAnnotation = await AnnotationModel.buildSectionsAnnotationSummary(webpage, user, query)
       
       return {
         checklist: sectionsChecklist,
-        //checklistSubmitted: sectionsChecklistSubmitted,
+        checklistSubmitted: sectionsChecklistSubmitted,
         checklistAnnotation: checklistAnnotation,
         annotation: sectionsAnnotation
       }
