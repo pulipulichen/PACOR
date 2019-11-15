@@ -96,9 +96,15 @@ let List = {
   methods: {
     onUpdate () {
       this.annotation = null
+      if (this.annotations.length < 2) {
+        this.lib.AnnotationPanel.hide()
+      }
     },
     onDelete() {
       this.annotation = null
+      if (this.annotations.length < 2) {
+        this.lib.AnnotationPanel.hide()
+      }
     },
     initEventListener: function () {
       if (!this.lib.AnnotationPanel) {

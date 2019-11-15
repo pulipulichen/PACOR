@@ -136,10 +136,20 @@ let List = {
       })
     },
     onUpdate () {
+      this.annotaitons = this.annotations.filter(annotation => {
+        if (annotation.id !== this.annotation.id) {
+          return annotation
+        }
+        else {
+          return this.annotation
+        }
+      })
       this.annotation = null
     },
     onDelete() {
-      this.annotation = null
+      // 從annotations中刪去該項
+      this.annotaitons = this.annotations.filter(annotation => (annotation.id !== this.annotation.id))
+      this.annotation = null      
     },
   } // methods
 }

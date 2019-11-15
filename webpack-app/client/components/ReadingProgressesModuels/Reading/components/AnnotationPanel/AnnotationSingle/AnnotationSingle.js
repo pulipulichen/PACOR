@@ -141,8 +141,8 @@ let AnnotationEditorModules = {
         
         await this.reloadMyHighlights()
         
-        //this.$emit('delete')
         this.lib.AnnotationPanel.triggerEvent('delete')
+        this.$emit('delete')
 
         //return // 跟上層說關閉視窗
       }

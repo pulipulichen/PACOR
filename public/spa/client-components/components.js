@@ -1378,7 +1378,7 @@ var render = function() {
                     annotation: _vm.panelData.annotation,
                     heightPX: _vm.panelData.heightPX
                   },
-                  on: { update: _vm.hide }
+                  on: { update: _vm.hide, delete: _vm.hide }
                 })
               ]
             : _vm._e(),
@@ -4242,9 +4242,9 @@ let AnnotationList = {
       this.lib.AnnotationPanel.scrollToRect(rect)
       //throw '@TODO'
     },
-    onUpdate () {
-      this.annotation = null
-    }
+    //onUpdate () {
+    //  this.annotation = null
+    //}
   } // methods
 }
 
@@ -4514,10 +4514,20 @@ let List = {
       })
     },
     onUpdate () {
+      this.annotaitons = this.annotations.filter(annotation => {
+        if (annotation.id !== this.annotation.id) {
+          return annotation
+        }
+        else {
+          return this.annotation
+        }
+      })
       this.annotation = null
     },
     onDelete() {
-      this.annotation = null
+      // 從annotations中刪去該項
+      this.annotaitons = this.annotations.filter(annotation => (annotation.id !== this.annotation.id))
+      this.annotation = null      
     },
   } // methods
 }
@@ -4737,9 +4747,15 @@ let List = {
   methods: {
     onUpdate () {
       this.annotation = null
+      if (this.annotations.length < 2) {
+        this.lib.AnnotationPanel.hide()
+      }
     },
     onDelete() {
       this.annotation = null
+      if (this.annotations.length < 2) {
+        this.lib.AnnotationPanel.hide()
+      }
     },
     initEventListener: function () {
       if (!this.lib.AnnotationPanel) {
@@ -5685,8 +5701,8 @@ let AnnotationEditorModules = {
         
         await this.reloadMyHighlights()
         
-        //this.$emit('delete')
         this.lib.AnnotationPanel.triggerEvent('delete')
+        this.$emit('delete')
 
         //return // 跟上層說關閉視窗
       }

@@ -50,9 +50,9 @@ let AnnotationList = {
       this.lib.AnnotationPanel.scrollToRect(rect)
       //throw '@TODO'
     },
-    onUpdate () {
-      this.annotation = null
-    }
+    //onUpdate () {
+    //  this.annotation = null
+    //}
   } // methods
 }
 

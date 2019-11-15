@@ -69,7 +69,7 @@ module.exports = {
     'ConfusedClarified': {
       'questionPlaceholder': 'Question placeholder',
       'answerPlaceholder': 'Answer placeholder',
-      'questionMinWords': 10,
+      'questionMinWords': 5,
       'answerMinWords': 10,
       /**
        * {anchorText}

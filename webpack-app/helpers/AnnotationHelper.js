@@ -7,7 +7,8 @@ let AnnotationHelper = {
   },
   note (annotation, type, note) {
     if (typeof(type) === 'object') {
-      Object.keys(type).each(t => {
+      //console.log(type, typeof(type))
+      Object.keys(type).forEach(t => {
         let n = type[t]
         this.note(annotation, t, n)
       })
