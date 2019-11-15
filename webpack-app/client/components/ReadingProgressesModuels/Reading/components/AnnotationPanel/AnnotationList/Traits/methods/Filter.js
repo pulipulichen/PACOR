@@ -17,6 +17,8 @@ export default (List) => {
   List.methods.clearFindUser = function () {
     this.panelData.filter.user = null
     this.annotation = null
+    
+    this.$forceUpdate()
   }
 
   List.methods.findType = function (type) {
@@ -34,6 +36,8 @@ export default (List) => {
     this.panelData.filter.type = null
     this.annotation = null
     //console.log(this.panelData.filter)
+    
+    this.$forceUpdate()
   }
   
   List.methods.findKeyword = function (keyword) {
@@ -47,11 +51,14 @@ export default (List) => {
   }
   
   List.methods.clearFilter = function () {
-    this.panelData.filter.user = null
-    this.panelData.filter.type = null
+    if (this.panelData.filter) {
+      this.panelData.filter.user = null
+      this.panelData.filter.type = null
+    }
     
     this.annotation = null
     //console.log('clearFilter', this.panelData.filter)
+    this.$forceUpdate()
   }
   
 }

@@ -48,6 +48,7 @@ export default (AnnotationPanel) => {
       this.triggerEvent('cancel')
     }
     
+    this.lib.RangyManager.hoverOut(true)
     this.reset()
     
   }

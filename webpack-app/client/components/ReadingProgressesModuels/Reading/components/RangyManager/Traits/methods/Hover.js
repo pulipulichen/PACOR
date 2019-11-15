@@ -1,4 +1,10 @@
 export default (RangyManager) => {
+  /**
+   * 滑入
+   * @param {object} annotation
+   * @param {boolean} doLock
+   * @returns {RangyManager}
+   */
   RangyManager.methods.hoverIn = function (annotation, doLock) {
     //throw '錯誤'
     

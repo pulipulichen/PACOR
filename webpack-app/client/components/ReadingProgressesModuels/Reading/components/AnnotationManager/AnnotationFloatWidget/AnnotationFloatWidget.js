@@ -7,6 +7,7 @@ let AnnotationFloatWidget = {
       anchorPositions: null,
       triggerEvent: null,
       isFixed: false,
+      isFixedMouseout: false,
       
       annotation: null,
       annotationCount: 0,
@@ -88,7 +89,14 @@ let AnnotationFloatWidget = {
         }
         
         if (useMouse === true) {
-          this.isFixed = !this.isFixed
+          if (this.isFixed === true && this.isFixedMouseout === true) {
+            this.triggerEvent = data.event
+            this.anchorPositions = data.anchorPositions
+            this.isFixedMouseout = false
+          }
+          else {
+            this.isFixed = !this.isFixed
+          }
         }
         else {
           this.triggerEvent = data.event
@@ -102,9 +110,11 @@ let AnnotationFloatWidget = {
         if (this.lib.AnnotationPanel.isHide === false) {
           return false
         }
-        //if (this.isFixed === true) {
-        //  return false
-        //}
+        
+        // 如果已經鎖定，那就不能切換
+        if (this.isFixed === true) {
+          return false
+        }
         
         this.triggerEvent = data.event
         this.anchorPositions = data.anchorPositions
@@ -116,6 +126,7 @@ let AnnotationFloatWidget = {
           return false
         }
         if (this.isFixed === true) {
+          this.isFixedMouseout = true
           return false
         }
         

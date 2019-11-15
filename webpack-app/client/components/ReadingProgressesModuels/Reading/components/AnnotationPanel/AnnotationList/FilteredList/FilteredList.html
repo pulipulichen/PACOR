@@ -17,10 +17,11 @@
       <i class="angle left icon"></i>
       {{ $t('Back to list') }}
     </button>
-    <button v-else
+    
+    <button v-if="mainListAnnotationCount > 1"
             type="button" 
             class="ui mini labeled icon button back-button"
-            v-on:click.stop="clearFilter">
+            v-on:click.stop="exit">
       <i class="angle left icon"></i>
       {{ $t('Back to full list') }}
     </button>

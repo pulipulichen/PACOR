@@ -2,7 +2,7 @@ import AnnotationSingle from './../../AnnotationSingle/AnnotationSingle.vue'
 
 let List = {
   props: ['lib', 'status', 'config'
-    , 'panelData'],
+    , 'panelData', 'MainList'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -114,6 +114,14 @@ let List = {
               && this.panelData.keyword !== '') {
         return this.panelData.keyword
       }
+    },
+    
+    mainListAnnotationCount () {
+      if (this.MainList 
+              && Array.isArray(this.MainList.annotations)) {
+        return this.MainList.annotations.length
+      }
+      return 0
     }
   },
 //  watch: {
@@ -150,7 +158,16 @@ let List = {
       // 從annotations中刪去該項
       this.annotaitons = this.annotations.filter(annotation => (annotation.id !== this.annotation.id))
       this.annotation = null      
+      if (this.annotations.length === 0) {
+        //this.clearFilter()
+        //this.$emit('exit')
+        this.exit()
+      }
     },
+    exit () {
+      this.$emit('exit')
+      this.clearFilter()
+    }
   } // methods
 }
 

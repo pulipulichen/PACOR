@@ -1,5 +1,6 @@
 <fragment>
   <main-list 
+    ref="MainList"
     v-show="!isFiltering"
     
     v-bind:config="config"
@@ -10,13 +11,16 @@
   </main-list>
 
   <filtered-list 
+    ref="FilteredList"
     v-if="isFiltering"
     
     v-bind:config="config"
     v-bind:status="status"
     v-bind:lib="lib"
     
-    v-bind:panelData="panelData">
+    v-bind:MainList="MainList"
+    v-bind:panelData="panelData"
+    v-on:exit="onFilteredListExit">
   </filtered-list>
 
 </fragment>

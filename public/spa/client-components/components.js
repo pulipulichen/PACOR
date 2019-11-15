@@ -861,6 +861,7 @@ var render = function() {
             expression: "!isFiltering"
           }
         ],
+        ref: "MainList",
         attrs: {
           config: _vm.config,
           status: _vm.status,
@@ -871,12 +872,15 @@ var render = function() {
       _vm._v(" "),
       _vm.isFiltering
         ? _c("filtered-list", {
+            ref: "FilteredList",
             attrs: {
               config: _vm.config,
               status: _vm.status,
               lib: _vm.lib,
+              MainList: _vm.MainList,
               panelData: _vm.panelData
-            }
+            },
+            on: { exit: _vm.onFilteredListExit }
           })
         : _vm._e()
     ],
@@ -960,7 +964,10 @@ var render = function() {
                   )
                 ]
               )
-            : _c(
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.mainListAnnotationCount > 1
+            ? _c(
                 "button",
                 {
                   staticClass: "ui mini labeled icon button back-button",
@@ -968,7 +975,7 @@ var render = function() {
                   on: {
                     click: function($event) {
                       $event.stopPropagation()
-                      return _vm.clearFilter($event)
+                      return _vm.exit($event)
                     }
                   }
                 },
@@ -980,7 +987,8 @@ var render = function() {
                       "\r\n    "
                   )
                 ]
-              ),
+              )
+            : _vm._e(),
           _vm._v(" "),
           _c("div", { staticClass: "label" }, [
             _vm._v("\r\n      " + _vm._s(_vm.$t("Finding")) + ":\r\n    ")
@@ -3231,6 +3239,7 @@ let AnnotationFloatWidget = {
       anchorPositions: null,
       triggerEvent: null,
       isFixed: false,
+      isFixedMouseout: false,
       
       annotation: null,
       annotationCount: 0,
@@ -3312,7 +3321,14 @@ let AnnotationFloatWidget = {
         }
         
         if (useMouse === true) {
-          this.isFixed = !this.isFixed
+          if (this.isFixed === true && this.isFixedMouseout === true) {
+            this.triggerEvent = data.event
+            this.anchorPositions = data.anchorPositions
+            this.isFixedMouseout = false
+          }
+          else {
+            this.isFixed = !this.isFixed
+          }
         }
         else {
           this.triggerEvent = data.event
@@ -3326,9 +3342,11 @@ let AnnotationFloatWidget = {
         if (this.lib.AnnotationPanel.isHide === false) {
           return false
         }
-        //if (this.isFixed === true) {
-        //  return false
-        //}
+        
+        // 如果已經鎖定，那就不能切換
+        if (this.isFixed === true) {
+          return false
+        }
         
         this.triggerEvent = data.event
         this.anchorPositions = data.anchorPositions
@@ -3340,6 +3358,7 @@ let AnnotationFloatWidget = {
           return false
         }
         if (this.isFixed === true) {
+          this.isFixedMouseout = true
           return false
         }
         
@@ -4205,6 +4224,7 @@ let AnnotationList = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      MainList: null
     }
   },
   components: {
@@ -4215,7 +4235,7 @@ let AnnotationList = {
     isFiltering () {
       if (this.panelData.filter) {
         let f = this.panelData.filter
-        //console.log(f, (f.user !== null && typeof(f.user) === 'object' ), (typeof(f.type) === 'string'), (typeof(f.keyword) === 'string'))
+        //console.log(f, (f.user !== null && typeof(f.user) === 'object' ), (typeof(f.type) === 'string'))
         return ( (f.user !== null && typeof(f.user) === 'object' )
                 || (typeof(f.type) === 'string') )
       }
@@ -4229,6 +4249,10 @@ let AnnotationList = {
 //    this.loadInit()
 //    this.loadFilter()
     this.scrollTo()
+    setTimeout(() => {
+      this.MainList = this.$refs.MainList
+    }, 0)
+    
   },
   methods: {
     scrollTo () {
@@ -4237,11 +4261,18 @@ let AnnotationList = {
         // 沒有這個參數的話，不捲動
         return false
       }
-      
+      console.log('你有scroll嗎？')
       let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.panelData.anchorPositions)
       this.lib.AnnotationPanel.scrollToRect(rect)
       //throw '@TODO'
     },
+    onFilteredListExit () {
+      //console.log(this.$refs.MainList.annotations.length)
+      this.$refs.FilteredList.clearFilter()
+      if (this.$refs.MainList.annotations.length < 2) {
+        this.lib.AnnotationPanel.hide()
+      }
+    }
     //onUpdate () {
     //  this.annotation = null
     //}
@@ -4380,7 +4411,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let List = {
   props: ['lib', 'status', 'config'
-    , 'panelData'],
+    , 'panelData', 'MainList'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -4492,6 +4523,14 @@ let List = {
               && this.panelData.keyword !== '') {
         return this.panelData.keyword
       }
+    },
+    
+    mainListAnnotationCount () {
+      if (this.MainList 
+              && Array.isArray(this.MainList.annotations)) {
+        return this.MainList.annotations.length
+      }
+      return 0
     }
   },
 //  watch: {
@@ -4528,7 +4567,16 @@ let List = {
       // 從annotations中刪去該項
       this.annotaitons = this.annotations.filter(annotation => (annotation.id !== this.annotation.id))
       this.annotation = null      
+      if (this.annotations.length === 0) {
+        //this.clearFilter()
+        //this.$emit('exit')
+        this.exit()
+      }
     },
+    exit () {
+      this.$emit('exit')
+      this.clearFilter()
+    }
   } // methods
 }
 
@@ -4995,6 +5043,8 @@ __webpack_require__.r(__webpack_exports__);
   List.methods.clearFindUser = function () {
     this.panelData.filter.user = null
     this.annotation = null
+    
+    this.$forceUpdate()
   }
 
   List.methods.findType = function (type) {
@@ -5012,6 +5062,8 @@ __webpack_require__.r(__webpack_exports__);
     this.panelData.filter.type = null
     this.annotation = null
     //console.log(this.panelData.filter)
+    
+    this.$forceUpdate()
   }
   
   List.methods.findKeyword = function (keyword) {
@@ -5025,11 +5077,14 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   List.methods.clearFilter = function () {
-    this.panelData.filter.user = null
-    this.panelData.filter.type = null
+    if (this.panelData.filter) {
+      this.panelData.filter.user = null
+      this.panelData.filter.type = null
+    }
     
     this.annotation = null
     //console.log('clearFilter', this.panelData.filter)
+    this.$forceUpdate()
   }
   
 });
@@ -6682,6 +6737,7 @@ __webpack_require__.r(__webpack_exports__);
       //this.$forceUpdate()
       //console.log(this.isQuestionSubmitted)
       this.isQuestionSubmitted = true
+      this.lib.RangyManager.hoverIn(this.annotation)
       
       //console.log(this.answer)
       //this.answer = ''
@@ -8234,6 +8290,7 @@ const transitionMode = 'slide up'
       this.triggerEvent('cancel')
     }
     
+    this.lib.RangyManager.hoverOut(true)
     this.reset()
     
   }
@@ -9550,6 +9607,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
+  /**
+   * 滑入
+   * @param {object} annotation
+   * @param {boolean} doLock
+   * @returns {RangyManager}
+   */
   RangyManager.methods.hoverIn = function (annotation, doLock) {
     //throw '錯誤'
     

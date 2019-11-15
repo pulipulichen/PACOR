@@ -13,6 +13,7 @@ let AnnotationList = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      MainList: null
     }
   },
   components: {
@@ -23,7 +24,7 @@ let AnnotationList = {
     isFiltering () {
       if (this.panelData.filter) {
         let f = this.panelData.filter
-        //console.log(f, (f.user !== null && typeof(f.user) === 'object' ), (typeof(f.type) === 'string'), (typeof(f.keyword) === 'string'))
+        //console.log(f, (f.user !== null && typeof(f.user) === 'object' ), (typeof(f.type) === 'string'))
         return ( (f.user !== null && typeof(f.user) === 'object' )
                 || (typeof(f.type) === 'string') )
       }
@@ -37,6 +38,10 @@ let AnnotationList = {
 //    this.loadInit()
 //    this.loadFilter()
     this.scrollTo()
+    setTimeout(() => {
+      this.MainList = this.$refs.MainList
+    }, 0)
+    
   },
   methods: {
     scrollTo () {
@@ -45,11 +50,18 @@ let AnnotationList = {
         // 沒有這個參數的話，不捲動
         return false
       }
-      
+      console.log('你有scroll嗎？')
       let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.panelData.anchorPositions)
       this.lib.AnnotationPanel.scrollToRect(rect)
       //throw '@TODO'
     },
+    onFilteredListExit () {
+      //console.log(this.$refs.MainList.annotations.length)
+      this.$refs.FilteredList.clearFilter()
+      if (this.$refs.MainList.annotations.length < 2) {
+        this.lib.AnnotationPanel.hide()
+      }
+    }
     //onUpdate () {
     //  this.annotation = null
     //}

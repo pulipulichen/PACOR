@@ -105,6 +105,7 @@ export default (Editor) => {
       //this.$forceUpdate()
       //console.log(this.isQuestionSubmitted)
       this.isQuestionSubmitted = true
+      this.lib.RangyManager.hoverIn(this.annotation)
       
       //console.log(this.answer)
       //this.answer = ''
