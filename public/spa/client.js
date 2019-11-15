@@ -1517,234 +1517,34 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _watchAuth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./watchAuth */ "./webpack-app/client/components/Auth/watchAuth.js");
+/* harmony import */ var _methodsAuth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsAuth */ "./webpack-app/client/components/Auth/methodsAuth.js");
+/* harmony import */ var _mountedAuth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mountedAuth */ "./webpack-app/client/components/Auth/mountedAuth.js");
+/* harmony import */ var _computedAuth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./computedAuth */ "./webpack-app/client/components/Auth/computedAuth.js");
 let Auth = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {
     return {}
   },
   watch: {
-    'status.needLogin': async function () {
-      if (this.status.needLogin === false) {
-        let view = this.currentStep
-        if (this.lib.ValidateHelper.isURL(view)) {
-          return await this._redirect(view)
-        }
-        //console.log(view)
-        this.status.view = view
-      }
-    }
-  },
-  mounted: async function () {
-    if (typeof(this.config.username) !== 'string' 
-            && typeof(this.config.usernameQueryURL) === 'string') {
-      this.config.username = await this.loadUsernameFromURL()
-    }
-    
-    let result = false
-    if (typeof(this.config.username) === 'string') {
-      result = await this.attemptLoginViaUsername(this.config.username)
-    }
-    
-    if (result === false) {
-      await this.checkLogin()
-    }
   },
   computed: {
-    currentStep () {
-      if (Array.isArray(this.status.readingProgresses)
-              && this.status.readingProgresses.length > 0) {
-        for (let i = 0; i < this.status.readingProgresses.length; i++) {
-          let s = this.status.readingProgresses[i]
-          if (s.isCompleted === true) {
-            continue
-          }
-
-          if (typeof (s.start_timestamp) !== 'number') {
-            s.start_timestamp = this.lib.DayJSHelper.time()
-            return s.step_name
-          }
-          if (typeof (s.start_timestamp) === 'number'
-                  && typeof (s.end_timestamp) !== 'number') {
-            return s.step_name
-          }
-        }
-        let finishStep = this.status.readingConfig.readingProgressesFinish
-        if (this.lib.ValidateHelper.isURL(finishStep)) {
-          this._redirect(finishStep)
-          return false
-        }
-        return finishStep
-      }
-      return 'not-yet-started'
-    },
-    currentStepConfig () {
-      if (typeof(this.currentStep) === 'string') {
-        
-        let config = this.status.readingConfig
-        if (typeof(config) === 'object') {
-          return config.readingProgressModules[this.currentStep]
-        }
-      }
-      //console.log(modules)
-      return null
-    },
-    currentStepAnnotationConfig () {
-      let config = this.currentStepConfig
-      if (config !== null) {
-        return config.annotation
-      }
-      return null
-    },
-    enableCollaboration () {
-      let config = this.currentStepAnnotationConfig
-      if (config !== null) {
-        return config.enableCollaboration
-      }
-      return false
-    },
-    username () {
-      if (this.status.displayName !== this.status.username) {
-        return this.status.displayName
-      }
-      else {
-        return this.status.username
-      }
-    },
-    defaultPremission () {
-      return this.currentStepAnnotationConfig.defaultPermission
-    }
   },
   methods: {
-    loadUsernameFromURL: async function () {
-      let result = await this.lib.AxiosHelper.getOther(this.config.usernameQueryURL)
-      if (typeof(result) === 'string') {
-        return result
-      }
-    },
-    attemptLoginViaUsername: async function (username) {
-      var result = await this.lib.AxiosHelper.get(`/client/user/attempt-login-via-username`, {
-        username: username
-      })
-      if (typeof(result) === 'string') {
-        this.status.username = result
-        return true
-      }
-      else {
-        return false
-      }
-    },
-    checkLogin: async function () {
-      var result = await this.lib.AxiosHelper.get(`/client/auth/checkLogin`)
-      //console.log(result.preferenceAAA)
-//      if (typeof(result) === 'object') {
-//        for (let name in result) {
-//          this.status[name] = result[name]
-//        }
-//        this.status.needLogin = false
-//      }
-//      else {
-//        this.showLogin()
-//      }
-      //console.log(result)
-      for (let name in result.status) {
-        //console.log(name)
-        this.status[name] = result.status[name]
-      }
-      
-      if (result.needLogin === false) {
-        this.status.needLogin = false
-      }
-      else {
-        this.showLogin()
-      }
-      //this.status.username = result
-    },
-    getCurrentStep: function () {
-      if (Array.isArray(this.status.readingProgresses)
-              && this.status.readingProgresses.length > 0) {
-        for (let i = 0; i < this.status.readingProgresses.length; i++) {
-          let s = this.status.readingProgresses[i]
-          if (s.isCompleted === true) {
-            continue
-          }
-
-          if (typeof (s.start_timestamp) !== 'number') {
-            s.start_timestamp = this.lib.DayJSHelper.time()
-            return s.step_name
-          }
-          if (typeof (s.start_timestamp) === 'number'
-                  && typeof (s.end_timestamp) !== 'number') {
-            return s.step_name
-          }
-        }
-        let finishStep = this.status.readingConfig.readingProgressesFinish
-        if (this.lib.ValidateHelper.isURL(finishStep)) {
-          this._redirect(finishStep)
-          return false
-        }
-        return finishStep
-      }
-      return 'not-yet-started'
-    },
-    _redirect: async function (url) {
-      //await this.lib.AxiosHelper.get('/client/auth/logout')
-      //return
-      location.href = url
-    },
-    logout: function () {
-      return this.showLogin()
-    },
-    showLogin: function () {
-      this.status.needLogin = true
-      this.status.view = 'Login'
-    },
-    nextStep: async function (sendEnd) {
-      //throw 'nextStep'
-      if (sendEnd !== false) {
-        await this.lib.AxiosHelper.get('/client/ReadingProgress/end')
-      }
-      
-      let time = this.lib.DayJSHelper.time()
-      for (let i = 0; i < this.status.readingProgresses.length; i++) {
-        let s = this.status.readingProgresses[i]
-        if (s.isCompleted === true) {
-          continue
-        }
-
-        if (typeof(s.start_timestamp) === 'number' 
-                && typeof(s.end_timestamp) !== 'number') {
-          s.end_timestamp = time
-          break;
-        }
-      }
-      
-      console.log(this.currentStep)
-      console.log(this.this.status.readingProgresses)
-      this.status.view = this.currentStep
-    },
-    getHighlightAnnotationType (annotation) {
-      let type = annotation.type
-      if (annotation.user_id === this.status.userID) {
-        type = 'my-' + type
-      }
-      else {
-        type = 'others-' + type
-      }
-      return type
-    },
-    isEditable (instance) {
-      if (!instance || typeof(instance.id) !== 'number') {
-        return true
-      }
-      
-      if (['domain_admin', 'global_admin'].indexOf(this.status.role) > -1) {
-        return true
-      }
-      
-      return (instance.user_id === this.status.userID)
-    }
   } // methods
 }
+
+
+Object(_watchAuth__WEBPACK_IMPORTED_MODULE_0__["default"])(Auth)
+
+
+Object(_methodsAuth__WEBPACK_IMPORTED_MODULE_1__["default"])(Auth)
+
+
+Object(_mountedAuth__WEBPACK_IMPORTED_MODULE_2__["default"])(Auth)
+
+
+Object(_computedAuth__WEBPACK_IMPORTED_MODULE_3__["default"])(Auth)
 
 /* harmony default export */ __webpack_exports__["default"] = (Auth);
 
@@ -1784,6 +1584,274 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "webpack-app/client/components/Auth/Auth.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/Auth/computedAuth.js":
+/*!************************************************************!*\
+  !*** ./webpack-app/client/components/Auth/computedAuth.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (Auth) {
+  Auth.computed.currentStep = function () {
+    if (Array.isArray(this.status.readingProgresses)
+            && this.status.readingProgresses.length > 0) {
+      for (let i = 0; i < this.status.readingProgresses.length; i++) {
+        let s = this.status.readingProgresses[i]
+        if (s.isCompleted === true) {
+          continue
+        }
+
+        if (typeof (s.start_timestamp) !== 'number') {
+          s.start_timestamp = this.lib.DayJSHelper.time()
+          return s.step_name
+        }
+        if (typeof (s.start_timestamp) === 'number'
+                && typeof (s.end_timestamp) !== 'number') {
+          return s.step_name
+        }
+      }
+      let finishStep = this.status.readingConfig.readingProgressesFinish
+      if (this.lib.ValidateHelper.isURL(finishStep)) {
+        this._redirect(finishStep)
+        return false
+      }
+      return finishStep
+    }
+    return 'not-yet-started'
+  }
+  Auth.computed.currentStepConfig = function () {
+    if (typeof (this.currentStep) === 'string') {
+
+      let config = this.status.readingConfig
+      if (typeof (config) === 'object') {
+        return config.readingProgressModules[this.currentStep]
+      }
+    }
+    //console.log(modules)
+    return null
+  }
+  Auth.computed.currentStepAnnotationConfig = function () {
+    let config = this.currentStepConfig
+    if (config !== null) {
+      return config.annotation
+    }
+    return null
+  }
+  Auth.computed.enableCollaboration = function () {
+    let config = this.currentStepAnnotationConfig
+    if (config !== null) {
+      return config.enableCollaboration
+    }
+    return false
+  }
+  Auth.computed.username = function () {
+    if (this.status.displayName !== this.status.username) {
+      return this.status.displayName
+    } else {
+      return this.status.username
+    }
+  }
+  Auth.computed.defaultPremission = function () {
+    return this.currentStepAnnotationConfig.defaultPermission
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/Auth/methodsAuth.js":
+/*!***********************************************************!*\
+  !*** ./webpack-app/client/components/Auth/methodsAuth.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (Auth) {
+  Auth.methods.loadUsernameFromURL = async function () {
+    let result = await this.lib.AxiosHelper.getOther(this.config.usernameQueryURL)
+    if (typeof (result) === 'string') {
+      return result
+    }
+  }
+  Auth.methods.attemptLoginViaUsername = async function (username) {
+    var result = await this.lib.AxiosHelper.get(`/client/user/attempt-login-via-username`, {
+      username: username
+    })
+    if (typeof (result) === 'string') {
+      this.status.username = result
+      return true
+    } else {
+      return false
+    }
+  }
+  Auth.methods.checkLogin = async function () {
+    var result = await this.lib.AxiosHelper.get(`/client/auth/checkLogin`)
+    //console.log(result.preferenceAAA)
+//      if (typeof(result) === 'object') {
+//        for (let name in result) {
+//          this.status[name] = result[name]
+//        }
+//        this.status.needLogin = false
+//      }
+//      else {
+//        this.showLogin()
+//      }
+    //console.log(result)
+    for (let name in result.status) {
+//console.log(name)
+      this.status[name] = result.status[name]
+    }
+
+    if (result.needLogin === false) {
+      this.status.needLogin = false
+    } else {
+      this.showLogin()
+    }
+//this.status.username = result
+  }
+  Auth.methods.getCurrentStep = function () {
+    if (Array.isArray(this.status.readingProgresses)
+            && this.status.readingProgresses.length > 0) {
+      for (let i = 0; i < this.status.readingProgresses.length; i++) {
+        let s = this.status.readingProgresses[i]
+        if (s.isCompleted === true) {
+          continue
+        }
+
+        if (typeof (s.start_timestamp) !== 'number') {
+          s.start_timestamp = this.lib.DayJSHelper.time()
+          return s.step_name
+        }
+        if (typeof (s.start_timestamp) === 'number'
+                && typeof (s.end_timestamp) !== 'number') {
+          return s.step_name
+        }
+      }
+      let finishStep = this.status.readingConfig.readingProgressesFinish
+      if (this.lib.ValidateHelper.isURL(finishStep)) {
+        this._redirect(finishStep)
+        return false
+      }
+      return finishStep
+    }
+    return 'not-yet-started'
+  }
+  Auth.methods._redirect = async function (url) {
+//await this.lib.AxiosHelper.get('/client/auth/logout')
+//return
+    location.href = url
+  },
+          Auth.methods.logout = function () {
+            return this.showLogin()
+          }
+  Auth.methods.showLogin = function () {
+    this.status.needLogin = true
+    this.status.view = 'Login'
+  }
+  Auth.methods.nextStep = async function (sendEnd) {
+//throw 'nextStep'
+    if (sendEnd !== false) {
+      await this.lib.AxiosHelper.get('/client/ReadingProgress/end')
+    }
+
+    let time = this.lib.DayJSHelper.time()
+    for (let i = 0; i < this.status.readingProgresses.length; i++) {
+      let s = this.status.readingProgresses[i]
+      if (s.isCompleted === true) {
+        continue
+      }
+
+      if (typeof (s.start_timestamp) === 'number'
+              && typeof (s.end_timestamp) !== 'number') {
+        s.end_timestamp = time
+        break;
+      }
+    }
+
+    console.log(this.currentStep)
+    console.log(this.this.status.readingProgresses)
+    this.status.view = this.currentStep
+  }
+  Auth.methodsgetHighlightAnnotationType = function (annotation) {
+    let type = annotation.type
+    if (annotation.user_id === this.status.userID) {
+      type = 'my-' + type
+    } else {
+      type = 'others-' + type
+    }
+    return type
+  }
+  Auth.methods.isEditable = function (instance) {
+    if (!instance || typeof (instance.id) !== 'number') {
+      return true
+    }
+
+    if (['domain_admin', 'global_admin'].indexOf(this.status.role) > -1) {
+      return true
+    }
+
+    return (instance.user_id === this.status.userID)
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/Auth/mountedAuth.js":
+/*!***********************************************************!*\
+  !*** ./webpack-app/client/components/Auth/mountedAuth.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (Auth) {
+  Auth.mounted = async function () {
+    if (typeof (this.config.username) !== 'string'
+            && typeof (this.config.usernameQueryURL) === 'string') {
+      this.config.username = await this.loadUsernameFromURL()
+    }
+
+    let result = false
+    if (typeof (this.config.username) === 'string') {
+      result = await this.attemptLoginViaUsername(this.config.username)
+    }
+
+    if (result === false) {
+      await this.checkLogin()
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/Auth/watchAuth.js":
+/*!*********************************************************!*\
+  !*** ./webpack-app/client/components/Auth/watchAuth.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (Auth) {
+  Auth.watch['status.needLogin'] = async function () {
+    if (this.status.needLogin === false) {
+      let view = this.currentStep
+      if (this.lib.ValidateHelper.isURL(view)) {
+        return await this._redirect(view)
+      }
+      //console.log(view)
+      this.status.view = view
+    }
+  }
+});
 
 /***/ }),
 
