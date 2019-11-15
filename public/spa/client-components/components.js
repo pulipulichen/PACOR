@@ -6830,7 +6830,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = false
+let debugMockSend = true
 
 let Editor = {
   props: _Traits_props__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -6972,7 +6972,7 @@ let Editor = {
       
       //console.log(data)
       let id = 1
-      if (debugMockSend === true) {
+      if (debugMockSend === false) {
         id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
       }
       //let id = 1
@@ -7004,13 +7004,14 @@ let Editor = {
         notes: {
           'default': this.note
         }
+        
       }
       
       //throw 'Test'
       //return 
       
       let result = 0
-      if (debugMockSend === true) {
+      if (debugMockSend === false) {
         result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
       }
       
@@ -7082,7 +7083,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = false
+let debugMockSend = true
 
 let Editor = {
   props: _Traits_props__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -7224,7 +7225,7 @@ let Editor = {
       
       //console.log(data)
       let id = 1
-      if (debugMockSend === true) {
+      if (debugMockSend === false) {
         id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
       }
       //let id = 1
@@ -7256,13 +7257,14 @@ let Editor = {
         notes: {
           'default': this.note
         }
+        
       }
       
       //throw 'Test'
       //return 
       
       let result = 0
-      if (debugMockSend === true) {
+      if (debugMockSend === false) {
         result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
       }
       
