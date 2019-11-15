@@ -68,6 +68,7 @@ let AnnotationEditorModules = {
   watch: {
     annotation () {
       this.initHover()
+      this.scrollToAnnotation()
     }
   },
   destroyed () {
@@ -104,8 +105,9 @@ let AnnotationEditorModules = {
     },
     scrollToAnnotation () {
       //throw '@TODO'
+      
       let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.annotation.anchorPositions)
-      //console.log(rect)
+      console.log(rect)
       this.lib.AnnotationPanel.scrollToRect(rect)
     },
     reloadMyHighlights: async function () {

@@ -1062,7 +1062,8 @@ var render = function() {
                 isFull: false,
                 findAnnotation: _vm.viewAnnotation,
                 findUser: _vm.findUser,
-                findType: _vm.findType
+                findType: _vm.findType,
+                searchKeyword: _vm.panelData.keyword
               }
             })
           }),
@@ -1267,7 +1268,8 @@ var render = function() {
                 isFull: false,
                 findAnnotation: _vm.viewAnnotation,
                 findUser: _vm.findUser,
-                findType: _vm.findType
+                findType: _vm.findType,
+                searchKeyword: _vm.panelData.keyword
               }
             })
           }),
@@ -4261,7 +4263,7 @@ let AnnotationList = {
         // 沒有這個參數的話，不捲動
         return false
       }
-      console.log('你有scroll嗎？')
+      //console.log('你有scroll嗎？')
       let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.panelData.anchorPositions)
       this.lib.AnnotationPanel.scrollToRect(rect)
       //throw '@TODO'
@@ -5683,6 +5685,7 @@ let AnnotationEditorModules = {
   watch: {
     annotation () {
       this.initHover()
+      this.scrollToAnnotation()
     }
   },
   destroyed () {
@@ -5719,8 +5722,9 @@ let AnnotationEditorModules = {
     },
     scrollToAnnotation () {
       //throw '@TODO'
+      
       let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.annotation.anchorPositions)
-      //console.log(rect)
+      console.log(rect)
       this.lib.AnnotationPanel.scrollToRect(rect)
     },
     reloadMyHighlights: async function () {
@@ -8612,9 +8616,10 @@ __webpack_require__.r(__webpack_exports__);
     let visibleBottom = visibleTop + visibleHeight
     
     if ( rect.height < visibleHeight ) {
-      if ( rect.top < visibleTop
+      if ( rect.top > visibleTop
               && rect.bottom < visibleBottom) {
         // 還在可顯示的畫面中，不做處理
+        //console.log('不處理', rect, visibleHeight, visibleTop, visibleBottom)
         return false
       }
     }

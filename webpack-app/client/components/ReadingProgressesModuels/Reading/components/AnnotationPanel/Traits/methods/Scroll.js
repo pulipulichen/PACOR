@@ -12,9 +12,10 @@ export default (AnnotationPanel) => {
     let visibleBottom = visibleTop + visibleHeight
     
     if ( rect.height < visibleHeight ) {
-      if ( rect.top < visibleTop
+      if ( rect.top > visibleTop
               && rect.bottom < visibleBottom) {
         // 還在可顯示的畫面中，不做處理
+        //console.log('不處理', rect, visibleHeight, visibleTop, visibleBottom)
         return false
       }
     }

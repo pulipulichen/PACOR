@@ -50,7 +50,7 @@ let AnnotationList = {
         // 沒有這個參數的話，不捲動
         return false
       }
-      console.log('你有scroll嗎？')
+      //console.log('你有scroll嗎？')
       let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.panelData.anchorPositions)
       this.lib.AnnotationPanel.scrollToRect(rect)
       //throw '@TODO'
