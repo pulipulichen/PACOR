@@ -3246,6 +3246,7 @@ let AnnotationFloatWidget = {
   computed: {
     computedContainerClassNames () {
       if (this.anchorPositions === null) {
+        //console.log('no')
         return this.lastPosition
       }
       
@@ -3268,6 +3269,8 @@ let AnnotationFloatWidget = {
       if (this.lib.RangyManager.isSelecting()) {
         classList.push('selecting')
       }
+      
+      //console.log(classList)
       //return 'bottom'
       if (classList.length > 0) {
         return classList.join(' ')
@@ -3318,6 +3321,8 @@ let AnnotationFloatWidget = {
       })
       
       rangy.addEventListener('highlightMouseover', (data) => {
+        //console.log(data)
+        //console.log(this.lib.AnnotationPanel.isHide)
         if (this.lib.AnnotationPanel.isHide === false) {
           return false
         }
@@ -3348,6 +3353,12 @@ let AnnotationFloatWidget = {
         return false
       }
       
+      this.annotationCount = 0
+      this.annotation = null
+      this.users = []
+      this.userCount = 0
+      this.types = []
+      
       let query = {
         anchorPositions: this.anchorPositions
       }
@@ -3358,9 +3369,20 @@ let AnnotationFloatWidget = {
         return false
       }
       
+      // ----------------------------
+      
+      // 先重置本來的資料
+      
+      
       //console.log(result)
+      
+      
       for (let key in result) {
         this[key] = result[key]
+      }
+      
+      if (this.annotationCount === 0) {
+        console.log('no annotation')
       }
       //this.$emit('list', this.highlightPos) // for test
     },
@@ -6830,7 +6852,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = true
+let debugMockSend = false
 
 let Editor = {
   props: _Traits_props__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -6943,7 +6965,7 @@ let Editor = {
   },
   methods: {
     loadDraft: async function () {
-      console.log(this.note)
+      //console.log(this.note)
       if (this.note !== '') {
         return false
       }
@@ -6997,6 +7019,9 @@ let Editor = {
       this.$emit('add')
     },
     
+    /**
+     * 編輯標註
+     */
     editAnnotation: async function () {
       
       let data = {
@@ -7083,7 +7108,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = true
+let debugMockSend = false
 
 let Editor = {
   props: _Traits_props__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -7196,7 +7221,7 @@ let Editor = {
   },
   methods: {
     loadDraft: async function () {
-      console.log(this.note)
+      //console.log(this.note)
       if (this.note !== '') {
         return false
       }
@@ -7250,6 +7275,9 @@ let Editor = {
       this.$emit('add')
     },
     
+    /**
+     * 編輯標註
+     */
     editAnnotation: async function () {
       
       let data = {
@@ -9087,9 +9115,33 @@ __webpack_require__.r(__webpack_exports__);
     let anchorParagraphIds = annotation.anchorPositions.map(pos => {
       return pos.paragraph_id
     })
+    
+    
     this.highlightPinnedSelection('my-' + annotation.type, anchorParagraphIds)
+    
+    //let serilized = this.getSerializedHighlightsFromAnnotation(annotation)
+    //this.deserializeAppend(serilized)
   }
 
+  RangyManager.methods.getSerializedHighlightsFromAnnotation = function (annotation) {
+    let highlightType = this.lib.AnnotationHelper.highlightType(annotation)
+    return this.getSerializedHighlightsFromAnchorPositions(highlightType, annotation.anchorPositions)
+  }
+
+  RangyManager.methods.getSerializedHighlightsFromAnchorPositions = function (type, anchorPositions) {
+    let highlightJSONArray = anchorPositions.map((pos, i) => {
+        return [
+          pos.start_pos,
+          pos.end_pos,
+          (i+1),
+          type,
+          pos.paragraph_id
+        ].join('$')
+      })
+      
+    highlightJSONArray.unshift('type:textContent')
+    return highlightJSONArray.join('|')
+  }
 });
 
 
@@ -9296,80 +9348,19 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   RangyManager.methods.highlightPinnedSelection = function (className, anchorParagraphIds, doUnpin) {
+    //console.log(className)
     if (this.highlightClasses.indexOf(className) === -1
             || this.selectionSaved === null) {
       return false
     }
     
-    //let sel = rangy.getSelection()
-    //let id = window.$(sel.anchorNode).parents("[data-pacor-paragraph-seq-id]:first").prop('id')
-    //return
-    //toggleItalicYellowBg();
-    //let ids = JSON.parse(JSON.stringify(this.selection.anchorPosition.paragraph_id))
-    //console.log(this.selection.anchorPosition.paragraph_id)
-
-    /*
-     let highlights = []
-     
-     let loop = (i) => {
-     console.log(i, ids.length)
-     rangy.restoreSelection(this.selectionSaved)
-     if (i < ids.length) {
-     let id = ids[i]
-     console.log(id)
-     let highlight = this.highlighter.highlightSelection(className, {
-     exclusive: false,
-     containerElementId: id,
-     selection: this.selection
-     })
-     highlights = highlights.concat(highlight)
-     this.selection.removeAllRanges()
-     setTimeout(function () {
-     loop(i+1)
-     }, 500)
-     return
-     }
-     else {
-     console.log(highlights)
-     
-     //console.log(className)
-     this.selection.removeAllRanges()
-     this.unpinSelection()
-     
-     this.selection.highlight = highlights
-     }
-     }
-     loop(0)
-     */
-    /*
-     this.selection.anchorPosition.paragraph_id.forEach(id => {
-     console.log(id, className)
-     let highlight = this.highlighter.highlightSelection(className, {
-     exclusive: false,
-     containerElementId: id
-     })
-     highlights = highlights.concat(highlight)
-     })
-     
-     console.log(highlights)
-     
-     //console.log(className)
-     this.selection.removeAllRanges()
-     this.unpinSelection()
-     
-     this.selection.highlight = highlights
-     
-     return this.selection
-     */
-
-    //let ids = JSON.parse(JSON.stringify(this.selection.anchorPosition.paragraph_id))
-
     this.rangy.restoreSelection(this.selectionSaved)
 
     this.highlighter.highlightSelection(className, {
       exclusive: false,
       containerElementId: anchorParagraphIds
     })
+    
     //console.log(highlight[0])
 
     if (doUnpin !== false) {
@@ -9380,9 +9371,7 @@ __webpack_require__.r(__webpack_exports__);
       this.unpinSelection()
     }
 
-    //this.selection.highlight = highlight
-
-    //return this.selection
+    return this
   }
 
   RangyManager.methods.removeMyHighlights = function () {

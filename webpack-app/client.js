@@ -69,7 +69,7 @@ let VueController = {
     config: config,
     status: {
       needLogin: true,
-      userID: 0,
+      userID: -1,
       username: '',
       displayName: '',
       avatar: '',
@@ -112,8 +112,8 @@ let VueController = {
       this.lib.DayJSHelper.setLocale(this.config.locale)
     },
   },
-  created: function () {
-  },
+  //created: function () {
+  //},
   mounted: function () {
     this.lib.AxiosHelper.setErrorHandler((error) => {
       this.errors.push(error)
@@ -124,6 +124,7 @@ let VueController = {
     })
     
     this.lib.auth = this.$refs.auth
+    this.lib.AnnotationHelper.setStatus(this.status)
     //console.log(this.lib.auth.nextStep)
   },
   

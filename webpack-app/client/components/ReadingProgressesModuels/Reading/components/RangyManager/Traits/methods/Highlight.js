@@ -144,80 +144,19 @@ export default (RangyManager) => {
   }
   
   RangyManager.methods.highlightPinnedSelection = function (className, anchorParagraphIds, doUnpin) {
+    //console.log(className)
     if (this.highlightClasses.indexOf(className) === -1
             || this.selectionSaved === null) {
       return false
     }
     
-    //let sel = rangy.getSelection()
-    //let id = window.$(sel.anchorNode).parents("[data-pacor-paragraph-seq-id]:first").prop('id')
-    //return
-    //toggleItalicYellowBg();
-    //let ids = JSON.parse(JSON.stringify(this.selection.anchorPosition.paragraph_id))
-    //console.log(this.selection.anchorPosition.paragraph_id)
-
-    /*
-     let highlights = []
-     
-     let loop = (i) => {
-     console.log(i, ids.length)
-     rangy.restoreSelection(this.selectionSaved)
-     if (i < ids.length) {
-     let id = ids[i]
-     console.log(id)
-     let highlight = this.highlighter.highlightSelection(className, {
-     exclusive: false,
-     containerElementId: id,
-     selection: this.selection
-     })
-     highlights = highlights.concat(highlight)
-     this.selection.removeAllRanges()
-     setTimeout(function () {
-     loop(i+1)
-     }, 500)
-     return
-     }
-     else {
-     console.log(highlights)
-     
-     //console.log(className)
-     this.selection.removeAllRanges()
-     this.unpinSelection()
-     
-     this.selection.highlight = highlights
-     }
-     }
-     loop(0)
-     */
-    /*
-     this.selection.anchorPosition.paragraph_id.forEach(id => {
-     console.log(id, className)
-     let highlight = this.highlighter.highlightSelection(className, {
-     exclusive: false,
-     containerElementId: id
-     })
-     highlights = highlights.concat(highlight)
-     })
-     
-     console.log(highlights)
-     
-     //console.log(className)
-     this.selection.removeAllRanges()
-     this.unpinSelection()
-     
-     this.selection.highlight = highlights
-     
-     return this.selection
-     */
-
-    //let ids = JSON.parse(JSON.stringify(this.selection.anchorPosition.paragraph_id))
-
     this.rangy.restoreSelection(this.selectionSaved)
 
     this.highlighter.highlightSelection(className, {
       exclusive: false,
       containerElementId: anchorParagraphIds
     })
+    
     //console.log(highlight[0])
 
     if (doUnpin !== false) {
@@ -228,9 +167,7 @@ export default (RangyManager) => {
       this.unpinSelection()
     }
 
-    //this.selection.highlight = highlight
-
-    //return this.selection
+    return this
   }
 
   RangyManager.methods.removeMyHighlights = function () {

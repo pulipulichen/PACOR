@@ -22,6 +22,7 @@ let AnnotationFloatWidget = {
   computed: {
     computedContainerClassNames () {
       if (this.anchorPositions === null) {
+        //console.log('no')
         return this.lastPosition
       }
       
@@ -44,6 +45,8 @@ let AnnotationFloatWidget = {
       if (this.lib.RangyManager.isSelecting()) {
         classList.push('selecting')
       }
+      
+      //console.log(classList)
       //return 'bottom'
       if (classList.length > 0) {
         return classList.join(' ')
@@ -94,6 +97,8 @@ let AnnotationFloatWidget = {
       })
       
       rangy.addEventListener('highlightMouseover', (data) => {
+        //console.log(data)
+        //console.log(this.lib.AnnotationPanel.isHide)
         if (this.lib.AnnotationPanel.isHide === false) {
           return false
         }
@@ -124,6 +129,12 @@ let AnnotationFloatWidget = {
         return false
       }
       
+      this.annotationCount = 0
+      this.annotation = null
+      this.users = []
+      this.userCount = 0
+      this.types = []
+      
       let query = {
         anchorPositions: this.anchorPositions
       }
@@ -134,9 +145,20 @@ let AnnotationFloatWidget = {
         return false
       }
       
+      // ----------------------------
+      
+      // 先重置本來的資料
+      
+      
       //console.log(result)
+      
+      
       for (let key in result) {
         this[key] = result[key]
+      }
+      
+      if (this.annotationCount === 0) {
+        console.log('no annotation')
       }
       //this.$emit('list', this.highlightPos) // for test
     },

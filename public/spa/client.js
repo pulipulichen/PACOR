@@ -1380,7 +1380,7 @@ let VueController = {
     config: _config_js__WEBPACK_IMPORTED_MODULE_12__["default"],
     status: {
       needLogin: true,
-      userID: 0,
+      userID: -1,
       username: '',
       displayName: '',
       avatar: '',
@@ -1423,8 +1423,8 @@ let VueController = {
       this.lib.DayJSHelper.setLocale(this.config.locale)
     },
   },
-  created: function () {
-  },
+  //created: function () {
+  //},
   mounted: function () {
     this.lib.AxiosHelper.setErrorHandler((error) => {
       this.errors.push(error)
@@ -1435,6 +1435,7 @@ let VueController = {
     })
     
     this.lib.auth = this.$refs.auth
+    this.lib.AnnotationHelper.setStatus(this.status)
     //console.log(this.lib.auth.nextStep)
   },
   
@@ -3675,6 +3676,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let AnnotationHelper = {
+  status: null,
+  
+  setStatus (status) {
+    this.status = status
+    return this
+  },
   note (annotation, type, note) {
     if (typeof(type) === 'object') {
       Object.keys(type).each(t => {
@@ -3708,6 +3715,17 @@ let AnnotationHelper = {
     }
     
     return annotation
+  },
+  
+  highlightType (annotation) {
+    let type = annotation.type
+    if (annotation.user_id === this.status.userID) {
+      type = 'my-' + type
+    }
+    else {
+      type = 'others-' + type
+    }
+    return type
   }
 }
 

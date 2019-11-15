@@ -3,7 +3,7 @@ import props from './../Traits/props'
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = true
+let debugMockSend = false
 
 let Editor = {
   props: props,
@@ -116,7 +116,7 @@ let Editor = {
   },
   methods: {
     loadDraft: async function () {
-      console.log(this.note)
+      //console.log(this.note)
       if (this.note !== '') {
         return false
       }
@@ -170,6 +170,9 @@ let Editor = {
       this.$emit('add')
     },
     
+    /**
+     * 編輯標註
+     */
     editAnnotation: async function () {
       
       let data = {
