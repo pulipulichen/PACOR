@@ -345,7 +345,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".message[data-v-7f785ee2] {\n  text-align: center;\n  max-height: calc(100vh - 30em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n", "",{"version":3,"sources":["Login.less?vue&type=style&index=0&id=7f785ee2&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,8BAA8B;EAC9B,kBAAkB;EAClB,gBAAgB;AAClB","file":"Login.less?vue&type=style&index=0&id=7f785ee2&lang=less&scoped=true&","sourcesContent":[".message[data-v-7f785ee2] {\n  text-align: center;\n  max-height: calc(100vh - 30em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n"]}]);
+exports.push([module.i, ".login-message[data-v-7f785ee2] {\n  text-align: center;\n  max-height: calc(100vh - 30em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n", "",{"version":3,"sources":["Login.less?vue&type=style&index=0&id=7f785ee2&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,8BAA8B;EAC9B,kBAAkB;EAClB,gBAAgB;AAClB","file":"Login.less?vue&type=style&index=0&id=7f785ee2&lang=less&scoped=true&","sourcesContent":[".login-message[data-v-7f785ee2] {\n  text-align: center;\n  max-height: calc(100vh - 30em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n"]}]);
 
 
 /***/ }),
@@ -527,7 +527,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "ten wide column" }, [
                     _c("div", {
-                      staticClass: "ui message",
+                      staticClass: "ui segment login-message",
                       domProps: {
                         innerHTML: _vm._s(_vm.status.readingConfig.loginMessage)
                       }
@@ -1716,6 +1716,9 @@ let Auth = {
           break;
         }
       }
+      
+      console.log(this.currentStep)
+      console.log(this.this.status.readingProgresses)
       this.status.view = this.currentStep
     },
     getHighlightAnnotationType (annotation) {
@@ -1829,7 +1832,7 @@ let Login = {
       }
       
       if (this.adminMode === false) {
-        return !(this.username === '')
+        return (this.username === '')
       }
       else {
         return (this.username === '' || this.password === '')
@@ -3438,9 +3441,13 @@ let ValidationButton = {
     },
     wordCount () {
       let text = this.text
-      text = this.lib.StringHelper.htmlToText(text)
+      
+      //console.log(text)
+      text = this.lib.StringHelper.htmlToText(text, true)
+      //console.log(text)
       text = this.lib.StringHelper.removePunctuations(text)
-      text = this.lib.StringHelper.removeSpaces(text)
+      //text = this.lib.StringHelper.removeSpaces(text)
+      //console.log(text)
       let count = this.lib.StringHelper.countWords(text)
       //console.log(count)
       return count
@@ -3669,6 +3676,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 let AnnotationHelper = {
   note (annotation, type, note) {
+    if (typeof(type) === 'object') {
+      Object.keys(type).each(t => {
+        let n = type[t]
+        this.note(annotation, t, n)
+      })
+      return undefined
+    }
+    
     let found = false
     if (!annotation.notes) {
       annotation.notes = [{

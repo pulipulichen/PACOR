@@ -216,8 +216,8 @@ let HTMLEditor = {
       }
     }
   },  // computed: {
-  watch: {
-  },  // watch: {
+//  watch: {
+//  },  // watch: {
   mounted() {
     this.initEditor()
   },  // mounted() {
@@ -276,6 +276,7 @@ let HTMLEditor = {
     focus () {
       this.editor.summernote('focus')
       
+      return false
       $(this.$refs.editorContainer).find(".note-editable:first")[0].focus();
       // select all the content in the element
       document.execCommand('selectAll', false, null)

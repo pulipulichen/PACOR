@@ -198,6 +198,9 @@ let Auth = {
           break;
         }
       }
+      
+      console.log(this.currentStep)
+      console.log(this.this.status.readingProgresses)
       this.status.view = this.currentStep
     },
     getHighlightAnnotationType (annotation) {

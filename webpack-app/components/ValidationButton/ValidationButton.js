@@ -36,9 +36,13 @@ let ValidationButton = {
     },
     wordCount () {
       let text = this.text
-      text = this.lib.StringHelper.htmlToText(text)
+      
+      //console.log(text)
+      text = this.lib.StringHelper.htmlToText(text, true)
+      //console.log(text)
       text = this.lib.StringHelper.removePunctuations(text)
-      text = this.lib.StringHelper.removeSpaces(text)
+      //text = this.lib.StringHelper.removeSpaces(text)
+      //console.log(text)
       let count = this.lib.StringHelper.countWords(text)
       //console.log(count)
       return count

@@ -4035,10 +4035,12 @@ let StringHelper = {
     for (var i=0;i<a.length;i++){
         if (a[i]==='{PNK}'){
               pnkCounter++;
-        }else if(a[i]==='{THI}'){
-              thiCounter++;
-        }else if (a[i].length>0){
-              count++;
+        }
+        else if(a[i]==='{THI}'){
+              thiCounter++
+        }
+        else if (a[i].length>0){
+              count++
         }
     }
     count += Math.ceil(pnkCounter/3) + Math.ceil(thiCounter/4);
@@ -4058,8 +4060,18 @@ let StringHelper = {
   removeSpaces (s) {
     return s.replace(/ /g, '')
   },
-  htmlToText (s) {
-    return jquery__WEBPACK_IMPORTED_MODULE_0___default()(s).text()
+  htmlToText (s, spaceInDifferentElement) {
+    if (!spaceInDifferentElement || spaceInDifferentElement === false) { 
+      return jquery__WEBPACK_IMPORTED_MODULE_0___default()(s).text()
+    }
+    else {
+      let children = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>' + s + '</div>').children()
+      let output = []
+      children.each((i, ele) => {
+        output.push(ele.innerText)
+      })
+      return output.join(' ')
+    }
   }
 }
 

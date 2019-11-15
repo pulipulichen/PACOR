@@ -17,7 +17,7 @@ let Login = {
       }
       
       if (this.adminMode === false) {
-        return !(this.username === '')
+        return (this.username === '')
       }
       else {
         return (this.username === '' || this.password === '')

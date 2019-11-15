@@ -103,7 +103,10 @@ let Editor = {
         this.noteReset = this.note
         this.$refs.editor.html(this.note)
       }
-    }
+    },
+    //note (note) {
+    //  this.annotation.notes[0].note = this.note
+    //} 
   },
   mounted() {
     //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
@@ -111,6 +114,11 @@ let Editor = {
   },
   methods: {
     loadDraft: async function () {
+      console.log(this.note)
+      if (this.note !== '') {
+        return false
+      }
+      
       let note = this.lib.RangyManager.getPinSelectionAnchorText()
       note = this.lib.StringHelper.removePunctuations(note).trim()
       this.note = note
@@ -135,8 +143,8 @@ let Editor = {
       
       //console.log(data)
       
-      let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
-      //let id = 1
+      //let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+      let id = 1
       //console.log(id) // for test
       
       if (typeof(id) !== 'number') {
@@ -144,7 +152,13 @@ let Editor = {
         return false  // 新增失敗
       }
       
+      // ------------------------
+      
+      // 新增成功之後
+      
       //this.lib.RangyManager.highlightPinnedSelectionFromAnnotation('my-' + this.annotation.type, this.pinSelection.anchorParagraphIds)
+      this.annotation.notes[0].note = this.note
+      
       this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
       this.$refs.editor.reset()
       
@@ -163,13 +177,18 @@ let Editor = {
       //throw 'Test'
       //return 
       
-      let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      //let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      let result = 0
       
       if (result !== 1) {
         throw this.$t('Update failed.')
       }
       
+      // ----------------------
+      // 新增成功之後
+      
       //console.log('AAA?')
+      this.annotation.notes[0].note = this.note
       
       this.$emit('update')
     },

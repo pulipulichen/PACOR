@@ -84,7 +84,10 @@ export default (Editor) => {
         return false  // 新增失敗
       }
       
+      // -----------------------------------------
+      
       this.annotation.id = id
+      this.lib.AnnotationHelper.note(this.annotation, 'question', this.question)
       
       //this.id = id
       // 請在這裡建立annotationInstance，然後轉換成edit狀態
@@ -119,13 +122,15 @@ export default (Editor) => {
       this.lib.AnnotationHelper.note(this.annotation, 'question', this.question)
       this.lib.AnnotationHelper.note(this.annotation, 'answer', this.answer)
       
+      let notes = {
+          'question': this.question,
+          'answer': this.answer
+        }
+      
       let data = {
         id: this.annotation.id,
         type: type,
-        notes: {
-          'question': this.question,
-          'answer': this.answer
-        },
+        notes: notes,
         properties: this.annotation.properties
       }
       
@@ -143,6 +148,10 @@ export default (Editor) => {
         throw 'Update failed'
         return false  // 新增失敗
       }
+      
+      // ------------------------------------------------
+      
+      this.lib.AnnotationHelper.note(this.annotation, notes)
       
       //this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
       //this.rangy.reloadMyHighlights()

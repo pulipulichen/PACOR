@@ -6619,7 +6619,10 @@ __webpack_require__.r(__webpack_exports__);
         return false  // 新增失敗
       }
       
+      // -----------------------------------------
+      
       this.annotation.id = id
+      this.lib.AnnotationHelper.note(this.annotation, 'question', this.question)
       
       //this.id = id
       // 請在這裡建立annotationInstance，然後轉換成edit狀態
@@ -6654,13 +6657,15 @@ __webpack_require__.r(__webpack_exports__);
       this.lib.AnnotationHelper.note(this.annotation, 'question', this.question)
       this.lib.AnnotationHelper.note(this.annotation, 'answer', this.answer)
       
+      let notes = {
+          'question': this.question,
+          'answer': this.answer
+        }
+      
       let data = {
         id: this.annotation.id,
         type: type,
-        notes: {
-          'question': this.question,
-          'answer': this.answer
-        },
+        notes: notes,
         properties: this.annotation.properties
       }
       
@@ -6678,6 +6683,10 @@ __webpack_require__.r(__webpack_exports__);
         throw 'Update failed'
         return false  // 新增失敗
       }
+      
+      // ------------------------------------------------
+      
+      this.lib.AnnotationHelper.note(this.annotation, notes)
       
       //this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
       //this.rangy.reloadMyHighlights()
@@ -6917,7 +6926,10 @@ let Editor = {
         this.noteReset = this.note
         this.$refs.editor.html(this.note)
       }
-    }
+    },
+    //note (note) {
+    //  this.annotation.notes[0].note = this.note
+    //} 
   },
   mounted() {
     //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
@@ -6925,6 +6937,11 @@ let Editor = {
   },
   methods: {
     loadDraft: async function () {
+      console.log(this.note)
+      if (this.note !== '') {
+        return false
+      }
+      
       let note = this.lib.RangyManager.getPinSelectionAnchorText()
       note = this.lib.StringHelper.removePunctuations(note).trim()
       this.note = note
@@ -6949,8 +6966,8 @@ let Editor = {
       
       //console.log(data)
       
-      let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
-      //let id = 1
+      //let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+      let id = 1
       //console.log(id) // for test
       
       if (typeof(id) !== 'number') {
@@ -6958,7 +6975,13 @@ let Editor = {
         return false  // 新增失敗
       }
       
+      // ------------------------
+      
+      // 新增成功之後
+      
       //this.lib.RangyManager.highlightPinnedSelectionFromAnnotation('my-' + this.annotation.type, this.pinSelection.anchorParagraphIds)
+      this.annotation.notes[0].note = this.note
+      
       this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
       this.$refs.editor.reset()
       
@@ -6977,13 +7000,18 @@ let Editor = {
       //throw 'Test'
       //return 
       
-      let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      //let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      let result = 0
       
       if (result !== 1) {
         throw this.$t('Update failed.')
       }
       
+      // ----------------------
+      // 新增成功之後
+      
       //console.log('AAA?')
+      this.annotation.notes[0].note = this.note
       
       this.$emit('update')
     },
@@ -7143,7 +7171,10 @@ let Editor = {
         this.noteReset = this.note
         this.$refs.editor.html(this.note)
       }
-    }
+    },
+    //note (note) {
+    //  this.annotation.notes[0].note = this.note
+    //} 
   },
   mounted() {
     //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
@@ -7151,6 +7182,11 @@ let Editor = {
   },
   methods: {
     loadDraft: async function () {
+      console.log(this.note)
+      if (this.note !== '') {
+        return false
+      }
+      
       let note = this.lib.RangyManager.getPinSelectionAnchorText()
       note = this.lib.StringHelper.removePunctuations(note).trim()
       this.note = note
@@ -7175,8 +7211,8 @@ let Editor = {
       
       //console.log(data)
       
-      let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
-      //let id = 1
+      //let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+      let id = 1
       //console.log(id) // for test
       
       if (typeof(id) !== 'number') {
@@ -7184,7 +7220,13 @@ let Editor = {
         return false  // 新增失敗
       }
       
+      // ------------------------
+      
+      // 新增成功之後
+      
       //this.lib.RangyManager.highlightPinnedSelectionFromAnnotation('my-' + this.annotation.type, this.pinSelection.anchorParagraphIds)
+      this.annotation.notes[0].note = this.note
+      
       this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
       this.$refs.editor.reset()
       
@@ -7203,13 +7245,18 @@ let Editor = {
       //throw 'Test'
       //return 
       
-      let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      //let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      let result = 0
       
       if (result !== 1) {
         throw this.$t('Update failed.')
       }
       
+      // ----------------------
+      // 新增成功之後
+      
       //console.log('AAA?')
+      this.annotation.notes[0].note = this.note
       
       this.$emit('update')
     },
@@ -7372,16 +7419,16 @@ _MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"].methods.loadDraft 
   }
   
   //setTimeout(async () => {
-    let note = await this.lib.AxiosHelper.get('/client/Section/getMainIdeasInSection', {
-      seq_id: this.annotation.anchorPositions[0].seq_id
-    })
-    
-    this.note = note
-    //this.noteReset = note
-    //console.log(this.note)
-    if (this.$refs.editor) {
-      this.$refs.editor.html(this.note)
-    }
+  let note = await this.lib.AxiosHelper.get('/client/Section/getMainIdeasInSection', {
+    seq_id: this.annotation.anchorPositions[0].seq_id
+  })
+
+  this.note = note
+  //this.noteReset = note
+  //console.log(this.note)
+  if (this.$refs.editor) {
+    this.$refs.editor.html(this.note)
+  }
   //}, 100)
 }
 
@@ -19258,6 +19305,7 @@ let SectionChecklist = {
             && this.sectionsData.checklist[this.sectionSeqID]
             && Array.isArray(this.sectionsData.checklist[this.sectionSeqID])) {
       checked = this.sectionsData.checklist[this.sectionSeqID]
+      //console.log(checked)
     }
     
     let isChecklistAnnotationSubmitted = false
@@ -19321,7 +19369,10 @@ let SectionChecklist = {
 //          this.sectionsData.checklist[this.sectionSeqID] = {}
 //        }
         
+        //console.log(this.sectionsData.checklist)
         let checklistData = this.sectionsData.checklist[this.sectionSeqID]
+        //console.log(checklistData, typeof(checklistData), Array.isArray(checklistData))
+        
         checklistData = checklistData ? checklistData : []
         
         if (Array.isArray(checklistData) === false
@@ -19341,7 +19392,19 @@ let SectionChecklist = {
           }
         })
         //this.checklistData = checklistData
-        this.checked = checklistData
+        //console.log(checklistData, typeof(checklistData), Array.isArray(checklistData))
+        //this.checked = checklistData
+        if (Array.isArray(checklistData) === false
+                && typeof(checklistData) === 'object') {
+          Object.keys(checklistData).forEach(key => {
+            this.checked[key] = checklistData[key]
+          })
+        }
+        else if (Array.isArray(checklistData)) {
+          checklistData.forEach((value, i) => {
+            this.checked[i] = value
+          })
+        }
         //console.log(this.checked)
         return checklist
       }
@@ -19383,6 +19446,7 @@ let SectionChecklist = {
     checklistAnnotationIndex (checklistAnnotationIndex) {
       if (checklistAnnotationIndex !== -1 
               && this.annotation) {
+        //console.log(this.checked, typeof(this.checked))
         this.checked.splice(checklistAnnotationIndex, 1, (typeof(this.annotation.id) === 'number'))
       } 
     }
@@ -19429,7 +19493,7 @@ let SectionChecklist = {
       */
       this.lib.AnnotationPanel.setAnnotation(this.annotation, {
         'add': (annotation) => {
-          //console.log(annotation)
+          console.log(annotation.notes[0].note)
           //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
           
           //console.log(this.sectionSeqID)

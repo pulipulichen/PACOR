@@ -14,6 +14,7 @@ let SectionChecklist = {
             && this.sectionsData.checklist[this.sectionSeqID]
             && Array.isArray(this.sectionsData.checklist[this.sectionSeqID])) {
       checked = this.sectionsData.checklist[this.sectionSeqID]
+      //console.log(checked)
     }
     
     let isChecklistAnnotationSubmitted = false
@@ -77,7 +78,10 @@ let SectionChecklist = {
 //          this.sectionsData.checklist[this.sectionSeqID] = {}
 //        }
         
+        //console.log(this.sectionsData.checklist)
         let checklistData = this.sectionsData.checklist[this.sectionSeqID]
+        //console.log(checklistData, typeof(checklistData), Array.isArray(checklistData))
+        
         checklistData = checklistData ? checklistData : []
         
         if (Array.isArray(checklistData) === false
@@ -97,7 +101,19 @@ let SectionChecklist = {
           }
         })
         //this.checklistData = checklistData
-        this.checked = checklistData
+        //console.log(checklistData, typeof(checklistData), Array.isArray(checklistData))
+        //this.checked = checklistData
+        if (Array.isArray(checklistData) === false
+                && typeof(checklistData) === 'object') {
+          Object.keys(checklistData).forEach(key => {
+            this.checked[key] = checklistData[key]
+          })
+        }
+        else if (Array.isArray(checklistData)) {
+          checklistData.forEach((value, i) => {
+            this.checked[i] = value
+          })
+        }
         //console.log(this.checked)
         return checklist
       }
@@ -139,6 +155,7 @@ let SectionChecklist = {
     checklistAnnotationIndex (checklistAnnotationIndex) {
       if (checklistAnnotationIndex !== -1 
               && this.annotation) {
+        //console.log(this.checked, typeof(this.checked))
         this.checked.splice(checklistAnnotationIndex, 1, (typeof(this.annotation.id) === 'number'))
       } 
     }
@@ -185,7 +202,7 @@ let SectionChecklist = {
       */
       this.lib.AnnotationPanel.setAnnotation(this.annotation, {
         'add': (annotation) => {
-          //console.log(annotation)
+          console.log(annotation.notes[0].note)
           //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
           
           //console.log(this.sectionSeqID)
