@@ -13,20 +13,32 @@ let AnnotationFloatWidget = {
       users: [],
       userCount: 0,
       types: [],
+      
+      lastPosition: null,
     }
   },
 //  components: {
 //  },
   computed: {
     computedContainerClassNames () {
-      let classList = []
-      if (this.anchorPositions !== null) {
-        let windowHeight = window.innerHeight
-        let clientY = this.triggerEvent.clientY
-        if (clientY < (windowHeight / 2) ) {
-          classList.push('bottom')
-        }
+      if (this.anchorPositions === null) {
+        return this.lastPosition
       }
+      
+      let classList = []
+      
+      classList.push('show')
+      
+      let windowHeight = window.innerHeight
+      let clientY = this.triggerEvent.clientY
+      if (clientY < (windowHeight / 2) ) {
+        classList.push('bottom')
+        this.lastPosition = 'bottom'
+      }
+      else {
+        this.lastPosition = 'top'
+      }
+      
       
       //console.log(this.lib.RangyManager.isSelecting())
       if (this.lib.RangyManager.isSelecting()) {
@@ -85,9 +97,9 @@ let AnnotationFloatWidget = {
         if (this.lib.AnnotationPanel.isHide === false) {
           return false
         }
-        if (this.isFixed === true) {
-          return false
-        }
+        //if (this.isFixed === true) {
+        //  return false
+        //}
         
         this.triggerEvent = data.event
         this.anchorPositions = data.anchorPositions

@@ -1,6 +1,10 @@
 @verticalMargin: calc(@TopMenuHeight + 1em);
 
 .annotation-float-widget {
+  transition-property: opacity;
+  transition-duration: 0.3s;
+  opacity: 0;
+  
   filter: drop-shadow(0px 0px 0.5em rgba(0, 0, 0, 1));
   
   position: fixed !important;
@@ -11,6 +15,10 @@
   max-height: calc(50vh - @TopMenuHeight - 2em);
   overflow-x: hidden;
   overflow-y: auto;
+  
+  &.show {
+    opacity: 1;
+  }
   
   &.bottom {
     top: auto;

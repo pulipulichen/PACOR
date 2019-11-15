@@ -3,6 +3,8 @@ import props from './../Traits/props'
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
+let debugMockSend = false
+
 let Editor = {
   props: props,
   data() {
@@ -142,9 +144,11 @@ let Editor = {
       }
       
       //console.log(data)
-      
-      //let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
       let id = 1
+      if (debugMockSend === true) {
+        id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+      }
+      //let id = 1
       //console.log(id) // for test
       
       if (typeof(id) !== 'number') {
@@ -177,8 +181,10 @@ let Editor = {
       //throw 'Test'
       //return 
       
-      //let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
       let result = 0
+      if (debugMockSend === true) {
+        result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      }
       
       if (result !== 1) {
         throw this.$t('Update failed.')
