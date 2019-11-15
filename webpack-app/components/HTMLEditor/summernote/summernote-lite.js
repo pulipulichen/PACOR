@@ -285,7 +285,7 @@
   var toolbar = renderer.create('<div class="note-toolbar" role="toolbar"/>');
   var editingArea = renderer.create('<div class="note-editing-area"/>');
   var codable = renderer.create('<textarea class="note-codable" role="textbox" aria-multiline="true"/>');
-  var editable = renderer.create('<div class="note-editable show-heading-label" contentEditable="true" role="textbox" aria-multiline="true"/>');
+  var editable = renderer.create('<div class="note-editable show-heading-label" contentEditable="true" role="textbox" aria-multiline="true" />');
   var statusbar = renderer.create([
       '<output class="note-status-output" role="status" aria-live="polite"/>',
       '<div class="note-statusbar" role="resize">',
@@ -298,7 +298,7 @@
   ].join(''));
   var airEditor = renderer.create('<div class="note-editor"/>');
   var airEditable = renderer.create([
-      '<div class="note-editable" contentEditable="true" role="textbox" aria-multiline="true"/>',
+      '<div class="note-editable" contentEditable="true" role="textbox" aria-multiline="true" />',
       '<output class="note-status-output" role="status" aria-live="polite"/>'
   ].join(''));
   var buttonGroup = renderer.create('<div class="note-btn-group">');
@@ -4884,7 +4884,7 @@
             if ($$1(element).hasClass('note-editor-comment')) {
               //console.log(rng)
               _this.context.invoke('commentDialog.show')
-              return
+              return this
             }
             
             if (this.hasSelectedRange() === false) {
@@ -4994,16 +4994,16 @@
             //let text = ''
             //console.log(rng)
             let sel = window.getSelection();
-            console.log(sel)
+            //console.log(sel)
             if (typeof(sel.focusNode) === 'object') {
               let node = sel.focusNode
               if (node.nodeType === 3) {
                 node = node.parentNode
               }
               let html = node.outerHTML
-              console.log(html)
+              //console.log(html)
               if (typeof(html) !== 'string') {
-                return
+                return this
               }
               else {
                 html = html.trim()
@@ -5987,6 +5987,7 @@ ${links}`
               }
               if (this.options.maxHeight) {
                   this.$editable.css('max-height', this.options.maxHeight);
+                  this.$editable.css('overflow-y', 'auto');
               }
               if (this.options.minHeight) {
                   this.$editable.css('min-height', this.options.minHeight);
@@ -7329,6 +7330,10 @@ sel.addRange(range);
               this.destroy();
               return;
           }
+          if (this.options.enableStatusbar === false) {
+            this.$statusbar.hide()
+          }
+          
           this.$statusbar.on('mousedown', function (event) {
               event.preventDefault();
               event.stopPropagation();
@@ -10854,6 +10859,7 @@ sel.addRange(range);
           showHeadingLabel: false, // 記得要改成false
           enableDropImage: true,
           enablePasteImage: true,
+          enableStatusbar: true,
           allowEnter: true,
           helpFooter: null,
           blockquoteBreakingLevel: 2,
@@ -10894,6 +10900,7 @@ sel.addRange(range);
           },
           dialogsInBody: false,
           dialogsFade: false,
+          maxHeight: null,
           maximumImageFileSize: null,
           callbacks: {
               onInit: null,

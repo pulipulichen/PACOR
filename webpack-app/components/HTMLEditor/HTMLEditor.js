@@ -1,5 +1,7 @@
 import './summernote/summernote-lite.webpack.js'
 
+import $ from 'jquery'
+
 let HTMLEditor = {
   props: ['lib', 'status', 'config', 'contents', 'height', 'editable', 'placeholder'],
   data() {
@@ -14,6 +16,16 @@ let HTMLEditor = {
   computed: {
     computedStyle () {
       if (typeof(this.height) === 'string') {
+        
+        let calc = this.height.slice(5, -1)
+        calc = `calc(${calc} - 90px)`
+        //console.log(calc)
+        setTimeout(() => {
+          $(this.$refs.editorContainer).find('.note-editable:visible').css('max-height', calc)
+          //console.log($(this.$refs.editorContainer).find('.note-editable:visible').length)
+        }, 100)
+        
+        
         return {
           height: this.height,
           'max-height': this.height

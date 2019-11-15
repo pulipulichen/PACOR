@@ -24,4 +24,10 @@ export default function (HTMLEditor) {
 
     //console.log('onChange:', contents, $editable);
   }
+  
+  HTMLEditor.methods._onImageUpload = function (files) {
+    // upload image to server and create imgNode...
+    //$summernote.summernote('insertNode', imgNode);
+    console.log(files)
+  }
 }
