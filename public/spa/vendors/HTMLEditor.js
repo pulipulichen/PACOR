@@ -192,6 +192,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _summernote_summernote_lite_webpack_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./summernote/summernote-lite.webpack.js */ "./webpack-app/components/HTMLEditor/summernote/summernote-lite.webpack.js");
+/* harmony import */ var _methodsEditor_HTMLEditor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsEditor_HTMLEditor */ "./webpack-app/components/HTMLEditor/methodsEditor_HTMLEditor.js");
+/* harmony import */ var _methodsSummernote_HTMLEditor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsSummernote_HTMLEditor */ "./webpack-app/components/HTMLEditor/methodsSummernote_HTMLEditor.js");
+/* harmony import */ var _methodsSummernoteCallback_HTMLEditor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsSummernoteCallback_HTMLEditor */ "./webpack-app/components/HTMLEditor/methodsSummernoteCallback_HTMLEditor.js");
 
 
 let HTMLEditor = {
@@ -222,87 +225,17 @@ let HTMLEditor = {
     this.initEditor()
   },  // mounted() {
   methods: {
-    initEditor: function () {
-      let options = {
-        airMode: true,
-        disableDragAndDrop: true,
-        callbacks: {
-          onChange: this._callbacksOnChange
-        }
-      }
-      
-      if (typeof(this.placeholder) === 'string') {
-        options.placeholder = this.placeholder
-      }
-      
-      this.editor = window.$(this.$refs.editor)
-      this.editor.summernote(options)
-      
-      //console.log(this.contents)
-      if (typeof(this.contents) === 'string') {
-        //console.log(this.contents)
-        this.html(this.contents)
-      }
-      
-      //$('<div class="editor-container"><div id="editor"><h1>Hello Summernote</h1></div></div>').appendTo('body')
-      //$('#editor').summernote({
-        //airMode: true
-      //})
-    },
-    _callbacksOnChange (contents) {
-      if (contents === '<p><br></p>'
-          || contents === '<p></p>') {
-        contents = ''
-      }
-      
-      if (contents !== '' 
-              && contents.indexOf('<p>') === -1
-              && contents.startsWith('<') === false
-              && contents.startsWith('>') === false) {
-        contents = `<p>${contents}</p>`
-      }
-      
-      if (this.lastChangedContents === contents) {
-        return false
-      }
-      
-      this.$emit('input', contents)
-      //this.editorConfig.contents = contents
-      
-      this.lastChangedContents = contents
-      
-      //console.log('onChange:', contents, $editable);
-    },
-    focus () {
-      this.editor.summernote('focus')
-      
-      return false
-      $(this.$refs.editorContainer).find(".note-editable:first")[0].focus();
-      // select all the content in the element
-      document.execCommand('selectAll', false, null)
-      // collapse selection to the end
-      document.getSelection().collapseToEnd()
-    },
-    html (html) {
-      if (this.editor === null) {
-        setTimeout(() => {
-          this.html(html)
-        }, 100)
-        return
-      }
-      
-      if (typeof(html) === 'string') {
-        this.editor.summernote('code', html)
-      }
-      else {
-        return this.editor.summernote('code')
-      }
-    },
-    reset () {
-      this.html('')
-    }
   } // methods
 }
+
+
+Object(_methodsEditor_HTMLEditor__WEBPACK_IMPORTED_MODULE_1__["default"])(HTMLEditor)
+
+
+Object(_methodsSummernote_HTMLEditor__WEBPACK_IMPORTED_MODULE_2__["default"])(HTMLEditor)
+
+
+Object(_methodsSummernoteCallback_HTMLEditor__WEBPACK_IMPORTED_MODULE_3__["default"])(HTMLEditor)
 
 /* harmony default export */ __webpack_exports__["default"] = (HTMLEditor);
 
@@ -397,6 +330,134 @@ if (typeof _HTMLEditor_json_vue_type_custom_index_0_blockType_i18n_issuerPath_D_
 if (false) { var api; }
 component.options.__file = "webpack-app/components/HTMLEditor/HTMLEditor.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/components/HTMLEditor/methodsEditor_HTMLEditor.js":
+/*!***********************************************************************!*\
+  !*** ./webpack-app/components/HTMLEditor/methodsEditor_HTMLEditor.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (HTMLEditor) {
+
+  HTMLEditor.methods.focus = function () {
+    this.editor.summernote('focus')
+
+    return false
+    $(this.$refs.editorContainer).find(".note-editable:first")[0].focus();
+    // select all the content in the element
+    document.execCommand('selectAll', false, null)
+    // collapse selection to the end
+    document.getSelection().collapseToEnd()
+  }
+  HTMLEditor.methods.html = function (html) {
+    if (this.editor === null) {
+      setTimeout(() => {
+        this.html(html)
+      }, 100)
+      return this
+    }
+
+    if (typeof (html) === 'string') {
+      this.editor.summernote('code', html)
+    } else {
+      this.editor.summernote('code')
+    }
+    return this
+  }
+  HTMLEditor.methods.reset = function () {
+    this.html('')
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/components/HTMLEditor/methodsSummernoteCallback_HTMLEditor.js":
+/*!***********************************************************************************!*\
+  !*** ./webpack-app/components/HTMLEditor/methodsSummernoteCallback_HTMLEditor.js ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (HTMLEditor) {
+
+  HTMLEditor.methods._callbacksOnChange = function (contents) {
+    if (contents === '<p><br></p>'
+            || contents === '<p></p>') {
+      contents = ''
+    }
+
+    if (contents !== ''
+            && contents.indexOf('<p>') === -1
+            && contents.startsWith('<') === false
+            && contents.startsWith('>') === false) {
+      contents = `<p>${contents}</p>`
+    }
+
+    if (this.lastChangedContents === contents) {
+      return false
+    }
+
+    this.$emit('input', contents)
+    //this.editorConfig.contents = contents
+
+    this.lastChangedContents = contents
+
+    //console.log('onChange:', contents, $editable);
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/components/HTMLEditor/methodsSummernote_HTMLEditor.js":
+/*!***************************************************************************!*\
+  !*** ./webpack-app/components/HTMLEditor/methodsSummernote_HTMLEditor.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (HTMLEditor) {
+  HTMLEditor.methods.initEditor = function () {
+      let options = {
+        airMode: true,
+        disableDragAndDrop: true,
+        callbacks: {
+          onImageUpload: async (files) => {
+            // upload image to server and create imgNode...
+            //$summernote.summernote('insertNode', imgNode);
+            console.log(files)
+          },
+          onChange: this._callbacksOnChange
+        }
+      }
+      
+      if (typeof(this.placeholder) === 'string') {
+        options.placeholder = this.placeholder
+      }
+      
+      this.editor = window.$(this.$refs.editor)
+      this.editor.summernote(options)
+      
+      //console.log(this.contents)
+      if (typeof(this.contents) === 'string') {
+        //console.log(this.contents)
+        this.html(this.contents)
+      }
+      
+      //$('<div class="editor-container"><div id="editor"><h1>Hello Summernote</h1></div></div>').appendTo('body')
+      //$('#editor').summernote({
+        //airMode: true
+      //})
+    }
+});
 
 /***/ }),
 

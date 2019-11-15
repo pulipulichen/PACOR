@@ -66,8 +66,9 @@ class Asset {
 
       // Handle errors
       zip.on('error', err => { 
-        throw new HttpException(`${zipName}.zip/${entryPath} got error: ${err}`, 404)
-        return reject(err);
+        //throw new HttpException(`${zipName}.zip/${entryPath} got error: ${err}`, 404)
+        //return reject(err);
+        return null
       })
 
       zip.on('ready', () => {

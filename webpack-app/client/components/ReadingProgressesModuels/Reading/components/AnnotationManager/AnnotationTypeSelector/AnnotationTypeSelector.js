@@ -79,6 +79,8 @@ let AnnotationTypeSelector = {
   mounted() {
 //    //console.log(this.status.preference.leftHanded)
     this.initRangyEvent()
+    
+    this._testAdd()
   },
   methods: {
     initRangyEvent () {
@@ -108,10 +110,10 @@ let AnnotationTypeSelector = {
       //console.log('clickItem', type)
       //this.$emit('selectAnnotation', type)
       
-      let ancrhoPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
+      let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
       
       let annotation = {
-        anchorPositions: ancrhoPositions,
+        anchorPositions: anchorPositions,
         type: type
       }
       
@@ -133,6 +135,22 @@ let AnnotationTypeSelector = {
       this.lib.AnnotationPanel.setAnchorPositions(ancrhoPositions)
       this.lib.RangyManager.cancelSelection()
       //throw '有改變嗎'
+    },
+    _testAdd () {
+      let anchorPositions = [{
+          seq_id: 0,
+          paragraph_id: 'pacor-paragraph-id-4',
+          start_pos: 5,
+          end_pos: 8,
+      }]
+      let type = 'MainIdea'
+    
+      let annotation = {
+        anchorPositions: anchorPositions,
+        type: type
+      }
+
+      this.lib.AnnotationPanel.setAnnotation(annotation)
     }
   } // methods
 }
