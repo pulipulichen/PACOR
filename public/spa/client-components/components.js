@@ -297,7 +297,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-float-widget[data-v-ca5d3b70] {\n  transition-property: opacity;\n  transition-duration: 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: 1;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.show[data-v-ca5d3b70] {\n  opacity: 1;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top !important;\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,4BAA4B;EAC5B,yBAAyB;EACzB,UAAU;EACV,0CAA0C;EAC1C,0BAA0B;EAC1B,SAAS;EACT,UAAU;EACV,wBAAwB;EACxB,qBAAqB;EACrB,mCAAmC;EACnC,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,UAAU;AACZ;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,kBAAkB;EAClB,8BAA8B;AAChC","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-ca5d3b70] {\n  transition-property: opacity;\n  transition-duration: 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: 1;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.show[data-v-ca5d3b70] {\n  opacity: 1;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top !important;\n}\n"]}]);
+exports.push([module.i, ".annotation-float-widget[data-v-ca5d3b70] {\n  transition-property: opacity;\n  transition-duration: 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: 0;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.show[data-v-ca5d3b70] {\n  opacity: 1;\n  z-index: 1;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top !important;\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,4BAA4B;EAC5B,yBAAyB;EACzB,UAAU;EACV,0CAA0C;EAC1C,0BAA0B;EAC1B,SAAS;EACT,UAAU;EACV,wBAAwB;EACxB,qBAAqB;EACrB,mCAAmC;EACnC,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,UAAU;EACV,UAAU;AACZ;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,kBAAkB;EAClB,8BAA8B;AAChC","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-ca5d3b70] {\n  transition-property: opacity;\n  transition-duration: 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: 0;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.show[data-v-ca5d3b70] {\n  opacity: 1;\n  z-index: 1;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -6988,7 +6988,8 @@ let Editor = {
       // 新增成功之後
       
       //this.lib.RangyManager.highlightPinnedSelectionFromAnnotation('my-' + this.annotation.type, this.pinSelection.anchorParagraphIds)
-      this.annotation.notes[0].note = this.note
+      
+      this.lib.AnnotationHelper.note(this.annotation, 'default', this.note)
       
       this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
       this.$refs.editor.reset()
@@ -7239,7 +7240,8 @@ let Editor = {
       // 新增成功之後
       
       //this.lib.RangyManager.highlightPinnedSelectionFromAnnotation('my-' + this.annotation.type, this.pinSelection.anchorParagraphIds)
-      this.annotation.notes[0].note = this.note
+      
+      this.lib.AnnotationHelper.note(this.annotation, 'default', this.note)
       
       this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
       this.$refs.editor.reset()
