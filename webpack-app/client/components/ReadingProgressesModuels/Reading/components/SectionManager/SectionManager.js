@@ -29,11 +29,9 @@ let SectionManager = {
   methods: {
     initSectionNodes: async function () {
       this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init')
-      console.log(this.sectionsData)
+      //console.log(this.sectionsData)
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = $('[data-pacor-section-seq-id]').toArray()
-      
-      console.log('是因為這裡切換的時候沒有初始化到嗎？似乎是，這邊連切換都沒切換到', sectionNodes.length)
       
       //while (this.sectionsData.length < sectionNodes.length) {
       //  this.sectionsData.push({})

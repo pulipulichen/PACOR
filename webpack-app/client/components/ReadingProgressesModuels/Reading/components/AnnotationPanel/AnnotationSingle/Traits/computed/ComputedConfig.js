@@ -17,7 +17,7 @@ export default (Editor) => {
   }
   
   Editor.computed.isEditable = function () {
-    return this.lib.auth.isEditable(this.annotation)
+    return this.lib.AnnotationHelper.isEditable(this.annotation)
   }
   
   Editor.computed.type = function () {

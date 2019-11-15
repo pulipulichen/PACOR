@@ -1598,6 +1598,7 @@ component.options.__file = "webpack-app/client/components/Auth/Auth.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (Auth) {
   Auth.computed.currentStep = function () {
+    //console.log(JSON.stringify(this.status.readingProgresses, null, ' '))
     if (Array.isArray(this.status.readingProgresses)
             && this.status.readingProgresses.length > 0) {
       for (let i = 0; i < this.status.readingProgresses.length; i++) {
@@ -1715,47 +1716,49 @@ __webpack_require__.r(__webpack_exports__);
     }
 //this.status.username = result
   }
-  Auth.methods.getCurrentStep = function () {
-    if (Array.isArray(this.status.readingProgresses)
-            && this.status.readingProgresses.length > 0) {
-      for (let i = 0; i < this.status.readingProgresses.length; i++) {
-        let s = this.status.readingProgresses[i]
-        if (s.isCompleted === true) {
-          continue
-        }
+//  Auth.methods.getCurrentStep = function () {
+//    //console.log(JSON.stringify(this.status.readingProgresses, null, ' '))
+//    if (Array.isArray(this.status.readingProgresses)
+//            && this.status.readingProgresses.length > 0) {
+//      for (let i = 0; i < this.status.readingProgresses.length; i++) {
+//        let s = this.status.readingProgresses[i]
+//        if (s.isCompleted === true) {
+//          continue
+//        }
+//
+//        if (typeof (s.start_timestamp) !== 'number') {
+//          s.start_timestamp = this.lib.DayJSHelper.time()
+//          return s.step_name
+//        }
+//        if (typeof (s.start_timestamp) === 'number'
+//                && typeof (s.end_timestamp) !== 'number') {
+//          return s.step_name
+//        }
+//      }
+//      let finishStep = this.status.readingConfig.readingProgressesFinish
+//      if (this.lib.ValidateHelper.isURL(finishStep)) {
+//        this._redirect(finishStep)
+//        return false
+//      }
+//      return finishStep
+//    }
+//    return 'not-yet-started'
+//  }
 
-        if (typeof (s.start_timestamp) !== 'number') {
-          s.start_timestamp = this.lib.DayJSHelper.time()
-          return s.step_name
-        }
-        if (typeof (s.start_timestamp) === 'number'
-                && typeof (s.end_timestamp) !== 'number') {
-          return s.step_name
-        }
-      }
-      let finishStep = this.status.readingConfig.readingProgressesFinish
-      if (this.lib.ValidateHelper.isURL(finishStep)) {
-        this._redirect(finishStep)
-        return false
-      }
-      return finishStep
-    }
-    return 'not-yet-started'
-  }
   Auth.methods._redirect = async function (url) {
 //await this.lib.AxiosHelper.get('/client/auth/logout')
 //return
     location.href = url
-  },
-          Auth.methods.logout = function () {
-            return this.showLogin()
-          }
+  }
+  Auth.methods.logout = function () {
+    return this.showLogin()
+  }
   Auth.methods.showLogin = function () {
     this.status.needLogin = true
     this.status.view = 'Login'
   }
   Auth.methods.nextStep = async function (sendEnd) {
-//throw 'nextStep'
+    //throw 'nextStep'
     if (sendEnd !== false) {
       await this.lib.AxiosHelper.get('/client/ReadingProgress/end')
     }
@@ -1769,14 +1772,21 @@ __webpack_require__.r(__webpack_exports__);
 
       if (typeof (s.start_timestamp) === 'number'
               && typeof (s.end_timestamp) !== 'number') {
-        s.end_timestamp = time
-        break;
+        this.status.readingProgresses[i].end_timestamp = time
+        break
       }
     }
+    
+    this.status.readingProgresses = this.status.readingProgresses.slice(0, this.status.readingProgresses.length)
+    
+    //this.$forceUpdate()
 
-    console.log(this.currentStep)
-    console.log(this.this.status.readingProgresses)
-    this.status.view = this.currentStep
+    //setTimeout(() => {
+      //console.log([this.currentStep, this.getCurrentStep()])
+      //console.log(this.status.readingProgresses)
+      this.status.view = this.currentStep
+    //}, 0)
+    
   }
   Auth.methodsgetHighlightAnnotationType = function (annotation) {
     let type = annotation.type
@@ -3795,6 +3805,20 @@ let AnnotationHelper = {
       type = 'others-' + type
     }
     return type
+  },
+  
+  isEditable: function (annotation) {
+    if (!annotation 
+            || typeof (annotation.id) !== 'number'
+            || typeof (annotation.user_id) !== 'number') {
+      return true
+    }
+
+    if (['domain_admin', 'global_admin'].indexOf(this.status.role) > -1) {
+      return true
+    }
+
+    return (annotation.user_id === this.status.userID)
   }
 }
 

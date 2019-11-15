@@ -161,7 +161,7 @@ let Editor = {
       // 新增成功之後
       
       //this.lib.RangyManager.highlightPinnedSelectionFromAnnotation('my-' + this.annotation.type, this.pinSelection.anchorParagraphIds)
-      
+      this.annotation.id = id
       this.lib.AnnotationHelper.note(this.annotation, 'default', this.note)
       
       this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)

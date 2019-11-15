@@ -2,6 +2,7 @@ import Editor from './../MainIdea/MainIdea.js'
 
 Editor.mounted = function () {
   this.loadDraft()
+  console.log(this.annotation)
 }
 
 Editor.computed.enableDelete = function () {

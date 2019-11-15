@@ -1,5 +1,5 @@
-let Template = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+let CollaborativeReading = {
+  props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -12,9 +12,10 @@ let Template = {
   watch: {
   },
   mounted() {
+    throw '歡迎來到下一步！！！'
   },
   methods: {
   } // methods
 }
 
-export default Template
+export default CollaborativeReading

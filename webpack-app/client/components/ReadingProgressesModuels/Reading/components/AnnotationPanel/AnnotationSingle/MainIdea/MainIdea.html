@@ -10,16 +10,13 @@
     v-bind:height="editorHeight"
     v-bind:placeholder="editorPlaceholder">
   </HTMLEditor>
-
   <div class="ui one column grid annotation-panel-buttons"
        v-if="isEditable">
-    
     <block-exit
       v-if="isNoteDifferent">
     </block-exit>
     
     <div v-bind:class="computedButtonsClass">
-
       <checkbox-toggle 
         v-if="annotationConfig.enableControlPermission"
         v-bind:label="$t('PUBLIC')"

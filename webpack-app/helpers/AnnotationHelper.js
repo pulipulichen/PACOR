@@ -50,6 +50,20 @@ let AnnotationHelper = {
       type = 'others-' + type
     }
     return type
+  },
+  
+  isEditable: function (annotation) {
+    if (!annotation 
+            || typeof (annotation.id) !== 'number'
+            || typeof (annotation.user_id) !== 'number') {
+      return true
+    }
+
+    if (['domain_admin', 'global_admin'].indexOf(this.status.role) > -1) {
+      return true
+    }
+
+    return (annotation.user_id === this.status.userID)
   }
 }
 

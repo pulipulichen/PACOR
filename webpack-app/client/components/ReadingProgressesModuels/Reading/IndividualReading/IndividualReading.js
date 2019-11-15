@@ -38,7 +38,8 @@ let IndividualReading = {
       //console.log(this.lib.AnnotationPanel)
     },
     onChecklistComplete () {
-      throw 'onChecklistComplete'
+      //throw 'onChecklistComplete'
+      this.lib.auth.nextStep()
     },
     _testSearch () {
       if (!this.lib.AnnotationPanel) {

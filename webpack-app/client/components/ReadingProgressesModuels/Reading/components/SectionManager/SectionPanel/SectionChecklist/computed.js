@@ -1,4 +1,5 @@
 export default (SectionChecklist) => {
+    
   SectionChecklist.computed.checked = function () {
     if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID]) === false
             || this.sectionsData.checklist[this.sectionSeqID].length === 0) {
@@ -33,6 +34,7 @@ export default (SectionChecklist) => {
     }
     return this.sectionsData.checklist[this.sectionSeqID]
   }
+  
   SectionChecklist.computed.annotation = function () {
     if (this.sectionsData.checklistAnnotation[this.sectionSeqID]) {
       return this.sectionsData.checklistAnnotation[this.sectionSeqID]

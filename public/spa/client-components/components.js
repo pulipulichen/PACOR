@@ -7110,7 +7110,7 @@ let Editor = {
       // 新增成功之後
       
       //this.lib.RangyManager.highlightPinnedSelectionFromAnnotation('my-' + this.annotation.type, this.pinSelection.anchorParagraphIds)
-      
+      this.annotation.id = id
       this.lib.AnnotationHelper.note(this.annotation, 'default', this.note)
       
       this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
@@ -7366,7 +7366,7 @@ let Editor = {
       // 新增成功之後
       
       //this.lib.RangyManager.highlightPinnedSelectionFromAnnotation('my-' + this.annotation.type, this.pinSelection.anchorParagraphIds)
-      
+      this.annotation.id = id
       this.lib.AnnotationHelper.note(this.annotation, 'default', this.note)
       
       this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
@@ -7554,6 +7554,7 @@ __webpack_require__.r(__webpack_exports__);
 
 _MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"].mounted = function () {
   this.loadDraft()
+  console.log(this.annotation)
 }
 
 _MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"].computed.enableDelete = function () {
@@ -7693,7 +7694,7 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   Editor.computed.isEditable = function () {
-    return this.lib.auth.isEditable(this.annotation)
+    return this.lib.AnnotationHelper.isEditable(this.annotation)
   }
   
   Editor.computed.type = function () {
@@ -19008,11 +19009,9 @@ let SectionManager = {
   methods: {
     initSectionNodes: async function () {
       this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init')
-      console.log(this.sectionsData)
+      //console.log(this.sectionsData)
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-section-seq-id]').toArray()
-      
-      console.log('是因為這裡切換的時候沒有初始化到嗎？似乎是，這邊連切換都沒切換到', sectionNodes.length)
       
       //while (this.sectionsData.length < sectionNodes.length) {
       //  this.sectionsData.push({})
@@ -19540,6 +19539,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((SectionChecklist) => {
+    
   SectionChecklist.computed.checked = function () {
     if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID]) === false
             || this.sectionsData.checklist[this.sectionSeqID].length === 0) {
@@ -19574,6 +19574,7 @@ __webpack_require__.r(__webpack_exports__);
     }
     return this.sectionsData.checklist[this.sectionSeqID]
   }
+  
   SectionChecklist.computed.annotation = function () {
     if (this.sectionsData.checklistAnnotation[this.sectionSeqID]) {
       return this.sectionsData.checklistAnnotation[this.sectionSeqID]
@@ -19792,12 +19793,14 @@ let debugMockUpdate = true
      */
     this.lib.AnnotationPanel.setAnnotation(this.annotation, {
       'add': (annotation) => {
+        console.log(annotation)
         //console.log(annotation.notes[0].note)
         //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
 
         //console.log(this.sectionSeqID)
-        this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
-
+        this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
+        //this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
+        console.log(this.sectionsData.checklistAnnotation)
 //          if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID]) === false) {
 //            this.sectionsData.checklist[this.sectionSeqID] = []
 //          }

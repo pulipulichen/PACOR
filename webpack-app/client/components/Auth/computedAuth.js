@@ -1,5 +1,6 @@
 export default function (Auth) {
   Auth.computed.currentStep = function () {
+    //console.log(JSON.stringify(this.status.readingProgresses, null, ' '))
     if (Array.isArray(this.status.readingProgresses)
             && this.status.readingProgresses.length > 0) {
       for (let i = 0; i < this.status.readingProgresses.length; i++) {
