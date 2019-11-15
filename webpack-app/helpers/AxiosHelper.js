@@ -80,6 +80,15 @@ let AxiosHelper = {
       return
     }
   },
+  /**
+   * let result = await this.lib.AxiosHelper.upload('/client/File/upload', {
+        file: this.$refs.UploadInput
+      })
+   * @param {string} path
+   * @param {object} data
+   * @param {function} errorHandler
+   * @returns {String|.axios@call;post.data|undefined}
+   */
   upload: async function (path, data, errorHandler) {
     if (typeof(data) !== 'object') {
       this.handleError('no data')

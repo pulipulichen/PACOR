@@ -28,7 +28,7 @@ export default function (HTMLEditor) {
       ],
       enableStatusbar: false,
       //maxHeight: '5em',
-      disableDragAndDrop: true,
+      //disableDragAndDrop: true,
       callbacks: {
         onImageUpload: async (files) => {
           this._onImageUpload(files)

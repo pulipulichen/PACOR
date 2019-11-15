@@ -38,6 +38,7 @@ class File {
     
     // const appSecret = Env.get('APP_SECRET')
     let imageURL = `${Env.get('APP_URL')}/uploads/${webpage.primaryKeyValue}/${userId}/${name}`
+    //console.log(imageURL)
     return imageURL
   }
 }

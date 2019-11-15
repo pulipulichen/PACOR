@@ -80,7 +80,7 @@ let AnnotationTypeSelector = {
 //    //console.log(this.status.preference.leftHanded)
     this.initRangyEvent()
     
-    this._testAdd()
+    //this._testAdd()
   },
   methods: {
     initRangyEvent () {

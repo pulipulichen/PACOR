@@ -7,6 +7,8 @@ const AnnotationModel = use('App/Models/Annotation')
 const Cache = use('Cache')
 const Config = use('Config')
 
+const TokenizationHelper = use('App/Helpers/TokenizationHelper')
+
 class AnnotationSection {
 
   register(Model) {
@@ -178,9 +180,12 @@ class AnnotationSection {
         // 依照順序排序
         let noteMap = []
         annotations.forEach(annotation => {
+          let note = annotation.notes[0].note
+          note = TokenizationHelper.htmlToText(note)
+          
           noteMap.push({
             start_pos: annotation.anchorPositions[0].start_pos,
-            note: annotation.notes[0].note
+            note: note
           })
         })
         
@@ -188,9 +193,9 @@ class AnnotationSection {
           return a.start_pos - b.start_pos
         })
         
-        return noteMap.map(annotation => {
+        return '<p>' + noteMap.map(annotation => {
           return annotation.note
-        }).join('\n')
+        }).join('</p>\n<p>') + '</p>'
       })
     } // Model.getMainIdeasInSection = async function (webpage, user, query) {
   } // register (Model) {

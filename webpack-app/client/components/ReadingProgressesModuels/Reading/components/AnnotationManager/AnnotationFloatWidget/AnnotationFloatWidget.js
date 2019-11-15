@@ -134,6 +134,14 @@ let AnnotationFloatWidget = {
         this.anchorPositions = null
         useMouse = false
       })
+      
+      rangy.addEventListener('select', (data) => {
+        if (this.isFixed === true) {
+          this.isFixed = false
+          this.anchorPositions = null
+          useMouse = false
+        } 
+      })
     },
 //    
     load: async function () {

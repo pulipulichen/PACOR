@@ -45,7 +45,7 @@ exports.push([module.i, "@font-face {\n  font-family: \"summernote\";\n  font-st
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n  min-height: 3em;\n}\n", "",{"version":3,"sources":["HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;EAClB,gBAAgB;EAChB,WAAW;EACX,eAAe;AACjB","file":"HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n  min-height: 3em;\n}\n"]}]);
+exports.push([module.i, ".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n  min-height: 7em;\n}\n", "",{"version":3,"sources":["HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;EAClB,gBAAgB;EAChB,WAAW;EACX,eAAe;AACjB","file":"HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n  min-height: 7em;\n}\n"]}]);
 
 
 /***/ }),
@@ -200,7 +200,10 @@ let HTMLEditor = {
     computedStyle () {
       if (typeof(this.height) === 'string') {
         
-        let calc = this.height.slice(5, -1)
+        let calc = this.height
+        if (calc.startsWith('calc')) {
+          calc = calc.slice(5, -1)
+        }
         calc = `calc(${calc} - 90px)`
         //console.log(calc)
         setTimeout(() => {
@@ -426,10 +429,19 @@ __webpack_require__.r(__webpack_exports__);
     //console.log('onChange:', contents, $editable);
   }
   
-  HTMLEditor.methods._onImageUpload = function (files) {
+  HTMLEditor.methods._onImageUpload = async function (files) {
     // upload image to server and create imgNode...
     //$summernote.summernote('insertNode', imgNode);
-    console.log(files)
+    console.log('_onImageUpload', files)
+    let imageURL = await this.lib.AxiosHelper.upload('/client/File/upload', {
+      file: files[0]
+    })
+      
+    //let imageURL = result
+    console.log(imageURL)
+    let message = `<a href="${imageURL}" target="_blank"><img src="${imageURL}" /></a>`
+    
+    this.editor.summernote('editor.insert', message)
   }
 });
 
@@ -474,7 +486,7 @@ __webpack_require__.r(__webpack_exports__);
       ],
       enableStatusbar: false,
       //maxHeight: '5em',
-      disableDragAndDrop: true,
+      //disableDragAndDrop: true,
       callbacks: {
         onImageUpload: async (files) => {
           this._onImageUpload(files)
@@ -6448,7 +6460,12 @@ ${links}`
                 event.stopPropagation()
                 event.preventDefault()
                 let files = event.originalEvent.clipboardData.files
-                _this.insertImagesAsDataURL(files)
+                if (typeof(_this.options.callbacks.onImageUpload) === 'function') {
+                  _this.options.callbacks.onImageUpload(files)
+                }
+                else {
+                  _this.insertImagesAsDataURL(files)
+                }
               }
               else {
                 _this.context.triggerEvent('paste', event);
@@ -7618,11 +7635,15 @@ sel.addRange(range);
               var dataTransfer = event.originalEvent.dataTransfer;
               // stop the browser from opening the dropped content
               event.preventDefault();
+              //event.stopPropagation()
               if (dataTransfer && dataTransfer.files && dataTransfer.files.length) {
                   _this.$editable.focus();
                   if (typeof(_this.options.callbacks.onDrop) === 'function') {
                     _this.options.callbacks.onDrop(dataTransfer.files)
                   }
+//                  else if (typeof(_this.options.callbacks.onImageUpload) === 'function') {
+//                    _this.options.callbacks.onImageUpload(dataTransfer.files)
+//                  }
                   else {
                     _this.context.invoke('editor.insertImagesOrCallback', dataTransfer.files);
                   }
@@ -7661,7 +7682,13 @@ sel.addRange(range);
                 && typeof(event.originalEvent.dataTransfer.files) === 'object') {
           let files = event.originalEvent.dataTransfer.files
           //this.$editor.insertImagesAsDataURL(files)
-          this.context.invoke('editor.insertImagesAsDataURL', files);
+          
+          if (typeof(this.options.callbacks.onImageUpload) === 'function') {
+            this.options.callbacks.onImageUpload(files)
+          }
+          else {
+            this.context.invoke('editor.insertImagesAsDataURL', files)
+          }
           /*
           let loop = (i) => {
             if (i < files.length) {

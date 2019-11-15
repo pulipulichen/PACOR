@@ -69,7 +69,7 @@ export default (Editor) => {
         
       } else {
         
-        return '5em'
+        return '10em'
         
 //        let height
 //        if (this.enableCollaboration === true
@@ -94,7 +94,7 @@ export default (Editor) => {
         height = `calc(${height}px - 10em)`
       } else {
         //console.log(this.heightPX)
-        height = `calc(${this.heightPX}px - 15em)`
+        height = `calc(${this.heightPX}px - 20em)`
       }
       //console.log(height)
       return height

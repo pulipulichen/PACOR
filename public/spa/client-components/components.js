@@ -1563,6 +1563,7 @@ var render = function() {
       _c("HTMLEditor", {
         ref: "QuestionEditor",
         attrs: {
+          lib: _vm.lib,
           contents: _vm.question,
           editable: _vm.isEditable,
           height: _vm.computedQuestionEditorHeight,
@@ -1602,6 +1603,7 @@ var render = function() {
         ],
         ref: "AnswerEditor",
         attrs: {
+          lib: _vm.lib,
           contents: _vm.answer,
           editable: _vm.isEditable,
           height: _vm.computedAnswerEditorHeight,
@@ -1929,6 +1931,7 @@ var render = function() {
       _c("HTMLEditor", {
         ref: "editor",
         attrs: {
+          lib: _vm.lib,
           contents: _vm.note,
           editable: _vm.isEditable,
           height: _vm.editorHeight,
@@ -2064,6 +2067,7 @@ var render = function() {
       _c("HTMLEditor", {
         ref: "editor",
         attrs: {
+          lib: _vm.lib,
           contents: _vm.note,
           editable: _vm.isEditable,
           height: _vm.editorHeight,
@@ -3391,6 +3395,14 @@ let AnnotationFloatWidget = {
         this.anchorPositions = null
         useMouse = false
       })
+      
+      rangy.addEventListener('select', (data) => {
+        if (this.isFixed === true) {
+          this.isFixed = false
+          this.anchorPositions = null
+          useMouse = false
+        } 
+      })
     },
 //    
     load: async function () {
@@ -4055,7 +4067,7 @@ let AnnotationTypeSelector = {
 //    //console.log(this.status.preference.leftHanded)
     this.initRangyEvent()
     
-    this._testAdd()
+    //this._testAdd()
   },
   methods: {
     initRangyEvent () {
@@ -6536,7 +6548,7 @@ __webpack_require__.r(__webpack_exports__);
         
       } else {
         
-        return '5em'
+        return '10em'
         
 //        let height
 //        if (this.enableCollaboration === true
@@ -6561,7 +6573,7 @@ __webpack_require__.r(__webpack_exports__);
         height = `calc(${height}px - 10em)`
       } else {
         //console.log(this.heightPX)
-        height = `calc(${this.heightPX}px - 15em)`
+        height = `calc(${this.heightPX}px - 20em)`
       }
       //console.log(height)
       return height
@@ -6970,7 +6982,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = true
+let debugMockSend = false
 
 let Editor = {
   props: _Traits_props__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -7226,7 +7238,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = true
+let debugMockSend = false
 
 let Editor = {
   props: _Traits_props__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -7572,7 +7584,7 @@ __webpack_require__.r(__webpack_exports__);
 
 _MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"].mounted = function () {
   this.loadDraft()
-  console.log(this.annotation)
+  //console.log(this.annotation)
 }
 
 _MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"].computed.enableDelete = function () {

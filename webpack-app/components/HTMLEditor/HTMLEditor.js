@@ -17,7 +17,10 @@ let HTMLEditor = {
     computedStyle () {
       if (typeof(this.height) === 'string') {
         
-        let calc = this.height.slice(5, -1)
+        let calc = this.height
+        if (calc.startsWith('calc')) {
+          calc = calc.slice(5, -1)
+        }
         calc = `calc(${calc} - 90px)`
         //console.log(calc)
         setTimeout(() => {

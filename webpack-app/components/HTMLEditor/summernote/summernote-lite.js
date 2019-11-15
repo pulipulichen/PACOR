@@ -5913,7 +5913,12 @@ ${links}`
                 event.stopPropagation()
                 event.preventDefault()
                 let files = event.originalEvent.clipboardData.files
-                _this.insertImagesAsDataURL(files)
+                if (typeof(_this.options.callbacks.onImageUpload) === 'function') {
+                  _this.options.callbacks.onImageUpload(files)
+                }
+                else {
+                  _this.insertImagesAsDataURL(files)
+                }
               }
               else {
                 _this.context.triggerEvent('paste', event);
@@ -7083,11 +7088,15 @@ sel.addRange(range);
               var dataTransfer = event.originalEvent.dataTransfer;
               // stop the browser from opening the dropped content
               event.preventDefault();
+              //event.stopPropagation()
               if (dataTransfer && dataTransfer.files && dataTransfer.files.length) {
                   _this.$editable.focus();
                   if (typeof(_this.options.callbacks.onDrop) === 'function') {
                     _this.options.callbacks.onDrop(dataTransfer.files)
                   }
+//                  else if (typeof(_this.options.callbacks.onImageUpload) === 'function') {
+//                    _this.options.callbacks.onImageUpload(dataTransfer.files)
+//                  }
                   else {
                     _this.context.invoke('editor.insertImagesOrCallback', dataTransfer.files);
                   }
@@ -7126,7 +7135,13 @@ sel.addRange(range);
                 && typeof(event.originalEvent.dataTransfer.files) === 'object') {
           let files = event.originalEvent.dataTransfer.files
           //this.$editor.insertImagesAsDataURL(files)
-          this.context.invoke('editor.insertImagesAsDataURL', files);
+          
+          if (typeof(this.options.callbacks.onImageUpload) === 'function') {
+            this.options.callbacks.onImageUpload(files)
+          }
+          else {
+            this.context.invoke('editor.insertImagesAsDataURL', files)
+          }
           /*
           let loop = (i) => {
             if (i < files.length) {
