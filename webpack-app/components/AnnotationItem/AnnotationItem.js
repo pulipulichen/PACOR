@@ -45,9 +45,9 @@ let AnnotationItem = {
         let result = note.note
         
         let keyword = this.searchKeyword
-        if (!keyword || keyword === '') {
-          keyword = this.status.search.keyword
-        }
+        //if (!keyword || keyword === '') {
+        //  keyword = this.status.search.keyword
+        //}
         
         if (keyword && keyword !== '') {
           result = result.split(keyword).join(`<span data-pacor-search-result>${keyword}</span>`)

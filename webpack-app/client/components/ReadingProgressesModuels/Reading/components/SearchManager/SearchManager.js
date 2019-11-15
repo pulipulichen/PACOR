@@ -12,17 +12,27 @@ let SearchInput = {
 //  computed: {
 //  },
   watch: {
-    'status.search.keyword': async function (keyword) {
+    'status.search.keyword': function () {
+      this.countSearchResult()
+    }
+  },
+  mounted() {
+    if (this.status.search.keyword !== '') {
+      this.countSearchResult()
+    }
+  },
+  methods: {
+    countSearchResult: async function () {
       //console.log()
       //this.count = 0
-      if (keyword === '') {
+      if (this.status.search.keyword === '') {
         this.count = 0
         return false
       }
       
       let query = {
         withCount: true,
-        keyword: keyword
+        keyword: this.status.search.keyword
         //t: (new Date()).getTime()
       }
       let url = '/client/Annotation/listCount'
@@ -33,11 +43,7 @@ let SearchInput = {
         this.count = 0
         return false
       }
-    }
-  },
-//  mounted() {
-//  },
-  methods: {
+    },
     searchAnnotation () {
       
       // 先設定篩選條件

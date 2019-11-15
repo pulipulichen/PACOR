@@ -129,7 +129,7 @@ exports.push([module.i, ".CompactMenu[data-v-f1ec6df6] {\n  position: fixed;\n  
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".floating.label[data-v-dfaa79be] {\n  padding-top: 0;\n  line-height: 0.5em;\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n  /* margin-right: -1em !important; */\n  left: 103% !important;\n  top: -0.5em !important;\n}\n", "",{"version":3,"sources":["SearchManager.less?vue&type=style&index=0&id=dfaa79be&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,kBAAkB;EAClB,mBAAmB;EACnB,oBAAoB;EACpB,mCAAmC;EACnC,qBAAqB;EACrB,sBAAsB;AACxB","file":"SearchManager.less?vue&type=style&index=0&id=dfaa79be&lang=less&scoped=true&","sourcesContent":[".floating.label[data-v-dfaa79be] {\n  padding-top: 0;\n  line-height: 0.5em;\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n  /* margin-right: -1em !important; */\n  left: 103% !important;\n  top: -0.5em !important;\n}\n"]}]);
+exports.push([module.i, ".floating.label[data-v-dfaa79be] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 103% !important;\n  top: -0.5em !important;\n}\n", "",{"version":3,"sources":["SearchManager.less?vue&type=style&index=0&id=dfaa79be&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,6BAA6B;EAC7B,8BAA8B;EAC9B,+BAA+B;EAC/B,mCAAmC;EACnC,qBAAqB;EACrB,sBAAsB;AACxB","file":"SearchManager.less?vue&type=style&index=0&id=dfaa79be&lang=less&scoped=true&","sourcesContent":[".floating.label[data-v-dfaa79be] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 103% !important;\n  top: -0.5em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -1418,17 +1418,27 @@ let SearchInput = {
 //  computed: {
 //  },
   watch: {
-    'status.search.keyword': async function (keyword) {
+    'status.search.keyword': function () {
+      this.countSearchResult()
+    }
+  },
+  mounted() {
+    if (this.status.search.keyword !== '') {
+      this.countSearchResult()
+    }
+  },
+  methods: {
+    countSearchResult: async function () {
       //console.log()
       //this.count = 0
-      if (keyword === '') {
+      if (this.status.search.keyword === '') {
         this.count = 0
         return false
       }
       
       let query = {
         withCount: true,
-        keyword: keyword
+        keyword: this.status.search.keyword
         //t: (new Date()).getTime()
       }
       let url = '/client/Annotation/listCount'
@@ -1439,11 +1449,7 @@ let SearchInput = {
         this.count = 0
         return false
       }
-    }
-  },
-//  mounted() {
-//  },
-  methods: {
+    },
     searchAnnotation () {
       
       // 先設定篩選條件
