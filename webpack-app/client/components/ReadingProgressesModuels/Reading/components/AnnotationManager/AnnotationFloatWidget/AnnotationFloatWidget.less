@@ -1,16 +1,19 @@
 @verticalMargin: calc(@TopMenuHeight + 1em);
 
 .annotation-float-widget {
-  transition-property: opacity;
-  transition-duration: 0.3s;
+  transition: opacity 0.3s, z-index 0.3s;
+  //transition-duration: 0.3s;
+  
+  //transition: display 0.3s;
+  //display: none;
   opacity: 0;
   
   filter: drop-shadow(0px 0px 0.5em rgba(0, 0, 0, 1));
   
   position: fixed !important;
   left: 1em;
-  z-index: 0;
-  width: calc(100vw - 3em);
+  z-index: -1;
+  width: calc(100vw - 4em);
   top: @verticalMargin;
   max-height: calc(50vh - @TopMenuHeight - 2em);
   overflow-x: hidden;
@@ -19,6 +22,7 @@
   &.show {
     opacity: 1;
     z-index: 1;
+    //display: block;
   }
   
   &.bottom {
@@ -35,3 +39,29 @@
     vertical-align: top !important;
   }
 }
+
+.close-container.floating.ui.label {
+    float: right;
+    cursor: pointer;
+    user-select: none;
+    //position: relative;
+    z-index: 2; // 比resize handler還要高一點點
+
+    left: calc(100% - 0.3em) !important;
+    padding: 0.4em !important;
+    //text-align: center;
+    padding-left: 0.15em !important;
+    padding-top: 0.3em !important;
+    padding-bottom: 0.3em !important;
+    
+    top: 0.9em !important;
+    border: 2px solid white !important;
+    border-radius: 2em !important;
+
+    .close.icon {
+      opacity: 1 !important;
+      color: white;
+      margin-left: 0.3em;
+      margin-bottom: -0.2em;
+    }
+  }

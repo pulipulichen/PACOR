@@ -24,6 +24,7 @@ let AnnotationFloatWidget = {
     computedContainerClassNames () {
       if (this.anchorPositions === null) {
         //console.log('no')
+        //return this.lastPosition + ' hide'
         return this.lastPosition
       }
       

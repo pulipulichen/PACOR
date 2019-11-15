@@ -3,7 +3,7 @@ import props from './../Traits/props'
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = false
+let debugMockSend = true
 
 let Editor = {
   props: props,

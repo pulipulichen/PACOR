@@ -1,6 +1,12 @@
 <div class="annotation-float-widget AnnotationFloatWidget"
      v-bind:class="computedContainerClassNames">
   
+  <div class="close-container floating ui black label"
+       v-on:click.stop="reset"
+       v-if="isFixed">
+    <i class="close icon"></i>
+  </div>
+  
   <div class="ui tertiary segment"
        v-if="annotationCount > 0">
     

@@ -297,7 +297,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-float-widget[data-v-ca5d3b70] {\n  transition-property: opacity;\n  transition-duration: 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: 0;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.show[data-v-ca5d3b70] {\n  opacity: 1;\n  z-index: 1;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top !important;\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,4BAA4B;EAC5B,yBAAyB;EACzB,UAAU;EACV,0CAA0C;EAC1C,0BAA0B;EAC1B,SAAS;EACT,UAAU;EACV,wBAAwB;EACxB,qBAAqB;EACrB,mCAAmC;EACnC,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,UAAU;EACV,UAAU;AACZ;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,kBAAkB;EAClB,8BAA8B;AAChC","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-ca5d3b70] {\n  transition-property: opacity;\n  transition-duration: 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: 0;\n  width: calc(100vw - 3em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.show[data-v-ca5d3b70] {\n  opacity: 1;\n  z-index: 1;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top !important;\n}\n"]}]);
+exports.push([module.i, ".annotation-float-widget[data-v-ca5d3b70] {\n  transition: opacity 0.3s, z-index 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: -1;\n  width: calc(100vw - 4em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.show[data-v-ca5d3b70] {\n  opacity: 1;\n  z-index: 1;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top !important;\n}\n.close-container.floating.ui.label[data-v-ca5d3b70] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.4em !important;\n  padding-left: 0.15em !important;\n  padding-top: 0.3em !important;\n  padding-bottom: 0.3em !important;\n  top: 0.9em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.close-container.floating.ui.label .close.icon[data-v-ca5d3b70] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,sCAAsC;EACtC,UAAU;EACV,0CAA0C;EAC1C,0BAA0B;EAC1B,SAAS;EACT,WAAW;EACX,wBAAwB;EACxB,qBAAqB;EACrB,mCAAmC;EACnC,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,UAAU;EACV,UAAU;AACZ;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,kBAAkB;EAClB,8BAA8B;AAChC;AACA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,UAAU;EACV,mCAAmC;EACnC,yBAAyB;EACzB,+BAA+B;EAC/B,6BAA6B;EAC7B,gCAAgC;EAChC,qBAAqB;EACrB,kCAAkC;EAClC,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,qBAAqB;AACvB","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-ca5d3b70] {\n  transition: opacity 0.3s, z-index 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: -1;\n  width: calc(100vw - 4em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.show[data-v-ca5d3b70] {\n  opacity: 1;\n  z-index: 1;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top !important;\n}\n.close-container.floating.ui.label[data-v-ca5d3b70] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.4em !important;\n  padding-left: 0.15em !important;\n  padding-top: 0.3em !important;\n  padding-bottom: 0.3em !important;\n  top: 0.9em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.close-container.floating.ui.label .close.icon[data-v-ca5d3b70] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n"]}]);
 
 
 /***/ }),
@@ -618,6 +618,22 @@ var render = function() {
       class: _vm.computedContainerClassNames
     },
     [
+      _vm.isFixed
+        ? _c(
+            "div",
+            {
+              staticClass: "close-container floating ui black label",
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  return _vm.reset($event)
+                }
+              }
+            },
+            [_c("i", { staticClass: "close icon" })]
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _vm.annotationCount > 0
         ? _c(
             "div",
@@ -2586,7 +2602,13 @@ var render = function() {
                     _c("div", { staticClass: "ui checkbox" }, [
                       _c("input", {
                         attrs: { type: "checkbox" },
-                        domProps: { checked: _vm.checked[i] }
+                        domProps: { checked: _vm.checked[i] },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return (function() {})($event)
+                          }
+                        }
                       }),
                       _vm._v(" "),
                       _c("label", [
@@ -3258,6 +3280,7 @@ let AnnotationFloatWidget = {
     computedContainerClassNames () {
       if (this.anchorPositions === null) {
         //console.log('no')
+        //return this.lastPosition + ' hide'
         return this.lastPosition
       }
       
@@ -5724,7 +5747,7 @@ let AnnotationEditorModules = {
       //throw '@TODO'
       
       let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.annotation.anchorPositions)
-      console.log(rect)
+      //console.log(rect)
       this.lib.AnnotationPanel.scrollToRect(rect)
     },
     reloadMyHighlights: async function () {
@@ -6928,7 +6951,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = false
+let debugMockSend = true
 
 let Editor = {
   props: _Traits_props__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -7184,7 +7207,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = false
+let debugMockSend = true
 
 let Editor = {
   props: _Traits_props__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -19382,277 +19405,49 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/data.js");
+/* harmony import */ var _computed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./computed */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/computed.js");
+/* harmony import */ var _methods__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methods */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/methods.js");
 let SectionChecklist = {
   props: ['lib', 'status', 'config'
     , 'sectionSeqID', 'sectionsData'],
-  data() {    
-    this.$i18n.locale = this.config.locale
-    
-    let checked = []
-    
-    if (!this.sectionsData.checklist[this.sectionSeqID]) {
-      this.sectionsData.checklist[this.sectionSeqID] = {}
-    }
-    
-    if (this.sectionsData.checklist 
-            && this.sectionsData.checklist[this.sectionSeqID]
-            && Array.isArray(this.sectionsData.checklist[this.sectionSeqID])) {
-      checked = this.sectionsData.checklist[this.sectionSeqID]
-      //console.log(checked)
-    }
-    
-    let isChecklistAnnotationSubmitted = false
-    if (this.sectionsData.checklistAnnotation[this.sectionSeqID]) {
-      isChecklistAnnotationSubmitted = true
-    }
-    
-    return {
-      checked: checked,
-      checklistAnnotationIndex: -1,
-      isChecklistAnnotationSubmitted: isChecklistAnnotationSubmitted
-      //wroteAnnotationAt: null
-    }
-  },
+  //data:
   
 //  components: {
 //  },
   computed: {
-    annotation () {
-      if (this.sectionsData.checklistAnnotation[this.sectionSeqID]) {
-        return this.sectionsData.checklistAnnotation[this.sectionSeqID]
-      }
-      else {
-        return {
-          type: 'SectionMainIdea',
-          anchorPositions: [{
-              type: 'section',
-              seq_id: this.sectionSeqID
-          }],
-          notes: [{
-              type: 'default',
-              note: ''
-          }]
-        }
-      }
-    },
-    computedSubmitButtonText () {
-      if (this.isChecklistCompleted) {
-        return this.$t('I have read this section!')
-      }
-      else {
-        return this.$t('Please finish checklist.')
-      }
-    },
-    localStorageKeyPrefix () {
-      return `Pacor.SectionChecklist.${this.sectionSeqID}.`
-    },
-    checklist () {
-      if (Array.isArray(this.lib.auth.currentStepConfig.checklist)) {
-        let checklist = this.lib.auth.currentStepConfig.checklist
-        //console.log(checklist)
-        
-        this.checklistAnnotationIndex = checklist.indexOf('SectionMainIdea')
-        
-        //console.log(this.sectionSeqID)
-        //console.log(this.sectionsData)
-//        if (!this.sectionsData.checklist 
-//                || typeof(this.sectionsData.checklist[this.sectionSeqID]) === 'undefined') {
-//          //this.sectionsData.checklist
-//          this.sectionsData.checklist = []
-//          this.sectionsData.checklist[this.sectionSeqID] = {}
-//        }
-        
-        //console.log(this.sectionsData.checklist)
-        let checklistData = this.sectionsData.checklist[this.sectionSeqID]
-        //console.log(checklistData, typeof(checklistData), Array.isArray(checklistData))
-        
-        checklistData = checklistData ? checklistData : []
-        
-        if (Array.isArray(checklistData) === false
-                || checklistData.length === 0) {
-          //checklistData = []
-          let itemsFromLocalStorage = localStorage
-                    .getItem(this.localStorageKeyPrefix + 'checklist')
-          if (itemsFromLocalStorage !== null) {
-            checklistData = JSON.parse(itemsFromLocalStorage)
-          }
-          //console.log(this.localStorageKeyPrefix + 'checklist')
-        }
-        
-        checklist.forEach((item, i) => {
-          if (typeof(checklistData[i]) !== 'boolean') {
-            checklistData[i] = false
-          }
-        })
-        //this.checklistData = checklistData
-        //console.log(checklistData, typeof(checklistData), Array.isArray(checklistData))
-        //this.checked = checklistData
-        if (Array.isArray(checklistData) === false
-                && typeof(checklistData) === 'object') {
-          Object.keys(checklistData).forEach(key => {
-            this.checked[key] = checklistData[key]
-          })
-        }
-        else if (Array.isArray(checklistData)) {
-          checklistData.forEach((value, i) => {
-            this.checked[i] = value
-          })
-        }
-        //console.log(this.checked)
-        return checklist
-      }
-    },
-    isChecklistCompleted () { 
-      //console.log(this.checked.length, this.checked)
-      //let a = this.checked.length
-      //console.log(a)
-      //console.log(this.checked)
-      for (let i = 0; i < this.checked.length; i++) {
-        //console.log(i , this.checked[i], (this.checked[i] === false))
-        if (this.checked[i] === false) {
-          return false
-        }
-      }
-      //this.$forceUpdate()
-      return true
-    },
-    computedSubmitButtonClass () {
-      //console.log(this.isChecklistCompleted)
-      let classList = []
-      if (this.isChecklistCompleted === false) {
-        //return 'disabled'
-        classList.push('disabled')
-      }
-      else {
-        //return 'positive'
-        classList.push('positive')
-      }
-      //console.trace(classList)
-      //this.$forceUpdate()
-      return classList.join(' ')
-    },
+    
 //    isChecklistAnnotationSubmitted () {
 //      return (typeof(this.annotation.id) === 'number')
 //    }
   },
-  watch: {
-    checklistAnnotationIndex (checklistAnnotationIndex) {
-      if (checklistAnnotationIndex !== -1 
-              && this.annotation) {
-        //console.log(this.checked, typeof(this.checked))
-        this.checked.splice(checklistAnnotationIndex, 1, (typeof(this.annotation.id) === 'number'))
-      } 
-    }
-  },
-//  mounted() {
-//    
+//  watch: {
+//    /*
+//    checklistAnnotationIndex (checklistAnnotationIndex) {
+//      if (checklistAnnotationIndex !== -1 
+//              && this.annotation) {
+//        //console.log(this.checked, typeof(this.checked))
+//        this.checked.splice(checklistAnnotationIndex, 1, (typeof(this.annotation.id) === 'number'))
+//      } 
+//    }
+//    */
 //  },
+  mounted() {
+    //this.initData()
+    this.checkIsChecklistCompleted()
+  },
   methods: {
-    onChecklistItemChange (i) {
-      this.checked.splice(i, 1, !this.checked[i])
-      //this.checked[i] = !this.checked[i]
-      //this.$forceUpdate()
-      
-      //console.log(this.checked)
-      //console.log(this.isChecklistCompleted)
-      let data = JSON.stringify(this.checked)
-      localStorage.setItem(this.localStorageKeyPrefix + 'checklist', data)
-    },
-    openSectionAnnotationEditor () {
-      /*
-//      this.wroteAnnotationAt = (new Date()).getTime
-//        this.checked.splice(this.sectionAnnotationIndex, 1, true)
-//        this.sectionsData.sectionAnnotationCallback = null
-//        return
-      
-      if (this.isWrottenAnnotation === false) {
-        this.sectionsData.sectionAnnotation.callback = () => {
-          this.wroteAnnotationAt = (new Date()).getTime
-          this.checked.splice(this.sectionAnnotationIndex, 1, true)
-          this.sectionsData.sectionAnnotation.callback = null
-        }
-
-        
-      }
-      this.sectionsData.sectionAnnotation.seqID = this.sectionSeqID
-      this.sectionsData.sectionAnnotation.instance = {
-        id: this.sectionsData.sectionAnnotation.id,
-        type: 'SectionMainIdea',
-        note: this.sectionsData.sectionAnnotation.draftNote
-      }
-      
-      //this.checked.splice(this.sectionAnnotationIndex, 1, true)
-      //this.wroteAnnotationAt = 1
-      */
-      this.lib.AnnotationPanel.setAnnotation(this.annotation, {
-        'add': (annotation) => {
-          console.log(annotation.notes[0].note)
-          //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
-          
-          //console.log(this.sectionSeqID)
-          this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
-          
-          if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID]) === false) {
-            this.sectionsData.checklist[this.sectionSeqID] = []
-          }
-          
-          this.sectionsData.checklist[this.sectionSeqID].splice(this.checklistAnnotationIndex, 1, true)
-          
-          //console.log(this.sectionsData.checklist[this.sectionSeqID].checked)
-          
-          //this.sectionsData.checklist[this.checklistAnnotationIndex] = true
-          //this.sectionsData.checklist.splice(this.sectionSeqID, 1, true)
-          //this.sectionsData.checklist[this.sectionSeqID]
-          
-          //console.log(this.sectionsData.checklist)
-          
-          
-          this.checked.splice(this.checklistAnnotationIndex, 1, true)
-          //this.annotation.id = annotation.id
-          //this.$forceUpdate()
-          this.isChecklistAnnotationSubmitted = true
-          
-          this.sectionsData.annotation.splice(this.sectionSeqID, 1, annotation)
-        },
-        'update': (annotation) => {
-          //console.log(annotation)
-          //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
-          this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
-        },
-      })
-    },
-    submitChecklist: async function () {
-      this.sectionsData.checklist[this.sectionSeqID] = this.checked
-      //this.sectionsData.checklist[this.sectionSeqID].submittedAt = (new Date()).getTime()
-      
-      let data = {
-        checklist: this.sectionsData.checklist
-      }
-      
-      await this.lib.AxiosHelper.post('/client/Section/setChecklist', data)
-      
-      //this.sectionsData.checklistSubmitted[this.sectionSeqID] = true
-      this.sectionsData.checklistSubmitted.splice(this.sectionSeqID, 1, true)
-      this.checkAllChecklistsIsComplete()
-    },
-    checkAllChecklistsIsComplete () {
-      
-      // 觀察看看有沒有機會完全完成
-      //console.log(this.sectionsData.checklistSubmitted)
-      let isAllCompleted = true
-      for (let i = 0; i < this.sectionsData.checklistSubmitted.length; i++) {
-        if (this.sectionsData.checklistSubmitted[i] !== true) {
-          isAllCompleted = false
-          break
-        }
-      }
-      //let isAllCompleted = (this.sectionsData.checklistSubmitted.filter(c => (c !== true)).length === 0)
-      if (isAllCompleted === true) {
-        this.$emit('complete')
-      }
-    }
   } // methods
 }
+
+
+Object(_data__WEBPACK_IMPORTED_MODULE_0__["default"])(SectionChecklist)
+
+
+Object(_computed__WEBPACK_IMPORTED_MODULE_1__["default"])(SectionChecklist)
+
+
+Object(_methods__WEBPACK_IMPORTED_MODULE_2__["default"])(SectionChecklist)
 
 /* harmony default export */ __webpack_exports__["default"] = (SectionChecklist);
 
@@ -19731,6 +19526,364 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionChecklist_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CSectionManager_5CSectionPanel_5CSectionChecklist_5CSectionChecklist_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionChecklist_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CSectionManager_5CSectionPanel_5CSectionChecklist_5CSectionChecklist_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionChecklist_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CSectionManager_5CSectionPanel_5CSectionChecklist_5CSectionChecklist_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionChecklist_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CSectionManager_5CSectionPanel_5CSectionChecklist_5CSectionChecklist_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionChecklist_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CSectionManager_5CSectionPanel_5CSectionChecklist_5CSectionChecklist_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/computed.js":
+/*!********************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/computed.js ***!
+  \********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ((SectionChecklist) => {
+  SectionChecklist.computed.checked = function () {
+    if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID]) === false
+            || this.sectionsData.checklist[this.sectionSeqID].length === 0) {
+      this.sectionsData.checklist[this.sectionSeqID] = new Array(this.checklist.length)
+    }
+
+    let itemsFromLocalStorage = localStorage
+            .getItem(this.localStorageKeyPrefix + 'checklist')
+    //console.log(itemsFromLocalStorage)
+    if (itemsFromLocalStorage !== null) {
+      let json = JSON.parse(itemsFromLocalStorage)
+      //console.log(json)
+      json.forEach((item, i) => {
+        if (typeof (item) === 'boolean') {
+          this.sectionsData.checklist[this.sectionSeqID][i] = item
+        }
+      })
+      //console.log(this.sectionsData.checklist[this.sectionSeqID])
+    }
+
+    if (this.checklistAnnotationIndex !== -1) {
+      let hasAnnotation
+      if (this.isChecklistAnnotationSubmitted === true) {
+        hasAnnotation = true
+      } else if (this.annotation && (typeof (this.annotation.id) === 'number')) {
+        hasAnnotation = true
+      } else {
+        hasAnnotation = false
+      }
+      //this.sectionsData.checklist[this.sectionSeqID].splice(this.checklistAnnotationIndex, 1, hasAnnotation)
+      this.sectionsData.checklist[this.sectionSeqID][this.checklistAnnotationIndex] = hasAnnotation
+    }
+    return this.sectionsData.checklist[this.sectionSeqID]
+  }
+  SectionChecklist.computed.annotation = function () {
+    if (this.sectionsData.checklistAnnotation[this.sectionSeqID]) {
+      return this.sectionsData.checklistAnnotation[this.sectionSeqID]
+    } else {
+      return {
+        type: 'SectionMainIdea',
+        anchorPositions: [{
+            type: 'section',
+            seq_id: this.sectionSeqID
+          }],
+        notes: [{
+            type: 'default',
+            note: ''
+          }]
+      }
+    }
+  }
+  SectionChecklist.computed.computedSubmitButtonText = function () {
+    if (this.isChecklistCompleted) {
+      return this.$t('I have read this section!')
+    } else {
+      return this.$t('Please finish checklist.')
+    }
+  }
+  SectionChecklist.computed.localStorageKeyPrefix = function () {
+    return `Pacor.SectionChecklist.${this.sectionSeqID}.`
+  }
+  SectionChecklist.computed.checklistAnnotationIndex = function () {
+    let i = this.checklist.indexOf('SectionMainIdea')
+    //console.log(i)
+    return i
+  }
+  SectionChecklist.computed.checklist = function () {
+    if (Array.isArray(this.lib.auth.currentStepConfig.checklist)) {
+      let checklist = this.lib.auth.currentStepConfig.checklist
+      //console.log(checklist)
+
+      //this.checklistAnnotationIndex = checklist.indexOf('SectionMainIdea')
+
+      //
+
+      //console.log(this.sectionSeqID)
+      //console.log(this.sectionsData)
+//        if (!this.sectionsData.checklist 
+//                || typeof(this.sectionsData.checklist[this.sectionSeqID]) === 'undefined') {
+//          //this.sectionsData.checklist
+//          this.sectionsData.checklist = []
+//          this.sectionsData.checklist[this.sectionSeqID] = {}
+//        }
+
+
+      //this.checklistData = checklistData
+      //console.log(checklistData, typeof(checklistData), Array.isArray(checklistData))
+      //this.checked = checklistData
+      /*
+       if (Array.isArray(checklistData) === false
+       && typeof(checklistData) === 'object') {
+       Object.keys(checklistData).forEach(key => {
+       this.checked[key] = checklistData[key]
+       })
+       }
+       else if (Array.isArray(checklistData)) {
+       checklistData.forEach((value, i) => {
+       this.checked[i] = value
+       })
+       }
+       */
+
+      //this.checked[this.checklistAnnotationIndex] = (this.isChecklistAnnotationSubmitted === true)
+      //this.$forceUpdate()
+      //console.log(this.checked)
+      return checklist
+    }
+  }
+
+  SectionChecklist.computed.computedSubmitButtonClass = function () {
+    //console.log(this.isChecklistCompleted)
+    let classList = []
+    if (this.isChecklistCompleted === false) {
+      //return 'disabled'
+      classList.push('disabled')
+    } else {
+      //return 'positive'
+      classList.push('positive')
+    }
+    //console.trace(classList)
+    //this.$forceUpdate()
+    return classList.join(' ')
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/data.js":
+/*!****************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/data.js ***!
+  \****************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ((SectionChecklist) => {
+  SectionChecklist.data = function () {
+    this.$i18n.locale = this.config.locale
+
+    //let checked = []
+
+    if (!this.sectionsData.checklist[this.sectionSeqID]) {
+      this.sectionsData.checklist[this.sectionSeqID] = []
+    }
+
+    //if (this.sectionsData.checklist 
+    //        && this.sectionsData.checklist[this.sectionSeqID]
+    //        && Array.isArray(this.sectionsData.checklist[this.sectionSeqID])) {
+    //checked = this.sectionsData.checklist[this.sectionSeqID]
+    //console.log(checked)
+    //}
+
+    let isChecklistAnnotationSubmitted = false
+    if (this.sectionsData.checklistAnnotation[this.sectionSeqID]) {
+      isChecklistAnnotationSubmitted = true
+    }
+
+    return {
+      //checked: checked,
+      //checklistAnnotationIndex: -1,
+      isChecklistAnnotationSubmitted: isChecklistAnnotationSubmitted,
+      isChecklistCompleted: false
+              //wroteAnnotationAt: null
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/methods.js":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/methods.js ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ((SectionChecklist) => {
+//    initData () {
+//      //console.log(this.sectionsData.checklist)
+//      let checklistData = this.checked
+//      //console.log(checklistData, typeof(checklistData), Array.isArray(checklistData))
+//
+//      checklistData = checklistData ? checklistData : []
+//
+//      if (Array.isArray(checklistData) === false
+//              || checklistData.length === 0) {
+//        //checklistData = []
+//        let itemsFromLocalStorage = localStorage
+//                  .getItem(this.localStorageKeyPrefix + 'checklist')
+//        if (itemsFromLocalStorage !== null) {
+//          checklistData = JSON.parse(itemsFromLocalStorage)
+//        }
+//        //console.log(this.localStorageKeyPrefix + 'checklist')
+//      }
+//
+//      this.checklist.forEach((item, i) => {
+//        if (typeof(checklistData[i]) !== 'boolean') {
+//          checklistData[i] = false
+//        }
+//      })
+//    },
+
+  SectionChecklist.methods.onChecklistItemChange = function (i) {
+    //console.log(i, this.checked)
+    //this.checked.splice(i, 1, !this.checked[i])
+    this.checked[i] = !this.checked[i]
+    this.$forceUpdate()
+
+    //console.log(i, this.checked)
+    //console.log(this.isChecklistCompleted)
+    this.checkIsChecklistCompleted()
+    this._saveToLocalStorage()
+    //console.log(this.isChecklistCompleted)
+  }
+  SectionChecklist.methods._saveToLocalStorage = function () {
+    let data = JSON.stringify(this.checked)
+    //console.log(data)
+    localStorage.setItem(this.localStorageKeyPrefix + 'checklist', data)
+  }
+  SectionChecklist.methods.openSectionAnnotationEditor = function () {
+    /*
+     //      this.wroteAnnotationAt = (new Date()).getTime
+     //        this.checked.splice(this.sectionAnnotationIndex, 1, true)
+     //        this.sectionsData.sectionAnnotationCallback = null
+     //        return
+     
+     if (this.isWrottenAnnotation === false) {
+     this.sectionsData.sectionAnnotation.callback = () => {
+     this.wroteAnnotationAt = (new Date()).getTime
+     this.checked.splice(this.sectionAnnotationIndex, 1, true)
+     this.sectionsData.sectionAnnotation.callback = null
+     }
+     
+     
+     }
+     this.sectionsData.sectionAnnotation.seqID = this.sectionSeqID
+     this.sectionsData.sectionAnnotation.instance = {
+     id: this.sectionsData.sectionAnnotation.id,
+     type: 'SectionMainIdea',
+     note: this.sectionsData.sectionAnnotation.draftNote
+     }
+     
+     //this.checked.splice(this.sectionAnnotationIndex, 1, true)
+     //this.wroteAnnotationAt = 1
+     */
+    this.lib.AnnotationPanel.setAnnotation(this.annotation, {
+      'add': (annotation) => {
+        //console.log(annotation.notes[0].note)
+        //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
+
+        //console.log(this.sectionSeqID)
+        this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
+
+//          if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID]) === false) {
+//            this.sectionsData.checklist[this.sectionSeqID] = []
+//          }
+
+        //this.sectionsData.checklist[this.sectionSeqID].splice(this.checklistAnnotationIndex, 1, true)
+        this.sectionsData.checklist[this.sectionSeqID][this.checklistAnnotationIndex] = true
+
+        //console.log(this.sectionsData.checklist[this.sectionSeqID].checked)
+
+        //this.sectionsData.checklist[this.checklistAnnotationIndex] = true
+        //this.sectionsData.checklist.splice(this.sectionSeqID, 1, true)
+        //this.sectionsData.checklist[this.sectionSeqID]
+
+        //console.log(this.sectionsData.checklist)
+
+
+//          this.checked.splice(this.checklistAnnotationIndex, 1, true)
+
+        //this.annotation.id = annotation.id
+        //this.$forceUpdate()
+        this.isChecklistAnnotationSubmitted = true
+
+        this.sectionsData.annotation.splice(this.sectionSeqID, 1, annotation)
+        this.checkIsChecklistCompleted()
+        //console.log(this.checked)
+        this._saveToLocalStorage()
+      },
+      'update': (annotation) => {
+        //console.log(annotation)
+        //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
+        this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
+      },
+    })
+  }
+  SectionChecklist.methods.submitChecklist = async function () {
+    this.sectionsData.checklist[this.sectionSeqID] = this.checked
+    //this.sectionsData.checklist[this.sectionSeqID].submittedAt = (new Date()).getTime()
+
+    let data = {
+      checklist: this.sectionsData.checklist
+    }
+
+    await this.lib.AxiosHelper.post('/client/Section/setChecklist', data)
+
+    //this.sectionsData.checklistSubmitted[this.sectionSeqID] = true
+    this.sectionsData.checklistSubmitted.splice(this.sectionSeqID, 1, true)
+    this.checkAllChecklistsIsComplete()
+  }
+  SectionChecklist.methods.checkAllChecklistsIsComplete = function () {
+
+    // 觀察看看有沒有機會完全完成
+    //console.log(this.sectionsData.checklistSubmitted)
+    let isAllCompleted = true
+    for (let i = 0; i < this.sectionsData.checklistSubmitted.length; i++) {
+      if (this.sectionsData.checklistSubmitted[i] !== true) {
+        isAllCompleted = false
+        break
+      }
+    }
+    //let isAllCompleted = (this.sectionsData.checklistSubmitted.filter(c => (c !== true)).length === 0)
+    if (isAllCompleted === true) {
+      this.$emit('complete')
+    }
+  }
+  SectionChecklist.methods.checkIsChecklistCompleted = function () {
+    //console.log(this.checked.length, this.checked)
+    //let a = this.checked.length
+    //console.log(a)
+
+    /*
+     for (let i = 0; i < this.checked.length; i++) {
+     console.log(i , this.checked[i], (this.checked[i] === false))
+     if (this.checked[i] !== true) {
+     return false
+     }
+     }
+     */
+    let checked = this.sectionsData.checklist[this.sectionSeqID]
+    if (!checked) {
+      return false
+    }
+    //console.log(checked)
+    let result = checked.filter(c => c !== true)
+
+    //this.$forceUpdate()
+    //console.log(checked.length, checked, result)
+    this.isChecklistCompleted = (result.length === 0)
+  }
+});
 
 /***/ }),
 

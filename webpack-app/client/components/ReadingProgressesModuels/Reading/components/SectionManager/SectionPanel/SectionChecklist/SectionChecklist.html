@@ -29,7 +29,8 @@
         
         <div class="ui checkbox">
           <input type="checkbox"
-                 v-bind:checked="checked[i]" />
+                 v-bind:checked="checked[i]"
+                 v-on:click.prevent="()=>{}" />
           <label>
             {{ $t(item) }}
           </label>
