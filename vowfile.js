@@ -41,6 +41,7 @@ module.exports = (cli, runner) => {
     
     const Cache = use('Cache')
     await ace.call('migration:refresh', {}, { silent: true, keepAlive: true })
+    await ace.call('seed', {}, {keepAlive: true})
     await Cache.flush()
   })
 

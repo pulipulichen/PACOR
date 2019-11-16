@@ -81,6 +81,10 @@ class DomainAdmin {
       await Cache.tags('Domain_' + this.primaryKeyValue).flush()
 
       return 1
+    } // Model.prototype.changeAdmins = async function (adminsArray) {
+    
+    Model.prototype.setAdmins = async function (adminsArray) {
+      return await this.changeAdmins(adminsArray)
     }
 
   } // register (Model) {
