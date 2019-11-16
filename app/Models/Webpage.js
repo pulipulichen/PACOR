@@ -39,6 +39,7 @@ class Webpage extends Model {
     this.addTrait('Webpage/WebpageConfig')
     this.addTrait('Webpage/WebpageFind')
     this.addTrait('Webpage/WebpageCrawler')
+    this.addTrait('Webpage/WebpageAdmin')
   }
   
   
@@ -74,17 +75,17 @@ class Webpage extends Model {
   // ------------------
   
   annotations () {
-    return this.hasMany('App/Model/Annotation')
+    return this.hasMany('App/Models/Annotation')
   }
   
-  admins () {
-    return this.hasMany('App/Model/User')
-            .whereIn('role', ['global_admin', 'domain_admin'])
-  }
+  //admins () {
+  //  return this.hasMany('App/Models/User')
+  //          .whereIn('role', ['global_admin', 'domain_admin'])
+  //}
   
-  sectionAnnotations() {
-    return this.hasMany('App/Model/SectionAnnotation')
-  }
+//  sectionAnnotations() {
+//    return this.hasMany('App/Models/SectionAnnotation')
+//  }
   
   isAdmin (user) {
     return (user.role === 'global_admin'

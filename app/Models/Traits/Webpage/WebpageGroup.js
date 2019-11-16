@@ -74,7 +74,7 @@ class WebpageGroup {
 
         if (group === null || group === undefined) {
           group = new WebpageGroupModel()
-          group.webpage_id = this.primaryKeyValue
+          //group.webpage_id = this.primaryKeyValue
           group.group_seq_id = currentSeqID
 
           //console.log('setGroupsList', 2.1)
@@ -155,16 +155,6 @@ class WebpageGroup {
       })
     }
     
-    Model.prototype.getAdminIDs = async function () {
-      let cacheKey = Cache.key('Webpage', 'getAdminIDs', this)
-      return await Cache.rememberWait([this, 'Webpage'], cacheKey, async () => {
-        let admins = await this.admins().fetch()
-        
-        return admins.toJSON().map(user => user.id)
-      })
-      
-    }
-
   } // register (Model) {
 }
 

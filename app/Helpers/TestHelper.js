@@ -28,7 +28,7 @@ let TestHelper = function (title, config) {
         console.log(`[${name}]`, e)
         throw e
       }
-    }).timeout(0)
+    }).timeout(5000)
   })
 }
 
