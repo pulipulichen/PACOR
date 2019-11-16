@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 let Modal = {
   props: ['lib', 'status', 'config'
     , 'cancelable', 'reset', 'dimmerTransparent', 'contentURL'
@@ -27,6 +29,7 @@ let Modal = {
   destroyed: function () {
     this.hide()
     this.getModal().remove()
+    $(document.body).removeClass('non-invasive-web-style-framework-scroll-disable')
     //console.log('Modal隱藏了喔！', this.getModal().length)
   },
   watch: {
@@ -42,11 +45,11 @@ let Modal = {
       catch (e) {}
     }
   },
-  mounted() {
-    //setTimeout(() => {
-    //  this.show()
-    //}, 1000)
-  },
+//  mounted() {
+//    //setTimeout(() => {
+//    //  this.show()
+//    //}, 1000)
+//  },
   methods: {
     getModal: function () {
       if (this.modal === null) {

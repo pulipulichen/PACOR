@@ -77,6 +77,11 @@ class Webpage extends Model {
     return this.hasMany('App/Model/Annotation')
   }
   
+  admins () {
+    return this.hasMany('App/Model/User')
+            .whereIn('role', ['global_admin', 'domain_admin'])
+  }
+  
   sectionAnnotations() {
     return this.hasMany('App/Model/SectionAnnotation')
   }

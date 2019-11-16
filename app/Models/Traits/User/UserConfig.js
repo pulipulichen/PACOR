@@ -3,6 +3,7 @@
 class UserConfig {
 
   register(Model) {
+    
     Model.prototype.getCurrentReadingProgressStepConfig = async function (webpage) {
       let stepName = await this.getCurrentReadingProgressStepName(webpage)
       return webpage.getStepConfig(stepName)

@@ -1,13 +1,56 @@
 module.exports = {
-  // 只會選擇第一個
-  articleSelector: ['article', '#main', '#article', '.main', '.article,body'],
+  /**
+   * 選擇文字選擇器
+   * @Array|String
+   */
+  selecotr: {
+    /**
+     * 選擇文章
+     * @Array|String
+     */
+    article: ['article', '#main', '#article', '.main', '.article,body'],
+    /**
+     * 依序判斷article下面可能會有的section選取器
+     * @Array|String
+     */
+    section: ['section','.section','p','div'],
+  },
   
-  // 依序判斷article下面可能會有的section選取器
-  sectionSelector: ['section','.section','p','div'],
-  loginMessage: '猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？',
-  allowLoginWithoutGrop: true,
+  login: {
+    /**
+     * @argument {String} 
+     * 
+     * 純文字
+     * 網址
+     */
+    message: '猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？',
+    
+    /**
+     * @argument {Boolean} name 
+     */
+    allowLoginWithoutGrop: true,
+  },
+  
   readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
-  readingProgressesFinish: 'Exit',  // 'Exit', 'FreeReading', 'http://blog.pulipuli.info'
+  
+  /**
+   * @argument {String}
+   * 
+   * 閱讀完成後離開的選項
+   * Exit: 離開
+   * FreeReading: 自由閱讀
+   * 網址: 例如 http://blog.pulipuli.info
+   */
+  readingProgressesFinish: 'Exit',
+  
+  /**
+   * 閱讀流程的控制權
+   * 
+   * reading: 由讀者和計時器控制
+   * admin: 由管理者統一控制 @TODO 尚未完成
+   */
+  readingProgressControl: 'reader',
+  
   readingProgressModules: {
     'PreImaginary': {
       message: '猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？',
@@ -61,9 +104,6 @@ module.exports = {
       minWords: 10,
       limitMinutes: 0.1
     }
-  },
-  'selection': {
-    
   },
   annotationTypeModules: {
     'ConfusedClarified': {

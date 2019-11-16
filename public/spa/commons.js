@@ -1778,6 +1778,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 let Modal = {
   props: ['lib', 'status', 'config'
     , 'cancelable', 'reset', 'dimmerTransparent', 'contentURL'
@@ -1807,6 +1811,7 @@ let Modal = {
   destroyed: function () {
     this.hide()
     this.getModal().remove()
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(document.body).removeClass('non-invasive-web-style-framework-scroll-disable')
     //console.log('Modal隱藏了喔！', this.getModal().length)
   },
   watch: {
@@ -1822,11 +1827,11 @@ let Modal = {
       catch (e) {}
     }
   },
-  mounted() {
-    //setTimeout(() => {
-    //  this.show()
-    //}, 1000)
-  },
+//  mounted() {
+//    //setTimeout(() => {
+//    //  this.show()
+//    //}, 1000)
+//  },
   methods: {
     getModal: function () {
       if (this.modal === null) {

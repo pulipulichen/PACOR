@@ -1,59 +1,70 @@
 <div class="login-modal">
   <modal 
     ref="LoginModal"
-         v-bind:config="config"
-         v-bind:status="status"
-         v-bind:progress="progress"
-         v-bind:lib="lib"
-         dimmerTransparent="false"
-         cancelable="false">
-      <template v-slot:header>
-        <div v-on:click="adminMode = !adminMode">
-          {{ $t('Welcome to PACOR') }}
-        </div>
-      </template>
-      <template v-slot:content>
-        
-        <div class="ui middle aligned grid">
-          <div class="six wide column">
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:progress="progress"
+    v-bind:lib="lib"
+    dimmerTransparent="false"
+    cancelable="false">
+
+    <template v-slot:header>
+      <div v-on:click="adminMode = !adminMode">
+        {{ $t('Welcome to PACOR') }}
+      </div>
+    </template>
+    <template v-slot:content>
+
+
+      <div class="ui middle aligned grid">
+        <media v-bind:query="{minWidth: compactWidth}"
+               v-on:media-enter="isCompactMode = false"
+               v-on:media-leave="isCompactMode = true">
+
+
+          <div class="six wide column"
+               v-if="!isCompactMode">
             <img v-bind:src="config.baseURL + '/imgs/pacor.svg'"
                  class="ui image" />
           </div>
-          <div class="ten wide column">
-            
-            <div class="ui segment login-message"
-                 v-html="status.readingConfig.loginMessage">
-            </div>
-            
-            <div class="ui field">
-              <label for="loginUsername">
-                {{ $t('Username') }}
-              </label>
-              <input type="text" 
-                     id="loginUsername"
-                     v-model="username"
-                     v-on:keyup.enter="login"/>
-            </div>
 
-            <div class="ui field"
-                 v-if="adminMode">
-              <label for="loginPassword">
-                {{ $t('Password') }}
-              </label>
-              <input type="password" 
-                     id="loginPassword"
-                     v-model="password"
-                     v-on:keyup.enter="login" />
-            </div>
-            
-            <div class="ui field" v-html="$t('agreement-link', [agreementLink])"></div>
+        </media>
+        <div v-bind:class="computedFormClassList">
+
+          <div class="ui segment login-message"
+               v-html="status.readingConfig.login.message">
           </div>
+
+          <div class="ui field">
+            <label for="loginUsername">
+              {{ $t('Username') }}
+            </label>
+            <input type="text" 
+                   id="loginUsername"
+                   v-model="username"
+                   v-on:keyup.enter="login"/>
+          </div>
+
+          <div class="ui field"
+               v-if="adminMode">
+            <label for="loginPassword">
+              {{ $t('Password') }}
+            </label>
+            <input type="password" 
+                   id="loginPassword"
+                   v-model="password"
+                   v-on:keyup.enter="login" />
+          </div>
+
+          <div class="ui field" v-html="$t('agreement-link', [agreementLink])"></div>
         </div>
-      </template>
-      <template v-slot:actions>
-        <div class="ui button"
-             v-bind:class="{disabled: isDisableLogin}"
-             v-on:click="login">{{ $t('LOGIN') }}</div>
-      </template>
+      </div>
+
+    </template>
+    <template v-slot:actions>
+      <div class="ui button"
+           v-bind:class="{disabled: isDisableLogin}"
+           v-on:click="login">{{ $t('LOGIN') }}</div>
+    </template>
   </modal>
 </div>

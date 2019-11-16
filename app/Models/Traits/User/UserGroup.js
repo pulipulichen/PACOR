@@ -6,6 +6,12 @@ class UserGroup {
 
   register(Model) {
 
+    /**
+     * 取得使用者群組裡面的使用者
+     * 
+     * @param {Webpage} webpage
+     * @returns {Array|Integer}
+     */
     Model.prototype.getUserIDsInGroup = async function (webpage) {
       let cacheKey = Cache.key(`User.getUserIDsInGroup`, webpage)
       return await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
@@ -34,6 +40,9 @@ class UserGroup {
           // 查詢沒有加入群組的使用者
           userIds = await webpage.getReaderIDsNotInGroup()
         }
+        
+        let adminIds = await webpage.getAdminIDs()
+        userIds = userIds.concat(adminIds)
 
         //await Cache.forever(cacheKey, userIds)
         return userIds

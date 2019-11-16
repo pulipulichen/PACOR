@@ -8,8 +8,8 @@ export default (RangyManager) => {
     let output = {}
     if (typeof(this.status) === 'object'
             && typeof(this.status.readingConfig) === 'object') {
-      output.articleSelector = this.status.readingConfig.articleSelector
-      output.sectionSelector = this.status.readingConfig.sectionSelector
+      output.articleSelector = this.status.readingConfig.selector.article
+      output.sectionSelector = this.status.readingConfig.selector.section
       output.annotationTypeModules = this.status.readingConfig.annotationTypeModules
     }
     return output

@@ -6,6 +6,7 @@ const Webpage = use('App/Models/Webpage')
 class WebpageFind {
 
   register(Model) {
+    
     Model.findByURL = async function (URL) {
       if (typeof (URL) !== 'string') {
         URL = '/'
@@ -23,7 +24,8 @@ class WebpageFind {
       await domain.webpages().save(webpage)
 
       return webpage
-    }
+    } // Model.findByURL = async function (URL) {
+    
   } // register (Model) {
 }
 

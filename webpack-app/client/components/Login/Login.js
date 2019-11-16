@@ -1,3 +1,5 @@
+import Media from 'vue-media'
+
 let Login = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {    
@@ -7,7 +9,9 @@ let Login = {
       password: '',
       waiting: false,
       adminMode: false,
-      key: 'PACOR.client.components.Login.'
+      key: 'PACOR.client.components.Login.',
+      compactWidth: 480,
+      isCompactMode: false
     }
   },
   computed: {
@@ -27,10 +31,21 @@ let Login = {
     },
     agreementLink: function () {
       return this.config.baseURL + '/client/webpage/agreement'
+    },
+    computedFormClassList () {
+      if (this.isCompactMode === false) {
+        return 'ten wide column'
+      }
+      else {
+        return 'sixteen wide column'
+      }
     }
   },
-  watch: {
+  components: {
+    'media': Media,
   },
+//  watch: {
+//  },
   mounted() {
     //console.log('掛載！')
     this.$refs.LoginModal.show()

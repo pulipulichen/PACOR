@@ -517,9 +517,9 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\r\n          " +
+                      "\r\n        " +
                         _vm._s(_vm.$t("Welcome to PACOR")) +
-                        "\r\n        "
+                        "\r\n      "
                     )
                   ]
                 )
@@ -531,126 +531,153 @@ var render = function() {
             key: "content",
             fn: function() {
               return [
-                _c("div", { staticClass: "ui middle aligned grid" }, [
-                  _c("div", { staticClass: "six wide column" }, [
-                    _c("img", {
-                      staticClass: "ui image",
-                      attrs: { src: _vm.config.baseURL + "/imgs/pacor.svg" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "ten wide column" }, [
-                    _c("div", {
-                      staticClass: "ui segment login-message",
-                      domProps: {
-                        innerHTML: _vm._s(_vm.status.readingConfig.loginMessage)
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "ui field" }, [
-                      _c("label", { attrs: { for: "loginUsername" } }, [
-                        _vm._v(
-                          "\r\n                " +
-                            _vm._s(_vm.$t("Username")) +
-                            "\r\n              "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.username,
-                            expression: "username"
-                          }
-                        ],
-                        attrs: { type: "text", id: "loginUsername" },
-                        domProps: { value: _vm.username },
+                _c(
+                  "div",
+                  { staticClass: "ui middle aligned grid" },
+                  [
+                    _c(
+                      "media",
+                      {
+                        attrs: { query: { minWidth: _vm.compactWidth } },
                         on: {
-                          keyup: function($event) {
-                            if (
-                              !$event.type.indexOf("key") &&
-                              _vm._k(
-                                $event.keyCode,
-                                "enter",
-                                13,
-                                $event.key,
-                                "Enter"
-                              )
-                            ) {
-                              return null
-                            }
-                            return _vm.login($event)
+                          "media-enter": function($event) {
+                            _vm.isCompactMode = false
                           },
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.username = $event.target.value
+                          "media-leave": function($event) {
+                            _vm.isCompactMode = true
                           }
                         }
-                      })
-                    ]),
+                      },
+                      [
+                        !_vm.isCompactMode
+                          ? _c("div", { staticClass: "six wide column" }, [
+                              _c("img", {
+                                staticClass: "ui image",
+                                attrs: {
+                                  src: _vm.config.baseURL + "/imgs/pacor.svg"
+                                }
+                              })
+                            ])
+                          : _vm._e()
+                      ]
+                    ),
                     _vm._v(" "),
-                    _vm.adminMode
-                      ? _c("div", { staticClass: "ui field" }, [
-                          _c("label", { attrs: { for: "loginPassword" } }, [
-                            _vm._v(
-                              "\r\n                " +
-                                _vm._s(_vm.$t("Password")) +
-                                "\r\n              "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.password,
-                                expression: "password"
-                              }
-                            ],
-                            attrs: { type: "password", id: "loginPassword" },
-                            domProps: { value: _vm.password },
-                            on: {
-                              keyup: function($event) {
-                                if (
-                                  !$event.type.indexOf("key") &&
-                                  _vm._k(
-                                    $event.keyCode,
-                                    "enter",
-                                    13,
-                                    $event.key,
-                                    "Enter"
-                                  )
-                                ) {
-                                  return null
-                                }
-                                return _vm.login($event)
-                              },
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.password = $event.target.value
-                              }
+                    _c("div", { class: _vm.computedFormClassList }, [
+                      _c("div", {
+                        staticClass: "ui segment login-message",
+                        domProps: {
+                          innerHTML: _vm._s(
+                            _vm.status.readingConfig.login.message
+                          )
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ui field" }, [
+                        _c("label", { attrs: { for: "loginUsername" } }, [
+                          _vm._v(
+                            "\r\n              " +
+                              _vm._s(_vm.$t("Username")) +
+                              "\r\n            "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.username,
+                              expression: "username"
                             }
-                          })
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("div", {
-                      staticClass: "ui field",
-                      domProps: {
-                        innerHTML: _vm._s(
-                          _vm.$t("agreement-link", [_vm.agreementLink])
-                        )
-                      }
-                    })
-                  ])
-                ])
+                          ],
+                          attrs: { type: "text", id: "loginUsername" },
+                          domProps: { value: _vm.username },
+                          on: {
+                            keyup: function($event) {
+                              if (
+                                !$event.type.indexOf("key") &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "enter",
+                                  13,
+                                  $event.key,
+                                  "Enter"
+                                )
+                              ) {
+                                return null
+                              }
+                              return _vm.login($event)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.username = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _vm.adminMode
+                        ? _c("div", { staticClass: "ui field" }, [
+                            _c("label", { attrs: { for: "loginPassword" } }, [
+                              _vm._v(
+                                "\r\n              " +
+                                  _vm._s(_vm.$t("Password")) +
+                                  "\r\n            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.password,
+                                  expression: "password"
+                                }
+                              ],
+                              attrs: { type: "password", id: "loginPassword" },
+                              domProps: { value: _vm.password },
+                              on: {
+                                keyup: function($event) {
+                                  if (
+                                    !$event.type.indexOf("key") &&
+                                    _vm._k(
+                                      $event.keyCode,
+                                      "enter",
+                                      13,
+                                      $event.key,
+                                      "Enter"
+                                    )
+                                  ) {
+                                    return null
+                                  }
+                                  return _vm.login($event)
+                                },
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.password = $event.target.value
+                                }
+                              }
+                            })
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("div", {
+                        staticClass: "ui field",
+                        domProps: {
+                          innerHTML: _vm._s(
+                            _vm.$t("agreement-link", [_vm.agreementLink])
+                          )
+                        }
+                      })
+                    ])
+                  ],
+                  1
+                )
               ]
             },
             proxy: true
@@ -1927,6 +1954,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_media__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-media */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue-media\\dist\\vue-media.common.js");
+/* harmony import */ var vue_media__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_media__WEBPACK_IMPORTED_MODULE_0__);
+
+
 let Login = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {    
@@ -1936,7 +1967,9 @@ let Login = {
       password: '',
       waiting: false,
       adminMode: false,
-      key: 'PACOR.client.components.Login.'
+      key: 'PACOR.client.components.Login.',
+      compactWidth: 480,
+      isCompactMode: false
     }
   },
   computed: {
@@ -1956,10 +1989,21 @@ let Login = {
     },
     agreementLink: function () {
       return this.config.baseURL + '/client/webpage/agreement'
+    },
+    computedFormClassList () {
+      if (this.isCompactMode === false) {
+        return 'ten wide column'
+      }
+      else {
+        return 'sixteen wide column'
+      }
     }
   },
-  watch: {
+  components: {
+    'media': vue_media__WEBPACK_IMPORTED_MODULE_0___default.a,
   },
+//  watch: {
+//  },
   mounted() {
     //console.log('掛載！')
     this.$refs.LoginModal.show()

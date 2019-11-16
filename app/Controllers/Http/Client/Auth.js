@@ -44,7 +44,7 @@ class Auth {
     
     // --------------------------
     let config = await webpage.getConfig()
-    if (config.allowLoginWithoutGrop === false) {
+    if (config.login.allowLoginWithoutGrop === false) {
       throw new HttpException('Login fail')
     }
     

@@ -96,47 +96,60 @@ class WebpageGroup {
       await Cache.forget(`Webpage.getGroupsList.${this.primaryKeyValue}`)
 
     }
-    
-    
-  // ------------------
-  
-  Model.prototype.getReadersNotInGroup = async function () {
-    let idsList = await this.getReaderIDsNotInGroup()
-    let readers = await User
-            .query()
-            .whereIn('id', idsList)
-            .fetch()
-    return readers
-  }
-  
-  Model.prototype.getReaderIDsNotInGroup = async function () {
-    let cacheKey = `Webpage.getReaderIDsNotInGroup.${this.primaryKeyValue}`
-    let output = await Cache.rememberWait(cacheKey, async () => {
-      let relation = User
+
+
+    // ------------------
+
+    Model.prototype.getReadersNotInGroup = async function () {
+      let idsList = await this.getReaderIDsNotInGroup()
+      let readers = await User
               .query()
-              .where('role', 'reader')
-              .where('domain_id', this.domain_id)
+              .whereIn('id', idsList)
+              .fetch()
+      return readers
+    }
 
-      let groups = await this.groups().fetch()
-      let usersInGroups = []
-      groups.toJSON().forEach(group => {
-        group.users.forEach(user => {
-          usersInGroups.push(user.id)
+    Model.prototype.getReaderIDsNotInGroup = async function () {
+      let cacheKey = `Webpage.getReaderIDsNotInGroup.${this.primaryKeyValue}`
+      
+      return await Cache.rememberWait([this, 'Webpage'], cacheKey, async () => {
+        let relation = User
+                .query()
+                .where('role', 'reader')
+                .where('domain_id', this.domain_id)
+
+        let groups = await this.groups().fetch()
+        let usersInGroups = []
+        groups.toJSON().forEach(group => {
+          group.users.forEach(user => {
+            usersInGroups.push(user.id)
+          })
         })
+
+        if (usersInGroups.length > 0) {
+          relation.whereNotIn('id', usersInGroups)
+        }
+
+        let users = await relation.fetch()
+        let output = users.toJSON().map(user => user.id)
+        
+        let adminIDs = await this.getAdminIDs()
+        output = output.concat(adminIDs)
+        
+        return output
       })
+    }
+    
+    Model.prototype.getAdminIDs = async function () {
+      let cacheKey = Cache.key('Webpage', 'getAdminIDs', this)
+      return await Cache.rememberWait([this, 'Webpage'], cacheKey, async () => {
+        let admins = await this.admins().fetch()
+        
+        return admins.toJSON().map(user => user.id)
+      })
+      
+    }
 
-      if (usersInGroups.length > 0) {
-        relation.whereNotIn('id', usersInGroups)
-      }
-
-      let users = await relation.fetch()
-      return users.toJSON().map(user => user.id)
-    })
-  
-    //await Cache.forever(cacheKey, output)
-    return output
-  }
-  
   } // register (Model) {
 }
 
