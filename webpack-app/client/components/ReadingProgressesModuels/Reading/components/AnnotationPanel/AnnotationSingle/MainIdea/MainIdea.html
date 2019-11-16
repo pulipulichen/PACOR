@@ -17,7 +17,15 @@
       v-if="isNoteDifferent">
     </block-exit>
     
+    
+    
     <div v-bind:class="computedButtonsClass">
+      
+      <admin-badge 
+        v-bind:status="status"
+        v-bind:config="config">
+      </admin-badge>
+      
       <checkbox-toggle 
         v-if="annotationConfig.enableControlPermission"
         v-bind:label="$t('PUBLIC')"

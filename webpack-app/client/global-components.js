@@ -43,3 +43,6 @@ Vue.component('user-avatar-icons', UserAvatarIcons)
 
 import AnnotationItem from './../components/AnnotationItem/AnnotationItem.vue'
 Vue.component('annotation-item', AnnotationItem)
+
+import AdminBadge from './../components/AdminBadge/AdminBadge.vue'
+Vue.component('admin-badge', AdminBadge)

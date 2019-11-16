@@ -1623,6 +1623,10 @@ var render = function() {
                 "div",
                 { class: _vm.computedButtonsClass },
                 [
+                  _c("admin-badge", {
+                    attrs: { status: _vm.status, config: _vm.config }
+                  }),
+                  _vm._v(" "),
                   _vm.annotationConfig.enableControlPermission
                     ? _c("checkbox-toggle", {
                         attrs: { label: _vm.$t("PUBLIC") },
@@ -1951,6 +1955,10 @@ var render = function() {
                 "div",
                 { class: _vm.computedButtonsClass },
                 [
+                  _c("admin-badge", {
+                    attrs: { status: _vm.status, config: _vm.config }
+                  }),
+                  _vm._v(" "),
                   _vm.annotationConfig.enableControlPermission
                     ? _c("checkbox-toggle", {
                         attrs: { label: _vm.$t("PUBLIC") },
@@ -2087,6 +2095,10 @@ var render = function() {
                 "div",
                 { class: _vm.computedButtonsClass },
                 [
+                  _c("admin-badge", {
+                    attrs: { status: _vm.status, config: _vm.config }
+                  }),
+                  _vm._v(" "),
                   _vm.annotationConfig.enableControlPermission
                     ? _c("checkbox-toggle", {
                         attrs: { label: _vm.$t("PUBLIC") },

@@ -61,6 +61,11 @@
     </block-exit>
 
     <div v-bind:class="computedButtonsClass">
+      
+      <admin-badge 
+        v-bind:status="status"
+        v-bind:config="config">
+      </admin-badge>
 
       <!--
       <button type="button"
