@@ -55,6 +55,7 @@ f g`
     //console.log('b.2')
     
     assert.equal(admins.size(), 2)
+    //console.log(admins.toJSON())
   },
   'd. check users in group include admins': async function ( { assert, client } ) {
     let webpage = await WebpageModel.findByURL(url)

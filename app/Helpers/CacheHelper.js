@@ -1,6 +1,10 @@
 'use strict'
 
 const Config = use('Config')
+
+/**
+ * https://www.npmjs.com/package/adonis-cache
+ */
 const Cache = use('Adonis/Addons/Cache')
 
 let stringifyArray = (array) => {
@@ -237,18 +241,35 @@ const buildLockName = (tags, cacheKey) => {
 }
 
 const filterTags = (tags) => {
-  return tags.map(tag => {
+  let output = []
+  
+  let domainTag
+  
+  output = tags.map(tag => {
     //console.log(tag.constructor.name, typeof(tag) === 'object', typeof(tag.primaryKeyValue))
-    if (typeof(tag) === 'object'
-            && typeof(tag.primaryKeyValue) === 'number') {
-      return tag.constructor.name + '_' + tag.primaryKeyValue
+    if (typeof(tag) === 'object') {
+      if (!domainTag && typeof(tag.domain_id) === 'number') {
+        domainTag = 'Domain_' + tag.domain_id
+      }
+      if (typeof(tag.primaryKeyValue) === 'number') {
+        return tag.constructor.name + '_' + tag.primaryKeyValue
+      }
     }
     else {
       return tag
     }
   })
+  
+  if (domainTag) {
+    output.unshift(domainTag)
+  }
+  
+  return output
 }
 
+/**
+ * @deprecated 20191117 應該要捨棄不使用
+ */
 Cache.buildTags = (webpage, user, instance) => {
   //console.log([webpage, user, instance])
   if (webpage !== undefined 
@@ -262,18 +283,30 @@ Cache.buildTags = (webpage, user, instance) => {
   
   let tags = []
   
+  let domainTag
+  
   if (webpage !== undefined) {
     tags.push('Webpage_' + webpage.primaryKeyValue)
+    domainTag = 'Domain_' + webpage.domain_id
   }
   else if (typeof(instance.webpage_id) === 'number') {
     tags.push('Webpage_' + instance.webpage_id)
+    if (typeof(instance.domain_id) === 'number') {
+      domainTag = 'Domain_' + instance.domain_id
+    }
   }
   
   if (user !== undefined) {
     tags.push('User_' + user.primaryKeyValue)
+    if (!domainTag) {
+      domainTag = 'Domain_' + user.domain_id
+    }
   }
   else if (typeof(instance.user_id) === 'number') {
     tags.push('User_' + instance.user_id)
+    if (!domainTag && typeof(instance.domain_id) === 'number') {
+      domainTag = 'Domain_' + instance.domain_id
+    }
   }
   
   let className = instance.constructor.name
@@ -282,6 +315,13 @@ Cache.buildTags = (webpage, user, instance) => {
     className = instance.name
   }
   tags.push(className)
+  
+  if (domainTag) {
+    tags.unshift(domainTag)
+  }
+  
+  console.log(tags)
+  
   return tags
 }
 

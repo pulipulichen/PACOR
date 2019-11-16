@@ -42,6 +42,7 @@ class UserGroup {
         }
         
         let adminIds = await webpage.getAdminIDs()
+        //console.log(adminIds)
         userIds = userIds.concat(adminIds)
 
         //await Cache.forever(cacheKey, userIds)

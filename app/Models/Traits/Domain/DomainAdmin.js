@@ -1,6 +1,6 @@
 'use strict'
 
-//const Cache = use('Cache')
+const Cache = use('Cache')
 //const UserModel = use('App/Models/User')
 
 //const WebpageGroupModel = use('App/Models/WebpageGroup')
@@ -76,6 +76,9 @@ class DomainAdmin {
       })
 
       await this.users().createMany(usersData)
+
+      // 移除快取
+      await Cache.tags('Domain_' + this.primaryKeyValue).flush()
 
       return 1
     }
