@@ -1,4 +1,8 @@
+/* global __filename */
+
 'use strict'
+let title = 'Controllers/Models/' + __filename
+
 /**
  * https://www.chaijs.com/api/assert/
  * @type type
@@ -16,7 +20,7 @@ const Sleep = use('Sleep')
 
 const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html'
 
-let title = 'Controllers/Models/User.getUserIDsInGroup'
+
 let config = {
   'a. create group in webpage': async function ( { assert, client } ) {
     let webpage = await WebpageModel.findByURL(url)

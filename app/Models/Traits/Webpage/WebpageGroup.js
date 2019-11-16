@@ -3,6 +3,8 @@
 const Cache = use('Cache')
 const User = use('App/Models/User')
 
+const WebpageGroupModel = use('App/Models/WebpageGroup')
+
 class WebpageGroup {
 
   register(Model) {
@@ -19,7 +21,7 @@ class WebpageGroup {
       return group.first()
     }
 
-    Model.prototype.getGroups = async function () {
+    Model.prototype.getOrderedGroupInstances = async function () {
       let groups = await this.groups()
               .fetch()
 
@@ -46,6 +48,7 @@ class WebpageGroup {
     }
 
     Model.prototype.setGroupsList = async function (list) {
+      
       if (typeof (list) === 'string') {
         let lines = list.trim().split('\n')
         list = []
@@ -59,19 +62,25 @@ class WebpageGroup {
           list.push(lineArray)
         })
       }
+      
+      //console.log('setGroupsList', 2)
 
       // ---------------------
 
       let currentSeqID
-      let groups = await this.getGroups()
+      let groups = await this.getOrderedGroupInstances()
       for (currentSeqID = 0; currentSeqID < list.length; currentSeqID++) {
         let group = groups[currentSeqID]
 
         if (group === null || group === undefined) {
-          group = new WebpageGroup()
+          group = new WebpageGroupModel()
+          group.webpage_id = this.primaryKeyValue
           group.group_seq_id = currentSeqID
 
+          //console.log('setGroupsList', 2.1)
           await this.groups().save(group)
+          //await group.save()
+          //console.log('setGroupsList', 2.2)
         }
 
         // ----------------------
@@ -82,12 +91,16 @@ class WebpageGroup {
         // ----------------------
 
         delete groups[currentSeqID]
-      }
+      } // for (currentSeqID = 0; currentSeqID < list.length; currentSeqID++) {
+
+      //console.log('setGroupsList', 3)
 
       for (let i in groups) {
         await groups[i].users().detach()
         await groups[i].delete()
-      }
+      } // for (let i in groups) {
+      
+      //console.log('setGroupsList', 4)
 
       await Cache.forget(`User.getUserIDsInGroup.${this.primaryKeyValue}`)
 
@@ -95,8 +108,10 @@ class WebpageGroup {
       await Cache.forget(`Webpage.getReaderIDsNotInGroup.${this.primaryKeyValue}`)
       await Cache.forget(`Webpage.getGroupsList.${this.primaryKeyValue}`)
 
-    }
+      //console.log('setGroupsList', 5)
+    } // Model.prototype.setGroupsList = async function (list) {
 
+    
 
     // ------------------
 

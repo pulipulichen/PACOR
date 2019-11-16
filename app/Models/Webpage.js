@@ -5,14 +5,14 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
-const Env = use('Env')
+//const Env = use('Env')
 //const baseURL = `${Env.get('PROTOCOL')}//${Env.get('HOST')}:${Env.get('PORT')}`
 
 
-const WebpageGroup = use('App/Models/WebpageGroup')
-const User = use('App/Models/User')
+//const WebpageGroup = use('App/Models/WebpageGroup')
+//const User = use('App/Models/User')
 
-const { HttpException } = use('@adonisjs/generic-exceptions') 
+//const { HttpException } = use('@adonisjs/generic-exceptions') 
 
 const Cache = use('Cache')
 
