@@ -5,7 +5,8 @@ let Login = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      username: 'a',
+      //username: '',
+      username: '布丁',  // for test
       password: '',
       waiting: false,
       adminMode: false,

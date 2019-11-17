@@ -56,7 +56,7 @@ class UserReadingProgressAction {
         }
       }
 
-      //console.log(step.toJSON())
+//      console.log(step.toJSON())
 
       if (typeof (step.end_timestamp) !== 'number') {
         if (typeof (step.start_timestamp) !== 'number') {

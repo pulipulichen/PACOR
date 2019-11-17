@@ -57,7 +57,7 @@ let config = {
     let annotations = await AnnotationModel.findByWebpageUser(webpage, user, {})
     assert.equal(annotations.size(), 3)
   },
-  'c0-1. 布乙': async function ( { assert, client } ) {    
+  'c0-2. 布乙': async function ( { assert, client } ) {    
     //let webpage = await WebpageModel.findByURL(url)
     let user = await UserModel.findByNameInWebpage(webpage, '布乙')
     
@@ -65,7 +65,47 @@ let config = {
     assert.equal(stepName, 'CollaborativeReading')
     
     let annotations = await AnnotationModel.findByWebpageUser(webpage, user, {})
-    assert.equal(annotations.size(), 5) // 包含布甲跟布乙
+    assert.equal(annotations.size(), 8) // 包含布甲跟布乙
+  },
+  'c0-3. 布丙': async function ( { assert, client } ) {    
+    //let webpage = await WebpageModel.findByURL(url)
+    let user = await UserModel.findByNameInWebpage(webpage, '布丙')
+    
+    let stepName = await user.getCurrentReadingProgressStepName(webpage)
+    assert.equal(stepName, 'CollaborativeReading')
+    
+    let annotations = await AnnotationModel.findByWebpageUser(webpage, user, {})
+    assert.equal(annotations.size(), 8) // 包含布甲跟布乙
+  },
+  'c0-4. 布丁': async function ( { assert, client } ) {    
+    //let webpage = await WebpageModel.findByURL(url)
+    let user = await UserModel.findByNameInWebpage(webpage, '布丁')
+    
+    let stepName = await user.getCurrentReadingProgressStepName(webpage)
+    assert.equal(stepName, 'CollaborativeReading')
+    
+    let annotations = await AnnotationModel.findByWebpageUser(webpage, user, {})
+    assert.equal(annotations.size(), 8) // 包含布甲跟布乙
+  },
+  'c1-1. 布戊': async function ( { assert, client } ) {    
+    //let webpage = await WebpageModel.findByURL(url)
+    let user = await UserModel.findByNameInWebpage(webpage, '布戊')
+    
+    let stepName = await user.getCurrentReadingProgressStepName(webpage)
+    assert.equal(stepName, 'CollaborativeReading')
+    
+    let annotations = await AnnotationModel.findByWebpageUser(webpage, user, {})
+    assert.equal(annotations.size(), 3) // 包含布甲跟布乙
+  },
+  'c1-2. 布己': async function ( { assert, client } ) {    
+    //let webpage = await WebpageModel.findByURL(url)
+    let user = await UserModel.findByNameInWebpage(webpage, '布己')
+    
+    let stepName = await user.getCurrentReadingProgressStepName(webpage)
+    assert.equal(stepName, 'IndividualReading')
+    
+    let annotations = await AnnotationModel.findByWebpageUser(webpage, user, {})
+    assert.equal(annotations.size(), 0) // 包含布甲跟布乙
   },
 }
 

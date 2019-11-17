@@ -37,7 +37,7 @@ class UserSeeder {
     this.processGroup1User1()
     this.processGroup1User2()
     
-    await Sleep(2) // 統統給我等待10秒鐘
+    await Sleep(3) // 統統給我等待10秒鐘
   }
   
   async createAdmin () {
@@ -90,19 +90,56 @@ class UserSeeder {
   }
   
   async processGroup0User3() {
+    let user = await UserModel.findByNameInWebpage(webpage, '布丙')
     
+    await user.startReadingProgress(webpage)
+    await Sleep(0.5)
+    await user.endReadingProgress(webpage)
+    await Sleep(0.5)
+    await user.endReadingProgress(webpage)
+    // 走到這裡應該要是 CollaborativeReading
+    
+    // 再來要建立標註
+    await AnnotationModel.create(webpage, user, this.annotationDataUpper1())
+    await AnnotationModel.create(webpage, user, this.annotationDataUpper2())
+    await AnnotationModel.create(webpage, user, this.annotationDataUpper3())
   }
   
   async processGroup0User4() {
+    let user = await UserModel.findByNameInWebpage(webpage, '布丁')
     
+    await user.startReadingProgress(webpage)
+    await Sleep(0.5)
+    await user.endReadingProgress(webpage)
+    await Sleep(0.5)
+    await user.endReadingProgress(webpage)
+    
+    // 走到這裡應該要是 CollaborativeReading
   }
   
   async processGroup1User1() {
+    let user = await UserModel.findByNameInWebpage(webpage, '布戊')
     
+    await user.startReadingProgress(webpage)
+    await Sleep(0.5)
+    await user.endReadingProgress(webpage)
+    await Sleep(0.5)
+    await user.endReadingProgress(webpage)
+    // 走到這裡應該要是 CollaborativeReading
+    
+    // 再來要建立標註
+    await AnnotationModel.create(webpage, user, this.annotationDataUpper1())
+    await AnnotationModel.create(webpage, user, this.annotationDataUpper2())
+    await AnnotationModel.create(webpage, user, this.annotationDataUpper3())
   }
   
   async processGroup1User2() {
+    let user = await UserModel.findByNameInWebpage(webpage, '布己')
     
+    await user.startReadingProgress(webpage)
+    await Sleep(0.5)
+    await user.endReadingProgress(webpage)
+    // 走到這裡應該要是 IndividualReading
   }
   
   // --------------------------
@@ -167,11 +204,58 @@ class UserSeeder {
   }
   
   annotationDataLower1 () {
-    
+    return {
+      type: 'MainIdea',
+      notes: {
+        'default': '今年8月新的隱私保護與個資管理ISO 27701標準出爐，新北市警察局導入這項最新標準，期望讓偵辦各項刑事案件的作業過程，能落實個資與隱私保護，避免民眾個資外洩情事。'
+      },
+      anchorPositions: [
+        {
+          seq_id: 1,
+          type: 'textContent',
+          paragraph_id: 'pacor-paragraph-id-1',
+          start_pos: 10,
+          anchor_text: '今年8月新的隱私保護與個資管理'
+        }
+      ]
+    }
   }
   
   annotationDataLower2 () {
-    
+    return {
+      type: 'Confused',
+      notes: {
+        'question': '在Ryan Dahl來臺的JSDC演講結束後，我當面問他，企業能不能用Deno？他坦言'
+      },
+      anchorPositions: [
+        {
+          seq_id: 1,
+          type: 'textContent',
+          paragraph_id: 'pacor-paragraph-id-1',
+          start_pos: 28,
+          anchor_text: '在Ryan Dahl來臺的JSDC演講結束後，我當面問他，企業能不能用Deno？他坦言'
+        }
+      ]
+    }
+  }
+  
+  annotationDataLower3 () {
+    return {
+      type: 'Clarified',
+      notes: {
+        'question': '2009年11月8日，Node. j s之父RyanDahl在歐洲JSConf大會',
+        'answer': '首度發布了Node.js專案，一鳴驚人，將瀏覽器端的JavaScript技術'
+      },
+      anchorPositions: [
+        {
+          seq_id: 1,
+          type: 'textContent',
+          paragraph_id: 'pacor-paragraph-id-1',
+          start_pos: 34,
+          anchor_text: '擔任深度學習工程師。現為自由開發者'
+        }
+      ]
+    }
   }
   
   annotationDataSection1 () {
