@@ -22,7 +22,7 @@ const WebpageModel = use('App/Models/Webpage')
 const UserModel = use('App/Models/User')
 const AnnotationModel = use('App/Models/Annotation')
 
-const url = 'http://blog.pulipuli.info/'
+const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
 let webpage
 
 class UserSeeder {
@@ -37,7 +37,7 @@ class UserSeeder {
     this.processGroup1User1()
     this.processGroup1User2()
     
-    await Sleep(3) // 統統給我等待10秒鐘
+    await Sleep(5) // 統統給我等待10秒鐘
   }
   
   async createAdmin () {

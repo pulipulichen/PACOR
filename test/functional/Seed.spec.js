@@ -24,7 +24,7 @@ const ReadingActivityLog = use('App/Models/ReadingActivityLog')
 
 const Sleep = use('Sleep')
 
-const url = 'http://blog.pulipuli.info/'
+const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
 let webpage
 
 let config = {
