@@ -127,6 +127,8 @@ class Auth {
   // -----------------------------
   
   async checkLogin ({auth, webpage}) {
+    //throw new Error('錯誤')
+    
     if (flushCache === true) {
       await Cache.flush()
     }

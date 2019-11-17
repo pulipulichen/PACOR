@@ -6,6 +6,7 @@ const Cache = use('Cache')
 class UserReadingProgressAction {
 
   register(Model) {
+    
     Model.prototype.startReadingProgress = async function (webpage, stepName) {
       let time = (new Date()).getTime()
       if (typeof (stepName) !== 'string') {
@@ -32,8 +33,15 @@ class UserReadingProgressAction {
       //console.log('startReadingProgress AAA', step.start_timestamp)
       //console.log('startReadingProgress', step.toJSON())
       return step
-    }
+    } // Model.prototype.startReadingProgress = async function (webpage, stepName) {
 
+    /**
+     * 結束某個階段
+     * 
+     * @param {Webpage} webpage
+     * @param {String} stepName 可省略，省略的話，就會變成下一個階段
+     * @returns {User}
+     */
     Model.prototype.endReadingProgress = async function (webpage, stepName) {
       let time = (new Date()).getTime()
 

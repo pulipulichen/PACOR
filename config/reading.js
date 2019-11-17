@@ -92,7 +92,7 @@ module.exports = {
       message: '進入合作閱讀囉',
       annotation: {
         types: ['Clarified', 'Confused', 'MainIdea', 'SectionMainIdea'],
-        enableCollaboration: false,
+        enableCollaboration: true,
         enableControlPermission: false,
         defaultPermission: 'public',
         eanbleSectionAnnotation: true

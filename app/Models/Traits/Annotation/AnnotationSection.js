@@ -23,7 +23,7 @@ class AnnotationSection {
       let cacheMinute = 2
       //cacheMinute = 0.001 // for test
             
-      return await Cache.rememberWait(Cache.buildTags(webpage, user, this), cacheKey, cacheMinute, async () => {
+      return await Cache.rememberWait([webpage, user, this], cacheKey, cacheMinute, async () => {
         let itemsPerPage = Config.get('view.itemsPerPage')
         
         let annotations = await this.findByWebpageGroupPosition(webpage, user, {
@@ -114,7 +114,7 @@ class AnnotationSection {
     
     Model.getSectionAnnotations = async function (webpage, user, query) {
       let cacheKey = Cache.key(`Annotation.getSectionAnnotations`, query)
-      return await Cache.rememberWait(Cache.buildTags(webpage, user, this), cacheKey, 2, async () => {
+      return await Cache.rememberWait([webpage, user, this], cacheKey, 2, async () => {
         //let itemsPerPage = Config.get('view.itemsPerPage')
         //console.log(query)
         return await this.findByWebpageGroupPosition(webpage, user, {
@@ -127,7 +127,7 @@ class AnnotationSection {
     
     Model.getSectionsChecklistAnnotation = async function (webpage, user, query) {
       let cacheKey = Cache.key(`Annotation.getSectionsChecklistAnnotation`, query)
-      return await Cache.rememberWait(Cache.buildTags(webpage, user, this), cacheKey, async () => {
+      return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
         //let itemsPerPage = Config.get('view.itemsPerPage')
         //console.log(query)
         let annotations = await this.findByWebpageGroupPosition(webpage, user, {
@@ -160,7 +160,7 @@ class AnnotationSection {
     
     Model.getMainIdeasInSection = async function (webpage, user, query) {
       let cacheKey = Cache.key(`Annotation.getSectionAnnotationsDraft`, query)
-      return await Cache.rememberWait(Cache.buildTags(webpage, user, this), cacheKey, async () => {
+      return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
         let { seq_id } = query
         
         let annotations = await this.findByWebpageGroupPosition(webpage, user, {

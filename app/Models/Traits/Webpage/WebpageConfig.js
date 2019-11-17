@@ -79,7 +79,7 @@ class WebpageConfig {
     }
 
     Model.prototype.getStepConfig = async function (stepName) {
-      let cacheKey = Cache.key('Models.Webpage.getStepConfig', this)
+      let cacheKey = Cache.key('Models.Webpage.getStepConfig', stepName, this)
       return await Cache.rememberWait(cacheKey, async () => {
         let config = await this.getConfig()
         let output
@@ -89,7 +89,7 @@ class WebpageConfig {
         //Cache.forever(cacheKey, output)
         return output
       })  // return await Cache.get(cacheKey, async () => {
-    }
+    } // Model.prototype.getStepConfig = async function (stepName) {
 
   } // register (Model) {
 }

@@ -320,7 +320,7 @@ Cache.buildTags = (webpage, user, instance) => {
     tags.unshift(domainTag)
   }
   
-  console.log(tags)
+  //console.log(tags)
   
   return tags
 }

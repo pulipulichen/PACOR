@@ -7,20 +7,38 @@ const AnnotationNoteModel = use('App/Models/AnnotationNote')
 class AnnotationCreate {
 
   register(Model) {
+    
+    /**
+     * 建立標註
+     * 
+     * @param {Webpage} webpage
+     * @param {User} user
+     * @param {JSON} data
+     * {
+      type: 'MainIdea',
+      notes: {
+        'default': '今年8月新的隱私保護與個資管理ISO 27701標準出爐，新北市警察局導入這項最新標準。'
+      },
+      anchorPositions: [
+        {
+          seq_id: 0,
+          type: 'textContent',
+          paragraph_id: 'pacor-paragraph-id-0',
+          start_pos: 1,
+          anchor_text: '今年8月新的隱私保護與個資管理'
+        }
+      ]
+    }
+     * @returns {Annotation}
+     */
     Model.create = async function (webpage, user, data) {
 
       if (Array.isArray(data.anchorPositions) === false
               || data.anchorPositions.length === 0) {
+        throw new Error('Create annotation need anochorPositions')
         return false
       }
 
-      /*
-       let anchorTextInstance = new AnchorTextModel()
-       anchorTextInstance.webpage_id = webpage.primaryKeyValue
-       anchorTextInstance.start_pos = data.startPos
-       anchorTextInstance.end_pos = data.endPos
-       anchorTextInstance.anchor_text = data.anchorText
-       */
       let instance = new AnnotationModel()
 
       instance.webpage_id = webpage.primaryKeyValue
@@ -51,6 +69,27 @@ class AnnotationCreate {
           //anchor_text: a.anchor_text
         }
         if (a.type === 'textContent') {
+          // 自動補齊一些資料
+          if (typeof(a.start_pos) === 'number' 
+                  && typeof(a.end_post) !== 'number' 
+                  && typeof(a.anchor_text) === 'string') {
+            a.end_pos = a.start_pos + a.anchor_text.length
+          }
+          
+          if (typeof(a.start_pos) !== 'number' 
+                  && typeof(a.end_post) === 'number' 
+                  && typeof(a.anchor_text) === 'string') {
+            a.start_pos = a.end_post - a.anchor_text.length
+          }
+          
+          // 檢查
+          if (typeof(a.paragraph_id) === 'undefined' 
+                  || typeof(a.start_pos) !== 'number' 
+                  || typeof(a.end_pos) !== 'number' 
+                  || typeof(a.anchor_text) !== 'string' ) {
+            throw new Error('anchorPosisitions format error: \n' + JSON.stringify(a, null, ' '))
+          }
+          
           query.paragraph_id = a.paragraph_id
           query.start_pos = a.start_pos
           query.end_pos = a.end_pos
@@ -87,7 +126,7 @@ class AnnotationCreate {
 
 
       return instance
-    } // static async create(webpage, user, data) {
+    } // Model.create = async function (webpage, user, data) {
     
     
     Model.createSectionAnnotation = async function (webpage, user, data) {

@@ -15,6 +15,7 @@ class WebpageGroup {
 
     Model.prototype.getGroup = async function (group_seq_id) {
       let group = await this.groups(group_seq_id).fetch()
+      //console.log(group_seq_id, group.toJSON())
       if (group === null) {
         return null
       }

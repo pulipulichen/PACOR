@@ -6,6 +6,7 @@ const HttpException = use('HttpException')
 class UserReadingProgressConfig {
 
   register(Model) {
+    
     Model.prototype.getCurrentReadingProgressStepName = async function (webpage) {
       let status = await this.getReadingProgressStatus(webpage)
       if (status.length === 0) {

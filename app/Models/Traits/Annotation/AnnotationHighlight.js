@@ -89,7 +89,7 @@ class AnnotationHighlight {
         return await doQuery()
       } else {
         let cacheKey = Cache.key(`Annotation.getOthersHighlightsArrayByWebpageGroup`, webpage, user)
-        return await Cache.rememberWait(Cache.buildTags(webpage, user, this), cacheKey, 2, async () => {
+        return await Cache.rememberWait([webpage, user, this], cacheKey, 2, async () => {
           let result = await doQuery()
           //await Cache.put(cacheKey, result, 2)
           return result

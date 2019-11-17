@@ -6,6 +6,7 @@ class UserConfig {
     
     Model.prototype.getCurrentReadingProgressStepConfig = async function (webpage) {
       let stepName = await this.getCurrentReadingProgressStepName(webpage)
+      //console.log(stepName)
       return webpage.getStepConfig(stepName)
     }
 
@@ -17,6 +18,7 @@ class UserConfig {
     
     Model.prototype.isEnableCollaboration = async function (webpage) {
       let config = await this.getCurrentReadingProgressStepConfig(webpage)
+      //console.log(config)
       return config.annotation.enableCollaboration
     }
   } // register (Model) {

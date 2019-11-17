@@ -14,7 +14,16 @@ class UserGroup {
      */
     Model.prototype.getUserIDsInGroup = async function (webpage) {
       let cacheKey = Cache.key(`User.getUserIDsInGroup`, webpage)
+      
+      // 先調查這個階段是否開放合作
+      let isEnableCollaboration = await this.isEnableCollaboration(webpage)
+      //console.log({isEnableCollaboration})
+      if (isEnableCollaboration === false) {
+        return [this.primaryKeyValue]
+      }
+        
       return await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        
         /*
          let groups = await this.manyThrough('App/Models/WebpageGroup', 'users')
          .where('webpage_id', webpage.primaryKeyValue)

@@ -5,6 +5,7 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 class AnnotationPermission {
 
   register(Model) {
+    
     Model._setPermission = async function (webpage, user, data, instance) {
       let config = await user.getCurrentReadingProgressStepConfig(webpage)
       let annotationConfig = config.annotation
@@ -34,7 +35,7 @@ class AnnotationPermission {
       }
 
       return instance
-    }
+    } // Model._setPermission = async function (webpage, user, data, instance) {
 
     Model._setPermissionTest = async function (webpage, user, data, instance) {
       if (typeof (data.public) === 'boolean') {

@@ -158,13 +158,17 @@ class AnnotationFind {
         let cacheKey = Cache.key(`Annotation.findByWebpageGroupPosition`, webpage, user, anchorPositions, withCount, pick)
 
         //console.log(cacheKey)
-        return await Cache.rememberWait(Cache.buildTags(webpage, user, this), cacheKey, 2, async () => {
+        return await Cache.rememberWait([webpage, user, this], cacheKey, 2, async () => {
           let result = await doQuery()
           //await Cache.put(cacheKey, result, 2)
           return result
         })  // return await Cache.get(cacheKey, async () => {
       }
     } // Model.findByWebpageGroupPosition = async function (webpage, user, options) {
+    
+    Model.findByWebpageUser = async function (webpage, user, options) {
+      return await this.findByWebpageGroupPosition(webpage, user, options)
+    }
     
     // ---------------------------
     
@@ -204,7 +208,7 @@ class AnnotationFind {
       } 
       else {
         let cacheKey = Cache.key(`Annotation.findOthersByWebpageGroup`, webpage, user)
-        return await Cache.rememberWait(Cache.buildTags(webpage, user, this), cacheKey, 2, async () => {
+        return await Cache.rememberWait([webpage, user, this], cacheKey, 2, async () => {
           let result = await doQuery()
           //await Cache.put(cacheKey, result, 2)
           return result
