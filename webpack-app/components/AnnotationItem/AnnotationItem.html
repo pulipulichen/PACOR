@@ -13,17 +13,18 @@
       {{ displayTime }}
     </span>
 
-    <template v-if="lib.auth.enableCollaboration">
-      <span class="likes"
-            v-if="annotation.__meta__.rates_count > 0">
-        {{ $t('{0} Likes', [annotation.__meta__.rates_count]) }}
-      </span>
-
-      <span class="comments"
-            v-if="annotation.__meta__.replies_count > 0">
-        {{ $t('{0} Comments', [annotation.__meta__.replies_count]) }}
-      </span>
-    </template>
+    <annotation-item-interactive
+      v-if="lib.auth.enableCollaboration"
+      
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+      
+      v-bind:annotation="annotation"
+      v-on:like="$emit('like')"
+      v-on:unlike="$emit('unlike')"
+      v-on:comment="$emit('comment')">
+    </annotation-item-interactive>
       
     <i class="right angle icon"
        v-if="findAnnotation" />

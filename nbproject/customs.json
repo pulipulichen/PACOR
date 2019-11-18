@@ -42,7 +42,11 @@
         "v-bind:count": {}
       }
     },
-    "component": {},
+    "component": {
+      "attributes": {
+        "v-bind:heightPX": {}
+      }
+    },
     "fragment": {},
     "materials": {},
     "block-exit": {},
@@ -65,9 +69,12 @@
     "modal": {
       "attributes": {
         "v-bind:error": {},
+        "v-bind:contentURL": {},
+        "cancelable": {},
         "v-bind:status": {},
         "v-bind:config": {},
-        "v-bind:progress": {}
+        "v-bind:progress": {},
+        "cancelButtonText": {}
       }
     }
   },

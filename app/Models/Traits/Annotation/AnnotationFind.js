@@ -43,8 +43,15 @@ class AnnotationFind {
         query.whereIn('type', types)
 
         if (withCount === true) {
-          query.withCount('rates')
-          query.withCount('replies')
+          query.withCount('likes')
+          query.withCount('comments')
+          
+          query.withCount('i_have_liked', (queryBuilder) => {
+            queryBuilder.where('user_id', user.primaryKeyValue)
+          })
+          query.withCount('i_have_commented', (queryBuilder) => {
+            queryBuilder.where('user_id', user.primaryKeyValue)
+          })
         }
 
         if (typeof (findUserID) === 'number') {

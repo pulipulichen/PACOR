@@ -4,16 +4,19 @@
          v-bind:status="status"
          v-bind:lib="lib"
          v-bind:cancelable="false"
-         v-bind:contentURL="contentURL">
+         v-bind:contentURL="contentURL"
+         v-on:hide="onHide">
       <template v-slot:header>
-        {{ $t(stepName) }}
+        {{ $t('READING_PROGRESS.' + lib.auth.currentStep) }}
       </template>
       <template v-slot:content>
         <div v-html="message"></div>
       </template>
       <template v-slot:actions>
         <div class="ui button"
-             v-on:click="submit">{{ $t('OK') }}</div>
+             v-on:click="submit">
+          {{ $t('OK') }}
+        </div>
       </template>
   </modal>
 </div>

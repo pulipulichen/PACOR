@@ -52,18 +52,49 @@ class Annotation extends Model {
             .where('deleted', false)
   }
   
-  ratesCount () {
-    return this.rates().getCount()
-  }
-  
-  replies () {
-    return this.hasMany('App/Models/AnnotationReply')
+  likes () {
+    return this.hasMany('App/Models/AnnotationRate')
+            .where('type', 'like')
             .where('deleted', false)
   }
   
-  repliesCount () {
-    return this.replies().getCount()
+  /**
+   * 需要搭配queryBuilder一起使用
+   * query.withCount('i_have_liked', (queryBuilder) => {
+            queryBuilder.where('user_id', user.primaryKeyValue)
+          })
+   */
+  i_have_liked () {
+    return this.hasMany('App/Models/AnnotationRate')
+            .where('type', 'like')
+            .where('deleted', false)
   }
+  
+  /**
+   * 請使用內建的withCount功能
+   * https://adonisjs.com/docs/4.0/relationships#_counts
+   */
+//  ratesCount () {
+//    return this.rates().getCount()
+//  }
+  
+  comments () {
+    return this.hasMany('App/Models/AnnotationComment')
+            .where('deleted', false)
+  }
+  
+  i_have_commented () {
+    return this.hasMany('App/Models/AnnotationComment')
+            .where('deleted', false)
+  }
+  
+  /**
+   * 請使用內建的withCount功能
+   * https://adonisjs.com/docs/4.0/relationships#_counts
+   */
+//  repliesCount () {
+//    return this.replies().getCount()
+//  }
   
   attr () {
     return this.hasOne('App/Models/AnnotationAttirbutes')

@@ -1,8 +1,8 @@
 'use strict'
 
-const AnnotationReply = use('App/Models/AnnotationReply')
+const AnnotationComment = use('App/Models/AnnotationComment')
 
-class AnnotationRate extends AnnotationReply {
+class AnnotationRate extends AnnotationComment {
   rater () {
     return this.user()
   }

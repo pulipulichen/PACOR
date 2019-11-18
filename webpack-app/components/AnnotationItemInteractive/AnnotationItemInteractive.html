@@ -1,0 +1,24 @@
+<span class="AnnotationInteractive">
+  <button type="button" 
+          class="like ui button"
+          v-bind:class="computedLikesButtonClass"
+          v-on:click="like">
+    <template v-if="likes > 0">
+      {{ $t('{0} Likes', [likes]) }}
+    </template>
+    <template v-else>
+      {{ $t('Like') }}
+    </template>
+  </button>
+  <button type="button"
+          class="comments ui button"
+          v-bind:class="computedCommentsButtonClass"
+          v-on:click="comment">
+    <template v-if="likes > 0">
+      {{ $t('{0} Comments', [comments]) }}
+    </template>
+    <template v-else>
+      {{ $t('Comment') }}
+    </template>
+  </button>
+</span>

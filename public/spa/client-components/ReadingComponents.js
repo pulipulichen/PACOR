@@ -513,7 +513,7 @@ exports.push([module.i, ".QuestionTemplate[data-v-20be06dc] {\n  line-height: 2e
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "label[data-v-0fea2a5c] {\n  vertical-align: middle;\n}\n.search-keyword[data-v-0fea2a5c] {\n  width: calc(100% - 9em) !important;\n  height: 40px;\n}\n.select-question[data-v-0fea2a5c],\n.search-button[data-v-0fea2a5c] {\n  height: 43px !important;\n}\n.label.field[data-v-0fea2a5c] {\n  line-height: 40px;\n  white-space: nowrap;\n  overflow: hidden;\n}\n", "",{"version":3,"sources":["ResourceSearch.less?vue&type=style&index=0&id=0fea2a5c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,sBAAsB;AACxB;AACA;EACE,kCAAkC;EAClC,YAAY;AACd;AACA;;EAEE,uBAAuB;AACzB;AACA;EACE,iBAAiB;EACjB,mBAAmB;EACnB,gBAAgB;AAClB","file":"ResourceSearch.less?vue&type=style&index=0&id=0fea2a5c&lang=less&scoped=true&","sourcesContent":["label[data-v-0fea2a5c] {\n  vertical-align: middle;\n}\n.search-keyword[data-v-0fea2a5c] {\n  width: calc(100% - 9em) !important;\n  height: 40px;\n}\n.select-question[data-v-0fea2a5c],\n.search-button[data-v-0fea2a5c] {\n  height: 43px !important;\n}\n.label.field[data-v-0fea2a5c] {\n  line-height: 40px;\n  white-space: nowrap;\n  overflow: hidden;\n}\n"]}]);
+exports.push([module.i, "label[data-v-0fea2a5c] {\n  vertical-align: middle;\n}\n.search-keyword[data-v-0fea2a5c] {\n  width: calc(100% - 15em) !important;\n  height: 40px;\n}\n.select-question[data-v-0fea2a5c],\n.search-button[data-v-0fea2a5c] {\n  height: 43px !important;\n}\n.label.field[data-v-0fea2a5c] {\n  line-height: 40px;\n  white-space: nowrap;\n  overflow: hidden;\n}\n", "",{"version":3,"sources":["ResourceSearch.less?vue&type=style&index=0&id=0fea2a5c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,sBAAsB;AACxB;AACA;EACE,mCAAmC;EACnC,YAAY;AACd;AACA;;EAEE,uBAAuB;AACzB;AACA;EACE,iBAAiB;EACjB,mBAAmB;EACnB,gBAAgB;AAClB","file":"ResourceSearch.less?vue&type=style&index=0&id=0fea2a5c&lang=less&scoped=true&","sourcesContent":["label[data-v-0fea2a5c] {\n  vertical-align: middle;\n}\n.search-keyword[data-v-0fea2a5c] {\n  width: calc(100% - 15em) !important;\n  height: 40px;\n}\n.select-question[data-v-0fea2a5c],\n.search-button[data-v-0fea2a5c] {\n  height: 43px !important;\n}\n.label.field[data-v-0fea2a5c] {\n  line-height: 40px;\n  white-space: nowrap;\n  overflow: hidden;\n}\n"]}]);
 
 
 /***/ }),
@@ -1559,7 +1559,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("fragment", [_vm._v("\r\n  [AnnotationDiscussion #TODO]\r\n")])
+  return _c("div", { staticClass: "AnnotationDiscussion" }, [
+    _vm._v("\r\n  [AnnotationDiscussion #TODO]\r\n")
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1595,7 +1597,12 @@ var render = function() {
         { staticClass: "column annotation-editor" },
         [
           _c("annotation-editor-header", {
-            attrs: { config: _vm.config, status: _vm.status, type: _vm.type }
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              editable: _vm.isEditable,
+              type: _vm.type
+            }
           }),
           _vm._v(" "),
           _c(_vm.type, {
@@ -1609,7 +1616,31 @@ var render = function() {
               heightPX: _vm.componentHeightPX
             },
             on: { add: _vm.onAdd, delete: _vm.onDelete, update: _vm.onUpdate }
-          })
+          }),
+          _vm._v(" "),
+          !_vm.isEditable
+            ? _c(
+                "div",
+                { staticClass: "ui one column grid annotation-panel-buttons" },
+                [
+                  _c(
+                    "div",
+                    { class: _vm.computedButtonsClass },
+                    [
+                      _c("annotation-item-interactive", {
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib,
+                          annotation: _vm.annotation
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]
+              )
+            : _vm._e()
         ],
         1
       ),
@@ -1625,7 +1656,7 @@ var render = function() {
                   config: _vm.config,
                   status: _vm.status,
                   lib: _vm.lib,
-                  annotationInstance: _vm.annotationInstance
+                  annotation: _vm.annotation
                 }
               })
             ],
@@ -1735,6 +1766,9 @@ var render = function() {
                   _c("admin-badge", {
                     attrs: { status: _vm.status, config: _vm.config }
                   }),
+                  _vm._v(
+                    "\r\n\r\n      [@TODO DisplayTime]\r\n      \r\n      "
+                  ),
                   _vm._v(" "),
                   _vm.annotationConfig.enableControlPermission
                     ? _c("checkbox-toggle", {
@@ -1960,7 +1994,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "ten wide field" }, [
+    _c("div", { staticClass: "eight wide field" }, [
       _c(
         "select",
         {
@@ -2001,7 +2035,7 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "two wide column field" }, [
+    _c("div", { staticClass: "four wide column field" }, [
       _c(
         "button",
         {
@@ -2067,7 +2101,9 @@ var render = function() {
                   _c("admin-badge", {
                     attrs: { status: _vm.status, config: _vm.config }
                   }),
-                  _vm._v(" "),
+                  _vm._v(
+                    "\r\n      \r\n      [@TODO DisplayTime]\r\n      \r\n      "
+                  ),
                   _vm.annotationConfig.enableControlPermission
                     ? _c("checkbox-toggle", {
                         attrs: { label: _vm.$t("PUBLIC") },
@@ -2207,7 +2243,9 @@ var render = function() {
                   _c("admin-badge", {
                     attrs: { status: _vm.status, config: _vm.config }
                   }),
-                  _vm._v(" "),
+                  _vm._v(
+                    "\r\n      \r\n      [@TODO DisplayTime]\r\n      \r\n      "
+                  ),
                   _vm.annotationConfig.enableControlPermission
                     ? _c("checkbox-toggle", {
                         attrs: { label: _vm.$t("PUBLIC") },
@@ -2393,17 +2431,24 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "AnnotationEditorHeader" }, [
-    _c(
-      "div",
-      { staticClass: "right column" },
-      [
-        _c("annotaion-instruction", {
-          ref: "AnnotationInstruction",
-          attrs: { config: _vm.config, status: _vm.status, type: _vm.type }
-        })
-      ],
-      1
-    ),
+    _vm.editable
+      ? _c(
+          "div",
+          { staticClass: "right column" },
+          [
+            _c("annotaion-instruction", {
+              ref: "AnnotationInstruction",
+              attrs: {
+                config: _vm.config,
+                status: _vm.status,
+                type: _vm.type,
+                editable: _vm.editable
+              }
+            })
+          ],
+          1
+        )
+      : _vm._e(),
     _vm._v(" "),
     _c(
       "div",
@@ -2703,13 +2748,18 @@ var render = function() {
           cancelable: false,
           contentURL: _vm.contentURL
         },
+        on: { hide: _vm.onHide },
         scopedSlots: _vm._u([
           {
             key: "header",
             fn: function() {
               return [
                 _vm._v(
-                  "\r\n        " + _vm._s(_vm.$t(_vm.stepName)) + "\r\n      "
+                  "\r\n        " +
+                    _vm._s(
+                      _vm.$t("READING_PROGRESS." + _vm.lib.auth.currentStep)
+                    ) +
+                    "\r\n      "
                 )
               ]
             },
@@ -2731,7 +2781,11 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "ui button", on: { click: _vm.submit } },
-                  [_vm._v(_vm._s(_vm.$t("OK")))]
+                  [
+                    _vm._v(
+                      "\r\n          " + _vm._s(_vm.$t("OK")) + "\r\n        "
+                    )
+                  ]
                 )
               ]
             },
@@ -6072,7 +6126,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let AnnotationDiscussion = {
-  props: ['lib', 'status', 'config', 'annotationInstance'],
+  props: ['lib', 'status', 'config', 'annotation'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -6261,8 +6315,8 @@ let AnnotationEditorModules = {
         classList.push('one')
       }
       //console.log(classList)
-      //return classList.join(' ') + ' column grid'
-      return undefined
+      return classList.join(' ') + ' column grid'
+      //return undefined
     },
     type () {
       if (this.annotation !== null) {
@@ -6272,6 +6326,18 @@ let AnnotationEditorModules = {
     componentHeightPX () {
       // 這個是header的高度
       return this.heightPX - 70
+    },
+    isEditable: function () {
+      return this.lib.AnnotationHelper.isEditable(this.annotation)
+    },
+    computedButtonsClass: function () {
+      let vm = this
+      if (vm.status.preference === null
+              || vm.status.preference.leftHanded === false) {
+        return 'right aligned column'
+      } else {
+        return 'column'
+      }
     }
 //    isAdding () {
 //      return (this.annotation
@@ -8365,17 +8431,17 @@ let AnnotaionInstruction = {
     return {
     }
   },
-  components: {
-  },
+//  components: {
+//  },
   computed: {
     instruction () {
       return this.status.readingConfig.annotationTypeModules[this.type].instruction
     }
   },
-  watch: {
-  },
-  mounted() {
-  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
   methods: {
     showInstruction () {
       this.$refs.Modal.show()
@@ -8496,7 +8562,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AnnotationEditorHeader = {
-  props: ['status', 'config', 'type'],
+  props: ['status', 'config', 'type', 'editable'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -9791,6 +9857,9 @@ let InstructionMessage = {
     stepName() {
       return this.lib.auth.currentStep
     },
+    localStorageKeyPrefix () {
+      return 'InstructionMessage.' + this.status.userID + '.' + this.stepName
+    },
     message () {
       return this.lib.auth.currentStepConfig.message
     },
@@ -9803,14 +9872,22 @@ let InstructionMessage = {
 //  watch: {
 //  },
   mounted() {
-    this.show()
+    this.checkAutoShow()
   },
   methods: {
+    checkAutoShow () {
+      if (typeof(localStorage.getItem(this.localStorageKeyPrefix)) === 'number') {
+        this.show()
+      }
+    },
     submit() {
       this.$refs.Modal.hide()
     },
     show() {
       this.$refs.Modal.show()
+    },
+    onHide() {
+      localStorage.setItem(this.localStorageKeyPrefix, 1)
     }
   } // methods
 }

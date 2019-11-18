@@ -11,6 +11,9 @@ let InstructionMessage = {
     stepName() {
       return this.lib.auth.currentStep
     },
+    localStorageKeyPrefix () {
+      return 'InstructionMessage.' + this.status.userID + '.' + this.stepName
+    },
     message () {
       return this.lib.auth.currentStepConfig.message
     },
@@ -23,14 +26,22 @@ let InstructionMessage = {
 //  watch: {
 //  },
   mounted() {
-    this.show()
+    this.checkAutoShow()
   },
   methods: {
+    checkAutoShow () {
+      if (typeof(localStorage.getItem(this.localStorageKeyPrefix)) === 'number') {
+        this.show()
+      }
+    },
     submit() {
       this.$refs.Modal.hide()
     },
     show() {
       this.$refs.Modal.show()
+    },
+    onHide() {
+      localStorage.setItem(this.localStorageKeyPrefix, 1)
     }
   } // methods
 }

@@ -5,10 +5,11 @@ const Schema = use('Schema')
 
 class AnnotationReplySchema extends Schema {
   up () {
-    this.create('annotation_replies', (table) => {
+    this.create('annotation_comments', (table) => {
       table.increments()
       table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
       table.integer('annotation_id').notNullable().unsigned().references('id').inTable('annotations').onDelete('cascade')
+      
       table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
       table.string('type', 60).notNullable().defaultTo('highlight')
       table.text('note').notNullable()
@@ -18,7 +19,7 @@ class AnnotationReplySchema extends Schema {
   }
 
   down () {
-    this.drop('annotation_replies')
+    this.drop('annotation_comments')
   }
 }
 

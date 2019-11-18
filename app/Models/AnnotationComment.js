@@ -4,7 +4,7 @@
 const Model = use('Model')
 const UserNotification = use('App/Models/UserNotification')
 
-class AnnotationReply extends Model {
+class AnnotationComment extends Model {
   webpage () {
     return this.belongsTo('App/Models/Webpage')
   }
@@ -13,7 +13,11 @@ class AnnotationReply extends Model {
     return this.belongsTo('App/Models/User')
   }
   
-  replier () {
+  /**
+   * 等同於user
+   * @returns {User}
+   */
+  commenter () {
     return this.user()
   }
   
@@ -21,7 +25,7 @@ class AnnotationReply extends Model {
     return this.hasOne('App/Models/Annotation')
   }
   
-  replyToAnnotation () {
+  commentOnAnnotation () {
     return this.annotation()
   }
   
@@ -50,4 +54,4 @@ class AnnotationReply extends Model {
   }
 }
 
-module.exports = AnnotationReply
+module.exports = AnnotationComment

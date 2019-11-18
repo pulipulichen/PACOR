@@ -5,17 +5,17 @@ let AnnotaionInstruction = {
     return {
     }
   },
-  components: {
-  },
+//  components: {
+//  },
   computed: {
     instruction () {
       return this.status.readingConfig.annotationTypeModules[this.type].instruction
     }
   },
-  watch: {
-  },
-  mounted() {
-  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
   methods: {
     showInstruction () {
       this.$refs.Modal.show()

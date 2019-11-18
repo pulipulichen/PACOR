@@ -43,8 +43,8 @@ let AnnotationEditorModules = {
         classList.push('one')
       }
       //console.log(classList)
-      //return classList.join(' ') + ' column grid'
-      return undefined
+      return classList.join(' ') + ' column grid'
+      //return undefined
     },
     type () {
       if (this.annotation !== null) {
@@ -54,6 +54,18 @@ let AnnotationEditorModules = {
     componentHeightPX () {
       // 這個是header的高度
       return this.heightPX - 70
+    },
+    isEditable: function () {
+      return this.lib.AnnotationHelper.isEditable(this.annotation)
+    },
+    computedButtonsClass: function () {
+      let vm = this
+      if (vm.status.preference === null
+              || vm.status.preference.leftHanded === false) {
+        return 'right aligned column'
+      } else {
+        return 'column'
+      }
     }
 //    isAdding () {
 //      return (this.annotation

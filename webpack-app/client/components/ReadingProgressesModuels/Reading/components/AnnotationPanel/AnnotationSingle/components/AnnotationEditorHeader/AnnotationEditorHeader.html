@@ -1,9 +1,11 @@
 <div class="AnnotationEditorHeader">
-  <div class="right column">
+  <div class="right column"
+       v-if="editable">
     <annotaion-instruction 
       v-bind:config="config"
       v-bind:status="status"
       v-bind:type="type"
+      v-bind:editable="editable"
       
       ref="AnnotationInstruction">
     </annotaion-instruction>

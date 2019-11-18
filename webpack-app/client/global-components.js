@@ -1,3 +1,5 @@
+/* global Vue, Pagination, Modal, StepProgressBar, BlockExit, ActivityTimer */
+
 import Vue from 'vue'
 
 import Pagination from './../components/Pagination/Pagination.vue'
@@ -46,6 +48,9 @@ Vue.component('user-avatar-icons', UserAvatarIcons)
 
 import AnnotationItem from './../components/AnnotationItem/AnnotationItem.vue'
 Vue.component('annotation-item', AnnotationItem)
+
+import AnnotationItemInteractive from './../components/AnnotationItemInteractive/AnnotationItemInteractive.vue'
+Vue.component('annotation-item-interactive', AnnotationItemInteractive)
 
 import AdminBadge from './../components/AdminBadge/AdminBadge.vue'
 Vue.component('admin-badge', AdminBadge)

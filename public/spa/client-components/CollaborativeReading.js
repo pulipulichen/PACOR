@@ -290,8 +290,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NavigationItems/NavigationItems.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NavigationItems/NavigationItems.vue");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 
 //const NavigationItems = require('./NavigationItems/NavigationItems.vue').default
+
+
 
 let CollaborativeReading = {
   props: ['lib', 'status', 'config'],
@@ -308,6 +312,8 @@ let CollaborativeReading = {
 //  },
   mounted() {
     this.initComponentToLib()
+    
+    this._testAnnotationSingle()
   },
   methods: {
     initComponentToLib () {
@@ -337,6 +343,16 @@ let CollaborativeReading = {
       
       // 再來顯示
       this.lib.AnnotationPanel.setAnchorPositions()
+    },
+    
+    _testAnnotationSingle () {
+      setTimeout(() => {
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()('.others-MainIdea:first').click()
+        
+        setTimeout(() => {
+          jquery__WEBPACK_IMPORTED_MODULE_1___default()('.AnnotationFloatWidget .meta').click()
+        }, 500)
+      }, 1000)
     },
     showInstruction() {
       this.$refs.InstructionMessage.show()

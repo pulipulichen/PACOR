@@ -1,6 +1,8 @@
 import NavigationItems from './NavigationItems/NavigationItems.vue'
 //const NavigationItems = require('./NavigationItems/NavigationItems.vue').default
 
+import $ from 'jquery'
+
 let CollaborativeReading = {
   props: ['lib', 'status', 'config'],
   data() {
@@ -16,6 +18,8 @@ let CollaborativeReading = {
 //  },
   mounted() {
     this.initComponentToLib()
+    
+    this._testAnnotationSingle()
   },
   methods: {
     initComponentToLib () {
@@ -45,6 +49,16 @@ let CollaborativeReading = {
       
       // 再來顯示
       this.lib.AnnotationPanel.setAnchorPositions()
+    },
+    
+    _testAnnotationSingle () {
+      setTimeout(() => {
+        $('.others-MainIdea:first').click()
+        
+        setTimeout(() => {
+          $('.AnnotationFloatWidget .meta').click()
+        }, 500)
+      }, 1000)
     },
     showInstruction() {
       this.$refs.InstructionMessage.show()

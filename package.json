@@ -13,7 +13,6 @@
     "s3.start-cors": "node ./website-cors/index.js",
     "s9.start-https": "nodemon --ignore webpack-app --ignore database --ignore public --ignore website-cors --ignore test --ignore node_modules --ignore .document --ignore .private-document --ignore help --ignore storage server-https.js",
     "setup-database": "adonis migration:refresh & adonis seed",
-    "setup-database-seed": "adonis seed",
     "adonisjs-self-test": "node ace test",
     "w1.webpack-build-development": "webpack --mode development",
     "w2.webpack-watch-development": "webpack --watch --mode development --display errors-only",

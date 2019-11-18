@@ -85,6 +85,10 @@ let Modal = {
           }
         }
         
+        options.onHidden = () => {
+          this.$emit('hide')
+        }
+        
         modal.modal(options).modal('show')
       })
     },

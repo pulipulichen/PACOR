@@ -1,5 +1,5 @@
 let AnnotationDiscussion = {
-  props: ['lib', 'status', 'config', 'annotationInstance'],
+  props: ['lib', 'status', 'config', 'annotation'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
