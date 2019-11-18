@@ -14,6 +14,7 @@ let IndividualReading = {
     'annotation-panel': () => import(/* webpackChunkName: "client-components/components" */ './../components/AnnotationPanel/AnnotationPanel.vue'),
     'annotation-manager': () => import(/* webpackChunkName: "client-components/components" */ './../components/AnnotationManager/AnnotationManager.vue'),
     'section-manager': () => import(/* webpackChunkName: "client-components/components" */ './../components/SectionManager/SectionManager.vue'),
+    'instruction-message': () => import(/* webpackChunkName: "client-components/components" */ './../components/InstructionMessage/InstructionMessage.vue'),
   },
 //  computed: {
 //  },

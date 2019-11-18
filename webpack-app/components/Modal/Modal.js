@@ -11,8 +11,8 @@ let Modal = {
       modal: null
     }
   },
-  components: {
-  },
+//  components: {
+//  },
   computed: {
     computedContentURL () {
       let url = this.contentURL

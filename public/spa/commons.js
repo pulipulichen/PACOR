@@ -1793,8 +1793,8 @@ let Modal = {
       modal: null
     }
   },
-  components: {
-  },
+//  components: {
+//  },
   computed: {
     computedContentURL () {
       let url = this.contentURL
@@ -4086,6 +4086,12 @@ let StringHelper = {
       })
       return output.join(' ')
     }
+  },
+  isURL (s) {
+    return (s.startsWith('//')
+            || s.startsWith('http://')
+            || s.startsWith('https://')
+            || s.startsWith('/'))
   }
 }
 

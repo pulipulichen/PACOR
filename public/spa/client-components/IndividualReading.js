@@ -152,6 +152,11 @@ var render = function() {
   return _c(
     "fragment",
     [
+      _c("instruction-message", {
+        ref: "auth",
+        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+      }),
+      _vm._v(" "),
       _c("rangy", {
         ref: "RangyManager",
         attrs: { status: _vm.status, lib: _vm.lib }
@@ -684,6 +689,7 @@ let IndividualReading = {
     'annotation-panel': () => __webpack_require__.e(/*! import() | client-components/components */ "client-components/components").then(__webpack_require__.bind(null, /*! ./../components/AnnotationPanel/AnnotationPanel.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationPanel.vue")),
     'annotation-manager': () => __webpack_require__.e(/*! import() | client-components/components */ "client-components/components").then(__webpack_require__.bind(null, /*! ./../components/AnnotationManager/AnnotationManager.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationManager.vue")),
     'section-manager': () => __webpack_require__.e(/*! import() | client-components/components */ "client-components/components").then(__webpack_require__.bind(null, /*! ./../components/SectionManager/SectionManager.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionManager.vue")),
+    'instruction-message': () => __webpack_require__.e(/*! import() | client-components/components */ "client-components/components").then(__webpack_require__.bind(null, /*! ./../components/InstructionMessage/InstructionMessage.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/InstructionMessage/InstructionMessage.vue")),
   },
 //  computed: {
 //  },

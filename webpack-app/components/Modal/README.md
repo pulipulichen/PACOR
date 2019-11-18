@@ -36,3 +36,28 @@
       </template>
   </modal>
 ````
+
+----
+
+````html
+<fragment>
+  <modal ref="Modal"
+         v-bind:config="config"
+         v-bind:status="status"
+         v-bind:lib="lib"
+         v-bind:reset="editingConfig"
+         v-bind:contentURL="contentURL">
+      <template v-slot:header>
+        {{ $t(stepName) }}
+      </template>
+      <template v-slot:content
+                v-if="!contentURL"
+                v-html="message">
+      </template>
+      <template v-slot:actions>
+        <div class="ui button"
+             v-on:click="submit">{{ $t('OK') }}</div>
+      </template>
+  </modal>
+</fragment>
+````

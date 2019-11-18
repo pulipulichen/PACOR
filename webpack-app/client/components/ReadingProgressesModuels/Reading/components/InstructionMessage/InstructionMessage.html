@@ -1,0 +1,18 @@
+<div class="non-invasive-web-style-framework">
+  <modal ref="Modal"
+         v-bind:config="config"
+         v-bind:status="status"
+         v-bind:lib="lib"
+         v-bind:contentURL="contentURL">
+      <template v-slot:header>
+        {{ $t(stepName) }}
+      </template>
+      <template v-slot:content>
+        <div v-html="message"></div>
+      </template>
+      <template v-slot:actions>
+        <div class="ui button"
+             v-on:click="submit">{{ $t('OK') }}</div>
+      </template>
+  </modal>
+</div>
