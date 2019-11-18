@@ -12,8 +12,8 @@ class UserGroup {
      * @param {Webpage} webpage
      * @returns {Array|Integer}
      */
-    Model.prototype.getUserIDsInGroup = async function (webpage) {
-      let cacheKey = Cache.key(`User.getUserIDsInGroup`, webpage)
+    Model.prototype.getUserIDsInGroup = async function (webpage, includeAdmins) {
+      let cacheKey = Cache.key(`User.getUserIDsInGroup`, webpage, includeAdmins)
       
       // 先調查這個階段是否開放合作
       let isEnableCollaboration = await this.isEnableCollaboration(webpage)
@@ -50,9 +50,11 @@ class UserGroup {
           userIds = await webpage.getReaderIDsNotInGroup()
         }
         
-        let adminIds = await webpage.getAdminIDs()
-        //console.log(adminIds)
-        userIds = userIds.concat(adminIds)
+        if (includeAdmins === true) {
+          let adminIds = await webpage.getAdminIDs()
+          //console.log(adminIds)
+          userIds = userIds.concat(adminIds)
+        }
 
         //await Cache.forever(cacheKey, userIds)
         return userIds

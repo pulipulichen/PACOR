@@ -38,6 +38,8 @@ class UserSeeder {
     this.processGroup1User2()
     
     await Sleep(5) // 統統給我等待10秒鐘
+    console.log(__filename + ' is finished.')
+    return true
   }
   
   async createAdmin () {
@@ -158,7 +160,7 @@ class UserSeeder {
         {
           seq_id: 0,
           type: 'textContent',
-          paragraph_id: 'pacor-paragraph-id-0',
+          paragraph_id: 'pacor-paragraph-id-1',
           start_pos: 1,
           anchor_text: '今年8月新的隱私保護與個資管理'
         }
@@ -176,7 +178,7 @@ class UserSeeder {
         {
           seq_id: 0,
           type: 'textContent',
-          paragraph_id: 'pacor-paragraph-id-0',
+          paragraph_id: 'pacor-paragraph-id-1',
           start_pos: 18,
           anchor_text: '對於保護個人資訊和隱私，近年各國政府在相關法令與法規的要求，已經變得越來越普遍'
         }
@@ -195,7 +197,7 @@ class UserSeeder {
         {
           seq_id: 0,
           type: 'textContent',
-          paragraph_id: 'pacor-paragraph-id-0',
+          paragraph_id: 'pacor-paragraph-id-1',
           start_pos: 14,
           anchor_text: '導入這項管理制度，並透過第三方驗證單位，來檢驗相關機制的有效性'
         }
@@ -213,7 +215,7 @@ class UserSeeder {
         {
           seq_id: 1,
           type: 'textContent',
-          paragraph_id: 'pacor-paragraph-id-1',
+          paragraph_id: 'pacor-paragraph-id-7',
           start_pos: 10,
           anchor_text: '今年8月新的隱私保護與個資管理'
         }
@@ -231,7 +233,7 @@ class UserSeeder {
         {
           seq_id: 1,
           type: 'textContent',
-          paragraph_id: 'pacor-paragraph-id-1',
+          paragraph_id: 'pacor-paragraph-id-7',
           start_pos: 28,
           anchor_text: '在Ryan Dahl來臺的JSDC演講結束後，我當面問他，企業能不能用Deno？他坦言'
         }
@@ -250,7 +252,7 @@ class UserSeeder {
         {
           seq_id: 1,
           type: 'textContent',
-          paragraph_id: 'pacor-paragraph-id-1',
+          paragraph_id: 'pacor-paragraph-id-7',
           start_pos: 34,
           anchor_text: '擔任深度學習工程師。現為自由開發者'
         }

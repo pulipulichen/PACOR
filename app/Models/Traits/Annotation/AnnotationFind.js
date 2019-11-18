@@ -26,7 +26,7 @@ class AnnotationFind {
       const doQuery = async evt => {
         //console.log('findByWebpageGroupPosition', anchorPositions)
 
-        let userList = await user.getUserIDsInGroup(webpage)
+        let userList = await user.getUserIDsInGroup(webpage, true)
 
         let query = this.query()
                 .where('webpage_id', webpage.primaryKeyValue)

@@ -3,7 +3,7 @@ module.exports = {
    * 選擇文字選擇器
    * @Array|String
    */
-  selecotr: {
+  selector: {
     /**
      * 選擇文章
      * @Array|String
