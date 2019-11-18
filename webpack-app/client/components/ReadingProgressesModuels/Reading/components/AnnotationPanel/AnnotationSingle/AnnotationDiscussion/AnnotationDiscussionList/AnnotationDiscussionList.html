@@ -1,8 +1,9 @@
 <div class="AnnotationDiscussionList"
-     v-bind:style="computedContainerStyle">
+     v-bind:style="computedContainerStyle"
+     v-on:scroll.stop="scrollList">
   
   <annotation-comment 
-    v-for="comment in comments"
+    v-for="(comment, i) in comments"
     v-bind:key="comment.id"
 
     v-bind:config="config"
@@ -13,7 +14,20 @@
     v-on:comment="$emit('comment', comment)"
     
     v-on:like="$emit('like', comment)"
-    v-on:unlike="$emit('unlike', comment)">
+    v-on:unlike="$emit('unlike', comment)"
+    
+    v-on:edit="$emit('edit', comment)"
+    v-on:delete="onCommentDelete(i)">
   </annotation-comment>
   
+  
+  <div class="ui secondary segment no-more"
+         v-if="noMore">
+    <template v-if="comments.length > 0">
+      {{ $t('No More') }}
+    </template>
+    <template v-else>
+      {{ $t('No Comment') }}
+    </template>
+  </div>
 </div>

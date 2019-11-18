@@ -6,6 +6,7 @@ let AnnotationDiscussion = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      comment: null
     }
   },
   components: {
@@ -27,7 +28,7 @@ let AnnotationDiscussion = {
     },
     unlike () {
       throw new Error('@TODO AnnotationDiscussion.unlike()')
-    }
+    },
   } // methods
 }
 

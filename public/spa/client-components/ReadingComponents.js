@@ -1612,6 +1612,11 @@ var render = function() {
           status: _vm.status,
           lib: _vm.lib,
           annotation: _vm.annotation
+        },
+        on: {
+          add: _vm.onInputAdd,
+          edit: _vm.onInputEdit,
+          cancel: _vm.onInputCancel
         }
       })
     ],
@@ -1649,7 +1654,7 @@ var render = function() {
           _vm._v("\r\n      " + _vm._s(_vm.displayTime) + "\r\n    ")
         ]),
         _vm._v(" "),
-        _vm.lib.auth.enableCollaboration
+        _vm.comment.user_id !== _vm.status.userID
           ? _c("annotation-item-interactive", {
               attrs: {
                 config: _vm.config,
@@ -1670,6 +1675,24 @@ var render = function() {
                 }
               }
             })
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.comment.user_id === _vm.status.userID
+          ? _c("div", [
+              _c(
+                "button",
+                {
+                  staticClass: "ui mini button",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      return _vm.$emit("edit")
+                    }
+                  }
+                },
+                [_vm._v("\r\n        " + _vm._s(_vm.$t("EDIT")) + "\r\n      ")]
+              )
+            ])
           : _vm._e()
       ],
       1
@@ -1956,7 +1979,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _vm.annotationConfig.enableCollaboration
+      _vm.enableDiscussion
         ? _c(
             "div",
             { staticClass: "column annotation-discussion" },
@@ -6290,6 +6313,7 @@ let AnnotationDiscussion = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      comment: null
     }
   },
   components: {
@@ -6311,7 +6335,7 @@ let AnnotationDiscussion = {
     },
     unlike () {
       throw new Error('@TODO AnnotationDiscussion.unlike()')
-    }
+    },
   } // methods
 }
 
@@ -6414,37 +6438,9 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationSingle/AnnotationDiscussion/AnnotationDiscussionInput/AnnotationDiscussionInput.js ***!
   \************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-let AnnotationDiscussionInput = {
-  props: ['lib', 'status', 'config', 'annotation'],
-  data() {    
-    this.$i18n.locale = this.config.locale
-    return {
-      message: ''
-    }
-  },
-//  components: {
-//  },
-  computed: {
-  },
-  watch: {
-  },
-  mounted() {
-  },
-  methods: {
-    focus () {
-      this.$refs.input.focus()
-    },
-    comment () {
-      throw new Error('@TODO AnnotationDiscussionInput.comment()')
-    }
-  } // methods
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (AnnotationDiscussionInput);
+throw new Error("Module parse failed: Unexpected token (13:6)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n|     return {\n|       note: note\n>       comment: null\n|     }\n|   },");
 
 /***/ }),
 
@@ -6504,6 +6500,17 @@ let AnnotationComment = {
   mounted() {
   },
   methods: {
+    onDelete: async function () {
+      if (window.confirm(this.$t('Are you sure to delete this comment?'))) {
+        let data = {
+          commentID: this.comment.id
+        }
+        
+        await this.lib.AxiosHelper.get('/client/AnnotationComment/destroy', data)
+        
+        this.$emit('delete')
+      }
+    }
   } // methods
 }
 
@@ -6619,7 +6626,10 @@ let AnnotationDiscussionList = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      comments: []
+      comments: [],
+      noMore: false,
+      page: 0,
+      afterTime: null
     }
   },
   components: {
@@ -6643,7 +6653,41 @@ let AnnotationDiscussionList = {
   },
   methods: {
     initComments: async function () {
-      console.log('@TODO AnnotationDiscussionList.initComments()')
+      let data = {
+        annotationID: this.annotation.id
+      }
+      
+      let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/init')
+      this.comments = result.comments
+      if (this.comments.length === 0) {
+        this.noMore = true
+      }
+      //console.log('@TODO AnnotationDiscussionList.initComments()')
+    },
+    loadNextPage: async function () {
+      this.page++
+      let data = {
+        annotationID: this.annotation.id,
+        page: this.page
+      }
+      
+      let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/next')
+      if (Array.isArray(result)) {
+        this.comments = this.comments.concat(result)
+      }
+    },
+    scrollList: function (event) {
+      if (this.noMore === true) {
+        return false
+      }
+      let element = event.target;
+      if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+        //console.log('scrolled');
+        this.loadNextPage()
+      }
+    },
+    onCommentDelete (i) {
+      this.comments.splice(i, 1)
     }
   } // methods
 }
@@ -7144,10 +7188,19 @@ let AnnotationEditorModules = {
     annotationConfig () {
       return this.lib.auth.currentStepAnnotationConfig
     },
+    enableDiscussion () {
+      if (typeof(this.annotation.id) !== 'number') {
+        return false
+      }
+      else {
+        return this.annotationConfig.enableCollaboration
+      }
+    },
     computedGridClass () {
       let classList = []
       //console.log(this.annotationConfig)
-      if (this.annotationConfig.enableCollaboration === true) {
+      
+      if (this.enableDiscussion === true) {
         classList.push('two')
       }
       else {

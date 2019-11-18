@@ -2,9 +2,16 @@
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
-const UserNotification = use('App/Models/UserNotification')
-
 class AnnotationComment extends Model {
+  
+  static boot () {
+    super.boot()
+    
+    this.addTrait('IntegerCase', ['getUpdatedAtUnixms'])
+    this.addTrait('AnnotationComment/AnnotationCommentSave')
+    this.addTrait('AnnotationComment/AnnotationCommentNotification')
+  }
+  
   webpage () {
     return this.belongsTo('App/Models/Webpage')
   }
@@ -34,23 +41,13 @@ class AnnotationComment extends Model {
   }
   
   get actionType () {
-    return 'Reply'
+    return 'Comment'
   }
   
-  static boot () {
-    super.boot()
-
-    this.addHook('afterSave', async (instance) => {
-      let notification = new UserNotification()
-      
-      notification.webpage_id = instance.webpage_id
-      notification.user_id = instance.user_id
-      notification.type = instance.anchorType + instance.actionType
-      
-      let description = instance.toJSON()
-      
-      notification.description = description
-    })
+  likes () {
+    return this.hasMany('App/Models/AnnotationCommentRate')
+            .where('type', 'like')
+            .where('deleted', false)
   }
 }
 

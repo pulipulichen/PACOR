@@ -6,7 +6,10 @@ let AnnotationDiscussionList = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      comments: []
+      comments: [],
+      noMore: false,
+      page: 0,
+      afterTime: null
     }
   },
   components: {
@@ -30,7 +33,41 @@ let AnnotationDiscussionList = {
   },
   methods: {
     initComments: async function () {
-      console.log('@TODO AnnotationDiscussionList.initComments()')
+      let data = {
+        annotationID: this.annotation.id
+      }
+      
+      let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/init')
+      this.comments = result.comments
+      if (this.comments.length === 0) {
+        this.noMore = true
+      }
+      //console.log('@TODO AnnotationDiscussionList.initComments()')
+    },
+    loadNextPage: async function () {
+      this.page++
+      let data = {
+        annotationID: this.annotation.id,
+        page: this.page
+      }
+      
+      let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/next')
+      if (Array.isArray(result)) {
+        this.comments = this.comments.concat(result)
+      }
+    },
+    scrollList: function (event) {
+      if (this.noMore === true) {
+        return false
+      }
+      let element = event.target;
+      if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+        //console.log('scrolled');
+        this.loadNextPage()
+      }
+    },
+    onCommentDelete (i) {
+      this.comments.splice(i, 1)
     }
   } // methods
 }

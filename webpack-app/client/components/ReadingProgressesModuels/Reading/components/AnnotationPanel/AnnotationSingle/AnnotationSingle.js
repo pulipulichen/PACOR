@@ -33,10 +33,19 @@ let AnnotationEditorModules = {
     annotationConfig () {
       return this.lib.auth.currentStepAnnotationConfig
     },
+    enableDiscussion () {
+      if (typeof(this.annotation.id) !== 'number') {
+        return false
+      }
+      else {
+        return this.annotationConfig.enableCollaboration
+      }
+    },
     computedGridClass () {
       let classList = []
       //console.log(this.annotationConfig)
-      if (this.annotationConfig.enableCollaboration === true) {
+      
+      if (this.enableDiscussion === true) {
         classList.push('two')
       }
       else {

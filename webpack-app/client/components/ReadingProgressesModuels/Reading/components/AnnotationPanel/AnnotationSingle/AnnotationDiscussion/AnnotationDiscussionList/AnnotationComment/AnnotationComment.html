@@ -6,7 +6,7 @@
     </span>
 
     <annotation-item-interactive
-      v-if="lib.auth.enableCollaboration"
+      v-if="comment.user_id !== status.userID"
       
       v-bind:config="config"
       v-bind:status="status"
@@ -18,6 +18,14 @@
       v-on:comment="$emit('comment')"
       size="mini">
     </annotation-item-interactive>
+    
+    <div v-if="comment.user_id === status.userID">
+      <button type="button"
+              class="ui mini button"
+              v-on:click="$emit('edit')">
+        {{ $t('EDIT') }}
+      </button>
+    </div>
   </div>
   
   <!-- ======================================================= -->

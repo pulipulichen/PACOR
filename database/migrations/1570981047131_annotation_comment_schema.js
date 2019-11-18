@@ -14,6 +14,9 @@ class AnnotationReplySchema extends Schema {
       table.string('type', 60).notNullable().defaultTo('highlight')
       table.text('note').notNullable()
       table.boolean('deleted').defaultTo(false)
+      
+      table.bigInteger('created_at_unixms')
+      table.bigInteger('updated_at_unixms')
       table.timestamps()
     })
   }

@@ -1,9 +1,16 @@
 <div class="AnnotationDiscussionInput ui form">
   <div class="right column">
-    <button type="button"
+    <button v-if="!isEditMode"
+            type="button"
             class="ui mini button"
-            v-on:click="comment">
+            v-on:click="add">
         {{ $t('COMMENT') }} 
+    </button>
+    <button v-if="isEditMode"
+            type="button"
+            class="ui mini button"
+            v-on:click="edit">
+        {{ $t('EDIT') }} 
     </button>
   </div>
   
@@ -17,7 +24,7 @@
     <div class="ui field">
       <input type="text"
              ref="input"
-             v-model="message" />
+             v-model="note" />
     </div>
   </div>
 </div>
