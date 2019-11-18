@@ -44,13 +44,12 @@ let CompactNavigation = {
       }
       
       return classList.join(' ') + ' fixed menu'
+    },
+    remainingSeconds () {
+      // @TODO 這個剩餘時間還要修改 #99
+      return 63
     }
-    
   },
-  /*
-  watch: {
-  },
-   */
   mounted() {
     this.initCompactMode()
     this.initPlaceholder()
@@ -68,7 +67,7 @@ let CompactNavigation = {
   },
   methods: {
     showNormalMenu () {
-      console.log('1')
+      //console.log('1')
       this.normalMenuDisplay = true
     },
     initCompactMode () {
@@ -95,8 +94,11 @@ let CompactNavigation = {
     },
     hideSideMenu: function () {
       this.sideMenuDisplay = false
+    },
+    timeup () {
+      // @TODO 這個剩餘時間還要修改 #99
+      //throw new Error('時間到')
     }
-    
   } // methods
 }
 

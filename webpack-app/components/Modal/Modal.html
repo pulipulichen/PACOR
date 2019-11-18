@@ -1,7 +1,7 @@
 <div class="ui modal" 
      ref="modal">
   <i class="close icon"
-     v-if="cancelable !== 'false'"></i>
+     v-if="cancelable !== 'false' && cancelable !== false"></i>
   <div class="header"
        v-if="$slots.header">
     <slot name="header"></slot>
@@ -18,7 +18,7 @@
             frameborder="0"></iframe>
   </div>
   <div class="actions"
-       v-if="$slots.actions || cancelable === 'true' || reset">
+       v-if="$slots.actions || cancelable === 'true' || cancelable === true || reset">
     
     <div class="ui button"
          v-if="contentURL"
@@ -27,7 +27,7 @@
     </div>
     
     <div class="ui button"
-         v-if="cancelable !== 'false'"
+         v-if="cancelable !== 'false' && cancelable !== false"
          v-on:click="hide">
       <template v-if="cancelButtonText">
         {{ $t(cancelButtonText) }}

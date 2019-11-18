@@ -3,7 +3,7 @@
          v-bind:config="config"
          v-bind:status="status"
          v-bind:lib="lib"
-         cancelable="false"
+         v-bind:cancelable="false"
          v-bind:contentURL="contentURL">
       <template v-slot:header>
         {{ $t(stepName) }}

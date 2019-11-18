@@ -2419,7 +2419,7 @@ var render = function() {
           config: _vm.config,
           status: _vm.status,
           lib: _vm.lib,
-          cancelable: "false",
+          cancelable: false,
           contentURL: _vm.contentURL
         },
         scopedSlots: _vm._u([

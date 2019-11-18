@@ -510,7 +510,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { ref: "modal", staticClass: "ui modal" }, [
-    _vm.cancelable !== "false"
+    _vm.cancelable !== "false" && _vm.cancelable !== false
       ? _c("i", { staticClass: "close icon" })
       : _vm._e(),
     _vm._v(" "),
@@ -532,7 +532,10 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.$slots.actions || _vm.cancelable === "true" || _vm.reset
+    _vm.$slots.actions ||
+    _vm.cancelable === "true" ||
+    _vm.cancelable === true ||
+    _vm.reset
       ? _c(
           "div",
           { staticClass: "actions" },
@@ -554,7 +557,7 @@ var render = function() {
                 )
               : _vm._e(),
             _vm._v(" "),
-            _vm.cancelable !== "false"
+            _vm.cancelable !== "false" && _vm.cancelable !== false
               ? _c(
                   "div",
                   { staticClass: "ui button", on: { click: _vm.hide } },
@@ -1854,12 +1857,14 @@ let Modal = {
     show: function () {
       this._awaitInit((modal) => {
         let options = {}
-        if (this.cancelable === 'false') {
+        if (this.cancelable === 'false' 
+                || this.cancelable === false) {
           options.closable = false
           options.duration = 0
         }
         
-        if (this.dimmerTransparent === 'false') {
+        if (this.dimmerTransparent === 'false' 
+                || this.dimmerTransparent === false) {
           options.dimmerSettings= {
             dimmerName: 'opaque'
           }

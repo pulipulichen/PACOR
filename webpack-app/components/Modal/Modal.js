@@ -72,12 +72,14 @@ let Modal = {
     show: function () {
       this._awaitInit((modal) => {
         let options = {}
-        if (this.cancelable === 'false') {
+        if (this.cancelable === 'false' 
+                || this.cancelable === false) {
           options.closable = false
           options.duration = 0
         }
         
-        if (this.dimmerTransparent === 'false') {
+        if (this.dimmerTransparent === 'false' 
+                || this.dimmerTransparent === false) {
           options.dimmerSettings= {
             dimmerName: 'opaque'
           }
