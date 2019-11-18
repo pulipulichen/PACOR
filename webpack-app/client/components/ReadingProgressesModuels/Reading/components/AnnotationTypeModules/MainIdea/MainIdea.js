@@ -1,4 +1,4 @@
-import props from './../Traits/props'
+import props from './../props'
 //import CommonComputed from './../commons/CommonComputed'
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
@@ -214,13 +214,13 @@ let Editor = {
   } // methods
 }
 
-import ComputedConfig from './../Traits/computed/ComputedConfig'
+import ComputedConfig from './../computed/ComputedConfig'
 ComputedConfig(Editor)
 
-import ComputedButtons from './../Traits/computed/ComputedButtons'
+import ComputedButtons from './../computed/ComputedButtons'
 ComputedButtons(Editor)
 
-import MethodsAnnotation from './../Traits/methods/MethodsAnnotation'
+import MethodsAnnotation from './../methods/MethodsAnnotation'
 MethodsAnnotation(Editor)
 
 export default Editor

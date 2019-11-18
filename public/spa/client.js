@@ -903,7 +903,8 @@ var render = function() {
                       config: _vm.config,
                       status: _vm.status,
                       lib: _vm.lib,
-                      annotation: _vm.annotation
+                      annotation: _vm.annotation,
+                      size: "mini"
                     },
                     on: {
                       like: function($event) {
@@ -3105,7 +3106,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let AnnotationInteractive = {
-  props: ['lib', 'status', 'config', 'annotation'],
+  props: ['lib', 'status', 'config', 'annotation', 'size'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -3123,12 +3124,20 @@ let AnnotationInteractive = {
         classList.push('green')
       }
       
+      if (typeof(this.size) === 'string') {
+        classList.push(this.size)
+      }
+      
       return classList.join(' ')
     },
     computedCommentsButtonClass () {
       let classList = []
+      
       if (this.annotation.__meta__.i_have_commented === 1) {
         classList.push('green')
+      }
+      if (typeof(this.size) === 'string') {
+        classList.push(this.size)
       }
       
       return classList.join(' ')

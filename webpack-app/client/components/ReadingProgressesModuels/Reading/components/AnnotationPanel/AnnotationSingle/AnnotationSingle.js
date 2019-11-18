@@ -1,9 +1,9 @@
 import AnnotationDiscussion from './AnnotationDiscussion/AnnotationDiscussion.vue'
-import AnnotationEditorHeader from './components/AnnotationEditorHeader/AnnotationEditorHeader.vue'
+import AnnotationEditorHeader from './AnnotationEditorHeader/AnnotationEditorHeader.vue'
 
-import AnnotationModuleMainIdea from './MainIdea/MainIdea.vue'
-import AnnotationModuleConfusedClarified from './ConfusedClarified/ConfusedClarified.vue'
-import AnnotationModuleSectionMainIdea from './SectionMainIdea/SectionMainIdea.vue'
+import AnnotationModuleMainIdea from './../../AnnotationTypeModules/MainIdea/MainIdea.vue'
+import AnnotationModuleConfusedClarified from './../../AnnotationTypeModules/ConfusedClarified/ConfusedClarified.vue'
+import AnnotationModuleSectionMainIdea from './../../AnnotationTypeModules/SectionMainIdea/SectionMainIdea.vue'
 //import AnnotationModuleConfused from './Confused/Confused.vue'
 //import AnnotationModuleClarified from './Clarified/Clarified.vue'
 
@@ -54,6 +54,10 @@ let AnnotationEditorModules = {
     componentHeightPX () {
       // 這個是header的高度
       return this.heightPX - 70
+    },
+    discussionHeightPX () {
+      // 這個是header的高度
+      return this.heightPX
     },
     isEditable: function () {
       return this.lib.AnnotationHelper.isEditable(this.annotation)

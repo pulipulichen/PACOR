@@ -1,0 +1,23 @@
+<div class="AnnotationDiscussionInput ui form">
+  <div class="right column">
+    <button type="button"
+            class="ui mini button"
+            v-on:click="comment">
+        {{ $t('COMMENT') }} 
+    </button>
+  </div>
+  
+  <div class="left column">
+    <img v-bind:src="status.avatar" />
+
+    <div class="username">
+      {{ username }}
+    </div>
+    
+    <div class="ui field">
+      <input type="text"
+             ref="input"
+             v-model="message" />
+    </div>
+  </div>
+</div>

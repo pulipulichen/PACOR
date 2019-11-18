@@ -1,5 +1,5 @@
-import UserInformation from './../UserInformation/UserInformation.vue'
-import AnnotaionInstruction from './../AnnotaionInstruction/AnnotaionInstruction.vue'
+import UserInformation from './UserInformation/UserInformation.vue'
+import AnnotaionInstruction from './AnnotaionInstruction/AnnotaionInstruction.vue'
 
 let AnnotationEditorHeader = {
   props: ['status', 'config', 'type', 'editable'],

@@ -1,4 +1,4 @@
-import props from './../Traits/props'
+import props from './../props'
 
 import QuestionTemplate from './QuestionTemplate/QuestionTemplate.vue'
 import ResourceSearch from './ResourceSearch/ResourceSearch.vue'
@@ -29,13 +29,13 @@ watch(Editor)
 import methods from './methods'
 methods(Editor)
 
-import ComputedConfig from './../Traits/computed/ComputedConfig'
+import ComputedConfig from './../computed/ComputedConfig'
 ComputedConfig(Editor)
 
-import ComputedButtons from './../Traits/computed/ComputedButtons'
+import ComputedButtons from './../computed/ComputedButtons'
 ComputedButtons(Editor)
 
-import MethodsAnnotation from './../Traits/methods/MethodsAnnotation'
+import MethodsAnnotation from './../methods/MethodsAnnotation'
 MethodsAnnotation(Editor)
 
 export default Editor

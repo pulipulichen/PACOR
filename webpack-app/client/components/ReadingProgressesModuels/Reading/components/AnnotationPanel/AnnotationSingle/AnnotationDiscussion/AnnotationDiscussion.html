@@ -1,3 +1,21 @@
 <div class="AnnotationDiscussion">
-  [AnnotationDiscussion #TODO]
+  <annotation-discussion-list 
+    ref="AnnotationDiscussionList"
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+
+    v-bind:annotation="annotation"
+    v-bind:heightPX="listHeightPX">
+  </annotation-discussion-list>
+  
+  
+  <annotation-discussion-input 
+    ref="AnnotationDiscussionInput"
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+
+    v-bind:annotation="annotation">
+  </annotation-discussion-input>
 </div>
