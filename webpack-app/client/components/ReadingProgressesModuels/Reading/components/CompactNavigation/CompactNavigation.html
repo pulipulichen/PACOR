@@ -1,4 +1,4 @@
-<div>
+<div class="CompactNavigation">
   <div class="CompactMenu"
        v-on:click="normalMenuDisplay = true"
        v-show="!normalMenuDisplay">
@@ -13,7 +13,7 @@
           {{ status.notificationUnreadCount }}
         </template>
         -->
-        {{ $t(lib.auth.currentStep) }}
+        {{ $t('READING_PROGRESS.' + lib.auth.currentStep) }}
       </div>
       <div class="right aligned column">
         <countdown-timer 

@@ -35,6 +35,8 @@
         
         <annotation-type-button 
           v-for="t in types"
+          v-bind:key="t"
+          
           v-bind:lib="lib"
           v-bind:config="config"
           v-bind:status="status"

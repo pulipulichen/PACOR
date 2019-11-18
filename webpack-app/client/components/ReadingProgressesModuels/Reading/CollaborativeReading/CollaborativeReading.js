@@ -9,11 +9,6 @@ let CollaborativeReading = {
   },
   components: {
     'navigation-items': NavigationItems,
-    'rangy': () => import(/* webpackChunkName: "client-components/components" */ './../components/RangyManager/RangyManager.vue'),
-    'annotation-panel': () => import(/* webpackChunkName: "client-components/components" */ './../components/AnnotationPanel/AnnotationPanel.vue'),
-    'annotation-manager': () => import(/* webpackChunkName: "client-components/components" */ './../components/AnnotationManager/AnnotationManager.vue'),
-    'section-manager': () => import(/* webpackChunkName: "client-components/components" */ './../components/SectionManager/SectionManager.vue'),
-    'instruction-message': () => import(/* webpackChunkName: "client-components/components" */ './../components/InstructionMessage/InstructionMessage.vue'),
   },
 //  computed: {
 //  },
@@ -40,7 +35,7 @@ let CollaborativeReading = {
         setTimeout(() => {
           this._testSearch()
         }, 100)
-        return
+        return null
       }
       
       this.status.search.keyword = "我"

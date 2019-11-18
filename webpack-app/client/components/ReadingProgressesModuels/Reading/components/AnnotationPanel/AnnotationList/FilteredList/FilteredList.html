@@ -86,8 +86,9 @@
     -->
 
     <annotation-item
-      v-for="a in annotations"
-      v-bind:annotation="a"
+      v-for="(annotation, i) in annotations"
+      v-bind:annotation="annotation"
+      v-bind:key="annotation.id"
 
       v-bind:config="config"
       v-bind:status="status"

@@ -24,6 +24,7 @@
 
   <annotation-item
     v-for="annotation in sectionsData.annotation[sectionSeqID].annotations"
+    v-bind:key="annotation.id"
     v-bind:config="config"
     v-bind:status="status"
     v-bind:lib="lib"

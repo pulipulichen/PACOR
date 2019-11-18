@@ -1,6 +1,3 @@
-import CompactNavigation from './../../components/CompactNavigation/CompactNavigation.vue'
-import SearchManager from './../../components/SearchManager/SearchManager.vue'
-
 let NavigationItems = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {    
@@ -8,10 +5,8 @@ let NavigationItems = {
     return {
     }
   },
-  components: {
-    'compact-navigation': CompactNavigation,
-    'search-manager': SearchManager
-  },
+//  components: {
+//  },
 //  
 //  computed: {
 //  },

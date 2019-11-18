@@ -76,7 +76,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "fragment",
+    "div",
+    { staticClass: "CollaborativeReading" },
     [
       _c("instruction-message", {
         ref: "InstructionMessage",
@@ -106,8 +107,7 @@ var render = function() {
       _vm._v(" "),
       _c("section-manager", {
         ref: "SectionManager",
-        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib },
-        on: { complete: _vm.onChecklistComplete }
+        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
       }),
       _vm._v(" "),
       _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
@@ -172,7 +172,9 @@ var render = function() {
                   [
                     _vm._v(
                       "\r\n        " +
-                        _vm._s(_vm.$t(_vm.lib.auth.currentStep)) +
+                        _vm._s(
+                          _vm.$t("READING_PROGRESS." + _vm.lib.auth.currentStep)
+                        ) +
                         "\r\n      "
                     )
                   ]
@@ -299,11 +301,6 @@ let CollaborativeReading = {
   },
   components: {
     'navigation-items': _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'rangy': () => __webpack_require__.e(/*! import() | client-components/components */ "client-components/components").then(__webpack_require__.bind(null, /*! ./../components/RangyManager/RangyManager.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.vue")),
-    'annotation-panel': () => __webpack_require__.e(/*! import() | client-components/components */ "client-components/components").then(__webpack_require__.bind(null, /*! ./../components/AnnotationPanel/AnnotationPanel.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationPanel.vue")),
-    'annotation-manager': () => __webpack_require__.e(/*! import() | client-components/components */ "client-components/components").then(__webpack_require__.bind(null, /*! ./../components/AnnotationManager/AnnotationManager.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationManager.vue")),
-    'section-manager': () => __webpack_require__.e(/*! import() | client-components/components */ "client-components/components").then(__webpack_require__.bind(null, /*! ./../components/SectionManager/SectionManager.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionManager.vue")),
-    'instruction-message': () => __webpack_require__.e(/*! import() | client-components/components */ "client-components/components").then(__webpack_require__.bind(null, /*! ./../components/InstructionMessage/InstructionMessage.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/InstructionMessage/InstructionMessage.vue")),
   },
 //  computed: {
 //  },
@@ -330,7 +327,7 @@ let CollaborativeReading = {
         setTimeout(() => {
           this._testSearch()
         }, 100)
-        return
+        return null
       }
       
       this.status.search.keyword = "我"
@@ -468,11 +465,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_CompactNavigation_CompactNavigation_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../components/CompactNavigation/CompactNavigation.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/CompactNavigation/CompactNavigation.vue");
-/* harmony import */ var _components_SearchManager_SearchManager_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../components/SearchManager/SearchManager.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SearchManager/SearchManager.vue");
-
-
-
 let NavigationItems = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {    
@@ -480,10 +472,9 @@ let NavigationItems = {
     return {
     }
   },
-  components: {
-    'compact-navigation': _components_CompactNavigation_CompactNavigation_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'search-manager': _components_SearchManager_SearchManager_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
-  },
+//  components: {
+//    'compact-navigation': CompactNavigation,
+//  },
 //  
 //  computed: {
 //  },

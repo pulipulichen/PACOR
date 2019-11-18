@@ -49,3 +49,11 @@ Vue.component('annotation-item', AnnotationItem)
 
 import AdminBadge from './../components/AdminBadge/AdminBadge.vue'
 Vue.component('admin-badge', AdminBadge)
+
+Vue.component('rangy', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.vue'))
+Vue.component('annotation-panel', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationPanel.vue'))
+Vue.component('annotation-manager', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationManager.vue'))
+Vue.component('section-manager', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/SectionManager/SectionManager.vue'))
+Vue.component('search-manager', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/SearchManager/SearchManager.vue'))
+Vue.component('instruction-message', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/InstructionMessage/InstructionMessage.vue'))
+Vue.component('compact-navigation', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/CompactNavigation/CompactNavigation.vue'))

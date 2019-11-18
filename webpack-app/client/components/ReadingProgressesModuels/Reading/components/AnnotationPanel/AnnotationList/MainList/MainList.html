@@ -30,6 +30,7 @@
 
       <annotation-type-button 
         v-for="t in types"
+        v-bind:key="t"
 
         v-bind:lib="lib"
         v-bind:config="config"
@@ -71,8 +72,9 @@
     -->
 
     <annotation-item
-      v-for="a in annotations"
-      v-bind:annotation="a"
+      v-for="(annotation, i) in annotations"
+      v-bind:annotation="annotation"
+      v-bind:key="annotation.id"
 
       v-bind:config="config"
       v-bind:status="status"
@@ -82,7 +84,8 @@
       v-bind:findAnnotation="viewAnnotation"
       v-bind:findUser="findUser"
       v-bind:findType="findType"
-      v-bind:searchKeyword="panelData.keyword"></annotation-item>
+      v-bind:searchKeyword="panelData.keyword">
+    </annotation-item>
 
     <div class="ui secondary segment no-more"
          v-if="noMore">
