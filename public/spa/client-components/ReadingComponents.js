@@ -6463,6 +6463,9 @@ let AnnotationDiscussionInput = {
     isEditMode () {
       return (this.comment
               && typeof(this.comment.id) === 'number')
+    },
+    AnnotationDiscussionList () {
+      return this.$parent.$refs.AnnotationDiscussionList
     }
   },
   watch: {
@@ -6500,7 +6503,7 @@ let AnnotationDiscussionInput = {
         note: this.note
       }
       //this.$emit('add', comment)
-      this.$parent.$refs.AnnotationDiscussionList.onInputAdd(comment)
+      this.AnnotationDiscussionList.onInputAdd(comment)
       this.reset()
     },
     edit: async function () {
@@ -6518,7 +6521,7 @@ let AnnotationDiscussionInput = {
       
       this.comment.note = this.note
       //this.$emit('edit', this.comment)
-      this.$parent.$refs.AnnotationDiscussionList.onInputEdit(this.comment)
+      this.AnnotationDiscussionList.onInputEdit(this.comment)
     }
   } // methods
 }
@@ -6724,6 +6727,9 @@ let AnnotationDiscussionList = {
         'height': this.heightPX + 'px',
         'max-height': this.heightPX + 'px',
       }
+    },
+    AnnotationDiscussionInput () {
+      return this.$parent.$refs.AnnotationDiscussionInput
     }
   },
   watch: {
@@ -6779,7 +6785,7 @@ let AnnotationDiscussionList = {
       throw new Error('他應該會自己更新吧？')
     },
     onEdit (comment) {
-      this.$parent.$refs.AnnotationDiscussionInput.comment = comment
+      this.AnnotationDiscussionInput.comment = comment
     }
   } // methods
 }

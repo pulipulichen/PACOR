@@ -19,6 +19,9 @@ let AnnotationDiscussionInput = {
     isEditMode () {
       return (this.comment
               && typeof(this.comment.id) === 'number')
+    },
+    AnnotationDiscussionList () {
+      return this.$parent.$refs.AnnotationDiscussionList
     }
   },
   watch: {
@@ -56,7 +59,7 @@ let AnnotationDiscussionInput = {
         note: this.note
       }
       //this.$emit('add', comment)
-      this.$parent.$refs.AnnotationDiscussionList.onInputAdd(comment)
+      this.AnnotationDiscussionList.onInputAdd(comment)
       this.reset()
     },
     edit: async function () {
@@ -74,7 +77,7 @@ let AnnotationDiscussionInput = {
       
       this.comment.note = this.note
       //this.$emit('edit', this.comment)
-      this.$parent.$refs.AnnotationDiscussionList.onInputEdit(this.comment)
+      this.AnnotationDiscussionList.onInputEdit(this.comment)
     }
   } // methods
 }

@@ -21,6 +21,9 @@ let AnnotationDiscussionList = {
         'height': this.heightPX + 'px',
         'max-height': this.heightPX + 'px',
       }
+    },
+    AnnotationDiscussionInput () {
+      return this.$parent.$refs.AnnotationDiscussionInput
     }
   },
   watch: {
@@ -76,7 +79,7 @@ let AnnotationDiscussionList = {
       throw new Error('他應該會自己更新吧？')
     },
     onEdit (comment) {
-      this.$parent.$refs.AnnotationDiscussionInput.comment = comment
+      this.AnnotationDiscussionInput.comment = comment
     }
   } // methods
 }
