@@ -28,7 +28,8 @@ let List = {
     query () {
       let query = {
         withCount: true,
-        page: this.page
+        page: this.page,
+        excludeIDList: this.annotationsIDList
       }
       
         if (this.panelData.anchorPositions) {
@@ -122,6 +123,9 @@ Height(List)
 
 import ComputedFilter from './../Traits/computed/ComputedFilter'
 ComputedFilter(List)
+
+import Query from './../Traits/computed/Query'
+Query(List)
 
 import Filter from './../Traits/methods/Filter'
 Filter(List)

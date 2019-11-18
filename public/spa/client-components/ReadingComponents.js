@@ -5238,10 +5238,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AnnotationSingle_AnnotationSingle_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../AnnotationSingle/AnnotationSingle.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationSingle/AnnotationSingle.vue");
 /* harmony import */ var _Traits_computed_Height__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Traits/computed/Height */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/computed/Height.js");
 /* harmony import */ var _Traits_computed_ComputedFilter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Traits/computed/ComputedFilter */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/computed/ComputedFilter.js");
-/* harmony import */ var _Traits_methods_Filter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Traits/methods/Filter */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Filter.js");
-/* harmony import */ var _Traits_methods_Scroll__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Traits/methods/Scroll */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Scroll.js");
-/* harmony import */ var _Traits_methods_Load__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../Traits/methods/Load */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Load.js");
-/* harmony import */ var _Traits_methods_Keyword__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../Traits/methods/Keyword */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Keyword.js");
+/* harmony import */ var _Traits_computed_Query__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Traits/computed/Query */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/computed/Query.js");
+/* harmony import */ var _Traits_methods_Filter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Traits/methods/Filter */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Filter.js");
+/* harmony import */ var _Traits_methods_Scroll__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../Traits/methods/Scroll */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Scroll.js");
+/* harmony import */ var _Traits_methods_Load__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../Traits/methods/Load */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Load.js");
+/* harmony import */ var _Traits_methods_Keyword__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../Traits/methods/Keyword */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Keyword.js");
 
 
 let List = {
@@ -5311,7 +5312,8 @@ let List = {
     query () {
       let query = {
         withCount: true,
-        page: this.page
+        page: this.page,
+        excludeIDList: this.annotationsIDList
       }
       
         if (this.panelData.anchorPositions) {
@@ -5422,16 +5424,19 @@ Object(_Traits_computed_Height__WEBPACK_IMPORTED_MODULE_1__["default"])(List)
 Object(_Traits_computed_ComputedFilter__WEBPACK_IMPORTED_MODULE_2__["default"])(List)
 
 
-Object(_Traits_methods_Filter__WEBPACK_IMPORTED_MODULE_3__["default"])(List)
+Object(_Traits_computed_Query__WEBPACK_IMPORTED_MODULE_3__["default"])(List)
 
 
-Object(_Traits_methods_Scroll__WEBPACK_IMPORTED_MODULE_4__["default"])(List)
+Object(_Traits_methods_Filter__WEBPACK_IMPORTED_MODULE_4__["default"])(List)
 
 
-Object(_Traits_methods_Load__WEBPACK_IMPORTED_MODULE_5__["default"])(List)
+Object(_Traits_methods_Scroll__WEBPACK_IMPORTED_MODULE_5__["default"])(List)
 
 
-Object(_Traits_methods_Keyword__WEBPACK_IMPORTED_MODULE_6__["default"])(List)
+Object(_Traits_methods_Load__WEBPACK_IMPORTED_MODULE_6__["default"])(List)
+
+
+Object(_Traits_methods_Keyword__WEBPACK_IMPORTED_MODULE_7__["default"])(List)
 
 //import Event from './../Traits/methods/Event'
 //Event(List)
@@ -5528,10 +5533,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AnnotationSingle_AnnotationSingle_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../AnnotationSingle/AnnotationSingle.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationSingle/AnnotationSingle.vue");
 /* harmony import */ var _Traits_computed_Height__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Traits/computed/Height */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/computed/Height.js");
 /* harmony import */ var _Traits_computed_ComputedFilter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Traits/computed/ComputedFilter */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/computed/ComputedFilter.js");
-/* harmony import */ var _Traits_methods_Filter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Traits/methods/Filter */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Filter.js");
-/* harmony import */ var _Traits_methods_Scroll__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Traits/methods/Scroll */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Scroll.js");
-/* harmony import */ var _Traits_methods_Load__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../Traits/methods/Load */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Load.js");
-/* harmony import */ var _Traits_methods_Keyword__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../Traits/methods/Keyword */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Keyword.js");
+/* harmony import */ var _Traits_computed_Query__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Traits/computed/Query */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/computed/Query.js");
+/* harmony import */ var _Traits_methods_Filter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Traits/methods/Filter */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Filter.js");
+/* harmony import */ var _Traits_methods_Scroll__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../Traits/methods/Scroll */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Scroll.js");
+/* harmony import */ var _Traits_methods_Load__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../Traits/methods/Load */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Load.js");
+/* harmony import */ var _Traits_methods_Keyword__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../Traits/methods/Keyword */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/methods/Keyword.js");
 
 
 let List = {
@@ -5562,7 +5568,8 @@ let List = {
     query () {
       let query = {
         withCount: true,
-        page: this.page
+        page: this.page,
+        excludeIDList: this.annotationsIDList
       }
       
         if (this.panelData.anchorPositions) {
@@ -5658,16 +5665,19 @@ Object(_Traits_computed_Height__WEBPACK_IMPORTED_MODULE_1__["default"])(List)
 Object(_Traits_computed_ComputedFilter__WEBPACK_IMPORTED_MODULE_2__["default"])(List)
 
 
-Object(_Traits_methods_Filter__WEBPACK_IMPORTED_MODULE_3__["default"])(List)
+Object(_Traits_computed_Query__WEBPACK_IMPORTED_MODULE_3__["default"])(List)
 
 
-Object(_Traits_methods_Scroll__WEBPACK_IMPORTED_MODULE_4__["default"])(List)
+Object(_Traits_methods_Filter__WEBPACK_IMPORTED_MODULE_4__["default"])(List)
 
 
-Object(_Traits_methods_Load__WEBPACK_IMPORTED_MODULE_5__["default"])(List)
+Object(_Traits_methods_Scroll__WEBPACK_IMPORTED_MODULE_5__["default"])(List)
 
 
-Object(_Traits_methods_Keyword__WEBPACK_IMPORTED_MODULE_6__["default"])(List)
+Object(_Traits_methods_Load__WEBPACK_IMPORTED_MODULE_6__["default"])(List)
+
+
+Object(_Traits_methods_Keyword__WEBPACK_IMPORTED_MODULE_7__["default"])(List)
 
 //import Event from './../Traits/methods/Event'
 //Event(List)
@@ -5810,11 +5820,14 @@ __webpack_require__.r(__webpack_exports__);
 /* global this */
 
 /* harmony default export */ __webpack_exports__["default"] = ((List) => {
-  List.computed.hasKeywordFilter = function () {
-    return (this.panelData.keyword
-            && this.panelData.keyword !== '')
-  }
 
+  List.computed.annotationsIDList = function () {
+    if (Array.isArray(this.annotations)) {
+      return this.annotations.map(a => a.id)
+    } else {
+      return []
+    }
+  }
 });
 
 /***/ }),
@@ -5846,6 +5859,28 @@ __webpack_require__.r(__webpack_exports__);
     }
     return style
   }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/computed/Query.js":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationList/Traits/computed/Query.js ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* global this */
+
+/* harmony default export */ __webpack_exports__["default"] = ((List) => {
+    
+  List.computed.hasKeywordFilter = function () {
+    return (this.panelData.keyword
+            && this.panelData.keyword !== '')
+  }
+  
 });
 
 /***/ }),
@@ -5982,7 +6017,7 @@ __webpack_require__.r(__webpack_exports__);
       //console.error('not found.')
       this.annotations = []
       this.noMore = true
-      return
+      return null
       //return this.$emit('close')
     }
     //console.log(result)
@@ -6730,6 +6765,14 @@ let AnnotationDiscussionList = {
     },
     AnnotationDiscussionInput () {
       return this.$parent.$refs.AnnotationDiscussionInput
+    },
+    commantIDList () {
+      if (Array.isArray(this.comments)) {
+        return this.comments.map(comment => comment.id)
+      }
+      else {
+        return []
+      }
     }
   },
   watch: {
@@ -6753,26 +6796,31 @@ let AnnotationDiscussionList = {
       }
       //console.log('@TODO AnnotationDiscussionList.initComments()')
     },
-    loadNextPage: async function () {
+    loadPrevPage: async function () {
       this.page++
       let data = {
         annotationID: this.annotation.id,
-        page: this.page
+        page: this.page,
+        excludeIDList: this.commantIDList
       }
       
       let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/next')
       if (Array.isArray(result)) {
-        this.comments = this.comments.concat(result)
+        this.comments = result.concat(this.comments)
       }
+    },
+    autoLoadNextPage: async function () {
+      
     },
     scrollList: function (event) {
       if (this.noMore === true) {
         return false
       }
-      let element = event.target;
-      if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+      let element = event.target
+      console.log('這邊要做成捲動到0的時候才顯示，有辦法嗎？')
+      if (element.scrollTop === 0) {
         //console.log('scrolled');
-        this.loadNextPage()
+        this.loadPrevPage()
       }
     },
     onCommentDelete (i) {

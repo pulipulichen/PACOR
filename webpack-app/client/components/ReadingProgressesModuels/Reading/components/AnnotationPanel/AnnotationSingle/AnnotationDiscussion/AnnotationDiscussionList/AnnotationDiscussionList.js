@@ -24,6 +24,14 @@ let AnnotationDiscussionList = {
     },
     AnnotationDiscussionInput () {
       return this.$parent.$refs.AnnotationDiscussionInput
+    },
+    commantIDList () {
+      if (Array.isArray(this.comments)) {
+        return this.comments.map(comment => comment.id)
+      }
+      else {
+        return []
+      }
     }
   },
   watch: {
@@ -47,26 +55,31 @@ let AnnotationDiscussionList = {
       }
       //console.log('@TODO AnnotationDiscussionList.initComments()')
     },
-    loadNextPage: async function () {
+    loadPrevPage: async function () {
       this.page++
       let data = {
         annotationID: this.annotation.id,
-        page: this.page
+        page: this.page,
+        excludeIDList: this.commantIDList
       }
       
       let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/next')
       if (Array.isArray(result)) {
-        this.comments = this.comments.concat(result)
+        this.comments = result.concat(this.comments)
       }
+    },
+    autoLoadNextPage: async function () {
+      
     },
     scrollList: function (event) {
       if (this.noMore === true) {
         return false
       }
-      let element = event.target;
-      if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+      let element = event.target
+      console.log('這邊要做成捲動到0的時候才顯示，有辦法嗎？')
+      if (element.scrollTop === 0) {
         //console.log('scrolled');
-        this.loadNextPage()
+        this.loadPrevPage()
       }
     },
     onCommentDelete (i) {

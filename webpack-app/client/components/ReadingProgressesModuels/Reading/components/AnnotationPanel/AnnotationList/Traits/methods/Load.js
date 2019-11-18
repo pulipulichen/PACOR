@@ -17,7 +17,7 @@ export default (List) => {
       //console.error('not found.')
       this.annotations = []
       this.noMore = true
-      return
+      return null
       //return this.$emit('close')
     }
     //console.log(result)

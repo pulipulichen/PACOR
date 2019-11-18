@@ -1,9 +1,12 @@
 /* global this */
 
 export default (List) => {
-  List.computed.hasKeywordFilter = function () {
-    return (this.panelData.keyword
-            && this.panelData.keyword !== '')
-  }
 
+  List.computed.annotationsIDList = function () {
+    if (Array.isArray(this.annotations)) {
+      return this.annotations.map(a => a.id)
+    } else {
+      return []
+    }
+  }
 }

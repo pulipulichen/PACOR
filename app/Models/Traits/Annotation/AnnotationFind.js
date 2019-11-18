@@ -22,6 +22,7 @@ class AnnotationFind {
         , onlySectionAnnotation
         , seq_id
         , orderBy
+        , excludeIDList
       } = options
       const doQuery = async evt => {
         //console.log('findByWebpageGroupPosition', anchorPositions)
@@ -138,6 +139,12 @@ class AnnotationFind {
           Object.keys(orderBy).forEach(field => {
             query.orderBy(field, orderBy[field])
           })
+        }
+        
+        // ---------------------------------------------------
+        
+        if (Array.isArray(excludeIDList)) {
+          query.whereNotIn('id', excludeIDList)
         }
         
         // ---------------------------------------------------
