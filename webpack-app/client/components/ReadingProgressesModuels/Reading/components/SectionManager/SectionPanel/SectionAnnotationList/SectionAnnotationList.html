@@ -1,4 +1,5 @@
-<div class="SectionAnnotationList"
+<div class="ui segment SectionAnnotationList"
+     v-if="hasAnnotation"
      v-on:scroll.stop="scrollList"
      v-on:mouseover="sectionsData.enableRefresh = false"
      v-on:mouseout="sectionsData.enableRefresh = true"

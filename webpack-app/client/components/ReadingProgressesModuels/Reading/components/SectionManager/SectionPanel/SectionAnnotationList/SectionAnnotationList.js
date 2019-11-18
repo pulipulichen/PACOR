@@ -32,6 +32,13 @@ let SectionAnnotationList = {
         this.sectionsData.annotation[this.sectionSeqID].annotations = []
       }
       return this.sectionsData.annotation[this.sectionSeqID].annotations
+    },
+    hasAnnotation () {
+      return (this.sectionsData 
+              && this.sectionsData.annotation
+              && this.sectionsData.annotation[this.sectionSeqID]
+              && this.sectionsData.annotation[this.sectionSeqID].annotations
+              && this.sectionsData.annotation[this.sectionSeqID].annotations.length > 0)
     }
   },
   watch: {

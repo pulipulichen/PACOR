@@ -6,9 +6,10 @@ let SectionPanel = {
     , 'node', 'sectionSeqID', 'sectionsData'],
   data() {    
     this.$i18n.locale = this.config.locale
+    //console.log(this.lib.auth.enableCollaboration)
     return {
       checklistData: [],
-      isChecklistSubmitted: false
+      isChecklistSubmitted: this.lib.auth.enableCollaboration
     }
   },
   components: {
@@ -43,6 +44,10 @@ let SectionPanel = {
       this.node.parentNode.insertBefore(this.$refs.panel, this.node.nextSibling)
     },
     checkIsChecklistSubmitted () {
+      if (this.lib.auth.enableCollaboration === true) {
+        this.isChecklistSubmitted = true
+      }
+      
       this.isChecklistSubmitted = (this.sectionsData
               && this.sectionsData.checklistSubmitted
               && this.sectionsData.checklistSubmitted[this.sectionSeqID])

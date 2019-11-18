@@ -21,7 +21,7 @@
 
     <fab-item 
       v-for="(module, i) in annotationModules"
-      v-bind:key="i"
+      v-bind:key="module.type"
       v-on:clickItem="addAnnotation(module.type)" 
       v-bind:idx="i"
       v-bind:title="$t('ANNOTATION_TYPE.' + module.type)"

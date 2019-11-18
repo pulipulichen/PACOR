@@ -81,7 +81,9 @@ class AnnotationHighlight {
 
     Model.getOthersHighlightsArrayByWebpageGroup = async function (webpage, user, options) {
       const doQuery = async evt => {
+        //console.log('getOthersHighlightsArrayByWebpageGroup', 1)
         let annotations = await this.findOthersByWebpageGroup(webpage, user, options)
+        //console.log('getOthersHighlightsArrayByWebpageGroup', 2)
         return this._convertToHighlighArray(annotations, user)
       }
 
@@ -97,15 +99,18 @@ class AnnotationHighlight {
       }
     }
 
-
     Model.getHighlightsByWebpageGroup = async function (webpage, user, query) {
-      //console.log('getHighlightsByWebpageGroup')
+      //console.log('getHighlightsByWebpageGroup', 1)
       let highlights = await this.getMyHighlightsArrayByWebpageGroup(webpage, user, query)
+      if (Array.isArray(highlights) === false) {
+        highlights = []
+      }
       //console.log(highlights)
+      //console.log('getHighlightsByWebpageGroup', 2)
       let othersHighlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, query)
-      //console.log(othersHighlights)
-
+      //console.log('getHighlightsByWebpageGroup', 3)
       highlights = highlights.concat(othersHighlights)
+      //console.log('getHighlightsByWebpageGroup', 4)
       return this._convertHighlighArrayToString(highlights, webpage, user)
     }
 

@@ -39,6 +39,7 @@ class Annotation extends WebpageUserBaseController {
   
   async highlights ({request, webpage, user}) {
     let query = request.all()
+    //console.log(query)
     return await AnnotationModel.getHighlightsByWebpageGroup(webpage, user, query)
   }
   

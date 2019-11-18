@@ -775,7 +775,7 @@ var render = function() {
                     _vm._v(" "),
                     _vm._l(_vm.types, function(t) {
                       return _c("annotation-type-button", {
-                        key: t,
+                        key: t.type,
                         attrs: {
                           lib: _vm.lib,
                           config: _vm.config,
@@ -917,7 +917,7 @@ var render = function() {
         [
           _vm._l(_vm.annotationModules, function(module, i) {
             return _c("fab-item", {
-              key: i,
+              key: module.type,
               attrs: {
                 idx: i,
                 title: _vm.$t("ANNOTATION_TYPE." + module.type),
@@ -1332,7 +1332,7 @@ var render = function() {
                 _vm._v(" "),
                 _vm._l(_vm.types, function(t) {
                   return _c("annotation-type-button", {
-                    key: t,
+                    key: t.type,
                     attrs: {
                       lib: _vm.lib,
                       config: _vm.config,
@@ -2905,101 +2905,103 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "SectionAnnotationList",
-      on: {
-        scroll: function($event) {
-          $event.stopPropagation()
-          return _vm.scrollList($event)
-        },
-        mouseover: function($event) {
-          _vm.sectionsData.enableRefresh = false
-        },
-        mouseout: function($event) {
-          _vm.sectionsData.enableRefresh = true
-        },
-        touchstart: function($event) {
-          _vm.sectionsData.enableRefresh = false
-        },
-        touchend: function($event) {
-          _vm.sectionsData.enableRefresh = true
-        }
-      }
-    },
-    [
-      _vm.userCount > 1
-        ? [
-            _c(
-              "div",
-              { staticClass: "summary-information" },
-              [
-                _c("user-avatar-icons", {
-                  staticStyle: { "margin-right": "0.5em" },
-                  attrs: {
-                    config: _vm.config,
-                    status: _vm.status,
-                    lib: _vm.lib,
-                    users: _vm.users,
-                    userCount: _vm.userCount
-                  },
-                  on: {
-                    find: function(user) {
-                      _vm.findUser = user
-                    }
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "ui divider" })
-          ]
-        : _vm._e(),
-      _vm._v(" "),
-      _vm._l(
-        _vm.sectionsData.annotation[_vm.sectionSeqID].annotations,
-        function(annotation) {
-          return _c("annotation-item", {
-            key: annotation.id,
-            attrs: {
-              config: _vm.config,
-              status: _vm.status,
-              lib: _vm.lib,
-              annotation: annotation,
-              findAnnotation: _vm.findAnnotation
+  return _vm.hasAnnotation
+    ? _c(
+        "div",
+        {
+          staticClass: "ui segment SectionAnnotationList",
+          on: {
+            scroll: function($event) {
+              $event.stopPropagation()
+              return _vm.scrollList($event)
+            },
+            mouseover: function($event) {
+              _vm.sectionsData.enableRefresh = false
+            },
+            mouseout: function($event) {
+              _vm.sectionsData.enableRefresh = true
+            },
+            touchstart: function($event) {
+              _vm.sectionsData.enableRefresh = false
+            },
+            touchend: function($event) {
+              _vm.sectionsData.enableRefresh = true
             }
-          })
-        }
-      ),
-      _vm._v(" "),
-      _vm.noMore
-        ? _c(
-            "div",
-            { staticClass: "ui secondary segment no-more" },
-            [
-              _vm.sectionsData.annotation[_vm.sectionSeqID].annotations.length >
-              0
-                ? [
-                    _vm._v(
-                      "\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    "
-                    )
-                  ]
-                : [
-                    _vm._v(
-                      "\r\n      " +
-                        _vm._s(_vm.$t("No Search Result")) +
-                        "\r\n    "
-                    )
-                  ]
-            ],
-            2
-          )
-        : _vm._e()
-    ],
-    2
-  )
+          }
+        },
+        [
+          _vm.userCount > 1
+            ? [
+                _c(
+                  "div",
+                  { staticClass: "summary-information" },
+                  [
+                    _c("user-avatar-icons", {
+                      staticStyle: { "margin-right": "0.5em" },
+                      attrs: {
+                        config: _vm.config,
+                        status: _vm.status,
+                        lib: _vm.lib,
+                        users: _vm.users,
+                        userCount: _vm.userCount
+                      },
+                      on: {
+                        find: function(user) {
+                          _vm.findUser = user
+                        }
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "ui divider" })
+              ]
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._l(
+            _vm.sectionsData.annotation[_vm.sectionSeqID].annotations,
+            function(annotation) {
+              return _c("annotation-item", {
+                key: annotation.id,
+                attrs: {
+                  config: _vm.config,
+                  status: _vm.status,
+                  lib: _vm.lib,
+                  annotation: annotation,
+                  findAnnotation: _vm.findAnnotation
+                }
+              })
+            }
+          ),
+          _vm._v(" "),
+          _vm.noMore
+            ? _c(
+                "div",
+                { staticClass: "ui secondary segment no-more" },
+                [
+                  _vm.sectionsData.annotation[_vm.sectionSeqID].annotations
+                    .length > 0
+                    ? [
+                        _vm._v(
+                          "\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    "
+                        )
+                      ]
+                    : [
+                        _vm._v(
+                          "\r\n      " +
+                            _vm._s(_vm.$t("No Search Result")) +
+                            "\r\n    "
+                        )
+                      ]
+                ],
+                2
+              )
+            : _vm._e()
+        ],
+        2
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3023,7 +3025,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "SectionChecklist" }, [
+  return _c("div", { staticClass: "ui segment SectionChecklist" }, [
     _c("div", { staticClass: "header-container" }, [
       _c("div", { staticClass: "ui tiny header" }, [
         _c("div", { staticClass: "content" }, [
@@ -3175,45 +3177,39 @@ var render = function() {
     "div",
     { ref: "panel", staticClass: "non-invasive-web-style-framework" },
     [
-      _c(
-        "div",
-        { staticClass: "ui segment" },
-        [
-          !_vm.isChecklistSubmitted
-            ? _c("section-checklist", {
-                attrs: {
-                  config: _vm.config,
-                  status: _vm.status,
-                  lib: _vm.lib,
-                  node: _vm.node,
-                  sectionSeqID: _vm.sectionSeqID,
-                  sectionsData: _vm.sectionsData
-                },
-                on: {
-                  checklistComplete: _vm.checkIsChecklistSubmitted,
-                  allComplete: function($event) {
-                    return _vm.$emit("complete")
-                  }
-                }
-              })
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.isChecklistSubmitted
-            ? _c("section-annotation-list", {
-                attrs: {
-                  config: _vm.config,
-                  status: _vm.status,
-                  lib: _vm.lib,
-                  node: _vm.node,
-                  sectionSeqID: _vm.sectionSeqID,
-                  sectionsData: _vm.sectionsData
-                }
-              })
-            : _vm._e()
-        ],
-        1
-      )
-    ]
+      _vm.isChecklistSubmitted === false
+        ? _c("section-checklist", {
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              node: _vm.node,
+              sectionSeqID: _vm.sectionSeqID,
+              sectionsData: _vm.sectionsData
+            },
+            on: {
+              checklistComplete: _vm.checkIsChecklistSubmitted,
+              allComplete: function($event) {
+                return _vm.$emit("complete")
+              }
+            }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.isChecklistSubmitted === true
+        ? _c("section-annotation-list", {
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              node: _vm.node,
+              sectionSeqID: _vm.sectionSeqID,
+              sectionsData: _vm.sectionsData
+            }
+          })
+        : _vm._e()
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -20527,6 +20523,13 @@ let SectionAnnotationList = {
         this.sectionsData.annotation[this.sectionSeqID].annotations = []
       }
       return this.sectionsData.annotation[this.sectionSeqID].annotations
+    },
+    hasAnnotation () {
+      return (this.sectionsData 
+              && this.sectionsData.annotation
+              && this.sectionsData.annotation[this.sectionSeqID]
+              && this.sectionsData.annotation[this.sectionSeqID].annotations
+              && this.sectionsData.annotation[this.sectionSeqID].annotations.length > 0)
     }
   },
   watch: {
@@ -21266,9 +21269,10 @@ let SectionPanel = {
     , 'node', 'sectionSeqID', 'sectionsData'],
   data() {    
     this.$i18n.locale = this.config.locale
+    //console.log(this.lib.auth.enableCollaboration)
     return {
       checklistData: [],
-      isChecklistSubmitted: false
+      isChecklistSubmitted: this.lib.auth.enableCollaboration
     }
   },
   components: {
@@ -21303,6 +21307,10 @@ let SectionPanel = {
       this.node.parentNode.insertBefore(this.$refs.panel, this.node.nextSibling)
     },
     checkIsChecklistSubmitted () {
+      if (this.lib.auth.enableCollaboration === true) {
+        this.isChecklistSubmitted = true
+      }
+      
       this.isChecklistSubmitted = (this.sectionsData
               && this.sectionsData.checklistSubmitted
               && this.sectionsData.checklistSubmitted[this.sectionSeqID])

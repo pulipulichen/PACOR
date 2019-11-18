@@ -148,7 +148,7 @@ module.exports = {
         //'highlight': 'border-bottom: 1px solid green',
         'highlight': {
           'my': 'background-color: rgba(255,0,0,0.5); color: white;',
-          'others': 'border-bottom: 1px solid red'
+          'others': 'border-bottom: 2px solid red'
         },
         'segmentColor': 'red',
         'button': {
@@ -168,7 +168,7 @@ module.exports = {
         //'highlight': 'border-bottom: 1px solid green',
         'highlight': {
           'my': 'background-color: rgba(0,128,0,0.5); color: white;',
-          'others': 'border-bottom: 1px solid red'
+          'others': 'border-bottom: 2px solid red'
         },
         'segmentColor': 'green',
         'button': {
@@ -190,7 +190,7 @@ module.exports = {
         //'highlight': 'border-bottom: 1px solid red',
         'highlight': {
           'my': 'background-color: rgba(255,255,0,0.5); color: black;',
-          'others': 'border-bottom: 1px solid yellow'
+          'others': 'border-bottom: 2px solid #CC0'
         },
         'segmentColor': 'yellow',
         'button': {
@@ -212,7 +212,7 @@ module.exports = {
         //'highlight': 'border-bottom: 1px solid red',
         'highlight': {
           'my': 'background-color: rgba(255,255,0,0.5); color: black;',
-          'others': 'border-bottom: 1px solid yellow'
+          'others': 'border-bottom: 2px solid #CC0'
         },
         'segmentColor': 'yellow',
         'button': {

@@ -176,11 +176,14 @@ class AnnotationFind {
       const doQuery = async evt => {
 
         let userList = await user.getOtherUserIDsInGroup(webpage)
+        //console.log(userList)
+        //throw new Error(userList)
+        
         let query = this.query()
                 .where('webpage_id', webpage.primaryKeyValue)
                 .whereIn('user_id', userList)
                 .where('deleted', false)
-                .whereRaw('(user_id != ? and public IS ?)', [user.primaryKeyValue, true])
+                .whereRaw('(user_id != ? and public = ?)', [user.primaryKeyValue, true])
                 //.whereRaw('user_id = ?', [user.primaryKeyValue])
                 .with('anchorPositions')
                 .orderBy('updated_at_unixms', 'desc')
@@ -199,6 +202,7 @@ class AnnotationFind {
         }
 
         //console.log(query.toSQL())
+        
         let result = await query.fetch()
         return result
       }

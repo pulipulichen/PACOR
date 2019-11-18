@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "div[data-v-81d73e80] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 255, 0, 0.5);\n}\n", "",{"version":3,"sources":["CollaborativeReading.less?vue&type=style&index=0&id=81d73e80&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,sCAAsC;AACxC","file":"CollaborativeReading.less?vue&type=style&index=0&id=81d73e80&lang=less&scoped=true&","sourcesContent":["div[data-v-81d73e80] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 255, 0, 0.5);\n}\n"]}]);
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"CollaborativeReading.less?vue&type=style&index=0&id=81d73e80&lang=less&scoped=true&"}]);
 
 
 /***/ }),
