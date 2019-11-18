@@ -11,7 +11,7 @@ let NavigationItems = {
   components: {
     'compact-navigation': CompactNavigation,
     'search-manager': SearchManager
-  }
+  },
 //  
 //  computed: {
 //  },
@@ -19,8 +19,11 @@ let NavigationItems = {
 //  },
 //  mounted() {
 //  },
-//  methods: {
-//  } // methods
+  methods: {
+    showInstruction () {
+      this.$emit('showInstruction')
+    }
+  } // methods
 }
 
 export default NavigationItems

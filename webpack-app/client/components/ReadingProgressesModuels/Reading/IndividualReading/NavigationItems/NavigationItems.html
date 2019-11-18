@@ -13,6 +13,10 @@
           {{ lib.auth.username }}
         </div>
       </a>
+      <a class="item"
+         v-on:click="showInstruction">
+        {{ $t(lib.auth.currentStep) }}
+      </a>
     </template>
 
 

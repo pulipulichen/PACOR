@@ -57,6 +57,9 @@ let IndividualReading = {
       
       // 再來顯示
       this.lib.AnnotationPanel.setAnchorPositions()
+    },
+    showInstruction() {
+      this.$refs.InstructionMessage.show()
     }
   } // methods
 }

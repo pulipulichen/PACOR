@@ -8,12 +8,18 @@
         <reading-progress-indicator></reading-progress-indicator>
       </div>
       <div class="center aligned column">
+        <!--
         <template v-if="lib.auth.enableCollaboration">
           {{ status.notificationUnreadCount }}
         </template>
+        -->
+        {{ $t(lib.auth.currentStep) }}
       </div>
       <div class="right aligned column">
+        [[倒數計時]]
+        <!--
         <clock></clock>
+        -->
       </div>
     </div>
   </div>

@@ -153,7 +153,7 @@ var render = function() {
     "fragment",
     [
       _c("instruction-message", {
-        ref: "auth",
+        ref: "InstructionMessage",
         attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
       }),
       _vm._v(" "),
@@ -169,7 +169,8 @@ var render = function() {
       _vm._v(" "),
       _c("navigation-items", {
         ref: "nav",
-        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib },
+        on: { showInstruction: _vm.showInstruction }
       }),
       _vm._v(" "),
       _c("annotation-manager", {
@@ -237,7 +238,19 @@ var render = function() {
                         "\r\n        "
                     )
                   ])
-                ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "item", on: { click: _vm.showInstruction } },
+                  [
+                    _vm._v(
+                      "\r\n        " +
+                        _vm._s(_vm.$t(_vm.lib.auth.currentStep)) +
+                        "\r\n      "
+                    )
+                  ]
+                )
               ]
             },
             proxy: true
@@ -322,24 +335,17 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "center aligned column" },
-            [
-              _vm.lib.auth.enableCollaboration
-                ? [
-                    _vm._v(
-                      "\r\n          " +
-                        _vm._s(_vm.status.notificationUnreadCount) +
-                        "\r\n        "
-                    )
-                  ]
-                : _vm._e()
-            ],
-            2
-          ),
+          _c("div", { staticClass: "center aligned column" }, [
+            _vm._v(
+              "\r\n        " +
+                _vm._s(_vm.$t(_vm.lib.auth.currentStep)) +
+                "\r\n      "
+            )
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "right aligned column" }, [_c("clock")], 1)
+          _c("div", { staticClass: "right aligned column" }, [
+            _vm._v("\r\n        [[倒數計時]]\r\n        ")
+          ])
         ])
       ]
     ),
@@ -732,6 +738,9 @@ let IndividualReading = {
       
       // 再來顯示
       this.lib.AnnotationPanel.setAnchorPositions()
+    },
+    showInstruction() {
+      this.$refs.InstructionMessage.show()
     }
   } // methods
 }
@@ -886,7 +895,7 @@ let NavigationItems = {
   components: {
     'compact-navigation': _components_CompactNavigation_CompactNavigation_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     'search-manager': _components_SearchManager_SearchManager_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
-  }
+  },
 //  
 //  computed: {
 //  },
@@ -894,8 +903,11 @@ let NavigationItems = {
 //  },
 //  mounted() {
 //  },
-//  methods: {
-//  } // methods
+  methods: {
+    showInstruction () {
+      this.$emit('showInstruction')
+    }
+  } // methods
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (NavigationItems);

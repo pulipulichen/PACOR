@@ -2419,6 +2419,7 @@ var render = function() {
           config: _vm.config,
           status: _vm.status,
           lib: _vm.lib,
+          cancelable: "false",
           contentURL: _vm.contentURL
         },
         scopedSlots: _vm._u([
@@ -8999,11 +9000,14 @@ let InstructionMessage = {
 //  watch: {
 //  },
   mounted() {
-    this.$refs.Modal.show()
+    this.show()
   },
   methods: {
     submit() {
       this.$refs.Modal.hide()
+    },
+    show() {
+      this.$refs.Modal.show()
     }
   } // methods
 }

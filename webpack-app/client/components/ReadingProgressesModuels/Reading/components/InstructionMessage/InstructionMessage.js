@@ -23,11 +23,14 @@ let InstructionMessage = {
 //  watch: {
 //  },
   mounted() {
-    this.$refs.Modal.show()
+    this.show()
   },
   methods: {
     submit() {
       this.$refs.Modal.hide()
+    },
+    show() {
+      this.$refs.Modal.show()
     }
   } // methods
 }
