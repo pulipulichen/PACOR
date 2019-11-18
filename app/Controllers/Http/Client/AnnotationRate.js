@@ -19,6 +19,12 @@ class AnnotationRate extends Annotation {
     throw new Error('@TODO AnnotationRate.like()')
   }
   
+  async likeComment({request, webpage, user}) {
+    const {commentID} = request.all()
+    
+    throw new Error('@TODO AnnotationRate.likeComment()')
+  }
+  
 }
 
 module.exports = AnnotationRate
