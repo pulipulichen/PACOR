@@ -6438,9 +6438,92 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationSingle/AnnotationDiscussion/AnnotationDiscussionInput/AnnotationDiscussionInput.js ***!
   \************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module parse failed: Unexpected token (13:6)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n|     return {\n|       note: note\n>       comment: null\n|     }\n|   },");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let AnnotationDiscussionInput = {
+  props: ['lib', 'status', 'config', 'annotation'],
+  data() {    
+    this.$i18n.locale = this.config.locale
+    
+    let note = ''
+    if (this.comment
+            && typeof(this.comment.note) === 'string') {
+      note = this.comment.note
+    }
+    return {
+      note: note,
+      comment: null
+    }
+  },
+//  components: {
+//  },
+  computed: {
+    isEditMode () {
+      return (this.comment
+              && typeof(this.comment.id) === 'number')
+    }
+  },
+  watch: {
+    'comment' (comment) {
+      if (this.comment
+            && typeof(this.comment.note) === 'string') {
+        note = this.comment.note
+      }
+      else {
+        note = ''
+      }
+    }
+  },
+  //mounted() {
+  //},
+  methods: {
+    focus () {
+      this.$refs.input.focus()
+    },
+    add: async function () {
+      //throw new Error('@TODO AnnotationDiscussionInput.comment()')
+      let data = {
+        note: this.note
+      }
+      
+      let id = await this.lib.AxiosHelper.post('/client/AnnotationComment/add', data)
+      
+      if (typeof(id) !== 'number') {
+        throw new Error('Add failed')
+        return null
+      }
+      
+      let comment = {
+        id: id,
+        note: this.note
+      }
+      //this.$emit('add', comment)
+      this.$parent.$refs.AnnotationDiscussionList.onInputAdd(comment)
+      this.reset()
+    },
+    edit: async function () {
+      //throw new Error('@TODO AnnotationDiscussionInput.comment()')
+      let data = {
+        note: this.note
+      }
+      
+      let id = await this.lib.AxiosHelper.post('/client/AnnotationComment/add', data)
+      
+      if (typeof(id) !== 'number') {
+        throw new Error('Add failed')
+        return null
+      }
+      
+      this.comment.note = this.note
+      //this.$emit('edit', this.comment)
+      this.$parent.$refs.AnnotationDiscussionList.onInputEdit(this.comment)
+    }
+  } // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (AnnotationDiscussionInput);
 
 /***/ }),
 
@@ -6688,6 +6771,15 @@ let AnnotationDiscussionList = {
     },
     onCommentDelete (i) {
       this.comments.splice(i, 1)
+    },
+    onInputAdd (comment) {
+      this.comments.unshift(comment)
+    },
+    onInputEdit (comment) {
+      throw new Error('他應該會自己更新吧？')
+    },
+    onEdit (comment) {
+      this.$parent.$refs.AnnotationDiscussionInput.comment = comment
     }
   } // methods
 }

@@ -68,6 +68,15 @@ let AnnotationDiscussionList = {
     },
     onCommentDelete (i) {
       this.comments.splice(i, 1)
+    },
+    onInputAdd (comment) {
+      this.comments.unshift(comment)
+    },
+    onInputEdit (comment) {
+      throw new Error('他應該會自己更新吧？')
+    },
+    onEdit (comment) {
+      this.$parent.$refs.AnnotationDiscussionInput.comment = comment
     }
   } // methods
 }

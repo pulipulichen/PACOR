@@ -16,7 +16,7 @@
     v-on:like="$emit('like', comment)"
     v-on:unlike="$emit('unlike', comment)"
     
-    v-on:edit="$emit('edit', comment)"
+    v-on:edit="onEdit(comment)"
     v-on:delete="onCommentDelete(i)">
   </annotation-comment>
   

@@ -9,7 +9,7 @@ let AnnotationDiscussionInput = {
       note = this.comment.note
     }
     return {
-      note: note
+      note: note,
       comment: null
     }
   },
@@ -56,7 +56,7 @@ let AnnotationDiscussionInput = {
         note: this.note
       }
       //this.$emit('add', comment)
-      this.$parent.$refs.AnnotationDiscussionList.add(comment)
+      this.$parent.$refs.AnnotationDiscussionList.onInputAdd(comment)
       this.reset()
     },
     edit: async function () {
@@ -73,7 +73,8 @@ let AnnotationDiscussionInput = {
       }
       
       this.comment.note = this.note
-      this.$emit('edit', this.comment)
+      //this.$emit('edit', this.comment)
+      this.$parent.$refs.AnnotationDiscussionList.onInputEdit(this.comment)
     }
   } // methods
 }
