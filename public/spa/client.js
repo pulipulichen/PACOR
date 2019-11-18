@@ -1010,7 +1010,12 @@ var render = function() {
         staticClass: "like ui button",
         class: _vm.computedLikesButtonClass,
         attrs: { type: "button" },
-        on: { click: _vm.like }
+        on: {
+          click: function($event) {
+            $event.stopPropagation()
+            return _vm.like($event)
+          }
+        }
       },
       [
         _vm.likes > 0
@@ -1032,7 +1037,12 @@ var render = function() {
         staticClass: "comments ui button",
         class: _vm.computedCommentsButtonClass,
         attrs: { type: "button" },
-        on: { click: _vm.comment }
+        on: {
+          click: function($event) {
+            $event.stopPropagation()
+            return _vm.comment($event)
+          }
+        }
       },
       [
         _vm.likes > 0

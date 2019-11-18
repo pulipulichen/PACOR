@@ -2,7 +2,7 @@
   <button type="button" 
           class="like ui button"
           v-bind:class="computedLikesButtonClass"
-          v-on:click="like">
+          v-on:click.stop="like">
     <template v-if="likes > 0">
       {{ $t('{0} Likes', [likes]) }}
     </template>
@@ -13,7 +13,7 @@
   <button type="button"
           class="comments ui button"
           v-bind:class="computedCommentsButtonClass"
-          v-on:click="comment">
+          v-on:click.stop="comment">
     <template v-if="likes > 0">
       {{ $t('{0} Comments', [comments]) }}
     </template>

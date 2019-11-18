@@ -21,6 +21,12 @@ let AnnotationDiscussion = {
   methods: {
     comment () {
       this.$refs.AnnotationDiscussionInput.focus()
+    },
+    like () {
+      throw new Error('@TODO AnnotationDiscussion.like()')
+    },
+    unlike () {
+      throw new Error('@TODO AnnotationDiscussion.unlike()')
     }
   } // methods
 }

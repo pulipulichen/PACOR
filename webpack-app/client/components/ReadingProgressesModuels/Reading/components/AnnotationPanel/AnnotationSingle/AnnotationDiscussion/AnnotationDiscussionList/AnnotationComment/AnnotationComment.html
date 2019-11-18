@@ -1,0 +1,38 @@
+<div class="ui segment AnnotationComment">
+  <div class="meta text-container ui basic right labeled button">
+    
+    <span class="display-time">
+      {{ displayTime }}
+    </span>
+
+    <annotation-item-interactive
+      v-if="lib.auth.enableCollaboration"
+      
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+      
+      v-bind:annotation="comment"
+      v-on:like="$emit('like')"
+      v-on:unlike="$emit('unlike')"
+      v-on:comment="$emit('comment')"
+      size="mini">
+    </annotation-item-interactive>
+  </div>
+  
+  <!-- ======================================================= -->
+
+  <div class="left column">
+    <div class="user">
+      <img v-bind:src="comment.user.avatar_url"
+           class="avatar"/>
+      <div class="username text-container">
+        {{ username }}
+      </div>
+    </div>
+
+    <div class="note text-container" 
+         v-if="note" 
+         v-html="note"></div>
+  </div>
+</div>
