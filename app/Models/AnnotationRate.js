@@ -1,8 +1,16 @@
 'use strict'
 
-const AnnotationComment = use('App/Models/AnnotationComment')
+const Model = use('Model')
 
-class AnnotationRate extends AnnotationComment {
+class AnnotationRate extends Model {
+  static boot () {
+    super.boot()
+    
+    this.addTrait('AnnotationRate/AnnotationRateLike')
+  } // static boot () {
+  
+  // --------------------
+  
   rater () {
     return this.user()
   }
