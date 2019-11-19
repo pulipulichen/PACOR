@@ -6,7 +6,7 @@ class AnnotationCommentRate extends Model {
   static boot () {
     super.boot()
     
-    this.addTrait('AnnotationRate/AnnotationRateLike')
+    this.addTrait('AnnotationCommentRate/AnnotationCommentRateLike')
   } // static boot () {
   
   rater () {

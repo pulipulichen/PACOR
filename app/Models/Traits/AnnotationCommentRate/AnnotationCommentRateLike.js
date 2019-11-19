@@ -17,9 +17,13 @@ class AnnotationCommentRateLike {
       
       // ---------------
       
-      let comment = await AnnotationCommentModel
+      let comments = await AnnotationCommentModel
+              .query()
               .with('annotation')
-              .find(commentID)
+              .where('id', commentID)
+              .pick(1)
+      let comment = comments.first()
+      
       if (comment.annotation.webpage_id !== webpage.primaryKeyValue) {
         throw new HttpException('Forbidden', 403)
       }

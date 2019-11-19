@@ -1,6 +1,7 @@
 'use strict'
 
 const Annotation = use('App/Controllers/Http/Client/Annotation')
+
 const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
 
 const AnnotationCommentModel = use('App/Models/AnnotationComment')
@@ -23,6 +24,8 @@ class AnnotationComment extends Annotation {
     return await AnnotationCommentModel.findWithPage(webpage, user, options)
   }
   
+  // -------------------
+  
   async create({request, webpage, user}) {
     const data = request.all()
     return await AnnotationCommentModel.createFromJSON(webpage, user, data)
@@ -32,6 +35,12 @@ class AnnotationComment extends Annotation {
     const data = request.all()
     return await AnnotationCommentModel.updateFromJSON(webpage, user, data)
   }
+  
+  constructor () {
+    super('AnnotationComment')
+  }
+//  async destroy({request, webpage, user}) {
+//  }
 }
 
 module.exports = AnnotationComment

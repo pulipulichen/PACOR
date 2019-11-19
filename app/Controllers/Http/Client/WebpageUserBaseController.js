@@ -158,7 +158,11 @@ class WebpageUserBaseController {
     await ReadingActivityLog.log(webpage, user, this.modelName + '.destroy', data)
     
     let id = data.id
-    if (typeof(id) !== 'number' && typeof(id) !== 'string') {
+    if (typeof(id) === 'string' 
+            && isNaN(id) === false) {
+      id = parseInt(id, 10)
+    }
+    if (typeof(id) !== 'number') {
       throw new HttpException('No id')
     }
     
