@@ -143,8 +143,14 @@ class User extends Model {
   
   // ---------------
   
-  annotations () {
-    return this.hasMany('App/Models/Annotation')
+  annotations (webpage) {
+    let query = this.hasMany('App/Models/Annotation')
+    
+    if (webpage) {
+      query.where('webpage_id', webpage.primaryKeyValue)
+    }
+    
+    return query
   }
   
   sectionAnnotations () {

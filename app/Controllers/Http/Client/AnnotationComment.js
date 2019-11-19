@@ -1,9 +1,9 @@
 'use strict'
 
-const AnnotationComment = use('App/Controllers/Http/Client/AnnotationComment')
+const Annotation = use('App/Controllers/Http/Client/Annotation')
 const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
 
-//const AnnotationModel = use('App/Models/Annotation')
+const AnnotationCommentModel = use('App/Models/AnnotationComment')
 //const AnnotationNoteModel = use('App/Models/AnnotationNote')
 
 const Cache = use('Cache')
@@ -15,22 +15,22 @@ class AnnotationComment extends Annotation {
   
   async init({request, webpage, user}) {
     const options = request.all()
-    return await AnnotationComment.findSummary(webpage, user, options)
+    return await AnnotationCommentModel.findSummary(webpage, user, options)
   }
   
   async next({request, webpage, user}) {
     const options = request.all()
-    return await AnnotationComment.findWithPage(webpage, user, options)
+    return await AnnotationCommentModel.findWithPage(webpage, user, options)
   }
   
   async create({request, webpage, user}) {
     const data = request.all()
-    return await AnnotationComment.createFromJSON(webpage, user, data)
+    return await AnnotationCommentModel.createFromJSON(webpage, user, data)
   }
   
   async update({request, webpage, user}) {
     const data = request.all()
-    return await AnnotationComment.updateFromJSON(webpage, user, data)
+    return await AnnotationCommentModel.updateFromJSON(webpage, user, data)
   }
 }
 

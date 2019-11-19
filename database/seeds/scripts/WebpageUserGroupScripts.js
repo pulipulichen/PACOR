@@ -10,7 +10,7 @@ const Sleep = use('Sleep')
 const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
 let webpage
 
-module.exports =  {
+module.exports = {
   createAdmin: async function () {
     let domain = await DomainModel.findByURL(url)
     let adminsSetting = '布布:password'
@@ -87,6 +87,8 @@ module.exports =  {
     
     // 走到這裡應該要是 CollaborativeReading
   },
+  
+  // ----------------------------------
   
   processGroup1User1: async function () {
     let user = await UserModel.findByNameInWebpage(webpage, '布戊')
