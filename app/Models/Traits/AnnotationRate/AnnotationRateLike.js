@@ -3,6 +3,8 @@
 const AnnotationModel = use('App/Models/Annotation')
 const AnnotationRateModel = use('App/Models/AnnotationRate')
 
+const { HttpException } = use('@adonisjs/generic-exceptions') 
+
 class AnnotationRateLike {
 
   register(Model) {
@@ -38,6 +40,8 @@ class AnnotationRateLike {
       let rate = await AnnotationRateModel.findOrCreate(findData, createData)
       rate.deleted = !rate.deleted
       await rate.save()
+      
+      console.log('AnnotationRateLike 這邊應該要加入通知')
       
       return rate
     }

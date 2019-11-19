@@ -19,9 +19,9 @@ class AnnotationComment extends Model {
     })
   }
   
-  webpage () {
-    return this.belongsTo('App/Models/Webpage')
-  }
+//  webpage () {
+//    return this.belongsTo('App/Models/Webpage')
+//  }
   
   user () {
     return this.belongsTo('App/Models/User')
@@ -36,7 +36,7 @@ class AnnotationComment extends Model {
   }
   
   annotation () {
-    return this.hasOne('App/Models/Annotation')
+    return this.belongsTo('App/Models/Annotation')
   }
   
   commentOnAnnotation () {

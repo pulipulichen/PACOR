@@ -149,7 +149,7 @@ let config = {
           .session('adonis-auth', 1)
           .end()
   
-    console.log(response.text)
+    //console.log(response.text)
     response.assertStatus(200)
   },
   'd1-2. 計算評論讚數': async function ( { assert, client } ) {      
@@ -174,7 +174,7 @@ let config = {
           .session('adonis-auth', 1)
           .end()
   
-    console.log(response.text)
+    //console.log(response.text)
     response.assertStatus(200)
   },
   'd2-2. 計算評論讚數': async function ( { assert, client } ) {      

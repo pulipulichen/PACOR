@@ -16,7 +16,7 @@ class AnnotationRate extends Model {
   }
   
   annotation () {
-    return this.hasOne('App/Models/Annotation')
+    return this.belongsTo('App/Models/Annotation')
   }
   
   rateToAnnotation () {

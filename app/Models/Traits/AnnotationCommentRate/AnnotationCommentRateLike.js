@@ -3,6 +3,8 @@
 const AnnotationCommentModel = use('App/Models/AnnotationComment')
 const AnnotationCommentRateModel = use('App/Models/AnnotationCommentRate')
 
+const { HttpException } = use('@adonisjs/generic-exceptions') 
+
 class AnnotationCommentRateLike {
 
   register(Model) {
@@ -17,21 +19,22 @@ class AnnotationCommentRateLike {
       
       // ---------------
       
-      let comments = await AnnotationCommentModel
-              .query()
-              .with('annotation')
-              .where('id', commentID)
-              .pick(1)
-      let comment = comments.first()
-      
-      if (comment.annotation.webpage_id !== webpage.primaryKeyValue) {
+//      let comments = await AnnotationCommentModel
+//              .query()
+//              .with('annotation')
+//              .where('id', commentID)
+//              .pick(1)
+//      let comment = comments.first()
+      let comment = await AnnotationCommentModel.find(commentID)
+      let annotation = await comment.annotation().fetch()
+      if (annotation.webpage_id !== webpage.primaryKeyValue) {
         throw new HttpException('Forbidden', 403)
       }
       
       // -----------------
       
       let findData = {
-        comment_id: comment.id,
+        annotation_comment_id: comment.id,
         user_id: user.primaryKeyValue,
         type: 'like',
         deleted: false
@@ -44,6 +47,8 @@ class AnnotationCommentRateLike {
       let rate = await AnnotationCommentRateModel.findOrCreate(findData, createData)
       rate.deleted = !rate.deleted
       await rate.save()
+      
+      console.log('AnnotationCommentRateLike 這邊應該要加入通知')
       
       return rate
     }

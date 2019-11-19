@@ -41,6 +41,8 @@ class AnnotationCommentSave {
       
       await comment.save()
       
+      console.log('AnnotationCommentSave 這邊應該要加入通知')
+      
       return comment
     }
     
