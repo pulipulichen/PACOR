@@ -10,6 +10,12 @@ class AnnotationComment extends Model {
     this.addTrait('IntegerCase', ['getUpdatedAtUnixms'])
     this.addTrait('AnnotationComment/AnnotationCommentSave')
     this.addTrait('AnnotationComment/AnnotationCommentNotification')
+    
+    this.addTrait('JSONCase', 'properties')
+    this.addTrait('Tokenization', {
+      fromField: 'note',
+      toField: 'properties'
+    })
   }
   
   webpage () {
@@ -48,6 +54,22 @@ class AnnotationComment extends Model {
     return this.hasMany('App/Models/AnnotationCommentRate')
             .where('type', 'like')
             .where('deleted', false)
+  }
+  
+  /**
+   * 需要搭配queryBuilder一起使用
+   * query.withCount('i_have_liked', (queryBuilder) => {
+            queryBuilder.where('user_id', user.primaryKeyValue)
+          })
+   */
+  i_have_liked () {
+    return this.hasMany('App/Models/AnnotationCommentRate')
+            .where('type', 'like')
+            .where('deleted', false)
+  }
+  
+  static get hidden () {
+    return ['webpage_id', 'deleted', 'created_at', 'updated_at', 'created_at_unixms', 'properties']
   }
 }
 

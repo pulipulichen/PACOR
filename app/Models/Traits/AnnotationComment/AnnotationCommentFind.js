@@ -9,6 +9,28 @@ class AnnotationCommentSave {
 
   register(Model) {
     
+    Model.findSummary = async function (webpage, user, options = {}) {
+      let {
+        annotationID
+      } = options
+      
+      let comments = await this.findWithPage(webpage, user, {
+        annotationID,
+        page: 0
+      })
+      
+      let itemsPerPage = Config.get('view.itemsPerPage')
+      let commentCount = comments.length
+      if (commentCount === itemsPerPage) {
+        commentCount = await this.countComments(webpage, user, annotationID)
+      }
+      
+      return {
+        comments,
+        commentCount
+      }
+    }
+    
     Model.findWithPage = async function (webpage, user, options = {}) {
       let {
         annotationID,
@@ -22,8 +44,8 @@ class AnnotationCommentSave {
       
       // ----------------------------------
       
-      let cacheKey = Cache.keys('AnnotationComment', annotationID)
-      throw new Error('快取的地方還沒做完')
+      //let cacheKey = Cache.keys('AnnotationComment', annotationID)
+      //throw new Error('快取的地方還沒做完') // 快取不做
       
       // ----------------------------------
       
@@ -32,6 +54,9 @@ class AnnotationCommentSave {
               .where('annotation_id', annotationID)
               .where('deleted', false)
               .withCount('likes')
+              .withCount('i_have_liked', (builder) => {
+                builder.where('user_id', user.primaryKeyValue)
+              })
               .orderBy('created_at', 'desc')
       
       // -----------------------------------
@@ -65,6 +90,17 @@ class AnnotationCommentSave {
         query.limit(itemsPerPage)
         query.offset(itemsPerPage * page)
       }
+    } // Model.findWithPage = async function (webpage, user, options = {}) {
+    
+    Model.countComments = async function (webpage, user, annotationID) {
+      
+      let query = AnnotationCommentModel
+              .query()
+              .where('annotation_id', annotationID)
+              .where('deleted', false)
+      
+      let comments = await query.fetch()
+      return comments.size()
     }
     
   } // register (Model) {

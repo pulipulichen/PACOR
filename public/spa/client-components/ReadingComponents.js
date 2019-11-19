@@ -6748,6 +6748,7 @@ let AnnotationDiscussionList = {
     this.$i18n.locale = this.config.locale
     return {
       comments: [],
+      commentCount: 0,
       noMore: false,
       page: 0,
       afterTime: null
@@ -6790,9 +6791,11 @@ let AnnotationDiscussionList = {
       }
       
       let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/init')
+      this.commentCount = result.commentCount
       this.comments = result.comments
-      if (this.comments.length === 0) {
+      if (this.commentCount === 0) {
         this.noMore = true
+        return null
       }
       //console.log('@TODO AnnotationDiscussionList.initComments()')
     },
@@ -6805,9 +6808,14 @@ let AnnotationDiscussionList = {
       }
       
       let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/next')
-      if (Array.isArray(result)) {
-        this.comments = result.concat(this.comments)
+      if (Array.isArray(result) === false
+              || result.length === 0) {
+        this.noMore = true
+        return null
       }
+      
+      this.comments = result.concat(this.comments)
+      this.commentCount = this.commentCount - result.length
     },
     autoLoadNextPage: async function () {
       

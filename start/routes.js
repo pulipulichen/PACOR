@@ -11,6 +11,8 @@
 | A complete guide on routing is available here.
 | http://adonisjs.com/docs/4.1/routing
 |
+| Middle的對應設定在 /start/kernel.js 裡面
+|
 */
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
@@ -117,11 +119,11 @@ Route.any('/client/Section/:action', (options) => {
 
 Route.any('/client/AnnotationRate/:action', (options) => {
   return controllerMapping(options, 'client', 'AnnotationRate')
-}).middleware(['user', 'webpage'])
+}).middleware(['user', 'webpage', 'checkEnableCollaboration'])
 
 Route.any('/client/AnnotationComment/:action', (options) => {
   return controllerMapping(options, 'client', 'AnnotationComment')
-}).middleware(['user', 'webpage'])
+}).middleware(['user', 'webpage', 'checkEnableCollaboration'])
 
 Route.any('/client/ReadingProgress/:action', (options) => {
   return controllerMapping(options, 'client', 'ReadingProgress')

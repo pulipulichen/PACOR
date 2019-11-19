@@ -12,6 +12,11 @@
     </template>
   </div>
   
+  <div class="ui secondary segment no-more"
+         v-if="!noMore">
+    {{ $t('Load previous {0} comments...', [commentCount]) }}
+  </div>
+  
   <annotation-comment 
     v-for="(comment, i) in comments"
     v-bind:key="comment.id"
