@@ -325,4 +325,37 @@ Cache.buildTags = (webpage, user, instance) => {
   return tags
 }
 
+// ------------------------
+
+Cache.forgetWithTags = async function (tags, cacheKey) {
+  
+  if (typeof(tags) === 'string'
+            && typeof(cacheKey) === 'undefined') {
+    cacheKey = tags
+    tags = null
+  }
+  
+  if (tags !== null && tags !== undefined && Array.isArray(tags) === false) {
+    tags = [tags]
+  }
+  if (Array.isArray(tags)) {
+    tags = filterTags(tags)
+  }
+  
+  // ---------------
+  
+  let cacheQuery
+  
+  if (Array.isArray(tags)) {
+    cacheQuery = Cache.tags(tags)
+  }
+  
+  if (typeof(cacheKey) === 'string') {
+    await cacheQuery.forget(cacheKey)
+  }
+  else {
+    await cacheQuery.flush()
+  }
+}
+
 module.exports = Cache

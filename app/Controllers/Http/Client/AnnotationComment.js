@@ -39,6 +39,13 @@ class AnnotationComment extends Annotation {
   constructor () {
     super('AnnotationComment')
   }
+  
+  /**
+   * 刪除的功能用內建的destory來做
+   * let data = {
+   *  id: comment.id
+   * }
+   */
 //  async destroy({request, webpage, user}) {
 //  }
 }

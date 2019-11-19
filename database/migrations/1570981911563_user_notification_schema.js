@@ -9,12 +9,16 @@ class UserNotificationSchema extends Schema {
       table.increments()
       table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
       table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
-      table.string('type', 60).notNullable()
-      table.json('properties')  // json
+      table.string('model', 60).notNullable()
+      table.integer('model_id')
+      table.json('summary')  // json
+      
       table.boolean('has_read').defaultTo(false)
       table.boolean('deleted').defaultTo(false)
+      
       table.bigInteger('created_at_unixms')
       table.bigInteger('updated_at_unixms')
+      
       table.timestamps()
     })
   }

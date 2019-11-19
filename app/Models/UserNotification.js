@@ -7,10 +7,13 @@ class UserNotification extends Model {
   static boot () {
     super.boot()
     
-    this.addTrait('JSONCase', 'properties')
+    this.addTrait('JSONCase', 'summary')
     this.addTrait('DateUnixMS')
     
     this.addTrait('CacheRemove')
+    
+    this.addTrait('UserNotification/UserNotificationFind')
+    this.addTrait('UserNotification/UserNotificationSave')
   }
   
   user () {
