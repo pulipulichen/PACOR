@@ -42,7 +42,7 @@ let config = {
     // -----------------
     // 選擇別人的一個annotation
     
-    let webpag
+    //let webpage
     let userBeCommented = await UserModel.findByNameInWebpage(webpage, '布乙')
     let annotations = await userBeCommented.annotations(webpage).fetch()
     let annotation = annotations.first()

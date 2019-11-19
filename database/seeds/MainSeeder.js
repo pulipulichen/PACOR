@@ -17,22 +17,15 @@
 //const Database = use('Database')
 const Sleep = use('Sleep')
 
-const WebpageUserGroupScripts = use('./scripts/WebpageUserGroupScripts')
+const WebpageUserGroupScript = use('./scripts/WebpageUserGroupScript')
+const AnnotationInteractScript = use('./scripts/AnnotationInteractScript')
 
 class UserSeeder {
   async run () {
     
-    await WebpageUserGroupScripts.createAdmin()
-    await WebpageUserGroupScripts.createGroups()
+    await WebpageUserGroupScript.main()
+    await AnnotationInteractScript.main()
     
-    WebpageUserGroupScripts.processGroup0User1()
-    WebpageUserGroupScripts.processGroup0User2()
-    WebpageUserGroupScripts.processGroup0User3()
-    WebpageUserGroupScripts.processGroup0User4()
-    WebpageUserGroupScripts.processGroup1User1()
-    WebpageUserGroupScripts.processGroup1User2()
-    
-    await Sleep(5) // 統統給我等待10秒鐘
     console.log(__filename + ' is finished.')
     
     return true

@@ -11,6 +11,20 @@ const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.ht
 let webpage
 
 module.exports = {
+  main: async function () {
+    
+    await this.createAdmin()
+    await this.createGroups()
+    
+    this.processGroup0User1()
+    this.processGroup0User2()
+    this.processGroup0User3()
+    this.processGroup0User4()
+    this.processGroup1User1()
+    this.processGroup1User2()
+    
+    await Sleep(5) // 統統給我等待10秒鐘
+  },
   createAdmin: async function () {
     let domain = await DomainModel.findByURL(url)
     let adminsSetting = '布布:password'
