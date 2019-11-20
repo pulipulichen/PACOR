@@ -23,7 +23,7 @@ module.exports = {
      * 純文字
      * 網址
      */
-    message: '猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？',
+    message: '/2020exp/Login.html',
     
     /**
      * @argument {Boolean} name 
@@ -53,7 +53,7 @@ module.exports = {
   
   readingProgressModules: {
     'PreImaginary': {
-      message: '猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？猜猜看待會文章的內容會講到什麼？',
+      message: '/2020exp/PostRecall.html',
       minWords: 10,
       limitMinutes: 0.05,
       
@@ -72,7 +72,7 @@ module.exports = {
       totalLimitMinutes: 1,
     },
     'IndividualReading': {
-      message: '進入個人閱讀囉',
+      message: '/2020exp/IndividualReading.html',
       limitMinutes: 3,
       annotation: {
         types: ['Clarified', 'Confused', 'MainIdea', 'SectionMainIdea'],
@@ -89,6 +89,7 @@ module.exports = {
       
     },
     'CollaborativeReading': {
+      message: '/2020exp/CollaborativeReading.html',
       message: '進入合作閱讀囉',
       annotation: {
         types: ['Clarified', 'Confused', 'MainIdea', 'SectionMainIdea'],
@@ -100,7 +101,7 @@ module.exports = {
       
     },
     'PostRecall': {
-      message: '請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！請開始回憶吧！',
+      message: '/2020exp/PostRecall.html',
       minWords: 10,
       limitMinutes: 0.1
     }

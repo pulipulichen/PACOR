@@ -1,0 +1,12 @@
+<div class="ui segment IframeMessageSegment">
+  <template 
+    v-if="!url"
+    v-html="message">
+  </template>
+  <iframe 
+    v-else
+    v-resize="{ log: false }"
+    v-bind:src="url"
+    frameborder="0">
+  </iframe>
+</div>

@@ -31,9 +31,11 @@
         </media>
         <div v-bind:class="computedFormClassList">
 
-          <div class="ui segment login-message"
-               v-html="status.readingConfig.login.message">
-          </div>
+          <iframe-message-segment 
+            class="login-message"
+            v-bind:config="config"
+            v-bind:message="status.readingConfig.login.message">
+          </iframe-message-segment>
 
           <div class="ui field">
             <label for="loginUsername">

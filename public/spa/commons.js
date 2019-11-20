@@ -4274,6 +4274,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var vue_fragment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-fragment */ "./node_modules/vue-fragment/dist/vue-fragment.esm.js");
 /* harmony import */ var _components_vue_floating_action_button_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../components/vue-floating-action-button/index.js */ "./webpack-app/components/vue-floating-action-button/index.js");
+/* harmony import */ var iframe_resizer_js_iframeResizer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! iframe-resizer/js/iframeResizer */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\iframe-resizer\\js\\iframeResizer.js");
+/* harmony import */ var iframe_resizer_js_iframeResizer__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(iframe_resizer_js_iframeResizer__WEBPACK_IMPORTED_MODULE_3__);
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].config.devtools = false
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].config.productionTip = false
@@ -4288,6 +4290,18 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(_components_vue_floating_action_
 //  iconType: 'MaterialDesign'
 //  // iconType: 'iconfont'
 } */)
+
+
+/**
+ * https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/use_with/vue.md
+ */
+
+
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].directive('resize', {
+  bind: function(el, { value = {} }) {
+    el.addEventListener('load', () => iframe_resizer_js_iframeResizer__WEBPACK_IMPORTED_MODULE_3___default()(value, el))
+  }
+})
 
 /***/ }),
 
