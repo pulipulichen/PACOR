@@ -281,7 +281,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"{0} Comments":"{0} Comment | {0} Comments","{0} Likes":"{0} Likes | {0} Likes"},"zh-TW":{"{0} Comments":" {0}篇留言","{0} Likes":" {0}讚"}}')
+  Component.options.__i18n.push('{"en":{"{0} Comments":"{0} Comment | {0} Comments","{0} Likes":"{0} Likes | {0} Likes"},"zh-TW":{"{0} Comments":" {0}篇留言","{0} Likes":" {0}讚","Like":"讚","Comment":"留言"}}')
   delete Component.options._Ctor
 }
 
@@ -449,7 +449,7 @@ exports.push([module.i, ".note[data-v-b2feccdc]  p {\n  line-height: 2em !import
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"AnnotationItemInteractive.less?vue&type=style&index=0&id=5d3a2f58&lang=less&scoped=true&"}]);
+exports.push([module.i, ".AnnotationInteractive[data-v-5d3a2f58] {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button[data-v-5d3a2f58] {\n  vertical-align: top !important;\n}\n", "",{"version":3,"sources":["AnnotationItemInteractive.less?vue&type=style&index=0&id=5d3a2f58&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,8BAA8B;AAChC","file":"AnnotationItemInteractive.less?vue&type=style&index=0&id=5d3a2f58&lang=less&scoped=true&","sourcesContent":[".AnnotationInteractive[data-v-5d3a2f58] {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button[data-v-5d3a2f58] {\n  vertical-align: top !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -1025,59 +1025,71 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("span", { staticClass: "AnnotationInteractive" }, [
-    _c(
-      "button",
-      {
-        staticClass: "like ui button",
-        class: _vm.computedLikesButtonClass,
-        attrs: { type: "button" },
-        on: {
-          click: function($event) {
-            $event.stopPropagation()
-            return _vm.like($event)
+    _c("span", [
+      _c(
+        "button",
+        {
+          staticClass: "like ui button",
+          class: _vm.computedLikesButtonClass,
+          attrs: { type: "button" },
+          on: {
+            click: function($event) {
+              $event.stopPropagation()
+              return _vm.like($event)
+            }
           }
-        }
-      },
-      [
-        _vm.likes > 0
-          ? [
-              _vm._v(
-                "\r\n      " +
-                  _vm._s(_vm.$t("{0} Likes", [_vm.likes])) +
-                  "\r\n    "
-              )
-            ]
-          : [_vm._v("\r\n      " + _vm._s(_vm.$t("Like")) + "\r\n    ")]
-      ],
-      2
-    ),
+        },
+        [
+          _c("i", { staticClass: "thumbs up outline icon" }),
+          _vm._v(" "),
+          _vm.likes > 0
+            ? [
+                _vm._v(
+                  "\r\n        " +
+                    _vm._s(_vm.$t("{0} Likes", [_vm.likes])) +
+                    "\r\n      "
+                )
+              ]
+            : [_vm._v("\r\n        " + _vm._s(_vm.$t("Like")) + "\r\n      ")]
+        ],
+        2
+      )
+    ]),
     _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass: "comments ui button",
-        class: _vm.computedCommentsButtonClass,
-        attrs: { type: "button" },
-        on: {
-          click: function($event) {
-            $event.stopPropagation()
-            return _vm.comment($event)
+    _c("span", [
+      _c(
+        "button",
+        {
+          staticClass: "comments ui button",
+          class: _vm.computedCommentsButtonClass,
+          attrs: { type: "button" },
+          on: {
+            click: function($event) {
+              $event.stopPropagation()
+              return _vm.comment($event)
+            }
           }
-        }
-      },
-      [
-        _vm.likes > 0
-          ? [
-              _vm._v(
-                "\r\n      " +
-                  _vm._s(_vm.$t("{0} Comments", [_vm.comments])) +
-                  "\r\n    "
-              )
-            ]
-          : [_vm._v("\r\n      " + _vm._s(_vm.$t("Comment")) + "\r\n    ")]
-      ],
-      2
-    )
+        },
+        [
+          _c("i", { staticClass: "comment outline icon" }),
+          _vm._v(" "),
+          _vm.likes > 0
+            ? [
+                _vm._v(
+                  "\r\n        " +
+                    _vm._s(_vm.$t("{0} Comments", [_vm.comments])) +
+                    "\r\n      "
+                )
+              ]
+            : [
+                _vm._v(
+                  "\r\n        " + _vm._s(_vm.$t("Comment")) + "\r\n      "
+                )
+              ]
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = []

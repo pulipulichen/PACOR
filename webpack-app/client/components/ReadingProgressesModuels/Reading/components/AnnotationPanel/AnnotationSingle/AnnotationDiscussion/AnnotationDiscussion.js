@@ -2,7 +2,8 @@ import AnnotationDiscussionList from './AnnotationDiscussionList/AnnotationDiscu
 import AnnotationDiscussionInput from './AnnotationDiscussionInput/AnnotationDiscussionInput'
 
 let AnnotationDiscussion = {
-  props: ['lib', 'status', 'config', 'annotation'],
+  props: ['lib', 'status', 'config'
+    , 'annotation', 'heightPX'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -13,15 +14,27 @@ let AnnotationDiscussion = {
     'annotation-discussion-list': AnnotationDiscussionList,
     'annotation-discussion-input': AnnotationDiscussionInput
   },
-//  computed: {
-//  },
+  computed: {
+    listHeightPX () {
+      return this.heightPX
+    }
+  },
 //  watch: {
 //  },
 //  mounted() {
 //  },
   methods: {
-    comment () {
+    focusComment () {
       this.$refs.AnnotationDiscussionInput.focus()
+    },
+    onInputAdd () {
+      throw new Error('@TODO AnnotationDiscussion.onInputAdd()')
+    },
+    onInputEdit () {
+      throw new Error('@TODO AnnotationDiscussion.onInputEdit()')
+    },
+    onInputCancel () {
+      throw new Error('@TODO AnnotationDiscussion.onInputCancel()')
     },
     like () {
       throw new Error('@TODO AnnotationDiscussion.like()')

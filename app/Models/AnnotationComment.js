@@ -10,6 +10,7 @@ class AnnotationComment extends Model {
     
     this.addTrait('IntegerCase', ['getUpdatedAtUnixms'])
     this.addTrait('AnnotationComment/AnnotationCommentSave')
+    this.addTrait('AnnotationComment/AnnotationCommentFind')
     this.addTrait('AnnotationComment/AnnotationCommentNotification')
     
     this.addTrait('JSONCase', 'properties')

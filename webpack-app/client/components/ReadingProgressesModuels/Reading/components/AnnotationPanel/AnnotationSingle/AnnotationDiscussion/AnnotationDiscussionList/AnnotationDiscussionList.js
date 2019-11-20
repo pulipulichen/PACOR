@@ -49,6 +49,8 @@ let AnnotationDiscussionList = {
         annotationID: this.annotation.id
       }
       
+      console.log(data)
+      
       let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/init')
       this.commentCount = result.commentCount
       this.comments = result.comments
@@ -77,7 +79,7 @@ let AnnotationDiscussionList = {
       this.commentCount = this.commentCount - result.length
     },
     autoLoadNextPage: async function () {
-      
+      throw new Error('autoLoadNextPage')
     },
     scrollList: function (event) {
       if (this.noMore === true) {

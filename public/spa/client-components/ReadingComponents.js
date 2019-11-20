@@ -1602,7 +1602,7 @@ var render = function() {
           annotation: _vm.annotation,
           heightPX: _vm.listHeightPX
         },
-        on: { comment: _vm.comment, like: _vm.like, unlike: _vm.unlike }
+        on: { comment: _vm.focusComment, like: _vm.like, unlike: _vm.unlike }
       }),
       _vm._v(" "),
       _c("annotation-discussion-input", {
@@ -6352,7 +6352,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AnnotationDiscussion = {
-  props: ['lib', 'status', 'config', 'annotation'],
+  props: ['lib', 'status', 'config'
+    , 'annotation', 'heightPX'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -6363,15 +6364,27 @@ let AnnotationDiscussion = {
     'annotation-discussion-list': _AnnotationDiscussionList_AnnotationDiscussionList__WEBPACK_IMPORTED_MODULE_0__["default"],
     'annotation-discussion-input': _AnnotationDiscussionInput_AnnotationDiscussionInput__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-//  computed: {
-//  },
+  computed: {
+    listHeightPX () {
+      return this.heightPX
+    }
+  },
 //  watch: {
 //  },
 //  mounted() {
 //  },
   methods: {
-    comment () {
+    focusComment () {
       this.$refs.AnnotationDiscussionInput.focus()
+    },
+    onInputAdd () {
+      throw new Error('@TODO AnnotationDiscussion.onInputAdd()')
+    },
+    onInputEdit () {
+      throw new Error('@TODO AnnotationDiscussion.onInputEdit()')
+    },
+    onInputCancel () {
+      throw new Error('@TODO AnnotationDiscussion.onInputCancel()')
     },
     like () {
       throw new Error('@TODO AnnotationDiscussion.like()')
@@ -6798,6 +6811,8 @@ let AnnotationDiscussionList = {
         annotationID: this.annotation.id
       }
       
+      console.log(data)
+      
       let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/init')
       this.commentCount = result.commentCount
       this.comments = result.comments
@@ -6826,7 +6841,7 @@ let AnnotationDiscussionList = {
       this.commentCount = this.commentCount - result.length
     },
     autoLoadNextPage: async function () {
-      
+      throw new Error('autoLoadNextPage')
     },
     scrollList: function (event) {
       if (this.noMore === true) {
