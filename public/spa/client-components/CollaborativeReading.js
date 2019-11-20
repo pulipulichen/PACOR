@@ -351,8 +351,8 @@ let CollaborativeReading = {
         
         setTimeout(() => {
           jquery__WEBPACK_IMPORTED_MODULE_1___default()('.AnnotationFloatWidget .meta').click()
-        }, 500)
-      }, 1000)
+        }, 300)
+      }, 500)
     },
     showInstruction() {
       this.$refs.InstructionMessage.show()

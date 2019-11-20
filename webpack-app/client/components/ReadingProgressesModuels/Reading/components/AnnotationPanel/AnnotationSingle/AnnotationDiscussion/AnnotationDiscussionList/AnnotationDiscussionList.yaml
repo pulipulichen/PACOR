@@ -1,6 +1,6 @@
 en:
-  TEST_MESSAGE: Test Message
+  Load previous {0} comments...: Load previous {0} comment... | Load previous {0} comments...
   
 zh-TW:
   # 這是註解
-  TEST_MESSAGE: 測試訊息
+  Load previous {0} comments...: 讀取前面 {0} 篇留言...

@@ -57,8 +57,8 @@ let CollaborativeReading = {
         
         setTimeout(() => {
           $('.AnnotationFloatWidget .meta').click()
-        }, 500)
-      }, 1000)
+        }, 300)
+      }, 500)
     },
     showInstruction() {
       this.$refs.InstructionMessage.show()

@@ -1,5 +1,5 @@
-import AnnotationDiscussionList from './AnnotationDiscussionList/AnnotationDiscussionList'
-import AnnotationDiscussionInput from './AnnotationDiscussionInput/AnnotationDiscussionInput'
+import AnnotationDiscussionList from './AnnotationDiscussionList/AnnotationDiscussionList.vue'
+import AnnotationDiscussionInput from './AnnotationDiscussionInput/AnnotationDiscussionInput.vue'
 
 let AnnotationDiscussion = {
   props: ['lib', 'status', 'config'

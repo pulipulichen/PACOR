@@ -51,7 +51,7 @@ let AnnotationDiscussionList = {
       
       console.log(data)
       
-      let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/init')
+      let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/init', data)
       this.commentCount = result.commentCount
       this.comments = result.comments
       if (this.commentCount === 0) {

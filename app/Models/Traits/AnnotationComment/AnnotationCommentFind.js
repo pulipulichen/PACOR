@@ -14,6 +14,8 @@ class AnnotationCommentSave {
         annotationID
       } = options
       
+      //console.log(options)
+      
       let comments = await this.findWithPage(webpage, user, {
         annotationID,
         page: 0
@@ -38,6 +40,10 @@ class AnnotationCommentSave {
         //afterTime,
       } = options
       
+      if (typeof(annotationID) === 'string'
+              && isNaN(annotationID) === false) {
+        annotationID = parseInt(annotationID, 10)
+      }
       if (typeof(annotationID) !== 'number') {
         throw new Error('Annotation ID is required.')
       }
