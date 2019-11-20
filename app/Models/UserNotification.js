@@ -8,9 +8,10 @@ class UserNotification extends Model {
     super.boot()
     
     this.addTrait('JSONCase', 'summary')
+    
     this.addTrait('DateUnixMS')
     
-    this.addTrait('CacheRemove')
+    //this.addTrait('CacheRemove')
     
     this.addTrait('UserNotification/UserNotificationFind')
     this.addTrait('UserNotification/UserNotificationSave')

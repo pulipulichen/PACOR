@@ -1,6 +1,6 @@
 <div class="UserInformation">
   
-  <img v-bind:src="status.avatar" />
+  <img v-bind:src="avatar" />
 
   <div class="username">
     {{ username }}
@@ -8,7 +8,7 @@
   
   <annotation-type-button 
     v-bind:status="status"
-    v-bind:type="type"
+    v-bind:type="annotation.type"
     v-on:find="() => {$emit('showInstruction')}">
   </annotation-type-button>
 

@@ -41,20 +41,30 @@ class UserNotificationSave {
       }
       
       // -------------------------------------
-      let queryData = {
+      let findData = {
         webpage_id: webpage.primaryKeyValue,
         user_id: notifiedUserID,
         model: anchorModel,
         model_id: anchorModelID
       }
       
+      let createData = {
+        ...findData
+      }
+      
       //console.log(queryData)
       
       if (summary) {
-        queryData.summary = summary
+        if (typeof(summary) !== 'object') {
+          summary = {
+            summary
+          }
+        }
+        
+        createData.summary = summary
       }
       
-      let notification = await UserNotificationModel.findOrCreate(queryData, queryData)
+      let notification = await UserNotificationModel.findOrCreate(findData, createData)
       
       // --------------------------------------
       

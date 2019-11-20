@@ -519,7 +519,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationDiscussionInput[data-v-5ca837c3] {\n  white-space: nowrap;\n  overflow: hidden;\n}\nimg[data-v-5ca837c3] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-5ca837c3] {\n  display: inline-block;\n  max-width: 100%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\ninput[data-v-5ca837c3] {\n  width: calc(100% - 10em);\n}\n.right.column[data-v-5ca837c3] {\n  float: right;\n}\n", "",{"version":3,"sources":["AnnotationDiscussionInput.less?vue&type=style&index=0&id=5ca837c3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;AAClB;AACA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,eAAe;EACf,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,YAAY;AACd","file":"AnnotationDiscussionInput.less?vue&type=style&index=0&id=5ca837c3&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionInput[data-v-5ca837c3] {\n  white-space: nowrap;\n  overflow: hidden;\n}\nimg[data-v-5ca837c3] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-5ca837c3] {\n  display: inline-block;\n  max-width: 100%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\ninput[data-v-5ca837c3] {\n  width: calc(100% - 10em);\n}\n.right.column[data-v-5ca837c3] {\n  float: right;\n}\n"]}]);
+exports.push([module.i, ".AnnotationDiscussionInput[data-v-5ca837c3] {\n  white-space: nowrap;\n  overflow: hidden;\n}\nimg[data-v-5ca837c3] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-5ca837c3] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-5ca837c3] {\n  width: calc(100% - 16em) !important;\n  display: inline-block !important;\n}\n.right.column[data-v-5ca837c3] {\n  float: right;\n}\n", "",{"version":3,"sources":["AnnotationDiscussionInput.less?vue&type=style&index=0&id=5ca837c3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;AAClB;AACA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,cAAc;EACd,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,mCAAmC;EACnC,gCAAgC;AAClC;AACA;EACE,YAAY;AACd","file":"AnnotationDiscussionInput.less?vue&type=style&index=0&id=5ca837c3&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionInput[data-v-5ca837c3] {\n  white-space: nowrap;\n  overflow: hidden;\n}\nimg[data-v-5ca837c3] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-5ca837c3] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-5ca837c3] {\n  width: calc(100% - 16em) !important;\n  display: inline-block !important;\n}\n.right.column[data-v-5ca837c3] {\n  float: right;\n}\n"]}]);
 
 
 /***/ }),
@@ -533,7 +533,7 @@ exports.push([module.i, ".AnnotationDiscussionInput[data-v-5ca837c3] {\n  white-
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"AnnotationComment.less?vue&type=style&index=0&id=0404edca&lang=less&scoped=true&"}]);
+exports.push([module.i, ".avatar[data-v-0404edca] {\n  max-height: 2em;\n  width: auto;\n}\n", "",{"version":3,"sources":["AnnotationComment.less?vue&type=style&index=0&id=0404edca&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,WAAW;AACb","file":"AnnotationComment.less?vue&type=style&index=0&id=0404edca&lang=less&scoped=true&","sourcesContent":[".avatar[data-v-0404edca] {\n  max-height: 2em;\n  width: auto;\n}\n"]}]);
 
 
 /***/ }),
@@ -1705,7 +1705,65 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "AnnotationDiscussionInput ui form" })
+  return _c("div", { staticClass: "AnnotationDiscussionInput ui form" }, [
+    _c("div", { staticClass: "right column" }, [
+      !_vm.isEditMode
+        ? _c(
+            "button",
+            {
+              staticClass: "ui mini button",
+              attrs: { type: "button" },
+              on: { click: _vm.add }
+            },
+            [_vm._v("\r\n        " + _vm._s(_vm.$t("COMMENT")) + " \r\n    ")]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.isEditMode
+        ? _c(
+            "button",
+            {
+              staticClass: "ui mini button",
+              attrs: { type: "button" },
+              on: { click: _vm.edit }
+            },
+            [_vm._v("\r\n        " + _vm._s(_vm.$t("EDIT")) + " \r\n    ")]
+          )
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "left column" }, [
+      _c("img", { staticClass: "avatar", attrs: { src: _vm.status.avatar } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "username" }, [
+        _vm._v("\r\n      " + _vm._s(_vm.username) + "\r\n    ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ui field input-field" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.note,
+              expression: "note"
+            }
+          ],
+          ref: "input",
+          attrs: { type: "text" },
+          domProps: { value: _vm.note },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.note = $event.target.value
+            }
+          }
+        })
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1859,7 +1917,7 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
-      !_vm.noMore
+      !_vm.noMore && _vm.commentCount > 0
         ? _c("div", { staticClass: "ui secondary segment no-more" }, [
             _vm._v(
               "\r\n    " +
@@ -2011,7 +2069,7 @@ var render = function() {
               attrs: {
                 config: _vm.config,
                 status: _vm.status,
-                type: _vm.type,
+                type: _vm.annotation.type,
                 editable: _vm.editable
               }
             })
@@ -2025,7 +2083,11 @@ var render = function() {
       { staticClass: "left column" },
       [
         _c("user-information", {
-          attrs: { type: _vm.type, status: _vm.status },
+          attrs: {
+            annotation: _vm.annotation,
+            config: _vm.config,
+            status: _vm.status
+          },
           on: {
             showInstruction: function() {
               _vm.$refs.AnnotationInstruction.showInstruction()
@@ -2063,14 +2125,14 @@ var render = function() {
     "div",
     { staticClass: "UserInformation" },
     [
-      _c("img", { attrs: { src: _vm.status.avatar } }),
+      _c("img", { attrs: { src: _vm.avatar } }),
       _vm._v(" "),
       _c("div", { staticClass: "username" }, [
         _vm._v("\r\n    " + _vm._s(_vm.username) + "\r\n  ")
       ]),
       _vm._v(" "),
       _c("annotation-type-button", {
-        attrs: { status: _vm.status, type: _vm.type },
+        attrs: { status: _vm.status, type: _vm.annotation.type },
         on: {
           find: function() {
             _vm.$emit("showInstruction")
@@ -2119,7 +2181,7 @@ var render = function() {
               config: _vm.config,
               status: _vm.status,
               editable: _vm.isEditable,
-              type: _vm.type
+              annotation: _vm.annotation
             }
           }),
           _vm._v(" "),
@@ -6592,7 +6654,7 @@ let AnnotationDiscussion = {
   },
   computed: {
     listHeightPX () {
-      return this.heightPX
+      return this.heightPX - 100
     }
   },
 //  watch: {
@@ -6766,7 +6828,15 @@ let AnnotationDiscussionInput = {
     },
     AnnotationDiscussionList () {
       return this.$parent.$refs.AnnotationDiscussionList
-    }
+    },
+    username () {
+      if (typeof(this.status.displayName) === 'string') {
+        return this.status.displayName
+      }
+      else {
+        return this.status.username
+      }
+    },
   },
   watch: {
     'comment' (comment) {
@@ -6959,7 +7029,7 @@ let AnnotationComment = {
 //  },
   computed: {
     username () {
-      let user = this.annotation.user
+      let user = this.comment.user
       if (typeof(user.displayName) === 'string') {
         return user.displayName
       }
@@ -6968,13 +7038,13 @@ let AnnotationComment = {
       }
     },
     displayTime () {
-      return this.lib.DayJSHelper.fromNow(this.annotation.updated_at_unixms)
+      return this.lib.DayJSHelper.fromNow(this.comment.updated_at_unixms)
     },
   },
-  watch: {
-  },
-  mounted() {
-  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
   methods: {
     onDelete: async function () {
       if (window.confirm(this.$t('Are you sure to delete this comment?'))) {
@@ -7508,7 +7578,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AnnotationEditorHeader = {
-  props: ['status', 'config', 'type', 'editable'],
+  props: ['status', 'config', 'editable', 'annotation'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -7617,19 +7687,37 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let UserInformation = {
-  props: ['status', 'type'],
+  props: ['config', 'status', 'annotation'],
   data() {    
     //this.$i18n.locale = this.config.locale
     return {
     }
   },
   computed: {
+    //user () {
+    //  return this.annotation.user
+    //},
     username () {
-      if (typeof(this.status.displayName) === 'string') {
-        return this.status.displayName
+      let user = this.status
+      if (typeof(this.annotation.user) === 'object') {
+        user = this.annotation.user
+      }
+      if (typeof(user.displayName) === 'string') {
+        return user.displayName
       }
       else {
-        return this.status.username
+        return user.username
+      }
+    },
+    type () {
+      return this.annotation.type
+    },
+    avatar () {
+      if (typeof(this.annotation.user) === 'object') {
+        return this.annotation.user.avatar_url
+      }
+      else {
+        return this.status.avatar
       }
     }
   },

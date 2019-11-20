@@ -8,7 +8,9 @@ class AnnotationComment extends Model {
   static boot () {
     super.boot()
     
-    this.addTrait('IntegerCase', ['getUpdatedAtUnixms'])
+    //this.addTrait('IntegerCase', ['getUpdatedAtUnixms'])
+    this.addTrait('DateUnixMS')
+    
     this.addTrait('AnnotationComment/AnnotationCommentSave')
     this.addTrait('AnnotationComment/AnnotationCommentFind')
     this.addTrait('AnnotationComment/AnnotationCommentNotification')

@@ -23,10 +23,14 @@ const AnnotationInteractScript = use('./scripts/AnnotationInteractScript')
 class UserSeeder {
   async run () {
     
+    console.log('=========================================')
+    console.log(__filename + ' start...\n')
+    
     await WebpageUserGroupScript.main()
     await AnnotationInteractScript.main()
     
-    console.log(__filename + ' is finished.')
+    console.log('\n\n' + __filename + ' is finished.')
+    console.log('=========================================')
     
     return true
   }

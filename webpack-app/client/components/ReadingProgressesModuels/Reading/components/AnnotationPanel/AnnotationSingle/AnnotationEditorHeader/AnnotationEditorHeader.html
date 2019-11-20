@@ -4,7 +4,7 @@
     <annotaion-instruction 
       v-bind:config="config"
       v-bind:status="status"
-      v-bind:type="type"
+      v-bind:type="annotation.type"
       v-bind:editable="editable"
       
       ref="AnnotationInstruction">
@@ -12,7 +12,8 @@
   </div>
   <div class="left column">
     <user-information 
-      v-bind:type="type"
+      v-bind:annotation="annotation"
+      v-bind:config="config"
       v-bind:status="status"
       v-on:showInstruction="() => {$refs.AnnotationInstruction.showInstruction()}">
     </user-information>

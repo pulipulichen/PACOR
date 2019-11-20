@@ -12,6 +12,7 @@ let webpage
 
 module.exports = {
   main: async function () {
+    //console.log(__filename + ' start...')
     
     await this.createAdmin()
     await this.createGroups()
@@ -24,6 +25,8 @@ module.exports = {
     this.processGroup1User2()
     
     await Sleep(5) // 統統給我等待10秒鐘
+    
+    console.log(__filename + ' is finished.\n')
   },
   createAdmin: async function () {
     let domain = await DomainModel.findByURL(url)

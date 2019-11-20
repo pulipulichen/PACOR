@@ -16,7 +16,7 @@ let AnnotationDiscussion = {
   },
   computed: {
     listHeightPX () {
-      return this.heightPX
+      return this.heightPX - 100
     }
   },
 //  watch: {

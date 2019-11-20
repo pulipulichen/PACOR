@@ -22,7 +22,15 @@ let AnnotationDiscussionInput = {
     },
     AnnotationDiscussionList () {
       return this.$parent.$refs.AnnotationDiscussionList
-    }
+    },
+    username () {
+      if (typeof(this.status.displayName) === 'string') {
+        return this.status.displayName
+      }
+      else {
+        return this.status.username
+      }
+    },
   },
   watch: {
     'comment' (comment) {

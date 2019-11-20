@@ -10,7 +10,7 @@ let AnnotationComment = {
 //  },
   computed: {
     username () {
-      let user = this.annotation.user
+      let user = this.comment.user
       if (typeof(user.displayName) === 'string') {
         return user.displayName
       }
@@ -19,13 +19,13 @@ let AnnotationComment = {
       }
     },
     displayTime () {
-      return this.lib.DayJSHelper.fromNow(this.annotation.updated_at_unixms)
+      return this.lib.DayJSHelper.fromNow(this.comment.updated_at_unixms)
     },
   },
-  watch: {
-  },
-  mounted() {
-  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
   methods: {
     onDelete: async function () {
       if (window.confirm(this.$t('Are you sure to delete this comment?'))) {

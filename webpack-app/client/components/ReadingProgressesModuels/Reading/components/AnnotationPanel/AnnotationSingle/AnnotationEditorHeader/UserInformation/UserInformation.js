@@ -1,17 +1,35 @@
 let UserInformation = {
-  props: ['status', 'type'],
+  props: ['config', 'status', 'annotation'],
   data() {    
     //this.$i18n.locale = this.config.locale
     return {
     }
   },
   computed: {
+    //user () {
+    //  return this.annotation.user
+    //},
     username () {
-      if (typeof(this.status.displayName) === 'string') {
-        return this.status.displayName
+      let user = this.status
+      if (typeof(this.annotation.user) === 'object') {
+        user = this.annotation.user
+      }
+      if (typeof(user.displayName) === 'string') {
+        return user.displayName
       }
       else {
-        return this.status.username
+        return user.username
+      }
+    },
+    type () {
+      return this.annotation.type
+    },
+    avatar () {
+      if (typeof(this.annotation.user) === 'object') {
+        return this.annotation.user.avatar_url
+      }
+      else {
+        return this.status.avatar
       }
     }
   },

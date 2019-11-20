@@ -3906,7 +3906,8 @@ let DayJSHelper = {
     return this
   },
   fromNow: function (timestamp) {
-    if (isNaN(timestamp) === true) {
+    if (timestamp === null 
+            || isNaN(timestamp) === true) {
       return ''
     }
     else if (typeof(timestamp) === 'string') {
@@ -3915,7 +3916,8 @@ let DayJSHelper = {
     return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).fromNow()
   },
   toNow: function (timestamp) {
-    if (isNaN(timestamp) === true) {
+    if (timestamp === null 
+            || isNaN(timestamp) === true) {
       return ''
     }
     else if (typeof(timestamp) === 'string') {

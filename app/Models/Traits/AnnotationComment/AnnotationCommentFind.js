@@ -59,6 +59,7 @@ class AnnotationCommentSave {
               .query()
               .where('annotation_id', annotationID)
               .where('deleted', false)
+              .with('user')
               .withCount('likes')
               .withCount('i_have_liked', (builder) => {
                 builder.where('user_id', user.primaryKeyValue)

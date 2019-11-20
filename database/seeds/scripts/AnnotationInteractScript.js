@@ -15,12 +15,20 @@ let annotation
 
 module.exports = {
   main: async function () {
+    //console.log(__filename + ' start...')
     
     webpage = await WebpageModel.findByURL(url)
     
+    //console.log('await this.addComments()')
     await this.addComments()
+    
+    //console.log('await this.addRates()')
     await this.addRates()
+    
+    //console.log('await this.addCommentRates()')
     await this.addCommentRates()
+    
+    console.log(__filename + ' is finished.')
   },
   addComments: async function () {
     

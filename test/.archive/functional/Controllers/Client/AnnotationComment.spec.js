@@ -63,17 +63,20 @@ let config = {
           .session('adonis-auth', 1)
           .end()
   
-    console.log(response.text)
+    //console.log(response.text)
     response.assertStatus(200)
     
     // -------------------
     
     let comments = await annotation.comments().fetch()
     assert.equal(comments.size(), 1)
+    
+    let comment = comments.first().toJSON()
+    assert.isNumber(comment.updated_at_unixms)
   },
-  'b. login 布': async function ( { assert, client } ) {    
-    //assert.equal(1+1, 3)
-  },
+//  'b. login 布': async function ( { assert, client } ) {    
+//    //assert.equal(1+1, 3)
+//  },
 }
 
 Test(title, config)

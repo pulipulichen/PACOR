@@ -31,7 +31,8 @@ let DayJSHelper = {
     return this
   },
   fromNow: function (timestamp) {
-    if (isNaN(timestamp) === true) {
+    if (timestamp === null 
+            || isNaN(timestamp) === true) {
       return ''
     }
     else if (typeof(timestamp) === 'string') {
@@ -40,7 +41,8 @@ let DayJSHelper = {
     return dayjs(timestamp).fromNow()
   },
   toNow: function (timestamp) {
-    if (isNaN(timestamp) === true) {
+    if (timestamp === null 
+            || isNaN(timestamp) === true) {
       return ''
     }
     else if (typeof(timestamp) === 'string') {
