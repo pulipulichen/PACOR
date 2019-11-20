@@ -7,6 +7,8 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 // throw new HttpException('Forbidden', 403)
 // throw new HttpException('Not found', 404)
 
+const UserNotificationModel = use('App/Models/UserNotification')
+
 class AnnotationCommentSave {
 
   register(Model) {
@@ -41,7 +43,8 @@ class AnnotationCommentSave {
       
       await comment.save()
       
-      console.log('AnnotationCommentSave 這邊應該要加入通知')
+      //console.log('AnnotationCommentSave 這邊應該要加入通知')
+      await UserNotificationModel.createFromModelInstance(webpage, user, comment, annotation.user_id, note)
       
       return comment
     }

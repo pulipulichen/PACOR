@@ -5,6 +5,8 @@ const AnnotationRateModel = use('App/Models/AnnotationRate')
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
+const UserNotificationModel = use('App/Models/UserNotification')
+
 class AnnotationRateLike {
 
   register(Model) {
@@ -41,7 +43,11 @@ class AnnotationRateLike {
       rate.deleted = !rate.deleted
       await rate.save()
       
-      console.log('AnnotationRateLike 這邊應該要加入通知')
+      //console.log('AnnotationRateLike 這邊應該要加入通知')
+      if (rate.deleted === false) {
+        // like的情況
+        await UserNotificationModel.createFromModelInstance(webpage, user, rate, annotation.user_id)
+      }
       
       return rate
     }
