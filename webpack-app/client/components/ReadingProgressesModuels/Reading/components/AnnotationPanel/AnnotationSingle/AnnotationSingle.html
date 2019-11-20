@@ -1,7 +1,9 @@
 <div class="ui stackable AnnotationSingle"
-     v-bind:class="computedGridClass">
+     v-bind:class="computedGridClass"
+     v-bind:style="computedContainerStyle">
   
-  <div class="column annotation-editor">
+  <div class="column annotation-editor"
+       v-bind:style="computedEditorStyle">
     
     <!--
     <component 

@@ -27,6 +27,7 @@ let i18nGlobal = {
     "SUBMIT": "送出",
     "ADD": "新增",
     "EDIT": "編輯",
+    "COMMENT": "留言",
     "DELETE": "刪除",
     "CANCEL": "取消",
     "CLOSE": "關閉",

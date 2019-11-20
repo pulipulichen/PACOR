@@ -18,9 +18,18 @@ let AnnotationDiscussionList = {
   },
   computed: {
     computedContainerStyle () {
+      //if (this.comments.length < 10) {
+      //  return null
+      //}
+      
       return {
         'height': this.heightPX + 'px',
         'max-height': this.heightPX + 'px',
+      }
+    },
+    computedContainerClass () {
+      if (this.comments.length < 10) {
+        return 'little-comments'
       }
     },
     AnnotationDiscussionInput () {
@@ -49,7 +58,7 @@ let AnnotationDiscussionList = {
         annotationID: this.annotation.id
       }
       
-      console.log(data)
+      //console.log(data)
       
       let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/init', data)
       this.commentCount = result.commentCount
@@ -103,6 +112,9 @@ let AnnotationDiscussionList = {
     },
     onEdit (comment) {
       this.AnnotationDiscussionInput.comment = comment
+    },
+    focusInput () {
+      this.AnnotationDiscussionInput.$refs.input.focus()
     }
   } // methods
 }

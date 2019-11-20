@@ -1,3 +1,31 @@
 .AnnotationSingle {
-  //margin-right: 2em;
+  overflow-y: auto;
+
+  .annotation-panel-buttons {
+    margin-top: -0.5em;
+  }
+}
+
+@media (max-width: 767px) {
+  .AnnotationSingle {
+    .annotation-discussion {
+      border-top: 1px solid #CCC !important;
+    }
+    
+    .annotation-editor {
+      max-height: 100% !important;
+    }
+  } 
+}
+
+@media (min-width: 767px) {
+  .AnnotationSingle {
+    .annotation-discussion {
+      border-left: 1px solid #CCC !important;
+    }
+    
+    .annotation-editor {
+      overflow-y: auto;
+    }
+  } 
 }

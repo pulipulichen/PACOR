@@ -14,7 +14,16 @@ let HTMLEditor = {
     }
   },  // data() {
   computed: {
+    computedClass () {
+      if (this.editable) {
+        return 'editable'
+      }
+    },
     computedStyle () {
+      if (this.editable === false) {
+        return null
+      }
+      
       if (typeof(this.height) === 'string') {
         
         let calc = this.height

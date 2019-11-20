@@ -45,7 +45,7 @@ exports.push([module.i, "@font-face {\n  font-family: \"summernote\";\n  font-st
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n  min-height: 7em;\n}\n", "",{"version":3,"sources":["HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;EAClB,gBAAgB;EAChB,WAAW;EACX,eAAe;AACjB","file":"HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n  min-height: 7em;\n}\n"]}]);
+exports.push([module.i, ".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n}\n.html-editor-container.editable[data-v-5af2455c] {\n  min-height: 7em;\n}\n", "",{"version":3,"sources":["HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;EAClB,gBAAgB;EAChB,WAAW;AACb;AACA;EACE,eAAe;AACjB","file":"HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n}\n.html-editor-container.editable[data-v-5af2455c] {\n  min-height: 7em;\n}\n"]}]);
 
 
 /***/ }),
@@ -84,6 +84,7 @@ var render = function() {
     {
       ref: "editorContainer",
       staticClass: "ui segment html-editor-container",
+      class: _vm.computedClass,
       style: _vm.computedStyle,
       on: { click: _vm.focus }
     },
@@ -197,7 +198,16 @@ let HTMLEditor = {
     }
   },  // data() {
   computed: {
+    computedClass () {
+      if (this.editable) {
+        return 'editable'
+      }
+    },
     computedStyle () {
+      if (this.editable === false) {
+        return null
+      }
+      
       if (typeof(this.height) === 'string') {
         
         let calc = this.height

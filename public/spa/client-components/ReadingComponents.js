@@ -137,7 +137,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":null}')
   delete Component.options._Ctor
 }
 
@@ -169,7 +169,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Load previous {0} comments...":"Load previous {0} comment... | Load previous {0} comments..."},"zh-TW":{"Load previous {0} comments...":"讀取前面 {0} 篇留言..."}}')
+  Component.options.__i18n.push('{"en":{"Load previous {0} comments...":"Load previous {0} comment... | Load previous {0} comments..."},"zh-TW":{"Load previous {0} comments...":"讀取前面 {0} 篇留言...","Write the first comment now":"沒有留言，要不要寫下第一個留言呢？"}}')
   delete Component.options._Ctor
 }
 
@@ -491,7 +491,7 @@ exports.push([module.i, "body.pacor-disable-user-select {\n  user-select: none;\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationPanel[data-v-030c1501] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n}\n.annotation-panel[data-v-030c1501] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 1.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 4em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-030c1501] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-030c1501] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-030c1501] {\n  padding: 0;\n}\n.annotation-panel .close-container.floating.ui.label[data-v-030c1501] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.5em !important;\n  padding-left: 0.2em !important;\n  top: -0.5em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.annotation-panel .close-container.floating.ui.label .close.icon[data-v-030c1501] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n.resize-handler[data-v-030c1501] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-030c1501] {\n  cursor: grabbing;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=030c1501&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0CAA0C;AAC5C;AACA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,gCAAgC;EAChC,mCAAmC;AACrC;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,UAAU;EACV,mCAAmC;EACnC,yBAAyB;EACzB,8BAA8B;EAC9B,sBAAsB;EACtB,kCAAkC;EAClC,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,qBAAqB;AACvB;AACA;EACE,WAAW;EACX,WAAW;EACX,YAAY;EACZ,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,gBAAgB;AAClB","file":"AnnotationPanel.less?vue&type=style&index=0&id=030c1501&lang=less&scoped=true&","sourcesContent":[".AnnotationPanel[data-v-030c1501] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n}\n.annotation-panel[data-v-030c1501] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 1.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 4em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-030c1501] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-030c1501] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-030c1501] {\n  padding: 0;\n}\n.annotation-panel .close-container.floating.ui.label[data-v-030c1501] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.5em !important;\n  padding-left: 0.2em !important;\n  top: -0.5em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.annotation-panel .close-container.floating.ui.label .close.icon[data-v-030c1501] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n.resize-handler[data-v-030c1501] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-030c1501] {\n  cursor: grabbing;\n}\n"]}]);
+exports.push([module.i, ".AnnotationPanel[data-v-030c1501] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n}\n.annotation-panel[data-v-030c1501] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 1.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 4em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-030c1501] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-030c1501] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-030c1501] {\n  padding: 0;\n}\n.annotation-panel .close-container.floating.ui.label[data-v-030c1501] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.5em !important;\n  padding-left: 0.2em !important;\n  top: -0.5em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n  position: fixed !important;\n}\n.annotation-panel .close-container.floating.ui.label .close.icon[data-v-030c1501] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n.resize-handler[data-v-030c1501] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-030c1501] {\n  cursor: grabbing;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=030c1501&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0CAA0C;AAC5C;AACA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,gCAAgC;EAChC,mCAAmC;AACrC;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,UAAU;EACV,mCAAmC;EACnC,yBAAyB;EACzB,8BAA8B;EAC9B,sBAAsB;EACtB,kCAAkC;EAClC,6BAA6B;EAC7B,0BAA0B;AAC5B;AACA;EACE,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,qBAAqB;AACvB;AACA;EACE,WAAW;EACX,WAAW;EACX,YAAY;EACZ,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,gBAAgB;AAClB","file":"AnnotationPanel.less?vue&type=style&index=0&id=030c1501&lang=less&scoped=true&","sourcesContent":[".AnnotationPanel[data-v-030c1501] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n}\n.annotation-panel[data-v-030c1501] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 1.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 4em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-030c1501] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-030c1501] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-030c1501] {\n  padding: 0;\n}\n.annotation-panel .close-container.floating.ui.label[data-v-030c1501] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.5em !important;\n  padding-left: 0.2em !important;\n  top: -0.5em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n  position: fixed !important;\n}\n.annotation-panel .close-container.floating.ui.label .close.icon[data-v-030c1501] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n.resize-handler[data-v-030c1501] {\n  width: 100%;\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-030c1501] {\n  cursor: grabbing;\n}\n"]}]);
 
 
 /***/ }),
@@ -519,7 +519,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationDiscussionInput[data-v-5ca837c3] {\n  white-space: nowrap;\n  overflow: hidden;\n}\nimg[data-v-5ca837c3] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-5ca837c3] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-5ca837c3] {\n  width: calc(100% - 16em) !important;\n  display: inline-block !important;\n}\n.right.column[data-v-5ca837c3] {\n  float: right;\n}\n", "",{"version":3,"sources":["AnnotationDiscussionInput.less?vue&type=style&index=0&id=5ca837c3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;AAClB;AACA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,cAAc;EACd,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,mCAAmC;EACnC,gCAAgC;AAClC;AACA;EACE,YAAY;AACd","file":"AnnotationDiscussionInput.less?vue&type=style&index=0&id=5ca837c3&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionInput[data-v-5ca837c3] {\n  white-space: nowrap;\n  overflow: hidden;\n}\nimg[data-v-5ca837c3] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-5ca837c3] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-5ca837c3] {\n  width: calc(100% - 16em) !important;\n  display: inline-block !important;\n}\n.right.column[data-v-5ca837c3] {\n  float: right;\n}\n"]}]);
+exports.push([module.i, ".AnnotationDiscussionInput[data-v-5ca837c3] {\n  white-space: nowrap;\n  overflow: hidden;\n  margin-top: 0.5em;\n}\nimg[data-v-5ca837c3] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-5ca837c3] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-5ca837c3] {\n  width: calc(100% - 16em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-5ca837c3] {\n  float: right;\n}\n.right-column button[data-v-5ca837c3] {\n  height: 42px;\n}\n.left-column[data-v-5ca837c3] {\n  width: 8em;\n}\n.left-column[data-v-5ca837c3],\n.center-column[data-v-5ca837c3],\n.right-column[data-v-5ca837c3] {\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["AnnotationDiscussionInput.less?vue&type=style&index=0&id=5ca837c3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,iBAAiB;AACnB;AACA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,cAAc;EACd,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,mCAAmC;EACnC,gCAAgC;AAClC;AACA;EACE,YAAY;AACd;AACA;EACE,YAAY;AACd;AACA;EACE,UAAU;AACZ;AACA;;;EAGE,qBAAqB;EACrB,sBAAsB;AACxB","file":"AnnotationDiscussionInput.less?vue&type=style&index=0&id=5ca837c3&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionInput[data-v-5ca837c3] {\n  white-space: nowrap;\n  overflow: hidden;\n  margin-top: 0.5em;\n}\nimg[data-v-5ca837c3] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-5ca837c3] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-5ca837c3] {\n  width: calc(100% - 16em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-5ca837c3] {\n  float: right;\n}\n.right-column button[data-v-5ca837c3] {\n  height: 42px;\n}\n.left-column[data-v-5ca837c3] {\n  width: 8em;\n}\n.left-column[data-v-5ca837c3],\n.center-column[data-v-5ca837c3],\n.right-column[data-v-5ca837c3] {\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
 
 
 /***/ }),
@@ -547,7 +547,7 @@ exports.push([module.i, ".avatar[data-v-0404edca] {\n  max-height: 2em;\n  width
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationDiscussionList[data-v-0b8b8b8a] {\n  overflow-y: auto;\n}\n.no-more[data-v-0b8b8b8a] {\n  text-align: center;\n  color: gray;\n}\n", "",{"version":3,"sources":["AnnotationDiscussionList.less?vue&type=style&index=0&id=0b8b8b8a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb","file":"AnnotationDiscussionList.less?vue&type=style&index=0&id=0b8b8b8a&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionList[data-v-0b8b8b8a] {\n  overflow-y: auto;\n}\n.no-more[data-v-0b8b8b8a] {\n  text-align: center;\n  color: gray;\n}\n"]}]);
+exports.push([module.i, ".AnnotationDiscussionList[data-v-0b8b8b8a] {\n  overflow-y: auto;\n}\n.no-more[data-v-0b8b8b8a] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList.little-comments[data-v-0b8b8b8a] {\n    height: auto !important;\n    max-height: auto !important;\n}\n}\n", "",{"version":3,"sources":["AnnotationDiscussionList.less?vue&type=style&index=0&id=0b8b8b8a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,iBAAiB;EACjB,eAAe;AACjB;AACA;AACA;IACI,uBAAuB;IACvB,2BAA2B;AAC/B;AACA","file":"AnnotationDiscussionList.less?vue&type=style&index=0&id=0b8b8b8a&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionList[data-v-0b8b8b8a] {\n  overflow-y: auto;\n}\n.no-more[data-v-0b8b8b8a] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList.little-comments[data-v-0b8b8b8a] {\n    height: auto !important;\n    max-height: auto !important;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -603,7 +603,7 @@ exports.push([module.i, "img[data-v-087d9d5e] {\n  height: 2em;\n  width: auto;\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"AnnotationSingle.less?vue&type=style&index=0&id=758d13ca&lang=less&scoped=true&"}]);
+exports.push([module.i, ".AnnotationSingle[data-v-758d13ca] {\n  overflow-y: auto;\n}\n.AnnotationSingle .annotation-panel-buttons[data-v-758d13ca] {\n  margin-top: -0.5em;\n}\n@media (max-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-758d13ca] {\n    border-top: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-758d13ca] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-758d13ca] {\n    border-left: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-758d13ca] {\n    overflow-y: auto;\n}\n}\n", "",{"version":3,"sources":["AnnotationSingle.less?vue&type=style&index=0&id=758d13ca&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;AACA;EACE,kBAAkB;AACpB;AACA;AACA;IACI,qCAAqC;AACzC;AACA;IACI,2BAA2B;AAC/B;AACA;AACA;AACA;IACI,sCAAsC;AAC1C;AACA;IACI,gBAAgB;AACpB;AACA","file":"AnnotationSingle.less?vue&type=style&index=0&id=758d13ca&lang=less&scoped=true&","sourcesContent":[".AnnotationSingle[data-v-758d13ca] {\n  overflow-y: auto;\n}\n.AnnotationSingle .annotation-panel-buttons[data-v-758d13ca] {\n  margin-top: -0.5em;\n}\n@media (max-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-758d13ca] {\n    border-top: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-758d13ca] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-758d13ca] {\n    border-left: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-758d13ca] {\n    overflow-y: auto;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -1706,7 +1706,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "AnnotationDiscussionInput ui form" }, [
-    _c("div", { staticClass: "right column" }, [
+    _c("div", { staticClass: "right-column" }, [
       !_vm.isEditMode
         ? _c(
             "button",
@@ -1732,36 +1732,36 @@ var render = function() {
         : _vm._e()
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "left column" }, [
+    _c("div", { staticClass: "left-column" }, [
       _c("img", { staticClass: "avatar", attrs: { src: _vm.status.avatar } }),
       _vm._v(" "),
       _c("div", { staticClass: "username" }, [
         _vm._v("\r\n      " + _vm._s(_vm.username) + "\r\n    ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ui field input-field" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.note,
-              expression: "note"
-            }
-          ],
-          ref: "input",
-          attrs: { type: "text" },
-          domProps: { value: _vm.note },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.note = $event.target.value
-            }
-          }
-        })
       ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "center-column ui field input-field" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.note,
+            expression: "note"
+          }
+        ],
+        ref: "input",
+        attrs: { type: "text" },
+        domProps: { value: _vm.note },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.note = $event.target.value
+          }
+        }
+      })
     ])
   ])
 }
@@ -1887,6 +1887,7 @@ var render = function() {
     "div",
     {
       staticClass: "AnnotationDiscussionList",
+      class: _vm.computedContainerClass,
       style: _vm.computedContainerStyle,
       on: {
         scroll: function($event) {
@@ -1899,7 +1900,10 @@ var render = function() {
       _vm.noMore
         ? _c(
             "div",
-            { staticClass: "ui secondary segment no-more" },
+            {
+              staticClass: "ui secondary segment no-more",
+              on: { click: _vm.focusInput }
+            },
             [
               _vm.comments.length > 0
                 ? [
@@ -1909,7 +1913,9 @@ var render = function() {
                   ]
                 : [
                     _vm._v(
-                      "\r\n      " + _vm._s(_vm.$t("No Comment")) + "\r\n    "
+                      "\r\n      " +
+                        _vm._s(_vm.$t("Write the first comment now")) +
+                        "\r\n    "
                     )
                   ]
             ],
@@ -2169,12 +2175,16 @@ var render = function() {
     "div",
     {
       staticClass: "ui stackable AnnotationSingle",
-      class: _vm.computedGridClass
+      class: _vm.computedGridClass,
+      style: _vm.computedContainerStyle
     },
     [
       _c(
         "div",
-        { staticClass: "column annotation-editor" },
+        {
+          staticClass: "column annotation-editor",
+          style: _vm.computedEditorStyle
+        },
         [
           _c("annotation-editor-header", {
             attrs: {
@@ -2347,9 +2357,6 @@ var render = function() {
                   _c("admin-badge", {
                     attrs: { status: _vm.status, config: _vm.config }
                   }),
-                  _vm._v(
-                    "\r\n\r\n      [@TODO DisplayTime]\r\n      \r\n      "
-                  ),
                   _vm._v(" "),
                   _vm.annotationConfig.enableControlPermission
                     ? _c("checkbox-toggle", {
@@ -2388,6 +2395,9 @@ var render = function() {
                         )
                       ]
                     : [
+                        _vm._v(
+                          "\r\n        \r\n        [@TODO DisplayTime]\r\n        \r\n        "
+                        ),
                         _vm.isQuestionSubmitted && !_vm.isAnswerSubmitted
                           ? _c(
                               "button",
@@ -7202,9 +7212,18 @@ let AnnotationDiscussionList = {
   },
   computed: {
     computedContainerStyle () {
+      //if (this.comments.length < 10) {
+      //  return null
+      //}
+      
       return {
         'height': this.heightPX + 'px',
         'max-height': this.heightPX + 'px',
+      }
+    },
+    computedContainerClass () {
+      if (this.comments.length < 10) {
+        return 'little-comments'
       }
     },
     AnnotationDiscussionInput () {
@@ -7233,7 +7252,7 @@ let AnnotationDiscussionList = {
         annotationID: this.annotation.id
       }
       
-      console.log(data)
+      //console.log(data)
       
       let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/init', data)
       this.commentCount = result.commentCount
@@ -7287,6 +7306,9 @@ let AnnotationDiscussionList = {
     },
     onEdit (comment) {
       this.AnnotationDiscussionInput.comment = comment
+    },
+    focusInput () {
+      this.AnnotationDiscussionInput.$refs.input.focus()
     }
   } // methods
 }
@@ -7940,6 +7962,16 @@ let AnnotationEditorModules = {
         return 'right aligned column'
       } else {
         return 'column'
+      }
+    },
+    computedContainerStyle () {
+      return {
+        'max-height': this.heightPX-10 + `px`
+      }
+    },
+    computedEditorStyle () {
+      return {
+        'max-height': this.heightPX-10 + `px`
       }
     }
 //    isAdding () {

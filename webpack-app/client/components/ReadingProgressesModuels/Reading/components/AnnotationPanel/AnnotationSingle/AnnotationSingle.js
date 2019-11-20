@@ -79,6 +79,16 @@ let AnnotationEditorModules = {
       } else {
         return 'column'
       }
+    },
+    computedContainerStyle () {
+      return {
+        'max-height': this.heightPX-10 + `px`
+      }
+    },
+    computedEditorStyle () {
+      return {
+        'max-height': this.heightPX-10 + `px`
+      }
     }
 //    isAdding () {
 //      return (this.annotation

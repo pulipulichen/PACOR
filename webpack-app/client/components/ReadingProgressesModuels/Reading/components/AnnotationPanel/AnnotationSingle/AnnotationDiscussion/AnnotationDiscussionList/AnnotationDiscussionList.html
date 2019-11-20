@@ -1,14 +1,16 @@
 <div class="AnnotationDiscussionList"
      v-bind:style="computedContainerStyle"
+     v-bind:class="computedContainerClass"
      v-on:scroll.stop="scrollList">
   
   <div class="ui secondary segment no-more"
-         v-if="noMore">
+       v-if="noMore"
+       v-on:click="focusInput">
     <template v-if="comments.length > 0">
       {{ $t('No More') }}
     </template>
     <template v-else>
-      {{ $t('No Comment') }}
+      {{ $t('Write the first comment now') }}
     </template>
   </div>
   
