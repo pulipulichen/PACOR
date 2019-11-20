@@ -30,7 +30,8 @@ let InstructionMessage = {
   },
   methods: {
     checkAutoShow () {
-      if (typeof(localStorage.getItem(this.localStorageKeyPrefix)) === 'number') {
+      //console.log(localStorage.getItem(this.localStorageKeyPrefix))
+      if (localStorage.getItem(this.localStorageKeyPrefix) === null) {
         this.show()
       }
     },

@@ -9,7 +9,13 @@
         {{ header }}
       </template>
       <template v-slot:content inline-template>
-        <div class="field hint ui segment" v-html="message"></div>
+        
+        <iframe-message-segment 
+          class="field hint"
+          v-bind:config="config"
+          v-bind:message="message">
+        </iframe-message-segment>
+        
         <div class="field">
             <textarea v-model="answer"
                       v-on:input="persist"

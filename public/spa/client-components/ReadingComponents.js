@@ -2906,49 +2906,57 @@ var render = function() {
           contentURL: _vm.contentURL
         },
         on: { hide: _vm.onHide },
-        scopedSlots: _vm._u([
-          {
-            key: "header",
-            fn: function() {
-              return [
-                _vm._v(
-                  "\r\n        " +
-                    _vm._s(
-                      _vm.$t("READING_PROGRESS." + _vm.lib.auth.currentStep)
-                    ) +
-                    "\r\n      "
-                )
-              ]
+        scopedSlots: _vm._u(
+          [
+            {
+              key: "header",
+              fn: function() {
+                return [
+                  _vm._v(
+                    "\r\n        " +
+                      _vm._s(
+                        _vm.$t("READING_PROGRESS." + _vm.lib.auth.currentStep)
+                      ) +
+                      "\r\n      "
+                  )
+                ]
+              },
+              proxy: true
             },
-            proxy: true
-          },
-          {
-            key: "content",
-            fn: function() {
-              return [
-                _c("div", { domProps: { innerHTML: _vm._s(_vm.message) } })
-              ]
-            },
-            proxy: true
-          },
-          {
-            key: "actions",
-            fn: function() {
-              return [
-                _c(
-                  "div",
-                  { staticClass: "ui button", on: { click: _vm.submit } },
-                  [
-                    _vm._v(
-                      "\r\n          " + _vm._s(_vm.$t("OK")) + "\r\n        "
-                    )
-                  ]
-                )
-              ]
-            },
-            proxy: true
-          }
-        ])
+            !_vm.contentURL
+              ? {
+                  key: "content",
+                  fn: function() {
+                    return [
+                      _c("div", {
+                        domProps: { innerHTML: _vm._s(_vm.message) }
+                      })
+                    ]
+                  },
+                  proxy: true
+                }
+              : null,
+            {
+              key: "actions",
+              fn: function() {
+                return [
+                  _c(
+                    "div",
+                    { staticClass: "ui button", on: { click: _vm.submit } },
+                    [
+                      _vm._v(
+                        "\r\n          " + _vm._s(_vm.$t("OK")) + "\r\n        "
+                      )
+                    ]
+                  )
+                ]
+              },
+              proxy: true
+            }
+          ],
+          null,
+          true
+        )
       })
     ],
     1
@@ -10501,7 +10509,8 @@ let InstructionMessage = {
   },
   methods: {
     checkAutoShow () {
-      if (typeof(localStorage.getItem(this.localStorageKeyPrefix)) === 'number') {
+      //console.log(localStorage.getItem(this.localStorageKeyPrefix))
+      if (localStorage.getItem(this.localStorageKeyPrefix) === null) {
         this.show()
       }
     },

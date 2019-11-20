@@ -102,9 +102,9 @@ var render = function() {
             key: "content",
             fn: function() {
               return [
-                _c("div", {
-                  staticClass: "field hint ui segment",
-                  domProps: { innerHTML: _vm._s(_vm.message) }
+                _c("iframe-message-segment", {
+                  staticClass: "field hint",
+                  attrs: { config: _vm.config, message: _vm.message }
                 }),
                 _vm._v(" "),
                 _c("div", { staticClass: "field" }, [
@@ -227,9 +227,9 @@ var render = function() {
             key: "content",
             fn: function() {
               return [
-                _c("div", {
-                  staticClass: "field hint ui segment",
-                  domProps: { innerHTML: _vm._s(_vm.message) }
+                _c("iframe-message-segment", {
+                  staticClass: "field hint",
+                  attrs: { config: _vm.config, message: _vm.message }
                 }),
                 _vm._v(" "),
                 _c("div", { staticClass: "field" }, [

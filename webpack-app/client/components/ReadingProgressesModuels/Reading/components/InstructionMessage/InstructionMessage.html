@@ -9,7 +9,8 @@
       <template v-slot:header>
         {{ $t('READING_PROGRESS.' + lib.auth.currentStep) }}
       </template>
-      <template v-slot:content>
+      <template v-slot:content
+                v-if="!contentURL">
         <div v-html="message"></div>
       </template>
       <template v-slot:actions>
