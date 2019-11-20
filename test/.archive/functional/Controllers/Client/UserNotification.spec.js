@@ -20,18 +20,20 @@ const ReadingActivityLog = use('App/Models/ReadingActivityLog')
 
 const Sleep = use('Sleep')
 
-const url = 'http://blog.pulipuli.info/'
+const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
 let webpage
 let user
 let annotation
 
-
 let config = {
-  'a. hello word': async function ( { assert, client } ) {    
-    assert.equal(1+1, 2)
-  },
-  'b. hello word': async function ( { assert, client } ) {    
-    assert.equal(1+1, 3)
+  'a. check there are notifications existed from seed': async function ( { assert, client } ) {    
+    webpage = await WebpageModel.findByURL(url)
+    user = await UserModel.findByNameInWebpage(webpage, '布乙')
+    
+    assert.isNumber(user.primaryKeyValue)
+    
+    let notifications = await user.notifications().fetch()
+    assert.equal(notifications.size(), 102)
   },
 }
 

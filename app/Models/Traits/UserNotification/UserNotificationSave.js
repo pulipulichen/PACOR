@@ -15,7 +15,7 @@ class UserNotificationSave {
   register(Model) {
     
     Model.createFromModelInstance = async function (webpage, triggerUser, instance, notifiedUserID, summary) {
-      let anchorModel = instance.contructor.name
+      let anchorModel = instance.constructor.name
       let anchorModelID = instance.primaryKeyValue
       
       return await this.createFromJSON(webpage, triggerUser, {
@@ -43,10 +43,15 @@ class UserNotificationSave {
       // -------------------------------------
       let queryData = {
         webpage_id: webpage.primaryKeyValue,
-        user_id: webpage.notifiedUserID,
+        user_id: notifiedUserID,
         model: anchorModel,
-        model_id: anchorModelID,
-        summary: summary
+        model_id: anchorModelID
+      }
+      
+      //console.log(queryData)
+      
+      if (summary) {
+        queryData.summary = summary
       }
       
       let notification = await UserNotificationModel.findOrCreate(queryData, queryData)
