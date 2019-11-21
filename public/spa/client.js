@@ -894,6 +894,7 @@ var render = function() {
         {
           staticClass: "ui segment AnnotationItem",
           class: _vm.computedContainerClassNames,
+          attrs: { "data-annotation-id": _vm.annotation.id },
           on: {
             mouseover: _vm.onMouseover,
             mouseout: _vm.onMouseout,

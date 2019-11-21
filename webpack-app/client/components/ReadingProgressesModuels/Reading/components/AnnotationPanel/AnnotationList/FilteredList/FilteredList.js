@@ -170,6 +170,13 @@ let List = {
       this.$emit('exit')
       this.clearFilter()
       //console.log(this.panelData)
+    },
+    glowAnnotation () {
+      
+    },
+    backToList () {
+      this.glowAnnotation()
+      this.annotation = null
     }
   } // methods
 }

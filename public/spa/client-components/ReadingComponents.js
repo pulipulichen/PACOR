@@ -1163,9 +1163,7 @@ var render = function() {
                   on: {
                     click: function($event) {
                       $event.stopPropagation()
-                      return (function() {
-                        _vm.annotation = null
-                      })($event)
+                      return _vm.backToList($event)
                     }
                   }
                 },
@@ -1252,6 +1250,7 @@ var render = function() {
               expression: "!annotation"
             }
           ],
+          ref: "list",
           staticClass: "list",
           style: _vm.computedListStyle,
           on: {
@@ -1390,9 +1389,7 @@ var render = function() {
                         on: {
                           click: function($event) {
                             $event.stopPropagation()
-                            return (function() {
-                              _vm.annotation = null
-                            })($event)
+                            return _vm.backToList($event)
                           }
                         }
                       },
@@ -1460,6 +1457,7 @@ var render = function() {
               expression: "!annotation"
             }
           ],
+          ref: "list",
           staticClass: "list",
           style: _vm.computedListStyle,
           on: {
@@ -5779,6 +5777,13 @@ let List = {
       this.$emit('exit')
       this.clearFilter()
       //console.log(this.panelData)
+    },
+    glowAnnotation () {
+      
+    },
+    backToList () {
+      this.glowAnnotation()
+      this.annotation = null
     }
   } // methods
 }
@@ -6261,7 +6266,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* global this */
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ((List) => {
   List.methods.viewAnnotation = function (annotation) {
@@ -6327,11 +6336,29 @@ __webpack_require__.r(__webpack_exports__);
       this.panelData.filter.type = null
     }
     
+    if (this.annotation) {
+      console.log(this.annotation.id)
+    }
     this.annotation = null
     //console.log('clearFilter', this.panelData.filter)
     this.$forceUpdate()
   }
   
+  List.methods.backToList = function () {
+    this.glowAnnotation()
+    this.annotation = null
+  }
+  
+  List.methods.glowAnnotation = function () {
+    if (!this.annotation) {
+      return null
+    }
+    
+    let item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.list).children(`[data-annotation-id="${this.annotation.id}"]`)
+    if (item.length > 0) {
+      item.transition('glow')
+    }
+  } 
 });
 
 /***/ }),

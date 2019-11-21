@@ -3,7 +3,8 @@
      v-bind:class="computedContainerClassNames"
      v-on:mouseover="onMouseover"
      v-on:mouseout="onMouseout"
-     v-on:click="onClick">
+     v-on:click="onClick"
+     v-bind:data-annotation-id="annotation.id">
 
   <div class="meta text-container ui basic right labeled button"
        v-bind:class="{'clickable': findAnnotation}"

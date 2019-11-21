@@ -14,7 +14,7 @@
       <button v-if="annotation"
               type="button" 
               class="ui mini labeled icon button back-button"
-              v-on:click.stop="() => {annotation = null}">
+              v-on:click.stop="backToList">
         <i class="angle left icon"></i>
         {{ $t('Back to list') }}
       </button>
@@ -55,6 +55,7 @@
   <div class="list"
        v-bind:style="computedListStyle"
        v-on:scroll.stop="scrollList"
+       ref="list"
        v-show="!annotation">
 
     <!--

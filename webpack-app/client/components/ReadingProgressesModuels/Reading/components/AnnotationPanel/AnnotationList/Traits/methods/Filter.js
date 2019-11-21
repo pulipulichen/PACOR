@@ -1,5 +1,7 @@
 /* global this */
 
+import $ from 'jquery'
+
 export default (List) => {
   List.methods.viewAnnotation = function (annotation) {
     this.annotation = annotation
@@ -64,9 +66,27 @@ export default (List) => {
       this.panelData.filter.type = null
     }
     
+    if (this.annotation) {
+      console.log(this.annotation.id)
+    }
     this.annotation = null
     //console.log('clearFilter', this.panelData.filter)
     this.$forceUpdate()
   }
   
+  List.methods.backToList = function () {
+    this.glowAnnotation()
+    this.annotation = null
+  }
+  
+  List.methods.glowAnnotation = function () {
+    if (!this.annotation) {
+      return null
+    }
+    
+    let item = $(this.$refs.list).children(`[data-annotation-id="${this.annotation.id}"]`)
+    if (item.length > 0) {
+      item.transition('glow')
+    }
+  } 
 }
