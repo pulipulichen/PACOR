@@ -19,7 +19,7 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    this._testAnnotationSingle()
+    this._testAnnotationSingleManyComments()
   },
   methods: {
     initComponentToLib () {
@@ -57,6 +57,20 @@ let CollaborativeReading = {
         
         setTimeout(() => {
           $('.AnnotationFloatWidget .meta').click()
+        }, 300)
+      }, 500)
+    },
+    _testAnnotationSingleManyComments () {
+      setTimeout(() => {
+        $('.others-Clarified:first').click()
+        
+        setTimeout(() => {
+          $('.AnnotationFloatWidget .AnnotationTypeButton[title="已釐清"]:last').click()
+          
+          setTimeout(() => {
+            //console.log($('.FilteredList .list .AnnotationItem:last .meta i').length)
+            $('.FilteredList .list .AnnotationItem:last .meta i').click()
+          }, 300)
         }, 300)
       }, 500)
     },

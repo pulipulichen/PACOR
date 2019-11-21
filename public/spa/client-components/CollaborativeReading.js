@@ -313,7 +313,7 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    this._testAnnotationSingle()
+    this._testAnnotationSingleManyComments()
   },
   methods: {
     initComponentToLib () {
@@ -351,6 +351,20 @@ let CollaborativeReading = {
         
         setTimeout(() => {
           jquery__WEBPACK_IMPORTED_MODULE_1___default()('.AnnotationFloatWidget .meta').click()
+        }, 300)
+      }, 500)
+    },
+    _testAnnotationSingleManyComments () {
+      setTimeout(() => {
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()('.others-Clarified:first').click()
+        
+        setTimeout(() => {
+          jquery__WEBPACK_IMPORTED_MODULE_1___default()('.AnnotationFloatWidget .AnnotationTypeButton[title="已釐清"]:last').click()
+          
+          setTimeout(() => {
+            //console.log($('.FilteredList .list .AnnotationItem:last .meta i').length)
+            jquery__WEBPACK_IMPORTED_MODULE_1___default()('.FilteredList .list .AnnotationItem:last .meta i').click()
+          }, 300)
         }, 300)
       }, 500)
     },

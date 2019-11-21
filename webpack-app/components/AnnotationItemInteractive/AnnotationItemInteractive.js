@@ -41,15 +41,15 @@ let AnnotationInteractive = {
     likes () {
       if (this.annotation 
               && this.annotation.__meta__
-              && typeof(this.annotation.__meta__.rates_count) === 'number') {
-        return this.annotation.__meta__.rates_count
+              && typeof(this.annotation.__meta__.likes_count) !== 'undefined') {
+        return parseInt(this.annotation.__meta__.likes_count, 10)
       }
     },
     comments () {
       if (this.annotation 
               && this.annotation.__meta__
-              && typeof(this.annotation.__meta__.replies_count) === 'number') {
-        return this.annotation.__meta__.replies_count
+              && typeof(this.annotation.__meta__.comments_count) !== 'undefined') {
+        return parseInt(this.annotation.__meta__.comments_count, 10)
       }
     }
   },

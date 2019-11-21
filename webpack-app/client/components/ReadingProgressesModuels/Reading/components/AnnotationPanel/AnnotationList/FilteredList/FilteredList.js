@@ -168,6 +168,7 @@ let List = {
     exit () {
       this.$emit('exit')
       this.clearFilter()
+      //console.log(this.panelData)
     }
   } // methods
 }

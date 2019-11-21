@@ -5719,6 +5719,7 @@ let List = {
     exit () {
       this.$emit('exit')
       this.clearFilter()
+      //console.log(this.panelData)
     }
   } // methods
 }
@@ -6212,7 +6213,8 @@ __webpack_require__.r(__webpack_exports__);
       this.panelData.filter = {}
     }
     
-    this.panelData.filter.user = user
+    //this.panelData.filter.user = user
+    this.$set(this.panelData.filter, 'user', user)
     this.annotation = null
   }
   
@@ -6224,12 +6226,13 @@ __webpack_require__.r(__webpack_exports__);
   }
 
   List.methods.findType = function (type) {
-    if (!this.panelData.filter) {
-      this.panelData.filter = {}
-    }
+    //if (!this.panelData.filter) {
+    //  this.panelData.filter = {}
+    //}
     
     //console.log(type)
-    this.panelData.filter.type = type
+    this.$set(this.panelData.filter, 'type', type)
+    //this.panelData.filter.type = type
     this.annotation = null
   }
   
@@ -6326,7 +6329,8 @@ __webpack_require__.r(__webpack_exports__);
       return null
       //return this.$emit('close')
     }
-    //console.log(result)
+    
+    console.log(result)
 
     for (let key in result) {
       this[key] = result[key]

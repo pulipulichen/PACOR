@@ -10,7 +10,8 @@ export default (List) => {
       this.panelData.filter = {}
     }
     
-    this.panelData.filter.user = user
+    //this.panelData.filter.user = user
+    this.$set(this.panelData.filter, 'user', user)
     this.annotation = null
   }
   
@@ -22,12 +23,13 @@ export default (List) => {
   }
 
   List.methods.findType = function (type) {
-    if (!this.panelData.filter) {
-      this.panelData.filter = {}
-    }
+    //if (!this.panelData.filter) {
+    //  this.panelData.filter = {}
+    //}
     
     //console.log(type)
-    this.panelData.filter.type = type
+    this.$set(this.panelData.filter, 'type', type)
+    //this.panelData.filter.type = type
     this.annotation = null
   }
   
