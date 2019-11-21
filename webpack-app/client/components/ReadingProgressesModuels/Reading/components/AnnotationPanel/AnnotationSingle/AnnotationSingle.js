@@ -189,7 +189,8 @@ let AnnotationEditorModules = {
         annotationID: this.annotation.id
       }
       
-      await this.lib.AxiosHelper.get('/client/AnnotationRate/like', data)
+      let result = await this.lib.AxiosHelper.get('/client/AnnotationRate/like', data)
+      //console.log(result)
     }
   } // methods
 }

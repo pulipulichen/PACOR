@@ -19,7 +19,7 @@ let AnnotationInteractive = {
       if (!this.enableLike) {
         classList.push('disabled')
       }
-      if (this.i_have_liked === 1) {
+      if (this.i_have_liked) {
         classList.push('green')
       }
       
@@ -36,7 +36,7 @@ let AnnotationInteractive = {
     computedCommentsButtonClass () {
       let classList = []
       
-      if (this.i_have_commented === 1) {
+      if (this.i_have_commented) {
         classList.push('green')
       }
       if (typeof(this.size) === 'string') {
@@ -73,12 +73,12 @@ let AnnotationInteractive = {
       }
     },
     i_have_liked () {
-      return (this.annotation.__meta__.i_have_liked === 1
-              || this.annotation.__meta__.i_have_liked === '1')
+      return (this.annotation.__meta__.i_have_liked_count === 1
+              || this.annotation.__meta__.i_have_liked_count === '1')
     },
     i_have_commented () {
-      return (this.annotation.__meta__.i_have_commented === 1
-              || this.annotation.__meta__.i_have_commented === '1')
+      return (this.annotation.__meta__.i_have_commented_count === 1
+              || this.annotation.__meta__.i_have_commented_count === '1')
     }
   },
 //  watch: {
@@ -87,13 +87,15 @@ let AnnotationInteractive = {
 //  },
   methods: {
     like: async function () {
+      //console.log(this.annotation)
+      //console.log(this.i_have_liked)
       if (this.i_have_liked) {
-        this.annotation.__meta__.i_have_liked = 0
+        this.annotation.__meta__.i_have_liked_count = 0
         this.annotation.__meta__.likes_count--
         this.$emit('unlike')
       }
       else {
-        this.annotation.__meta__.i_have_liked = 1
+        this.annotation.__meta__.i_have_liked_count = 1
         this.annotation.__meta__.likes_count++
         this.$emit('like')
       }

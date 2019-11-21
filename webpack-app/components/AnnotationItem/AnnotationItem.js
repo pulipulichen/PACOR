@@ -94,6 +94,15 @@ let AnnotationItem = {
         this.lib.RangyManager.hoverOut()
       }
       this.$emit('mouseout', this.annotation)
+    },
+    onlike: async function () {
+      let data = {
+        annotationID: this.annotation.id
+      }
+      
+      let result = await this.lib.AxiosHelper.get('/client/AnnotationRate/like', data)
+      
+      this.$emit('like')
     }
   } // methods
 }

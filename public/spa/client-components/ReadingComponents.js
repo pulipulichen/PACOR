@@ -1176,9 +1176,7 @@ var render = function() {
                   )
                 ]
               )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.mainListAnnotationCount > 1
+            : _vm.mainListAnnotationCount > 1
             ? _c(
                 "button",
                 {
@@ -6233,6 +6231,9 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     //this.panelData.filter.user = user
+    if (!this.panelData.filter) {
+      this.$set(this.panelData, 'filter', {})
+    }
     this.$set(this.panelData.filter, 'user', user)
     this.annotation = null
   }
@@ -6250,6 +6251,9 @@ __webpack_require__.r(__webpack_exports__);
     //}
     
     //console.log(type)
+    if (!this.panelData.filter) {
+      this.$set(this.panelData, 'filter', {})
+    }
     this.$set(this.panelData.filter, 'type', type)
     //this.panelData.filter.type = type
     this.annotation = null
@@ -8186,7 +8190,8 @@ let AnnotationEditorModules = {
         annotationID: this.annotation.id
       }
       
-      await this.lib.AxiosHelper.get('/client/AnnotationRate/like', data)
+      let result = await this.lib.AxiosHelper.get('/client/AnnotationRate/like', data)
+      //console.log(result)
     }
   } // methods
 }

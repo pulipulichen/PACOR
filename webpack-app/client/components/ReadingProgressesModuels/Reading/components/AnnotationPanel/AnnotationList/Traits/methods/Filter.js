@@ -11,6 +11,9 @@ export default (List) => {
     }
     
     //this.panelData.filter.user = user
+    if (!this.panelData.filter) {
+      this.$set(this.panelData, 'filter', {})
+    }
     this.$set(this.panelData.filter, 'user', user)
     this.annotation = null
   }
@@ -28,6 +31,9 @@ export default (List) => {
     //}
     
     //console.log(type)
+    if (!this.panelData.filter) {
+      this.$set(this.panelData, 'filter', {})
+    }
     this.$set(this.panelData.filter, 'type', type)
     //this.panelData.filter.type = type
     this.annotation = null

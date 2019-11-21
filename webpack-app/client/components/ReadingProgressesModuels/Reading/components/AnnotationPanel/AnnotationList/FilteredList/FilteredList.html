@@ -18,7 +18,7 @@
       {{ $t('Back to list') }}
     </button>
     
-    <button v-if="mainListAnnotationCount > 1"
+    <button v-else-if="mainListAnnotationCount > 1"
             type="button" 
             class="ui mini labeled icon button back-button"
             v-on:click.stop="exit">
