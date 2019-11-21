@@ -12,6 +12,14 @@
         {{ lib.auth.username }}
       </div>
     </a>
+    <a class="item">
+      <notification-manager 
+        ref="NotificationManager"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib">
+      </notification-manager>
+    </a>
     <a class="item"
        v-on:click="showInstruction">
       {{ $t('READING_PROGRESS.' + lib.auth.currentStep) }}
@@ -28,6 +36,22 @@
       Next Step (for test)
     </a>
 
+    <a class="item">
+      <user-selector 
+        ref="UserSelector"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib">
+      </user-selector>
+    </a>
+    <a class="item">
+      <annotation-type-filter 
+        ref="AnnotationTypeFilter"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib">
+      </annotation-type-filter>
+    </a>
     <div class="item">
       <search-manager 
         v-bind:status="status"

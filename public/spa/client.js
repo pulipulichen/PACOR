@@ -1850,7 +1850,8 @@ let VueController = {
       notificationUnreadCount: 0,
       search: {
         keyword: '',
-        showAnnotationList: false
+        showAnnotationList: false,
+        peerID: null
       },
       readingConfig: {}
     },

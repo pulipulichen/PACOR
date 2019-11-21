@@ -8,6 +8,9 @@ let NotificationManager = {
   components: {
   },
   computed: {
+    notificationCount () {
+      return 0
+    }
   },
   watch: {
   },

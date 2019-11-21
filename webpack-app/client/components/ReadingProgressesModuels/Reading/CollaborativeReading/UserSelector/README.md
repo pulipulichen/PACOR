@@ -1,9 +1,9 @@
 
 ````html
-<template 
-  ref="auth"
+<user-selector 
+  ref="UserSelector"
   v-bind:config="config"
   v-bind:status="status"
   v-bind:lib="lib">
-</template>
+</user-selector>
 ````
