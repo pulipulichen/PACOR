@@ -155,16 +155,20 @@ let AnnotationDiscussionList = {
     },
     onCommentDelete (i) {
       this.comments.splice(i, 1)
+      this.annotation.__meta__.comments_count--
     },
     onInputAdd (comment) {
       this.comments.push(comment)
       this.scrollToBottom()
+      this.annotation.__meta__.comments_count++
     },
     onInputEdit (comment) {
       setTimeout(() => {
-        this.list.find(`[data-comment-id="${comment.id}"]`)[0].scrollIntoView({
+        let element = this.list.find(`[data-comment-id="${comment.id}"]`)
+        element[0].scrollIntoView({
           behavior: 'smooth'
         })
+        element.transition('glow')
         
         setTimeout(() => {
           this.loadLock = false

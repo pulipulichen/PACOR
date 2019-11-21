@@ -37,7 +37,7 @@ let AnnotationComment = {
     onDelete: async function () {
       if (window.confirm(this.$t('Are you sure to delete this comment?'))) {
         let data = {
-          commentID: this.comment.id
+          id: this.comment.id
         }
         
         await this.lib.AxiosHelper.get('/client/AnnotationComment/destroy', data)

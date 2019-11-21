@@ -519,7 +519,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationDiscussionInput[data-v-5ca837c3] {\n  white-space: nowrap;\n  overflow: hidden;\n  margin-top: 0.5em;\n}\nimg[data-v-5ca837c3] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-5ca837c3] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-5ca837c3] {\n  width: calc(100% - 16em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-5ca837c3] {\n  float: right;\n}\n.right-column button[data-v-5ca837c3] {\n  height: 42px;\n}\n.left-column[data-v-5ca837c3] {\n  width: 8em;\n}\n.left-column[data-v-5ca837c3],\n.center-column[data-v-5ca837c3],\n.right-column[data-v-5ca837c3] {\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["AnnotationDiscussionInput.less?vue&type=style&index=0&id=5ca837c3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,iBAAiB;AACnB;AACA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,cAAc;EACd,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,mCAAmC;EACnC,gCAAgC;AAClC;AACA;EACE,YAAY;AACd;AACA;EACE,YAAY;AACd;AACA;EACE,UAAU;AACZ;AACA;;;EAGE,qBAAqB;EACrB,sBAAsB;AACxB","file":"AnnotationDiscussionInput.less?vue&type=style&index=0&id=5ca837c3&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionInput[data-v-5ca837c3] {\n  white-space: nowrap;\n  overflow: hidden;\n  margin-top: 0.5em;\n}\nimg[data-v-5ca837c3] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-5ca837c3] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-5ca837c3] {\n  width: calc(100% - 16em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-5ca837c3] {\n  float: right;\n}\n.right-column button[data-v-5ca837c3] {\n  height: 42px;\n}\n.left-column[data-v-5ca837c3] {\n  width: 8em;\n}\n.left-column[data-v-5ca837c3],\n.center-column[data-v-5ca837c3],\n.right-column[data-v-5ca837c3] {\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
+exports.push([module.i, ".AnnotationDiscussionInput[data-v-5ca837c3] {\n  white-space: nowrap;\n  overflow: hidden;\n  margin-top: 0.5em;\n}\nimg[data-v-5ca837c3] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-5ca837c3] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-5ca837c3] {\n  width: calc(100% - 16em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-5ca837c3] {\n  float: right;\n}\n.right-column > span[data-v-5ca837c3] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-5ca837c3] {\n  height: 42px;\n}\n.left-column[data-v-5ca837c3] {\n  width: 8em;\n}\n.left-column[data-v-5ca837c3],\n.center-column[data-v-5ca837c3],\n.right-column[data-v-5ca837c3] {\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["AnnotationDiscussionInput.less?vue&type=style&index=0&id=5ca837c3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,iBAAiB;AACnB;AACA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,cAAc;EACd,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,mCAAmC;EACnC,gCAAgC;AAClC;AACA;EACE,YAAY;AACd;AACA;EACE,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,YAAY;AACd;AACA;EACE,UAAU;AACZ;AACA;;;EAGE,qBAAqB;EACrB,sBAAsB;AACxB","file":"AnnotationDiscussionInput.less?vue&type=style&index=0&id=5ca837c3&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionInput[data-v-5ca837c3] {\n  white-space: nowrap;\n  overflow: hidden;\n  margin-top: 0.5em;\n}\nimg[data-v-5ca837c3] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-5ca837c3] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-5ca837c3] {\n  width: calc(100% - 16em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-5ca837c3] {\n  float: right;\n}\n.right-column > span[data-v-5ca837c3] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-5ca837c3] {\n  height: 42px;\n}\n.left-column[data-v-5ca837c3] {\n  width: 8em;\n}\n.left-column[data-v-5ca837c3],\n.center-column[data-v-5ca837c3],\n.right-column[data-v-5ca837c3] {\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
 
 
 /***/ }),
@@ -533,7 +533,7 @@ exports.push([module.i, ".AnnotationDiscussionInput[data-v-5ca837c3] {\n  white-
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".meta[data-v-0404edca] {\n  float: right;\n  user-select: none;\n  line-height: 2em !important;\n}\n.user[data-v-0404edca] {\n  display: inline-block;\n}\n.avatar[data-v-0404edca] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-0404edca],\n.username[data-v-0404edca] {\n  margin-right: 0.5em;\n}\n.username[data-v-0404edca] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-0404edca] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.clickable[data-v-0404edca] {\n  cursor: pointer !important;\n}\n.meta[data-v-0404edca]  .AnnotationInteractive {\n  margin-left: 0.5em;\n}\n.annotation-item-compact[data-v-0404edca] {\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  margin-bottom: 0.5em !important;\n}\n.annotation-item-compact .text-container[data-v-0404edca] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-0404edca] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-0404edca] {\n  display: inline-block;\n  margin-left: 0.5em;\n  white-space: nowrap;\n  max-width: calc(100vw - 28em);\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n@media (max-width: 480px) {\n.AnnotationItem.annotation-item-compact[data-v-0404edca]  .AnnotationTypeButton {\n    text-indent: -9999px;\n    padding-left: 0;\n    padding-right: 0;\n    width: 1em;\n}\n.AnnotationItem.annotation-item-compact .note[data-v-0404edca] {\n    max-width: calc(100vw - 10em);\n}\n.AnnotationItem.annotation-item-compact .display-time[data-v-0404edca] {\n    max-width: 0;\n    overflow-x: hidden;\n}\n}\n", "",{"version":3,"sources":["AnnotationComment.less?vue&type=style&index=0&id=0404edca&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,iBAAiB;EACjB,2BAA2B;AAC7B;AACA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;EACf,WAAW;AACb;AACA;;EAEE,mBAAmB;AACrB;AACA;EACE,cAAc;EACd,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;EACnB,qBAAqB;EACrB,mBAAmB;EACnB,gBAAgB;AAClB;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,0BAA0B;AAC5B;AACA;EACE,kBAAkB;AACpB;AACA;EACE,6BAA6B;EAC7B,gCAAgC;EAChC,+BAA+B;AACjC;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,kBAAkB;EAClB,mBAAmB;EACnB,6BAA6B;EAC7B,uBAAuB;EACvB,gBAAgB;AAClB;AACA;AACA;IACI,oBAAoB;IACpB,eAAe;IACf,gBAAgB;IAChB,UAAU;AACd;AACA;IACI,6BAA6B;AACjC;AACA;IACI,YAAY;IACZ,kBAAkB;AACtB;AACA","file":"AnnotationComment.less?vue&type=style&index=0&id=0404edca&lang=less&scoped=true&","sourcesContent":[".meta[data-v-0404edca] {\n  float: right;\n  user-select: none;\n  line-height: 2em !important;\n}\n.user[data-v-0404edca] {\n  display: inline-block;\n}\n.avatar[data-v-0404edca] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-0404edca],\n.username[data-v-0404edca] {\n  margin-right: 0.5em;\n}\n.username[data-v-0404edca] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-0404edca] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.clickable[data-v-0404edca] {\n  cursor: pointer !important;\n}\n.meta[data-v-0404edca]  .AnnotationInteractive {\n  margin-left: 0.5em;\n}\n.annotation-item-compact[data-v-0404edca] {\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  margin-bottom: 0.5em !important;\n}\n.annotation-item-compact .text-container[data-v-0404edca] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-0404edca] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-0404edca] {\n  display: inline-block;\n  margin-left: 0.5em;\n  white-space: nowrap;\n  max-width: calc(100vw - 28em);\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n@media (max-width: 480px) {\n.AnnotationItem.annotation-item-compact[data-v-0404edca]  .AnnotationTypeButton {\n    text-indent: -9999px;\n    padding-left: 0;\n    padding-right: 0;\n    width: 1em;\n}\n.AnnotationItem.annotation-item-compact .note[data-v-0404edca] {\n    max-width: calc(100vw - 10em);\n}\n.AnnotationItem.annotation-item-compact .display-time[data-v-0404edca] {\n    max-width: 0;\n    overflow-x: hidden;\n}\n}\n"]}]);
+exports.push([module.i, ".meta[data-v-0404edca] {\n  float: right;\n  user-select: none;\n  line-height: 2em !important;\n}\n.user[data-v-0404edca] {\n  display: inline-block;\n}\n.avatar[data-v-0404edca] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-0404edca],\n.username[data-v-0404edca] {\n  margin-right: 0.5em;\n}\n.username[data-v-0404edca] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-0404edca] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.clickable[data-v-0404edca] {\n  cursor: pointer !important;\n}\n.meta[data-v-0404edca]  .AnnotationInteractive,\n.meta .control-buttons[data-v-0404edca] {\n  margin-left: 0.5em;\n}\n.annotation-item-compact[data-v-0404edca] {\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  margin-bottom: 0.5em !important;\n}\n.annotation-item-compact .text-container[data-v-0404edca] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-0404edca] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-0404edca] {\n  display: inline-block;\n  margin-left: 0.5em;\n  white-space: nowrap;\n  max-width: calc(100vw - 28em);\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n@media (max-width: 480px) {\n.AnnotationItem.annotation-item-compact[data-v-0404edca]  .AnnotationTypeButton {\n    text-indent: -9999px;\n    padding-left: 0;\n    padding-right: 0;\n    width: 1em;\n}\n.AnnotationItem.annotation-item-compact .note[data-v-0404edca] {\n    max-width: calc(100vw - 10em);\n}\n.AnnotationItem.annotation-item-compact .display-time[data-v-0404edca] {\n    max-width: 0;\n    overflow-x: hidden;\n}\n}\n", "",{"version":3,"sources":["AnnotationComment.less?vue&type=style&index=0&id=0404edca&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,iBAAiB;EACjB,2BAA2B;AAC7B;AACA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;EACf,WAAW;AACb;AACA;;EAEE,mBAAmB;AACrB;AACA;EACE,cAAc;EACd,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;EACnB,qBAAqB;EACrB,mBAAmB;EACnB,gBAAgB;AAClB;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,0BAA0B;AAC5B;AACA;;EAEE,kBAAkB;AACpB;AACA;EACE,6BAA6B;EAC7B,gCAAgC;EAChC,+BAA+B;AACjC;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,kBAAkB;EAClB,mBAAmB;EACnB,6BAA6B;EAC7B,uBAAuB;EACvB,gBAAgB;AAClB;AACA;AACA;IACI,oBAAoB;IACpB,eAAe;IACf,gBAAgB;IAChB,UAAU;AACd;AACA;IACI,6BAA6B;AACjC;AACA;IACI,YAAY;IACZ,kBAAkB;AACtB;AACA","file":"AnnotationComment.less?vue&type=style&index=0&id=0404edca&lang=less&scoped=true&","sourcesContent":[".meta[data-v-0404edca] {\n  float: right;\n  user-select: none;\n  line-height: 2em !important;\n}\n.user[data-v-0404edca] {\n  display: inline-block;\n}\n.avatar[data-v-0404edca] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-0404edca],\n.username[data-v-0404edca] {\n  margin-right: 0.5em;\n}\n.username[data-v-0404edca] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-0404edca] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.clickable[data-v-0404edca] {\n  cursor: pointer !important;\n}\n.meta[data-v-0404edca]  .AnnotationInteractive,\n.meta .control-buttons[data-v-0404edca] {\n  margin-left: 0.5em;\n}\n.annotation-item-compact[data-v-0404edca] {\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  margin-bottom: 0.5em !important;\n}\n.annotation-item-compact .text-container[data-v-0404edca] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-0404edca] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-0404edca] {\n  display: inline-block;\n  margin-left: 0.5em;\n  white-space: nowrap;\n  max-width: calc(100vw - 28em);\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n@media (max-width: 480px) {\n.AnnotationItem.annotation-item-compact[data-v-0404edca]  .AnnotationTypeButton {\n    text-indent: -9999px;\n    padding-left: 0;\n    padding-right: 0;\n    width: 1em;\n}\n.AnnotationItem.annotation-item-compact .note[data-v-0404edca] {\n    max-width: calc(100vw - 10em);\n}\n.AnnotationItem.annotation-item-compact .display-time[data-v-0404edca] {\n    max-width: 0;\n    overflow-x: hidden;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -1704,31 +1704,60 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "AnnotationDiscussionInput ui form" }, [
-    _c("div", { staticClass: "right-column" }, [
-      !_vm.isEditMode
-        ? _c(
-            "button",
-            {
-              staticClass: "ui mini button",
-              attrs: { type: "button" },
-              on: { click: _vm.create }
-            },
-            [_vm._v("\r\n        " + _vm._s(_vm.$t("COMMENT")) + " \r\n    ")]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.isEditMode
-        ? _c(
-            "button",
-            {
-              staticClass: "ui mini button",
-              attrs: { type: "button" },
-              on: { click: _vm.edit }
-            },
-            [_vm._v("\r\n        " + _vm._s(_vm.$t("EDIT")) + " \r\n    ")]
-          )
-        : _vm._e()
-    ]),
+    _c(
+      "div",
+      { staticClass: "right-column" },
+      [
+        !_vm.isEditMode
+          ? [
+              _c(
+                "button",
+                {
+                  staticClass: "ui mini button",
+                  attrs: { type: "button" },
+                  on: { click: _vm.create }
+                },
+                [
+                  _vm._v(
+                    "\r\n        " + _vm._s(_vm.$t("COMMENT")) + " \r\n      "
+                  )
+                ]
+              )
+            ]
+          : [
+              _c("span", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "ui mini button",
+                    attrs: { type: "button" },
+                    on: { click: _vm.edit }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(_vm.$t("EDIT")) +
+                        " \r\n        "
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("span", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "ui icon mini button",
+                    attrs: { type: "button" },
+                    on: { click: _vm.reset }
+                  },
+                  [_c("i", { staticClass: "close icon" })]
+                )
+              ])
+            ]
+      ],
+      2
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "left-column" }, [
       _c("img", { staticClass: "avatar", attrs: { src: _vm.status.avatar } }),
@@ -1825,7 +1854,7 @@ var render = function() {
             : _vm._e(),
           _vm._v(" "),
           _vm.comment.user_id === _vm.status.userID
-            ? _c("div", [
+            ? _c("div", { staticClass: "control-buttons" }, [
                 _c(
                   "button",
                   {
@@ -1840,6 +1869,20 @@ var render = function() {
                   [
                     _vm._v(
                       "\r\n        " + _vm._s(_vm.$t("EDIT")) + "\r\n      "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "ui mini button",
+                    attrs: { type: "button" },
+                    on: { click: _vm.onDelete }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n        " + _vm._s(_vm.$t("DELETE")) + "\r\n      "
                     )
                   ]
                 )
@@ -6924,10 +6967,11 @@ let AnnotationDiscussionInput = {
     edit: async function () {
       //throw new Error('@TODO AnnotationDiscussionInput.comment()')
       let data = {
+        commentID: this.comment.id,
         note: this.note
       }
       
-      let result = await this.lib.AxiosHelper.post('/client/AnnotationComment/add', data)
+      let result = await this.lib.AxiosHelper.post('/client/AnnotationComment/update', data)
       
       if (typeof(result.id) !== 'number') {
         throw new Error('Add failed')
@@ -6937,6 +6981,7 @@ let AnnotationDiscussionInput = {
       this.comment.note = this.note
       //this.$emit('edit', this.comment)
       this.AnnotationDiscussionList.onInputEdit(this.comment)
+      this.reset()
     },
     reset () {
       this.note = ''
@@ -7105,7 +7150,7 @@ let AnnotationComment = {
     onDelete: async function () {
       if (window.confirm(this.$t('Are you sure to delete this comment?'))) {
         let data = {
-          commentID: this.comment.id
+          id: this.comment.id
         }
         
         await this.lib.AxiosHelper.get('/client/AnnotationComment/destroy', data)
@@ -7397,16 +7442,20 @@ let AnnotationDiscussionList = {
     },
     onCommentDelete (i) {
       this.comments.splice(i, 1)
+      this.annotation.__meta__.comments_count--
     },
     onInputAdd (comment) {
       this.comments.push(comment)
       this.scrollToBottom()
+      this.annotation.__meta__.comments_count++
     },
     onInputEdit (comment) {
       setTimeout(() => {
-        this.list.find(`[data-comment-id="${comment.id}"]`)[0].scrollIntoView({
+        let element = this.list.find(`[data-comment-id="${comment.id}"]`)
+        element[0].scrollIntoView({
           behavior: 'smooth'
         })
+        element.transition('glow')
         
         setTimeout(() => {
           this.loadLock = false

@@ -167,7 +167,8 @@ class WebpageUserBaseController {
     }
     
     let instance = await this.model.find(id)
-    if (instance.user_id !== user.id) {
+    if (instance === null 
+            || instance.user_id !== user.id) {
       throw new HttpException('You are not owner of it.')
     }
     

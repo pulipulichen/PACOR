@@ -1,4 +1,5 @@
 'use strict'
+const WebpageUserBaseController = use('App/Controllers/Http/Client/WebpageUserBaseController')
 
 const Annotation = use('App/Controllers/Http/Client/Annotation')
 
@@ -12,7 +13,7 @@ const Config = use('Config')
 
 //const { HttpException } = use('@adonisjs/generic-exceptions') 
 
-class AnnotationComment extends Annotation {
+class AnnotationComment extends WebpageUserBaseController {
   
   async init({request, webpage, user}) {
     const options = request.all()

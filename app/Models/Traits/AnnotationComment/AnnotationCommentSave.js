@@ -53,22 +53,14 @@ class AnnotationCommentSave {
     
     Model.updateFromJSON = async function (webpage, user, data) {
       let {
-        annotationID,
+        //annotationID,
         commentID,
         note
       } = data
       
-      if (!annotationID || !note) {
-        throw new Error('Annotation ID and note are required.')
+      if (!commentID || !note) {
+        throw new Error('Comment ID and note are required.')
         return null
-      }
-      
-      // --------------------
-      // 檢查權限：是否是在同一個webpage
-      
-      let annotation = await AnnotationModel.find(annotationID)
-      if (annotation.webpage_id !== webpage.primaryKeyValue) {
-        throw new HttpException('Forbidden', 403)
       }
       
       let comment = await AnnotationCommentModel.find(commentID)
@@ -76,8 +68,16 @@ class AnnotationCommentSave {
         throw new HttpException('Forbidden', 403)
       }
       
+      // --------------------
+      // 檢查權限：是否是在同一個webpage
+      
+      let annotation = await comment.annotation().fetch()
+      if (annotation.webpage_id !== webpage.primaryKeyValue) {
+        throw new HttpException('Forbidden', 403)
+      }
+      
       // -----------------------
-      // 真的建立
+      // 真的修改
       
       comment.note = note
       

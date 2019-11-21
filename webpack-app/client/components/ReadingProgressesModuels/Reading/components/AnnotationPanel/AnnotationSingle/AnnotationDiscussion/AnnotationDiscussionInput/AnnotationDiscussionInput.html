@@ -1,17 +1,30 @@
 <div class="AnnotationDiscussionInput ui form">
   <div class="right-column">
-    <button v-if="!isEditMode"
-            type="button"
-            class="ui mini button"
-            v-on:click="create">
+    <template v-if="!isEditMode">
+      <button type="button"
+              class="ui mini button"
+              v-on:click="create">
         {{ $t('COMMENT') }} 
-    </button>
-    <button v-if="isEditMode"
-            type="button"
-            class="ui mini button"
-            v-on:click="edit">
-        {{ $t('EDIT') }} 
-    </button>
+      </button>
+    </template>
+    <template v-else>
+      <span>
+
+        <button type="button"
+                class="ui mini button"
+                v-on:click="edit">
+          {{ $t('EDIT') }} 
+        </button>
+      </span>
+      <span>
+        <button type="button"
+                class="ui icon mini button"
+                v-on:click="reset">
+          <i class="close icon"></i>
+        </button>
+      </span>
+    </template>
+      
   </div>
   
   <div class="left-column">

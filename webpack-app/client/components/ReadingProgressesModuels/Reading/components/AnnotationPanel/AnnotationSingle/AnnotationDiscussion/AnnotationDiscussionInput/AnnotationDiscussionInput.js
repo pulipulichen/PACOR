@@ -81,10 +81,11 @@ let AnnotationDiscussionInput = {
     edit: async function () {
       //throw new Error('@TODO AnnotationDiscussionInput.comment()')
       let data = {
+        commentID: this.comment.id,
         note: this.note
       }
       
-      let result = await this.lib.AxiosHelper.post('/client/AnnotationComment/add', data)
+      let result = await this.lib.AxiosHelper.post('/client/AnnotationComment/update', data)
       
       if (typeof(result.id) !== 'number') {
         throw new Error('Add failed')
@@ -94,6 +95,7 @@ let AnnotationDiscussionInput = {
       this.comment.note = this.note
       //this.$emit('edit', this.comment)
       this.AnnotationDiscussionList.onInputEdit(this.comment)
+      this.reset()
     },
     reset () {
       this.note = ''

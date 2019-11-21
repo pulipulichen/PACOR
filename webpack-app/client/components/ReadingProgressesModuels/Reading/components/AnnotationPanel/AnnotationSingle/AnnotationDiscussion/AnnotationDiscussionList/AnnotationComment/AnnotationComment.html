@@ -21,11 +21,17 @@
       v-bind:showLabel="false">
     </annotation-item-interactive>
     
-    <div v-if="comment.user_id === status.userID">
+    <div v-if="comment.user_id === status.userID"
+         class="control-buttons">
       <button type="button"
               class="ui mini button"
               v-on:click="$emit('edit')">
         {{ $t('EDIT') }}
+      </button>
+      <button type="button"
+              class="ui mini button"
+              v-on:click="onDelete">
+        {{ $t('DELETE') }}
       </button>
     </div>
   </div>
