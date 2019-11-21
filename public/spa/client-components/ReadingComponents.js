@@ -547,7 +547,7 @@ exports.push([module.i, ".meta[data-v-0404edca] {\n  float: right;\n  user-selec
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationDiscussionList[data-v-0b8b8b8a] {\n  overflow-y: auto;\n  border-radius: 0.3em;\n  border: 1px solid #CCC;\n}\n.no-more[data-v-0b8b8b8a] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList.little-comments[data-v-0b8b8b8a] {\n    height: auto !important;\n    max-height: auto !important;\n}\n}\n", "",{"version":3,"sources":["AnnotationDiscussionList.less?vue&type=style&index=0&id=0b8b8b8a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,oBAAoB;EACpB,sBAAsB;AACxB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,iBAAiB;EACjB,eAAe;AACjB;AACA;AACA;IACI,uBAAuB;IACvB,2BAA2B;AAC/B;AACA","file":"AnnotationDiscussionList.less?vue&type=style&index=0&id=0b8b8b8a&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionList[data-v-0b8b8b8a] {\n  overflow-y: auto;\n  border-radius: 0.3em;\n  border: 1px solid #CCC;\n}\n.no-more[data-v-0b8b8b8a] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList.little-comments[data-v-0b8b8b8a] {\n    height: auto !important;\n    max-height: auto !important;\n}\n}\n"]}]);
+exports.push([module.i, ".AnnotationDiscussionList[data-v-0b8b8b8a] {\n  overflow-y: auto;\n  border-radius: 0.3em;\n  border: 1px solid #CCC;\n  border-width: 1px 0;\n}\n.no-more[data-v-0b8b8b8a] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList.little-comments[data-v-0b8b8b8a] {\n    height: auto !important;\n    max-height: auto !important;\n}\n}\n", "",{"version":3,"sources":["AnnotationDiscussionList.less?vue&type=style&index=0&id=0b8b8b8a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,oBAAoB;EACpB,sBAAsB;EACtB,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,iBAAiB;EACjB,eAAe;AACjB;AACA;AACA;IACI,uBAAuB;IACvB,2BAA2B;AAC/B;AACA","file":"AnnotationDiscussionList.less?vue&type=style&index=0&id=0b8b8b8a&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionList[data-v-0b8b8b8a] {\n  overflow-y: auto;\n  border-radius: 0.3em;\n  border: 1px solid #CCC;\n  border-width: 1px 0;\n}\n.no-more[data-v-0b8b8b8a] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList.little-comments[data-v-0b8b8b8a] {\n    height: auto !important;\n    max-height: auto !important;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -1713,7 +1713,7 @@ var render = function() {
             {
               staticClass: "ui mini button",
               attrs: { type: "button" },
-              on: { click: _vm.add }
+              on: { click: _vm.create }
             },
             [_vm._v("\r\n        " + _vm._s(_vm.$t("COMMENT")) + " \r\n    ")]
           )
@@ -1793,7 +1793,13 @@ var render = function() {
       { staticClass: "meta text-container ui basic right labeled button" },
       [
         _c("span", { staticClass: "display-time" }, [
-          _vm._v("\r\n      " + _vm._s(_vm.displayTime) + "\r\n    ")
+          _vm._v(
+            "\r\n      #" +
+              _vm._s(_vm.comment.id) +
+              "\r\n      \r\n      " +
+              _vm._s(_vm.displayTime) +
+              "\r\n    "
+          )
         ]),
         _vm._v(" "),
         _vm.comment.user_id !== _vm.status.userID
@@ -5620,7 +5626,8 @@ let List = {
     query () {
       let query = {
         withCount: true,
-        page: this.page,
+        //page: this.page,
+        page: 0,
         excludeIDList: this.annotationsIDList
       }
       
@@ -5877,7 +5884,8 @@ let List = {
     query () {
       let query = {
         withCount: true,
-        page: this.page,
+        //page: this.page,
+        page: 0,
         excludeIDList: this.annotationsIDList
       }
       
@@ -6871,22 +6879,30 @@ let AnnotationDiscussionInput = {
     focus () {
       this.$refs.input.focus()
     },
-    add: async function () {
+    create: async function () {
       //throw new Error('@TODO AnnotationDiscussionInput.comment()')
       let data = {
+        annotationID: this.annotation.id,
         note: this.note
       }
       
-      let id = await this.lib.AxiosHelper.post('/client/AnnotationComment/add', data)
+      let result = await this.lib.AxiosHelper.post('/client/AnnotationComment/create', data)
       
-      if (typeof(id) !== 'number') {
+      if (typeof(result.id) !== 'number') {
         throw new Error('Add failed')
         return null
       }
       
       let comment = {
-        id: id,
-        note: this.note
+        id: result.id,
+        note: this.note,
+        user_id: this.status.userID,
+        user: {
+          username: this.status.username,
+          display_name: this.status.displayName,
+          avatar_url: this.status.avatar
+        },
+        //updated_at_unixms: (new Date()).getTime()
       }
       //this.$emit('add', comment)
       this.AnnotationDiscussionList.onInputAdd(comment)
@@ -6898,9 +6914,9 @@ let AnnotationDiscussionInput = {
         note: this.note
       }
       
-      let id = await this.lib.AxiosHelper.post('/client/AnnotationComment/add', data)
+      let result = await this.lib.AxiosHelper.post('/client/AnnotationComment/add', data)
       
-      if (typeof(id) !== 'number') {
+      if (typeof(result.id) !== 'number') {
         throw new Error('Add failed')
         return null
       }
@@ -6908,6 +6924,10 @@ let AnnotationDiscussionInput = {
       this.comment.note = this.note
       //this.$emit('edit', this.comment)
       this.AnnotationDiscussionList.onInputEdit(this.comment)
+    },
+    reset () {
+      this.note = ''
+      this.comment = null
     }
   } // methods
 }
@@ -7055,6 +7075,9 @@ let AnnotationComment = {
       }
     },
     displayTime () {
+      if (typeof(this.comment.updated_at_unixms) !== 'number') {
+        this.comment.updated_at_unixms = (new Date()).getTime()
+      }
       return this.lib.DayJSHelper.fromNow(this.comment.updated_at_unixms)
     },
     note () {
@@ -7218,7 +7241,9 @@ let AnnotationDiscussionList = {
       noMore: false,
       page: 0,
       afterTime: null,
-      loadLock: false
+      loadLock: false,
+      
+      list: null
     }
   },
   components: {
@@ -7284,15 +7309,18 @@ let AnnotationDiscussionList = {
       //console.log('@TODO AnnotationDiscussionList.initComments()')
       this.scrollToBottom()
       
-      this.loadLock = false
     },
     scrollToBottom () {
       setTimeout(() => {
-        let list = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.list)
-        let lastComment = list.children('.AnnotationComment:last')
+        this.list = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.list)
+        let lastComment = this.list.children('.AnnotationComment:last')
         lastComment[0].scrollIntoView({
           behavior: 'smooth'
         })
+        
+        setTimeout(() => {
+          this.loadLock = false
+        }, 500)
         //window.list = list
         //list.scrollTop = list.scrollHeight
         
@@ -7304,7 +7332,10 @@ let AnnotationDiscussionList = {
       }
       this.loadLock = true
       
-      this.page++
+      // 先記好最上面一個
+      let firstComment = this.list.children('.AnnotationComment:first')
+      
+      //this.page++
       let data = {
         annotationID: this.annotation.id,
         page: this.page,
@@ -7322,18 +7353,31 @@ let AnnotationDiscussionList = {
       this.comments = result.concat(this.comments)
       this.commentCount = this.commentCount - result.length
       
-      this.loadLock = false
+      setTimeout(() => {
+        firstComment[0].scrollIntoView()
+        
+        setTimeout(() => {
+          this.loadLock = false
+        }, 500)
+      }, 100)
     },
     autoLoadNextPage: async function () {
       throw new Error('autoLoadNextPage')
     },
     scrollList: function (event) {
+      if (this.loadLock === true) {
+        event.preventDefault()
+        event.stopPropagation()
+        //console.log('prevent default')
+        return null
+      }
+      
       if (this.noMore === true) {
         return false
       }
       let element = event.target
       //console.log('這邊要做成捲動到0的時候才顯示，有辦法嗎？')
-      if (element.scrollTop === 0) {
+      if (element.scrollTop < 50) {
         //console.log('scrolled');
         this.loadPrevPage()
       }
@@ -7342,7 +7386,8 @@ let AnnotationDiscussionList = {
       this.comments.splice(i, 1)
     },
     onInputAdd (comment) {
-      this.comments.unshift(comment)
+      this.comments.push(comment)
+      this.scrollToBottom()
     },
     onInputEdit (comment) {
       throw new Error('他應該會自己更新吧？')

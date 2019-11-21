@@ -3240,6 +3240,11 @@ let AnnotationInteractive = {
     , 'annotation', 'size', 'showLabel'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
+    if (!this.annotation.__meta__) {
+      this.annotation.__meta__ = {}
+    }
+    
     return {
     }
   },
@@ -3289,6 +3294,9 @@ let AnnotationInteractive = {
               && this.annotation.__meta__
               && typeof(this.annotation.__meta__.likes_count) !== 'undefined') {
         return parseInt(this.annotation.__meta__.likes_count, 10)
+      }
+      else {
+        return 0
       }
     },
     comments () {

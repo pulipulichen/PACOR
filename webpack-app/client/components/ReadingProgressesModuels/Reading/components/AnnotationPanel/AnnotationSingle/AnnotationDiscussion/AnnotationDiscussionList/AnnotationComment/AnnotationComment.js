@@ -20,6 +20,9 @@ let AnnotationComment = {
       }
     },
     displayTime () {
+      if (typeof(this.comment.updated_at_unixms) !== 'number') {
+        this.comment.updated_at_unixms = (new Date()).getTime()
+      }
       return this.lib.DayJSHelper.fromNow(this.comment.updated_at_unixms)
     },
     note () {

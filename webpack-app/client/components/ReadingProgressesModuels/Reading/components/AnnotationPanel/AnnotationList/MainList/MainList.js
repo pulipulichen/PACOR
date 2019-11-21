@@ -28,7 +28,8 @@ let List = {
     query () {
       let query = {
         withCount: true,
-        page: this.page,
+        //page: this.page,
+        page: 0,
         excludeIDList: this.annotationsIDList
       }
       

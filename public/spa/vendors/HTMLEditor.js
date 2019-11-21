@@ -202,6 +202,9 @@ let HTMLEditor = {
       if (this.editable) {
         return 'editable'
       }
+      else {
+        return 'secondary'
+      }
     },
     computedStyle () {
       if (this.editable === false) {

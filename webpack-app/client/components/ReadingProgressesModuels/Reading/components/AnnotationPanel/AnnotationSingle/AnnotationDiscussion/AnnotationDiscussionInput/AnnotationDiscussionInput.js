@@ -49,22 +49,30 @@ let AnnotationDiscussionInput = {
     focus () {
       this.$refs.input.focus()
     },
-    add: async function () {
+    create: async function () {
       //throw new Error('@TODO AnnotationDiscussionInput.comment()')
       let data = {
+        annotationID: this.annotation.id,
         note: this.note
       }
       
-      let id = await this.lib.AxiosHelper.post('/client/AnnotationComment/add', data)
+      let result = await this.lib.AxiosHelper.post('/client/AnnotationComment/create', data)
       
-      if (typeof(id) !== 'number') {
+      if (typeof(result.id) !== 'number') {
         throw new Error('Add failed')
         return null
       }
       
       let comment = {
-        id: id,
-        note: this.note
+        id: result.id,
+        note: this.note,
+        user_id: this.status.userID,
+        user: {
+          username: this.status.username,
+          display_name: this.status.displayName,
+          avatar_url: this.status.avatar
+        },
+        //updated_at_unixms: (new Date()).getTime()
       }
       //this.$emit('add', comment)
       this.AnnotationDiscussionList.onInputAdd(comment)
@@ -76,9 +84,9 @@ let AnnotationDiscussionInput = {
         note: this.note
       }
       
-      let id = await this.lib.AxiosHelper.post('/client/AnnotationComment/add', data)
+      let result = await this.lib.AxiosHelper.post('/client/AnnotationComment/add', data)
       
-      if (typeof(id) !== 'number') {
+      if (typeof(result.id) !== 'number') {
         throw new Error('Add failed')
         return null
       }
@@ -86,6 +94,10 @@ let AnnotationDiscussionInput = {
       this.comment.note = this.note
       //this.$emit('edit', this.comment)
       this.AnnotationDiscussionList.onInputEdit(this.comment)
+    },
+    reset () {
+      this.note = ''
+      this.comment = null
     }
   } // methods
 }

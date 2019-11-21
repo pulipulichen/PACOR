@@ -356,6 +356,10 @@ let CollaborativeReading = {
     },
     _testAnnotationSingleManyComments () {
       setTimeout(() => {
+        if (jquery__WEBPACK_IMPORTED_MODULE_1___default()('.others-Clarified:first').length === 0) {
+          this._testAnnotationSingleManyComments()
+          return
+        }
         jquery__WEBPACK_IMPORTED_MODULE_1___default()('.others-Clarified:first').click()
         
         setTimeout(() => {

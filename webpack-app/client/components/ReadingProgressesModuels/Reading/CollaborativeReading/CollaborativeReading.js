@@ -62,6 +62,10 @@ let CollaborativeReading = {
     },
     _testAnnotationSingleManyComments () {
       setTimeout(() => {
+        if ($('.others-Clarified:first').length === 0) {
+          this._testAnnotationSingleManyComments()
+          return
+        }
         $('.others-Clarified:first').click()
         
         setTimeout(() => {

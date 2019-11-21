@@ -36,6 +36,7 @@ class AnnotationCommentSave {
     Model.findWithPage = async function (webpage, user, options = {}) {
       let {
         annotationID,
+        //excludeIDList
         //page,
         //afterTime,
       } = options
@@ -59,16 +60,19 @@ class AnnotationCommentSave {
               .query()
               .where('annotation_id', annotationID)
               .where('deleted', false)
-              .with('user')
+              .with('user', (builder) => {
+                builder.setHidden(['preference', 'email', 'password', 'role', 'domain_id', 'updated_at', 'created_at'])
+              })
               .withCount('likes')
               .withCount('i_have_liked', (builder) => {
                 builder.where('user_id', user.primaryKeyValue)
               })
-              .orderBy('created_at', 'desc')
+              .orderBy('created_at_unixms', 'desc')
       
       // -----------------------------------
       
       _processPage(query, options)
+      _excludeList(query, options)
       
       // -----------------------------------
       
@@ -98,6 +102,16 @@ class AnnotationCommentSave {
         query.offset(itemsPerPage * page)
       }
     } // Model.findWithPage = async function (webpage, user, options = {}) {
+    
+    let _excludeList = function (query, options) {
+      let {
+        excludeIDList
+      } = options
+      
+      if (Array.isArray(excludeIDList)) {
+        query.whereNotIn('id', excludeIDList)
+      }
+    }
     
     Model.countComments = async function (webpage, user, annotationID) {
       

@@ -12,7 +12,9 @@ let AnnotationDiscussionList = {
       noMore: false,
       page: 0,
       afterTime: null,
-      loadLock: false
+      loadLock: false,
+      
+      list: null
     }
   },
   components: {
@@ -78,15 +80,18 @@ let AnnotationDiscussionList = {
       //console.log('@TODO AnnotationDiscussionList.initComments()')
       this.scrollToBottom()
       
-      this.loadLock = false
     },
     scrollToBottom () {
       setTimeout(() => {
-        let list = $(this.$refs.list)
-        let lastComment = list.children('.AnnotationComment:last')
+        this.list = $(this.$refs.list)
+        let lastComment = this.list.children('.AnnotationComment:last')
         lastComment[0].scrollIntoView({
           behavior: 'smooth'
         })
+        
+        setTimeout(() => {
+          this.loadLock = false
+        }, 500)
         //window.list = list
         //list.scrollTop = list.scrollHeight
         
@@ -98,7 +103,10 @@ let AnnotationDiscussionList = {
       }
       this.loadLock = true
       
-      this.page++
+      // 先記好最上面一個
+      let firstComment = this.list.children('.AnnotationComment:first')
+      
+      //this.page++
       let data = {
         annotationID: this.annotation.id,
         page: this.page,
@@ -116,18 +124,31 @@ let AnnotationDiscussionList = {
       this.comments = result.concat(this.comments)
       this.commentCount = this.commentCount - result.length
       
-      this.loadLock = false
+      setTimeout(() => {
+        firstComment[0].scrollIntoView()
+        
+        setTimeout(() => {
+          this.loadLock = false
+        }, 500)
+      }, 100)
     },
     autoLoadNextPage: async function () {
       throw new Error('autoLoadNextPage')
     },
     scrollList: function (event) {
+      if (this.loadLock === true) {
+        event.preventDefault()
+        event.stopPropagation()
+        //console.log('prevent default')
+        return null
+      }
+      
       if (this.noMore === true) {
         return false
       }
       let element = event.target
       //console.log('這邊要做成捲動到0的時候才顯示，有辦法嗎？')
-      if (element.scrollTop === 0) {
+      if (element.scrollTop < 50) {
         //console.log('scrolled');
         this.loadPrevPage()
       }
@@ -136,7 +157,8 @@ let AnnotationDiscussionList = {
       this.comments.splice(i, 1)
     },
     onInputAdd (comment) {
-      this.comments.unshift(comment)
+      this.comments.push(comment)
+      this.scrollToBottom()
     },
     onInputEdit (comment) {
       throw new Error('他應該會自己更新吧？')
