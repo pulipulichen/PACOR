@@ -366,10 +366,10 @@ let CollaborativeReading = {
           
           setTimeout(() => {
             //console.log($('.FilteredList .list .AnnotationItem:last .meta i').length)
-            //$('.FilteredList .list .AnnotationItem:last .meta i').click()
+            jquery__WEBPACK_IMPORTED_MODULE_1___default()('.FilteredList .list .AnnotationItem:last .meta i').click()
             
             // 測試搜尋
-            this.lib.AnnotationPanel.findKeyword('co')
+            //this.lib.AnnotationPanel.findKeyword('co')
             
           }, 1000)
         }, 300)

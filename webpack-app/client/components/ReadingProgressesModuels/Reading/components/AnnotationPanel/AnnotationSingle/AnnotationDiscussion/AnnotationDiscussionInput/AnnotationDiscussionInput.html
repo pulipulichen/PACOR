@@ -3,16 +3,17 @@
     <template v-if="!isEditMode">
       <button type="button"
               class="ui mini button"
-              v-on:click="create">
+              v-bind:class="{'disabled': !isEnableSubmit}"
+              v-on:click="submit">
         {{ $t('COMMENT') }} 
       </button>
     </template>
     <template v-else>
       <span>
-
         <button type="button"
                 class="ui mini button"
-                v-on:click="edit">
+                v-bind:class="{'disabled': !isEnableSubmit}"
+                v-on:click="submit">
           {{ $t('EDIT') }} 
         </button>
       </span>
@@ -38,7 +39,8 @@
   <div class="center-column ui field input-field">
       <input type="text"
              ref="input"
-             v-model="note" />
+             v-model="note"
+             v-on:keyup.enter="submit" />
   </div>
   </div>
 </div>

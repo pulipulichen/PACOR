@@ -72,10 +72,10 @@ let CollaborativeReading = {
           
           setTimeout(() => {
             //console.log($('.FilteredList .list .AnnotationItem:last .meta i').length)
-            //$('.FilteredList .list .AnnotationItem:last .meta i').click()
+            $('.FilteredList .list .AnnotationItem:last .meta i').click()
             
             // 測試搜尋
-            this.lib.AnnotationPanel.findKeyword('co')
+            //this.lib.AnnotationPanel.findKeyword('co')
             
           }, 1000)
         }, 300)

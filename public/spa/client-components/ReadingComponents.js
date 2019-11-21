@@ -603,7 +603,7 @@ exports.push([module.i, "img[data-v-087d9d5e] {\n  height: 2em;\n  width: auto;\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationSingle[data-v-758d13ca] {\n  overflow-y: auto;\n}\n.AnnotationSingle .annotation-panel-buttons[data-v-758d13ca] {\n  margin-top: -0.5em;\n}\n@media (max-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-758d13ca] {\n    border-top: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-758d13ca] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-758d13ca] {\n    border-left: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-758d13ca] {\n    overflow-y: auto;\n}\n}\n", "",{"version":3,"sources":["AnnotationSingle.less?vue&type=style&index=0&id=758d13ca&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;AACA;EACE,kBAAkB;AACpB;AACA;AACA;IACI,qCAAqC;AACzC;AACA;IACI,2BAA2B;AAC/B;AACA;AACA;AACA;IACI,sCAAsC;AAC1C;AACA;IACI,gBAAgB;AACpB;AACA","file":"AnnotationSingle.less?vue&type=style&index=0&id=758d13ca&lang=less&scoped=true&","sourcesContent":[".AnnotationSingle[data-v-758d13ca] {\n  overflow-y: auto;\n}\n.AnnotationSingle .annotation-panel-buttons[data-v-758d13ca] {\n  margin-top: -0.5em;\n}\n@media (max-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-758d13ca] {\n    border-top: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-758d13ca] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-758d13ca] {\n    border-left: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-758d13ca] {\n    overflow-y: auto;\n}\n}\n"]}]);
+exports.push([module.i, ".AnnotationSingle[data-v-758d13ca] {\n  overflow-y: auto;\n}\n.AnnotationSingle .annotation-panel-buttons[data-v-758d13ca] {\n  margin-top: -0.5em !important;\n}\n@media (max-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-758d13ca] {\n    border-top: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-758d13ca] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-758d13ca] {\n    border-left: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-758d13ca] {\n    overflow-y: auto;\n}\n}\n", "",{"version":3,"sources":["AnnotationSingle.less?vue&type=style&index=0&id=758d13ca&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;AACA;EACE,6BAA6B;AAC/B;AACA;AACA;IACI,qCAAqC;AACzC;AACA;IACI,2BAA2B;AAC/B;AACA;AACA;AACA;IACI,sCAAsC;AAC1C;AACA;IACI,gBAAgB;AACpB;AACA","file":"AnnotationSingle.less?vue&type=style&index=0&id=758d13ca&lang=less&scoped=true&","sourcesContent":[".AnnotationSingle[data-v-758d13ca] {\n  overflow-y: auto;\n}\n.AnnotationSingle .annotation-panel-buttons[data-v-758d13ca] {\n  margin-top: -0.5em !important;\n}\n@media (max-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-758d13ca] {\n    border-top: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-758d13ca] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-758d13ca] {\n    border-left: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-758d13ca] {\n    overflow-y: auto;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -1660,7 +1660,8 @@ var render = function() {
           status: _vm.status,
           lib: _vm.lib,
           annotation: _vm.annotation,
-          heightPX: _vm.listHeightPX
+          heightPX: _vm.listHeightPX,
+          hook: _vm.hook
         },
         on: { comment: _vm.focusComment, like: _vm.like, unlike: _vm.unlike }
       }),
@@ -1716,8 +1717,9 @@ var render = function() {
                 "button",
                 {
                   staticClass: "ui mini button",
+                  class: { disabled: !_vm.isEnableSubmit },
                   attrs: { type: "button" },
-                  on: { click: _vm.create }
+                  on: { click: _vm.submit }
                 },
                 [
                   _vm._v(
@@ -1732,8 +1734,9 @@ var render = function() {
                   "button",
                   {
                     staticClass: "ui mini button",
+                    class: { disabled: !_vm.isEnableSubmit },
                     attrs: { type: "button" },
-                    on: { click: _vm.edit }
+                    on: { click: _vm.submit }
                   },
                   [
                     _vm._v(
@@ -1783,6 +1786,15 @@ var render = function() {
         attrs: { type: "text" },
         domProps: { value: _vm.note },
         on: {
+          keyup: function($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            return _vm.submit($event)
+          },
           input: function($event) {
             if ($event.target.composing) {
               return
@@ -2257,6 +2269,7 @@ var render = function() {
               config: _vm.config,
               status: _vm.status,
               lib: _vm.lib,
+              hook: _vm.hook,
               panelData: _vm.panelData,
               annotation: _vm.annotation,
               heightPX: _vm.componentHeightPX
@@ -2307,7 +2320,8 @@ var render = function() {
                   status: _vm.status,
                   lib: _vm.lib,
                   annotation: _vm.annotation,
-                  heightPX: _vm.discussionHeightPX
+                  heightPX: _vm.discussionHeightPX,
+                  hook: _vm.hook
                 }
               })
             ],
@@ -6787,7 +6801,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let AnnotationDiscussion = {
   props: ['lib', 'status', 'config'
-    , 'annotation', 'heightPX'],
+    , 'annotation', 'heightPX', 'hook'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -6962,7 +6976,8 @@ let AnnotationDiscussionInput = {
     }
     return {
       note: note,
-      comment: null
+      comment: null,
+      submitLock: false
     }
   },
 //  components: {
@@ -6983,6 +6998,10 @@ let AnnotationDiscussionInput = {
         return this.status.username
       }
     },
+    isEnableSubmit () {
+      return (this.submitLock === false 
+              && this.note.trim() !== '')
+    }
   },
   watch: {
     'comment' (comment) {
@@ -7001,7 +7020,25 @@ let AnnotationDiscussionInput = {
     focus () {
       this.$refs.input.focus()
     },
+    submit () {
+      if (this.isEnableSubmit === false) {
+        return null
+      }
+      
+      if (this.submitLock === true) {
+        return null
+      }
+      this.submitLock = true
+      
+      if (!this.isEditMode) {
+        this.create()
+      }
+      else {
+        this.edit()
+      }
+    },
     create: async function () {
+        
       //throw new Error('@TODO AnnotationDiscussionInput.comment()')
       let data = {
         annotationID: this.annotation.id,
@@ -7052,6 +7089,7 @@ let AnnotationDiscussionInput = {
     reset () {
       this.note = ''
       this.comment = null
+      this.submitLock = false
     }
   } // methods
 }
@@ -7356,7 +7394,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let AnnotationDiscussionList = {
   props: ['lib', 'status', 'config'
-    , 'heightPX', 'annotation'],
+    , 'heightPX', 'annotation', 'hook'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -7509,9 +7547,11 @@ let AnnotationDiscussionList = {
     onCommentDelete (i) {
       this.comments.splice(i, 1)
       this.annotation.__meta__.comments_count--
+      this.annotation.__meta__.i_have_commented_count--
     },
     onInputAdd (comment) {
       this.comments.push(comment)
+      this.noMore = false
       this.scrollToBottom()
       this.annotation.__meta__.comments_count++
     },
@@ -7541,6 +7581,10 @@ let AnnotationDiscussionList = {
       }
       
       await this.lib.AxiosHelper.get('/client/AnnotationRate/likeComment', data)
+      
+      if (typeof(this.hook.commentLike) === 'function') {
+        this.hook.commentLike()
+      }
     }
   } // methods
 }
@@ -8132,6 +8176,9 @@ let AnnotationEditorModules = {
   data() {
     //this.$i18n.locale = this.config.locale
     return {
+      hook: {
+        commentLike: null
+      }
     }
   },
   components: {
@@ -8198,7 +8245,7 @@ let AnnotationEditorModules = {
     },
     computedContainerStyle () {
       return {
-        'max-height': this.heightPX-10 + `px`
+        'max-height': (this.heightPX - 10) + `px`
       }
     },
     computedEditorStyle () {
@@ -8218,6 +8265,7 @@ let AnnotationEditorModules = {
   },
   watch: {
     annotation () {
+      this.hook = {}
       this.initHover()
       this.scrollToAnnotation()
     }
@@ -8310,7 +8358,7 @@ let AnnotationEditorModules = {
     },
     focusComment: function () {
       this.$refs.AnnotationDisscussion.focusComment()
-    }
+    },
   } // methods
 }
 
@@ -9760,6 +9808,10 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     //console.log(question, answer)
+    
+    this.hook.commentLike = () => {
+      throw new Error('ok?')
+    }
 
     return {
       question: question,
@@ -10867,7 +10919,7 @@ __webpack_require__.r(__webpack_exports__);
 //    , 'rangy', 'editable', 'sectionsData']
 
 /* harmony default export */ __webpack_exports__["default"] = (['lib', 'status', 'config'
-    , 'panelData', 'annotation', 'heightPX']);
+    , 'panelData', 'annotation', 'heightPX', 'hook']);
 
 /***/ }),
 

@@ -22,9 +22,10 @@ class AnnotationCommentSave {
       })
       
       let itemsPerPage = Config.get('view.itemsPerPage')
-      let commentCount = comments.length
-      if (commentCount === itemsPerPage) {
+      let commentCount = 0
+      if (comments.length === itemsPerPage) {
         commentCount = await this.countComments(webpage, user, annotationID)
+        commentCount = commentCount - itemsPerPage
       }
       
       return {

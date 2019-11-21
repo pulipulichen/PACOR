@@ -3325,8 +3325,18 @@ let AnnotationInteractive = {
               || this.annotation.__meta__.i_have_liked_count === '1')
     },
     i_have_commented () {
-      return (this.annotation.__meta__.i_have_commented_count === 1
-              || this.annotation.__meta__.i_have_commented_count === '1')
+      let count = this.annotation.__meta__.i_have_commented_count
+      if (typeof(count) === 'string'
+              && isNaN(count) === false) {
+        count = parseInt(count, 10)
+      }
+      
+      if (typeof(count) === 'number') {
+        return (count > 0)
+      }
+      else {
+        return false
+      }
     }
   },
 //  watch: {

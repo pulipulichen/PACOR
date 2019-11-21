@@ -30,6 +30,10 @@ export default (Editor) => {
     }
     
     //console.log(question, answer)
+    
+    this.hook.commentLike = () => {
+      throw new Error('ok?')
+    }
 
     return {
       question: question,

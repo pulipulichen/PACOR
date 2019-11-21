@@ -3,7 +3,7 @@ import $ from 'jquery'
 
 let AnnotationDiscussionList = {
   props: ['lib', 'status', 'config'
-    , 'heightPX', 'annotation'],
+    , 'heightPX', 'annotation', 'hook'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -156,9 +156,11 @@ let AnnotationDiscussionList = {
     onCommentDelete (i) {
       this.comments.splice(i, 1)
       this.annotation.__meta__.comments_count--
+      this.annotation.__meta__.i_have_commented_count--
     },
     onInputAdd (comment) {
       this.comments.push(comment)
+      this.noMore = false
       this.scrollToBottom()
       this.annotation.__meta__.comments_count++
     },
@@ -188,6 +190,10 @@ let AnnotationDiscussionList = {
       }
       
       await this.lib.AxiosHelper.get('/client/AnnotationRate/likeComment', data)
+      
+      if (typeof(this.hook.commentLike) === 'function') {
+        this.hook.commentLike()
+      }
     }
   } // methods
 }

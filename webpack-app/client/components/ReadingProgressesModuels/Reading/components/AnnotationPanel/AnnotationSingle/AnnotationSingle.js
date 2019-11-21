@@ -16,6 +16,9 @@ let AnnotationEditorModules = {
   data() {
     //this.$i18n.locale = this.config.locale
     return {
+      hook: {
+        commentLike: null
+      }
     }
   },
   components: {
@@ -82,7 +85,7 @@ let AnnotationEditorModules = {
     },
     computedContainerStyle () {
       return {
-        'max-height': this.heightPX-10 + `px`
+        'max-height': (this.heightPX - 10) + `px`
       }
     },
     computedEditorStyle () {
@@ -102,6 +105,7 @@ let AnnotationEditorModules = {
   },
   watch: {
     annotation () {
+      this.hook = {}
       this.initHover()
       this.scrollToAnnotation()
     }
@@ -194,7 +198,7 @@ let AnnotationEditorModules = {
     },
     focusComment: function () {
       this.$refs.AnnotationDisscussion.focusComment()
-    }
+    },
   } // methods
 }
 

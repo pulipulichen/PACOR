@@ -10,7 +10,8 @@ let AnnotationDiscussionInput = {
     }
     return {
       note: note,
-      comment: null
+      comment: null,
+      submitLock: false
     }
   },
 //  components: {
@@ -31,6 +32,10 @@ let AnnotationDiscussionInput = {
         return this.status.username
       }
     },
+    isEnableSubmit () {
+      return (this.submitLock === false 
+              && this.note.trim() !== '')
+    }
   },
   watch: {
     'comment' (comment) {
@@ -49,7 +54,25 @@ let AnnotationDiscussionInput = {
     focus () {
       this.$refs.input.focus()
     },
+    submit () {
+      if (this.isEnableSubmit === false) {
+        return null
+      }
+      
+      if (this.submitLock === true) {
+        return null
+      }
+      this.submitLock = true
+      
+      if (!this.isEditMode) {
+        this.create()
+      }
+      else {
+        this.edit()
+      }
+    },
     create: async function () {
+        
       //throw new Error('@TODO AnnotationDiscussionInput.comment()')
       let data = {
         annotationID: this.annotation.id,
@@ -100,6 +123,7 @@ let AnnotationDiscussionInput = {
     reset () {
       this.note = ''
       this.comment = null
+      this.submitLock = false
     }
   } // methods
 }

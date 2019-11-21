@@ -173,7 +173,7 @@ class AnnotationFind {
         let cacheKey = Cache.key(`Annotation.findByWebpageGroupPosition`, webpage, user, anchorPositions, withCount, pick)
 
         //console.log(cacheKey)
-        return await Cache.rememberWait([webpage, user, this], cacheKey, 2, async () => {
+        return await Cache.rememberWait([webpage, user, this], cacheKey, 0.5, async () => {
           let result = await doQuery()
           //await Cache.put(cacheKey, result, 2)
           return result
