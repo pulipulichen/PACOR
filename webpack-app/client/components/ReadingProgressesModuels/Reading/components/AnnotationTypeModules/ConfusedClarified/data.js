@@ -31,8 +31,8 @@ export default (Editor) => {
     
     //console.log(question, answer)
     
-    this.hook.commentLike = () => {
-      throw new Error('ok?')
+    this.hook.commentLike = (comment) => {
+      this.onCommentLike(comment)
     }
 
     return {

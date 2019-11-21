@@ -19,6 +19,11 @@ export default function (HTMLEditor) {
     }
 
     if (typeof (html) === 'string') {
+      if (html.startsWith('<') === false 
+              && html.endsWith('>') === false) {
+        html = `<p>${html}</p>`
+      }
+      
       this.editor.summernote('code', html)
     } else {
       this.editor.summernote('code')

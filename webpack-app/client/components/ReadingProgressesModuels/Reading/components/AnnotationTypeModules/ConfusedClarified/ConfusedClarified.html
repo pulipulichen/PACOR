@@ -62,6 +62,10 @@
 
     <div v-bind:class="computedButtonsClass">
       
+      <span>
+        {{ displayTime }}
+      </span>
+      
       <admin-badge 
         v-bind:status="status"
         v-bind:config="config">
@@ -110,8 +114,6 @@
       <!-- ======================================== -->
       
       <template v-else>
-        
-        [@TODO DisplayTime]
         
         <button type="button"
                 class="ui button"

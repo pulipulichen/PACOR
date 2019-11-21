@@ -92,6 +92,9 @@ let AnnotationEditorModules = {
       return {
         'max-height': this.heightPX-10 + `px`
       }
+    },
+    displayTime () {
+      return this.lib.DayJSHelper.fromNow(this.annotation.updated_at_unixms)
     }
 //    isAdding () {
 //      return (this.annotation

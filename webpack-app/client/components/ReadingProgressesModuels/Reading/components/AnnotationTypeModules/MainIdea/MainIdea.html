@@ -26,7 +26,9 @@
         v-bind:config="config">
       </admin-badge>
       
-      [@TODO DisplayTime]
+      <span class="display-time">
+        {{ displayTime }}
+      </span>
       
       <checkbox-toggle 
         v-if="annotationConfig.enableControlPermission"

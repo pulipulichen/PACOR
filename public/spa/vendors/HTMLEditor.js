@@ -393,6 +393,11 @@ __webpack_require__.r(__webpack_exports__);
     }
 
     if (typeof (html) === 'string') {
+      if (html.startsWith('<') === false 
+              && html.endsWith('>') === false) {
+        html = `<p>${html}</p>`
+      }
+      
       this.editor.summernote('code', html)
     } else {
       this.editor.summernote('code')

@@ -56,6 +56,11 @@
     <div class="ui one column grid annotation-panel-buttons"
          v-if="!isEditable">
       <div v-bind:class="computedButtonsClass">
+        
+        <span class="display-time">
+          {{ displayTime }}
+        </span>
+        
         <annotation-item-interactive
           v-bind:config="config"
           v-bind:status="status"

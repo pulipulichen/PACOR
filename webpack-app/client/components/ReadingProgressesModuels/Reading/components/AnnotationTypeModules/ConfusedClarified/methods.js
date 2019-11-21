@@ -192,5 +192,23 @@ export default (Editor) => {
       this.$emit('update')
     },
     
+    onCommentLike (comment) {
+      
+      //console.log(comment)
+      if (this.isEditable === false) {
+        return null
+      }
+      
+      let commentNote = comment.note
+      
+      if (this.answer !== '') {
+        if (!window.confirm(this.$t('Do you want to use this comment as your answer?'))) {
+          return null
+        }
+      }
+      
+      this.answer = commentNote
+      this.$refs.AnswerEditor.html(this.answer)
+    }
   } // methods
 }

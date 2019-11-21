@@ -192,7 +192,7 @@ let AnnotationDiscussionList = {
       await this.lib.AxiosHelper.get('/client/AnnotationRate/likeComment', data)
       
       if (typeof(this.hook.commentLike) === 'function') {
-        this.hook.commentLike()
+        this.hook.commentLike(comment)
       }
     }
   } // methods

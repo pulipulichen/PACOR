@@ -23,4 +23,8 @@ export default (Editor) => {
   Editor.computed.type = function () {
     return this.annotation.type
   }
+  
+  Editor.computed.displayTime = function () {
+    return this.lib.DayJSHelper.fromNow(this.annotation.updated_at_unixms)
+  }
 }
