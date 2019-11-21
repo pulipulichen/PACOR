@@ -11,7 +11,8 @@ let AnnotationDiscussionList = {
       commentCount: 0,
       noMore: false,
       page: 0,
-      afterTime: null
+      afterTime: null,
+      loadLock: false
     }
   },
   components: {
@@ -55,6 +56,11 @@ let AnnotationDiscussionList = {
   },
   methods: {
     initComments: async function () {
+      if (this.loadLock === true) {
+        return null
+      }
+      this.loadLock = true
+      
       let data = {
         annotationID: this.annotation.id
       }
@@ -71,6 +77,8 @@ let AnnotationDiscussionList = {
       
       //console.log('@TODO AnnotationDiscussionList.initComments()')
       this.scrollToBottom()
+      
+      this.loadLock = false
     },
     scrollToBottom () {
       setTimeout(() => {
@@ -85,6 +93,11 @@ let AnnotationDiscussionList = {
       }, 100)
     },
     loadPrevPage: async function () {
+      if (this.loadLock === true) {
+        return null
+      }
+      this.loadLock = true
+      
       this.page++
       let data = {
         annotationID: this.annotation.id,
@@ -92,7 +105,8 @@ let AnnotationDiscussionList = {
         excludeIDList: this.commantIDList
       }
       
-      let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/next')
+      
+      let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/next', data)
       if (Array.isArray(result) === false
               || result.length === 0) {
         this.noMore = true
@@ -101,6 +115,8 @@ let AnnotationDiscussionList = {
       
       this.comments = result.concat(this.comments)
       this.commentCount = this.commentCount - result.length
+      
+      this.loadLock = false
     },
     autoLoadNextPage: async function () {
       throw new Error('autoLoadNextPage')
