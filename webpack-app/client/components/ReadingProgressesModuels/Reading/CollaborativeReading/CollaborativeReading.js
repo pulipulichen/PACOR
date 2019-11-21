@@ -19,7 +19,7 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    this._testAnnotationSingleManyComments()
+    //this._testAnnotationSingleManyComments()
   },
   methods: {
     initComponentToLib () {
