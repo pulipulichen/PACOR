@@ -60,7 +60,9 @@
           v-bind:status="status"
           v-bind:lib="lib"
 
-          v-bind:annotation="annotation">
+          v-bind:annotation="annotation"
+          v-on:like="onAnnotationLike"
+          v-on:unlike="onAnnotationLike">
         </annotation-item-interactive>
       </div>
     </div>

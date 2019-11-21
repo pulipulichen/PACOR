@@ -1,9 +1,8 @@
-<div class="ui segment AnnotationComment">
+<div class="ui segment AnnotationComment"
+     v-bind:data-comment-id="comment.id">
   <div class="meta text-container ui basic right labeled button">
     
     <span class="display-time">
-      #{{ comment.id }}
-      
       {{ displayTime }}
     </span>
 

@@ -14,7 +14,7 @@ class AnnotationRateLike {
     Model.like = async function (webpage, user, data) {
       let {annotationID} = data
 
-      if (!annotationID ) {
+      if ( !annotationID ) {
         throw new Error('Annotation ID is required.')
         return null
       }

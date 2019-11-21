@@ -31,8 +31,8 @@
     v-bind:comment="comment"
     v-on:comment="$emit('comment', comment)"
     
-    v-on:like="$emit('like', comment)"
-    v-on:unlike="$emit('unlike', comment)"
+    v-on:like="onCommentLike(comment)"
+    v-on:unlike="onCommentLike(comment)"
     
     v-on:edit="onEdit(comment)"
     v-on:delete="onCommentDelete(i)">

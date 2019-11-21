@@ -1787,86 +1787,91 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui segment AnnotationComment" }, [
-    _c(
-      "div",
-      { staticClass: "meta text-container ui basic right labeled button" },
-      [
-        _c("span", { staticClass: "display-time" }, [
-          _vm._v(
-            "\r\n      #" +
-              _vm._s(_vm.comment.id) +
-              "\r\n      \r\n      " +
-              _vm._s(_vm.displayTime) +
-              "\r\n    "
-          )
+  return _c(
+    "div",
+    {
+      staticClass: "ui segment AnnotationComment",
+      attrs: { "data-comment-id": _vm.comment.id }
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "meta text-container ui basic right labeled button" },
+        [
+          _c("span", { staticClass: "display-time" }, [
+            _vm._v("\r\n      " + _vm._s(_vm.displayTime) + "\r\n    ")
+          ]),
+          _vm._v(" "),
+          _vm.comment.user_id !== _vm.status.userID
+            ? _c("annotation-item-interactive", {
+                attrs: {
+                  config: _vm.config,
+                  status: _vm.status,
+                  lib: _vm.lib,
+                  annotation: _vm.comment,
+                  size: "mini",
+                  showLabel: false
+                },
+                on: {
+                  like: function($event) {
+                    return _vm.$emit("like")
+                  },
+                  unlike: function($event) {
+                    return _vm.$emit("unlike")
+                  },
+                  comment: function($event) {
+                    return _vm.$emit("comment")
+                  }
+                }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.comment.user_id === _vm.status.userID
+            ? _c("div", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "ui mini button",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.$emit("edit")
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n        " + _vm._s(_vm.$t("EDIT")) + "\r\n      "
+                    )
+                  ]
+                )
+              ])
+            : _vm._e()
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "left column" }, [
+        _c("div", { staticClass: "user" }, [
+          _c("img", {
+            staticClass: "avatar",
+            attrs: { src: _vm.comment.user.avatar_url }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "username text-container" }, [
+            _vm._v("\r\n        " + _vm._s(_vm.username) + "\r\n      ")
+          ])
         ]),
         _vm._v(" "),
-        _vm.comment.user_id !== _vm.status.userID
-          ? _c("annotation-item-interactive", {
-              attrs: {
-                config: _vm.config,
-                status: _vm.status,
-                lib: _vm.lib,
-                annotation: _vm.comment,
-                size: "mini",
-                showLabel: false
-              },
-              on: {
-                like: function($event) {
-                  return _vm.$emit("like")
-                },
-                unlike: function($event) {
-                  return _vm.$emit("unlike")
-                },
-                comment: function($event) {
-                  return _vm.$emit("comment")
-                }
-              }
+        _vm.note
+          ? _c("div", {
+              staticClass: "note text-container",
+              domProps: { innerHTML: _vm._s(_vm.note) }
             })
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.comment.user_id === _vm.status.userID
-          ? _c("div", [
-              _c(
-                "button",
-                {
-                  staticClass: "ui mini button",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      return _vm.$emit("edit")
-                    }
-                  }
-                },
-                [_vm._v("\r\n        " + _vm._s(_vm.$t("EDIT")) + "\r\n      ")]
-              )
-            ])
           : _vm._e()
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "left column" }, [
-      _c("div", { staticClass: "user" }, [
-        _c("img", {
-          staticClass: "avatar",
-          attrs: { src: _vm.comment.user.avatar_url }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "username text-container" }, [
-          _vm._v("\r\n        " + _vm._s(_vm.username) + "\r\n      ")
-        ])
-      ]),
-      _vm._v(" "),
-      _vm.note
-        ? _c("div", {
-            staticClass: "note text-container",
-            domProps: { innerHTML: _vm._s(_vm.note) }
-          })
-        : _vm._e()
-    ])
-  ])
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1957,10 +1962,10 @@ var render = function() {
               return _vm.$emit("comment", comment)
             },
             like: function($event) {
-              return _vm.$emit("like", comment)
+              return _vm.onCommentLike(comment)
             },
             unlike: function($event) {
-              return _vm.$emit("unlike", comment)
+              return _vm.onCommentLike(comment)
             },
             edit: function($event) {
               return _vm.onEdit(comment)
@@ -2231,6 +2236,10 @@ var render = function() {
                           status: _vm.status,
                           lib: _vm.lib,
                           annotation: _vm.annotation
+                        },
+                        on: {
+                          like: _vm.onAnnotationLike,
+                          unlike: _vm.onAnnotationLike
                         }
                       })
                     ],
@@ -6866,10 +6875,10 @@ let AnnotationDiscussionInput = {
     'comment' (comment) {
       if (this.comment
             && typeof(this.comment.note) === 'string') {
-        note = this.comment.note
+        this.note = this.comment.note
       }
       else {
-        note = ''
+        this.note = ''
       }
     }
   },
@@ -7390,13 +7399,29 @@ let AnnotationDiscussionList = {
       this.scrollToBottom()
     },
     onInputEdit (comment) {
-      throw new Error('他應該會自己更新吧？')
+      setTimeout(() => {
+        this.list.find(`[data-comment-id="${comment.id}"]`)[0].scrollIntoView({
+          behavior: 'smooth'
+        })
+        
+        setTimeout(() => {
+          this.loadLock = false
+        }, 500)
+      }, 100)
+      //throw new Error('他應該會自己更新吧？')
     },
     onEdit (comment) {
       this.AnnotationDiscussionInput.comment = comment
     },
     focusInput () {
       this.AnnotationDiscussionInput.$refs.input.focus()
+    },
+    onCommentLike: async function (comment) {
+      let data = {
+        commentID: comment.id
+      }
+      
+      await this.lib.AxiosHelper.get('/client/AnnotationRate/likeComment', data)
     }
   } // methods
 }
@@ -8156,6 +8181,13 @@ let AnnotationEditorModules = {
         //return // 跟上層說關閉視窗
       }
     },
+    onAnnotationLike: async function () {
+      let data = {
+        annotationID: this.annotation.id
+      }
+      
+      await this.lib.AxiosHelper.get('/client/AnnotationRate/like', data)
+    }
   } // methods
 }
 

@@ -161,13 +161,29 @@ let AnnotationDiscussionList = {
       this.scrollToBottom()
     },
     onInputEdit (comment) {
-      throw new Error('他應該會自己更新吧？')
+      setTimeout(() => {
+        this.list.find(`[data-comment-id="${comment.id}"]`)[0].scrollIntoView({
+          behavior: 'smooth'
+        })
+        
+        setTimeout(() => {
+          this.loadLock = false
+        }, 500)
+      }, 100)
+      //throw new Error('他應該會自己更新吧？')
     },
     onEdit (comment) {
       this.AnnotationDiscussionInput.comment = comment
     },
     focusInput () {
       this.AnnotationDiscussionInput.$refs.input.focus()
+    },
+    onCommentLike: async function (comment) {
+      let data = {
+        commentID: comment.id
+      }
+      
+      await this.lib.AxiosHelper.get('/client/AnnotationRate/likeComment', data)
     }
   } // methods
 }

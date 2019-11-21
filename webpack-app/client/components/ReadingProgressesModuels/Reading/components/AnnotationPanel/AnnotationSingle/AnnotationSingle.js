@@ -184,6 +184,13 @@ let AnnotationEditorModules = {
         //return // 跟上層說關閉視窗
       }
     },
+    onAnnotationLike: async function () {
+      let data = {
+        annotationID: this.annotation.id
+      }
+      
+      await this.lib.AxiosHelper.get('/client/AnnotationRate/like', data)
+    }
   } // methods
 }
 

@@ -36,10 +36,10 @@ let AnnotationDiscussionInput = {
     'comment' (comment) {
       if (this.comment
             && typeof(this.comment.note) === 'string') {
-        note = this.comment.note
+        this.note = this.comment.note
       }
       else {
-        note = ''
+        this.note = ''
       }
     }
   },
