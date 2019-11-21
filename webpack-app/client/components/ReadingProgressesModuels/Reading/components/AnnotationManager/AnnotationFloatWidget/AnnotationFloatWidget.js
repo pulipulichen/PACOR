@@ -190,6 +190,11 @@ let AnnotationFloatWidget = {
       this.reset()
     },
     
+    viewAnnotationComment: function (annotation) {
+      this.lib.AnnotationPanel.setAnnotationComment(annotation)
+      this.reset()
+    },
+    
     findUser: function (user) {
       this.lib.AnnotationPanel.findUser(user)
       this.list()

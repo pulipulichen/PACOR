@@ -843,7 +843,8 @@ var render = function() {
                   findAnnotation: _vm.viewAnnotation,
                   findUser: _vm.findUser,
                   findType: _vm.findType
-                }
+                },
+                on: { comment: _vm.viewAnnotationComment }
               }),
               _vm._v(" "),
               _c("div", { staticClass: "ui column grid" }, [
@@ -1593,6 +1594,7 @@ var render = function() {
           _vm.panelData.annotation
             ? [
                 _c("annotation-single", {
+                  ref: "AnnotationSingle",
                   attrs: {
                     config: _vm.config,
                     status: _vm.status,
@@ -4591,6 +4593,11 @@ let AnnotationFloatWidget = {
       //(annotation) => {$emit('findAnnotation', annotation)}
       
       this.lib.AnnotationPanel.setAnnotation(annotation)
+      this.reset()
+    },
+    
+    viewAnnotationComment: function (annotation) {
+      this.lib.AnnotationPanel.setAnnotationComment(annotation)
       this.reset()
     },
     
@@ -8686,6 +8693,14 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     this.show()
+  }
+  
+  AnnotationPanel.methods.setAnnotationComment = function (annotation) {
+    this.setAnnotation(annotation)
+    
+    setTimeout(() => {
+      this.$refs.AnnotationSingle.focusComment()
+    }, 0)
   }
   
   AnnotationPanel.methods.setFilter = function (filter) {

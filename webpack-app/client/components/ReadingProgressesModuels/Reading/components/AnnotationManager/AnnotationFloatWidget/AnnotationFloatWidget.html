@@ -18,7 +18,9 @@
         v-bind:annotation="annotation"
         v-bind:findAnnotation="viewAnnotation"
         v-bind:findUser="findUser"
-        v-bind:findType="findType"></annotation-item>
+        v-bind:findType="findType"
+        
+        v-on:comment="viewAnnotationComment"></annotation-item>
     
     <div class="ui column grid">
       <div v-bind:class="computedButtonsClassNames">

@@ -28,6 +28,14 @@ export default (AnnotationPanel) => {
     this.show()
   }
   
+  AnnotationPanel.methods.setAnnotationComment = function (annotation) {
+    this.setAnnotation(annotation)
+    
+    setTimeout(() => {
+      this.$refs.AnnotationSingle.focusComment()
+    }, 0)
+  }
+  
   AnnotationPanel.methods.setFilter = function (filter) {
     this.panelData.filter = filter
   }
