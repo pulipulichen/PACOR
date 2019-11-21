@@ -3276,14 +3276,14 @@ let AnnotationInteractive = {
 //  },
   methods: {
     like: async function () {
-      throw '@TODO like'
-      
       if (this.annotation.__meta__.i_have_liked === 1) {
         this.annotation.__meta__.i_have_liked = 0
+        this.annotation.__meta__.likes_count--
         this.$emit('unlike')
       }
       else {
         this.annotation.__meta__.i_have_liked = 1
+        this.annotation.__meta__.likes_count++
         this.$emit('like')
       }
     },

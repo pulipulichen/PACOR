@@ -6330,7 +6330,7 @@ __webpack_require__.r(__webpack_exports__);
       //return this.$emit('close')
     }
     
-    console.log(result)
+    //console.log(result)
 
     for (let key in result) {
       this[key] = result[key]
@@ -7036,6 +7036,7 @@ let AnnotationComment = {
     , 'comment'],
   data() {    
     this.$i18n.locale = this.config.locale
+    //console.log(this.comment)
     return {
     }
   },
@@ -7054,6 +7055,9 @@ let AnnotationComment = {
     displayTime () {
       return this.lib.DayJSHelper.fromNow(this.comment.updated_at_unixms)
     },
+    note () {
+      return this.comment.note
+    }
   },
 //  watch: {
 //  },
