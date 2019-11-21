@@ -67,14 +67,15 @@ let CollaborativeReading = {
           return
         }
         $('.others-Clarified:first').click()
-        
+        return
         setTimeout(() => {
           $('.AnnotationFloatWidget .AnnotationTypeButton[title="已釐清"]:last').click()
           
           setTimeout(() => {
             //console.log($('.FilteredList .list .AnnotationItem:last .meta i').length)
-            $('.FilteredList .list .AnnotationItem:last .meta i').click()
-          }, 300)
+            //$('.FilteredList .list .AnnotationItem:last .meta i').click()
+            this.lib.AnnotationPanel.findKeyword('co')
+          }, 1000)
         }, 300)
       }, 500)
     },

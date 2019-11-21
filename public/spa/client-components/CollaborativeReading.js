@@ -361,14 +361,15 @@ let CollaborativeReading = {
           return
         }
         jquery__WEBPACK_IMPORTED_MODULE_1___default()('.others-Clarified:first').click()
-        
+        return
         setTimeout(() => {
           jquery__WEBPACK_IMPORTED_MODULE_1___default()('.AnnotationFloatWidget .AnnotationTypeButton[title="已釐清"]:last').click()
           
           setTimeout(() => {
             //console.log($('.FilteredList .list .AnnotationItem:last .meta i').length)
-            jquery__WEBPACK_IMPORTED_MODULE_1___default()('.FilteredList .list .AnnotationItem:last .meta i').click()
-          }, 300)
+            //$('.FilteredList .list .AnnotationItem:last .meta i').click()
+            this.lib.AnnotationPanel.findKeyword('co')
+          }, 1000)
         }, 300)
       }, 500)
     },

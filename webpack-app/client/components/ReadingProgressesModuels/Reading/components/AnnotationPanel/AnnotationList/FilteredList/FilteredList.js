@@ -126,13 +126,16 @@ let List = {
       return 0
     }
   },
-//  watch: {
+  watch: {
 //    annotations (annotations) {
 //      if (annotations.length === 1) {
 //        this.annotation = annotations[0]
 //      }
 //    }
-//  },
+    'panelData.keyword' () {
+      this.loadSummary()
+    }
+  },
   mounted() {
     this.initEventListener()
     this.loadSummary()

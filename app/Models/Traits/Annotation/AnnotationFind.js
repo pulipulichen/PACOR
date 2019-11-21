@@ -116,7 +116,8 @@ class AnnotationFind {
         
         if (typeof (keyword) === 'string') {
           query.whereHas('notes', (builder) => {
-            builder.whereRaw('note like ?', `%${keyword}%`)
+            keyword = keyword.toLowerCase()
+            builder.whereRaw('lower(note) like ?', `%${keyword}%`)
           })
         }
 

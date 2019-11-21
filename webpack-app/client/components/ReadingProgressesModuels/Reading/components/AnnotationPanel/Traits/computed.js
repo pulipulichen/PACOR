@@ -38,4 +38,5 @@ export default (AnnotationPanel) => {
       return this.status.readingConfig.annotationTypeModules[this.annotationModule].style.segmentColor
     }
   }
+  
 }

@@ -18,6 +18,7 @@
       {{ $t('Back to list') }}
     </button>
     
+    <!--
     <button v-else-if="mainListAnnotationCount > 1"
             type="button" 
             class="ui mini labeled icon button back-button"
@@ -25,7 +26,14 @@
       <i class="angle left icon"></i>
       {{ $t('Back to full list') }}
     </button>
-    
+    -->
+    <button v-else
+            type="button" 
+            class="ui mini labeled icon button back-button"
+            v-on:click.stop="exit">
+      <i class="angle left icon"></i>
+      {{ $t('Back to full list') }}
+    </button>
 
     <div class="label">
       {{ $t('Finding') }}:

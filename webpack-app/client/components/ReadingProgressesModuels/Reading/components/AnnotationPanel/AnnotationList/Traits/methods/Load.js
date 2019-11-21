@@ -6,22 +6,30 @@ export default (List) => {
     }
     
     //if (Array.isArray(this.listPositions)) {
-    let query = this.query
+    let query = this.querySummary
     //console.log(query)
     
     let url = '/client/Annotation/listSummary'
 
     let result = await this.lib.AxiosHelper.post(url, query)
-
+    //console.log(result)
     if (result === 0) {
       //console.error('not found.')
-      this.annotations = []
+      //this.annotations = this.annotations.pop()
+      this.annotations = this.annotations.slice(0, 0)
+      //console.trace(this.annotations.length, this.annotations)
       this.noMore = true
+      this.annotationCount = 0
+      //this.$forceUpdate()
       return null
       //return this.$emit('close')
     }
+    else {
+      this.noMore = false
+    }
     
-    //console.log(result)
+    console.log(result)
+    //console.log(this.noMore)
 
     for (let key in result) {
       this[key] = result[key]

@@ -3045,7 +3045,11 @@ let AnnotationItem = {
         //}
         
         if (keyword && keyword !== '') {
-          result = result.split(keyword).join(`<span data-pacor-search-result>${keyword}</span>`)
+          //result = result.split(keyword).join(`<span data-pacor-search-result>${keyword}</span>`)
+          let reg = new RegExp(keyword, 'ig');
+          result = result.replace(reg, (match) => {
+            return `<span data-pacor-search-result>${match}</span>`
+          });
         }
         
         return result

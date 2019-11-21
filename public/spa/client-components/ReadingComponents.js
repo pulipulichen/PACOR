@@ -1174,8 +1174,7 @@ var render = function() {
                   )
                 ]
               )
-            : _vm.mainListAnnotationCount > 1
-            ? _c(
+            : _c(
                 "button",
                 {
                   staticClass: "ui mini labeled icon button back-button",
@@ -1195,8 +1194,7 @@ var render = function() {
                       "\r\n    "
                   )
                 ]
-              )
-            : _vm._e(),
+              ),
           _vm._v(" "),
           _c("div", { staticClass: "label" }, [
             _vm._v("\r\n      " + _vm._s(_vm.$t("Finding")) + ":\r\n    ")
@@ -5733,13 +5731,16 @@ let List = {
       return 0
     }
   },
-//  watch: {
+  watch: {
 //    annotations (annotations) {
 //      if (annotations.length === 1) {
 //        this.annotation = annotations[0]
 //      }
 //    }
-//  },
+    'panelData.keyword' () {
+      this.loadSummary()
+    }
+  },
   mounted() {
     this.initEventListener()
     this.loadSummary()
@@ -6253,6 +6254,15 @@ __webpack_require__.r(__webpack_exports__);
             && this.panelData.keyword !== '')
   }
   
+  List.computed.querySummary = function () {
+    let query = {
+      ...this.query
+    }
+
+    delete query['excludeIDList']
+    //console.log(query)
+    return query
+  }
 });
 
 /***/ }),
@@ -6408,22 +6418,30 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     //if (Array.isArray(this.listPositions)) {
-    let query = this.query
+    let query = this.querySummary
     //console.log(query)
     
     let url = '/client/Annotation/listSummary'
 
     let result = await this.lib.AxiosHelper.post(url, query)
-
+    //console.log(result)
     if (result === 0) {
       //console.error('not found.')
-      this.annotations = []
+      //this.annotations = this.annotations.pop()
+      this.annotations = this.annotations.slice(0, 0)
+      //console.trace(this.annotations.length, this.annotations)
       this.noMore = true
+      this.annotationCount = 0
+      //this.$forceUpdate()
       return null
       //return this.$emit('close')
     }
+    else {
+      this.noMore = false
+    }
     
-    //console.log(result)
+    console.log(result)
+    //console.log(this.noMore)
 
     for (let key in result) {
       this[key] = result[key]
@@ -8394,6 +8412,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.status.readingConfig.annotationTypeModules[this.annotationModule].style.segmentColor
     }
   }
+  
 });
 
 /***/ }),
