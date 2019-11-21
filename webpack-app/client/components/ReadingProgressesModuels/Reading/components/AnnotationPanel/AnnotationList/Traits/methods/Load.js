@@ -28,7 +28,7 @@ export default (List) => {
       this.noMore = false
     }
     
-    console.log(result)
+    //console.log(result)
     //console.log(this.noMore)
 
     for (let key in result) {

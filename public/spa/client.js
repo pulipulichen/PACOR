@@ -932,7 +932,7 @@ var render = function() {
                       like: _vm.onlike,
                       unlike: _vm.onlike,
                       comment: function($event) {
-                        return _vm.$emit("comment")
+                        return _vm.$emit("comment", _vm.annotation)
                       }
                     }
                   })
@@ -3274,7 +3274,7 @@ let AnnotationInteractive = {
         classList.push(this.size)
       }
       
-      if (this.likes === 0 && this.showLabel === false) {
+      if (this.likes === 0) {
         classList.push('icon')
       }
       
@@ -3290,7 +3290,7 @@ let AnnotationInteractive = {
         classList.push(this.size)
       }
       
-      if (this.comments === 0 && this.showLabel === false) {
+      if (this.comments === 0) {
         classList.push('icon')
       }
       
@@ -3310,6 +3310,7 @@ let AnnotationInteractive = {
       }
     },
     comments () {
+      //console.log(this.annotation.__meta__.comments_count)
       if (this.annotation 
               && this.annotation.__meta__
               && typeof(this.annotation.__meta__.comments_count) !== 'undefined') {

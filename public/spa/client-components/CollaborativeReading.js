@@ -361,14 +361,16 @@ let CollaborativeReading = {
           return
         }
         jquery__WEBPACK_IMPORTED_MODULE_1___default()('.others-Clarified:first').click()
-        return
         setTimeout(() => {
           jquery__WEBPACK_IMPORTED_MODULE_1___default()('.AnnotationFloatWidget .AnnotationTypeButton[title="已釐清"]:last').click()
           
           setTimeout(() => {
             //console.log($('.FilteredList .list .AnnotationItem:last .meta i').length)
             //$('.FilteredList .list .AnnotationItem:last .meta i').click()
+            
+            // 測試搜尋
             this.lib.AnnotationPanel.findKeyword('co')
+            
           }, 1000)
         }, 300)
       }, 500)

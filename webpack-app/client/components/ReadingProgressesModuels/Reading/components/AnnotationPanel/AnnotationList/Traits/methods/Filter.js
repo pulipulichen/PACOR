@@ -6,6 +6,16 @@ export default (List) => {
   List.methods.viewAnnotation = function (annotation) {
     this.annotation = annotation
   }
+  
+  List.methods.viewAnnotationComment = function (annotation) {
+    //console.log('viewAnnotationComment')
+    this.viewAnnotation(annotation)
+    
+    setTimeout(() => {
+      this.$refs.AnnotationSingle.focusComment()
+    }, 0)
+    
+  }
 
   List.methods.findUser = function (user) {
     if (!this.panelData.filter) {

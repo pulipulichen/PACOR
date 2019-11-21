@@ -1272,7 +1272,8 @@ var render = function() {
                 findUser: _vm.findUser,
                 findType: _vm.findType,
                 searchKeyword: _vm.panelData.keyword
-              }
+              },
+              on: { comment: _vm.viewAnnotationComment }
             })
           }),
           _vm._v(" "),
@@ -1306,6 +1307,7 @@ var render = function() {
       _vm._v(" "),
       _vm.annotation !== null
         ? _c("annotation-single", {
+            ref: "AnnotationSingle",
             attrs: {
               config: _vm.config,
               status: _vm.status,
@@ -1479,7 +1481,8 @@ var render = function() {
                 findUser: _vm.findUser,
                 findType: _vm.findType,
                 searchKeyword: _vm.panelData.keyword
-              }
+              },
+              on: { comment: _vm.viewAnnotationComment }
             })
           }),
           _vm._v(" "),
@@ -1513,6 +1516,7 @@ var render = function() {
       _vm._v(" "),
       _vm.annotation
         ? _c("annotation-single", {
+            ref: "AnnotationSingle",
             attrs: {
               config: _vm.config,
               status: _vm.status,
@@ -6286,6 +6290,16 @@ __webpack_require__.r(__webpack_exports__);
   List.methods.viewAnnotation = function (annotation) {
     this.annotation = annotation
   }
+  
+  List.methods.viewAnnotationComment = function (annotation) {
+    //console.log('viewAnnotationComment')
+    this.viewAnnotation(annotation)
+    
+    setTimeout(() => {
+      this.$refs.AnnotationSingle.focusComment()
+    }, 0)
+    
+  }
 
   List.methods.findUser = function (user) {
     if (!this.panelData.filter) {
@@ -6440,7 +6454,7 @@ __webpack_require__.r(__webpack_exports__);
       this.noMore = false
     }
     
-    console.log(result)
+    //console.log(result)
     //console.log(this.noMore)
 
     for (let key in result) {
@@ -8286,6 +8300,9 @@ let AnnotationEditorModules = {
       
       let result = await this.lib.AxiosHelper.get('/client/AnnotationRate/like', data)
       //console.log(result)
+    },
+    focusComment: function () {
+      this.$refs.AnnotationDisscussion.focusComment()
     }
   } // methods
 }

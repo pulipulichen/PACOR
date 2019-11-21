@@ -24,7 +24,7 @@
       v-bind:annotation="annotation"
       v-on:like="onlike"
       v-on:unlike="onlike"
-      v-on:comment="$emit('comment')"
+      v-on:comment="$emit('comment', annotation)"
       size="mini">
     </annotation-item-interactive>
       
