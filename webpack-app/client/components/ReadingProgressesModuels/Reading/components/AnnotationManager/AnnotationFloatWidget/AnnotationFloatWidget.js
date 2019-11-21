@@ -187,11 +187,18 @@ let AnnotationFloatWidget = {
       //(annotation) => {$emit('findAnnotation', annotation)}
       
       this.lib.AnnotationPanel.setAnnotation(annotation)
+      
+      console.log('test this.lib.AnnotationPanel.focusCommentInput(2)')
+      this.lib.AnnotationPanel.focusCommentInput(2)
+      
       this.reset()
     },
     
     viewAnnotationComment: function (annotation) {
-      this.lib.AnnotationPanel.setAnnotationComment(annotation)
+      this.lib.AnnotationPanel.setAnnotation(annotation)
+      this.lib.AnnotationPanel.focusCommentInput()
+      
+      
       this.reset()
     },
     

@@ -72,6 +72,7 @@ class AnnotationCommentSave {
       
       // -----------------------------------
       
+      _focusComment(query, options)
       _processPage(query, options)
       _excludeList(query, options)
       
@@ -111,6 +112,16 @@ class AnnotationCommentSave {
       
       if (Array.isArray(excludeIDList)) {
         query.whereNotIn('id', excludeIDList)
+      }
+    }
+    
+    let _focusComment = function (query, options) {
+      let {
+        focusCommentID
+      } = options
+      
+      if (focusCommentID) {
+        throw new Error(focusCommentID + ' under construction')
       }
     }
     

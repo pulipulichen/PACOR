@@ -12,7 +12,7 @@ export default (List) => {
     this.viewAnnotation(annotation)
     
     setTimeout(() => {
-      this.$refs.AnnotationSingle.focusComment()
+      this.$refs.AnnotationSingle.focusCommentInput()
     }, 0)
     
   }

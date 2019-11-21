@@ -199,9 +199,9 @@ let AnnotationEditorModules = {
       let result = await this.lib.AxiosHelper.get('/client/AnnotationRate/like', data)
       //console.log(result)
     },
-    focusComment: function () {
-      this.$refs.AnnotationDisscussion.focusComment()
-    },
+    focusCommentInput: function () {
+      this.$refs.AnnotationDisscussion.focusCommentInput()
+    }
   } // methods
 }
 

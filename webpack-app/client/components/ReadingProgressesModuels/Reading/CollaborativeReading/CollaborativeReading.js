@@ -19,7 +19,7 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    //this._testAnnotationSingleManyComments()
+    this._testAnnotationSingleFocusComment()
   },
   methods: {
     initComponentToLib () {
@@ -76,6 +76,24 @@ let CollaborativeReading = {
             
             // 測試搜尋
             //this.lib.AnnotationPanel.findKeyword('co')
+            
+          }, 1000)
+        }, 300)
+      }, 500)
+    },
+    _testAnnotationSingleFocusComment () {
+      setTimeout(() => {
+        if ($('.others-Clarified:first').length === 0) {
+          this._testAnnotationSingleFocusComment()
+          return
+        }
+        $('.others-Clarified:first').click()
+        setTimeout(() => {
+          $('.AnnotationFloatWidget .AnnotationTypeButton[title="已釐清"]:last').click()
+          
+          setTimeout(() => {
+            //console.log($('.FilteredList .list .AnnotationItem:last .meta i').length)
+            $('.FilteredList .list .AnnotationItem:first .meta i').click()
             
           }, 1000)
         }, 300)

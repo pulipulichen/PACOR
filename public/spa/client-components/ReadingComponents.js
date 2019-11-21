@@ -1691,7 +1691,11 @@ var render = function() {
           heightPX: _vm.listHeightPX,
           hook: _vm.hook
         },
-        on: { comment: _vm.focusComment, like: _vm.like, unlike: _vm.unlike }
+        on: {
+          comment: _vm.focusCommentInput,
+          like: _vm.like,
+          unlike: _vm.unlike
+        }
       }),
       _vm._v(" "),
       _c("annotation-discussion-input", {
@@ -1867,6 +1871,9 @@ var render = function() {
         "div",
         { staticClass: "meta text-container ui basic right labeled button" },
         [
+          _vm._v(
+            "\r\n    \r\n    #" + _vm._s(_vm.comment.id) + "\r\n    \r\n    "
+          ),
           _c("span", { staticClass: "display-time" }, [
             _vm._v("\r\n      " + _vm._s(_vm.displayTime) + "\r\n    ")
           ]),
@@ -4696,11 +4703,18 @@ let AnnotationFloatWidget = {
       //(annotation) => {$emit('findAnnotation', annotation)}
       
       this.lib.AnnotationPanel.setAnnotation(annotation)
+      
+      console.log('test this.lib.AnnotationPanel.focusCommentInput(2)')
+      this.lib.AnnotationPanel.focusCommentInput(2)
+      
       this.reset()
     },
     
     viewAnnotationComment: function (annotation) {
-      this.lib.AnnotationPanel.setAnnotationComment(annotation)
+      this.lib.AnnotationPanel.setAnnotation(annotation)
+      this.lib.AnnotationPanel.focusCommentInput()
+      
+      
       this.reset()
     },
     
@@ -6406,7 +6420,7 @@ __webpack_require__.r(__webpack_exports__);
     this.viewAnnotation(annotation)
     
     setTimeout(() => {
-      this.$refs.AnnotationSingle.focusComment()
+      this.$refs.AnnotationSingle.focusCommentInput()
     }, 0)
     
   }
@@ -6911,7 +6925,7 @@ let AnnotationDiscussion = {
 //  mounted() {
 //  },
   methods: {
-    focusComment () {
+    focusCommentInput () {
       this.$refs.AnnotationDiscussionInput.focus()
     },
     onInputAdd () {
@@ -7545,6 +7559,11 @@ let AnnotationDiscussionList = {
       
       let data = {
         annotationID: this.annotation.id
+      }
+      
+      if (this.panelData.focusCommentID) {
+        data.focusCommentID = this.panelData.focusCommentID
+        this.panelData.focusCommentID = null
       }
       
       //console.log(data)
@@ -8448,9 +8467,9 @@ let AnnotationEditorModules = {
       let result = await this.lib.AxiosHelper.get('/client/AnnotationRate/like', data)
       //console.log(result)
     },
-    focusComment: function () {
-      this.$refs.AnnotationDisscussion.focusComment()
-    },
+    focusCommentInput: function () {
+      this.$refs.AnnotationDisscussion.focusCommentInput()
+    }
   } // methods
 }
 
@@ -8606,6 +8625,7 @@ __webpack_require__.r(__webpack_exports__);
       update: null,
       delete: null
     },
+    focusCommentID: null,
     
     keyword: '',
     
@@ -8835,11 +8855,24 @@ __webpack_require__.r(__webpack_exports__);
     this.show()
   }
   
-  AnnotationPanel.methods.setAnnotationComment = function (annotation) {
+  AnnotationPanel.methods.focusCommentInput = function (annotation) {
     this.setAnnotation(annotation)
     
     setTimeout(() => {
-      this.$refs.AnnotationSingle.focusComment()
+      this.$refs.AnnotationSingle.focusCommentInput()
+    }, 0)
+  }
+  
+  AnnotationPanel.methods.focusComment = async function (commentID) {
+    // 先從commentID找回annotation
+    let annotation = await this.lib.AxiosHelper.get('/client/AnnotationComment/getAnnotation', {
+      commentID: commentID
+    })
+    
+    this.setAnnotation(annotation)
+    
+    setTimeout(() => {
+      this.$refs.AnnotationSingle.focusComment(commentID)
     }, 0)
   }
   

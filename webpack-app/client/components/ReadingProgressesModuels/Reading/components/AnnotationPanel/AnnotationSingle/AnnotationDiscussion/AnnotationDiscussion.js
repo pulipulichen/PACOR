@@ -24,7 +24,7 @@ let AnnotationDiscussion = {
 //  mounted() {
 //  },
   methods: {
-    focusComment () {
+    focusCommentInput () {
       this.$refs.AnnotationDiscussionInput.focus()
     },
     onInputAdd () {

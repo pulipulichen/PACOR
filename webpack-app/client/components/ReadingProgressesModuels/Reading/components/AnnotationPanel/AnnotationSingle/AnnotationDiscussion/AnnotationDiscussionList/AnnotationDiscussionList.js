@@ -67,6 +67,11 @@ let AnnotationDiscussionList = {
         annotationID: this.annotation.id
       }
       
+      if (this.panelData.focusCommentID) {
+        data.focusCommentID = this.panelData.focusCommentID
+        this.panelData.focusCommentID = null
+      }
+      
       //console.log(data)
       
       let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/init', data)

@@ -28,11 +28,24 @@ export default (AnnotationPanel) => {
     this.show()
   }
   
-  AnnotationPanel.methods.setAnnotationComment = function (annotation) {
+  AnnotationPanel.methods.focusCommentInput = function (annotation) {
     this.setAnnotation(annotation)
     
     setTimeout(() => {
-      this.$refs.AnnotationSingle.focusComment()
+      this.$refs.AnnotationSingle.focusCommentInput()
+    }, 0)
+  }
+  
+  AnnotationPanel.methods.focusComment = async function (commentID) {
+    // 先從commentID找回annotation
+    let annotation = await this.lib.AxiosHelper.get('/client/AnnotationComment/getAnnotation', {
+      commentID: commentID
+    })
+    
+    this.setAnnotation(annotation)
+    
+    setTimeout(() => {
+      this.$refs.AnnotationSingle.focusComment(commentID)
     }, 0)
   }
   
