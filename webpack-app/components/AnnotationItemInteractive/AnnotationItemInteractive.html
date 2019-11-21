@@ -5,11 +5,16 @@
             v-bind:class="computedLikesButtonClass"
             v-on:click.stop="like">
       <i class="thumbs up outline icon"></i>
-      <template v-if="likes > 0">
-        {{ $t('{0} Likes', [likes]) }}
+      <template v-if="showLabel">
+        <template v-if="likes > 0">
+          {{ $t('{0} Likes', [likes]) }}
+        </template>
+        <template v-else>
+          {{ $t('Like') }}
+        </template>
       </template>
-      <template v-else>
-        {{ $t('Like') }}
+      <template v-else-if="likes > 0">
+        {{ likes }}
       </template>
     </button>
   </span>
@@ -19,11 +24,16 @@
             v-bind:class="computedCommentsButtonClass"
             v-on:click.stop="comment">
       <i class="comment outline icon"></i>
-      <template v-if="likes > 0">
-        {{ $t('{0} Comments', [comments]) }}
+      <template v-if="showLabel">
+        <template v-if="likes > 0">
+          {{ $t('{0} Comments', [comments]) }}
+        </template>
+        <template v-else>
+          {{ $t('Comment') }}
+        </template>
       </template>
-      <template v-else>
-        {{ $t('Comment') }}
+      <template v-else-if="comments > 0">
+        {{ comments }}
       </template>
     </button>
   </span>

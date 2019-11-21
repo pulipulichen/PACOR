@@ -1,5 +1,6 @@
 let AnnotationInteractive = {
-  props: ['lib', 'status', 'config', 'annotation', 'size'],
+  props: ['lib', 'status', 'config'
+    , 'annotation', 'size', 'showLabel'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -21,6 +22,10 @@ let AnnotationInteractive = {
         classList.push(this.size)
       }
       
+      if (this.likes === 0 && this.showLabel === false) {
+        classList.push('icon')
+      }
+      
       return classList.join(' ')
     },
     computedCommentsButtonClass () {
@@ -31,6 +36,10 @@ let AnnotationInteractive = {
       }
       if (typeof(this.size) === 'string') {
         classList.push(this.size)
+      }
+      
+      if (this.comments === 0 && this.showLabel === false) {
+        classList.push('icon')
       }
       
       return classList.join(' ')
@@ -50,6 +59,9 @@ let AnnotationInteractive = {
               && this.annotation.__meta__
               && typeof(this.annotation.__meta__.comments_count) !== 'undefined') {
         return parseInt(this.annotation.__meta__.comments_count, 10)
+      }
+      else {
+        return 0
       }
     }
   },

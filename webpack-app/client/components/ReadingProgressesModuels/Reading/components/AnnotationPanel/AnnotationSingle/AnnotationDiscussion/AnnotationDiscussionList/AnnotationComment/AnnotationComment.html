@@ -16,7 +16,8 @@
       v-on:like="$emit('like')"
       v-on:unlike="$emit('unlike')"
       v-on:comment="$emit('comment')"
-      size="mini">
+      size="mini"
+      v-bind:showLabel="false">
     </annotation-item-interactive>
     
     <div v-if="comment.user_id === status.userID">

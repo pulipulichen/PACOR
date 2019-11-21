@@ -1,4 +1,5 @@
 import AnnotationComment from './AnnotationComment/AnnotationComment.vue'
+import $ from 'jquery'
 
 let AnnotationDiscussionList = {
   props: ['lib', 'status', 'config'
@@ -67,7 +68,21 @@ let AnnotationDiscussionList = {
         this.noMore = true
         return null
       }
+      
       //console.log('@TODO AnnotationDiscussionList.initComments()')
+      this.scrollToBottom()
+    },
+    scrollToBottom () {
+      setTimeout(() => {
+        let list = $(this.$refs.list)
+        let lastComment = list.children('.AnnotationComment:last')
+        lastComment[0].scrollIntoView({
+          behavior: 'smooth'
+        })
+        //window.list = list
+        //list.scrollTop = list.scrollHeight
+        
+      }, 100)
     },
     loadPrevPage: async function () {
       this.page++
@@ -95,7 +110,7 @@ let AnnotationDiscussionList = {
         return false
       }
       let element = event.target
-      console.log('這邊要做成捲動到0的時候才顯示，有辦法嗎？')
+      //console.log('這邊要做成捲動到0的時候才顯示，有辦法嗎？')
       if (element.scrollTop === 0) {
         //console.log('scrolled');
         this.loadPrevPage()

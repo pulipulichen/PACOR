@@ -1,4 +1,98 @@
+.meta {
+  float: right;
+  user-select: none;
+  line-height: 2em !important;
+}
+
+.user {
+  display: inline-block;
+}
+
 .avatar {
   max-height: 2em;
   width: auto;
+}
+
+.avatar, .username {
+  margin-right: 0.5em;
+}
+
+.username {
+  max-width: 5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  
+  display: inline-block;
+  vertical-align: top;
+  line-height: 2em;
+}
+
+.note {
+  line-height: 2em;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.clickable {
+  cursor: pointer !important;
+}
+
+.meta ::v-deep .AnnotationInteractive {
+  margin-left: 0.5em;
+  //margin-right: 0.5em;
+}
+
+.annotation-item-compact {
+  padding-top: 0.5em !important;
+  padding-bottom: 0.5em !important;
+  margin-bottom: 0.5em !important;
+  
+  .text-container {
+    line-height: 2em;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .left.column {
+    max-width: 70vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  
+  .note {
+    display: inline-block;
+    margin-left: 0.5em;
+    
+    white-space: nowrap;
+    max-width: calc(100vw - 28em);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    
+  }
+}
+
+@media (max-width: 480px) {
+  .AnnotationItem.annotation-item-compact {
+    ::v-deep .AnnotationTypeButton {
+      //display: none;
+      //width: 1em;
+      //text-overflow: clip;
+      text-indent: -9999px;
+      padding-left: 0;
+      padding-right: 0;
+      width: 1em;
+    }
+    
+    .note {
+      max-width: calc(100vw - 10em);
+    }
+    
+    .display-time {
+      max-width: 0;
+      overflow-x: hidden;
+    }
+  }
 }

@@ -533,7 +533,7 @@ exports.push([module.i, ".AnnotationDiscussionInput[data-v-5ca837c3] {\n  white-
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".avatar[data-v-0404edca] {\n  max-height: 2em;\n  width: auto;\n}\n", "",{"version":3,"sources":["AnnotationComment.less?vue&type=style&index=0&id=0404edca&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,WAAW;AACb","file":"AnnotationComment.less?vue&type=style&index=0&id=0404edca&lang=less&scoped=true&","sourcesContent":[".avatar[data-v-0404edca] {\n  max-height: 2em;\n  width: auto;\n}\n"]}]);
+exports.push([module.i, ".meta[data-v-0404edca] {\n  float: right;\n  user-select: none;\n  line-height: 2em !important;\n}\n.user[data-v-0404edca] {\n  display: inline-block;\n}\n.avatar[data-v-0404edca] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-0404edca],\n.username[data-v-0404edca] {\n  margin-right: 0.5em;\n}\n.username[data-v-0404edca] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-0404edca] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.clickable[data-v-0404edca] {\n  cursor: pointer !important;\n}\n.meta[data-v-0404edca]  .AnnotationInteractive {\n  margin-left: 0.5em;\n}\n.annotation-item-compact[data-v-0404edca] {\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  margin-bottom: 0.5em !important;\n}\n.annotation-item-compact .text-container[data-v-0404edca] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-0404edca] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-0404edca] {\n  display: inline-block;\n  margin-left: 0.5em;\n  white-space: nowrap;\n  max-width: calc(100vw - 28em);\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n@media (max-width: 480px) {\n.AnnotationItem.annotation-item-compact[data-v-0404edca]  .AnnotationTypeButton {\n    text-indent: -9999px;\n    padding-left: 0;\n    padding-right: 0;\n    width: 1em;\n}\n.AnnotationItem.annotation-item-compact .note[data-v-0404edca] {\n    max-width: calc(100vw - 10em);\n}\n.AnnotationItem.annotation-item-compact .display-time[data-v-0404edca] {\n    max-width: 0;\n    overflow-x: hidden;\n}\n}\n", "",{"version":3,"sources":["AnnotationComment.less?vue&type=style&index=0&id=0404edca&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,iBAAiB;EACjB,2BAA2B;AAC7B;AACA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;EACf,WAAW;AACb;AACA;;EAEE,mBAAmB;AACrB;AACA;EACE,cAAc;EACd,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;EACnB,qBAAqB;EACrB,mBAAmB;EACnB,gBAAgB;AAClB;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,0BAA0B;AAC5B;AACA;EACE,kBAAkB;AACpB;AACA;EACE,6BAA6B;EAC7B,gCAAgC;EAChC,+BAA+B;AACjC;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,kBAAkB;EAClB,mBAAmB;EACnB,6BAA6B;EAC7B,uBAAuB;EACvB,gBAAgB;AAClB;AACA;AACA;IACI,oBAAoB;IACpB,eAAe;IACf,gBAAgB;IAChB,UAAU;AACd;AACA;IACI,6BAA6B;AACjC;AACA;IACI,YAAY;IACZ,kBAAkB;AACtB;AACA","file":"AnnotationComment.less?vue&type=style&index=0&id=0404edca&lang=less&scoped=true&","sourcesContent":[".meta[data-v-0404edca] {\n  float: right;\n  user-select: none;\n  line-height: 2em !important;\n}\n.user[data-v-0404edca] {\n  display: inline-block;\n}\n.avatar[data-v-0404edca] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-0404edca],\n.username[data-v-0404edca] {\n  margin-right: 0.5em;\n}\n.username[data-v-0404edca] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-0404edca] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.clickable[data-v-0404edca] {\n  cursor: pointer !important;\n}\n.meta[data-v-0404edca]  .AnnotationInteractive {\n  margin-left: 0.5em;\n}\n.annotation-item-compact[data-v-0404edca] {\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  margin-bottom: 0.5em !important;\n}\n.annotation-item-compact .text-container[data-v-0404edca] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-0404edca] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-0404edca] {\n  display: inline-block;\n  margin-left: 0.5em;\n  white-space: nowrap;\n  max-width: calc(100vw - 28em);\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n@media (max-width: 480px) {\n.AnnotationItem.annotation-item-compact[data-v-0404edca]  .AnnotationTypeButton {\n    text-indent: -9999px;\n    padding-left: 0;\n    padding-right: 0;\n    width: 1em;\n}\n.AnnotationItem.annotation-item-compact .note[data-v-0404edca] {\n    max-width: calc(100vw - 10em);\n}\n.AnnotationItem.annotation-item-compact .display-time[data-v-0404edca] {\n    max-width: 0;\n    overflow-x: hidden;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -547,7 +547,7 @@ exports.push([module.i, ".avatar[data-v-0404edca] {\n  max-height: 2em;\n  width
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationDiscussionList[data-v-0b8b8b8a] {\n  overflow-y: auto;\n}\n.no-more[data-v-0b8b8b8a] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList.little-comments[data-v-0b8b8b8a] {\n    height: auto !important;\n    max-height: auto !important;\n}\n}\n", "",{"version":3,"sources":["AnnotationDiscussionList.less?vue&type=style&index=0&id=0b8b8b8a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,iBAAiB;EACjB,eAAe;AACjB;AACA;AACA;IACI,uBAAuB;IACvB,2BAA2B;AAC/B;AACA","file":"AnnotationDiscussionList.less?vue&type=style&index=0&id=0b8b8b8a&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionList[data-v-0b8b8b8a] {\n  overflow-y: auto;\n}\n.no-more[data-v-0b8b8b8a] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList.little-comments[data-v-0b8b8b8a] {\n    height: auto !important;\n    max-height: auto !important;\n}\n}\n"]}]);
+exports.push([module.i, ".AnnotationDiscussionList[data-v-0b8b8b8a] {\n  overflow-y: auto;\n  border-radius: 0.3em;\n  border: 1px solid #CCC;\n}\n.no-more[data-v-0b8b8b8a] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList.little-comments[data-v-0b8b8b8a] {\n    height: auto !important;\n    max-height: auto !important;\n}\n}\n", "",{"version":3,"sources":["AnnotationDiscussionList.less?vue&type=style&index=0&id=0b8b8b8a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,oBAAoB;EACpB,sBAAsB;AACxB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,iBAAiB;EACjB,eAAe;AACjB;AACA;AACA;IACI,uBAAuB;IACvB,2BAA2B;AAC/B;AACA","file":"AnnotationDiscussionList.less?vue&type=style&index=0&id=0b8b8b8a&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionList[data-v-0b8b8b8a] {\n  overflow-y: auto;\n  border-radius: 0.3em;\n  border: 1px solid #CCC;\n}\n.no-more[data-v-0b8b8b8a] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList.little-comments[data-v-0b8b8b8a] {\n    height: auto !important;\n    max-height: auto !important;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -1803,7 +1803,8 @@ var render = function() {
                 status: _vm.status,
                 lib: _vm.lib,
                 annotation: _vm.comment,
-                size: "mini"
+                size: "mini",
+                showLabel: false
               },
               on: {
                 like: function($event) {
@@ -1886,6 +1887,7 @@ var render = function() {
   return _c(
     "div",
     {
+      ref: "list",
       staticClass: "AnnotationDiscussionList",
       class: _vm.computedContainerClass,
       style: _vm.computedContainerStyle,
@@ -7200,6 +7202,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AnnotationComment_AnnotationComment_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AnnotationComment/AnnotationComment.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationSingle/AnnotationDiscussion/AnnotationDiscussionList/AnnotationComment/AnnotationComment.vue");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 let AnnotationDiscussionList = {
@@ -7269,7 +7274,21 @@ let AnnotationDiscussionList = {
         this.noMore = true
         return null
       }
+      
       //console.log('@TODO AnnotationDiscussionList.initComments()')
+      this.scrollToBottom()
+    },
+    scrollToBottom () {
+      setTimeout(() => {
+        let list = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.list)
+        let lastComment = list.children('.AnnotationComment:last')
+        lastComment[0].scrollIntoView({
+          behavior: 'smooth'
+        })
+        //window.list = list
+        //list.scrollTop = list.scrollHeight
+        
+      }, 100)
     },
     loadPrevPage: async function () {
       this.page++
@@ -7297,7 +7316,7 @@ let AnnotationDiscussionList = {
         return false
       }
       let element = event.target
-      console.log('這邊要做成捲動到0的時候才顯示，有辦法嗎？')
+      //console.log('這邊要做成捲動到0的時候才顯示，有辦法嗎？')
       if (element.scrollTop === 0) {
         //console.log('scrolled');
         this.loadPrevPage()
