@@ -6,7 +6,10 @@ let NotificationManager = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      anchor: null
+      notificationData: {
+        unreadCount: 0,
+        notifications: []
+      }
     }
   },
   components: {
@@ -14,7 +17,7 @@ let NotificationManager = {
   },
   computed: {
     notificationCount () {
-      return this.status.notificationUnreadCount
+      return this.notificationData.unreadCount
     },
     computedBellClassList () {
       if (this.notificationCount === 0) {
@@ -22,10 +25,10 @@ let NotificationManager = {
       }
     }
   },
-  watch: {
-  },
-  mounted() {
-  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
   methods: {
     initPopup () {
       let anchor = $(this.$refs.anchor)
@@ -36,7 +39,7 @@ let NotificationManager = {
           hoverable  : true,
           on    : 'click'
       })
-      console.log('initPopup')
+//      console.log('initPopup')
       anchor.click()
     },
     show () {

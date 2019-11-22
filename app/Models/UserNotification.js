@@ -21,6 +21,10 @@ class UserNotification extends Model {
     return this.belongsTo('App/Models/User')
   }
   
+  triggerUser () {
+    return this.belongsTo('App/Models/User', 'id', 'trigger_user_id')
+  }
+  
   webpage () {
     return this.belongsTo('App/Models/Webpage')
   }

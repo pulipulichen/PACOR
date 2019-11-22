@@ -1,8 +1,10 @@
 'use strict'
 
-const Annotation = use('App/Controllers/Http/Client/Annotation')
-
+const WebpageUserBaseController = use('App/Controllers/Http/Client/WebpageUserBaseController')
 const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
+
+const Cache = use('Cache')
+const Config = use('Config')
 
 const UserNotificationModel = use('App/Models/UserNotification')
 //const Cache = use('Cache')
@@ -10,17 +12,26 @@ const UserNotificationModel = use('App/Models/UserNotification')
 
 //const { HttpException } = use('@adonisjs/generic-exceptions') 
 
-class UserNotification extends Annotation {
+class UserNotification extends WebpageUserBaseController {
   
-  async unreadCount({request, webpage, user}) {
-    const data = request.all()
-    return await UserNotificationModel.getUnreadCount(webpage, user, data)
-    //throw new Error('@TODO UserNotification.count()')
+  constructor () {
+    super('UserNotification')
   }
   
-  async read({request, webpage, user}) {
-    const {notificationID} = request.all()
-    return await UserNotificationModel.setRead(webpage, user, notificationID)
+  async summary ({ request, webpage, user }) {
+    let options = request.all()
+    return await UserNotificationModel.getSummary(webpage, options)
+  }
+  
+  async older ({request, webpage, user}) {
+    let options = request.all()
+    return await UserNotificationModel.getOlderNotifications(webpage, user, options)
+  }
+  
+  async read ({request, webpage, user}) {
+    let { id } = request.all()
+    await UserNotificationModel.setRead(webpage, user, id)
+    return 1  // 順利完成
   }
   
 }

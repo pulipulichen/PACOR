@@ -1,10 +1,9 @@
 
-簡單來說，可能是Sementic UI的問題囉？
-
 ````html
-<TestDropdown 
+<template 
+  ref="auth"
   v-bind:config="config"
   v-bind:status="status"
   v-bind:lib="lib">
-</TestDropdown>
+</template>
 ````

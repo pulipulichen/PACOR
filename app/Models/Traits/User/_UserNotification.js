@@ -1,5 +1,9 @@
 'use strict'
 
+/**
+ * 應該把這個刪除
+ */
+
 const Cache = use('Cache')
 const UserNotificationModel = use('App/Models/UserNotification')
 const Config = use('Config')
@@ -7,24 +11,32 @@ const Config = use('Config')
 class UserNotification {
 
   register(Model) {
-    Model.prototype.getNotifications = async function (webpage, page) {
+    Model.prototype.getNotifications = async function (webpage, basetime) {
       let cacheKey = 'getNotifications'
       return await Cache.rememberWait([webpage, this, 'UserNotification'], cacheKey, async () => {
         let query = UserNotification
                 .query()
+                .with('triggerUser')
                 .where('webpage_id', webpage.primaryKeyValue)
                 .where('user_id', this.primaryKeyValue)
                 .where('deleted', false)
                 .orderBy('created_at_unixms', 'desc')
         
-        if (page === undefined) {
-          page = 0
-        }
+//        if (page === undefined) {
+//          page = 0
+//        }
+//        
+//        if (typeof(page) === 'number') {
+//          let itemsPerPage = Config.get('view.itemsPerPage')
+//          query.limit(itemsPerPage)
+//          query.offset(itemsPerPage * page)
+//        }
         
-        if (typeof(page) === 'number') {
-          let itemsPerPage = Config.get('view.itemsPerPage')
-          query.limit(itemsPerPage)
-          query.offset(itemsPerPage * page)
+        let itemsPerPage = Config.get('view.itemsPerPage')
+        query.limit(itemsPerPage)
+        
+        if (basetime) {
+          query.where('created_at_unixms', '<', basetime)
         }
         
         let notifications = await query.fetch()
@@ -33,6 +45,7 @@ class UserNotification {
     }
     
     Model.prototype.getNotificationUnreadCount = async function (webpage) {
+      
       let config = await this.isEnableCollaboration(webpage)
       if (config === false) {
         return 0
@@ -44,20 +57,20 @@ class UserNotification {
               .count()
       return parseInt(count[0].count, 10)
     }
-    /*
+    
     Model.prototype.getNotificationSummary = async function (webpage) {
       let cacheKey = 'getNotificationSummary'
       return await Cache.rememberWait([webpage, this, 'UserNotification'], cacheKey, async () => {
-        let notifications = await this.getNotifications(webpage, 0)
-        let count = await this.getNotificationCount()
+        let notifications = await this.getNotifications(webpage)
+        let unreadCount = await this.getNotificationUnreadCount()
         
         return {
           notifications,
-          count
+          unreadCount
         }
       })
-    }
-    */
+    } // Model.prototype.getNotificationSummary = async function (webpage) {
+    
     /*
     Model.prototype.getNotificationNext = async function (webpage, page) {
       let cacheKey = Cache.key('getNotificationNext', page)

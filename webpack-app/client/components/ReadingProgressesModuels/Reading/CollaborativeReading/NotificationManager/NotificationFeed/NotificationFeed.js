@@ -1,4 +1,4 @@
-let Template = {
+let NotificationFeed = {
   props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -17,4 +17,4 @@ let Template = {
   } // methods
 }
 
-export default Template
+export default NotificationFeed

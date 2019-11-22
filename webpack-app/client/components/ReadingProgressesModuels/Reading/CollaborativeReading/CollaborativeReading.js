@@ -1,7 +1,4 @@
 import NavigationItems from './NavigationItems/NavigationItems.vue'
-//const NavigationItems = require('./NavigationItems/NavigationItems.vue').default
-import TestDropdown from './TestDropdown/TestDropdown.vue'
-
 import $ from 'jquery'
 
 let CollaborativeReading = {
@@ -11,8 +8,7 @@ let CollaborativeReading = {
     }
   },
   components: {
-    'navigation-items': NavigationItems,
-    'TestDropdown': TestDropdown
+    'navigation-items': NavigationItems
   },
 //  computed: {
 //  },

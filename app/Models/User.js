@@ -58,7 +58,7 @@ class User extends Model {
     this.addTrait('User/UserReadingProgressAction')
     this.addTrait('User/UserGroup')
     this.addTrait('User/UserFind')
-    this.addTrait('User/UserNotification')
+    //this.addTrait('User/UserNotification')
     this.addTrait('User/UserSection')
   } // static boot () {
   

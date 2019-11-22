@@ -1,5 +1,3 @@
-import $ from 'jquery'
-
 let Template = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -14,15 +12,6 @@ let Template = {
   watch: {
   },
   mounted() {
-    setTimeout(() => {
-      $(this.$refs.icon)
-        .popup({
-          //inline     : true,
-          hoverable  : true,
-          on    : 'click'
-      })
-    }, 100)
-      
   },
   methods: {
   } // methods
