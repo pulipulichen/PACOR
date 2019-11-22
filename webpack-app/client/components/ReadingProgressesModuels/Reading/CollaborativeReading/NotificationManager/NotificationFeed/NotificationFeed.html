@@ -1,6 +1,5 @@
 <div class="NotificationFeed"
-     v-on:scroll.stop="onScrollList"
-     ref="feed">
+     v-on:scroll.stop="onScrollList">
   
   <div class="ui secondary segment no-more"
        v-if="noOlder">
@@ -8,11 +7,12 @@
       {{ $t('No More') }}
     </template>
     <template v-else>
-      {{ $t('No notifications') }}
+      {{ $t('No Notifications') }}
     </template>
   </div>
 
-  <div class="ui feed">
+  <div class="ui feed"
+       ref="feed">
     <component 
       v-for="notification in notificationData.notifications"
       v-bind:key="notification.id"

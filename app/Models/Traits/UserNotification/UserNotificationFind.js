@@ -72,7 +72,7 @@ class UserNotificationFind {
         basetime
       } = options
       
-      let cacheKey = Cache.key('getUnreadCount', basetime)
+      let cacheKey = Cache.key('getOlderNotifications', basetime)
       return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
         let query = UserNotificationModel
               .query()

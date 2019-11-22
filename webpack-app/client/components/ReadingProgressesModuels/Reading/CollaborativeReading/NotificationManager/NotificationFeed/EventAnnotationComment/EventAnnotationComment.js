@@ -1,5 +1,4 @@
 import props from '../NotificationEvent/propsNotificationEvent.js'
-import data from '../NotificationEvent/dataNotificationEvent.js'
 import computed from '../NotificationEvent/computedNotificationEvent.js'
 import methods from '../NotificationEvent/methodsNotificationEvent.js'
 

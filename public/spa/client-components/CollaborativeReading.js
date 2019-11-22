@@ -96,6 +96,22 @@ module.exports = function (Component) {
 
 /***/ }),
 
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5CCollaborativeReading%5CNotificationManager%5CNotificationFeed%5CNotificationFeed.vue&lang=yaml":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5CCollaborativeReading%5CNotificationManager%5CNotificationFeed%5CNotificationFeed.vue&lang=yaml ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"No More":"沒有更舊的通知了","No Notifications":"沒有通知"}}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5CCollaborativeReading%5CNotificationManager%5CNotificationManager.vue&lang=yaml":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5CCollaborativeReading%5CNotificationManager%5CNotificationManager.vue&lang=yaml ***!
@@ -235,7 +251,7 @@ exports.push([module.i, ".NotificationFeed[data-v-9d0f0aee] {\n  overflow-y: aut
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".floating.label[data-v-32d3d148] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-32d3d148] {\n  color: #666;\n}\n.button[data-v-32d3d148] {\n  position: absolute;\n}\n.popup[data-v-32d3d148] {\n  width: 20em !important;\n  max-width: 100vw !important;\n}\n", "",{"version":3,"sources":["NotificationManager.less?vue&type=style&index=0&id=32d3d148&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,6BAA6B;EAC7B,8BAA8B;EAC9B,+BAA+B;EAC/B,gCAAgC;EAChC,mCAAmC;EACnC,oBAAoB;EACpB,qBAAqB;AACvB;AACA;EACE,WAAW;AACb;AACA;EACE,kBAAkB;AACpB;AACA;EACE,sBAAsB;EACtB,2BAA2B;AAC7B","file":"NotificationManager.less?vue&type=style&index=0&id=32d3d148&lang=less&scoped=true&","sourcesContent":[".floating.label[data-v-32d3d148] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-32d3d148] {\n  color: #666;\n}\n.button[data-v-32d3d148] {\n  position: absolute;\n}\n.popup[data-v-32d3d148] {\n  width: 20em !important;\n  max-width: 100vw !important;\n}\n"]}]);
+exports.push([module.i, ".floating.label[data-v-32d3d148] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-32d3d148] {\n  color: #666;\n}\n.button[data-v-32d3d148] {\n  position: absolute;\n}\n.popup[data-v-32d3d148] {\n  width: 25em !important;\n  max-width: 100vw !important;\n}\n", "",{"version":3,"sources":["NotificationManager.less?vue&type=style&index=0&id=32d3d148&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,6BAA6B;EAC7B,8BAA8B;EAC9B,+BAA+B;EAC/B,gCAAgC;EAChC,mCAAmC;EACnC,oBAAoB;EACpB,qBAAqB;AACvB;AACA;EACE,WAAW;AACb;AACA;EACE,kBAAkB;AACpB;AACA;EACE,sBAAsB;EACtB,2BAA2B;AAC7B","file":"NotificationManager.less?vue&type=style&index=0&id=32d3d148&lang=less&scoped=true&","sourcesContent":[".floating.label[data-v-32d3d148] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-32d3d148] {\n  color: #666;\n}\n.button[data-v-32d3d148] {\n  position: absolute;\n}\n.popup[data-v-32d3d148] {\n  width: 25em !important;\n  max-width: 100vw !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -632,7 +648,6 @@ var render = function() {
   return _c(
     "div",
     {
-      ref: "feed",
       staticClass: "NotificationFeed",
       on: {
         scroll: function($event) {
@@ -656,7 +671,7 @@ var render = function() {
                 : [
                     _vm._v(
                       "\r\n      " +
-                        _vm._s(_vm.$t("No notifications")) +
+                        _vm._s(_vm.$t("No Notifications")) +
                         "\r\n    "
                     )
                   ]
@@ -667,7 +682,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "ui feed" },
+        { ref: "feed", staticClass: "ui feed" },
         _vm._l(_vm.notificationData.notifications, function(notification) {
           return _c(_vm.eventType(notification), {
             key: notification.id,
@@ -1498,10 +1513,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NotificationEvent_propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../NotificationEvent/propsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/propsNotificationEvent.js");
-/* harmony import */ var _NotificationEvent_dataNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../NotificationEvent/dataNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/dataNotificationEvent.js");
-/* harmony import */ var _NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../NotificationEvent/computedNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/computedNotificationEvent.js");
-/* harmony import */ var _NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../NotificationEvent/methodsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/methodsNotificationEvent.js");
-
+/* harmony import */ var _NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../NotificationEvent/computedNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/computedNotificationEvent.js");
+/* harmony import */ var _NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../NotificationEvent/methodsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/methodsNotificationEvent.js");
 
 
 
@@ -1514,10 +1527,10 @@ let EventAnnotationComment = {
     }
   },
   computed: {
-    ..._NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__["default"]
+    ..._NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   methods: {
-    ..._NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_3__["default"]
+    ..._NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 }
 
@@ -1616,10 +1629,8 @@ component.options.__file = "webpack-app/client/components/ReadingProgressesModue
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NotificationEvent_propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../NotificationEvent/propsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/propsNotificationEvent.js");
-/* harmony import */ var _NotificationEvent_dataNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../NotificationEvent/dataNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/dataNotificationEvent.js");
-/* harmony import */ var _NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../NotificationEvent/computedNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/computedNotificationEvent.js");
-/* harmony import */ var _NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../NotificationEvent/methodsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/methodsNotificationEvent.js");
-
+/* harmony import */ var _NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../NotificationEvent/computedNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/computedNotificationEvent.js");
+/* harmony import */ var _NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../NotificationEvent/methodsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/methodsNotificationEvent.js");
 
 
 
@@ -1632,10 +1643,10 @@ let EventAnnotationCommentRate = {
     }
   },
   computed: {
-    ..._NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__["default"]
+    ..._NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   methods: {
-    ..._NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_3__["default"]
+    ..._NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 }
 
@@ -1719,10 +1730,8 @@ component.options.__file = "webpack-app/client/components/ReadingProgressesModue
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NotificationEvent_propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../NotificationEvent/propsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/propsNotificationEvent.js");
-/* harmony import */ var _NotificationEvent_dataNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../NotificationEvent/dataNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/dataNotificationEvent.js");
-/* harmony import */ var _NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../NotificationEvent/computedNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/computedNotificationEvent.js");
-/* harmony import */ var _NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../NotificationEvent/methodsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/methodsNotificationEvent.js");
-
+/* harmony import */ var _NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../NotificationEvent/computedNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/computedNotificationEvent.js");
+/* harmony import */ var _NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../NotificationEvent/methodsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/methodsNotificationEvent.js");
 
 
 
@@ -1735,10 +1744,10 @@ let EventAnnotationRate = {
     }
   },
   computed: {
-    ..._NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__["default"]
+    ..._NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   methods: {
-    ..._NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_3__["default"]
+    ..._NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 }
 
@@ -1996,25 +2005,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/dataNotificationEvent.js":
-/*!*****************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/dataNotificationEvent.js ***!
-  \*****************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function (Event) {
-  Event.data = function () {
-    this.$i18n.locale = this.config.locale
-    return {
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/methodsNotificationEvent.js":
 /*!********************************************************************************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/methodsNotificationEvent.js ***!
@@ -2112,7 +2102,8 @@ let NotificationFeed = {
       noOlder: noOlder,
       loadLock: false,
       
-      feed: null
+      feed: null,
+      basetime: null
     }
   },
   components: {
@@ -2120,16 +2111,31 @@ let NotificationFeed = {
     EventAnnotationCommentRate: _EventAnnotationCommentRate_EventAnnotationCommentRate_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     EventAnnotationRate: _EventAnnotationRate_EventAnnotationRate_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  computed: {
-    basetime () {
-      this.notificationData.notifications[0].created_at_unixms
+//  computed: {
+//    basetime () {
+//      this.notificationData.notifications[0].created_at_unixms
+//    }
+//  },
+  watch: {
+    'notificationData.notifications' () {
+      if (this.notificationData.notifications.length < 3) {
+        return null
+      }
+      
+      if (!this.basetime) {
+        this.scrollToBottom()
+      }
+      
+      this.noOlder = (this.notificationData.notifications.length === 0)
+      
+      if (Array.isArray(this.notificationData.notifications)
+              && this.notificationData.notifications.length > 0) {
+        this.basetime = parseInt(this.notificationData.notifications[0].created_at_unixms, 10)
+      }
     }
   },
-//  watch: {
+//  mounted() {
 //  },
-  mounted() {
-    this.scrollToBottom()
-  },
   methods: {
     onScrollList (event) {
       if (this.loadLock === true) {
@@ -2155,7 +2161,7 @@ let NotificationFeed = {
       }
       
       await this.lib.VueHelper.sleep(100)
-      
+      //console.log('有捲動嗎？')
       if (!this.feed) {
         this.feed = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.feed)
       }
@@ -2169,14 +2175,17 @@ let NotificationFeed = {
       }
       this.loadLock = true
       
-      let focusComment = this.list.children('.event:first')
+      let focusComment = this.feed.children('.event:first')
       
       let data = {
         basetime: this.basetime
       }
+      //console.log(this.notificationData.notifications)
+      //console.log(data.basetime)
+      //return
       
       let notifications = await this.lib.AxiosHelper.get('/client/UserNotification/older', data)
-      
+      //console.log(notifications)
       if (notifications.length === 0) {
         this.noOlder = true
         this.loadLock = false
@@ -2233,6 +2242,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NotificationFeed_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NotificationFeed.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationFeed.js?vue&type=script&lang=js&?82df");
 /* empty/unused harmony star reexport *//* harmony import */ var _NotificationFeed_less_vue_type_style_index_0_id_9d0f0aee_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NotificationFeed.less?vue&type=style&index=0&id=9d0f0aee&lang=less&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationFeed.less?vue&type=style&index=0&id=9d0f0aee&lang=less&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5CCollaborativeReading_5CNotificationManager_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NotificationFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5CCollaborativeReading%5CNotificationManager%5CNotificationFeed%5CNotificationFeed.vue&lang=yaml */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5CCollaborativeReading%5CNotificationManager%5CNotificationFeed%5CNotificationFeed.vue&lang=yaml");
 
 
 
@@ -2252,10 +2262,30 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   
 )
 
+/* custom blocks */
+
+if (typeof _NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5CCollaborativeReading_5CNotificationManager_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5CCollaborativeReading_5CNotificationManager_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationFeed.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5CCollaborativeReading%5CNotificationManager%5CNotificationFeed%5CNotificationFeed.vue&lang=yaml":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5CCollaborativeReading%5CNotificationManager%5CNotificationFeed%5CNotificationFeed.vue&lang=yaml ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5CCollaborativeReading_5CNotificationManager_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./NotificationFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5CCollaborativeReading%5CNotificationManager%5CNotificationFeed%5CNotificationFeed.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5CCollaborativeReading%5CNotificationManager%5CNotificationFeed%5CNotificationFeed.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5CCollaborativeReading_5CNotificationManager_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5CCollaborativeReading_5CNotificationManager_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5CCollaborativeReading_5CNotificationManager_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5CCollaborativeReading_5CNotificationManager_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5CCollaborativeReading_5CNotificationManager_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

@@ -19,7 +19,8 @@ let NotificationFeed = {
       noOlder: noOlder,
       loadLock: false,
       
-      feed: null
+      feed: null,
+      basetime: null
     }
   },
   components: {
@@ -27,16 +28,31 @@ let NotificationFeed = {
     EventAnnotationCommentRate,
     EventAnnotationRate
   },
-  computed: {
-    basetime () {
-      this.notificationData.notifications[0].created_at_unixms
+//  computed: {
+//    basetime () {
+//      this.notificationData.notifications[0].created_at_unixms
+//    }
+//  },
+  watch: {
+    'notificationData.notifications' () {
+      if (this.notificationData.notifications.length < 3) {
+        return null
+      }
+      
+      if (!this.basetime) {
+        this.scrollToBottom()
+      }
+      
+      this.noOlder = (this.notificationData.notifications.length === 0)
+      
+      if (Array.isArray(this.notificationData.notifications)
+              && this.notificationData.notifications.length > 0) {
+        this.basetime = parseInt(this.notificationData.notifications[0].created_at_unixms, 10)
+      }
     }
   },
-//  watch: {
+//  mounted() {
 //  },
-  mounted() {
-    this.scrollToBottom()
-  },
   methods: {
     onScrollList (event) {
       if (this.loadLock === true) {
@@ -62,7 +78,7 @@ let NotificationFeed = {
       }
       
       await this.lib.VueHelper.sleep(100)
-      
+      //console.log('有捲動嗎？')
       if (!this.feed) {
         this.feed = $(this.$refs.feed)
       }
@@ -76,14 +92,17 @@ let NotificationFeed = {
       }
       this.loadLock = true
       
-      let focusComment = this.list.children('.event:first')
+      let focusComment = this.feed.children('.event:first')
       
       let data = {
         basetime: this.basetime
       }
+      //console.log(this.notificationData.notifications)
+      //console.log(data.basetime)
+      //return
       
       let notifications = await this.lib.AxiosHelper.get('/client/UserNotification/older', data)
-      
+      //console.log(notifications)
       if (notifications.length === 0) {
         this.noOlder = true
         this.loadLock = false
