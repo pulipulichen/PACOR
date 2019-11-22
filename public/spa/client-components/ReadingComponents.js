@@ -3794,7 +3794,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { ref: "panel", staticClass: "non-invasive-web-style-framework" },
+    {
+      ref: "panel",
+      staticClass: "non-invasive-web-style-framework SectionPanel"
+    },
     [
       _vm.isChecklistSubmitted === false
         ? _c("section-checklist", {
@@ -11891,12 +11894,12 @@ let RangyManager = {
   watch: {
   },  // watch: {
   mounted() {
+    
     this._initRangy()
     
     //console.log('ok')
     //console.log(rangy)
     //window.rangy = rangy
-    this._initHighlighter()
     //console.log(rangy)
     
     //document.addEventListener('selectionchange', () => {
@@ -11904,6 +11907,8 @@ let RangyManager = {
     //});
     this._initAnchorPosition()
     this._initOnSelectEventListener()
+    //this._initSearch()
+    this._initHighlighter()
     
     //this._initSearch()
     
@@ -12923,7 +12928,7 @@ __webpack_require__.r(__webpack_exports__);
     if (!range) {
       range = this.rangy.createRange()
       searchScopeRange = this.rangy.createRange()
-      sections = this.articleNode.find('[data-pacor-section-seq-id]')
+      sections = this.articleNode.find('[data-pacor-section-seq-id]:last')
       
       options = {
         caseSensitive: false,
@@ -12939,9 +12944,10 @@ __webpack_require__.r(__webpack_exports__);
     //console.log(this.articleNode.length)
     //let node = this.articleNode[0]
     sections.each((i, node) => {
+      console.log('==========================================')
       console.log(i, node)
       
-      //let node = document.body
+      //node = document.body
       range.selectNodeContents(node)
       
       // Iterate over matches
@@ -20952,6 +20958,8 @@ __webpack_require__.r(__webpack_exports__);
                         nextOffset = offset + 1;
                     } else {
                         child = node.childNodes[offset];
+                        console.log(node, child)
+                        
                         // Go into the children next, if children there are
                         if (session.getNodeWrapper(child).containsPositions()) {
                             nextNode = child;
@@ -20978,6 +20986,8 @@ __webpack_require__.r(__webpack_exports__);
                         previousOffset = offset - 1;
                     } else {
                         child = node.childNodes[offset - 1];
+                        //console.log(node, child)
+                        
                         // Go into the children next, if children there are
                         if (session.getNodeWrapper(child).containsPositions()) {
                             previousNode = child;
@@ -21095,16 +21105,21 @@ __webpack_require__.r(__webpack_exports__);
 
                 getNodeWrapper: function(node) {
                     var wrapperCache;
-                    switch (node.nodeType) {
-                        case 1:
-                            wrapperCache = this.elementCache;
-                            break;
-                        case 3:
-                            wrapperCache = this.textNodeCache;
-                            break;
-                        default:
-                            wrapperCache = this.otherNodeCache;
-                            break;
+                    if (node) {
+                      switch (node.nodeType) {
+                          case 1:
+                              wrapperCache = this.elementCache;
+                              break;
+                          case 3:
+                              wrapperCache = this.textNodeCache;
+                              break;
+                          default:
+                              wrapperCache = this.otherNodeCache;
+                              break;
+                      }
+                    }
+                    else {
+                      throw new Error('node is undefined')
                     }
 
                     var wrapper = wrapperCache.get(node);
@@ -21688,6 +21703,8 @@ __webpack_require__.r(__webpack_exports__);
 
             findText: createEntryPointFunction(
                 function(session, searchTermParam, findOptions) {
+                    //console.log('ok ?', findOptions)
+                  
                     // Set up options
                     findOptions = createNestedOptions(findOptions, defaultFindOptions);
 
@@ -21737,10 +21754,12 @@ __webpack_require__.r(__webpack_exports__);
                     // Try to find a match and ignore invalid ones
                     var findResult;
                     while (true) {
+                        //console.log('ok?', pos)
                         try {
                           findResult = findTextFromPosition(pos, searchTerm, isRegex, searchScopeRange, findOptions);
                         }
                         catch (e) {
+                          console.log(e)
                           return false
                         }
                         if (findResult) {
@@ -21763,7 +21782,7 @@ __webpack_require__.r(__webpack_exports__);
                             searchScopeRange.setBoundary(initialPos.node, initialPos.offset, backward);
                             wrappedAround = true;
                             
-                            console.log(1)
+                            //console.log(1)
                         } else {
                             // Nothing found and we can't wrap around, so we're done
                             return false;

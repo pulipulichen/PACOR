@@ -14,12 +14,12 @@ let RangyManager = {
   watch: {
   },  // watch: {
   mounted() {
+    
     this._initRangy()
     
     //console.log('ok')
     //console.log(rangy)
     //window.rangy = rangy
-    this._initHighlighter()
     //console.log(rangy)
     
     //document.addEventListener('selectionchange', () => {
@@ -27,6 +27,8 @@ let RangyManager = {
     //});
     this._initAnchorPosition()
     this._initOnSelectEventListener()
+    //this._initSearch()
+    this._initHighlighter()
     
     //this._initSearch()
     

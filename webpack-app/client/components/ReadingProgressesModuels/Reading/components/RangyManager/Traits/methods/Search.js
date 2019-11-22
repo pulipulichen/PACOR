@@ -32,7 +32,7 @@ export default (RangyManager) => {
     if (!range) {
       range = this.rangy.createRange()
       searchScopeRange = this.rangy.createRange()
-      sections = this.articleNode.find('[data-pacor-section-seq-id]')
+      sections = this.articleNode.find('[data-pacor-section-seq-id]:last')
       
       options = {
         caseSensitive: false,
@@ -48,9 +48,10 @@ export default (RangyManager) => {
     //console.log(this.articleNode.length)
     //let node = this.articleNode[0]
     sections.each((i, node) => {
+      console.log('==========================================')
       console.log(i, node)
       
-      //let node = document.body
+      //node = document.body
       range.selectNodeContents(node)
       
       // Iterate over matches

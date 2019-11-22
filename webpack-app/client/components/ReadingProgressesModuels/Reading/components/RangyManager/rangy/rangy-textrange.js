@@ -955,6 +955,8 @@ export default function(rangy) {
                         nextOffset = offset + 1;
                     } else {
                         child = node.childNodes[offset];
+                        console.log(node, child)
+                        
                         // Go into the children next, if children there are
                         if (session.getNodeWrapper(child).containsPositions()) {
                             nextNode = child;
@@ -981,6 +983,8 @@ export default function(rangy) {
                         previousOffset = offset - 1;
                     } else {
                         child = node.childNodes[offset - 1];
+                        //console.log(node, child)
+                        
                         // Go into the children next, if children there are
                         if (session.getNodeWrapper(child).containsPositions()) {
                             previousNode = child;
@@ -1098,16 +1102,21 @@ export default function(rangy) {
 
                 getNodeWrapper: function(node) {
                     var wrapperCache;
-                    switch (node.nodeType) {
-                        case 1:
-                            wrapperCache = this.elementCache;
-                            break;
-                        case 3:
-                            wrapperCache = this.textNodeCache;
-                            break;
-                        default:
-                            wrapperCache = this.otherNodeCache;
-                            break;
+                    if (node) {
+                      switch (node.nodeType) {
+                          case 1:
+                              wrapperCache = this.elementCache;
+                              break;
+                          case 3:
+                              wrapperCache = this.textNodeCache;
+                              break;
+                          default:
+                              wrapperCache = this.otherNodeCache;
+                              break;
+                      }
+                    }
+                    else {
+                      throw new Error('node is undefined')
                     }
 
                     var wrapper = wrapperCache.get(node);
@@ -1691,6 +1700,8 @@ export default function(rangy) {
 
             findText: createEntryPointFunction(
                 function(session, searchTermParam, findOptions) {
+                    //console.log('ok ?', findOptions)
+                  
                     // Set up options
                     findOptions = createNestedOptions(findOptions, defaultFindOptions);
 
@@ -1740,10 +1751,12 @@ export default function(rangy) {
                     // Try to find a match and ignore invalid ones
                     var findResult;
                     while (true) {
+                        //console.log('ok?', pos)
                         try {
                           findResult = findTextFromPosition(pos, searchTerm, isRegex, searchScopeRange, findOptions);
                         }
                         catch (e) {
+                          console.log(e)
                           return false
                         }
                         if (findResult) {
@@ -1766,7 +1779,7 @@ export default function(rangy) {
                             searchScopeRange.setBoundary(initialPos.node, initialPos.offset, backward);
                             wrappedAround = true;
                             
-                            console.log(1)
+                            //console.log(1)
                         } else {
                             // Nothing found and we can't wrap around, so we're done
                             return false;

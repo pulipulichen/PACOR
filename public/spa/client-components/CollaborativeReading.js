@@ -1236,7 +1236,7 @@ let CollaborativeReading = {
         return null
       }
       
-      this.status.search.keyword = "我"
+      this.status.search.keyword = "不"
       return
       
       // 先設定篩選條件
