@@ -1,3 +1,17 @@
-<span>
-  {{ notificationCount }}
+<span class="NotificationManager">
+  
+  <div class="bell-container">
+    <i class="bell icon"
+       ref="bell"
+       data-content="You can use me to enter data"
+       v-bind:class="computedBellClassList"></i>
+  </div>
+  <!--
+  <div v-if="notificationCount > 0"
+       class="floating ui red label">
+    {{ notificationCount }}
+  </div>
+  -->
+  
+  
 </span>

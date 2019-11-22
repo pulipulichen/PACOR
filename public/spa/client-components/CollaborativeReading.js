@@ -131,7 +131,7 @@ exports.push([module.i, ".username[data-v-46f14d70] {\n  margin-left: 1em;\n  fo
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"NotificationManager.less?vue&type=style&index=0&id=32d3d148&lang=less&scoped=true&"}]);
+exports.push([module.i, ".floating.label[data-v-32d3d148] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-32d3d148] {\n  color: #666;\n}\n", "",{"version":3,"sources":["NotificationManager.less?vue&type=style&index=0&id=32d3d148&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,6BAA6B;EAC7B,8BAA8B;EAC9B,+BAA+B;EAC/B,mCAAmC;EACnC,oBAAoB;EACpB,qBAAqB;AACvB;AACA;EACE,WAAW;AACb","file":"NotificationManager.less?vue&type=style&index=0&id=32d3d148&lang=less&scoped=true&","sourcesContent":[".floating.label[data-v-32d3d148] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-32d3d148] {\n  color: #666;\n}\n"]}]);
 
 
 /***/ }),
@@ -389,7 +389,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("span", [_vm._v("\r\n  " + _vm._s(_vm.notificationCount) + "\r\n")])
+  return _c("span", { staticClass: "NotificationManager" }, [
+    _c("div", { staticClass: "bell-container" }, [
+      _c("i", {
+        ref: "bell",
+        staticClass: "bell icon",
+        class: _vm.computedBellClassList,
+        attrs: { "data-content": "You can use me to enter data" }
+      })
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -718,7 +727,7 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    this._testAnnotationSingleFocusComment()
+    //this._testAnnotationSingleFocusComment()
   },
   methods: {
     initComponentToLib () {
@@ -1080,25 +1089,49 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 let NotificationManager = {
   props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      bell: null
     }
   },
   components: {
   },
   computed: {
     notificationCount () {
-      return 0
+      return this.status.notificationUnreadCount
+    },
+    computedBellClassList () {
+      if (this.notificationCount === 0) {
+        return 'disabled'
+      }
     }
   },
   watch: {
   },
   mounted() {
+    this.initPopup()
   },
   methods: {
+    initPopup () {
+      this.bell = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.bell)
+      this.list = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<div ref="list">
+    列表
+  </div>`).appendTo('body')
+      this.bell.popup({
+        //popup : this.list,
+        //on    : 'click'
+      })
+    },
+    show () {
+      //throw new Error('show')
+    }
   } // methods
 }
 

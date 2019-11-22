@@ -105,6 +105,9 @@ class Auth {
     let userJSON = user.toJSON()
     
     let notificationUnreadCount = await user.getNotificationUnreadCount(webpage)
+    
+    notificationUnreadCount = 20  // for test 20191122
+    
     //console.log(userJSON)
     //console.log(user.preference)
     let data = {
