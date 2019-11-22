@@ -4,6 +4,7 @@ const AnnotationCommentModel = use('App/Models/AnnotationComment')
 
 const Cache = use('Cache')
 const Config = use('Config')
+const TypeHelper = use('App/Helpers/TypeHelper')
 
 class AnnotationCommentSave {
 
@@ -35,10 +36,8 @@ class AnnotationCommentSave {
         })
       }
       
-      let comments = await this.findWithPage(webpage, user, {
-        annotationID,
-        page: 0
-      })
+      //console.log(annotationID)
+      let comments = await this.findWithPage(webpage, user, options)
       
       let itemsPerPage = Config.get('view.itemsPerPage')
       let olderCommentCount = 0
@@ -102,31 +101,31 @@ class AnnotationCommentSave {
       return comments
     }
     
-    let _processPage = function (query, options) {
-      let {
-        page,
-      } = options
-      
-      if (typeof(page) === 'string' 
-              && isNaN(page) === false) {
-        page = parseInt(page, 10)
-      }
-      if (typeof(page) === 'number') {
-        let itemsPerPage = Config.get('view.itemsPerPage')
-        query.limit(itemsPerPage)
-        query.offset(itemsPerPage * page)
-      }
-    } // Model.findWithPage = async function (webpage, user, options = {}) {
+//    let _processPage = function (query, options) {
+//      let {
+//        page,
+//      } = options
+//      
+//      if (typeof(page) === 'string' 
+//              && isNaN(page) === false) {
+//        page = parseInt(page, 10)
+//      }
+//      if (typeof(page) === 'number') {
+//        let itemsPerPage = Config.get('view.itemsPerPage')
+//        query.limit(itemsPerPage)
+//        query.offset(itemsPerPage * page)
+//      }
+//    } // Model.findWithPage = async function (webpage, user, options = {}) {
     
-    let _excludeList = function (query, options) {
-      let {
-        excludeIDList
-      } = options
-      
-      if (Array.isArray(excludeIDList)) {
-        query.whereNotIn('id', excludeIDList)
-      }
-    }
+//    let _excludeList = function (query, options) {
+//      let {
+//        excludeIDList
+//      } = options
+//      
+//      if (Array.isArray(excludeIDList)) {
+//        query.whereNotIn('id', excludeIDList)
+//      }
+//    }
     
     let _basetimeFilter = function (query, options) {
       let {
@@ -134,12 +133,14 @@ class AnnotationCommentSave {
         beforeTime
       } = options
       
+      console.log(afterTime, beforeTime)
+      
       if (afterTime) {
-        query.where('created_at_unixms', '>' , afterTime)
+        query.where('created_at_unixms', '>' , TypeHelper.parseInt(afterTime))
                 .orderBy('created_at_unixms', 'asc')
       }
       else if (beforeTime) {
-        query.where('created_at_unixms', '<' , afterTime)
+        query.where('created_at_unixms', '<' , TypeHelper.parseInt(beforeTime))
                 .orderBy('created_at_unixms', 'desc')
       }
       else {
