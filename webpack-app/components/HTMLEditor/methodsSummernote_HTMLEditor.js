@@ -21,10 +21,14 @@ export default function (HTMLEditor) {
       //airMode: true,
       toolbar: [
         // [groupName, [list of button]]
+        ['toolbar', ['link', 'picture', 'video', 'color', 'bold', 'underline']]
+        
+        /*
         ['style', ['bold', 'italic', 'underline', 'clear']],
         ['color', ['color']],
         ['para', ['ul', 'ol']],
         ['insert', ['link', 'picture', 'video']],
+         */
       ],
       enableStatusbar: false,
       //maxHeight: '5em',

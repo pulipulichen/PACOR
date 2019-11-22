@@ -53,6 +53,7 @@ let AnnotationHelper = {
   },
   
   isEditable: function (annotation) {
+    //console.log(annotation)
     if (!annotation 
             || typeof (annotation.id) !== 'number'
             || typeof (annotation.user_id) !== 'number') {

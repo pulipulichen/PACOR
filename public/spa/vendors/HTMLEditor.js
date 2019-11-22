@@ -45,7 +45,7 @@ exports.push([module.i, "@font-face {\n  font-family: \"summernote\";\n  font-st
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n}\n.html-editor-container.editable[data-v-5af2455c] {\n  min-height: 7em;\n}\n.html-editor-container .ribbon.label[data-v-5af2455c] {\n  margin-bottom: 0.5em;\n}\n", "",{"version":3,"sources":["HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;EAClB,gBAAgB;EAChB,WAAW;AACb;AACA;EACE,eAAe;AACjB;AACA;EACE,oBAAoB;AACtB","file":"HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n}\n.html-editor-container.editable[data-v-5af2455c] {\n  min-height: 7em;\n}\n.html-editor-container .ribbon.label[data-v-5af2455c] {\n  margin-bottom: 0.5em;\n}\n"]}]);
+exports.push([module.i, ".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n}\n.html-editor-container.editable[data-v-5af2455c] {\n  min-height: 7em;\n}\n.html-editor-container .ribbon.label[data-v-5af2455c] {\n  margin-bottom: 0.5em;\n}\n.html-editor-container.labeled[data-v-5af2455c] {\n  padding-top: 2.5em;\n}\n", "",{"version":3,"sources":["HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;EAClB,gBAAgB;EAChB,WAAW;AACb;AACA;EACE,eAAe;AACjB;AACA;EACE,oBAAoB;AACtB;AACA;EACE,kBAAkB;AACpB","file":"HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n}\n.html-editor-container.editable[data-v-5af2455c] {\n  min-height: 7em;\n}\n.html-editor-container .ribbon.label[data-v-5af2455c] {\n  margin-bottom: 0.5em;\n}\n.html-editor-container.labeled[data-v-5af2455c] {\n  padding-top: 2.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -207,12 +207,19 @@ let HTMLEditor = {
   },  // data() {
   computed: {
     computedClass () {
+      let classList = []
       if (this.editable) {
-        return 'editable'
+        classList.push('editable')
       }
       else {
-        return 'secondary'
+        classList.push('secondary')
       }
+      
+      if (this.label) {
+        classList.push('labeled')
+      }
+      
+      return classList
     },
     computedStyle () {
       if (this.editable === false) {
@@ -228,7 +235,7 @@ let HTMLEditor = {
         
         let padding = 90
         if (this.label) {
-          padding = padding + 50
+          padding = padding + 30
         }
         
         calc = `calc(${calc} - ${padding}px)`
@@ -511,10 +518,14 @@ __webpack_require__.r(__webpack_exports__);
       //airMode: true,
       toolbar: [
         // [groupName, [list of button]]
+        ['toolbar', ['link', 'picture', 'video', 'color', 'bold', 'underline']]
+        
+        /*
         ['style', ['bold', 'italic', 'underline', 'clear']],
         ['color', ['color']],
         ['para', ['ul', 'ol']],
         ['insert', ['link', 'picture', 'video']],
+         */
       ],
       enableStatusbar: false,
       //maxHeight: '5em',

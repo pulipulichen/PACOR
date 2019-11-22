@@ -69,7 +69,7 @@ export default (Editor) => {
         
       } else {
         
-        return '10em'
+        return '13em'
         
 //        let height
 //        if (this.enableCollaboration === true
@@ -91,10 +91,10 @@ export default (Editor) => {
       if (this.enableCollaboration === true
               && this.lib.style.isStackWidth()) {
         height = (this.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 10em)`
+        height = `calc(${height}px - 13em)`
       } else {
         //console.log(this.heightPX)
-        height = `calc(${this.heightPX}px - 20em)`
+        height = `calc(${this.heightPX}px - 23em)`
       }
       //console.log(height)
       return height

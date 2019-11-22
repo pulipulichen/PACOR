@@ -37,7 +37,9 @@ EventAnnotationComment.computed.summary = function () {
 
 
 EventAnnotationComment.methods.read = function () {
-  throw new Error('EventAnnotationComment ' + this.notification)
+  this.lib.AnnotationPanel.focusComment(this.notification.id)
+  //console.log(this.notification)
+  //throw new Error('EventAnnotationComment ' + this.notification)
 }
 
 export default EventAnnotationComment

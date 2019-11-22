@@ -617,7 +617,7 @@ exports.push([module.i, ".AnnotationSingle[data-v-758d13ca] {\n  overflow-y: aut
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-panel-buttons[data-v-38cd7e46] {\n  user-select: none;\n}\n.display-time[data-v-38cd7e46] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["AnnotationTypeModules.less?vue&type=style&index=0&id=38cd7e46&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;AACnB;AACA;EACE,qBAAqB;EACrB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;AACrB","file":"AnnotationTypeModules.less?vue&type=style&index=0&id=38cd7e46&lang=less&scoped=true&","sourcesContent":[".annotation-panel-buttons[data-v-38cd7e46] {\n  user-select: none;\n}\n.display-time[data-v-38cd7e46] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n"]}]);
+exports.push([module.i, ".annotation-panel-buttons[data-v-38cd7e46] {\n  user-select: none;\n  white-space: nowrap;\n}\n.display-time[data-v-38cd7e46] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["AnnotationTypeModules.less?vue&type=style&index=0&id=38cd7e46&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;AACrB","file":"AnnotationTypeModules.less?vue&type=style&index=0&id=38cd7e46&lang=less&scoped=true&","sourcesContent":[".annotation-panel-buttons[data-v-38cd7e46] {\n  user-select: none;\n  white-space: nowrap;\n}\n.display-time[data-v-38cd7e46] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -631,7 +631,7 @@ exports.push([module.i, ".annotation-panel-buttons[data-v-38cd7e46] {\n  user-se
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-panel-buttons[data-v-59f02f24] {\n  user-select: none;\n}\n.display-time[data-v-59f02f24] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["AnnotationTypeModules.less?vue&type=style&index=0&id=59f02f24&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;AACnB;AACA;EACE,qBAAqB;EACrB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;AACrB","file":"AnnotationTypeModules.less?vue&type=style&index=0&id=59f02f24&lang=less&scoped=true&","sourcesContent":[".annotation-panel-buttons[data-v-59f02f24] {\n  user-select: none;\n}\n.display-time[data-v-59f02f24] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n"]}]);
+exports.push([module.i, ".annotation-panel-buttons[data-v-59f02f24] {\n  user-select: none;\n  white-space: nowrap;\n}\n.display-time[data-v-59f02f24] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["AnnotationTypeModules.less?vue&type=style&index=0&id=59f02f24&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;AACrB","file":"AnnotationTypeModules.less?vue&type=style&index=0&id=59f02f24&lang=less&scoped=true&","sourcesContent":[".annotation-panel-buttons[data-v-59f02f24] {\n  user-select: none;\n  white-space: nowrap;\n}\n.display-time[data-v-59f02f24] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -7608,19 +7608,22 @@ let AnnotationDiscussionList = {
       //console.log(data)
       
       let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/init', data)
+      //console.log(result)
+      
       this.comments = result.comments
       
-      if (result.olderCommentCount) {
+      if (typeof(result.olderCommentCount) === 'number') {
         this.olderCommentCount = result.olderCommentCount
         if (this.olderCommentCount === 0) {
           this.noMoreOlder = true
-          return null
+          //return null
         }
         else {
           this.oldestCommentTime = this.comments[0].created_at_unixms
         }
       }
-      if (result.newerCommentCount) {
+      
+      if (typeof(result.newerCommentCount) === 'number') {
         this.newerCommentCount = result.newerCommentCount
         if (this.newerCommentCount === 0) {
           this.noMoreNewer = true
@@ -7629,10 +7632,13 @@ let AnnotationDiscussionList = {
           let i = this.comments.length - 1
           this.newestCommentTime = this.comments[i].created_at_unixms
         }
+        //console.log('noMoreNewer', this.noMoreNewer)
       }
       
       //console.log('@TODO AnnotationDiscussionList.initComments()')
-      this.scrollToBottom()
+      if (this.noMoreOlder !== true) {
+        this.scrollToBottom()
+      }
     },
     scrollToBottom () {
       setTimeout(() => {
@@ -8988,6 +8994,8 @@ __webpack_require__.r(__webpack_exports__);
       commentID: commentID
     })
     
+    console.log(annotation)
+    
     //this.$refs.AnnotationSingle.focusComment(commentID)
     this.panelData.focusCommentID = commentID
     
@@ -9975,7 +9983,7 @@ __webpack_require__.r(__webpack_exports__);
         
       } else {
         
-        return '10em'
+        return '13em'
         
 //        let height
 //        if (this.enableCollaboration === true
@@ -9997,10 +10005,10 @@ __webpack_require__.r(__webpack_exports__);
       if (this.enableCollaboration === true
               && this.lib.style.isStackWidth()) {
         height = (this.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 10em)`
+        height = `calc(${height}px - 13em)`
       } else {
         //console.log(this.heightPX)
-        height = `calc(${this.heightPX}px - 20em)`
+        height = `calc(${this.heightPX}px - 23em)`
       }
       //console.log(height)
       return height

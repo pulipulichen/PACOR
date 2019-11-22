@@ -42,6 +42,8 @@ export default (AnnotationPanel) => {
       commentID: commentID
     })
     
+    console.log(annotation)
+    
     //this.$refs.AnnotationSingle.focusComment(commentID)
     this.panelData.focusCommentID = commentID
     

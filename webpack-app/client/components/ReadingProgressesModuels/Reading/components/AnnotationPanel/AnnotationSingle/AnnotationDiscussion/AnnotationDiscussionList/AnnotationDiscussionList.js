@@ -91,19 +91,22 @@ let AnnotationDiscussionList = {
       //console.log(data)
       
       let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/init', data)
+      //console.log(result)
+      
       this.comments = result.comments
       
-      if (result.olderCommentCount) {
+      if (typeof(result.olderCommentCount) === 'number') {
         this.olderCommentCount = result.olderCommentCount
         if (this.olderCommentCount === 0) {
           this.noMoreOlder = true
-          return null
+          //return null
         }
         else {
           this.oldestCommentTime = this.comments[0].created_at_unixms
         }
       }
-      if (result.newerCommentCount) {
+      
+      if (typeof(result.newerCommentCount) === 'number') {
         this.newerCommentCount = result.newerCommentCount
         if (this.newerCommentCount === 0) {
           this.noMoreNewer = true
@@ -112,10 +115,13 @@ let AnnotationDiscussionList = {
           let i = this.comments.length - 1
           this.newestCommentTime = this.comments[i].created_at_unixms
         }
+        //console.log('noMoreNewer', this.noMoreNewer)
       }
       
       //console.log('@TODO AnnotationDiscussionList.initComments()')
-      this.scrollToBottom()
+      if (this.noMoreOlder !== true) {
+        this.scrollToBottom()
+      }
     },
     scrollToBottom () {
       setTimeout(() => {

@@ -17,12 +17,19 @@ let HTMLEditor = {
   },  // data() {
   computed: {
     computedClass () {
+      let classList = []
       if (this.editable) {
-        return 'editable'
+        classList.push('editable')
       }
       else {
-        return 'secondary'
+        classList.push('secondary')
       }
+      
+      if (this.label) {
+        classList.push('labeled')
+      }
+      
+      return classList
     },
     computedStyle () {
       if (this.editable === false) {
@@ -38,7 +45,7 @@ let HTMLEditor = {
         
         let padding = 90
         if (this.label) {
-          padding = padding + 50
+          padding = padding + 30
         }
         
         calc = `calc(${calc} - ${padding}px)`
