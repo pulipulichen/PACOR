@@ -33,6 +33,11 @@ let NotificationManager = {
   methods: {
     initNotificationData: async function () {
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/init')
+      
+      console.log(result)
+      for (let key in result) {
+        this.notificationData[key] = result[key]
+      }
     },
     initPopup () {
       let anchor = $(this.$refs.anchor)
@@ -41,7 +46,8 @@ let NotificationManager = {
           popup: this.$refs.popup,
           inline     : true,
           hoverable  : true,
-          on    : 'click'
+          on    : 'click',
+          distanceAway: 20,
       })
 //      console.log('initPopup')
       anchor.click()

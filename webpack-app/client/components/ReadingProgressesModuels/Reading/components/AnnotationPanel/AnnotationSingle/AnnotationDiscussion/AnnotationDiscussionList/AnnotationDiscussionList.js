@@ -142,7 +142,7 @@ let AnnotationDiscussionList = {
       }, 100)
     },
     loadOlder: async function () {
-      console.log('loadOlder')
+      //console.log('loadOlder')
       if (this.loadLock === true) {
         return null
       }

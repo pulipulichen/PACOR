@@ -55,7 +55,8 @@
     "component": {
       "attributes": {
         "v-bind:heightPX": {},
-        "v-bind:hook": {}
+        "v-bind:hook": {},
+        "v-bind:notification": {}
       }
     },
     "fragment": {},
@@ -100,6 +101,7 @@
       "context": "img"
     },
     "v-modal": {},
+    "v-bind:key": {},
     "v-bind:id": {},
     "v-bind:annotation": {},
     "v-model": {},

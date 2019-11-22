@@ -133,6 +133,10 @@ Route.any('/client/File/:action', (options) => {
   return controllerMapping(options, 'client', 'File')
 }).middleware(['user', 'webpage'])
 
+Route.any('/client/UserNotification/:action', (options) => {
+  return controllerMapping(options, 'client', 'UserNotification')
+}).middleware(['user', 'webpage', 'checkEnableCollaboration'])
+
 // -------------------------------
 let resourceControllerMapping = (options, model, action) => {
   const params = options.params

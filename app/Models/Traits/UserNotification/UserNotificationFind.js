@@ -6,13 +6,15 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 const Cache = use('Cache')
 const Config = use('Config')
 
+const TypeHelper = use('App/Helpers/TypeHelper')
+
 class UserNotificationFind {
 
   register(Model) {
     
     Model.getInit = async function (webpage, user, options) {
       
-      let cacheKey = Cache.keys('getSummary')
+      let cacheKey = Cache.key('getSummary')
       return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
         let query = UserNotificationModel
               .query()
@@ -20,10 +22,13 @@ class UserNotificationFind {
               .where('user_id', user.primaryKeyValue)
               .where('deleted', false)
               .where('has_read', false)
+              .with('triggerUser')
               .orderBy('created_at_unixms', 'desc')
 
         let itemsPerPage = Config.get('view.itemsPerPage')
         query.limit(itemsPerPage)
+        
+        console.log(query.toSQL())
 
         let notifications = await query.fetch()
         notifications = notifications.toJSON().reverse()
@@ -42,17 +47,24 @@ class UserNotificationFind {
         basetime
       } = options
       
-      let cacheKey = Cache.keys('getUnreadCount', basetime)
+      let cacheKey = Cache.key('getUnreadCount', basetime)
       return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
         let query = UserNotificationModel
               .query()
               .where('webpage_id', webpage.primaryKeyValue)
               .where('user_id', user.primaryKeyValue)
+              .with('triggerUser')
               .where('deleted', false)
               .where('has_read', false)
+              .orderBy('created_at_unixms', 'desc')
 
         let itemsPerPage = Config.get('view.itemsPerPage')
         query.limit(itemsPerPage)
+        
+        basetime = TypeHelper.parseInt(basetime)
+        if (basetime) {
+          query.where('created_at_unixms', '<' , basetime)
+        }
 
         let notifications = await query.fetch()
         notifications = notifications.toJSON().reverse()
@@ -62,7 +74,7 @@ class UserNotificationFind {
     }
     
     Model.getUnreadCount = async function (webpage, user) {
-      let cacheKey = Cache.keys('getUnreadCount')
+      let cacheKey = Cache.key('getUnreadCount')
       
       return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
         return await UserNotificationModel

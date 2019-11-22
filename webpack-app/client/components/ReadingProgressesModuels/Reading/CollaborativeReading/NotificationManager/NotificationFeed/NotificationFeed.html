@@ -1,13 +1,28 @@
-<div class="ui feed">
-  <component 
-    v-for="notification in notificationData.notifications"
-    v-bind:key="notification.id"
-    v-bind:is="eventType(notification)"
-    
-    v-bind:lib="lib"
-    v-bind:status="status"
-    v-bind:config="config"
-    
-    v-bind:notificationData="notificationData">
-  </component>
+<div class="NotificationFeed"
+     v-on:scroll.stop="onScrollList"
+     ref="feed">
+  
+  <div class="ui secondary segment no-more"
+       v-if="noOlder">
+    <template v-if="notificationData.notifications.length > 0">
+      {{ $t('No More') }}
+    </template>
+    <template v-else>
+      {{ $t('No notifications') }}
+    </template>
+  </div>
+
+  <div class="ui feed">
+    <component 
+      v-for="notification in notificationData.notifications"
+      v-bind:key="notification.id"
+      v-bind:is="eventType(notification)"
+
+      v-bind:lib="lib"
+      v-bind:status="status"
+      v-bind:config="config"
+
+      v-bind:notification="notification">
+    </component>
+  </div>
 </div>

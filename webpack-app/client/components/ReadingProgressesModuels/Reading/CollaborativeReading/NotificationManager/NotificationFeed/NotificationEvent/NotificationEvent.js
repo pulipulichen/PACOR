@@ -1,5 +1,5 @@
 let NotificationEvent = {
-  props: ['lib', 'status', 'config', 'notificationData'],
+  props: ['lib', 'status', 'config', 'notification'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -8,12 +8,24 @@ let NotificationEvent = {
 //  components: {
 //  },
   computed: {
+    avatar () {
+      return this.notification.triggerUser.avatar_url
+    },
+    displayTime () {
+      return this.lib.DayJSHelper.fromNow(this.notification.created_at_unixms)
+    },
+    summary () {
+      return `<a>Helen Troy</a> added 2 photos`
+    }
   },
-  watch: {
-  },
-  mounted() {
-  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
   methods: {
+    read () {
+      throw new Error('read')
+    }
   } // methods
 }
 
