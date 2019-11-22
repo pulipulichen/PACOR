@@ -161,7 +161,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".NotificationFeed[data-v-9d0f0aee] {\n  overflow-y: auto;\n  max-height: 300px;\n}\n@media (max-height: 320px) {\n.NotificationFeed[data-v-9d0f0aee] {\n    max-height: calc(100vh - 50px);\n}\n}\n.no-more[data-v-9d0f0aee] {\n  cursor: default;\n  user-select: none;\n  text-align: center;\n}\n", "",{"version":3,"sources":["NotificationFeed.less?vue&type=style&index=0&id=9d0f0aee&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,iBAAiB;AACnB;AACA;AACA;IACI,8BAA8B;AAClC;AACA;AACA;EACE,eAAe;EACf,iBAAiB;EACjB,kBAAkB;AACpB","file":"NotificationFeed.less?vue&type=style&index=0&id=9d0f0aee&lang=less&scoped=true&","sourcesContent":[".NotificationFeed[data-v-9d0f0aee] {\n  overflow-y: auto;\n  max-height: 300px;\n}\n@media (max-height: 320px) {\n.NotificationFeed[data-v-9d0f0aee] {\n    max-height: calc(100vh - 50px);\n}\n}\n.no-more[data-v-9d0f0aee] {\n  cursor: default;\n  user-select: none;\n  text-align: center;\n}\n"]}]);
+exports.push([module.i, ".NotificationFeed[data-v-9d0f0aee] {\n  overflow-y: auto;\n  max-height: 300px;\n  padding-right: 0.5em;\n}\n@media (max-height: 320px) {\n.NotificationFeed[data-v-9d0f0aee] {\n    max-height: calc(100vh - 50px);\n}\n}\n.no-more[data-v-9d0f0aee] {\n  cursor: default;\n  user-select: none;\n  text-align: center;\n}\n", "",{"version":3,"sources":["NotificationFeed.less?vue&type=style&index=0&id=9d0f0aee&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,oBAAoB;AACtB;AACA;AACA;IACI,8BAA8B;AAClC;AACA;AACA;EACE,eAAe;EACf,iBAAiB;EACjB,kBAAkB;AACpB","file":"NotificationFeed.less?vue&type=style&index=0&id=9d0f0aee&lang=less&scoped=true&","sourcesContent":[".NotificationFeed[data-v-9d0f0aee] {\n  overflow-y: auto;\n  max-height: 300px;\n  padding-right: 0.5em;\n}\n@media (max-height: 320px) {\n.NotificationFeed[data-v-9d0f0aee] {\n    max-height: calc(100vh - 50px);\n}\n}\n.no-more[data-v-9d0f0aee] {\n  cursor: default;\n  user-select: none;\n  text-align: center;\n}\n"]}]);
 
 
 /***/ }),
@@ -1718,6 +1718,7 @@ let NotificationManager = {
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/init')
       
       console.log(result)
+      console.log(result.notifications[0].triggerUser)
       for (let key in result) {
         this.notificationData[key] = result[key]
       }

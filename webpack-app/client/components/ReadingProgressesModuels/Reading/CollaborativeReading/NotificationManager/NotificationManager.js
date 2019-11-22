@@ -35,6 +35,7 @@ let NotificationManager = {
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/init')
       
       console.log(result)
+      console.log(result.notifications[0].triggerUser)
       for (let key in result) {
         this.notificationData[key] = result[key]
       }

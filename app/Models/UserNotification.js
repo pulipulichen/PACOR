@@ -22,7 +22,7 @@ class UserNotification extends Model {
   }
   
   triggerUser () {
-    return this.belongsTo('App/Models/User', 'id', 'trigger_user_id')
+    return this.belongsTo('App/Models/User', 'trigger_user_id')
   }
   
   webpage () {
@@ -31,7 +31,10 @@ class UserNotification extends Model {
   
   static get hidden () {
     //return ['password']
-    return ['webpage_id', 'deleted', 'created_at', 'updated_at', 'created_at_unixms']
+    return ['webpage_id', 'deleted', 'created_at', 'updated_at', 
+      //'created_at_unixms'
+      'updated_at_unixms'
+    ]
     //return ['webpage_id', 'created_at']
   }
 }

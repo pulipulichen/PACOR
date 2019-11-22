@@ -12,6 +12,10 @@ class UserNotificationFind {
 
   register(Model) {
     
+    let triggerQueryBuilder = (builder) => {
+      builder.setHidden(['avatar', 'domain_id', 'email', 'id', 'password', 'preference', 'role', 'created_at', 'updated_at'])
+    }
+    
     Model.getInit = async function (webpage, user, options) {
       
       let cacheKey = Cache.key('getSummary')
@@ -22,14 +26,14 @@ class UserNotificationFind {
               .where('user_id', user.primaryKeyValue)
               .where('deleted', false)
               .where('has_read', false)
-              .with('triggerUser')
+              .with('triggerUser', triggerQueryBuilder)
               .orderBy('created_at_unixms', 'desc')
 
         let itemsPerPage = Config.get('view.itemsPerPage')
         query.limit(itemsPerPage)
         
-        console.log(query.toSQL())
-
+        //console.log(query.toSQL())
+        
         let notifications = await query.fetch()
         notifications = notifications.toJSON().reverse()
 
@@ -53,7 +57,7 @@ class UserNotificationFind {
               .query()
               .where('webpage_id', webpage.primaryKeyValue)
               .where('user_id', user.primaryKeyValue)
-              .with('triggerUser')
+              .with('triggerUser', triggerQueryBuilder)
               .where('deleted', false)
               .where('has_read', false)
               .orderBy('created_at_unixms', 'desc')
@@ -77,13 +81,19 @@ class UserNotificationFind {
       let cacheKey = Cache.key('getUnreadCount')
       
       return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
-        return await UserNotificationModel
+        let result = await UserNotificationModel
                 .query()
                 .where('webpage_id', webpage.primaryKeyValue)
                 .where('user_id', user.primaryKeyValue)
                 .where('deleted', false)
-                .where('read', false)
+                .where('has_read', false)
                 .count()
+        
+        if (result === null) {
+          return 0
+        }
+        //console.log(TypeHelper.parseInt(result[0].count))
+        return TypeHelper.parseInt(result[0].count)
       })
     }
     

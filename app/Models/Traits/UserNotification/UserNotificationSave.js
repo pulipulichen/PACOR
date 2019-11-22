@@ -43,6 +43,7 @@ class UserNotificationSave {
       // -------------------------------------
       let findData = {
         webpage_id: webpage.primaryKeyValue,
+        trigger_user_id: triggerUser.primaryKeyValue,
         user_id: notifiedUserID,
         model: anchorModel,
         model_id: anchorModelID
