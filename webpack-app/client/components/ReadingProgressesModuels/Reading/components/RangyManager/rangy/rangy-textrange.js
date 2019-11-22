@@ -955,7 +955,7 @@ export default function(rangy) {
                         nextOffset = offset + 1;
                     } else {
                         child = node.childNodes[offset];
-                        console.log(node, child)
+                        //console.log(node, child)
                         
                         // Go into the children next, if children there are
                         if (session.getNodeWrapper(child).containsPositions()) {
@@ -1756,7 +1756,7 @@ export default function(rangy) {
                           findResult = findTextFromPosition(pos, searchTerm, isRegex, searchScopeRange, findOptions);
                         }
                         catch (e) {
-                          console.log(e)
+                          //console.log(e)
                           return false
                         }
                         if (findResult) {

@@ -32,7 +32,7 @@ export default (RangyManager) => {
     if (!range) {
       range = this.rangy.createRange()
       searchScopeRange = this.rangy.createRange()
-      sections = this.articleNode.find('[data-pacor-section-seq-id]:last')
+      sections = this.articleNode.find('[data-pacor-section-seq-id]')
       
       options = {
         caseSensitive: false,
@@ -40,7 +40,7 @@ export default (RangyManager) => {
         withinRange: searchScopeRange,
         direction: "forward" // This is redundant because "forward" is the default
       }
-      this._initSearch()
+      this._initSearch() 
     }
 
     //searchScopeRange.selectNodeContents(document.body);

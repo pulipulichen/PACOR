@@ -3477,7 +3477,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "fragment",
+    "div",
+    { staticClass: "SectionManager" },
     [
       _vm._l(_vm.sectionNodes, function(node, index) {
         return [
@@ -12928,7 +12929,7 @@ __webpack_require__.r(__webpack_exports__);
     if (!range) {
       range = this.rangy.createRange()
       searchScopeRange = this.rangy.createRange()
-      sections = this.articleNode.find('[data-pacor-section-seq-id]:last')
+      sections = this.articleNode.find('[data-pacor-section-seq-id]')
       
       options = {
         caseSensitive: false,
@@ -12936,7 +12937,7 @@ __webpack_require__.r(__webpack_exports__);
         withinRange: searchScopeRange,
         direction: "forward" // This is redundant because "forward" is the default
       }
-      this._initSearch()
+      this._initSearch() 
     }
 
     //searchScopeRange.selectNodeContents(document.body);
@@ -20958,7 +20959,7 @@ __webpack_require__.r(__webpack_exports__);
                         nextOffset = offset + 1;
                     } else {
                         child = node.childNodes[offset];
-                        console.log(node, child)
+                        //console.log(node, child)
                         
                         // Go into the children next, if children there are
                         if (session.getNodeWrapper(child).containsPositions()) {
@@ -21759,7 +21760,7 @@ __webpack_require__.r(__webpack_exports__);
                           findResult = findTextFromPosition(pos, searchTerm, isRegex, searchScopeRange, findOptions);
                         }
                         catch (e) {
-                          console.log(e)
+                          //console.log(e)
                           return false
                         }
                         if (findResult) {
