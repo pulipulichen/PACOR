@@ -68,6 +68,8 @@ module.exports = {
     await user.startReadingProgress(webpage)
     await Sleep(0.5)
     await user.endReadingProgress(webpage)
+    
+    await AnnotationModel.create(webpage, user, AnnotationParameters.sectionAnnotation2())
     await Sleep(0.5)
     await user.endReadingProgress(webpage)
     // 走到這裡應該要是 CollaborativeReading
@@ -83,6 +85,9 @@ module.exports = {
     await user.startReadingProgress(webpage)
     await Sleep(0.5)
     await user.endReadingProgress(webpage)
+    
+    await AnnotationModel.create(webpage, user, AnnotationParameters.sectionAnnotation1())
+    
     await Sleep(0.5)
     await user.endReadingProgress(webpage)
     // 走到這裡應該要是 CollaborativeReading
@@ -99,8 +104,12 @@ module.exports = {
     await user.startReadingProgress(webpage)
     await Sleep(0.5)
     await user.endReadingProgress(webpage)
+    
+    await AnnotationModel.create(webpage, user, AnnotationParameters.sectionAnnotation2())
     await Sleep(0.5)
     await user.endReadingProgress(webpage)
+    
+    await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataUpper3())
     
     // 走到這裡應該要是 CollaborativeReading
   },
@@ -113,6 +122,8 @@ module.exports = {
     await user.startReadingProgress(webpage)
     await Sleep(0.5)
     await user.endReadingProgress(webpage)
+    
+    await AnnotationModel.create(webpage, user, AnnotationParameters.sectionAnnotation3())
     await Sleep(0.5)
     await user.endReadingProgress(webpage)
     // 走到這裡應該要是 CollaborativeReading

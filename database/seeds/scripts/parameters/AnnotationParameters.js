@@ -5,6 +5,8 @@ module.exports =  {
   // 50-100是下半部，屬於第二段 pacor-paragraph-id-1
   // 三種不同類型標註
   
+  // 文章來源：https://www.ithome.com.tw/news/133958
+  
   annotationDataUpper1: function () {
     return {
       type: 'MainIdea',
@@ -115,11 +117,48 @@ module.exports =  {
     }
   },
   
-  annotationDataSection1: function () {
-    
+  sectionAnnotation1: function () {
+    return {
+      type: 'SectionMainIdea',
+      notes: {
+        'default': '相關機制的有效性，特別的'
+      },
+      anchorPositions: [
+        {
+          seq_id: 0,
+          type: 'section'
+        }
+      ]
+    }
   },
   
-  annotationDataSection2: function () {
-    
+  sectionAnnotation2: function () {
+    return {
+      type: 'SectionMainIdea',
+      notes: {
+        'default': '曝露於網路上的用戶資料包括電子郵件、帳號建立時間等，並未包括信用卡號或密碼。'
+      },
+      anchorPositions: [
+        {
+          seq_id: 1,
+          type: 'section'
+        }
+      ]
+    }
+  },
+  
+  sectionAnnotation3: function () {
+    return {
+      type: 'SectionMainIdea',
+      notes: {
+        'default': '安全部落格Comparitech Paul Bischoff於本月和安全廠商研究人員Bob Diachenko合作下'
+      },
+      anchorPositions: [
+        {
+          seq_id: 0,
+          type: 'section'
+        }
+      ]
+    }
   }
 }

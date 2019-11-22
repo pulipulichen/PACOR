@@ -8,6 +8,9 @@ let UserSelector = {
   components: {
   },
   computed: {
+    peer () {
+      return
+    }
   },
   watch: {
   },

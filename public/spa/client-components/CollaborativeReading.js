@@ -824,7 +824,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("span", [_vm._v("\r\n  UserSelector\r\n")])
+  return _c(
+    "span",
+    [
+      _vm._v("\r\n  " + _vm._s(_vm.$t("Peer")) + ":\r\n  "),
+      _vm.peer
+        ? void 0
+        : [_vm._v("\r\n    " + _vm._s(_vm.$t("All")) + "\r\n  ")]
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2621,6 +2630,9 @@ let UserSelector = {
   components: {
   },
   computed: {
+    peer () {
+      return
+    }
   },
   watch: {
   },

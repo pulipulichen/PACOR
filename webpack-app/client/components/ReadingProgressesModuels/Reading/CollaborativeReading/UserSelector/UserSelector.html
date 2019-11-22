@@ -1,3 +1,9 @@
 <span>
-  UserSelector
+  {{ $t('Peer') }}:
+  <template v-if="peer">
+    
+  </template>
+  <template v-else>
+    {{ $t('All') }}
+  </template>
 </span>
