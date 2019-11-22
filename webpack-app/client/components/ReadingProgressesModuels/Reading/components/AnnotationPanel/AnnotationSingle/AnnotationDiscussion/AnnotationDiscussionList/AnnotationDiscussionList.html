@@ -5,7 +5,7 @@
      v-on:scroll.stop="scrollList">
   
   <div class="ui secondary segment no-more"
-       v-if="noMore"
+       v-if="noMoreOlder"
        v-on:click="focusInput">
     <template v-if="comments.length > 0">
       {{ $t('No More') }}
@@ -16,8 +16,8 @@
   </div>
   
   <div class="ui secondary segment no-more"
-       v-if="!noMore && commentCount > 0">
-    {{ $t('Load previous {0} comments...', [commentCount]) }}
+       v-if="!noMoreOlder && olderCommentCount > 0">
+    {{ $t('Load previous comments...', [olderCommentCount]) }}
   </div>
   
   <annotation-comment 
@@ -38,6 +38,9 @@
     v-on:delete="onCommentDelete(i)">
   </annotation-comment>
   
-  
+  <div class="ui secondary segment no-more"
+       v-if="!noMoreNewer && newerCommentCount > 0">
+    {{ $t('Load next comments...', [newerCommentCount]) }}
+  </div>
   
 </div>

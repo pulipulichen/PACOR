@@ -73,7 +73,9 @@ class AnnotationComment extends Model {
   }
   
   static get hidden () {
-    return ['webpage_id', 'deleted', 'created_at', 'updated_at', 'created_at_unixms', 'properties']
+    return ['webpage_id', 'deleted', 'created_at', 'updated_at'
+      //, 'created_at_unixms'
+      , 'properties']
   }
 }
 

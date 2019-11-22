@@ -3,6 +3,7 @@ import AnnotationDiscussionInput from './AnnotationDiscussionInput/AnnotationDis
 
 let AnnotationDiscussion = {
   props: ['lib', 'status', 'config'
+    , 'panelData'
     , 'annotation', 'heightPX', 'hook'],
   data() {    
     this.$i18n.locale = this.config.locale

@@ -48,7 +48,8 @@
     },
     "component": {
       "attributes": {
-        "v-bind:heightPX": {}
+        "v-bind:heightPX": {},
+        "v-bind:hook": {}
       }
     },
     "fragment": {},
