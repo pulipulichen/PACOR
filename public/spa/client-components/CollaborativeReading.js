@@ -428,13 +428,22 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "content" }, [
-      _c("div", { staticClass: "date" }, [
-        _vm._v("\r\n      " + _vm._s(_vm.displayTime) + "\r\n    ")
+      _c("div", { staticClass: "summary" }, [
+        _c("a", { staticClass: "user" }, [
+          _vm._v("\r\n        " + _vm._s(_vm.username) + "\r\n      ")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "date" }, [
+          _vm._v("\r\n        " + _vm._s(_vm.displayTime) + "\r\n      ")
+        ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "summary" }, [
-        _vm._v("\r\n      " + _vm._s(_vm.summary) + "\r\n    ")
-      ])
+      _vm.summary
+        ? _c("div", {
+            staticClass: "extra text",
+            domProps: { innerHTML: _vm._s(_vm.summary) }
+          })
+        : _vm._e()
     ])
   ])
 }
@@ -1328,6 +1337,15 @@ let NotificationEvent = {
 //  components: {
 //  },
   computed: {
+    username () {
+      let user = this.notification.triggerUser
+      if (typeof(user.displayName) === 'string') {
+        return user.displayName
+      }
+      else {
+        return user.username
+      }
+    },
     avatar () {
       return this.notification.triggerUser.avatar_url
     },
@@ -1335,7 +1353,7 @@ let NotificationEvent = {
       return this.lib.DayJSHelper.fromNow(this.notification.created_at_unixms)
     },
     summary () {
-      return `<a>Helen Troy</a> added 2 photos`
+      return this.notification.summary
     }
   },
 //  watch: {

@@ -4,11 +4,17 @@
     <img v-bind:src="avatar">
   </div>
   <div class="content">
-    <div class="date">
-      {{ displayTime }}
-    </div>
     <div class="summary">
-      {{ summary }}
+      <a class="user">
+        {{ username }}
+      </a>
+      <div class="date">
+        {{ displayTime }}
+      </div>
+    </div>
+    <div class="extra text"
+         v-if="summary"
+         v-html="summary">
     </div>
     <!--
     <div class="extra images">

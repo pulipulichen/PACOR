@@ -8,6 +8,15 @@ let NotificationEvent = {
 //  components: {
 //  },
   computed: {
+    username () {
+      let user = this.notification.triggerUser
+      if (typeof(user.displayName) === 'string') {
+        return user.displayName
+      }
+      else {
+        return user.username
+      }
+    },
     avatar () {
       return this.notification.triggerUser.avatar_url
     },
@@ -15,7 +24,7 @@ let NotificationEvent = {
       return this.lib.DayJSHelper.fromNow(this.notification.created_at_unixms)
     },
     summary () {
-      return `<a>Helen Troy</a> added 2 photos`
+      return this.notification.summary
     }
   },
 //  watch: {
