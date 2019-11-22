@@ -17,6 +17,16 @@ export default {
     return this.lib.DayJSHelper.fromNow(this.notification.created_at_unixms)
   },
   summary() {
-    return this.notification.summary
+    return
+  },
+  computedEventClassList () {
+    let classList = []
+    if (this.notification.has_read === true) {
+      //console.log(this.notification)
+      classList.push('has-read')
+    }
+    //classList.push('has-read')
+    //console.log(classList)
+    return classList.join(' ')
   }
 }

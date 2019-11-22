@@ -35,7 +35,7 @@ let NotificationManager = {
     this.initNotificationData()
     
     //console.log('@TODO 自動重新讀取notification data的功能還沒做')
-    this.startReloadData()
+    //this.startReloadData()
   },
   methods: {
     initNotificationData: async function () {
@@ -46,6 +46,7 @@ let NotificationManager = {
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/init', data)
       
       this.afterTime = (new Date()).getTime()
+      this.startReloadData()
       if (result === 0) {
         return null
       }
@@ -56,7 +57,7 @@ let NotificationManager = {
         this.notificationData[key] = result[key]
       }
       
-      this.show() // for test 20191123
+      //this.show() // for test 20191123
     },
     initPopup () {
       let anchor = $(this.$refs.anchor)
@@ -79,6 +80,7 @@ let NotificationManager = {
     },
     startReloadData () {
       this.timer = setTimeout(() => {
+        console.log('重新讀取')
         this.initNotificationData()
       }, this.reloadIntervalSeconds * 1000)
     },

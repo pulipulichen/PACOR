@@ -3,9 +3,17 @@
 const Cache = use('Cache')
 const Config = use('Config')
 
+const AnnotationModel = use('App/Models/Annotation')
+const TypeHelper = use('App/Helpers/TypeHelper')
+const { HttpException } = use('@adonisjs/generic-exceptions') 
+
 class AnnotationFind {
 
   register(Model) {
+    
+    let userQueryBuilder = (builder) => {
+      builder.setHidden(['preference', 'email', 'password', 'role', 'domain_id', 'updated_at', 'created_at'])
+    }
     
     Model.findByWebpageGroupPosition = async function (webpage, user, options) {
       options = options ? options : {}
@@ -32,7 +40,7 @@ class AnnotationFind {
         let query = this.query()
                 .where('webpage_id', webpage.primaryKeyValue)
                 .whereIn('user_id', userList)
-                .with('user')
+                .with('user', userQueryBuilder)
                 .with('notes')
                 .where('deleted', false)
                 .whereRaw('((user_id = ? ) or (user_id != ? and public = ?))', [user.primaryKeyValue, user.primaryKeyValue, true])
@@ -274,7 +282,36 @@ class AnnotationFind {
       return await doQuery()
     } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
 
-
+    Model.getAnnotation = async function (webpage, user, options) {
+      let {
+        annotationID
+      } = options
+      
+      if (!annotationID) {
+        throw new Error('Annotation ID is required.')
+      }
+      
+      let annotation = await AnnotationModel
+              .query()
+              .where('id', TypeHelper.parseInt(annotationID))
+              .where('deleted', false)
+              .with('user', userQueryBuilder)
+              .with('notes')
+              .with('anchorPositions')
+              .fetch()
+      
+      if (annotation === null) {
+        throw new Error('Annotation is not existed.')
+      }
+      
+      annotation = annotation.first()
+      
+      if (annotation.webpage_id !== webpage.primaryKeyValue) {
+        throw new HttpException('Forbidden', 403)
+      }
+      
+      return annotation
+    }
   } // register (Model) {
 }
 

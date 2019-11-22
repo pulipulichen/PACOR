@@ -289,14 +289,14 @@ class AnnotationCommentSave {
               .where('deleted', false)
               .with('annotation', (builder) => {
                 builder.setVisible(['id', 'user_id', 'type', 'public', 'properties', 'updated_at_unixms', 'webpage_id'])
-                  .with('user')
+                  .with('user', userQueryBuilder)
                   .with('notes')
                   .with('anchorPositions')
               })
               .fetch()
       
       if (comment === null) {
-        throw new Error('Comment ID is not existed.')
+        throw new Error('Comment is not existed.')
       }
       
       let annotation = comment.first().toJSON().annotation

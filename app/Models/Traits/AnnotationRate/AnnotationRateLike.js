@@ -46,7 +46,9 @@ class AnnotationRateLike {
       //console.log('AnnotationRateLike 這邊應該要加入通知')
       if (rate.deleted === false) {
         // like的情況
-        await UserNotificationModel.createFromModelInstance(webpage, user, rate, annotation.user_id)
+        await UserNotificationModel.createFromModelInstance(webpage, user, rate, annotation.user_id, {
+          annotation_id: annotation.id
+        })
       }
       
       return rate

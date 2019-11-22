@@ -40,6 +40,7 @@ EventAnnotationComment.methods.read = function () {
   this.lib.AnnotationPanel.focusComment(this.notification.id)
   //console.log(this.notification)
   //throw new Error('EventAnnotationComment ' + this.notification)
+  this.$emit('read')
 }
 
 export default EventAnnotationComment

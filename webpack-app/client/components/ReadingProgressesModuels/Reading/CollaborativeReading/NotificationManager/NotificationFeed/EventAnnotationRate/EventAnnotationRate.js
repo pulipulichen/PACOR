@@ -22,7 +22,8 @@ EventAnnotationRate.computed.action = function () {
 }
 
 EventAnnotationRate.methods.read = function () {
-  throw new Error('EventAnnotationRate ' + this.notification)
+  this.lib.AnnotationPanel.focusAnnotation(this.notification.summary.annotation_id)
+  this.$emit('read')
 }
 
 export default EventAnnotationRate

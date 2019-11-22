@@ -96,8 +96,8 @@ class UserNotificationSave {
         throw new HttpException('Forbidden', 403)
       }
       
-      if (notification.read === false) {
-        notification.read = true
+      if (notification.has_read === false) {
+        notification.has_read = true
         await notification.save()
       }
       

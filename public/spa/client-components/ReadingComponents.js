@@ -8988,13 +8988,22 @@ __webpack_require__.r(__webpack_exports__);
     }, 0)
   }
   
+  AnnotationPanel.methods.focusAnnotation = async function (annotationID) {
+    // 先從commentID找回annotation
+    let annotation = await this.lib.AxiosHelper.get('/client/Annotation/getAnnotation', {
+      annotationID: annotationID
+    })
+    
+    this.setAnnotation(annotation)
+  }
+  
   AnnotationPanel.methods.focusComment = async function (commentID) {
     // 先從commentID找回annotation
     let annotation = await this.lib.AxiosHelper.get('/client/AnnotationComment/getAnnotation', {
       commentID: commentID
     })
     
-    console.log(annotation)
+    //console.log(annotation)
     
     //this.$refs.AnnotationSingle.focusComment(commentID)
     this.panelData.focusCommentID = commentID

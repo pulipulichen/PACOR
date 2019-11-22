@@ -27,7 +27,7 @@ class UserNotificationFind {
               .where('webpage_id', webpage.primaryKeyValue)
               .where('user_id', user.primaryKeyValue)
               .where('deleted', false)
-              .where('has_read', false)
+              //.where('has_read', false)
               .with('triggerUser', triggerQueryBuilder)
               .orderBy('created_at_unixms', 'desc')
 
@@ -80,7 +80,7 @@ class UserNotificationFind {
               .where('user_id', user.primaryKeyValue)
               .with('triggerUser', triggerQueryBuilder)
               .where('deleted', false)
-              .where('has_read', false)
+              //.where('has_read', false)
               .orderBy('created_at_unixms', 'desc')
 
         let itemsPerPage = Config.get('view.itemsPerPage')

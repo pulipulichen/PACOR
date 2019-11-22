@@ -122,6 +122,20 @@ let NotificationFeed = {
       //return 'NotificationEvent'  // for test
       
       return 'Event' + notification.model
+    },
+    onRead: async function (notification) {
+      let data = {
+        id: notification.id
+      }
+      
+      let result = await this.lib.AxiosHelper.get('/client/UserNotification/read', data)
+      //console.log(result)
+      if (result !== 1) {
+        throw new Error(this.$t('Set notification read error'))
+      }
+      
+      notification.has_read = true
+      this.notificationData.unreadCount--
     }
   } // methods
 }

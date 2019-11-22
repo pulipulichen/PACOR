@@ -22,7 +22,8 @@
       v-bind:status="status"
       v-bind:config="config"
 
-      v-bind:notification="notification">
+      v-bind:notification="notification"
+      v-on:read="onRead(notification)">
     </component>
   </div>
 </div>

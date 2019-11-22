@@ -22,7 +22,8 @@ EventAnnotationCommentRate.computed.action = function () {
 }
 
 EventAnnotationCommentRate.methods.read = function () {
-  throw new Error('EventAnnotationCommentRate ' + this.notification)
+  this.lib.AnnotationPanel.focusComment(this.notification.summary.comment_id)
+  this.$emit('read')
 }
 
 export default EventAnnotationCommentRate

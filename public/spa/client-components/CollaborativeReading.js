@@ -195,7 +195,7 @@ exports.push([module.i, ".username[data-v-46f14d70] {\n  margin-left: 1em;\n  fo
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"NotificationEvent.less?vue&type=style&index=0&id=064d3e9f&lang=less&scoped=true&"}]);
+exports.push([module.i, ".has-read[data-v-064d3e9f] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n", "",{"version":3,"sources":["NotificationEvent.less?vue&type=style&index=0&id=064d3e9f&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iCAAiC;EACjC,YAAY;AACd","file":"NotificationEvent.less?vue&type=style&index=0&id=064d3e9f&lang=less&scoped=true&","sourcesContent":[".has-read[data-v-064d3e9f] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n"]}]);
 
 
 /***/ }),
@@ -209,7 +209,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"NotificationEvent.less?vue&type=style&index=0&id=62874973&lang=less&scoped=true&"}]);
+exports.push([module.i, ".has-read[data-v-62874973] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n", "",{"version":3,"sources":["NotificationEvent.less?vue&type=style&index=0&id=62874973&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iCAAiC;EACjC,YAAY;AACd","file":"NotificationEvent.less?vue&type=style&index=0&id=62874973&lang=less&scoped=true&","sourcesContent":[".has-read[data-v-62874973] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n"]}]);
 
 
 /***/ }),
@@ -223,7 +223,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"NotificationEvent.less?vue&type=style&index=0&id=825729c2&lang=less&scoped=true&"}]);
+exports.push([module.i, ".has-read[data-v-825729c2] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n", "",{"version":3,"sources":["NotificationEvent.less?vue&type=style&index=0&id=825729c2&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iCAAiC;EACjC,YAAY;AACd","file":"NotificationEvent.less?vue&type=style&index=0&id=825729c2&lang=less&scoped=true&","sourcesContent":[".has-read[data-v-825729c2] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n"]}]);
 
 
 /***/ }),
@@ -498,32 +498,40 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "event", on: { click: _vm.read } }, [
-    _c("div", { staticClass: "label" }, [
-      _c("img", { attrs: { src: _vm.avatar } })
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "content" }, [
-      _c("div", { staticClass: "summary" }, [
-        _c("a", { staticClass: "user" }, [
-          _vm._v("\r\n        " + _vm._s(_vm.username) + "\r\n      ")
-        ]),
-        _vm._v(
-          "\r\n      \r\n      " + _vm._s(_vm.action) + "\r\n      \r\n      "
-        ),
-        _c("div", { staticClass: "date" }, [
-          _vm._v("\r\n        " + _vm._s(_vm.displayTime) + "\r\n      ")
-        ])
+  return _c(
+    "div",
+    {
+      staticClass: "event",
+      class: _vm.computedEventClassList,
+      on: { click: _vm.read }
+    },
+    [
+      _c("div", { staticClass: "label" }, [
+        _c("img", { attrs: { src: _vm.avatar } })
       ]),
       _vm._v(" "),
-      _vm.summary
-        ? _c("div", {
-            staticClass: "extra text",
-            domProps: { innerHTML: _vm._s(_vm.summary) }
-          })
-        : _vm._e()
-    ])
-  ])
+      _c("div", { staticClass: "content" }, [
+        _c("div", { staticClass: "summary" }, [
+          _c("a", { staticClass: "user" }, [
+            _vm._v("\r\n        " + _vm._s(_vm.username) + "\r\n      ")
+          ]),
+          _vm._v(
+            "\r\n      \r\n      " + _vm._s(_vm.action) + "\r\n      \r\n      "
+          ),
+          _c("div", { staticClass: "date" }, [
+            _vm._v("\r\n        " + _vm._s(_vm.displayTime) + "\r\n      ")
+          ])
+        ]),
+        _vm._v(" "),
+        _vm.summary
+          ? _c("div", {
+              staticClass: "extra text",
+              domProps: { innerHTML: _vm._s(_vm.summary) }
+            })
+          : _vm._e()
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -547,32 +555,40 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "event", on: { click: _vm.read } }, [
-    _c("div", { staticClass: "label" }, [
-      _c("img", { attrs: { src: _vm.avatar } })
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "content" }, [
-      _c("div", { staticClass: "summary" }, [
-        _c("a", { staticClass: "user" }, [
-          _vm._v("\r\n        " + _vm._s(_vm.username) + "\r\n      ")
-        ]),
-        _vm._v(
-          "\r\n      \r\n      " + _vm._s(_vm.action) + "\r\n      \r\n      "
-        ),
-        _c("div", { staticClass: "date" }, [
-          _vm._v("\r\n        " + _vm._s(_vm.displayTime) + "\r\n      ")
-        ])
+  return _c(
+    "div",
+    {
+      staticClass: "event",
+      class: _vm.computedEventClassList,
+      on: { click: _vm.read }
+    },
+    [
+      _c("div", { staticClass: "label" }, [
+        _c("img", { attrs: { src: _vm.avatar } })
       ]),
       _vm._v(" "),
-      _vm.summary
-        ? _c("div", {
-            staticClass: "extra text",
-            domProps: { innerHTML: _vm._s(_vm.summary) }
-          })
-        : _vm._e()
-    ])
-  ])
+      _c("div", { staticClass: "content" }, [
+        _c("div", { staticClass: "summary" }, [
+          _c("a", { staticClass: "user" }, [
+            _vm._v("\r\n        " + _vm._s(_vm.username) + "\r\n      ")
+          ]),
+          _vm._v(
+            "\r\n      \r\n      " + _vm._s(_vm.action) + "\r\n      \r\n      "
+          ),
+          _c("div", { staticClass: "date" }, [
+            _vm._v("\r\n        " + _vm._s(_vm.displayTime) + "\r\n      ")
+          ])
+        ]),
+        _vm._v(" "),
+        _vm.summary
+          ? _c("div", {
+              staticClass: "extra text",
+              domProps: { innerHTML: _vm._s(_vm.summary) }
+            })
+          : _vm._e()
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -596,32 +612,40 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "event", on: { click: _vm.read } }, [
-    _c("div", { staticClass: "label" }, [
-      _c("img", { attrs: { src: _vm.avatar } })
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "content" }, [
-      _c("div", { staticClass: "summary" }, [
-        _c("a", { staticClass: "user" }, [
-          _vm._v("\r\n        " + _vm._s(_vm.username) + "\r\n      ")
-        ]),
-        _vm._v(
-          "\r\n      \r\n      " + _vm._s(_vm.action) + "\r\n      \r\n      "
-        ),
-        _c("div", { staticClass: "date" }, [
-          _vm._v("\r\n        " + _vm._s(_vm.displayTime) + "\r\n      ")
-        ])
+  return _c(
+    "div",
+    {
+      staticClass: "event",
+      class: _vm.computedEventClassList,
+      on: { click: _vm.read }
+    },
+    [
+      _c("div", { staticClass: "label" }, [
+        _c("img", { attrs: { src: _vm.avatar } })
       ]),
       _vm._v(" "),
-      _vm.summary
-        ? _c("div", {
-            staticClass: "extra text",
-            domProps: { innerHTML: _vm._s(_vm.summary) }
-          })
-        : _vm._e()
-    ])
-  ])
+      _c("div", { staticClass: "content" }, [
+        _c("div", { staticClass: "summary" }, [
+          _c("a", { staticClass: "user" }, [
+            _vm._v("\r\n        " + _vm._s(_vm.username) + "\r\n      ")
+          ]),
+          _vm._v(
+            "\r\n      \r\n      " + _vm._s(_vm.action) + "\r\n      \r\n      "
+          ),
+          _c("div", { staticClass: "date" }, [
+            _vm._v("\r\n        " + _vm._s(_vm.displayTime) + "\r\n      ")
+          ])
+        ]),
+        _vm._v(" "),
+        _vm.summary
+          ? _c("div", {
+              staticClass: "extra text",
+              domProps: { innerHTML: _vm._s(_vm.summary) }
+            })
+          : _vm._e()
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -692,6 +716,11 @@ var render = function() {
               status: _vm.status,
               config: _vm.config,
               notification: notification
+            },
+            on: {
+              read: function($event) {
+                return _vm.onRead(notification)
+              }
             }
           })
         }),
@@ -1557,6 +1586,7 @@ EventAnnotationComment.methods.read = function () {
   this.lib.AnnotationPanel.focusComment(this.notification.id)
   //console.log(this.notification)
   //throw new Error('EventAnnotationComment ' + this.notification)
+  this.$emit('read')
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (EventAnnotationComment);
@@ -1657,7 +1687,8 @@ EventAnnotationCommentRate.computed.action = function () {
 }
 
 EventAnnotationCommentRate.methods.read = function () {
-  throw new Error('EventAnnotationCommentRate ' + this.notification)
+  this.lib.AnnotationPanel.focusComment(this.notification.summary.comment_id)
+  this.$emit('read')
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (EventAnnotationCommentRate);
@@ -1758,7 +1789,8 @@ EventAnnotationRate.computed.action = function () {
 }
 
 EventAnnotationRate.methods.read = function () {
-  throw new Error('EventAnnotationRate ' + this.notification)
+  this.lib.AnnotationPanel.focusAnnotation(this.notification.summary.annotation_id)
+  this.$emit('read')
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (EventAnnotationRate);
@@ -2001,7 +2033,17 @@ __webpack_require__.r(__webpack_exports__);
     return this.lib.DayJSHelper.fromNow(this.notification.created_at_unixms)
   },
   summary() {
-    return this.notification.summary
+    return
+  },
+  computedEventClassList () {
+    let classList = []
+    if (this.notification.has_read === true) {
+      //console.log(this.notification)
+      classList.push('has-read')
+    }
+    //classList.push('has-read')
+    //console.log(classList)
+    return classList.join(' ')
   }
 });
 
@@ -2207,6 +2249,20 @@ let NotificationFeed = {
       //return 'NotificationEvent'  // for test
       
       return 'Event' + notification.model
+    },
+    onRead: async function (notification) {
+      let data = {
+        id: notification.id
+      }
+      
+      let result = await this.lib.AxiosHelper.get('/client/UserNotification/read', data)
+      //console.log(result)
+      if (result !== 1) {
+        throw new Error(this.$t('Set notification read error'))
+      }
+      
+      notification.has_read = true
+      this.notificationData.unreadCount--
     }
   } // methods
 }
@@ -2372,7 +2428,7 @@ let NotificationManager = {
     this.initNotificationData()
     
     //console.log('@TODO 自動重新讀取notification data的功能還沒做')
-    this.startReloadData()
+    //this.startReloadData()
   },
   methods: {
     initNotificationData: async function () {
@@ -2383,6 +2439,7 @@ let NotificationManager = {
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/init', data)
       
       this.afterTime = (new Date()).getTime()
+      this.startReloadData()
       if (result === 0) {
         return null
       }
@@ -2393,7 +2450,7 @@ let NotificationManager = {
         this.notificationData[key] = result[key]
       }
       
-      this.show() // for test 20191123
+      //this.show() // for test 20191123
     },
     initPopup () {
       let anchor = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.anchor)
@@ -2416,6 +2473,7 @@ let NotificationManager = {
     },
     startReloadData () {
       this.timer = setTimeout(() => {
+        console.log('重新讀取')
         this.initNotificationData()
       }, this.reloadIntervalSeconds * 1000)
     },
