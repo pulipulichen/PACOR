@@ -45,7 +45,7 @@ exports.push([module.i, "@font-face {\n  font-family: \"summernote\";\n  font-st
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n}\n.html-editor-container.editable[data-v-5af2455c] {\n  min-height: 7em;\n}\n", "",{"version":3,"sources":["HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;EAClB,gBAAgB;EAChB,WAAW;AACb;AACA;EACE,eAAe;AACjB","file":"HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n}\n.html-editor-container.editable[data-v-5af2455c] {\n  min-height: 7em;\n}\n"]}]);
+exports.push([module.i, ".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n}\n.html-editor-container.editable[data-v-5af2455c] {\n  min-height: 7em;\n}\n.html-editor-container .ribbon.label[data-v-5af2455c] {\n  margin-bottom: 0.5em;\n}\n", "",{"version":3,"sources":["HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;EAClB,gBAAgB;EAChB,WAAW;AACb;AACA;EACE,eAAe;AACjB;AACA;EACE,oBAAoB;AACtB","file":"HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n}\n.html-editor-container.editable[data-v-5af2455c] {\n  min-height: 7em;\n}\n.html-editor-container .ribbon.label[data-v-5af2455c] {\n  margin-bottom: 0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -83,12 +83,18 @@ var render = function() {
     "div",
     {
       ref: "editorContainer",
-      staticClass: "ui segment html-editor-container",
+      staticClass: "ui raised segment html-editor-container",
       class: _vm.computedClass,
       style: _vm.computedStyle,
       on: { click: _vm.focus }
     },
     [
+      _vm.label
+        ? _c("div", { staticClass: "ui top left attached label" }, [
+            _vm._v("\r\n    " + _vm._s(_vm.label) + "\r\n  ")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
       _vm.editable ? _c("div", { ref: "editor" }) : _vm._e(),
       _vm._v(" "),
       !_vm.editable
@@ -187,7 +193,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let HTMLEditor = {
-  props: ['lib', 'status', 'config', 'contents', 'height', 'editable', 'placeholder'],
+  props: ['lib', 'status', 'config'
+    , 'contents', 'height', 'editable', 'placeholder'
+    , 'label'],
   data() {
     if (typeof(this.config) === 'object') {
       this.$i18n.locale = this.config.locale
@@ -217,7 +225,13 @@ let HTMLEditor = {
         if (calc.startsWith('calc')) {
           calc = calc.slice(5, -1)
         }
-        calc = `calc(${calc} - 90px)`
+        
+        let padding = 90
+        if (this.label) {
+          padding = padding + 50
+        }
+        
+        calc = `calc(${calc} - ${padding}px)`
         //console.log(calc)
         setTimeout(() => {
           jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.editorContainer).find('.note-editable:visible').css('max-height', calc)

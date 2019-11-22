@@ -17,6 +17,7 @@
     v-bind:lib='lib'
     v-bind:contents="question"
     v-on:input="onQuestionChange"
+    v-bind:label="$t('Question')"
     
     v-bind:editable="isEditable"
     v-bind:height="computedQuestionEditorHeight"
@@ -45,6 +46,7 @@
       v-bind:lib='lib'
       v-bind:contents="answer"
       v-on:input="onAnswerChange"
+      v-bind:label="$t('Answer')"
       
       v-bind:editable="isEditable"
       v-bind:height="computedAnswerEditorHeight"

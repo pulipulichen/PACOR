@@ -3,7 +3,9 @@ import './summernote/summernote-lite.webpack.js'
 import $ from 'jquery'
 
 let HTMLEditor = {
-  props: ['lib', 'status', 'config', 'contents', 'height', 'editable', 'placeholder'],
+  props: ['lib', 'status', 'config'
+    , 'contents', 'height', 'editable', 'placeholder'
+    , 'label'],
   data() {
     if (typeof(this.config) === 'object') {
       this.$i18n.locale = this.config.locale
@@ -33,7 +35,13 @@ let HTMLEditor = {
         if (calc.startsWith('calc')) {
           calc = calc.slice(5, -1)
         }
-        calc = `calc(${calc} - 90px)`
+        
+        let padding = 90
+        if (this.label) {
+          padding = padding + 50
+        }
+        
+        calc = `calc(${calc} - ${padding}px)`
         //console.log(calc)
         setTimeout(() => {
           $(this.$refs.editorContainer).find('.note-editable:visible').css('max-height', calc)

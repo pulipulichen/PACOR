@@ -57,6 +57,7 @@
     "block-exit": {},
     "HTMLEditor": {
       "attributes": {
+        "v-bind:title": {},
         "v-bind:height": {},
         "v-bind:editable": {},
         "v-bind:contents": {}

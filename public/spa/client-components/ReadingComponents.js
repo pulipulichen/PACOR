@@ -2427,6 +2427,7 @@ var render = function() {
         attrs: {
           lib: _vm.lib,
           contents: _vm.question,
+          label: _vm.$t("Question"),
           editable: _vm.isEditable,
           height: _vm.computedQuestionEditorHeight,
           placeholder: _vm.questionPlaceholder
@@ -2467,6 +2468,7 @@ var render = function() {
         attrs: {
           lib: _vm.lib,
           contents: _vm.answer,
+          label: _vm.$t("Answer"),
           editable: _vm.isEditable,
           height: _vm.computedAnswerEditorHeight,
           placeholder: _vm.answerPlaceholder
