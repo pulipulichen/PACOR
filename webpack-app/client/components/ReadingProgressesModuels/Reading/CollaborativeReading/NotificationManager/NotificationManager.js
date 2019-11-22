@@ -9,7 +9,11 @@ let NotificationManager = {
       notificationData: {
         unreadCount: 0,
         notifications: []
-      }
+      },
+      
+      afterTime: null,
+      timer: null,
+      reloadIntervalSeconds: 30
     }
   },
   components: {
@@ -29,13 +33,25 @@ let NotificationManager = {
 //  },
   mounted() {
     this.initNotificationData()
+    
+    //console.log('@TODO 自動重新讀取notification data的功能還沒做')
+    this.startReloadData()
   },
   methods: {
     initNotificationData: async function () {
-      let result = await this.lib.AxiosHelper.get('/client/UserNotification/init')
+      let data = {
+        afterTime: this.afterTime
+      }
       
-      console.log(result)
-      console.log(result.notifications[0].triggerUser)
+      let result = await this.lib.AxiosHelper.get('/client/UserNotification/init', data)
+      
+      this.afterTime = (new Data()).getTime()
+      if (result === 0) {
+        return null
+      }
+      
+      //console.log(result)
+      //console.log(result.notifications[0].triggerUser)
       for (let key in result) {
         this.notificationData[key] = result[key]
       }
@@ -49,9 +65,23 @@ let NotificationManager = {
           hoverable  : true,
           on    : 'click',
           distanceAway: 20,
+          onVisible: () => {
+            this.stopReloadData()
+          },
+          onHidden: () => {
+            this.startReloadData()
+          }
       })
 //      console.log('initPopup')
       anchor.click()
+    },
+    startReloadData () {
+      this.timer = setTimeout(() => {
+        this.initNotificationData()
+      }, this.reloadIntervalSeconds * 1000)
+    },
+    stopReloadData () {
+      clearTimeout(this.timer)
     },
     show () {
       this.$refs.anchor.click()

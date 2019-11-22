@@ -1,6 +1,8 @@
 import $ from 'jquery'
 
-import NotificationEvent from './NotificationEvent/NotificationEvent.vue'
+import EventAnnotationComment from './EventAnnotationComment/EventAnnotationComment.vue'
+import EventAnnotationCommentRate from './EventAnnotationCommentRate/EventAnnotationCommentRate.vue'
+import EventAnnotationRate from './EventAnnotationRate/EventAnnotationRate.vue'
 
 let NotificationFeed = {
   props: ['lib', 'status', 'config'
@@ -21,7 +23,9 @@ let NotificationFeed = {
     }
   },
   components: {
-    NotificationEvent: NotificationEvent
+    EventAnnotationComment,
+    EventAnnotationCommentRate,
+    EventAnnotationRate
   },
   computed: {
     basetime () {
@@ -96,7 +100,7 @@ let NotificationFeed = {
       this.loadLock = false
     },
     eventType (notification) {
-      return 'NotificationEvent'  // for test
+      //return 'NotificationEvent'  // for test
       
       return 'Event' + notification.model
     }

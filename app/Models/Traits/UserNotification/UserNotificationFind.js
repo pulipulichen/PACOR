@@ -17,9 +17,11 @@ class UserNotificationFind {
     }
     
     Model.getInit = async function (webpage, user, options) {
+      let {
+        afterTime
+      } = options
       
-      let cacheKey = Cache.key('getSummary')
-      return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+      let doQuery = async () => {
         let query = UserNotificationModel
               .query()
               .where('webpage_id', webpage.primaryKeyValue)
@@ -34,7 +36,16 @@ class UserNotificationFind {
         
         //console.log(query.toSQL())
         
+        if (afterTime) {
+          query.where('created_at_unixms', '>' , TypeHelper.parseInt(afterTime))
+        }
+        
         let notifications = await query.fetch()
+        if (afterTime 
+                && (notifications === null || notifications.size() === 0)) {
+          return 0
+        }
+        
         notifications = notifications.toJSON().reverse()
 
         let unreadCount = await this.getUnreadCount(webpage, user)
@@ -43,6 +54,16 @@ class UserNotificationFind {
           notifications,
           unreadCount
         }
+      }
+      
+      // ----------------------------
+      if (afterTime) {
+        return await doQuery()
+      }
+      
+      let cacheKey = Cache.key('getSummary')
+      return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+        return await doQuery()
       })
     }
     

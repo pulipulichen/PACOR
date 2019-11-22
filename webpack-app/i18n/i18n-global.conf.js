@@ -14,7 +14,8 @@ let i18nGlobal = {
     "Remaining Time: {0}": "Remaining Time: {0}",
     "{0} sec": "{0} sec",
     "{0} Annotations": "{0} Annotation | {0} Annotations",
-    "Total {0} Annotations": "Total {0} Annotation | Total {0} Annotations"
+    "Total {0} Annotations": "Total {0} Annotation | Total {0} Annotations",
+    '"{0}"': '"{0}"'
   },
   "zh-TW": {
     "LOGIN": "登入",
@@ -67,7 +68,9 @@ let i18nGlobal = {
     "{0} Annotations": "{0}篇標註",
     "Total {0} Annotations": "總共{0}篇標註",
     "No More": "沒有更多資料了",
-    "Are you sure to delete this annotation?": "您確定要刪除這個標註嗎？"
+    "Are you sure to delete this annotation?": "您確定要刪除這個標註嗎？",
+    '"{0}"': '「{0}」',
+    '...': '…'
   }
 }
 

@@ -5,8 +5,6 @@ let NotificationEvent = {
     return {
     }
   },
-//  components: {
-//  },
   computed: {
     username () {
       let user = this.notification.triggerUser
@@ -16,6 +14,9 @@ let NotificationEvent = {
       else {
         return user.username
       }
+    },
+    action () {
+      
     },
     avatar () {
       return this.notification.triggerUser.avatar_url
@@ -27,10 +28,6 @@ let NotificationEvent = {
       return this.notification.summary
     }
   },
-//  watch: {
-//  },
-//  mounted() {
-//  },
   methods: {
     read () {
       throw new Error('read')

@@ -1,6 +1,7 @@
 en:
-  TEST_MESSAGE: Test Message
   
 zh-TW:
   # 這是註解
-  TEST_MESSAGE: 測試訊息
+  Reply your annotation: 回應了您的標註
+  Like your annotation: 覺得您的標註很讚
+  Like your comment: 覺得您的留言很讚
