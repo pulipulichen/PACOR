@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 let AnnotationDiscussionInput = {
   props: ['lib', 'status', 'config', 'annotation'],
   data() {    
@@ -52,7 +54,10 @@ let AnnotationDiscussionInput = {
   //},
   methods: {
     focus () {
-      this.$refs.input.focus()
+      let input = this.$refs.input
+      input.focus()
+      $(input).transition('glow')
+      console.trace('who trigger focus()?')
     },
     submit () {
       if (this.isEnableSubmit === false) {

@@ -94,7 +94,6 @@ let CollaborativeReading = {
           setTimeout(() => {
             //console.log($('.FilteredList .list .AnnotationItem:last .meta i').length)
             $('.FilteredList .list .AnnotationItem:first .meta i').click()
-            
           }, 1000)
         }, 300)
       }, 500)

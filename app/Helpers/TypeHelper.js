@@ -1,7 +1,7 @@
 'use strict'
 
 let TypeHelper = {
-  parseInt: async function (value) {
+  parseInt: function (value) {
     if (typeof(value) === 'string'
             && isNaN(value) === false) {
       value = parseInt(value, 10)

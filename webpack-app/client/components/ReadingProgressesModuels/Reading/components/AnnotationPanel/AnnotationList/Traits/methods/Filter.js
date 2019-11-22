@@ -14,7 +14,6 @@ export default (List) => {
     setTimeout(() => {
       this.$refs.AnnotationSingle.focusCommentInput()
     }, 0)
-    
   }
 
   List.methods.findUser = function (user) {

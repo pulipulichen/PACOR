@@ -53,6 +53,8 @@ class AnnotationCommentSave {
     }
     
     Model.findWithPage = async function (webpage, user, options = {}) {
+      //console.log('findWithPage', -1)
+      
       let {
         annotationID,
         //excludeIDList
@@ -68,6 +70,8 @@ class AnnotationCommentSave {
         throw new Error('Annotation ID is required.')
       }
       
+      //console.log('findWithPage', -2)
+      
       // ----------------------------------
       
       //let cacheKey = Cache.keys('AnnotationComment', annotationID)
@@ -75,20 +79,30 @@ class AnnotationCommentSave {
       
       // ----------------------------------
       
+      //console.log('findWithPage', 0)
+      
       let query = buildBaseQuery(annotationID, user)
               //.orderBy('created_at_unixms', 'desc')
       
       // -----------------------------------
+      
+      //console.log('findWithPage', 1)
       
       //_focusComment(query, options)
       //_processPage(query, options)
       //_excludeList(query, options)
       _basetimeFilter(query, options)
       
+      //console.log('findWithPage', 2)
+      
       let itemsPerPage = Config.get('view.itemsPerPage')
       query.limit(itemsPerPage)
       
+      //console.log('findWithPage', 3)
+      
       // -----------------------------------
+      
+      //console.log(query.toSQL())
       
       let comments = await query.fetch()
       
@@ -133,7 +147,7 @@ class AnnotationCommentSave {
         beforeTime
       } = options
       
-      console.log(afterTime, beforeTime)
+      //console.log(afterTime, beforeTime)
       
       if (afterTime) {
         query.where('created_at_unixms', '>' , TypeHelper.parseInt(afterTime))
@@ -216,7 +230,7 @@ class AnnotationCommentSave {
       olderComment = olderComment.toJSON().slice(0, halfItemsLimit)
       
       // 如果前面查到的數量不夠多，則挪給後面的使用
-      halfItemsLimit = (halfItemsLimit - olderComment.length)
+      halfItemsLimit = halfItemsLimit + (halfItemsLimit - olderComment.length)
       
       // -----------------------------------
       
@@ -227,7 +241,9 @@ class AnnotationCommentSave {
               .fetch()
       
       let newerCommentCount = newerComment.size()
+      console.log(newerCommentCount, halfItemsLimit)
       newerComment = newerComment.toJSON().slice(0, halfItemsLimit)
+      console.log(newerComment)
       
       // -------------------------------------
       // 合併

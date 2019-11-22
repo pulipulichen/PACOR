@@ -126,6 +126,7 @@ let AnnotationDiscussionList = {
         }
         else {
           focusComment = this.list.children(`.AnnotationComment[data-comment-id="${this.panelData.focusCommentID}"]`)
+          focusComment.transition('glow')
           this.panelData.focusCommentID = null
         }
         focusComment[0].scrollIntoView({
@@ -163,18 +164,20 @@ let AnnotationDiscussionList = {
       if (Array.isArray(result) === false
               || result.length === 0) {
         this.noMoreOlder = true
+        this.loadLock = false
         return null
       }
       
       this.comments = result.concat(this.comments)
-      this.olrderCommentCount = this.olrderCommentCount - result.length
+      this.olderCommentCount = this.olderCommentCount - result.length
+      this.oldestCommentTime = result[0].created_at_unixms
       
       setTimeout(() => {
         firstComment[0].scrollIntoView()
         
         setTimeout(() => {
           this.loadLock = false
-        }, 500)
+        }, 100)
       }, 100)
     },
     loadNewer: async function () {
@@ -199,18 +202,23 @@ let AnnotationDiscussionList = {
       if (Array.isArray(result) === false
               || result.length === 0) {
         this.noMoreNewer = true
+        this.loadLock = false
         return null
       }
       
+      result.reverse()
       this.comments = this.comments.concat(result)
       this.newerCommentCount = this.newerCommentCount - result.length
+      
+      let i = result.length - 1
+      this.newestCommentTime = result[i].created_at_unixms
       
       setTimeout(() => {
         focusComment[0].scrollIntoView()
         
         setTimeout(() => {
           this.loadLock = false
-        }, 500)
+        }, 100)
       }, 100)
     },
     autoLoadNextPage: async function () {
@@ -275,7 +283,7 @@ let AnnotationDiscussionList = {
       this.AnnotationDiscussionInput.comment = comment
     },
     focusInput () {
-      this.AnnotationDiscussionInput.$refs.input.focus()
+      this.AnnotationDiscussionInput.focus()
     },
     onCommentLike: async function (comment) {
       let data = {
