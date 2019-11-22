@@ -14,7 +14,7 @@ export default {
       update: null,
       delete: null
     },
-    focusCommentID: 19,
+    focusCommentID: null,
     
     keyword: '',
     

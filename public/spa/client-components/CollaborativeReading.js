@@ -782,19 +782,7 @@ let CollaborativeReading = {
     },
     _testAnnotationSingleFocusComment () {
       setTimeout(() => {
-        if (jquery__WEBPACK_IMPORTED_MODULE_1___default()('.others-Clarified:first').length === 0) {
-          this._testAnnotationSingleFocusComment()
-          return
-        }
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()('.others-Clarified:first').click()
-        setTimeout(() => {
-          jquery__WEBPACK_IMPORTED_MODULE_1___default()('.AnnotationFloatWidget .AnnotationTypeButton[title="已釐清"]:last').click()
-          
-          setTimeout(() => {
-            //console.log($('.FilteredList .list .AnnotationItem:last .meta i').length)
-            jquery__WEBPACK_IMPORTED_MODULE_1___default()('.FilteredList .list .AnnotationItem:first .meta i').click()
-          }, 1000)
-        }, 300)
+        this.lib.AnnotationPanel.focusComment(19)
       }, 500)
     },
     showInstruction() {

@@ -42,11 +42,11 @@ export default (AnnotationPanel) => {
       commentID: commentID
     })
     
+    //this.$refs.AnnotationSingle.focusComment(commentID)
+    this.panelData.focusCommentID = commentID
+    
     this.setAnnotation(annotation)
     
-    setTimeout(() => {
-      this.$refs.AnnotationSingle.focusComment(commentID)
-    }, 0)
   }
   
   AnnotationPanel.methods.setFilter = function (filter) {

@@ -25,6 +25,11 @@ class AnnotationComment extends WebpageUserBaseController {
     return await AnnotationCommentModel.findWithPage(webpage, user, options)
   }
   
+  async getAnnotation({request, webpage, user}) {
+    const options = request.all()
+    return await AnnotationCommentModel.getAnnotation(webpage, user, options)
+  }
+  
   // -------------------
   
   async create({request, webpage, user}) {

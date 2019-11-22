@@ -6,6 +6,8 @@ const Cache = use('Cache')
 const Config = use('Config')
 const TypeHelper = use('App/Helpers/TypeHelper')
 
+const { HttpException } = use('@adonisjs/generic-exceptions') 
+
 class AnnotationCommentSave {
 
   register(Model) {
@@ -241,9 +243,9 @@ class AnnotationCommentSave {
               .fetch()
       
       let newerCommentCount = newerComment.size()
-      console.log(newerCommentCount, halfItemsLimit)
+      //console.log(newerCommentCount, halfItemsLimit)
       newerComment = newerComment.toJSON().slice(0, halfItemsLimit)
-      console.log(newerComment)
+      //console.log(newerComment)
       
       // -------------------------------------
       // 合併
@@ -270,6 +272,40 @@ class AnnotationCommentSave {
       
       let comments = await query.fetch()
       return comments.size()
+    }
+    
+    Model.getAnnotation = async function (webpage, user, options) {
+      let {
+        commentID
+      } = options
+      
+      if (!commentID) {
+        throw new Error('Comment ID is required.')
+      }
+      
+      let comment = await AnnotationCommentModel
+              .query()
+              .where('id', TypeHelper.parseInt(commentID))
+              .where('deleted', false)
+              .with('annotation', (builder) => {
+                builder.setVisible(['id', 'user_id', 'type', 'public', 'properties', 'updated_at_unixms', 'webpage_id'])
+                  .with('user')
+                  .with('notes')
+                  .with('anchorPositions')
+              })
+              .fetch()
+      
+      if (comment === null) {
+        throw new Error('Comment ID is not existed.')
+      }
+      
+      let annotation = comment.first().toJSON().annotation
+      //console.log(annotation)
+      if (annotation.webpage_id !== webpage.primaryKeyValue) {
+        throw new HttpException('Forbidden', 403)
+      }
+      
+      return annotation
     }
     
   } // register (Model) {

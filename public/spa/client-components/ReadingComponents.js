@@ -8742,7 +8742,7 @@ __webpack_require__.r(__webpack_exports__);
       update: null,
       delete: null
     },
-    focusCommentID: 19,
+    focusCommentID: null,
     
     keyword: '',
     
@@ -8986,11 +8986,11 @@ __webpack_require__.r(__webpack_exports__);
       commentID: commentID
     })
     
+    //this.$refs.AnnotationSingle.focusComment(commentID)
+    this.panelData.focusCommentID = commentID
+    
     this.setAnnotation(annotation)
     
-    setTimeout(() => {
-      this.$refs.AnnotationSingle.focusComment(commentID)
-    }, 0)
   }
   
   AnnotationPanel.methods.setFilter = function (filter) {
