@@ -622,7 +622,11 @@ var render = function() {
   return _c("fragment", [
     _c(
       "div",
-      { ref: "Menu", staticClass: "ui inverted", class: _vm.computedClass },
+      {
+        ref: "Menu",
+        staticClass: "ui brown inverted",
+        class: _vm.computedClass
+      },
       [
         _vm._t("header"),
         _vm._v(" "),

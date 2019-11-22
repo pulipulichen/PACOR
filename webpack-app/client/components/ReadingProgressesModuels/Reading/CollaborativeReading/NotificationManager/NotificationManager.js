@@ -1,14 +1,16 @@
 import $ from 'jquery'
+import NotificationFeed from './NotificationFeed/NotificationFeed.vue'
 
 let NotificationManager = {
   props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      bell: null
+      anchor: null
     }
   },
   components: {
+    "notification-feed": NotificationFeed
   },
   computed: {
     notificationCount () {
@@ -23,46 +25,22 @@ let NotificationManager = {
   watch: {
   },
   mounted() {
-    setTimeout(() => {
-      this.initPopup()
-    }, 1000)
-    
   },
   methods: {
     initPopup () {
+      let anchor = $(this.$refs.anchor)
       
-//      let list = $(`<div class="list ui popup">
-//    列表
-//  </div>`).appendTo('.non-invasive-web-style-framework:first')
-      let list = this.$refs.list
-      
-      $(this.$refs.icon)
-        .popup({
-          popup: list,
+      anchor.popup({
+          popup: this.$refs.popup,
           inline     : true,
           hoverable  : true,
           on    : 'click'
       })
-      
-      return
-      
-      this.bell = $(this.$refs.bell)
-      $('#bell').popup({
-          inline     : true,
-          hoverable  : true,
-          //on    : 'click'
-      })
-      
-      return
-      this.list = $(`<div ref="list">
-    列表
-  </div>`).appendTo('body')
-      this.bell.popup({
-        //popup : this.list,
-        //on    : 'click'
-      })
+      console.log('initPopup')
+      anchor.click()
     },
     show () {
+      this.$refs.anchor.click()
       //throw new Error('show')
     }
   } // methods
