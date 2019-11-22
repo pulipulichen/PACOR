@@ -30,7 +30,7 @@ let NotificationEvent = {
   },
   methods: {
     read () {
-      throw new Error('read')
+      throw new Error('read' + this.notification)
     }
   } // methods
 }

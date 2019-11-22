@@ -45,7 +45,7 @@ let NotificationManager = {
       
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/init', data)
       
-      this.afterTime = (new Data()).getTime()
+      this.afterTime = (new Date()).getTime()
       if (result === 0) {
         return null
       }
@@ -55,6 +55,8 @@ let NotificationManager = {
       for (let key in result) {
         this.notificationData[key] = result[key]
       }
+      
+      this.show() // for test 20191123
     },
     initPopup () {
       let anchor = $(this.$refs.anchor)

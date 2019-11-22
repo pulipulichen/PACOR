@@ -1513,6 +1513,11 @@ _NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"].
   return this.$t('"{0}"', [this.notification.summary.summary])
 }
 
+
+_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"].methods.read = function () {
+  throw new Error('EventAnnotationComment ' + this.notification)
+}
+
 /* harmony default export */ __webpack_exports__["default"] = (_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
@@ -1587,8 +1592,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../NotificationEvent/NotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/NotificationEvent.js");
 
 
-_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"].computed.summary = function () {
-  return this.notification.model
+_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"].computed.action = function () {
+  return this.$t('Like your comment')
+}
+
+_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"].methods.read = function () {
+  throw new Error('EventAnnotationCommentRate ' + this.notification)
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
@@ -1665,8 +1674,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../NotificationEvent/NotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/NotificationEvent.js");
 
 
-_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"].computed.summary = function () {
-  return this.notification.model
+_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"].computed.action = function () {
+  return this.$t('Like your annotation')
+}
+
+_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"].methods.read = function () {
+  throw new Error('EventAnnotationRate ' + this.notification)
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
@@ -1826,7 +1839,7 @@ let NotificationEvent = {
   },
   methods: {
     read () {
-      throw new Error('read')
+      throw new Error('read' + this.notification)
     }
   } // methods
 }
@@ -2236,7 +2249,7 @@ let NotificationManager = {
       
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/init', data)
       
-      this.afterTime = (new Data()).getTime()
+      this.afterTime = (new Date()).getTime()
       if (result === 0) {
         return null
       }
@@ -2246,6 +2259,8 @@ let NotificationManager = {
       for (let key in result) {
         this.notificationData[key] = result[key]
       }
+      
+      this.show() // for test 20191123
     },
     initPopup () {
       let anchor = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.anchor)

@@ -1,11 +1,11 @@
-import NotificationEvent from './../NotificationEvent/NotificationEvent.js'
+import EventAnnotationComment from './../NotificationEvent/NotificationEvent.js'
 
-NotificationEvent.computed.action = function () {
+EventAnnotationComment.computed.action = function () {
   // @TODO 現在還沒有回覆指定標註的功能
   return this.$t('Reply your annotation')
 }
 
-NotificationEvent.computed.summary = function () {
+EventAnnotationComment.computed.summary = function () {
   let summary = this.notification.summary.summary
   if (summary.length > 0) {
     summary = summary.slice(0, 20) + $t('...')
@@ -13,4 +13,9 @@ NotificationEvent.computed.summary = function () {
   return this.$t('"{0}"', [this.notification.summary.summary])
 }
 
-export default NotificationEvent
+
+EventAnnotationComment.methods.read = function () {
+  throw new Error('EventAnnotationComment ' + this.notification)
+}
+
+export default EventAnnotationComment

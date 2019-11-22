@@ -1,7 +1,11 @@
-import NotificationEvent from './../NotificationEvent/NotificationEvent.js'
+import EventAnnotationCommentRate from './../NotificationEvent/NotificationEvent.js'
 
-NotificationEvent.computed.summary = function () {
-  return this.notification.model
+EventAnnotationCommentRate.computed.action = function () {
+  return this.$t('Like your comment')
 }
 
-export default NotificationEvent
+EventAnnotationCommentRate.methods.read = function () {
+  throw new Error('EventAnnotationCommentRate ' + this.notification)
+}
+
+export default EventAnnotationCommentRate
