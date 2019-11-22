@@ -48,8 +48,8 @@ export default (RangyManager) => {
     //console.log(this.articleNode.length)
     //let node = this.articleNode[0]
     sections.each((i, node) => {
-      console.log('==========================================')
-      console.log(i, node)
+      //console.log('==========================================')
+      //console.log(i, node)
       
       //node = document.body
       range.selectNodeContents(node)

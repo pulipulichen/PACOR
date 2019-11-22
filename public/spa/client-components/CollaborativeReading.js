@@ -1211,7 +1211,7 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    this._testSearch()
+    //this._testSearch()
   },
   methods: {
     initComponentToLib () {
