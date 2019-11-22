@@ -12,14 +12,14 @@
         {{ lib.auth.username }}
       </div>
     </a>
-    <a class="item">
-      <notification-manager 
-        ref="NotificationManager"
-        v-bind:config="config"
-        v-bind:status="status"
-        v-bind:lib="lib">
-      </notification-manager>
-    </a>
+    
+    <notification-manager 
+      ref="NotificationManager"
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib">
+    </notification-manager>
+    
     <a class="item"
        v-on:click="showInstruction">
       {{ $t('READING_PROGRESS.' + lib.auth.currentStep) }}

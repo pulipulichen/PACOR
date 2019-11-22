@@ -16,9 +16,15 @@
       }
     },
     "toc": {},
-    "slot": {},
+    "slot": {
+      "attributes": {
+        "name": {}
+      }
+    },
     "media": {
       "attributes": {
+        "v-on:media-enter": {},
+        "v-on:media-leave": {},
         "v-bind:query": {}
       }
     },

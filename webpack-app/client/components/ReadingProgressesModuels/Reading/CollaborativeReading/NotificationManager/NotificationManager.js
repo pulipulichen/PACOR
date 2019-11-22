@@ -27,7 +27,12 @@ let NotificationManager = {
   },
   methods: {
     initPopup () {
-      this.bell = $(this.$refs.bell)
+      this.bell = window.$(this.$refs.bell)
+      this.bell.dropdown({
+        transition: 'drop'
+      })
+      
+      return
       this.list = $(`<div ref="list">
     列表
   </div>`).appendTo('body')

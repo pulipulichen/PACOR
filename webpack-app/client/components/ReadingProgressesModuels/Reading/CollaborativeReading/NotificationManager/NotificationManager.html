@@ -1,17 +1,27 @@
-<span class="NotificationManager">
-  
-  <div class="bell-container">
-    <i class="bell icon"
-       ref="bell"
-       data-content="You can use me to enter data"
-       v-bind:class="computedBellClassList"></i>
+<div class="ui dropdown icon item">
+  <i class="bell icon" ref="bell"></i>
+  <div class="menu" ref="list">
+    <div class="item">
+      <i class="dropdown icon"></i>
+      <span class="text">New</span>
+      <div class="menu">
+        <div class="item">Document</div>
+        <div class="item">Image</div>
+      </div>
+    </div>
+    <div class="item">
+      Open...
+    </div>
+    <div class="item">
+      Save...
+    </div>
+    <div class="item">Edit Permissions</div>
+    <div class="divider"></div>
+    <div class="header">
+      Export
+    </div>
+    <div class="item">
+      Share...
+    </div>
   </div>
-  <!--
-  <div v-if="notificationCount > 0"
-       class="floating ui red label">
-    {{ notificationCount }}
-  </div>
-  -->
-  
-  
-</span>
+</div>
