@@ -1,35 +1,13 @@
 <div class="ui feed">
-  <div class="event">
-    <div class="label">
-      <img src="/images/avatar/small/helen.jpg">
-    </div>
-    <div class="content">
-      <div class="date">
-        3 days ago
-      </div>
-      <div class="summary">
-         <a>Helen Troy</a> added 2 photos
-      </div>
-      <div class="extra images">
-        <a><img src="/images/wireframe/image.png"></a>
-        <a><img src="/images/wireframe/image.png"></a>
-      </div>
-    </div>
-  </div>
-  <div class="event">
-    <div class="label">
-      <img src="/images/avatar/small/laura.jpg">
-    </div>
-    <div class="content">
-      <div class="date">
-        3 days ago
-      </div>
-      <div class="summary">
-         <a>Laura Faucet</a> created a post
-      </div>
-      <div class="extra text">
-        Have you seen what's going on in Israel? Can you believe it.
-      </div>
-    </div>
-  </div>
+  <component 
+    v-for="notification in notificationData.notifications"
+    v-bind:key="notification.id"
+    v-bind:is="eventType(notification)"
+    
+    v-bind:lib="lib"
+    v-bind:status="status"
+    v-bind:config="config"
+    
+    v-bind:notificationData="notificationData">
+  </component>
 </div>

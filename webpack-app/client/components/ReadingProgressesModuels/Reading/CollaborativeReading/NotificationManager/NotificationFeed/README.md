@@ -1,4 +1,8 @@
 
+EventAnnotationComment
+EventAnnotationRate
+EventAnnotationCommentRate
+
 ````html
 <notification-feed 
   ref="feed"

@@ -1,12 +1,12 @@
-let Template = {
-  props: ['lib', 'status', 'config'],
+let NotificationEvent = {
+  props: ['lib', 'status', 'config', 'notificationData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
     }
   },
-  components: {
-  },
+//  components: {
+//  },
   computed: {
   },
   watch: {
@@ -17,4 +17,4 @@ let Template = {
   } // methods
 }
 
-export default Template
+export default NotificationEvent

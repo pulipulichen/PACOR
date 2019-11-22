@@ -27,9 +27,13 @@ let NotificationManager = {
   },
 //  watch: {
 //  },
-//  mounted() {
-//  },
+  mounted() {
+    this.initNotificationData()
+  },
   methods: {
+    initNotificationData: async function () {
+      let result = await this.lib.AxiosHelper.get('/client/UserNotification/init')
+    },
     initPopup () {
       let anchor = $(this.$refs.anchor)
       

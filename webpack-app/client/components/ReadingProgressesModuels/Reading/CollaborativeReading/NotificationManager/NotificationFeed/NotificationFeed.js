@@ -1,7 +1,8 @@
 let NotificationFeed = {
-  props: ['lib', 'status', 'config'],
+  props: ['lib', 'status', 'config'
+    , 'notificationData'],
   data() {    
-    this.$i18n.locale = this.config.locale
+    //this.$i18n.locale = this.config.locale
     return {
     }
   },
@@ -14,6 +15,11 @@ let NotificationFeed = {
   mounted() {
   },
   methods: {
+    eventType (notification) {
+      return 'NotificationEvent'  // for test
+      
+      return 'Event' + notification.model
+    }
   } // methods
 }
 

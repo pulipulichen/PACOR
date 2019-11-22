@@ -10,7 +10,7 @@ class UserNotificationFind {
 
   register(Model) {
     
-    Model.getSummary = async function (webpage, user, options) {
+    Model.getInit = async function (webpage, user, options) {
       
       let cacheKey = Cache.keys('getSummary')
       return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
