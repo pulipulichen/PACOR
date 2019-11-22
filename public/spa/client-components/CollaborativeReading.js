@@ -1211,7 +1211,7 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    //this._testAnnotationSingleFocusComment()
+    this._testSearch()
   },
   methods: {
     initComponentToLib () {
@@ -1235,6 +1235,7 @@ let CollaborativeReading = {
       }
       
       this.status.search.keyword = "我"
+      return
       
       // 先設定篩選條件
       this.lib.AnnotationPanel.findKeyword(this.status.search.keyword)
@@ -2473,7 +2474,7 @@ let NotificationManager = {
     },
     startReloadData () {
       this.timer = setTimeout(() => {
-        console.log('重新讀取')
+        //console.log('重新讀取')
         this.initNotificationData()
       }, this.reloadIntervalSeconds * 1000)
     },

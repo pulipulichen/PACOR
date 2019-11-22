@@ -73,7 +73,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Back to list":"回到列表","Back to full list":"回到完整列表","Finding":"正在搜尋"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Back to list":"回到列表","Back to full list":"回到完整列表","Finding":"正在搜尋","No Search Result":"沒有符合的標註"}}')
   delete Component.options._Ctor
 }
 
@@ -89,7 +89,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Back to list":"回到列表","Back to full list":"回到完整列表","Finding":"正在搜尋"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Back to list":"回到列表","Back to full list":"回到完整列表","Finding":"正在搜尋","No Search Result":"沒有符合的標註"}}')
   delete Component.options._Ctor
 }
 
@@ -449,7 +449,7 @@ exports.push([module.i, ".back-button[data-v-d0a3714a] {\n  vertical-align: top 
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".back-button[data-v-85bd389e] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-85bd389e] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-85bd389e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-85bd389e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-85bd389e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-85bd389e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-85bd389e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-85bd389e] {\n  float: right;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=85bd389e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;;;;EAIE;AACF;EACE,YAAY;EACZ,mBAAmB;AACrB","file":"List.less?vue&type=style&index=0&id=85bd389e&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-85bd389e] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-85bd389e] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-85bd389e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-85bd389e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-85bd389e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-85bd389e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-85bd389e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-85bd389e] {\n  float: right;\n  vertical-align: top;\n}\n"]}]);
+exports.push([module.i, ".back-button[data-v-85bd389e] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-85bd389e] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-85bd389e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-85bd389e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-85bd389e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-85bd389e] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n}\n.pacor-search-result[data-v-85bd389e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-85bd389e] {\n  float: right;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=85bd389e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,iBAAiB;AACnB;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;;;;EAIE;AACF;EACE,YAAY;EACZ,mBAAmB;AACrB","file":"List.less?vue&type=style&index=0&id=85bd389e&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-85bd389e] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-85bd389e] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-85bd389e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-85bd389e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-85bd389e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-85bd389e] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n}\n.pacor-search-result[data-v-85bd389e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-85bd389e] {\n  float: right;\n  vertical-align: top;\n}\n"]}]);
 
 
 /***/ }),
@@ -463,7 +463,7 @@ exports.push([module.i, ".back-button[data-v-85bd389e] {\n  vertical-align: top 
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".back-button[data-v-cba2731e] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-cba2731e] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-cba2731e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-cba2731e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-cba2731e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-cba2731e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-cba2731e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-cba2731e] {\n  float: right;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=cba2731e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;;;;EAIE;AACF;EACE,YAAY;EACZ,mBAAmB;AACrB","file":"List.less?vue&type=style&index=0&id=cba2731e&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-cba2731e] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-cba2731e] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-cba2731e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-cba2731e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-cba2731e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-cba2731e] {\n  text-align: center;\n  color: gray;\n}\n.pacor-search-result[data-v-cba2731e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-cba2731e] {\n  float: right;\n  vertical-align: top;\n}\n"]}]);
+exports.push([module.i, ".back-button[data-v-cba2731e] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-cba2731e] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-cba2731e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-cba2731e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-cba2731e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-cba2731e] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n}\n.pacor-search-result[data-v-cba2731e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-cba2731e] {\n  float: right;\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=cba2731e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,iBAAiB;AACnB;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;;;;EAIE;AACF;EACE,YAAY;EACZ,mBAAmB;AACrB","file":"List.less?vue&type=style&index=0&id=cba2731e&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-cba2731e] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-cba2731e] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-cba2731e] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-cba2731e]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.list[data-v-cba2731e] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-cba2731e] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n}\n.pacor-search-result[data-v-cba2731e] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-cba2731e] {\n  float: right;\n  vertical-align: top;\n}\n"]}]);
 
 
 /***/ }),
@@ -12889,6 +12889,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 /* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
   RangyManager.methods._initSearch = function () {
     var classApplierModule = this.rangy.modules.ClassApplier;
@@ -12904,7 +12908,7 @@ __webpack_require__.r(__webpack_exports__);
   let sections
   let options
 
-  RangyManager.methods.searchInArticle = function (searchTerm) {
+  RangyManager.methods.searchInArticle = async function (searchTerm) {
     
     //range.selectNodeContents(node);
     //this.searchResultApplier.undoToRange(range);
@@ -12933,10 +12937,32 @@ __webpack_require__.r(__webpack_exports__);
 
     //searchScopeRange.selectNodeContents(document.body);
     
+    //console.log(sections.length)
+    
     //console.log(this.articleNode.length)
     //let node = this.articleNode[0]
-    sections.each((i, node) => {
+    
+    for (let i = 0; i < sections.length; i++) {
+      let node = sections.eq(i)[0]
+      console.log(i, node)
+      range.selectNodeContents(node)
       
+      // Iterate over matches
+      while (range.findText(searchTerm, options)) {
+        // range now encompasses the first text match
+        this.searchResultApplier.applyToRange(range)
+        // Collapse the range to the position immediately after the match
+        range.collapse(false)
+        
+        await this.lib.VueHelper.sleep(100)
+      }
+      
+      await this.lib.VueHelper.sleep(100)
+    }
+    
+    /*
+    sections.each((i, node) => {
+      console.log(i, node)
       //let node = document.body
       range.selectNodeContents(node)
       
@@ -12948,7 +12974,7 @@ __webpack_require__.r(__webpack_exports__);
         range.collapse(false)
       }
     })
-
+    */
   }
 });
 
@@ -13269,6 +13295,7 @@ __webpack_require__.r(__webpack_exports__);
   RangyManager.watch['status.search.keyword'] = function (keyword) {
     clearTimeout(this.searchResultTimer)
     this.searchResultTimer = setTimeout(() => {
+      //console.log('searchInArticle', keyword)
       this.searchInArticle(keyword)
     }, 100)
   }

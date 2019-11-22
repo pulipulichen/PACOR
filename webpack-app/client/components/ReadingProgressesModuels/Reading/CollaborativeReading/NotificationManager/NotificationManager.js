@@ -80,7 +80,7 @@ let NotificationManager = {
     },
     startReloadData () {
       this.timer = setTimeout(() => {
-        console.log('重新讀取')
+        //console.log('重新讀取')
         this.initNotificationData()
       }, this.reloadIntervalSeconds * 1000)
     },

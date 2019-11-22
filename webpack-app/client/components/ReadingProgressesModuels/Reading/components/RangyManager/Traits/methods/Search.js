@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 export default (RangyManager) => {
   RangyManager.methods._initSearch = function () {
     var classApplierModule = this.rangy.modules.ClassApplier;
@@ -13,7 +15,7 @@ export default (RangyManager) => {
   let sections
   let options
 
-  RangyManager.methods.searchInArticle = function (searchTerm) {
+  RangyManager.methods.searchInArticle = async function (searchTerm) {
     
     //range.selectNodeContents(node);
     //this.searchResultApplier.undoToRange(range);
@@ -42,10 +44,32 @@ export default (RangyManager) => {
 
     //searchScopeRange.selectNodeContents(document.body);
     
+    //console.log(sections.length)
+    
     //console.log(this.articleNode.length)
     //let node = this.articleNode[0]
-    sections.each((i, node) => {
+    
+    for (let i = 0; i < sections.length; i++) {
+      let node = sections.eq(i)[0]
+      console.log(i, node)
+      range.selectNodeContents(node)
       
+      // Iterate over matches
+      while (range.findText(searchTerm, options)) {
+        // range now encompasses the first text match
+        this.searchResultApplier.applyToRange(range)
+        // Collapse the range to the position immediately after the match
+        range.collapse(false)
+        
+        await this.lib.VueHelper.sleep(100)
+      }
+      
+      await this.lib.VueHelper.sleep(100)
+    }
+    
+    /*
+    sections.each((i, node) => {
+      console.log(i, node)
       //let node = document.body
       range.selectNodeContents(node)
       
@@ -57,7 +81,7 @@ export default (RangyManager) => {
         range.collapse(false)
       }
     })
-
+    */
   }
 }
 
