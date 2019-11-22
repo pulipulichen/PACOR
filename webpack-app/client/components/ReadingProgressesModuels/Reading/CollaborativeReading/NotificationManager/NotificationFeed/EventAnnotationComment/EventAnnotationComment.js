@@ -1,4 +1,22 @@
-import EventAnnotationComment from './../NotificationEvent/NotificationEvent.js'
+import props from '../NotificationEvent/propsNotificationEvent.js'
+import data from '../NotificationEvent/dataNotificationEvent.js'
+import computed from '../NotificationEvent/computedNotificationEvent.js'
+import methods from '../NotificationEvent/methodsNotificationEvent.js'
+
+let EventAnnotationComment = {
+  props,
+  data: function () {
+    this.$i18n.locale = this.config.locale
+    return {
+    }
+  },
+  computed: {
+    ...computed
+  },
+  methods: {
+    ...methods
+  }
+}
 
 EventAnnotationComment.computed.action = function () {
   // @TODO 現在還沒有回覆指定標註的功能
@@ -6,9 +24,14 @@ EventAnnotationComment.computed.action = function () {
 }
 
 EventAnnotationComment.computed.summary = function () {
+  if (!this.notification.summary) {
+    return
+  }
   let summary = this.notification.summary.summary
+  
+  //console.log(summary)
   if (summary.length > 0) {
-    summary = summary.slice(0, 20) + $t('...')
+    summary = summary.slice(0, 20) + this.$t('...')
   }
   return this.$t('"{0}"', [this.notification.summary.summary])
 }

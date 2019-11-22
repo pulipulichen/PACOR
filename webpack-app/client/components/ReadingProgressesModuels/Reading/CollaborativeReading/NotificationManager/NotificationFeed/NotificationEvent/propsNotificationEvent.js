@@ -1,0 +1,1 @@
+export default ['lib', 'status', 'config', 'notification']

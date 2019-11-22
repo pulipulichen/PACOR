@@ -1497,28 +1497,54 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../NotificationEvent/NotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/NotificationEvent.js");
+/* harmony import */ var _NotificationEvent_propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../NotificationEvent/propsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/propsNotificationEvent.js");
+/* harmony import */ var _NotificationEvent_dataNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../NotificationEvent/dataNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/dataNotificationEvent.js");
+/* harmony import */ var _NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../NotificationEvent/computedNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/computedNotificationEvent.js");
+/* harmony import */ var _NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../NotificationEvent/methodsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/methodsNotificationEvent.js");
 
 
-_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"].computed.action = function () {
+
+
+
+let EventAnnotationComment = {
+  props: _NotificationEvent_propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+  data: function () {
+    this.$i18n.locale = this.config.locale
+    return {
+    }
+  },
+  computed: {
+    ..._NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  methods: {
+    ..._NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }
+}
+
+EventAnnotationComment.computed.action = function () {
   // @TODO 現在還沒有回覆指定標註的功能
   return this.$t('Reply your annotation')
 }
 
-_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"].computed.summary = function () {
+EventAnnotationComment.computed.summary = function () {
+  if (!this.notification.summary) {
+    return
+  }
   let summary = this.notification.summary.summary
+  
+  //console.log(summary)
   if (summary.length > 0) {
-    summary = summary.slice(0, 20) + $t('...')
+    summary = summary.slice(0, 20) + this.$t('...')
   }
   return this.$t('"{0}"', [this.notification.summary.summary])
 }
 
 
-_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"].methods.read = function () {
+EventAnnotationComment.methods.read = function () {
   throw new Error('EventAnnotationComment ' + this.notification)
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (EventAnnotationComment);
 
 /***/ }),
 
@@ -1589,18 +1615,39 @@ component.options.__file = "webpack-app/client/components/ReadingProgressesModue
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../NotificationEvent/NotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/NotificationEvent.js");
+/* harmony import */ var _NotificationEvent_propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../NotificationEvent/propsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/propsNotificationEvent.js");
+/* harmony import */ var _NotificationEvent_dataNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../NotificationEvent/dataNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/dataNotificationEvent.js");
+/* harmony import */ var _NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../NotificationEvent/computedNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/computedNotificationEvent.js");
+/* harmony import */ var _NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../NotificationEvent/methodsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/methodsNotificationEvent.js");
 
 
-_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"].computed.action = function () {
+
+
+
+let EventAnnotationCommentRate = {
+  props: _NotificationEvent_propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+  data: function () {
+    this.$i18n.locale = this.config.locale
+    return {
+    }
+  },
+  computed: {
+    ..._NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  methods: {
+    ..._NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }
+}
+
+EventAnnotationCommentRate.computed.action = function () {
   return this.$t('Like your comment')
 }
 
-_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"].methods.read = function () {
+EventAnnotationCommentRate.methods.read = function () {
   throw new Error('EventAnnotationCommentRate ' + this.notification)
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (EventAnnotationCommentRate);
 
 /***/ }),
 
@@ -1671,18 +1718,39 @@ component.options.__file = "webpack-app/client/components/ReadingProgressesModue
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../NotificationEvent/NotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/NotificationEvent.js");
+/* harmony import */ var _NotificationEvent_propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../NotificationEvent/propsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/propsNotificationEvent.js");
+/* harmony import */ var _NotificationEvent_dataNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../NotificationEvent/dataNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/dataNotificationEvent.js");
+/* harmony import */ var _NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../NotificationEvent/computedNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/computedNotificationEvent.js");
+/* harmony import */ var _NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../NotificationEvent/methodsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/methodsNotificationEvent.js");
 
 
-_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"].computed.action = function () {
+
+
+
+let EventAnnotationRate = {
+  props: _NotificationEvent_propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+  data: function () {
+    this.$i18n.locale = this.config.locale
+    return {
+    }
+  },
+  computed: {
+    ..._NotificationEvent_computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  methods: {
+    ..._NotificationEvent_methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }
+}
+
+EventAnnotationRate.computed.action = function () {
   return this.$t('Like your annotation')
 }
 
-_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"].methods.read = function () {
+EventAnnotationRate.methods.read = function () {
   throw new Error('EventAnnotationRate ' + this.notification)
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (_NotificationEvent_NotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (EventAnnotationRate);
 
 /***/ }),
 
@@ -1798,56 +1866,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/NotificationEvent.js":
-/*!*************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/NotificationEvent.js ***!
-  \*************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-let NotificationEvent = {
-  props: ['lib', 'status', 'config', 'notification'],
-  data() {    
-    this.$i18n.locale = this.config.locale
-    return {
-    }
-  },
-  computed: {
-    username () {
-      let user = this.notification.triggerUser
-      if (typeof(user.displayName) === 'string') {
-        return user.displayName
-      }
-      else {
-        return user.username
-      }
-    },
-    action () {
-      
-    },
-    avatar () {
-      return this.notification.triggerUser.avatar_url
-    },
-    displayTime () {
-      return this.lib.DayJSHelper.fromNow(this.notification.created_at_unixms)
-    },
-    summary () {
-      return this.notification.summary
-    }
-  },
-  methods: {
-    read () {
-      throw new Error('read' + this.notification)
-    }
-  } // methods
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (NotificationEvent);
-
-/***/ }),
-
 /***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/NotificationEvent.less?vue&type=style&index=0&id=064d3e9f&lang=less&scoped=true&":
 /*!*************************************************************************************************************************************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/NotificationEvent.less?vue&type=style&index=0&id=064d3e9f&lang=less&scoped=true& ***!
@@ -1941,6 +1959,89 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationEvent_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5CCollaborativeReading_5CNotificationManager_5CNotificationFeed_5CEventAnnotationRate_5CEventAnnotationRate_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationEvent_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5CCollaborativeReading_5CNotificationManager_5CNotificationFeed_5CEventAnnotationRate_5CEventAnnotationRate_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationEvent_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5CCollaborativeReading_5CNotificationManager_5CNotificationFeed_5CEventAnnotationRate_5CEventAnnotationRate_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationEvent_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5CCollaborativeReading_5CNotificationManager_5CNotificationFeed_5CEventAnnotationRate_5CEventAnnotationRate_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationEvent_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5CCollaborativeReading_5CNotificationManager_5CNotificationFeed_5CEventAnnotationRate_5CEventAnnotationRate_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/computedNotificationEvent.js":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/computedNotificationEvent.js ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  username() {
+    let user = this.notification.triggerUser
+    if (typeof (user.displayName) === 'string') {
+      return user.displayName
+    } else {
+      return user.username
+    }
+  },
+  action() {
+
+  },
+  avatar() {
+    return this.notification.triggerUser.avatar_url
+  },
+  displayTime() {
+    return this.lib.DayJSHelper.fromNow(this.notification.created_at_unixms)
+  },
+  summary() {
+    return this.notification.summary
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/dataNotificationEvent.js":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/dataNotificationEvent.js ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (Event) {
+  Event.data = function () {
+    this.$i18n.locale = this.config.locale
+    return {
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/methodsNotificationEvent.js":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/methodsNotificationEvent.js ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  read() {
+    throw new Error('read' + this.notification)
+  }
+}); // methods
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/propsNotificationEvent.js":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationEvent/propsNotificationEvent.js ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (['lib', 'status', 'config', 'notification']);
 
 /***/ }),
 
