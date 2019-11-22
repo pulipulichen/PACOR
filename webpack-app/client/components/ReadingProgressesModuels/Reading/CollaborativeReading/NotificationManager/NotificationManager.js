@@ -23,13 +23,34 @@ let NotificationManager = {
   watch: {
   },
   mounted() {
-    this.initPopup()
+    setTimeout(() => {
+      this.initPopup()
+    }, 1000)
+    
   },
   methods: {
     initPopup () {
-      this.bell = window.$(this.$refs.bell)
-      this.bell.dropdown({
-        transition: 'drop'
+      
+//      let list = $(`<div class="list ui popup">
+//    列表
+//  </div>`).appendTo('.non-invasive-web-style-framework:first')
+      let list = this.$refs.list
+      
+      $(this.$refs.icon)
+        .popup({
+          popup: list,
+          inline     : true,
+          hoverable  : true,
+          on    : 'click'
+      })
+      
+      return
+      
+      this.bell = $(this.$refs.bell)
+      $('#bell').popup({
+          inline     : true,
+          hoverable  : true,
+          //on    : 'click'
       })
       
       return

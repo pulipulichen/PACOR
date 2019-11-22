@@ -14,12 +14,15 @@ let Template = {
   watch: {
   },
   mounted() {
-    $('#dropdown')
-      .dropdown({
-        // you can use any ui transition
-        transition: 'drop'
+    setTimeout(() => {
+      $(this.$refs.icon)
+        .popup({
+          //inline     : true,
+          hoverable  : true,
+          on    : 'click'
       })
-    ;
+    }, 100)
+      
   },
   methods: {
   } // methods

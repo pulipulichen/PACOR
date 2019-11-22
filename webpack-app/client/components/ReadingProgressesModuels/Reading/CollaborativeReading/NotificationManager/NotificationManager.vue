@@ -2,3 +2,4 @@
 <script src="./NotificationManager.js"></script>
 <style src="./NotificationManager.less" lang="less" scoped></style>
 <i18n src="./NotificationManager.yaml" lang="yaml"></i18n>
+<style src="./NotificationManager.popup.less" lang="less"></style>

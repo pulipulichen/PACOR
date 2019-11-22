@@ -1,27 +1,52 @@
-<div class="ui dropdown icon item">
-  <i class="bell icon" ref="bell"></i>
-  <div class="menu" ref="list">
-    <div class="item">
-      <i class="dropdown icon"></i>
-      <span class="text">New</span>
-      <div class="menu">
-        <div class="item">Document</div>
-        <div class="item">Image</div>
+<div class="NotificationManager item">
+  <div class="ui icon button" 
+       ref="icon"
+       data-content="Add users to your feed">
+    <i class="add icon"></i>
+  </div>
+
+
+  <div v-if="notificationCount > 0"
+       class="floating ui red label">
+    {{ notificationCount }}
+  </div>
+
+  <div class="list ui popup"
+       ref="list">
+    <div class="ui feed">
+      <div class="event">
+        <div class="label">
+          <img src="/images/avatar/small/helen.jpg">
+        </div>
+        <div class="content">
+          <div class="date">
+            3 days ago
+          </div>
+          <div class="summary">
+            <a>Helen Troy</a> added 2 photos
+          </div>
+          <div class="extra images">
+            <a><img src="/images/wireframe/image.png"></a>
+            <a><img src="/images/wireframe/image.png"></a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="item">
-      Open...
-    </div>
-    <div class="item">
-      Save...
-    </div>
-    <div class="item">Edit Permissions</div>
-    <div class="divider"></div>
-    <div class="header">
-      Export
-    </div>
-    <div class="item">
-      Share...
+      <div class="event">
+        <div class="label">
+          <img src="/images/avatar/small/laura.jpg">
+        </div>
+        <div class="content">
+          <div class="date">
+            3 days ago
+          </div>
+          <div class="summary">
+            <a>Laura Faucet</a> created a post
+          </div>
+          <div class="extra text">
+            Have you seen what's going on in Israel? Can you believe it.
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
