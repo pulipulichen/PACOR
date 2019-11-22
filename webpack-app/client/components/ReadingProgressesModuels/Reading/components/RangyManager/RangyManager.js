@@ -28,7 +28,7 @@ let RangyManager = {
     this._initAnchorPosition()
     this._initOnSelectEventListener()
     
-    this._initSearch()
+    //this._initSearch()
     
     //this.status.search.keyword = '天' // for test
   },  // mounted() {

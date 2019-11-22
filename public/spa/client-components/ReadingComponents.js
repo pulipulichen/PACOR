@@ -11905,7 +11905,7 @@ let RangyManager = {
     this._initAnchorPosition()
     this._initOnSelectEventListener()
     
-    this._initSearch()
+    //this._initSearch()
     
     //this.status.search.keyword = '天' // for test
   },  // mounted() {
@@ -12889,10 +12889,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-
-
 /* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
   RangyManager.methods._initSearch = function () {
     var classApplierModule = this.rangy.modules.ClassApplier;
@@ -12909,6 +12905,8 @@ __webpack_require__.r(__webpack_exports__);
   let options
 
   RangyManager.methods.searchInArticle = async function (searchTerm) {
+    
+    //await this.lib.VueHelper.sleep(1000)
     
     //range.selectNodeContents(node);
     //this.searchResultApplier.undoToRange(range);
@@ -12933,36 +12931,16 @@ __webpack_require__.r(__webpack_exports__);
         withinRange: searchScopeRange,
         direction: "forward" // This is redundant because "forward" is the default
       }
+      this._initSearch()
     }
 
     //searchScopeRange.selectNodeContents(document.body);
     
-    //console.log(sections.length)
-    
     //console.log(this.articleNode.length)
     //let node = this.articleNode[0]
-    
-    for (let i = 0; i < sections.length; i++) {
-      let node = sections.eq(i)[0]
-      console.log(i, node)
-      range.selectNodeContents(node)
-      
-      // Iterate over matches
-      while (range.findText(searchTerm, options)) {
-        // range now encompasses the first text match
-        this.searchResultApplier.applyToRange(range)
-        // Collapse the range to the position immediately after the match
-        range.collapse(false)
-        
-        await this.lib.VueHelper.sleep(100)
-      }
-      
-      await this.lib.VueHelper.sleep(100)
-    }
-    
-    /*
     sections.each((i, node) => {
       console.log(i, node)
+      
       //let node = document.body
       range.selectNodeContents(node)
       
@@ -12974,7 +12952,7 @@ __webpack_require__.r(__webpack_exports__);
         range.collapse(false)
       }
     })
-    */
+
   }
 });
 

@@ -32,7 +32,9 @@ let CollaborativeReading = {
       this.lib.AnnotationPanel = this.$refs.AnnotationPanel
       //console.log(this.lib.AnnotationPanel)
     },
-    _testSearch () {
+    _testSearch: async function () {
+      await this.lib.VueHelper.sleep(1000)
+      
       if (!this.lib.AnnotationPanel) {
         setTimeout(() => {
           this._testSearch()
