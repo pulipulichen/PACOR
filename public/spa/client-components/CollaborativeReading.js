@@ -1236,6 +1236,7 @@ let CollaborativeReading = {
     // --------------------------------
     
     _testSearch: async function () {
+      console.log('_testSearch')
       await this.lib.VueHelper.sleep(1000)
       
       if (!this.lib.AnnotationPanel) {
@@ -1256,6 +1257,7 @@ let CollaborativeReading = {
     },
     
     _testAnnotationSingle () {
+      console.log('_testAnnotationSingle')
       setTimeout(() => {
         jquery__WEBPACK_IMPORTED_MODULE_1___default()('.others-MainIdea:first').click()
         
@@ -1265,6 +1267,7 @@ let CollaborativeReading = {
       }, 500)
     },
     _testAnnotationSingleManyComments () {
+      console.log('_testAnnotationSingleManyComments')
       setTimeout(() => {
         if (jquery__WEBPACK_IMPORTED_MODULE_1___default()('.others-Clarified:first').length === 0) {
           this._testAnnotationSingleManyComments()
@@ -1286,11 +1289,13 @@ let CollaborativeReading = {
       }, 500)
     },
     _testAnnotationSingleFocusComment () {
+      console.log('_testAnnotationSingleFocusComment')
       setTimeout(() => {
         this.lib.AnnotationPanel.focusComment(19)
       }, 500)
     },
     _testUserFilter: async function () {
+      console.log('_testUserFilter')
       await this.lib.VueHelper.sleep(1000)
       
       this.lib.UserFilter.show()
@@ -2626,8 +2631,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let Template = {
-  props: ['lib', 'status', 'config'],
+let PeerList = {
+  props: ['lib', 'status', 'config', 'filterData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -2645,7 +2650,7 @@ let Template = {
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Template);
+/* harmony default export */ __webpack_exports__["default"] = (PeerList);
 
 /***/ }),
 
@@ -2780,8 +2785,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let Template = {
-  props: ['lib', 'status', 'config'],
+let UserChart = {
+  props: ['lib', 'status', 'config', 'filterData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -2799,7 +2804,7 @@ let Template = {
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Template);
+/* harmony default export */ __webpack_exports__["default"] = (UserChart);
 
 /***/ }),
 

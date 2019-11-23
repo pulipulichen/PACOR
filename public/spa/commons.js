@@ -4199,6 +4199,7 @@ let i18nGlobal = {
     "CANCEL": "取消",
     "CLOSE": "關閉",
     "SAVE": "儲存",
+    "SELECT": "選擇",
     "Example": "範例",
     "DATABASE": "資料庫",
     "RESET": "重設",

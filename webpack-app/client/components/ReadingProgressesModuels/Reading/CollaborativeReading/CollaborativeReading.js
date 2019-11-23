@@ -39,6 +39,7 @@ let CollaborativeReading = {
     // --------------------------------
     
     _testSearch: async function () {
+      console.log('_testSearch')
       await this.lib.VueHelper.sleep(1000)
       
       if (!this.lib.AnnotationPanel) {
@@ -59,6 +60,7 @@ let CollaborativeReading = {
     },
     
     _testAnnotationSingle () {
+      console.log('_testAnnotationSingle')
       setTimeout(() => {
         $('.others-MainIdea:first').click()
         
@@ -68,6 +70,7 @@ let CollaborativeReading = {
       }, 500)
     },
     _testAnnotationSingleManyComments () {
+      console.log('_testAnnotationSingleManyComments')
       setTimeout(() => {
         if ($('.others-Clarified:first').length === 0) {
           this._testAnnotationSingleManyComments()
@@ -89,11 +92,13 @@ let CollaborativeReading = {
       }, 500)
     },
     _testAnnotationSingleFocusComment () {
+      console.log('_testAnnotationSingleFocusComment')
       setTimeout(() => {
         this.lib.AnnotationPanel.focusComment(19)
       }, 500)
     },
     _testUserFilter: async function () {
+      console.log('_testUserFilter')
       await this.lib.VueHelper.sleep(1000)
       
       this.lib.UserFilter.show()
