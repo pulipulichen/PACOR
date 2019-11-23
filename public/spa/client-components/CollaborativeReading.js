@@ -121,7 +121,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"View All":"觀看所有成員","No annotation":"沒有撰寫標註"}}')
   delete Component.options._Ctor
 }
 
@@ -852,7 +852,10 @@ var render = function() {
     [
       _c("div", { staticClass: "ui mini image" }, [
         _vm.user
-          ? _c("img", { staticClass: "avatar", attrs: { src: _vm.avatar } })
+          ? _c("img", {
+              staticClass: "user-avatar",
+              attrs: { src: _vm.avatar }
+            })
           : _c("i", { staticClass: "large users icon" })
       ]),
       _vm._v(" "),
@@ -2861,7 +2864,7 @@ let PeerItem = {
     },
     username () {
       if (!this.user) {
-        return this.$t('All')
+        return this.$t('View All')
       }
       
       let user = this.user

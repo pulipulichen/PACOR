@@ -22,7 +22,7 @@ let PeerItem = {
     },
     username () {
       if (!this.user) {
-        return this.$t('All')
+        return this.$t('View All')
       }
       
       let user = this.user

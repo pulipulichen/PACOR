@@ -79,7 +79,7 @@ class WebpageGroupUserFilter {
         
         
         // 先簡單地按照字母排序好了
-        readers.sort(function(a,b){
+        readers.sort(function(b, a){
           a = a.username.toLowerCase();
           b = b.username.toLowerCase();
 

@@ -1,6 +1,6 @@
 en:
-  TEST_MESSAGE: Test Message
   
 zh-TW:
   # 這是註解
-  TEST_MESSAGE: 測試訊息
+  View All: 觀看所有成員
+  No annotation: 沒有撰寫標註
