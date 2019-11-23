@@ -197,7 +197,7 @@ class AnnotationFind {
     
     Model.findOthersByWebpageGroup = async function (webpage, user, options) {
       let {
-        aftertime
+        afterTime
       } = options
       
       const doQuery = async evt => {

@@ -79,7 +79,7 @@ let AnnotationHelper = {
     if (typeof(this.status.filter.findType) === 'string') {
       data.findType = this.status.filter.findType
     }
-    if (typeof(this.status.filter.findUser) !== null 
+    if (this.status.filter.findUser !== null 
             && typeof(this.status.filter.findUser.id) === 'number') {
       data.findUserID = this.status.filter.findUser.id
     }

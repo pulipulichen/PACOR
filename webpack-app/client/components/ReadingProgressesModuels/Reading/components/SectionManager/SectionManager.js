@@ -21,7 +21,7 @@ let SectionManager = {
   },
   computed: {
     query () {
-      if (typeof(this.status.filter.findUser) !== null 
+      if (this.status.filter.findUser !== null 
             && typeof(this.status.filter.findUser.id) === 'number') {
         return {
           findUserID: this.status.filter.findUser.id

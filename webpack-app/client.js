@@ -106,7 +106,9 @@ let VueController = {
       VueHelper: VueHelper,
       auth: null,
       RangyManager: null,
-      AnnotationPanel: null
+      AnnotationPanel: null,
+      UserFilter: null,
+      AnnotationTypeFiler: null
     },
     errors: [],
     persistAttrs: [

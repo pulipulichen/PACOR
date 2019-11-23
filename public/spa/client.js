@@ -1876,7 +1876,9 @@ let VueController = {
       VueHelper: _helpers_VueHelper__WEBPACK_IMPORTED_MODULE_10__["default"],
       auth: null,
       RangyManager: null,
-      AnnotationPanel: null
+      AnnotationPanel: null,
+      UserFilter: null,
+      AnnotationTypeFiler: null
     },
     errors: [],
     persistAttrs: [
@@ -2649,6 +2651,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('section-manager', () => _
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('search-manager', () => __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Reading/components/SearchManager/SearchManager.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SearchManager/SearchManager.vue")))
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('instruction-message', () => __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Reading/components/InstructionMessage/InstructionMessage.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/InstructionMessage/InstructionMessage.vue")))
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('compact-navigation', () => __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Reading/components/CompactNavigation/CompactNavigation.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/CompactNavigation/CompactNavigation.vue")))
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('annotation-type-filter', () => __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Reading/components/AnnotationTypeFilter/AnnotationTypeFilter.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationTypeFilter/AnnotationTypeFilter.vue")))
 
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('iframe-message-segment', _components_IframeMessageSegment_IframeMessageSegment_vue__WEBPACK_IMPORTED_MODULE_17__["default"])
@@ -5060,7 +5063,7 @@ let AnnotationHelper = {
     if (typeof(this.status.filter.findType) === 'string') {
       data.findType = this.status.filter.findType
     }
-    if (typeof(this.status.filter.findUser) !== null 
+    if (this.status.filter.findUser !== null 
             && typeof(this.status.filter.findUser.id) === 'number') {
       data.findUserID = this.status.filter.findUser.id
     }

@@ -62,6 +62,7 @@ Vue.component('section-manager', () => import(/* webpackChunkName: "client-compo
 Vue.component('search-manager', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/SearchManager/SearchManager.vue'))
 Vue.component('instruction-message', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/InstructionMessage/InstructionMessage.vue'))
 Vue.component('compact-navigation', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/CompactNavigation/CompactNavigation.vue'))
+Vue.component('annotation-type-filter', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/AnnotationTypeFilter/AnnotationTypeFilter.vue'))
 
 import IframeMessageSegment from './../components/IframeMessageSegment/IframeMessageSegment.vue'
 Vue.component('iframe-message-segment', IframeMessageSegment)

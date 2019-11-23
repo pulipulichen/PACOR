@@ -17,7 +17,7 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    //this._testSearch()
+    this._testUserFilter()
   },
   methods: {
     initComponentToLib () {
@@ -32,6 +32,12 @@ let CollaborativeReading = {
       this.lib.AnnotationPanel = this.$refs.AnnotationPanel
       //console.log(this.lib.AnnotationPanel)
     },
+    showInstruction() {
+      this.$refs.InstructionMessage.show()
+    },
+    
+    // --------------------------------
+    
     _testSearch: async function () {
       await this.lib.VueHelper.sleep(1000)
       
@@ -87,8 +93,10 @@ let CollaborativeReading = {
         this.lib.AnnotationPanel.focusComment(19)
       }, 500)
     },
-    showInstruction() {
-      this.$refs.InstructionMessage.show()
+    _testUserFilter: async function () {
+      await this.lib.VueHelper.sleep(1000)
+      
+      this.lib.UserFilter.show()
     }
   } // methods
 }
