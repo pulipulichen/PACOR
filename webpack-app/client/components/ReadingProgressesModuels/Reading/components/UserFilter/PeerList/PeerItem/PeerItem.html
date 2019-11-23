@@ -17,9 +17,19 @@
         v-if="!isReader"
         v-bind:status="status"
         v-bind:config="config"
-        
         v-bind:user="user">
       </admin-badge>
+      
+      <user-self-badge 
+        v-bind:status="status"
+        v-bind:config="config"
+        v-bind:user="user">
+      </user-self-badge>
+      
+      <span v-if="!isReady"
+            class="message">
+        {{ $t('(Reading...)') }}
+      </span>
     </div>
     <div class="description">
       <annotation-type-button 

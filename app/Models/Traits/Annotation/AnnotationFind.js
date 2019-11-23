@@ -31,15 +31,13 @@ class AnnotationFind {
         , seq_id
         , orderBy
         , excludeIDList
+        , focusUserID
       } = options
       const doQuery = async evt => {
         //console.log('findByWebpageGroupPosition', anchorPositions)
 
-        let userList = await user.getUserIDsInGroup(webpage, true)
-
         let query = this.query()
                 .where('webpage_id', webpage.primaryKeyValue)
-                .whereIn('user_id', userList)
                 .with('user', userQueryBuilder)
                 .with('notes')
                 .where('deleted', false)
@@ -63,8 +61,24 @@ class AnnotationFind {
           })
         }
 
-        _queryFindOtherUser(query, options)
         _queryFindType(query, options)
+        
+        // -------------------------
+        
+        focusUserID = TypeHelper.parseInt(focusUserID)
+        if (typeof(focusUserID) === 'number') {
+          query.whereIn('user_id', [focusUserID, user.primaryKeyValue])
+          
+          let dir = 'asc'
+          if (focusUserID > user.primaryKeyValue) {
+            dir = 'desc'
+          }
+          query.orderBy('user_id', dir)
+        }
+        else {
+          let userList = await user.getUserIDsInGroup(webpage, true)
+          query.whereIn('user_id', userList)
+        }
 
         // -------------------------
 
@@ -193,19 +207,17 @@ class AnnotationFind {
     Model.findOthersByWebpageGroup = async function (webpage, user, options) {
       let {
         afterTime,
-        findUserID,
+        focusUserID,
         findType
       } = options
       
       const doQuery = async evt => {
 
-        let userList = await user.getOtherUserIDsInGroup(webpage)
         //console.log(userList)
         //throw new Error(userList)
         
         let query = this.query()
                 .where('webpage_id', webpage.primaryKeyValue)
-                .whereIn('user_id', userList)
                 .where('deleted', false)
                 .whereRaw('(user_id != ? and public = ?)', [user.primaryKeyValue, true])
                 //.whereRaw('user_id = ?', [user.primaryKeyValue])
@@ -226,7 +238,20 @@ class AnnotationFind {
         }
         
         _queryFindType(query, options)
-        _queryFindOtherUser(query, options)
+        
+        // ----------------------------------
+        
+        focusUserID = TypeHelper.parseInt(focusUserID)
+        if (typeof(focusUserID) === 'number') {
+          query.where('user_id', focusUserID)
+        }
+        else {
+          let userList = await user.getOtherUserIDsInGroup(webpage)
+          query.whereIn('user_id', userList)
+        }
+        
+        // ---------------------------------
+        // 
         //console.log('findOthersByWebpageGroup', options)
 
         //console.log(query.toSQL())
@@ -241,7 +266,7 @@ class AnnotationFind {
         return await doQuery()
       } 
       else {
-        let cacheKey = Cache.key(`Annotation.findOthersByWebpageGroup`, webpage, user, findUserID, findType)
+        let cacheKey = Cache.key(`Annotation.findOthersByWebpageGroup`, webpage, user, focusUserID, findType)
         return await Cache.rememberWait([webpage, user, this], cacheKey, 2, async () => {
           let result = await doQuery()
           //await Cache.put(cacheKey, result, 2)
@@ -260,22 +285,6 @@ class AnnotationFind {
       }
     }
     
-    let _queryFindOtherUser = function (query, options) {
-      let {
-        findUserID
-      } = options
-      
-      findUserID = TypeHelper.parseInt(findUserID)
-      //console.log(findUserID, options)
-      
-      if (typeof(findUserID) === 'number') {
-        query.where('user_id', findUserID)
-      }
-      else if (Array.isArray(findUserID)) {
-        query.whereIn('user_id', findUserID)
-      }
-    }
-
     Model.findByWebpageGroup = async function (webpage, user, query) {
       let myAnnotations = await this.findMyByWebpageGroup(webpage, user, query)
       let othersAnnotations = await this.findOthersByWebpageGroup(webpage, user, query)

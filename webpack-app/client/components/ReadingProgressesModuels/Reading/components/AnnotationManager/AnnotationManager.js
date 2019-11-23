@@ -78,7 +78,7 @@ let AnnotationManager = {
       this.afterTime = null
       this.loadHighlights()
     },
-    'status.filter.findUser' () {
+    'status.filter.focusUser' () {
       this.reloadHighlights()
     },
     'status.filter.findType' () {

@@ -35,7 +35,8 @@ class WebpageGroupUserFilter {
         // 分類身份
 
         let me = []
-        let readers = []
+        let readersAlready = []
+        let readersNotReady = []
         let admins = []
 
         // -----------------
@@ -43,11 +44,13 @@ class WebpageGroupUserFilter {
         for (let i = 0; i < users.size(); i++) {
           let u = users.nth(i)
           
+          let isReady = true
+          
           // 先看一下這個人所在的階段，如果不能合作，那就...排除掉他
           if (u.role === 'reader') {
             let isEnableCollaboration = await u.isEnableCollaboration(webpage)
             if (isEnableCollaboration === false) {
-              continue
+              isReady = false
             }
           }
           
@@ -60,12 +63,18 @@ class WebpageGroupUserFilter {
           
           u = u.toJSON()
           u.annotationTypes = annotationTypes
+          u.isReady = isReady
           if (user.id === u.id) {
             // 排除掉自己
             me.push(u)
           }
           else if (u.role === 'reader') {
-            readers.push(u)
+            if (isReady === true) {
+              readersAlready.push(u)
+            }
+            else {
+              readersNotReady.push(u)
+            }
           }
           else {
             admins.push(u)
@@ -79,7 +88,7 @@ class WebpageGroupUserFilter {
         
         
         // 先簡單地按照字母排序好了
-        readers.sort(function(b, a){
+        readersAlready.sort(function(b, a){
           a = a.username.toLowerCase();
           b = b.username.toLowerCase();
 
@@ -89,7 +98,10 @@ class WebpageGroupUserFilter {
         // ------------------
         // 合併
         
-        users = me.concat(readers.concat(admins))
+        users = me
+        users = users.concat(readersAlready)
+        users = users.concat(admins)
+        users = users.concat(readersNotReady)
 
         return users
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {

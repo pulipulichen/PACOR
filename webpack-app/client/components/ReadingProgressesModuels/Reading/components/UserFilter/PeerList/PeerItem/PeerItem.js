@@ -44,8 +44,14 @@ let PeerItem = {
     },
     computedItemClassList () {
       let classList = []
+      
+      if (this.user && 
+              (this.user.isReady === false || this.user.annotationTypes.length === 0 )) {
+        classList.push('disabled')
+      }
+      
       //console.log('computedItemClassList')
-      if (this.user === null && this.filterData.selectUser === null) {
+      if (!this.user && !this.filterData.selectUser) {
         classList.push('selected')
       }
       else if (this.filterData.selectUser === this.user) {
@@ -53,6 +59,17 @@ let PeerItem = {
       }
         
       return classList.join(' ')
+    },
+    isReady () {
+      if (!this.user) {
+        return true
+      }
+      else if (this.user && this.user.isReady === true) {
+        return true
+      }
+      else {
+        return false
+      }
     }
   },
 //  watch: {
@@ -61,6 +78,9 @@ let PeerItem = {
 //  },
   methods: {
     onSelectPeer () {
+      if (this.isReady === false) {
+        return null
+      }
       //console.log(this.user)
       //this.$set(this.filterData, 'selectUser', this.user)
       this.filterData.selectUser = this.user

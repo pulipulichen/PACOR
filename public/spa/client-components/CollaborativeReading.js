@@ -121,7 +121,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"View All":"觀看所有成員","No annotation":"沒有撰寫標註"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"View All":"觀看全部成員","No annotation":"沒有撰寫標註","(Reading...)":"(仍在閱讀中...)"}}')
   delete Component.options._Ctor
 }
 
@@ -169,7 +169,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Viewing All":"觀看全部","Asist":"協助","View":"觀看"}}')
   delete Component.options._Ctor
 }
 
@@ -283,7 +283,7 @@ exports.push([module.i, ".floating.label[data-v-32d3d148] {\n  padding-top: 0 !i
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-4a804f9c],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-4a804f9c] {\n  user-select: none;\n  padding-top: 1em !important;\n  padding-bottom: 1em !important;\n}\n.PeerItem.selected[data-v-4a804f9c] {\n  background-color: yellow !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-4a804f9c] {\n  text-align: right;\n}\n.ui.image .icon[data-v-4a804f9c] {\n  font-size: 25px;\n}\n.description[data-v-4a804f9c]  .AnnotationTypeButton {\n  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;\n}\n", "",{"version":3,"sources":["PeerItem.less?vue&type=style&index=0&id=4a804f9c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;EAEE,iBAAiB;EACjB,2BAA2B;EAC3B,8BAA8B;AAChC;AACA;EACE,mCAAmC;AACrC;AACA;;;EAGE;AACF;EACE,iBAAiB;AACnB;AACA;EACE,eAAe;AACjB;AACA;EACE,8BAA8B;EAC9B,+BAA+B;AACjC","file":"PeerItem.less?vue&type=style&index=0&id=4a804f9c&lang=less&scoped=true&","sourcesContent":[".non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-4a804f9c],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-4a804f9c] {\n  user-select: none;\n  padding-top: 1em !important;\n  padding-bottom: 1em !important;\n}\n.PeerItem.selected[data-v-4a804f9c] {\n  background-color: yellow !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-4a804f9c] {\n  text-align: right;\n}\n.ui.image .icon[data-v-4a804f9c] {\n  font-size: 25px;\n}\n.description[data-v-4a804f9c]  .AnnotationTypeButton {\n  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;\n}\n"]}]);
+exports.push([module.i, ".non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-4a804f9c],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-4a804f9c] {\n  user-select: none;\n  padding-top: 1em !important;\n  padding-bottom: 1em !important;\n}\n.PeerItem.selected[data-v-4a804f9c] {\n  background-color: yellow !important;\n}\n.PeerItem.disabled[data-v-4a804f9c] {\n  opacity: 0.6;\n  background-color: #DDD !important;\n  cursor: default !important;\n}\n.PeerItem.disabled .header .message[data-v-4a804f9c] {\n  font-size: 0.8em;\n  font-weight: normal;\n}\n.PeerItem.disabled:hover .header[data-v-4a804f9c] {\n  color: rgba(0, 0, 0, 0.85) !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-4a804f9c] {\n  text-align: right;\n}\n.ui.image .icon[data-v-4a804f9c] {\n  font-size: 25px;\n}\n.description[data-v-4a804f9c]  .AnnotationTypeButton {\n  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;\n}\n", "",{"version":3,"sources":["PeerItem.less?vue&type=style&index=0&id=4a804f9c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;EAEE,iBAAiB;EACjB,2BAA2B;EAC3B,8BAA8B;AAChC;AACA;EACE,mCAAmC;AACrC;AACA;EACE,YAAY;EACZ,iCAAiC;EACjC,0BAA0B;AAC5B;AACA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;AACA;EACE,qCAAqC;AACvC;AACA;;;EAGE;AACF;EACE,iBAAiB;AACnB;AACA;EACE,eAAe;AACjB;AACA;EACE,8BAA8B;EAC9B,+BAA+B;AACjC","file":"PeerItem.less?vue&type=style&index=0&id=4a804f9c&lang=less&scoped=true&","sourcesContent":[".non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-4a804f9c],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-4a804f9c] {\n  user-select: none;\n  padding-top: 1em !important;\n  padding-bottom: 1em !important;\n}\n.PeerItem.selected[data-v-4a804f9c] {\n  background-color: yellow !important;\n}\n.PeerItem.disabled[data-v-4a804f9c] {\n  opacity: 0.6;\n  background-color: #DDD !important;\n  cursor: default !important;\n}\n.PeerItem.disabled .header .message[data-v-4a804f9c] {\n  font-size: 0.8em;\n  font-weight: normal;\n}\n.PeerItem.disabled:hover .header[data-v-4a804f9c] {\n  color: rgba(0, 0, 0, 0.85) !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-4a804f9c] {\n  text-align: right;\n}\n.ui.image .icon[data-v-4a804f9c] {\n  font-size: 25px;\n}\n.description[data-v-4a804f9c]  .AnnotationTypeButton {\n  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -325,7 +325,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".right-column[data-v-e9fab796] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n", "",{"version":3,"sources":["UserFilter.less?vue&type=style&index=0&id=e9fab796&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wDAAwD;AAC1D","file":"UserFilter.less?vue&type=style&index=0&id=e9fab796&lang=less&scoped=true&","sourcesContent":[".right-column[data-v-e9fab796] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n"]}]);
+exports.push([module.i, ".right-column[data-v-e9fab796] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-e9fab796] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-e9fab796] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-e9fab796] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n", "",{"version":3,"sources":["UserFilter.less?vue&type=style&index=0&id=e9fab796&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wDAAwD;AAC1D;AACA;EACE,mBAAmB;AACrB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,0BAA0B;EAC1B,sBAAsB;AACxB","file":"UserFilter.less?vue&type=style&index=0&id=e9fab796&lang=less&scoped=true&","sourcesContent":[".right-column[data-v-e9fab796] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-e9fab796] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-e9fab796] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-e9fab796] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -873,6 +873,20 @@ var render = function() {
                     user: _vm.user
                   }
                 })
+              : _vm._e(),
+            _vm._v(" "),
+            _c("user-self-badge", {
+              attrs: { status: _vm.status, config: _vm.config, user: _vm.user }
+            }),
+            _vm._v(" "),
+            !_vm.isReady
+              ? _c("span", { staticClass: "message" }, [
+                  _vm._v(
+                    "\r\n        " +
+                      _vm._s(_vm.$t("(Reading...)")) +
+                      "\r\n      "
+                  )
+                ])
               : _vm._e()
           ],
           1
@@ -1027,12 +1041,35 @@ var render = function() {
     "a",
     { staticClass: "item", on: { click: _vm.show } },
     [
-      _vm._v("\r\n  " + _vm._s(_vm.$t("Peer")) + ":\r\n  "),
-      _vm.peer
-        ? _c("img", {
-            attrs: { src: _vm.peer.avatar_url, title: _vm.username }
-          })
-        : [_vm._v("\r\n    " + _vm._s(_vm.$t("All")) + "\r\n  ")],
+      _vm.peerIsMe
+        ? [
+            _c("span", { staticClass: "peer-label" }, [
+              _vm._v("\r\n      " + _vm._s(_vm.$t("View")) + " \r\n    ")
+            ]),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "user-avatar",
+              attrs: { src: _vm.peer.avatar_url, title: _vm.username }
+            })
+          ]
+        : _vm.peer
+        ? [
+            _c("span", { staticClass: "peer-label" }, [
+              _vm._v("\r\n      " + _vm._s(_vm.$t("Asist")) + " \r\n    ")
+            ]),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "user-avatar",
+              attrs: { src: _vm.peer.avatar_url, title: _vm.username }
+            })
+          ]
+        : [
+            _c("span", { staticClass: "peer-all-label" }, [
+              _vm._v("\r\n      " + _vm._s(_vm.$t("Viewing All")) + "\r\n    ")
+            ]),
+            _vm._v(" "),
+            _c("i", { staticClass: "large users icon" })
+          ],
       _vm._v(" "),
       _c("modal", {
         ref: "Modal",
@@ -1484,12 +1521,13 @@ let CollaborativeReading = {
       console.log('_testUserFilter')
       await this.lib.VueHelper.sleep(1000)
       
-      //this.lib.UserFilter.show()
+      this.lib.UserFilter.show()
       
-      this.status.filter.findUser = {
+      /*
+      this.status.filter.focusUser = {
         id: 1
       }
-      
+      */
     }
   } // methods
 }
@@ -2882,8 +2920,14 @@ let PeerItem = {
     },
     computedItemClassList () {
       let classList = []
+      
+      if (this.user && 
+              (this.user.isReady === false || this.user.annotationTypes.length === 0 )) {
+        classList.push('disabled')
+      }
+      
       //console.log('computedItemClassList')
-      if (this.user === null && this.filterData.selectUser === null) {
+      if (!this.user && !this.filterData.selectUser) {
         classList.push('selected')
       }
       else if (this.filterData.selectUser === this.user) {
@@ -2891,6 +2935,17 @@ let PeerItem = {
       }
         
       return classList.join(' ')
+    },
+    isReady () {
+      if (!this.user) {
+        return true
+      }
+      else if (this.user && this.user.isReady === true) {
+        return true
+      }
+      else {
+        return false
+      }
     }
   },
 //  watch: {
@@ -2899,6 +2954,9 @@ let PeerItem = {
 //  },
   methods: {
     onSelectPeer () {
+      if (this.isReady === false) {
+        return null
+      }
       //console.log(this.user)
       //this.$set(this.filterData, 'selectUser', this.user)
       this.filterData.selectUser = this.user
@@ -3354,7 +3412,11 @@ let UserSelector = {
   },
   computed: {
     peer () {
-      return this.status.filter.findUser
+      return this.status.filter.focusUser
+    },
+    peerIsMe () {
+      return (this.status.filter.focusUser 
+              && this.status.filter.focusUser.id === this.status.userID)
     },
     username () {
       if (this.peer) {
@@ -3382,7 +3444,14 @@ let UserSelector = {
       this.$refs.Modal.show()
     },
     submit () {
-      this.status.filter.findUser = this.filterData.selectUser
+      if (this.filterData.selectUser) {
+        this.status.filter.focusUser = this.filterData.selectUser
+      }
+      else {
+        this.status.filter.focusUser = null
+      }
+      //console.log(this.filterData.selectUser)
+      
       this.$refs.Modal.hide()
     }
   } // methods

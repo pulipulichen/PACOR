@@ -21,16 +21,16 @@ let SectionManager = {
   },
   computed: {
     query () {
-      if (this.status.filter.findUser !== null 
-            && typeof(this.status.filter.findUser.id) === 'number') {
+      if (this.status.filter.focusUser !== null 
+            && typeof(this.status.filter.focusUser.id) === 'number') {
         return {
-          findUserID: this.status.filter.findUser.id
+          focusUserID: this.status.filter.focusUser.id
         }
       }
     }
   },
   watch: {
-    'status.filter.findUser' () {
+    'status.filter.focusUser' () {
       this.loadAnnotation()
     }
   },

@@ -55,6 +55,9 @@ Vue.component('annotation-item-interactive', AnnotationItemInteractive)
 import AdminBadge from './../components/AdminBadge/AdminBadge.vue'
 Vue.component('admin-badge', AdminBadge)
 
+import UserSelfBadge from './../components/UserSelfBadge/UserSelfBadge.vue'
+Vue.component('user-self-badge', UserSelfBadge)
+
 Vue.component('rangy', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.vue'))
 Vue.component('annotation-panel', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationPanel.vue'))
 Vue.component('annotation-manager', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationManager.vue'))

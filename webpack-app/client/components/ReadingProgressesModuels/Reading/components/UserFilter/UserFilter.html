@@ -1,12 +1,29 @@
 <a class="item"
    v-on:click="show">
-  {{ $t('Peer') }}:
-  <img v-if="peer"
-       v-bind:src="peer.avatar_url"
-       v-bind:title="username">
+  <template v-if="peerIsMe">
+    <span class="peer-label">
+      {{ $t('View') }} 
+    </span>
+    
+    <img v-bind:src="peer.avatar_url"
+         v-bind:title="username"
+         class="user-avatar" />
   </template>
+  <template v-else-if="peer">
+    <span class="peer-label">
+      {{ $t('Asist') }} 
+    </span>
+    
+    <img v-bind:src="peer.avatar_url"
+         v-bind:title="username"
+         class="user-avatar" />
+  </template>
+  
   <template v-else>
-    {{ $t('All') }}
+    <span class="peer-all-label">
+      {{ $t('Viewing All') }}
+    </span>
+    <i class="large users icon" />
   </template>
   
   <!-- ============================================================ -->

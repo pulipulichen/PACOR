@@ -88,7 +88,7 @@ let VueController = {
       readingConfig: {},
       filter: {
         findType: null,
-        findUser: null
+        focusUser: null
       }
     },
     progress: {

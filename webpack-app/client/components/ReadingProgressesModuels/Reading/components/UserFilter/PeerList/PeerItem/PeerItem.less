@@ -11,6 +11,23 @@
   background-color: yellow !important;
 }
 
+.PeerItem.disabled {
+  opacity: 0.6;
+  background-color: #DDD !important;
+  cursor: default !important;
+  
+  .header .message {
+    font-size: 0.8em;
+    font-weight: normal;
+  }
+  
+  &:hover {
+    .header {
+      color: rgba(0, 0, 0, 0.85) !important;
+    }
+  }
+}
+
 /*.avatar {
   max-width: 2em !important;
   height: auto !important;

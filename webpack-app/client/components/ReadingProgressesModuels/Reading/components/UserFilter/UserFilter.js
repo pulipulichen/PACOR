@@ -19,7 +19,11 @@ let UserSelector = {
   },
   computed: {
     peer () {
-      return this.status.filter.findUser
+      return this.status.filter.focusUser
+    },
+    peerIsMe () {
+      return (this.status.filter.focusUser 
+              && this.status.filter.focusUser.id === this.status.userID)
     },
     username () {
       if (this.peer) {
@@ -47,7 +51,14 @@ let UserSelector = {
       this.$refs.Modal.show()
     },
     submit () {
-      this.status.filter.findUser = this.filterData.selectUser
+      if (this.filterData.selectUser) {
+        this.status.filter.focusUser = this.filterData.selectUser
+      }
+      else {
+        this.status.filter.focusUser = null
+      }
+      //console.log(this.filterData.selectUser)
+      
       this.$refs.Modal.hide()
     }
   } // methods
