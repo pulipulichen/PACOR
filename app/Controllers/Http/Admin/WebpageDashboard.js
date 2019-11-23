@@ -45,7 +45,7 @@ class WebpageDashboard {
     
     return await Cache.get(cacheKey, async () => {
       let outputGroups = await this._getReadersInGroup(webpage)
-      let outputNotInGroups = await this._getReadersNotInGroup(webpage)
+      let outputNotInGroups = await this._getUsersNotInGroup(webpage)
       
       let output = {
         groups: outputGroups,
@@ -92,8 +92,8 @@ class WebpageDashboard {
     return outputGroups
   }
   
-  async _getReadersNotInGroup (webpage) {
-    let readers = await webpage.getReadersNotInGroup()
+  async _getUsersNotInGroup (webpage) {
+    let readers = await webpage.getUsersNotInGroup()
 
     //console.log(webpage.groups)
     let output = []

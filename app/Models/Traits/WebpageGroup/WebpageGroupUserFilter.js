@@ -4,8 +4,10 @@ class WebpageGroupUserFilter {
 
   register(Model) {
     
-    Model.getInit = async function () {
-      throw new Error('@TODO')
+    Model.getInit = async function (webpage, user, options) {
+      // 取得這一組裡面的成員
+      
+      
     }
     
   } // register (Model) {

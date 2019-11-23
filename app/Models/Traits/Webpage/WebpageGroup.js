@@ -103,10 +103,10 @@ class WebpageGroup {
       
       //console.log('setGroupsList', 4)
 
-      await Cache.forget(`User.getUserIDsInGroup.${this.primaryKeyValue}`)
+      await Cache.forget(`User.getUsersInGroup.${this.primaryKeyValue}`)
 
-      await Cache.forget(`Webpage.getReadersNotInGroup.${this.primaryKeyValue}`)
-      await Cache.forget(`Webpage.getReaderIDsNotInGroup.${this.primaryKeyValue}`)
+      await Cache.forget(`Webpage.getUsersNotInGroup.${this.primaryKeyValue}`)
+      await Cache.forget(`Webpage.getUserIDsNotInGroup.${this.primaryKeyValue}`)
       await Cache.forget(`Webpage.getGroupsList.${this.primaryKeyValue}`)
 
       //console.log('setGroupsList', 5)
@@ -116,8 +116,8 @@ class WebpageGroup {
 
     // ------------------
 
-    Model.prototype.getReadersNotInGroup = async function () {
-      let idsList = await this.getReaderIDsNotInGroup()
+    Model.prototype.getUsersNotInGroup = async function () {
+      let idsList = await this.getUserIDsNotInGroup()
       let readers = await User
               .query()
               .whereIn('id', idsList)
@@ -125,8 +125,8 @@ class WebpageGroup {
       return readers
     }
 
-    Model.prototype.getReaderIDsNotInGroup = async function () {
-      let cacheKey = `Webpage.getReaderIDsNotInGroup.${this.primaryKeyValue}`
+    Model.prototype.getUserIDsNotInGroup = async function () {
+      let cacheKey = `Webpage.getUserIDsNotInGroup.${this.primaryKeyValue}`
       
       return await Cache.rememberWait([this, 'Webpage'], cacheKey, async () => {
         let relation = User

@@ -12,8 +12,8 @@ class UserGroup {
      * @param {Webpage} webpage
      * @returns {Array|Integer}
      */
-    Model.prototype.getUserIDsInGroup = async function (webpage, includeAdmins) {
-      let cacheKey = Cache.key(`User.getUserIDsInGroup`, webpage, includeAdmins)
+    Model.prototype.getUsersInGroup = async function (webpage, includeAdmins) {
+      let cacheKey = Cache.key(`User.getUsersInGroup`, webpage, includeAdmins)
       
       // 先調查這個階段是否開放合作
       let isEnableCollaboration = await this.isEnableCollaboration(webpage)
@@ -37,28 +37,40 @@ class UserGroup {
                 .with('users')
                 .fetch()
 
-        let userIds = []
+        let users = []
         if (groups.size() > 0) {
           //console.log(groups.first())
           groups.toJSON().map(group => {
             group.users.map(user => {
-              userIds.push(user.id)
+              users.push(user)
             })
           })
         } else {
           // 查詢沒有加入群組的使用者
-          userIds = await webpage.getReaderIDsNotInGroup()
+          users = await webpage.getUsersNotInGroup()
         }
         
         if (includeAdmins === true) {
-          let adminIds = await webpage.getAdminIDs()
+          let admins = await webpage.getAdmins()
           //console.log(adminIds)
-          userIds = userIds.concat(adminIds)
+          users = users.concat(admins)
         }
 
         //await Cache.forever(cacheKey, userIds)
-        return userIds
+        return users
       })  // return await Cache.get(cacheKey, async () => {
+    }
+
+    /**
+     * 取得使用者群組裡面的使用者ID
+     * 
+     * @param {Webpage} webpage
+     * @returns {Array|Integer}
+     */
+    Model.prototype.getUserIDsInGroup = async function (webpage, includeAdmins) {
+      let users = await this.getUsersInGroup(webpage, includeAdmins)
+      
+      return users.map(user => user.id)
     }
 
     Model.prototype.getOtherUserIDsInGroup = async function (webpage) {
