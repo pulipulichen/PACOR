@@ -23,8 +23,8 @@ class AnnotationFind {
         , anchorMode
         , withCount
         , pick
-        , findUserID
-        , findType
+        //, findUserID
+        //, findType
         , page
         , keyword
         , onlySectionAnnotation
@@ -63,13 +63,8 @@ class AnnotationFind {
           })
         }
 
-        if (typeof (findUserID) === 'number') {
-          query.where('user_id', findUserID)
-        }
-
-        if (typeof (findType) === 'string') {
-          query.where('type', findType)
-        }
+        _queryFindOtherUser(query, options)
+        _queryFindType(query, options)
 
         // -------------------------
 
@@ -178,7 +173,7 @@ class AnnotationFind {
       if (afterTime !== undefined || true) {
         return await doQuery()
       } else {
-        let cacheKey = Cache.key(`Annotation.findByWebpageGroupPosition`, webpage, user, anchorPositions, withCount, pick)
+        let cacheKey = Cache.key(`Annotation.findByWebpageGroupPosition`, webpage, user, options)
 
         //console.log(cacheKey)
         return await Cache.rememberWait([webpage, user, this], cacheKey, 0.5, async () => {
@@ -197,7 +192,9 @@ class AnnotationFind {
     
     Model.findOthersByWebpageGroup = async function (webpage, user, options) {
       let {
-        afterTime
+        afterTime,
+        findUserID,
+        findType
       } = options
       
       const doQuery = async evt => {
@@ -230,6 +227,7 @@ class AnnotationFind {
         
         _queryFindType(query, options)
         _queryFindOtherUser(query, options)
+        //console.log('findOthersByWebpageGroup', options)
 
         //console.log(query.toSQL())
         
@@ -243,7 +241,7 @@ class AnnotationFind {
         return await doQuery()
       } 
       else {
-        let cacheKey = Cache.key(`Annotation.findOthersByWebpageGroup`, webpage, user)
+        let cacheKey = Cache.key(`Annotation.findOthersByWebpageGroup`, webpage, user, findUserID, findType)
         return await Cache.rememberWait([webpage, user, this], cacheKey, 2, async () => {
           let result = await doQuery()
           //await Cache.put(cacheKey, result, 2)
@@ -264,11 +262,17 @@ class AnnotationFind {
     
     let _queryFindOtherUser = function (query, options) {
       let {
-        findUser
+        findUserID
       } = options
       
-      if (typeof(findUser) === 'number') {
-        query.where('user_id', findUser)
+      findUserID = TypeHelper.parseInt(findUserID)
+      //console.log(findUserID, options)
+      
+      if (typeof(findUserID) === 'number') {
+        query.where('user_id', findUserID)
+      }
+      else if (Array.isArray(findUserID)) {
+        query.whereIn('user_id', findUserID)
       }
     }
 

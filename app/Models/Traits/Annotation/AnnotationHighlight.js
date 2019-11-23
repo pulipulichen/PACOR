@@ -16,6 +16,11 @@ class AnnotationHighlight {
       }
       //console.log(annotations.length)
       annotations.forEach(annotation => {
+        if (annotation.anchorPositions.length === 1
+                && annotation.anchorPositions[0].type !== 'textContent') {
+          return null
+        }
+        
         let type = annotation.type
         let highlightType = type
         if (annotation.user_id === user.primaryKeyValue) {
@@ -82,6 +87,7 @@ class AnnotationHighlight {
     Model.getOthersHighlightsArrayByWebpageGroup = async function (webpage, user, options) {
       const doQuery = async evt => {
         //console.log('getOthersHighlightsArrayByWebpageGroup', 1)
+        //console.log('getOthersHighlightsArrayByWebpageGroup', options)
         let annotations = await this.findOthersByWebpageGroup(webpage, user, options)
         //console.log('getOthersHighlightsArrayByWebpageGroup', 2)
         return this._convertToHighlighArray(annotations, user)

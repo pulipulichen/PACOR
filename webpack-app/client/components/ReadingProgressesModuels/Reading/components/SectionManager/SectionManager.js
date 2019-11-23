@@ -29,8 +29,11 @@ let SectionManager = {
       }
     }
   },
-//  watch: {
-//  },
+  watch: {
+    'status.filter.findUser' () {
+      this.loadAnnotation()
+    }
+  },
   mounted() {
     this.initSectionNodes()
   },
@@ -68,19 +71,22 @@ let SectionManager = {
       
       //console.log(this.sectionsData)
     },
+    loadAnnotation: async function () {
+      this.sectionsData.annotation = await this.lib.AxiosHelper.get('/client/Section/annotations', this.query)
+    },
     setRefreshInterval: async function () {
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
         // 如果不是在合作的場合，那就不自動更新
         return false
       }
       
-      setTimeout(async () => {
-        if (this.sectionsData.enableRefresh === true) {
-          this.sectionsData.annotation = await this.lib.AxiosHelper.get('/client/Section/annotations', this.query)
-        }
+      await this.lib.VueHelper.sleep(30 * 1000)
+      
+      if (this.sectionsData.enableRefresh === true) {
+        this.loadAnnotation()
+      }
 
-        this.setRefreshInterval()
-      }, 30 * 1000)
+      this.setRefreshInterval()
     }
   } // methods
 }
