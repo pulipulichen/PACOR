@@ -1,0 +1,26 @@
+<div class="item">
+  <div class="ui tiny image">
+    <img v-if="user"
+         v-bind:src="avatar">
+    <i v-else
+       class="users icon" />
+  </div>
+  <div class="content">
+    <div class="header">
+      {{ username }}
+    </div>
+    <div class="description">
+      <annotation-type-button 
+        v-for="t in annotationTypes"
+        v-bind:key="t.type"
+
+        v-bind:lib="lib"
+        v-bind:config="config"
+        v-bind:status="status"
+
+        v-bind:type="t.type"
+        v-bind:count="t.count">
+      </annotation-type-button>
+    </div>
+  </div>
+</div>

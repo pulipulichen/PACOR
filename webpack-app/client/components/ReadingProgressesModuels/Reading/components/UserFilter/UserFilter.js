@@ -7,7 +7,9 @@ let UserSelector = {
     this.$i18n.locale = this.config.locale
     return {
       filterData: {
-        
+        users: [],
+        allAnnotationTypes: [],
+        selectUser: null
       }
     }
   },
@@ -17,21 +19,35 @@ let UserSelector = {
   },
   computed: {
     peer () {
-      return
+      return this.status.filter.findUser
+    },
+    username () {
+      if (this.peer) {
+        let user = this.peer
+
+        if (typeof(user.displayName) === 'string') {
+          return user.displayName
+        }
+        else {
+          return user.username
+        }
+      }
     }
   },
-  watch: {
-  },
-  mounted() {
-    //this.show() // for test
-  },
+//  watch: {
+//  },
+//  mounted() {
+//    //this.show() // for test
+//  },
   methods: {
     show () {
-      //console.trace('誰開的？')
+      this.$refs.PeerList.loadInit()
+      this.$refs.UserChart.load()
+      
       this.$refs.Modal.show()
     },
     submit () {
-      throw new Error('@TODO')
+      this.status.filter.findUser = this.filterData.selectUser
     }
   } // methods
 }

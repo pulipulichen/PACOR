@@ -267,7 +267,7 @@ exports.push([module.i, ".floating.label[data-v-32d3d148] {\n  padding-top: 0 !i
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"PeerList.less?vue&type=style&index=0&id=aabed9a6&lang=less&scoped=true&"}]);
+exports.push([module.i, ".list[data-v-aabed9a6] {\n  overflow-y: auto;\n  max-height: calc(100vh - 15em);\n}\n", "",{"version":3,"sources":["PeerList.less?vue&type=style&index=0&id=aabed9a6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,8BAA8B;AAChC","file":"PeerList.less?vue&type=style&index=0&id=aabed9a6&lang=less&scoped=true&","sourcesContent":[".list[data-v-aabed9a6] {\n  overflow-y: auto;\n  max-height: calc(100vh - 15em);\n}\n"]}]);
 
 
 /***/ }),
@@ -808,9 +808,36 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui segment" }, [
-    _vm._v("\r\n  Template\r\n")
-  ])
+  return _c(
+    "div",
+    { staticClass: "PeerList ui link items" },
+    [
+      _c("peer-item", {
+        key: _vm.user.id,
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          lib: _vm.lib,
+          filterData: _vm.filterData
+        },
+        on: {
+          click: function($event) {
+            return _vm.onPeerItemClick()
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("div", { ref: "list", staticClass: "list" }, [
+        _vm._v("\r\n    其他同學\r\n\r\n    管理者們\r\n\r\n    "),
+        _c(
+          "p",
+          { staticStyle: { height: "3000px", border: "1px solid red" } },
+          [_vm._v("\r\n      累計資料\r\n    ")]
+        )
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -866,7 +893,9 @@ var render = function() {
     [
       _vm._v("\r\n  " + _vm._s(_vm.$t("Peer")) + ":\r\n  "),
       _vm.peer
-        ? [_vm._v("\r\n    " + _vm._s(_vm.peer) + "\r\n  ")]
+        ? _c("img", {
+            attrs: { src: _vm.peer.avatar_url, title: _vm.username }
+          })
         : [_vm._v("\r\n    " + _vm._s(_vm.$t("All")) + "\r\n  ")],
       _vm._v(" "),
       _c("modal", {
@@ -2647,6 +2676,15 @@ let PeerList = {
   mounted() {
   },
   methods: {
+    loadInit: async function () {
+      
+    },
+    _testUsers () {
+      
+    },
+    onPeerItemClick (user) {
+      
+    }
   } // methods
 }
 
@@ -2801,6 +2839,12 @@ let UserChart = {
   mounted() {
   },
   methods: {
+    load: async function () {
+      
+    },
+    _mockupData () {
+      
+    }
   } // methods
 }
 
@@ -2936,7 +2980,9 @@ let UserSelector = {
     this.$i18n.locale = this.config.locale
     return {
       filterData: {
-        
+        users: [],
+        allAnnotationTypes: [],
+        selectUser: null
       }
     }
   },
@@ -2946,21 +2992,35 @@ let UserSelector = {
   },
   computed: {
     peer () {
-      return
+      return this.status.filter.findUser
+    },
+    username () {
+      if (this.peer) {
+        let user = this.peer
+
+        if (typeof(user.displayName) === 'string') {
+          return user.displayName
+        }
+        else {
+          return user.username
+        }
+      }
     }
   },
-  watch: {
-  },
-  mounted() {
-    //this.show() // for test
-  },
+//  watch: {
+//  },
+//  mounted() {
+//    //this.show() // for test
+//  },
   methods: {
     show () {
-      //console.trace('誰開的？')
+      this.$refs.PeerList.loadInit()
+      this.$refs.UserChart.load()
+      
       this.$refs.Modal.show()
     },
     submit () {
-      throw new Error('@TODO')
+      this.status.filter.findUser = this.filterData.selectUser
     }
   } // methods
 }

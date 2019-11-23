@@ -26,7 +26,8 @@
 
         v-bind:users="users"
         v-bind:userCount="userCount"
-        v-on:find="findUser"></user-avatar-icons >
+        v-on:find="findUser">
+      </user-avatar-icons >
 
       <annotation-type-button 
         v-for="t in types"
@@ -38,7 +39,8 @@
 
         v-bind:type="t.type"
         v-bind:count="t.count"
-        v-on:find="findType"></annotation-type-button>
+        v-on:find="findType">
+      </annotation-type-button>
       
       <div class="label">
         {{ $t('Total {0} Annotations', [ annotationCount ]) }}

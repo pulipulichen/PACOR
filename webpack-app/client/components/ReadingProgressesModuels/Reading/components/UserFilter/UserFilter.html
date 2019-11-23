@@ -1,8 +1,9 @@
 <a class="item"
    v-on:click="show">
   {{ $t('Peer') }}:
-  <template v-if="peer">
-    {{ peer }}
+  <img v-if="peer"
+       v-bind:src="peer.avatar_url"
+       v-bind:title="username">
   </template>
   <template v-else>
     {{ $t('All') }}

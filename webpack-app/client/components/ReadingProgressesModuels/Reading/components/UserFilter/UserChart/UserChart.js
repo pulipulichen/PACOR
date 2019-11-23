@@ -14,6 +14,12 @@ let UserChart = {
   mounted() {
   },
   methods: {
+    load: async function () {
+      
+    },
+    _mockupData () {
+      
+    }
   } // methods
 }
 

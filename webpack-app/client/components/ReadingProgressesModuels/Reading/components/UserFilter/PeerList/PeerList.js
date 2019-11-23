@@ -14,6 +14,15 @@ let PeerList = {
   mounted() {
   },
   methods: {
+    loadInit: async function () {
+      
+    },
+    _testUsers () {
+      
+    },
+    onPeerItemClick (user) {
+      
+    }
   } // methods
 }
 
