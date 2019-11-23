@@ -1,5 +1,8 @@
 'use strict'
 
+const Cache = use('Cache')
+const { HttpException } = use('@adonisjs/generic-exceptions') 
+
 class AnnotationNoteUserFilter {
 
   register(Model) {

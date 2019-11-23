@@ -19,7 +19,7 @@ class UserGroup {
       let isEnableCollaboration = await this.isEnableCollaboration(webpage)
       //console.log({isEnableCollaboration})
       if (isEnableCollaboration === false) {
-        return [this.primaryKeyValue]
+        return [this]
       }
         
       return await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
