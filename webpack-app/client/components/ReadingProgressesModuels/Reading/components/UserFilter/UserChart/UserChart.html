@@ -1,3 +1,36 @@
 <div class="UserChart">
-  <canvas ref="canvas" />
+  <div class="jqcloud-wrapper">
+    <div ref="jQCloudContainer"
+         class="jqcloud-container">
+    </div>
+  </div>
+  
+  <div class="ui segment chart-labels">
+    
+    <span v-if="!filterData.selectUser"
+         class="chart-label other">
+      <i class="large users icon" />
+      <span class="username">
+        {{ $t('All Readers') }}
+      </span>
+    </span>
+    <span v-else
+         class="chart-label other">
+      <img v-bind:src="otherAvatar" />
+      <span class="username">
+        {{ otherUsername }}
+      </span>
+      
+    </span>
+    
+    <span class="chart-label my">
+      <img v-bind:src="myAvatar" />
+      <span class="username">
+        {{ myUsername }}
+        ({{ $t('You') }})
+      </span>
+    </span>
+    
+  </div>
+  
 </div>
