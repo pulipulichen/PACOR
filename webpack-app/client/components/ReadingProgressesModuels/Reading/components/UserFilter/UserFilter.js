@@ -46,7 +46,7 @@ let UserSelector = {
   methods: {
     show () {
       this.$refs.PeerList.loadInit()
-      this.$refs.UserChart.load()
+      this.$refs.UserChart.loadInit()
       
       this.$refs.Modal.show()
     },

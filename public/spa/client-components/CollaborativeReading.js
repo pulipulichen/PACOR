@@ -3255,12 +3255,18 @@ let UserChart = {
   computed: {
   },
   watch: {
+    'filterData.selectUser' () {
+      this.load()
+    }
   },
   mounted() {
   },
   methods: {
+    loadInit: async function () {
+      console.log('讀取')
+    },
     load: async function () {
-      
+      console.log('讀取')
     },
     _mockupData () {
       
@@ -3439,7 +3445,7 @@ let UserSelector = {
   methods: {
     show () {
       this.$refs.PeerList.loadInit()
-      this.$refs.UserChart.load()
+      this.$refs.UserChart.loadInit()
       
       this.$refs.Modal.show()
     },
