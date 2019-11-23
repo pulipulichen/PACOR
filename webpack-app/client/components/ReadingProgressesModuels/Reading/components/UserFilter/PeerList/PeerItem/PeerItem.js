@@ -44,6 +44,7 @@ let PeerItem = {
     },
     computedItemClassList () {
       let classList = []
+      //console.log('computedItemClassList')
       if (this.user === null && this.filterData.selectUser === null) {
         classList.push('selected')
       }
@@ -58,8 +59,14 @@ let PeerItem = {
 //  },
 //  mounted() {
 //  },
-//  methods: {
-//  } // methods
+  methods: {
+    onSelectPeer () {
+      //console.log(this.user)
+      //this.$set(this.filterData, 'selectUser', this.user)
+      this.filterData.selectUser = this.user
+      //console.log(this.filterData.selectUser)
+    }
+  } // methods
 }
 
 export default PeerItem

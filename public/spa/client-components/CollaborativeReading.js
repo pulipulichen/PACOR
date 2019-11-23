@@ -283,7 +283,7 @@ exports.push([module.i, ".floating.label[data-v-32d3d148] {\n  padding-top: 0 !i
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".PeerItem[data-v-4a804f9c] {\n  user-select: none;\n}\n.PeerItem.selected[data-v-4a804f9c] {\n  background-color: yellow;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-4a804f9c] {\n  text-align: right;\n}\n.ui.image .icon[data-v-4a804f9c] {\n  font-size: 25px;\n}\n.description[data-v-4a804f9c]  .AnnotationTypeButton {\n  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;\n}\n", "",{"version":3,"sources":["PeerItem.less?vue&type=style&index=0&id=4a804f9c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;AACnB;AACA;EACE,wBAAwB;AAC1B;AACA;;;EAGE;AACF;EACE,iBAAiB;AACnB;AACA;EACE,eAAe;AACjB;AACA;EACE,8BAA8B;EAC9B,+BAA+B;AACjC","file":"PeerItem.less?vue&type=style&index=0&id=4a804f9c&lang=less&scoped=true&","sourcesContent":[".PeerItem[data-v-4a804f9c] {\n  user-select: none;\n}\n.PeerItem.selected[data-v-4a804f9c] {\n  background-color: yellow;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-4a804f9c] {\n  text-align: right;\n}\n.ui.image .icon[data-v-4a804f9c] {\n  font-size: 25px;\n}\n.description[data-v-4a804f9c]  .AnnotationTypeButton {\n  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;\n}\n"]}]);
+exports.push([module.i, ".ui.items > .item.PeerItem[data-v-4a804f9c],\n.ui.divided.items > .item.PeerItem[data-v-4a804f9c] {\n  user-select: none;\n  padding-top: 1em !important;\n}\n.PeerItem.selected[data-v-4a804f9c] {\n  background-color: yellow !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-4a804f9c] {\n  text-align: right;\n}\n.ui.image .icon[data-v-4a804f9c] {\n  font-size: 25px;\n}\n.description[data-v-4a804f9c]  .AnnotationTypeButton {\n  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;\n}\n", "",{"version":3,"sources":["PeerItem.less?vue&type=style&index=0&id=4a804f9c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;EAEE,iBAAiB;EACjB,2BAA2B;AAC7B;AACA;EACE,mCAAmC;AACrC;AACA;;;EAGE;AACF;EACE,iBAAiB;AACnB;AACA;EACE,eAAe;AACjB;AACA;EACE,8BAA8B;EAC9B,+BAA+B;AACjC","file":"PeerItem.less?vue&type=style&index=0&id=4a804f9c&lang=less&scoped=true&","sourcesContent":[".ui.items > .item.PeerItem[data-v-4a804f9c],\n.ui.divided.items > .item.PeerItem[data-v-4a804f9c] {\n  user-select: none;\n  padding-top: 1em !important;\n}\n.PeerItem.selected[data-v-4a804f9c] {\n  background-color: yellow !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-4a804f9c] {\n  text-align: right;\n}\n.ui.image .icon[data-v-4a804f9c] {\n  font-size: 25px;\n}\n.description[data-v-4a804f9c]  .AnnotationTypeButton {\n  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -843,11 +843,7 @@ var render = function() {
     {
       staticClass: "item PeerItem",
       class: _vm.computedItemClassList,
-      on: {
-        click: function($event) {
-          return _vm.$emit("select")
-        }
-      }
+      on: { click: _vm.onSelectPeer }
     },
     [
       _c("div", { staticClass: "ui mini image" }, [
@@ -949,11 +945,6 @@ var render = function() {
             status: _vm.status,
             lib: _vm.lib,
             filterData: _vm.filterData
-          },
-          on: {
-            click: function($event) {
-              return _vm.onPeerItemClick()
-            }
           }
         })
       ],
@@ -2886,6 +2877,7 @@ let PeerItem = {
     },
     computedItemClassList () {
       let classList = []
+      //console.log('computedItemClassList')
       if (this.user === null && this.filterData.selectUser === null) {
         classList.push('selected')
       }
@@ -2900,8 +2892,14 @@ let PeerItem = {
 //  },
 //  mounted() {
 //  },
-//  methods: {
-//  } // methods
+  methods: {
+    onSelectPeer () {
+      //console.log(this.user)
+      //this.$set(this.filterData, 'selectUser', this.user)
+      this.filterData.selectUser = this.user
+      //console.log(this.filterData.selectUser)
+    }
+  } // methods
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (PeerItem);
@@ -3043,12 +3041,6 @@ let PeerList = {
       if (Array.isArray(result)) {
         this.filterData.users = this.filterData.users.slice(0, 0).concat(result)
       }
-    },
-    _testUsers () {
-      
-    },
-    onPeerItemClick (user) {
-      this.filterData.selectUser = user
     }
   } // methods
 }

@@ -29,12 +29,6 @@ let PeerList = {
       if (Array.isArray(result)) {
         this.filterData.users = this.filterData.users.slice(0, 0).concat(result)
       }
-    },
-    _testUsers () {
-      
-    },
-    onPeerItemClick (user) {
-      this.filterData.selectUser = user
     }
   } // methods
 }
