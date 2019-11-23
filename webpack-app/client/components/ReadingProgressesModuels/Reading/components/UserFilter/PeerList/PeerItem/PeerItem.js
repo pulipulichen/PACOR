@@ -34,12 +34,12 @@ let PeerItem = {
       }
     }
   },
-  watch: {
-  },
-  mounted() {
-  },
-  methods: {
-  } // methods
+//  watch: {
+//  },
+//  mounted() {
+//  },
+//  methods: {
+//  } // methods
 }
 
 export default PeerItem

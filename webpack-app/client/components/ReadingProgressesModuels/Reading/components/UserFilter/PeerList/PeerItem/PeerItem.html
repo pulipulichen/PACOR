@@ -1,4 +1,5 @@
-<div class="item">
+<div class="item"
+     v-on:click="$emit('select')">
   <div class="ui tiny image">
     <img v-if="user"
          v-bind:src="avatar">
