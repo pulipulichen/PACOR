@@ -22,6 +22,7 @@ class WebpageGroupUserFilter {
         let users = await UserModel
                 .query()
                 .whereIn('id', userIDs)
+                .fetch()
 
         // ----------------
         // 分類身份
@@ -32,7 +33,15 @@ class WebpageGroupUserFilter {
 
         // -----------------
 
-        users.forEach(u => {
+        for (let i = 0; i < users.size(); i++) {
+          let u = users.nth(i)
+          
+          // 直接在這邊做查詢
+          
+          let annotationTypes = await u.getAnnotationTypes(webpage)
+          
+          u = u.toJSON()
+          u.annotationTypes = annotationTypes
           if (user.id === u.id) {
             // 排除掉自己
             me.push(u)
@@ -43,16 +52,21 @@ class WebpageGroupUserFilter {
           else {
             admins.push(u)
           }
-        })
+        }
         
         // ------------------
         // 為readers排序
         
         // 先簡單地按照字母排序好了
-        
+        readers.sort(function(a,b){
+          a = a.username.toLowerCase();
+          b = b.username.toLowerCase();
+
+          return (a < b) ? -1 : (a > b) ? 1 : 0
+        })
 
         // ------------------
-        // 取得 所有人的標註類型統計資料
+        // 合併
         
         users = me.concat(readers.concat(admins))
 

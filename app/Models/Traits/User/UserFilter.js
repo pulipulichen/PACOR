@@ -8,7 +8,7 @@ class UserFilter {
   register(Model) {
     
     Model.prototype.getAnnotationTypes = async function (webpage) {
-      let cacheKey = Cache.key('method')
+      let cacheKey = Cache.key('getAnnotationTypes')
       
       let tags = []
       if (webpage) {
@@ -17,12 +17,17 @@ class UserFilter {
       tags.push(this)
       
       return await Cache.rememberWait(tags, cacheKey, async () => {
-        return await this.hasMany('App/Models/Annotation')
+        let query = this.hasMany('App/Models/Annotation')
                       .groupBy('type')
                       .select(['type'])
-                      .count('id as count')
+              
+        if (webpage) {
+          query.groupBy('webpage_id')
+               .where('webpage_id', webpage.primaryKeyValue)
+        }
+              
+        return query.count('id as count')
       })
-        
     }
     
   } // register (Model) {

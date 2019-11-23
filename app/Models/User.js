@@ -132,7 +132,6 @@ class User extends Model {
     return group
   }
   
-  
   static get computed () {
     return ['avatar_url']
   }
