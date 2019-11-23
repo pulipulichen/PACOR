@@ -77,6 +77,7 @@ module.exports = {
     // 再來要建立標註
     await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataUpper1())
     await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataUpper3())
+    await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataUpper3())
   },
   
   processGroup0User3: async function () {

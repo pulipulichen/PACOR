@@ -1,7 +1,7 @@
 /* global __filename */
 
 'use strict'
-let title = __filename
+let title = 'Controllers/Models/' + __filename
 
 /**
  * https://www.chaijs.com/api/assert/
@@ -20,7 +20,6 @@ const ReadingActivityLog = use('App/Models/ReadingActivityLog')
 
 const Sleep = use('Sleep')
 
-//const url = 'http://blog.pulipuli.info/'
 const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
 
 let webpage
@@ -30,10 +29,17 @@ let annotation
 
 let config = {
   'a. hello word': async function ( { assert, client } ) {    
-    assert.equal(1+1, 2)
-  },
-  'b. hello word': async function ( { assert, client } ) {    
-    assert.equal(1+1, 3)
+    
+    let user = await UserModel
+            .query()
+            .where('id', 3)
+            .with('annotationTypes')
+            .fetch()
+    
+    user = user.first()
+    let types = await user.annotationTypes().groupBy('type').select(['type']).count('id as count')
+    console.log(types)
+    assert.isArray(types)
   },
 }
 

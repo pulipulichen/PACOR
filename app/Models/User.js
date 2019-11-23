@@ -153,9 +153,15 @@ class User extends Model {
     return query
   }
   
-  sectionAnnotations () {
-    return this.hasMany('App/Models/SectionAnnotation')
+  annotationTypes () {
+    let query = this.hasMany('App/Models/Annotation')
+    
+    return query
   }
+  
+//  sectionAnnotations () {
+//    return this.hasMany('App/Models/SectionAnnotation')
+//  }
   
   // ----------------
   
