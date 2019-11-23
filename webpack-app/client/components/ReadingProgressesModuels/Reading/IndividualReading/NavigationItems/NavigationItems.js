@@ -1,3 +1,5 @@
+import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
+
 let NavigationItems = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {    
@@ -5,8 +7,9 @@ let NavigationItems = {
     return {
     }
   },
-//  components: {
-//  },
+  components: {
+    'annotation-type-filter': AnnotationTypeFilter,
+  },
 //  
 //  computed: {
 //  },

@@ -1,6 +1,6 @@
-import AnnotationTypeFilter from './../AnnotationTypeFilter/AnnotationTypeFilter.vue'
 import NotificationManager from './../NotificationManager/NotificationManager.vue'
-import UserSelector from './../UserSelector/UserSelector.vue'
+import UserFilter from './../../components/UserFilter/UserFilter.vue'
+import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
 
 let NavigationItems = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
@@ -12,7 +12,7 @@ let NavigationItems = {
   components: {
     'annotation-type-filter': AnnotationTypeFilter,
     'notification-manager': NotificationManager,
-    'user-selector': UserSelector,
+    'user-filter': UserFilter
   },
 //  
 //  computed: {
