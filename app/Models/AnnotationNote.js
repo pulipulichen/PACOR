@@ -12,7 +12,8 @@ class AnnotationNote extends Model {
       fromField: 'note',
       toField: 'properties'
     })
-    //this.addTrait('Annotation/AnnotationNote')
+    
+    this.addTrait('AnnotationNote/AnnotationNoteUserFilter')
     
   } // static boot () {
   

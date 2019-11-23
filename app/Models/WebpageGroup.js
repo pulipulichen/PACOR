@@ -15,6 +15,10 @@ const Cache = use('Cache')
  * table.integer('group_seq_id').notNullable()
  */
 class WebpageGroup extends Model {
+  static boot () {
+    super.boot()
+    this.addTrait('WebpageGroup/WebpageGroupUserFilter')
+  } // static boot () {
   
   webpage () {
     return this.belongsTo('App/Models/Webpage')
