@@ -48,6 +48,7 @@ let UserSelector = {
     },
     submit () {
       this.status.filter.findUser = this.filterData.selectUser
+      this.$refs.Modal.hide()
     }
   } // methods
 }

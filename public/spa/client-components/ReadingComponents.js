@@ -5002,7 +5002,6 @@ let AnnotationManager = {
     //'section-annotation-manager': SectionAnnotationManager
   },
   computed: {
-
     highlightsURL () {
       let highlightsURL
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === true) {
@@ -5026,7 +5025,14 @@ let AnnotationManager = {
         return false
       }
       
+      this.afterTime = null
       this.loadHighlights()
+    },
+    'status.filter.findUser' () {
+      this.reloadHighlights()
+    },
+    'status.filter.findType' () {
+      this.reloadHighlights()
     }
   },
 //  mounted () {  
@@ -5053,8 +5059,10 @@ let AnnotationManager = {
       }
       
       this.lib.AnnotationHelper.filter(data)
+      //console.log(data)
+      
       let result = await this.lib.AxiosHelper.get(this.highlightsURL, data)
-      //console.log(result)
+      console.log(result)
       this.afterTime = (new Date()).getTime()
       if (result !== 0) {
         this.lib.RangyManager.deserializeAppend(result)
@@ -5071,6 +5079,12 @@ let AnnotationManager = {
         this.loadHighlights()
       }, this.loadHighlightInterval)
     },
+    reloadHighlights () {
+      //console.log('哈囉？')
+      this.afterTime = null
+      this.lib.RangyManager.removeHighlights()
+      this.loadHighlights()
+    }
   } // methods
 }
 
@@ -12418,6 +12432,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 /* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
     
   RangyManager.methods._initHighlighter = function () {
@@ -12602,6 +12620,12 @@ __webpack_require__.r(__webpack_exports__);
     })
   }
   
+  RangyManager.methods.removeHighlights = function () {
+    //this.highlighter.deserialize('type:textContent|')
+    this.highlighter.removeAllHighlights()
+    //console.log(this.highlighter.highlights.length)
+  }
+  
   RangyManager.methods.removeHighlightByAnnotation = function (annotation) {
     let type = this.lib.auth.getHighlightAnnotationType(annotation)
     if (this.highlightClasses.indexOf(type) === -1) {
@@ -12634,7 +12658,9 @@ __webpack_require__.r(__webpack_exports__);
       }
     })
 
-    this.highlighter.highlights = this.highlighter.highlights.filter(hl => (highlightsToRemove.indexOf(hl) === -1))
+    this.highlighter.highlights = this.highlighter.highlights.filter(hl => {
+      return (highlightsToRemove.indexOf(hl) === -1)
+    })
 
     this.unpinSelection()
     this.hoverOut(true)
@@ -19045,7 +19071,7 @@ __webpack_require__.r(__webpack_exports__);
                 });
 
                 serializedType = options.type;
-                convertType = (serializedType != highlighter.converter.type);
+                convertType = (serializedType !== highlighter.converter.type);
 
                 if (convertType) {
                     serializationConverter = getConverter(serializedType);

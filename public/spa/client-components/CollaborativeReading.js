@@ -1484,7 +1484,12 @@ let CollaborativeReading = {
       console.log('_testUserFilter')
       await this.lib.VueHelper.sleep(1000)
       
-      this.lib.UserFilter.show()
+      //this.lib.UserFilter.show()
+      
+      this.status.filter.findUser = {
+        id: 1
+      }
+      
     }
   } // methods
 }
@@ -3378,6 +3383,7 @@ let UserSelector = {
     },
     submit () {
       this.status.filter.findUser = this.filterData.selectUser
+      this.$refs.Modal.hide()
     }
   } // methods
 }

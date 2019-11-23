@@ -622,7 +622,7 @@ export default (rangy) => {
                 });
 
                 serializedType = options.type;
-                convertType = (serializedType != highlighter.converter.type);
+                convertType = (serializedType !== highlighter.converter.type);
 
                 if (convertType) {
                     serializationConverter = getConverter(serializedType);

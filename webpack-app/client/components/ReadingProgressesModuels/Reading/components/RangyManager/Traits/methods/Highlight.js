@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 export default (RangyManager) => {
     
   RangyManager.methods._initHighlighter = function () {
@@ -182,6 +184,12 @@ export default (RangyManager) => {
     })
   }
   
+  RangyManager.methods.removeHighlights = function () {
+    //this.highlighter.deserialize('type:textContent|')
+    this.highlighter.removeAllHighlights()
+    //console.log(this.highlighter.highlights.length)
+  }
+  
   RangyManager.methods.removeHighlightByAnnotation = function (annotation) {
     let type = this.lib.auth.getHighlightAnnotationType(annotation)
     if (this.highlightClasses.indexOf(type) === -1) {
@@ -214,7 +222,9 @@ export default (RangyManager) => {
       }
     })
 
-    this.highlighter.highlights = this.highlighter.highlights.filter(hl => (highlightsToRemove.indexOf(hl) === -1))
+    this.highlighter.highlights = this.highlighter.highlights.filter(hl => {
+      return (highlightsToRemove.indexOf(hl) === -1)
+    })
 
     this.unpinSelection()
     this.hoverOut(true)

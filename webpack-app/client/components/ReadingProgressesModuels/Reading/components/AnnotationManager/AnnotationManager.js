@@ -52,7 +52,6 @@ let AnnotationManager = {
     //'section-annotation-manager': SectionAnnotationManager
   },
   computed: {
-
     highlightsURL () {
       let highlightsURL
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === true) {
@@ -76,7 +75,14 @@ let AnnotationManager = {
         return false
       }
       
+      this.afterTime = null
       this.loadHighlights()
+    },
+    'status.filter.findUser' () {
+      this.reloadHighlights()
+    },
+    'status.filter.findType' () {
+      this.reloadHighlights()
     }
   },
 //  mounted () {  
@@ -103,8 +109,10 @@ let AnnotationManager = {
       }
       
       this.lib.AnnotationHelper.filter(data)
+      //console.log(data)
+      
       let result = await this.lib.AxiosHelper.get(this.highlightsURL, data)
-      //console.log(result)
+      console.log(result)
       this.afterTime = (new Date()).getTime()
       if (result !== 0) {
         this.lib.RangyManager.deserializeAppend(result)
@@ -121,6 +129,12 @@ let AnnotationManager = {
         this.loadHighlights()
       }, this.loadHighlightInterval)
     },
+    reloadHighlights () {
+      //console.log('哈囉？')
+      this.afterTime = null
+      this.lib.RangyManager.removeHighlights()
+      this.loadHighlights()
+    }
   } // methods
 }
 
