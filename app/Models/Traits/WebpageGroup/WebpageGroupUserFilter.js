@@ -100,8 +100,8 @@ class WebpageGroupUserFilter {
         
         users = me
         users = users.concat(readersAlready)
-        users = users.concat(admins)
         users = users.concat(readersNotReady)
+        users = users.concat(admins)
 
         return users
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {

@@ -1011,8 +1011,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui segment" }, [
-    _vm._v("\r\n  Template\r\n")
+  return _c("div", { staticClass: "UserChart" }, [
+    _c("canvas", { ref: "canvas" })
   ])
 }
 var staticRenderFns = []
@@ -3243,27 +3243,38 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var wordcloud__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! wordcloud */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\wordcloud\\src\\wordcloud2.js");
+/* harmony import */ var wordcloud__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(wordcloud__WEBPACK_IMPORTED_MODULE_0__);
+
+
 let UserChart = {
   props: ['lib', 'status', 'config', 'filterData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      user: null,
+      others: null
     }
   },
-  components: {
-  },
-  computed: {
-  },
+//  components: {
+//  },
+//  computed: {
+//  },
   watch: {
     'filterData.selectUser' () {
       this.load()
     }
   },
   mounted() {
+    wordcloud__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.canvas, {
+      list: [['foo', 12], ['bar', 6]]
+    })
   },
   methods: {
     loadInit: async function () {
       console.log('讀取')
+      this.user = null
+      this.others = null
     },
     load: async function () {
       console.log('讀取')
