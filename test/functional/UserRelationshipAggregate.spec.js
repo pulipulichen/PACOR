@@ -28,16 +28,15 @@ let annotation
 
 
 let config = {
-  'a. hello word': async function ( { assert, client } ) {    
+  'a. direct use': async function ( { assert, client } ) {    
     
     let user = await UserModel
             .query()
             .where('id', 3)
-            .with('annotationTypes')
             .fetch()
     
     user = user.first()
-    let types = await user.annotationTypes().groupBy('type').select(['type']).count('id as count')
+    let types = await user.getAnnotationTypes()
     console.log(types)
     assert.isArray(types)
   },
