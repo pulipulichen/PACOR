@@ -813,7 +813,7 @@ var render = function() {
     { staticClass: "PeerList ui link items" },
     [
       _c("peer-item", {
-        key: _vm.user.id,
+        key: 0,
         attrs: {
           config: _vm.config,
           status: _vm.status,
@@ -827,14 +827,27 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("div", { ref: "list", staticClass: "list" }, [
-        _vm._v("\r\n    其他同學\r\n\r\n    管理者們\r\n\r\n    "),
-        _c(
-          "p",
-          { staticStyle: { height: "3000px", border: "1px solid red" } },
-          [_vm._v("\r\n      累計資料\r\n    ")]
-        )
-      ])
+      _c(
+        "div",
+        { ref: "list", staticClass: "list" },
+        _vm._l(_vm.filterData.users, function(user) {
+          return _c("peer-item", {
+            key: user.id,
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              filterData: _vm.filterData
+            },
+            on: {
+              click: function($event) {
+                return _vm.onPeerItemClick()
+              }
+            }
+          })
+        }),
+        1
+      )
     ],
     1
   )

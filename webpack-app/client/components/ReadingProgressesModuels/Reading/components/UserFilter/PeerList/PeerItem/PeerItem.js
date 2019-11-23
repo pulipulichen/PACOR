@@ -32,6 +32,17 @@ let PeerItem = {
       else {
         return this.user.annotationTypes
       }
+    },
+    computedItemClassList () {
+      let classList = []
+      if (this.user === null && this.filterData.selectUser === null) {
+        classList.push('selected')
+      }
+      else if (this.filterData.selectUser === this.user) {
+        classList.push('selected')
+      }
+        
+      return classList.join(' ')
     }
   },
 //  watch: {

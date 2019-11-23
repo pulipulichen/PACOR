@@ -1,4 +1,5 @@
-<div class="item"
+<div class="item PeerItem"
+     v-bind:class="computedItemClassList"
      v-on:click="$emit('select')">
   <div class="ui tiny image">
     <img v-if="user"
