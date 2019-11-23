@@ -1,15 +1,25 @@
 <div class="item PeerItem"
      v-bind:class="computedItemClassList"
      v-on:click="$emit('select')">
-  <div class="ui tiny image">
+  <div class="ui mini image">
     <img v-if="user"
-         v-bind:src="avatar">
+         v-bind:src="avatar"
+         class="avatar">
     <i v-else
-       class="users icon" />
+       class="large users icon" />
   </div>
   <div class="content">
     <div class="header">
       {{ username }}
+      
+      
+      <admin-badge 
+        v-if="!isReader"
+        v-bind:status="status"
+        v-bind:config="config"
+        
+        v-bind:user="user">
+      </admin-badge>
     </div>
     <div class="description">
       <annotation-type-button 
@@ -23,6 +33,9 @@
         v-bind:type="t.type"
         v-bind:count="t.count">
       </annotation-type-button>
+      <template v-if="user && annotationTypes.length === 0">
+        {{ $t('No annotation') }}
+      </template>
     </div>
   </div>
 </div>

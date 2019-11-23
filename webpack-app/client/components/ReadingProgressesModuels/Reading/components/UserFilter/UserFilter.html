@@ -20,7 +20,7 @@
       </template>
       <template v-slot:content>
         <div class="ui grid">
-          <div class="six wide column">
+          <div class="six wide column left-column">
             <peer-list 
             ref="PeerList"
             v-bind:config="config"
@@ -30,7 +30,7 @@
             v-bind:filterData="filterData">
           </peer-list>
           </div>
-          <div class="ten wide column">
+          <div class="ten wide column right-column">
             <user-chart
               ref="UserChart"
               v-bind:config="config"

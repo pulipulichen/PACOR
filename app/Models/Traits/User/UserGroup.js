@@ -52,8 +52,11 @@ class UserGroup {
         
         if (includeAdmins === true) {
           let admins = await webpage.getAdmins()
-          //console.log(adminIds)
-          users = users.concat(admins)
+          //console.log(admins)
+          if (admins !== null) {
+            admins = admins.toJSON()
+            users = users.concat(admins)
+          }
         }
 
         //await Cache.forever(cacheKey, userIds)

@@ -1,5 +1,6 @@
 let PeerItem = {
-  props: ['lib', 'status', 'config', 'user'],
+  props: ['lib', 'status', 'config'
+    , 'user', 'filterData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -8,8 +9,16 @@ let PeerItem = {
 //  components: {
 //  },
   computed: {
+    isReader () {
+      if (this.user) {
+        return (this.user.role === 'reader')
+      }
+      else {
+        return true
+      }
+    },
     avatar () {
-      return 'http://127.0.0.1:3333/avatars/fox-icon.png'
+      return this.user.avatar_url
     },
     username () {
       if (!this.user) {

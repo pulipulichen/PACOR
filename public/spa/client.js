@@ -249,7 +249,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Administrator":"管理者"}}')
   delete Component.options._Ctor
 }
 
@@ -863,7 +863,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.isAdmin
-    ? _c("i", { staticClass: "red certificate icon" })
+    ? _c("i", {
+        staticClass: "yellow certificate icon",
+        attrs: { title: _vm.$t("Administrator") }
+      })
     : _vm._e()
 }
 var staticRenderFns = []
@@ -2875,7 +2878,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let AdminBadge = {
-  props: ['config', 'status'],
+  props: ['config', 'status', 'user'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -2885,8 +2888,16 @@ let AdminBadge = {
 //  },
   computed: {
     isAdmin () {
-      return (this.status.role === 'domain_admin' 
-              || this.status.role === 'global_admin')
+      let role
+      if (this.user) {
+        role = this.user.role
+      }
+      else {
+        role = this.status.role
+      }
+      
+      return (role === 'domain_admin' 
+              || role === 'global_admin')
     }
   },
 //  watch: {

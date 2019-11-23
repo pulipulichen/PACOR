@@ -1,5 +1,5 @@
 let AdminBadge = {
-  props: ['config', 'status'],
+  props: ['config', 'status', 'user'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -9,8 +9,16 @@ let AdminBadge = {
 //  },
   computed: {
     isAdmin () {
-      return (this.status.role === 'domain_admin' 
-              || this.status.role === 'global_admin')
+      let role
+      if (this.user) {
+        role = this.user.role
+      }
+      else {
+        role = this.status.role
+      }
+      
+      return (role === 'domain_admin' 
+              || role === 'global_admin')
     }
   },
 //  watch: {

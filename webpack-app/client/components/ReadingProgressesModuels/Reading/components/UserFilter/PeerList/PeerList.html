@@ -1,23 +1,9 @@
-<div class="PeerList ui link items">
-  
+<div class="PeerList">
+
   <!-- 取消篩選 -->
-  <peer-item 
-    v-bind:key="0"
-
-    v-bind:config="config"
-    v-bind:status="status"
-    v-bind:lib="lib"
-
-    v-bind:filterData="filterData"
-    v-on:click="onPeerItemClick()">
-  </peer-item>
-  
-  <div class="list"
-       ref="list">
-    
+  <div class="ui link items all-item">
     <peer-item 
-      v-for="user in filterData.users"
-      v-bind:key="user.id"
+      v-bind:key="0"
 
       v-bind:config="config"
       v-bind:status="status"
@@ -26,15 +12,23 @@
       v-bind:filterData="filterData"
       v-on:click="onPeerItemClick()">
     </peer-item>
-    
-    <!--
-    其他同學
+  </div>
 
-    管理者們
+  <div class="items-list ui link divided items"
+       ref="list">
 
-    <p style="height: 3000px; border: 1px solid red;">
-      累計資料
-    </p>
-    -->
+    <peer-item 
+      v-for="user in filterData.users"
+      v-bind:key="user.id"
+
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+
+      v-bind:user="user"
+      v-bind:filterData="filterData"
+      v-on:click="onPeerItemClick(user)">
+    </peer-item>
+
   </div>
 </div>

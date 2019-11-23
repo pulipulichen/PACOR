@@ -20,7 +20,10 @@ class UserFilter {
         let query = this.hasMany('App/Models/Annotation')
                       .groupBy('type')
                       .select(['type'])
-              
+        
+        // 排除小結重點
+        query.whereNot('type', 'SectionMainIdea')
+        
         if (webpage) {
           query.groupBy('webpage_id')
                .where('webpage_id', webpage.primaryKeyValue)
