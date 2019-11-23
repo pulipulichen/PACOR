@@ -1855,7 +1855,11 @@ let VueController = {
         showAnnotationList: false,
         peerID: null
       },
-      readingConfig: {}
+      readingConfig: {},
+      filter: {
+        findType: null,
+        findUser: null
+      }
     },
     progress: {
       component: false,
@@ -4975,6 +4979,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/**
+ * 跟標註有關的各種小工具
+ * @type Object
+ */
 let AnnotationHelper = {
   status: null,
   
@@ -5042,6 +5050,20 @@ let AnnotationHelper = {
     }
 
     return (annotation.user_id === this.status.userID)
+  },
+  /**
+   * 加上整體環境的過濾器，用於找人和找標註類型
+   * @param {Object} data 傳送給伺服器用於查詢用的資料
+   * @returns {undefined}
+   */
+  filter: function (data) {
+    if (typeof(this.status.filter.findType) === 'string') {
+      data.findType = this.status.filter.findType
+    }
+    if (typeof(this.status.filter.findUser) !== null 
+            && typeof(this.status.filter.findUser.id) === 'number') {
+      data.findUserID = this.status.filter.findUser.id
+    }
   }
 }
 

@@ -9,6 +9,8 @@ export default (List) => {
     let query = this.querySummary
     //console.log(query)
     
+    this.lib.AnnotationHelper.filter(query)
+    
     let url = '/client/Annotation/listSummary'
 
     let result = await this.lib.AxiosHelper.post(url, query)
@@ -48,6 +50,8 @@ export default (List) => {
     let query = this.query
 
     let url = '/client/Annotation/listNext'
+    this.lib.AnnotationHelper.filter(query)
+    
     let result = await this.lib.AxiosHelper.post(url, query)
     //console.log(result)
 

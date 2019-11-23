@@ -195,7 +195,11 @@ class AnnotationFind {
     
     // ---------------------------
     
-    Model.findOthersByWebpageGroup = async function (webpage, user, {afterTime}) {
+    Model.findOthersByWebpageGroup = async function (webpage, user, options) {
+      let {
+        aftertime
+      } = options
+      
       const doQuery = async evt => {
 
         let userList = await user.getOtherUserIDsInGroup(webpage)
@@ -223,12 +227,17 @@ class AnnotationFind {
           // 這邊應該還要做些調整
           query.where('updated_at_unixms', '>', afterTime)
         }
+        
+        _queryFindType(query, options)
+        _queryFindOtherUser(query, options)
 
         //console.log(query.toSQL())
         
         let result = await query.fetch()
         return result
       }
+      
+      // ---------------------------
 
       if (afterTime !== undefined) {
         return await doQuery()
@@ -242,6 +251,26 @@ class AnnotationFind {
         })  // return await Cache.get(cacheKey, async () => {
       }
     } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
+    
+    let _queryFindType = function (query, options) {
+      let {
+        findType
+      } = options
+      
+      if (typeof(findType) === 'string') {
+        query.where('type', findType)
+      }
+    }
+    
+    let _queryFindOtherUser = function (query, options) {
+      let {
+        findUser
+      } = options
+      
+      if (typeof(findUser) === 'number') {
+        query.where('user_id', findUser)
+      }
+    }
 
     Model.findByWebpageGroup = async function (webpage, user, query) {
       let myAnnotations = await this.findMyByWebpageGroup(webpage, user, query)

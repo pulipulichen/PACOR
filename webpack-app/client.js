@@ -85,7 +85,11 @@ let VueController = {
         showAnnotationList: false,
         peerID: null
       },
-      readingConfig: {}
+      readingConfig: {},
+      filter: {
+        findType: null,
+        findUser: null
+      }
     },
     progress: {
       component: false,

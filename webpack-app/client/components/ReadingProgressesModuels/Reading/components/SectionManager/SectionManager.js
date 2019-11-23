@@ -19,8 +19,16 @@ let SectionManager = {
   components: {
     'section-panel': SectionPanel
   },
-//  computed: {
-//  },
+  computed: {
+    query () {
+      if (typeof(this.status.filter.findUser) !== null 
+            && typeof(this.status.filter.findUser.id) === 'number') {
+        return {
+          findUserID: this.status.filter.findUser.id
+        }
+      }
+    }
+  },
 //  watch: {
 //  },
   mounted() {
@@ -28,7 +36,7 @@ let SectionManager = {
   },
   methods: {
     initSectionNodes: async function () {
-      this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init')
+      this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init', this.query)
       //console.log(this.sectionsData)
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = $('[data-pacor-section-seq-id]').toArray()
@@ -68,7 +76,7 @@ let SectionManager = {
       
       setTimeout(async () => {
         if (this.sectionsData.enableRefresh === true) {
-          this.sectionsData.annotation = await this.lib.AxiosHelper.get('/client/Section/annotations')
+          this.sectionsData.annotation = await this.lib.AxiosHelper.get('/client/Section/annotations', this.query)
         }
 
         this.setRefreshInterval()

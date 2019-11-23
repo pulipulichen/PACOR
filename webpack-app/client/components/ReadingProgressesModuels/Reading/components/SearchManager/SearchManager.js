@@ -36,6 +36,8 @@ let SearchInput = {
         //t: (new Date()).getTime()
       }
       let url = '/client/Annotation/listCount'
+      
+      this.lib.AnnotationHelper.filter(query)
 
       this.count = await this.lib.AxiosHelper.post(url, query)
       

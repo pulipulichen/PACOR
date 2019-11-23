@@ -16,6 +16,11 @@ class AnnotationSection {
     Model.buildSectionsAnnotationSummary = async function (webpage, user, query) {
       //throw new HttpException('@TODO')
       //return []
+      
+      let {
+        findUserID
+      } = query
+      
       let cacheKey = Cache.key(`Annotation.buildSectionsAnnotationSummary`, query)
 
       //console.log(cacheKey)
@@ -27,7 +32,8 @@ class AnnotationSection {
         let itemsPerPage = Config.get('view.itemsPerPage')
         
         let annotations = await this.findByWebpageGroupPosition(webpage, user, {
-          onlySectionAnnotation: true
+          onlySectionAnnotation: true,
+          findUserID
         })
 
         annotations = annotations.toJSON()
@@ -120,7 +126,8 @@ class AnnotationSection {
         return await this.findByWebpageGroupPosition(webpage, user, {
           onlySectionAnnotation: true,
           seq_id: query.seq_id,
-          page: query.page
+          page: query.page,
+          findUserID: query.findUserID
         })
       })
     }

@@ -160,6 +160,8 @@ let AnnotationFloatWidget = {
       }
       let url = 'client/Annotation/floatWidget'
       
+      this.lib.AnnotationHelper.filter(query)
+      
       let result = await this.lib.AxiosHelper.post(url, query)
       if (result === null) {
         return false
