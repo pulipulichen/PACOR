@@ -1763,7 +1763,7 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    this._testUserFilter()
+    //this._testUserFilter()
   },
   methods: {
     initComponentToLib () {
@@ -3256,7 +3256,9 @@ let PeerItem = {
       if (!this.user && !this.filterData.selectUser) {
         classList.push('selected')
       }
-      else if (this.filterData.selectUser === this.user) {
+      else if (this.filterData.selectUser 
+              && this.user 
+              && this.filterData.selectUser.id === this.user.id) {
         classList.push('selected')
       }
         
@@ -3430,6 +3432,8 @@ let PeerList = {
       if (Array.isArray(result)) {
         this.filterData.users = this.filterData.users.slice(0, 0).concat(result)
       }
+      
+      //console.log(this.filterData.selectUser)
     }
   } // methods
 }
@@ -3648,6 +3652,10 @@ let UserChart = {
         }
         
         let words = this.filterData.chart.othersJSONMap[userID]
+        if (!words) {
+          return []
+        }
+        
         this.othersArrayMap[userID] = this._processWordFrequency(words)
         return this.othersArrayMap[userID]
       }
@@ -3676,12 +3684,13 @@ let UserChart = {
       }
       
       let result = await this.lib.AxiosHelper.get(url, data)
+      //console.log(result)
       this.filterData.chart.userJSON = result.userJSON
       if (this.filterData.selectUser) {
         if (!this.filterData.chart.othersJSONMap) {
           this.filterData.chart.othersJSONMap = {}
         }
-        this.filterData.chart.othersJSONMap[data.userID] = result.otherJSON
+        this.filterData.chart.othersJSONMap[data.userID] = result.othersJSON
       }
       else {
         this.filterData.chart.allJSON = result.allJSON
@@ -4997,10 +5006,16 @@ let UserSelector = {
 //  },
   methods: {
     show () {
+      if (this.status.filter.focusUser) {
+        this.filterData.selectUser = this.status.filter.focusUser
+      }
+      //console.log(this.filterData.selectUser)
+      
       this.$refs.PeerList.loadInit()
       this.$refs.UserChart.loadInit()
       
       this.$refs.Modal.show()
+      
     },
     hide () {
       this.$refs.Modal.hide()

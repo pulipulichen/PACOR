@@ -47,7 +47,7 @@ class AnnotationNoteUserFilter {
         
         let result = await this.getUserWords(webpage, user, options)
         if (userID) {
-          output.otherJSON = result
+          output.othersJSON = result
         }
         else {
           output.allJSON = result

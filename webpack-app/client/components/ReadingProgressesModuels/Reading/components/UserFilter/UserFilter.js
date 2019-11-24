@@ -53,10 +53,16 @@ let UserSelector = {
 //  },
   methods: {
     show () {
+      if (this.status.filter.focusUser) {
+        this.filterData.selectUser = this.status.filter.focusUser
+      }
+      //console.log(this.filterData.selectUser)
+      
       this.$refs.PeerList.loadInit()
       this.$refs.UserChart.loadInit()
       
       this.$refs.Modal.show()
+      
     },
     hide () {
       this.$refs.Modal.hide()

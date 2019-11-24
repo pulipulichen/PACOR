@@ -17,7 +17,7 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    this._testUserFilter()
+    //this._testUserFilter()
   },
   methods: {
     initComponentToLib () {

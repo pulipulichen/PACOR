@@ -72,6 +72,10 @@ let UserChart = {
         }
         
         let words = this.filterData.chart.othersJSONMap[userID]
+        if (!words) {
+          return []
+        }
+        
         this.othersArrayMap[userID] = this._processWordFrequency(words)
         return this.othersArrayMap[userID]
       }
@@ -100,12 +104,13 @@ let UserChart = {
       }
       
       let result = await this.lib.AxiosHelper.get(url, data)
+      //console.log(result)
       this.filterData.chart.userJSON = result.userJSON
       if (this.filterData.selectUser) {
         if (!this.filterData.chart.othersJSONMap) {
           this.filterData.chart.othersJSONMap = {}
         }
-        this.filterData.chart.othersJSONMap[data.userID] = result.otherJSON
+        this.filterData.chart.othersJSONMap[data.userID] = result.othersJSON
       }
       else {
         this.filterData.chart.allJSON = result.allJSON

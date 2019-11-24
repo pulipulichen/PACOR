@@ -54,7 +54,9 @@ let PeerItem = {
       if (!this.user && !this.filterData.selectUser) {
         classList.push('selected')
       }
-      else if (this.filterData.selectUser === this.user) {
+      else if (this.filterData.selectUser 
+              && this.user 
+              && this.filterData.selectUser.id === this.user.id) {
         classList.push('selected')
       }
         
