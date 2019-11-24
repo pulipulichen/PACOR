@@ -90,6 +90,9 @@ let AnnotationInteractive = {
       else {
         return false
       }
+    },
+    isNotMe () {
+      return (this.annotation.user_id !== this.status.userID)
     }
   },
 //  watch: {

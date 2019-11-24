@@ -18,7 +18,7 @@ class AnnotationSection {
       //return []
       
       let {
-        findUserID
+        focusUserID
       } = query
       
       let cacheKey = Cache.key(`Annotation.buildSectionsAnnotationSummary`, query)
@@ -33,7 +33,8 @@ class AnnotationSection {
         
         let annotations = await this.findByWebpageGroupPosition(webpage, user, {
           onlySectionAnnotation: true,
-          findUserID
+          focusUserID,
+          withCount: true
         })
 
         annotations = annotations.toJSON()
@@ -127,7 +128,8 @@ class AnnotationSection {
           onlySectionAnnotation: true,
           seq_id: query.seq_id,
           page: query.page,
-          findUserID: query.findUserID
+          focusUserID: query.focusUserID,
+          withCount: true
         })
       })
     }
@@ -139,7 +141,8 @@ class AnnotationSection {
         //console.log(query)
         let annotations = await this.findByWebpageGroupPosition(webpage, user, {
           onlySectionAnnotation: true,
-          findUserID: user.primaryKeyValue
+          findUserID: user.primaryKeyValue,
+          withCount: true
         })
         
         annotations = annotations.toJSON()

@@ -1,3 +1,5 @@
+import EditorButton from './EditorButton/EditorButton.vue'
+
 let SectionAnnotationList = {
   props: ['lib', 'status', 'config'
     , 'sectionSeqID', 'sectionsData'],
@@ -9,8 +11,9 @@ let SectionAnnotationList = {
       noMore: false
     }
   },
-//  components: {
-//  },
+  components: {
+    'editor-button': EditorButton
+  },
   computed: {
     instance () {
       if (typeof(this.sectionsData.annotation[this.sectionSeqID]) !== 'object') {
@@ -39,7 +42,7 @@ let SectionAnnotationList = {
               && this.sectionsData.annotation[this.sectionSeqID]
               && this.sectionsData.annotation[this.sectionSeqID].annotations
               && this.sectionsData.annotation[this.sectionSeqID].annotations.length > 0)
-    }
+    },
   },
   watch: {
     'page' (page) {

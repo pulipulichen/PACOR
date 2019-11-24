@@ -1,4 +1,4 @@
-<template src="./FreeReading.html"></template>
-<script src="./FreeReading.js"></script>
-<style src="./FreeReading.less" lang="less" scoped></style>
-<i18n src="./FreeReading.yaml" lang="yaml"></i18n>
+<template src="./../CollaborativeReading/CollaborativeReading.html"></template>
+<script src="./../CollaborativeReading/CollaborativeReading.js"></script>
+<style src="./../CollaborativeReading/CollaborativeReading.less" lang="less" scoped></style>
+<i18n src="./../CollaborativeReading/CollaborativeReading.yaml" lang="yaml"></i18n>

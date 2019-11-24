@@ -38,19 +38,9 @@ export default (SectionChecklist) => {
   SectionChecklist.computed.annotation = function () {
     if (this.sectionsData.checklistAnnotation[this.sectionSeqID]) {
       return this.sectionsData.checklistAnnotation[this.sectionSeqID]
-    } else {
-      return {
-        type: 'SectionMainIdea',
-        anchorPositions: [{
-            type: 'section',
-            seq_id: this.sectionSeqID
-          }],
-        notes: [{
-            type: 'default',
-            note: ''
-          }]
-      }
     }
+    
+    return this.lib.SectionManager.buildDefaultSectionAnnotation(this.sectionSeqID)
   }
   SectionChecklist.computed.computedSubmitButtonText = function () {
     if (this.isChecklistCompleted) {

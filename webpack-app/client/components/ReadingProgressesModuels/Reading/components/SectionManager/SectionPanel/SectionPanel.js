@@ -31,6 +31,15 @@ let SectionPanel = {
               && this.sectionsData.checklistSubmitted[this.sectionSeqID])
     }
      */
+    isShowAnnotationList () {
+      if (this.lib.auth.isEnableCollaboration === false) {
+        return (this.isChecklistSubmitted === true)
+      }
+      else {
+        return true
+      }
+    }
+    
   },
 //  watch: {
 //  },

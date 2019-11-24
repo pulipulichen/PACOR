@@ -71,14 +71,14 @@ export default (SectionChecklist) => {
      */
     this.lib.AnnotationPanel.setAnnotation(this.annotation, {
       'add': (annotation) => {
-        console.log(annotation)
+//        console.log(annotation)
         //console.log(annotation.notes[0].note)
         //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
 
         //console.log(this.sectionSeqID)
         this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
         //this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
-        console.log(this.sectionsData.checklistAnnotation)
+//        console.log(this.sectionsData.checklistAnnotation)
 //          if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID]) === false) {
 //            this.sectionsData.checklist[this.sectionSeqID] = []
 //          }

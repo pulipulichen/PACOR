@@ -31,6 +31,7 @@ let SectionManager = {
   },
   watch: {
     'status.filter.focusUser' () {
+      console.log('有換人嗎？')
       this.loadAnnotation()
     }
   },
@@ -40,7 +41,8 @@ let SectionManager = {
   methods: {
     initSectionNodes: async function () {
       this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init', this.query)
-      //console.log(this.sectionsData)
+      console.log(this.sectionsData)
+      
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = $('[data-pacor-section-seq-id]').toArray()
       
@@ -72,7 +74,11 @@ let SectionManager = {
       //console.log(this.sectionsData)
     },
     loadAnnotation: async function () {
-      this.sectionsData.annotation = await this.lib.AxiosHelper.get('/client/Section/annotations', this.query)
+      console.log(this.query)
+      let result = await this.lib.AxiosHelper.get('/client/Section/annotations', this.query)
+      console.log(result)
+      this.sectionsData.annotation = result
+      
     },
     setRefreshInterval: async function () {
       if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
@@ -87,6 +93,19 @@ let SectionManager = {
       }
 
       this.setRefreshInterval()
+    },
+    buildDefaultSectionAnnotation (sectionSeqID) {
+      return {
+        type: 'SectionMainIdea',
+        anchorPositions: [{
+            type: 'section',
+            seq_id: sectionSeqID
+          }],
+        notes: [{
+            type: 'default',
+            note: ''
+          }]
+      }
     }
   } // methods
 }

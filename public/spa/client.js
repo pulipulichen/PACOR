@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"client-components/CollaborativeReading":"client-components/CollaborativeReading","client-components/Exit":"client-components/Exit","client-components/FreeReading":"client-components/FreeReading","client-components/IndividualReading":"client-components/IndividualReading","client-components/Questionnaire":"client-components/Questionnaire","client-components/ReadingComponents":"client-components/ReadingComponents","vendors/HTMLEditor":"vendors/HTMLEditor","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"client-components/CollaborativeReading~client-components/FreeReading":"client-components/CollaborativeReading~client-components/FreeReading","client-components/CollaborativeReading":"client-components/CollaborativeReading","client-components/FreeReading":"client-components/FreeReading","client-components/Exit":"client-components/Exit","client-components/IndividualReading":"client-components/IndividualReading","client-components/Questionnaire":"client-components/Questionnaire","client-components/ReadingComponents":"client-components/ReadingComponents","vendors/HTMLEditor":"vendors/HTMLEditor","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -1055,48 +1055,50 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("span", { staticClass: "AnnotationInteractive" }, [
-    _c("span", [
-      _c(
-        "button",
-        {
-          staticClass: "like ui button",
-          class: _vm.computedLikesButtonClass,
-          attrs: { type: "button" },
-          on: {
-            click: function($event) {
-              $event.stopPropagation()
-              return _vm.like($event)
-            }
-          }
-        },
-        [
-          _c("i", { staticClass: "thumbs up outline icon" }),
-          _vm._v(" "),
-          _vm.showLabel
-            ? [
-                _vm.likes > 0
-                  ? [
-                      _vm._v(
-                        "\r\n          " +
-                          _vm._s(_vm.$t("{0} Likes", [_vm.likes])) +
-                          "\r\n        "
-                      )
-                    ]
-                  : [
-                      _vm._v(
-                        "\r\n          " +
-                          _vm._s(_vm.$t("Like")) +
-                          "\r\n        "
-                      )
-                    ]
-              ]
-            : _vm.likes > 0
-            ? [_vm._v("\r\n        " + _vm._s(_vm.likes) + "\r\n      ")]
-            : _vm._e()
-        ],
-        2
-      )
-    ]),
+    _vm.isNotMe
+      ? _c("span", [
+          _c(
+            "button",
+            {
+              staticClass: "like ui button",
+              class: _vm.computedLikesButtonClass,
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  return _vm.like($event)
+                }
+              }
+            },
+            [
+              _c("i", { staticClass: "thumbs up outline icon" }),
+              _vm._v(" "),
+              _vm.showLabel
+                ? [
+                    _vm.likes > 0
+                      ? [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("{0} Likes", [_vm.likes])) +
+                              "\r\n        "
+                          )
+                        ]
+                      : [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("Like")) +
+                              "\r\n        "
+                          )
+                        ]
+                  ]
+                : _vm.likes > 0
+                ? [_vm._v("\r\n        " + _vm._s(_vm.likes) + "\r\n      ")]
+                : _vm._e()
+            ],
+            2
+          )
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _c("span", [
       _c(
@@ -1961,7 +1963,8 @@ let VueController = {
       RangyManager: null,
       AnnotationPanel: null,
       UserFilter: null,
-      AnnotationTypeFiler: null
+      AnnotationTypeFiler: null,
+      SectionManager: null,
     },
     errors: [],
     persistAttrs: [
@@ -2201,6 +2204,10 @@ __webpack_require__.r(__webpack_exports__);
     }
     return false
   }
+  Auth.computed.isEnableCollaboration = function () {
+    return this.enableCollaboration
+  }
+  
   Auth.computed.username = function () {
     if (this.status.displayName !== this.status.username) {
       return this.status.displayName
@@ -2773,12 +2780,12 @@ let components = {
   //'note-editor-manager': NoteEditorManager,
   Login: _components_Login_Login_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
   //Chat: () => import(/* webpackChunkName: "client-components/Chat" */ './components/Chat/Chat.vue'),
-  'CollaborativeReading': () => __webpack_require__.e(/*! import() | client-components/CollaborativeReading */ "client-components/CollaborativeReading").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.vue")),
+  'CollaborativeReading': () => Promise.all(/*! import() | client-components/CollaborativeReading */[__webpack_require__.e("client-components/CollaborativeReading~client-components/FreeReading"), __webpack_require__.e("client-components/CollaborativeReading")]).then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.vue")),
   'IndividualReading': () => __webpack_require__.e(/*! import() | client-components/IndividualReading */ "client-components/IndividualReading").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Reading/IndividualReading/IndividualReading.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/IndividualReading/IndividualReading.vue")),
   'PostRecall': () => __webpack_require__.e(/*! import() | client-components/Questionnaire */ "client-components/Questionnaire").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Questionnaire/PostRecall/PostRecall.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Questionnaire/PostRecall/PostRecall.vue")),
   'PreImaginary': () => __webpack_require__.e(/*! import() | client-components/Questionnaire */ "client-components/Questionnaire").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Questionnaire/PreImaginary/PreImaginary.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Questionnaire/PreImaginary/PreImaginary.vue")),
   'Exit': () => __webpack_require__.e(/*! import() | client-components/Exit */ "client-components/Exit").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Exit/Exit.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Exit/Exit.vue")),
-  'FreeReading': () => __webpack_require__.e(/*! import() | client-components/FreeReading */ "client-components/FreeReading").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Reading/FreeReading/FreeReading.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/FreeReading/FreeReading.vue")),
+  'FreeReading': () => Promise.all(/*! import() | client-components/FreeReading */[__webpack_require__.e("client-components/CollaborativeReading~client-components/FreeReading"), __webpack_require__.e("client-components/FreeReading")]).then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Reading/FreeReading/FreeReading.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/FreeReading/FreeReading.vue")),
 }
 /* harmony default export */ __webpack_exports__["default"] = (components);
 
@@ -3443,6 +3450,9 @@ let AnnotationInteractive = {
       else {
         return false
       }
+    },
+    isNotMe () {
+      return (this.annotation.user_id !== this.status.userID)
     }
   },
 //  watch: {

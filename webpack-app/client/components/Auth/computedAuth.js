@@ -52,6 +52,10 @@ export default function (Auth) {
     }
     return false
   }
+  Auth.computed.isEnableCollaboration = function () {
+    return this.enableCollaboration
+  }
+  
   Auth.computed.username = function () {
     if (this.status.displayName !== this.status.username) {
       return this.status.displayName
