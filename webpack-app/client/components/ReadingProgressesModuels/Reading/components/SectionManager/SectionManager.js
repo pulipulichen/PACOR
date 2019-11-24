@@ -41,7 +41,7 @@ let SectionManager = {
   methods: {
     initSectionNodes: async function () {
       this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init', this.query)
-      console.log(this.sectionsData)
+      //console.log(this.sectionsData)
       
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = $('[data-pacor-section-seq-id]').toArray()
@@ -74,9 +74,9 @@ let SectionManager = {
       //console.log(this.sectionsData)
     },
     loadAnnotation: async function () {
-      console.log(this.query)
+      //console.log(this.query)
       let result = await this.lib.AxiosHelper.get('/client/Section/annotations', this.query)
-      console.log(result)
+      //console.log(result)
       this.sectionsData.annotation = result
       
     },
