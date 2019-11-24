@@ -3578,14 +3578,7 @@ let UserChart = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      userJSON: null,
-      userWordsArray: [],
       
-      allJSON: null,
-      allArray: null,
-      
-      othersJSONMap: null,
-      othersArrayMap: null,
       
       
       //popupMyCount: 0,
@@ -4805,7 +4798,18 @@ let UserSelector = {
       filterData: {
         users: [],
         allAnnotationTypes: [],
-        selectUser: null
+        selectUser: null,
+        
+        chart: {
+          userJSON: null,
+          userWordsArray: [],
+
+          allJSON: null,
+          allArray: null,
+
+          othersJSONMap: null,
+          othersArrayMap: null,
+        }
       }
     }
   },
