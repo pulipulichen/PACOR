@@ -86,25 +86,30 @@ class WebpageGroupUserFilter {
         // ------------------
         // 為readers排序
         
+        sortAlreadyReaders(readersAlready)
         
-        // 先簡單地按照字母排序好了
+
+        // ------------------
+        // 合併
+        
+        users = readersAlready
+        users = users.concat(readersNotReady)
+        users = users.concat(admins)
+        users = users.concat(me)
+
+        return users
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    }
+    
+    let sortAlreadyReaders = function (readersAlready) {
+      // @TODO #57
+      // 先簡單地按照字母排序好了
         readersAlready.sort(function(b, a){
           a = a.username.toLowerCase();
           b = b.username.toLowerCase();
 
           return (a < b) ? -1 : (a > b) ? 1 : 0
         })
-
-        // ------------------
-        // 合併
-        
-        users = me
-        users = users.concat(readersAlready)
-        users = users.concat(readersNotReady)
-        users = users.concat(admins)
-
-        return users
-      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
     
   } // register (Model) {
