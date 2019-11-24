@@ -93,13 +93,25 @@ let UserChart = {
       this.filterData.chart.othersJSONMap = null
       
       // 載入
+      let url = '/client/UserFilter/initUserChart'
       let data = {}
       if (this.filterData.selectUser) {
         data.userID = this.filterData.selectUser.id
       }
       
-      let url = '/client/UserFilter/initUserChart'
-      this._loadWords(url)
+      let result = await this.lib.AxiosHelper.get(url, data)
+      this.filterData.chart.userJSON = result.userJSON
+      if (this.filterData.selectUser) {
+        if (!this.filterData.chart.othersJSONMap) {
+          this.filterData.chart.othersJSONMap = {}
+        }
+        this.filterData.chart.othersJSONMap[data.userID] = result.otherJSON
+      }
+      else {
+        this.filterData.chart.allJSON = result.allJSON
+      }
+      
+      this._draw()
     },
     load: async function () {
       
@@ -127,27 +139,22 @@ let UserChart = {
       // --------------------------
       
       let url = '/client/UserFilter/getUserWords'
-      this._loadWords(url, true)
-    },
-    _loadWords: async function (url, doUpdate) {
       let data = {}
       if (this.filterData.selectUser) {
         data.userID = this.filterData.selectUser.id
       }
-      
       let result = await this.lib.AxiosHelper.get(url, data)
-      this.filterData.chart.userJSON = result.userJSON
-      if (this.filterData.selectUser) {
+      if (this.otherIsAll === true) {
+        this.filterData.chart.allJSON = result
+      }
+      else {
         if (!this.filterData.chart.othersJSONMap) {
           this.filterData.chart.othersJSONMap = {}
         }
-        this.filterData.chart.othersJSONMap[data.userID] = result.otherJSON
-      }
-      else {
-        this.filterData.chart.allJSON = result.allJSON
+        this.filterData.chart.othersJSONMap[data.userID] = result
       }
       
-      this._draw(doUpdate)
+      this._draw(true)
     },
     _draw (doUpdate) {
       // 畫

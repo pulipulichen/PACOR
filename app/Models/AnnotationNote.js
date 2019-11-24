@@ -17,6 +17,10 @@ class AnnotationNote extends Model {
     
   } // static boot () {
   
+  annotation () {
+    return this.belongsTo('App/Models/Annotation')
+  }
+  
   static get hidden () {
     return ['annotation_id', 'created_at', 'updated_at', 'properties', 'id']
   }
