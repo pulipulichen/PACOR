@@ -357,7 +357,7 @@ exports.push([module.i, ".jqcloud-wrapper[data-v-43aa9ad5] {\n  height: calc(100
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".chart-labels[data-v-325fad93] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-325fad93] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-325fad93]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-325fad93] {\n  color: #690;\n}\n.chart-labels .chart-label.other[data-v-325fad93] {\n  color: #39d;\n}\n.chart-labels .chart-label .username[data-v-325fad93] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-325fad93] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-325fad93] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;AACpB;AACA;EACE,iBAAiB;EACjB,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;EACE,WAAW;AACb;AACA;EACE,WAAW;AACb;AACA;EACE,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,WAAW;EACX,mBAAmB;EACnB,qBAAqB;EACrB,sBAAsB;AACxB","file":"UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true&","sourcesContent":[".chart-labels[data-v-325fad93] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-325fad93] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-325fad93]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-325fad93] {\n  color: #690;\n}\n.chart-labels .chart-label.other[data-v-325fad93] {\n  color: #39d;\n}\n.chart-labels .chart-label .username[data-v-325fad93] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-325fad93] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-325fad93] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
+exports.push([module.i, ".chart-labels[data-v-325fad93] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-325fad93] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-325fad93]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-325fad93] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-325fad93] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-325fad93] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-325fad93] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;AACpB;AACA;EACE,iBAAiB;EACjB,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;EACE,WAAW;AACb;AACA;EACE,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,WAAW;EACX,mBAAmB;EACnB,qBAAqB;EACrB,sBAAsB;AACxB","file":"UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true&","sourcesContent":[".chart-labels[data-v-325fad93] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-325fad93] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-325fad93]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-325fad93] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-325fad93] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-325fad93] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-325fad93] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
 
 
 /***/ }),
@@ -3588,7 +3588,19 @@ let UserChart = {
     this.$i18n.locale = this.config.locale
     return {
       jQCloudOptions: {
-        autoResize: true
+        autoResize: true,
+        colors: [
+          'rgba(0,0,0,0.85)',
+          '#312520',
+          '#493131',
+          '#161823',
+          '#3d3b4f',
+          '#622a1d',
+          '#725e82',
+          '#50616d',
+          '#41555d',
+          '#758a99'
+        ]
       },
       //allArray: null,
       othersArrayMap: {},

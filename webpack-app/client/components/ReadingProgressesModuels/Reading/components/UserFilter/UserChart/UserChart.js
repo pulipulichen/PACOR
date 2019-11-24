@@ -12,7 +12,19 @@ let UserChart = {
     this.$i18n.locale = this.config.locale
     return {
       jQCloudOptions: {
-        autoResize: true
+        autoResize: true,
+        colors: [
+          'rgba(0,0,0,0.85)',
+          '#312520',
+          '#493131',
+          '#161823',
+          '#3d3b4f',
+          '#622a1d',
+          '#725e82',
+          '#50616d',
+          '#41555d',
+          '#758a99'
+        ]
       },
       //allArray: null,
       othersArrayMap: {},
