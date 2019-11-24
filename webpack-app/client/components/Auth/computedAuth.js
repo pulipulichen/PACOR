@@ -1,5 +1,9 @@
 export default function (Auth) {
   Auth.computed.currentStep = function () {
+    if (this.isAdmin) {
+      return 'FreeReading'
+    }
+    
     //console.log(JSON.stringify(this.status.readingProgresses, null, ' '))
     if (Array.isArray(this.status.readingProgresses)
             && this.status.readingProgresses.length > 0) {
@@ -63,7 +67,15 @@ export default function (Auth) {
       return this.status.username
     }
   }
+  
   Auth.computed.defaultPremission = function () {
     return this.currentStepAnnotationConfig.defaultPermission
+  }
+  
+  Auth.computed.isAdmin = function () {
+    let role = this.status.role
+    
+    return (role === 'domain_admin'
+            || role === 'global_admin')
   }
 }

@@ -2152,6 +2152,10 @@ component.options.__file = "webpack-app/client/components/Auth/Auth.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (Auth) {
   Auth.computed.currentStep = function () {
+    if (this.isAdmin) {
+      return 'FreeReading'
+    }
+    
     //console.log(JSON.stringify(this.status.readingProgresses, null, ' '))
     if (Array.isArray(this.status.readingProgresses)
             && this.status.readingProgresses.length > 0) {
@@ -2215,8 +2219,16 @@ __webpack_require__.r(__webpack_exports__);
       return this.status.username
     }
   }
+  
   Auth.computed.defaultPremission = function () {
     return this.currentStepAnnotationConfig.defaultPermission
+  }
+  
+  Auth.computed.isAdmin = function () {
+    let role = this.status.role
+    
+    return (role === 'domain_admin'
+            || role === 'global_admin')
   }
 });
 
