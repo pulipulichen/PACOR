@@ -1,47 +1,35 @@
-import WordCloud from 'wordcloud'
+//import WordCloud from 'wordcloud'
 import $ from 'jquery'
 import './jQCloud/jqcloud.webpage.js'
 
+import UserChartPopup from './UserChartPopup/UserChartPopup.vue'
+import UserChartLables from './UserChartLables/UserChartLables.vue'
+
 let UserChart = {
-  props: ['lib', 'status', 'config', 'filterData'],
+  props: ['lib', 'status', 'config'
+    , 'filterData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      user: null,
-      userWords: [],
-      all: null,
-      others: null,
-      popupMy: 0,
-      popupOther: 0,
+      userJSON: null,
+      userWordsArray: [],
+      
+      allJSON: null,
+      allArray: null,
+      
+      othersJSONMap: null,
+      othersArrayMap: null,
+      
+      
+      //popupMyCount: 0,
+      //popupOtherCount: 0,
     }
   },
-//  components: {
-//  },
+  components: {
+    'user-chart-popup': UserChartPopup,
+    'user-chart-labels': UserChartLables
+  },
   computed: {
-    myAvatar () {
-      return this.status.avatar
-    },
-    myUsername () {
-      let user = this.status
-      if (typeof(user.displayName) === 'string') {
-        return user.displayName
-      }
-      else {
-        return user.username
-      }
-    },
-    otherAvatar () {
-      return this.filterData.selectUser.avatar_url
-    },
-    otherUsername () {
-      let user = this.filterData.selectUser
-      if (typeof(user.display_name) === 'string') {
-        return user.display_name
-      }
-      else {
-        return user.username
-      }
-    }
   },
   watch: {
     'filterData.selectUser' () {
@@ -49,7 +37,6 @@ let UserChart = {
     }
   },
   mounted() {
-    
     this._testjQCloud()
   },
   methods: {
@@ -139,12 +126,7 @@ let UserChart = {
         return item
       })
     },
-    _initPopup: function (ele) {
-      let text = ele.innerText.trim()
-      
-      let myFrequency = this.user[text]
-      let otherFrequency = this.user[text]
-    },
+    
     load: async function () {
       console.log('讀取')
     },

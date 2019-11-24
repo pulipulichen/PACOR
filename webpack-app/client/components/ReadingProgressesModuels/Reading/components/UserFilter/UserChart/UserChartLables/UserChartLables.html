@@ -1,0 +1,26 @@
+<div class="ui segment chart-labels UserChartLables">
+  <tempalte v-if="!otherIsMe">
+    <span v-if="otherIsAll"
+          class="chart-label other">
+      <i class="large users icon" />
+      <span class="username">
+        {{ $t('All Readers') }}
+      </span>
+    </span>
+    <span v-else
+          class="chart-label other">
+      <img v-bind:src="otherAvatar" />
+      <span class="username">
+        {{ otherUsername }}
+      </span>
+    </span>
+  </tempalte>
+
+  <span class="chart-label my">
+    <img v-bind:src="myAvatar" />
+    <span class="username">
+      {{ myUsername }}
+      ({{ $t('You') }})
+    </span>
+  </span>
+</div>

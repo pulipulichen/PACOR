@@ -153,7 +153,39 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"You":"您","All Readers":"所有讀者"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":null}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CUserFilter%5CUserChart%5CUserChartLables%5CUserChartLables.vue&lang=yaml":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CUserFilter%5CUserChart%5CUserChartLables%5CUserChartLables.vue&lang=yaml ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CUserFilter%5CUserChart%5CUserChartPopup%5CUserChartPopup.vue&lang=yaml":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CUserFilter%5CUserChart%5CUserChartPopup%5CUserChartPopup.vue&lang=yaml ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
   delete Component.options._Ctor
 }
 
@@ -311,7 +343,35 @@ exports.push([module.i, ".items-list[data-v-aabed9a6] {\n  overflow-y: auto;\n  
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".jqcloud-wrapper[data-v-43aa9ad5] {\n  height: calc(100vh - 24em);\n  max-height: calc(100vh - 24em);\n  overflow: hidden;\n}\n.jqcloud-container[data-v-43aa9ad5] {\n  width: 100%;\n  height: calc(100vh - 24em);\n}\n.chart-labels[data-v-43aa9ad5] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-43aa9ad5] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-43aa9ad5]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-43aa9ad5] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-43aa9ad5] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-43aa9ad5] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-43aa9ad5] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.popup[data-v-43aa9ad5] {\n  cursor: pointer;\n}\n.popup .left-column[data-v-43aa9ad5],\n.popup .right-column[data-v-43aa9ad5] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.popup .right-column[data-v-43aa9ad5] {\n  margin-left: 0.5em;\n}\n", "",{"version":3,"sources":["UserChart.less?vue&type=style&index=0&id=43aa9ad5&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,8BAA8B;EAC9B,gBAAgB;AAClB;AACA;EACE,WAAW;EACX,0BAA0B;AAC5B;AACA;EACE,kBAAkB;AACpB;AACA;EACE,iBAAiB;EACjB,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;EACE,WAAW;AACb;AACA;EACE,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,WAAW;EACX,mBAAmB;EACnB,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;;EAEE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,kBAAkB;AACpB","file":"UserChart.less?vue&type=style&index=0&id=43aa9ad5&lang=less&scoped=true&","sourcesContent":[".jqcloud-wrapper[data-v-43aa9ad5] {\n  height: calc(100vh - 24em);\n  max-height: calc(100vh - 24em);\n  overflow: hidden;\n}\n.jqcloud-container[data-v-43aa9ad5] {\n  width: 100%;\n  height: calc(100vh - 24em);\n}\n.chart-labels[data-v-43aa9ad5] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-43aa9ad5] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-43aa9ad5]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-43aa9ad5] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-43aa9ad5] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-43aa9ad5] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-43aa9ad5] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.popup[data-v-43aa9ad5] {\n  cursor: pointer;\n}\n.popup .left-column[data-v-43aa9ad5],\n.popup .right-column[data-v-43aa9ad5] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.popup .right-column[data-v-43aa9ad5] {\n  margin-left: 0.5em;\n}\n"]}]);
+exports.push([module.i, ".jqcloud-wrapper[data-v-43aa9ad5] {\n  height: calc(100vh - 24em);\n  max-height: calc(100vh - 24em);\n  overflow: hidden;\n}\n.jqcloud-container[data-v-43aa9ad5] {\n  width: 100%;\n  height: calc(100vh - 24em);\n}\n", "",{"version":3,"sources":["UserChart.less?vue&type=style&index=0&id=43aa9ad5&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,8BAA8B;EAC9B,gBAAgB;AAClB;AACA;EACE,WAAW;EACX,0BAA0B;AAC5B","file":"UserChart.less?vue&type=style&index=0&id=43aa9ad5&lang=less&scoped=true&","sourcesContent":[".jqcloud-wrapper[data-v-43aa9ad5] {\n  height: calc(100vh - 24em);\n  max-height: calc(100vh - 24em);\n  overflow: hidden;\n}\n.jqcloud-container[data-v-43aa9ad5] {\n  width: 100%;\n  height: calc(100vh - 24em);\n}\n"]}]);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, ".chart-labels[data-v-325fad93] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-325fad93] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-325fad93]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-325fad93] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-325fad93] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-325fad93] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-325fad93] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;AACpB;AACA;EACE,iBAAiB;EACjB,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;EACE,WAAW;AACb;AACA;EACE,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,WAAW;EACX,mBAAmB;EACnB,qBAAqB;EACrB,sBAAsB;AACxB","file":"UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true&","sourcesContent":[".chart-labels[data-v-325fad93] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-325fad93] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-325fad93]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-325fad93] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-325fad93] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-325fad93] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-325fad93] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, ".popup[data-v-84468c1e] {\n  cursor: pointer;\n}\n.popup .left-column[data-v-84468c1e],\n.popup .right-column[data-v-84468c1e] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.popup .right-column[data-v-84468c1e] {\n  margin-left: 0.5em;\n}\n", "",{"version":3,"sources":["UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;AACjB;AACA;;EAEE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,kBAAkB;AACpB","file":"UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true&","sourcesContent":[".popup[data-v-84468c1e] {\n  cursor: pointer;\n}\n.popup .left-column[data-v-84468c1e],\n.popup .right-column[data-v-84468c1e] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.popup .right-column[data-v-84468c1e] {\n  margin-left: 0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -1025,67 +1085,203 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "UserChart" }, [
-    _c("div", { staticClass: "jqcloud-wrapper" }, [
-      _c("div", { ref: "jQCloudContainer", staticClass: "jqcloud-container" })
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        ref: "popup",
-        staticClass: "ui popup",
-        on: { click: _vm.onPopupClick }
-      },
-      [_vm._m(0), _vm._v(" "), _vm._m(1)]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "ui segment chart-labels" }, [
-      !_vm.filterData.selectUser
-        ? _c("span", { staticClass: "chart-label other" }, [
-            _c("i", { staticClass: "large users icon" }),
-            _vm._v(" "),
-            _c("span", { staticClass: "username" }, [
-              _vm._v(
-                "\r\n        " + _vm._s(_vm.$t("All Readers")) + "\r\n      "
-              )
-            ])
+  return _c(
+    "div",
+    { staticClass: "UserChart" },
+    [
+      _c("div", { staticClass: "jqcloud-wrapper" }, [
+        _c("div", { ref: "jQCloudContainer", staticClass: "jqcloud-container" })
+      ]),
+      _vm._v(" "),
+      _c("user-chart-popup", {
+        ref: "UserChartPopup",
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          lib: _vm.lib,
+          filterData: _vm.filterData
+        }
+      }),
+      _vm._v(" "),
+      _c("user-chart-labels", {
+        ref: "UserChartPopup",
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          lib: _vm.lib,
+          filterData: _vm.filterData
+        }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.html?vue&type=template&id=325fad93&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.html?vue&type=template&id=325fad93&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "ui segment chart-labels UserChartLables" },
+    [
+      !_vm.otherIsMe
+        ? _c("tempalte", [
+            _vm.otherIsAll
+              ? _c("span", { staticClass: "chart-label other" }, [
+                  _c("i", { staticClass: "large users icon" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "username" }, [
+                    _vm._v(
+                      "\r\n        " +
+                        _vm._s(_vm.$t("All Readers")) +
+                        "\r\n      "
+                    )
+                  ])
+                ])
+              : _c("span", { staticClass: "chart-label other" }, [
+                  _c("img", { attrs: { src: _vm.otherAvatar } }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "username" }, [
+                    _vm._v(
+                      "\r\n        " + _vm._s(_vm.otherUsername) + "\r\n      "
+                    )
+                  ])
+                ])
           ])
-        : _c("span", { staticClass: "chart-label other" }, [
-            _c("img", { attrs: { src: _vm.otherAvatar } }),
-            _vm._v(" "),
-            _c("span", { staticClass: "username" }, [
-              _vm._v("\r\n        " + _vm._s(_vm.otherUsername) + "\r\n      ")
-            ])
-          ]),
+        : _vm._e(),
       _vm._v(" "),
       _c("span", { staticClass: "chart-label my" }, [
         _c("img", { attrs: { src: _vm.myAvatar } }),
         _vm._v(" "),
         _c("span", { staticClass: "username" }, [
           _vm._v(
-            "\r\n        " +
+            "\r\n      " +
               _vm._s(_vm.myUsername) +
-              "\r\n        (" +
+              "\r\n      (" +
               _vm._s(_vm.$t("You")) +
-              ")\r\n      "
+              ")\r\n    "
           )
         ])
       ])
-    ])
-  ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.html?vue&type=template&id=84468c1e&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.html?vue&type=template&id=84468c1e&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      ref: "popup",
+      staticClass: "ui popup UserChartPopup",
+      on: { click: _vm.onPopupClick }
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "left-column" },
+        [
+          _c("div", { staticClass: "word-label my" }, [
+            _c("img", { attrs: { src: _vm.myAvatar } }),
+            _vm._v(" "),
+            _c("span", { staticClass: "username" }, [
+              _vm._v(
+                "\r\n        " +
+                  _vm._s(_vm.myUsername) +
+                  "\r\n        (" +
+                  _vm._s(_vm.$t("You")) +
+                  ")\r\n      "
+              )
+            ]),
+            _vm._v(
+              "\r\n      :\r\n      " + _vm._s(_vm.popupMyCount) + "\r\n    "
+            )
+          ]),
+          _vm._v(" "),
+          !_vm.otherIsMe
+            ? [
+                _vm.otherIsAll
+                  ? _c("div", { staticClass: "word-label all" }, [
+                      _c("i", { staticClass: "large users icon" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "username" }, [
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(_vm.$t("All Readers")) +
+                            "\r\n        "
+                        )
+                      ]),
+                      _vm._v(
+                        "\r\n        :\r\n        " +
+                          _vm._s(_vm.popupOtherCount) +
+                          "\r\n      "
+                      )
+                    ])
+                  : _c("div", { staticClass: "word-label other" }, [
+                      _c("img", { attrs: { src: _vm.otherAvatar } }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "username" }, [
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(_vm.otherUsername) +
+                            "\r\n        "
+                        )
+                      ]),
+                      _vm._v(
+                        "\r\n        :\r\n        " +
+                          _vm._s(_vm.popupOtherCount) +
+                          "\r\n      "
+                      )
+                    ])
+              ]
+            : _vm._e()
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _vm._m(0)
+    ]
+  )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "left-column" }, [
-      _c("div", [_vm._v("You: 1")]),
-      _vm._v(" "),
-      _c("div", [_vm._v("Others: 1")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -1441,6 +1637,48 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("5caf2218", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("dd940f0a", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("1fbd33c0", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -3322,55 +3560,43 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var wordcloud__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! wordcloud */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\wordcloud\\src\\wordcloud2.js");
-/* harmony import */ var wordcloud__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(wordcloud__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _jQCloud_jqcloud_webpage_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./jQCloud/jqcloud.webpage.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/jQCloud/jqcloud.webpage.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _jQCloud_jqcloud_webpage_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./jQCloud/jqcloud.webpage.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/jQCloud/jqcloud.webpage.js");
+/* harmony import */ var _UserChartPopup_UserChartPopup_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserChartPopup/UserChartPopup.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.vue");
+/* harmony import */ var _UserChartLables_UserChartLables_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UserChartLables/UserChartLables.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.vue");
+//import WordCloud from 'wordcloud'
+
+
 
 
 
 
 let UserChart = {
-  props: ['lib', 'status', 'config', 'filterData'],
+  props: ['lib', 'status', 'config'
+    , 'filterData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      user: null,
-      userWords: [],
-      all: null,
-      others: null,
-      popupMy: 0,
-      popupOther: 0,
+      userJSON: null,
+      userWordsArray: [],
+      
+      allJSON: null,
+      allArray: null,
+      
+      othersJSONMap: null,
+      othersArrayMap: null,
+      
+      
+      //popupMyCount: 0,
+      //popupOtherCount: 0,
     }
   },
-//  components: {
-//  },
+  components: {
+    'user-chart-popup': _UserChartPopup_UserChartPopup_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    'user-chart-labels': _UserChartLables_UserChartLables_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
   computed: {
-    myAvatar () {
-      return this.status.avatar
-    },
-    myUsername () {
-      let user = this.status
-      if (typeof(user.displayName) === 'string') {
-        return user.displayName
-      }
-      else {
-        return user.username
-      }
-    },
-    otherAvatar () {
-      return this.filterData.selectUser.avatar_url
-    },
-    otherUsername () {
-      let user = this.filterData.selectUser
-      if (typeof(user.display_name) === 'string') {
-        return user.display_name
-      }
-      else {
-        return user.username
-      }
-    }
   },
   watch: {
     'filterData.selectUser' () {
@@ -3378,14 +3604,13 @@ let UserChart = {
     }
   },
   mounted() {
-    
     this._testjQCloud()
   },
   methods: {
     _testjQCloud: async function () {
       await this.lib.VueHelper.sleep(2000)
       
-      let popupEle = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.popup)
+      let popupEle = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.popup)
       
       let inited = false
       
@@ -3400,7 +3625,7 @@ let UserChart = {
             }
             //console.log(this)
             console.log(this.innerText.trim())
-            jquery__WEBPACK_IMPORTED_MODULE_1___default()(this)
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()(this)
               .popup({
                 popup: popupEle,
                 hoverable: true
@@ -3415,7 +3640,7 @@ let UserChart = {
         /* ... */
       ];
 
-      jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.jQCloudContainer).jQCloud(words, {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.jQCloudContainer).jQCloud(words, {
         autoResize: true
 //        colors: function (i) {
 //          console.log(i)
@@ -3468,12 +3693,7 @@ let UserChart = {
         return item
       })
     },
-    _initPopup: function (ele) {
-      let text = ele.innerText.trim()
-      
-      let myFrequency = this.user[text]
-      let otherFrequency = this.user[text]
-    },
+    
     load: async function () {
       console.log('讀取')
     },
@@ -3563,6 +3783,395 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChart_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChart_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChart_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChart_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChart_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChart_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChart_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChart_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChart_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChart_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.html?vue&type=template&id=325fad93&scoped=true&":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.html?vue&type=template&id=325fad93&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_UserChartLables_html_vue_type_template_id_325fad93_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./UserChartLables.html?vue&type=template&id=325fad93&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.html?vue&type=template&id=325fad93&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_UserChartLables_html_vue_type_template_id_325fad93_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_UserChartLables_html_vue_type_template_id_325fad93_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.js?vue&type=script&lang=js&?3333":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.js?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _UserChartLables_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./UserChartLables.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.js?vue&type=script&lang=js&?f967");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_UserChartLables_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.js?vue&type=script&lang=js&?f967":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.js?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let UserChartLables = {
+  props: ['lib', 'status', 'config'
+    , 'filterData'],
+  data() {    
+    this.$i18n.locale = this.config.locale
+    return {
+    }
+  },
+  computed: {
+    otherIsAll () {
+      return (!this.filterData.selectUser)
+    },
+    otherIsMe () {
+      return (this.filterData.selectUser
+              && this.filterData.selectUser.id === this.status.userID)
+    },
+    myAvatar () {
+      return this.status.avatar
+    },
+    myUsername () {
+      let user = this.status
+      if (typeof(user.displayName) === 'string') {
+        return user.displayName
+      }
+      else {
+        return user.username
+      }
+    },
+    otherAvatar () {
+      return this.filterData.selectUser.avatar_url
+    },
+    otherUsername () {
+      let user = this.filterData.selectUser
+      if (typeof(user.display_name) === 'string') {
+        return user.display_name
+      }
+      else {
+        return user.username
+      }
+    },
+  },
+//  computed: {
+//  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
+//  methods: {
+//  } // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (UserChartLables);
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLables_less_vue_type_style_index_0_id_325fad93_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../node_modules/vue-style-loader!../../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLables_less_vue_type_style_index_0_id_325fad93_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLables_less_vue_type_style_index_0_id_325fad93_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLables_less_vue_type_style_index_0_id_325fad93_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLables_less_vue_type_style_index_0_id_325fad93_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLables_less_vue_type_style_index_0_id_325fad93_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.vue":
+/*!********************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.vue ***!
+  \********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _UserChartLables_html_vue_type_template_id_325fad93_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserChartLables.html?vue&type=template&id=325fad93&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.html?vue&type=template&id=325fad93&scoped=true&");
+/* harmony import */ var _UserChartLables_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserChartLables.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.js?vue&type=script&lang=js&?3333");
+/* empty/unused harmony star reexport *//* harmony import */ var _UserChartLables_less_vue_type_style_index_0_id_325fad93_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=325fad93&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UserChartLables.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CUserFilter%5CUserChart%5CUserChartLables%5CUserChartLables.vue&lang=yaml */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CUserFilter%5CUserChart%5CUserChartLables%5CUserChartLables.vue&lang=yaml");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _UserChartLables_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UserChartLables_html_vue_type_template_id_325fad93_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UserChartLables_html_vue_type_template_id_325fad93_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "325fad93",
+  null
+  
+)
+
+/* custom blocks */
+
+if (typeof _UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CUserFilter%5CUserChart%5CUserChartLables%5CUserChartLables.vue&lang=yaml":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CUserFilter%5CUserChart%5CUserChartLables%5CUserChartLables.vue&lang=yaml ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./UserChartLables.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CUserFilter%5CUserChart%5CUserChartLables%5CUserChartLables.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CUserFilter%5CUserChart%5CUserChartLables%5CUserChartLables.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.html?vue&type=template&id=84468c1e&scoped=true&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.html?vue&type=template&id=84468c1e&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_UserChartPopup_html_vue_type_template_id_84468c1e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./UserChartPopup.html?vue&type=template&id=84468c1e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.html?vue&type=template&id=84468c1e&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_UserChartPopup_html_vue_type_template_id_84468c1e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_UserChartPopup_html_vue_type_template_id_84468c1e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.js?vue&type=script&lang=js&?3572":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.js?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _UserChartPopup_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./UserChartPopup.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.js?vue&type=script&lang=js&?ed93");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_UserChartPopup_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.js?vue&type=script&lang=js&?ed93":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.js?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let UserChartPopup = {
+  props: ['lib', 'status', 'config'
+    , 'filterData'],
+  data() {    
+    this.$i18n.locale = this.config.locale
+    return {
+      popupFocusText: null
+    }
+  },
+//  components: {
+//  },
+  computed: {
+    otherIsAll () {
+      return (!this.filterData.selectUser)
+    },
+    otherIsMe () {
+      return (this.filterData.selectUser
+              && this.filterData.selectUser.id === this.status.userID)
+    },
+    popupOptions () {
+      return {
+        popup: this.$refs.popup,
+        hoverable: true
+      }
+    },
+    myAvatar () {
+      return this.status.avatar
+    },
+    myUsername () {
+      let user = this.status
+      if (typeof(user.displayName) === 'string') {
+        return user.displayName
+      }
+      else {
+        return user.username
+      }
+    },
+    otherAvatar () {
+      return this.filterData.selectUser.avatar_url
+    },
+    otherUsername () {
+      let user = this.filterData.selectUser
+      if (typeof(user.display_name) === 'string') {
+        return user.display_name
+      }
+      else {
+        return user.username
+      }
+    },
+    popupMyCount () {
+      let count = this.userJSON[this.popupFocusText]
+      if (!count) {
+        count = 0
+      }
+      return count
+    },
+    popupOtherCount () {
+      let count
+      let text = this.popupFocusText
+      if (this.otherIsAll) {
+        count = this.allJSON[text]
+      }
+      else if (!this.otherIsMe) {
+        let userID = this.filterData.selectUser.id
+        count = this.otherJSONMap[userID][text]
+      }
+      
+      if (!count) {
+        count = 0
+      }
+      return count
+    }
+  },
+//  watch: {
+//  },
+  mounted() {
+  },
+  methods: {
+    initPopup: function (ele) {
+      this.popupFocusText = ele.innerText.trim()
+      
+      let $ele = $(ele)
+      
+      if ($ele.hasAttr('data-popup-inited') === true) {
+        return null
+      }
+      
+      $ele.popup(this.popupOptions)
+      $ele.attr('data-popup-inited', true)
+    },
+    onPopupClick () {
+      throw new Error('Search: ' + this.popupFocusText)
+    }
+  } // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (UserChartPopup);
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartPopup_less_vue_type_style_index_0_id_84468c1e_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../node_modules/vue-style-loader!../../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartPopup_less_vue_type_style_index_0_id_84468c1e_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartPopup_less_vue_type_style_index_0_id_84468c1e_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartPopup_less_vue_type_style_index_0_id_84468c1e_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartPopup_less_vue_type_style_index_0_id_84468c1e_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartPopup_less_vue_type_style_index_0_id_84468c1e_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.vue":
+/*!******************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.vue ***!
+  \******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _UserChartPopup_html_vue_type_template_id_84468c1e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserChartPopup.html?vue&type=template&id=84468c1e&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.html?vue&type=template&id=84468c1e&scoped=true&");
+/* harmony import */ var _UserChartPopup_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserChartPopup.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.js?vue&type=script&lang=js&?3572");
+/* empty/unused harmony star reexport *//* harmony import */ var _UserChartPopup_less_vue_type_style_index_0_id_84468c1e_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UserChartPopup.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CUserFilter%5CUserChart%5CUserChartPopup%5CUserChartPopup.vue&lang=yaml */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CUserFilter%5CUserChart%5CUserChartPopup%5CUserChartPopup.vue&lang=yaml");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _UserChartPopup_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UserChartPopup_html_vue_type_template_id_84468c1e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UserChartPopup_html_vue_type_template_id_84468c1e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "84468c1e",
+  null
+  
+)
+
+/* custom blocks */
+
+if (typeof _UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CUserFilter%5CUserChart%5CUserChartPopup%5CUserChartPopup.vue&lang=yaml":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CUserFilter%5CUserChart%5CUserChartPopup%5CUserChartPopup.vue&lang=yaml ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./UserChartPopup.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CUserFilter%5CUserChart%5CUserChartPopup%5CUserChartPopup.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CUserFilter%5CUserChart%5CUserChartPopup%5CUserChartPopup.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

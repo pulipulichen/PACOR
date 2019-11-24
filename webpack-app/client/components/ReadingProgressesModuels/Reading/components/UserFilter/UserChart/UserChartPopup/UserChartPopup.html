@@ -1,0 +1,40 @@
+<div class="ui popup UserChartPopup"
+     ref="popup"
+     v-on:click="onPopupClick">
+  <div class="left-column">
+    <div class="word-label my">
+      <img v-bind:src="myAvatar" />
+      <span class="username">
+        {{ myUsername }}
+        ({{ $t('You') }})
+      </span>
+      :
+      {{ popupMyCount }}
+    </div>
+
+    <template v-if="!otherIsMe">
+      <div v-if="otherIsAll"
+           class="word-label all">
+        <i class="large users icon" />
+        <span class="username">
+          {{ $t('All Readers') }}
+        </span>
+        :
+        {{ popupOtherCount }}
+      </div>
+      <div v-else
+           class="word-label other">
+        <img v-bind:src="otherAvatar" />
+        <span class="username">
+          {{ otherUsername }}
+        </span>
+        :
+        {{ popupOtherCount }}
+      </div>
+    </template>
+  </div>
+
+  <div class="right-column">
+    <i class="large search icon"></i>
+  </div>
+</div>
