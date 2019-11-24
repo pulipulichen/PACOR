@@ -5,6 +5,18 @@
     </div>
   </div>
   
+  <div class="ui popup"
+       ref="popup"
+       v-on:click="onPopupClick">
+    <div class="left-column">
+      <div>You: 1</div>
+      <div>Others: 1</div>
+    </div>
+    <div class="right-column">
+      <i class="large search icon"></i>
+    </div>
+  </div>
+  
   <div class="ui segment chart-labels">
     
     <span v-if="!filterData.selectUser"

@@ -8,7 +8,11 @@ let UserChart = {
     this.$i18n.locale = this.config.locale
     return {
       user: null,
-      others: null
+      userWords: [],
+      all: null,
+      others: null,
+      popupMy: 0,
+      popupOther: 0,
     }
   },
 //  components: {
@@ -52,19 +56,27 @@ let UserChart = {
     _testjQCloud: async function () {
       await this.lib.VueHelper.sleep(2000)
       
+      let popupEle = $(this.$refs.popup)
+      
+      let inited = false
+      
       var words = [
         {text: "Lorem", weight: 13},
         {text: "Ipsum", weight: 10.5},
         {text: "Dolor", weight: 9.4, color: 'red',
         handlers: {
-          click: function () {
+          mouseover: function () {
+            if (inited === true) {
+              return
+            }
             //console.log(this)
+            console.log(this.innerText.trim())
             $(this)
               .popup({
-                title   : 'Popup Title',
-                content : 'Hello I am a popup'
+                popup: popupEle,
+                hoverable: true
             })
-            ;
+            inited = true
           }
         }},
         {text: "Sit", weight: 8},
@@ -92,33 +104,55 @@ let UserChart = {
       
       ///$(this.$refs.jQCloudContainer).jQCloud(words, 'update');
     },
-    _testWordCloud () {
-      let canvas = this.$refs.canvas
-    WordCloud(this.$refs.canvas, {
-      list: [['foo', 12], ['bar', 6]],
-      gridSize: Math.round(16 * $(canvas).width() / 1024),
-      weightFactor: function (size) {
-        return Math.pow(size, 2.3) * $(canvas).width() / 1024;
-      },
-      fontFamily: 'Times, serif',
-      color: function (word, weight) {
-        return (weight === 12) ? '#f02222' : '#c09292';
-      },
-      rotateRatio: 0.5,
-      rotationSteps: 2,
-      backgroundColor: '#ffe0e0'
-    })
-    },
     loadInit: async function () {
-      console.log('讀取')
       this.user = null
+      this.userWords = []
       this.others = null
+      this.all = null
+      
+      
+    },
+    _processWordFrequency (words) {
+      if (this.userWords.length === 0
+            && this.user !== null) {
+        this.userWords = Object.keys(this.user)
+      }
+      
+      let _this = this
+      words = Object.keys(words).forEach(text => {
+        let item = {
+          text
+        }
+        item.weight = words[text]
+        if (this.userWords.indexOf(text) > -1) {
+          item.color = '#690'
+        }
+        
+        item.handlers = {
+          mouseover: function () {
+            _this._initPopup(this)
+          },
+          click: function () {
+            _this._initPopup(this)
+          }
+        }
+        return item
+      })
+    },
+    _initPopup: function (ele) {
+      let text = ele.innerText.trim()
+      
+      let myFrequency = this.user[text]
+      let otherFrequency = this.user[text]
     },
     load: async function () {
       console.log('讀取')
     },
     _mockupData () {
       
+    },
+    onPopupClick () {
+      console.log('搜尋')
     }
   } // methods
 }

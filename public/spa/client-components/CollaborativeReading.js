@@ -311,7 +311,7 @@ exports.push([module.i, ".items-list[data-v-aabed9a6] {\n  overflow-y: auto;\n  
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".jqcloud-wrapper[data-v-43aa9ad5] {\n  height: calc(100vh - 24em);\n  max-height: calc(100vh - 24em);\n  overflow: hidden;\n}\n.jqcloud-container[data-v-43aa9ad5] {\n  width: 100%;\n  height: calc(100vh - 24em);\n}\n.chart-labels[data-v-43aa9ad5] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-43aa9ad5] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-43aa9ad5]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-43aa9ad5] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-43aa9ad5] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-43aa9ad5] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-43aa9ad5] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["UserChart.less?vue&type=style&index=0&id=43aa9ad5&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,8BAA8B;EAC9B,gBAAgB;AAClB;AACA;EACE,WAAW;EACX,0BAA0B;AAC5B;AACA;EACE,kBAAkB;AACpB;AACA;EACE,iBAAiB;EACjB,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;EACE,WAAW;AACb;AACA;EACE,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,WAAW;EACX,mBAAmB;EACnB,qBAAqB;EACrB,sBAAsB;AACxB","file":"UserChart.less?vue&type=style&index=0&id=43aa9ad5&lang=less&scoped=true&","sourcesContent":[".jqcloud-wrapper[data-v-43aa9ad5] {\n  height: calc(100vh - 24em);\n  max-height: calc(100vh - 24em);\n  overflow: hidden;\n}\n.jqcloud-container[data-v-43aa9ad5] {\n  width: 100%;\n  height: calc(100vh - 24em);\n}\n.chart-labels[data-v-43aa9ad5] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-43aa9ad5] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-43aa9ad5]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-43aa9ad5] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-43aa9ad5] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-43aa9ad5] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-43aa9ad5] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
+exports.push([module.i, ".jqcloud-wrapper[data-v-43aa9ad5] {\n  height: calc(100vh - 24em);\n  max-height: calc(100vh - 24em);\n  overflow: hidden;\n}\n.jqcloud-container[data-v-43aa9ad5] {\n  width: 100%;\n  height: calc(100vh - 24em);\n}\n.chart-labels[data-v-43aa9ad5] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-43aa9ad5] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-43aa9ad5]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-43aa9ad5] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-43aa9ad5] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-43aa9ad5] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-43aa9ad5] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.popup[data-v-43aa9ad5] {\n  cursor: pointer;\n}\n.popup .left-column[data-v-43aa9ad5],\n.popup .right-column[data-v-43aa9ad5] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.popup .right-column[data-v-43aa9ad5] {\n  margin-left: 0.5em;\n}\n", "",{"version":3,"sources":["UserChart.less?vue&type=style&index=0&id=43aa9ad5&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,8BAA8B;EAC9B,gBAAgB;AAClB;AACA;EACE,WAAW;EACX,0BAA0B;AAC5B;AACA;EACE,kBAAkB;AACpB;AACA;EACE,iBAAiB;EACjB,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;EACE,WAAW;AACb;AACA;EACE,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,WAAW;EACX,mBAAmB;EACnB,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;;EAEE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,kBAAkB;AACpB","file":"UserChart.less?vue&type=style&index=0&id=43aa9ad5&lang=less&scoped=true&","sourcesContent":[".jqcloud-wrapper[data-v-43aa9ad5] {\n  height: calc(100vh - 24em);\n  max-height: calc(100vh - 24em);\n  overflow: hidden;\n}\n.jqcloud-container[data-v-43aa9ad5] {\n  width: 100%;\n  height: calc(100vh - 24em);\n}\n.chart-labels[data-v-43aa9ad5] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-43aa9ad5] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-43aa9ad5]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-43aa9ad5] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-43aa9ad5] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-43aa9ad5] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-43aa9ad5] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.popup[data-v-43aa9ad5] {\n  cursor: pointer;\n}\n.popup .left-column[data-v-43aa9ad5],\n.popup .right-column[data-v-43aa9ad5] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.popup .right-column[data-v-43aa9ad5] {\n  margin-left: 0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -1030,6 +1030,16 @@ var render = function() {
       _c("div", { ref: "jQCloudContainer", staticClass: "jqcloud-container" })
     ]),
     _vm._v(" "),
+    _c(
+      "div",
+      {
+        ref: "popup",
+        staticClass: "ui popup",
+        on: { click: _vm.onPopupClick }
+      },
+      [_vm._m(0), _vm._v(" "), _vm._m(1)]
+    ),
+    _vm._v(" "),
     _c("div", { staticClass: "ui segment chart-labels" }, [
       !_vm.filterData.selectUser
         ? _c("span", { staticClass: "chart-label other" }, [
@@ -1065,7 +1075,26 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "left-column" }, [
+      _c("div", [_vm._v("You: 1")]),
+      _vm._v(" "),
+      _c("div", [_vm._v("Others: 1")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "right-column" }, [
+      _c("i", { staticClass: "large search icon" })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -3308,7 +3337,11 @@ let UserChart = {
     this.$i18n.locale = this.config.locale
     return {
       user: null,
-      others: null
+      userWords: [],
+      all: null,
+      others: null,
+      popupMy: 0,
+      popupOther: 0,
     }
   },
 //  components: {
@@ -3352,19 +3385,27 @@ let UserChart = {
     _testjQCloud: async function () {
       await this.lib.VueHelper.sleep(2000)
       
+      let popupEle = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.popup)
+      
+      let inited = false
+      
       var words = [
         {text: "Lorem", weight: 13},
         {text: "Ipsum", weight: 10.5},
         {text: "Dolor", weight: 9.4, color: 'red',
         handlers: {
-          click: function () {
+          mouseover: function () {
+            if (inited === true) {
+              return
+            }
             //console.log(this)
+            console.log(this.innerText.trim())
             jquery__WEBPACK_IMPORTED_MODULE_1___default()(this)
               .popup({
-                title   : 'Popup Title',
-                content : 'Hello I am a popup'
+                popup: popupEle,
+                hoverable: true
             })
-            ;
+            inited = true
           }
         }},
         {text: "Sit", weight: 8},
@@ -3392,33 +3433,55 @@ let UserChart = {
       
       ///$(this.$refs.jQCloudContainer).jQCloud(words, 'update');
     },
-    _testWordCloud () {
-      let canvas = this.$refs.canvas
-    wordcloud__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.canvas, {
-      list: [['foo', 12], ['bar', 6]],
-      gridSize: Math.round(16 * jquery__WEBPACK_IMPORTED_MODULE_1___default()(canvas).width() / 1024),
-      weightFactor: function (size) {
-        return Math.pow(size, 2.3) * jquery__WEBPACK_IMPORTED_MODULE_1___default()(canvas).width() / 1024;
-      },
-      fontFamily: 'Times, serif',
-      color: function (word, weight) {
-        return (weight === 12) ? '#f02222' : '#c09292';
-      },
-      rotateRatio: 0.5,
-      rotationSteps: 2,
-      backgroundColor: '#ffe0e0'
-    })
-    },
     loadInit: async function () {
-      console.log('讀取')
       this.user = null
+      this.userWords = []
       this.others = null
+      this.all = null
+      
+      
+    },
+    _processWordFrequency (words) {
+      if (this.userWords.length === 0
+            && this.user !== null) {
+        this.userWords = Object.keys(this.user)
+      }
+      
+      let _this = this
+      words = Object.keys(words).forEach(text => {
+        let item = {
+          text
+        }
+        item.weight = words[text]
+        if (this.userWords.indexOf(text) > -1) {
+          item.color = '#690'
+        }
+        
+        item.handlers = {
+          mouseover: function () {
+            _this._initPopup(this)
+          },
+          click: function () {
+            _this._initPopup(this)
+          }
+        }
+        return item
+      })
+    },
+    _initPopup: function (ele) {
+      let text = ele.innerText.trim()
+      
+      let myFrequency = this.user[text]
+      let otherFrequency = this.user[text]
     },
     load: async function () {
       console.log('讀取')
     },
     _mockupData () {
       
+    },
+    onPopupClick () {
+      console.log('搜尋')
     }
   } // methods
 }
