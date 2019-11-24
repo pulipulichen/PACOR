@@ -4211,7 +4211,15 @@ let UserChartPopup = {
       $ele.click()
     },
     onPopupClick () {
-      throw new Error('Search: ' + this.popupFocusText)
+      //throw new Error('Search: ' + this.popupFocusText)
+      this.status.search.keyword = this.popupFocusText
+      this.lib.UserFilter.hide()
+      
+      // 先設定篩選條件
+      this.lib.AnnotationPanel.findKeyword(this.status.search.keyword)
+      
+      // 再來顯示
+      this.lib.AnnotationPanel.setAnchorPositions()
     }
   } // methods
 }
@@ -4974,6 +4982,9 @@ let UserSelector = {
       this.$refs.UserChart.loadInit()
       
       this.$refs.Modal.show()
+    },
+    hide () {
+      this.$refs.Modal.hide()
     },
     submit () {
       if (this.filterData.selectUser) {

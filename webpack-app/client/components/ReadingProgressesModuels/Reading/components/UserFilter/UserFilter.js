@@ -58,6 +58,9 @@ let UserSelector = {
       
       this.$refs.Modal.show()
     },
+    hide () {
+      this.$refs.Modal.hide()
+    },
     submit () {
       if (this.filterData.selectUser) {
         this.status.filter.focusUser = this.filterData.selectUser
