@@ -13,13 +13,10 @@ let UserSelector = {
         
         chart: {
           userJSON: null,
-          userWordsArray: [],
 
           allJSON: null,
-          allArray: null,
 
           othersJSONMap: null,
-          othersArrayMap: null,
         }
       }
     }

@@ -48,7 +48,7 @@ let UserChartPopup = {
       }
     },
     popupMyCount () {
-      let count = this.userJSON[this.popupFocusText]
+      let count = this.filterData.chart.userJSON[this.popupFocusText]
       if (!count) {
         count = 0
       }
@@ -58,11 +58,11 @@ let UserChartPopup = {
       let count
       let text = this.popupFocusText
       if (this.otherIsAll) {
-        count = this.allJSON[text]
+        count = this.filterData.chart.allJSON[text]
       }
       else if (!this.otherIsMe) {
         let userID = this.filterData.selectUser.id
-        count = this.otherJSONMap[userID][text]
+        count = this.filterData.chart.otherJSONMap[userID][text]
       }
       
       if (!count) {
