@@ -1,5 +1,5 @@
 <div class="ui segment chart-labels UserChartLables">
-  <tempalte v-if="!otherIsMe">
+  <template v-if="!otherIsMe">
     <span v-if="otherIsAll"
           class="chart-label other">
       <i class="large users icon" />
@@ -14,7 +14,7 @@
         {{ otherUsername }}
       </span>
     </span>
-  </tempalte>
+  </template>
 
   <span class="chart-label my">
     <img v-bind:src="myAvatar" />

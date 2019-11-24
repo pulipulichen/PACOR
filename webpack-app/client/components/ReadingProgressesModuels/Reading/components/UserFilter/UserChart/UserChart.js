@@ -15,7 +15,7 @@ let UserChart = {
         autoResize: true
       },
       //allArray: null,
-      otherArrayMap: {},
+      othersArrayMap: {},
     }
   },
   components: {
@@ -31,10 +31,10 @@ let UserChart = {
               && this.filterData.selectUser.id === this.status.userID)
     },
     userWordsTextArray () {
-      if (this.filterData.chart.user === null) {
+      if (!this.filterData.chart.userJSON) {
         return []
       }
-      return Object.keys(this.filterData.chart.user)
+      return Object.keys(this.filterData.chart.userJSON)
     },
     allWords () {
       let words = this.filterData.chart.allJSON
@@ -51,28 +51,29 @@ let UserChart = {
         return this.allWords
       }
       else if (this.otherIsMe) {
-        return this.userWords()
+        return this.userWords
       }
       else {
         let userID = this.filterData.selectUser.id
-        if (Array.isArray(this.otherArrayMap[userID])) {
-          return this.otherArrayMap[userID]
+        if (Array.isArray(this.othersArrayMap[userID])) {
+          return this.othersArrayMap[userID]
         }
         
-        let words = this.filterData.chart.otherJSONMap[userID]
-        this.otherArrayMap[userID] = this._processWordFrequency(words)
-        return this.otherArrayMap[userID]
+        let words = this.filterData.chart.othersJSONMap[userID]
+        this.othersArrayMap[userID] = this._processWordFrequency(words)
+        return this.othersArrayMap[userID]
       }
     }
   },
   watch: {
     'filterData.selectUser' () {
+      //console.log('有變更嗎？')
       this.load()
     }
   },
-  mounted() {
-    //this._testjQCloud()
-  },
+//  mounted() {
+//    //this._testjQCloud()
+//  },
   methods: {
     loadInit: async function () {
       this.filterData.chart.userJSON = null
@@ -91,15 +92,22 @@ let UserChart = {
     load: async function () {
       
       // 這邊要先偵測快取
-      if (this.otherIsMe) {
+      if (this.otherIsMe === true) {
+        //console.log('是我')
+        this._draw(true)
         return null
       }
-      else if (this.otherIsAll && this.filterData.chart.allJSON) {
+      else if (this.otherIsAll === true && this.filterData.chart.allJSON) {
+        //console.log('是大家')
+        this._draw(true)
         return null
       }
       else {
+        //console.log('是某人')
         let userID = this.filterData.selectUser.id
-        if (this.filterData.chart.othersJSONMap[userID]) {
+        if (this.filterData.chart.othersJSONMap
+            && this.filterData.chart.othersJSONMap[userID]) {
+          this._draw(true)
           return null
         }
       }
@@ -107,15 +115,15 @@ let UserChart = {
       // --------------------------
       
       let url = '/client/UserFilter/getUserWords'
-      this._loadWords(url)
+      this._loadWords(url, true)
     },
-    _loadWords (url) {
+    _loadWords: async function (url, doUpdate) {
       let data = {}
       if (this.filterData.selectUser) {
         data.userID = this.filterData.selectUser.id
       }
       
-      let result = await this.lib.AxiosHelper(, data)
+      let result = await this.lib.AxiosHelper.get(url, data)
       this.filterData.chart.userJSON = result.userJSON
       if (this.filterData.selectUser) {
         if (!this.filterData.chart.othersJSONMap) {
@@ -127,14 +135,27 @@ let UserChart = {
         this.filterData.chart.allJSON = result.allJSON
       }
       
+      this._draw(doUpdate)
+    },
+    _draw (doUpdate) {
       // 畫
-      $(this.$refs.jQCloudContainer).jQCloud(this.jQCloudWords, this.jQCloudOptions)
-    }
+      //console.log(this.jQCloudWords)
+      if (doUpdate === undefined) {
+        $(this.$refs.jQCloudContainer).jQCloud(this.jQCloudWords, this.jQCloudOptions)
+      }
+      else {
+        //console.log('update')
+        $(this.$refs.jQCloudContainer).jQCloud('update', this.jQCloudWords)
+      }
+    },
     // ---------------------------------
     
     _processWordFrequency (words) {
       let initPopup = this.$refs.UserChartPopup.initPopup
-      return Object.keys(words).forEach(text => {
+      //let _this = this
+      //console.log(typeof(initPopup))
+      //console.log(words)
+      return Object.keys(words).map(text => {
         let item = {
           text
         }
@@ -144,9 +165,9 @@ let UserChart = {
         }
         
         item.handlers = {
-          mouseover: function () {
-            initPopup(this)
-          },
+//          mouseover: function () {
+//            initPopup(this)
+//          },
           click: function () {
             initPopup(this)
           }

@@ -1,12 +1,44 @@
 .popup {
   cursor: pointer;
+  z-index: 999;
   
-  .left-column, .right-column {
-    display: inline-block;
-    vertical-align: middle;
+}
+
+img {
+      max-width: 1.5em !important;
+      height: auto !important; 
+    }
+
+.label-column {
+  display: inline-block;
+  vertical-align: middle;
+  
+  &.icon {
+    margin-right: 0.5;
+    text-align: right;
+    width: 2em;
   }
+}
+
+.word-label {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   
-  .right-column {
-    margin-left: 0.5em;
+  &.my {
+    margin-bottom: 0;
+  }
+}
+
+.focus-word {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-left: 1em;
+  white-space: nowrap;
+  
+  .icon {
+    float: right;
+    margin-left: 0.25em;
+    margin-top: 0.1em;
   }
 }

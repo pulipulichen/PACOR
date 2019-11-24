@@ -20,7 +20,12 @@ let UserChartPopup = {
     popupOptions () {
       return {
         popup: this.$refs.popup,
-        hoverable: true
+        hoverable: true,
+        distanceAway: -10,
+        position: 'top center',
+        //duration: 0,
+        exclusive: true,
+        on: "click"
       }
     },
     myAvatar () {
@@ -48,6 +53,10 @@ let UserChartPopup = {
       }
     },
     popupMyCount () {
+      if (!this.filterData.chart.userJSON) {
+        return 0
+      }
+      
       let count = this.filterData.chart.userJSON[this.popupFocusText]
       if (!count) {
         count = 0
@@ -57,12 +66,14 @@ let UserChartPopup = {
     popupOtherCount () {
       let count
       let text = this.popupFocusText
-      if (this.otherIsAll) {
+      if (this.otherIsAll && this.filterData.chart.allJSON) {
         count = this.filterData.chart.allJSON[text]
       }
-      else if (!this.otherIsMe) {
+      else if (!this.otherIsMe && this.filterData.chart.otherJSONMap) {
         let userID = this.filterData.selectUser.id
-        count = this.filterData.chart.otherJSONMap[userID][text]
+        if (this.filterData.chart.otherJSONMap[userID]) {
+          count = this.filterData.chart.otherJSONMap[userID][text]
+        }
       }
       
       if (!count) {
@@ -73,20 +84,21 @@ let UserChartPopup = {
   },
 //  watch: {
 //  },
-  mounted() {
-  },
+//  mounted() {
+//  },
   methods: {
     initPopup: function (ele) {
       this.popupFocusText = ele.innerText.trim()
       
       let $ele = $(ele)
       
-      if ($ele.hasAttr('data-popup-inited') === true) {
+      if ($ele.attr('data-popup-inited') !== undefined) {
         return null
       }
       
       $ele.popup(this.popupOptions)
       $ele.attr('data-popup-inited', true)
+      $ele.click()
     },
     onPopupClick () {
       throw new Error('Search: ' + this.popupFocusText)

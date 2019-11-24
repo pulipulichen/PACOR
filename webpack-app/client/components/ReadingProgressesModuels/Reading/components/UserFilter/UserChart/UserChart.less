@@ -9,6 +9,11 @@
 .jqcloud-container {
   width: 100%; 
   height: calc(100vh - @heightPadding);
+  user-select: none;
+  
+  ::v-deep span {
+    cursor: pointer;
+  }
 }
 
 

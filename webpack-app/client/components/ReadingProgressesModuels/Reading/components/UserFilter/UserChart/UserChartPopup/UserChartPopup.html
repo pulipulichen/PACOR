@@ -1,40 +1,52 @@
 <div class="ui popup UserChartPopup"
      ref="popup"
      v-on:click="onPopupClick">
-  <div class="left-column">
-    <div class="word-label my">
-      <img v-bind:src="myAvatar" />
-      <span class="username">
-        {{ myUsername }}
-        ({{ $t('You') }})
-      </span>
-      :
-      {{ popupMyCount }}
-    </div>
+  
+  <div class="focus-word">
+    <i class="small search icon"></i>
+    {{ popupFocusText }}
+  </div>
 
     <template v-if="!otherIsMe">
       <div v-if="otherIsAll"
            class="word-label all">
-        <i class="large users icon" />
-        <span class="username">
-          {{ $t('All Readers') }}
+        <span class="label-column icon">
+          <i class="large users icon" />
         </span>
-        :
-        {{ popupOtherCount }}
+        <span class="label-column">
+          <span class="username">
+            {{ $t('All Readers') }}
+          </span>
+          :
+          {{ popupOtherCount }}
+        </span>
       </div>
       <div v-else
            class="word-label other">
-        <img v-bind:src="otherAvatar" />
-        <span class="username">
-          {{ otherUsername }}
+        <span class="label-column icon">
+          <img v-bind:src="otherAvatar" />
         </span>
-        :
-        {{ popupOtherCount }}
+        <span class="label-column">
+          <span class="username">
+            {{ otherUsername }}
+          </span>
+          :
+          {{ popupOtherCount }}
+        </span>
       </div>
     </template>
-  </div>
-
-  <div class="right-column">
-    <i class="large search icon"></i>
-  </div>
+    
+    <div class="word-label my">
+      <span class="label-column icon">
+        <img v-bind:src="myAvatar" />
+      </span>
+      <span class="label-column">
+        <span class="username">
+          {{ myUsername }}
+          ({{ $t('You') }})
+        </span>
+        :
+        {{ popupMyCount }}
+      </span>
+    </div>
 </div>
