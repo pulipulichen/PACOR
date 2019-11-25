@@ -1842,7 +1842,7 @@ let Modal = {
   methods: {
     getModal: function () {
       if (this.modal === null) {
-        this.modal = window.$(this.$refs.modal)
+        this.modal = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.modal)
       }
       return this.modal
     },
@@ -1883,6 +1883,7 @@ let Modal = {
     },
     hide: function () {
       this._awaitInit((modal) => {
+        console.log('有hide嗎？')
         modal.modal('hide')
       })
     },

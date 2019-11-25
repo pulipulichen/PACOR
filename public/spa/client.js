@@ -1100,48 +1100,50 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _c("span", [
-      _c(
-        "button",
-        {
-          staticClass: "comments ui button",
-          class: _vm.computedCommentsButtonClass,
-          attrs: { type: "button" },
-          on: {
-            click: function($event) {
-              $event.stopPropagation()
-              return _vm.comment($event)
-            }
-          }
-        },
-        [
-          _c("i", { staticClass: "comment outline icon" }),
-          _vm._v(" "),
-          _vm.showLabel
-            ? [
-                _vm.likes > 0
-                  ? [
-                      _vm._v(
-                        "\r\n          " +
-                          _vm._s(_vm.$t("{0} Comments", [_vm.comments])) +
-                          "\r\n        "
-                      )
-                    ]
-                  : [
-                      _vm._v(
-                        "\r\n          " +
-                          _vm._s(_vm.$t("Comment")) +
-                          "\r\n        "
-                      )
-                    ]
-              ]
-            : _vm.comments > 0
-            ? [_vm._v("\r\n        " + _vm._s(_vm.comments) + "\r\n      ")]
-            : _vm._e()
-        ],
-        2
-      )
-    ])
+    !_vm.enableComment && _vm.enableComment !== false
+      ? _c("span", [
+          _c(
+            "button",
+            {
+              staticClass: "comments ui button",
+              class: _vm.computedCommentsButtonClass,
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  return _vm.comment($event)
+                }
+              }
+            },
+            [
+              _c("i", { staticClass: "comment outline icon" }),
+              _vm._v(" "),
+              _vm.showLabel
+                ? [
+                    _vm.likes > 0
+                      ? [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("{0} Comments", [_vm.comments])) +
+                              "\r\n        "
+                          )
+                        ]
+                      : [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("Comment")) +
+                              "\r\n        "
+                          )
+                        ]
+                  ]
+                : _vm.comments > 0
+                ? [_vm._v("\r\n        " + _vm._s(_vm.comments) + "\r\n      ")]
+                : _vm._e()
+            ],
+            2
+          )
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -3386,9 +3388,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* global this */
+
 let AnnotationInteractive = {
   props: ['lib', 'status', 'config'
-    , 'annotation', 'size', 'showLabel'],
+    , 'annotation', 'size', 'showLabel', 'enableComment'],
   data() {    
     this.$i18n.locale = this.config.locale
     

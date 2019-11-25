@@ -2,8 +2,6 @@
      v-bind:data-comment-id="comment.id">
   <div class="meta text-container ui basic right labeled button">
     
-    #{{ comment.id }}
-    
     <span class="display-time">
       {{ displayTime }}
     </span>
@@ -15,6 +13,7 @@
       v-bind:status="status"
       v-bind:lib="lib"
       
+      v-bind:enableComment="false"
       v-bind:annotation="comment"
       v-on:like="$emit('like')"
       v-on:unlike="$emit('unlike')"

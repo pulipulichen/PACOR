@@ -69,10 +69,10 @@ let UserChartPopup = {
       if (this.otherIsAll && this.filterData.chart.allJSON) {
         count = this.filterData.chart.allJSON[text]
       }
-      else if (!this.otherIsMe && this.filterData.chart.otherJSONMap) {
+      else if (!this.otherIsMe && this.filterData.chart.othersJSONMap) {
         let userID = this.filterData.selectUser.id
-        if (this.filterData.chart.otherJSONMap[userID]) {
-          count = this.filterData.chart.otherJSONMap[userID][text]
+        if (this.filterData.chart.othersJSONMap[userID]) {
+          count = this.filterData.chart.othersJSONMap[userID][text]
         }
       }
       
@@ -101,9 +101,11 @@ let UserChartPopup = {
       $ele.click()
     },
     onPopupClick () {
+      this.$parent.$parent.hide()
+      
       //throw new Error('Search: ' + this.popupFocusText)
       this.status.search.keyword = this.popupFocusText
-      this.lib.UserFilter.hide()
+      
       
       // 先設定篩選條件
       this.lib.AnnotationPanel.findKeyword(this.status.search.keyword)

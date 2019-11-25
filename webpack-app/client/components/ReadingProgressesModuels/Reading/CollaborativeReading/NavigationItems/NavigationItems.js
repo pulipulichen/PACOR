@@ -20,12 +20,12 @@ let NavigationItems = {
   watch: {
     '$refs.UserFilter' (UserFilter) {
       if (UserFilter !== null) {
-        this.lib.UserFilter = UserFilter
+        this.lib.UserFilter = this.$refs.UserFilter
       }
     },
     '$refs.AnnotationTypeFilter' (AnnotationTypeFilter) {
       if (AnnotationTypeFilter !== null) {
-        this.lib.AnnotationTypeFilter = AnnotationTypeFilter
+        this.lib.AnnotationTypeFilter = this.$refs.AnnotationTypeFilter
       }
     }
   },

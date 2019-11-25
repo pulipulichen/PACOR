@@ -1278,30 +1278,32 @@ var render = function() {
         "div",
         { staticClass: "summary-information" },
         [
-          _c("div", { staticClass: "ui icon mini input search-input" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.panelData.keyword,
-                  expression: "panelData.keyword"
-                }
-              ],
-              attrs: { type: "text", placeholder: _vm.$t("Search...") },
-              domProps: { value: _vm.panelData.keyword },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+          _vm.annotation === null
+            ? _c("div", { staticClass: "ui icon mini input search-input" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.panelData.keyword,
+                      expression: "panelData.keyword"
+                    }
+                  ],
+                  attrs: { type: "text", placeholder: _vm.$t("Search...") },
+                  domProps: { value: _vm.panelData.keyword },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.panelData, "keyword", $event.target.value)
+                    }
                   }
-                  _vm.$set(_vm.panelData, "keyword", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c("i", { staticClass: "search icon" })
-          ]),
+                }),
+                _vm._v(" "),
+                _c("i", { staticClass: "search icon" })
+              ])
+            : _vm._e(),
           _vm._v(" "),
           _vm.annotation
             ? _c(
@@ -1345,43 +1347,51 @@ var render = function() {
                 ]
               ),
           _vm._v(" "),
-          _c("div", { staticClass: "label" }, [
-            _vm._v("\r\n      " + _vm._s(_vm.$t("Finding")) + ":\r\n    ")
-          ]),
-          _vm._v(" "),
-          _vm.hasUserFilter
-            ? _c("user-avatar-icons", {
-                attrs: {
-                  config: _vm.config,
-                  status: _vm.status,
-                  lib: _vm.lib,
-                  users: _vm.filteringUser
-                },
-                on: { find: _vm.clearFindUser }
-              })
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.hasTypeFilter
-            ? _c("annotation-type-button", {
-                attrs: {
-                  lib: _vm.lib,
-                  config: _vm.config,
-                  status: _vm.status,
-                  type: _vm.filteringType
-                },
-                on: { find: _vm.clearFindType }
-              })
-            : _vm._e(),
-          _vm._v(" "),
-          _c("div", { staticClass: "label" }, [
-            _vm._v(
-              "\r\n      " +
-                _vm._s(_vm.$t("Total {0} Annotations", [_vm.annotationCount])) +
-                "\r\n    "
-            )
-          ])
+          _vm.annotation === null
+            ? [
+                _c("div", { staticClass: "label" }, [
+                  _vm._v(
+                    "\r\n        " + _vm._s(_vm.$t("Finding")) + ":\r\n      "
+                  )
+                ]),
+                _vm._v(" "),
+                _vm.hasUserFilter
+                  ? _c("user-avatar-icons", {
+                      attrs: {
+                        config: _vm.config,
+                        status: _vm.status,
+                        lib: _vm.lib,
+                        users: _vm.filteringUser
+                      },
+                      on: { find: _vm.clearFindUser }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.hasTypeFilter
+                  ? _c("annotation-type-button", {
+                      attrs: {
+                        lib: _vm.lib,
+                        config: _vm.config,
+                        status: _vm.status,
+                        type: _vm.filteringType
+                      },
+                      on: { find: _vm.clearFindType }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("div", { staticClass: "label" }, [
+                  _vm._v(
+                    "\r\n        " +
+                      _vm._s(
+                        _vm.$t("Total {0} Annotations", [_vm.annotationCount])
+                      ) +
+                      "\r\n      "
+                  )
+                ])
+              ]
+            : _vm._e()
         ],
-        1
+        2
       ),
       _vm._v(" "),
       _c("div", { staticClass: "ui divider" }),
@@ -1504,30 +1514,43 @@ var render = function() {
               "div",
               { staticClass: "summary-information" },
               [
-                _c("div", { staticClass: "ui icon mini input search-input" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.panelData.keyword,
-                        expression: "panelData.keyword"
-                      }
-                    ],
-                    attrs: { type: "text", placeholder: _vm.$t("Search...") },
-                    domProps: { value: _vm.panelData.keyword },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.panelData, "keyword", $event.target.value)
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "search icon" })
-                ]),
+                _vm.annotation === null
+                  ? _c(
+                      "div",
+                      { staticClass: "ui icon mini input search-input" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.panelData.keyword,
+                              expression: "panelData.keyword"
+                            }
+                          ],
+                          attrs: {
+                            type: "text",
+                            placeholder: _vm.$t("Search...")
+                          },
+                          domProps: { value: _vm.panelData.keyword },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.panelData,
+                                "keyword",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("i", { staticClass: "search icon" })
+                      ]
+                    )
+                  : _vm._e(),
                 _vm._v(" "),
                 _vm.annotation
                   ? _c(
@@ -1553,40 +1576,46 @@ var render = function() {
                     )
                   : _vm._e(),
                 _vm._v(" "),
-                _c("user-avatar-icons", {
-                  attrs: {
-                    config: _vm.config,
-                    status: _vm.status,
-                    lib: _vm.lib,
-                    users: _vm.users,
-                    userCount: _vm.userCount
-                  },
-                  on: { find: _vm.findUser }
-                }),
-                _vm._v(" "),
-                _vm._l(_vm.types, function(t) {
-                  return _c("annotation-type-button", {
-                    key: t.type,
-                    attrs: {
-                      lib: _vm.lib,
-                      config: _vm.config,
-                      status: _vm.status,
-                      type: t.type,
-                      count: t.count
-                    },
-                    on: { find: _vm.findType }
-                  })
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "label" }, [
-                  _vm._v(
-                    "\r\n        " +
-                      _vm._s(
-                        _vm.$t("Total {0} Annotations", [_vm.annotationCount])
-                      ) +
-                      "\r\n      "
-                  )
-                ])
+                _vm.annotation === null
+                  ? [
+                      _c("user-avatar-icons", {
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib,
+                          users: _vm.users,
+                          userCount: _vm.userCount
+                        },
+                        on: { find: _vm.findUser }
+                      }),
+                      _vm._v(" "),
+                      _vm._l(_vm.types, function(t) {
+                        return _c("annotation-type-button", {
+                          key: t.type,
+                          attrs: {
+                            lib: _vm.lib,
+                            config: _vm.config,
+                            status: _vm.status,
+                            type: t.type,
+                            count: t.count
+                          },
+                          on: { find: _vm.findType }
+                        })
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "label" }, [
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(
+                              _vm.$t("Total {0} Annotations", [
+                                _vm.annotationCount
+                              ])
+                            ) +
+                            "\r\n        "
+                        )
+                      ])
+                    ]
+                  : _vm._e()
               ],
               2
             ),
@@ -1992,9 +2021,6 @@ var render = function() {
         "div",
         { staticClass: "meta text-container ui basic right labeled button" },
         [
-          _vm._v(
-            "\r\n    \r\n    #" + _vm._s(_vm.comment.id) + "\r\n    \r\n    "
-          ),
           _c("span", { staticClass: "display-time" }, [
             _vm._v("\r\n      " + _vm._s(_vm.displayTime) + "\r\n    ")
           ]),
@@ -2005,6 +2031,7 @@ var render = function() {
                   config: _vm.config,
                   status: _vm.status,
                   lib: _vm.lib,
+                  enableComment: false,
                   annotation: _vm.comment,
                   size: "mini",
                   showLabel: false
@@ -2532,7 +2559,19 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "a",
-    { staticClass: "item", on: { click: _vm.show } },
+    {
+      ref: "anchor",
+      staticClass: "item",
+      on: {
+        "~click": function($event) {
+          return _vm.initPopup($event)
+        },
+        "~mouseover": function($event) {
+          return _vm.initPopup($event)
+        },
+        click: _vm.show
+      }
+    },
     [
       _vm.type
         ? [
@@ -2543,10 +2582,20 @@ var render = function() {
                 status: _vm.status,
                 type: _vm.type
               },
-              on: { find: _vm.show }
+              on: {
+                "~find": function($event) {
+                  return _vm.initPopup($event)
+                },
+                find: _vm.show
+              }
             })
           ]
-        : [_vm._v("\r\n    " + _vm._s(_vm.$t("All Types")) + "\r\n  ")]
+        : [_vm._v("\r\n    " + _vm._s(_vm.$t("All Types")) + "\r\n  ")],
+      _vm._v(" "),
+      _c("annotation-type-filter-popup", {
+        ref: "AnnotationTypeFilterPopup",
+        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+      })
     ],
     2
   )
@@ -5187,8 +5236,8 @@ let AnnotationFloatWidget = {
       
       this.lib.AnnotationPanel.setAnnotation(annotation)
       
-      console.log('test this.lib.AnnotationPanel.focusCommentInput(2)')
-      this.lib.AnnotationPanel.focusCommentInput(2)
+      //console.log('test this.lib.AnnotationPanel.focusCommentInput(2)')
+      //this.lib.AnnotationPanel.focusCommentInput(2)
       
       this.reset()
     },
@@ -8868,8 +8917,6 @@ let AnnotationEditorModules = {
       }
     },
     scrollToAnnotation () {
-      //throw '@TODO'
-      
       let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.annotation.anchorPositions)
       //console.log(rect)
       this.lib.AnnotationPanel.scrollToRect(rect)
@@ -9677,6 +9724,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AnnotationTypeFilterPopup_AnnotationTypeFilterPopup_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AnnotationTypeFilterPopup/AnnotationTypeFilterPopup.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationTypeFilter/AnnotationTypeFilterPopup/AnnotationTypeFilterPopup.vue");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 let AnnotationTypeFilter = {
@@ -9684,6 +9734,7 @@ let AnnotationTypeFilter = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      inited: false
     }
   },
   components: {
@@ -9700,10 +9751,34 @@ let AnnotationTypeFilter = {
 //  },
   methods: {
     show () {
-      throw new Error('showTypeFilter')
+      //throw new Error('showTypeFilter')
     },
     hide () {
       throw new Error('hide')
+    },
+    initPopup () {
+      return null
+      if (this.inited === true) {
+        return null
+      }
+      this.inited = true
+      
+      let popup = this.$refs.AnnotationTypeFilterPopup
+      
+      let anchor = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.anchor)
+      
+      anchor.popup({
+                popup: popup,
+                inline     : true,
+                hoverable  : true,
+                on    : 'click',
+                distanceAway: 20,
+                onVisible: () => {
+                  popup.load()
+                }
+              })
+              
+      anchor.click()
     }
   } // methods
 }

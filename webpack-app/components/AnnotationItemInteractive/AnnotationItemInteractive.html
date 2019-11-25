@@ -18,7 +18,8 @@
       </template>
     </button>
   </span>
-  <span>
+  
+  <span v-if="!enableComment && enableComment !== false">
     <button type="button"
             class="comments ui button"
             v-bind:class="computedCommentsButtonClass"

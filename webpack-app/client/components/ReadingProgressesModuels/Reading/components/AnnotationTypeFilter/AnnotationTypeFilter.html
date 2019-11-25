@@ -1,5 +1,8 @@
 <a class="item"
-   v-on:click="show">
+   v-on:click.once="initPopup"
+   v-on:mouseover.once="initPopup"
+   v-on:click="show"
+   ref="anchor">
   <template v-if="type">
     <annotation-type-button 
         v-bind:lib="lib"
@@ -7,10 +10,19 @@
         v-bind:status="status"
 
         v-bind:type="type"
+        v-on:find.once="initPopup"
         v-on:find="show">
     </annotation-type-button>
   </template>
   <template v-else>
     {{ $t('All Types') }}
   </template>
+  
+  <annotation-type-filter-popup 
+    ref="AnnotationTypeFilterPopup"
+
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib">
+  </annotation-type-filter-popup>
 </a>

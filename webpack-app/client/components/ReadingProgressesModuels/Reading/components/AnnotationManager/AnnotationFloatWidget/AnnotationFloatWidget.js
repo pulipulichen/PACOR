@@ -190,8 +190,8 @@ let AnnotationFloatWidget = {
       
       this.lib.AnnotationPanel.setAnnotation(annotation)
       
-      console.log('test this.lib.AnnotationPanel.focusCommentInput(2)')
-      this.lib.AnnotationPanel.focusCommentInput(2)
+      //console.log('test this.lib.AnnotationPanel.focusCommentInput(2)')
+      //this.lib.AnnotationPanel.focusCommentInput(2)
       
       this.reset()
     },

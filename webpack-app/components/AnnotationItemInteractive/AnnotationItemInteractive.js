@@ -1,6 +1,8 @@
+/* global this */
+
 let AnnotationInteractive = {
   props: ['lib', 'status', 'config'
-    , 'annotation', 'size', 'showLabel'],
+    , 'annotation', 'size', 'showLabel', 'enableComment'],
   data() {    
     this.$i18n.locale = this.config.locale
     

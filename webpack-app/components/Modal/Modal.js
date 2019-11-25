@@ -53,7 +53,7 @@ let Modal = {
   methods: {
     getModal: function () {
       if (this.modal === null) {
-        this.modal = window.$(this.$refs.modal)
+        this.modal = $(this.$refs.modal)
       }
       return this.modal
     },
@@ -94,6 +94,7 @@ let Modal = {
     },
     hide: function () {
       this._awaitInit((modal) => {
+        console.log('有hide嗎？')
         modal.modal('hide')
       })
     },

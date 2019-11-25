@@ -66,6 +66,7 @@ let UserSelector = {
     },
     hide () {
       this.$refs.Modal.hide()
+      console.log('有hide嗎？')
     },
     submit () {
       if (this.filterData.selectUser) {

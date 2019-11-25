@@ -1,9 +1,10 @@
 
 ````html
-<template 
-  ref="auth"
+<annotation-type-filter-popup 
+  ref="AnnotationTypeFilter"
+
   v-bind:config="config"
   v-bind:status="status"
   v-bind:lib="lib">
-</template>
+</annotation-type-filter-popup>
 ````

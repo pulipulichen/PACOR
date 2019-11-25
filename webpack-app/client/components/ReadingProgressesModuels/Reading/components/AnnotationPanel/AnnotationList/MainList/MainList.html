@@ -4,7 +4,8 @@
 
     <div class="summary-information">
       
-      <div class="ui icon mini input search-input">
+      <div class="ui icon mini input search-input"
+           v-if="annotation === null">
         <input type="text" 
                v-model="panelData.keyword"
                v-bind:placeholder="$t('Search...')">
@@ -19,33 +20,34 @@
         {{ $t('Back to list') }}
       </button>
 
-      <user-avatar-icons
-        v-bind:config="config"
-        v-bind:status="status"
-        v-bind:lib="lib"
+      <template v-if="annotation === null">
+        <user-avatar-icons
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib"
 
-        v-bind:users="users"
-        v-bind:userCount="userCount"
-        v-on:find="findUser">
-      </user-avatar-icons >
+          v-bind:users="users"
+          v-bind:userCount="userCount"
+          v-on:find="findUser">
+        </user-avatar-icons >
 
-      <annotation-type-button 
-        v-for="t in types"
-        v-bind:key="t.type"
+        <annotation-type-button 
+          v-for="t in types"
+          v-bind:key="t.type"
 
-        v-bind:lib="lib"
-        v-bind:config="config"
-        v-bind:status="status"
+          v-bind:lib="lib"
+          v-bind:config="config"
+          v-bind:status="status"
 
-        v-bind:type="t.type"
-        v-bind:count="t.count"
-        v-on:find="findType">
-      </annotation-type-button>
-      
-      <div class="label">
-        {{ $t('Total {0} Annotations', [ annotationCount ]) }}
-      </div>
+          v-bind:type="t.type"
+          v-bind:count="t.count"
+          v-on:find="findType">
+        </annotation-type-button>
 
+        <div class="label">
+          {{ $t('Total {0} Annotations', [ annotationCount ]) }}
+        </div>
+      </template>
     </div>
 
     <div class="ui divider"></div>
