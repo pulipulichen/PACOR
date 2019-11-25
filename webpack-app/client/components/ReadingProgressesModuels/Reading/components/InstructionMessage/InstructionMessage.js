@@ -30,6 +30,10 @@ let InstructionMessage = {
   },
   methods: {
     checkAutoShow () {
+      if (!this.message) {
+        return null
+      }
+      
       //console.log(localStorage.getItem(this.localStorageKeyPrefix))
       if (localStorage.getItem(this.localStorageKeyPrefix) === null) {
         this.show()

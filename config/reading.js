@@ -90,7 +90,6 @@ module.exports = {
     },
     'CollaborativeReading': {
       message: '/2020exp/CollaborativeReading.html',
-      message: '進入合作閱讀囉',
       annotation: {
         types: ['Clarified', 'Confused', 'MainIdea', 'SectionMainIdea'],
         enableCollaboration: true,
@@ -98,13 +97,21 @@ module.exports = {
         defaultPermission: 'public',
         eanbleSectionAnnotation: true
       },
-      
     },
     'PostRecall': {
       message: '/2020exp/PostRecall.html',
       minWords: 10,
       limitMinutes: 0.1
-    }
+    },
+    'FreeReading': {
+      annotation: {
+        types: ['Clarified', 'Confused', 'MainIdea', 'SectionMainIdea'],
+        enableCollaboration: true,
+        enableControlPermission: false,
+        defaultPermission: 'public',
+        eanbleSectionAnnotation: true
+      },
+    },
   },
   annotationTypeModules: {
     'ConfusedClarified': {
