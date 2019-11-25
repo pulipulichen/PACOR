@@ -217,7 +217,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"All Types":"檢視所有標註"}}')
   delete Component.options._Ctor
 }
 
@@ -2470,9 +2470,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("a", { staticClass: "item" }, [
-    _vm._v("\r\n  AnnotationTypeFilter\r\n")
-  ])
+  return _c(
+    "a",
+    { staticClass: "item", on: { click: _vm.showTypeFilter } },
+    [
+      _vm.type
+        ? [
+            _c("annotation-type-button", {
+              attrs: {
+                lib: _vm.lib,
+                config: _vm.config,
+                status: _vm.status,
+                type: _vm.type,
+                count: _vm.count
+              },
+              on: { find: _vm.showTypeFilter }
+            })
+          ]
+        : [_vm._v("\r\n    " + _vm._s(_vm.$t("All Types")) + "\r\n  ")]
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -9422,12 +9440,18 @@ let AnnotationTypeFilter = {
   components: {
   },
   computed: {
+    type () {
+      return this.status.filter.findType
+    }
   },
   watch: {
   },
   mounted() {
   },
   methods: {
+    showTypeFilter () {
+      throw new Error('showTypeFilter')
+    }
   } // methods
 }
 

@@ -1,10 +1,12 @@
 
 ````html
-<annotation-module-button 
+<annotation-type-button 
         v-bind:lib="lib"
         v-bind:config="config"
         v-bind:status="status"
-        v-bind:annotationModule="annotationModule"
+
+        v-bind:type="type"
         v-bind:count="count"
-        v-on:find="findType"></annotation-module-button>
+        v-on:find="findType">
+</annotation-type-button>
 ````
