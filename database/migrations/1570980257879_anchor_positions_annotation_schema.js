@@ -9,7 +9,7 @@ class AnchorPositionsAnnotationSchema extends Schema {
       table.increments()
       table.integer('anchor_position_id').notNullable().unsigned().references('id').inTable('anchor_positions').onDelete('cascade')
       table.integer('annotation_id').notNullable().unsigned().references('id').inTable('annotations').onDelete('cascade')
-      table.timestamps()
+      //table.timestamps()
     })
   }
 

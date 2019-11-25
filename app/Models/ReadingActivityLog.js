@@ -62,6 +62,10 @@ class ReadingActivityLog extends Model {
   webpage () {
     return this.belongsTo('App/Models/Webpage')
   }
+  
+  withUsers () {
+    return this.hasMany('App/Models/ReadingActivityWithUser')
+  }
 }
 
 module.exports = ReadingActivityLog
