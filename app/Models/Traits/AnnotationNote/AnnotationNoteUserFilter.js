@@ -106,6 +106,57 @@ class AnnotationNoteUserFilter {
       })
     }
     
+    /**
+     * 計算對方用了你沒用過的文字的數量
+     * 
+     * 越大，表示兩者越遠
+     * @param {JSON} baseWords
+     * @param {JSON} targetWords
+     * @returns {Number}
+     */
+    Model.calculateWordsCountNotUsed = function (baseWords, targetWords) {
+      let result = 0
+      
+      Object.keys(targetWords).forEach(word => {
+        let targetCount = targetWords[word]
+        
+        if (typeof(baseWords[word]) === 'number') {
+          targetCount = targetCount - baseWords[word]
+        }
+        
+        if (targetCount > 0) {
+          result = result + targetCount
+        }
+      })
+      
+      return result
+    }
+    
+    /**
+     * 計算對方用了你也用過的文字的數量
+     * 
+     * 越大，表示兩者越相近
+     * @param {JSON} baseWords
+     * @param {JSON} targetWords
+     * @returns {Number}
+     */
+    Model.calculateWordsCountHasBeenUsed = function (baseWords, targetWords) {
+      let result = 0
+      
+      Object.keys(targetWords).forEach(word => {
+        if (typeof(baseWords[word]) !== 'number') {
+          return null
+        }
+        
+        let targetCount = targetWords[word]
+        let baseCount = baseWords[word]
+        
+        result = result + Math.min(targetCount, baseCount)
+      })
+      
+      return result
+    }
+    
   } // register (Model) {
 }
 
