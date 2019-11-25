@@ -40,6 +40,7 @@ class Webpage extends Model {
     this.addTrait('Webpage/WebpageFind')
     this.addTrait('Webpage/WebpageCrawler')
     this.addTrait('Webpage/WebpageAdmin')
+    this.addTrait('Webpage/WebpageAnnotation')
   }
   
   

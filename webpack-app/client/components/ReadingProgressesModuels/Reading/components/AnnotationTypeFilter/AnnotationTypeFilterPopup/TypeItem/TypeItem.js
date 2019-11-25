@@ -26,8 +26,18 @@ let TypeItem = {
       if (this.status.search.focusUser) {
         return this.status.search.focusUser.avatar_url
       }
+    },
+    othersIsAll () {
+      return (this.status.search.focusUser === null)
+    },
+    othersIsMe () {
+      return (this.status.search.focusUser
+              && this.status.search.focusUser.id === this.status.userID)
+    },
+    isOtherVisiable () {
+      return (this.lib.auth.isEnableCollaboration 
+              && !this.othersIsMe)
     }
-    
   },
   watch: {
   },

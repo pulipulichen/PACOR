@@ -133,6 +133,10 @@ Route.any('/client/File/:action', (options) => {
   return controllerMapping(options, 'client', 'File')
 }).middleware(['user', 'webpage'])
 
+Route.any('/client/AnnotationTypeFilter/:action', (options) => {
+  return controllerMapping(options, 'client', 'AnnotationTypeFilter')
+}).middleware(['user', 'webpage'])
+
 Route.any('/client/UserNotification/:action', (options) => {
   return controllerMapping(options, 'client', 'UserNotification')
 }).middleware(['user', 'webpage', 'checkEnableCollaboration'])

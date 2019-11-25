@@ -1,6 +1,7 @@
 'use strict'
 
 const Cache = use('Cache')
+const TypeHelper = use('App/Helpers/TypeHelper')
 
 class UserGroup {
 
@@ -79,6 +80,16 @@ class UserGroup {
     Model.prototype.getOtherUserIDsInGroup = async function (webpage) {
       let userIds = await this.getUserIDsInGroup(webpage)
       return userIds.filter(id => id !== this.primaryKeyValue)
+    }
+    
+    Model.prototype.isUserInMyGroup = async function (webpage, focusUserID) {
+      if (!focusUserID) {
+        return true
+      }
+      
+      let ids = await this.getOtherUserIDsInGroup(webpage)
+      focusUserID = TypeHelper.parseInt(focusUserID)
+      return (ids.indexOf(focusUserID) > -1)
     }
   } // register (Model) {
 }

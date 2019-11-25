@@ -78,4 +78,8 @@ export default function (Auth) {
     return (role === 'domain_admin'
             || role === 'global_admin')
   }
+  
+  Auth.computed.username = function () {
+    return this.getUsername(this.status)
+  }
 }

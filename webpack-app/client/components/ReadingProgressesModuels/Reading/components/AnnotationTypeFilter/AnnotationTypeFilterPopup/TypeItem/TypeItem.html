@@ -1,3 +1,51 @@
-<div class="item">
-  Template
+<div class="item"
+     v-on:click="selectType">
+  <span class="column">
+    <annotation-type-button 
+        v-bind:lib="lib"
+        v-bind:config="config"
+        v-bind:status="status"
+
+        v-bind:type="typeData.type"
+        v-on:find="selectType">
+    </annotation-type-button>
+  </span>
+  
+  <template v-if="lib.auth.isEnableCollaboration">
+    <template v-if="othersIsAll">
+      <span class="column">
+        <i class="large users icon" />
+      </span>
+      <span class="column username">
+        {{ $('All') }}
+      </span>
+      <span class="column">
+        :
+        {{ typeData.othersCount }}
+      </span>
+    </template>
+    <template v-else>
+      <span class="column">
+        <img v-bind:src="othersAvatar" />
+      </span>
+      <span class="column username">
+        {{ othersUsername }}
+      </span>
+      <span class="column">
+        :
+        {{ typeData.othersCount }}
+      </span>
+    </template>
+  </template>
+  
+  <span class="column">
+    <img v-bind:src="myAvatar" />
+  </span>
+  <span class="column username">
+    {{ username }}
+  </span>
+  <span class="column">
+    :
+    {{ typeData.myCount }}
+  </span>
 </div>

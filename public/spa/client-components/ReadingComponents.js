@@ -709,7 +709,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"TypeItem.less?vue&type=style&index=0&id=13a36aa7&lang=less&scoped=true&"}]);
+exports.push([module.i, ".column[data-v-13a36aa7] {\n  display: inline-block;\n  vertical-align: middle;\n}\nimg[data-v-13a36aa7] {\n  max-height: 1.5em;\n  width: auto;\n}\n", "",{"version":3,"sources":["TypeItem.less?vue&type=style&index=0&id=13a36aa7&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,iBAAiB;EACjB,WAAW;AACb","file":"TypeItem.less?vue&type=style&index=0&id=13a36aa7&lang=less&scoped=true&","sourcesContent":[".column[data-v-13a36aa7] {\n  display: inline-block;\n  vertical-align: middle;\n}\nimg[data-v-13a36aa7] {\n  max-height: 1.5em;\n  width: auto;\n}\n"]}]);
 
 
 /***/ }),
@@ -2573,7 +2573,21 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui popup" }, [_vm._v("\r\n  Template\r\n")])
+  return _c(
+    "div",
+    { staticClass: "ui popup" },
+    _vm._l(_vm.typeDataList, function(typeData) {
+      return _c("type-item", {
+        attrs: {
+          typeData: typeData,
+          config: _vm.config,
+          status: _vm.status,
+          lib: _vm.lib
+        }
+      })
+    }),
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2597,9 +2611,92 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "item" }, [_vm._v("\r\n  Template\r\n")])
+  return _c(
+    "div",
+    { staticClass: "item", on: { click: _vm.selectType } },
+    [
+      _c(
+        "span",
+        { staticClass: "column" },
+        [
+          _c("annotation-type-button", {
+            attrs: {
+              lib: _vm.lib,
+              config: _vm.config,
+              status: _vm.status,
+              type: _vm.typeData.type
+            },
+            on: { find: _vm.selectType }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.lib.auth.isEnableCollaboration
+        ? [
+            _vm.othersIsAll
+              ? [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "column username" }, [
+                    _vm._v("\r\n        " + _vm._s(_vm.$("All")) + "\r\n      ")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "column" }, [
+                    _vm._v(
+                      "\r\n        :\r\n        " +
+                        _vm._s(_vm.typeData.othersCount) +
+                        "\r\n      "
+                    )
+                  ])
+                ]
+              : [
+                  _c("span", { staticClass: "column" }, [
+                    _c("img", { attrs: { src: _vm.othersAvatar } })
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "column username" }, [
+                    _vm._v(
+                      "\r\n        " + _vm._s(_vm.othersUsername) + "\r\n      "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "column" }, [
+                    _vm._v(
+                      "\r\n        :\r\n        " +
+                        _vm._s(_vm.typeData.othersCount) +
+                        "\r\n      "
+                    )
+                  ])
+                ]
+          ]
+        : _vm._e(),
+      _vm._v(" "),
+      _c("span", { staticClass: "column" }, [
+        _c("img", { attrs: { src: _vm.myAvatar } })
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "column username" }, [
+        _vm._v("\r\n    " + _vm._s(_vm.username) + "\r\n  ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "column" }, [
+        _vm._v("\r\n    :\r\n    " + _vm._s(_vm.typeData.myCount) + "\r\n  ")
+      ])
+    ],
+    2
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "column" }, [
+      _c("i", { staticClass: "large users icon" })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -9740,7 +9837,7 @@ let AnnotationTypeFilterPopup = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      typeCounts: []
+      typeDataList: []
     }
   },
   components: {
@@ -9763,7 +9860,7 @@ let AnnotationTypeFilterPopup = {
       let result = await this.lib.AxiosHelper.get('/client/TypeFilter/init', data)
       console.log(result)
       
-      this.typeCounts = result
+      this.typeDataList = result
     }
   } // methods
 }
@@ -9917,8 +10014,18 @@ let TypeItem = {
       if (this.status.search.focusUser) {
         return this.status.search.focusUser.avatar_url
       }
+    },
+    othersIsAll () {
+      return (this.status.search.focusUser === null)
+    },
+    othersIsMe () {
+      return (this.status.search.focusUser
+              && this.status.search.focusUser.id === this.status.userID)
+    },
+    isOtherVisiable () {
+      return (this.lib.auth.isEnableCollaboration 
+              && !this.othersIsMe)
     }
-    
   },
   watch: {
   },

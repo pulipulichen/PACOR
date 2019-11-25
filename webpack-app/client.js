@@ -108,7 +108,7 @@ let VueController = {
       RangyManager: null,
       AnnotationPanel: null,
       UserFilter: null,
-      AnnotationTypeFiler: null,
+      AnnotationTypeFilter: null,
       SectionManager: null,
     },
     errors: [],

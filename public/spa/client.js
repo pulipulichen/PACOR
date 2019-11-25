@@ -1963,7 +1963,7 @@ let VueController = {
       RangyManager: null,
       AnnotationPanel: null,
       UserFilter: null,
-      AnnotationTypeFiler: null,
+      AnnotationTypeFilter: null,
       SectionManager: null,
     },
     errors: [],
@@ -2230,6 +2230,10 @@ __webpack_require__.r(__webpack_exports__);
     return (role === 'domain_admin'
             || role === 'global_admin')
   }
+  
+  Auth.computed.username = function () {
+    return this.getUsername(this.status)
+  }
 });
 
 /***/ }),
@@ -2377,6 +2381,18 @@ __webpack_require__.r(__webpack_exports__);
     }
 
     return (instance.user_id === this.status.userID)
+  }
+  
+  Auth.methods.getUsername = function (user) {
+    if (user.displayName) {
+      return user.displayName
+    }
+    else if (user.display_name) {
+      return user.display_name
+    }
+    else {
+      return user.username
+    }
   }
 });
 

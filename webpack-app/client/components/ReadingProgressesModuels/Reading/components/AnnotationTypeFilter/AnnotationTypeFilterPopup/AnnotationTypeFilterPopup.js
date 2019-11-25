@@ -5,7 +5,7 @@ let AnnotationTypeFilterPopup = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      typeCounts: []
+      typeDataList: []
     }
   },
   components: {
@@ -28,7 +28,7 @@ let AnnotationTypeFilterPopup = {
       let result = await this.lib.AxiosHelper.get('/client/TypeFilter/init', data)
       console.log(result)
       
-      this.typeCounts = result
+      this.typeDataList = result
     }
   } // methods
 }

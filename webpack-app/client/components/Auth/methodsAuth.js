@@ -133,4 +133,16 @@ export default function (Auth) {
 
     return (instance.user_id === this.status.userID)
   }
+  
+  Auth.methods.getUsername = function (user) {
+    if (user.displayName) {
+      return user.displayName
+    }
+    else if (user.display_name) {
+      return user.display_name
+    }
+    else {
+      return user.username
+    }
+  }
 }
