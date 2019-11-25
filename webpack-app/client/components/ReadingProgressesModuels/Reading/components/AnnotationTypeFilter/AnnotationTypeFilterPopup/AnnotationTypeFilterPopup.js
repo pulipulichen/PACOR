@@ -31,10 +31,27 @@ let AnnotationTypeFilterPopup = {
       }
       
       let result = await this.lib.AxiosHelper.get('/client/AnnotationTypeFilter/init', data)
-      console.log(result)
+      //console.log(result)
+      
+      let totalItem = this.getTotalItem(result)
+      result.unshift(totalItem)
       
       this.typeDataList = result
       this.loadLock = false
+    },
+    getTotalItem (typeDataList) {
+      let item = {
+        type: null,
+        myCount: 0,
+        othersCount: 0
+      }
+      
+      typeDataList.forEach(typeData => {
+        item.myCount = item.myCount + parseInt(typeData.myCount, 10)
+        item.othersCount = item.othersCount + parseInt(typeData.othersCount, 10)
+      }) 
+      
+      return item
     }
   } // methods
 }

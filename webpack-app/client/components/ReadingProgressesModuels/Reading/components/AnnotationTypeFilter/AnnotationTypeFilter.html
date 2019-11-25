@@ -12,7 +12,13 @@
     </annotation-type-button>
   </template>
   <template v-else>
-    {{ $t('All Types') }}
+    <annotation-type-button 
+      v-bind:lib="lib"
+      v-bind:config="config"
+      v-bind:status="status"
+
+      v-on:find="show">
+    </annotation-type-button>
   </template>
   
   <div class="ui popup"

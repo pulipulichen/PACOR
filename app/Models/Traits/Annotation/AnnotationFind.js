@@ -292,7 +292,12 @@ class AnnotationFind {
       return myAnnotations.toJSON().concat(othersAnnotations.toJSON())
     }
 
-    Model.findMyByWebpageGroup = async function (webpage, user, {afterTime}) {
+    Model.findMyByWebpageGroup = async function (webpage, user, options) {
+      let {
+        afterTime,
+        findType
+      } = options
+      
       const doQuery = async evt => {
 
         let query = this.query()
@@ -302,9 +307,14 @@ class AnnotationFind {
                 .with('anchorPositions')
                 .orderBy('updated_at_unixms', 'desc')
 
-        let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
-        //console.log(types)
-        query.whereIn('type', types)
+        if (findType) {
+          query.where('type', findType)
+        }
+        else {
+          let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
+          //console.log(types)
+          query.whereIn('type', types)
+        }
 
         //console.log(afterTime, typeof(afterTime))
         if (typeof (afterTime) === 'string') {

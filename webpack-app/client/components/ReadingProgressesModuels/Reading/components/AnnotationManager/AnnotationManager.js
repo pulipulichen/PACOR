@@ -130,9 +130,10 @@ let AnnotationManager = {
       }, this.loadHighlightInterval)
     },
     reloadHighlights () {
-      //console.log('哈囉？')
       this.afterTime = null
       this.lib.RangyManager.removeHighlights()
+      
+      //console.log('哈囉？', this.afterTime)
       this.loadHighlights()
     }
   } // methods

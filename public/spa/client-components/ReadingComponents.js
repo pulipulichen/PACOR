@@ -217,7 +217,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"All Types":"檢視所有標註"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"All Types":"全部標註"}}')
   delete Component.options._Ctor
 }
 
@@ -249,7 +249,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"All":"全部"}}')
   delete Component.options._Ctor
 }
 
@@ -709,7 +709,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".TypeItem[data-v-13a36aa7] {\n  white-space: nowrap;\n  cursor: pointer;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n}\n.column[data-v-13a36aa7] {\n  display: inline-block;\n  vertical-align: middle;\n}\nimg[data-v-13a36aa7] {\n  max-height: 1.5em;\n  width: auto;\n}\n", "",{"version":3,"sources":["TypeItem.less?vue&type=style&index=0&id=13a36aa7&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,eAAe;EACf,iBAAiB;EACjB,oBAAoB;AACtB;AACA;EACE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,iBAAiB;EACjB,WAAW;AACb","file":"TypeItem.less?vue&type=style&index=0&id=13a36aa7&lang=less&scoped=true&","sourcesContent":[".TypeItem[data-v-13a36aa7] {\n  white-space: nowrap;\n  cursor: pointer;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n}\n.column[data-v-13a36aa7] {\n  display: inline-block;\n  vertical-align: middle;\n}\nimg[data-v-13a36aa7] {\n  max-height: 1.5em;\n  width: auto;\n}\n"]}]);
+exports.push([module.i, ".TypeItem[data-v-13a36aa7] {\n  white-space: nowrap;\n  cursor: pointer;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  text-align: center;\n}\n.column[data-v-13a36aa7] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.column.button[data-v-13a36aa7] {\n  margin-left: 0.5em !important;\n  margin-right: 0.5em !important;\n}\nimg[data-v-13a36aa7] {\n  max-height: 1.5em;\n  width: auto;\n}\n.username[data-v-13a36aa7] {\n  font-weight: bold;\n}\n", "",{"version":3,"sources":["TypeItem.less?vue&type=style&index=0&id=13a36aa7&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,eAAe;EACf,iBAAiB;EACjB,oBAAoB;EACpB,kBAAkB;AACpB;AACA;EACE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,6BAA6B;EAC7B,8BAA8B;AAChC;AACA;EACE,iBAAiB;EACjB,WAAW;AACb;AACA;EACE,iBAAiB;AACnB","file":"TypeItem.less?vue&type=style&index=0&id=13a36aa7&lang=less&scoped=true&","sourcesContent":[".TypeItem[data-v-13a36aa7] {\n  white-space: nowrap;\n  cursor: pointer;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  text-align: center;\n}\n.column[data-v-13a36aa7] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.column.button[data-v-13a36aa7] {\n  margin-left: 0.5em !important;\n  margin-right: 0.5em !important;\n}\nimg[data-v-13a36aa7] {\n  max-height: 1.5em;\n  width: auto;\n}\n.username[data-v-13a36aa7] {\n  font-weight: bold;\n}\n"]}]);
 
 
 /***/ }),
@@ -2573,7 +2573,12 @@ var render = function() {
               on: { find: _vm.show }
             })
           ]
-        : [_vm._v("\r\n    " + _vm._s(_vm.$t("All Types")) + "\r\n  ")],
+        : [
+            _c("annotation-type-button", {
+              attrs: { lib: _vm.lib, config: _vm.config, status: _vm.status },
+              on: { find: _vm.show }
+            })
+          ],
       _vm._v(" "),
       _c(
         "div",
@@ -2654,23 +2659,6 @@ var render = function() {
     "div",
     { staticClass: "type-item TypeItem", on: { click: _vm.selectType } },
     [
-      _c(
-        "span",
-        { staticClass: "column" },
-        [
-          _c("annotation-type-button", {
-            attrs: {
-              lib: _vm.lib,
-              config: _vm.config,
-              status: _vm.status,
-              type: _vm.typeData.type
-            },
-            on: { find: _vm.selectType }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
       _vm.lib.auth.isEnableCollaboration
         ? [
             _vm.othersIsAll
@@ -2710,7 +2698,23 @@ var render = function() {
                     )
                   ])
                 ],
-            _vm._v("\r\n    \r\n    /\r\n    \r\n  ")
+            _vm._v(" "),
+            _c(
+              "span",
+              { staticClass: "column button" },
+              [
+                _c("annotation-type-button", {
+                  attrs: {
+                    lib: _vm.lib,
+                    config: _vm.config,
+                    status: _vm.status,
+                    type: _vm.typeData.type
+                  },
+                  on: { find: _vm.selectType }
+                })
+              ],
+              1
+            )
           ]
         : _vm._e(),
       _vm._v(" "),
@@ -5506,9 +5510,10 @@ let AnnotationManager = {
       }, this.loadHighlightInterval)
     },
     reloadHighlights () {
-      //console.log('哈囉？')
       this.afterTime = null
       this.lib.RangyManager.removeHighlights()
+      
+      //console.log('哈囉？', this.afterTime)
       this.loadHighlights()
     }
   } // methods
@@ -9744,13 +9749,14 @@ let AnnotationTypeFilter = {
 //  mounted() {
 //  },
   methods: {
-    show () {
+    
+    show: async function () {
       if (!this.anchor) {
         this.anchor = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.anchor)
       }
       
       if (this.inited === true) {
-        this.anchor.click()
+        this.anchor.popup('show')
         return null
       }
       
@@ -9758,23 +9764,27 @@ let AnnotationTypeFilter = {
       
       let popup = this.$refs.popup
       
+      await this.$refs.AnnotationTypeFilterPopup.load()
+      
       this.anchor.popup({
                 popup: popup,
                 inline     : true,
                 hoverable  : true,
                 on    : 'click',
                 position: "top center",
-                //distanceAway: 20,
-                onVisible: () => {
+                onShow: () => {
                   this.$refs.AnnotationTypeFilterPopup.load()
                 }
               })
-              
-      this.anchor.click()
+      
+      //await this.lib.VueHelper.sleep(500)
+      this.anchor.popup('show')
+      //this.anchor.popup('hide')
+      //this.anchor.popup('show')
     },
     hide () {
       //throw new Error('hide')
-      this.anchor.click()
+      this.anchor.popup('hide all')
     },
   } // methods
 }
@@ -9934,10 +9944,27 @@ let AnnotationTypeFilterPopup = {
       }
       
       let result = await this.lib.AxiosHelper.get('/client/AnnotationTypeFilter/init', data)
-      console.log(result)
+      //console.log(result)
+      
+      let totalItem = this.getTotalItem(result)
+      result.unshift(totalItem)
       
       this.typeDataList = result
       this.loadLock = false
+    },
+    getTotalItem (typeDataList) {
+      let item = {
+        type: null,
+        myCount: 0,
+        othersCount: 0
+      }
+      
+      typeDataList.forEach(typeData => {
+        item.myCount = item.myCount + parseInt(typeData.myCount, 10)
+        item.othersCount = item.othersCount + parseInt(typeData.othersCount, 10)
+      }) 
+      
+      return item
     }
   } // methods
 }

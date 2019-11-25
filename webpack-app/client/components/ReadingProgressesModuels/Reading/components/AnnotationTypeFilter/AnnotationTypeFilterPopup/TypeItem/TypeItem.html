@@ -1,15 +1,5 @@
 <div class="type-item TypeItem"
      v-on:click="selectType">
-  <span class="column">
-    <annotation-type-button 
-        v-bind:lib="lib"
-        v-bind:config="config"
-        v-bind:status="status"
-
-        v-bind:type="typeData.type"
-        v-on:find="selectType">
-    </annotation-type-button>
-  </span>
   
   <template v-if="lib.auth.isEnableCollaboration">
     <template v-if="othersIsAll">
@@ -37,7 +27,16 @@
       </span>
     </template>
     
-    /
+  <span class="column button">
+    <annotation-type-button 
+        v-bind:lib="lib"
+        v-bind:config="config"
+        v-bind:status="status"
+
+        v-bind:type="typeData.type"
+        v-on:find="selectType">
+    </annotation-type-button>
+  </span>
     
   </template>
   

@@ -23,13 +23,14 @@ let AnnotationTypeFilter = {
 //  mounted() {
 //  },
   methods: {
-    show () {
+    
+    show: async function () {
       if (!this.anchor) {
         this.anchor = $(this.$refs.anchor)
       }
       
       if (this.inited === true) {
-        this.anchor.click()
+        this.anchor.popup('show')
         return null
       }
       
@@ -37,23 +38,27 @@ let AnnotationTypeFilter = {
       
       let popup = this.$refs.popup
       
+      await this.$refs.AnnotationTypeFilterPopup.load()
+      
       this.anchor.popup({
                 popup: popup,
                 inline     : true,
                 hoverable  : true,
                 on    : 'click',
                 position: "top center",
-                //distanceAway: 20,
-                onVisible: () => {
+                onShow: () => {
                   this.$refs.AnnotationTypeFilterPopup.load()
                 }
               })
-              
-      this.anchor.click()
+      
+      //await this.lib.VueHelper.sleep(500)
+      this.anchor.popup('show')
+      //this.anchor.popup('hide')
+      //this.anchor.popup('show')
     },
     hide () {
       //throw new Error('hide')
-      this.anchor.click()
+      this.anchor.popup('hide all')
     },
   } // methods
 }

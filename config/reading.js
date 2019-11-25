@@ -169,7 +169,7 @@ module.exports = {
         //'highlight': 'border-bottom: 1px solid green',
         'highlight': {
           'my': 'background-color: rgba(0,128,0,0.5); color: white;',
-          'others': 'border-bottom: 2px solid red'
+          'others': 'border-bottom: 2px solid rgba(0,128,0)'
         },
         'segmentColor': 'green',
         'button': {

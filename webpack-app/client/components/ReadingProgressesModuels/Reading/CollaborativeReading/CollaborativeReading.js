@@ -18,7 +18,7 @@ let CollaborativeReading = {
     this.initComponentToLib()
     
     //this._testUserFilter()
-    this._testTypeFilter()
+    //this._testTypeFilter()
   },
   methods: {
     initComponentToLib () {

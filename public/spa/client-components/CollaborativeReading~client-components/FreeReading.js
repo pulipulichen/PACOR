@@ -185,7 +185,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Viewing All":"觀看全部","Asist":"協助","View":"觀看"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Viewing All":"觀看全員","Asist":"協助","View":"觀看"}}')
   delete Component.options._Ctor
 }
 
@@ -1633,7 +1633,7 @@ let CollaborativeReading = {
     this.initComponentToLib()
     
     //this._testUserFilter()
-    this._testTypeFilter()
+    //this._testTypeFilter()
   },
   methods: {
     initComponentToLib () {
