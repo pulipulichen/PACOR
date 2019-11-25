@@ -15,6 +15,10 @@ class UserNotificationSave {
   register(Model) {
     
     Model.createFromModelInstance = async function (webpage, triggerUser, instance, notifiedUserID, summary) {
+      if (notifiedUserID === triggerUser.primaryKeyValue) {
+        return null // 這個表示不增加通知
+      }
+      
       let anchorModel = instance.constructor.name
       let anchorModelID = instance.primaryKeyValue
       
