@@ -1633,6 +1633,7 @@ let CollaborativeReading = {
     this.initComponentToLib()
     
     //this._testUserFilter()
+    this._testTypeFilter()
   },
   methods: {
     initComponentToLib () {
@@ -1646,6 +1647,8 @@ let CollaborativeReading = {
       this.lib.RangyManager = this.$refs.RangyManager
       this.lib.AnnotationPanel = this.$refs.AnnotationPanel
       this.lib.SectionManager = this.$refs.SectionManager
+      this.lib.UserFilter = this.$refs.nav.$refs.UserFilter
+      this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
       //console.log(this.lib.AnnotationPanel)
     },
     showInstruction() {
@@ -1724,6 +1727,18 @@ let CollaborativeReading = {
         id: 1
       }
       */
+    },
+    _testTypeFilter: async function () {
+      console.log('_testTypeFilter')
+      await this.lib.VueHelper.sleep(1000)
+      
+      this.lib.AnnotationTypeFilter.show()
+      
+      /*
+      this.status.filter.focusUser = {
+        id: 1
+      }
+      */
     }
   } // methods
 }
@@ -1794,30 +1809,35 @@ let NavigationItems = {
 //  
 //  computed: {
 //  },
-  watch: {
-    '$refs.UserFilter' (UserFilter) {
-      if (UserFilter !== null) {
-        this.lib.UserFilter = this.$refs.UserFilter
-      }
-    },
-    '$refs.AnnotationTypeFilter' (AnnotationTypeFilter) {
-      if (AnnotationTypeFilter !== null) {
-        this.lib.AnnotationTypeFilter = this.$refs.AnnotationTypeFilter
-      }
-    }
-  },
-  mounted() {
-    this.initLibComponents()
-  },
+//  watch: {
+//    '$refs.UserFilter' (UserFilter) {
+//      if (UserFilter) {
+//        this.lib.UserFilter = this.$refs.UserFilter
+//      }
+//    },
+//    '$refs.AnnotationTypeFilter' (AnnotationTypeFilter) {
+//      if (AnnotationTypeFilter) {
+//        
+//        console.log(this.$refs.AnnotationTypeFilter)
+//        this.lib.AnnotationTypeFilter = this.$refs.AnnotationTypeFilter
+//      }
+//    }
+//  },
+//  mounted() {
+//    this.initLibComponents()
+//  },
   methods: {
-    initLibComponents () {
-      if (this.$refs.UserFilter !== null) {
-        this.lib.UserFilter = this.$refs.UserFilter
-      }
-      if (this.$refs.AnnotationTypeFilter !== null) {
-        this.lib.AnnotationTypeFilter = this.$refs.AnnotationTypeFilter
-      }
-    },
+//    initLibComponents () {
+//      if (this.$refs.UserFilter) {
+//        this.lib.UserFilter = this.$refs.UserFilter
+//      }
+//      
+//        console.log(this.$refs.AnnotationTypeFilter)
+//      if (this.$refs.AnnotationTypeFilter) {
+//        this.lib.AnnotationTypeFilter = this.$refs.AnnotationTypeFilter
+//        console.log(this.$refs.AnnotationTypeFilter)
+//      }
+//    },
     showInstruction () {
       this.$emit('showInstruction')
     }
@@ -2847,6 +2867,7 @@ let NotificationManager = {
           hoverable  : true,
           on    : 'click',
           distanceAway: 20,
+          position: "top center",
           onVisible: () => {
             this.stopReloadData()
           },

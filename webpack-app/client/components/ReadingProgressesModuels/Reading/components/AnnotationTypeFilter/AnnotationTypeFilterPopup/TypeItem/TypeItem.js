@@ -28,7 +28,8 @@ let TypeItem = {
       }
     },
     othersIsAll () {
-      return (this.status.search.focusUser === null)
+      //console.log(this.status.search.focusUser)
+      return (!this.status.search.focusUser)
     },
     othersIsMe () {
       return (this.status.search.focusUser
@@ -39,13 +40,13 @@ let TypeItem = {
               && !this.othersIsMe)
     }
   },
-  watch: {
-  },
-  mounted() {
-  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
   methods: {
     selectType () {
-      this.status.search.findType = this.typeData.type
+      this.status.filter.findType = this.typeData.type
       this.lib.AnnotationTypeFilter.hide()
     }
   } // methods

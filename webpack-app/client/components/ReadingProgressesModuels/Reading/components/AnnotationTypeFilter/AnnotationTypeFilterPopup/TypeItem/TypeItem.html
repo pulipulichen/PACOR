@@ -1,4 +1,4 @@
-<div class="item"
+<div class="type-item TypeItem"
      v-on:click="selectType">
   <span class="column">
     <annotation-type-button 
@@ -17,7 +17,7 @@
         <i class="large users icon" />
       </span>
       <span class="column username">
-        {{ $('All') }}
+        {{ $t('All') }}
       </span>
       <span class="column">
         :
@@ -36,6 +36,9 @@
         {{ typeData.othersCount }}
       </span>
     </template>
+    
+    /
+    
   </template>
   
   <span class="column">

@@ -6,7 +6,8 @@ let AnnotationTypeFilter = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      inited: false
+      inited: false,
+      anchor: null
     }
   },
   components: {
@@ -23,35 +24,37 @@ let AnnotationTypeFilter = {
 //  },
   methods: {
     show () {
-      //throw new Error('showTypeFilter')
-    },
-    hide () {
-      throw new Error('hide')
-    },
-    initPopup () {
-      return null
+      if (!this.anchor) {
+        this.anchor = $(this.$refs.anchor)
+      }
+      
       if (this.inited === true) {
+        this.anchor.click()
         return null
       }
+      
       this.inited = true
       
-      let popup = this.$refs.AnnotationTypeFilterPopup
+      let popup = this.$refs.popup
       
-      let anchor = $(this.$refs.anchor)
-      
-      anchor.popup({
+      this.anchor.popup({
                 popup: popup,
                 inline     : true,
                 hoverable  : true,
                 on    : 'click',
-                distanceAway: 20,
+                position: "top center",
+                //distanceAway: 20,
                 onVisible: () => {
-                  popup.load()
+                  this.$refs.AnnotationTypeFilterPopup.load()
                 }
               })
               
-      anchor.click()
-    }
+      this.anchor.click()
+    },
+    hide () {
+      //throw new Error('hide')
+      this.anchor.click()
+    },
   } // methods
 }
 

@@ -709,7 +709,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".column[data-v-13a36aa7] {\n  display: inline-block;\n  vertical-align: middle;\n}\nimg[data-v-13a36aa7] {\n  max-height: 1.5em;\n  width: auto;\n}\n", "",{"version":3,"sources":["TypeItem.less?vue&type=style&index=0&id=13a36aa7&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,iBAAiB;EACjB,WAAW;AACb","file":"TypeItem.less?vue&type=style&index=0&id=13a36aa7&lang=less&scoped=true&","sourcesContent":[".column[data-v-13a36aa7] {\n  display: inline-block;\n  vertical-align: middle;\n}\nimg[data-v-13a36aa7] {\n  max-height: 1.5em;\n  width: auto;\n}\n"]}]);
+exports.push([module.i, ".TypeItem[data-v-13a36aa7] {\n  white-space: nowrap;\n  cursor: pointer;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n}\n.column[data-v-13a36aa7] {\n  display: inline-block;\n  vertical-align: middle;\n}\nimg[data-v-13a36aa7] {\n  max-height: 1.5em;\n  width: auto;\n}\n", "",{"version":3,"sources":["TypeItem.less?vue&type=style&index=0&id=13a36aa7&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,eAAe;EACf,iBAAiB;EACjB,oBAAoB;AACtB;AACA;EACE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,iBAAiB;EACjB,WAAW;AACb","file":"TypeItem.less?vue&type=style&index=0&id=13a36aa7&lang=less&scoped=true&","sourcesContent":[".TypeItem[data-v-13a36aa7] {\n  white-space: nowrap;\n  cursor: pointer;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n}\n.column[data-v-13a36aa7] {\n  display: inline-block;\n  vertical-align: middle;\n}\nimg[data-v-13a36aa7] {\n  max-height: 1.5em;\n  width: auto;\n}\n"]}]);
 
 
 /***/ }),
@@ -2559,19 +2559,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "a",
-    {
-      ref: "anchor",
-      staticClass: "item",
-      on: {
-        "~click": function($event) {
-          return _vm.initPopup($event)
-        },
-        "~mouseover": function($event) {
-          return _vm.initPopup($event)
-        },
-        click: _vm.show
-      }
-    },
+    { ref: "anchor", staticClass: "item", on: { click: _vm.show } },
     [
       _vm.type
         ? [
@@ -2582,20 +2570,22 @@ var render = function() {
                 status: _vm.status,
                 type: _vm.type
               },
-              on: {
-                "~find": function($event) {
-                  return _vm.initPopup($event)
-                },
-                find: _vm.show
-              }
+              on: { find: _vm.show }
             })
           ]
         : [_vm._v("\r\n    " + _vm._s(_vm.$t("All Types")) + "\r\n  ")],
       _vm._v(" "),
-      _c("annotation-type-filter-popup", {
-        ref: "AnnotationTypeFilterPopup",
-        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
-      })
+      _c(
+        "div",
+        { ref: "popup", staticClass: "ui popup" },
+        [
+          _c("annotation-type-filter-popup", {
+            ref: "AnnotationTypeFilterPopup",
+            attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+          })
+        ],
+        1
+      )
     ],
     2
   )
@@ -2624,7 +2614,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "ui popup" },
+    { staticClass: "AnnotationTypeFilterPopup" },
     _vm._l(_vm.typeDataList, function(typeData) {
       return _c("type-item", {
         attrs: {
@@ -2662,7 +2652,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "item", on: { click: _vm.selectType } },
+    { staticClass: "type-item TypeItem", on: { click: _vm.selectType } },
     [
       _c(
         "span",
@@ -2688,7 +2678,9 @@ var render = function() {
                   _vm._m(0),
                   _vm._v(" "),
                   _c("span", { staticClass: "column username" }, [
-                    _vm._v("\r\n        " + _vm._s(_vm.$("All")) + "\r\n      ")
+                    _vm._v(
+                      "\r\n        " + _vm._s(_vm.$t("All")) + "\r\n      "
+                    )
                   ]),
                   _vm._v(" "),
                   _c("span", { staticClass: "column" }, [
@@ -2717,7 +2709,8 @@ var render = function() {
                         "\r\n      "
                     )
                   ])
-                ]
+                ],
+            _vm._v("\r\n    \r\n    /\r\n    \r\n  ")
           ]
         : _vm._e(),
       _vm._v(" "),
@@ -9734,7 +9727,8 @@ let AnnotationTypeFilter = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      inited: false
+      inited: false,
+      anchor: null
     }
   },
   components: {
@@ -9751,35 +9745,37 @@ let AnnotationTypeFilter = {
 //  },
   methods: {
     show () {
-      //throw new Error('showTypeFilter')
-    },
-    hide () {
-      throw new Error('hide')
-    },
-    initPopup () {
-      return null
+      if (!this.anchor) {
+        this.anchor = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.anchor)
+      }
+      
       if (this.inited === true) {
+        this.anchor.click()
         return null
       }
+      
       this.inited = true
       
-      let popup = this.$refs.AnnotationTypeFilterPopup
+      let popup = this.$refs.popup
       
-      let anchor = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.anchor)
-      
-      anchor.popup({
+      this.anchor.popup({
                 popup: popup,
                 inline     : true,
                 hoverable  : true,
                 on    : 'click',
-                distanceAway: 20,
+                position: "top center",
+                //distanceAway: 20,
                 onVisible: () => {
-                  popup.load()
+                  this.$refs.AnnotationTypeFilterPopup.load()
                 }
               })
               
-      anchor.click()
-    }
+      this.anchor.click()
+    },
+    hide () {
+      //throw new Error('hide')
+      this.anchor.click()
+    },
   } // methods
 }
 
@@ -9912,7 +9908,8 @@ let AnnotationTypeFilterPopup = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      typeDataList: []
+      typeDataList: [],
+      loadLock: false
     }
   },
   components: {
@@ -9926,16 +9923,21 @@ let AnnotationTypeFilterPopup = {
 //  },
   methods: {
     load: async function () {
+      if (this.loadLock === true) {
+        return null
+      }
+      this.loadLock = true
       let data = {}
       
       if (this.status.search.focusUser) {
         data.focusUserID = this.status.search.focusUser.id
       }
       
-      let result = await this.lib.AxiosHelper.get('/client/TypeFilter/init', data)
+      let result = await this.lib.AxiosHelper.get('/client/AnnotationTypeFilter/init', data)
       console.log(result)
       
       this.typeDataList = result
+      this.loadLock = false
     }
   } // methods
 }
@@ -10091,7 +10093,8 @@ let TypeItem = {
       }
     },
     othersIsAll () {
-      return (this.status.search.focusUser === null)
+      //console.log(this.status.search.focusUser)
+      return (!this.status.search.focusUser)
     },
     othersIsMe () {
       return (this.status.search.focusUser
@@ -10102,13 +10105,13 @@ let TypeItem = {
               && !this.othersIsMe)
     }
   },
-  watch: {
-  },
-  mounted() {
-  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
   methods: {
     selectType () {
-      this.status.search.findType = this.typeData.type
+      this.status.filter.findType = this.typeData.type
       this.lib.AnnotationTypeFilter.hide()
     }
   } // methods

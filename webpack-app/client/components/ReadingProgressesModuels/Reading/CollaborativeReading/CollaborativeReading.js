@@ -18,6 +18,7 @@ let CollaborativeReading = {
     this.initComponentToLib()
     
     //this._testUserFilter()
+    this._testTypeFilter()
   },
   methods: {
     initComponentToLib () {
@@ -31,6 +32,8 @@ let CollaborativeReading = {
       this.lib.RangyManager = this.$refs.RangyManager
       this.lib.AnnotationPanel = this.$refs.AnnotationPanel
       this.lib.SectionManager = this.$refs.SectionManager
+      this.lib.UserFilter = this.$refs.nav.$refs.UserFilter
+      this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
       //console.log(this.lib.AnnotationPanel)
     },
     showInstruction() {
@@ -103,6 +106,18 @@ let CollaborativeReading = {
       await this.lib.VueHelper.sleep(1000)
       
       this.lib.UserFilter.show()
+      
+      /*
+      this.status.filter.focusUser = {
+        id: 1
+      }
+      */
+    },
+    _testTypeFilter: async function () {
+      console.log('_testTypeFilter')
+      await this.lib.VueHelper.sleep(1000)
+      
+      this.lib.AnnotationTypeFilter.show()
       
       /*
       this.status.filter.focusUser = {

@@ -68,6 +68,7 @@ let NotificationManager = {
           hoverable  : true,
           on    : 'click',
           distanceAway: 20,
+          position: "top center",
           onVisible: () => {
             this.stopReloadData()
           },

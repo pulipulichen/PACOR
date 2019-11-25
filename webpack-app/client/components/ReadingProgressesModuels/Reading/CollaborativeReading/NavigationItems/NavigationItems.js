@@ -17,30 +17,35 @@ let NavigationItems = {
 //  
 //  computed: {
 //  },
-  watch: {
-    '$refs.UserFilter' (UserFilter) {
-      if (UserFilter !== null) {
-        this.lib.UserFilter = this.$refs.UserFilter
-      }
-    },
-    '$refs.AnnotationTypeFilter' (AnnotationTypeFilter) {
-      if (AnnotationTypeFilter !== null) {
-        this.lib.AnnotationTypeFilter = this.$refs.AnnotationTypeFilter
-      }
-    }
-  },
-  mounted() {
-    this.initLibComponents()
-  },
+//  watch: {
+//    '$refs.UserFilter' (UserFilter) {
+//      if (UserFilter) {
+//        this.lib.UserFilter = this.$refs.UserFilter
+//      }
+//    },
+//    '$refs.AnnotationTypeFilter' (AnnotationTypeFilter) {
+//      if (AnnotationTypeFilter) {
+//        
+//        console.log(this.$refs.AnnotationTypeFilter)
+//        this.lib.AnnotationTypeFilter = this.$refs.AnnotationTypeFilter
+//      }
+//    }
+//  },
+//  mounted() {
+//    this.initLibComponents()
+//  },
   methods: {
-    initLibComponents () {
-      if (this.$refs.UserFilter !== null) {
-        this.lib.UserFilter = this.$refs.UserFilter
-      }
-      if (this.$refs.AnnotationTypeFilter !== null) {
-        this.lib.AnnotationTypeFilter = this.$refs.AnnotationTypeFilter
-      }
-    },
+//    initLibComponents () {
+//      if (this.$refs.UserFilter) {
+//        this.lib.UserFilter = this.$refs.UserFilter
+//      }
+//      
+//        console.log(this.$refs.AnnotationTypeFilter)
+//      if (this.$refs.AnnotationTypeFilter) {
+//        this.lib.AnnotationTypeFilter = this.$refs.AnnotationTypeFilter
+//        console.log(this.$refs.AnnotationTypeFilter)
+//      }
+//    },
     showInstruction () {
       this.$emit('showInstruction')
     }

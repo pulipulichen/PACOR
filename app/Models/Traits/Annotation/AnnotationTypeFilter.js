@@ -39,6 +39,7 @@ class AnnotationTypeFilter {
         }
         
         let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
+        types = types.filter(type => (type !== 'SectionMainIdea'))
         
         let myCounts = await user.getAnnotationTypes(webpage)
         let othersCounts
@@ -51,15 +52,27 @@ class AnnotationTypeFilter {
           othersCounts = await webpage.getAnnotationTypes()
         }
         
+        // ---------------
+        
+        let myCountsJSON = {}
+        myCounts.forEach(row => {
+          myCountsJSON[row.type] = row.count
+        })
+        
+        let othersCountsJSON = {}
+        othersCounts.forEach(row => {
+          othersCountsJSON[row.type] = row.count
+        })
+        
         // ------------------
         
         let output = types.map(type => {
-          let myCount = myCounts[type]
+          let myCount = myCountsJSON[type]
           if (!myCount) {
             myCount = 0
           }
           
-          let othersCount = othersCounts[type]
+          let othersCount = othersCountsJSON[type]
           if (!othersCount) {
             othersCount = 0
           }
