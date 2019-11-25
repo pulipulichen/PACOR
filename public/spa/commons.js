@@ -1883,7 +1883,7 @@ let Modal = {
     },
     hide: function () {
       this._awaitInit((modal) => {
-        console.log('有hide嗎？')
+        //console.log('有hide嗎？')
         modal.modal('hide')
       })
     },
