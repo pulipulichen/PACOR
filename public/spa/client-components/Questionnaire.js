@@ -92,9 +92,7 @@ var render = function() {
           {
             key: "header",
             fn: function() {
-              return [
-                _vm._v("\r\n        " + _vm._s(_vm.header) + "\r\n      ")
-              ]
+              return [_vm._v("\r\n      " + _vm._s(_vm.header) + "\r\n    ")]
             },
             proxy: true
           },
@@ -129,7 +127,15 @@ var render = function() {
                           _vm.answer = $event.target.value
                         },
                         _vm.persist
-                      ]
+                      ],
+                      paste: function($event) {
+                        if ($event.target !== $event.currentTarget) {
+                          return null
+                        }
+                        return (function(e) {
+                          e.preventDefault()
+                        })($event)
+                      }
                     }
                   })
                 ])
@@ -157,9 +163,7 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\r\n            " +
-                        _vm._s(_vm.$t("NEXT")) +
-                        "\r\n            "
+                      "\r\n        " + _vm._s(_vm.$t("NEXT")) + "\r\n        "
                     ),
                     _c("i", { staticClass: "angle right icon" })
                   ]
@@ -217,9 +221,7 @@ var render = function() {
           {
             key: "header",
             fn: function() {
-              return [
-                _vm._v("\r\n        " + _vm._s(_vm.header) + "\r\n      ")
-              ]
+              return [_vm._v("\r\n      " + _vm._s(_vm.header) + "\r\n    ")]
             },
             proxy: true
           },
@@ -254,7 +256,15 @@ var render = function() {
                           _vm.answer = $event.target.value
                         },
                         _vm.persist
-                      ]
+                      ],
+                      paste: function($event) {
+                        if ($event.target !== $event.currentTarget) {
+                          return null
+                        }
+                        return (function(e) {
+                          e.preventDefault()
+                        })($event)
+                      }
                     }
                   })
                 ])
@@ -282,9 +292,7 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\r\n            " +
-                        _vm._s(_vm.$t("NEXT")) +
-                        "\r\n            "
+                      "\r\n        " + _vm._s(_vm.$t("NEXT")) + "\r\n        "
                     ),
                     _c("i", { staticClass: "angle right icon" })
                   ]

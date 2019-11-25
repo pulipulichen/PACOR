@@ -1,65 +1,72 @@
 <div class="Questionnaire">
-  <modal ref="Modal"
-         v-bind:config="config"
-         v-bind:status="status"
-         v-bind:lib="lib"
-         dimmerTransparent="false"
-         cancelable="false">
-      <template v-slot:header>
-        {{ header }}
-      </template>
-      <template v-slot:content inline-template>
-        
-        <iframe-message-segment 
-          class="field hint"
-          v-bind:config="config"
-          v-bind:message="message">
-        </iframe-message-segment>
-        
-        <div class="field">
-            <textarea v-model="answer"
-                      v-on:input="persist"
-                      v-bind:disabled="isTimeUp"
-                      class="answer"></textarea>
-            <!--
-            <div class="ui pointing basic label"
-                 v-bind:class="classWordCounter"
-                 v-if="!isTimeUp">
-              {{ displayCharacterCounter }}
-            </div>
-            -->
-        </div>
-      </template>
-      <template v-slot:actions>
+  <modal 
+    ref="Modal"
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+    dimmerTransparent="false"
+    cancelable="false">
+    <template v-slot:header>
+      {{ header }}
+    </template>
+    <template v-slot:content inline-template>
+
+      <iframe-message-segment 
+        class="field hint"
+        v-bind:config="config"
+        v-bind:message="message">
+      </iframe-message-segment>
+
+      <div class="field">
+        <textarea 
+          v-model="answer"
+          v-on:input="persist"
+          v-bind:disabled="isTimeUp"
+          v-on:paste.self="(e) => { e.preventDefault() }"
+          class="answer">
+        </textarea>
         <!--
-        <div class="ui button disabled" 
-             v-if="!isTimeUp"
-             v-html="buttonText"></div>
-        
-        <div class="ui green right labeled icon button" 
-             v-if="isTimeUp"
-             v-on:click="nextStep">
-            {{ $t('NEXT') }}
-            <i class="angle right icon"></i>
+        <div class="ui pointing basic label"
+             v-bind:class="classWordCounter"
+             v-if="!isTimeUp">
+          {{ displayCharacterCounter }}
         </div>
         -->
-        
-        <!-- @TODO 能夠重整按鈕嗎？ -->
-        <countdown-button v-bind:minWordCount="minWords"
-          enableClassNames="ui green right labeled icon button"
-          v-bind:text="answer"
-          v-bind:lib="lib"
-          v-bind:locale="status.preference.locale"
-          v-bind:countdownSec="remainingSeconds"
-          v-bind:ignoreWordCount="true"
-          v-on:click="nextStep">
-            {{ $t('NEXT') }}
-            <i class="angle right icon"></i>
-        </countdown-button>
-      </template>
+      </div>
+    </template>
+    <template v-slot:actions>
+      <!--
+      <div class="ui button disabled" 
+           v-if="!isTimeUp"
+           v-html="buttonText"></div>
+      
+      <div class="ui green right labeled icon button" 
+           v-if="isTimeUp"
+           v-on:click="nextStep">
+          {{ $t('NEXT') }}
+          <i class="angle right icon"></i>
+      </div>
+      -->
+
+      <!-- @TODO 能夠重整按鈕嗎？ -->
+      <countdown-button 
+        v-bind:minWordCount="minWords"
+        enableClassNames="ui green right labeled icon button"
+        v-bind:text="answer"
+        v-bind:lib="lib"
+        v-bind:locale="status.preference.locale"
+        v-bind:countdownSec="remainingSeconds"
+        v-bind:ignoreWordCount="true"
+        v-on:click="nextStep">
+        {{ $t('NEXT') }}
+        <i class="angle right icon"></i>
+      </countdown-button>
+    </template>
   </modal>
-  
-  <activity-timer v-bind:config="config"
-        v-bind:lib="lib"></activity-timer>
+
+  <activity-timer 
+    v-bind:config="config"
+    v-bind:lib="lib">
+  </activity-timer>
   <block-exit></block-exit>
 </div>
