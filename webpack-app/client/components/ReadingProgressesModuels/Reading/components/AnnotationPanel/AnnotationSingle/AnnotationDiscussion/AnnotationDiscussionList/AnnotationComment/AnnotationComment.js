@@ -35,15 +35,19 @@ let AnnotationComment = {
 //  },
   methods: {
     onDelete: async function () {
-      if (window.confirm(this.$t('Are you sure to delete this comment?'))) {
-        let data = {
-          id: this.comment.id
-        }
-        
-        await this.lib.AxiosHelper.get('/client/AnnotationComment/destroy', data)
-        
-        this.$emit('delete')
+      let confirm = await this.lib.ConfirmModal.show(this.$t('Are you sure to delete this comment?'))
+      
+      if (confirm === false) {
+        return null
       }
+      
+      let data = {
+        id: this.comment.id
+      }
+
+      await this.lib.AxiosHelper.get('/client/AnnotationComment/destroy', data)
+
+      this.$emit('delete')
     }
   } // methods
 }

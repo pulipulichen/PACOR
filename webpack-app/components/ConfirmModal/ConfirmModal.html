@@ -3,6 +3,8 @@
   <div class="ui icon header">
     <i v-if="icon"
        v-bind:class="icon + ' icon'"></i>
+    <i v-else
+       class="question icon"></i>
     
     <template v-if="title"
               v-html="title"></template>

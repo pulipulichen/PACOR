@@ -345,7 +345,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Are you sure?":"您確定嗎？"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Are you sure?":"您確定嗎？","Yes":"是的","No":"不是"}}')
   delete Component.options._Ctor
 }
 
@@ -1365,7 +1365,9 @@ var render = function() {
         "div",
         { staticClass: "ui icon header" },
         [
-          _vm.icon ? _c("i", { class: _vm.icon + " icon" }) : _vm._e(),
+          _vm.icon
+            ? _c("i", { class: _vm.icon + " icon" })
+            : _c("i", { staticClass: "question icon" }),
           _vm._v(" "),
           _vm.title
             ? void 0

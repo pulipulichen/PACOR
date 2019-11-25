@@ -13,12 +13,7 @@
       </div>
     </a>
     
-    <notification-manager 
-      ref="NotificationManager"
-      v-bind:config="config"
-      v-bind:status="status"
-      v-bind:lib="lib">
-    </notification-manager>
+    
     
     <a class="item"
        v-on:click="showInstruction">
@@ -56,6 +51,13 @@
         v-bind:lib="lib">
       </search-manager>
     </div>
+    
+    <notification-manager 
+      ref="NotificationManager"
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib">
+    </notification-manager>
 
   </template>
 

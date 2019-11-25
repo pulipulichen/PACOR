@@ -7754,15 +7754,19 @@ let AnnotationComment = {
 //  },
   methods: {
     onDelete: async function () {
-      if (window.confirm(this.$t('Are you sure to delete this comment?'))) {
-        let data = {
-          id: this.comment.id
-        }
-        
-        await this.lib.AxiosHelper.get('/client/AnnotationComment/destroy', data)
-        
-        this.$emit('delete')
+      let confirm = await this.lib.ConfirmModal.show(this.$t('Are you sure to delete this comment?'))
+      
+      if (confirm === false) {
+        return null
       }
+      
+      let data = {
+        id: this.comment.id
+      }
+
+      await this.lib.AxiosHelper.get('/client/AnnotationComment/destroy', data)
+
+      this.$emit('delete')
     }
   } // methods
 }
@@ -8942,21 +8946,23 @@ let AnnotationEditorModules = {
         throw 'Annotation ID is not existed.'
       }
       
-      if (window.confirm(this.$t('Are you sure to delete this annotation?'))) {
-        
-        let data = {
-          id: this.annotation.id
-        }
-        
-        await this.lib.AxiosHelper.get('/client/Annotation/destroy', data)
-        
-        await this.reloadMyHighlights()
-        
-        this.lib.AnnotationPanel.triggerEvent('delete')
-        this.$emit('delete')
-
-        //return // 跟上層說關閉視窗
+      let title = this.$t('Are you sure to delete this annotation?')
+      let confirm = await this.lib.ConfirmModal.show(title)
+      if (confirm === false) {
+        return null
       }
+      
+      let data = {
+        id: this.annotation.id
+      }
+
+      await this.lib.AxiosHelper.get('/client/Annotation/destroy', data)
+
+      await this.reloadMyHighlights()
+
+      this.lib.AnnotationPanel.triggerEvent('delete')
+      this.$emit('delete')
+
     },
     onAnnotationLike: async function () {
       let data = {
@@ -11070,7 +11076,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     
     
-    selectQuestion (question) {
+    selectQuestion: async function (question) {
       if (!this.$refs.QuestionEditor) {
         //setTimeout(() => {
         //  this.selectQuestion(question)
@@ -11080,7 +11086,9 @@ __webpack_require__.r(__webpack_exports__);
       //console.log([this.isQuestionEdited, this.question, this.questionReset])
       if (this.isQuestionEdited === true
           && this.question !== '') {
-        if (!window.confirm(this.$t('New question will overwrite your question. Are you sure?'))) {
+        let title = this.$t('New question will overwrite your question. Are you sure?')
+        let confirm = await this.lib.ConfirmModal.show(title)
+        if (confirm === false) {
           return false
         }
       }
@@ -11248,7 +11256,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$emit('update')
     },
     
-    onCommentLike (comment) {
+    onCommentLike: async function (comment) {
       
       //console.log(comment)
       if (this.isEditable === false) {
@@ -11258,7 +11266,9 @@ __webpack_require__.r(__webpack_exports__);
       let commentNote = comment.note
       
       if (this.answer !== '') {
-        if (!window.confirm(this.$t('Do you want to use this comment as your answer?'))) {
+        let title = this.$t('Do you want to use his comment as your answer?')
+        let confirm = await this.lib.ConfirmModal.show(title)
+        if (confirm === false) {
           return null
         }
       }

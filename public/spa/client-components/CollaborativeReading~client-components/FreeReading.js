@@ -413,11 +413,6 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("notification-manager", {
-              ref: "NotificationManager",
-              attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
-            }),
-            _vm._v(" "),
             _c(
               "a",
               { staticClass: "item", on: { click: _vm.showInstruction } },
@@ -464,7 +459,12 @@ var render = function() {
                 })
               ],
               1
-            )
+            ),
+            _vm._v(" "),
+            _c("notification-manager", {
+              ref: "NotificationManager",
+              attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+            })
           ]
         },
         proxy: true

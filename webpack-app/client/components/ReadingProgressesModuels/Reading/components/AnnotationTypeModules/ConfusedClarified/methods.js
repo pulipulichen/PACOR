@@ -14,7 +14,7 @@ export default (Editor) => {
     },
     
     
-    selectQuestion (question) {
+    selectQuestion: async function (question) {
       if (!this.$refs.QuestionEditor) {
         //setTimeout(() => {
         //  this.selectQuestion(question)
@@ -24,7 +24,9 @@ export default (Editor) => {
       //console.log([this.isQuestionEdited, this.question, this.questionReset])
       if (this.isQuestionEdited === true
           && this.question !== '') {
-        if (!window.confirm(this.$t('New question will overwrite your question. Are you sure?'))) {
+        let title = this.$t('New question will overwrite your question. Are you sure?')
+        let confirm = await this.lib.ConfirmModal.show(title)
+        if (confirm === false) {
           return false
         }
       }
@@ -192,7 +194,7 @@ export default (Editor) => {
       this.$emit('update')
     },
     
-    onCommentLike (comment) {
+    onCommentLike: async function (comment) {
       
       //console.log(comment)
       if (this.isEditable === false) {
@@ -202,7 +204,9 @@ export default (Editor) => {
       let commentNote = comment.note
       
       if (this.answer !== '') {
-        if (!window.confirm(this.$t('Do you want to use this comment as your answer?'))) {
+        let title = this.$t('Do you want to use his comment as your answer?')
+        let confirm = await this.lib.ConfirmModal.show(title)
+        if (confirm === false) {
           return null
         }
       }

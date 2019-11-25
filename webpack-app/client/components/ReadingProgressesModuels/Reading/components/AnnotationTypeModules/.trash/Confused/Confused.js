@@ -225,9 +225,11 @@ let Confused = {
     hide () {
       this.$emit('hide', true)
     },
-    selectQuestion (question) {
+    selectQuestion: async function (question) {
       if (this.isQuestionEdited === false) {
-        if (!window.confirm($t('New question will overwrite your question. Are you sure?'))) {
+        let title = $t('New question will overwrite your question. Are you sure?')
+        let confirm = await this.lib.ConfirmModal(title)
+        if (confirm === false) {
           return false
         }
       }
