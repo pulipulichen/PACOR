@@ -110,6 +110,7 @@ let VueController = {
       UserFilter: null,
       AnnotationTypeFilter: null,
       SectionManager: null,
+      ConfirmModal: null,
     },
     errors: [],
     persistAttrs: [
@@ -135,6 +136,7 @@ let VueController = {
     
     this.lib.auth = this.$refs.auth
     this.lib.AnnotationHelper.setStatus(this.status)
+    this.lib.ConfirmModal = this.$refs.ConfirmModal
     //console.log(this.lib.auth.nextStep)
   },
   

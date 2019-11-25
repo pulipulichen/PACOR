@@ -18,7 +18,7 @@ let CollaborativeReading = {
     this.initComponentToLib()
     
     //this._testUserFilter()
-    //this._testTypeFilter()
+    //this._testConfirmModal()
   },
   methods: {
     initComponentToLib () {
@@ -41,6 +41,15 @@ let CollaborativeReading = {
     },
     
     // --------------------------------
+    _testConfirmModal: async function () {
+      console.log('_testSearch')
+      await this.lib.VueHelper.sleep(1000)
+      
+      let r1 = await this.lib.ConfirmModal.show()
+      console.log(r1)
+      let r2 = await this.lib.ConfirmModal.show()
+      console.log(r2)
+    },
     
     _testSearch: async function () {
       console.log('_testSearch')

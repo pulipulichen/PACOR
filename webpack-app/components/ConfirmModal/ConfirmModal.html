@@ -1,0 +1,37 @@
+<div class="ui basic modal ConfirmModal"
+     ref="modal">
+  <div class="ui icon header">
+    <i v-if="icon"
+       v-bind:class="icon + ' icon'"></i>
+    
+    <template v-if="title"
+              v-html="title"></template>
+    <template v-else>
+      {{ $t('Are you sure?') }}
+    </template>
+  </div>
+  <div class="content"
+       v-if="message"
+       v-html="message">
+  </div>
+  <div class="actions"
+       v-bind:class="computedActionsClassList">
+    
+    <div class="ui green ok inverted button"
+         v-if="isLeftHanded">
+      <i class="checkmark icon"></i>
+      {{ $t('Yes') }}
+    </div>
+    
+    <div class="ui red basic cancel inverted button">
+      <i class="remove icon"></i>
+      {{ $t('No') }}
+    </div>
+    
+    <div class="ui green ok inverted button"
+         v-if="!isLeftHanded">
+      <i class="checkmark icon"></i>
+      {{ $t('Yes') }}
+    </div>
+  </div>
+</div>

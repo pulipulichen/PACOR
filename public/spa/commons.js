@@ -519,7 +519,7 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _vm.$slots.content
-      ? _c("div", { staticClass: "content" }, [
+      ? _c("div", { staticClass: "scrolling content" }, [
           _c("div", { staticClass: "ui form" }, [_vm._t("content")], 2)
         ])
       : _vm._e(),

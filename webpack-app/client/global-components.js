@@ -8,6 +8,9 @@ Vue.component('pagination', Pagination)
 import Modal from './../components/Modal/Modal.vue'
 Vue.component('modal', Modal)
 
+import ConfirmModal from './../components/ConfirmModal/ConfirmModal.vue'
+Vue.component('confirm-modal', ConfirmModal)
+
 import StepProgressBar from './../components/StepProgressBar/StepProgressBar.vue'
 Vue.component('step-progress-bar', StepProgressBar)
 
