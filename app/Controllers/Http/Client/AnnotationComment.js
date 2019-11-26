@@ -1,7 +1,7 @@
 'use strict'
 const WebpageUserBaseController = use('App/Controllers/Http/Client/WebpageUserBaseController')
 
-const Annotation = use('App/Controllers/Http/Client/Annotation')
+const AnnotationModel = use('App/Models/Annotation')
 
 const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
 
@@ -34,6 +34,11 @@ class AnnotationComment extends WebpageUserBaseController {
   
   async create({request, webpage, user}) {
     const data = request.all()
+    
+    let annotation = await AnnotationModel.find(data.annotationID)
+    let annotationUser = await annotation.user().fetch()
+    await webpage.log(user, 'AnnotationComment.create', data, annotationUser)
+    
     return await AnnotationCommentModel.createFromJSON(webpage, user, data)
   }
   
