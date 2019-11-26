@@ -8,28 +8,7 @@ class ReadingActivityLog extends Model {
     super.boot()
     
     this.addTrait('JSONCase', 'properties')
-  }
-  
-  static async log (webpageID, userID, type, log) {
-    if (typeof(webpageID) === 'object'
-            && typeof(webpageID.primaryKeyValue) === 'number') {
-      webpageID = webpageID.primaryKeyValue
-    }
-    
-    if (typeof(userID) === 'object'
-            && typeof(userID.primaryKeyValue) === 'number') {
-      userID = userID.primaryKeyValue
-    }
-    
-    let logInstance = new ReadingActivityLog
-    
-    logInstance.webpage_id = webpageID
-    logInstance.user_id = userID
-    logInstance.type = type
-    if (typeof(log) !== 'undefined') {
-      logInstance.log = log
-    }
-    await logInstance.save()
+    this.addTrait('ReadingActivityLog/ReadingActivityLogSave')
   }
   
   static async findLog (webpageID, userID, type) {
