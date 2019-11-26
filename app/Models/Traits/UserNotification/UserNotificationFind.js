@@ -13,7 +13,7 @@ class UserNotificationFind {
   register(Model) {
     
     let triggerQueryBuilder = (builder) => {
-      builder.setHidden(['avatar', 'domain_id', 'email', 'id', 'password', 'preference', 'role', 'created_at', 'updated_at'])
+      builder.setHidden(['avatar', 'domain_id', 'email', 'password', 'preference', 'role', 'created_at', 'updated_at'])
     }
     
     Model.getInit = async function (webpage, user, options) {

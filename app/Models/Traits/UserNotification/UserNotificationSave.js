@@ -58,6 +58,10 @@ class UserNotificationSave {
         throw new HttpException('Anchor model, anchor model ID and notified user ID are required.')
       }
       
+      if (notifiedUserID === triggerUser.primaryKeyValue) {
+        return null // 這個表示不增加通知
+      }
+      
       // -------------------------------------
       let findData = {
         webpage_id: webpage.primaryKeyValue,

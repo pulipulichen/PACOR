@@ -27,10 +27,27 @@ let PeerList = {
       //console.log(result)
       
       if (Array.isArray(result)) {
+        this.checkTempSelectUserID(result)
+        
         this.filterData.users = this.filterData.users.slice(0, 0).concat(result)
       }
       
       //console.log(this.filterData.selectUser)
+    },
+    checkTempSelectUserID (result) {
+      if (!this.filterData.tempSelectUserID) {
+        return null
+      }
+      
+      for (let i = 0; i < result.length; i++) {
+        let user = result[i]
+        //console.log(user)
+        if (user.id === this.filterData.tempSelectUserID) {
+          this.filterData.selectUser = user
+          this.filterData.tempSelectUserID = null
+          return null
+        }
+      }
     }
   } // methods
 }

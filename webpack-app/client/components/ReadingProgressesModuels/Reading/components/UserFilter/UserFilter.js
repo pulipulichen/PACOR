@@ -10,6 +10,7 @@ let UserSelector = {
         users: [],
         allAnnotationTypes: [],
         selectUser: null,
+        tempSelectUserID: null,
         
         chart: {
           userJSON: null,
@@ -64,9 +65,14 @@ let UserSelector = {
       this.$refs.Modal.show()
       
     },
+    selectUser (id) {
+      //console.log(id)
+      this.filterData.tempSelectUserID = id
+      this.show()
+    },
     hide () {
       this.$refs.Modal.hide()
-      console.log('有hide嗎？')
+      //console.log('有hide嗎？')
     },
     submit () {
       if (this.filterData.selectUser) {

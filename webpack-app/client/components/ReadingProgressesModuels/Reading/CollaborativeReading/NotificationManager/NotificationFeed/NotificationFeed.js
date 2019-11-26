@@ -3,6 +3,7 @@ import $ from 'jquery'
 import EventAnnotationComment from './EventAnnotationComment/EventAnnotationComment.vue'
 import EventAnnotationCommentRate from './EventAnnotationCommentRate/EventAnnotationCommentRate.vue'
 import EventAnnotationRate from './EventAnnotationRate/EventAnnotationRate.vue'
+import EventReadingProgress from './EventReadingProgress/EventReadingProgress.vue'
 
 let NotificationFeed = {
   props: ['lib', 'status', 'config'
@@ -26,7 +27,8 @@ let NotificationFeed = {
   components: {
     EventAnnotationComment,
     EventAnnotationCommentRate,
-    EventAnnotationRate
+    EventAnnotationRate,
+    EventReadingProgress
   },
 //  computed: {
 //    basetime () {
