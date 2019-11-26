@@ -19,15 +19,29 @@ class UserNotificationSave {
         return null // 這個表示不增加通知
       }
       
+      // 如果沒有設對象，表示全域廣播
+      if (notifiedUserID === undefined) {
+        notifiedUserID = await triggerUser.getUserIDsInGroup(webpage)
+      }
+      
       let anchorModel = instance.constructor.name
       let anchorModelID = instance.primaryKeyValue
       
-      return await this.createFromJSON(webpage, triggerUser, {
-        anchorModel,
-        anchorModelID,
-        notifiedUserID,
-        summary
-      })
+      if (Array.isArray(notifiedUserID) === false) {
+        notifiedUserID = [notifiedUserID]
+      }
+      
+      for (let i = 0; i < notifiedUserID.length; i++) {
+        let nID = notifiedUserID[i]
+        
+        await this.createFromJSON(webpage, triggerUser, {
+          anchorModel,
+          anchorModelID,
+          notifiedUserID: nID,
+          summary
+        })
+      }
+      return 1
     }
     
     Model.createFromJSON = async function (webpage, triggerUser, data) {
@@ -37,7 +51,7 @@ class UserNotificationSave {
         notifiedUserID,
         summary
       } = data
-      
+      //console.log(data)
       if (typeof(anchorModel) !== 'string'
               || typeof(anchorModelID) !== 'number'
               || typeof(notifiedUserID) !== 'number') {

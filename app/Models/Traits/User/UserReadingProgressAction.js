@@ -30,6 +30,12 @@ class UserReadingProgressAction {
       
       if (step.start_timestamp === time) {
         // 表示這是新增的資料
+        
+        let isEnableCollaboration = await this.isEnableCollaboration(webpage)
+        if (isEnableCollaboration === true) {
+          await webpage.addNotification(this, step)
+        }
+        
         //console.log('新增')
         //await step.save()
         //await Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))

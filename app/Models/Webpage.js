@@ -42,6 +42,7 @@ class Webpage extends Model {
     this.addTrait('Webpage/WebpageAdmin')
     this.addTrait('Webpage/WebpageAnnotation')
     this.addTrait('Webpage/WebpageLog')
+    this.addTrait('Webpage/WebpageNotification')
   }
   
   
