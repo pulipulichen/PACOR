@@ -4,6 +4,7 @@ const Cache = use('Cache')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
 const UserModel = use('App/Models/User')
+const AnnotationNoteModel = use('App/Models/AnnotationNote')
 
 class WebpageGroupUserFilter {
 
@@ -12,8 +13,8 @@ class WebpageGroupUserFilter {
     Model.getInit = async function (webpage, user, options) {
       //throw new Error('getInit')
       
-      let cacheKey = Cache.key('method')
-      return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+      let cacheKey = Cache.key('getInit')
+      return await Cache.rememberWait([webpage, user, this], cacheKey, 0.01, async () => {
         // 取得這一組裡面的成員
         
         //console.log('getInit', 0)
@@ -36,10 +37,12 @@ class WebpageGroupUserFilter {
 
         let me = []
         let readersAlready = []
+        let readerInstancesAlready = []
         let readersNotReady = []
         let admins = []
 
         // -----------------
+        let currentTime = (new Date()).getTime()
 
         for (let i = 0; i < users.size(); i++) {
           let u = users.nth(i)
@@ -59,34 +62,47 @@ class WebpageGroupUserFilter {
           
           let annotationTypes = await u.getAnnotationTypes(webpage)
           
+          
+          let stepDuration
+          
+          if (isReady === true && u.role === 'reader') {
+            let stepStartTime = await u.getCurrentReadingProgressStepStartTime(webpage)
+            //console.log(stepStartTime)
+            stepDuration = currentTime - stepStartTime
+          }
+          
           //console.log('getInit', 2, i, 2)
           
-          u = u.toJSON()
-          u.annotationTypes = annotationTypes
-          u.isReady = isReady
-          if (user.id === u.id) {
+          let userJSON = u.toJSON()
+          userJSON.annotationTypes = annotationTypes
+          userJSON.isReady = isReady
+          userJSON.stepDuration = stepDuration
+          if (user.id === userJSON.id) {
             // 排除掉自己
-            me.push(u)
+            me.push(userJSON)
           }
-          else if (u.role === 'reader') {
+          else if (userJSON.role === 'reader') {
             if (isReady === true) {
-              readersAlready.push(u)
+              readersAlready.push(userJSON)
+              readerInstancesAlready.push(u)
             }
             else {
-              readersNotReady.push(u)
+              readersNotReady.push(userJSON)
             }
           }
           else {
-            admins.push(u)
+            admins.push(userJSON)
           }
         }
+        
+        
         
         //console.log('getInit', 3)
         
         // ------------------
         // 為readers排序
         
-        sortAlreadyReaders(readersAlready)
+        await sortAlreadyReaders(webpage, user, readersAlready, readerInstancesAlready)
         
 
         // ------------------
@@ -101,15 +117,46 @@ class WebpageGroupUserFilter {
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
     
-    let sortAlreadyReaders = function (readersAlready) {
-      // @TODO #57
-      // 先簡單地按照字母排序好了
-        readersAlready.sort(function(b, a){
-          a = a.username.toLowerCase();
-          b = b.username.toLowerCase();
-
-          return (a < b) ? -1 : (a > b) ? 1 : 0
+    let sortAlreadyReaders = async function (webpage, user, readersJSON, readersInstance) {
+      let myWords = await AnnotationNoteModel.getUserWords(webpage, user, {
+        userID: user.primaryKeyValue
+      })
+      
+      let userIDList = readersJSON.map(reader => reader.id)
+      let interactTimeList = await user.getRecentInteractTime(webpage, {
+        userIDList
+      })
+      
+      // 先把每個讀者的資料湊齊
+      for (let i = 0; i < readersInstance.length; i++) {
+        let reader = readersInstance[0]
+        let words = await AnnotationNoteModel.getUserWords(webpage, user, {
+          userID: reader.primaryKeyValue
         })
+        
+        let wordsCountNotUsed = AnnotationNoteModel.calculateWordsCountNotUsed(myWords, words)
+        readersJSON[i].wordsCountNotUsed = wordsCountNotUsed
+        
+        readersJSON[i].interactTime = interactTimeList[i]
+      }
+      
+      // ----------------------------------
+      
+      readersJSON.sort(function(a, b){
+        if (a.interactTime && b.interactTime) {
+          return b.interactTime - a.interactTime
+        }
+        else {
+          if (a.wordsCountNotUsed !== b.wordsCountNotUsed) {
+            return b.wordsCountNotUsed - a.wordsCountNotUsed
+          }
+          else {
+            return b.stepDuration - a.stepDuration
+          }
+        }
+      })
+      
+      //console.log(readersJSON)
     }
     
   } // register (Model) {

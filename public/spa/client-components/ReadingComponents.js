@@ -23200,7 +23200,7 @@ let SectionManager = {
   },
   watch: {
     'status.filter.focusUser' () {
-      console.log('有換人嗎？')
+      //console.log('有換人嗎？')
       this.loadAnnotation()
     }
   },

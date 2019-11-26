@@ -11,6 +11,7 @@ class UserReadingProgressAction {
       let time = (new Date()).getTime()
       if (typeof (stepName) !== 'string') {
         stepName = await this.getCurrentReadingProgressStepName(webpage)
+        //console.log('current step name', this.username, stepName)
       }
       if (stepName === null) {
         return null
@@ -26,9 +27,13 @@ class UserReadingProgressAction {
         'step_name': stepName,
         'start_timestamp': time
       })
+      
       if (step.start_timestamp === time) {
         // 表示這是新增的資料
-        await Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
+        //console.log('新增')
+        //await step.save()
+        //await Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
+        await Cache.tags([webpage, this, 'ReadingProgresses']).flush()
       }
       //console.log('startReadingProgress AAA', step.start_timestamp)
       //console.log('startReadingProgress', step.toJSON())
@@ -66,8 +71,19 @@ class UserReadingProgressAction {
         //console.log('step.end_timestamp AAA', time)
         await step.save()
         //console.log('step.end_timestamp BBB', time)
-        Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
+        
+        await Cache.tags([webpage, this, 'ReadingProgresses']).flush()
+        
+        //let status = await this.getReadingProgressStatus(webpage)
+        //console.log('after update', status)
+        //console.log('prev step', this.username, step.step_name)
+        //console.log('prev step', this.username, step.step_name)
         //console.log('step.end_timestamp CCC', time)
+        step = await this.startReadingProgress(webpage)
+        
+        //let status = await this.getReadingProgressStatus(webpage)
+        //console.log('after update', status)
+        //console.log('next step', this.username, step.step_name)
       }
 
       return step

@@ -28,10 +28,12 @@
   
   <!-- ============================================================ -->
   
-  <modal ref="Modal"
-         v-bind:config="config"
-         v-bind:status="status"
-         v-bind:lib="lib">
+  <modal 
+    ref="Modal"
+    v-bind:config="config"
+    v-bind:status="status"
+    cancelable="true"
+    v-bind:lib="lib">
       <template v-slot:header>
         {{ $t('Please select a peer') }}
       </template>
@@ -61,7 +63,10 @@
       </template>
       <template v-slot:actions>
         <div class="ui button"
-             v-on:click="submit">{{ $t('SELECT') }}</div>
+             v-if="filterData.selectUser !== status.filter.focusUser"
+             v-on:click="submit">
+          {{ $t('SELECT') }}
+        </div>
       </template>
   </modal>
 </a>

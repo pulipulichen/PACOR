@@ -1,5 +1,6 @@
 'use strict'
 
+const Cache = use('Cache')
 const ReadingActivityLog = use('App/Models/ReadingActivityLog')
 
 class WebpageLog {
@@ -58,6 +59,11 @@ class WebpageLog {
         if (withUsers.length > 0) {
           await logInstance.withUsers().createMany(withUsers)
         }
+        
+        await Cache.tags([this, user, 'WebpageGroup']).forget('getInit')
+        await Cache.tags([this, user, 'getRecentInteractTime']).flush()
+        
+        //console.log('列表快取洗掉了')
       }
     }
     

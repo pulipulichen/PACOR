@@ -80,8 +80,8 @@ let PeerItem = {
 //  },
   methods: {
     onSelectPeer () {
-      if (this.isReady === false
-              || this.annotationTypes.length === 0) {
+      if (this.user && (this.isReady === false
+              || this.annotationTypes.length === 0)) {
         return null
       }
       //console.log(this.user)

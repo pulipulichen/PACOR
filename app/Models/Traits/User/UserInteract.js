@@ -14,7 +14,7 @@ class UserInteract {
       } = options
       
       let cacheKey = Cache.key('getRecentInteractTime', userIDList)
-      return await Cache.rememberWait([webpage, this], cacheKey, 1, async () => {
+      return await Cache.rememberWait([webpage, this, 'getRecentInteractTime'], cacheKey, async () => {
         let query = ReadingActivityLog
                 .query()
                 .where('reading_activity_logs.user_id', this.primaryKeyValue)

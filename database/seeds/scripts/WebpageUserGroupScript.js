@@ -17,6 +17,8 @@ module.exports = {
     await this.createAdmin()
     await this.createGroups()
     
+//    this.processGroup0User2()
+    
     this.processGroup0User1()
     this.processGroup0User2()
     this.processGroup0User3()
@@ -24,7 +26,7 @@ module.exports = {
     this.processGroup1User1()
     this.processGroup1User2()
     
-    await Sleep(5) // 統統給我等待10秒鐘
+    await Sleep(3) // 統統給我等待10秒鐘
     
     console.log(__filename + ' is finished.\n')
   },
@@ -52,7 +54,7 @@ module.exports = {
     let user = await UserModel.findByNameInWebpage(webpage, '布甲')
     
     await user.startReadingProgress(webpage)
-    await Sleep(0.5)
+    await Sleep(0.3)
     await user.endReadingProgress(webpage)
     // 走到這裡應該要是 IndividualReading
     
@@ -66,11 +68,11 @@ module.exports = {
     let user = await UserModel.findByNameInWebpage(webpage, '布乙')
     
     await user.startReadingProgress(webpage)
-    await Sleep(0.5)
+    await Sleep(0.3)
     await user.endReadingProgress(webpage)
     
     await AnnotationModel.create(webpage, user, AnnotationParameters.sectionAnnotation2())
-    await Sleep(0.5)
+    await Sleep(0.3)
     await user.endReadingProgress(webpage)
     // 走到這裡應該要是 CollaborativeReading
     
@@ -84,12 +86,12 @@ module.exports = {
     let user = await UserModel.findByNameInWebpage(webpage, '布丙')
     
     await user.startReadingProgress(webpage)
-    await Sleep(0.5)
+    await Sleep(0.3)
     await user.endReadingProgress(webpage)
     
     await AnnotationModel.create(webpage, user, AnnotationParameters.sectionAnnotation1())
     
-    await Sleep(0.5)
+    await Sleep(0.3)
     await user.endReadingProgress(webpage)
     // 走到這裡應該要是 CollaborativeReading
     
@@ -103,11 +105,11 @@ module.exports = {
     let user = await UserModel.findByNameInWebpage(webpage, '布丁')
     
     await user.startReadingProgress(webpage)
-    await Sleep(0.5)
+    await Sleep(0.3)
     await user.endReadingProgress(webpage)
     
     await AnnotationModel.create(webpage, user, AnnotationParameters.sectionAnnotation2())
-    await Sleep(0.5)
+    await Sleep(0.3)
     await user.endReadingProgress(webpage)
     
     await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataUpper3())

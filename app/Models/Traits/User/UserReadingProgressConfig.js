@@ -39,6 +39,39 @@ class UserReadingProgressConfig {
       //console.log('null')
       return null
     }
+    
+    Model.prototype.getCurrentReadingProgressStep = async function (webpage) {
+      let status = await this.getReadingProgressStatus(webpage)
+      if (status.length === 0) {
+        return null
+      }
+      //let stepName = status[0].step_name
+      for (let i = 0; i < status.length; i++) {
+        let step = status[i]
+        if (step.isCompleted === true) {
+          continue
+        }
+
+        if (typeof (step.start_timestamp) === 'number'
+                && typeof (step.end_timestamp) !== 'number') {
+          //console.log('step.step_name', step.step_name)
+          return step
+        }
+
+        if (typeof (step.start_timestamp) !== 'number') {
+          //console.log('step.step_name', step.step_name)
+          return step
+        }
+        /*
+         if (typeof(step.start_timestamp) === 'number'
+         && typeof(step.end_timestamp) !== 'number') {
+         return step.step_name
+         }
+         */
+      }
+      //console.log('null')
+      return null
+    }
 
     Model.prototype.getReadingProgressStatus = async function (webpage, showDetails) {
       if (webpage === undefined) {
@@ -46,6 +79,7 @@ class UserReadingProgressConfig {
       }
       let cacheKey = Cache.key('User', 'getReadingProgressStatus', webpage, this, showDetails)
       return await Cache.rememberWait([webpage, this, 'ReadingProgresses'], cacheKey, async () => {
+        //console.log('getReadingProgressStatus', 'not from cache')
         let readingProgresses
         if (Array.isArray(webpage) === false
                 && typeof (webpage.primaryKeyValue) === 'number') {
@@ -128,7 +162,14 @@ class UserReadingProgressConfig {
         log = {}
       }
       return log
+    } // Model.prototype.getReadingProgressLog = async function (webpage) {
+    
+    Model.prototype.getCurrentReadingProgressStepStartTime = async function (webpage) {
+      let step = await this.getCurrentReadingProgressStep(webpage)
+      return step.start_timestamp
     }
+    
+    
   } // register (Model) {
   
 }

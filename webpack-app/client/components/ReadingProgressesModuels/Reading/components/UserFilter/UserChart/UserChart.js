@@ -1,3 +1,5 @@
+/* global this */
+
 //import WordCloud from 'wordcloud'
 import $ from 'jquery'
 import './jQCloud/jqcloud.webpage.js'
@@ -131,7 +133,7 @@ let UserChart = {
         this._draw(true)
         return null
       }
-      else {
+      else if (this.filterData.selectUser) {
         //console.log('是某人')
         let userID = this.filterData.selectUser.id
         if (this.filterData.chart.othersJSONMap

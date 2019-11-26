@@ -1265,7 +1265,12 @@ var render = function() {
       _vm._v(" "),
       _c("modal", {
         ref: "Modal",
-        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib },
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          cancelable: "true",
+          lib: _vm.lib
+        },
         scopedSlots: _vm._u([
           {
             key: "header",
@@ -1327,11 +1332,19 @@ var render = function() {
             key: "actions",
             fn: function() {
               return [
-                _c(
-                  "div",
-                  { staticClass: "ui button", on: { click: _vm.submit } },
-                  [_vm._v(_vm._s(_vm.$t("SELECT")))]
-                )
+                _vm.filterData.selectUser !== _vm.status.filter.focusUser
+                  ? _c(
+                      "div",
+                      { staticClass: "ui button", on: { click: _vm.submit } },
+                      [
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(_vm.$t("SELECT")) +
+                            "\r\n        "
+                        )
+                      ]
+                    )
+                  : _vm._e()
               ]
             },
             proxy: true
@@ -3106,8 +3119,8 @@ let PeerItem = {
 //  },
   methods: {
     onSelectPeer () {
-      if (this.isReady === false
-              || this.annotationTypes.length === 0) {
+      if (this.user && (this.isReady === false
+              || this.annotationTypes.length === 0)) {
         return null
       }
       //console.log(this.user)
@@ -3403,6 +3416,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _jQCloud_jqcloud_webpage_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./jQCloud/jqcloud.webpage.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/jQCloud/jqcloud.webpage.js");
 /* harmony import */ var _UserChartPopup_UserChartPopup_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserChartPopup/UserChartPopup.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartPopup/UserChartPopup.vue");
 /* harmony import */ var _UserChartLables_UserChartLables_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UserChartLables/UserChartLables.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/UserFilter/UserChart/UserChartLables/UserChartLables.vue");
+/* global this */
+
 //import WordCloud from 'wordcloud'
 
 
@@ -3536,7 +3551,7 @@ let UserChart = {
         this._draw(true)
         return null
       }
-      else {
+      else if (this.filterData.selectUser) {
         //console.log('是某人')
         let userID = this.filterData.selectUser.id
         if (this.filterData.chart.othersJSONMap
@@ -4029,13 +4044,18 @@ let UserChartPopup = {
     popupOtherCount () {
       let count
       let text = this.popupFocusText
-      if (this.otherIsAll && this.filterData.chart.allJSON) {
-        count = this.filterData.chart.allJSON[text]
+      //console.log(this.otherIsAll, this.filterData.chart.allJSON)
+      if (this.otherIsAll) {
+        if (this.filterData.chart.allJSON) {
+          count = this.filterData.chart.allJSON[text]
+        }
       }
-      else if (!this.otherIsMe && this.filterData.chart.othersJSONMap) {
-        let userID = this.filterData.selectUser.id
-        if (this.filterData.chart.othersJSONMap[userID]) {
-          count = this.filterData.chart.othersJSONMap[userID][text]
+      else if (!this.otherIsMe) {
+        if (this.filterData.chart.othersJSONMap) {
+          let userID = this.filterData.selectUser.id
+          if (this.filterData.chart.othersJSONMap[userID]) {
+            count = this.filterData.chart.othersJSONMap[userID][text]
+          }
         }
       }
       
