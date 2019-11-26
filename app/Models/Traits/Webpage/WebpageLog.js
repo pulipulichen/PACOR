@@ -21,18 +21,21 @@ class WebpageLog {
      */
     Model.prototype.log = async function (user, type, log, withUsers) {
       let logInstance = new ReadingActivityLog()
-
+      //console.log({log})
       logInstance.webpage_id = this.primaryKeyValue
       logInstance.user_id = user.primaryKeyValue
       logInstance.type = type
       if (typeof(log) !== 'undefined') {
         logInstance.log = log
       }
+      //console.log('log 1', user.primaryKeyValue, user.username)
+      //console.log('log 2', withUsers.primaryKeyValue, withUsers.username)
       await logInstance.save()
       
       // ----------------------------------
       
       if (withUsers) {
+        //console.log({withUsers})
         if (Array.isArray(withUsers) === false) {
           withUsers = [withUsers]
         }
@@ -52,7 +55,9 @@ class WebpageLog {
         
         withUsers = withUsers.filter(u => u.user_id !== user.primaryKeyValue)
         
-        await logInstance.withUsers().createMany(withUsers)
+        if (withUsers.length > 0) {
+          await logInstance.withUsers().createMany(withUsers)
+        }
       }
     }
     

@@ -33,7 +33,8 @@ class Auth {
       //user = user.toJSON()[0]
       user = user.first()
       await this._forceLogout(auth)
-      await auth.loginViaId(user.id)
+      //console.log('login', user.primaryKeyValue)
+      await auth.loginViaId(user.primaryKeyValue)
       //console.log(user)
       let data = await this._getLoginedUserData(webpage, user)
       return data

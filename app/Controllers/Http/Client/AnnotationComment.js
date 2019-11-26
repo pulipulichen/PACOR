@@ -35,6 +35,7 @@ class AnnotationComment extends WebpageUserBaseController {
   async create({request, webpage, user}) {
     const data = request.all()
     
+    //console.log('create', user.username)
     let annotation = await AnnotationModel.find(data.annotationID)
     let annotationUser = await annotation.user().fetch()
     await webpage.log(user, 'AnnotationComment.create', data, annotationUser)

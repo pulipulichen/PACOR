@@ -25,17 +25,19 @@ const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.ht
 let webpage
 let response
 let annotation
+let user
 
 let config = {
   'a. login 布丁': async function ( { assert, client } ) {    
     webpage = await WebpageModel.findByURL(url)
+    user = await UserModel.findByNameInWebpage(webpage, '布丁')
     
     response = await client.get('/client/auth/login')
           .header('Referer', url)
           .query({
             username: '布丁'
           })
-          .session('adonis-auth', 1)
+          .session('adonis-auth', user.primaryKeyValue)
           .end()
   
     //console.log(response.text)
@@ -64,7 +66,7 @@ let config = {
     response = await client.post('/client/AnnotationComment/create')
           .header('Referer', url)
           .send(commentData)
-          .session('adonis-auth', 1)
+          .session('adonis-auth', user.primaryKeyValue)
           .end()
   
     //console.log(response.text)
@@ -79,16 +81,20 @@ let config = {
     assert.isNumber(comment.updated_at_unixms)
   },
   'd. check log': async function ( { assert, client } ) {    
-    let commenter = await UserModel.findByNameInWebpage(webpage, '布丁')
-    let logs = await commenter.logs()
-            .query()
+    //let commenter = await UserModel.findByNameInWebpage(webpage, '布丁')
+    
+    assert.notEqual(user.id, annotation.user_id)
+    
+    let logs = await user.logs()
             .orderBy('created_at_unixms', 'desc')
-            .limit(1)
             .fetch()
     
-    assert.equal(logs.size(), 1)
+    //console.log(logs.toJSON())
+    assert.equal(logs.size(), 2)
     
-    let withUsers = await logs.withUsers().fetch()
+    let log = logs.first()
+    //console.log(log.toJSON())
+    let withUsers = await log.withUsers().fetch()
     assert.equal(withUsers.size(), 1)
   }
 //  'b. login 布': async function ( { assert, client } ) {    
