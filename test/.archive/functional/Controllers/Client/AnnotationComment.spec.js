@@ -26,6 +26,7 @@ let webpage
 let response
 let annotation
 let user
+let userBeCommented
 
 let config = {
   'a. login 布丁': async function ( { assert, client } ) {    
@@ -43,19 +44,60 @@ let config = {
     //console.log(response.text)
     response.assertStatus(200)
   },
-  'b. get annotation': async function ( { assert, client } ) {    
+  'b1. get annotation': async function ( { assert, client } ) {    
     // -----------------
     // 選擇別人的一個annotation
     
     //let webpage
-    let userBeCommented = await UserModel.findByNameInWebpage(webpage, '布乙')
+    userBeCommented = await UserModel.findByNameInWebpage(webpage, '布乙')
     let annotations = await userBeCommented.annotations(webpage).fetch()
     annotation = annotations.first()
     //let annotationJSON = annotation.toJSON()
     
     assert.isNumber(annotation.id)
+    
+    assert.notEqual(user.id, annotation.user_id)
   },
-  'c. comment other': async function ( { assert, client } ) {    
+  'b2. comment other ': async function ( { assert, client } ) {    
+    // -------------------
+    
+    let commentData = {
+      annotationID: annotation.id,
+      note: '我覺得很不妥'
+    }
+    
+    response = await client.post('/client/AnnotationComment/create')
+          .header('Referer', url)
+          .send(commentData)
+          .session('adonis-auth', user.primaryKeyValue)
+          .end()
+  
+    //console.log(response.text)
+    response.assertStatus(200)
+    
+    // -------------------
+    
+    let comments = await annotation.comments().fetch()
+    assert.equal(comments.size(), 1)
+    
+    let comment = comments.first().toJSON()
+    assert.isNumber(comment.updated_at_unixms)
+  },
+  'c1. get annotation': async function ( { assert, client } ) {    
+    // -----------------
+    // 選擇別人的一個annotation
+    
+    //let webpage
+    userBeCommented = await UserModel.findByNameInWebpage(webpage, '布丙')
+    let annotations = await userBeCommented.annotations(webpage).fetch()
+    annotation = annotations.first()
+    //let annotationJSON = annotation.toJSON()
+    
+    assert.isNumber(annotation.id)
+    
+    assert.notEqual(user.id, annotation.user_id)
+  },
+  'c2. comment other ': async function ( { assert, client } ) {    
     // -------------------
     
     let commentData = {
@@ -83,19 +125,35 @@ let config = {
   'd. check log': async function ( { assert, client } ) {    
     //let commenter = await UserModel.findByNameInWebpage(webpage, '布丁')
     
-    assert.notEqual(user.id, annotation.user_id)
-    
     let logs = await user.logs()
             .orderBy('created_at_unixms', 'desc')
             .fetch()
     
     //console.log(logs.toJSON())
-    assert.equal(logs.size(), 2)
+    assert.equal(logs.size(), 3)
     
     let log = logs.first()
     //console.log(log.toJSON())
     let withUsers = await log.withUsers().fetch()
     assert.equal(withUsers.size(), 1)
+  },
+  'e. recent time': async function ( { assert, client } ) {    
+    //let commenter = await UserModel.findByNameInWebpage(webpage, '布丁')
+    
+    let userIDList = await user.getUserIDsInGroup(webpage)
+    //console.log({userIDList})
+    assert.isArray(userIDList)
+    
+    let options = {
+      //userIDList: [userBeCommented]
+      userIDList
+    }
+    
+    let timeList = await user.getRecentInteractTime(webpage, options)
+    console.log(timeList)
+    assert.isArray(timeList)
+    assert.isNull(timeList[0])
+    assert.isNumber(timeList[1])
   }
 //  'b. login 布': async function ( { assert, client } ) {    
 //    //assert.equal(1+1, 3)
