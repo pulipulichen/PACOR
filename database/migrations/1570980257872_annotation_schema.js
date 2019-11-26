@@ -19,6 +19,7 @@ class AnnotationSchema extends Schema {
       table.boolean('public').defaultTo(true)
       table.boolean('deleted').defaultTo(false)
       table.json('properties')
+      
       table.bigInteger('created_at_unixms')
       table.bigInteger('updated_at_unixms')
       table.timestamps()

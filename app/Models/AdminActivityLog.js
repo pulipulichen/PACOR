@@ -7,7 +7,8 @@ class AdminActivityLog extends Model {
   static boot () {
     super.boot()
     
-    this.addTrait('JSONCase', 'properties')
+    this.addTrait('JSONCase', 'arguments')
+    this.addTrait('DateUnixMS')
   }
   
   static async log (userID, type, log) {

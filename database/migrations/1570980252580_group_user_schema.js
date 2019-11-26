@@ -12,7 +12,8 @@ class GroupUserSchema extends Schema {
       table.increments()
       table.integer('webpage_group_id').notNullable().unsigned().references('id').inTable('webpage_groups').onDelete('cascade')
       table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
-      table.timestamps()
+      
+      //table.timestamps()
     })
   }
 

@@ -16,7 +16,8 @@ class AnnotationCommentSave {
     Model.createFromJSON = async function (webpage, user, data) {
       let {
         annotationID,
-        note
+        note,
+        replyToCommentIDList
       } = data
       
       if (!annotationID || !note) {
@@ -42,6 +43,18 @@ class AnnotationCommentSave {
       comment.note = note
       
       await comment.save()
+      
+      /**
+       * @author Pulipuli Chen 20191126 
+       * 雖然還沒完成，不過我們先把這個做成這樣吧，還沒測試呢
+       */
+      if (replyToCommentIDList) {
+        if (Array.isArray(replyToCommentIDList) === false) {
+          replyToCommentIDList = [replyToCommentIDList]
+        }
+        
+        await comment.replyToComments().create(replyToCommentIDList)
+      }
       
       //console.log('AnnotationCommentSave 這邊應該要加入通知')
       await UserNotificationModel.createFromModelInstance(webpage, user, comment, annotation.user_id, note)

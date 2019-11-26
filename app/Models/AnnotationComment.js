@@ -46,6 +46,16 @@ class AnnotationComment extends Model {
     return this.annotation()
   }
   
+  replyToComments () {
+    return this.belongsToMany('App/Models/AnnotationComment')
+            .pivotTable('annotation_comment_replies', 'from_comment_id', 'to_comment_id')
+  }
+  
+  repliedByComments () {
+    return this.belongsToMany('App/Models/AnnotationComment')
+            .pivotTable('annotation_comment_replies', 'to_comment_id', 'from_comment_id')
+  }
+  
   get anchorType () {
     return 'Annotation'
   }

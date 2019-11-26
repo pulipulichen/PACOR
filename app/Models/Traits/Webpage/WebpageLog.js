@@ -20,7 +20,7 @@ class WebpageLog {
      * @returns {undefined}
      */
     Model.prototype.log = async function (user, type, log, withUsers) {
-      let logInstance = new ReadingActivityLog
+      let logInstance = new ReadingActivityLog()
 
       logInstance.webpage_id = this.primaryKeyValue
       logInstance.user_id = user.primaryKeyValue

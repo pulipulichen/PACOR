@@ -9,7 +9,10 @@ class AdminActivityLogSchema extends Schema {
       table.increments()
       table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
       table.string('type', 60).notNullable()
-      table.json('log') // json
+      table.json('arguments') // json
+      
+      table.bigInteger('created_at_unixms')
+      table.bigInteger('updated_at_unixms')
       table.timestamps()
     })
   }

@@ -163,6 +163,10 @@ class User extends Model {
     return this.hasMany('App/Models/UserNotification')
   }
   
+  logs () {
+    return this.hasMany('App/Models/ReadingActivityLog')
+  }
+  
   getPreference (preference) {
     let basePreference = Config.get('userPreference')
     

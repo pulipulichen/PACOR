@@ -3,6 +3,8 @@
 //const Cache = use('Cache')
 //const { HttpException } = use('@adonisjs/generic-exceptions') 
 
+const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
+
 class ReadingActivityLogSave {
 
   register(Model) {
