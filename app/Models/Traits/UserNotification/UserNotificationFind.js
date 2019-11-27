@@ -40,19 +40,19 @@ class UserNotificationFind {
           query.where('created_at_unixms', '>' , TypeHelper.parseInt(afterTime))
         }
         
-        let notifications = await query.fetch()
+        let unreadNotifications = await query.fetch()
         if (afterTime 
-                && (notifications === null || notifications.size() === 0)) {
+                && (unreadNotifications === null || unreadNotifications.size() === 0)) {
           return 0
         }
         
-        notifications = notifications.toJSON().reverse()
+        unreadNotifications = unreadNotifications.toJSON().reverse()
 
         let unreadCount = await this.getUnreadCount(webpage, user)
         let hasNotification = await this.hasNotification(webpage, user)
 
         return {
-          notifications,
+          unreadNotifications,
           unreadCount,
           hasNotification
         }

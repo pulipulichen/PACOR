@@ -12,7 +12,7 @@ let NotificationFeed = {
     //this.$i18n.locale = this.config.locale
     
     let noOlder = false
-    if (this.notificationData.notifications.length === 0) {
+    if (this.notificationData.unreadNotifications.length === 0) {
       noOlder = true
     }
     
@@ -36,8 +36,8 @@ let NotificationFeed = {
 //    }
 //  },
   watch: {
-    'notificationData.notifications' () {
-      if (this.notificationData.notifications.length < 3) {
+    'notificationData.unreadNotifications' () {
+      if (this.notificationData.unreadNotifications.length < 3) {
         return null
       }
       
@@ -45,11 +45,11 @@ let NotificationFeed = {
         this.scrollToBottom()
       }
       
-      this.noOlder = (this.notificationData.notifications.length === 0)
+      this.noOlder = (this.notificationData.unreadNotifications.length === 0)
       
-      if (Array.isArray(this.notificationData.notifications)
-              && this.notificationData.notifications.length > 0) {
-        this.basetime = parseInt(this.notificationData.notifications[0].created_at_unixms, 10)
+      if (Array.isArray(this.notificationData.unreadNotifications)
+              && this.notificationData.unreadNotifications.length > 0) {
+        this.basetime = parseInt(this.notificationData.unreadNotifications[0].created_at_unixms, 10)
       }
     }
   },
@@ -75,7 +75,7 @@ let NotificationFeed = {
       }
     },
     scrollToBottom: async function () {
-      if (this.notificationData.notifications.length < 3) {
+      if (this.notificationData.unreadNotifications.length < 3) {
         return null
       }
       
@@ -111,7 +111,7 @@ let NotificationFeed = {
         return null
       }
       
-      this.notificationData.notifications = notifications.concat(this.notificationData.notifications)
+      this.notificationData.unreadNotifications = notifications.concat(this.notificationData.unreadNotifications)
       
       
       await this.lib.VueHelper.sleep(100)

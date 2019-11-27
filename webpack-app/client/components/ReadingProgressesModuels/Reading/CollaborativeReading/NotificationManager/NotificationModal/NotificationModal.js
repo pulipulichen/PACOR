@@ -16,10 +16,10 @@ let NotificationModal = {
   },
   methods: {
     show () {
-      this.$refs.modal.show()
+      this.$refs.Modal.show()
     },
     hide () {
-      this.$refs.modal.hide()
+      this.$refs.Modal.hide()
     }
   } // methods
 }

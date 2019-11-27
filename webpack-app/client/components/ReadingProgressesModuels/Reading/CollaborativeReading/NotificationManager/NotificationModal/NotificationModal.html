@@ -3,9 +3,7 @@
     ref="Modal"
     v-bind:config="config"
     v-bind:status="status"
-    v-bind:lib="lib"
-    v-bind:reset="editingConfig"
-    v-bind:contentURL="contentURL">
+    v-bind:lib="lib">
     <template v-slot:header>
       {{ $t('Notifications') }}
     </template>
@@ -14,7 +12,9 @@
     </template>
     <template v-slot:actions>
       <div class="ui button"
-           v-on:click="hide">{{ $t('CLOSE') }}</div>
+           v-on:click="hide">
+        {{ $t('CLOSE') }}
+      </div>
     </template>
   </modal>
 </div>

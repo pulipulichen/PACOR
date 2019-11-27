@@ -20,13 +20,10 @@
       v-bind:notificationData="notificationData">
     </notification-feed>
     
-    <div class="ui segment"
-         v-if="hasNotification"
+    <div class="ui segment view-all"
+         v-if="notificationData.hasNotification"
          v-on:click="() => { $refs.NotificationModal.show() }">
-      <button type="button"
-              class="ui fluid button">
-        {{ $t('View All Notifications') }}
-      </button>
+      {{ $t('View All Notifications') }}
     </div>
   </div>
   

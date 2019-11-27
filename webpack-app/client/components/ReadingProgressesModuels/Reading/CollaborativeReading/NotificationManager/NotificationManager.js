@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import NotificationFeed from './NotificationFeed/NotificationFeed.vue'
+import NotificationModal from './NotificationModal/NotificationModal.vue'
 
 let NotificationManager = {
   props: ['lib', 'status', 'config'],
@@ -8,7 +9,8 @@ let NotificationManager = {
     return {
       notificationData: {
         unreadCount: 0,
-        hasNotifications: true,
+        unreadNotifications: [],
+        hasNotification: true,
       },
       
       afterTime: null,
@@ -17,7 +19,8 @@ let NotificationManager = {
     }
   },
   components: {
-    "notification-feed": NotificationFeed
+    "notification-feed": NotificationFeed,
+    "notification-modal": NotificationModal
   },
   computed: {
 //    unreadCount () {
@@ -34,8 +37,7 @@ let NotificationManager = {
   mounted() {
     this.initNotificationData()
     
-    //console.log('@TODO 自動重新讀取notification data的功能還沒做')
-    //this.startReloadData()
+    this.startReloadData()
   },
   methods: {
     initNotificationData: async function () {
@@ -51,9 +53,9 @@ let NotificationManager = {
         return null
       }
       
-      this.notificationData.unreadCount = result.unreadCount
-      this.notificationData.hasNotifications = result.hasNotifications
-      
+      for (let key in result) {
+        this.notificationData[key] = result[key]
+      }
       //this.show() // for test 20191123
     },
     initPopup () {

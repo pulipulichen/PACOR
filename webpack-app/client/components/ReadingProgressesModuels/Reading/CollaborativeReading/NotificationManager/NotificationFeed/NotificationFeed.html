@@ -3,7 +3,7 @@
   
   <div class="ui secondary segment no-more"
        v-if="noOlder">
-    <template v-if="notificationData.notifications.length > 0">
+    <template v-if="notificationData.unreadNotifications.length > 0">
       {{ $t('No More') }}
     </template>
     <template v-else>
@@ -14,7 +14,7 @@
   <div class="ui feed"
        ref="feed">
     <component 
-      v-for="notification in notificationData.notifications"
+      v-for="notification in notificationData.unreadNotifications"
       v-bind:key="notification.id"
       v-bind:is="eventType(notification)"
 
