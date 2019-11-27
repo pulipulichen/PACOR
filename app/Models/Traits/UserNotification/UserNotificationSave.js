@@ -14,61 +14,138 @@ class UserNotificationSave {
 
   register(Model) {
     
-    Model.createFromModelInstance = async function (webpage, triggerUser, instance, notifiedUserID, summary) {
-      if (notifiedUserID === triggerUser.primaryKeyValue) {
-        return null // 這個表示不增加通知
-      }
+//    Model.createFromModelInstance = async function (webpage, triggerUser, data = {}) {
+//      let {
+//        triggerInstance,
+//        anchorModel,
+//        anchorID,
+//        notifiedUserID, 
+//        summary
+//      } = data
+//      
+//      let anchorModel = triggerInstance.constructor.name
+//      let anchorModelID = triggerInstance.primaryKeyValue
+//      
+//      if (Array.isArray(notifiedUserID) === false) {
+//        notifiedUserID = [notifiedUserID]
+//      }
+//      
+//      for (let i = 0; i < notifiedUserID.length; i++) {
+//        let nID = notifiedUserID[i]
+//        
+//        await this.createFromJSON(webpage, triggerUser, {
+//          anchorModel,
+//          anchorModelID,
+//          notifiedUserID: nID,
+//          summary
+//        })
+//      }
+//      return 1
+//    }
+    
+    Model.createFromJSON = async function (webpage, triggerUser, data) {
+      let {
+        triggerInstance,
+        triggerModel,
+        triggerModelID,
+        
+        anchorInstance,
+        anchorModel,
+        anchorModelID,
+        
+        notifiedUserID,
+        summary
+      } = data
+      //console.log(data)
       
       // 如果沒有設對象，表示全域廣播
       if (notifiedUserID === undefined) {
         notifiedUserID = await triggerUser.getUserIDsInGroup(webpage)
       }
       
-      let anchorModel = instance.constructor.name
-      let anchorModelID = instance.primaryKeyValue
       
-      if (Array.isArray(notifiedUserID) === false) {
-        notifiedUserID = [notifiedUserID]
+      if (Array.isArray(notifiedUserID)) {
+        let d = {
+          ...data
+        }
+        for (let i = 0; i < notifiedUserID.length; i++) {
+          d.notifiedUserID = notifiedUserID[i]
+          await this.createFromJSON(webpage, triggerUser, d)
+        }
+        return null
       }
       
-      for (let i = 0; i < notifiedUserID.length; i++) {
-        let nID = notifiedUserID[i]
-        
-        await this.createFromJSON(webpage, triggerUser, {
-          anchorModel,
-          anchorModelID,
-          notifiedUserID: nID,
-          summary
-        })
+      // -------------------------------------------
+      
+      if (!triggerModel && !triggerModelID && triggerInstance) {
+        triggerModel = triggerInstance.constructor.name
+        triggerModelID = triggerInstance.primaryKeyValue
       }
-      return 1
-    }
-    
-    Model.createFromJSON = async function (webpage, triggerUser, data) {
-      let {
-        anchorModel,
-        anchorModelID,
-        notifiedUserID,
-        summary
-      } = data
-      //console.log(data)
-      if (typeof(anchorModel) !== 'string'
-              || typeof(anchorModelID) !== 'number'
-              || typeof(notifiedUserID) !== 'number') {
-        throw new HttpException('Anchor model, anchor model ID and notified user ID are required.')
+      
+      if (!anchorModel && !anchorModelID && anchorInstance) {
+        anchorModel = anchorInstance.constructor.name
+        anchorModelID = anchorInstance.primaryKeyValue
       }
       
       if (notifiedUserID === triggerUser.primaryKeyValue) {
         return null // 這個表示不增加通知
       }
       
+      if (typeof(triggerModel) !== 'string'
+              || typeof(triggerModel) !== 'number'
+              || typeof(notifiedUserID) !== 'number') {
+        throw new HttpException('Anchor model, anchor model ID and notified user ID are required.')
+      }
+      
       // -------------------------------------
+      
+      await Cache.forgetWithTags([webpage, triggerUser, this])
+      
+      // -------------------------------------
+      // 排除重複的
+      
+      let checkQueryData = {
+        webpage_id: webpage.primaryKeyValue,
+        trigger_user_id: triggerUser.primaryKeyValue,
+        user_id: notifiedUserID,
+        trigger_model: triggerModel,
+        anchor_model: anchorModel,
+        anchor_model_id: anchorModelID,
+        has_read: false,
+        deleted: false
+      }
+      
+      let sameTypeNotification = await UserNotificationModel
+              .query()
+              .where({
+                webpage_id: webpage.primaryKeyValue,
+                trigger_user_id: triggerUser.primaryKeyValue,
+                user_id: notifiedUserID,
+                trigger_model: triggerModel,
+                anchor_model: anchorModel,
+                anchor_model_id: anchorModelID,
+                has_read: false,
+                deleted: false
+              })
+              .limit(1)
+              .getCount()
+      
+      if (sameTypeNotification > 0) {
+        console.log('有同類型的通知了')
+        return null
+      }
+      
+      // -------------------------------------
+      // 真正開始新增
+      
       let findData = {
         webpage_id: webpage.primaryKeyValue,
         trigger_user_id: triggerUser.primaryKeyValue,
         user_id: notifiedUserID,
-        model: anchorModel,
-        model_id: anchorModelID
+        trigger_model: triggerModel,
+        trigger_model_id: triggerModelID,
+        anchor_model: anchorModel,
+        anchor_model_id: anchorModelID,
       }
       
       let createData = {
@@ -93,6 +170,7 @@ class UserNotificationSave {
       
       let user = await notification.user().fetch()
       await Cache.forgetWithTags([webpage, user, this])
+      
       
       return notification
     }

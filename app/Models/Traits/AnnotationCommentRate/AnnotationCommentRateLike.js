@@ -53,8 +53,14 @@ class AnnotationCommentRateLike {
       //console.log('AnnotationCommentRateLike 這邊應該要加入通知')
       if (rate.deleted === false) {
         // like的情況
-        await UserNotificationModel.createFromModelInstance(webpage, user, rate, comment.user_id, {
-          comment_id: comment
+        //await UserNotificationModel.createFromModelInstance(webpage, user, rate, comment.user_id, {
+        //  comment_id: comment
+        //})
+        await webpage.addNotification(user, {
+          notifiedUserID: comment.user_id,
+          triggerInstance: rate,
+          anchorInstance: comment,
+          summary: comment.getNoteSummary()
         })
       }
       

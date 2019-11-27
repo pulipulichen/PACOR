@@ -10,8 +10,10 @@ class UserNotificationSchema extends Schema {
       table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
       table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
       table.integer('trigger_user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
-      table.string('model', 60).notNullable()
-      table.integer('model_id').notNullable()
+      table.string('trigger_model', 60).notNullable()
+      table.integer('trigger_model_id').notNullable()
+      table.string('anchor_model', 60)
+      table.integer('anchor_model_id')
       table.json('summary')  // json
       
       table.boolean('has_read').defaultTo(false)

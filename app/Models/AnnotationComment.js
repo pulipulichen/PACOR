@@ -3,6 +3,8 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
+const TokenizationHelper = use('App/Helpers/TokenizationHelper')
+
 class AnnotationComment extends Model {
   
   static boot () {
@@ -86,6 +88,15 @@ class AnnotationComment extends Model {
     return ['webpage_id', 'deleted', 'created_at', 'updated_at'
       //, 'created_at_unixms'
       , 'properties']
+  }
+  
+  getNoteSummary () {
+    let note = this.note
+    note = TokenizationHelper.htmlToText(note)
+    if (note.length > 20) {
+      note = note.slice(0, 20) + '...'
+    }
+    return note
   }
 }
 

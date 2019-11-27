@@ -9,8 +9,8 @@ class WebpageNotification {
 
   register(Model) {
     
-    Model.prototype.addNotification = async function (triggerUser, instance, notifiedUserID, summary) {
-      return UserNotificationModel.createFromModelInstance(this, triggerUser, instance, notifiedUserID, summary)
+    Model.prototype.addNotification = async function (triggerUser, data) {
+      return UserNotificationModel.createFromJSON(this, triggerUser, data)
     }
     
   } // register (Model) {

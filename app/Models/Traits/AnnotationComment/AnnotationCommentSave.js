@@ -57,7 +57,12 @@ class AnnotationCommentSave {
       }
       
       //console.log('AnnotationCommentSave 這邊應該要加入通知')
-      await UserNotificationModel.createFromModelInstance(webpage, user, comment, annotation.user_id, note)
+      await webpage.addNotification(user, {
+        notifiedUserID: annotation.user_id,
+        triggerInstance: comment,
+        anchorInstance: annotation,
+        summary: comment.getNoteSummary()
+      })
       
       return comment
     }
