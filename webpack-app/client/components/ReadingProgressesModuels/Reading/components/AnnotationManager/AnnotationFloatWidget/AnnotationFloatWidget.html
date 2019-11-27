@@ -23,7 +23,8 @@
         v-on:comment="viewAnnotationComment"></annotation-item>
     
     <div class="ui column grid">
-      <div v-bind:class="computedButtonsClassNames">
+      <div class="column"
+           v-bind:class="computedButtonsClassNames">
         
         <user-avatar-icons 
           style="margin-right: 0.5em;"
@@ -47,10 +48,10 @@
           v-on:find="findType">
         </annotation-type-button>
         
-        <button v-if="isFixed"
+        <button v-if="isFixed "
                 type="button" 
                 v-on:click.stop="list"
-                class="ui mini button list-button">
+                class="ui mini white basic button list-button">
           {{ $t('List all {0} annotations...', [annotationCount]) }}
         </button>
       </div>

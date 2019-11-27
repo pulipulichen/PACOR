@@ -1,10 +1,12 @@
 <div class="UserAvatarIcons">
-  <img v-for="(user, i) in users"
-       v-bind:title="username(user)"
-       v-bind:src="user.avatar_url"
-       v-bind:style="computedAvatarStyle(i)"
-       v-on:click.stop="$emit('find', user)"
-       class="avatar" />
+  <div class="avatar-list">
+    <img v-for="(user, i) in users"
+         v-bind:title="username(user)"
+         v-bind:src="user.avatar_url"
+         v-bind:style="computedAvatarStyle(i)"
+         v-on:click.stop="$emit('find', user)"
+         class="avatar" />
+  </div>
   <div class="user-count"
        v-if="userCount">
     {{ $t('{0} Readers', [userCount]) }}

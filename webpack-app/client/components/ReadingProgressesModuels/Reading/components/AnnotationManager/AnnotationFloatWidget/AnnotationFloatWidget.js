@@ -55,13 +55,16 @@ let AnnotationFloatWidget = {
       }
     },
     computedButtonsClassNames () {
+      let classList = []
       //console.log(this.status.preference.leftHanded)
-      if (this.status.preference.leftHanded === false) {
-        return 'right aligned column'
+      if (this.status.preference.leftHanded === true) {
+        classList.push('left-handed')
       }
       else {
-        return 'column'
+        classList.push('right aligned')
       }
+      
+      return classList.join(' ')
     }
   },
   watch: {

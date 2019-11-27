@@ -457,7 +457,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-float-widget[data-v-ca5d3b70] {\n  transition: opacity 0.3s, z-index 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: -1;\n  width: calc(100vw - 4em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.show[data-v-ca5d3b70] {\n  opacity: 1;\n  z-index: 1;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top !important;\n}\n.close-container.floating.ui.label[data-v-ca5d3b70] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.4em !important;\n  padding-left: 0.15em !important;\n  padding-top: 0.3em !important;\n  padding-bottom: 0.3em !important;\n  top: 0.9em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.close-container.floating.ui.label .close.icon[data-v-ca5d3b70] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,sCAAsC;EACtC,UAAU;EACV,0CAA0C;EAC1C,0BAA0B;EAC1B,SAAS;EACT,WAAW;EACX,wBAAwB;EACxB,qBAAqB;EACrB,mCAAmC;EACnC,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,UAAU;EACV,UAAU;AACZ;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,kBAAkB;EAClB,8BAA8B;AAChC;AACA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,UAAU;EACV,mCAAmC;EACnC,yBAAyB;EACzB,+BAA+B;EAC/B,6BAA6B;EAC7B,gCAAgC;EAChC,qBAAqB;EACrB,kCAAkC;EAClC,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,qBAAqB;AACvB","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-ca5d3b70] {\n  transition: opacity 0.3s, z-index 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: -1;\n  width: calc(100vw - 4em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.show[data-v-ca5d3b70] {\n  opacity: 1;\n  z-index: 1;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  vertical-align: top !important;\n}\n.close-container.floating.ui.label[data-v-ca5d3b70] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.4em !important;\n  padding-left: 0.15em !important;\n  padding-top: 0.3em !important;\n  padding-bottom: 0.3em !important;\n  top: 0.9em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.close-container.floating.ui.label .close.icon[data-v-ca5d3b70] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n"]}]);
+exports.push([module.i, ".annotation-float-widget[data-v-ca5d3b70] {\n  transition: opacity 0.3s, z-index 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: -1;\n  width: calc(100vw - 4em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.show[data-v-ca5d3b70] {\n  opacity: 1;\n  z-index: 1;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  vertical-align: top !important;\n  direction: ltr;\n}\n.close-container.floating.ui.label[data-v-ca5d3b70] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.4em !important;\n  padding-left: 0.15em !important;\n  padding-top: 0.3em !important;\n  padding-bottom: 0.3em !important;\n  top: 0.9em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.close-container.floating.ui.label .close.icon[data-v-ca5d3b70] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,sCAAsC;EACtC,UAAU;EACV,0CAA0C;EAC1C,0BAA0B;EAC1B,SAAS;EACT,WAAW;EACX,wBAAwB;EACxB,qBAAqB;EACrB,mCAAmC;EACnC,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,UAAU;EACV,UAAU;AACZ;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,8BAA8B;EAC9B,cAAc;AAChB;AACA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,UAAU;EACV,mCAAmC;EACnC,yBAAyB;EACzB,+BAA+B;EAC/B,6BAA6B;EAC7B,gCAAgC;EAChC,qBAAqB;EACrB,kCAAkC;EAClC,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,qBAAqB;AACvB","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-ca5d3b70] {\n  transition: opacity 0.3s, z-index 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: -1;\n  width: calc(100vw - 4em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.show[data-v-ca5d3b70] {\n  opacity: 1;\n  z-index: 1;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  vertical-align: top !important;\n  direction: ltr;\n}\n.close-container.floating.ui.label[data-v-ca5d3b70] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.4em !important;\n  padding-left: 0.15em !important;\n  padding-top: 0.3em !important;\n  padding-bottom: 0.3em !important;\n  top: 0.9em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.close-container.floating.ui.label .close.icon[data-v-ca5d3b70] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n"]}]);
 
 
 /***/ }),
@@ -998,7 +998,10 @@ var render = function() {
               _c("div", { staticClass: "ui column grid" }, [
                 _c(
                   "div",
-                  { class: _vm.computedButtonsClassNames },
+                  {
+                    staticClass: "column",
+                    class: _vm.computedButtonsClassNames
+                  },
                   [
                     _c("user-avatar-icons", {
                       staticStyle: { "margin-right": "0.5em" },
@@ -1030,7 +1033,8 @@ var render = function() {
                       ? _c(
                           "button",
                           {
-                            staticClass: "ui mini button list-button",
+                            staticClass:
+                              "ui mini white basic button list-button",
                             attrs: { type: "button" },
                             on: {
                               click: function($event) {
@@ -5098,13 +5102,16 @@ let AnnotationFloatWidget = {
       }
     },
     computedButtonsClassNames () {
+      let classList = []
       //console.log(this.status.preference.leftHanded)
-      if (this.status.preference.leftHanded === false) {
-        return 'right aligned column'
+      if (this.status.preference.leftHanded === true) {
+        classList.push('left-handed')
       }
       else {
-        return 'column'
+        classList.push('right aligned')
       }
+      
+      return classList.join(' ')
     }
   },
   watch: {

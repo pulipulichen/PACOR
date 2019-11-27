@@ -11,5 +11,5 @@ module.exports = {
   "PacorSearchResult": '{font-weight: bold !important;background-color: yellow !important;color: red !important;}',
   "AnnotationPanelMaxTopGap": 50,
   "AnnotationPanelMinPanelHeight": 100,
-  "AnnotationPanelDisplayMinPanelHeight": 300,
+  "AnnotationPanelDisplayMinPanelHeight": 300
 }
