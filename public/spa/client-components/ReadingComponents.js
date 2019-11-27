@@ -863,7 +863,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-selection {\n  background-color: rgba(0, 0, 255, 0.7);\n  color: white;\n}\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-hover {\n  text-decoration: underline;\n}\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-search-result {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n", "",{"version":3,"sources":["RangyManager.global.less?vue&type=style&index=0&lang=less&"],"names":[],"mappings":"AAAA;EACE,sCAAsC;EACtC,YAAY;AACd;AACA;EACE,0BAA0B;AAC5B;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB","file":"RangyManager.global.less?vue&type=style&index=0&lang=less&","sourcesContent":["[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-selection {\n  background-color: rgba(0, 0, 255, 0.7);\n  color: white;\n}\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-hover {\n  text-decoration: underline;\n}\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-search-result {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n"]}]);
+exports.push([module.i, "[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] {\n  /**\n   * @author Pulipuli Chen 20191127 改用text-shadow，比較漂亮\n   */\n}\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-selection {\n  background-color: rgba(0, 0, 255, 0.7);\n  color: white;\n}\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-hover {\n  text-shadow: 0 0 10px #FFF, 0 0 20px #ffff00, 0 0 30px #ffff00;\n}\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-search-result {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n", "",{"version":3,"sources":["RangyManager.global.less?vue&type=style&index=0&lang=less&"],"names":[],"mappings":"AAAA;EACE;;IAEE;AACJ;AACA;EACE,sCAAsC;EACtC,YAAY;AACd;AACA;EACE,8DAA8D;AAChE;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB","file":"RangyManager.global.less?vue&type=style&index=0&lang=less&","sourcesContent":["[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] {\n  /**\n   * @author Pulipuli Chen 20191127 改用text-shadow，比較漂亮\n   */\n}\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-selection {\n  background-color: rgba(0, 0, 255, 0.7);\n  color: white;\n}\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-hover {\n  text-shadow: 0 0 10px #FFF, 0 0 20px #ffff00, 0 0 30px #ffff00;\n}\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] .pacor-search-result {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -13652,6 +13652,8 @@ __webpack_require__.r(__webpack_exports__);
       this.hoverHighlighter.deserialize(highlight)
       this.hoverAnnotation = annotation
       this.hoverAnnotationLock = doLock
+      
+      //$('.pacor-hover').transition('glow')
     }, 0)
 
     //console.log(this.hoverAnnotationLock)

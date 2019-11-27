@@ -28,6 +28,8 @@ export default (RangyManager) => {
       this.hoverHighlighter.deserialize(highlight)
       this.hoverAnnotation = annotation
       this.hoverAnnotationLock = doLock
+      
+      //$('.pacor-hover').transition('glow')
     }, 0)
 
     //console.log(this.hoverAnnotationLock)
