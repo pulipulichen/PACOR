@@ -1,9 +1,9 @@
 import $ from 'jquery'
 
-import EventAnnotationComment from './EventAnnotationComment/EventAnnotationComment.vue'
-import EventAnnotationCommentRate from './EventAnnotationCommentRate/EventAnnotationCommentRate.vue'
-import EventAnnotationRate from './EventAnnotationRate/EventAnnotationRate.vue'
-import EventReadingProgress from './EventReadingProgress/EventReadingProgress.vue'
+import EventAnnotationComment from './../NotificationEvent/EventAnnotationComment/EventAnnotationComment.vue'
+import EventAnnotationCommentRate from './../NotificationEvent/EventAnnotationCommentRate/EventAnnotationCommentRate.vue'
+import EventAnnotationRate from './../NotificationEvent/EventAnnotationRate/EventAnnotationRate.vue'
+import EventReadingProgress from './../NotificationEvent/EventReadingProgress/EventReadingProgress.vue'
 
 let NotificationFeed = {
   props: ['lib', 'status', 'config'
@@ -56,6 +56,9 @@ let NotificationFeed = {
 //  mounted() {
 //  },
   methods: {
+    load: async function () {
+      
+    },
     onScrollList (event) {
       if (this.loadLock === true) {
         event.preventDefault()

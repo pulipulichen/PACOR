@@ -54,6 +54,7 @@
     },
     "component": {
       "attributes": {
+        "v-on:read": {},
         "v-bind:heightPX": {},
         "v-bind:hook": {},
         "v-bind:notification": {}

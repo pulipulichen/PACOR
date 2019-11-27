@@ -7,9 +7,10 @@ let NotificationManager = {
     this.$i18n.locale = this.config.locale
     return {
       notificationData: {
-        unreadCount: 0,
-        notifications: []
       },
+      
+      unreadCount: 0,
+      hasNotifications: true,
       
       afterTime: null,
       timer: null,
@@ -20,7 +21,7 @@ let NotificationManager = {
     "notification-feed": NotificationFeed
   },
   computed: {
-    notificationCount () {
+    unreadCount () {
       return this.notificationData.unreadCount
     },
     computedBellClassList () {
@@ -51,11 +52,8 @@ let NotificationManager = {
         return null
       }
       
-      //console.log(result)
-      //console.log(result.notifications[0].triggerUser)
-      for (let key in result) {
-        this.notificationData[key] = result[key]
-      }
+      this.unreadCount = result.unreadCount
+      this.hasNotifications = result.hasNotifications
       
       //this.show() // for test 20191123
     },
@@ -70,11 +68,12 @@ let NotificationManager = {
           distanceAway: 20,
           position: "top center",
           onVisible: () => {
-            this.stopReloadData()
+            //this.stopReloadData()
+            this.$refs.feed.load()
           },
-          onHidden: () => {
-            this.startReloadData()
-          }
+          //onHidden: () => {
+            //this.startReloadData()
+          //}
       })
 //      console.log('initPopup')
       anchor.click()

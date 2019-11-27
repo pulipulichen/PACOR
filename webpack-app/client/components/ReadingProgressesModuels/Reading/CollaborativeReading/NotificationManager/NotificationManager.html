@@ -4,9 +4,9 @@
      ref="anchor"
      v-on:click.once="initPopup"></i>
 
-  <div v-if="notificationCount > 0"
+  <div v-if="unreadCount > 0"
        class="floating ui red label">
-    {{ notificationCount }}
+    {{ unreadCount }}
   </div>
 
   <div class="list ui popup"
@@ -19,5 +19,23 @@
       
       v-bind:notificationData="notificationData">
     </notification-feed>
+    
+    <div class="ui segment"
+         v-if="hasNotification"
+         v-on:click="() => { $refs.NotificationModal.show() }">
+      <button type="button"
+              class="ui fluid button">
+        {{ $t('View All Notifications') }}
+      </button>
+    </div>
   </div>
+  
+  <notification-modal 
+    ref="NotificationModal"
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+
+    v-bind:notificationData="notificationData">
+  </notification-modal>
 </a>
