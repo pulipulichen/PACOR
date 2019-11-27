@@ -301,7 +301,7 @@ exports.push([module.i, ".NotificationFeed[data-v-9d0f0aee] {\n  overflow-y: aut
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".floating.label[data-v-32d3d148] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-32d3d148] {\n  color: #666;\n}\n.button[data-v-32d3d148] {\n  position: absolute;\n}\n.popup[data-v-32d3d148] {\n  width: 25em !important;\n  max-width: 100vw !important;\n}\n", "",{"version":3,"sources":["NotificationManager.less?vue&type=style&index=0&id=32d3d148&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,6BAA6B;EAC7B,8BAA8B;EAC9B,+BAA+B;EAC/B,gCAAgC;EAChC,mCAAmC;EACnC,oBAAoB;EACpB,qBAAqB;AACvB;AACA;EACE,WAAW;AACb;AACA;EACE,kBAAkB;AACpB;AACA;EACE,sBAAsB;EACtB,2BAA2B;AAC7B","file":"NotificationManager.less?vue&type=style&index=0&id=32d3d148&lang=less&scoped=true&","sourcesContent":[".floating.label[data-v-32d3d148] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-32d3d148] {\n  color: #666;\n}\n.button[data-v-32d3d148] {\n  position: absolute;\n}\n.popup[data-v-32d3d148] {\n  width: 25em !important;\n  max-width: 100vw !important;\n}\n"]}]);
+exports.push([module.i, ".floating.label[data-v-32d3d148] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-32d3d148] {\n  color: #666;\n}\n.button[data-v-32d3d148] {\n  position: absolute;\n}\n.popup[data-v-32d3d148] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-32d3d148]::before {\n  background: #DCDDDE !important;\n}\n", "",{"version":3,"sources":["NotificationManager.less?vue&type=style&index=0&id=32d3d148&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,6BAA6B;EAC7B,8BAA8B;EAC9B,+BAA+B;EAC/B,gCAAgC;EAChC,mCAAmC;EACnC,oBAAoB;EACpB,qBAAqB;AACvB;AACA;EACE,WAAW;AACb;AACA;EACE,kBAAkB;AACpB;AACA;EACE,sBAAsB;EACtB,2BAA2B;EAC3B,8BAA8B;EAC9B,gCAAgC;AAClC;AACA;EACE,8BAA8B;AAChC","file":"NotificationManager.less?vue&type=style&index=0&id=32d3d148&lang=less&scoped=true&","sourcesContent":[".floating.label[data-v-32d3d148] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-32d3d148] {\n  color: #666;\n}\n.button[data-v-32d3d148] {\n  position: absolute;\n}\n.popup[data-v-32d3d148] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-32d3d148]::before {\n  background: #DCDDDE !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -433,6 +433,17 @@ var render = function() {
         key: "header",
         fn: function() {
           return [
+            _vm.status.preference.leftHanded
+              ? _c("notification-manager", {
+                  ref: "NotificationManager",
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib
+                  }
+                })
+              : _vm._e(),
+            _vm._v(" "),
             _c("a", { staticClass: "item avatar in-top" }, [
               _c("img", { attrs: { src: _vm.status.avatar } }),
               _vm._v(" "),
@@ -485,16 +496,22 @@ var render = function() {
               { staticClass: "item" },
               [
                 _c("search-manager", {
-                  attrs: { status: _vm.status, lib: _vm.lib }
+                  attrs: { status: _vm.status, lib: _vm.lib, size: "mini" }
                 })
               ],
               1
             ),
             _vm._v(" "),
-            _c("notification-manager", {
-              ref: "NotificationManager",
-              attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
-            })
+            !_vm.status.preference.leftHanded
+              ? _c("notification-manager", {
+                  ref: "NotificationManager",
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib
+                  }
+                })
+              : _vm._e()
           ]
         },
         proxy: true

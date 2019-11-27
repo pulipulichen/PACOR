@@ -6,6 +6,14 @@
   compactWidth="400"
   position="bottom">
   <template v-slot:header>
+    <notification-manager
+      v-if="status.preference.leftHanded"
+      ref="NotificationManager"
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib">
+    </notification-manager>
+    
     <a class="item avatar in-top">
       <img v-bind:src="status.avatar">
       <div class="username">
@@ -48,11 +56,13 @@
     <div class="item">
       <search-manager 
         v-bind:status="status"
-        v-bind:lib="lib">
+        v-bind:lib="lib"
+        size="mini">
       </search-manager>
     </div>
     
-    <notification-manager 
+    <notification-manager
+      v-if="!status.preference.leftHanded"
       ref="NotificationManager"
       v-bind:config="config"
       v-bind:status="status"

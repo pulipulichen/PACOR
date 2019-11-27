@@ -1,5 +1,5 @@
 let SearchInput = {
-  props: ['status', 'lib'],
+  props: ['status', 'lib', 'size'],
   data() {    
     return {
       enableShowList: false,
@@ -9,8 +9,15 @@ let SearchInput = {
   },
 //  components: {
 //  },
-//  computed: {
-//  },
+  computed: {
+    computedInputClassList () {
+      let classList = []
+      if (this.size) {
+        classList.push(this.size)
+      }
+      return classList.join(' ')
+    }
+  },
   watch: {
     'status.search.keyword': function () {
       this.countSearchResult()

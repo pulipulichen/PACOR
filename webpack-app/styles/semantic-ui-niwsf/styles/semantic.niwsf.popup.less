@@ -357,7 +357,25 @@ transform-origin: right center;
 transform-origin: left center;
 }
 .non-invasive-web-style-framework .ui.popup {
-margin: 0em;
+  margin: 0em;
+  
+  &.secondary {
+    background: #f3f4f5;
+    color: rgba(0,0,0,.6);
+    
+    &::before {
+      background: #f3f4f5;
+    }
+  }
+  
+  &.tertiary {
+    background: #DCDDDE;
+    color: rgba(0,0,0,.6);
+    
+    &::before {
+      background: #DCDDDE;
+    }
+  }
 }
 .non-invasive-web-style-framework .ui.top.popup {
 margin: 0em 0em 0.71428571em;

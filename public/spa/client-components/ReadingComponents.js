@@ -681,7 +681,7 @@ exports.push([module.i, ".AnnotationSingle[data-v-758d13ca] {\n  overflow-y: aut
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"AnnotationTypeFilter.less?vue&type=style&index=0&id=d2a7f616&lang=less&scoped=true&"}]);
+exports.push([module.i, ".AnnotationTypeFilter[data-v-d2a7f616]  .AnnotationTypeButton {\n  padding: 0.5em 0.7em !important;\n}\n", "",{"version":3,"sources":["AnnotationTypeFilter.less?vue&type=style&index=0&id=d2a7f616&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,+BAA+B;AACjC","file":"AnnotationTypeFilter.less?vue&type=style&index=0&id=d2a7f616&lang=less&scoped=true&","sourcesContent":[".AnnotationTypeFilter[data-v-d2a7f616]  .AnnotationTypeButton {\n  padding: 0.5em 0.7em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -877,7 +877,7 @@ exports.push([module.i, "[data-pacor-section-seq-id] [data-pacor-paragraph-seq-i
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".floating.label[data-v-dfaa79be] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 103% !important;\n  top: -0.5em !important;\n}\n", "",{"version":3,"sources":["SearchManager.less?vue&type=style&index=0&id=dfaa79be&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,6BAA6B;EAC7B,8BAA8B;EAC9B,+BAA+B;EAC/B,mCAAmC;EACnC,qBAAqB;EACrB,sBAAsB;AACxB","file":"SearchManager.less?vue&type=style&index=0&id=dfaa79be&lang=less&scoped=true&","sourcesContent":[".floating.label[data-v-dfaa79be] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 103% !important;\n  top: -0.5em !important;\n}\n"]}]);
+exports.push([module.i, ".floating.label[data-v-dfaa79be] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 103% !important;\n  top: -0.5em !important;\n}\n.mini input[type=\"text\"][data-v-dfaa79be] {\n  width: 7em;\n}\n", "",{"version":3,"sources":["SearchManager.less?vue&type=style&index=0&id=dfaa79be&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,6BAA6B;EAC7B,8BAA8B;EAC9B,+BAA+B;EAC/B,mCAAmC;EACnC,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,UAAU;AACZ","file":"SearchManager.less?vue&type=style&index=0&id=dfaa79be&lang=less&scoped=true&","sourcesContent":[".floating.label[data-v-dfaa79be] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 103% !important;\n  top: -0.5em !important;\n}\n.mini input[type=\"text\"][data-v-dfaa79be] {\n  width: 7em;\n}\n"]}]);
 
 
 /***/ }),
@@ -2563,7 +2563,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "a",
-    { ref: "anchor", staticClass: "item", on: { click: _vm.show } },
+    {
+      ref: "anchor",
+      staticClass: "item AnnotationTypeFilter",
+      on: { click: _vm.show }
+    },
     [
       _vm.type
         ? [
@@ -3766,51 +3770,58 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui action input" }, [
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.status.search.keyword,
-          expression: "status.search.keyword"
-        }
-      ],
-      ref: "input",
-      attrs: {
-        type: "text",
-        placeholder: _vm.$t("Search..."),
-        onclick: "this.select()"
-      },
-      domProps: { value: _vm.status.search.keyword },
-      on: {
-        input: function($event) {
-          if ($event.target.composing) {
-            return
+  return _c(
+    "div",
+    {
+      staticClass: "ui action input SearchManager",
+      class: _vm.computedInputClassList
+    },
+    [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.status.search.keyword,
+            expression: "status.search.keyword"
           }
-          _vm.$set(_vm.status.search, "keyword", $event.target.value)
+        ],
+        ref: "input",
+        attrs: {
+          type: "text",
+          placeholder: _vm.$t("Search..."),
+          onclick: "this.select()"
+        },
+        domProps: { value: _vm.status.search.keyword },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.status.search, "keyword", $event.target.value)
+          }
         }
-      }
-    }),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass: "ui icon button",
-        attrs: { type: "button" },
-        on: { click: _vm.searchAnnotation }
-      },
-      [
-        _vm.count > 0
-          ? _c("div", { staticClass: "floating ui red label" }, [
-              _vm._v("\r\n      " + _vm._s(_vm.count) + "\r\n    ")
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _c("i", { staticClass: "search icon" })
-      ]
-    )
-  ])
+      }),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "ui icon button",
+          attrs: { type: "button" },
+          on: { click: _vm.searchAnnotation }
+        },
+        [
+          _vm.count > 0
+            ? _c("div", { staticClass: "floating ui red label" }, [
+                _vm._v("\r\n      " + _vm._s(_vm.count) + "\r\n    ")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("i", { staticClass: "search icon" })
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -22961,7 +22972,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let SearchInput = {
-  props: ['status', 'lib'],
+  props: ['status', 'lib', 'size'],
   data() {    
     return {
       enableShowList: false,
@@ -22971,8 +22982,15 @@ let SearchInput = {
   },
 //  components: {
 //  },
-//  computed: {
-//  },
+  computed: {
+    computedInputClassList () {
+      let classList = []
+      if (this.size) {
+        classList.push(this.size)
+      }
+      return classList.join(' ')
+    }
+  },
   watch: {
     'status.search.keyword': function () {
       this.countSearchResult()
