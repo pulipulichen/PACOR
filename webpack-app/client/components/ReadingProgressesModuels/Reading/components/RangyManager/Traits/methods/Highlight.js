@@ -39,43 +39,15 @@ export default (RangyManager) => {
       elementProperties: {
         onclick: function (event) {
           triggerEvent(this, event, 'highlightClick')
-//          let pos = vm._getAnchorPositionFromElement(this, event)
-//          //console.log(pos)
-//          //vm.$emit('highlightClick', pos)
-//          vm.triggerEvent('highlightClick', pos)
-//          
-//          event.stopPropagation()
-//          event.preventDefault()
         },
         ontouch: function (event) {
           triggerEvent(this, event, 'highlightClick')
-//          
-//          let pos = vm._getAnchorPositionFromElement(this, event)
-//          //console.log(pos)
-//          //vm.$emit('highlightClick', pos)
-//          vm.triggerEvent('highlightClick', pos)
-//          
-//          event.stopPropagation()
-//          event.preventDefault()
         },
         onmouseover: function (event) {
           triggerEvent(this, event, 'highlightMouseover')
-//          
-//          let data = vm._getAnchorPositionFromElement(this, event)
-//          //vm.$emit('highlightMouseover', data)
-//          vm.triggerEvent('highlightMouseover', data)
-//
-//          event.stopPropagation()
-//          event.preventDefault()
         },
         onmouseout: function (event) {
           triggerEvent(this, event, 'highlightMouseout')
-//          
-//          //vm.$emit('highlightMouseout')
-//          vm.triggerEvent('highlightMouseout')
-//          
-//          event.stopPropagation()
-//          event.preventDefault()
         }
       }
     }
@@ -119,7 +91,6 @@ export default (RangyManager) => {
         sheet.insertRule(rule, sheet.cssRules.length)
       })
     } // if (rules.length > 0) {
-
   }
   
   RangyManager.methods._getAnchorPositionFromHighlight = function (highlight) {
