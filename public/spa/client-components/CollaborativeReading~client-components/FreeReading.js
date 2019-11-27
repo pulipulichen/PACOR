@@ -996,7 +996,12 @@ var render = function() {
     [
       _c("modal", {
         ref: "Modal",
-        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib },
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          lib: _vm.lib,
+          cancelButtonText: _vm.$t("CLOSE")
+        },
         scopedSlots: _vm._u([
           {
             key: "header",
@@ -1013,23 +1018,6 @@ var render = function() {
             key: "content",
             fn: function() {
               return [_vm._v("\r\n      list...\r\n    ")]
-            },
-            proxy: true
-          },
-          {
-            key: "actions",
-            fn: function() {
-              return [
-                _c(
-                  "div",
-                  { staticClass: "ui button", on: { click: _vm.hide } },
-                  [
-                    _vm._v(
-                      "\r\n        " + _vm._s(_vm.$t("CLOSE")) + "\r\n      "
-                    )
-                  ]
-                )
-              ]
             },
             proxy: true
           }
@@ -1928,8 +1916,7 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    //this._testUserFilter()
-    //this._testConfirmModal()
+    this._testNotificationFullList()
   },
   methods: {
     initComponentToLib () {
@@ -1945,6 +1932,7 @@ let CollaborativeReading = {
       this.lib.SectionManager = this.$refs.SectionManager
       this.lib.UserFilter = this.$refs.nav.$refs.UserFilter
       this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
+      this.lib.NotificationManager = this.$refs.nav.$refs.NotificationManager
       //console.log(this.lib.AnnotationPanel)
     },
     showInstruction() {
@@ -2044,8 +2032,14 @@ let CollaborativeReading = {
         id: 1
       }
       */
+    },
+    _testNotificationFullList: async function () {
+      console.log('_testNotificationModal')
+      await this.lib.VueHelper.sleep(1000)
+      
+      this.lib.NotificationManager.showFull()
     }
-  } // methods
+   } // methods
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (CollaborativeReading);
@@ -3353,6 +3347,9 @@ let NotificationManager = {
     show () {
       this.$refs.anchor.click()
       //throw new Error('show')
+    },
+    showFull () {
+      this.$refs.NotificationModal.show()
     }
   } // methods
 }

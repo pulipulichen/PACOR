@@ -90,6 +90,9 @@ let NotificationManager = {
     show () {
       this.$refs.anchor.click()
       //throw new Error('show')
+    },
+    showFull () {
+      this.$refs.NotificationModal.show()
     }
   } // methods
 }

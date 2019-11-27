@@ -104,6 +104,7 @@ let VueController = {
       style: StyleHelper.setConfig(config),
       AnnotationHelper: AnnotationHelper,
       VueHelper: VueHelper,
+      
       auth: null,
       RangyManager: null,
       AnnotationPanel: null,
@@ -111,6 +112,7 @@ let VueController = {
       AnnotationTypeFilter: null,
       SectionManager: null,
       ConfirmModal: null,
+      NotificationManager: null,
     },
     errors: [],
     persistAttrs: [

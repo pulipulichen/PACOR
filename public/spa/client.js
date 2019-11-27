@@ -2106,6 +2106,7 @@ let VueController = {
       style: _helpers_StyleHelper__WEBPACK_IMPORTED_MODULE_8__["default"].setConfig(_config_js__WEBPACK_IMPORTED_MODULE_13__["default"]),
       AnnotationHelper: _helpers_AnnotationHelper__WEBPACK_IMPORTED_MODULE_9__["default"],
       VueHelper: _helpers_VueHelper__WEBPACK_IMPORTED_MODULE_10__["default"],
+      
       auth: null,
       RangyManager: null,
       AnnotationPanel: null,
@@ -2113,6 +2114,7 @@ let VueController = {
       AnnotationTypeFilter: null,
       SectionManager: null,
       ConfirmModal: null,
+      NotificationManager: null,
     },
     errors: [],
     persistAttrs: [

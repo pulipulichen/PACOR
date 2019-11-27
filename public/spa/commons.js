@@ -535,7 +535,8 @@ var render = function() {
     _vm.$slots.actions ||
     _vm.cancelable === "true" ||
     _vm.cancelable === true ||
-    _vm.reset
+    _vm.reset ||
+    _vm.cancelButtonText
       ? _c(
           "div",
           { staticClass: "actions" },

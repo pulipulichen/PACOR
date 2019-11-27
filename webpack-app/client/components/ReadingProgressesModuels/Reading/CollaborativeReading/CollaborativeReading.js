@@ -17,8 +17,7 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    //this._testUserFilter()
-    //this._testConfirmModal()
+    this._testNotificationFullList()
   },
   methods: {
     initComponentToLib () {
@@ -34,6 +33,7 @@ let CollaborativeReading = {
       this.lib.SectionManager = this.$refs.SectionManager
       this.lib.UserFilter = this.$refs.nav.$refs.UserFilter
       this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
+      this.lib.NotificationManager = this.$refs.nav.$refs.NotificationManager
       //console.log(this.lib.AnnotationPanel)
     },
     showInstruction() {
@@ -133,8 +133,14 @@ let CollaborativeReading = {
         id: 1
       }
       */
+    },
+    _testNotificationFullList: async function () {
+      console.log('_testNotificationModal')
+      await this.lib.VueHelper.sleep(1000)
+      
+      this.lib.NotificationManager.showFull()
     }
-  } // methods
+   } // methods
 }
 
 export default CollaborativeReading

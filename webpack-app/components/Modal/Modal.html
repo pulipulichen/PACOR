@@ -18,7 +18,7 @@
             frameborder="0"></iframe>
   </div>
   <div class="actions"
-       v-if="$slots.actions || cancelable === 'true' || cancelable === true || reset">
+       v-if="$slots.actions || cancelable === 'true' || cancelable === true || reset || cancelButtonText">
     
     <div class="ui button"
          v-if="contentURL"
