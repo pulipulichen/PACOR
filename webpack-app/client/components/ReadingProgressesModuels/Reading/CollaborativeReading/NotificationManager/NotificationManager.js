@@ -7,10 +7,9 @@ let NotificationManager = {
     this.$i18n.locale = this.config.locale
     return {
       notificationData: {
+        unreadCount: 0,
+        hasNotifications: true,
       },
-      
-      unreadCount: 0,
-      hasNotifications: true,
       
       afterTime: null,
       timer: null,
@@ -21,11 +20,11 @@ let NotificationManager = {
     "notification-feed": NotificationFeed
   },
   computed: {
-    unreadCount () {
-      return this.notificationData.unreadCount
-    },
+//    unreadCount () {
+//      return this.notificationData.unreadCount
+//    },
     computedBellClassList () {
-      if (this.notificationCount === 0) {
+      if (this.notificationData.unreadCount === 0) {
         return 'disabled'
       }
     }
@@ -52,8 +51,8 @@ let NotificationManager = {
         return null
       }
       
-      this.unreadCount = result.unreadCount
-      this.hasNotifications = result.hasNotifications
+      this.notificationData.unreadCount = result.unreadCount
+      this.notificationData.hasNotifications = result.hasNotifications
       
       //this.show() // for test 20191123
     },
@@ -67,13 +66,12 @@ let NotificationManager = {
           on    : 'click',
           distanceAway: 20,
           position: "top center",
-          onVisible: () => {
-            //this.stopReloadData()
-            this.$refs.feed.load()
+          onShow: () => {
+            this.stopReloadData()
           },
-          //onHidden: () => {
-            //this.startReloadData()
-          //}
+          onHidden: () => {
+            this.startReloadData()
+          }
       })
 //      console.log('initPopup')
       anchor.click()

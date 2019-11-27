@@ -1,6 +1,6 @@
-import props from '../NotificationEvent/propsNotificationEvent.js'
-import computed from '../NotificationEvent/computedNotificationEvent.js'
-import methods from '../NotificationEvent/methodsNotificationEvent.js'
+import props from '../propsNotificationEvent.js'
+import computed from '../computedNotificationEvent.js'
+import methods from '../methodsNotificationEvent.js'
 
 let EventAnnotationComment = {
   props,

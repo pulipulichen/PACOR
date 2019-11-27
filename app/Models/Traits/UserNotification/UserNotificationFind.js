@@ -27,7 +27,7 @@ class UserNotificationFind {
               .where('webpage_id', webpage.primaryKeyValue)
               .where('user_id', user.primaryKeyValue)
               .where('deleted', false)
-              //.where('has_read', false)
+              .where('has_read', false)
               .with('triggerUser', triggerQueryBuilder)
               .orderBy('created_at_unixms', 'desc')
 
@@ -49,10 +49,12 @@ class UserNotificationFind {
         notifications = notifications.toJSON().reverse()
 
         let unreadCount = await this.getUnreadCount(webpage, user)
+        let hasNotification = await this.hasNotification(webpage, user)
 
         return {
           notifications,
-          unreadCount
+          unreadCount,
+          hasNotification
         }
       }
       
@@ -108,13 +110,32 @@ class UserNotificationFind {
                 .where('user_id', user.primaryKeyValue)
                 .where('deleted', false)
                 .where('has_read', false)
-                .count()
+                .getCount()
         
         if (result === null) {
           return 0
         }
         //console.log(TypeHelper.parseInt(result[0].count))
-        return TypeHelper.parseInt(result[0].count)
+        return result
+      })
+    } // Model.getUnreadCount = async function (webpage, user) {
+    
+    Model.hasNotification = async function (webpage, user) {
+      let cacheKey = Cache.key('hasNotification')
+      
+      return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+        let result = await UserNotificationModel
+                .query()
+                .where('webpage_id', webpage.primaryKeyValue)
+                .where('user_id', user.primaryKeyValue)
+                .where('deleted', false)
+                .getCount()
+        
+        if (result === null) {
+          return false
+        }
+        //console.log(TypeHelper.parseInt(result[0].count))
+        return (result > 0)
       })
     }
     

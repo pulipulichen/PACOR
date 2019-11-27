@@ -56,9 +56,6 @@ let NotificationFeed = {
 //  mounted() {
 //  },
   methods: {
-    load: async function () {
-      
-    },
     onScrollList (event) {
       if (this.loadLock === true) {
         event.preventDefault()

@@ -877,9 +877,11 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _vm.unreadCount > 0
+      _vm.notificationData.unreadCount > 0
         ? _c("div", { staticClass: "floating ui red label" }, [
-            _vm._v("\r\n    " + _vm._s(_vm.unreadCount) + "\r\n  ")
+            _vm._v(
+              "\r\n    " + _vm._s(_vm.notificationData.unreadCount) + "\r\n  "
+            )
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -2135,25 +2137,25 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/propsNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/computedNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/methodsNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../propsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/propsNotificationEvent.js");
+/* harmony import */ var _computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../computedNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/computedNotificationEvent.js");
+/* harmony import */ var _methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../methodsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/methodsNotificationEvent.js");
 
 
 
 
 let EventAnnotationComment = {
-  props: !(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/propsNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  props: _propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   data: function () {
     this.$i18n.locale = this.config.locale
     return {
     }
   },
   computed: {
-    ...!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/computedNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+    ..._computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   methods: {
-    ...!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/methodsNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+    ..._methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 }
 
@@ -2254,25 +2256,25 @@ component.options.__file = "webpack-app/client/components/ReadingProgressesModue
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/propsNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/computedNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/methodsNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../propsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/propsNotificationEvent.js");
+/* harmony import */ var _computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../computedNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/computedNotificationEvent.js");
+/* harmony import */ var _methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../methodsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/methodsNotificationEvent.js");
 
 
 
 
 let EventAnnotationCommentRate = {
-  props: !(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/propsNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  props: _propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   data: function () {
     this.$i18n.locale = this.config.locale
     return {
     }
   },
   computed: {
-    ...!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/computedNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+    ..._computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   methods: {
-    ...!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/methodsNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+    ..._methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 }
 
@@ -2370,25 +2372,25 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/propsNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/computedNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/methodsNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../propsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/propsNotificationEvent.js");
+/* harmony import */ var _computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../computedNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/computedNotificationEvent.js");
+/* harmony import */ var _methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../methodsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/methodsNotificationEvent.js");
 
 
 
 
 let EventAnnotationRate = {
-  props: !(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/propsNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  props: _propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   data: function () {
     this.$i18n.locale = this.config.locale
     return {
     }
   },
   computed: {
-    ...!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/computedNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+    ..._computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   methods: {
-    ...!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/methodsNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+    ..._methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 }
 
@@ -2472,25 +2474,25 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/propsNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/computedNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/methodsNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../propsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/propsNotificationEvent.js");
+/* harmony import */ var _computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../computedNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/computedNotificationEvent.js");
+/* harmony import */ var _methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../methodsNotificationEvent.js */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/methodsNotificationEvent.js");
 
 
 
 
 let EventAnnotationRate = {
-  props: !(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/propsNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  props: _propsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   data: function () {
     this.$i18n.locale = this.config.locale
     return {
     }
   },
   computed: {
-    ...!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/computedNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+    ..._computedNotificationEvent_js__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   methods: {
-    ...!(function webpackMissingModule() { var e = new Error("Cannot find module '../NotificationEvent/methodsNotificationEvent.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+    ..._methodsNotificationEvent_js__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 }
 
@@ -2754,6 +2756,80 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/computedNotificationEvent.js":
+/*!****************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/computedNotificationEvent.js ***!
+  \****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  username() {
+    let user = this.notification.triggerUser
+    if (typeof (user.displayName) === 'string') {
+      return user.displayName
+    } else {
+      return user.username
+    }
+  },
+  action() {
+
+  },
+  avatar() {
+    return this.notification.triggerUser.avatar_url
+  },
+  displayTime() {
+    return this.lib.DayJSHelper.fromNow(this.notification.created_at_unixms)
+  },
+  summary() {
+    return
+  },
+  computedEventClassList () {
+    let classList = []
+    if (this.notification.has_read === true) {
+      //console.log(this.notification)
+      classList.push('has-read')
+    }
+    //classList.push('has-read')
+    //console.log(classList)
+    return classList.join(' ')
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/methodsNotificationEvent.js":
+/*!***************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/methodsNotificationEvent.js ***!
+  \***************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  read() {
+    throw new Error('read' + this.notification)
+  }
+}); // methods
+
+/***/ }),
+
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/propsNotificationEvent.js":
+/*!*************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationEvent/propsNotificationEvent.js ***!
+  \*************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (['lib', 'status', 'config', 'notification']);
+
+/***/ }),
+
 /***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationFeed.html?vue&type=template&id=9d0f0aee&scoped=true&":
 /*!***************************************************************************************************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/CollaborativeReading/NotificationManager/NotificationFeed/NotificationFeed.html?vue&type=template&id=9d0f0aee&scoped=true& ***!
@@ -2859,9 +2935,6 @@ let NotificationFeed = {
 //  mounted() {
 //  },
   methods: {
-    load: async function () {
-      
-    },
     onScrollList (event) {
       if (this.loadLock === true) {
         event.preventDefault()
@@ -3081,10 +3154,9 @@ let NotificationManager = {
     this.$i18n.locale = this.config.locale
     return {
       notificationData: {
+        unreadCount: 0,
+        hasNotifications: true,
       },
-      
-      unreadCount: 0,
-      hasNotifications: true,
       
       afterTime: null,
       timer: null,
@@ -3095,11 +3167,11 @@ let NotificationManager = {
     "notification-feed": _NotificationFeed_NotificationFeed_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   computed: {
-    unreadCount () {
-      return this.notificationData.unreadCount
-    },
+//    unreadCount () {
+//      return this.notificationData.unreadCount
+//    },
     computedBellClassList () {
-      if (this.notificationCount === 0) {
+      if (this.notificationData.unreadCount === 0) {
         return 'disabled'
       }
     }
@@ -3126,8 +3198,8 @@ let NotificationManager = {
         return null
       }
       
-      this.unreadCount = result.unreadCount
-      this.hasNotifications = result.hasNotifications
+      this.notificationData.unreadCount = result.unreadCount
+      this.notificationData.hasNotifications = result.hasNotifications
       
       //this.show() // for test 20191123
     },
@@ -3141,13 +3213,12 @@ let NotificationManager = {
           on    : 'click',
           distanceAway: 20,
           position: "top center",
-          onVisible: () => {
-            //this.stopReloadData()
-            this.$refs.feed.load()
+          onShow: () => {
+            this.stopReloadData()
           },
-          //onHidden: () => {
-            //this.startReloadData()
-          //}
+          onHidden: () => {
+            this.startReloadData()
+          }
       })
 //      console.log('initPopup')
       anchor.click()

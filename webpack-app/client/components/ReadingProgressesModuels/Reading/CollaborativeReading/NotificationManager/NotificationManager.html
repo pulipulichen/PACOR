@@ -4,9 +4,9 @@
      ref="anchor"
      v-on:click.once="initPopup"></i>
 
-  <div v-if="unreadCount > 0"
+  <div v-if="notificationData.unreadCount > 0"
        class="floating ui red label">
-    {{ unreadCount }}
+    {{ notificationData.unreadCount }}
   </div>
 
   <div class="list ui popup"
