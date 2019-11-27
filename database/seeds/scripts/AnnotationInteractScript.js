@@ -33,7 +33,10 @@ module.exports = {
   addComments: async function () {
     
     let userBeCommented = await UserModel.findByNameInWebpage(webpage, '布乙')
+    //console.log(userBeCommented.annotations(webpage).toSQL())
     let annotations = await userBeCommented.annotations(webpage).fetch()
+    //console.log(userBeCommented.primaryKeyValue)
+    //console.log(annotations.size())
     annotation = annotations.nth(1)
     
     // -------------------

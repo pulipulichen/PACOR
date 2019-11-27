@@ -18,11 +18,20 @@ let EventAnnotationRate = {
 }
 
 EventAnnotationRate.computed.action = function () {
+  //return this.$t('Like your annotation: "{0}"', [this.notification.summary.summary])
   return this.$t('Like your annotation')
 }
 
+EventAnnotationRate.computed.summary = function () {
+  if (!this.notification.summary) {
+    return
+  }
+  let summary = this.notification.summary.summary
+  return this.$t('"{0}"', [this.notification.summary.summary])
+}
+
 EventAnnotationRate.methods.read = function () {
-  this.lib.AnnotationPanel.focusAnnotation(this.notification.summary.annotation_id)
+  this.lib.AnnotationPanel.focusAnnotation(this.notification.anchor_model_id)
   this.$emit('read')
 }
 

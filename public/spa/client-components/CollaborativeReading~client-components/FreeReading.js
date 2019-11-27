@@ -2388,11 +2388,20 @@ let EventAnnotationCommentRate = {
 }
 
 EventAnnotationCommentRate.computed.action = function () {
+  //return this.$t('Like your comment: "{0}"', [this.notification.summary.summary])
   return this.$t('Like your comment')
 }
 
+EventAnnotationCommentRate.computed.summary = function () {
+  if (!this.notification.summary) {
+    return
+  }
+  let summary = this.notification.summary.summary
+  return this.$t('"{0}"', [this.notification.summary.summary])
+}
+
 EventAnnotationCommentRate.methods.read = function () {
-  this.lib.AnnotationPanel.focusComment(this.notification.summary.comment_id)
+  this.lib.AnnotationPanel.focusComment(this.notification.anchor_model_id)
   this.$emit('read')
 }
 
@@ -2504,11 +2513,20 @@ let EventAnnotationRate = {
 }
 
 EventAnnotationRate.computed.action = function () {
+  //return this.$t('Like your annotation: "{0}"', [this.notification.summary.summary])
   return this.$t('Like your annotation')
 }
 
+EventAnnotationRate.computed.summary = function () {
+  if (!this.notification.summary) {
+    return
+  }
+  let summary = this.notification.summary.summary
+  return this.$t('"{0}"', [this.notification.summary.summary])
+}
+
 EventAnnotationRate.methods.read = function () {
-  this.lib.AnnotationPanel.focusAnnotation(this.notification.summary.annotation_id)
+  this.lib.AnnotationPanel.focusAnnotation(this.notification.anchor_model_id)
   this.$emit('read')
 }
 
@@ -3111,7 +3129,7 @@ let NotificationFeed = {
     eventType (notification) {
       //return 'NotificationEvent'  // for test
       
-      return 'Event' + notification.model
+      return 'Event' + notification.trigger_model
     },
     onRead: async function (notification) {
       let data = {

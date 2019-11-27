@@ -26,7 +26,7 @@ module.exports = {
     this.processGroup1User1()
     this.processGroup1User2()
     
-    await Sleep(3) // 統統給我等待10秒鐘
+    await Sleep(5) // 統統給我等待10秒鐘
     
     console.log(__filename + ' is finished.\n')
   },

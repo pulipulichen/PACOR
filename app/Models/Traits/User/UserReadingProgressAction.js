@@ -33,7 +33,9 @@ class UserReadingProgressAction {
         
         let isEnableCollaboration = await this.isEnableCollaboration(webpage)
         if (isEnableCollaboration === true) {
-          await webpage.addNotification(this, step)
+          await webpage.addNotification(this, {
+            triggerInstance: step
+          })
         }
         
         //console.log('新增')

@@ -18,11 +18,20 @@ let EventAnnotationCommentRate = {
 }
 
 EventAnnotationCommentRate.computed.action = function () {
+  //return this.$t('Like your comment: "{0}"', [this.notification.summary.summary])
   return this.$t('Like your comment')
 }
 
+EventAnnotationCommentRate.computed.summary = function () {
+  if (!this.notification.summary) {
+    return
+  }
+  let summary = this.notification.summary.summary
+  return this.$t('"{0}"', [this.notification.summary.summary])
+}
+
 EventAnnotationCommentRate.methods.read = function () {
-  this.lib.AnnotationPanel.focusComment(this.notification.summary.comment_id)
+  this.lib.AnnotationPanel.focusComment(this.notification.anchor_model_id)
   this.$emit('read')
 }
 

@@ -63,7 +63,6 @@ class UserNotificationSave {
         notifiedUserID = await triggerUser.getUserIDsInGroup(webpage)
       }
       
-      
       if (Array.isArray(notifiedUserID)) {
         let d = {
           ...data
@@ -92,9 +91,12 @@ class UserNotificationSave {
       }
       
       if (typeof(triggerModel) !== 'string'
-              || typeof(triggerModel) !== 'number'
+              || typeof(triggerModelID) !== 'number'
               || typeof(notifiedUserID) !== 'number') {
-        throw new HttpException('Anchor model, anchor model ID and notified user ID are required.')
+        console.log(triggerModel)
+        console.log(triggerModel)
+        console.log(data)
+        throw new HttpException('Trigger model, Trigger model ID and notified user ID are required.')
       }
       
       // -------------------------------------
@@ -109,29 +111,25 @@ class UserNotificationSave {
         trigger_user_id: triggerUser.primaryKeyValue,
         user_id: notifiedUserID,
         trigger_model: triggerModel,
-        anchor_model: anchorModel,
-        anchor_model_id: anchorModelID,
         has_read: false,
         deleted: false
       }
       
+      if (anchorModel) {
+        checkQueryData.anchor_model = anchorModel
+      }
+      if (anchorModelID) {
+        checkQueryData.anchor_model_id = anchorModelID
+      }
+      
       let sameTypeNotification = await UserNotificationModel
               .query()
-              .where({
-                webpage_id: webpage.primaryKeyValue,
-                trigger_user_id: triggerUser.primaryKeyValue,
-                user_id: notifiedUserID,
-                trigger_model: triggerModel,
-                anchor_model: anchorModel,
-                anchor_model_id: anchorModelID,
-                has_read: false,
-                deleted: false
-              })
+              .where(checkQueryData)
               .limit(1)
               .getCount()
       
       if (sameTypeNotification > 0) {
-        console.log('有同類型的通知了')
+        //console.log('有同類型的通知了')
         return null
       }
       
@@ -144,8 +142,13 @@ class UserNotificationSave {
         user_id: notifiedUserID,
         trigger_model: triggerModel,
         trigger_model_id: triggerModelID,
-        anchor_model: anchorModel,
-        anchor_model_id: anchorModelID,
+      }
+      
+      if (anchorModel) {
+        findData.anchor_model = anchorModel
+      }
+      if (anchorModelID) {
+        findData.anchor_model_id = anchorModelID
       }
       
       let createData = {

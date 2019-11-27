@@ -3,8 +3,6 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
-const TokenizationHelper = use('App/Helpers/TokenizationHelper')
-
 class Annotation extends Model {
   static boot () {
     super.boot()
@@ -25,6 +23,7 @@ class Annotation extends Model {
     this.addTrait('Annotation/AnnotationAnchorPositions')
     this.addTrait('Annotation/AnnotationSection')
     this.addTrait('Annotation/AnnotationTypeFilter')
+    this.addTrait('Annotation/AnnotationNote')
     //this.addTrait('Annotation/AnnotationNote')
     
   } // static boot () {
@@ -115,15 +114,7 @@ class Annotation extends Model {
     //return ['webpage_id', 'created_at']
   }
   
-  async getNoteSummary () {
-    let notes = await this.notes().fetch()
-    let note = notes.toJSON().map(n => n.text).join('')
-    note = TokenizationHelper.htmlToText(note)
-    if (note.length > 20) {
-      note = note.slice(0, 20) + '...'
-    }
-    return note
-  }
+  
 }
 
 module.exports = Annotation

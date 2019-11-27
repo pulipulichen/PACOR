@@ -9,7 +9,7 @@ class UserReadingProgressConfig {
     
     Model.prototype.getCurrentReadingProgressStepName = async function (webpage) {
       let status = await this.getReadingProgressStatus(webpage)
-      if (status.length === 0) {
+      if (status === null || status.length === 0) {
         return null
       }
       //let stepName = status[0].step_name

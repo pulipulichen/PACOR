@@ -16,13 +16,14 @@
 //const Factory = use('Factory')
 //const Database = use('Database')
 const Sleep = use('Sleep')
+const Cache = use('Cache')
 
 const WebpageUserGroupScript = use('./scripts/WebpageUserGroupScript')
 const AnnotationInteractScript = use('./scripts/AnnotationInteractScript')
 
 class UserSeeder {
   async run () {
-    
+    await Cache.flush()
     console.log('=========================================')
     console.log(__filename + ' start...\n')
     

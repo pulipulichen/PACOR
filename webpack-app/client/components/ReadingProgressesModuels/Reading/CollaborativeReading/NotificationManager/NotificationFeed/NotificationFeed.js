@@ -123,7 +123,7 @@ let NotificationFeed = {
     eventType (notification) {
       //return 'NotificationEvent'  // for test
       
-      return 'Event' + notification.model
+      return 'Event' + notification.trigger_model
     },
     onRead: async function (notification) {
       let data = {
