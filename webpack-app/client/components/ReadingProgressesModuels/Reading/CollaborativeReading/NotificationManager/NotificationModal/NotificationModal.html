@@ -9,7 +9,49 @@
       {{ $t('Notifications') }}
     </template>
     <template v-slot:content>
-      list...
+
+      <div class="trigger-users">
+        <span class="column">
+        {{ $t('Readers interacted with you') }}:
+        </span>
+        <span class="column">
+          <user-avatar-icons 
+            v-bind:config="config"
+            v-bind:status="status"
+            v-bind:lib="lib"
+
+            v-bind:users="triggerUsers">
+          </user-avatar-icons >
+        </span>
+      </div>
+
+      <div class="notification-list ui feed"
+           ref="feed"
+           v-on:scroll.stop="onScrollList">
+        <component 
+          v-for="notification in notifications"
+          v-bind:key="notification.id"
+          v-bind:is="eventType(notification)"
+
+          v-bind:lib="lib"
+          v-bind:status="status"
+          v-bind:config="config"
+
+          v-bind:notification="notification"
+          v-on:read="onRead(notification)">
+        </component>
+
+        <div class="ui secondary segment no-more"
+             v-if="noOlder">
+          <template v-if="notifications.length > 0">
+            {{ $t('No More') }}
+          </template>
+          <template v-else>
+            {{ $t('No Notifications') }}
+          </template>
+        </div>
+      </div>
+
     </template>
   </modal>
 </div>

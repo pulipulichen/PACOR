@@ -57,6 +57,9 @@ let NotificationManager = {
         this.notificationData[key] = result[key]
       }
       //this.show() // for test 20191123
+      
+      //result = await this.lib.AxiosHelper.get('/client/UserNotification/fullInit', data)
+      //console.log(result)
     },
     initPopup () {
       let anchor = $(this.$refs.anchor)

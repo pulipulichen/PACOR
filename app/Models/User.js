@@ -164,6 +164,10 @@ class User extends Model {
     return this.hasMany('App/Models/UserNotification')
   }
   
+  notifies () {
+    return this.hasMany('App/Models/UserNotification', 'id', 'trigger_user_id')
+  }
+  
   logs () {
     return this.hasMany('App/Models/ReadingActivityLog')
   }

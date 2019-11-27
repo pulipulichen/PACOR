@@ -1,10 +1,5 @@
 import $ from 'jquery'
 
-import EventAnnotationComment from './../NotificationEvent/EventAnnotationComment/EventAnnotationComment.vue'
-import EventAnnotationCommentRate from './../NotificationEvent/EventAnnotationCommentRate/EventAnnotationCommentRate.vue'
-import EventAnnotationRate from './../NotificationEvent/EventAnnotationRate/EventAnnotationRate.vue'
-import EventReadingProgress from './../NotificationEvent/EventReadingProgress/EventReadingProgress.vue'
-
 let NotificationFeed = {
   props: ['lib', 'status', 'config'
     , 'notificationData'],
@@ -25,10 +20,6 @@ let NotificationFeed = {
     }
   },
   components: {
-    EventAnnotationComment,
-    EventAnnotationCommentRate,
-    EventAnnotationRate,
-    EventReadingProgress
   },
 //  computed: {
 //    basetime () {
@@ -103,7 +94,7 @@ let NotificationFeed = {
       //console.log(data.basetime)
       //return
       
-      let notifications = await this.lib.AxiosHelper.get('/client/UserNotification/older', data)
+      let notifications = await this.lib.AxiosHelper.get('/client/UserNotification/unreadOlder', data)
       //console.log(notifications)
       if (notifications.length === 0) {
         this.noOlder = true
@@ -120,26 +111,18 @@ let NotificationFeed = {
       await this.lib.VueHelper.sleep(100)
       this.loadLock = false
     },
-    eventType (notification) {
-      //return 'NotificationEvent'  // for test
-      
-      return 'Event' + notification.trigger_model
-    },
-    onRead: async function (notification) {
-      let data = {
-        id: notification.id
-      }
-      
-      let result = await this.lib.AxiosHelper.get('/client/UserNotification/read', data)
-      //console.log(result)
-      if (result !== 1) {
-        throw new Error(this.$t('Set notification read error'))
-      }
-      
-      notification.has_read = true
-      this.notificationData.unreadCount--
-    }
+    afterOnRead (notification) {
+      this.notificationData.unreadNotifications = this.notificationData.unreadNotifications.filter(n => {
+        return (n !== notification)
+      })
+    } 
   } // methods
 }
+
+import EventComponents from './../EventComponents.js'
+EventComponents(NotificationFeed)
+
+import EventMethods from './../EventMethods.js'
+EventMethods(NotificationFeed)
 
 export default NotificationFeed

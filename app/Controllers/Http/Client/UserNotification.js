@@ -23,9 +23,19 @@ class UserNotification extends WebpageUserBaseController {
     return await UserNotificationModel.getInit(webpage, user, options)
   }
   
+  async fullInit ({ request, webpage, user }) {
+    let options = request.all()
+    return await UserNotificationModel.getFullInit(webpage, user, options)
+  }
+  
   async older ({request, webpage, user}) {
     let options = request.all()
     return await UserNotificationModel.getOlderNotifications(webpage, user, options)
+  }
+  
+  async unreadOlder ({request, webpage, user}) {
+    let options = request.all()
+    return await UserNotificationModel.getUnreadOlderNotifications(webpage, user, options)
   }
   
   async read ({request, webpage, user}) {
