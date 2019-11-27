@@ -2590,7 +2590,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { ref: "popup", staticClass: "ui popup" },
+        { ref: "popup", staticClass: "ui tertiary popup" },
         [
           _c("annotation-type-filter-popup", {
             ref: "AnnotationTypeFilterPopup",

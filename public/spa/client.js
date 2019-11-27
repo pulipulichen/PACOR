@@ -1218,6 +1218,7 @@ var render = function() {
     "span",
     {
       staticClass: "ui mini button AnnotationTypeButton",
+      class: _vm.computedClass,
       style: _vm.computedStyle,
       attrs: { title: _vm.typeName },
       on: {
@@ -3810,7 +3811,7 @@ let AnnotationTypeButton = {
       }
       return this.$t('ANNOTATION_TYPE.' + this.type)
     },
-    'computedStyle' () {
+    computedStyle () {
       if (!this.type) {
         return null
       }
@@ -3833,6 +3834,11 @@ let AnnotationTypeButton = {
       }
       
       return style
+    },
+    computedClass () {
+      if (!this.type) {
+        return 'inverted active'
+      }
     }
   },
   /*

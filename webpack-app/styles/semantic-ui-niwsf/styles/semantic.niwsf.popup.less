@@ -363,17 +363,19 @@ transform-origin: left center;
     background: #f3f4f5;
     color: rgba(0,0,0,.6);
     
-    &::before {
+    &::before,
+    &::after {
       background: #f3f4f5;
     }
   }
   
   &.tertiary {
-    background: #DCDDDE;
+    background: #DCDDDE !important;
     color: rgba(0,0,0,.6);
     
-    &::before {
-      background: #DCDDDE;
+    &::before,
+    &::after {
+      background: #DCDDDE !important;
     }
   }
 }
