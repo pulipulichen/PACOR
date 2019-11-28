@@ -169,7 +169,40 @@ class UserReadingProgressConfig {
       return step.start_timestamp
     }
     
-    
+    Model.prototype.getRemainingSeconds = async function (webpage) {
+      let status = await this.getReadingProgressStatus(webpage)
+      let stepName = await this.getCurrentReadingProgressStepName(webpage)
+      //console.log(status)
+      let readingProgresses = await webpage.getReadingProgresses()
+      let config = await webpage.getConfig()
+      
+      let limitMunites
+      let start_time
+      for (let i = 0; i < status.length; i++) {
+        let step = status[i]
+        if (step.step_name === 'IndividualReading') {
+          start_time = step.start_timestamp
+          break
+        }
+      }
+      
+      if (stepName === 'IndividualReading') {
+        limitMunites = config.readingProgressModules['IndividualReading'].limitMinutes
+      }
+      else if (stepName === 'CollaborativeReading') {
+        limitMunites = config.readingProgressModules['reading'].totalLimitMinutes
+      }
+      
+      let nowMS = (new Date()).getTime()
+      let limitMS = limitMunites * 60 * 1000
+      let remainingMS = limitMS - (nowMS - start_time)
+      //console.log(limitMS, start_time, nowMS)
+      let remainingSeconds = Math.round(remainingMS / 1000)
+      if (remainingSeconds < 0) {
+        return 0
+      }
+      return remainingSeconds
+    }
   } // register (Model) {
   
 }

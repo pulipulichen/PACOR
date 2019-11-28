@@ -586,7 +586,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 var getUrl = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
 var ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(/*! ./fonts/digital-7.ttf */ "./webpack-app/components/DigitalCountdownTimer/fonts/digital-7.ttf"));
 // Module
-exports.push([module.i, ".DigitalCountdownTimer[data-v-3fb22da8] {\n  color: #ffffff;\n  border-radius: 0.3em;\n  border: 1px solid white;\n  font-family: 'digital-7', 'sans-serif';\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n  font-size: 1.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  padding-top: 0.1em;\n}\n@font-face {\n  font-family: 'digital-7';\n  src: url(" + ___CSS_LOADER_URL___0___ + ");\n}\n/* CLOCK */\ndiv.clock div[data-v-3fb22da8] {\n  display: inline-block;\n  position: relative;\n}\ndiv.clock div p[data-v-3fb22da8] {\n  position: relative;\n  z-index: 100;\n  margin-bottom: 0 !important;\n  line-height: 1em;\n}\ndiv.clock div p.minutes[data-v-3fb22da8],\ndiv.clock div p.seconds[data-v-3fb22da8] {\n  transition: text-shadow 0.3s ease !important;\n}\ndiv.clock .placeholder[data-v-3fb22da8] {\n  color: #8E5229;\n  position: absolute;\n  top: 0;\n  z-index: 50;\n}\ndiv.clock .meridian[data-v-3fb22da8] {\n  margin-left: 0.5em;\n}\n/*END CLOCK*/\n/*CLASS THAT CHANGES COLOR OF TEXT TO APPEAR LIKE ITS \"ON\"*/\n.light-on[data-v-3fb22da8] {\n  color: #ffffff;\n}\n.message[data-v-3fb22da8] {\n  display: block !important;\n  font-size: 0.4em;\n  top: 0.1em;\n  text-align: center;\n}\n.seconds[data-v-3fb22da8] {\n  margin-right: 0.5em;\n}\n.seconds.two[data-v-3fb22da8] {\n  margin-right: 0;\n}\n.seconds.two[data-v-3fb22da8],\n.minutes.two[data-v-3fb22da8] {\n  left: -0.5em;\n}\n.colon[data-v-3fb22da8] {\n  margin-left: -0.7em;\n  margin-right: -0.3em;\n}\n.seconds-numbers[data-v-3fb22da8] {\n  margin-right: -1em;\n}\n.minutes-numbers[data-v-3fb22da8] {\n  margin-right: 0.5em;\n}\n.minutes-numbers .minutes.hidden[data-v-3fb22da8],\n.minutes-numbers .minutes.two[data-v-3fb22da8] {\n  margin-right: -0.5em;\n}\n.glow[data-v-3fb22da8] {\n  text-shadow: 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5);\n}\n.hidden[data-v-3fb22da8] {\n  visibility: hidden;\n}\n.colon-hidden[data-v-3fb22da8] {\n  color: #8E5229;\n}\n", "",{"version":3,"sources":["DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,oBAAoB;EACpB,uBAAuB;EACvB,sCAAsC;EACtC,mBAAmB;EACnB,oBAAoB;EACpB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;EACnB,kBAAkB;AACpB;AACA;EACE,wBAAwB;EACxB,kCAAiC;AACnC;AACA,UAAU;AACV;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,YAAY;EACZ,2BAA2B;EAC3B,gBAAgB;AAClB;AACA;;EAEE,4CAA4C;AAC9C;AACA;EACE,cAAc;EACd,kBAAkB;EAClB,MAAM;EACN,WAAW;AACb;AACA;EACE,kBAAkB;AACpB;AACA,YAAY;AACZ,2DAA2D;AAC3D;EACE,cAAc;AAChB;AACA;EACE,yBAAyB;EACzB,gBAAgB;EAChB,UAAU;EACV,kBAAkB;AACpB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,eAAe;AACjB;AACA;;EAEE,YAAY;AACd;AACA;EACE,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,mBAAmB;AACrB;AACA;;EAEE,oBAAoB;AACtB;AACA;EACE,4RAA4R;AAC9R;AACA;EACE,kBAAkB;AACpB;AACA;EACE,cAAc;AAChB","file":"DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&","sourcesContent":[".DigitalCountdownTimer[data-v-3fb22da8] {\n  color: #ffffff;\n  border-radius: 0.3em;\n  border: 1px solid white;\n  font-family: 'digital-7', 'sans-serif';\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n  font-size: 1.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  padding-top: 0.1em;\n}\n@font-face {\n  font-family: 'digital-7';\n  src: url('./fonts/digital-7.ttf');\n}\n/* CLOCK */\ndiv.clock div[data-v-3fb22da8] {\n  display: inline-block;\n  position: relative;\n}\ndiv.clock div p[data-v-3fb22da8] {\n  position: relative;\n  z-index: 100;\n  margin-bottom: 0 !important;\n  line-height: 1em;\n}\ndiv.clock div p.minutes[data-v-3fb22da8],\ndiv.clock div p.seconds[data-v-3fb22da8] {\n  transition: text-shadow 0.3s ease !important;\n}\ndiv.clock .placeholder[data-v-3fb22da8] {\n  color: #8E5229;\n  position: absolute;\n  top: 0;\n  z-index: 50;\n}\ndiv.clock .meridian[data-v-3fb22da8] {\n  margin-left: 0.5em;\n}\n/*END CLOCK*/\n/*CLASS THAT CHANGES COLOR OF TEXT TO APPEAR LIKE ITS \"ON\"*/\n.light-on[data-v-3fb22da8] {\n  color: #ffffff;\n}\n.message[data-v-3fb22da8] {\n  display: block !important;\n  font-size: 0.4em;\n  top: 0.1em;\n  text-align: center;\n}\n.seconds[data-v-3fb22da8] {\n  margin-right: 0.5em;\n}\n.seconds.two[data-v-3fb22da8] {\n  margin-right: 0;\n}\n.seconds.two[data-v-3fb22da8],\n.minutes.two[data-v-3fb22da8] {\n  left: -0.5em;\n}\n.colon[data-v-3fb22da8] {\n  margin-left: -0.7em;\n  margin-right: -0.3em;\n}\n.seconds-numbers[data-v-3fb22da8] {\n  margin-right: -1em;\n}\n.minutes-numbers[data-v-3fb22da8] {\n  margin-right: 0.5em;\n}\n.minutes-numbers .minutes.hidden[data-v-3fb22da8],\n.minutes-numbers .minutes.two[data-v-3fb22da8] {\n  margin-right: -0.5em;\n}\n.glow[data-v-3fb22da8] {\n  text-shadow: 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5);\n}\n.hidden[data-v-3fb22da8] {\n  visibility: hidden;\n}\n.colon-hidden[data-v-3fb22da8] {\n  color: #8E5229;\n}\n"]}]);
+exports.push([module.i, ".DigitalCountdownTimer[data-v-3fb22da8] {\n  color: #ffffff;\n  border-radius: 0.3em;\n  border: 1px solid white;\n  font-family: 'digital-7', 'sans-serif';\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n  font-size: 1.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  padding-top: 0.1em;\n}\n@font-face {\n  font-family: 'digital-7';\n  src: url(" + ___CSS_LOADER_URL___0___ + ");\n}\n/* CLOCK */\ndiv.clock div[data-v-3fb22da8] {\n  display: inline-block;\n  position: relative;\n}\ndiv.clock div p[data-v-3fb22da8] {\n  position: relative;\n  z-index: 100;\n  margin-bottom: 0 !important;\n  line-height: 1em;\n}\ndiv.clock div p.minutes[data-v-3fb22da8],\ndiv.clock div p.seconds[data-v-3fb22da8] {\n  transition: text-shadow 0.3s ease !important;\n}\ndiv.clock .placeholder[data-v-3fb22da8] {\n  color: #8E5229;\n  position: absolute;\n  top: 0;\n  z-index: 50;\n}\ndiv.clock .meridian[data-v-3fb22da8] {\n  margin-left: 0.5em;\n}\n/*END CLOCK*/\n/*CLASS THAT CHANGES COLOR OF TEXT TO APPEAR LIKE ITS \"ON\"*/\n.light-on[data-v-3fb22da8] {\n  color: #ffffff;\n}\n.message[data-v-3fb22da8] {\n  display: block !important;\n  font-size: 0.4em;\n  top: 0.1em;\n  text-align: center;\n  left: -0.3em;\n}\n.seconds[data-v-3fb22da8] {\n  margin-right: 0.5em;\n}\n.seconds.two[data-v-3fb22da8] {\n  margin-right: 0;\n}\n.seconds.two[data-v-3fb22da8],\n.minutes.two[data-v-3fb22da8] {\n  left: -0.5em;\n}\n.colon[data-v-3fb22da8] {\n  margin-left: -0.7em;\n  margin-right: -0.3em;\n}\n.seconds-numbers[data-v-3fb22da8] {\n  margin-right: -1em;\n}\n.minutes-numbers[data-v-3fb22da8] {\n  margin-right: 0.5em;\n}\n.minutes-numbers .minutes.hidden[data-v-3fb22da8],\n.minutes-numbers .minutes.two[data-v-3fb22da8] {\n  margin-right: -0.5em;\n}\n.glow[data-v-3fb22da8] {\n  text-shadow: 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5);\n}\n.hidden[data-v-3fb22da8] {\n  visibility: hidden;\n}\n.colon-hidden[data-v-3fb22da8] {\n  color: #8E5229;\n}\n", "",{"version":3,"sources":["DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,oBAAoB;EACpB,uBAAuB;EACvB,sCAAsC;EACtC,mBAAmB;EACnB,oBAAoB;EACpB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;EACnB,kBAAkB;AACpB;AACA;EACE,wBAAwB;EACxB,kCAAiC;AACnC;AACA,UAAU;AACV;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,YAAY;EACZ,2BAA2B;EAC3B,gBAAgB;AAClB;AACA;;EAEE,4CAA4C;AAC9C;AACA;EACE,cAAc;EACd,kBAAkB;EAClB,MAAM;EACN,WAAW;AACb;AACA;EACE,kBAAkB;AACpB;AACA,YAAY;AACZ,2DAA2D;AAC3D;EACE,cAAc;AAChB;AACA;EACE,yBAAyB;EACzB,gBAAgB;EAChB,UAAU;EACV,kBAAkB;EAClB,YAAY;AACd;AACA;EACE,mBAAmB;AACrB;AACA;EACE,eAAe;AACjB;AACA;;EAEE,YAAY;AACd;AACA;EACE,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,mBAAmB;AACrB;AACA;;EAEE,oBAAoB;AACtB;AACA;EACE,4RAA4R;AAC9R;AACA;EACE,kBAAkB;AACpB;AACA;EACE,cAAc;AAChB","file":"DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&","sourcesContent":[".DigitalCountdownTimer[data-v-3fb22da8] {\n  color: #ffffff;\n  border-radius: 0.3em;\n  border: 1px solid white;\n  font-family: 'digital-7', 'sans-serif';\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n  font-size: 1.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  padding-top: 0.1em;\n}\n@font-face {\n  font-family: 'digital-7';\n  src: url('./fonts/digital-7.ttf');\n}\n/* CLOCK */\ndiv.clock div[data-v-3fb22da8] {\n  display: inline-block;\n  position: relative;\n}\ndiv.clock div p[data-v-3fb22da8] {\n  position: relative;\n  z-index: 100;\n  margin-bottom: 0 !important;\n  line-height: 1em;\n}\ndiv.clock div p.minutes[data-v-3fb22da8],\ndiv.clock div p.seconds[data-v-3fb22da8] {\n  transition: text-shadow 0.3s ease !important;\n}\ndiv.clock .placeholder[data-v-3fb22da8] {\n  color: #8E5229;\n  position: absolute;\n  top: 0;\n  z-index: 50;\n}\ndiv.clock .meridian[data-v-3fb22da8] {\n  margin-left: 0.5em;\n}\n/*END CLOCK*/\n/*CLASS THAT CHANGES COLOR OF TEXT TO APPEAR LIKE ITS \"ON\"*/\n.light-on[data-v-3fb22da8] {\n  color: #ffffff;\n}\n.message[data-v-3fb22da8] {\n  display: block !important;\n  font-size: 0.4em;\n  top: 0.1em;\n  text-align: center;\n  left: -0.3em;\n}\n.seconds[data-v-3fb22da8] {\n  margin-right: 0.5em;\n}\n.seconds.two[data-v-3fb22da8] {\n  margin-right: 0;\n}\n.seconds.two[data-v-3fb22da8],\n.minutes.two[data-v-3fb22da8] {\n  left: -0.5em;\n}\n.colon[data-v-3fb22da8] {\n  margin-left: -0.7em;\n  margin-right: -0.3em;\n}\n.seconds-numbers[data-v-3fb22da8] {\n  margin-right: -1em;\n}\n.minutes-numbers[data-v-3fb22da8] {\n  margin-right: 0.5em;\n}\n.minutes-numbers .minutes.hidden[data-v-3fb22da8],\n.minutes-numbers .minutes.two[data-v-3fb22da8] {\n  margin-right: -0.5em;\n}\n.glow[data-v-3fb22da8] {\n  text-shadow: 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5);\n}\n.hidden[data-v-3fb22da8] {\n  visibility: hidden;\n}\n.colon-hidden[data-v-3fb22da8] {\n  color: #8E5229;\n}\n"]}]);
 
 
 /***/ }),
@@ -4910,8 +4910,13 @@ let DigitalCountdownTimer = {
   data() {
     //console.log(this.remainingSeconds)
     this.$i18n.locale = this.config.locale
+    let dataRemainingSec = 0
+    if (this.remainingSeconds) {
+      dataRemainingSec = this.remainingSeconds
+    }
+    
     return {
-      dataRemainingSec: this.remainingSeconds,
+      dataRemainingSec: dataRemainingSec,
       dataPause: this.pauseAtStart,
       timerEle: null,
       isEnableGlow: false
@@ -4925,7 +4930,11 @@ let DigitalCountdownTimer = {
       if (this.dataRemainingSec < 60) {
         return null
       }
-      return Math.floor(this.dataRemainingSec / 60)
+      let minutes = Math.floor(this.dataRemainingSec / 60)
+      if (minutes > 99) {
+        minutes = 99
+      }
+      return minutes
     },
     dataSeconds () {
       let sec = this.dataRemainingSec % 60
@@ -4992,10 +5001,10 @@ let DigitalCountdownTimer = {
     this.start()
   },
   methods: {
-    start () {
-
-      if (this.dataPause === true) {
-        return null
+    start: async function () {
+      
+      if (!this.dataRemainingSec) {
+        this.dataRemainingSec = await this.lib.AxiosHelper.get('/client/ReadingProgress/getRemainingSeconds')
       }
       
       if ((this.dataRemainingSec === 60
@@ -5005,6 +5014,10 @@ let DigitalCountdownTimer = {
         setTimeout(() => {
           this.isEnableGlow = false
         }, 700)
+      }
+      
+      if (this.dataPause === true) {
+        return null
       }
       
       setTimeout(() => {
@@ -5302,7 +5315,11 @@ let CountdownTimer = {
     this.start()
   },
   methods: {
-    start () {
+    start: async function () {
+      if (!this.dataRemainingSec) {
+        this.dataRemainingSec = await this.lib.AxiosHelper.get('/client/ReadingProgress/getRemainingSeconds')
+      }
+      
       if (this.dataPause === true) {
         return null
       }

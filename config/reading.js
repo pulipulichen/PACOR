@@ -69,7 +69,7 @@ module.exports = {
      * include 'individual-reading' and 'collaborative-reading'
      */
     'reading': {
-      totalLimitMinutes: 1,
+      totalLimitMinutes: 340,
     },
     'IndividualReading': {
       message: '/2020exp/IndividualReading.html',

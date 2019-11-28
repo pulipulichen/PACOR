@@ -3492,19 +3492,15 @@ var render = function() {
             "div",
             { staticClass: "right aligned column" },
             [
-              _vm._v("\r\n        @TODO\r\n        "),
-              _vm.remainingSeconds
-                ? _c("simple-countdown-timer", {
-                    attrs: {
-                      config: _vm.config,
-                      status: _vm.status,
-                      lib: _vm.lib,
-                      remainingSeconds: _vm.remainingSeconds,
-                      pauseAtStart: true
-                    },
-                    on: { timeup: _vm.timeup }
-                  })
-                : _vm._e()
+              _c("simple-countdown-timer", {
+                attrs: {
+                  config: _vm.config,
+                  status: _vm.status,
+                  lib: _vm.lib,
+                  pauseAtStart: false
+                },
+                on: { timeup: _vm.timeup }
+              })
             ],
             1
           )
@@ -12295,10 +12291,6 @@ let CompactNavigation = {
       }
       
       return classList.join(' ') + ' fixed menu'
-    },
-    remainingSeconds () {
-      // @TODO 這個剩餘時間還要修改 #99
-      return 63
     }
   },
   mounted() {
@@ -12348,7 +12340,8 @@ let CompactNavigation = {
     },
     timeup () {
       // @TODO 這個剩餘時間還要修改 #99
-      //throw new Error('時間到')
+      throw new Error('時間到')
+      this.lib.auth.nextStep()
     }
   } // methods
 }

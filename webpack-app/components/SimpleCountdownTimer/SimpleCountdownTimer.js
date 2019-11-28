@@ -24,7 +24,11 @@ let CountdownTimer = {
     this.start()
   },
   methods: {
-    start () {
+    start: async function () {
+      if (!this.dataRemainingSec) {
+        this.dataRemainingSec = await this.lib.AxiosHelper.get('/client/ReadingProgress/getRemainingSeconds')
+      }
+      
       if (this.dataPause === true) {
         return null
       }

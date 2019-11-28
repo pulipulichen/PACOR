@@ -17,6 +17,15 @@
        v-on:click="showInstruction">
       {{ $t('READING_PROGRESS.' + lib.auth.currentStep) }}
     </a>
+    <div class="fitted item">
+      <digital-countdown-timer 
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+
+        v-bind:pauseAtStart="false">
+      </digital-countdown-timer> 
+    </div>
   </template>
 
 

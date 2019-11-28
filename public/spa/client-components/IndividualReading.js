@@ -179,6 +179,22 @@ var render = function() {
                     "\r\n    "
                 )
               ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "fitted item" },
+              [
+                _c("digital-countdown-timer", {
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib,
+                    pauseAtStart: false
+                  }
+                })
+              ],
+              1
             )
           ]
         },

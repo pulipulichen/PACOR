@@ -6,8 +6,13 @@ let DigitalCountdownTimer = {
   data() {
     //console.log(this.remainingSeconds)
     this.$i18n.locale = this.config.locale
+    let dataRemainingSec = 0
+    if (this.remainingSeconds) {
+      dataRemainingSec = this.remainingSeconds
+    }
+    
     return {
-      dataRemainingSec: this.remainingSeconds,
+      dataRemainingSec: dataRemainingSec,
       dataPause: this.pauseAtStart,
       timerEle: null,
       isEnableGlow: false
@@ -21,7 +26,11 @@ let DigitalCountdownTimer = {
       if (this.dataRemainingSec < 60) {
         return null
       }
-      return Math.floor(this.dataRemainingSec / 60)
+      let minutes = Math.floor(this.dataRemainingSec / 60)
+      if (minutes > 99) {
+        minutes = 99
+      }
+      return minutes
     },
     dataSeconds () {
       let sec = this.dataRemainingSec % 60
@@ -88,10 +97,10 @@ let DigitalCountdownTimer = {
     this.start()
   },
   methods: {
-    start () {
-
-      if (this.dataPause === true) {
-        return null
+    start: async function () {
+      
+      if (!this.dataRemainingSec) {
+        this.dataRemainingSec = await this.lib.AxiosHelper.get('/client/ReadingProgress/getRemainingSeconds')
       }
       
       if ((this.dataRemainingSec === 60
@@ -101,6 +110,10 @@ let DigitalCountdownTimer = {
         setTimeout(() => {
           this.isEnableGlow = false
         }, 700)
+      }
+      
+      if (this.dataPause === true) {
+        return null
       }
       
       setTimeout(() => {

@@ -507,8 +507,7 @@ var render = function() {
                     config: _vm.config,
                     status: _vm.status,
                     lib: _vm.lib,
-                    pauseAtStart: false,
-                    remainingSeconds: 622
+                    pauseAtStart: false
                   },
                   on: {
                     timeup: function($event) {

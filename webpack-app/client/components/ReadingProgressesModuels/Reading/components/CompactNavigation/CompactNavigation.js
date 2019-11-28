@@ -44,10 +44,6 @@ let CompactNavigation = {
       }
       
       return classList.join(' ') + ' fixed menu'
-    },
-    remainingSeconds () {
-      // @TODO 這個剩餘時間還要修改 #99
-      return 63
     }
   },
   mounted() {
@@ -97,7 +93,8 @@ let CompactNavigation = {
     },
     timeup () {
       // @TODO 這個剩餘時間還要修改 #99
-      //throw new Error('時間到')
+      throw new Error('時間到')
+      this.lib.auth.nextStep()
     }
   } // methods
 }

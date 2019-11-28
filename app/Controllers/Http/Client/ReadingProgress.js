@@ -81,6 +81,10 @@ class ReadingProgress {
   async getLog({request, webpage, user}) {
     return await user.getReadingProgressLog(webpage)
   }
+  
+  async getRemainingSeconds({request, webpage, user}) {
+    return await user.getRemainingSeconds(webpage)
+  }
 }
 
 module.exports = ReadingProgress
