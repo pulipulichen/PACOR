@@ -1,10 +1,13 @@
+import $ from 'jquery'
+
 let UserChartPopup = {
   props: ['lib', 'status', 'config'
     , 'filterData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      popupFocusText: null
+      popupFocusText: null,
+      boundary: null
     }
   },
 //  components: {
@@ -22,11 +25,13 @@ let UserChartPopup = {
         popup: this.$refs.popup,
         hoverable: true,
         distanceAway: -10,
-        position: 'top center',
+        //position: 'top center',
         //duration: 0,
         exclusive: true,
-        on: "click"
+        on: "click",
+        boundary: this.boundary
       }
+      // jqcloud-wrapper
     },
     myAvatar () {
       return this.status.avatar
@@ -96,6 +101,9 @@ let UserChartPopup = {
       this.popupFocusText = ele.innerText.trim()
       
       let $ele = $(ele)
+      if (!this.boundary) {
+        this.boundary = $ele.parents('.jqcloud-container.jqcloud:first')
+      }
       
       if ($ele.attr('data-popup-inited') !== undefined) {
         return null

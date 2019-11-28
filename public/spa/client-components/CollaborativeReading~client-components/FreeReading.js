@@ -185,7 +185,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"and":"以及"}}')
   delete Component.options._Ctor
 }
 
@@ -401,7 +401,7 @@ exports.push([module.i, ".chart-labels[data-v-325fad93] {\n  text-align: center;
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".popup[data-v-84468c1e] {\n  cursor: pointer;\n  z-index: 999;\n}\nimg[data-v-84468c1e] {\n  max-width: 1.5em !important;\n  height: auto !important;\n}\n.label-column[data-v-84468c1e] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.label-column.icon[data-v-84468c1e] {\n  margin-right: 0.5;\n  text-align: right;\n  width: 2em;\n}\n.word-label[data-v-84468c1e] {\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n}\n.word-label.my[data-v-84468c1e] {\n  margin-bottom: 0;\n}\n.focus-word[data-v-84468c1e] {\n  text-align: center;\n  font-size: 1.5em;\n  font-weight: bold;\n  padding-left: 1em;\n  white-space: nowrap;\n}\n.focus-word .icon[data-v-84468c1e] {\n  float: right;\n  margin-left: 0.25em;\n  margin-top: 0.1em;\n}\n", "",{"version":3,"sources":["UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,YAAY;AACd;AACA;EACE,2BAA2B;EAC3B,uBAAuB;AACzB;AACA;EACE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,iBAAiB;EACjB,iBAAiB;EACjB,UAAU;AACZ;AACA;EACE,iBAAiB;EACjB,oBAAoB;AACtB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,iBAAiB;EACjB,iBAAiB;EACjB,mBAAmB;AACrB;AACA;EACE,YAAY;EACZ,mBAAmB;EACnB,iBAAiB;AACnB","file":"UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true&","sourcesContent":[".popup[data-v-84468c1e] {\n  cursor: pointer;\n  z-index: 999;\n}\nimg[data-v-84468c1e] {\n  max-width: 1.5em !important;\n  height: auto !important;\n}\n.label-column[data-v-84468c1e] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.label-column.icon[data-v-84468c1e] {\n  margin-right: 0.5;\n  text-align: right;\n  width: 2em;\n}\n.word-label[data-v-84468c1e] {\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n}\n.word-label.my[data-v-84468c1e] {\n  margin-bottom: 0;\n}\n.focus-word[data-v-84468c1e] {\n  text-align: center;\n  font-size: 1.5em;\n  font-weight: bold;\n  padding-left: 1em;\n  white-space: nowrap;\n}\n.focus-word .icon[data-v-84468c1e] {\n  float: right;\n  margin-left: 0.25em;\n  margin-top: 0.1em;\n}\n"]}]);
+exports.push([module.i, ".popup[data-v-84468c1e] {\n  cursor: pointer;\n  z-index: 999;\n}\nimg[data-v-84468c1e] {\n  max-width: 1.5em !important;\n  height: auto !important;\n}\n.label-column[data-v-84468c1e] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.label-column.icon[data-v-84468c1e] {\n  margin-right: 0.5;\n  text-align: right;\n  width: 2em;\n}\n.word-label[data-v-84468c1e] {\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  white-space: nowrap;\n}\n.word-label.my[data-v-84468c1e] {\n  margin-bottom: 0;\n}\n.focus-word[data-v-84468c1e] {\n  text-align: center;\n  font-size: 1.5em;\n  font-weight: bold;\n  padding-left: 1em;\n  white-space: nowrap;\n}\n.focus-word .icon[data-v-84468c1e] {\n  float: right;\n  margin-left: 0.25em;\n  margin-top: 0.1em;\n}\n", "",{"version":3,"sources":["UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,YAAY;AACd;AACA;EACE,2BAA2B;EAC3B,uBAAuB;AACzB;AACA;EACE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,iBAAiB;EACjB,iBAAiB;EACjB,UAAU;AACZ;AACA;EACE,iBAAiB;EACjB,oBAAoB;EACpB,mBAAmB;AACrB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,iBAAiB;EACjB,iBAAiB;EACjB,mBAAmB;AACrB;AACA;EACE,YAAY;EACZ,mBAAmB;EACnB,iBAAiB;AACnB","file":"UserChartPopup.less?vue&type=style&index=0&id=84468c1e&lang=less&scoped=true&","sourcesContent":[".popup[data-v-84468c1e] {\n  cursor: pointer;\n  z-index: 999;\n}\nimg[data-v-84468c1e] {\n  max-width: 1.5em !important;\n  height: auto !important;\n}\n.label-column[data-v-84468c1e] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.label-column.icon[data-v-84468c1e] {\n  margin-right: 0.5;\n  text-align: right;\n  width: 2em;\n}\n.word-label[data-v-84468c1e] {\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  white-space: nowrap;\n}\n.word-label.my[data-v-84468c1e] {\n  margin-bottom: 0;\n}\n.focus-word[data-v-84468c1e] {\n  text-align: center;\n  font-size: 1.5em;\n  font-weight: bold;\n  padding-left: 1em;\n  white-space: nowrap;\n}\n.focus-word .icon[data-v-84468c1e] {\n  float: right;\n  margin-left: 0.25em;\n  margin-top: 0.1em;\n}\n"]}]);
 
 
 /***/ }),
@@ -1417,15 +1417,35 @@ var render = function() {
       _c("span", { staticClass: "chart-label my" }, [
         _c("img", { attrs: { src: _vm.myAvatar } }),
         _vm._v(" "),
-        _c("span", { staticClass: "username" }, [
-          _vm._v(
-            "\r\n      " +
-              _vm._s(_vm.myUsername) +
-              "\r\n      (" +
-              _vm._s(_vm.$t("You")) +
-              ")\r\n    "
-          )
-        ])
+        _c(
+          "span",
+          { staticClass: "username" },
+          [
+            _vm._v(
+              "\r\n      " +
+                _vm._s(_vm.myUsername) +
+                "\r\n      (" +
+                _vm._s(_vm.$t("You")) +
+                ")\r\n      " +
+                _vm._s(_vm.$t("and")) +
+                "\r\n      "
+            ),
+            _vm.otherIsAll
+              ? [
+                  _vm._v(
+                    "\r\n        " +
+                      _vm._s(_vm.$t("All Readers")) +
+                      "\r\n      "
+                  )
+                ]
+              : [
+                  _vm._v(
+                    "\r\n        " + _vm._s(_vm.otherUsername) + "\r\n      "
+                  )
+                ]
+          ],
+          2
+        )
       ])
     ],
     2
@@ -4848,13 +4868,18 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 let UserChartPopup = {
   props: ['lib', 'status', 'config'
     , 'filterData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      popupFocusText: null
+      popupFocusText: null,
+      boundary: null
     }
   },
 //  components: {
@@ -4872,11 +4897,13 @@ let UserChartPopup = {
         popup: this.$refs.popup,
         hoverable: true,
         distanceAway: -10,
-        position: 'top center',
+        //position: 'top center',
         //duration: 0,
         exclusive: true,
-        on: "click"
+        on: "click",
+        boundary: this.boundary
       }
+      // jqcloud-wrapper
     },
     myAvatar () {
       return this.status.avatar
@@ -4945,7 +4972,10 @@ let UserChartPopup = {
     initPopup: function (ele) {
       this.popupFocusText = ele.innerText.trim()
       
-      let $ele = $(ele)
+      let $ele = jquery__WEBPACK_IMPORTED_MODULE_0___default()(ele)
+      if (!this.boundary) {
+        this.boundary = $ele.parents('.jqcloud-container.jqcloud:first')
+      }
       
       if ($ele.attr('data-popup-inited') !== undefined) {
         return null
