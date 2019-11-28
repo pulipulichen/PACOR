@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":{"In {0} step":"In {0} step"},"zh-TW":{"In {0} step":"在 {0} 階段"}}')
   delete Component.options._Ctor
 }
 
@@ -55,7 +55,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".username[data-v-2f10c4fe] {\n  margin-left: 1em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n", "",{"version":3,"sources":["NavigationItems.less?vue&type=style&index=0&id=2f10c4fe&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,gBAAgB;EAChB,iBAAiB;AACnB","file":"NavigationItems.less?vue&type=style&index=0&id=2f10c4fe&lang=less&scoped=true&","sourcesContent":[".username[data-v-2f10c4fe] {\n  margin-left: 1em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n"]}]);
+exports.push([module.i, ".username[data-v-2f10c4fe] {\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-2f10c4fe] {\n  font-size: 1rem;\n  font-weight: normal;\n}\n", "",{"version":3,"sources":["NavigationItems.less?vue&type=style&index=0&id=2f10c4fe&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,iBAAiB;AACnB;AACA;EACE,eAAe;EACf,mBAAmB;AACrB","file":"NavigationItems.less?vue&type=style&index=0&id=2f10c4fe&lang=less&scoped=true&","sourcesContent":[".username[data-v-2f10c4fe] {\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-2f10c4fe] {\n  font-size: 1rem;\n  font-weight: normal;\n}\n"]}]);
 
 
 /***/ }),
@@ -158,35 +158,41 @@ var render = function() {
         fn: function() {
           return [
             _c(
-              "a",
+              "div",
               {
                 staticClass: "item avatar in-top",
                 on: { dblclick: _vm.nextStep }
               },
+              [_c("img", { attrs: { src: _vm.status.avatar } })]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "fitted item avatar in-top",
+                on: { click: _vm.showInstruction }
+              },
               [
-                _c("img", { attrs: { src: _vm.status.avatar } }),
-                _vm._v(" "),
                 _c("div", { staticClass: "username" }, [
                   _vm._v(
                     "\r\n        " +
                       _vm._s(_vm.lib.auth.username) +
                       "\r\n      "
-                  )
+                  ),
+                  _c("div", { staticClass: "step" }, [
+                    _vm._v(
+                      "\r\n        " +
+                        _vm._s(
+                          _vm.$t("In {0} step", [
+                            _vm.$t(
+                              "READING_PROGRESS." + _vm.lib.auth.currentStep
+                            )
+                          ])
+                        ) +
+                        "\r\n      "
+                    )
+                  ])
                 ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              { staticClass: "item", on: { click: _vm.showInstruction } },
-              [
-                _vm._v(
-                  "\r\n      " +
-                    _vm._s(
-                      _vm.$t("READING_PROGRESS." + _vm.lib.auth.currentStep)
-                    ) +
-                    "\r\n    "
-                )
               ]
             ),
             _vm._v(" "),

@@ -1,6 +1,6 @@
 en:
-  TEST_MESSAGE: Test Message
+  In {0} step: In {0} step
   
 zh-TW:
   # 這是註解
-  TEST_MESSAGE: 測試訊息
+  In {0} step: 在 {0} 階段

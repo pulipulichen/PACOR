@@ -35,17 +35,6 @@ let NavigationItems = {
 //    this.initLibComponents()
 //  },
   methods: {
-//    initLibComponents () {
-//      if (this.$refs.UserFilter) {
-//        this.lib.UserFilter = this.$refs.UserFilter
-//      }
-//      
-//        console.log(this.$refs.AnnotationTypeFilter)
-//      if (this.$refs.AnnotationTypeFilter) {
-//        this.lib.AnnotationTypeFilter = this.$refs.AnnotationTypeFilter
-//        console.log(this.$refs.AnnotationTypeFilter)
-//      }
-//    },
     showInstruction () {
       this.$emit('showInstruction')
     },

@@ -14,6 +14,7 @@
     
     <media v-bind:query="{maxWidth: maxWidth}">
       <div class="menu-compact right menu">
+        <slot name="compactItems"></slot>
         <a class="icon item"
            v-on:click="showSideMenu">
           <i class="ellipsis vertical icon"></i>
@@ -21,6 +22,8 @@
       </div>
     </media>
   </div>
+  
+  <!-- ========== -->
   
   <div class="ui inverted right fixed vertical menu"
        v-bind:class="{hide: !sideMenuDisplay}">

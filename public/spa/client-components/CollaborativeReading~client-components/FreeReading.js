@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":{"In {0} step":"In {0} step"},"zh-TW":{"In {0} step":"在 {0} 階段"}}')
   delete Component.options._Ctor
 }
 
@@ -233,7 +233,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".username[data-v-46f14d70] {\n  margin-left: 1em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n", "",{"version":3,"sources":["NavigationItems.less?vue&type=style&index=0&id=46f14d70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,gBAAgB;EAChB,iBAAiB;AACnB","file":"NavigationItems.less?vue&type=style&index=0&id=46f14d70&lang=less&scoped=true&","sourcesContent":[".username[data-v-46f14d70] {\n  margin-left: 1em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n"]}]);
+exports.push([module.i, ".username[data-v-46f14d70] {\n  margin-left: 0.5em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-46f14d70] {\n  font-size: 1rem;\n  font-weight: normal;\n}\n@media (max-width: 400px) {\n.username .step[data-v-46f14d70] {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["NavigationItems.less?vue&type=style&index=0&id=46f14d70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,iBAAiB;AACnB;AACA;EACE,eAAe;EACf,mBAAmB;AACrB;AACA;AACA;IACI,aAAa;AACjB;AACA","file":"NavigationItems.less?vue&type=style&index=0&id=46f14d70&lang=less&scoped=true&","sourcesContent":[".username[data-v-46f14d70] {\n  margin-left: 0.5em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-46f14d70] {\n  font-size: 1rem;\n  font-weight: normal;\n}\n@media (max-width: 400px) {\n.username .step[data-v-46f14d70] {\n    display: none;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -415,7 +415,7 @@ exports.push([module.i, ".popup[data-v-84468c1e] {\n  cursor: pointer;\n  z-inde
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".right-column[data-v-e9fab796] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-e9fab796] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-e9fab796] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-e9fab796] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n", "",{"version":3,"sources":["UserFilter.less?vue&type=style&index=0&id=e9fab796&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wDAAwD;AAC1D;AACA;EACE,mBAAmB;AACrB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,0BAA0B;EAC1B,sBAAsB;AACxB","file":"UserFilter.less?vue&type=style&index=0&id=e9fab796&lang=less&scoped=true&","sourcesContent":[".right-column[data-v-e9fab796] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-e9fab796] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-e9fab796] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-e9fab796] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n"]}]);
+exports.push([module.i, ".right-column[data-v-e9fab796] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-e9fab796] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-e9fab796] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-e9fab796] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-e9fab796] {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["UserFilter.less?vue&type=style&index=0&id=e9fab796&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wDAAwD;AAC1D;AACA;EACE,mBAAmB;AACrB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,0BAA0B;EAC1B,sBAAsB;AACxB;AACA;AACA;IACI,aAAa;AACjB;AACA","file":"UserFilter.less?vue&type=style&index=0&id=e9fab796&lang=less&scoped=true&","sourcesContent":[".right-column[data-v-e9fab796] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-e9fab796] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-e9fab796] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-e9fab796] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-e9fab796] {\n    display: none;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -455,7 +455,7 @@ var render = function() {
       config: _vm.config,
       status: _vm.status,
       lib: _vm.lib,
-      compactWidth: "400",
+      compactWidth: "640",
       position: "bottom"
     },
     scopedSlots: _vm._u([
@@ -475,10 +475,10 @@ var render = function() {
               : _vm._e(),
             _vm._v(" "),
             _c(
-              "div",
+              "a",
               {
                 staticClass: "item avatar in-top",
-                on: { dblclick: _vm.nextStep }
+                on: { dblclick: _vm.nextStep, click: _vm.showInstruction }
               },
               [
                 _c("img", { attrs: { src: _vm.status.avatar } }),
@@ -488,22 +488,21 @@ var render = function() {
                     "\r\n        " +
                       _vm._s(_vm.lib.auth.username) +
                       "\r\n      "
-                  )
+                  ),
+                  _c("div", { staticClass: "step" }, [
+                    _vm._v(
+                      "\r\n        " +
+                        _vm._s(
+                          _vm.$t("In {0} step", [
+                            _vm.$t(
+                              "READING_PROGRESS." + _vm.lib.auth.currentStep
+                            )
+                          ])
+                        ) +
+                        "\r\n      "
+                    )
+                  ])
                 ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              { staticClass: "item", on: { click: _vm.showInstruction } },
-              [
-                _vm._v(
-                  "\r\n      " +
-                    _vm._s(
-                      _vm.$t("READING_PROGRESS." + _vm.lib.auth.currentStep)
-                    ) +
-                    "\r\n    "
-                )
               ]
             ),
             _vm._v(" "),
@@ -556,6 +555,24 @@ var render = function() {
               1
             ),
             _vm._v(" "),
+            !_vm.status.preference.leftHanded
+              ? _c("notification-manager", {
+                  ref: "NotificationManager",
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib
+                  }
+                })
+              : _vm._e()
+          ]
+        },
+        proxy: true
+      },
+      {
+        key: "compactItems",
+        fn: function() {
+          return [
             !_vm.status.preference.leftHanded
               ? _c("notification-manager", {
                   ref: "NotificationManager",
@@ -1426,23 +1443,30 @@ var render = function() {
                 _vm._s(_vm.myUsername) +
                 "\r\n      (" +
                 _vm._s(_vm.$t("You")) +
-                ")\r\n      " +
-                _vm._s(_vm.$t("and")) +
-                "\r\n      "
+                ")\r\n      "
             ),
-            _vm.otherIsAll
+            !_vm.otherIsMe
               ? [
                   _vm._v(
-                    "\r\n        " +
-                      _vm._s(_vm.$t("All Readers")) +
-                      "\r\n      "
-                  )
+                    "\r\n        " + _vm._s(_vm.$t("and")) + "\r\n        "
+                  ),
+                  _vm.otherIsAll
+                    ? [
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(_vm.$t("All Readers")) +
+                            "\r\n        "
+                        )
+                      ]
+                    : [
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(_vm.otherUsername) +
+                            "\r\n        "
+                        )
+                      ]
                 ]
-              : [
-                  _vm._v(
-                    "\r\n        " + _vm._s(_vm.otherUsername) + "\r\n      "
-                  )
-                ]
+              : _vm._e()
           ],
           2
         )
@@ -1614,7 +1638,7 @@ var render = function() {
             })
           ]
         : [
-            _c("span", { staticClass: "peer-all-label" }, [
+            _c("span", { staticClass: "peer-all-label peer-label" }, [
               _vm._v("\r\n      " + _vm._s(_vm.$t("Viewing All")) + "\r\n    ")
             ]),
             _vm._v(" "),
@@ -2068,8 +2092,8 @@ let CollaborativeReading = {
       this.$refs.InstructionMessage.show()
     },
     timeup () {
-      throw new Error('Wait')
-      this.lib.auth.nextStep()
+      //throw new Error('Wait')
+      //this.lib.auth.nextStep()
     },
     
     // --------------------------------
@@ -2259,17 +2283,6 @@ let NavigationItems = {
 //    this.initLibComponents()
 //  },
   methods: {
-//    initLibComponents () {
-//      if (this.$refs.UserFilter) {
-//        this.lib.UserFilter = this.$refs.UserFilter
-//      }
-//      
-//        console.log(this.$refs.AnnotationTypeFilter)
-//      if (this.$refs.AnnotationTypeFilter) {
-//        this.lib.AnnotationTypeFilter = this.$refs.AnnotationTypeFilter
-//        console.log(this.$refs.AnnotationTypeFilter)
-//      }
-//    },
     showInstruction () {
       this.$emit('showInstruction')
     },

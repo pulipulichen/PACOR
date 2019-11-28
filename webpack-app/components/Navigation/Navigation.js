@@ -66,7 +66,9 @@ let Navigation = {
         this.placeholder.prependTo('body')
       }
       
-      this.placeholder.css('height', this.$refs.Menu.clientHeight + 'px')
+      let height = this.$refs.Menu.clientHeight
+      height = height + 20
+      this.placeholder.css('height', height + 'px')
     },
     removePlaceholder: function () {
       this.placeholder.remove()

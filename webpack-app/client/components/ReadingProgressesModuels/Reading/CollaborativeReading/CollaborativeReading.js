@@ -40,8 +40,8 @@ let CollaborativeReading = {
       this.$refs.InstructionMessage.show()
     },
     timeup () {
-      throw new Error('Wait')
-      this.lib.auth.nextStep()
+      //throw new Error('Wait')
+      //this.lib.auth.nextStep()
     },
     
     // --------------------------------

@@ -21,14 +21,15 @@
     <span class="username">
       {{ myUsername }}
       ({{ $t('You') }})
-      {{ $t('and') }}
-      <template v-if="otherIsAll">
-        {{ $t('All Readers') }}
+      <template v-if="!otherIsMe">
+        {{ $t('and') }}
+        <template v-if="otherIsAll">
+          {{ $t('All Readers') }}
+        </template>
+        <template v-else>
+          {{ otherUsername }}
+        </template>
       </template>
-      <template v-else>
-        {{ otherUsername }}
-      </template>
-      
     </span>
   </span>
 </div>

@@ -3,7 +3,7 @@
   v-bind:config="config"
   v-bind:status="status"
   v-bind:lib="lib"
-  compactWidth="400"
+  compactWidth="640"
   position="bottom">
   <template v-slot:header>
     <notification-manager
@@ -14,17 +14,16 @@
       v-bind:lib="lib">
     </notification-manager>
     
-    <div class="item avatar in-top"
-         v-on:dblclick="nextStep">
+    <a class="item avatar in-top"
+       v-on:dblclick="nextStep"
+       v-on:click="showInstruction">
       <img v-bind:src="status.avatar">
       <div class="username">
         {{ lib.auth.username }}
+      <div class="step">
+        {{ $t('In {0} step', [$t('READING_PROGRESS.' + lib.auth.currentStep)]) }}
       </div>
-    </div>
-    
-    <a class="item"
-       v-on:click="showInstruction">
-      {{ $t('READING_PROGRESS.' + lib.auth.currentStep) }}
+      </div>
     </a>
     
     <div class="fitted item">
@@ -83,4 +82,15 @@
 
   </template>
 
+  
+  <template v-slot:compactItems>
+    <notification-manager
+      v-if="!status.preference.leftHanded"
+      ref="NotificationManager"
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib">
+    </notification-manager>
+  </template>
+  
 </navigation>
