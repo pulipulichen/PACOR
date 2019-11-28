@@ -582,8 +582,11 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Imports
+var getUrl = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
+var ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(/*! ./fonts/digital-7.ttf */ "./webpack-app/components/DigitalCountdownTimer/fonts/digital-7.ttf"));
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&"}]);
+exports.push([module.i, ".DigitalCountdownTimer[data-v-3fb22da8] {\n  color: #ffffff;\n  background-color: #000000;\n  font-family: 'digital-7', 'sans-serif';\n}\n@font-face {\n  font-family: 'digital-7';\n  src: url(" + ___CSS_LOADER_URL___0___ + ");\n}\n/* CLOCK */\ndiv.clock[data-v-3fb22da8] {\n  margin: 5px 0;\n}\ndiv.clock div[data-v-3fb22da8] {\n  display: inline-block;\n  position: relative;\n}\ndiv.clock div p[data-v-3fb22da8] {\n  font-size: 100px;\n  position: relative;\n  z-index: 100;\n}\ndiv.clock .placeholder[data-v-3fb22da8] {\n  color: #131212;\n  position: absolute;\n  top: 0;\n  z-index: 50;\n}\ndiv.clock .meridian[data-v-3fb22da8] {\n  margin-left: 15px;\n}\n/*END CLOCK*/\n/*CLASS THAT CHANGES COLOR OF TEXT TO APPEAR LIKE ITS \"ON\"*/\n.light-on[data-v-3fb22da8] {\n  color: #ffffff;\n}\n", "",{"version":3,"sources":["DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,yBAAyB;EACzB,sCAAsC;AACxC;AACA;EACE,wBAAwB;EACxB,kCAAiC;AACnC;AACA,UAAU;AACV;EACE,aAAa;AACf;AACA;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,YAAY;AACd;AACA;EACE,cAAc;EACd,kBAAkB;EAClB,MAAM;EACN,WAAW;AACb;AACA;EACE,iBAAiB;AACnB;AACA,YAAY;AACZ,2DAA2D;AAC3D;EACE,cAAc;AAChB","file":"DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&","sourcesContent":[".DigitalCountdownTimer[data-v-3fb22da8] {\n  color: #ffffff;\n  background-color: #000000;\n  font-family: 'digital-7', 'sans-serif';\n}\n@font-face {\n  font-family: 'digital-7';\n  src: url('./fonts/digital-7.ttf');\n}\n/* CLOCK */\ndiv.clock[data-v-3fb22da8] {\n  margin: 5px 0;\n}\ndiv.clock div[data-v-3fb22da8] {\n  display: inline-block;\n  position: relative;\n}\ndiv.clock div p[data-v-3fb22da8] {\n  font-size: 100px;\n  position: relative;\n  z-index: 100;\n}\ndiv.clock .placeholder[data-v-3fb22da8] {\n  color: #131212;\n  position: absolute;\n  top: 0;\n  z-index: 50;\n}\ndiv.clock .meridian[data-v-3fb22da8] {\n  margin-left: 15px;\n}\n/*END CLOCK*/\n/*CLASS THAT CHANGES COLOR OF TEXT TO APPEAR LIKE ITS \"ON\"*/\n.light-on[data-v-3fb22da8] {\n  color: #ffffff;\n}\n"]}]);
 
 
 /***/ }),
@@ -1510,18 +1513,42 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.dataRemainingSec > 0
-    ? _c("span", { staticClass: "CountdownTimer" }, [
-        _vm._v(
-          "\r\n  " +
-            _vm._s(_vm.$t("Remaining Time")) +
-            ":\r\n  " +
-            _vm._s(_vm.dataRemainingTime) +
-            "\r\n  aaa\r\n"
-        )
+    ? _c("span", { staticClass: "DigitalCountdownTimer" }, [
+        _vm._v("\r\n  " + _vm._s(_vm.dataRemainingTime) + "\r\n\r\n  "),
+        _vm._m(0)
       ])
     : _vm._e()
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "clock" }, [
+      _c("div", { staticClass: "numbers" }, [
+        _c("p", { staticClass: "hours" }, [_vm._v("01")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "placeholder" }, [_vm._v("88")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "colon" }, [_c("p", [_vm._v(":")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "numbers" }, [
+        _c("p", { staticClass: "minutes" }, [_vm._v("13")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "placeholder" }, [_vm._v("88")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "colon" }, [_c("p", [_vm._v(":")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "numbers" }, [
+        _c("p", { staticClass: "seconds" }, [_vm._v("22")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "placeholder" }, [_vm._v("88")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -4857,7 +4884,8 @@ __webpack_require__.r(__webpack_exports__);
 let DigitalCountdownTimer = {
   props: ['lib', 'config'
     , 'remainingSeconds', 'pauseAtStart'],
-  data() {    
+  data() {
+    console.log(this.remainingSeconds)
     this.$i18n.locale = this.config.locale
     return {
       dataRemainingSec: this.remainingSeconds,
@@ -4986,6 +5014,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_DigitalCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CDigitalCountdownTimer_5CDigitalCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_DigitalCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CDigitalCountdownTimer_5CDigitalCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_DigitalCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CDigitalCountdownTimer_5CDigitalCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_DigitalCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CDigitalCountdownTimer_5CDigitalCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_DigitalCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CDigitalCountdownTimer_5CDigitalCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/DigitalCountdownTimer/fonts/digital-7.ttf":
+/*!**************************************************************************!*\
+  !*** ./webpack-app/components/DigitalCountdownTimer/fonts/digital-7.ttf ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "http://127.0.0.1:3333/spa/asset/digital-7.ttf";
 
 /***/ }),
 

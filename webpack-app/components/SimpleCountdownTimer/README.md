@@ -6,7 +6,7 @@
   v-bind:lib="lib"
 
   v-bind:pauseAtStart="true"
-  v-bind:remainingSec="remainingSec"
+  v-bind:remainingSeconds="remainingSec"
   v-on:timeup="timeup">
 </simple-countdown-timer>
 ````

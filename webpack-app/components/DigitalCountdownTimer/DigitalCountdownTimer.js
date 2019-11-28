@@ -1,7 +1,8 @@
 let DigitalCountdownTimer = {
   props: ['lib', 'config'
     , 'remainingSeconds', 'pauseAtStart'],
-  data() {    
+  data() {
+    console.log(this.remainingSeconds)
     this.$i18n.locale = this.config.locale
     return {
       dataRemainingSec: this.remainingSeconds,

@@ -46,6 +46,7 @@
         "v-bind:data-comment-id": {}
       }
     },
+    "p": {},
     "annotation-module-button": {
       "attributes": {
         "v-bind:annotationModule": {},

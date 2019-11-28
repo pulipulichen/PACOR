@@ -1,0 +1,41 @@
+
+
+.DigitalCountdownTimer {
+  color: #ffffff;
+  background-color: #000000;
+  font-family: 'digital-7', 'sans-serif';
+  
+  @font-face {
+    font-family: 'digital-7';
+    src: url('./fonts/digital-7.ttf');
+  }
+}
+
+/* CLOCK */
+
+div.clock { margin: 5px 0; }
+
+div.clock div {
+  display: inline-block;
+  position: relative;
+}
+
+div.clock div p {
+  font-size: 100px;
+  position: relative;
+  z-index: 100;
+}
+
+div.clock .placeholder {
+  color: #131212;
+  position: absolute;
+  top: 0;
+  z-index: 50;
+}
+
+div.clock .meridian { margin-left: 15px; }/*END CLOCK*/
+
+
+/*CLASS THAT CHANGES COLOR OF TEXT TO APPEAR LIKE ITS "ON"*/
+
+.light-on { color: #ffffff; }
