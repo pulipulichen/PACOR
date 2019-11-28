@@ -474,7 +474,7 @@ var render = function() {
                 })
               : _vm._e(),
             _vm._v(" "),
-            _c("a", { staticClass: "item avatar in-top" }, [
+            _c("div", { staticClass: "item avatar in-top" }, [
               _c("img", { attrs: { src: _vm.status.avatar } }),
               _vm._v(" "),
               _c("div", { staticClass: "username" }, [
@@ -499,8 +499,8 @@ var render = function() {
             ),
             _vm._v(" "),
             _c(
-              "a",
-              { staticClass: "item" },
+              "div",
+              { staticClass: "fitted item" },
               [
                 _c("digital-countdown-timer", {
                   attrs: {

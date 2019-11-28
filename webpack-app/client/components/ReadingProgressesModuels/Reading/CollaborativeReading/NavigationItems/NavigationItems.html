@@ -14,19 +14,19 @@
       v-bind:lib="lib">
     </notification-manager>
     
-    <a class="item avatar in-top">
+    <div class="item avatar in-top">
       <img v-bind:src="status.avatar">
       <div class="username">
         {{ lib.auth.username }}
       </div>
-    </a>
+    </div>
     
     <a class="item"
        v-on:click="showInstruction">
       {{ $t('READING_PROGRESS.' + lib.auth.currentStep) }}
     </a>
     
-    <a class="item">
+    <div class="fitted item">
       <digital-countdown-timer 
         v-bind:config="config"
         v-bind:status="status"
@@ -35,8 +35,8 @@
         v-bind:pauseAtStart="true"
         v-bind:remainingSeconds="72"
         v-on:timeup="$emit('timeup')">
-      </digital-countdown-timer>
-    </a>
+      </digital-countdown-timer> 
+    </div>
   </template>
 
   <!-- ========================= -->

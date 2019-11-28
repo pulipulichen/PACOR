@@ -3,7 +3,14 @@
 .DigitalCountdownTimer {
   color: #ffffff;
   background-color: #000000;
+  border-radius: 0.3em;
+  
   font-family: 'digital-7', 'sans-serif';
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-size: 1.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
   
   @font-face {
     font-family: 'digital-7';
@@ -13,7 +20,7 @@
 
 /* CLOCK */
 
-div.clock { margin: 5px 0; }
+//div.clock { margin: 5px 0; }
 
 div.clock div {
   display: inline-block;
@@ -21,9 +28,10 @@ div.clock div {
 }
 
 div.clock div p {
-  font-size: 100px;
+  //font-size: 100px;
   position: relative;
   z-index: 100;
+  margin-bottom: 0 !important;
 }
 
 div.clock .placeholder {
@@ -33,9 +41,20 @@ div.clock .placeholder {
   z-index: 50;
 }
 
-div.clock .meridian { margin-left: 15px; }/*END CLOCK*/
+div.clock .meridian { 
+  margin-left: 0.5em; 
+}/*END CLOCK*/
 
 
 /*CLASS THAT CHANGES COLOR OF TEXT TO APPEAR LIKE ITS "ON"*/
 
-.light-on { color: #ffffff; }
+.light-on { 
+  color: #ffffff; 
+}
+
+.message {
+  display: block !important;
+  font-size: 0.4em;
+  top: 0.3em;
+  left: -0.5em;
+}

@@ -377,7 +377,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Remaining Time":"剩餘時間"}}')
   delete Component.options._Ctor
 }
 
@@ -393,7 +393,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Remaining Time":"剩餘時間"}}')
   delete Component.options._Ctor
 }
 
@@ -586,7 +586,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 var getUrl = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
 var ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(/*! ./fonts/digital-7.ttf */ "./webpack-app/components/DigitalCountdownTimer/fonts/digital-7.ttf"));
 // Module
-exports.push([module.i, ".DigitalCountdownTimer[data-v-3fb22da8] {\n  color: #ffffff;\n  background-color: #000000;\n  font-family: 'digital-7', 'sans-serif';\n}\n@font-face {\n  font-family: 'digital-7';\n  src: url(" + ___CSS_LOADER_URL___0___ + ");\n}\n/* CLOCK */\ndiv.clock[data-v-3fb22da8] {\n  margin: 5px 0;\n}\ndiv.clock div[data-v-3fb22da8] {\n  display: inline-block;\n  position: relative;\n}\ndiv.clock div p[data-v-3fb22da8] {\n  font-size: 100px;\n  position: relative;\n  z-index: 100;\n}\ndiv.clock .placeholder[data-v-3fb22da8] {\n  color: #131212;\n  position: absolute;\n  top: 0;\n  z-index: 50;\n}\ndiv.clock .meridian[data-v-3fb22da8] {\n  margin-left: 15px;\n}\n/*END CLOCK*/\n/*CLASS THAT CHANGES COLOR OF TEXT TO APPEAR LIKE ITS \"ON\"*/\n.light-on[data-v-3fb22da8] {\n  color: #ffffff;\n}\n", "",{"version":3,"sources":["DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,yBAAyB;EACzB,sCAAsC;AACxC;AACA;EACE,wBAAwB;EACxB,kCAAiC;AACnC;AACA,UAAU;AACV;EACE,aAAa;AACf;AACA;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,YAAY;AACd;AACA;EACE,cAAc;EACd,kBAAkB;EAClB,MAAM;EACN,WAAW;AACb;AACA;EACE,iBAAiB;AACnB;AACA,YAAY;AACZ,2DAA2D;AAC3D;EACE,cAAc;AAChB","file":"DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&","sourcesContent":[".DigitalCountdownTimer[data-v-3fb22da8] {\n  color: #ffffff;\n  background-color: #000000;\n  font-family: 'digital-7', 'sans-serif';\n}\n@font-face {\n  font-family: 'digital-7';\n  src: url('./fonts/digital-7.ttf');\n}\n/* CLOCK */\ndiv.clock[data-v-3fb22da8] {\n  margin: 5px 0;\n}\ndiv.clock div[data-v-3fb22da8] {\n  display: inline-block;\n  position: relative;\n}\ndiv.clock div p[data-v-3fb22da8] {\n  font-size: 100px;\n  position: relative;\n  z-index: 100;\n}\ndiv.clock .placeholder[data-v-3fb22da8] {\n  color: #131212;\n  position: absolute;\n  top: 0;\n  z-index: 50;\n}\ndiv.clock .meridian[data-v-3fb22da8] {\n  margin-left: 15px;\n}\n/*END CLOCK*/\n/*CLASS THAT CHANGES COLOR OF TEXT TO APPEAR LIKE ITS \"ON\"*/\n.light-on[data-v-3fb22da8] {\n  color: #ffffff;\n}\n"]}]);
+exports.push([module.i, ".DigitalCountdownTimer[data-v-3fb22da8] {\n  color: #ffffff;\n  background-color: #000000;\n  border-radius: 0.3em;\n  font-family: 'digital-7', 'sans-serif';\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n  font-size: 1.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n@font-face {\n  font-family: 'digital-7';\n  src: url(" + ___CSS_LOADER_URL___0___ + ");\n}\n/* CLOCK */\ndiv.clock div[data-v-3fb22da8] {\n  display: inline-block;\n  position: relative;\n}\ndiv.clock div p[data-v-3fb22da8] {\n  position: relative;\n  z-index: 100;\n  margin-bottom: 0 !important;\n}\ndiv.clock .placeholder[data-v-3fb22da8] {\n  color: #131212;\n  position: absolute;\n  top: 0;\n  z-index: 50;\n}\ndiv.clock .meridian[data-v-3fb22da8] {\n  margin-left: 0.5em;\n}\n/*END CLOCK*/\n/*CLASS THAT CHANGES COLOR OF TEXT TO APPEAR LIKE ITS \"ON\"*/\n.light-on[data-v-3fb22da8] {\n  color: #ffffff;\n}\n.message[data-v-3fb22da8] {\n  display: block !important;\n  font-size: 0.4em;\n  top: 0.3em;\n  left: -0.5em;\n}\n", "",{"version":3,"sources":["DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,yBAAyB;EACzB,oBAAoB;EACpB,sCAAsC;EACtC,mBAAmB;EACnB,oBAAoB;EACpB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,wBAAwB;EACxB,kCAAiC;AACnC;AACA,UAAU;AACV;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,YAAY;EACZ,2BAA2B;AAC7B;AACA;EACE,cAAc;EACd,kBAAkB;EAClB,MAAM;EACN,WAAW;AACb;AACA;EACE,kBAAkB;AACpB;AACA,YAAY;AACZ,2DAA2D;AAC3D;EACE,cAAc;AAChB;AACA;EACE,yBAAyB;EACzB,gBAAgB;EAChB,UAAU;EACV,YAAY;AACd","file":"DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&","sourcesContent":[".DigitalCountdownTimer[data-v-3fb22da8] {\n  color: #ffffff;\n  background-color: #000000;\n  border-radius: 0.3em;\n  font-family: 'digital-7', 'sans-serif';\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n  font-size: 1.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n@font-face {\n  font-family: 'digital-7';\n  src: url('./fonts/digital-7.ttf');\n}\n/* CLOCK */\ndiv.clock div[data-v-3fb22da8] {\n  display: inline-block;\n  position: relative;\n}\ndiv.clock div p[data-v-3fb22da8] {\n  position: relative;\n  z-index: 100;\n  margin-bottom: 0 !important;\n}\ndiv.clock .placeholder[data-v-3fb22da8] {\n  color: #131212;\n  position: absolute;\n  top: 0;\n  z-index: 50;\n}\ndiv.clock .meridian[data-v-3fb22da8] {\n  margin-left: 0.5em;\n}\n/*END CLOCK*/\n/*CLASS THAT CHANGES COLOR OF TEXT TO APPEAR LIKE ITS \"ON\"*/\n.light-on[data-v-3fb22da8] {\n  color: #ffffff;\n}\n.message[data-v-3fb22da8] {\n  display: block !important;\n  font-size: 0.4em;\n  top: 0.3em;\n  left: -0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -1514,8 +1514,31 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.dataRemainingSec > 0
     ? _c("span", { staticClass: "DigitalCountdownTimer" }, [
-        _vm._v("\r\n  " + _vm._s(_vm.dataRemainingTime) + "\r\n\r\n  "),
-        _vm._m(0)
+        _c("div", { staticClass: "clock" }, [
+          _c("div", { staticClass: "message" }, [
+            _vm._v(
+              "\r\n      " + _vm._s(_vm.$t("Remaining Time")) + ":\r\n    "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "numbers" }, [
+            _c("p", { staticClass: "minutes" }, [
+              _vm._v("\r\n        " + _vm._s(_vm.dataMinutes) + "\r\n      ")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "placeholder" }, [_vm._v("88")])
+          ]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "numbers" }, [
+            _c("p", { staticClass: "seconds" }, [
+              _vm._v("\r\n        " + _vm._s(_vm.dataSeconds) + "\r\n      ")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "placeholder" }, [_vm._v("88")])
+          ])
+        ])
       ])
     : _vm._e()
 }
@@ -1524,29 +1547,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "clock" }, [
-      _c("div", { staticClass: "numbers" }, [
-        _c("p", { staticClass: "hours" }, [_vm._v("01")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "placeholder" }, [_vm._v("88")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "colon" }, [_c("p", [_vm._v(":")])]),
-      _vm._v(" "),
-      _c("div", { staticClass: "numbers" }, [
-        _c("p", { staticClass: "minutes" }, [_vm._v("13")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "placeholder" }, [_vm._v("88")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "colon" }, [_c("p", [_vm._v(":")])]),
-      _vm._v(" "),
-      _c("div", { staticClass: "numbers" }, [
-        _c("p", { staticClass: "seconds" }, [_vm._v("22")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "placeholder" }, [_vm._v("88")])
-      ])
-    ])
+    return _c("div", { staticClass: "colon" }, [_c("p", [_vm._v(":")])])
   }
 ]
 render._withStripped = true
@@ -4895,6 +4896,15 @@ let DigitalCountdownTimer = {
   computed: {
     dataRemainingTime () {
       return this.lib.DayJSHelper.formatHHMMSS(this.dataRemainingSec)
+    },
+    dataMinutes () {
+      if (this.dataRemainingSec < 60) {
+        return 0
+      }
+      return Math.floor(this.dataRemainingSec / 60)
+    },
+    dataSeconds () {
+      return this.dataRemainingSec % 60
     }
   },
   watch: {

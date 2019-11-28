@@ -1,9 +1,14 @@
 <span class="DigitalCountdownTimer"
       v-if="dataRemainingSec > 0">
+  <!--
   {{ dataRemainingTime }}
-
+  -->
   <div class="clock">
+    <div class="message">
+      {{ $t('Remaining Time') }}:
+    </div>
     <!-- HOUR -->
+    <!--
     <div class="numbers">
       <p class="hours">01</p>
       <p class="placeholder">88</p>
@@ -12,10 +17,12 @@
     <div class="colon">
       <p>:</p>
     </div>
-
+    -->
     <!-- MINUTE -->
     <div class="numbers">
-      <p class="minutes">13</p>
+      <p class="minutes">
+        {{ dataMinutes }}
+      </p>
       <p class="placeholder">88</p>
     </div>
 
@@ -25,7 +32,9 @@
 
     <!-- SECOND -->
     <div class="numbers">
-      <p class="seconds">22</p>
+      <p class="seconds">
+        {{ dataSeconds }}
+      </p>
       <p class="placeholder">88</p>
     </div>
 

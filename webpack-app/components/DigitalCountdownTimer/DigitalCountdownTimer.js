@@ -12,6 +12,15 @@ let DigitalCountdownTimer = {
   computed: {
     dataRemainingTime () {
       return this.lib.DayJSHelper.formatHHMMSS(this.dataRemainingSec)
+    },
+    dataMinutes () {
+      if (this.dataRemainingSec < 60) {
+        return 0
+      }
+      return Math.floor(this.dataRemainingSec / 60)
+    },
+    dataSeconds () {
+      return this.dataRemainingSec % 60
     }
   },
   watch: {
