@@ -553,7 +553,7 @@ let NavigationItems = {
       this.$emit('showInstruction')
     },
     nextStep () {
-      this.lib.auth.nextStep()
+      //this.lib.auth.nextStep()
     }
   } // methods
 }

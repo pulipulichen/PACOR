@@ -2093,7 +2093,7 @@ let CollaborativeReading = {
     },
     timeup () {
       //throw new Error('Wait')
-      //this.lib.auth.nextStep()
+      this.lib.auth.nextStep()
     },
     
     // --------------------------------

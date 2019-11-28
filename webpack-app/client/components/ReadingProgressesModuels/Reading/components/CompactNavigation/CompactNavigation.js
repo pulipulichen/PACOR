@@ -43,7 +43,7 @@ let CompactNavigation = {
         classList.push('compact-mode')
       }
       
-      return classList.join(' ') + ' fixed menu'
+      return classList.join(' ') + ' brown fixed menu'
     }
   },
   mounted() {
@@ -92,8 +92,6 @@ let CompactNavigation = {
       this.sideMenuDisplay = false
     },
     timeup () {
-      // @TODO 這個剩餘時間還要修改 #99
-      throw new Error('時間到')
       this.lib.auth.nextStep()
     }
   } // methods
