@@ -9,7 +9,8 @@ let DigitalCountdownTimer = {
     return {
       dataRemainingSec: this.remainingSeconds,
       dataPause: this.pauseAtStart,
-      timerEle: null
+      timerEle: null,
+      isEnableGlow: false
     }
   },
   computed: {
@@ -27,16 +28,44 @@ let DigitalCountdownTimer = {
       if (this.dataRemainingSec > 10 && sec < 10) {
         sec = '0' + sec
       }
+      else {
+        sec = '' + sec
+      }
       return sec
     },
     computedMinutesClassList () {
+      let classList = []
       if (this.dataMinutes === null) {
-        return 'hidden'
+        classList.push('hidden')
       }
       else if (this.dataMinutes >= 10) {
-        return 'two'
+        classList.push('two')
       }
+      
+      if (this.isEnableGlow) {
+        classList.push('glow')
+      }
+      
+      return classList.join(' ')
     },
+    computedSecondsClassList () {
+      let classList = []
+      
+      if (this.dataSeconds.length === 2) {
+        classList.push('two')
+      }
+      
+      if (this.isEnableGlow) {
+        classList.push('glow')
+      }
+      
+      return classList.join(' ')
+    },
+//    isEnableGlow () {
+//      return (this.dataRemainingSec === 60
+//              || this.dataRemainingSec === 30
+//              || this.dataRemainingSec <= 10)
+//    },
     computedMinutesColonClassList () {
       if (this.dataMinutes === null) {
         return 'colon-hidden'
@@ -60,18 +89,18 @@ let DigitalCountdownTimer = {
   },
   methods: {
     start () {
-      
-      if (this.dataRemainingSec === 60
-              || this.dataRemainingSec === 30
-              || this.dataRemainingSec <= 10) {
-        this.glow(true)
-      }
-//      else {
-        //this.glow(false)
-//      }
 
       if (this.dataPause === true) {
         return null
+      }
+      
+      if ((this.dataRemainingSec === 60
+              || this.dataRemainingSec === 30
+              || this.dataRemainingSec <= 10)) {
+        this.isEnableGlow = true
+        setTimeout(() => {
+          this.isEnableGlow = false
+        }, 700)
       }
       
       setTimeout(() => {
@@ -94,16 +123,6 @@ let DigitalCountdownTimer = {
     resume () {
       this.dataPause = false
       this.start()
-    },
-    glow () {
-      
-      
-      //console.log(this.dataRemainingSec)
-      this.timerEle.addClass('glow')
-        
-      setTimeout(() => {
-        this.timerEle.removeClass('glow')
-      }, 700)
     }
   } // methods
 }

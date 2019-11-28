@@ -65,7 +65,8 @@ div.clock .meridian {
   display: block !important;
   font-size: 0.4em;
   top: 0.1em;
-  left: -0.5em;
+  //left: -0.5em;
+  text-align: center;
 }
 
 .seconds {
@@ -83,10 +84,20 @@ div.clock .meridian {
 
 .colon {
   margin-left: -0.7em;
+  margin-right: -0.3em;
 }
 
 .seconds-numbers {
-  margin-right: -0.7em;
+  margin-right: -1em;
+}
+
+.minutes-numbers {
+  margin-right: 0.5em;
+  
+  .minutes.hidden,
+  .minutes.two {
+    margin-right: -0.5em;
+  }
 }
 
 .glow {

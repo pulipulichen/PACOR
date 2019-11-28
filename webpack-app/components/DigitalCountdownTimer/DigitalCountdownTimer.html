@@ -20,9 +20,10 @@
     </div>
     -->
     <!-- MINUTE -->
-    <div class="numbers">
+    <div class="numbers minutes-numbers">
       <p class="minutes"
-         v-bind:class="computedMinutesClassList">
+         v-bind:class="computedMinutesClassList"
+         ref="minutesNumbers">
         <template v-if="dataMinutes">
           {{ dataMinutes }}
         </template>
@@ -42,7 +43,8 @@
     <!-- SECOND -->
     <div class="numbers seconds-numbers">
       <p class="seconds"
-         v-bind:class="{'two': (dataSeconds >= 10)}">
+         v-bind:class="computedSecondsClassList"
+         ref="secondsNumbers">
         {{ dataSeconds }}
       </p>
       <p class="placeholder">88</p>
