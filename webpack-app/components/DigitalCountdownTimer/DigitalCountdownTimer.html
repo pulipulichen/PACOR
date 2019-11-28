@@ -1,5 +1,6 @@
 <span class="DigitalCountdownTimer"
-      v-if="dataRemainingSec > 0">
+      v-if="dataRemainingSec > 0"
+      ref="timer">
   <!--
   {{ dataRemainingTime }}
   -->
@@ -21,18 +22,25 @@
     <!-- MINUTE -->
     <div class="numbers">
       <p class="minutes"
-         v-bind:class="{'two': (dataMinutes >= 10)}">
-        {{ dataMinutes }}
+         v-bind:class="computedMinutesClassList">
+        <template v-if="dataMinutes">
+          {{ dataMinutes }}
+        </template>
+        <template v-else>
+          88
+        </template>
+        
       </p>
       <p class="placeholder">88</p>
     </div>
 
-    <div class="colon">
+    <div class="colon"
+         v-bind:class="computedMinutesColonClassList">
       <p>:</p>
     </div>
 
     <!-- SECOND -->
-    <div class="numbers">
+    <div class="numbers seconds-numbers">
       <p class="seconds"
          v-bind:class="{'two': (dataSeconds >= 10)}">
         {{ dataSeconds }}

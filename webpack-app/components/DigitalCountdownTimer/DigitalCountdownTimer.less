@@ -1,5 +1,3 @@
-
-
 .DigitalCountdownTimer {
   color: #ffffff;
   //background-color: #000000;
@@ -36,6 +34,11 @@ div.clock div p {
   z-index: 100;
   margin-bottom: 0 !important;
   line-height: 1em;
+  
+  &.minutes,
+  &.seconds {
+    transition: text-shadow 0.3s ease !important;
+  }
 }
 
 div.clock .placeholder {
@@ -65,7 +68,36 @@ div.clock .meridian {
   left: -0.5em;
 }
 
+.seconds {
+  margin-right: 0.5em;
+  
+  &.two {
+    margin-right: 0;
+  }
+}
+
 .seconds.two,
 .minutes.two {
   left: -0.5em;
+}
+
+.colon {
+  margin-left: -0.7em;
+}
+
+.seconds-numbers {
+  margin-right: -0.7em;
+}
+
+.glow {
+  text-shadow: 0px 0px 10px rgba(255,255,128,0.5), 0px 0px 10px rgba(255,255,128,0.5), 0px 0px 10px rgba(255,255,128,0.5), 0px 0px 10px rgba(255,255,128,0.5), 0px 0px 10px rgba(255,255,128,0.5), 0px 0px 10px rgba(255,255,128,0.5), 0px 0px 10px rgba(255,255,128,0.5);
+  //color: red;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.colon-hidden {
+  color: #8E5229;
 }
