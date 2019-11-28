@@ -6,7 +6,7 @@ let SectionPanel = {
     , 'node', 'sectionSeqID', 'sectionsData'],
   data() {    
     this.$i18n.locale = this.config.locale
-    //console.log(this.lib.auth.enableCollaboration)
+    
     return {
       checklistData: [],
       isChecklistSubmitted: this.lib.auth.enableCollaboration

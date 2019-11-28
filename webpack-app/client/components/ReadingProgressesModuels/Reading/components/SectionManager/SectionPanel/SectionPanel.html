@@ -2,7 +2,7 @@
      ref="panel">
   
   <section-checklist
-    v-if="isChecklistSubmitted === false"
+    v-if="!isChecklistSubmitted"
     v-bind:config="config"
     v-bind:status="status"
     v-bind:lib="lib"
@@ -22,4 +22,5 @@
     v-bind:sectionSeqID="sectionSeqID"
     v-bind:sectionsData="sectionsData">
   </section-annotation-list>
+  
 </div>

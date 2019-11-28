@@ -441,7 +441,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Check list":"檢核單","Write section main ideas":"撰寫小節重點","Edit section main ideas":"編輯小節重點","I have already read this section.":"我已經讀完了這一節的內容。","I have already written annotations on a sentence I don\u0027t understand.":"我看不懂的地方，已經用「困惑」標示了。","I have already written the main ideas of this section.":"我已經寫完小節重點了。","Please finish checklist.":"請完成這份檢核單","I have read this section!":"我已經讀完這一節了！"}}')
   delete Component.options._Ctor
 }
 
@@ -4234,7 +4234,7 @@ var render = function() {
       staticClass: "non-invasive-web-style-framework SectionPanel"
     },
     [
-      _vm.isChecklistSubmitted === false
+      !_vm.isChecklistSubmitted
         ? _c("section-checklist", {
             attrs: {
               config: _vm.config,
@@ -24337,7 +24337,7 @@ let SectionPanel = {
     , 'node', 'sectionSeqID', 'sectionsData'],
   data() {    
     this.$i18n.locale = this.config.locale
-    //console.log(this.lib.auth.enableCollaboration)
+    
     return {
       checklistData: [],
       isChecklistSubmitted: this.lib.auth.enableCollaboration
