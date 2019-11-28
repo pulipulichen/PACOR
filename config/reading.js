@@ -101,7 +101,7 @@ module.exports = {
     'PostRecall': {
       message: '/2020exp/PostRecall.html',
       minWords: 10,
-      limitMinutes: 0.5
+      limitMinutes: 0.1
     },
     'FreeReading': {
       annotation: {

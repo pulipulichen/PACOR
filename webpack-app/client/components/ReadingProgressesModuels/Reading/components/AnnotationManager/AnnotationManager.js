@@ -54,7 +54,7 @@ let AnnotationManager = {
   computed: {
     highlightsURL () {
       let highlightsURL
-      if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === true) {
+      if (this.lib.auth.isEnableCollaboration === true) {
         if (this.afterTime === null) {
           highlightsURL = '/client/Annotation/highlights'
         }
