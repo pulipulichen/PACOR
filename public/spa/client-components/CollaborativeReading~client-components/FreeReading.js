@@ -474,15 +474,24 @@ var render = function() {
                 })
               : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "item avatar in-top" }, [
-              _c("img", { attrs: { src: _vm.status.avatar } }),
-              _vm._v(" "),
-              _c("div", { staticClass: "username" }, [
-                _vm._v(
-                  "\r\n        " + _vm._s(_vm.lib.auth.username) + "\r\n      "
-                )
-              ])
-            ]),
+            _c(
+              "div",
+              {
+                staticClass: "item avatar in-top",
+                on: { dblclick: _vm.nextStep }
+              },
+              [
+                _c("img", { attrs: { src: _vm.status.avatar } }),
+                _vm._v(" "),
+                _c("div", { staticClass: "username" }, [
+                  _vm._v(
+                    "\r\n        " +
+                      _vm._s(_vm.lib.auth.username) +
+                      "\r\n      "
+                  )
+                ])
+              ]
+            ),
             _vm._v(" "),
             _c(
               "a",
@@ -526,12 +535,6 @@ var render = function() {
         key: "items",
         fn: function() {
           return [
-            _c(
-              "a",
-              { staticClass: "item", on: { click: _vm.lib.auth.nextStep } },
-              [_vm._v("\r\n      Next Step (for test)\r\n    ")]
-            ),
-            _vm._v(" "),
             _c("user-filter", {
               ref: "UserFilter",
               attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
@@ -2249,6 +2252,9 @@ let NavigationItems = {
 //    },
     showInstruction () {
       this.$emit('showInstruction')
+    },
+    nextStep () {
+      this.lib.auth.nextStep()
     }
   } // methods
 }
@@ -3186,9 +3192,9 @@ let NotificationFeed = {
     //this.$i18n.locale = this.config.locale
     
     let noOlder = false
-    if (this.notificationData.unreadNotifications.length === 0) {
-      noOlder = true
-    }
+    //if (this.notificationData.unreadNotifications.length === 0) {
+    //  noOlder = true
+    //}
     
     return {
       noOlder: noOlder,
@@ -3503,6 +3509,10 @@ let NotificationManager = {
           distanceAway: 20,
           position: "top center",
           onShow: () => {
+            if (this.notificationData.unreadNotifications.length === 0) {
+              this.showFull()
+              return false
+            }
             this.stopReloadData()
           },
           onHidden: () => {

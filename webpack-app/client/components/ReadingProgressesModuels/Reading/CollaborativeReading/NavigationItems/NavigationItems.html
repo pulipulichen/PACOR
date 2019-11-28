@@ -14,7 +14,8 @@
       v-bind:lib="lib">
     </notification-manager>
     
-    <div class="item avatar in-top">
+    <div class="item avatar in-top"
+         v-on:dblclick="nextStep">
       <img v-bind:src="status.avatar">
       <div class="username">
         {{ lib.auth.username }}
@@ -43,10 +44,12 @@
   <template v-slot:items>
 
     <!-- for test -->
+    <!--
     <a class="item"
        v-on:click="lib.auth.nextStep">
       Next Step (for test)
     </a>
+    -->
 
     <user-filter 
       ref="UserFilter"

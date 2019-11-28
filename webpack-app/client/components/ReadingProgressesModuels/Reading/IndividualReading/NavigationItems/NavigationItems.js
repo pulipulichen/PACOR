@@ -1,7 +1,8 @@
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
 
 let NavigationItems = {
-  props: ['lib', 'status', 'config', 'progress', 'error'],
+  props: ['lib', 'status', 'config'
+    , 'progress', 'error'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -34,6 +35,9 @@ let NavigationItems = {
     },
     showInstruction () {
       this.$emit('showInstruction')
+    },
+    nextStep () {
+      this.lib.auth.nextStep()
     }
   } // methods
 }

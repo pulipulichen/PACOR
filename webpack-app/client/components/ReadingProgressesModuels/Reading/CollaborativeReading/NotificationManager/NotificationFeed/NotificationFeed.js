@@ -7,9 +7,9 @@ let NotificationFeed = {
     //this.$i18n.locale = this.config.locale
     
     let noOlder = false
-    if (this.notificationData.unreadNotifications.length === 0) {
-      noOlder = true
-    }
+    //if (this.notificationData.unreadNotifications.length === 0) {
+    //  noOlder = true
+    //}
     
     return {
       noOlder: noOlder,

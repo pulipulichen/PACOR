@@ -72,6 +72,10 @@ let NotificationManager = {
           distanceAway: 20,
           position: "top center",
           onShow: () => {
+            if (this.notificationData.unreadNotifications.length === 0) {
+              this.showFull()
+              return false
+            }
             this.stopReloadData()
           },
           onHidden: () => {
