@@ -2,8 +2,9 @@
 
 .DigitalCountdownTimer {
   color: #ffffff;
-  background-color: #000000;
+  //background-color: #000000;
   border-radius: 0.3em;
+  border: 1px solid white;
   
   font-family: 'digital-7', 'sans-serif';
   padding-left: 0.5em;
@@ -12,6 +13,8 @@
   margin-left: 0.5em;
   margin-right: 0.5em;
   
+  padding-top: 0.1em;
+
   @font-face {
     font-family: 'digital-7';
     src: url('./fonts/digital-7.ttf');
@@ -32,10 +35,13 @@ div.clock div p {
   position: relative;
   z-index: 100;
   margin-bottom: 0 !important;
+  line-height: 1em;
 }
 
 div.clock .placeholder {
-  color: #131212;
+  //color: #131212;
+  //color: purple;
+  color: #8E5229;
   position: absolute;
   top: 0;
   z-index: 50;
@@ -55,6 +61,11 @@ div.clock .meridian {
 .message {
   display: block !important;
   font-size: 0.4em;
-  top: 0.3em;
+  top: 0.1em;
+  left: -0.5em;
+}
+
+.seconds.two,
+.minutes.two {
   left: -0.5em;
 }

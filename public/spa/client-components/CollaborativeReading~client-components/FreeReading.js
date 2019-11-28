@@ -247,7 +247,7 @@ exports.push([module.i, ".username[data-v-46f14d70] {\n  margin-left: 1em;\n  fo
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".has-read[data-v-30cef006] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n.event[data-v-30cef006] {\n  cursor: pointer;\n}\n", "",{"version":3,"sources":["NotificationEvent.less?vue&type=style&index=0&id=30cef006&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iCAAiC;EACjC,YAAY;AACd;AACA;EACE,eAAe;AACjB","file":"NotificationEvent.less?vue&type=style&index=0&id=30cef006&lang=less&scoped=true&","sourcesContent":[".has-read[data-v-30cef006] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n.event[data-v-30cef006] {\n  cursor: pointer;\n}\n"]}]);
+exports.push([module.i, ".has-read[data-v-30cef006] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n.event[data-v-30cef006] {\n  cursor: pointer;\n}\n.label img[data-v-30cef006] {\n  border-radius: 0 !important;\n}\n", "",{"version":3,"sources":["NotificationEvent.less?vue&type=style&index=0&id=30cef006&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iCAAiC;EACjC,YAAY;AACd;AACA;EACE,eAAe;AACjB;AACA;EACE,2BAA2B;AAC7B","file":"NotificationEvent.less?vue&type=style&index=0&id=30cef006&lang=less&scoped=true&","sourcesContent":[".has-read[data-v-30cef006] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n.event[data-v-30cef006] {\n  cursor: pointer;\n}\n.label img[data-v-30cef006] {\n  border-radius: 0 !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -261,7 +261,7 @@ exports.push([module.i, ".has-read[data-v-30cef006] {\n  background-color: #DDD 
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".has-read[data-v-6da143a9] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n.event[data-v-6da143a9] {\n  cursor: pointer;\n}\n", "",{"version":3,"sources":["NotificationEvent.less?vue&type=style&index=0&id=6da143a9&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iCAAiC;EACjC,YAAY;AACd;AACA;EACE,eAAe;AACjB","file":"NotificationEvent.less?vue&type=style&index=0&id=6da143a9&lang=less&scoped=true&","sourcesContent":[".has-read[data-v-6da143a9] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n.event[data-v-6da143a9] {\n  cursor: pointer;\n}\n"]}]);
+exports.push([module.i, ".has-read[data-v-6da143a9] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n.event[data-v-6da143a9] {\n  cursor: pointer;\n}\n.label img[data-v-6da143a9] {\n  border-radius: 0 !important;\n}\n", "",{"version":3,"sources":["NotificationEvent.less?vue&type=style&index=0&id=6da143a9&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iCAAiC;EACjC,YAAY;AACd;AACA;EACE,eAAe;AACjB;AACA;EACE,2BAA2B;AAC7B","file":"NotificationEvent.less?vue&type=style&index=0&id=6da143a9&lang=less&scoped=true&","sourcesContent":[".has-read[data-v-6da143a9] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n.event[data-v-6da143a9] {\n  cursor: pointer;\n}\n.label img[data-v-6da143a9] {\n  border-radius: 0 !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -275,7 +275,7 @@ exports.push([module.i, ".has-read[data-v-6da143a9] {\n  background-color: #DDD 
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".has-read[data-v-8cc9cbae] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n.event[data-v-8cc9cbae] {\n  cursor: pointer;\n}\n", "",{"version":3,"sources":["NotificationEvent.less?vue&type=style&index=0&id=8cc9cbae&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iCAAiC;EACjC,YAAY;AACd;AACA;EACE,eAAe;AACjB","file":"NotificationEvent.less?vue&type=style&index=0&id=8cc9cbae&lang=less&scoped=true&","sourcesContent":[".has-read[data-v-8cc9cbae] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n.event[data-v-8cc9cbae] {\n  cursor: pointer;\n}\n"]}]);
+exports.push([module.i, ".has-read[data-v-8cc9cbae] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n.event[data-v-8cc9cbae] {\n  cursor: pointer;\n}\n.label img[data-v-8cc9cbae] {\n  border-radius: 0 !important;\n}\n", "",{"version":3,"sources":["NotificationEvent.less?vue&type=style&index=0&id=8cc9cbae&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iCAAiC;EACjC,YAAY;AACd;AACA;EACE,eAAe;AACjB;AACA;EACE,2BAA2B;AAC7B","file":"NotificationEvent.less?vue&type=style&index=0&id=8cc9cbae&lang=less&scoped=true&","sourcesContent":[".has-read[data-v-8cc9cbae] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n.event[data-v-8cc9cbae] {\n  cursor: pointer;\n}\n.label img[data-v-8cc9cbae] {\n  border-radius: 0 !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -289,7 +289,7 @@ exports.push([module.i, ".has-read[data-v-8cc9cbae] {\n  background-color: #DDD 
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".has-read[data-v-f2e8ddee] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n.event[data-v-f2e8ddee] {\n  cursor: pointer;\n}\n", "",{"version":3,"sources":["NotificationEvent.less?vue&type=style&index=0&id=f2e8ddee&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iCAAiC;EACjC,YAAY;AACd;AACA;EACE,eAAe;AACjB","file":"NotificationEvent.less?vue&type=style&index=0&id=f2e8ddee&lang=less&scoped=true&","sourcesContent":[".has-read[data-v-f2e8ddee] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n.event[data-v-f2e8ddee] {\n  cursor: pointer;\n}\n"]}]);
+exports.push([module.i, ".has-read[data-v-f2e8ddee] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n.event[data-v-f2e8ddee] {\n  cursor: pointer;\n}\n.label img[data-v-f2e8ddee] {\n  border-radius: 0 !important;\n}\n", "",{"version":3,"sources":["NotificationEvent.less?vue&type=style&index=0&id=f2e8ddee&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iCAAiC;EACjC,YAAY;AACd;AACA;EACE,eAAe;AACjB;AACA;EACE,2BAA2B;AAC7B","file":"NotificationEvent.less?vue&type=style&index=0&id=f2e8ddee&lang=less&scoped=true&","sourcesContent":[".has-read[data-v-f2e8ddee] {\n  background-color: #DDD !important;\n  opacity: 0.8;\n}\n.event[data-v-f2e8ddee] {\n  cursor: pointer;\n}\n.label img[data-v-f2e8ddee] {\n  border-radius: 0 !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -331,7 +331,7 @@ exports.push([module.i, ".floating.label[data-v-32d3d148] {\n  padding-top: 0 !i
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".notification-list[data-v-5aca81af] {\n  max-height: calc(100vh - 18em);\n  overflow-y: auto;\n}\n.trigger-users[data-v-5aca81af] {\n  text-align: center;\n}\n.trigger-users .column[data-v-5aca81af] {\n  display: inline-block;\n  vertical-align: middle;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["NotificationModal.less?vue&type=style&index=0&id=5aca81af&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;EAC9B,gBAAgB;AAClB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,qBAAqB;EACrB,sBAAsB;EACtB,kBAAkB;EAClB,mBAAmB;AACrB","file":"NotificationModal.less?vue&type=style&index=0&id=5aca81af&lang=less&scoped=true&","sourcesContent":[".notification-list[data-v-5aca81af] {\n  max-height: calc(100vh - 18em);\n  overflow-y: auto;\n}\n.trigger-users[data-v-5aca81af] {\n  text-align: center;\n}\n.trigger-users .column[data-v-5aca81af] {\n  display: inline-block;\n  vertical-align: middle;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n"]}]);
+exports.push([module.i, ".notification-list[data-v-5aca81af] {\n  max-height: calc(100vh - 26em);\n  overflow-y: auto;\n}\n.trigger-users[data-v-5aca81af] {\n  text-align: center;\n}\n.trigger-users .column[data-v-5aca81af] {\n  display: inline-block;\n  vertical-align: middle;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["NotificationModal.less?vue&type=style&index=0&id=5aca81af&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;EAC9B,gBAAgB;AAClB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,qBAAqB;EACrB,sBAAsB;EACtB,kBAAkB;EAClB,mBAAmB;AACrB","file":"NotificationModal.less?vue&type=style&index=0&id=5aca81af&lang=less&scoped=true&","sourcesContent":[".notification-list[data-v-5aca81af] {\n  max-height: calc(100vh - 26em);\n  overflow-y: auto;\n}\n.trigger-users[data-v-5aca81af] {\n  text-align: center;\n}\n.trigger-users .column[data-v-5aca81af] {\n  display: inline-block;\n  vertical-align: middle;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -508,7 +508,7 @@ var render = function() {
                     status: _vm.status,
                     lib: _vm.lib,
                     pauseAtStart: true,
-                    remainingSeconds: 72
+                    remainingSeconds: 1072
                   },
                   on: {
                     timeup: function($event) {
@@ -858,7 +858,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { ref: "feed", staticClass: "ui feed" },
+        { ref: "feed", staticClass: "ui divided feed" },
         _vm._l(_vm.notificationData.unreadNotifications, function(
           notification
         ) {
@@ -1040,7 +1040,7 @@ var render = function() {
             key: "content",
             fn: function() {
               return [
-                _c("div", { staticClass: "trigger-users" }, [
+                _c("div", { staticClass: "ui segment trigger-users" }, [
                   _c("span", { staticClass: "column" }, [
                     _vm._v(
                       "\r\n        " +
@@ -1070,7 +1070,7 @@ var render = function() {
                   "div",
                   {
                     ref: "feed",
-                    staticClass: "notification-list ui feed",
+                    staticClass: "notification-list ui divided feed",
                     on: {
                       scroll: function($event) {
                         $event.stopPropagation()

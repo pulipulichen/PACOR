@@ -10,7 +10,7 @@
     </template>
     <template v-slot:content>
 
-      <div class="trigger-users">
+      <div class="ui segment trigger-users">
         <span class="column">
         {{ $t('Readers interacted with you') }}:
         </span>
@@ -25,7 +25,7 @@
         </span>
       </div>
 
-      <div class="notification-list ui feed"
+      <div class="notification-list ui divided feed"
            ref="feed"
            v-on:scroll.stop="onScrollList">
         <component 
