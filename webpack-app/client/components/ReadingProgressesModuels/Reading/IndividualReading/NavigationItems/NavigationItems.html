@@ -29,7 +29,8 @@
         v-bind:status="status"
         v-bind:lib="lib"
 
-        v-bind:pauseAtStart="false">
+        v-bind:pauseAtStart="false"
+        v-on:timeup="$emit('timeup')">
       </digital-countdown-timer> 
     </div>
   </template>

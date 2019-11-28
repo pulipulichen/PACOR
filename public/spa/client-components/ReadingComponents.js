@@ -3498,8 +3498,7 @@ var render = function() {
                   status: _vm.status,
                   lib: _vm.lib,
                   pauseAtStart: false
-                },
-                on: { timeup: _vm.timeup }
+                }
               })
             ],
             1
@@ -12338,9 +12337,9 @@ let CompactNavigation = {
     hideSideMenu: function () {
       this.sideMenuDisplay = false
     },
-    timeup () {
-      this.lib.auth.nextStep()
-    }
+//    timeup () {
+//      this.lib.auth.nextStep()
+//    }
   } // methods
 }
 

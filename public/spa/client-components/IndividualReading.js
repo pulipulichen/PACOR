@@ -97,7 +97,7 @@ var render = function() {
       _c("navigation-items", {
         ref: "nav",
         attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib },
-        on: { showInstruction: _vm.showInstruction }
+        on: { showInstruction: _vm.showInstruction, timeup: _vm.onTimeup }
       }),
       _vm._v(" "),
       _c("annotation-manager", {
@@ -206,6 +206,11 @@ var render = function() {
                     status: _vm.status,
                     lib: _vm.lib,
                     pauseAtStart: false
+                  },
+                  on: {
+                    timeup: function($event) {
+                      return _vm.$emit("timeup")
+                    }
                   }
                 })
               ],
@@ -357,6 +362,13 @@ let IndividualReading = {
       //throw 'onChecklistComplete'
       this.lib.auth.nextStep()
     },
+    onTimeup () {
+      //throw new Error('Wait')
+      this.lib.auth.nextStep()
+    },
+    
+    // -----------------------------------------------------
+    
     _testSearch () {
       if (!this.lib.AnnotationPanel) {
         setTimeout(() => {

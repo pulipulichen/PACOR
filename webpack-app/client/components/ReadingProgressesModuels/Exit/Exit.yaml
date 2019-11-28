@@ -1,6 +1,6 @@
 en:
-  TEST_MESSAGE: Test Message
   
 zh-TW:
-  # 這是註解
-  TEST_MESSAGE: 測試訊息
+  Thank you for your reading: 感謝您的閱讀
+  Congratulation! You finished reading.: 恭喜您讀完了！
+  CLOSE WINDOW: 關閉視窗

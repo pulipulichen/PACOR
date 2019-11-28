@@ -91,9 +91,9 @@ let CompactNavigation = {
     hideSideMenu: function () {
       this.sideMenuDisplay = false
     },
-    timeup () {
-      this.lib.auth.nextStep()
-    }
+//    timeup () {
+//      this.lib.auth.nextStep()
+//    }
   } // methods
 }
 

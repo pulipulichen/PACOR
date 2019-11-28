@@ -19,6 +19,9 @@ class UserConfig {
     Model.prototype.isEnableCollaboration = async function (webpage) {
       let config = await this.getCurrentReadingProgressStepConfig(webpage)
       //console.log(config)
+      if (!config || !config.annotation) {
+        return false
+      }
       return config.annotation.enableCollaboration
     }
   } // register (Model) {

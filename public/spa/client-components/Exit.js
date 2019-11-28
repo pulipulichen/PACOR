@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Thank you for your reading":"感謝您的閱讀","Congratulation! You finished reading.":"恭喜您讀完了！","CLOSE WINDOW":"關閉視窗"}}')
   delete Component.options._Ctor
 }
 
@@ -113,7 +113,7 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "ui button", on: { click: _vm.exit } },
-                  [_vm._v(_vm._s(_vm.$t("EXIT")))]
+                  [_vm._v(_vm._s(_vm.$t("CLOSE WINDOW")))]
                 )
               ]
             },

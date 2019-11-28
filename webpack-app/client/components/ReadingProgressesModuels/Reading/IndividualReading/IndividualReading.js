@@ -37,6 +37,13 @@ let IndividualReading = {
       //throw 'onChecklistComplete'
       this.lib.auth.nextStep()
     },
+    onTimeup () {
+      //throw new Error('Wait')
+      this.lib.auth.nextStep()
+    },
+    
+    // -----------------------------------------------------
+    
     _testSearch () {
       if (!this.lib.AnnotationPanel) {
         setTimeout(() => {
