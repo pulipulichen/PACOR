@@ -3492,8 +3492,9 @@ var render = function() {
             "div",
             { staticClass: "right aligned column" },
             [
+              _vm._v("\r\n        @TODO\r\n        "),
               _vm.remainingSeconds
-                ? _c("countdown-timer", {
+                ? _c("simple-countdown-timer", {
                     attrs: {
                       config: _vm.config,
                       status: _vm.status,

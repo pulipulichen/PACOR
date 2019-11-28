@@ -16,7 +16,8 @@
         {{ $t('READING_PROGRESS.' + lib.auth.currentStep) }}
       </div>
       <div class="right aligned column">
-        <countdown-timer 
+        @TODO
+        <simple-countdown-timer 
           v-if="remainingSeconds"
           v-bind:config="config"
           v-bind:status="status"
@@ -24,7 +25,7 @@
           v-bind:remainingSeconds="remainingSeconds"
           v-bind:pauseAtStart="true"
           v-on:timeup="timeup">
-        </countdown-timer>
+        </simple-countdown-timer>
       </div>
     </div>
   </div>

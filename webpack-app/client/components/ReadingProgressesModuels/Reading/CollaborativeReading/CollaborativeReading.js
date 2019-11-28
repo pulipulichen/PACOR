@@ -17,7 +17,7 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    this._testNotificationFullList()
+    //this._testNotificationFullList()
   },
   methods: {
     initComponentToLib () {
@@ -38,6 +38,10 @@ let CollaborativeReading = {
     },
     showInstruction() {
       this.$refs.InstructionMessage.show()
+    },
+    timeup () {
+      throw new Error('Wait')
+      this.lib.auth.nextStep()
     },
     
     // --------------------------------

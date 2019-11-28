@@ -40,8 +40,11 @@ Vue.component('checkbox-toggle', CheckboxToggle)
 import CountdownButton from './../components/CountdownButton/CountdownButton.vue'
 Vue.component('countdown-button', CountdownButton)
 
-import CountdownTimer from './../components/CountdownTimer/CountdownTimer.vue'
-Vue.component('countdown-timer', CountdownTimer)
+import SimpleCountdownTimer from './../components/SimpleCountdownTimer/SimpleCountdownTimer.vue'
+Vue.component('simple-countdown-timer', SimpleCountdownTimer)
+
+import DigitalCountdownTimer from './../components/DigitalCountdownTimer/DigitalCountdownTimer.vue'
+Vue.component('digital-countdown-timer', DigitalCountdownTimer)
 
 import ValidationButton from './../components/ValidationButton/ValidationButton.vue'
 Vue.component('validation-button', ValidationButton)

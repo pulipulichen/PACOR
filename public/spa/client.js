@@ -368,10 +368,26 @@ module.exports = function (Component) {
 
 /***/ }),
 
-/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/CountdownTimer/CountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CCountdownTimer%5CCountdownTimer.vue&lang=yaml":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/components/CountdownTimer/CountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CCountdownTimer%5CCountdownTimer.vue&lang=yaml ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CDigitalCountdownTimer%5CDigitalCountdownTimer.vue&lang=yaml":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CDigitalCountdownTimer%5CDigitalCountdownTimer.vue&lang=yaml ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CSimpleCountdownTimer%5CSimpleCountdownTimer.vue&lang=yaml":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CSimpleCountdownTimer%5CSimpleCountdownTimer.vue&lang=yaml ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -558,16 +574,16 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/CountdownTimer/CountdownTimer.less?vue&type=style&index=0&id=f0db015c&lang=less&scoped=true&":
-/*!***************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/CountdownTimer/CountdownTimer.less?vue&type=style&index=0&id=f0db015c&lang=less&scoped=true& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"CountdownTimer.less?vue&type=style&index=0&id=f0db015c&lang=less&scoped=true&"}]);
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&"}]);
 
 
 /***/ }),
@@ -582,6 +598,20 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
 exports.push([module.i, ".IframeMessageSegment[data-v-20b1c012] {\n  text-align: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.IframeMessageSegment iframe[data-v-20b1c012] {\n  width: 100%;\n}\n", "",{"version":3,"sources":["IframeMessageSegment.less?vue&type=style&index=0&id=20b1c012&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,WAAW;AACb","file":"IframeMessageSegment.less?vue&type=style&index=0&id=20b1c012&lang=less&scoped=true&","sourcesContent":[".IframeMessageSegment[data-v-20b1c012] {\n  text-align: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.IframeMessageSegment iframe[data-v-20b1c012] {\n  width: 100%;\n}\n"]}]);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.less?vue&type=style&index=0&id=5ef4b5d2&lang=less&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.less?vue&type=style&index=0&id=5ef4b5d2&lang=less&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"SimpleCountdownTimer.less?vue&type=style&index=0&id=5ef4b5d2&lang=less&scoped=true&"}]);
 
 
 /***/ }),
@@ -1464,10 +1494,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/CountdownTimer/CountdownTimer.html?vue&type=template&id=f0db015c&scoped=true&":
-/*!******************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/CountdownTimer/CountdownTimer.html?vue&type=template&id=f0db015c&scoped=true& ***!
-  \******************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.html?vue&type=template&id=3fb22da8&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.html?vue&type=template&id=3fb22da8&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1486,7 +1516,7 @@ var render = function() {
             _vm._s(_vm.$t("Remaining Time")) +
             ":\r\n  " +
             _vm._s(_vm.dataRemainingTime) +
-            "\r\n"
+            "\r\n  aaa\r\n"
         )
       ])
     : _vm._e()
@@ -1533,6 +1563,40 @@ var render = function() {
     ],
     2
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.html?vue&type=template&id=5ef4b5d2&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.html?vue&type=template&id=5ef4b5d2&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.dataRemainingSec > 0
+    ? _c("span", { staticClass: "CountdownTimer" }, [
+        _vm._v(
+          "\r\n  " +
+            _vm._s(_vm.$t("Remaining Time")) +
+            ":\r\n  " +
+            _vm._s(_vm.dataRemainingTime) +
+            "\r\n"
+        )
+      ])
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1868,22 +1932,22 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/CountdownTimer/CountdownTimer.less?vue&type=style&index=0&id=f0db015c&lang=less&scoped=true&":
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/CountdownTimer/CountdownTimer.less?vue&type=style&index=0&id=f0db015c&lang=less&scoped=true& ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./CountdownTimer.less?vue&type=style&index=0&id=f0db015c&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/CountdownTimer/CountdownTimer.less?vue&type=style&index=0&id=f0db015c&lang=less&scoped=true&");
+var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&");
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("e6d7cc2c", content, false, {});
+var update = add("00bbf6f7", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -1905,6 +1969,27 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("779a538a", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.less?vue&type=style&index=0&id=5ef4b5d2&lang=less&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.less?vue&type=style&index=0&id=5ef4b5d2&lang=less&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./SimpleCountdownTimer.less?vue&type=style&index=0&id=5ef4b5d2&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.less?vue&type=style&index=0&id=5ef4b5d2&lang=less&scoped=true&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("eb4f8020", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -2850,14 +2935,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_AnnotationTypeButton_AnnotationTypeButton_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../components/AnnotationTypeButton/AnnotationTypeButton.vue */ "./webpack-app/components/AnnotationTypeButton/AnnotationTypeButton.vue");
 /* harmony import */ var _components_CheckboxToggle_CheckboxToggle_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../components/CheckboxToggle/CheckboxToggle.vue */ "./webpack-app/components/CheckboxToggle/CheckboxToggle.vue");
 /* harmony import */ var _components_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../components/CountdownButton/CountdownButton.vue */ "./webpack-app/components/CountdownButton/CountdownButton.vue");
-/* harmony import */ var _components_CountdownTimer_CountdownTimer_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./../components/CountdownTimer/CountdownTimer.vue */ "./webpack-app/components/CountdownTimer/CountdownTimer.vue");
-/* harmony import */ var _components_ValidationButton_ValidationButton_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./../components/ValidationButton/ValidationButton.vue */ "./webpack-app/components/ValidationButton/ValidationButton.vue");
-/* harmony import */ var _components_UserAvatarIcons_UserAvatarIcons_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./../components/UserAvatarIcons/UserAvatarIcons.vue */ "./webpack-app/components/UserAvatarIcons/UserAvatarIcons.vue");
-/* harmony import */ var _components_AnnotationItem_AnnotationItem_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./../components/AnnotationItem/AnnotationItem.vue */ "./webpack-app/components/AnnotationItem/AnnotationItem.vue");
-/* harmony import */ var _components_AnnotationItemInteractive_AnnotationItemInteractive_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./../components/AnnotationItemInteractive/AnnotationItemInteractive.vue */ "./webpack-app/components/AnnotationItemInteractive/AnnotationItemInteractive.vue");
-/* harmony import */ var _components_AdminBadge_AdminBadge_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./../components/AdminBadge/AdminBadge.vue */ "./webpack-app/components/AdminBadge/AdminBadge.vue");
-/* harmony import */ var _components_UserSelfBadge_UserSelfBadge_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./../components/UserSelfBadge/UserSelfBadge.vue */ "./webpack-app/components/UserSelfBadge/UserSelfBadge.vue");
-/* harmony import */ var _components_IframeMessageSegment_IframeMessageSegment_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./../components/IframeMessageSegment/IframeMessageSegment.vue */ "./webpack-app/components/IframeMessageSegment/IframeMessageSegment.vue");
+/* harmony import */ var _components_SimpleCountdownTimer_SimpleCountdownTimer_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./../components/SimpleCountdownTimer/SimpleCountdownTimer.vue */ "./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.vue");
+/* harmony import */ var _components_DigitalCountdownTimer_DigitalCountdownTimer_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./../components/DigitalCountdownTimer/DigitalCountdownTimer.vue */ "./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.vue");
+/* harmony import */ var _components_ValidationButton_ValidationButton_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./../components/ValidationButton/ValidationButton.vue */ "./webpack-app/components/ValidationButton/ValidationButton.vue");
+/* harmony import */ var _components_UserAvatarIcons_UserAvatarIcons_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./../components/UserAvatarIcons/UserAvatarIcons.vue */ "./webpack-app/components/UserAvatarIcons/UserAvatarIcons.vue");
+/* harmony import */ var _components_AnnotationItem_AnnotationItem_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./../components/AnnotationItem/AnnotationItem.vue */ "./webpack-app/components/AnnotationItem/AnnotationItem.vue");
+/* harmony import */ var _components_AnnotationItemInteractive_AnnotationItemInteractive_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./../components/AnnotationItemInteractive/AnnotationItemInteractive.vue */ "./webpack-app/components/AnnotationItemInteractive/AnnotationItemInteractive.vue");
+/* harmony import */ var _components_AdminBadge_AdminBadge_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./../components/AdminBadge/AdminBadge.vue */ "./webpack-app/components/AdminBadge/AdminBadge.vue");
+/* harmony import */ var _components_UserSelfBadge_UserSelfBadge_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./../components/UserSelfBadge/UserSelfBadge.vue */ "./webpack-app/components/UserSelfBadge/UserSelfBadge.vue");
+/* harmony import */ var _components_IframeMessageSegment_IframeMessageSegment_vue__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./../components/IframeMessageSegment/IframeMessageSegment.vue */ "./webpack-app/components/IframeMessageSegment/IframeMessageSegment.vue");
 /* global Vue, Pagination, Modal, StepProgressBar, BlockExit, ActivityTimer */
 
 
@@ -2901,25 +2987,28 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('checkbox-toggle', _compon
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('countdown-button', _components_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_11__["default"])
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('countdown-timer', _components_CountdownTimer_CountdownTimer_vue__WEBPACK_IMPORTED_MODULE_12__["default"])
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('simple-countdown-timer', _components_SimpleCountdownTimer_SimpleCountdownTimer_vue__WEBPACK_IMPORTED_MODULE_12__["default"])
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('validation-button', _components_ValidationButton_ValidationButton_vue__WEBPACK_IMPORTED_MODULE_13__["default"])
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('digital-countdown-timer', _components_DigitalCountdownTimer_DigitalCountdownTimer_vue__WEBPACK_IMPORTED_MODULE_13__["default"])
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('user-avatar-icons', _components_UserAvatarIcons_UserAvatarIcons_vue__WEBPACK_IMPORTED_MODULE_14__["default"])
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('validation-button', _components_ValidationButton_ValidationButton_vue__WEBPACK_IMPORTED_MODULE_14__["default"])
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('annotation-item', _components_AnnotationItem_AnnotationItem_vue__WEBPACK_IMPORTED_MODULE_15__["default"])
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('user-avatar-icons', _components_UserAvatarIcons_UserAvatarIcons_vue__WEBPACK_IMPORTED_MODULE_15__["default"])
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('annotation-item-interactive', _components_AnnotationItemInteractive_AnnotationItemInteractive_vue__WEBPACK_IMPORTED_MODULE_16__["default"])
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('annotation-item', _components_AnnotationItem_AnnotationItem_vue__WEBPACK_IMPORTED_MODULE_16__["default"])
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('admin-badge', _components_AdminBadge_AdminBadge_vue__WEBPACK_IMPORTED_MODULE_17__["default"])
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('annotation-item-interactive', _components_AnnotationItemInteractive_AnnotationItemInteractive_vue__WEBPACK_IMPORTED_MODULE_17__["default"])
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('user-self-badge', _components_UserSelfBadge_UserSelfBadge_vue__WEBPACK_IMPORTED_MODULE_18__["default"])
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('admin-badge', _components_AdminBadge_AdminBadge_vue__WEBPACK_IMPORTED_MODULE_18__["default"])
+
+
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('user-self-badge', _components_UserSelfBadge_UserSelfBadge_vue__WEBPACK_IMPORTED_MODULE_19__["default"])
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('rangy', () => __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.vue")))
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('annotation-panel', () => __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationPanel.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationPanel.vue")))
@@ -2931,7 +3020,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('compact-navigation', () =
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('annotation-type-filter', () => __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./components/ReadingProgressesModuels/Reading/components/AnnotationTypeFilter/AnnotationTypeFilter.vue */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationTypeFilter/AnnotationTypeFilter.vue")))
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('iframe-message-segment', _components_IframeMessageSegment_IframeMessageSegment_vue__WEBPACK_IMPORTED_MODULE_19__["default"])
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('iframe-message-segment', _components_IframeMessageSegment_IframeMessageSegment_vue__WEBPACK_IMPORTED_MODULE_20__["default"])
 
 /***/ }),
 
@@ -4724,35 +4813,50 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/components/CountdownTimer/CountdownTimer.html?vue&type=template&id=f0db015c&scoped=true&":
-/*!**************************************************************************************************************!*\
-  !*** ./webpack-app/components/CountdownTimer/CountdownTimer.html?vue&type=template&id=f0db015c&scoped=true& ***!
-  \**************************************************************************************************************/
+/***/ "./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.html?vue&type=template&id=3fb22da8&scoped=true&":
+/*!****************************************************************************************************************************!*\
+  !*** ./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.html?vue&type=template&id=3fb22da8&scoped=true& ***!
+  \****************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CountdownTimer_html_vue_type_template_id_f0db015c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./CountdownTimer.html?vue&type=template&id=f0db015c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/CountdownTimer/CountdownTimer.html?vue&type=template&id=f0db015c&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CountdownTimer_html_vue_type_template_id_f0db015c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_DigitalCountdownTimer_html_vue_type_template_id_3fb22da8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./DigitalCountdownTimer.html?vue&type=template&id=3fb22da8&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.html?vue&type=template&id=3fb22da8&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_DigitalCountdownTimer_html_vue_type_template_id_3fb22da8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CountdownTimer_html_vue_type_template_id_f0db015c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_DigitalCountdownTimer_html_vue_type_template_id_3fb22da8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./webpack-app/components/CountdownTimer/CountdownTimer.js?vue&type=script&lang=js&?65ad":
-/*!******************************************************************************************!*\
-  !*** ./webpack-app/components/CountdownTimer/CountdownTimer.js?vue&type=script&lang=js& ***!
-  \******************************************************************************************/
+/***/ "./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.js?vue&type=script&lang=js&?190b":
+/*!********************************************************************************************************!*\
+  !*** ./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.js?vue&type=script&lang=js& ***!
+  \********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let CountdownTimer = {
-  props: ['lib', 'config', 'remainingSeconds', 'pauseAtStart'],
+/* harmony import */ var _DigitalCountdownTimer_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./DigitalCountdownTimer.js?vue&type=script&lang=js& */ "./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.js?vue&type=script&lang=js&?fdd1");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_DigitalCountdownTimer_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.js?vue&type=script&lang=js&?fdd1":
+/*!********************************************************************************************************!*\
+  !*** ./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.js?vue&type=script&lang=js& ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let DigitalCountdownTimer = {
+  props: ['lib', 'config'
+    , 'remainingSeconds', 'pauseAtStart'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -4805,54 +4909,40 @@ let CountdownTimer = {
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (CountdownTimer);
+/* harmony default export */ __webpack_exports__["default"] = (DigitalCountdownTimer);
 
 /***/ }),
 
-/***/ "./webpack-app/components/CountdownTimer/CountdownTimer.js?vue&type=script&lang=js&?da27":
-/*!******************************************************************************************!*\
-  !*** ./webpack-app/components/CountdownTimer/CountdownTimer.js?vue&type=script&lang=js& ***!
-  \******************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CountdownTimer_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./CountdownTimer.js?vue&type=script&lang=js& */ "./webpack-app/components/CountdownTimer/CountdownTimer.js?vue&type=script&lang=js&?65ad");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_CountdownTimer_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./webpack-app/components/CountdownTimer/CountdownTimer.less?vue&type=style&index=0&id=f0db015c&lang=less&scoped=true&":
-/*!*****************************************************************************************************************************!*\
-  !*** ./webpack-app/components/CountdownTimer/CountdownTimer.less?vue&type=style&index=0&id=f0db015c&lang=less&scoped=true& ***!
-  \*****************************************************************************************************************************/
+/***/ "./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true& ***!
+  \*******************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownTimer_less_vue_type_style_index_0_id_f0db015c_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-style-loader!../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./CountdownTimer.less?vue&type=style&index=0&id=f0db015c&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/CountdownTimer/CountdownTimer.less?vue&type=style&index=0&id=f0db015c&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownTimer_less_vue_type_style_index_0_id_f0db015c_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownTimer_less_vue_type_style_index_0_id_f0db015c_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownTimer_less_vue_type_style_index_0_id_f0db015c_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownTimer_less_vue_type_style_index_0_id_f0db015c_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownTimer_less_vue_type_style_index_0_id_f0db015c_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_DigitalCountdownTimer_less_vue_type_style_index_0_id_3fb22da8_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-style-loader!../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_DigitalCountdownTimer_less_vue_type_style_index_0_id_3fb22da8_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_DigitalCountdownTimer_less_vue_type_style_index_0_id_3fb22da8_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_DigitalCountdownTimer_less_vue_type_style_index_0_id_3fb22da8_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_DigitalCountdownTimer_less_vue_type_style_index_0_id_3fb22da8_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_DigitalCountdownTimer_less_vue_type_style_index_0_id_3fb22da8_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./webpack-app/components/CountdownTimer/CountdownTimer.vue":
-/*!******************************************************************!*\
-  !*** ./webpack-app/components/CountdownTimer/CountdownTimer.vue ***!
-  \******************************************************************/
+/***/ "./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.vue":
+/*!********************************************************************************!*\
+  !*** ./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.vue ***!
+  \********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CountdownTimer_html_vue_type_template_id_f0db015c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CountdownTimer.html?vue&type=template&id=f0db015c&scoped=true& */ "./webpack-app/components/CountdownTimer/CountdownTimer.html?vue&type=template&id=f0db015c&scoped=true&");
-/* harmony import */ var _CountdownTimer_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CountdownTimer.js?vue&type=script&lang=js& */ "./webpack-app/components/CountdownTimer/CountdownTimer.js?vue&type=script&lang=js&?da27");
-/* empty/unused harmony star reexport *//* harmony import */ var _CountdownTimer_less_vue_type_style_index_0_id_f0db015c_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CountdownTimer.less?vue&type=style&index=0&id=f0db015c&lang=less&scoped=true& */ "./webpack-app/components/CountdownTimer/CountdownTimer.less?vue&type=style&index=0&id=f0db015c&lang=less&scoped=true&");
+/* harmony import */ var _DigitalCountdownTimer_html_vue_type_template_id_3fb22da8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DigitalCountdownTimer.html?vue&type=template&id=3fb22da8&scoped=true& */ "./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.html?vue&type=template&id=3fb22da8&scoped=true&");
+/* harmony import */ var _DigitalCountdownTimer_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DigitalCountdownTimer.js?vue&type=script&lang=js& */ "./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.js?vue&type=script&lang=js&?190b");
+/* empty/unused harmony star reexport *//* harmony import */ var _DigitalCountdownTimer_less_vue_type_style_index_0_id_3fb22da8_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true& */ "./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.less?vue&type=style&index=0&id=3fb22da8&lang=less&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-/* harmony import */ var _CountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CCountdownTimer_5CCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CCountdownTimer%5CCountdownTimer.vue&lang=yaml */ "./webpack-app/components/CountdownTimer/CountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CCountdownTimer%5CCountdownTimer.vue&lang=yaml");
+/* harmony import */ var _DigitalCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CDigitalCountdownTimer_5CDigitalCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DigitalCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CDigitalCountdownTimer%5CDigitalCountdownTimer.vue&lang=yaml */ "./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CDigitalCountdownTimer%5CDigitalCountdownTimer.vue&lang=yaml");
 
 
 
@@ -4862,40 +4952,40 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _CountdownTimer_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CountdownTimer_html_vue_type_template_id_f0db015c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _CountdownTimer_html_vue_type_template_id_f0db015c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _DigitalCountdownTimer_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DigitalCountdownTimer_html_vue_type_template_id_3fb22da8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DigitalCountdownTimer_html_vue_type_template_id_3fb22da8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "f0db015c",
+  "3fb22da8",
   null
   
 )
 
 /* custom blocks */
 
-if (typeof _CountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CCountdownTimer_5CCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_CountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CCountdownTimer_5CCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+if (typeof _DigitalCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CDigitalCountdownTimer_5CDigitalCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_DigitalCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CDigitalCountdownTimer_5CDigitalCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "webpack-app/components/CountdownTimer/CountdownTimer.vue"
+component.options.__file = "webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./webpack-app/components/CountdownTimer/CountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CCountdownTimer%5CCountdownTimer.vue&lang=yaml":
-/*!************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/components/CountdownTimer/CountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CCountdownTimer%5CCountdownTimer.vue&lang=yaml ***!
-  \************************************************************************************************************************************************************************************************************************************************/
+/***/ "./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CDigitalCountdownTimer%5CDigitalCountdownTimer.vue&lang=yaml":
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CDigitalCountdownTimer%5CDigitalCountdownTimer.vue&lang=yaml ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CCountdownTimer_5CCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/@kazupon/vue-i18n-loader/lib!./CountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CCountdownTimer%5CCountdownTimer.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/CountdownTimer/CountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CCountdownTimer%5CCountdownTimer.vue&lang=yaml");
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CCountdownTimer_5CCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CCountdownTimer_5CCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CCountdownTimer_5CCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CCountdownTimer_5CCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CCountdownTimer_5CCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_DigitalCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CDigitalCountdownTimer_5CDigitalCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/@kazupon/vue-i18n-loader/lib!./DigitalCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CDigitalCountdownTimer%5CDigitalCountdownTimer.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/DigitalCountdownTimer/DigitalCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CDigitalCountdownTimer%5CDigitalCountdownTimer.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_DigitalCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CDigitalCountdownTimer_5CDigitalCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_DigitalCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CDigitalCountdownTimer_5CDigitalCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_DigitalCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CDigitalCountdownTimer_5CDigitalCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_DigitalCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CDigitalCountdownTimer_5CDigitalCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_DigitalCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CDigitalCountdownTimer_5CDigitalCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -5023,6 +5113,181 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "webpack-app/components/IframeMessageSegment/IframeMessageSegment.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.html?vue&type=template&id=5ef4b5d2&scoped=true&":
+/*!**************************************************************************************************************************!*\
+  !*** ./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.html?vue&type=template&id=5ef4b5d2&scoped=true& ***!
+  \**************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_SimpleCountdownTimer_html_vue_type_template_id_5ef4b5d2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./SimpleCountdownTimer.html?vue&type=template&id=5ef4b5d2&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.html?vue&type=template&id=5ef4b5d2&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_SimpleCountdownTimer_html_vue_type_template_id_5ef4b5d2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_SimpleCountdownTimer_html_vue_type_template_id_5ef4b5d2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.js?vue&type=script&lang=js&?1e7f":
+/*!******************************************************************************************************!*\
+  !*** ./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.js?vue&type=script&lang=js& ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let CountdownTimer = {
+  props: ['lib', 'config', 'remainingSeconds', 'pauseAtStart'],
+  data() {    
+    this.$i18n.locale = this.config.locale
+    return {
+      dataRemainingSec: this.remainingSeconds,
+      dataPause: this.pauseAtStart
+    }
+  },
+  computed: {
+    dataRemainingTime () {
+      return this.lib.DayJSHelper.formatHHMMSS(this.dataRemainingSec)
+    }
+  },
+  watch: {
+    remainingSeconds (remainingSec) {
+      this.dataRemainingSec = remainingSec
+    },
+    pauseAtStart (pause) {
+      this.dataPause = pause
+    }
+  },
+  mounted() {
+    this.start()
+  },
+  methods: {
+    start () {
+      if (this.dataPause === true) {
+        return null
+      }
+      setTimeout(() => {
+        this.dataRemainingSec--
+        
+        if (this.dataRemainingSec > 0) {
+          this.start()
+        }
+        else {
+          this.timeup()
+        }
+      }, 1000)
+    },
+    timeup () {
+      this.$emit('timeup')
+    },
+    pause () {
+      this.dataPause = true
+    },
+    resume () {
+      this.dataPause = false
+      this.start()
+    }
+  } // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (CountdownTimer);
+
+/***/ }),
+
+/***/ "./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.js?vue&type=script&lang=js&?df8f":
+/*!******************************************************************************************************!*\
+  !*** ./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.js?vue&type=script&lang=js& ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SimpleCountdownTimer_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./SimpleCountdownTimer.js?vue&type=script&lang=js& */ "./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.js?vue&type=script&lang=js&?1e7f");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_SimpleCountdownTimer_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.less?vue&type=style&index=0&id=5ef4b5d2&lang=less&scoped=true&":
+/*!*****************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.less?vue&type=style&index=0&id=5ef4b5d2&lang=less&scoped=true& ***!
+  \*****************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SimpleCountdownTimer_less_vue_type_style_index_0_id_5ef4b5d2_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-style-loader!../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./SimpleCountdownTimer.less?vue&type=style&index=0&id=5ef4b5d2&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.less?vue&type=style&index=0&id=5ef4b5d2&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SimpleCountdownTimer_less_vue_type_style_index_0_id_5ef4b5d2_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SimpleCountdownTimer_less_vue_type_style_index_0_id_5ef4b5d2_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SimpleCountdownTimer_less_vue_type_style_index_0_id_5ef4b5d2_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SimpleCountdownTimer_less_vue_type_style_index_0_id_5ef4b5d2_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SimpleCountdownTimer_less_vue_type_style_index_0_id_5ef4b5d2_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.vue":
+/*!******************************************************************************!*\
+  !*** ./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.vue ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SimpleCountdownTimer_html_vue_type_template_id_5ef4b5d2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SimpleCountdownTimer.html?vue&type=template&id=5ef4b5d2&scoped=true& */ "./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.html?vue&type=template&id=5ef4b5d2&scoped=true&");
+/* harmony import */ var _SimpleCountdownTimer_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SimpleCountdownTimer.js?vue&type=script&lang=js& */ "./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.js?vue&type=script&lang=js&?df8f");
+/* empty/unused harmony star reexport *//* harmony import */ var _SimpleCountdownTimer_less_vue_type_style_index_0_id_5ef4b5d2_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SimpleCountdownTimer.less?vue&type=style&index=0&id=5ef4b5d2&lang=less&scoped=true& */ "./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.less?vue&type=style&index=0&id=5ef4b5d2&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _SimpleCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CSimpleCountdownTimer_5CSimpleCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SimpleCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CSimpleCountdownTimer%5CSimpleCountdownTimer.vue&lang=yaml */ "./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CSimpleCountdownTimer%5CSimpleCountdownTimer.vue&lang=yaml");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _SimpleCountdownTimer_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SimpleCountdownTimer_html_vue_type_template_id_5ef4b5d2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SimpleCountdownTimer_html_vue_type_template_id_5ef4b5d2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "5ef4b5d2",
+  null
+  
+)
+
+/* custom blocks */
+
+if (typeof _SimpleCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CSimpleCountdownTimer_5CSimpleCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_SimpleCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CSimpleCountdownTimer_5CSimpleCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CSimpleCountdownTimer%5CSimpleCountdownTimer.vue&lang=yaml":
+/*!************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CSimpleCountdownTimer%5CSimpleCountdownTimer.vue&lang=yaml ***!
+  \************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_SimpleCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CSimpleCountdownTimer_5CSimpleCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/@kazupon/vue-i18n-loader/lib!./SimpleCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CSimpleCountdownTimer%5CSimpleCountdownTimer.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/SimpleCountdownTimer/SimpleCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5CSimpleCountdownTimer%5CSimpleCountdownTimer.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_SimpleCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CSimpleCountdownTimer_5CSimpleCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_SimpleCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CSimpleCountdownTimer_5CSimpleCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_SimpleCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CSimpleCountdownTimer_5CSimpleCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_SimpleCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CSimpleCountdownTimer_5CSimpleCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_SimpleCountdownTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CSimpleCountdownTimer_5CSimpleCountdownTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

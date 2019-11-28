@@ -496,6 +496,28 @@ var render = function() {
                     "\r\n    "
                 )
               ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              { staticClass: "item" },
+              [
+                _c("digital-countdown-timer", {
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib,
+                    pauseAtStart: true,
+                    remainingSec: 72
+                  },
+                  on: {
+                    timeup: function($event) {
+                      return _vm.$emit("timeup")
+                    }
+                  }
+                })
+              ],
+              1
             )
           ]
         },
@@ -2001,7 +2023,7 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    this._testNotificationFullList()
+    //this._testNotificationFullList()
   },
   methods: {
     initComponentToLib () {
@@ -2022,6 +2044,10 @@ let CollaborativeReading = {
     },
     showInstruction() {
       this.$refs.InstructionMessage.show()
+    },
+    timeup () {
+      throw new Error('Wait')
+      this.lib.auth.nextStep()
     },
     
     // --------------------------------
