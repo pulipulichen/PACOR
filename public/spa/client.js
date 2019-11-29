@@ -2490,7 +2490,7 @@ __webpack_require__.r(__webpack_exports__);
   }
   Auth.computed.currentStepAnnotationConfig = function () {
     let config = this.currentStepConfig
-    if (config !== null) {
+    if (config) {
       return config.annotation
     }
     return null

@@ -44,7 +44,7 @@ export default function (Auth) {
   }
   Auth.computed.currentStepAnnotationConfig = function () {
     let config = this.currentStepConfig
-    if (config !== null) {
+    if (config) {
       return config.annotation
     }
     return null

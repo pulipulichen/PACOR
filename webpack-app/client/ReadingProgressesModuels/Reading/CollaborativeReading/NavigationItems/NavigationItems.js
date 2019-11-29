@@ -2,15 +2,16 @@ import NotificationManager from './../NotificationManager/NotificationManager.vu
 import UserFilter from './../../components/UserFilter/UserFilter.vue'
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
 
+
+let pauseAtStart = true
+if (pauseAtStart === true) {
+  console.log('@test pauseAtStart')
+}
+
 let NavigationItems = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {    
     this.$i18n.locale = this.config.locale
-    
-    let pauseAtStart = false
-    if (pauseAtStart === true) {
-      console.log('@test pauseAtStart')
-    }
     
     return {
       pauseAtStart

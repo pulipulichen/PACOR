@@ -7,6 +7,8 @@ let SectionPanel = {
   data() {    
     this.$i18n.locale = this.config.locale
     
+    //console.log(this.lib.auth.isEnableCollaboration)
+    
     return {
       checklistData: [],
       isChecklistSubmitted: this.lib.auth.isEnableCollaboration
@@ -28,7 +30,7 @@ let SectionPanel = {
   },
   watch: {
     'lib.auth.isEnableCollaboration' (enable) {
-      console.log('lib.auth.isEnableCollaboration', enable)
+      //console.log('lib.auth.isEnableCollaboration', enable)
       if (enable === true) {
         this.isChecklistSubmitted = true
       }
@@ -37,6 +39,11 @@ let SectionPanel = {
   mounted() {
     this.initPanel()
     this.checkIsChecklistSubmitted()
+  },
+  destroyed () {
+    //console.log('SectionPanel 退場了')
+    //$(this.$refs.panel).remove()
+    $(`.non-invasive-web-style-framework.SectionPanel[data-section-id="${this.sectionSeqID}"]`).remove()
   },
   methods: {
     initPanel () {

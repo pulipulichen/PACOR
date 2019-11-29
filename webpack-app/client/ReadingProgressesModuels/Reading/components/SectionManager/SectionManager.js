@@ -47,6 +47,8 @@ let SectionManager = {
   },
   destroyed () {
     this.enableLoad = false
+    //console.log('退場了')
+    //$('.non-invasive-web-style-framework.SectionPanel').remove()
   },
   methods: {
     initSectionNodes: async function () {

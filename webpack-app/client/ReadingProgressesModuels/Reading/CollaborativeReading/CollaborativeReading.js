@@ -19,6 +19,15 @@ let CollaborativeReading = {
     
     //this._testNotificationFullList()
   },
+  destroyed () {
+    console.log('退場了')
+    this.lib.RangyManager = null
+    this.lib.AnnotationPanel = null
+    this.lib.SectionManager = null
+    this.lib.UserFilter = null
+    this.lib.AnnotationTypeFilter = null
+    this.lib.NotificationManager = null
+  },
   methods: {
     initComponentToLib () {
       if (!this.$refs.RangyManager) {

@@ -19,6 +19,12 @@ let IndividualReading = {
     
     //this._testSearch()  // for test
   },
+  destroyed () {
+    //console.log('退場了')
+    this.lib.RangyManager = null
+    this.lib.AnnotationPanel = null
+    this.lib.SectionManager = null
+  },
   methods: {
     initComponentToLib () {
       if (!this.$refs.RangyManager) {
