@@ -5,6 +5,10 @@ export default function (HTMLEditor) {
             || contents === '<p></p>') {
       contents = ''
     }
+    
+    if (contents.endsWith('<p></p>')) {
+      contents = contents.slice(0, -7)
+    }
 
     if (contents !== ''
             && contents.indexOf('<p>') === -1

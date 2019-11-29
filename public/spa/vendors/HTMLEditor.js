@@ -448,6 +448,10 @@ __webpack_require__.r(__webpack_exports__);
             || contents === '<p></p>') {
       contents = ''
     }
+    
+    if (contents.endsWith('<p></p>')) {
+      contents = contents.slice(0, -7)
+    }
 
     if (contents !== ''
             && contents.indexOf('<p>') === -1
