@@ -74,7 +74,8 @@ export default (SectionChecklist) => {
      */
     this.lib.AnnotationPanel.setAnnotation(this.annotation, {
       'add': (annotation) => {
-//        console.log(annotation)
+        annotation.user = this.lib.auth.annotationUserData
+        //console.log(annotation)
         //console.log(annotation.notes[0].note)
         //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
 
@@ -104,10 +105,19 @@ export default (SectionChecklist) => {
         //this.$forceUpdate()
         this.isChecklistAnnotationSubmitted = true
 
-        this.sectionsData.annotation.splice(this.sectionSeqID, 1, annotation)
+        //this.sectionsData.annotation.splice(this.sectionSeqID, 1, [annotation])
+        if (!this.sectionsData.annotation[this.sectionSeqID]) {
+          this.sectionsData.annotation[this.sectionSeqID] = {}
+        }
+        if (!this.sectionsData.annotation[this.sectionSeqID].annotations) {
+          this.sectionsData.annotation[this.sectionSeqID].annotations = []
+        }
+        this.sectionsData.annotation[this.sectionSeqID].annotations.push(annotation)
+        
         this.checkIsChecklistCompleted()
         //console.log(this.checked)
         this._saveToLocalStorage()
+        //console.log(this.sectionsData)
         //this.$emit('')
       },
       'update': (annotation) => {

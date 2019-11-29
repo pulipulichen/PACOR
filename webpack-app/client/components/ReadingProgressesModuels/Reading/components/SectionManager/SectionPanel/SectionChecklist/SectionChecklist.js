@@ -30,13 +30,13 @@ let SectionChecklist = {
   } // methods
 }
 
-import data from './data'
+import data from './dataSectionChecklist'
 data(SectionChecklist)
 
-import computed from './computed'
+import computed from './computedSectionChecklist'
 computed(SectionChecklist)
 
-import methods from './methods'
+import methods from './methodsSectionChecklist'
 methods(SectionChecklist)
 
 export default SectionChecklist

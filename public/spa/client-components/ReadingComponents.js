@@ -23807,9 +23807,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/data.js");
-/* harmony import */ var _computed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./computed */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/computed.js");
-/* harmony import */ var _methods__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methods */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/methods.js");
+/* harmony import */ var _dataSectionChecklist__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dataSectionChecklist */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/dataSectionChecklist.js");
+/* harmony import */ var _computedSectionChecklist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./computedSectionChecklist */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/computedSectionChecklist.js");
+/* harmony import */ var _methodsSectionChecklist__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsSectionChecklist */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/methodsSectionChecklist.js");
 let SectionChecklist = {
   props: ['lib', 'status', 'config'
     , 'sectionSeqID', 'sectionsData'],
@@ -23843,13 +23843,13 @@ let SectionChecklist = {
 }
 
 
-Object(_data__WEBPACK_IMPORTED_MODULE_0__["default"])(SectionChecklist)
+Object(_dataSectionChecklist__WEBPACK_IMPORTED_MODULE_0__["default"])(SectionChecklist)
 
 
-Object(_computed__WEBPACK_IMPORTED_MODULE_1__["default"])(SectionChecklist)
+Object(_computedSectionChecklist__WEBPACK_IMPORTED_MODULE_1__["default"])(SectionChecklist)
 
 
-Object(_methods__WEBPACK_IMPORTED_MODULE_2__["default"])(SectionChecklist)
+Object(_methodsSectionChecklist__WEBPACK_IMPORTED_MODULE_2__["default"])(SectionChecklist)
 
 /* harmony default export */ __webpack_exports__["default"] = (SectionChecklist);
 
@@ -23931,10 +23931,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/computed.js":
-/*!********************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/computed.js ***!
-  \********************************************************************************************************************************************/
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/computedSectionChecklist.js":
+/*!************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/computedSectionChecklist.js ***!
+  \************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -24060,10 +24060,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/data.js":
-/*!****************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/data.js ***!
-  \****************************************************************************************************************************************/
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/dataSectionChecklist.js":
+/*!********************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/dataSectionChecklist.js ***!
+  \********************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -24103,10 +24103,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/methods.js":
-/*!*******************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/methods.js ***!
-  \*******************************************************************************************************************************************/
+/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/methodsSectionChecklist.js":
+/*!***********************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/SectionManager/SectionPanel/SectionChecklist/methodsSectionChecklist.js ***!
+  \***********************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -24188,7 +24188,8 @@ if (debugMockUpdate === true) {
      */
     this.lib.AnnotationPanel.setAnnotation(this.annotation, {
       'add': (annotation) => {
-//        console.log(annotation)
+        annotation.user = this.lib.auth.annotationUserData
+        //console.log(annotation)
         //console.log(annotation.notes[0].note)
         //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
 
@@ -24218,10 +24219,19 @@ if (debugMockUpdate === true) {
         //this.$forceUpdate()
         this.isChecklistAnnotationSubmitted = true
 
-        this.sectionsData.annotation.splice(this.sectionSeqID, 1, annotation)
+        //this.sectionsData.annotation.splice(this.sectionSeqID, 1, [annotation])
+        if (!this.sectionsData.annotation[this.sectionSeqID]) {
+          this.sectionsData.annotation[this.sectionSeqID] = {}
+        }
+        if (!this.sectionsData.annotation[this.sectionSeqID].annotations) {
+          this.sectionsData.annotation[this.sectionSeqID].annotations = []
+        }
+        this.sectionsData.annotation[this.sectionSeqID].annotations.push(annotation)
+        
         this.checkIsChecklistCompleted()
         //console.log(this.checked)
         this._saveToLocalStorage()
+        //console.log(this.sectionsData)
         //this.$emit('')
       },
       'update': (annotation) => {

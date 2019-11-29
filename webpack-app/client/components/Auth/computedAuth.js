@@ -82,4 +82,14 @@ export default function (Auth) {
   Auth.computed.username = function () {
     return this.getUsername(this.status)
   }
+  
+  Auth.computed.annotationUserData = function () {
+    return {
+      display_name: this.status.displayName,
+      username: this.status.username,
+      id: this.status.userID,
+      avatar_url: this.status.avatar,
+      role: this.status.role
+    }
+  }
 }
