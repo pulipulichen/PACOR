@@ -6,7 +6,14 @@ let NavigationItems = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
+    let pauseAtStart = true
+    if (pauseAtStart === true) {
+      console.log('@test pauseAtStart')
+    }
+    
     return {
+      pauseAtStart
     }
   },
   components: {

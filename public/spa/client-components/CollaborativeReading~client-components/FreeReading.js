@@ -515,7 +515,7 @@ var render = function() {
                     config: _vm.config,
                     status: _vm.status,
                     lib: _vm.lib,
-                    pauseAtStart: false
+                    pauseAtStart: _vm.pauseAtStart
                   },
                   on: {
                     timeup: function($event) {
@@ -2254,7 +2254,14 @@ let NavigationItems = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
+    let pauseAtStart = true
+    if (pauseAtStart === true) {
+      console.log('@test pauseAtStart')
+    }
+    
     return {
+      pauseAtStart
     }
   },
   components: {

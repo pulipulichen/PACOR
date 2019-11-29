@@ -36,7 +36,7 @@
 
     <div class="ui inverted"
          ref="NormalMenu"
-         v-if="normalMenuDisplay"
+         v-show="normalMenuDisplay"
          v-bind:class="computedClass">
 
       <slot name="header"></slot>

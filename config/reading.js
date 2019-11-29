@@ -73,7 +73,7 @@ module.exports = {
     },
     'IndividualReading': {
       message: '/2020exp/IndividualReading.html',
-      limitMinutes: 0.5,
+      limitMinutes: 0.1,
       annotation: {
         types: ['Clarified', 'Confused', 'MainIdea', 'SectionMainIdea'],
         enableCollaboration: false,

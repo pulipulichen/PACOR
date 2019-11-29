@@ -9,7 +9,7 @@ let SectionPanel = {
     
     return {
       checklistData: [],
-      isChecklistSubmitted: this.lib.auth.enableCollaboration
+      isChecklistSubmitted: this.lib.auth.isEnableCollaboration
     }
   },
   components: {
@@ -25,10 +25,15 @@ let SectionPanel = {
         return true
       }
     }
-    
   },
-//  watch: {
-//  },
+  watch: {
+    'lib.auth.isEnableCollaboration' (enable) {
+      console.log('lib.auth.isEnableCollaboration', enable)
+      if (enable === true) {
+        this.isChecklistSubmitted = true
+      }
+    }
+  },
   mounted() {
     this.initPanel()
     this.checkIsChecklistSubmitted()

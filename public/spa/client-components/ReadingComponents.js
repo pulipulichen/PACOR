@@ -919,7 +919,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".SectionAnnotationList[data-v-78378f2b] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.no-more[data-v-78378f2b] {\n  text-align: center;\n  color: gray;\n}\n", "",{"version":3,"sources":["SectionAnnotationList.less?vue&type=style&index=0&id=78378f2b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb","file":"SectionAnnotationList.less?vue&type=style&index=0&id=78378f2b&lang=less&scoped=true&","sourcesContent":[".SectionAnnotationList[data-v-78378f2b] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.no-more[data-v-78378f2b] {\n  text-align: center;\n  color: gray;\n}\n"]}]);
+exports.push([module.i, ".SectionAnnotationList .annotation-list[data-v-78378f2b] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin-bottom: 1em;\n}\n.no-more[data-v-78378f2b] {\n  text-align: center;\n  color: gray;\n}\n", "",{"version":3,"sources":["SectionAnnotationList.less?vue&type=style&index=0&id=78378f2b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb","file":"SectionAnnotationList.less?vue&type=style&index=0&id=78378f2b&lang=less&scoped=true&","sourcesContent":[".SectionAnnotationList .annotation-list[data-v-78378f2b] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin-bottom: 1em;\n}\n.no-more[data-v-78378f2b] {\n  text-align: center;\n  color: gray;\n}\n"]}]);
 
 
 /***/ }),
@@ -3521,53 +3521,59 @@ var render = function() {
         })
       : _vm._e(),
     _vm._v(" "),
-    _vm.normalMenuDisplay
-      ? _c(
-          "div",
+    _c(
+      "div",
+      {
+        directives: [
           {
-            ref: "NormalMenu",
-            staticClass: "ui inverted",
-            class: _vm.computedClass
+            name: "show",
+            rawName: "v-show",
+            value: _vm.normalMenuDisplay,
+            expression: "normalMenuDisplay"
+          }
+        ],
+        ref: "NormalMenu",
+        staticClass: "ui inverted",
+        class: _vm.computedClass
+      },
+      [
+        _vm._t("header"),
+        _vm._v(" "),
+        _c(
+          "media",
+          {
+            attrs: { query: { minWidth: _vm.maxWidth } },
+            on: {
+              "media-enter": function($event) {
+                _vm.isCompactMode = false
+              },
+              "media-leave": function($event) {
+                _vm.isCompactMode = true
+              }
+            }
           },
           [
-            _vm._t("header"),
-            _vm._v(" "),
             _c(
-              "media",
-              {
-                attrs: { query: { minWidth: _vm.maxWidth } },
-                on: {
-                  "media-enter": function($event) {
-                    _vm.isCompactMode = false
-                  },
-                  "media-leave": function($event) {
-                    _vm.isCompactMode = true
-                  }
-                }
-              },
-              [
-                _c(
-                  "div",
-                  { staticClass: "menu-full right menu" },
-                  [_vm._t("items")],
-                  2
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("media", { attrs: { query: { maxWidth: _vm.maxWidth } } }, [
-              _c("div", { staticClass: "menu-compact right menu" }, [
-                _c(
-                  "a",
-                  { staticClass: "icon item", on: { click: _vm.showSideMenu } },
-                  [_c("i", { staticClass: "ellipsis vertical icon" })]
-                )
-              ])
-            ])
-          ],
-          2
-        )
-      : _vm._e(),
+              "div",
+              { staticClass: "menu-full right menu" },
+              [_vm._t("items")],
+              2
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("media", { attrs: { query: { maxWidth: _vm.maxWidth } } }, [
+          _c("div", { staticClass: "menu-compact right menu" }, [
+            _c(
+              "a",
+              { staticClass: "icon item", on: { click: _vm.showSideMenu } },
+              [_c("i", { staticClass: "ellipsis vertical icon" })]
+            )
+          ])
+        ])
+      ],
+      2
+    ),
     _vm._v(" "),
     _c(
       "div",
@@ -3938,60 +3944,67 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.hasAnnotation
-    ? _c(
+  return _c(
+    "div",
+    {
+      staticClass: "ui segment SectionAnnotationList",
+      on: {
+        mouseover: function($event) {
+          _vm.sectionsData.enableRefresh = false
+        },
+        mouseout: function($event) {
+          _vm.sectionsData.enableRefresh = true
+        },
+        touchstart: function($event) {
+          _vm.sectionsData.enableRefresh = false
+        },
+        touchend: function($event) {
+          _vm.sectionsData.enableRefresh = true
+        }
+      }
+    },
+    [
+      _vm.userCount > 1
+        ? [
+            _c(
+              "div",
+              { staticClass: "summary-information" },
+              [
+                _c("user-avatar-icons", {
+                  staticStyle: { "margin-right": "0.5em" },
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib,
+                    users: _vm.users,
+                    userCount: _vm.userCount
+                  },
+                  on: {
+                    find: function(user) {
+                      _vm.findUser = user
+                    }
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "ui divider" })
+          ]
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
         "div",
         {
-          staticClass: "ui segment SectionAnnotationList",
+          staticClass: "annotation-list",
           on: {
             scroll: function($event) {
               $event.stopPropagation()
               return _vm.scrollList($event)
-            },
-            mouseover: function($event) {
-              _vm.sectionsData.enableRefresh = false
-            },
-            mouseout: function($event) {
-              _vm.sectionsData.enableRefresh = true
-            },
-            touchstart: function($event) {
-              _vm.sectionsData.enableRefresh = false
-            },
-            touchend: function($event) {
-              _vm.sectionsData.enableRefresh = true
             }
           }
         },
         [
-          _vm.userCount > 1
-            ? [
-                _c(
-                  "div",
-                  { staticClass: "summary-information" },
-                  [
-                    _c("user-avatar-icons", {
-                      staticStyle: { "margin-right": "0.5em" },
-                      attrs: {
-                        config: _vm.config,
-                        status: _vm.status,
-                        lib: _vm.lib,
-                        users: _vm.users,
-                        userCount: _vm.userCount
-                      },
-                      on: {
-                        find: function(user) {
-                          _vm.findUser = user
-                        }
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "ui divider" })
-              ]
-            : _vm._e(),
-          _vm._v(" "),
           _vm._l(
             _vm.sectionsData.annotation[_vm.sectionSeqID].annotations,
             function(annotation) {
@@ -4017,35 +4030,39 @@ var render = function() {
                     .length > 0
                     ? [
                         _vm._v(
-                          "\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    "
+                          "\r\n        " +
+                            _vm._s(_vm.$t("No More")) +
+                            "\r\n      "
                         )
                       ]
                     : [
                         _vm._v(
-                          "\r\n      " +
+                          "\r\n        " +
                             _vm._s(_vm.$t("No Search Result")) +
-                            "\r\n    "
+                            "\r\n      "
                         )
                       ]
                 ],
                 2
               )
-            : _vm._e(),
-          _vm._v(" "),
-          _c("editor-button", {
-            attrs: {
-              config: _vm.config,
-              status: _vm.status,
-              lib: _vm.lib,
-              sectionSeqID: _vm.sectionSeqID,
-              sectionsData: _vm.sectionsData,
-              annotations: _vm.annotations
-            }
-          })
+            : _vm._e()
         ],
         2
-      )
-    : _vm._e()
+      ),
+      _vm._v(" "),
+      _c("editor-button", {
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          lib: _vm.lib,
+          sectionSeqID: _vm.sectionSeqID,
+          sectionsData: _vm.sectionsData,
+          annotations: _vm.annotations
+        }
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -23190,6 +23207,9 @@ let SectionManager = {
           focusUserID: this.status.filter.focusUser.id
         }
       }
+      else {
+        return {}
+      }
     }
   },
   watch: {
@@ -23209,12 +23229,16 @@ let SectionManager = {
   },
   methods: {
     initSectionNodes: async function () {
+      //console.log('initSectionNodes', this.lib.auth.currentStepAnnotationConfig)
+      if (!this.lib.auth.currentStepAnnotationConfig) {
+        //console.log('initSectionNodes')
+        return false
+      }
       this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init', this.query)
       //console.log(this.sectionsData)
       
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-section-seq-id]').toArray()
-      
       //while (this.sectionsData.length < sectionNodes.length) {
       //  this.sectionsData.push({})
       //}
@@ -24295,7 +24319,7 @@ let SectionPanel = {
     
     return {
       checklistData: [],
-      isChecklistSubmitted: this.lib.auth.enableCollaboration
+      isChecklistSubmitted: this.lib.auth.isEnableCollaboration
     }
   },
   components: {
@@ -24311,10 +24335,15 @@ let SectionPanel = {
         return true
       }
     }
-    
   },
-//  watch: {
-//  },
+  watch: {
+    'lib.auth.isEnableCollaboration' (enable) {
+      console.log('lib.auth.isEnableCollaboration', enable)
+      if (enable === true) {
+        this.isChecklistSubmitted = true
+      }
+    }
+  },
   mounted() {
     this.initPanel()
     this.checkIsChecklistSubmitted()

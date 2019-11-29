@@ -28,6 +28,9 @@ let SectionManager = {
           focusUserID: this.status.filter.focusUser.id
         }
       }
+      else {
+        return {}
+      }
     }
   },
   watch: {
@@ -47,12 +50,16 @@ let SectionManager = {
   },
   methods: {
     initSectionNodes: async function () {
+      //console.log('initSectionNodes', this.lib.auth.currentStepAnnotationConfig)
+      if (!this.lib.auth.currentStepAnnotationConfig) {
+        //console.log('initSectionNodes')
+        return false
+      }
       this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init', this.query)
       //console.log(this.sectionsData)
       
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = $('[data-pacor-section-seq-id]').toArray()
-      
       //while (this.sectionsData.length < sectionNodes.length) {
       //  this.sectionsData.push({})
       //}

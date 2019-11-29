@@ -56,6 +56,7 @@ class UserGroup {
           //console.log(admins)
           if (admins !== null) {
             admins = admins.toJSON()
+            users = users.toJSON()
             users = users.concat(admins)
           }
         }

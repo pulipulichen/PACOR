@@ -1,6 +1,4 @@
 <div class="ui segment SectionAnnotationList"
-     v-if="hasAnnotation"
-     v-on:scroll.stop="scrollList"
      v-on:mouseover="sectionsData.enableRefresh = false"
      v-on:mouseout="sectionsData.enableRefresh = true"
      v-on:touchstart="sectionsData.enableRefresh = false"
@@ -23,27 +21,30 @@
     <div class="ui divider"></div>
   </template>
 
-  <annotation-item
-    v-for="annotation in sectionsData.annotation[sectionSeqID].annotations"
-    v-bind:key="annotation.id"
-    v-bind:config="config"
-    v-bind:status="status"
-    v-bind:lib="lib"
+  <div class="annotation-list"
+       v-on:scroll.stop="scrollList">
+    <annotation-item
+      v-for="annotation in sectionsData.annotation[sectionSeqID].annotations"
+      v-bind:key="annotation.id"
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
 
-    v-bind:annotation="annotation"
-    v-bind:findAnnotation="findAnnotation">
-  </annotation-item>
+      v-bind:annotation="annotation"
+      v-bind:findAnnotation="findAnnotation">
+    </annotation-item>
 
-  <div class="ui secondary segment no-more"
-       v-if="noMore">
-    <template v-if="sectionsData.annotation[sectionSeqID].annotations.length > 0">
-      {{ $t('No More') }}
-    </template>
-    <template v-else>
-      {{ $t('No Search Result') }}
-    </template>
+    <div class="ui secondary segment no-more"
+         v-if="noMore">
+      <template v-if="sectionsData.annotation[sectionSeqID].annotations.length > 0">
+        {{ $t('No More') }}
+      </template>
+      <template v-else>
+        {{ $t('No Search Result') }}
+      </template>
+    </div>
   </div>
-  
+    
   <editor-button 
     v-bind:config="config"
     v-bind:status="status"
