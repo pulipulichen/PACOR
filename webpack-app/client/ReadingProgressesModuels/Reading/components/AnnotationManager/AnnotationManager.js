@@ -103,6 +103,10 @@ let AnnotationManager = {
 //      this.$refs.AnnotationPanel.show()
 //    },
     loadHighlights: async function () {
+      if (!this.lib.auth.currentStepAnnotationConfig) {
+        return null
+      }
+      
       let data = {}
       if (typeof(this.afterTime) === 'number') {
         data.afterTime = this.afterTime
@@ -120,7 +124,7 @@ let AnnotationManager = {
       this.isLoaded = true
       //$('[data-pacor-highlight]:first').click() // for test
       
-      if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
+      if (this.lib.auth.isEnableCollaboration === false) {
         // 如果不是開放合作，那就不用讀取其他人的資料
         return false
       }

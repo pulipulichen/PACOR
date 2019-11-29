@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 export default (SectionChecklist) => {
     
   SectionChecklist.computed.checked = function () {
@@ -113,5 +115,23 @@ export default (SectionChecklist) => {
     //console.trace(classList)
     //this.$forceUpdate()
     return classList.join(' ')
+  }
+  
+  SectionChecklist.computed.sectionHeader = function () {
+    let selector = []
+    for (let i = 1; i <= 6; i++) {
+      selector.push(`[data-pacor-section-seq-id=${this.sectionSeqID}] h${i}:first`)
+    }
+    selector = selector.join(',')
+    
+    let header = $(selector)
+    if (header.length > 0) {
+      header = header.eq(0)
+    }
+    else {
+      return
+    }
+    
+    return this.$t(':') + ' ' + header.text().trim()
   }
 }

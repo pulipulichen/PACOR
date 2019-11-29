@@ -72,6 +72,7 @@ let i18nGlobal = {
     "Are you sure to delete this annotation?": "您確定要刪除這個標註嗎？",
     '"{0}"': '「{0}」',
     '...': '…',
+    ':': "：",
     'You': "您",
     'All Readers': "所有讀者"
   }

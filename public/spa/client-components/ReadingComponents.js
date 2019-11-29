@@ -4078,6 +4078,8 @@ var render = function() {
               _vm._s(_vm.sectionSeqID + 1) +
               "\r\n        " +
               _vm._s(_vm.$t("Check list")) +
+              "\r\n        " +
+              _vm._s(_vm.sectionHeader) +
               "\r\n      "
           )
         ])
@@ -5504,6 +5506,10 @@ let AnnotationManager = {
 //      this.$refs.AnnotationPanel.show()
 //    },
     loadHighlights: async function () {
+      if (!this.lib.auth.currentStepAnnotationConfig) {
+        return null
+      }
+      
       let data = {}
       if (typeof(this.afterTime) === 'number') {
         data.afterTime = this.afterTime
@@ -5521,7 +5527,7 @@ let AnnotationManager = {
       this.isLoaded = true
       //$('[data-pacor-highlight]:first').click() // for test
       
-      if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
+      if (this.lib.auth.isEnableCollaboration === false) {
         // 如果不是開放合作，那就不用讀取其他人的資料
         return false
       }
@@ -23940,6 +23946,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 /* harmony default export */ __webpack_exports__["default"] = ((SectionChecklist) => {
     
   SectionChecklist.computed.checked = function () {
@@ -24055,6 +24065,24 @@ __webpack_require__.r(__webpack_exports__);
     //console.trace(classList)
     //this.$forceUpdate()
     return classList.join(' ')
+  }
+  
+  SectionChecklist.computed.sectionHeader = function () {
+    let selector = []
+    for (let i = 1; i <= 6; i++) {
+      selector.push(`[data-pacor-section-seq-id=${this.sectionSeqID}] h${i}:first`)
+    }
+    selector = selector.join(',')
+    
+    let header = jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector)
+    if (header.length > 0) {
+      header = header.eq(0)
+    }
+    else {
+      return
+    }
+    
+    return this.$t(':') + ' ' + header.text().trim()
   }
 });
 
