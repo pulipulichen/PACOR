@@ -13,6 +13,7 @@ let SectionManager = {
         checklistSubmitted: [],
         annotation: []
       },
+      enableLoad: true
       //sectionData: []
     }
   },
@@ -40,6 +41,9 @@ let SectionManager = {
   },
   mounted() {
     this.initSectionNodes()
+  },
+  destroyed () {
+    this.enableLoad = false
   },
   methods: {
     initSectionNodes: async function () {
@@ -77,6 +81,10 @@ let SectionManager = {
       //console.log(this.sectionsData)
     },
     loadAnnotation: async function () {
+      if (this.enableLoad === false || this.lib.auth.isEnableCollaboration === false) {
+        return false
+      } 
+      
       //console.log(this.query)
       let result = await this.lib.AxiosHelper.get('/client/Section/annotations', this.query)
       //console.log(result)
@@ -84,12 +92,16 @@ let SectionManager = {
       
     },
     setRefreshInterval: async function () {
-      if (this.lib.auth.currentStepAnnotationConfig.enableCollaboration === false) {
+      if (this.lib.auth.isEnableCollaboration === false) {
         // 如果不是在合作的場合，那就不自動更新
         return false
       }
       
       await this.lib.VueHelper.sleep(30 * 1000)
+      
+      if (this.enableLoad === false || this.lib.auth.isEnableCollaboration === false) {
+        return false
+      } 
       
       if (this.sectionsData.enableRefresh === true) {
         this.loadAnnotation()

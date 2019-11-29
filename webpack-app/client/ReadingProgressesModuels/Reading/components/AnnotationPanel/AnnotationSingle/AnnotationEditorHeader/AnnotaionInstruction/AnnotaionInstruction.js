@@ -1,5 +1,5 @@
 let AnnotaionInstruction = {
-  props: ['config', 'status', 'type'],
+  props: ['config', 'status', 'type', 'lib'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {

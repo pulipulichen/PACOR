@@ -51,7 +51,7 @@ export default function (Auth) {
   }
   Auth.computed.enableCollaboration = function () {
     let config = this.currentStepAnnotationConfig
-    if (config !== null) {
+    if (config) {
       return config.enableCollaboration
     }
     return false

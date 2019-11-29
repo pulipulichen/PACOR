@@ -161,7 +161,7 @@ exports.push([module.i, ".non-invasive-web-style-framework.dimmable > .ui.dimmer
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "iframe[data-v-4cdf972e] {\n  width: 100%;\n  height: calc(100vh - 14.5em);\n}\n.actions[data-v-4cdf972e] {\n  user-select: none;\n}\n", "",{"version":3,"sources":["Modal.local.less?vue&type=style&index=1&id=4cdf972e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,4BAA4B;AAC9B;AACA;EACE,iBAAiB;AACnB","file":"Modal.local.less?vue&type=style&index=1&id=4cdf972e&lang=less&scoped=true&","sourcesContent":["iframe[data-v-4cdf972e] {\n  width: 100%;\n  height: calc(100vh - 14.5em);\n}\n.actions[data-v-4cdf972e] {\n  user-select: none;\n}\n"]}]);
+exports.push([module.i, "iframe[data-v-4cdf972e] {\n  width: 100%;\n  height: calc(100vh - 14.5em);\n}\n.actions[data-v-4cdf972e] {\n  user-select: none;\n}\n.actions.left-handed[data-v-4cdf972e] {\n  text-align: left !important;\n}\n", "",{"version":3,"sources":["Modal.local.less?vue&type=style&index=1&id=4cdf972e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,4BAA4B;AAC9B;AACA;EACE,iBAAiB;AACnB;AACA;EACE,2BAA2B;AAC7B","file":"Modal.local.less?vue&type=style&index=1&id=4cdf972e&lang=less&scoped=true&","sourcesContent":["iframe[data-v-4cdf972e] {\n  width: 100%;\n  height: calc(100vh - 14.5em);\n}\n.actions[data-v-4cdf972e] {\n  user-select: none;\n}\n.actions.left-handed[data-v-4cdf972e] {\n  text-align: left !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -539,7 +539,7 @@ var render = function() {
     _vm.cancelButtonText
       ? _c(
           "div",
-          { staticClass: "actions" },
+          { staticClass: "actions", class: _vm.computedActionsClassList },
           [
             _vm.contentURL
               ? _c(
@@ -1821,6 +1821,15 @@ let Modal = {
         url = this.config.baseURL + url
       }
       return url
+    },
+    computedActionsClassList () {
+      let classList = []
+      
+      if (this.lib.style.isLeftHanded === true) {
+        classList.push('left-handed')
+      }
+      
+      return classList.join(' ')
     }
   },
   destroyed: function () {

@@ -24,6 +24,15 @@ let Modal = {
         url = this.config.baseURL + url
       }
       return url
+    },
+    computedActionsClassList () {
+      let classList = []
+      
+      if (this.lib.style.isLeftHanded === true) {
+        classList.push('left-handed')
+      }
+      
+      return classList.join(' ')
     }
   },
   destroyed: function () {

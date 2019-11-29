@@ -1,5 +1,6 @@
-import Loading from './../Loading/Loading.vue'
+import Loading from './../components/Loading/Loading.vue'
 import ErrorHandler from './../components/ErrorHandler/ErrorHandler.vue'
+
 import Auth from './Auth/Auth.vue'
 import Login from './Login/Login.vue'
 import StyleManager from './StyleManager/StyleManager.vue'

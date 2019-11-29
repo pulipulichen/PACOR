@@ -40,7 +40,11 @@
         "v-bind:name": {}
       }
     },
-    "user-information": {},
+    "user-information": {
+      "attributes": {
+        "v-on:showInstruction": {}
+      }
+    },
     "div": {
       "attributes": {
         "v-bind:data-comment-id": {}
@@ -88,8 +92,10 @@
         "cancelable": {},
         "v-bind:status": {},
         "v-bind:config": {},
+        "v-bind:cancelable": {},
         "v-bind:progress": {},
         "dimmerTransparent": {},
+        "v-on:hide": {},
         "cancelButtonText": {}
       }
     }
