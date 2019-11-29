@@ -16,10 +16,9 @@ let Template = {
   },
   methods: {
     logout: async function () {
-      await this.lib.AxiosHelper.get('/client/auth/logout')
+      
       this.$refs.ExitModal.hide()
-      localStorage.removeItem('PACOR.client.components.Login.login.username')
-      this.lib.auth.showLogin()
+      this.lib.auth.logout()
     },
     exit: async function () {
       await this.lib.AxiosHelper.get('/client/auth/logout')

@@ -8964,11 +8964,19 @@ let AnnotationEditorModules = {
       }
     },
     scrollToAnnotation () {
+      if (!this.lib.RangyManager) {
+        return null
+      }
+      
       let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.annotation.anchorPositions)
       //console.log(rect)
       this.lib.AnnotationPanel.scrollToRect(rect)
     },
     reloadMyHighlights: async function () {
+      if (!this.lib.RangyManager) {
+        return null
+      }
+      
       if (this.annotation.anchorPositions[0].type !== 'textContent') {
         // 如果不是網頁上的，則不重新整理
         return false
@@ -9682,6 +9690,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((AnnotationPanel) => {
+
+  AnnotationPanel.watch['currentStep'] = function () {
+    this.hide()
+  }
 
 //  AnnotationPanel.watch.pinSelection = function (pinSelection) {
 //    if (pinSelection !== null
@@ -11146,6 +11158,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     
     _convertQuestionTemplate (template) {
+      if (!this.lib.RangyManager) {
+        return null
+      }
+      
       let q = template.replace(`{anchorText}`, '{0}')
       let anchorText = this.anchorText
       //console.log(anchorText)
@@ -11421,7 +11437,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = true
+let debugMockSend = false
 if (debugMockSend === true) {
   console.log('@test debugMockSend')
 }
@@ -11586,7 +11602,9 @@ let Editor = {
       this.lib.AnnotationHelper.note(this.annotation, 'default', this.note)
       
       this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
-      this.$refs.editor.reset()
+      if (this.$refs.editor) {
+        this.$refs.editor.reset()
+      }
       
       this.$emit('add')
     },
@@ -11666,7 +11684,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = true
+let debugMockSend = false
 if (debugMockSend === true) {
   console.log('@test debugMockSend')
 }
@@ -11831,7 +11849,9 @@ let Editor = {
       this.lib.AnnotationHelper.note(this.annotation, 'default', this.note)
       
       this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
-      this.$refs.editor.reset()
+      if (this.$refs.editor) {
+        this.$refs.editor.reset()
+      }
       
       this.$emit('add')
     },
@@ -23858,7 +23878,10 @@ let SectionChecklist = {
     //this.initData()
     this.checkIsChecklistCompleted()
   },
-  methods: {} // methods
+  methods: {}, // methods
+  destroyed () {
+    this.removeLocalStorage()
+  }
 }
 
 
@@ -24199,6 +24222,10 @@ if (debugMockUpdate === true) {
     //console.log(data)
     localStorage.setItem(this.localStorageKeyPrefix + 'checklist', data)
   }
+  SectionChecklist.methods.removeLocalStorage = function () {
+    localStorage.removeItem(this.localStorageKeyPrefix + 'checklist')
+  }
+  
   SectionChecklist.methods.openSectionAnnotationEditor = function () {
     this.lib.AnnotationPanel.setAnnotation(this.annotation, {
       'add': (annotation) => {

@@ -6,7 +6,10 @@ let SectionChecklist = {
     //this.initData()
     this.checkIsChecklistCompleted()
   },
-  methods: {} // methods
+  methods: {}, // methods
+  destroyed () {
+    this.removeLocalStorage()
+  }
 }
 
 import data from './dataSectionChecklist'

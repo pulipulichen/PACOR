@@ -1,5 +1,9 @@
 export default (AnnotationPanel) => {
 
+  AnnotationPanel.watch['currentStep'] = function () {
+    this.hide()
+  }
+
 //  AnnotationPanel.watch.pinSelection = function (pinSelection) {
 //    if (pinSelection !== null
 //            && typeof (pinSelection) === 'object') {

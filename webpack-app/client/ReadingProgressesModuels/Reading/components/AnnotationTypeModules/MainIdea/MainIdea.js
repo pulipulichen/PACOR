@@ -3,7 +3,7 @@ import props from './../props'
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = true
+let debugMockSend = false
 if (debugMockSend === true) {
   console.log('@test debugMockSend')
 }
@@ -168,7 +168,9 @@ let Editor = {
       this.lib.AnnotationHelper.note(this.annotation, 'default', this.note)
       
       this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
-      this.$refs.editor.reset()
+      if (this.$refs.editor) {
+        this.$refs.editor.reset()
+      }
       
       this.$emit('add')
     },

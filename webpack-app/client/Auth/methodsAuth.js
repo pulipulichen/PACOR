@@ -75,7 +75,9 @@ export default function (Auth) {
 //return
     location.href = url
   }
-  Auth.methods.logout = function () {
+  Auth.methods.logout = async function () {
+    await this.lib.AxiosHelper.get('/client/auth/logout')
+    localStorage.removeItem('PACOR.client.components.Login.login.username')
     return this.showLogin()
   }
   Auth.methods.showLogin = function () {

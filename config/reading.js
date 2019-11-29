@@ -55,7 +55,7 @@ module.exports = {
     'PreImaginary': {
       message: '/2020exp/PostRecall.html',
       minWords: 10,
-      limitMinutes: 0.1,
+      limitMinutes: 0.05,
       
       // for test
       annotation: {
@@ -69,11 +69,11 @@ module.exports = {
      * include 'individual-reading' and 'collaborative-reading'
      */
     'reading': {
-      totalLimitMinutes: 0.5, // 54秒
+      totalLimitMinutes: 1, // 54秒
     },
     'IndividualReading': {
       message: '/2020exp/IndividualReading.html',
-      limitMinutes: 0.1,
+      limitMinutes: 0.5,
       annotation: {
         types: ['Clarified', 'Confused', 'MainIdea', 'SectionMainIdea'],
         enableCollaboration: false,
@@ -101,7 +101,7 @@ module.exports = {
     'PostRecall': {
       message: '/2020exp/PostRecall.html',
       minWords: 10,
-      limitMinutes: 0.1
+      limitMinutes: 0.05
     },
     'FreeReading': {
       annotation: {

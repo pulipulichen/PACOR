@@ -1357,10 +1357,14 @@ border-radius: 0px !important;
 }
 .non-invasive-web-style-framework .ui.fixed.menu,
 .non-invasive-web-style-framework .ui[class*="top fixed"].menu {
-top: 0px;
-left: 0px;
-right: auto;
-bottom: auto;
+  top: 0px;
+  left: 0px;
+  right: auto;
+  bottom: auto;
+  &.bottom {
+    top: auto;
+    bottom: 0;
+  }
 }
 .non-invasive-web-style-framework .ui[class*="top fixed"].menu {
 border-top: none;

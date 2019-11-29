@@ -39,6 +39,10 @@ export default (Editor) => {
     },
     
     _convertQuestionTemplate (template) {
+      if (!this.lib.RangyManager) {
+        return null
+      }
+      
       let q = template.replace(`{anchorText}`, '{0}')
       let anchorText = this.anchorText
       //console.log(anchorText)

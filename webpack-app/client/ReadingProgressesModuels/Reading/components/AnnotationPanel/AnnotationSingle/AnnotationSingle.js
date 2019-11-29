@@ -146,11 +146,19 @@ let AnnotationEditorModules = {
       }
     },
     scrollToAnnotation () {
+      if (!this.lib.RangyManager) {
+        return null
+      }
+      
       let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.annotation.anchorPositions)
       //console.log(rect)
       this.lib.AnnotationPanel.scrollToRect(rect)
     },
     reloadMyHighlights: async function () {
+      if (!this.lib.RangyManager) {
+        return null
+      }
+      
       if (this.annotation.anchorPositions[0].type !== 'textContent') {
         // 如果不是網頁上的，則不重新整理
         return false

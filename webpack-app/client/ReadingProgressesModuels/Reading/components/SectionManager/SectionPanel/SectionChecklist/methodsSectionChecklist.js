@@ -22,6 +22,10 @@ export default (SectionChecklist) => {
     //console.log(data)
     localStorage.setItem(this.localStorageKeyPrefix + 'checklist', data)
   }
+  SectionChecklist.methods.removeLocalStorage = function () {
+    localStorage.removeItem(this.localStorageKeyPrefix + 'checklist')
+  }
+  
   SectionChecklist.methods.openSectionAnnotationEditor = function () {
     this.lib.AnnotationPanel.setAnnotation(this.annotation, {
       'add': (annotation) => {

@@ -22,7 +22,7 @@ let CollaborativeReading = {
     //this._testNotificationFullList()
   },
   destroyed () {
-    console.log('退場了')
+    //console.log('退場了')
     this.lib.RangyManager = null
     this.lib.AnnotationPanel = null
     this.lib.SectionManager = null
