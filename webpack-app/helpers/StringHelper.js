@@ -13,7 +13,7 @@ let StringHelper = {
       return 0
     }
     
-    console.log(string)
+    //console.log(string)
     string = string.trim()
     if (string.startsWith('<') && string.endsWith('>')) {
       string = $(string).text()

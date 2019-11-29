@@ -60,7 +60,7 @@ let SectionPanel = {
       this.isChecklistSubmitted = (this.sectionsData
               && this.sectionsData.checklistAnnotation
               && typeof(this.sectionsData.checklistAnnotation[this.sectionSeqID]) !== 'undefined' )
-      console.log(this.sectionsData, this.isChecklistSubmitted)
+      //console.log(this.sectionsData, this.isChecklistSubmitted)
     }
   } // methods
 }

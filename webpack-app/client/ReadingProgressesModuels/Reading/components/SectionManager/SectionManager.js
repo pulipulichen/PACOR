@@ -33,6 +33,9 @@ let SectionManager = {
     'status.filter.focusUser' () {
       //console.log('有換人嗎？')
       this.loadAnnotation()
+    },
+    'lib.auth.currentStep' () {
+      this.loadAnnotation()
     }
   },
   mounted() {

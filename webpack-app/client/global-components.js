@@ -64,14 +64,14 @@ Vue.component('admin-badge', AdminBadge)
 import UserSelfBadge from './../components/UserSelfBadge/UserSelfBadge.vue'
 Vue.component('user-self-badge', UserSelfBadge)
 
-Vue.component('rangy', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.vue'))
-Vue.component('annotation-panel', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationPanel.vue'))
-Vue.component('annotation-manager', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationManager.vue'))
-Vue.component('section-manager', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/SectionManager/SectionManager.vue'))
-Vue.component('search-manager', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/SearchManager/SearchManager.vue'))
-Vue.component('instruction-message', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/InstructionMessage/InstructionMessage.vue'))
-Vue.component('compact-navigation', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/CompactNavigation/CompactNavigation.vue'))
-Vue.component('annotation-type-filter', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './components/ReadingProgressesModuels/Reading/components/AnnotationTypeFilter/AnnotationTypeFilter.vue'))
+Vue.component('rangy', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './ReadingProgressesModuels/Reading/components/RangyManager/RangyManager.vue'))
+Vue.component('annotation-panel', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationPanel.vue'))
+Vue.component('annotation-manager', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationManager.vue'))
+Vue.component('section-manager', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './ReadingProgressesModuels/Reading/components/SectionManager/SectionManager.vue'))
+Vue.component('search-manager', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './ReadingProgressesModuels/Reading/components/SearchManager/SearchManager.vue'))
+Vue.component('instruction-message', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './ReadingProgressesModuels/Reading/components/InstructionMessage/InstructionMessage.vue'))
+Vue.component('compact-navigation', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './ReadingProgressesModuels/Reading/components/CompactNavigation/CompactNavigation.vue'))
+Vue.component('annotation-type-filter', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './ReadingProgressesModuels/Reading/components/AnnotationTypeFilter/AnnotationTypeFilter.vue'))
 
 import IframeMessageSegment from './../components/IframeMessageSegment/IframeMessageSegment.vue'
 Vue.component('iframe-message-segment', IframeMessageSegment)

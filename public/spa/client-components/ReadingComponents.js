@@ -1,21 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["client-components/ReadingComponents"],{
 
-/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationFloatWidget%5CAnnotationFloatWidget.vue&lang=yaml":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationFloatWidget%5CAnnotationFloatWidget.vue&lang=yaml ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function (Component) {
-  Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"List all {0} annotations...":"List all {0} annotation... | List all {0} annotations..."},"zh-TW":{"List all {0} annotations...":"列出全部{0}篇標註..."}}')
-  delete Component.options._Ctor
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationManager.vue&lang=yaml":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationManager.vue&lang=yaml ***!
@@ -444,20 +428,6 @@ module.exports = function (Component) {
   Component.options.__i18n.push('{"en":null,"zh-TW":{"Check list":"檢核單","Write section main ideas":"撰寫小節重點","Edit section main ideas":"編輯小節重點","I have already read this section.":"我已經讀完了這一節的內容。","I have already written annotations on a sentence I don\u0027t understand.":"我看不懂的地方，已經用「困惑」標示了。","I have already written the main ideas of this section.":"我已經寫完小節重點了。","Please finish checklist.":"請完成這份檢核單","I have read this section!":"我已經讀完這一節了！"}}')
   delete Component.options._Ctor
 }
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
-// Module
-exports.push([module.i, ".annotation-float-widget[data-v-ca5d3b70] {\n  transition: opacity 0.3s, z-index 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: -1;\n  width: calc(100vw - 4em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.show[data-v-ca5d3b70] {\n  opacity: 1;\n  z-index: 1;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  vertical-align: top !important;\n  direction: ltr;\n}\n.close-container.floating.ui.label[data-v-ca5d3b70] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.4em !important;\n  padding-left: 0.15em !important;\n  padding-top: 0.3em !important;\n  padding-bottom: 0.3em !important;\n  top: 0.9em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.close-container.floating.ui.label .close.icon[data-v-ca5d3b70] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,sCAAsC;EACtC,UAAU;EACV,0CAA0C;EAC1C,0BAA0B;EAC1B,SAAS;EACT,WAAW;EACX,wBAAwB;EACxB,qBAAqB;EACrB,mCAAmC;EACnC,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,UAAU;EACV,UAAU;AACZ;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,8BAA8B;EAC9B,cAAc;AAChB;AACA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,UAAU;EACV,mCAAmC;EACnC,yBAAyB;EACzB,+BAA+B;EAC/B,6BAA6B;EAC7B,gCAAgC;EAChC,qBAAqB;EACrB,kCAAkC;EAClC,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,qBAAqB;AACvB","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-ca5d3b70] {\n  transition: opacity 0.3s, z-index 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: -1;\n  width: calc(100vw - 4em);\n  top: calc(60px + 1em);\n  max-height: calc(50vh - 60px - 2em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.annotation-float-widget.show[data-v-ca5d3b70] {\n  opacity: 1;\n  z-index: 1;\n}\n.annotation-float-widget.bottom[data-v-ca5d3b70] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n.annotation-float-widget.bottom.selecting[data-v-ca5d3b70] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-ca5d3b70] {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  vertical-align: top !important;\n  direction: ltr;\n}\n.close-container.floating.ui.label[data-v-ca5d3b70] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.4em !important;\n  padding-left: 0.15em !important;\n  padding-top: 0.3em !important;\n  padding-bottom: 0.3em !important;\n  top: 0.9em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.close-container.floating.ui.label .close.icon[data-v-ca5d3b70] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n"]}]);
 
 
 /***/ }),
@@ -934,142 +904,6 @@ exports.push([module.i, ".SectionAnnotationList[data-v-685d92b2] {\n  max-height
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
 exports.push([module.i, ".header-container[data-v-a6b0fd28] {\n  text-align: center;\n  margin-bottom: 0.5em;\n}\n.header[data-v-a6b0fd28] {\n  user-select: none;\n  display: inline-block;\n}\n.item[data-v-a6b0fd28] {\n  line-height: 2em !important;\n  cursor: pointer;\n}\n.item label[data-v-a6b0fd28] {\n  cursor: pointer !important;\n  user-select: none;\n}\n.item[data-v-a6b0fd28]:hover {\n  font-weight: bold;\n}\n", "",{"version":3,"sources":["SectionChecklist.less?vue&type=style&index=0&id=a6b0fd28&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,oBAAoB;AACtB;AACA;EACE,iBAAiB;EACjB,qBAAqB;AACvB;AACA;EACE,2BAA2B;EAC3B,eAAe;AACjB;AACA;EACE,0BAA0B;EAC1B,iBAAiB;AACnB;AACA;EACE,iBAAiB;AACnB","file":"SectionChecklist.less?vue&type=style&index=0&id=a6b0fd28&lang=less&scoped=true&","sourcesContent":[".header-container[data-v-a6b0fd28] {\n  text-align: center;\n  margin-bottom: 0.5em;\n}\n.header[data-v-a6b0fd28] {\n  user-select: none;\n  display: inline-block;\n}\n.item[data-v-a6b0fd28] {\n  line-height: 2em !important;\n  cursor: pointer;\n}\n.item label[data-v-a6b0fd28] {\n  cursor: pointer !important;\n  user-select: none;\n}\n.item[data-v-a6b0fd28]:hover {\n  font-weight: bold;\n}\n"]}]);
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.html?vue&type=template&id=ca5d3b70&scoped=true&":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.html?vue&type=template&id=ca5d3b70&scoped=true& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "annotation-float-widget AnnotationFloatWidget",
-      class: _vm.computedContainerClassNames
-    },
-    [
-      _vm.isFixed
-        ? _c(
-            "div",
-            {
-              staticClass: "close-container floating ui black label",
-              on: {
-                click: function($event) {
-                  $event.stopPropagation()
-                  return _vm.reset($event)
-                }
-              }
-            },
-            [_c("i", { staticClass: "close icon" })]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.annotationCount > 0
-        ? _c(
-            "div",
-            { staticClass: "ui tertiary segment" },
-            [
-              _c("annotation-item", {
-                attrs: {
-                  config: _vm.config,
-                  status: _vm.status,
-                  lib: _vm.lib,
-                  mode: "full",
-                  annotation: _vm.annotation,
-                  findAnnotation: _vm.viewAnnotation,
-                  findUser: _vm.findUser,
-                  findType: _vm.findType
-                },
-                on: { comment: _vm.viewAnnotationComment }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "ui column grid" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "column",
-                    class: _vm.computedButtonsClassNames
-                  },
-                  [
-                    _c("user-avatar-icons", {
-                      staticStyle: { "margin-right": "0.5em" },
-                      attrs: {
-                        config: _vm.config,
-                        status: _vm.status,
-                        lib: _vm.lib,
-                        users: _vm.users,
-                        userCount: _vm.userCount
-                      },
-                      on: { find: _vm.findUser }
-                    }),
-                    _vm._v(" "),
-                    _vm._l(_vm.types, function(t) {
-                      return _c("annotation-type-button", {
-                        key: t.type,
-                        attrs: {
-                          lib: _vm.lib,
-                          config: _vm.config,
-                          status: _vm.status,
-                          type: t.type,
-                          count: t.count
-                        },
-                        on: { find: _vm.findType }
-                      })
-                    }),
-                    _vm._v(" "),
-                    _vm.isFixed
-                      ? _c(
-                          "button",
-                          {
-                            staticClass:
-                              "ui mini white basic button list-button",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                $event.stopPropagation()
-                                return _vm.list($event)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(
-                                  _vm.$t("List all {0} annotations...", [
-                                    _vm.annotationCount
-                                  ])
-                                ) +
-                                "\r\n        "
-                            )
-                          ]
-                        )
-                      : _vm._e()
-                  ],
-                  2
-                )
-              ])
-            ],
-            1
-          )
-        : _vm._e()
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
 
 
 /***/ }),
@@ -4276,27 +4110,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(/*! !../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__(/*! ../../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("6cdaca44", content, false, {});
-// Hot Module Replacement
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationManager.less?vue&type=style&index=0&id=1b9dd3da&lang=less&scoped=true&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationManager.less?vue&type=style&index=0&id=1b9dd3da&lang=less&scoped=true& ***!
@@ -5011,355 +4824,14 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.html?vue&type=template&id=ca5d3b70&scoped=true&":
-/*!*************************************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.html?vue&type=template&id=ca5d3b70&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_AnnotationFloatWidget_html_vue_type_template_id_ca5d3b70_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./AnnotationFloatWidget.html?vue&type=template&id=ca5d3b70&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.html?vue&type=template&id=ca5d3b70&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_AnnotationFloatWidget_html_vue_type_template_id_ca5d3b70_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_AnnotationFloatWidget_html_vue_type_template_id_ca5d3b70_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.js?vue&type=script&lang=js&?b6fa":
-/*!*****************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.js?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _AnnotationFloatWidget_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./AnnotationFloatWidget.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.js?vue&type=script&lang=js&?ffba");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_AnnotationFloatWidget_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.js?vue&type=script&lang=js&?ffba":
-/*!*****************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.js?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-let AnnotationFloatWidget = {
-  props: ['lib', 'status', 'config'
-  ],
-  data() {    
-    this.$i18n.locale = this.config.locale
-    return {
-      anchorPositions: null,
-      triggerEvent: null,
-      isFixed: false,
-      isFixedMouseout: false,
-      
-      annotation: null,
-      annotationCount: 0,
-      users: [],
-      userCount: 0,
-      types: [],
-      
-      lastPosition: null,
-    }
-  },
-//  components: {
-//  },
-  computed: {
-    computedContainerClassNames () {
-      if (this.anchorPositions === null) {
-        //console.log('no')
-        //return this.lastPosition + ' hide'
-        return this.lastPosition
-      }
-      
-      let classList = []
-      
-      classList.push('show')
-      
-      let windowHeight = window.innerHeight
-      let clientY = this.triggerEvent.clientY
-      if (clientY < (windowHeight / 2) ) {
-        classList.push('bottom')
-        this.lastPosition = 'bottom'
-      }
-      else {
-        this.lastPosition = 'top'
-      }
-      
-      
-      //console.log(this.lib.RangyManager.isSelecting())
-      if (this.lib.RangyManager.isSelecting()) {
-        classList.push('selecting')
-      }
-      
-      //console.log(classList)
-      //return 'bottom'
-      if (classList.length > 0) {
-        return classList.join(' ')
-      }
-    },
-    computedButtonsClassNames () {
-      let classList = []
-      //console.log(this.status.preference.leftHanded)
-      if (this.status.preference.leftHanded === true) {
-        classList.push('left-handed')
-      }
-      else {
-        classList.push('right aligned')
-      }
-      
-      return classList.join(' ')
-    }
-  },
-  watch: {
-    anchorPositions () {
-      this.load()
-    },
-  },
-  mounted() {
-    this.initRangyEvents()
-//    
-//    //this.load()
-    
-  },
-  destroyed () {
-    this.lib.RangyManager.hoverOut()
-  },
-  methods: {
-    initRangyEvents () {
-      let rangy = this.lib.RangyManager
-      
-      let useMouse = false
-      
-      rangy.addEventListener('highlightClick', (data) => {
-        if (this.lib.AnnotationPanel.isHide === false) {
-          return false
-        }
-        
-        if (useMouse === true) {
-          if (this.isFixed === true && this.isFixedMouseout === true) {
-            this.triggerEvent = data.event
-            this.anchorPositions = data.anchorPositions
-            this.isFixedMouseout = false
-          }
-          else {
-            this.isFixed = !this.isFixed
-          }
-        }
-        else {
-          this.triggerEvent = data.event
-          this.anchorPositions = data.anchorPositions
-        }
-      })
-      
-      rangy.addEventListener('highlightMouseover', (data) => {
-        //console.log(data)
-        //console.log(this.lib.AnnotationPanel.isHide)
-        if (this.lib.AnnotationPanel.isHide === false) {
-          return false
-        }
-        
-        // 如果已經鎖定，那就不能切換
-        if (this.isFixed === true) {
-          return false
-        }
-        
-        this.triggerEvent = data.event
-        this.anchorPositions = data.anchorPositions
-        useMouse = true
-      })
-      
-      rangy.addEventListener('highlightMouseout', (data) => {
-        if (this.lib.AnnotationPanel.isHide === false) {
-          return false
-        }
-        if (this.isFixed === true) {
-          this.isFixedMouseout = true
-          return false
-        }
-        
-        this.anchorPositions = null
-        useMouse = false
-      })
-      
-      rangy.addEventListener('select', (data) => {
-        if (this.isFixed === true) {
-          this.isFixed = false
-          this.anchorPositions = null
-          useMouse = false
-        } 
-      })
-    },
-//    
-    load: async function () {
-      if (!this.anchorPositions) {
-        return false
-      }
-      
-      this.annotationCount = 0
-      this.annotation = null
-      this.users = []
-      this.userCount = 0
-      this.types = []
-      
-      let query = {
-        anchorPositions: this.anchorPositions
-      }
-      let url = 'client/Annotation/floatWidget'
-      
-      this.lib.AnnotationHelper.filter(query)
-      
-      let result = await this.lib.AxiosHelper.post(url, query)
-      if (result === null) {
-        return false
-      }
-      
-      // ----------------------------
-      
-      // 先重置本來的資料
-      
-      
-      //console.log(result)
-      
-      
-      for (let key in result) {
-        this[key] = result[key]
-      }
-      
-      if (this.annotationCount === 0) {
-        console.log('no annotation')
-      }
-      //this.$emit('list', this.highlightPos) // for test
-    },
-    
-    viewAnnotation: function (annotation) {
-      //(annotation) => {$emit('findAnnotation', annotation)}
-      
-      this.lib.AnnotationPanel.setAnnotation(annotation)
-      
-      //console.log('test this.lib.AnnotationPanel.focusCommentInput(2)')
-      //this.lib.AnnotationPanel.focusCommentInput(2)
-      
-      this.reset()
-    },
-    
-    viewAnnotationComment: function (annotation) {
-      this.lib.AnnotationPanel.setAnnotation(annotation)
-      this.lib.AnnotationPanel.focusCommentInput()
-      
-      
-      this.reset()
-    },
-    
-    findUser: function (user) {
-      this.lib.AnnotationPanel.findUser(user)
-      this.list()
-    }, 
-    
-    findType: function (type) {
-      this.lib.AnnotationPanel.findType(type)
-      this.list()
-    }, 
-    
-    list: function () {
-      this.lib.AnnotationPanel.setAnchorPositions(this.anchorPositions)
-      this.reset()
-    },
-    
-    reset () {
-      this.anchorPositions = null
-      this.isFixed = false
-    }
-  } // methods
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (AnnotationFloatWidget);
-
-/***/ }),
-
-/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&":
-/*!****************************************************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true& ***!
-  \****************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationFloatWidget_less_vue_type_style_index_0_id_ca5d3b70_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-style-loader!../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationFloatWidget_less_vue_type_style_index_0_id_ca5d3b70_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationFloatWidget_less_vue_type_style_index_0_id_ca5d3b70_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationFloatWidget_less_vue_type_style_index_0_id_ca5d3b70_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationFloatWidget_less_vue_type_style_index_0_id_ca5d3b70_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationFloatWidget_less_vue_type_style_index_0_id_ca5d3b70_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
 /***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.vue":
 /*!*****************************************************************************************************************************************************!*\
   !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.vue ***!
   \*****************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _AnnotationFloatWidget_html_vue_type_template_id_ca5d3b70_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AnnotationFloatWidget.html?vue&type=template&id=ca5d3b70&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.html?vue&type=template&id=ca5d3b70&scoped=true&");
-/* harmony import */ var _AnnotationFloatWidget_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AnnotationFloatWidget.js?vue&type=script&lang=js& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.js?vue&type=script&lang=js&?b6fa");
-/* empty/unused harmony star reexport *//* harmony import */ var _AnnotationFloatWidget_less_vue_type_style_index_0_id_ca5d3b70_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true& */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.less?vue&type=style&index=0&id=ca5d3b70&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-/* harmony import */ var _AnnotationFloatWidget_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationFloatWidget_5CAnnotationFloatWidget_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AnnotationFloatWidget.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationFloatWidget%5CAnnotationFloatWidget.vue&lang=yaml */ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationFloatWidget%5CAnnotationFloatWidget.vue&lang=yaml");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _AnnotationFloatWidget_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _AnnotationFloatWidget_html_vue_type_template_id_ca5d3b70_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _AnnotationFloatWidget_html_vue_type_template_id_ca5d3b70_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "ca5d3b70",
-  null
-  
-)
-
-/* custom blocks */
-
-if (typeof _AnnotationFloatWidget_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationFloatWidget_5CAnnotationFloatWidget_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_AnnotationFloatWidget_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationFloatWidget_5CAnnotationFloatWidget_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationFloatWidget%5CAnnotationFloatWidget.vue&lang=yaml":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationFloatWidget%5CAnnotationFloatWidget.vue&lang=yaml ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationFloatWidget_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationFloatWidget_5CAnnotationFloatWidget_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./AnnotationFloatWidget.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationFloatWidget%5CAnnotationFloatWidget.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/components/ReadingProgressesModuels/Reading/components/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5Ccomponents%5CReadingProgressesModuels%5CReading%5Ccomponents%5CAnnotationManager%5CAnnotationFloatWidget%5CAnnotationFloatWidget.vue&lang=yaml");
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationFloatWidget_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationFloatWidget_5CAnnotationFloatWidget_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationFloatWidget_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationFloatWidget_5CAnnotationFloatWidget_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationFloatWidget_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationFloatWidget_5CAnnotationFloatWidget_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationFloatWidget_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationFloatWidget_5CAnnotationFloatWidget_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationFloatWidget_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5Ccomponents_5CReadingProgressesModuels_5CReading_5Ccomponents_5CAnnotationManager_5CAnnotationFloatWidget_5CAnnotationFloatWidget_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+throw new Error("Module build failed (from ./node_modules/vue-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'D:\\xampp\\htdocs\\projects-nodejs\\PACOR\\webpack-app\\client\\components\\ReadingProgressesModuels\\Reading\\components\\AnnotationManager\\AnnotationFloatWidget\\AnnotationFloatWidget.vue'");
 
 /***/ }),
 
@@ -11390,7 +10862,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = true
+let debugMockSend = false
 if (debugMockSend === true) {
   console.log('@test debugMockSend')
 }
@@ -11649,7 +11121,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = true
+let debugMockSend = false
 if (debugMockSend === true) {
   console.log('@test debugMockSend')
 }
@@ -23197,6 +22669,9 @@ let SectionManager = {
     'status.filter.focusUser' () {
       //console.log('有換人嗎？')
       this.loadAnnotation()
+    },
+    'lib.auth.currentStep' () {
+      this.loadAnnotation()
     }
   },
   mounted() {
@@ -24112,7 +23587,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let debugMockUpdate = true
+let debugMockUpdate = false
 if (debugMockUpdate === true) {
   console.log('@test debugMockUpdate')
 }
@@ -24411,7 +23886,7 @@ let SectionPanel = {
       this.isChecklistSubmitted = (this.sectionsData
               && this.sectionsData.checklistAnnotation
               && typeof(this.sectionsData.checklistAnnotation[this.sectionSeqID]) !== 'undefined' )
-      console.log(this.sectionsData, this.isChecklistSubmitted)
+      //console.log(this.sectionsData, this.isChecklistSubmitted)
     }
   } // methods
 }

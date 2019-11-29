@@ -15,7 +15,7 @@ import AxiosHelper from './helpers/AxiosHelper'
 import DayJSHelper from './helpers/DayJSHelper'
 import StringHelper from './helpers/StringHelper'
 import ValidateHelper from './helpers/ValidateHelper'
-import StyleHelper from './helpers/StyleHelper'
+//import StyleHelper from './helpers/StyleHelper'
 import AnnotationHelper from './helpers/AnnotationHelper'
 import VueHelper from './helpers/VueHelper'
 
@@ -101,7 +101,7 @@ let VueController = {
       DayJSHelper: DayJSHelper,
       StringHelper: StringHelper,
       ValidateHelper: ValidateHelper,
-      style: StyleHelper.setConfig(config),
+      //style: StyleHelper.setConfig(config),
       AnnotationHelper: AnnotationHelper,
       VueHelper: VueHelper,
       
@@ -137,6 +137,7 @@ let VueController = {
     })
     
     this.lib.auth = this.$refs.auth
+    this.lib.style = this.$refs.style
     this.lib.AnnotationHelper.setStatus(this.status)
     this.lib.ConfirmModal = this.$refs.ConfirmModal
     //console.log(this.lib.auth.nextStep)

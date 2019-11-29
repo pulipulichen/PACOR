@@ -46,6 +46,7 @@ PostRecall.data = function () {
     data.remainingSeconds = null
     data.answer = ''
     data.header = this.$t(key)
+    data.isTimeUp = false
     return data
 }
 

@@ -1,6 +1,6 @@
 import $ from 'jquery'
 
-let debugDisable = true
+let debugDisable = false
 if (debugDisable === true) {
   console.log('@test degubDisable')
 }

@@ -3,10 +3,16 @@
   <auth 
     v-bind:config="config"
     v-bind:status="status"
-    v-bind:progress="progress"
     v-bind:lib="lib"
     ref="auth">
   </auth>
+  
+  <StyleManager 
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+    ref="style">
+  </StyleManager>
 
   <error-handler 
     v-bind:config="config"
