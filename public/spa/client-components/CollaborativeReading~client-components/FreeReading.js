@@ -477,7 +477,7 @@ var render = function() {
               "a",
               {
                 staticClass: "fitted item avatar in-top",
-                on: { dblclick: _vm.nextStep, click: _vm.showInstruction }
+                on: { click: _vm.showInstruction }
               },
               [
                 _c("img", { attrs: { src: _vm.status.avatar } }),
@@ -1386,15 +1386,17 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("user-chart-labels", {
-        ref: "UserChartLabels",
-        attrs: {
-          config: _vm.config,
-          status: _vm.status,
-          lib: _vm.lib,
-          filterData: _vm.filterData
-        }
-      })
+      _vm.jQCloudWords.length > 0
+        ? _c("user-chart-labels", {
+            ref: "UserChartLabels",
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              filterData: _vm.filterData
+            }
+          })
+        : _vm._e()
     ],
     1
   )
@@ -2325,9 +2327,9 @@ let NavigationItems = {
     showInstruction () {
       this.$emit('showInstruction')
     },
-    nextStep () {
-      this.lib.auth.nextStep()
-    }
+//    nextStep () {
+//      this.lib.auth.nextStep()
+//    }
   } // methods
 }
 
@@ -4535,6 +4537,10 @@ let UserChart = {
       return this._processWordFrequency(words)
     },
     jQCloudWords () {
+      if (!this.$refs.UserChartPopup) {
+        return []
+      }
+      
       let words
       if (this.otherIsAll) {
         // 先看看有沒有暫存

@@ -65,24 +65,26 @@ class AnnotationNoteUserFilter {
       let cacheKey = Cache.key(`getUserWords`, userID)
       return await Cache.rememberWait([webpage, user, this], cacheKey, 1, async () => {
         
-        let notes = await AnnotationNoteModel
+        let query = AnnotationNoteModel
                 .query()
-                .whereHas('annotation', async (builder) => {
-                  builder.where('deleted', false)
-                  builder.where('webpage_id', webpage.primaryKeyValue)
-                  
-                  if (userID) {
-                    builder.where('user_id', userID)
-                  }
-                  else {
-                    // 搜尋該組的
-                    let userIdList = await user.getUserIDsInGroup(webpage, true)
-                    builder.whereIn('user_id', userIdList)
-                  }
-                })
-                .select('properties')
-                .fetch()
+                .innerJoin('annotations', 'annotations.id', 'annotation_notes.annotation_id')
+                .where('annotations.deleted', false)
+                .where('annotations.webpage_id', webpage.primaryKeyValue)
+                .select('annotation_notes.properties')
         
+        if (userID) {
+          query.where('annotations.user_id', userID)
+        }
+        else {
+          // 搜尋該組的
+          let userIdList = await user.getUserIDsInGroup(webpage, true)
+          //console.log('getUserWords', 'all', userIdList)
+          query.whereIn('annotations.user_id', userIdList)
+        }
+        
+        //console.log(query.toSQL())
+        
+        let notes = await query.fetch()
         let words = {}
         
         for (let i = 0; i < notes.size(); i++) {

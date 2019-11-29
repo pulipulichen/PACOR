@@ -59,6 +59,10 @@ let UserChart = {
       return this._processWordFrequency(words)
     },
     jQCloudWords () {
+      if (!this.$refs.UserChartPopup) {
+        return []
+      }
+      
       let words
       if (this.otherIsAll) {
         // 先看看有沒有暫存

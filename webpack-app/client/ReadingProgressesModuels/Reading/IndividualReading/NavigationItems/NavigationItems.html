@@ -9,12 +9,9 @@
   v-on:timeup="$emit('timeup')">
   <template v-slot:header>
     
-    <div class="item avatar in-top"
-         v-on:dblclick="nextStep">
-      <img v-bind:src="status.avatar">
-    </div>
     <a class="fitted item avatar in-top"
        v-on:click="showInstruction">
+      <img v-bind:src="status.avatar">
       <div class="username">
         {{ lib.auth.username }}
       <div class="step">
@@ -28,7 +25,9 @@
       <digital-countdown-timer 
         v-bind:config="config"
         v-bind:status="status"
-        v-bind:lib="lib">
+        v-bind:lib="lib"
+        
+        v-bind:pauseAtStart="pauseAtStart">
       </digital-countdown-timer> 
     </div>
   </template>

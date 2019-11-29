@@ -52,6 +52,9 @@ let InstructionMessage = {
     },
     onHide() {
       localStorage.setItem(this.localStorageKeyPrefix, 1)
+    },
+    nextStep () {
+      this.lib.auth.nextStep()
     }
   } // methods
 }

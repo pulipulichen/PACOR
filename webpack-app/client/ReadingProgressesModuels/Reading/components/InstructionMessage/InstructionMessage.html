@@ -7,7 +7,9 @@
          v-bind:contentURL="contentURL"
          v-on:hide="onHide">
       <template v-slot:header>
-        {{ $t('READING_PROGRESS.' + lib.auth.currentStep) }}
+        <div v-on:dblclick="nextStep">
+          {{ $t('READING_PROGRESS.' + lib.auth.currentStep) }}
+        </div>
       </template>
       <template v-slot:content
                 v-if="!contentURL">

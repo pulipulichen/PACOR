@@ -45,9 +45,9 @@ let NavigationItems = {
     showInstruction () {
       this.$emit('showInstruction')
     },
-    nextStep () {
-      this.lib.auth.nextStep()
-    }
+//    nextStep () {
+//      this.lib.auth.nextStep()
+//    }
   } // methods
 }
 

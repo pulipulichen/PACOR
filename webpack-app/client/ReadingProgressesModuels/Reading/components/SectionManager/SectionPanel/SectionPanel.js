@@ -51,8 +51,9 @@ let SectionPanel = {
       this.node.parentNode.insertBefore(this.$refs.panel, this.node.nextSibling)
     },
     checkIsChecklistSubmitted () {
-      if (this.lib.auth.isEnableCollaboration) {
+      if (this.lib.auth.isEnableCollaboration === true) {
         this.isChecklistSubmitted = true
+        return null
       }
       
       this.isChecklistSubmitted = (this.sectionsData

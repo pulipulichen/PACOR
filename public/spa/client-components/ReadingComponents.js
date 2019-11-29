@@ -3684,13 +3684,15 @@ var render = function() {
               key: "header",
               fn: function() {
                 return [
-                  _vm._v(
-                    "\r\n        " +
-                      _vm._s(
-                        _vm.$t("READING_PROGRESS." + _vm.lib.auth.currentStep)
-                      ) +
-                      "\r\n      "
-                  )
+                  _c("div", { on: { dblclick: _vm.nextStep } }, [
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(
+                          _vm.$t("READING_PROGRESS." + _vm.lib.auth.currentStep)
+                        ) +
+                        "\r\n        "
+                    )
+                  ])
                 ]
               },
               proxy: true
@@ -12717,6 +12719,9 @@ let InstructionMessage = {
     },
     onHide() {
       localStorage.setItem(this.localStorageKeyPrefix, 1)
+    },
+    nextStep () {
+      this.lib.auth.nextStep()
     }
   } // methods
 }
@@ -24403,8 +24408,9 @@ let SectionPanel = {
       this.node.parentNode.insertBefore(this.$refs.panel, this.node.nextSibling)
     },
     checkIsChecklistSubmitted () {
-      if (this.lib.auth.isEnableCollaboration) {
+      if (this.lib.auth.isEnableCollaboration === true) {
         this.isChecklistSubmitted = true
+        return null
       }
       
       this.isChecklistSubmitted = (this.sectionsData
