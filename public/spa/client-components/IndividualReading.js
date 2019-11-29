@@ -204,13 +204,7 @@ var render = function() {
                   attrs: {
                     config: _vm.config,
                     status: _vm.status,
-                    lib: _vm.lib,
-                    pauseAtStart: false
-                  },
-                  on: {
-                    timeup: function($event) {
-                      return _vm.$emit("timeup")
-                    }
+                    lib: _vm.lib
                   }
                 })
               ],
@@ -534,12 +528,18 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
 
+let pauseAtStart = false
+if (pauseAtStart === true) {
+  console.log('@test pauseAtStart')
+}
+
 let NavigationItems = {
   props: ['lib', 'status', 'config'
     , 'progress', 'error'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      pauseAtStart
     }
   },
 //  components: {

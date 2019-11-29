@@ -1,11 +1,17 @@
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
 
+let pauseAtStart = false
+if (pauseAtStart === true) {
+  console.log('@test pauseAtStart')
+}
+
 let NavigationItems = {
   props: ['lib', 'status', 'config'
     , 'progress', 'error'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      pauseAtStart
     }
   },
 //  components: {

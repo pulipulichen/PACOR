@@ -421,6 +421,7 @@ _PreImaginary_PreImaginary_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = fun
     data.answer = ''
     data.header = this.$t(key)
     data.isTimeUp = false
+    data.header = this.$t('READING_PROGRESS.' + key)
     return data
 }
 
@@ -551,7 +552,7 @@ let PreImaginary = {
     data.persistKey = key + '.log'
     data.remainingSeconds = null
     data.answer = ''
-    data.header = this.$t(key)
+    data.header = this.$t('READING_PROGRESS.' + key)
     data.isTimeUp = false
     return data
   },
@@ -724,7 +725,7 @@ let PreImaginary = {
     data.persistKey = key + '.log'
     data.remainingSeconds = null
     data.answer = ''
-    data.header = this.$t(key)
+    data.header = this.$t('READING_PROGRESS.' + key)
     data.isTimeUp = false
     return data
   },

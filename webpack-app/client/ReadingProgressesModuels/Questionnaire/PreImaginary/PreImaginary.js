@@ -22,7 +22,7 @@ let PreImaginary = {
     data.persistKey = key + '.log'
     data.remainingSeconds = null
     data.answer = ''
-    data.header = this.$t(key)
+    data.header = this.$t('READING_PROGRESS.' + key)
     data.isTimeUp = false
     return data
   },

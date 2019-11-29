@@ -3,6 +3,7 @@ let InstructionMessage = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      tempStepName: this.lib.auth.currentStep
     }
   },
 //  components: {
@@ -12,7 +13,7 @@ let InstructionMessage = {
       return this.lib.auth.currentStep
     },
     localStorageKeyPrefix () {
-      return 'InstructionMessage.' + this.status.userID + '.' + this.stepName
+      return 'InstructionMessage.' + this.status.userID + '.' + this.tempStepName
     },
     message () {
       return this.lib.auth.currentStepConfig.message
@@ -27,6 +28,10 @@ let InstructionMessage = {
 //  },
   mounted() {
     this.checkAutoShow()
+  },
+  destroyed () {
+    //console.log('有移除嗎？ InstructionMessage', this.localStorageKeyPrefix)
+    localStorage.removeItem(this.localStorageKeyPrefix)
   },
   methods: {
     checkAutoShow () {

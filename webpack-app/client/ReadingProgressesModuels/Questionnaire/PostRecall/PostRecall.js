@@ -47,6 +47,7 @@ PostRecall.data = function () {
     data.answer = ''
     data.header = this.$t(key)
     data.isTimeUp = false
+    data.header = this.$t('READING_PROGRESS.' + key)
     return data
 }
 
