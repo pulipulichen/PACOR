@@ -4,30 +4,6 @@ if (debugMockUpdate === true) {
 }
 
 export default (SectionChecklist) => {
-//    initData () {
-//      //console.log(this.sectionsData.checklist)
-//      let checklistData = this.checked
-//      //console.log(checklistData, typeof(checklistData), Array.isArray(checklistData))
-//
-//      checklistData = checklistData ? checklistData : []
-//
-//      if (Array.isArray(checklistData) === false
-//              || checklistData.length === 0) {
-//        //checklistData = []
-//        let itemsFromLocalStorage = localStorage
-//                  .getItem(this.localStorageKeyPrefix + 'checklist')
-//        if (itemsFromLocalStorage !== null) {
-//          checklistData = JSON.parse(itemsFromLocalStorage)
-//        }
-//        //console.log(this.localStorageKeyPrefix + 'checklist')
-//      }
-//
-//      this.checklist.forEach((item, i) => {
-//        if (typeof(checklistData[i]) !== 'boolean') {
-//          checklistData[i] = false
-//        }
-//      })
-//    },
 
   SectionChecklist.methods.onChecklistItemChange = function (i) {
     //console.log(i, this.checked)
@@ -47,62 +23,11 @@ export default (SectionChecklist) => {
     localStorage.setItem(this.localStorageKeyPrefix + 'checklist', data)
   }
   SectionChecklist.methods.openSectionAnnotationEditor = function () {
-    /*
-     //      this.wroteAnnotationAt = (new Date()).getTime
-     //        this.checked.splice(this.sectionAnnotationIndex, 1, true)
-     //        this.sectionsData.sectionAnnotationCallback = null
-     //        return
-     
-     if (this.isWrottenAnnotation === false) {
-     this.sectionsData.sectionAnnotation.callback = () => {
-     this.wroteAnnotationAt = (new Date()).getTime
-     this.checked.splice(this.sectionAnnotationIndex, 1, true)
-     this.sectionsData.sectionAnnotation.callback = null
-     }
-     
-     
-     }
-     this.sectionsData.sectionAnnotation.seqID = this.sectionSeqID
-     this.sectionsData.sectionAnnotation.instance = {
-     id: this.sectionsData.sectionAnnotation.id,
-     type: 'SectionMainIdea',
-     note: this.sectionsData.sectionAnnotation.draftNote
-     }
-     
-     //this.checked.splice(this.sectionAnnotationIndex, 1, true)
-     //this.wroteAnnotationAt = 1
-     */
     this.lib.AnnotationPanel.setAnnotation(this.annotation, {
       'add': (annotation) => {
         annotation.user = this.lib.auth.annotationUserData
-        //console.log(annotation)
-        //console.log(annotation.notes[0].note)
-        //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
-
-        //console.log(this.sectionSeqID)
-        //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
         this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
-//        console.log(this.sectionsData.checklistAnnotation)
-//          if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID]) === false) {
-//            this.sectionsData.checklist[this.sectionSeqID] = []
-//          }
-
-        //this.sectionsData.checklist[this.sectionSeqID].splice(this.checklistAnnotationIndex, 1, true)
         this.sectionsData.checklist[this.sectionSeqID][this.checklistAnnotationIndex] = true
-
-        //console.log(this.sectionsData.checklist[this.sectionSeqID].checked)
-
-        //this.sectionsData.checklist[this.checklistAnnotationIndex] = true
-        //this.sectionsData.checklist.splice(this.sectionSeqID, 1, true)
-        //this.sectionsData.checklist[this.sectionSeqID]
-
-        //console.log(this.sectionsData.checklist)
-
-
-//          this.checked.splice(this.checklistAnnotationIndex, 1, true)
-
-        //this.annotation.id = annotation.id
-        //this.$forceUpdate()
         this.isChecklistAnnotationSubmitted = true
 
         //this.sectionsData.annotation.splice(this.sectionSeqID, 1, [annotation])
@@ -165,18 +90,6 @@ export default (SectionChecklist) => {
   }
   
   SectionChecklist.methods.checkIsChecklistCompleted = function () {
-    //console.log(this.checked.length, this.checked)
-    //let a = this.checked.length
-    //console.log(a)
-
-    /*
-     for (let i = 0; i < this.checked.length; i++) {
-     console.log(i , this.checked[i], (this.checked[i] === false))
-     if (this.checked[i] !== true) {
-     return false
-     }
-     }
-     */
     let checked = this.sectionsData.checklist[this.sectionSeqID]
     if (!checked) {
       return false

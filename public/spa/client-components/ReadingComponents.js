@@ -11397,7 +11397,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = false
+let debugMockSend = true
 if (debugMockSend === true) {
   console.log('@test debugMockSend')
 }
@@ -11642,7 +11642,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = false
+let debugMockSend = true
 if (debugMockSend === true) {
   console.log('@test debugMockSend')
 }
@@ -23820,33 +23820,12 @@ __webpack_require__.r(__webpack_exports__);
 let SectionChecklist = {
   props: ['lib', 'status', 'config'
     , 'sectionSeqID', 'sectionsData'],
-  //data:
-  
-//  components: {
-//  },
-  computed: {
-    
-//    isChecklistAnnotationSubmitted () {
-//      return (typeof(this.annotation.id) === 'number')
-//    }
-  },
-//  watch: {
-//    /*
-//    checklistAnnotationIndex (checklistAnnotationIndex) {
-//      if (checklistAnnotationIndex !== -1 
-//              && this.annotation) {
-//        //console.log(this.checked, typeof(this.checked))
-//        this.checked.splice(checklistAnnotationIndex, 1, (typeof(this.annotation.id) === 'number'))
-//      } 
-//    }
-//    */
-//  },
+  computed: {},
   mounted() {
     //this.initData()
     this.checkIsChecklistCompleted()
   },
-  methods: {
-  } // methods
+  methods: {} // methods
 }
 
 
@@ -24098,6 +24077,14 @@ __webpack_require__.r(__webpack_exports__);
 
     if (!this.sectionsData.checklist[this.sectionSeqID]) {
       this.sectionsData.checklist[this.sectionSeqID] = []
+      
+      if (this.lib.auth.currentStepConfig 
+              && this.lib.auth.currentStepConfig.checklist) {
+        let checkListLength = this.lib.auth.currentStepConfig.checklist.length
+        for (let i = 0; i < checkListLength; i++) {
+          this.sectionsData.checklist[this.sectionSeqID].push(false)
+        }
+      }
     }
 
     //if (this.sectionsData.checklist 
@@ -24139,30 +24126,6 @@ if (debugMockUpdate === true) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = ((SectionChecklist) => {
-//    initData () {
-//      //console.log(this.sectionsData.checklist)
-//      let checklistData = this.checked
-//      //console.log(checklistData, typeof(checklistData), Array.isArray(checklistData))
-//
-//      checklistData = checklistData ? checklistData : []
-//
-//      if (Array.isArray(checklistData) === false
-//              || checklistData.length === 0) {
-//        //checklistData = []
-//        let itemsFromLocalStorage = localStorage
-//                  .getItem(this.localStorageKeyPrefix + 'checklist')
-//        if (itemsFromLocalStorage !== null) {
-//          checklistData = JSON.parse(itemsFromLocalStorage)
-//        }
-//        //console.log(this.localStorageKeyPrefix + 'checklist')
-//      }
-//
-//      this.checklist.forEach((item, i) => {
-//        if (typeof(checklistData[i]) !== 'boolean') {
-//          checklistData[i] = false
-//        }
-//      })
-//    },
 
   SectionChecklist.methods.onChecklistItemChange = function (i) {
     //console.log(i, this.checked)
@@ -24182,62 +24145,11 @@ if (debugMockUpdate === true) {
     localStorage.setItem(this.localStorageKeyPrefix + 'checklist', data)
   }
   SectionChecklist.methods.openSectionAnnotationEditor = function () {
-    /*
-     //      this.wroteAnnotationAt = (new Date()).getTime
-     //        this.checked.splice(this.sectionAnnotationIndex, 1, true)
-     //        this.sectionsData.sectionAnnotationCallback = null
-     //        return
-     
-     if (this.isWrottenAnnotation === false) {
-     this.sectionsData.sectionAnnotation.callback = () => {
-     this.wroteAnnotationAt = (new Date()).getTime
-     this.checked.splice(this.sectionAnnotationIndex, 1, true)
-     this.sectionsData.sectionAnnotation.callback = null
-     }
-     
-     
-     }
-     this.sectionsData.sectionAnnotation.seqID = this.sectionSeqID
-     this.sectionsData.sectionAnnotation.instance = {
-     id: this.sectionsData.sectionAnnotation.id,
-     type: 'SectionMainIdea',
-     note: this.sectionsData.sectionAnnotation.draftNote
-     }
-     
-     //this.checked.splice(this.sectionAnnotationIndex, 1, true)
-     //this.wroteAnnotationAt = 1
-     */
     this.lib.AnnotationPanel.setAnnotation(this.annotation, {
       'add': (annotation) => {
         annotation.user = this.lib.auth.annotationUserData
-        //console.log(annotation)
-        //console.log(annotation.notes[0].note)
-        //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
-
-        //console.log(this.sectionSeqID)
-        //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
         this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
-//        console.log(this.sectionsData.checklistAnnotation)
-//          if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID]) === false) {
-//            this.sectionsData.checklist[this.sectionSeqID] = []
-//          }
-
-        //this.sectionsData.checklist[this.sectionSeqID].splice(this.checklistAnnotationIndex, 1, true)
         this.sectionsData.checklist[this.sectionSeqID][this.checklistAnnotationIndex] = true
-
-        //console.log(this.sectionsData.checklist[this.sectionSeqID].checked)
-
-        //this.sectionsData.checklist[this.checklistAnnotationIndex] = true
-        //this.sectionsData.checklist.splice(this.sectionSeqID, 1, true)
-        //this.sectionsData.checklist[this.sectionSeqID]
-
-        //console.log(this.sectionsData.checklist)
-
-
-//          this.checked.splice(this.checklistAnnotationIndex, 1, true)
-
-        //this.annotation.id = annotation.id
-        //this.$forceUpdate()
         this.isChecklistAnnotationSubmitted = true
 
         //this.sectionsData.annotation.splice(this.sectionSeqID, 1, [annotation])
@@ -24300,18 +24212,6 @@ if (debugMockUpdate === true) {
   }
   
   SectionChecklist.methods.checkIsChecklistCompleted = function () {
-    //console.log(this.checked.length, this.checked)
-    //let a = this.checked.length
-    //console.log(a)
-
-    /*
-     for (let i = 0; i < this.checked.length; i++) {
-     console.log(i , this.checked[i], (this.checked[i] === false))
-     if (this.checked[i] !== true) {
-     return false
-     }
-     }
-     */
     let checked = this.sectionsData.checklist[this.sectionSeqID]
     if (!checked) {
       return false
@@ -24375,20 +24275,6 @@ let SectionPanel = {
     'section-annotation-list': _SectionAnnotationList_SectionAnnotationList_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   computed: {
-    /*
-    isChecklistSubmitted () {
-      if (this.sectionsData
-              && this.sectionsData.checklistSubmitted
-              && this.sectionsData.checklistSubmitted[this.sectionSeqID]) {
-        console.log(this.sectionsData.checklistSubmitted[this.sectionSeqID])
-      }
-      //console.log('isChecklistSubmitted')
-      
-      return (this.sectionsData
-              && this.sectionsData.checklistSubmitted
-              && this.sectionsData.checklistSubmitted[this.sectionSeqID])
-    }
-     */
     isShowAnnotationList () {
       if (this.lib.auth.isEnableCollaboration === false) {
         return this.isChecklistSubmitted

@@ -17,20 +17,6 @@ let SectionPanel = {
     'section-annotation-list': SectionAnnotationList
   },
   computed: {
-    /*
-    isChecklistSubmitted () {
-      if (this.sectionsData
-              && this.sectionsData.checklistSubmitted
-              && this.sectionsData.checklistSubmitted[this.sectionSeqID]) {
-        console.log(this.sectionsData.checklistSubmitted[this.sectionSeqID])
-      }
-      //console.log('isChecklistSubmitted')
-      
-      return (this.sectionsData
-              && this.sectionsData.checklistSubmitted
-              && this.sectionsData.checklistSubmitted[this.sectionSeqID])
-    }
-     */
     isShowAnnotationList () {
       if (this.lib.auth.isEnableCollaboration === false) {
         return this.isChecklistSubmitted
