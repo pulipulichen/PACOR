@@ -2255,7 +2255,7 @@ let NavigationItems = {
   data() {    
     this.$i18n.locale = this.config.locale
     
-    let pauseAtStart = true
+    let pauseAtStart = false
     if (pauseAtStart === true) {
       console.log('@test pauseAtStart')
     }

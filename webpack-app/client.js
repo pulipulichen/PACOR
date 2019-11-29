@@ -129,6 +129,10 @@ let VueController = {
   //},
   mounted: function () {
     this.lib.AxiosHelper.setErrorHandler((error) => {
+      //console.log(error)
+      if (error.response.data.error.message === 'Please login') {
+        return null
+      }
       this.errors.push(error)
     })
     
@@ -159,7 +163,6 @@ let VueController = {
 if (typeof(baseURL) === 'string') {
   $(() => {
     new Vue(VueController)
-    
     $('body > #TestMessage').remove()
   })
 }

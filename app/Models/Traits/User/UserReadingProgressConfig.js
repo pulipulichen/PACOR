@@ -186,6 +186,10 @@ class UserReadingProgressConfig {
         }
       }
       
+      if (!start_time) {
+        return 0
+      }
+      
       if (stepName === 'IndividualReading') {
         limitMunites = config.readingProgressModules['IndividualReading'].limitMinutes
       }
@@ -198,6 +202,9 @@ class UserReadingProgressConfig {
       let remainingMS = limitMS - (nowMS - start_time)
       //console.log(limitMS, start_time, nowMS)
       let remainingSeconds = Math.round(remainingMS / 1000)
+      
+      //console.log(stepName, remainingSeconds)
+      //console.log(status)
       if (remainingSeconds < 0) {
         return 0
       }

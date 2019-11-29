@@ -72,7 +72,7 @@ class UserReadingProgressAction {
 //      console.log(step.toJSON())
 
       if (typeof (step.end_timestamp) !== 'number') {
-        if (typeof (step.start_timestamp) !== 'number') {
+        if (!step.start_timestamp) {
           step.start_timestamp = time
         }
         step.end_timestamp = time
