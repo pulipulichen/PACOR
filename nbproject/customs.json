@@ -47,7 +47,8 @@
     },
     "div": {
       "attributes": {
-        "v-bind:data-comment-id": {}
+        "v-bind:data-comment-id": {},
+        "v-on:dblclick": {}
       }
     },
     "p": {},

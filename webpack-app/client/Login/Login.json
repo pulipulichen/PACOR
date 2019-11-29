@@ -14,6 +14,7 @@
     "Login from Google": "從Google帳號登入",
     "Login from GitHub": "從GitHub帳號登入",
     "Login from Instagram": "從Instagram帳號登入",
-    "agreement-link": "如果您按下「登入」按鈕，表示您同意我們的<a href='{0}' target='_blank'>知情同意書</a>。"
+    "agreement-link": "如果您按下「登入」按鈕，表示您同意我們的<a href='{0}' target='_blank'>知情同意書</a>。",
+    "cannot contain space": "不能包含空格"
   }
 }

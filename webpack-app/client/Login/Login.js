@@ -22,13 +22,17 @@ let Login = {
       }
       
       if (this.adminMode === false) {
-        return (this.username === '')
+        return (!this.isUsernameValid)
       }
       else {
-        return (this.username === '' || this.password === '')
+        return (!this.isUsernameValid || this.password === '')
       }
       
       return true
+    },
+    isUsernameValid () {
+      return (this.username !== '' 
+        && this.username.indexOf(' ') === -1)
     },
     agreementLink: function () {
       return this.config.baseURL + '/client/webpage/agreement'

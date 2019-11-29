@@ -145,7 +145,8 @@ var render = function() {
       status: _vm.status,
       lib: _vm.lib,
       compactWidth: "400",
-      position: "bottom"
+      position: "bottom",
+      pauseAtStart: _vm.pauseAtStart
     },
     on: {
       timeup: function($event) {

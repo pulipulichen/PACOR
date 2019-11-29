@@ -2,7 +2,8 @@ import ReadingProgressIndicator from './ReadingProgressIndicator/ReadingProgress
 import Media from 'vue-media'
 
 let CompactNavigation = {
-  props: ['lib', 'status', 'config', 'compactWidth', 'position'],
+  props: ['lib', 'status', 'config'
+    , 'compactWidth', 'position', 'pauseAtStart'],
   data() {
     return {
       normalMenuDisplay: false,

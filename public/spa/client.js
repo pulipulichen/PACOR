@@ -233,7 +233,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"agreement-link":"By clicking Sign Up, you agree to our <a href=\u0027{0}\u0027 target=\u0027_blank\u0027>Agreement Terms</a>."},"zh-TW":{"User {0} is not existed.":"使用者{0}不存在。","User {0} is registed.":"使用者{0}已經註冊。","Password is incorrect.":"密碼錯誤。","Username":"使用者名稱","Password":"密碼","Email":"電子信箱地址","Login":"登入","Register":"註冊","Login from Google":"從Google帳號登入","Login from GitHub":"從GitHub帳號登入","Login from Instagram":"從Instagram帳號登入","agreement-link":"如果您按下「登入」按鈕，表示您同意我們的<a href=\u0027{0}\u0027 target=\u0027_blank\u0027>知情同意書</a>。"}}')
+  Component.options.__i18n.push('{"en":{"agreement-link":"By clicking Sign Up, you agree to our <a href=\u0027{0}\u0027 target=\u0027_blank\u0027>Agreement Terms</a>."},"zh-TW":{"User {0} is not existed.":"使用者{0}不存在。","User {0} is registed.":"使用者{0}已經註冊。","Password is incorrect.":"密碼錯誤。","Username":"使用者名稱","Password":"密碼","Email":"電子信箱地址","Login":"登入","Register":"註冊","Login from Google":"從Google帳號登入","Login from GitHub":"從GitHub帳號登入","Login from Instagram":"從Instagram帳號登入","agreement-link":"如果您按下「登入」按鈕，表示您同意我們的<a href=\u0027{0}\u0027 target=\u0027_blank\u0027>知情同意書</a>。","cannot contain space":"不能包含空格"}}')
   delete Component.options._Ctor
 }
 
@@ -792,7 +792,9 @@ var render = function() {
                             _vm._v(
                               "\r\n              " +
                                 _vm._s(_vm.$t("Username")) +
-                                "\r\n            "
+                                "\r\n              (" +
+                                _vm._s(_vm.$t("cannot contain space")) +
+                                ")\r\n            "
                             )
                           ]),
                           _vm._v(" "),
@@ -2815,13 +2817,17 @@ let Login = {
       }
       
       if (this.adminMode === false) {
-        return (this.username === '')
+        return (!this.isUsernameValid)
       }
       else {
-        return (this.username === '' || this.password === '')
+        return (!this.isUsernameValid || this.password === '')
       }
       
       return true
+    },
+    isUsernameValid () {
+      return (this.username !== '' 
+        && this.username.indexOf(' ') === -1)
     },
     agreementLink: function () {
       return this.config.baseURL + '/client/webpage/agreement'

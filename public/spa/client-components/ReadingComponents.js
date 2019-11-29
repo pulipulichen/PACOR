@@ -3500,7 +3500,7 @@ var render = function() {
                   config: _vm.config,
                   status: _vm.status,
                   lib: _vm.lib,
-                  pauseAtStart: false
+                  pauseAtStart: _vm.pauseAtStart
                 }
               })
             ],
@@ -12290,7 +12290,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CompactNavigation = {
-  props: ['lib', 'status', 'config', 'compactWidth', 'position'],
+  props: ['lib', 'status', 'config'
+    , 'compactWidth', 'position', 'pauseAtStart'],
   data() {
     return {
       normalMenuDisplay: false,
