@@ -147,7 +147,10 @@ class WebpageGroup {
         }
 
         let users = await relation.fetch()
-        let output = users.toJSON().map(user => user.id)
+        let output = []
+        if (users !== null) {
+          output = users.toJSON().map(user => user.id)
+        }
         
         let adminIDs = await this.getAdminIDs()
         output = output.concat(adminIDs)

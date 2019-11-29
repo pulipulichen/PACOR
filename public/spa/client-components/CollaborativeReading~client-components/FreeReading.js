@@ -2282,8 +2282,7 @@ __webpack_require__.r(__webpack_exports__);
 
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
 
-
-let pauseAtStart = false
+let pauseAtStart = true
 if (pauseAtStart === true) {
   console.log('@test pauseAtStart')
 }
@@ -3535,10 +3534,10 @@ let NotificationIcon = {
               this.showFull()
               return false
             }
-            this.lib.NotificationManaper.stopReloadData()
+            this.lib.NotificationManager.stopReloadData()
           },
           onHidden: () => {
-            this.lib.NotificationManaper.startReloadData()
+            this.lib.NotificationManager.startReloadData()
           }
       })
 //      console.log('initPopup')

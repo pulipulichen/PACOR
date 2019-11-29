@@ -40,10 +40,10 @@ let NotificationIcon = {
               this.showFull()
               return false
             }
-            this.lib.NotificationManaper.stopReloadData()
+            this.lib.NotificationManager.stopReloadData()
           },
           onHidden: () => {
-            this.lib.NotificationManaper.startReloadData()
+            this.lib.NotificationManager.startReloadData()
           }
       })
 //      console.log('initPopup')

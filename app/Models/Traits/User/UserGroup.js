@@ -56,7 +56,7 @@ class UserGroup {
           //console.log(admins)
           if (admins !== null) {
             admins = admins.toJSON()
-            if (typeof(users.toJSON()) === true) { 
+            if (typeof(users.toJSON) === 'function') { 
               users = users.toJSON()
             }
             else if (Array.isArray(users) === false) {

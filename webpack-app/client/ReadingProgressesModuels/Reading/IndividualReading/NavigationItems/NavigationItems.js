@@ -1,6 +1,6 @@
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
 
-let pauseAtStart = false
+let pauseAtStart = true
 if (pauseAtStart === true) {
   console.log('@test pauseAtStart')
 }
