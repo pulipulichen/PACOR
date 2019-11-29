@@ -23,6 +23,7 @@ let PreImaginary = {
     data.remainingSeconds = null
     data.answer = ''
     data.header = this.$t(key)
+    data.isTimeUp = false
     return data
   },
   //components: {
@@ -77,18 +78,19 @@ let PreImaginary = {
         return 'green'
       }
     },
-    isTimeUp: function () {
-      return (typeof(this.remainingSeconds) === 'number'
-              && this.remainingSeconds <= 0)
-    }
+//    isTimeUp: function () {
+//      console.log(this.remainingSeconds)
+//      return (typeof(this.remainingSeconds) === 'number'
+//              && this.remainingSeconds <= 0)
+//    }
   },
   watch: {
-    'remainingSeconds': function () {
-      if (typeof(this.remainingSeconds) === 'number'
-              && this.remainingSeconds > 0) {
-        this.startCountdown()
-      }
-    },
+//    'remainingSeconds': function () {
+//      if (typeof(this.remainingSeconds) === 'number'
+//              && this.remainingSeconds > 0) {
+//        this.startCountdown()
+//      }
+//    },
     'answer' (answer) {
       //console.log(answer)
       if (answer !== this.log.answer) {
@@ -110,6 +112,9 @@ let PreImaginary = {
           this.answer = this.log.answer
           
           this.remainingSeconds = this.limitMinutes * 60 - Math.round((this.lib.DayJSHelper.time() - this.log.start_timestamp) / 1000)
+          if (this.remainingSeconds <= 0) {
+            this.isTimeUp = true
+          }
           //console.log(this.remainingSeconds)
         }
         catch (e) {}
@@ -125,13 +130,16 @@ let PreImaginary = {
         localStorage.setItem(this.persistKey, JSON.stringify(this.log))
       }
     },
-    startCountdown: function () {
-      return  // for test
-      setTimeout(() => {
-        if (this.remainingSeconds > 0) {
-          this.remainingSeconds--
-        }
-      }, 1000)
+//    startCountdown: function () {
+//      //return  // for test
+//      setTimeout(() => {
+//        if (this.remainingSeconds > 0) {
+//          this.remainingSeconds--
+//        }
+//      }, 1000)
+//    },
+    onTimeup() {
+      this.isTimeUp = true
     },
     nextStep: async function () {
       /*

@@ -1,4 +1,7 @@
 let debugMockUpdate = true
+if (debugMockUpdate === true) {
+  console.log('@test debugMockUpdate')
+}
 
 export default (SectionChecklist) => {
 //    initData () {
@@ -76,8 +79,8 @@ export default (SectionChecklist) => {
         //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
 
         //console.log(this.sectionSeqID)
-        this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
-        //this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
+        //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
+        this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
 //        console.log(this.sectionsData.checklistAnnotation)
 //          if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID]) === false) {
 //            this.sectionsData.checklist[this.sectionSeqID] = []
@@ -105,6 +108,7 @@ export default (SectionChecklist) => {
         this.checkIsChecklistCompleted()
         //console.log(this.checked)
         this._saveToLocalStorage()
+        //this.$emit('')
       },
       'update': (annotation) => {
         //console.log(annotation)

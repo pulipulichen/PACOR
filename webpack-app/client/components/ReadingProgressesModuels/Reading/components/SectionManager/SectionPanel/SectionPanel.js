@@ -33,7 +33,7 @@ let SectionPanel = {
      */
     isShowAnnotationList () {
       if (this.lib.auth.isEnableCollaboration === false) {
-        return (this.isChecklistSubmitted === true)
+        return this.isChecklistSubmitted
       }
       else {
         return true
@@ -53,13 +53,14 @@ let SectionPanel = {
       this.node.parentNode.insertBefore(this.$refs.panel, this.node.nextSibling)
     },
     checkIsChecklistSubmitted () {
-      if (this.lib.auth.enableCollaboration === true) {
+      if (this.lib.auth.isEnableCollaboration) {
         this.isChecklistSubmitted = true
       }
       
       this.isChecklistSubmitted = (this.sectionsData
-              && this.sectionsData.checklistSubmitted
-              && this.sectionsData.checklistSubmitted[this.sectionSeqID])
+              && this.sectionsData.checklistAnnotation
+              && typeof(this.sectionsData.checklistAnnotation[this.sectionSeqID]) !== 'undefined' )
+      console.log(this.sectionsData, this.isChecklistSubmitted)
     }
   } // methods
 }

@@ -1,7 +1,7 @@
 <button type="button"
         class="ui button"
         v-bind:class="computedClassName"
-        v-on:click="$emit('click')">
+        v-on:click="onClick">
   <template v-if="isEnable">
     <slot></slot>
   </template>

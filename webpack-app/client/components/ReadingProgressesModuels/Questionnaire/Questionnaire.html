@@ -48,7 +48,6 @@
       </div>
       -->
 
-      <!-- @TODO 能夠重整按鈕嗎？ -->
       <countdown-button 
         v-bind:minWordCount="minWords"
         enableClassNames="ui green right labeled icon button"
@@ -56,8 +55,10 @@
         v-bind:lib="lib"
         v-bind:locale="status.preference.locale"
         v-bind:countdownSec="remainingSeconds"
+        v-bind:enable="isTimeUp"
         v-bind:ignoreWordCount="true"
-        v-on:click="nextStep">
+        v-on:click="nextStep"
+        v-on:timeup="onTimeup">
         {{ $t('NEXT') }}
         <i class="angle right icon"></i>
       </countdown-button>

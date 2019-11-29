@@ -47,7 +47,7 @@ let i18nGlobal = {
     "Not yet started": "尚未開始",
     "READING_PROGRESS.not-yet-started": "尚未開始",
     "READING_PROGRESS.PreImaginary": "閱讀前的想像",
-    "READING_PROGRESS.IndividualReading": "個人閱讀",
+    "READING_PROGRESS.IndividualReading": "專注閱讀",
     "READING_PROGRESS.CollaborativeReading": "協助閱讀",
     "READING_PROGRESS.PostRecall": "閱讀後的回想",
     "READING_PROGRESS.finish": "已經完成",

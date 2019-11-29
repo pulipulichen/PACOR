@@ -1,5 +1,10 @@
 import $ from 'jquery'
 
+let debugDisable = true
+if (debugDisable === true) {
+  console.log('@test degubDisable')
+}
+
 let DigitalCountdownTimer = {
   props: ['lib', 'config'
     , 'remainingSeconds', 'pauseAtStart'],
@@ -110,6 +115,10 @@ let DigitalCountdownTimer = {
         setTimeout(() => {
           this.isEnableGlow = false
         }, 700)
+      }
+      
+      if (debugDisable === true) {
+        return null
       }
       
       if (this.dataPause === true) {

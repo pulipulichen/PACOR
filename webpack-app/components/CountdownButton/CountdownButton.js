@@ -1,3 +1,9 @@
+let debugDisable = false
+if (debugDisable === true) {
+  console.log('@test debugDisable')
+}
+
+
 let CountdownButton = {
   props: ['locale', 'lib', 'countdownSec'
     , 'minWordCount', 'maxWordCount', 'text', 'ignoreWordCount'
@@ -43,7 +49,7 @@ let CountdownButton = {
       if (this.enable === false) {
         return false
       }
-      if (this.ignoreWordCount === true) {
+      else if (this.ignoreWordCount === true) {
         return (this.remainingSeconds === 0)
       }
       else {
@@ -98,6 +104,11 @@ let CountdownButton = {
       }
       this.remainingSeconds = this.countdownSec
       //console.log(this.remainingSeconds)
+      
+      if (debugDisable === true) {
+        return null
+      }
+      
       this.countdown()
     },
     countdown () {
@@ -108,7 +119,17 @@ let CountdownButton = {
         if (this.remainingSeconds > 0) {
           this.countdown()
         }
+        else {
+          //console.log('等於0了')
+          this.$emit('timeup')
+        }
       }, 1000)
+    },
+    onClick () {
+      if (!this.isEnable) {
+        return null
+      }
+      this.$emit('click')
     }
   }
 }

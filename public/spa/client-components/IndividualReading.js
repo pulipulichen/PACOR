@@ -55,7 +55,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".username[data-v-2f10c4fe] {\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-2f10c4fe] {\n  font-size: 1rem;\n  font-weight: normal;\n}\n", "",{"version":3,"sources":["NavigationItems.less?vue&type=style&index=0&id=2f10c4fe&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,iBAAiB;AACnB;AACA;EACE,eAAe;EACf,mBAAmB;AACrB","file":"NavigationItems.less?vue&type=style&index=0&id=2f10c4fe&lang=less&scoped=true&","sourcesContent":[".username[data-v-2f10c4fe] {\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-2f10c4fe] {\n  font-size: 1rem;\n  font-weight: normal;\n}\n"]}]);
+exports.push([module.i, ".username[data-v-2f10c4fe] {\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-2f10c4fe] {\n  font-size: 1rem;\n  font-weight: normal;\n  line-height: 1.5em;\n}\n", "",{"version":3,"sources":["NavigationItems.less?vue&type=style&index=0&id=2f10c4fe&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,iBAAiB;AACnB;AACA;EACE,eAAe;EACf,mBAAmB;EACnB,kBAAkB;AACpB","file":"NavigationItems.less?vue&type=style&index=0&id=2f10c4fe&lang=less&scoped=true&","sourcesContent":[".username[data-v-2f10c4fe] {\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-2f10c4fe] {\n  font-size: 1rem;\n  font-weight: normal;\n  line-height: 1.5em;\n}\n"]}]);
 
 
 /***/ }),

@@ -409,7 +409,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Write section main ideas":"撰寫小節重點","Edit section main ideas":"編輯小節重點"}}')
   delete Component.options._Ctor
 }
 
@@ -11390,7 +11390,10 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = false
+let debugMockSend = true
+if (debugMockSend === true) {
+  console.log('@test debugMockSend')
+}
 
 let Editor = {
   props: _props__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -11646,7 +11649,10 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = false
+let debugMockSend = true
+if (debugMockSend === true) {
+  console.log('@test debugMockSend')
+}
 
 let Editor = {
   props: _props__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -24107,6 +24113,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let debugMockUpdate = true
+if (debugMockUpdate === true) {
+  console.log('@test debugMockUpdate')
+}
 
 /* harmony default export */ __webpack_exports__["default"] = ((SectionChecklist) => {
 //    initData () {
@@ -24184,8 +24193,8 @@ let debugMockUpdate = true
         //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
 
         //console.log(this.sectionSeqID)
-        this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
-        //this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
+        //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
+        this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
 //        console.log(this.sectionsData.checklistAnnotation)
 //          if (Array.isArray(this.sectionsData.checklist[this.sectionSeqID]) === false) {
 //            this.sectionsData.checklist[this.sectionSeqID] = []
@@ -24213,6 +24222,7 @@ let debugMockUpdate = true
         this.checkIsChecklistCompleted()
         //console.log(this.checked)
         this._saveToLocalStorage()
+        //this.$emit('')
       },
       'update': (annotation) => {
         //console.log(annotation)
@@ -24364,7 +24374,7 @@ let SectionPanel = {
      */
     isShowAnnotationList () {
       if (this.lib.auth.isEnableCollaboration === false) {
-        return (this.isChecklistSubmitted === true)
+        return this.isChecklistSubmitted
       }
       else {
         return true
@@ -24384,13 +24394,14 @@ let SectionPanel = {
       this.node.parentNode.insertBefore(this.$refs.panel, this.node.nextSibling)
     },
     checkIsChecklistSubmitted () {
-      if (this.lib.auth.enableCollaboration === true) {
+      if (this.lib.auth.isEnableCollaboration) {
         this.isChecklistSubmitted = true
       }
       
       this.isChecklistSubmitted = (this.sectionsData
-              && this.sectionsData.checklistSubmitted
-              && this.sectionsData.checklistSubmitted[this.sectionSeqID])
+              && this.sectionsData.checklistAnnotation
+              && typeof(this.sectionsData.checklistAnnotation[this.sectionSeqID]) !== 'undefined' )
+      console.log(this.sectionsData, this.isChecklistSubmitted)
     }
   } // methods
 }

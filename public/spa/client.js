@@ -1476,11 +1476,7 @@ var render = function() {
       staticClass: "ui button",
       class: _vm.computedClassName,
       attrs: { type: "button" },
-      on: {
-        click: function($event) {
-          return _vm.$emit("click")
-        }
-      }
+      on: { click: _vm.onClick }
     },
     [
       _vm.isEnable
@@ -4664,6 +4660,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+let debugDisable = false
+if (debugDisable === true) {
+  console.log('@test debugDisable')
+}
+
+
 let CountdownButton = {
   props: ['locale', 'lib', 'countdownSec'
     , 'minWordCount', 'maxWordCount', 'text', 'ignoreWordCount'
@@ -4709,7 +4711,7 @@ let CountdownButton = {
       if (this.enable === false) {
         return false
       }
-      if (this.ignoreWordCount === true) {
+      else if (this.ignoreWordCount === true) {
         return (this.remainingSeconds === 0)
       }
       else {
@@ -4764,6 +4766,11 @@ let CountdownButton = {
       }
       this.remainingSeconds = this.countdownSec
       //console.log(this.remainingSeconds)
+      
+      if (debugDisable === true) {
+        return null
+      }
+      
       this.countdown()
     },
     countdown () {
@@ -4774,7 +4781,17 @@ let CountdownButton = {
         if (this.remainingSeconds > 0) {
           this.countdown()
         }
+        else {
+          //console.log('等於0了')
+          this.$emit('timeup')
+        }
       }, 1000)
+    },
+    onClick () {
+      if (!this.isEnable) {
+        return null
+      }
+      this.$emit('click')
     }
   }
 }
@@ -4904,6 +4921,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 
+let debugDisable = true
+if (debugDisable === true) {
+  console.log('@test degubDisable')
+}
+
 let DigitalCountdownTimer = {
   props: ['lib', 'config'
     , 'remainingSeconds', 'pauseAtStart'],
@@ -5014,6 +5036,10 @@ let DigitalCountdownTimer = {
         setTimeout(() => {
           this.isEnableGlow = false
         }, 700)
+      }
+      
+      if (debugDisable === true) {
+        return null
       }
       
       if (this.dataPause === true) {
