@@ -45,6 +45,7 @@ let IndividualReading = {
     },
     onTimeup () {
       //throw new Error('Wait')
+      //console.log('timeup')
       this.lib.auth.nextStep()
     },
     

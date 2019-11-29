@@ -10,6 +10,7 @@ let NavigationItems = {
     , 'progress', 'error'],
   data() {    
     this.$i18n.locale = this.config.locale
+    //console.log(pauseAtStart)
     return {
       pauseAtStart
     }
@@ -43,7 +44,7 @@ let NavigationItems = {
       this.$emit('showInstruction')
     },
     nextStep () {
-      //this.lib.auth.nextStep()
+      this.lib.auth.nextStep()
     }
   } // methods
 }

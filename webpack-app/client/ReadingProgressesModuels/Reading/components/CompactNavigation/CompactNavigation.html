@@ -21,7 +21,8 @@
           v-bind:status="status"
           v-bind:lib="lib"
           
-          v-bind:pauseAtStart="pauseAtStart">
+          v-bind:pauseAtStart="pauseAtStart"
+          v-on:timeup="$emit('timeup')">
         </simple-countdown-timer>
       </div>
     </div>

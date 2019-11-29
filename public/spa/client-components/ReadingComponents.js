@@ -3501,6 +3501,11 @@ var render = function() {
                   status: _vm.status,
                   lib: _vm.lib,
                   pauseAtStart: _vm.pauseAtStart
+                },
+                on: {
+                  timeup: function($event) {
+                    return _vm.$emit("timeup")
+                  }
                 }
               })
             ],
@@ -12293,6 +12298,7 @@ let CompactNavigation = {
   props: ['lib', 'status', 'config'
     , 'compactWidth', 'position', 'pauseAtStart'],
   data() {
+    //console.log(this.pauseAtStart)
     return {
       normalMenuDisplay: false,
       

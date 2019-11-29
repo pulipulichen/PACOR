@@ -219,11 +219,17 @@ Cache.rememberForeverWait = function (tags, cacheKey, callback) {
   
     // ------------------------------
     // 如果沒有被鎖定的話
-    let result = await cacheQuery.rememberForever(cacheKey, callback)
-    delete this.rememberWaitLocks[lockName]
-    //console.log(this.rememberWaitLocks)
-    resolve(result)
-    return true
+    try {
+      let result = await cacheQuery.rememberForever(cacheKey, callback)
+      delete this.rememberWaitLocks[lockName]
+      //console.log(this.rememberWaitLocks)
+      resolve(result)
+      return true
+    }
+    catch (e) {
+      console.trace('CacheHelper error', tags, cacheKey)
+      throw new Error(e)
+    }
   })  // return new Promise((resolve, reject) => {
 }
 

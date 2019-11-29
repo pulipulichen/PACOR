@@ -3535,10 +3535,10 @@ let NotificationIcon = {
               this.showFull()
               return false
             }
-            this.stopReloadData()
+            this.lib.NotificationManaper.stopReloadData()
           },
           onHidden: () => {
-            this.startReloadData()
+            this.lib.NotificationManaper.startReloadData()
           }
       })
 //      console.log('initPopup')

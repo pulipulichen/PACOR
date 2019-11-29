@@ -5494,7 +5494,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let CountdownTimer = {
-  props: ['lib', 'config', 'remainingSeconds', 'pauseAtStart'],
+  props: ['lib', 'config'
+    , 'remainingSeconds', 'pauseAtStart'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -5524,6 +5525,7 @@ let CountdownTimer = {
         this.dataRemainingSec = await this.lib.AxiosHelper.get('/client/ReadingProgress/getRemainingSeconds')
       }
       
+      //console.log(this.pauseAtStart)
       if (this.dataPause === true) {
         return null
       }
@@ -5539,6 +5541,7 @@ let CountdownTimer = {
       }, 1000)
     },
     timeup () {
+      //console.log('timeup')
       this.$emit('timeup')
     },
     pause () {

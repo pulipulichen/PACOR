@@ -5,6 +5,7 @@ let CompactNavigation = {
   props: ['lib', 'status', 'config'
     , 'compactWidth', 'position', 'pauseAtStart'],
   data() {
+    //console.log(this.pauseAtStart)
     return {
       normalMenuDisplay: false,
       
