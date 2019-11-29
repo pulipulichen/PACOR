@@ -80,7 +80,12 @@ var render = function() {
         attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
       }),
       _vm._v(" "),
-      _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
+      _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
+      _vm._v(" "),
+      _c("notification-manager", {
+        ref: "NotificationManager",
+        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+      })
     ],
     1
   )

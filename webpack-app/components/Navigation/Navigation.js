@@ -12,6 +12,11 @@ let Navigation = {
   components: {
     'media': Media
   },
+  watch: {
+    isCompactMode (isCompactMode) {
+      this.$emit('changeCompactMode', isCompactMode)
+    }
+  },
   computed: {
     maxWidth: function () {
       let w = this.compactWidth

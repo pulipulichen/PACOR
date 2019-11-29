@@ -30,9 +30,9 @@ let NotificationModal = {
         throw new Error('No notification')
         return null
       }
-      console.log(result)
+      //console.log(result)
       for (let key in result) {
-        console.log(key)
+        //console.log(key)
         this[key] = result[key]
       }
       

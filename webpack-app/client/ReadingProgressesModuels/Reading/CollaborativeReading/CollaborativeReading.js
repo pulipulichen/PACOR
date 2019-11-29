@@ -1,4 +1,5 @@
 import NavigationItems from './NavigationItems/NavigationItems.vue'
+import NotificationManager from './NotificationManager/NotificationManager.vue'
 import $ from 'jquery'
 
 let CollaborativeReading = {
@@ -8,7 +9,8 @@ let CollaborativeReading = {
     }
   },
   components: {
-    'navigation-items': NavigationItems
+    'navigation-items': NavigationItems,
+    'notification-manager': NotificationManager
   },
 //  computed: {
 //  },
@@ -42,7 +44,7 @@ let CollaborativeReading = {
       this.lib.SectionManager = this.$refs.SectionManager
       this.lib.UserFilter = this.$refs.nav.$refs.UserFilter
       this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
-      this.lib.NotificationManager = this.$refs.nav.$refs.NotificationManager
+      this.lib.NotificationManager = this.$refs.NotificationManager
       //console.log(this.lib.AnnotationPanel)
     },
     showInstruction() {

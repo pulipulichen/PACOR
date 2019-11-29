@@ -6,15 +6,14 @@
   compactWidth="640"
   position="bottom">
   <template v-slot:header>
-    <notification-manager
+    <notification-icon
       v-if="status.preference.leftHanded"
-      ref="NotificationManager"
       v-bind:config="config"
       v-bind:status="status"
       v-bind:lib="lib">
-    </notification-manager>
+    </notification-icon>
     
-    <a class="item avatar in-top"
+    <a class="fitted item avatar in-top"
        v-on:dblclick="nextStep"
        v-on:click="showInstruction">
       <img v-bind:src="status.avatar">
@@ -41,7 +40,6 @@
   <!-- ========================= -->
 
   <template v-slot:items>
-
     <!-- for test -->
     <!--
     <a class="item"
@@ -72,25 +70,23 @@
       </search-manager>
     </div>
     
-    <notification-manager
+    <notification-icon
       v-if="!status.preference.leftHanded"
-      ref="NotificationManager"
       v-bind:config="config"
       v-bind:status="status"
       v-bind:lib="lib">
-    </notification-manager>
-
+    </notification-icon>
   </template>
 
   
   <template v-slot:compactItems>
-    <notification-manager
-      v-if="!status.preference.leftHanded"
+    
+    <notification-icon
       ref="NotificationManager"
       v-bind:config="config"
       v-bind:status="status"
       v-bind:lib="lib">
-    </notification-manager>
+    </notification-icon>
   </template>
   
 </navigation>

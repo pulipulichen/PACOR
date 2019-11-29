@@ -1,4 +1,4 @@
-import NotificationManager from './../NotificationManager/NotificationManager.vue'
+import NotificationIcon from './../NotificationManager/NotificationIcon/NotificationIcon.vue'
 import UserFilter from './../../components/UserFilter/UserFilter.vue'
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
 
@@ -19,7 +19,7 @@ let NavigationItems = {
   },
   components: {
     //'annotation-type-filter': AnnotationTypeFilter,
-    'notification-manager': NotificationManager,
+    'notification-icon': NotificationIcon,
     'user-filter': UserFilter
   },
 //  

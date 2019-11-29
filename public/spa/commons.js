@@ -2056,6 +2056,11 @@ let Navigation = {
   components: {
     'media': vue_media__WEBPACK_IMPORTED_MODULE_0___default.a
   },
+  watch: {
+    isCompactMode (isCompactMode) {
+      this.$emit('changeCompactMode', isCompactMode)
+    }
+  },
   computed: {
     maxWidth: function () {
       let w = this.compactWidth

@@ -1,0 +1,29 @@
+<a class="NotificationIcon item"
+   v-on:click.self="() => { $refs.anchor.click() }">
+  <i class="bell icon"
+     ref="anchor"
+     v-on:click.once="initPopup"></i>
+
+  <div v-if="notificationData.unreadCount > 0"
+       class="floating ui red label">
+    {{ notificationData.unreadCount }}
+  </div>
+
+  <div class="list ui popup"
+       ref="popup">
+    <notification-feed 
+      ref="feed"
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+      
+      v-bind:notificationData="notificationData">
+    </notification-feed>
+    
+    <div class="ui segment view-all"
+         v-if="notificationData.hasNotification"
+         v-on:click="() => { lib.NotificationManager.showFull() }">
+      {{ $t('View All Notifications') }}
+    </div>
+  </div>
+</a>

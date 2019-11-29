@@ -2241,7 +2241,12 @@ let VueController = {
       filter: {
         findType: null,
         focusUser: null
-      }
+      },
+      notificationData: {
+        unreadCount: 0,
+        unreadNotifications: [],
+        hasNotification: true,
+      },
     },
     progress: {
       component: false,

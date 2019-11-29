@@ -1,28 +1,24 @@
-import $ from 'jquery'
-import NotificationFeed from './NotificationFeed/NotificationFeed.vue'
-import NotificationModal from './NotificationModal/NotificationModal.vue'
+import NotificationModal from './NotificationIcon/NotificationModal/NotificationModal.vue'
 
 let NotificationManager = {
   props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      notificationData: {
-        unreadCount: 0,
-        unreadNotifications: [],
-        hasNotification: true,
-      },
       
       afterTime: null,
       timer: null,
-      reloadIntervalSeconds: 30
+      reloadIntervalSeconds: 30,
+      isLoading: false
     }
   },
   components: {
-    "notification-feed": NotificationFeed,
     "notification-modal": NotificationModal
   },
   computed: {
+    notificationData () {
+      return this.status.notificationData
+    },
 //    unreadCount () {
 //      return this.notificationData.unreadCount
 //    },
@@ -37,18 +33,27 @@ let NotificationManager = {
   mounted() {
     this.initNotificationData()
     
-    this.startReloadData()
+    //this.startReloadData()
+  },
+  destroyed () {
+    this.stopReloadData()
   },
   methods: {
     initNotificationData: async function () {
+      if (this.isLoading === true) {
+        return null
+      }
+      this.isLoading = true
+      
       let data = {
         afterTime: this.afterTime
       }
-      
+      //console.log(this.isLoading)
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/init', data)
       
       this.afterTime = (new Date()).getTime()
       this.startReloadData()
+      this.isLoading = false
       if (result === 0) {
         return null
       }
@@ -61,42 +66,22 @@ let NotificationManager = {
       //result = await this.lib.AxiosHelper.get('/client/UserNotification/fullInit', data)
       //console.log(result)
     },
-    initPopup () {
-      let anchor = $(this.$refs.anchor)
-      
-      anchor.popup({
-          popup: this.$refs.popup,
-          inline     : true,
-          hoverable  : true,
-          on    : 'click',
-          distanceAway: 20,
-          position: "top center",
-          onShow: () => {
-            if (this.notificationData.unreadNotifications.length === 0) {
-              this.showFull()
-              return false
-            }
-            this.stopReloadData()
-          },
-          onHidden: () => {
-            this.startReloadData()
-          }
-      })
-//      console.log('initPopup')
-      anchor.click()
-    },
     startReloadData () {
+      clearTimeout(this.timer)
       this.timer = setTimeout(() => {
         //console.log('重新讀取')
+        if (this.timer === null) {
+          return null
+        }
+        clearTimeout(this.timer)
+        //console.trace('讀了讀了')
+        //return
         this.initNotificationData()
       }, this.reloadIntervalSeconds * 1000)
     },
     stopReloadData () {
       clearTimeout(this.timer)
-    },
-    show () {
-      this.$refs.anchor.click()
-      //throw new Error('show')
+      this.timer = null
     },
     showFull () {
       this.$refs.NotificationModal.show()
