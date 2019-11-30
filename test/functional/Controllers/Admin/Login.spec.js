@@ -14,6 +14,7 @@ test('check login status before login', async ({ assert, client  }) => {
           .session('adonis-auth', 1)
           .end()
   
+  console.log(response.text)
   response.assertStatus(200)
   response.assertText('0')
 })
@@ -42,6 +43,7 @@ test('check login status after login', async ({ assert, client  }) => {
           .session('adonis-auth', 1)
           .end()
   
+  console.log(response.text)
   response.assertStatus(200)
   response.assertJSONSubset({
     role: 'global_admin'

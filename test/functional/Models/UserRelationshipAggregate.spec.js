@@ -1,7 +1,7 @@
 /* global __filename */
 
 'use strict'
-let title = 'Controllers/Models/' + __filename
+let title = __filename
 
 /**
  * https://www.chaijs.com/api/assert/
@@ -37,7 +37,7 @@ let config = {
     
     user = user.first()
     let types = await user.getAnnotationTypes()
-    console.log(types)
+    //console.log(types)
     assert.isArray(types)
   },
 }

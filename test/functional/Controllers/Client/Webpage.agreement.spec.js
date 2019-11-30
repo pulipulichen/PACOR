@@ -10,7 +10,7 @@ trait('Session/Client')
 
 const Sleep = use('Sleep')
 
-const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html'
+const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html?Webpage.agreement.spec'
 
 test('check agreement is work', async ({ assert, client }) => {
   let response = await client.get('/client/webpage/agreement')

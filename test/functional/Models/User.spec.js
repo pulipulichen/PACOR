@@ -3,13 +3,13 @@
  * https://www.chaijs.com/api/assert/
  * @type type
  */
-const { test, trait } = use('Test/Suite')('Models/User')
+const { test, trait } = use('Test/Suite')(__filename)
 
 const UserModel = use('App/Models/User')
 const WebpageModel = use('App/Models/Webpage')
 
 test('create groups in webpage', async ({ assert }) => {
-  let webpage = await WebpageModel.findByURL('http://blog.pulipuli.info')
+  let webpage = await WebpageModel.findByURL('http://blog.pulipuli.info-User.spec')
   let groupSetting = `a b c
 d e
 f g`

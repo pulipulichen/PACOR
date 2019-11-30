@@ -40,7 +40,7 @@ let config = {
     webpage = await WebpageModel.findByURL(url)
     let group = await webpage.getGroup(0)
     
-    assert.equal(group.toJSON().users.length, 4)
+    assert.equal(group.toJSON().users.length, 5)
   },
   
   // ---------------------------------------------------------
@@ -65,7 +65,7 @@ let config = {
     assert.equal(stepName, 'CollaborativeReading')
     
     let annotations = await AnnotationModel.findByWebpageUser(webpage, user, {})
-    assert.equal(annotations.size(), 8) // 包含布甲跟布乙
+    assert.equal(annotations.size(), 13) // 包含布甲跟布乙
   },
   'c0-3. 布丙': async function ( { assert, client } ) {    
     //let webpage = await WebpageModel.findByURL(url)
@@ -75,7 +75,7 @@ let config = {
     assert.equal(stepName, 'CollaborativeReading')
     
     let annotations = await AnnotationModel.findByWebpageUser(webpage, user, {})
-    assert.equal(annotations.size(), 8) // 包含布甲跟布乙
+    assert.equal(annotations.size(), 13) // 包含布甲跟布乙
   },
   'c0-4. 布丁': async function ( { assert, client } ) {    
     //let webpage = await WebpageModel.findByURL(url)
@@ -85,11 +85,21 @@ let config = {
     assert.equal(stepName, 'CollaborativeReading')
     
     let annotations = await AnnotationModel.findByWebpageUser(webpage, user, {})
-    assert.equal(annotations.size(), 8) // 包含布甲跟布乙
+    assert.equal(annotations.size(), 13) // 包含布甲跟布乙
   },
-  'c1-1. 布戊': async function ( { assert, client } ) {    
+  'c0-5. 布戊': async function ( { assert, client } ) {    
     //let webpage = await WebpageModel.findByURL(url)
     let user = await UserModel.findByNameInWebpage(webpage, '布戊')
+    
+    let stepName = await user.getCurrentReadingProgressStepName(webpage)
+    assert.equal(stepName, 'PreImaginary')
+    
+    let annotations = await AnnotationModel.findByWebpageUser(webpage, user, {})
+    assert.equal(annotations.size(), 3) // 包含布甲跟布乙
+  },
+  'c1-1. 布己': async function ( { assert, client } ) {    
+    //let webpage = await WebpageModel.findByURL(url)
+    let user = await UserModel.findByNameInWebpage(webpage, '布己')
     
     let stepName = await user.getCurrentReadingProgressStepName(webpage)
     assert.equal(stepName, 'CollaborativeReading')
@@ -97,9 +107,9 @@ let config = {
     let annotations = await AnnotationModel.findByWebpageUser(webpage, user, {})
     assert.equal(annotations.size(), 3) // 包含布甲跟布乙
   },
-  'c1-2. 布己': async function ( { assert, client } ) {    
+  'c1-2. 布庚': async function ( { assert, client } ) {    
     //let webpage = await WebpageModel.findByURL(url)
-    let user = await UserModel.findByNameInWebpage(webpage, '布己')
+    let user = await UserModel.findByNameInWebpage(webpage, '布庚')
     
     let stepName = await user.getCurrentReadingProgressStepName(webpage)
     assert.equal(stepName, 'IndividualReading')

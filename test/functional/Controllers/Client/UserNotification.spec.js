@@ -33,7 +33,7 @@ let config = {
     assert.isNumber(user.primaryKeyValue)
     
     let notifications = await user.notifications().fetch()
-    assert.equal(notifications.size(), 102)
+    assert.equal(notifications.size(), 8) // 重複的已經縮減了
   },
 }
 

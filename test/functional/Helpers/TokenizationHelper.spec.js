@@ -37,7 +37,7 @@ test('parseWordFrequency', async ({ assert, client }) => {
 test('parseCharFrequency', async ({ assert, client }) => {
   let text = '在地的淡水人，是一個十多年來，跟大家一樣，每天從淡水站出發，擠著捷運上下班的通勤族，更是個和大家一樣為了家庭、孩子，經常必須努力工作到深夜的爸爸。'
   let result = TokenizationHelper.parseCharFrequency(text)
-  console.log(result)
+  //console.log(result)
   assert.isObject(result)
 }).timeout(0)
 

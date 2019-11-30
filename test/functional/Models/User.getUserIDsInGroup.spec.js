@@ -1,7 +1,7 @@
 /* global __filename */
 
 'use strict'
-let title = 'Controllers/Models/' + __filename
+let title = __filename
 
 /**
  * https://www.chaijs.com/api/assert/
@@ -20,7 +20,7 @@ const ReadingActivityLog = use('App/Models/ReadingActivityLog')
 
 const Sleep = use('Sleep')
 
-const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html'
+const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html?User.getUserIDsInGroup.spec'
 
 
 let config = {

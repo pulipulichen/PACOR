@@ -11,7 +11,7 @@ trait('Session/Client')
 const Cache = use('Cache')
 const Sleep = use('Sleep')
 
-const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html'
+const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html?Cache.rememberWait.spec'
 
 const cacheKeyBoolean = 'test.boolean'
 const cacheKeyObject = 'test.object'

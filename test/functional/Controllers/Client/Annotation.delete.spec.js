@@ -3,7 +3,7 @@
  * https://www.chaijs.com/api/assert/
  * @type type
  */
-const { test, trait } = use('Test/Suite')('Controllers/Client/Annotation')
+const { test, trait } = use('Test/Suite')('Controllers/Client/Annotation.delete.spec')
 
 trait('Test/ApiClient')
 trait('Session/Client')
@@ -15,8 +15,9 @@ const AnnotationModel = use('App/Models/Annotation')
 const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
 
 const Sleep = use('Sleep')
+const Cache = use('Cache')
 
-const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html'
+const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html?Annotation.delete.spec'
 
 test('create group in webpage', async ({ assert, client }) => {
   let webpage = await WebpageModel.findByURL(url)
@@ -145,7 +146,7 @@ test('a: create a private annotation', async ({ assert, client }) => {
           .send(data)
           .end()
   
-  console.log(response.text)
+  //console.log(response.text)
   //response.assertError([])
   response.assertStatus(200)
   response.assertText(2)
@@ -168,7 +169,7 @@ test('a: check annotation is logged', async ({ assert, client }) => {
           .end()
   
   //console.log(response.text)
-  //console.log(JSON.stringify(response.body, null, ' '))
+  console.log(JSON.stringify(response.body, null, ' '))
   response.assertStatus(200)
   assert.equal(response.body.length, 2)
   response.assertJSONSubset([
@@ -257,7 +258,40 @@ test('b: create a public annotation', async ({ assert, client }) => {
   let afterTime = (new Date()).getTime()
   
   //console.log('b public time', afterTime)
-  await Sleep(2)
+  //await Sleep(2)
+}).timeout(0)
+
+
+test('b: create a public annotation 2', async ({ assert, client }) => {
+  let data = {
+    anchorPositions: [
+      {
+        paragraph_seq_id: 1,
+        paragraph_id: 'aaa1',
+        start_pos: 120,
+        end_pos: 140,
+        anchor_text: 'AAA'
+      },
+    ],
+    type: 'MainIdea',
+    note: '測試筆記'
+  }
+  
+  let response = await client.post('/client/Annotation/create')
+          .header('Referer', url)
+          .session('adonis-auth', 2)
+          .send(data)
+          .end()
+  
+  //console.log(response.text)
+  //response.assertError([])
+  response.assertStatus(200)
+  response.assertText(4)
+  
+  let afterTime = (new Date()).getTime()
+  
+  //console.log('b public time', afterTime)
+  //await Sleep(2)
 }).timeout(0)
 
 test('b: create a private annotation', async ({ assert, client }) => {
@@ -291,84 +325,14 @@ test('b: create a private annotation', async ({ assert, client }) => {
   //console.log(response.text)
   //response.assertError([])
   response.assertStatus(200)
-  response.assertText(4)
+  response.assertText(5)
   
   let afterTime = (new Date()).getTime()
   //console.log('b private time', afterTime)
 })
 
-test('b: test index', async ({ assert, client }) => {
-  let response = await client.get('/client/Annotation/index')
-          .header('Referer', url)
-          .session('adonis-auth', 2)
-          .end()
-  
-  //console.log(JSON.stringify(response, null, ' '))
-  response.assertStatus(200)
-  
-  //console.log(response.body)
-  //console.log(JSON.stringify(response.body, null, ' '))
-  assert.equal(response.body.length, 3)
-})
-
-test('b: test index with afterTime', async ({ assert, client }) => {
-  let afterTime = (new Date()).getTime() - (1000 * 2)
-  let response = await client.get('/client/Annotation/index')
-          .query({
-            afterTime: afterTime
-          })
-          .header('Referer', url)
-          .session('adonis-auth', 2)
-          .end()
-  
-  //console.log(response.text)
-  response.assertStatus(200)
-  
-  //console.log(response.body)
-  //console.log(JSON.stringify(response.body, null, ' '))
-  assert.equal(response.body.length, 1)
-})
-
-test('b: test highligh', async ({ assert, client }) => {
-  let response = await client.get('/client/Annotation/highlights')
-          .header('Referer', url)
-          .session('adonis-auth', 2)
-          .end()
-  
-  //console.log(response.text)
-  response.assertStatus(200)
-  
-  //console.log(response.body)
-  //console.log(JSON.stringify(response.body, null, ' '))
-  assert.equal(response.text.split('|').length, 6) // 4個自己的，兩個別人的
-})
-
-test('b: find annotations with positions in overlap mode', async ({ assert, client }) => {
-  let response = await client.get('/client/Annotation/index')
-          .query({
-            anchorPositions: [
-              {
-                paragraph_id: 'aaa2',
-                start_pos: 8,
-                end_pos: 6
-              }
-            ],
-            anchorMode: 'overlap'
-          })
-          .header('Referer', url)
-          .session('adonis-auth', 2)
-          .end()
-  
-  //console.log(response.text)
-  response.assertStatus(200)
-  
-  //console.log(response.body)
-  //console.log(JSON.stringify(response.body, null, ' '))
-  assert.equal(response.body.length, 1) // 應該只找得到一個
-})
-
-test('b: find annotations with positions in exact mode', async ({ assert, client }) => {
-  let response = await client.get('/client/Annotation/index')
+test('b: test floatWidget', async ({ assert, client }) => {
+  let response = await client.get('/client/Annotation/floatWidget')
           .query({
             anchorPositions: [
               {
@@ -377,51 +341,135 @@ test('b: find annotations with positions in exact mode', async ({ assert, client
                 end_pos: 14
               }
             ],
-            anchorMode: 'exact'
           })
           .header('Referer', url)
           .session('adonis-auth', 2)
           .end()
   
+  //console.log(JSON.stringify(response, null, ' '))
   //console.log(response.text)
   response.assertStatus(200)
   
   //console.log(response.body)
-  //console.log(response.body.map(a => a.anchorPositions))
   //console.log(JSON.stringify(response.body, null, ' '))
-  assert.equal(response.body.length, 1) // 應該只找得到一個
+  assert.equal(response.body.annotationCount, 1)
+  
+  //console.log(response.body.annotation.id)
+  assert.isObject(response.body.annotation)
 })
 
-
-test('b: find annotations with positions in include mode', async ({ assert, client }) => {
+test('b: remove annotation', async ({ assert, client }) => {
+  let annotationID = 3
   
-  let annotation = await AnnotationModel.query().where('id', 3).with('anchorPositions').fetch()
-  //console.log(annotation.toJSON()[0].anchorPositions)
-  
-  
-  let response = await client.get('/client/Annotation/index')
+  let response = await client.get('/client/Annotation/destroy')
           .query({
-            anchorPositions: [
-              {
-                paragraph_id: 'aaa1',
-                start_pos: 11,
-                end_pos: 15
-              }
-            ],
-            anchorMode: 'include'
+            id: annotationID
           })
           .header('Referer', url)
           .session('adonis-auth', 2)
           .end()
   
+  response.assertStatus(200)
+  
+}).timeout(0)
+
+test('b: query float widget again', async ({ assert, client }) => {
+  
+  //await Cache.flush()
+  
+  let response = await client.get('/client/Annotation/floatWidget')
+          .query({
+            anchorPositions: [
+              {
+                paragraph_id: 'aaa1',
+                start_pos: 12,
+                end_pos: 14
+              }
+            ],
+          })
+          .header('Referer', url)
+          .session('adonis-auth', 2)
+          .end()
+  
+  //console.log(JSON.stringify(response, null, ' '))
   //console.log(response.text)
   response.assertStatus(200)
   
-  //console.log(response.body.map(a => a.anchorPositions))
+  //console.log(response.body)
   //console.log(JSON.stringify(response.body, null, ' '))
-  assert.equal(response.body.length, 1) // 應該只找得到一個
-  
+  assert.equal(response.text, '0')
 })
+
+
+test('b: test list', async ({ assert, client }) => {
+  let response = await client.get('/client/Annotation/list')
+          .query({
+            anchorPositions: [
+              {
+                paragraph_id: 'aaa1',
+                start_pos: 120,
+                end_pos: 140
+              }
+            ],
+          })
+          .header('Referer', url)
+          .session('adonis-auth', 2)
+          .end()
+  
+  //console.log(JSON.stringify(response, null, ' '))
+  //console.log(response.text)
+  response.assertStatus(200)
+  
+  //console.log(response.body)
+  //console.log(JSON.stringify(response.body, null, ' '))
+  assert.equal(response.body.annotationCount, 1)
+  
+  //console.log(response.body.annotation.id)
+  assert.isArray(response.body.annotations)
+})
+
+test('b: remove annotation', async ({ assert, client }) => {
+  let annotationID = 4
+  
+  let response = await client.get('/client/Annotation/destroy')
+          .query({
+            id: annotationID
+          })
+          .header('Referer', url)
+          .session('adonis-auth', 2)
+          .end()
+  
+  response.assertStatus(200)
+  
+}).timeout(0)
+
+test('b: query list again', async ({ assert, client }) => {
+  
+  //await Cache.flush()
+  
+  let response = await client.get('/client/Annotation/list')
+          .query({
+            anchorPositions: [
+              {
+                paragraph_id: 'aaa1',
+                start_pos: 120,
+                end_pos: 140
+              }
+            ],
+          })
+          .header('Referer', url)
+          .session('adonis-auth', 2)
+          .end()
+  
+  //console.log(JSON.stringify(response, null, ' '))
+  //console.log(response.text)
+  response.assertStatus(200)
+  
+  //console.log(response.body)
+  //console.log(JSON.stringify(response.body, null, ' '))
+  assert.equal(response.text, '0')
+})
+
 
 // Reset database
 //trait('DatabaseTransactions')

@@ -10,7 +10,7 @@ trait('Session/Client')
 
 const WebpageModel = use('App/Models/Webpage')
 
-const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html'
+const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html?Webpage.getHiddenField.spec'
 
 
 test('getHiddenField', async ({ assert, client }) => {

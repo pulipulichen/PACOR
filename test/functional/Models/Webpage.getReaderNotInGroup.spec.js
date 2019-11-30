@@ -3,12 +3,12 @@
  * https://www.chaijs.com/api/assert/
  * @type type
  */
-const { test, trait } = use('Test/Suite')('Models/User')
+const { test, trait } = use('Test/Suite')(__filename)
 
 const UserModel = use('App/Models/User')
 const WebpageModel = use('App/Models/Webpage')
 
-const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html'
+const url = 'http://blog.pulipuli.info/2019/10/Webpage.getReaderNotInGroup.spec.html'
 
 test('create groups in webpage', async ({ assert }) => {
   let webpage = await WebpageModel.findByURL('http://blog.pulipuli.info')

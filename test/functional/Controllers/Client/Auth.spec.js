@@ -16,7 +16,7 @@ const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
 
 const Sleep = use('Sleep')
 
-const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html'
+const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html?Auth.spec'
 
 test('check user login', async ({ assert, client }) => {
   
