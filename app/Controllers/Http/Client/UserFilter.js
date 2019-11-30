@@ -12,6 +12,7 @@ class UserFilter {
   
   async initPeerList ({ request, webpage, user }) {
     let options = request.all()
+    await webpage.log(user, 'UserFilter.initPeerList', options)
     return await WebpageGroup.getInit(webpage, user, options)
   }
   
@@ -22,6 +23,7 @@ class UserFilter {
   
   async getUserWords ({ request, webpage, user }) {
     let options = request.all()
+    await webpage.log(user, 'UserFilter.getUserWords', options)
     return await AnnotationNote.getUserWords(webpage, user, options)
   }
 }

@@ -61,8 +61,10 @@ class Section extends Annotation {
     return await AnnotationModel.getSectionAnnotations(webpage, user, query)
   }
   
+  
   async setChecklist({request, webpage, user}) {
     let attrs = request.all()
+    await webpage.log(user, 'Section.setChecklist', attrs)
     await user.setReadingProgressLogAttr(webpage, attrs)
     return 1
   }

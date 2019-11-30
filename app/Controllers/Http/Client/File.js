@@ -8,6 +8,13 @@ const Message = use('App/Models/Message')
 
 class File {
   
+  /**
+   * 編輯器插入圖片用的
+   * @param {type} request
+   * @param {type} webpage
+   * @param {type} user
+   * @returns {Number|imageURL|Boolean}
+   */
   async upload ({request, webpage, user}) {
     let userId = user.id
     

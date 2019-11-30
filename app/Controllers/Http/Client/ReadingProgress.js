@@ -15,6 +15,8 @@ class ReadingProgress {
  
   async end({request, webpage, user}) {
     let log = request.all()
+    await webpage.log(user, 'ReadingProgress.end', log)
+    
     if (typeof(log) === 'object' && JSON.stringify(log) !== '{}') {
       let currentStep = await user.startReadingProgress(webpage)
       currentStep.log = log
@@ -42,6 +44,8 @@ class ReadingProgress {
   
   async setLog({request, webpage, user}) {
     let log = request.all()
+    await webpage.log(user, 'ReadingProgress.setLog', log)
+    
     await user.setReadingProgressLog(webpage, log)
     /*
     if (typeof(log) !== 'object' || JSON.stringify(log) === '{}') {
@@ -68,6 +72,8 @@ class ReadingProgress {
   
   async setLogAttr({request, webpage, user}) {
     let attrs = request.all()
+    await webpage.log(user, 'ReadingProgress.setLogAttr', attrs)
+    
     await user.setReadingProgressLogAttr(webpage, attrs)
     
 //    console.log(result)
@@ -82,9 +88,12 @@ class ReadingProgress {
     return await user.getReadingProgressLog(webpage)
   }
   
-  async getRemainingSeconds({request, webpage, user}) {
-    return await user.getRemainingSeconds(webpage)
-  }
+  /**
+   * 應該要改用本地端取得
+   */
+//  async getRemainingSeconds({request, webpage, user}) {
+//    return await user.getRemainingSeconds(webpage)
+//  }
 }
 
 module.exports = ReadingProgress

@@ -37,6 +37,9 @@ class Auth {
       await auth.loginViaId(user.primaryKeyValue)
       //console.log(user)
       let data = await this._getLoginedUserData(webpage, user)
+      
+      await webpage.log(user, 'Auth.login', data)
+    
       return data
     }
     else if (role === 'domain_admin') {
@@ -54,6 +57,7 @@ class Auth {
     await this._forceLogout(auth)
     await auth.loginViaId(newUser.id)
     let data = await this._getLoginedUserData(webpage, newUser)
+    await webpage.log(user, 'Auth.login', data)
     return data
   }
   
@@ -75,6 +79,7 @@ class Auth {
     let user
     try {
       user = await auth.getUser()
+      await webpage.log(user, 'Auth.logout')
       await auth.logout()
       //let user = await auth.getUser()
       //console.log(user.username)

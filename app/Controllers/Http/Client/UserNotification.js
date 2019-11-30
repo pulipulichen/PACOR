@@ -40,6 +40,7 @@ class UserNotification extends WebpageUserBaseController {
   
   async read ({request, webpage, user}) {
     let { id } = request.all()
+    await webpage.log(user, 'UserNotification.read', {id})
     await UserNotificationModel.setRead(webpage, user, id)
     return 1  // 順利完成
   }

@@ -40,8 +40,8 @@ module.exports = {
   createGroups: async function () {
     webpage = await WebpageModel.findByURL(url)
     
-    let groupSetting = `布甲 布乙 布丙 布丁
-布戊 布己`
+    let groupSetting = `布甲 布乙 布丙 布丁 布戊
+布己 布庚 布辛 布壬 布癸`
     await webpage.setGroupsList(groupSetting)
   },
   
@@ -120,7 +120,7 @@ module.exports = {
   // ----------------------------------
   
   processGroup1User1: async function () {
-    let user = await UserModel.findByNameInWebpage(webpage, '布戊')
+    let user = await UserModel.findByNameInWebpage(webpage, '布己')
     
     await user.startReadingProgress(webpage)
     await Sleep(0.5)
@@ -138,7 +138,7 @@ module.exports = {
   },
   
   processGroup1User2: async function () {
-    let user = await UserModel.findByNameInWebpage(webpage, '布己')
+    let user = await UserModel.findByNameInWebpage(webpage, '布庚')
     
     await user.startReadingProgress(webpage)
     await Sleep(0.5)
