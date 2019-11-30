@@ -4,6 +4,9 @@ const Config = use('Config')
 
 /**
  * https://www.npmjs.com/package/adonis-cache
+ * 
+ * 刪除的做法
+ * await Cache.tags([this, 'User']).flush()
  */
 const Cache = use('Adonis/Addons/Cache')
 
@@ -227,7 +230,7 @@ Cache.rememberForeverWait = function (tags, cacheKey, callback) {
       return true
     }
     catch (e) {
-      console.trace('CacheHelper error', tags, cacheKey)
+      console.error('[CacheHelper error]', tags, cacheKey, e)
       throw new Error(e)
     }
   })  // return new Promise((resolve, reject) => {

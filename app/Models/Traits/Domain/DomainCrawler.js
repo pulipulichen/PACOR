@@ -23,9 +23,14 @@ class DomainCrawler {
         return false
       }
 
-      instance.title = await CrawlerHelper.getTitle(url)
-      //console.log(instance.title)
-      await instance.save()
+      try {
+        instance.title = await CrawlerHelper.getTitle(url)
+        //console.log(instance.title)
+        await instance.save()
+      }
+      catch (e) {
+        console.log('URL get title error: ' + url)
+      }
     })
 
 

@@ -102,16 +102,23 @@ class UserReadingProgressAction {
     } // Model.prototype.endReadingProgress = async function (webpage, stepName) {
     
     Model.prototype.goToCollaborativeReadingProgress = async function (webpage, stepName) {
-      let isEnableCollaboration = await this.isEnableCollaboration()
+      let isEnableCollaboration = await this.isEnableCollaboration(webpage)
+      //console.log(isEnableCollaboration)
       if (isEnableCollaboration === true) {
         return true
       }
       
-      let readingProgresses = await webpage.getReadingProgresses()
+      let readingProgresses = await webpage.getReadingProgresses(webpage)
       let currentStepName = await this.getCurrentReadingProgressStepName(webpage)
+      //console.log(readingProgresses)
+      //console.log(currentStepName, readingProgresses.indexOf(currentStepName), readingProgresses.length)
       while (readingProgresses.indexOf(currentStepName) < readingProgresses.length - 1) {
         await this.endReadingProgress(webpage)
         currentStepName = await this.getCurrentReadingProgressStepName(webpage)
+        isEnableCollaboration = await this.isEnableCollaboration(webpage)
+        if (isEnableCollaboration === true) {
+          return true
+        }
       }
       
       return true

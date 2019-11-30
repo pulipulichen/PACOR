@@ -80,7 +80,7 @@ class WebpageConfig {
 
     Model.prototype.getStepConfig = async function (stepName) {
       let cacheKey = Cache.key('Models.Webpage.getStepConfig', stepName, this)
-      return await Cache.rememberWait(cacheKey, async () => {
+      return await Cache.rememberWait([this, 'ReadingProgress'], cacheKey, async () => {
         let config = await this.getConfig()
         let output
         if (typeof (config.readingProgressModules[stepName]) === 'object') {

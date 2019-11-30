@@ -12,9 +12,14 @@ class WebpageCrawler {
 
       let url = instance.url
 
-      instance.title = await CrawlerHelper.getTitle(url)
-      //console.log(instance.title)
-      instance.save()
+      try {
+        instance.title = await CrawlerHelper.getTitle(url)
+        //console.log(instance.title)
+        instance.save()
+      }
+      catch (e) {
+        console.log('URL get title error: ' + url)
+      }
     })
   } // register (Model) {
 }

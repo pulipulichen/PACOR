@@ -102,6 +102,8 @@ class WebpageGroup {
       } // for (let i in groups) {
       
       //console.log('setGroupsList', 4)
+      
+      await Cache.tags([this, 'User']).flush()
 
       await Cache.forget(`User.getUsersInGroup.${this.primaryKeyValue}`)
 

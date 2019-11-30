@@ -169,6 +169,11 @@ class UserReadingProgressConfig {
       return step.start_timestamp
     }
     
+    /**
+     * 
+     * @param {Webpage} webpage
+     * @returns {Number}
+     */
     Model.prototype.getRemainingSeconds = async function (webpage) {
       let status = await this.getReadingProgressStatus(webpage)
       let stepName = await this.getCurrentReadingProgressStepName(webpage)
