@@ -101,7 +101,7 @@ class UserReadingProgressAction {
       return step
     } // Model.prototype.endReadingProgress = async function (webpage, stepName) {
     
-    Model.prototype.goToCollaborativeReadingProgress = async function (webpage, stepName) {
+    Model.prototype.goToCollaborativeReadingProgress = async function (webpage) {
       let isEnableCollaboration = await this.isEnableCollaboration(webpage)
       //console.log(isEnableCollaboration)
       if (isEnableCollaboration === true) {
