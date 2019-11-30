@@ -25,15 +25,28 @@ const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.ht
 
 let webpage
 let user
+let userID
 let annotation
+let annotationID
 
 
 let config = {
-  'a. hello word': async function ( { assert, client } ) {    
-    assert.equal(1+1, 2)
+  'a. hello word': async function ( { assert, client } ) {   
+    
+    let response = await client.get('/client/auth/login')
+          .header('Referer', url)
+          .query({
+            username: 'a'
+          })
+          .session('adonis-auth', 1)
+          .end()
+    //console.log(response.text)
+    response.assertStatus(200)
+    //response.body
+    
   },
   'b. hello word': async function ( { assert, client } ) {    
-    assert.equal(1+1, 3)
+    assert.equal(1+1, 2)
   },
 }
 

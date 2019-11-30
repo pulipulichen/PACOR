@@ -17,21 +17,34 @@ class Auth {
     const {username, password} = request.all()
     
     let role = 'reader'
-    if (typeof(password) === 'string' && password !== '') {
+    
+    if (typeof(password) === 'string' 
+            && password !== '') {
       role = 'domain_admin'
     }
+    
     let query = User
             .query()
             .where('domain_id', webpage.domain_id)
             .where('username', username)
-            .where('role', role)
+            //.where('role', role)
     if (role === 'domain_admin') {
       query.where('password', password)
     }
+    
+    //console.log({username, password, role})
+    //console.log(query.toSQL())
+    
     let user = await query.pick(1)
+    //console.log(user.size())
+    
     if (user.size() > 0) {
       //user = user.toJSON()[0]
       user = user.first()
+      if (user.role !== role) {
+        throw new HttpException('Login fail')
+      }
+      
       await this._forceLogout(auth)
       //console.log('login', user.primaryKeyValue)
       await auth.loginViaId(user.primaryKeyValue)
@@ -57,7 +70,7 @@ class Auth {
     await this._forceLogout(auth)
     await auth.loginViaId(newUser.id)
     let data = await this._getLoginedUserData(webpage, newUser)
-    await webpage.log(user, 'Auth.login', data)
+    await webpage.log(newUser, 'Auth.login', data)
     return data
   }
   
