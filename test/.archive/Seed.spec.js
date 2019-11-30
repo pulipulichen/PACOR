@@ -95,7 +95,7 @@ let config = {
     assert.equal(stepName, 'PreImaginary')
     
     let annotations = await AnnotationModel.findByWebpageUser(webpage, user, {})
-    assert.equal(annotations.size(), 3) // 包含布甲跟布乙
+    assert.equal(annotations.size(), 0) // 包含布甲跟布乙
   },
   'c1-1. 布己': async function ( { assert, client } ) {    
     //let webpage = await WebpageModel.findByURL(url)
@@ -105,7 +105,7 @@ let config = {
     assert.equal(stepName, 'CollaborativeReading')
     
     let annotations = await AnnotationModel.findByWebpageUser(webpage, user, {})
-    assert.equal(annotations.size(), 3) // 包含布甲跟布乙
+    assert.equal(annotations.size(), 4) // 包含布甲跟布乙
   },
   'c1-2. 布庚': async function ( { assert, client } ) {    
     //let webpage = await WebpageModel.findByURL(url)

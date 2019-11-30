@@ -41,7 +41,7 @@ test('check user reading progresses', async ({ assert, client }) => {
 })
 
 test('start step', async ({ assert, client }) => {
-  let stepName = 'pre-imaginary'
+  let stepName = 'PreImaginary'
   
   let webpage = await WebpageModel.findByURL(url)
   let user = await UserModel.findByNameInWebpage(webpage, 'a')
@@ -58,7 +58,7 @@ test('start step', async ({ assert, client }) => {
 
 
 test('end step', async ({ assert, client }) => {
-  let stepName = 'pre-imaginary'
+  let stepName = 'PreImaginary'
   
   let webpage = await WebpageModel.findByURL(url)
   let user = await UserModel.findByNameInWebpage(webpage, 'a')

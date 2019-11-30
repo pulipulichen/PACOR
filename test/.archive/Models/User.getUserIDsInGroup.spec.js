@@ -40,6 +40,10 @@ f g`
     
     let user = await UserModel.findByNameInWebpage(webpage, 'a')
     //console.log('b.1')
+    
+    // 要先把它的進度往前推
+    await user.goToCollaborativeReadingProgress(webpage)
+    
     let idlist = await user.getUserIDsInGroup(webpage)
     //console.log('b.2')
     
@@ -62,7 +66,7 @@ f g`
     
     let user = await UserModel.findByNameInWebpage(webpage, 'a')
     //console.log('b.1')
-    let idlist = await user.getUserIDsInGroup(webpage)
+    let idlist = await user.getUserIDsInGroup(webpage, true)
     //console.log('b.2')
     
     assert.equal(idlist.length, 5)

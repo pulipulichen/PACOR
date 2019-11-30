@@ -41,6 +41,7 @@ class UserGroup {
         let users = []
         if (groups.size() > 0) {
           //console.log(groups.first())
+          //console.log('User.getUsersInGroup', '有群組')
           groups.toJSON().map(group => {
             group.users.map(user => {
               users.push(user)
@@ -48,7 +49,9 @@ class UserGroup {
           })
         } else {
           // 查詢沒有加入群組的使用者
+          //console.log('User.getUsersInGroup', '查詢沒有加入群組的使用者')
           users = await webpage.getUsersNotInGroup()
+          users = users.toJSON()
         }
         
         if (includeAdmins === true) {
@@ -79,7 +82,6 @@ class UserGroup {
      */
     Model.prototype.getUserIDsInGroup = async function (webpage, includeAdmins) {
       let users = await this.getUsersInGroup(webpage, includeAdmins)
-      
       return users.map(user => user.id)
     }
 

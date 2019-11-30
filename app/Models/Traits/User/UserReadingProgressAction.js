@@ -61,6 +61,7 @@ class UserReadingProgressAction {
       let step
       if (typeof (stepName) === 'string') {
         step = await this.readingProgresses(webpage, stepName).fetch()
+        step = step.first()
       } else {
         //console.log('AAAA')
         step = await this.startReadingProgress(webpage)
@@ -77,6 +78,9 @@ class UserReadingProgressAction {
         }
         step.end_timestamp = time
         //console.log('step.end_timestamp AAA', time)
+        
+        //console.log(step)
+        
         await step.save()
         //console.log('step.end_timestamp BBB', time)
         
@@ -95,6 +99,22 @@ class UserReadingProgressAction {
       }
 
       return step
+    } // Model.prototype.endReadingProgress = async function (webpage, stepName) {
+    
+    Model.prototype.goToCollaborativeReadingProgress = async function (webpage, stepName) {
+      let isEnableCollaboration = await this.isEnableCollaboration()
+      if (isEnableCollaboration === true) {
+        return true
+      }
+      
+      let readingProgresses = await webpage.getReadingProgresses()
+      let currentStepName = await this.getCurrentReadingProgressStepName(webpage)
+      while (readingProgresses.indexOf(currentStepName) < readingProgresses.length - 1) {
+        await this.endReadingProgress(webpage)
+        currentStepName = await this.getCurrentReadingProgressStepName(webpage)
+      }
+      
+      return true
     }
 
     Model.prototype.addActivitySeconds = async function (webpage, seconds) {

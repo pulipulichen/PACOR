@@ -9,7 +9,7 @@ const UserModel = use('App/Models/User')
 const WebpageModel = use('App/Models/Webpage')
 
 test('create groups in webpage', async ({ assert }) => {
-  let webpage = await WebpageModel.findByURL('http://blog.pulipuli.info-User.spec')
+  let webpage = await WebpageModel.findByURL('http://blog.pulipuli.info')
   let groupSetting = `a b c
 d e
 f g`
@@ -47,6 +47,7 @@ test(`find other users' id in anonymous group`, async ({ assert }) => {
   assert.equal(webpage.domain_id, 1)
   
   let user = await UserModel.findByNameInWebpage(webpage, 'a')
+  await user.goToCollaborativeReadingProgress(webpage)
   assert.equal(user.id, 1)
   
   let usersInGroup = await user.getOtherUserIDsInGroup(webpage)
