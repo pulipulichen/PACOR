@@ -5118,6 +5118,10 @@ let AnnotationFloatWidget = {
         classList.push('selecting')
       }
       
+      if (this.lib.style.isEnableAnimte() === false) {
+        classList.push('disable-animate')
+      }
+      
       //console.log(classList)
       //return 'bottom'
       if (classList.length > 0) {
@@ -7152,16 +7156,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AnnotationSingle_AnnotationSingle_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AnnotationSingle/AnnotationSingle.vue */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/AnnotationSingle/AnnotationSingle.vue");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _Traits_props__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Traits/props */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/props.js");
-/* harmony import */ var _Traits_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Traits/data */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/data.js");
-/* harmony import */ var _Traits_computed__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Traits/computed */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/computed.js");
-/* harmony import */ var _Traits_watch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Traits/watch */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/watch.js");
-/* harmony import */ var _Traits_methods_Display__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Traits/methods/Display */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Display.js");
-/* harmony import */ var _Traits_methods_Scroll__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Traits/methods/Scroll */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Scroll.js");
-/* harmony import */ var _Traits_methods_Placeholder__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Traits/methods/Placeholder */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Placeholder.js");
-/* harmony import */ var _Traits_methods_Query__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Traits/methods/Query */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Query.js");
-/* harmony import */ var _Traits_methods_Event__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Traits/methods/Event */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Event.js");
-/* harmony import */ var _Traits_methods_Resize__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Traits/methods/Resize */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Resize.js");
+/* harmony import */ var _propsAnnotationPanel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./propsAnnotationPanel */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/propsAnnotationPanel.js");
+/* harmony import */ var _dataAnnotationPanel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dataAnnotationPanel */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/dataAnnotationPanel.js");
+/* harmony import */ var _computedAnnotationPanel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./computedAnnotationPanel */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/computedAnnotationPanel.js");
+/* harmony import */ var _watchAnnotationPanel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./watchAnnotationPanel */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/watchAnnotationPanel.js");
+/* harmony import */ var _methodsDisplayAnnotationPanel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./methodsDisplayAnnotationPanel */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsDisplayAnnotationPanel.js");
+/* harmony import */ var _methodsScrollAnnotationPanel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./methodsScrollAnnotationPanel */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsScrollAnnotationPanel.js");
+/* harmony import */ var _methodsPlaceholderAnnotationPanel__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./methodsPlaceholderAnnotationPanel */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsPlaceholderAnnotationPanel.js");
+/* harmony import */ var _methodsQueryAnnotationPanel__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./methodsQueryAnnotationPanel */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsQueryAnnotationPanel.js");
+/* harmony import */ var _methodsEventAnnotationPanel__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./methodsEventAnnotationPanel */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsEventAnnotationPanel.js");
+/* harmony import */ var _methodsResizeAnnotationPanel__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./methodsResizeAnnotationPanel */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsResizeAnnotationPanel.js");
 //import VueDraggableResizable from 'vue-draggable-resizable'
 //import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
 
@@ -7174,10 +7178,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AnnotationPanel = {
-  props: _Traits_props__WEBPACK_IMPORTED_MODULE_3__["default"],
+  props: _propsAnnotationPanel__WEBPACK_IMPORTED_MODULE_3__["default"],
   data() {    
     //this.$i18n.locale = this.config.locale
-    return _Traits_data__WEBPACK_IMPORTED_MODULE_4__["default"]
+    return _dataAnnotationPanel__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   components: {
     //'vue-draggable-resizable': VueDraggableResizable,
@@ -7208,28 +7212,28 @@ let AnnotationPanel = {
 }
 
 
-Object(_Traits_computed__WEBPACK_IMPORTED_MODULE_5__["default"])(AnnotationPanel)
+Object(_computedAnnotationPanel__WEBPACK_IMPORTED_MODULE_5__["default"])(AnnotationPanel)
 
 
-Object(_Traits_watch__WEBPACK_IMPORTED_MODULE_6__["default"])(AnnotationPanel)
+Object(_watchAnnotationPanel__WEBPACK_IMPORTED_MODULE_6__["default"])(AnnotationPanel)
 
 
-Object(_Traits_methods_Display__WEBPACK_IMPORTED_MODULE_7__["default"])(AnnotationPanel)
+Object(_methodsDisplayAnnotationPanel__WEBPACK_IMPORTED_MODULE_7__["default"])(AnnotationPanel)
 
 
-Object(_Traits_methods_Scroll__WEBPACK_IMPORTED_MODULE_8__["default"])(AnnotationPanel)
+Object(_methodsScrollAnnotationPanel__WEBPACK_IMPORTED_MODULE_8__["default"])(AnnotationPanel)
 
 
-Object(_Traits_methods_Placeholder__WEBPACK_IMPORTED_MODULE_9__["default"])(AnnotationPanel)
+Object(_methodsPlaceholderAnnotationPanel__WEBPACK_IMPORTED_MODULE_9__["default"])(AnnotationPanel)
 
 
-Object(_Traits_methods_Query__WEBPACK_IMPORTED_MODULE_10__["default"])(AnnotationPanel)
+Object(_methodsQueryAnnotationPanel__WEBPACK_IMPORTED_MODULE_10__["default"])(AnnotationPanel)
 
 
-Object(_Traits_methods_Event__WEBPACK_IMPORTED_MODULE_11__["default"])(AnnotationPanel)
+Object(_methodsEventAnnotationPanel__WEBPACK_IMPORTED_MODULE_11__["default"])(AnnotationPanel)
 
 
-Object(_Traits_methods_Resize__WEBPACK_IMPORTED_MODULE_12__["default"])(AnnotationPanel)
+Object(_methodsResizeAnnotationPanel__WEBPACK_IMPORTED_MODULE_12__["default"])(AnnotationPanel)
 
 /* harmony default export */ __webpack_exports__["default"] = (AnnotationPanel);
 
@@ -9111,10 +9115,10 @@ component.options.__file = "webpack-app/client/ReadingProgressesModuels/Reading/
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/computed.js":
-/*!***********************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/computed.js ***!
-  \***********************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/computedAnnotationPanel.js":
+/*!*******************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/computedAnnotationPanel.js ***!
+  \*******************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -9165,10 +9169,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/data.js":
-/*!*******************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/data.js ***!
-  \*******************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/dataAnnotationPanel.js":
+/*!***************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/dataAnnotationPanel.js ***!
+  \***************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -9208,10 +9212,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Display.js":
-/*!******************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Display.js ***!
-  \******************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsDisplayAnnotationPanel.js":
+/*!*************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsDisplayAnnotationPanel.js ***!
+  \*************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -9224,19 +9228,29 @@ const transitionMode = 'slide up'
   AnnotationPanel.methods.show = function () {
     //console.log(this.lib.rangy) // for test
     this.isHide = false
-    this.placeholder.transition(transitionMode)
     
     if (this.panelData.heightPX < this.lib.style.config.AnnotationPanelDisplayMinPanelHeight) {
       this.panelData.heightPX = this.lib.style.config.AnnotationPanelDisplayMinPanelHeight
     }
     
-    // @TODO Semantic UI的jQuery
-    window.$(this.$refs.panel).transition(transitionMode, () => {
+    let transitionCallback = () => {
       //this.placeholder.show()
-    })
+    }
+    
+    if (this.lib.style.isEnableAnimte()) {
+      this.placeholder.transition(transitionMode)
+      // @todo 可以不要用semantic ui的jquery嗎？
+      window.$(this.$refs.panel).transition(transitionMode, transitionCallback)
+    }
+    else {
+      this.placeholder.show()
+      window.$(this.$refs.panel).show()
+      transitionCallback()
+    }
 
     //this.scrollToPinSelection()
-  }
+  } // AnnotationPanel.methods.show = function () {
+  
   AnnotationPanel.methods.hide = function (doEmitCancel) {
     // 這個太怪了，根本就不應該在這裡使用
 //    if (this.sectionsData.sectionAnnotation.instance !== null) {
@@ -9244,16 +9258,25 @@ const transitionMode = 'slide up'
 //      return false
 //    }
 
-//    this.lib.rangy.hoverOut(true)
-    this.placeholder.transition(transitionMode)
-    
-    // @TODO Semantic UI的jQuery
-    window.$(this.$refs.panel).transition(transitionMode, () => {
+    let transitionCallback = () => {
       if (this.isHide === true) {
         return false
       }
       this.isHide = true
-    })
+    }
+
+//    this.lib.rangy.hoverOut(true)
+    if (this.lib.style.isEnableAnimte()) {
+      this.placeholder.transition(transitionMode)
+
+      // @TODO Semantic UI的jQuery
+      window.$(this.$refs.panel).transition(transitionMode, transitionCallback)
+    }
+    else {
+      this.placeholder.show()
+      window.$(this.$refs.panel).show()
+      transitionCallback()
+    }
     
 //    if (this.status.search.showAnnotationList === true) {
 //      this.status.search.showAnnotationList = false
@@ -9275,10 +9298,10 @@ const transitionMode = 'slide up'
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Event.js":
-/*!****************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Event.js ***!
-  \****************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsEventAnnotationPanel.js":
+/*!***********************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsEventAnnotationPanel.js ***!
+  \***********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -9326,10 +9349,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Placeholder.js":
-/*!**********************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Placeholder.js ***!
-  \**********************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsPlaceholderAnnotationPanel.js":
+/*!*****************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsPlaceholderAnnotationPanel.js ***!
+  \*****************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -9363,7 +9386,8 @@ const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Readin
     }
     
     this.panelData.heightPX = height
-  }
+  } // AnnotationPanel.methods._initHeightPX = function () {
+  
   AnnotationPanel.methods._initPlaceholder = function () {
     let navPH = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.Navigation.placeholder:first')
     if (navPH.length === 1) {
@@ -9376,15 +9400,15 @@ const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Readin
             .css('height', this.computedPlaceholderHeight)
             .hide()
             .appendTo(container)
-  }
+  } // AnnotationPanel.methods._initPlaceholder = function () {
 });
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Query.js":
-/*!****************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Query.js ***!
-  \****************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsQueryAnnotationPanel.js":
+/*!***********************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsQueryAnnotationPanel.js ***!
+  \***********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -9393,6 +9417,7 @@ __webpack_require__.r(__webpack_exports__);
 /* global this */
 
 /* harmony default export */ __webpack_exports__["default"] = ((AnnotationPanel) => {
+    
   AnnotationPanel.methods.setAnchorPositions = function (anchorPositions, hooks) {
     
     if (hooks === undefined 
@@ -9508,10 +9533,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Resize.js":
-/*!*****************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Resize.js ***!
-  \*****************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsResizeAnnotationPanel.js":
+/*!************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsResizeAnnotationPanel.js ***!
+  \************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -9598,10 +9623,10 @@ let body = null
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Scroll.js":
-/*!*****************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/methods/Scroll.js ***!
-  \*****************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsScrollAnnotationPanel.js":
+/*!************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/methodsScrollAnnotationPanel.js ***!
+  \************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -9674,10 +9699,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/props.js":
-/*!********************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/props.js ***!
-  \********************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/propsAnnotationPanel.js":
+/*!****************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/propsAnnotationPanel.js ***!
+  \****************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -9687,10 +9712,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/watch.js":
-/*!********************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/Traits/watch.js ***!
-  \********************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/watchAnnotationPanel.js":
+/*!****************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationPanel/watchAnnotationPanel.js ***!
+  \****************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

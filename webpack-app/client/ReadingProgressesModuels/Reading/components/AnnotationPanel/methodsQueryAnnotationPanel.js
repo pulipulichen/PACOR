@@ -1,6 +1,7 @@
 /* global this */
 
 export default (AnnotationPanel) => {
+    
   AnnotationPanel.methods.setAnchorPositions = function (anchorPositions, hooks) {
     
     if (hooks === undefined 

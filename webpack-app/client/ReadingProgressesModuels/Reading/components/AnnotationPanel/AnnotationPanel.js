@@ -6,8 +6,8 @@ import AnnotationSingle from './AnnotationSingle/AnnotationSingle.vue'
 
 import $ from 'jquery'
 
-import props from './Traits/props'
-import data from './Traits/data'
+import props from './propsAnnotationPanel'
+import data from './dataAnnotationPanel'
 
 let AnnotationPanel = {
   props: props,
@@ -43,28 +43,28 @@ let AnnotationPanel = {
   } // methods
 }
 
-import computed from './Traits/computed'
+import computed from './computedAnnotationPanel'
 computed(AnnotationPanel)
 
-import watch from './Traits/watch'
+import watch from './watchAnnotationPanel'
 watch(AnnotationPanel)
 
-import Display from './Traits/methods/Display'
+import Display from './methodsDisplayAnnotationPanel'
 Display(AnnotationPanel)
 
-import Scroll from './Traits/methods/Scroll'
+import Scroll from './methodsScrollAnnotationPanel'
 Scroll(AnnotationPanel)
 
-import Placeholder from './Traits/methods/Placeholder'
+import Placeholder from './methodsPlaceholderAnnotationPanel'
 Placeholder(AnnotationPanel)
 
-import Query from './Traits/methods/Query'
+import Query from './methodsQueryAnnotationPanel'
 Query(AnnotationPanel)
 
-import Event from './Traits/methods/Event'
+import Event from './methodsEventAnnotationPanel'
 Event(AnnotationPanel)
 
-import Resize from './Traits/methods/Resize'
+import Resize from './methodsResizeAnnotationPanel'
 Resize(AnnotationPanel)
 
 export default AnnotationPanel

@@ -24,7 +24,8 @@ export default (AnnotationPanel) => {
     }
     
     this.panelData.heightPX = height
-  }
+  } // AnnotationPanel.methods._initHeightPX = function () {
+  
   AnnotationPanel.methods._initPlaceholder = function () {
     let navPH = $('.Navigation.placeholder:first')
     if (navPH.length === 1) {
@@ -37,5 +38,5 @@ export default (AnnotationPanel) => {
             .css('height', this.computedPlaceholderHeight)
             .hide()
             .appendTo(container)
-  }
+  } // AnnotationPanel.methods._initPlaceholder = function () {
 }
