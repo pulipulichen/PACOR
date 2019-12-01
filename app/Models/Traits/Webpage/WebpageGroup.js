@@ -35,7 +35,7 @@ class WebpageGroup {
 
     Model.prototype.getGroupsList = async function () {
       let cacheKey = `Webpage.getGroupsList.${this.primaryKeyValue}`
-      return await Cache.rememberWait(cacheKey, async () => {
+      return await Cache.rememberWait([this], cacheKey, async () => {
         let groups = await this.groups().fetch()
 
         let list = groups.toJSON().map(group => {
@@ -103,7 +103,7 @@ class WebpageGroup {
       
       //console.log('setGroupsList', 4)
       
-      await Cache.tags([this, 'User']).flush()
+      await Cache.forgetWithTags([this, 'User'])
 
       await Cache.forget(`User.getUsersInGroup.${this.primaryKeyValue}`)
 
@@ -130,7 +130,7 @@ class WebpageGroup {
     Model.prototype.getUserIDsNotInGroup = async function () {
       let cacheKey = `Webpage.getUserIDsNotInGroup.${this.primaryKeyValue}`
       
-      return await Cache.rememberWait([this, 'Webpage'], cacheKey, async () => {
+      return await Cache.rememberWait([this], cacheKey, async () => {
         let relation = User
                 .query()
                 .where('role', 'reader')

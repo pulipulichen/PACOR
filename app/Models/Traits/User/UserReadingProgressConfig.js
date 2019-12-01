@@ -88,6 +88,7 @@ class UserReadingProgressConfig {
         let status = await this.readingProgresses(webpage).fetch()
         status = status.toJSON()
         //console.log(status)
+        
         readingProgresses = readingProgresses.map(stepName => {
           let output = {
             'step_name': stepName

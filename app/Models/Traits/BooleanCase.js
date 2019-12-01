@@ -33,6 +33,16 @@ class BooleanCase {
       })
     })
     
+    Model.addHook('afterSave', async (instance) => {
+      attrs.forEach(attr => {
+        if (instance[attr] !== null 
+                && typeof(instance[attr]) === 'number') {
+          instance[attr] = (instance[attr] === 1)
+          //console.log(instance[attr])
+        }
+      })
+    })
+    
     Model.addHook('afterFind', async (instance) => {
       attrs.forEach(attr => {
         if (instance[attr] !== null 

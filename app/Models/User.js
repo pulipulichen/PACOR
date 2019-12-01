@@ -62,6 +62,8 @@ class User extends Model {
     this.addTrait('User/UserSection')
     this.addTrait('User/UserFilter')
     this.addTrait('User/UserInteract')
+    this.addTrait('User/UserReadingActivityLog')
+    
   } // static boot () {
   
   async validatePassword (queryPassword) {

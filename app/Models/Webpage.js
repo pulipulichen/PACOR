@@ -27,10 +27,14 @@ class Webpage extends Model {
     //})
     
     this.addHook('beforeSave', async (instance) => {
+      await Cache.forgetWithTags(instance)
+      
       await Cache.forget(Cache.key('Webpage', 'getReadingProgresses', instance))
       await Cache.forget(Cache.key('Models.Webpage.getAgreement', this))
       await Cache.forget(Cache.key('Models.Webpage.getConfig', this))
       await Cache.forget(Cache.key('Models.Webpage.getStepConfig', this))
+      
+      //console.log('有移除webpage cache了')
     })
     
     this.addTrait('JSONCase', 'config')

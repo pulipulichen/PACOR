@@ -56,14 +56,6 @@ module.exports = {
       message: '/2020exp/PostRecall.html',
       minWords: 10,
       limitMinutes: 0.05,
-      
-      // for test
-      annotation: {
-        types: ['Clarified', 'Confused', 'MainIdea', 'SectionMainIdea'],
-        enableCollaboration: false,
-        enableControlPermission: true,
-        defaultPermission: 'public'
-      },
     },
     /**
      * include 'individual-reading' and 'collaborative-reading'

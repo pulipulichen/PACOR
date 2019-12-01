@@ -287,9 +287,17 @@ class AnnotationFind {
     
     Model.findByWebpageGroup = async function (webpage, user, query) {
       let myAnnotations = await this.findMyByWebpageGroup(webpage, user, query)
+      if (typeof(myAnnotations.toJSON) === 'function') {
+        myAnnotations = myAnnotations.toJSON()
+      }
+      
       let othersAnnotations = await this.findOthersByWebpageGroup(webpage, user, query)
-
-      return myAnnotations.toJSON().concat(othersAnnotations.toJSON())
+      if (typeof(othersAnnotations.toJSON) === 'function') {
+        othersAnnotations = othersAnnotations.toJSON()
+        myAnnotations.concat(othersAnnotations)
+      }
+      
+      return myAnnotations
     }
 
     Model.findMyByWebpageGroup = async function (webpage, user, options) {

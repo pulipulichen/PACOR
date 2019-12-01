@@ -41,7 +41,7 @@ class UserReadingProgressAction {
         //console.log('新增')
         //await step.save()
         //await Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
-        await Cache.tags([webpage, this, 'ReadingProgresses']).flush()
+        await Cache.forgetWithTags([webpage, this, 'ReadingProgresses'])
       }
       //console.log('startReadingProgress AAA', step.start_timestamp)
       //console.log('startReadingProgress', step.toJSON())
@@ -84,7 +84,7 @@ class UserReadingProgressAction {
         await step.save()
         //console.log('step.end_timestamp BBB', time)
         
-        await Cache.tags([webpage, this, 'ReadingProgresses']).flush()
+        await Cache.forgetWithTags([webpage, this, 'ReadingProgresses'])
         
         //let status = await this.getReadingProgressStatus(webpage)
         //console.log('after update', status)

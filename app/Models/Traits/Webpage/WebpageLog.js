@@ -60,8 +60,8 @@ class WebpageLog {
           await logInstance.withUsers().createMany(withUsers)
         }
         
-        await Cache.tags([this, user, 'WebpageGroup']).forget('getInit')
-        await Cache.tags([this, user, 'getRecentInteractTime']).flush()
+        await Cache.forgetWithTags([this, user, 'WebpageGroup'], 'getInit')
+        await Cache.forgetWithTags([this, user, 'getRecentInteractTime'])
         
         //console.log('列表快取洗掉了')
       }

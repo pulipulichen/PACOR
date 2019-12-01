@@ -254,20 +254,29 @@ const filterTags = (tags) => {
   
   let domainTag
   
-  output = tags.map(tag => {
+  if (Array.isArray(tags) === false) {
+    tags = [tags]
+  }
+  
+  output = tags.reduce((o, tag) => {
     //console.log(tag.constructor.name, typeof(tag) === 'object', typeof(tag.primaryKeyValue))
     if (typeof(tag) === 'object') {
       if (!domainTag && typeof(tag.domain_id) === 'number') {
         domainTag = 'Domain_' + tag.domain_id
       }
       if (typeof(tag.primaryKeyValue) === 'number') {
-        return tag.constructor.name + '_' + tag.primaryKeyValue
+        let name = tag.constructor.name
+        let nameWithID = tag.constructor.name + '_' + tag.primaryKeyValue
+        o.push(name, nameWithID)
+        //return tag.constructor.name + '_' + tag.primaryKeyValue
       }
     }
     else {
-      return tag
+      //return tag
+      o.push(tag)
     }
-  })
+    return o
+  }, [])
   
   if (domainTag) {
     output.unshift(domainTag)

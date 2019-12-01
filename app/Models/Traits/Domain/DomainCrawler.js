@@ -29,7 +29,7 @@ class DomainCrawler {
         await instance.save()
       }
       catch (e) {
-        console.log('URL get title error: ' + url)
+        //console.log('URL get title error: ' + url)
       }
     })
 

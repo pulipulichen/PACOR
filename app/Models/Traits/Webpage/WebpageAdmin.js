@@ -19,7 +19,7 @@ class WebpageAdmin {
     
     Model.prototype.getAdminIDs = async function () {
       let cacheKey = Cache.key('Webpage', 'getAdminIDs', this)
-      return await Cache.rememberWait([this, 'Webpage'], cacheKey, async () => {
+      return await Cache.rememberWait([this], cacheKey, async () => {
         //console.log('getAdminIDs', 1)
         let admins = await this.getAdmins()
         //console.log('getAdminIDs', 2)

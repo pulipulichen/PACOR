@@ -24,6 +24,7 @@ const AnnotationInteractScript = use('./scripts/AnnotationInteractScript')
 class UserSeeder {
   async run () {
     await Cache.flush()
+    
     console.log('=========================================')
     console.log(__filename + ' start...\n')
     

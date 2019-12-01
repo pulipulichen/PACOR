@@ -26,6 +26,17 @@ class JSONCase {
       })
     })
     
+    Model.addHook('afterSave', async (instance) => {
+      attrs.forEach(attr => {
+        if (instance[attr] !== null 
+                && typeof(instance[attr]) === 'string'
+                && instance[attr].startsWith('{')
+                && instance[attr].endsWith('}')) {
+          instance[attr] = JSON.parse(instance[attr])
+        }
+      })
+    })
+    
     Model.addHook('afterFind', async (instance) => {
       attrs.forEach(attr => {
         if (instance[attr] !== null 

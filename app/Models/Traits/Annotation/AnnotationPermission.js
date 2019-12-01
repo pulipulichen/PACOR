@@ -25,7 +25,8 @@ class AnnotationPermission {
           }
         }
       } else if (typeof (data.public) !== 'undefined') {
-        throw new HttpException(`You cannot change annotation's premission in current step.`)
+        let step = await user.getCurrentReadingProgressStepName()
+        throw new HttpException(`You cannot change annotation's premission in current step: ${step}`)
       } else {
         if (defaultPermission === 'public') {
           instance.public = true

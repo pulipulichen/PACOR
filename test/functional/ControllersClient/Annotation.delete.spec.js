@@ -30,6 +30,8 @@ let webpage
 let annotationIDtoDestroy
 let annotationIDtoDestroy2
 
+let publicAnnotationID
+
 const url = 'http://blog.pulipuli.info-Annotation.delete.spec/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html?Annotation.delete.spec'
 
 let config = {
@@ -61,10 +63,33 @@ f g`
     await userA.goToCollaborativeReadingProgress(webpage)
     isEnableCollaborative = await userA.isEnableCollaboration(webpage)
     assert.equal(isEnableCollaborative, true)
-
+    
     await userB.goToCollaborativeReadingProgress(webpage)
     isEnableCollaborative = await userB.isEnableCollaboration(webpage)
     assert.equal(isEnableCollaborative, true)
+  },
+  '0-4. change wepbage\'s config': async ({ assert, client }) => {
+    let config = use('./../../test-config/reading-enableControlPermission')
+    
+    assert.isObject(config)
+    webpage.config = config
+    await webpage.save()
+    
+    //console.log(webpage.config.readingProgressModules.CollaborativeReading.annotation)
+    //assert.equal((webpage.config.indexOf('"enableControlPermission":true,') > -1), true)
+  },
+  '0-5. check config has been changed': async ({ assert, client }) => {
+    let stepName = await userA.getCurrentReadingProgressStepName(webpage)
+    assert.equal(stepName, 'CollaborativeReading')
+    
+    let userConfig = await userA.getCurrentReadingProgressStepConfig(webpage)
+    
+    assert.isObject(userConfig)
+    assert.equal(userConfig.annotation.enableControlPermission, true)
+    
+    let config = await webpage.getConfig()
+    assert.isArray(config.selector.article)
+    //assert.equal((webpage.config.indexOf('"enableControlPermission":true,') > -1), true)
   },
   /*
    test('logout', async ({ assert, client }) => {
@@ -91,6 +116,8 @@ f g`
    response.assertText('0')
    })
    */
+  
+
   'a1: do login': async ({ assert, client }) => {
     let response
     response = await client.get('/client/auth/login')
@@ -101,6 +128,7 @@ f g`
             //.session('adonis-auth', userAID)
             .end()
 
+    //console.log(response.text)
     response.assertStatus(200)
     response.assertJSONSubset({
       displayName: 'a'
@@ -188,20 +216,22 @@ f g`
 
     //console.log(response.text)
     //response.assertError([])
-    let annotationID = parseInt(response.text, 10)
+    
     response.assertStatus(200)
     //response.assertText(2)
+    let annotationID = parseInt(response.text, 10)
     assert.isNumber(annotationID)
+    
+    publicAnnotationID = annotationID
   },
-
   'a5: is it a private annotation': async ({ assert, client }) => {
-    let annotation = await AnnotationModel.find(2)
+    let annotation = await AnnotationModel.find(publicAnnotationID)
     //console.log(annotation.toJSON())
     assert.equal(annotation.public, false)
   },
 
   'a6: check annotation is logged': async ({ assert, client }) => {
-    let logs = await ReadingActivityLog.findLog(1, 1, 'Annotation.create')
+    let logs = await userA.getLog(webpage, 'Annotation.create')
 
     assert.equal(logs.length, 2)
 
@@ -211,22 +241,26 @@ f g`
             .end()
 
     //console.log(response.text)
-    console.log(JSON.stringify(response.body, null, ' '))
+    //console.log(JSON.stringify(response.body, null, ' '))
     response.assertStatus(200)
+    
     assert.equal(response.body.length, 2)
+    
     response.assertJSONSubset([
       {
         type: 'MainIdea',
-        note: '測試筆記'
+        notes: [{
+            'type': 'default',
+            'note': '測試筆記'
+        }]
       }
     ])
 
     let updated_at_unixms = response.body[0].updated_at_unixms
     assert.isNumber(updated_at_unixms)
 
-    let logs2 = await ReadingActivityLog.findLog(1, 1, 'Annotation.indexMy')
+    let logs2 = await userA.getLog(webpage, 'Annotation.indexMy')
     assert.equal(logs2.length, 1)
-
   },
 
   'a7: test index': async ({ assert, client }) => {
@@ -449,7 +483,7 @@ f g`
   },
 
   'b8: test list': async ({ assert, client }) => {
-    let response = await client.get('/client/Annotation/list')
+    let response = await client.get('/client/Annotation/listSummary')
             .query({
               anchorPositions: [
                 {
@@ -494,7 +528,7 @@ f g`
 
     //await Cache.flush()
 
-    let response = await client.get('/client/Annotation/list')
+    let response = await client.get('/client/Annotation/index')
             .query({
               anchorPositions: [
                 {
@@ -514,9 +548,9 @@ f g`
 
     //console.log(response.body)
     //console.log(JSON.stringify(response.body, null, ' '))
-    assert.equal(response.text, '0')
+    assert.equal(response.body.length, 1)
   }
-}
+} // let config = {
 
 Test(title, config)
 
