@@ -158,7 +158,8 @@ var render = function() {
                       locale: _vm.status.preference.locale,
                       countdownSec: _vm.remainingSeconds,
                       enable: _vm.isTimeUp,
-                      ignoreWordCount: true
+                      ignoreWordCount: true,
+                      autoClickSeconds: 5
                     },
                     on: { click: _vm.nextStep, timeup: _vm.onTimeup }
                   },
@@ -288,7 +289,8 @@ var render = function() {
                       locale: _vm.status.preference.locale,
                       countdownSec: _vm.remainingSeconds,
                       enable: _vm.isTimeUp,
-                      ignoreWordCount: true
+                      ignoreWordCount: true,
+                      autoClickSeconds: 5
                     },
                     on: { click: _vm.nextStep, timeup: _vm.onTimeup }
                   },

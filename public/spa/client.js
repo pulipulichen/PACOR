@@ -4903,7 +4903,8 @@ if (debugDisable === true) {
 let CountdownButton = {
   props: ['locale', 'lib', 'countdownSec'
     , 'minWordCount', 'maxWordCount', 'text', 'ignoreWordCount'
-    , 'enableClassNames', 'enable'],
+    , 'enableClassNames', 'enable'
+    , 'autoClickSeconds'],
   data() {    
     this.$i18n.locale = this.locale
     return {
@@ -5018,6 +5019,11 @@ let CountdownButton = {
         else {
           //console.log('等於0了')
           this.$emit('timeup')
+          if (typeof(this.autoClickSeconds) === 'number') {
+            setTimeout(() => {
+              this.onClick()
+            }, this.autoClickSeconds * 1000)
+          }
         }
       }, 1000)
     },

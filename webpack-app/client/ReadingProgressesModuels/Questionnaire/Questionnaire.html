@@ -57,6 +57,7 @@
         v-bind:countdownSec="remainingSeconds"
         v-bind:enable="isTimeUp"
         v-bind:ignoreWordCount="true"
+        v-bind:autoClickSeconds="5"
         v-on:click="nextStep"
         v-on:timeup="onTimeup">
         {{ $t('NEXT') }}
