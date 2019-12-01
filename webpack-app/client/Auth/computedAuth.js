@@ -1,4 +1,5 @@
 export default function (Auth) {
+    
   Auth.computed.currentStep = function () {
     if (this.isAdmin) {
       return 'FreeReading'
@@ -30,7 +31,8 @@ export default function (Auth) {
       return finishStep
     }
     return 'not-yet-started'
-  }
+  } // Auth.computed.currentStep = function () {
+  
   Auth.computed.currentStepConfig = function () {
     if (typeof (this.currentStep) === 'string') {
 
@@ -41,24 +43,26 @@ export default function (Auth) {
     }
     //console.log(modules)
     return null
-  }
+  } // Auth.computed.currentStepConfig = function () {
+    
   Auth.computed.currentStepAnnotationConfig = function () {
     let config = this.currentStepConfig
     if (config) {
       return config.annotation
     }
     return null
-  }
+  } // Auth.computed.currentStepAnnotationConfig = function () {
   Auth.computed.enableCollaboration = function () {
     let config = this.currentStepAnnotationConfig
     if (config) {
       return config.enableCollaboration
     }
     return false
-  }
+  } // Auth.computed.enableCollaboration = function () {
+  
   Auth.computed.isEnableCollaboration = function () {
     return this.enableCollaboration
-  }
+  } // Auth.computed.isEnableCollaboration = function () {
   
   Auth.computed.username = function () {
     if (this.status.displayName !== this.status.username) {
@@ -79,9 +83,9 @@ export default function (Auth) {
             || role === 'global_admin')
   }
   
-  Auth.computed.username = function () {
-    return this.getUsername(this.status)
-  }
+//  Auth.computed.username = function () {
+//    return this.getUsername(this.status)
+//  }
   
   Auth.computed.annotationUserData = function () {
     return {
@@ -91,5 +95,6 @@ export default function (Auth) {
       avatar_url: this.status.avatar,
       role: this.status.role
     }
-  }
+  } // Auth.computed.annotationUserData = function () {
+  
 }

@@ -147,4 +147,43 @@ export default function (Auth) {
       return user.username
     }
   }
+  
+  Auth.method.getRemainingSeconds = function () {
+    if (Array.isArray(this.status.readingProgresses) === false) {
+      return 0
+    }
+    
+    let start_timestamp
+    for (let i = 0; i < this.status.readingProgresses.length; i++) {
+      let s = this.status.readingProgresses[i]
+      if (s.step_name === 'IndividualReading') {
+        start_timestamp = s.start_timestamp
+        break
+      }
+    }
+    
+    if (!start_timestamp) {
+      return 0
+    }
+    
+    let config = this.status.readingConfig
+    let limit_minutes
+    if (this.currentStep === 'IndividualReading') {
+      limit_minutes = config.readingProgressModules.IndividualReading.limitMinutes
+    }
+    else if (this.currentStep === 'CollaborativeReading') {
+      limit_minutes = config.readingProgressModules.reading.totalLimitMinutes
+    }
+    
+    if (!limit_minutes) {
+      return 0
+    }
+    
+    let limit_ms = limit_minutes * 60 * 1000
+    let remaining_ms = limit_ms - ( (new Date()).getTime() -  start_timestamp)
+    if (remaining_ms < 0) {
+      return 0
+    }
+    return Math.ceil(remaining_ms / 1000)
+  }
 }

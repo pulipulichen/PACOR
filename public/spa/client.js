@@ -2452,6 +2452,7 @@ component.options.__file = "webpack-app/client/Auth/Auth.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (Auth) {
+    
   Auth.computed.currentStep = function () {
     if (this.isAdmin) {
       return 'FreeReading'
@@ -2483,7 +2484,8 @@ __webpack_require__.r(__webpack_exports__);
       return finishStep
     }
     return 'not-yet-started'
-  }
+  } // Auth.computed.currentStep = function () {
+  
   Auth.computed.currentStepConfig = function () {
     if (typeof (this.currentStep) === 'string') {
 
@@ -2494,24 +2496,26 @@ __webpack_require__.r(__webpack_exports__);
     }
     //console.log(modules)
     return null
-  }
+  } // Auth.computed.currentStepConfig = function () {
+    
   Auth.computed.currentStepAnnotationConfig = function () {
     let config = this.currentStepConfig
     if (config) {
       return config.annotation
     }
     return null
-  }
+  } // Auth.computed.currentStepAnnotationConfig = function () {
   Auth.computed.enableCollaboration = function () {
     let config = this.currentStepAnnotationConfig
     if (config) {
       return config.enableCollaboration
     }
     return false
-  }
+  } // Auth.computed.enableCollaboration = function () {
+  
   Auth.computed.isEnableCollaboration = function () {
     return this.enableCollaboration
-  }
+  } // Auth.computed.isEnableCollaboration = function () {
   
   Auth.computed.username = function () {
     if (this.status.displayName !== this.status.username) {
@@ -2532,9 +2536,9 @@ __webpack_require__.r(__webpack_exports__);
             || role === 'global_admin')
   }
   
-  Auth.computed.username = function () {
-    return this.getUsername(this.status)
-  }
+//  Auth.computed.username = function () {
+//    return this.getUsername(this.status)
+//  }
   
   Auth.computed.annotationUserData = function () {
     return {
@@ -2544,7 +2548,8 @@ __webpack_require__.r(__webpack_exports__);
       avatar_url: this.status.avatar,
       role: this.status.role
     }
-  }
+  } // Auth.computed.annotationUserData = function () {
+  
 });
 
 /***/ }),
@@ -2706,6 +2711,45 @@ __webpack_require__.r(__webpack_exports__);
     else {
       return user.username
     }
+  }
+  
+  Auth.method.getRemainingSeconds = function () {
+    if (Array.isArray(this.status.readingProgresses) === false) {
+      return 0
+    }
+    
+    let start_timestamp
+    for (let i = 0; i < this.status.readingProgresses.length; i++) {
+      let s = this.status.readingProgresses[i]
+      if (s.step_name === 'IndividualReading') {
+        start_timestamp = s.start_timestamp
+        break
+      }
+    }
+    
+    if (!start_timestamp) {
+      return 0
+    }
+    
+    let config = this.status.readingConfig
+    let limit_minutes
+    if (this.currentStep === 'IndividualReading') {
+      limit_minutes = config.readingProgressModules.IndividualReading.limitMinutes
+    }
+    else if (this.currentStep === 'CollaborativeReading') {
+      limit_minutes = config.readingProgressModules.reading.totalLimitMinutes
+    }
+    
+    if (!limit_minutes) {
+      return 0
+    }
+    
+    let limit_ms = limit_minutes * 60 * 1000
+    let remaining_ms = limit_ms - ( (new Date()).getTime() -  start_timestamp)
+    if (remaining_ms < 0) {
+      return 0
+    }
+    return Math.ceil(remaining_ms / 1000)
   }
 });
 
@@ -5213,10 +5257,11 @@ let DigitalCountdownTimer = {
     this.start()
   },
   methods: {
-    start: async function () {
+    start: function () {
       
       if (!this.dataRemainingSec) {
-        this.dataRemainingSec = await this.lib.AxiosHelper.get('/client/ReadingProgress/getRemainingSeconds')
+        //this.dataRemainingSec = await this.lib.AxiosHelper.get('/client/ReadingProgress/getRemainingSeconds')
+        this.dataRemainingSec = this.lib.auth.getRemainingSeconds()
       }
       
       if ((this.dataRemainingSec === 60
@@ -5532,9 +5577,10 @@ let CountdownTimer = {
     this.start()
   },
   methods: {
-    start: async function () {
+    start: function () {
       if (!this.dataRemainingSec) {
-        this.dataRemainingSec = await this.lib.AxiosHelper.get('/client/ReadingProgress/getRemainingSeconds')
+        //this.dataRemainingSec = await this.lib.AxiosHelper.get('/client/ReadingProgress/getRemainingSeconds')
+        this.dataRemainingSec = this.lib.auth.getRemainingSeconds()
       }
       
       //console.log(this.pauseAtStart)

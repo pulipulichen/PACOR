@@ -102,10 +102,11 @@ let DigitalCountdownTimer = {
     this.start()
   },
   methods: {
-    start: async function () {
+    start: function () {
       
       if (!this.dataRemainingSec) {
-        this.dataRemainingSec = await this.lib.AxiosHelper.get('/client/ReadingProgress/getRemainingSeconds')
+        //this.dataRemainingSec = await this.lib.AxiosHelper.get('/client/ReadingProgress/getRemainingSeconds')
+        this.dataRemainingSec = this.lib.auth.getRemainingSeconds()
       }
       
       if ((this.dataRemainingSec === 60
