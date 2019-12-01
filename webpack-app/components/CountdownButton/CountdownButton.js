@@ -11,8 +11,15 @@ let CountdownButton = {
     , 'autoClickSeconds'],
   data() {    
     this.$i18n.locale = this.locale
+    
+    let autoClickRemainingSeconds = 0
+    if (this.autoClickSeconds) {
+      autoClickRemainingSeconds = this.autoClickSeconds
+    }
+    
     return {
-      remainingSeconds: 0
+      remainingSeconds: 0,
+      autoClickRemainingSeconds
     }
   },
   computed: {
@@ -124,10 +131,20 @@ let CountdownButton = {
           //console.log('等於0了')
           this.$emit('timeup')
           if (typeof(this.autoClickSeconds) === 'number') {
-            setTimeout(() => {
-              this.onClick()
-            }, this.autoClickSeconds * 1000)
+            this.autoClickCountdown()
           }
+        }
+      }, 1000)
+    },
+    autoClickCountdown () {
+      setTimeout(() => {
+        this.autoClickRemainingSeconds--
+        
+        if (this.autoClickRemainingSeconds > 0) {
+          this.autoClickCountdown()
+        }
+        else {
+          this.onClick()
         }
       }, 1000)
     },

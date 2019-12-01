@@ -147,29 +147,47 @@ var render = function() {
             key: "actions",
             fn: function() {
               return [
-                _c(
-                  "countdown-button",
-                  {
-                    attrs: {
-                      minWordCount: _vm.minWords,
-                      enableClassNames: "ui green right labeled icon button",
-                      text: _vm.answer,
-                      lib: _vm.lib,
-                      locale: _vm.status.preference.locale,
-                      countdownSec: _vm.remainingSeconds,
-                      enable: _vm.isTimeUp,
-                      ignoreWordCount: true,
-                      autoClickSeconds: 5
-                    },
-                    on: { click: _vm.nextStep, timeup: _vm.onTimeup }
+                _c("countdown-button", {
+                  attrs: {
+                    minWordCount: _vm.minWords,
+                    enableClassNames: "ui green right labeled icon button",
+                    text: _vm.answer,
+                    lib: _vm.lib,
+                    locale: _vm.status.preference.locale,
+                    countdownSec: _vm.remainingSeconds,
+                    enable: _vm.isTimeUp,
+                    ignoreWordCount: true,
+                    autoClickSeconds: 5
                   },
-                  [
-                    _vm._v(
-                      "\r\n        " + _vm._s(_vm.$t("NEXT")) + "\r\n        "
-                    ),
-                    _c("i", { staticClass: "angle right icon" })
-                  ]
-                )
+                  on: { click: _vm.nextStep, timeup: _vm.onTimeup },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "default",
+                      fn: function(ref) {
+                        var autoClickRemainingSeconds =
+                          ref.autoClickRemainingSeconds
+                        return [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("NEXT")) +
+                              "\r\n\r\n          "
+                          ),
+                          autoClickRemainingSeconds
+                            ? [
+                                _vm._v(
+                                  "\r\n            (" +
+                                    _vm._s(autoClickRemainingSeconds) +
+                                    ")\r\n          "
+                                )
+                              ]
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "angle right icon" })
+                        ]
+                      }
+                    }
+                  ])
+                })
               ]
             },
             proxy: true
@@ -278,29 +296,47 @@ var render = function() {
             key: "actions",
             fn: function() {
               return [
-                _c(
-                  "countdown-button",
-                  {
-                    attrs: {
-                      minWordCount: _vm.minWords,
-                      enableClassNames: "ui green right labeled icon button",
-                      text: _vm.answer,
-                      lib: _vm.lib,
-                      locale: _vm.status.preference.locale,
-                      countdownSec: _vm.remainingSeconds,
-                      enable: _vm.isTimeUp,
-                      ignoreWordCount: true,
-                      autoClickSeconds: 5
-                    },
-                    on: { click: _vm.nextStep, timeup: _vm.onTimeup }
+                _c("countdown-button", {
+                  attrs: {
+                    minWordCount: _vm.minWords,
+                    enableClassNames: "ui green right labeled icon button",
+                    text: _vm.answer,
+                    lib: _vm.lib,
+                    locale: _vm.status.preference.locale,
+                    countdownSec: _vm.remainingSeconds,
+                    enable: _vm.isTimeUp,
+                    ignoreWordCount: true,
+                    autoClickSeconds: 5
                   },
-                  [
-                    _vm._v(
-                      "\r\n        " + _vm._s(_vm.$t("NEXT")) + "\r\n        "
-                    ),
-                    _c("i", { staticClass: "angle right icon" })
-                  ]
-                )
+                  on: { click: _vm.nextStep, timeup: _vm.onTimeup },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "default",
+                      fn: function(ref) {
+                        var autoClickRemainingSeconds =
+                          ref.autoClickRemainingSeconds
+                        return [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("NEXT")) +
+                              "\r\n\r\n          "
+                          ),
+                          autoClickRemainingSeconds
+                            ? [
+                                _vm._v(
+                                  "\r\n            (" +
+                                    _vm._s(autoClickRemainingSeconds) +
+                                    ")\r\n          "
+                                )
+                              ]
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "angle right icon" })
+                        ]
+                      }
+                    }
+                  ])
+                })
               ]
             },
             proxy: true

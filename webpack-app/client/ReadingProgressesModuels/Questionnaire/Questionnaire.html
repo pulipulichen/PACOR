@@ -60,8 +60,15 @@
         v-bind:autoClickSeconds="5"
         v-on:click="nextStep"
         v-on:timeup="onTimeup">
-        {{ $t('NEXT') }}
-        <i class="angle right icon"></i>
+        <template v-slot:default="{autoClickRemainingSeconds}">
+          {{ $t('NEXT') }}
+
+          <template v-if="autoClickRemainingSeconds">
+            ({{ autoClickRemainingSeconds }})
+          </template>
+
+          <i class="angle right icon"></i>
+        </template>
       </countdown-button>
     </template>
   </modal>

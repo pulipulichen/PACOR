@@ -3,7 +3,7 @@
         v-bind:class="computedClassName"
         v-on:click="onClick">
   <template v-if="isEnable">
-    <slot></slot>
+    <slot v-bind:autoClickRemainingSeconds="autoClickRemainingSeconds"></slot>
   </template>
   <template v-else>
     ({{ disabledMessage }})
