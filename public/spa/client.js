@@ -3022,6 +3022,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _computedStyleManager_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./computedStyleManager.js */ "./webpack-app/client/StyleManager/computedStyleManager.js");
 let StyleManager = {
   props: ['lib', 'status', 'config'],
   data() {
@@ -3031,38 +3032,19 @@ let StyleManager = {
 //  components: {
 //  },
   computed: {
-    isLeftHanded () {
-      if (this.status.preference
-              && this.status.preference.leftHanded) {
-        return this.status.preference.leftHanded
-      }
-      return false
-    }
   },
-  watch: {
-  },
+//  watch: {
+//  },
 //  mounted() {
 //  },
   methods: {
-    isStackWidth() {
-      let StackWidth = this.config.StackWidth
-      return (window.innerWidth < StackWidth)
-    },
-    isSmallHeight() {
-      return (window.innerHeight < this.config.SmallHeight)
-    },
-    getClientHeight(unit) {
-      let height = window.innerHeight
-
-      if (typeof (unit) === 'string') {
-        height = height + unit
-      }
-
-      return height
-    },
+    
     
   } // methods
 }
+
+
+Object(_computedStyleManager_js__WEBPACK_IMPORTED_MODULE_0__["default"])(StyleManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (StyleManager);
 
@@ -3116,6 +3098,36 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "webpack-app/client/StyleManager/StyleManager.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/StyleManager/computedStyleManager.js":
+/*!*****************************************************************!*\
+  !*** ./webpack-app/client/StyleManager/computedStyleManager.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (StyleManager) {
+  
+  StyleManager.computed.isLeftHanded = function () {
+    if (this.status.preference
+            && this.status.preference.leftHanded) {
+      return this.status.preference.leftHanded
+    }
+    return false
+  } // StyleManager.computed.isLeftHanded = function () {
+
+  StyleManager.computed.isEnableAnimate = function () {
+    if (this.status.preference
+            && this.status.preference.enableAnimate) {
+      return this.status.preference.enableAnimate
+    }
+    return true
+  } // StyleManager.computed.isEnableAnimate = function () {
+});
 
 /***/ }),
 
