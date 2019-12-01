@@ -60,7 +60,8 @@
         v-bind:autoClickSeconds="5"
         v-on:click="nextStep"
         v-on:timeup="onTimeup">
-        <template v-slot:default="{autoClickRemainingSeconds}">
+        <template 
+          v-slot:default="{autoClickRemainingSeconds}">
           {{ $t('NEXT') }}
 
           <template v-if="autoClickRemainingSeconds">
