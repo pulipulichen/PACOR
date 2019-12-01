@@ -262,87 +262,6 @@ class Annotation extends WebpageUserBaseController {
     }
   }
   
-  /**
-   * 不會用到
-   * @param {type} request
-   * @param {type} webpage
-   * @param {type} user
-   * @returns {unresolved}
-   */
-//  async index ({ request, webpage, user }) {
-//    let query = request.all()
-//    //console.log(query)
-//    return await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
-//  }
-
-  /**
-   * 不會用到
-   * @param {type} request
-   * @param {type} webpage
-   * @param {type} user
-   * @returns {unresolved}
-   */
-//  async indexMy ({ request, webpage, user }) {
-//    let condition = request.all()
-//    await ReadingActivityLog.log(webpage, user, this.modelName + '.indexMy', condition)
-//    
-//    let cacheKey = `${this.modelName}.indexMy.${webpage.id}.${user.id}.${JSON.stringify(condition)}`
-//    return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
-//      let query = this.model
-//              .query()
-//              .where('webpage_id', webpage.primaryKeyValue)
-//              .where('user_id', user.primaryKeyValue)
-//              .with('notes')
-//              .with('anchorPositions')
-//              .orderBy('created_at', 'asc')
-//
-//      if (this.hasDeletedColumn === true) {
-//        query.where('deleted', false)
-//      }
-//
-//      if (typeof(condition) === 'object') {
-//        query.where(condition)
-//      }
-//
-//      let output = await query.fetch()
-//      //await Cache.put(cacheKey, output, Config.get('view.indexCacheMinute'))
-//      return output
-//    })
-//  }
-  
-  /**
-   * 不會用到
-   * @param {type} request
-   * @param {type} webpage
-   * @param {type} user
-   * @returns {unresolved}
-   */
-//  async indexOthers ({ request, webpage, user }) {
-//    let condition = request.all()
-//    await ReadingActivityLog.log(webpage, user, this.modelName + '.indexOthers', condition)
-//    
-//    let cacheKey = `${this.modelName}.indexOthers.${webpage.id}.${user.id}.${JSON.stringify(condition)}`
-//    return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
-//      let others = await user.getOtherUsersInGroup(webpage)
-//
-//      let query = this.model
-//              .query()
-//              .with('anchorPositions')
-//              .where('webpage_id', webpage.primaryKeyValue)
-//              .whereIn('user_id', others)
-//              .where('public', true)  // 主要是多了這個
-//              .where('deleted', false)
-//
-//      if (typeof(condition) === 'object') {
-//        query.where(condition)
-//      }
-//
-//      let output = await query.fetch()
-//      //await Cache.put(cacheKey, output, Config.get('view.indexCacheMinute'))
-//      return output
-//    })
-//  }
-  
   async update ({request, webpage, user}) {
     //console.log('ready to update 4')
     let data = request.all()
@@ -365,57 +284,80 @@ class Annotation extends WebpageUserBaseController {
     return 1
   }
   
-//  async init ({request, webpage, user}) {
-//    let query = request.all()
-//    
-//    let highlights
-//    //let sections
-//    
-//    let enableCollaborative = await user.isEnableCollaboration(webpage)
-//    
-//    let cacheKey = Cache.key('init', enableCollaborative, query)
-//    return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
-//
-//      if (enableCollaborative === true) {
-//        let hasAfterTime = (typeof (query.afterTime) === 'number')
-//        if (hasAfterTime === false) {
-//          highlights = await AnnotationModel.getHighlightsByWebpageGroup(webpage, user, query)
-//        } else {
-//          highlights = await AnnotationModel.getOthersHighlightsByWebpageGroup(webpage, user, query)
-//        }
-//      } else {
-//        highlights = await AnnotationModel.getMyHighlightsByWebpageGroup(webpage, user, query)
-//      }
-//      
-//      // ------------------------------
-//
-//      let sectionsChecklist = await user.getSectionsChecklist(webpage, query)
-//      let sectionsAnnotation = await AnnotationModel.buildSectionsAnnotationSummary(webpage, user, query)
-//      
-//      return {
-//        highlights,
-//        sections: {
-//          checklist: sectionsChecklist,
-//          annotation: sectionsAnnotation
-//        }
-//      }
-//    })  // return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
-//  }
-  
-//  async sectionsAnnotation ({request, webpage, user}) {
-//    let query = request.all()
-//    await webpage.log(user, 'Annotation.sectionsAnnotation', query)
-//    return await AnnotationModel.buildSectionsAnnotationSummary(webpage, user, query)
-//  }
-//  
-//  async listSectionNext ({request, webpage, user}) {
-//    let query = request.all()
-//    return await AnnotationModel.getSectionAnnotations(webpage, user, query)
-//  }
-  
   async getAnnotation({request, webpage, user}) {
     const options = request.all()
     return await AnnotationModel.getAnnotation(webpage, user, options)
+  }
+  
+  // -----------------------------------------
+  
+  
+  /**
+   * 僅提供給測試使用，實際上不會用到
+   * @param {type} request
+   * @param {type} webpage
+   * @param {type} user
+   * @returns {unresolved}
+   */
+  async indexMy ({ request, webpage, user }) {
+    let condition = request.all()
+    await ReadingActivityLog.log(webpage, user, this.modelName + '.indexMy', condition)
+    
+    let cacheKey = `${this.modelName}.indexMy.${webpage.id}.${user.id}.${JSON.stringify(condition)}`
+    return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
+      let query = this.model
+              .query()
+              .where('webpage_id', webpage.primaryKeyValue)
+              .where('user_id', user.primaryKeyValue)
+              .with('notes')
+              .with('anchorPositions')
+              .orderBy('created_at', 'asc')
+
+      if (this.hasDeletedColumn === true) {
+        query.where('deleted', false)
+      }
+
+      if (typeof(condition) === 'object') {
+        query.where(condition)
+      }
+
+      let output = await query.fetch()
+      //await Cache.put(cacheKey, output, Config.get('view.indexCacheMinute'))
+      return output
+    })
+  }
+  
+  /**
+   * 只有給測試使用，實際上不會用到
+   * @param {type} request
+   * @param {type} webpage
+   * @param {type} user
+   * @returns {unresolved}
+   */
+  async indexOthers ({ request, webpage, user }) {
+    let condition = request.all()
+    await ReadingActivityLog.log(webpage, user, this.modelName + '.indexOthers', condition)
+    
+    let cacheKey = `${this.modelName}.indexOthers.${webpage.id}.${user.id}.${JSON.stringify(condition)}`
+    return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
+      let others = await user.getOtherUsersInGroup(webpage)
+
+      let query = this.model
+              .query()
+              .with('anchorPositions')
+              .where('webpage_id', webpage.primaryKeyValue)
+              .whereIn('user_id', others)
+              .where('public', true)  // 主要是多了這個
+              .where('deleted', false)
+
+      if (typeof(condition) === 'object') {
+        query.where(condition)
+      }
+
+      let output = await query.fetch()
+      //await Cache.put(cacheKey, output, Config.get('view.indexCacheMinute'))
+      return output
+    })
   }
 }
 

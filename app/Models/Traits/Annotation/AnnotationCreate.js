@@ -60,6 +60,17 @@ class AnnotationCreate {
       for (let i = 0; i < data.anchorPositions.length; i++) {
         let a = data.anchorPositions[i]
 
+        if (!a.type) {
+          // 來自動判斷
+          if (typeof(a.start_pos) === 'number'
+                  && typeof(a.end_pos) === 'number') {
+            a.type = 'textContent'
+          }
+          else {
+            a.type = 'section'
+          }
+        }
+
         let query = {
           webpage_id: webpage.primaryKeyValue,
           seq_id: a.seq_id,

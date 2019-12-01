@@ -27,7 +27,10 @@ let userB
 let userBID
 let webpage
 
-const url = 'http://blog.pulipuli.info/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html?Annotation.delete.spec'
+let annotationIDtoDestroy
+let annotationIDtoDestroy2
+
+const url = 'http://blog.pulipuli.info-Annotation.delete.spec/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html?Annotation.delete.spec'
 
 let config = {
   '0-1. create group in webpage': async ({ assert, client }) => {
@@ -123,14 +126,14 @@ f g`
     let data = {
       anchorPositions: [
         {
-          paragraph_seq_id: 1,
+          seq_id: 1,
           paragraph_id: 'aaa1',
           start_pos: 2,
           end_pos: 4,
-          anchor_text: 'AAA'
+          anchor_text: 'AAA',
         },
         {
-          paragraph_seq_id: 2,
+          seq_id: 2,
           paragraph_id: 'aaa2',
           start_pos: 2,
           end_pos: 4,
@@ -147,24 +150,25 @@ f g`
             .send(data)
             .end()
 
-    console.log(response.text)
+    //console.log(response.text)
+    let annotationID = parseInt(response.text, 10)
     //response.assertError([])
     response.assertStatus(200)
-    response.assertText(1)
+    //response.assertText(1)  // 這個是測annotation id的數字
+    assert.isNumber(annotationID)
   },
-
   'a4: create a private annotation': async ({ assert, client }) => {
     let data = {
       anchorPositions: [
         {
-          paragraph_seq_id: 1,
+          seq_id: 1,
           paragraph_id: 'aaa1',
           start_pos: 2,
           end_pos: 4,
           anchor_text: 'AAA'
         },
         {
-          paragraph_seq_id: 2,
+          seq_id: 2,
           paragraph_id: 'aaa2',
           start_pos: 2,
           end_pos: 4,
@@ -184,8 +188,10 @@ f g`
 
     //console.log(response.text)
     //response.assertError([])
+    let annotationID = parseInt(response.text, 10)
     response.assertStatus(200)
-    response.assertText(2)
+    //response.assertText(2)
+    assert.isNumber(annotationID)
   },
 
   'a5: is it a private annotation': async ({ assert, client }) => {
@@ -268,7 +274,7 @@ f g`
     let data = {
       anchorPositions: [
         {
-          paragraph_seq_id: 1,
+          seq_id: 1,
           paragraph_id: 'aaa1',
           start_pos: 12,
           end_pos: 14,
@@ -287,8 +293,11 @@ f g`
 
     //console.log(response.text)
     //response.assertError([])
+    let annotationID = parseInt(response.text, 10)
     response.assertStatus(200)
-    response.assertText(3)
+    //response.assertText(3)
+    assert.isNumber(annotationID)
+    annotationIDtoDestroy = annotationID
 
     let afterTime = (new Date()).getTime()
 
@@ -300,7 +309,7 @@ f g`
     let data = {
       anchorPositions: [
         {
-          paragraph_seq_id: 1,
+          seq_id: 1,
           paragraph_id: 'aaa1',
           start_pos: 120,
           end_pos: 140,
@@ -320,7 +329,10 @@ f g`
     //console.log(response.text)
     //response.assertError([])
     response.assertStatus(200)
-    response.assertText(4)
+    //response.assertText(4)
+    let annotationID = parseInt(response.text, 10)
+    assert.isNumber(annotationID)
+    annotationIDtoDestroy2 = annotationID
 
     let afterTime = (new Date()).getTime()
 
@@ -332,14 +344,14 @@ f g`
     let data = {
       anchorPositions: [
         {
-          paragraph_seq_id: 1,
+          seq_id: 1,
           paragraph_id: 'aaa1',
           start_pos: 2,
           end_pos: 4,
           anchor_text: 'AAA'
         },
         {
-          paragraph_seq_id: 2,
+          seq_id: 2,
           paragraph_id: 'aaa2',
           start_pos: 6,
           end_pos: 8,
@@ -359,7 +371,9 @@ f g`
     //console.log(response.text)
     //response.assertError([])
     response.assertStatus(200)
-    response.assertText(5)
+    //response.assertText(5)
+    let annotationID = parseInt(response.text, 10)
+    assert.isNumber(annotationID)
 
     let afterTime = (new Date()).getTime()
     //console.log('b private time', afterTime)
@@ -393,7 +407,7 @@ f g`
   },
 
   'b6: remove annotation': async ({ assert, client }) => {
-    let annotationID = 3
+    let annotationID = annotationIDtoDestroy
 
     let response = await client.get('/client/Annotation/destroy')
             .query({
@@ -462,7 +476,7 @@ f g`
   },
 
   'b9: remove annotation': async ({ assert, client }) => {
-    let annotationID = 4
+    let annotationID = annotationIDtoDestroy2
 
     let response = await client.get('/client/Annotation/destroy')
             .query({
