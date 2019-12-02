@@ -912,7 +912,7 @@ var render = function() {
                 _c(
                   "div",
                   {
-                    staticClass: "ui button",
+                    staticClass: "ui button login-submit",
                     class: { disabled: _vm.isDisableLogin },
                     on: { click: _vm.login }
                   },

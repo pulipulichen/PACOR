@@ -14,6 +14,7 @@ let TestBrowserHelper = function (title, config) {
     
     for (let name in config) {
       try {
+        console.log('Running: ' + name)
         await config[name](args)
       }
       catch (e) {

@@ -148,6 +148,7 @@ var render = function() {
             fn: function() {
               return [
                 _c("countdown-button", {
+                  staticClass: "questionnaire-submit",
                   attrs: {
                     minWordCount: _vm.minWords,
                     enableClassNames: "ui green right labeled icon button",
@@ -297,6 +298,7 @@ var render = function() {
             fn: function() {
               return [
                 _c("countdown-button", {
+                  staticClass: "questionnaire-submit",
                   attrs: {
                     minWordCount: _vm.minWords,
                     enableClassNames: "ui green right labeled icon button",
