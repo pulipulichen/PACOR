@@ -1,4 +1,5 @@
 export default function (StyleManager) {
+    
   StyleManager.methods.isStackWidth = function () {
     let StackWidth = this.config.StackWidth
     return (window.innerWidth < StackWidth)

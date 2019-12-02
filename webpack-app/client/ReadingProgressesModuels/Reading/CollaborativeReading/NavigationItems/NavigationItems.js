@@ -2,7 +2,7 @@ import NotificationIcon from './../NotificationManager/NotificationIcon/Notifica
 import UserFilter from './../../components/UserFilter/UserFilter.vue'
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
 
-let pauseAtStart = true
+let pauseAtStart = false
 if (pauseAtStart === true) {
   console.log('@test pauseAtStart')
 }

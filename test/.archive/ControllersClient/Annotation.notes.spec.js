@@ -34,6 +34,7 @@ let annotationIDtoDestroy
 let annotationIDtoDestroy2
 
 let publicAnnotationID
+let privateAnnotationID
 
 let config = {
   '0-1. create group in webpage': async function ( { assert, client }) {
@@ -143,7 +144,9 @@ f g`
 
     response.assertStatus(200)
     response.assertJSONSubset({
-      displayName: 'a'
+      status: {
+        displayName: 'a'
+      }
     })
   },
 
@@ -178,7 +181,9 @@ f g`
     //console.log(response.text)
     //response.assertError([])
     response.assertStatus(200)
-    response.assertText(1)
+    //response.assertText(1)
+    let annotationID = parseInt(response.text, 10)
+    assert.isNumber(annotationID)
   },
 
   'a4: create a private annotation': async function ( { assert, client }) {
@@ -213,11 +218,14 @@ f g`
     //console.log(response.text)
     //response.assertError([])
     response.assertStatus(200)
-    response.assertText(2)
+    let annotationID = parseInt(response.text, 10)
+    assert.isNumber(annotationID)
+    
+    privateAnnotationID = annotationID
   },
 
   'a5: is it a private annotation': async function ( { assert, client }) {
-    let annotation = await AnnotationModel.find(2)
+    let annotation = await AnnotationModel.find(privateAnnotationID)
     //console.log(annotation.toJSON())
     assert.equal(annotation.public, false)
   },

@@ -1,4 +1,4 @@
-let debugMockUpdate = false
+let debugMockUpdate = true
 if (debugMockUpdate === true) {
   console.log('@test debugMockUpdate')
 }
@@ -64,7 +64,7 @@ export default (SectionChecklist) => {
       checklist: this.sectionsData.checklist
     }
 
-    if (debugMockUpdate === false) {
+    if (debugMockUpdate !== true) {
       await this.lib.AxiosHelper.post('/client/Section/setChecklist', data)
     }
 

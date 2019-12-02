@@ -25,7 +25,8 @@
           <div class="six wide column"
                v-if="!isCompactMode">
             <img v-bind:src="config.baseURL + '/imgs/pacor.svg'"
-                 class="ui image" />
+                 class="ui image"
+                 v-on:dblclick="createMockupUsername" />
           </div>
 
         </media>

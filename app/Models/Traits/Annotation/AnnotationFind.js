@@ -167,8 +167,10 @@ class AnnotationFind {
         
         // ---------------------------------------------------
 
-        //if (anchorMode === 'exact') console.log(query.toSQL())
+        if (anchorMode === 'exact') console.log(query.toSQL())
+        
         //console.log(query.toSQL())
+        
         let result
         //console.log(pick)
         if (typeof (pick) !== 'number') {

@@ -768,7 +768,8 @@ var render = function() {
                                 staticClass: "ui image",
                                 attrs: {
                                   src: _vm.config.baseURL + "/imgs/pacor.svg"
-                                }
+                                },
+                                on: { dblclick: _vm.createMockupUsername }
                               })
                             ])
                           : _vm._e()
@@ -2717,8 +2718,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
   
-  Auth.method.getRemainingSeconds = function () {
-    if (Array.isArray(this.status.readingProgresses) === false) {
+  Auth.methods.getRemainingSeconds = function () {
+    if (!this.status 
+            || Array.isArray(this.status.readingProgresses) === false) {
       return 0
     }
     
@@ -2945,6 +2947,11 @@ let Login = {
     reset: function () {
       this.username = ''
       this.password = ''
+    },
+    createMockupUsername () {
+      this.username = '布丁' + (new Date()).getTime()
+      this.password = ''
+      this.adminMode = false
     }
   } // methods
 }
@@ -3071,6 +3078,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _computedStyleManager_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./computedStyleManager.js */ "./webpack-app/client/StyleManager/computedStyleManager.js");
+/* harmony import */ var _methodsStyleManager_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsStyleManager.js */ "./webpack-app/client/StyleManager/methodsStyleManager.js");
 let StyleManager = {
   props: ['lib', 'status', 'config'],
   data() {
@@ -3093,6 +3101,9 @@ let StyleManager = {
 
 
 Object(_computedStyleManager_js__WEBPACK_IMPORTED_MODULE_0__["default"])(StyleManager)
+
+
+Object(_methodsStyleManager_js__WEBPACK_IMPORTED_MODULE_1__["default"])(StyleManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (StyleManager);
 
@@ -3175,6 +3186,39 @@ __webpack_require__.r(__webpack_exports__);
     }
     return true
   } // StyleManager.computed.isEnableAnimate = function () {
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/StyleManager/methodsStyleManager.js":
+/*!****************************************************************!*\
+  !*** ./webpack-app/client/StyleManager/methodsStyleManager.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (StyleManager) {
+    
+  StyleManager.methods.isStackWidth = function () {
+    let StackWidth = this.config.StackWidth
+    return (window.innerWidth < StackWidth)
+  }
+  
+  StyleManager.methods.isSmallHeight = function () {
+    return (window.innerHeight < this.config.SmallHeight)
+  }
+  
+  StyleManager.methods.getClientHeight = function (unit) {
+    let height = window.innerHeight
+
+    if (typeof (unit) === 'string') {
+      height = height + unit
+    }
+
+    return height
+  } // StyleManager.methods.getClientHeight = function (unit) {
 });
 
 /***/ }),

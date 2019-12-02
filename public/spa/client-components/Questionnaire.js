@@ -720,7 +720,9 @@ let PreImaginary = {
       
       await this.lib.AxiosHelper.post('/client/ReadingProgress/end', this.log)
       localStorage.removeItem(this.persistKey)
-      this.$refs.Modal.hide()
+      if (this.$refs.Modal) {
+        this.$refs.Modal.hide()
+      }
       return await this.lib.auth.nextStep(false)
     }
   } // methods
@@ -893,7 +895,9 @@ let PreImaginary = {
       
       await this.lib.AxiosHelper.post('/client/ReadingProgress/end', this.log)
       localStorage.removeItem(this.persistKey)
-      this.$refs.Modal.hide()
+      if (this.$refs.Modal) {
+        this.$refs.Modal.hide()
+      }
       return await this.lib.auth.nextStep(false)
     }
   } // methods

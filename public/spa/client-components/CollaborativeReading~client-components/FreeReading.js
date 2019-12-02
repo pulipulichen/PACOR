@@ -2284,7 +2284,7 @@ __webpack_require__.r(__webpack_exports__);
 
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
 
-let pauseAtStart = true
+let pauseAtStart = false
 if (pauseAtStart === true) {
   console.log('@test pauseAtStart')
 }

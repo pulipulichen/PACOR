@@ -14,7 +14,7 @@ export default (AnnotationPanel) => {
       //this.placeholder.show()
     }
     
-    if (this.lib.style.isEnableAnimte()) {
+    if (this.lib.style.isEnableAnimte) {
       this.placeholder.transition(transitionMode)
       // @todo 可以不要用semantic ui的jquery嗎？
       window.$(this.$refs.panel).transition(transitionMode, transitionCallback)
@@ -43,7 +43,7 @@ export default (AnnotationPanel) => {
     }
 
 //    this.lib.rangy.hoverOut(true)
-    if (this.lib.style.isEnableAnimte()) {
+    if (this.lib.style.isEnableAnimte) {
       this.placeholder.transition(transitionMode)
 
       // @TODO Semantic UI的jQuery

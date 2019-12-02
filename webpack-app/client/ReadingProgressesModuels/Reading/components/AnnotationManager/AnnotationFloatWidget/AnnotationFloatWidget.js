@@ -48,7 +48,7 @@ let AnnotationFloatWidget = {
         classList.push('selecting')
       }
       
-      if (this.lib.style.isEnableAnimte() === false) {
+      if (this.lib.style.isEnableAnimte === false) {
         classList.push('disable-animate')
       }
       

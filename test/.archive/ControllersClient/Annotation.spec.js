@@ -33,6 +33,7 @@ let annotationIDtoDestroy
 let annotationIDtoDestroy2
 
 let publicAnnotationID
+let privateAnnotationID
 
 let config = {
   '0-1. create group in webpage': async function ( { assert, client }) {
@@ -45,7 +46,7 @@ f g`
     let groups = await webpage.groups().fetch()
     assert.equal(groups.size(), 3)
   },
-  '0-2. get userA and userB': async ({ assert, client }) => {
+  '0-2. get userA and userB': async function ({ assert, client }) {
     userA = await UserModel.findByNameInWebpage(webpage, 'a')
     userB = await UserModel.findByNameInWebpage(webpage, 'b')
 
@@ -68,7 +69,7 @@ f g`
     isEnableCollaborative = await userB.isEnableCollaboration(webpage)
     assert.equal(isEnableCollaborative, true)
   },
-  '0-4. change wepbage\'s config': async ({ assert, client }) => {
+  '0-4. change wepbage\'s config': async function ({ assert, client }) {
     let config = use('./../../test-config/reading-enableControlPermission')
     
     assert.isObject(config)
@@ -141,7 +142,9 @@ f g`
 
     response.assertStatus(200)
     response.assertJSONSubset({
-      displayName: 'a'
+      status: {
+        displayName: 'a'
+      }
     })
   },
 
@@ -176,7 +179,9 @@ f g`
     //console.log(response.text)
     //response.assertError([])
     response.assertStatus(200)
-    response.assertText(1)
+    //response.assertText(1)
+    let annotationID = parseInt(response.text, 10)
+    assert.isNumber(annotationID)
   },
 
   'a4: create a private annotation': async function ( { assert, client }) {
@@ -208,14 +213,18 @@ f g`
             .send(data)
             .end()
 
-    console.log(response.text)
+    //console.log(response.text)
     //response.assertError([])
     response.assertStatus(200)
-    response.assertText(2)
+    //response.assertText(2)
+    let annotationID = parseInt(response.text, 10)
+    assert.isNumber(annotationID)
+    
+    privateAnnotationID = annotationID
   },
 
   'a5: is it a private annotation': async function ( { assert, client }) {
-    let annotation = await AnnotationModel.find(2)
+    let annotation = await AnnotationModel.find(privateAnnotationID)
     //console.log(annotation.toJSON())
     assert.equal(annotation.public, false)
   },
@@ -255,14 +264,14 @@ f g`
   },
 
   'a7: test index': async function ( { assert, client }) {
-    let response = await client.get('/client/Annotation/index')
+    let response = await client.get('/client/Annotation/listSummary')
             .header('Referer', url)
             .session('adonis-auth', userAID)
             .end()
 
     //console.log(response.text)
     response.assertStatus(200)
-    assert.equal(response.body.length, 2)
+    assert.equal(response.body.annotationCount, 2)
   },
 
   'a8: do logout': async function ( { assert, client }) {
@@ -319,7 +328,9 @@ f g`
     //console.log(response.text)
     //response.assertError([])
     response.assertStatus(200)
-    response.assertText(3)
+    //response.assertText(3)
+    let annotationID = parseInt(response.text, 10)
+    assert.isNumber(annotationID)
 
     let afterTime = (new Date()).getTime()
 
@@ -358,14 +369,16 @@ f g`
     //console.log(response.text)
     //response.assertError([])
     response.assertStatus(200)
-    response.assertText(4)
+    //response.assertText(4)
+    let annotationID = parseInt(response.text, 10)
+    assert.isNumber(annotationID)
 
     let afterTime = (new Date()).getTime()
     //console.log('b private time', afterTime)
   },
 
-  'b4: test index': async function ( { assert, client }) {
-    let response = await client.get('/client/Annotation/index')
+  'b4: find A\'s 1 pbulic & B\'s 1 public & 1 private ': async function ( { assert, client }) {
+    let response = await client.get('/client/Annotation/listSummary')
             .header('Referer', url)
             .session('adonis-auth', userBID)
             .end()
@@ -374,13 +387,18 @@ f g`
     response.assertStatus(200)
 
     //console.log(response.body)
-    //console.log(JSON.stringify(response.body, null, ' '))
-    assert.equal(response.body.length, 3)
+    let groupIDList = await userB.getUserIDsInGroup(webpage)
+    assert.equal(groupIDList.length, 3)
+    
+    // 應該要包括user a 一個public
+    // user b: 1 public, 1 private
+    
+    console.log(JSON.stringify(response.body, null, ' '))
+    assert.equal(response.body.annotationCount, 3)
   },
-
   'b5: test index with afterTime': async function ( { assert, client }) {
     let afterTime = (new Date()).getTime() - (1000 * 2)
-    let response = await client.get('/client/Annotation/index')
+    let response = await client.get('/client/Annotation/listSummary')
             .query({
               afterTime: afterTime
             })
@@ -393,7 +411,7 @@ f g`
 
     //console.log(response.body)
     //console.log(JSON.stringify(response.body, null, ' '))
-    assert.equal(response.body.length, 1)
+    assert.equal(response.body.annotationCount, 1)
   },
 
   'b6: test highligh': async function ( { assert, client }) {
@@ -411,7 +429,7 @@ f g`
   },
 
   'b7: find annotations with positions in overlap mode': async function ( { assert, client }) {
-    let response = await client.get('/client/Annotation/index')
+    let response = await client.get('/client/Annotation/listSummary')
             .query({
               anchorPositions: [
                 {
@@ -431,11 +449,11 @@ f g`
 
     //console.log(response.body)
     //console.log(JSON.stringify(response.body, null, ' '))
-    assert.equal(response.body.length, 1) // 應該只找得到一個
+    assert.equal(response.body.annotationCount, 1) // 應該只找得到一個
   },
 
   'b8: find annotations with positions in exact mode': async function ( { assert, client }) {
-    let response = await client.get('/client/Annotation/index')
+    let response = await client.get('/client/Annotation/listSummary')
             .query({
               anchorPositions: [
                 {
@@ -455,8 +473,8 @@ f g`
 
     //console.log(response.body)
     //console.log(response.body.map(a => a.anchorPositions))
-    //console.log(JSON.stringify(response.body, null, ' '))
-    assert.equal(response.body.length, 1) // 應該只找得到一個
+    console.log(JSON.stringify(response.body, null, ' '))
+    assert.equal(response.body.annotationCount, 1) // 應該只找得到一個
   },
 
   'b9: find annotations with positions in include mode': async function ( { assert, client }) {
@@ -465,7 +483,7 @@ f g`
     //console.log(annotation.toJSON()[0].anchorPositions)
 
 
-    let response = await client.get('/client/Annotation/index')
+    let response = await client.get('/client/Annotation/listSummary')
             .query({
               anchorPositions: [
                 {
@@ -485,7 +503,7 @@ f g`
 
     //console.log(response.body.map(a => a.anchorPositions))
     //console.log(JSON.stringify(response.body, null, ' '))
-    assert.equal(response.body.length, 1) // 應該只找得到一個
+    assert.equal(response.body.annotationCount, 1) // 應該只找得到一個
 
   }
 }

@@ -130,7 +130,7 @@ let config = {
             .fetch()
     
     //console.log(logs.toJSON())
-    assert.equal(logs.size(), 3)
+    assert.equal(logs.size(), 6)
     
     let log = logs.first()
     //console.log(log.toJSON())
@@ -150,7 +150,7 @@ let config = {
     }
     
     let timeList = await user.getRecentInteractTime(webpage, options)
-    console.log(timeList)
+    //console.log(timeList)
     assert.isArray(timeList)
     assert.isNull(timeList[0])
     assert.isNumber(timeList[1])

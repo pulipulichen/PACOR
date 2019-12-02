@@ -21,4 +21,7 @@ let StyleManager = {
 import computedStyleManager from './computedStyleManager.js'
 computedStyleManager(StyleManager)
 
+import methodsStyleManager from './methodsStyleManager.js'
+methodsStyleManager(StyleManager)
+
 export default StyleManager

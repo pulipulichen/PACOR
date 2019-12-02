@@ -148,8 +148,9 @@ export default function (Auth) {
     }
   }
   
-  Auth.method.getRemainingSeconds = function () {
-    if (Array.isArray(this.status.readingProgresses) === false) {
+  Auth.methods.getRemainingSeconds = function () {
+    if (!this.status 
+            || Array.isArray(this.status.readingProgresses) === false) {
       return 0
     }
     

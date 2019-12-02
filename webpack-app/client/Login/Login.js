@@ -102,6 +102,11 @@ let Login = {
     reset: function () {
       this.username = ''
       this.password = ''
+    },
+    createMockupUsername () {
+      this.username = '布丁' + (new Date()).getTime()
+      this.password = ''
+      this.adminMode = false
     }
   } // methods
 }

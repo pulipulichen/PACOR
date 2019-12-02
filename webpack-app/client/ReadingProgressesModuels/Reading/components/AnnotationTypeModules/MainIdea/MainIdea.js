@@ -52,7 +52,7 @@ let Editor = {
     
     isEnableSubmitAdd () {
       //console.log(this.isNoteDifferent )
-      if (this.isNoteDifferent 
+      if (this.isNoteDifferent === true
               && typeof(this.note) === 'string'
               && this.note !== '') {
         return true

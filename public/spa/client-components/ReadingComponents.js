@@ -5118,7 +5118,7 @@ let AnnotationFloatWidget = {
         classList.push('selecting')
       }
       
-      if (this.lib.style.isEnableAnimte() === false) {
+      if (this.lib.style.isEnableAnimte === false) {
         classList.push('disable-animate')
       }
       
@@ -9237,7 +9237,7 @@ const transitionMode = 'slide up'
       //this.placeholder.show()
     }
     
-    if (this.lib.style.isEnableAnimte()) {
+    if (this.lib.style.isEnableAnimte) {
       this.placeholder.transition(transitionMode)
       // @todo 可以不要用semantic ui的jquery嗎？
       window.$(this.$refs.panel).transition(transitionMode, transitionCallback)
@@ -9266,7 +9266,7 @@ const transitionMode = 'slide up'
     }
 
 //    this.lib.rangy.hoverOut(true)
-    if (this.lib.style.isEnableAnimte()) {
+    if (this.lib.style.isEnableAnimte) {
       this.placeholder.transition(transitionMode)
 
       // @TODO Semantic UI的jQuery
@@ -11518,7 +11518,7 @@ let Editor = {
     
     isEnableSubmitAdd () {
       //console.log(this.isNoteDifferent )
-      if (this.isNoteDifferent 
+      if (this.isNoteDifferent === true
               && typeof(this.note) === 'string'
               && this.note !== '') {
         return true
@@ -11765,7 +11765,7 @@ let Editor = {
     
     isEnableSubmitAdd () {
       //console.log(this.isNoteDifferent )
-      if (this.isNoteDifferent 
+      if (this.isNoteDifferent === true
               && typeof(this.note) === 'string'
               && this.note !== '') {
         return true
@@ -24240,7 +24240,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let debugMockUpdate = false
+let debugMockUpdate = true
 if (debugMockUpdate === true) {
   console.log('@test debugMockUpdate')
 }
@@ -24306,7 +24306,7 @@ if (debugMockUpdate === true) {
       checklist: this.sectionsData.checklist
     }
 
-    if (debugMockUpdate === false) {
+    if (debugMockUpdate !== true) {
       await this.lib.AxiosHelper.post('/client/Section/setChecklist', data)
     }
 

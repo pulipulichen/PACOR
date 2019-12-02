@@ -82,15 +82,15 @@ class AnnotationCreate {
         if (a.type === 'textContent') {
           // 自動補齊一些資料
           if (typeof(a.start_pos) === 'number' 
-                  && typeof(a.end_post) !== 'number' 
+                  && typeof(a.end_pos) !== 'number' 
                   && typeof(a.anchor_text) === 'string') {
             a.end_pos = a.start_pos + a.anchor_text.length
           }
           
           if (typeof(a.start_pos) !== 'number' 
-                  && typeof(a.end_post) === 'number' 
+                  && typeof(a.end_pos) === 'number' 
                   && typeof(a.anchor_text) === 'string') {
-            a.start_pos = a.end_post - a.anchor_text.length
+            a.start_pos = a.end_pos - a.anchor_text.length
           }
           
           // 檢查
