@@ -19,6 +19,11 @@ class WebpageConfig {
       return await Cache.rememberWait([this], cacheKey, async () => {
         // 先看看自己有沒有
         let config = await this.getConfig()
+        
+        if (!config || Array.isArray(config.readingProgresses) === false) {
+          throw new Error('config is wrong!' , config)
+        }
+        
         return config.readingProgresses
       })
     }
@@ -86,7 +91,7 @@ class WebpageConfig {
         }
         
         //console.log({config})
-        let output
+        let output = {}
         if (typeof (config.readingProgressModules[stepName]) === 'object') {
           output = config.readingProgressModules[stepName]
         }

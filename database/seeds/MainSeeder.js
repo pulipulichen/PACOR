@@ -31,7 +31,7 @@ class UserSeeder {
     await WebpageUserGroupScript.main()
     await AnnotationInteractScript.main()
     
-    console.log('\n\n' + __filename + ' is finished.')
+    console.log('\n' + __filename + ' is finished.')
     console.log('=========================================')
     
     await Cache.flush()

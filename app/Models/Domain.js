@@ -14,6 +14,7 @@ class Domain extends Model {
     this.addTrait('Domain/DomainAdmin')
     this.addTrait('Domain/DomainCrawler')
     this.addTrait('Domain/DomainFind')
+    this.addTrait('Domain/DomainConfig')
   }
   
   

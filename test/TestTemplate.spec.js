@@ -48,6 +48,11 @@ let config = {
   'b. hello word': async function ( { assert, client } ) {    
     assert.equal(1+1, 2)
   },
+  'c. test browser': async function ( { assert, client, browser } ) {
+    const page = await browser.visit('http://blog.pulipuli.info/')
+    //console.log(page)
+    await page.assertHas('布丁布丁吃什麼？')
+  }
 }
 
 Test(title, config)

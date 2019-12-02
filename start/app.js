@@ -62,6 +62,7 @@ const aliases = {
   Redis: 'Adonis/Addons/Redis',
   HttpException: 'App/Helpers/HttpException',
   Test: 'App/Helpers/TestHelper',
+  TestBrowser: 'App/Helpers/TestBrowserHelper',
 }
 
 /*
