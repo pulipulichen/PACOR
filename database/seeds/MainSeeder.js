@@ -34,6 +34,8 @@ class UserSeeder {
     console.log('\n\n' + __filename + ' is finished.')
     console.log('=========================================')
     
+    await Cache.flush()
+    
     return true
   }
 }

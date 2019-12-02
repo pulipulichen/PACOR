@@ -6,7 +6,6 @@
 const {test, trait} = use('Test/Suite')('Controllers/Client/Annotation.delete.spec')
 
 let title = __filename
-
 const Test = use('Test')
 
 trait('Test/ApiClient')
@@ -35,7 +34,7 @@ let publicAnnotationID
 const url = 'http://blog.pulipuli.info-Annotation.delete.spec/2019/10/adonisjsvue-diary-about-adonisjs-and-vue.html?Annotation.delete.spec'
 
 let config = {
-  '0-1. create group in webpage': async ({ assert, client }) => {
+  '0-1. create group in webpage': async function ({ assert, client }) {
     webpage = await WebpageModel.findByURL(url)
     let groupSetting = `a b c
 d e
@@ -57,7 +56,7 @@ f g`
     assert.isNumber(userBID)
     assert.equal(userB.display_name, 'b')
   },
-  '0-3. move users to enable collaborative': async ({ assert, client }) => {
+  '0-3. move users to enable collaborative': async function ({ assert, client }) {
     let isEnableCollaborative
     
     await userA.goToCollaborativeReadingProgress(webpage)
@@ -78,7 +77,7 @@ f g`
     //console.log(webpage.config.readingProgressModules.CollaborativeReading.annotation)
     //assert.equal((webpage.config.indexOf('"enableControlPermission":true,') > -1), true)
   },
-  '0-5. check config has been changed': async ({ assert, client }) => {
+  '0-5. check config has been changed': async function ({ assert, client }) {
     let stepName = await userA.getCurrentReadingProgressStepName(webpage)
     assert.equal(stepName, 'CollaborativeReading')
     
@@ -118,7 +117,7 @@ f g`
    */
   
 
-  'a1: do login': async ({ assert, client }) => {
+  'a1: do login': async function ({ assert, client }) {
     let response
     response = await client.get('/client/auth/login')
             .header('Referer', url)
@@ -135,7 +134,7 @@ f g`
     })
   },
 
-  'a2: check login status after login': async ({ assert, client }) => {
+  'a2: check login status after login': async function ({ assert, client }) {
     let response
     response = await client.get('/client/auth/checkLogin')
             .header('Referer', url)
@@ -150,7 +149,7 @@ f g`
     })
   },
 
-  'a3: create a public annotation': async ({ assert, client }) => {
+  'a3: create a public annotation': async function ({ assert, client }) {
     let data = {
       anchorPositions: [
         {
@@ -179,13 +178,14 @@ f g`
             .end()
 
     //console.log(response.text)
-    let annotationID = parseInt(response.text, 10)
+    
     //response.assertError([])
     response.assertStatus(200)
     //response.assertText(1)  // 這個是測annotation id的數字
+    let annotationID = parseInt(response.text, 10)
     assert.isNumber(annotationID)
   },
-  'a4: create a private annotation': async ({ assert, client }) => {
+  'a4: create a private annotation': async function ({ assert, client }) {
     let data = {
       anchorPositions: [
         {
@@ -224,13 +224,13 @@ f g`
     
     publicAnnotationID = annotationID
   },
-  'a5: is it a private annotation': async ({ assert, client }) => {
+  'a5: is it a private annotation': async function ({ assert, client }) {
     let annotation = await AnnotationModel.find(publicAnnotationID)
     //console.log(annotation.toJSON())
     assert.equal(annotation.public, false)
   },
 
-  'a6: check annotation is logged': async ({ assert, client }) => {
+  'a6: check annotation is logged': async function ({ assert, client }) {
     let logs = await userA.getLog(webpage, 'Annotation.create')
 
     assert.equal(logs.length, 2)
@@ -263,7 +263,7 @@ f g`
     assert.equal(logs2.length, 1)
   },
 
-  'a7: test index': async ({ assert, client }) => {
+  'a7: test index': async function ({ assert, client }) {
     let response = await client.get('/client/Annotation/index')
             .header('Referer', url)
             .session('adonis-auth', userAID)
@@ -274,7 +274,7 @@ f g`
     assert.equal(response.body.length, 2)
   },
 
-  'a8: do logout': async ({ assert, client }) => {
+  'a8: do logout': async function ({ assert, client }) {
     let response
     response = await client.get('/client/auth/logout')
             .header('Referer', url)
@@ -288,7 +288,7 @@ f g`
 
 // --------------------
 
-  'b1: do login': async ({ assert, client }) => {
+  'b1: do login': async function ({ assert, client }) {
     let response
     response = await client.get('/client/auth/login')
             .header('Referer', url)
@@ -304,7 +304,7 @@ f g`
     })
   },
 
-  'b2: create a public annotation': async ({ assert, client }) => {
+  'b2-1: create a public annotation': async function ({ assert, client }) {
     let data = {
       anchorPositions: [
         {
@@ -339,7 +339,7 @@ f g`
     //await Sleep(2)
   },
 
-  'b3: create a public annotation 2': async ({ assert, client }) => {
+  'b2-2: create a public annotation 2': async function ({ assert, client }) {
     let data = {
       anchorPositions: [
         {
@@ -374,7 +374,7 @@ f g`
     //await Sleep(2)
   },
 
-  'b4: create a private annotation': async ({ assert, client }) => {
+  'b2-3: create a private annotation': async function ({ assert, client }) {
     let data = {
       anchorPositions: [
         {
@@ -413,7 +413,7 @@ f g`
     //console.log('b private time', afterTime)
   },
 
-  'b5: test floatWidget': async ({ assert, client }) => {
+  'b3: test floatWidget': async function ({ assert, client }) {
     let response = await client.get('/client/Annotation/floatWidget')
             .query({
               anchorPositions: [
@@ -440,7 +440,7 @@ f g`
     assert.isObject(response.body.annotation)
   },
 
-  'b6: remove annotation': async ({ assert, client }) => {
+  'b4: remove annotation': async function ({ assert, client }) {
     let annotationID = annotationIDtoDestroy
 
     let response = await client.get('/client/Annotation/destroy')
@@ -455,7 +455,7 @@ f g`
 
   },
 
-  'b7: query float widget again': async ({ assert, client }) => {
+  'b5: query float widget again': async function ({ assert, client }) {
 
     //await Cache.flush()
 
@@ -482,7 +482,7 @@ f g`
     assert.equal(response.text, '0')
   },
 
-  'b8: test list': async ({ assert, client }) => {
+  'b6: test list': async function ({ assert, client }) {
     let response = await client.get('/client/Annotation/listSummary')
             .query({
               anchorPositions: [
@@ -509,7 +509,7 @@ f g`
     assert.isArray(response.body.annotations)
   },
 
-  'b9: remove annotation': async ({ assert, client }) => {
+  'b7: remove annotation': async function ({ assert, client }) {
     let annotationID = annotationIDtoDestroy2
 
     let response = await client.get('/client/Annotation/destroy')
@@ -524,7 +524,7 @@ f g`
 
   },
 
-  'b10: query list again': async ({ assert, client }) => {
+  'b8: query list again': async function ({ assert, client }) {
 
     //await Cache.flush()
 
