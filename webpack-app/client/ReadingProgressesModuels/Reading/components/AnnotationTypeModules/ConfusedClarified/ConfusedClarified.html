@@ -13,6 +13,7 @@
 
   <HTMLEditor 
     ref="QuestionEditor"
+    class="QuestionEditor"
     
     v-bind:lib='lib'
     v-bind:contents="question"
@@ -42,6 +43,7 @@
     <HTMLEditor 
       v-show="isQuestionSubmitted"
       ref="AnswerEditor"
+      class="AnswerEditor"
       
       v-bind:lib='lib'
       v-bind:contents="answer"

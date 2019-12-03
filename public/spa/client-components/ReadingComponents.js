@@ -2789,6 +2789,7 @@ var render = function() {
       _vm._v(" "),
       _c("HTMLEditor", {
         ref: "QuestionEditor",
+        staticClass: "QuestionEditor",
         attrs: {
           lib: _vm.lib,
           contents: _vm.question,
@@ -2830,6 +2831,7 @@ var render = function() {
           }
         ],
         ref: "AnswerEditor",
+        staticClass: "AnswerEditor",
         attrs: {
           lib: _vm.lib,
           contents: _vm.answer,
@@ -11529,8 +11531,9 @@ let Editor = {
 //      return (this.annotationConfig.defaultPermission === 'public')
 //    },
     isNoteDifferent () {
-      //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
-      return (this.note !== this.noteReset)
+      let note = this.lib.StringHelper.htmlToText(this.note)
+      //console.log([note, this.noteReset, (this.note !== this.noteReset)])
+      return (note !== this.noteReset)
     },
     
     isEnableSubmitAdd () {
@@ -11776,8 +11779,9 @@ let Editor = {
 //      return (this.annotationConfig.defaultPermission === 'public')
 //    },
     isNoteDifferent () {
-      //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
-      return (this.note !== this.noteReset)
+      let note = this.lib.StringHelper.htmlToText(this.note)
+      //console.log([note, this.noteReset, (this.note !== this.noteReset)])
+      return (note !== this.noteReset)
     },
     
     isEnableSubmitAdd () {

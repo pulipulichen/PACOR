@@ -46,8 +46,9 @@ let Editor = {
 //      return (this.annotationConfig.defaultPermission === 'public')
 //    },
     isNoteDifferent () {
-      //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
-      return (this.note !== this.noteReset)
+      let note = this.lib.StringHelper.htmlToText(this.note)
+      //console.log([note, this.noteReset, (this.note !== this.noteReset)])
+      return (note !== this.noteReset)
     },
     
     isEnableSubmitAdd () {

@@ -99,11 +99,11 @@ let config = {
       return window.PACORTestManager.status.username
     })
     
-    console.log(result)
+    //console.log(result)
     assert.isString(result)
     assert.isTrue(result.startsWith('布丁'))
     
-    console.log('開始準備sleep')
+    //console.log('開始準備sleep')
     let result2 = await page.page.evaluate(async function () {
       
       await window.PACORTestManager.lib.VueHelper.sleep(100)
@@ -113,16 +113,14 @@ let config = {
       return window.PACORTestManager.status.username
     })
     
-    console.log(result2)
+    //console.log(result2)
     assert.isString(result2)
     assert.isTrue(result2.startsWith('布丁'))
   },
   'd1. 專注閱讀: 確認視窗': async function ( { assert, client, browser, page } ) {
-    await page.waitForElement('.ui.modal.InstructionMessage')
     await page.assertFn(async function () {
-      $('.ui.modal.InstructionMessage .actions > .button:last').click()
-      return true
-    }, true)
+      await PACORTestManager.confirmInstructionMessage()
+    })  // await page.assertFn(async function () {
   },
   'd2. 隨意寫標註': async function ( { assert, client, browser, page } ) {
     //let writeAnnotations = Math.random()
@@ -135,6 +133,17 @@ let config = {
     await page.assertFn(async function () {
       await PACORTestManager.completeChecklists()
     })
+  },
+  'e1. 協助閱讀: 確認視窗': async function ( { assert, client, browser, page } ) {
+    await page.assertFn(async function () {
+      await PACORTestManager.confirmInstructionMessage()
+    })  // await page.assertFn(async function () {
+  },
+  'e2. 隨意寫標註': async function ( { assert, client, browser, page } ) {
+    //let writeAnnotations = Math.random()
+    await page.assertFn(async function () {
+      await PACORTestManager.writeAnnotations()
+    })  // await page.assertFn(async function () {
   },
   'z999. 結束前等一下吧': async function ( { assert, client, browser, page } ) {
     await page.assertFn(async function () {
