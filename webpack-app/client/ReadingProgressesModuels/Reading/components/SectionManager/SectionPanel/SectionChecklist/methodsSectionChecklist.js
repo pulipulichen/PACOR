@@ -29,6 +29,8 @@ export default (SectionChecklist) => {
   SectionChecklist.methods.openSectionAnnotationEditor = function () {
     this.lib.AnnotationPanel.setAnnotation(this.annotation, {
       'add': (annotation) => {
+        //console.log('Add annotation 有嗎？')
+        
         annotation.user = this.lib.auth.annotationUserData
         this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
         this.sectionsData.checklist[this.sectionSeqID][this.checklistAnnotationIndex] = true
@@ -95,6 +97,7 @@ export default (SectionChecklist) => {
   
   SectionChecklist.methods.checkIsChecklistCompleted = function () {
     let checked = this.sectionsData.checklist[this.sectionSeqID]
+    //console.log(checked)
     if (!checked) {
       return false
     }

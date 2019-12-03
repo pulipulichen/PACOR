@@ -4159,7 +4159,16 @@ var render = function() {
                     _c("div", { staticClass: "ui checkbox" }, [
                       _c("input", {
                         attrs: { type: "checkbox" },
-                        domProps: { checked: _vm.checked[i] }
+                        domProps: { checked: _vm.checked[i] },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            $event.stopPropagation()
+                            return (function(e) {
+                              _vm.onChecklistItemChange(i)
+                            })($event)
+                          }
+                        }
                       }),
                       _vm._v(" "),
                       _c("label", [
@@ -4192,7 +4201,10 @@ var render = function() {
                         on: {
                           click: function($event) {
                             $event.preventDefault()
-                            return (function() {})($event)
+                            $event.stopPropagation()
+                            return (function() {
+                              _vm.openSectionAnnotationEditor()
+                            })($event)
                           }
                         }
                       }),
@@ -24266,6 +24278,8 @@ if (debugMockUpdate === true) {
   SectionChecklist.methods.openSectionAnnotationEditor = function () {
     this.lib.AnnotationPanel.setAnnotation(this.annotation, {
       'add': (annotation) => {
+        //console.log('Add annotation 有嗎？')
+        
         annotation.user = this.lib.auth.annotationUserData
         this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
         this.sectionsData.checklist[this.sectionSeqID][this.checklistAnnotationIndex] = true
@@ -24332,6 +24346,7 @@ if (debugMockUpdate === true) {
   
   SectionChecklist.methods.checkIsChecklistCompleted = function () {
     let checked = this.sectionsData.checklist[this.sectionSeqID]
+    //console.log(checked)
     if (!checked) {
       return false
     }

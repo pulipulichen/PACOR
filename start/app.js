@@ -63,7 +63,7 @@ const aliases = {
   HttpException: 'App/Helpers/HttpException',
   Test: 'App/Helpers/Test/TestHelper',
   TestBrowser: 'App/Helpers/Test/TestBrowserHelper',
-  PACORTestHelper: 'App/Helpers/Test/PACORTestHelper',
+  //PACORTestHelper: 'App/Helpers/Test/PACORTestHelper',
 }
 
 /*
