@@ -31,6 +31,7 @@ export default (SectionChecklist) => {
       'add': (annotation) => {
         //console.log('Add annotation 有嗎？')
         
+        annotation.user_id = this.status.userID
         annotation.user = this.lib.auth.annotationUserData
         this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
         this.sectionsData.checklist[this.sectionSeqID][this.checklistAnnotationIndex] = true

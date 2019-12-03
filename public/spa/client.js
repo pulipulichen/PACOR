@@ -3118,6 +3118,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _methodsPACORTestManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./methodsPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsPACORTestManager.js");
 /* harmony import */ var _methodsFactoryPACORTestManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsFactoryPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsFactoryPACORTestManager.js");
 /* harmony import */ var _methodsWaitPACORTestManager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsWaitPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsWaitPACORTestManager.js");
+/* harmony import */ var _methodsQuestionnairePACORTestManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsQuestionnairePACORTestManager */ "./webpack-app/client/PACORTestManager/methodsQuestionnairePACORTestManager.js");
+/* harmony import */ var _methodsAnnotationPACORTestManager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsAnnotationPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsAnnotationPACORTestManager.js");
+/* harmony import */ var _methodsSectionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methodsSectionPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsSectionPACORTestManager.js");
 let PACORTestManager = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -3146,6 +3149,15 @@ Object(_methodsFactoryPACORTestManager__WEBPACK_IMPORTED_MODULE_1__["default"])(
 
 
 Object(_methodsWaitPACORTestManager__WEBPACK_IMPORTED_MODULE_2__["default"])(PACORTestManager)
+
+
+Object(_methodsQuestionnairePACORTestManager__WEBPACK_IMPORTED_MODULE_3__["default"])(PACORTestManager)
+
+
+Object(_methodsAnnotationPACORTestManager__WEBPACK_IMPORTED_MODULE_4__["default"])(PACORTestManager)
+
+
+Object(_methodsSectionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__["default"])(PACORTestManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (PACORTestManager);
 
@@ -3224,6 +3236,34 @@ let RandomTextHelper = function () {
 
 /***/ }),
 
+/***/ "./webpack-app/client/PACORTestManager/methodsAnnotationPACORTestManager.js":
+/*!**********************************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/methodsAnnotationPACORTestManager.js ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  PACORTestManager.methods.writeAnnotations = async function (ms) {
+    let min = 3
+    let max = 10
+    let writeAnnotations = min + Math.floor(Math.random() *  (max - min - 1))
+
+    for (let i = 0; i < writeAnnotations; i++) {
+      // 隨意寫標註
+      this.log('撰寫' + i)
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./webpack-app/client/PACORTestManager/methodsFactoryPACORTestManager.js":
 /*!*******************************************************************************!*\
   !*** ./webpack-app/client/PACORTestManager/methodsFactoryPACORTestManager.js ***!
@@ -3273,6 +3313,102 @@ __webpack_require__.r(__webpack_exports__);
       window.PACORTestManagerLog.apply(this, args)
     }
   }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/PACORTestManager/methodsQuestionnairePACORTestManager.js":
+/*!*************************************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/methodsQuestionnairePACORTestManager.js ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  PACORTestManager.methods.writeQuestionnaire = async function (ms) {
+    //throw new Error('Questionnaire')
+    
+    let textarea = await this.waitForElementVisible('textarea.answer')
+    textarea.val(RandomTextHelper())
+    await this.waitForElementVisibleClick('.ui.button.questionnaire-submit:not(.disabled)')
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/PACORTestManager/methodsSectionPACORTestManager.js":
+/*!*******************************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/methodsSectionPACORTestManager.js ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  PACORTestManager.methods.completeChecklists = async function () {
+    let panels = await this.waitForElementVisible('body > article > .SectionPanel', 1000)
+    //let checklists = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .SectionChecklist', 1000)
+
+    if (panels.length !== 2) {
+      throw new Error('.SectionPanel .SectionChecklist not found')
+    }
+
+    //PACORTestManager.log('checklists.length', checklists.length)
+
+    for (let i = 0; i < panels.length; i++) {
+      await this.sleep(100)
+
+      let panel = panels.eq(i)
+      let checklist = panel.find('.SectionChecklist')
+      let items = checklist.find('input[type="checkbox"]')
+      if (items.length !== 3) {
+        throw new Error('input[type="checkbox"] not found: ' + checklist.html())
+      }
+
+      for (let j = 0; j < items.length; j++) {
+        await this.sleep(1000)
+
+        let item = items.eq(j)
+        item[0].scrollIntoView({
+          behavior : 'smooth'
+        })
+        item.focus()
+                .click()
+      } // for (let j = 0; j < items.length; j++) {
+
+      //item.parents('.item:first').find('label').click()
+      await this.waitForElementVisible('.html-editor-container .note-editable', 1000)
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.html-editor-container .note-editable').html(this.createRandomHtml())
+
+      await this.sleep(1000)
+      await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
+      await this.sleep(1000)
+
+      await this.waitForElementVisibleClick(checklist, '.ui.fluid.button.positive', 3000)
+
+      await this.sleep(1000)
+
+      //let editButton = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .', 1000)
+      let editButton = await this.waitForElementVisible(panel, '.SectionAnnotationList > .ui.fluid.button:last', 1000)
+      //PACORTestManager.log('editButton', editButton.text().trim())
+      if (editButton.text().indexOf('撰寫小節重點') > -1) {
+        throw new Error('Should not be 撰寫小節重點')
+      }
+
+    } // for (let i = 0; i < checklists.length; i++) {
+  }
+
 });
 
 /***/ }),

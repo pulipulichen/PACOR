@@ -8,6 +8,7 @@ let SectionAnnotationEditorButton = {
   },
   computed: {
     myAnnotation () {
+      //window.PACORTestManager.log(this.annotations.length)
       for (let i = 0; i < this.annotations.length; i++) {
         if (this.annotations[i].user_id === this.status.userID) {
           return this.annotations[i]

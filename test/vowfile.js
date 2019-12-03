@@ -49,6 +49,9 @@ module.exports = (cli, runner) => {
       await ace.call('seed', {}, {keepAlive: true})
       await Cache.flush()
     }
+    else {
+      await ace.call('migration:run', {}, { silent: true, keepAlive: true })
+    }
   })
 
   runner.after(async () => {

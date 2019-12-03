@@ -32,6 +32,8 @@ let userID
 let annotation
 let annotationID
 
+const Env = use('Env')
+
 //let page
 
 let config = {
@@ -47,7 +49,13 @@ let config = {
 //    //user = 1
 //  },
   '0a. setup webpage config': async function ( { assert, client, browser, page } ) {
-    throw new Error('setup webpage config')
+    webpage = await WebpageModel.findByURL(url)
+    
+    let config = use('./../../test-config/reading-fastLimitTime')
+    console.log(config)
+    assert.isObject(config)
+    webpage.config = config
+    await webpage.save()
   },
   'b1. login': async function ( { assert, client, browser, page } ) {
     //console.log(user)
@@ -58,6 +66,10 @@ let config = {
             .click('div.ui.button.login-submit:not(.disabled)')
   },
   'c1. pre image': async function ( { assert, client, browser, page } ) {
+    await page.assertFn(async function () {
+      await PACORTestManager.writeQuestionnaire()
+    })
+    
     await page.waitForElement('textarea.answer')
             .type('textarea.answer', RandomTextHelper())
             .waitForElement('.ui.button.questionnaire-submit:not(.disabled)')
@@ -112,57 +124,16 @@ let config = {
       return true
     }, true)
   },
+  'd2. 隨意寫標註': async function ( { assert, client, browser, page } ) {
+    //let writeAnnotations = Math.random()
+    await page.assertFn(async function () {
+      await PACORTestManager.writeAnnotations()
+    })  // await page.assertFn(async function () {
+  },
   'd3. 處理檢核單': async function ( { assert, client, browser, page } ) {
     await page.waitForElement('.SectionChecklist')
     await page.assertFn(async function () {
-      let panels = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel', 1000)
-      //let checklists = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .SectionChecklist', 1000)
-      
-      if (panels.length !== 2) {
-        throw new Error('.SectionPanel .SectionChecklist not found')
-      }
-      
-      //PACORTestManager.log('checklists.length', checklists.length)
-      
-      for (let i = 0; i < panels.length; i++) {
-        await PACORTestManager.sleep(100)
-        
-        let panel = panels.eq(i)
-        let checklist = panel.find('.SectionChecklist')
-        let items = checklist.find('input[type="checkbox"]')
-        if (items.length !== 3) {
-          throw new Error('input[type="checkbox"] not found: ' + checklists.eq(i).html())
-        }
-        
-        for (let j = 0; j < items.length; j++) {
-          await PACORTestManager.sleep(1000)
-          
-          let item = items.eq(j)
-          item[0].scrollIntoView()
-          item.focus()
-                  .click()
-        } // for (let j = 0; j < items.length; j++) {
-          
-        //item.parents('.item:first').find('label').click()
-        await PACORTestManager.waitForElementVisible('.html-editor-container .note-editable', 1000)
-        $('.html-editor-container .note-editable').html(PACORTestManager.createRandomHtml())
-
-        await PACORTestManager.sleep(1000)
-        await PACORTestManager.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
-        await PACORTestManager.sleep(1000)
-
-        await PACORTestManager.waitForElementVisibleClick(checklist, '.ui.fluid.button.positive', 3000)
-
-        await PACORTestManager.sleep(1000)
-
-        //let editButton = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .', 1000)
-        let editButton = await PACORTestManager.waitForElementVisible(panel, '.SectionAnnotationList > .ui.fluid.button:last', 1000)
-        PACORTestManager.log('editButton', editButton.text().trim())
-        if (editButton.text().indexOf('撰寫小節重點') > -1) {
-          throw new Error('Should not be 撰寫小節重點')
-        }
-
-      } // for (let i = 0; i < checklists.length; i++) {
+      await PACORTestManager.completeChecklists()
     })
   },
   'z999. 結束前等一下吧': async function ( { assert, client, browser, page } ) {

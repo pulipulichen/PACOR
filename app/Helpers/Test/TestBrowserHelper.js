@@ -17,7 +17,7 @@ let TestBrowserHelper = function (title, url, config) {
     dumpio: true,  // Log all browser console messages to the terminal.
     devtools: true,
     pipe: true,
-    args: ['--start-maximized']
+    args: ['--start-maximized', '--auto-open-devtools-for-tabs']
   })
 
   let errors = []

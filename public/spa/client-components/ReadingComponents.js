@@ -23514,6 +23514,7 @@ let SectionAnnotationEditorButton = {
   },
   computed: {
     myAnnotation () {
+      //window.PACORTestManager.log(this.annotations.length)
       for (let i = 0; i < this.annotations.length; i++) {
         if (this.annotations[i].user_id === this.status.userID) {
           return this.annotations[i]
@@ -24280,6 +24281,7 @@ if (debugMockUpdate === true) {
       'add': (annotation) => {
         //console.log('Add annotation 有嗎？')
         
+        annotation.user_id = this.status.userID
         annotation.user = this.lib.auth.annotationUserData
         this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
         this.sectionsData.checklist[this.sectionSeqID][this.checklistAnnotationIndex] = true
