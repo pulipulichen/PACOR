@@ -21,7 +21,9 @@ const ReadingActivityLog = use('App/Models/ReadingActivityLog')
 
 const Sleep = use('Sleep')
 
-const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
+//const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
+const url = '/test-lorem-ipsum'
+
 let webpage
 let response
 let annotation

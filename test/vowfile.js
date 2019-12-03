@@ -39,11 +39,16 @@ module.exports = (cli, runner) => {
      * https://forum.adonisjs.com/t/can-i-use-sqlite-in-memory/2154/2
      */
     
+    const Env = use('Env')
+    
     const Cache = use('Cache')
     await Cache.flush()
-    await ace.call('migration:refresh', {}, { silent: true, keepAlive: true })
-    await ace.call('seed', {}, {keepAlive: true})
-    await Cache.flush()
+    
+    if (Env.get('DATABASE_REFRESH') === 'true') {
+      await ace.call('migration:refresh', {}, { silent: true, keepAlive: true })
+      await ace.call('seed', {}, {keepAlive: true})
+      await Cache.flush()
+    }
   })
 
   runner.after(async () => {

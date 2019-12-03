@@ -13,6 +13,12 @@
     v-bind:lib="lib"
     ref="style">
   </StyleManager>
+  
+  <PACORTestManager 
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib">
+  </PACORTestManager>
 
   <error-handler 
     v-bind:config="config"

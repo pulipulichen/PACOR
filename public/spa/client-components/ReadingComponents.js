@@ -3670,6 +3670,7 @@ var render = function() {
     [
       _c("modal", {
         ref: "Modal",
+        staticClass: "InstructionMessage",
         attrs: {
           config: _vm.config,
           status: _vm.status,

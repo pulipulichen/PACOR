@@ -2,7 +2,7 @@ let VueHelper = {
   sleep: function (ms) {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve()
+        resolve(true)
       }, ms)
     })
   } 

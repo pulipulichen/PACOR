@@ -22,6 +22,7 @@ Route.on('/chat').render('chat')
 
 // 進入管理或文件管理
 Route.on('/').render('index')
+Route.on('/test-lorem-ipsum').render('test-lorem-ipsum')
 
 // ------------------------------------------
 /*

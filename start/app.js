@@ -61,8 +61,9 @@ const aliases = {
   Sleep: 'App/Helpers/Sleep',
   Redis: 'Adonis/Addons/Redis',
   HttpException: 'App/Helpers/HttpException',
-  Test: 'App/Helpers/TestHelper',
-  TestBrowser: 'App/Helpers/TestBrowserHelper',
+  Test: 'App/Helpers/Test/TestHelper',
+  TestBrowser: 'App/Helpers/Test/TestBrowserHelper',
+  PACORTestHelper: 'App/Helpers/Test/PACORTestHelper',
 }
 
 /*

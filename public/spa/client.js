@@ -935,6 +935,30 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/PACORTestManager/PACORTestManager.html?vue&type=template&id=62176447&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/PACORTestManager/PACORTestManager.html?vue&type=template&id=62176447& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("fragment")
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/StyleManager/StyleManager.html?vue&type=template&id=892a0ef2&":
 /*!**********************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/StyleManager/StyleManager.html?vue&type=template&id=892a0ef2& ***!
@@ -3050,6 +3074,159 @@ component.options.__file = "webpack-app/client/Login/Login.vue"
 
 /***/ }),
 
+/***/ "./webpack-app/client/PACORTestManager/PACORTestManager.html?vue&type=template&id=62176447&":
+/*!**************************************************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/PACORTestManager.html?vue&type=template&id=62176447& ***!
+  \**************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_PACORTestManager_html_vue_type_template_id_62176447___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./PACORTestManager.html?vue&type=template&id=62176447& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/PACORTestManager/PACORTestManager.html?vue&type=template&id=62176447&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_PACORTestManager_html_vue_type_template_id_62176447___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_PACORTestManager_html_vue_type_template_id_62176447___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/client/PACORTestManager/PACORTestManager.js?vue&type=script&lang=js&?2b8e":
+/*!******************************************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/PACORTestManager.js?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PACORTestManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./PACORTestManager.js?vue&type=script&lang=js& */ "./webpack-app/client/PACORTestManager/PACORTestManager.js?vue&type=script&lang=js&?5f68");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_PACORTestManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/PACORTestManager/PACORTestManager.js?vue&type=script&lang=js&?5f68":
+/*!******************************************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/PACORTestManager.js?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _methodsPACORTestManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./methodsPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsPACORTestManager.js");
+let PACORTestManager = {
+  props: ['lib', 'status', 'config'],
+  data() {    
+//    this.$i18n.locale = this.config.locale
+    return {
+    }
+  },
+//  components: {
+//  },
+//  computed: {
+//  },
+//  watch: {
+//  },
+  mounted() {
+    window.PACORTestManager = this
+  },
+  methods: {
+  } // methods
+}
+
+
+Object(_methodsPACORTestManager__WEBPACK_IMPORTED_MODULE_0__["default"])(PACORTestManager)
+
+/* harmony default export */ __webpack_exports__["default"] = (PACORTestManager);
+
+/***/ }),
+
+/***/ "./webpack-app/client/PACORTestManager/PACORTestManager.vue":
+/*!******************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/PACORTestManager.vue ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PACORTestManager_html_vue_type_template_id_62176447___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PACORTestManager.html?vue&type=template&id=62176447& */ "./webpack-app/client/PACORTestManager/PACORTestManager.html?vue&type=template&id=62176447&");
+/* harmony import */ var _PACORTestManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PACORTestManager.js?vue&type=script&lang=js& */ "./webpack-app/client/PACORTestManager/PACORTestManager.js?vue&type=script&lang=js&?2b8e");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PACORTestManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PACORTestManager_html_vue_type_template_id_62176447___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PACORTestManager_html_vue_type_template_id_62176447___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/client/PACORTestManager/PACORTestManager.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/PACORTestManager/methodsPACORTestManager.js":
+/*!************************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/methodsPACORTestManager.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  PACORTestManager.methods.sleep = async function (seconds) {
+    return await this.lib.VueHelper.sleep(seconds)
+  }
+
+  PACORTestManager.methods.waitForElement = async function (selector, maxWaitMS = 15000) {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector).length > 0) {
+      return true
+    }
+
+    return new Promise(resolve => {
+      let check = () => {
+        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector).length > 0) {
+          return resolve(jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector).length)
+        }
+        else {
+          maxWaitMS = maxWaitMS - 500
+          if (maxWaitMS <= 0) {
+            return resolve(0)
+          }
+          
+          setTimeout(() => {
+            check()
+          }, 500)
+        }
+      }
+      
+      check()
+    })
+  }
+});
+
+/***/ }),
+
 /***/ "./webpack-app/client/StyleManager/StyleManager.html?vue&type=template&id=892a0ef2&":
 /*!******************************************************************************************!*\
   !*** ./webpack-app/client/StyleManager/StyleManager.html?vue&type=template&id=892a0ef2& ***!
@@ -3230,7 +3407,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"auth\">\r\n  </auth>\r\n  \r\n  <StyleManager \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"style\">\r\n  </StyleManager>\r\n\r\n  <error-handler \r\n    v-bind:config=\"config\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:errors=\"errors\"\r\n    ref=\"ErrorHandler\">\r\n  </error-handler>\r\n  \r\n  <confirm-modal\r\n    v-bind:config=\"config\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:status=\"status\"\r\n    \r\n    ref=\"ConfirmModal\">\r\n  </confirm-modal>\r\n\r\n  <component \r\n    v-bind:is=\"status.view\"\r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:progress=\"progress\"\r\n    v-bind:lib=\"lib\">\r\n  </component>\r\n</div>";
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"auth\">\r\n  </auth>\r\n  \r\n  <StyleManager \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"style\">\r\n  </StyleManager>\r\n  \r\n  <PACORTestManager \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\">\r\n  </PACORTestManager>\r\n\r\n  <error-handler \r\n    v-bind:config=\"config\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:errors=\"errors\"\r\n    ref=\"ErrorHandler\">\r\n  </error-handler>\r\n  \r\n  <confirm-modal\r\n    v-bind:config=\"config\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:status=\"status\"\r\n    \r\n    ref=\"ConfirmModal\">\r\n  </confirm-modal>\r\n\r\n  <component \r\n    v-bind:is=\"status.view\"\r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:progress=\"progress\"\r\n    v-bind:lib=\"lib\">\r\n  </component>\r\n</div>";
 
 /***/ }),
 
@@ -3358,6 +3535,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Auth/Auth.vue */ "./webpack-app/client/Auth/Auth.vue");
 /* harmony import */ var _Login_Login_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Login/Login.vue */ "./webpack-app/client/Login/Login.vue");
 /* harmony import */ var _StyleManager_StyleManager_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./StyleManager/StyleManager.vue */ "./webpack-app/client/StyleManager/StyleManager.vue");
+/* harmony import */ var _PACORTestManager_PACORTestManager_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./PACORTestManager/PACORTestManager.vue */ "./webpack-app/client/PACORTestManager/PACORTestManager.vue");
+
 
 
 
@@ -3375,6 +3554,7 @@ let components = {
   //'note-editor-manager': NoteEditorManager,
   Login: _Login_Login_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
   StyleManager: _StyleManager_StyleManager_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+  PACORTestManager: _PACORTestManager_PACORTestManager_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
   //Chat: () => import(/* webpackChunkName: "client-components/Chat" */ './components/Chat/Chat.vue'),
   'CollaborativeReading': () => Promise.all(/*! import() | client-components/CollaborativeReading */[__webpack_require__.e("client-components/CollaborativeReading~client-components/FreeReading"), __webpack_require__.e("client-components/CollaborativeReading")]).then(__webpack_require__.bind(null, /*! ./ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.vue */ "./webpack-app/client/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.vue")),
   'IndividualReading': () => __webpack_require__.e(/*! import() | client-components/IndividualReading */ "client-components/IndividualReading").then(__webpack_require__.bind(null, /*! ./ReadingProgressesModuels/Reading/IndividualReading/IndividualReading.vue */ "./webpack-app/client/ReadingProgressesModuels/Reading/IndividualReading/IndividualReading.vue")),
@@ -6480,7 +6660,7 @@ let VueHelper = {
   sleep: function (ms) {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve()
+        resolve(true)
       }, ms)
     })
   } 

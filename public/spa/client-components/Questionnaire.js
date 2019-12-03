@@ -81,6 +81,7 @@ var render = function() {
     [
       _c("modal", {
         ref: "Modal",
+        staticClass: "Questionnaire",
         attrs: {
           config: _vm.config,
           status: _vm.status,
@@ -231,6 +232,7 @@ var render = function() {
     [
       _c("modal", {
         ref: "Modal",
+        staticClass: "Questionnaire",
         attrs: {
           config: _vm.config,
           status: _vm.status,

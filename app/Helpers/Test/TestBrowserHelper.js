@@ -1,12 +1,17 @@
 'use strict'
 
+const Env = use('Env')
+
 let TestBrowserHelper = function (title, config) {
 
   const { test, trait } = use('Test/Suite')(title)
 
   trait('Test/ApiClient')
   trait('Session/Client')
-  trait('Test/Browser')
+  trait('Test/Browser', {
+    headless: (Env.get('TEST_BROWSER_HEADLESS') === 'true'),
+    dumpio: true  // Log all browser console messages to the terminal.
+  })
 
   let errors = []
 

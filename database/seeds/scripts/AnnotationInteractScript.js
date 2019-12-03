@@ -9,7 +9,8 @@ const AnnotationCommentRateModel = use('App/Models/AnnotationCommentRate')
 
 const Sleep = use('Sleep')
 
-const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
+//const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
+const url = '/test-lorem-ipsum'
 let webpage
 let annotation
 
