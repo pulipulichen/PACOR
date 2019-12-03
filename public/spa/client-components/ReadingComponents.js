@@ -5722,6 +5722,7 @@ let AnnotationTypeSelector = {
       let fab = this.$refs.fab
       clearTimeout(this.timer)
       
+      //console.log('watch selection')
       if (this.selection !== null) {
         //console.log('open')
         this.timer = setTimeout(() => {
@@ -5792,12 +5793,22 @@ let AnnotationTypeSelector = {
       let rangy = this.lib.RangyManager
       rangy.addEventListener('select', (data) => {
         // 如果AnnotationPanel已經顯示，則不動作
-        //console.log(this.lib.AnnotationPanel.isHide)
+        
+        //console.log('this.lib.AnnotationPanel.isHide', this.lib.AnnotationPanel.isHide)
+        
         if (this.lib.AnnotationPanel.isHide === false) {
           return false
         }
         
-        this.selection = data
+        if (!this.selection) {
+          this.selection = data
+        }
+        else {
+          this.selection = null
+          setTimeout(() => {
+            this.selection = data
+          }, 100)
+        }
         
         // For test
         if (debugEnableAutoList) {
@@ -5808,6 +5819,7 @@ let AnnotationTypeSelector = {
       })
       
       rangy.addEventListener('selectcollapsed', (data) => {
+        //PACORTestManager.log('selectcollapsed')
         this.selection = null
       })
     },
@@ -14009,9 +14021,11 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
   
-
   RangyManager.methods.onselect = function () {
     let selection = this.rangy.getSelection()
+    
+    //PACORTestManager.log(selection.toString().length, selection.isCollapsed)
+    
     if (selection.toString().length > 0 && selection.isCollapsed === false) {
       let range = selection.getRangeAt(0).cloneRange()
       let rect = range.getBoundingDocumentRect()
@@ -14026,6 +14040,7 @@ __webpack_require__.r(__webpack_exports__);
       //console.log(nodes)
       let highlightClassList = []
 
+      //PACORTestManager.log(nodes.length)
       //console.log(nodes)
 
       //let section_seq_id = []
@@ -14045,6 +14060,7 @@ __webpack_require__.r(__webpack_exports__);
         }
         
         if (typeof (anchorNode.getAttribute) === 'function') {
+          //PACORTestManager.log('nodes.forEach(anchorNode)', 'typeof (anchorNode.getAttribute)')
           return false
         }
         
@@ -14054,13 +14070,23 @@ __webpack_require__.r(__webpack_exports__);
         let position = {}
 
         anchorNode = $(anchorNode)
-
+        //PACORTestManager.log('anchorNode', anchorNode.attr('data-pacor-section-seq-id'))
         // ------------------
 
 
         // ------------------
 
-        let parentSection = anchorNode.parents('[data-pacor-section-seq-id]:first')
+        let parentSection
+        if (anchorNode.attr('data-pacor-section-seq-id') !== undefined) {
+          
+          parentSection = anchorNode
+        }
+        else {
+          parentSection = anchorNode.parents('[data-pacor-section-seq-id]:first')
+        }
+        
+        //PACORTestManager.log('parentSection', parentSection.length)
+        
         if (parentSection.length === 1) {
           //selection.anchorPosition.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
           
@@ -14075,6 +14101,7 @@ __webpack_require__.r(__webpack_exports__);
 
         } else {
           // we will not select out of scope.
+          //PACORTestManager.log('nodes.forEach(anchorNode)', '1 we will not select out of scope.')
           return false
         }
 
@@ -14096,13 +14123,17 @@ __webpack_require__.r(__webpack_exports__);
           //}
         } else {
           // we will not select out of scope.
+          //PACORTestManager.log('nodes.forEach(anchorNode)', '2 we will not select out of scope.')
           return false
         }
 
         selection.anchorPositions.push(position)
       })  // nodes.forEach(anchorNode => {
+      
+      //PACORTestManager.log(selection.anchorPositions, selection.anchorPositions.length)
 
       if (selection.anchorPositions.length === 0) {
+        console.log('selection.anchorPositions.length === 0')
         return false
       }
 
@@ -14115,6 +14146,7 @@ __webpack_require__.r(__webpack_exports__);
       
       //console.log('select', selection.anchorPositions)
       
+      //PACORTestManager.log('triggerEvent')
       this.triggerEvent('select', selection)
 
       //console.log(highlightClassList)
@@ -14319,22 +14351,8 @@ __webpack_require__.r(__webpack_exports__);
     let paragraphIndex = Math.floor(Math.random() * paragraphs.length)
     let paragraph = paragraphs.eq(paragraphIndex)
     
-    let maxLength = paragraph.text().length
-    
-    let point1 = Math.floor(Math.random() * maxLength)
-    let point2 = Math.floor(Math.random() * maxLength)
-    while (point1 === point2) {
-      point2 = Math.floor(Math.random() * maxLength)
-    }
     
     // --------------------------------
-    
-    let start_pos = Math.min(point1, point2)
-    let end_pos = Math.max(point1, point2)
-    let paragraphID = 'data-pacor-paragraph-seq-id'
-    
-    let selector = `[data-pacor-paragraph-seq-id="${paragraphIndex}"]`
-    //PACORTestManager.log('selector', selector)
     
     let elm = paragraph[0]
     
@@ -14343,13 +14361,35 @@ __webpack_require__.r(__webpack_exports__);
     })
     
     let fc = elm.firstChild
-    let ec = elm.lastChild
-    let range = document.createRange()
-    let sel
+    let ec = fc
     elm.focus()
+    
+    let maxLength = ec.length
+    
+    let point1 = Math.floor(Math.random() * maxLength)
+    let point2 = Math.floor(Math.random() * maxLength)
+    
+    while (point1 === point2) {
+      point2 = Math.floor(Math.random() * maxLength)
+    }
+    
+    // -------------------------------
+    
+    
+    let start_pos = Math.min(point1, point2)
+    let end_pos = Math.max(point1, point2)
+    let paragraphID = 'data-pacor-paragraph-seq-id'
+    
+    let selector = `[data-pacor-paragraph-seq-id="${paragraphIndex}"]`
+    //PACORTestManager.log('selector', selector)
+    
+    // ------------------------
+    
+    let range = document.createRange()
     range.setStart(fc,start_pos)
     range.setEnd(ec,end_pos)
-    sel = window.getSelection()
+    
+    let sel = window.getSelection()
     sel.removeAllRanges()
     sel.addRange(range)
     

@@ -17,6 +17,7 @@ let AnnotationTypeSelector = {
       let fab = this.$refs.fab
       clearTimeout(this.timer)
       
+      //console.log('watch selection')
       if (this.selection !== null) {
         //console.log('open')
         this.timer = setTimeout(() => {
@@ -87,12 +88,22 @@ let AnnotationTypeSelector = {
       let rangy = this.lib.RangyManager
       rangy.addEventListener('select', (data) => {
         // 如果AnnotationPanel已經顯示，則不動作
-        //console.log(this.lib.AnnotationPanel.isHide)
+        
+        //console.log('this.lib.AnnotationPanel.isHide', this.lib.AnnotationPanel.isHide)
+        
         if (this.lib.AnnotationPanel.isHide === false) {
           return false
         }
         
-        this.selection = data
+        if (!this.selection) {
+          this.selection = data
+        }
+        else {
+          this.selection = null
+          setTimeout(() => {
+            this.selection = data
+          }, 100)
+        }
         
         // For test
         if (debugEnableAutoList) {
@@ -103,6 +114,7 @@ let AnnotationTypeSelector = {
       })
       
       rangy.addEventListener('selectcollapsed', (data) => {
+        //PACORTestManager.log('selectcollapsed')
         this.selection = null
       })
     },

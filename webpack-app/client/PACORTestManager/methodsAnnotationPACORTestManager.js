@@ -9,6 +9,8 @@ export default function (PACORTestManager) {
     let writeAnnotations = min + Math.floor(Math.random() *  (max - min - 1))
 
     for (let i = 0; i < writeAnnotations; i++) {
+      await this.sleep(1000)
+      
       this.log('撰寫標註：' + i)
       await this.selectAnnotationType(i)
       
@@ -62,5 +64,8 @@ export default function (PACORTestManager) {
     
     await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
     
+    await this.lib.RangyManager.cancelSelection()
+    
+    await this.sleep(1000)
   }
 }

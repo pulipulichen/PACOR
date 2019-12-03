@@ -3226,7 +3226,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const textList = _RandomText_tpl__WEBPACK_IMPORTED_MODULE_0___default.a.trim().split('\n')
-const len = textList.length
+const len = textList.length - 1
 
 let RandomTextHelper = function () {
   return textList[(Math.round(Math.random() * textList.length))]
@@ -3258,6 +3258,8 @@ __webpack_require__.r(__webpack_exports__);
     let writeAnnotations = min + Math.floor(Math.random() *  (max - min - 1))
 
     for (let i = 0; i < writeAnnotations; i++) {
+      await this.sleep(1000)
+      
       this.log('撰寫標註：' + i)
       await this.selectAnnotationType(i)
       
@@ -3300,6 +3302,9 @@ __webpack_require__.r(__webpack_exports__);
     
     await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
     
+    await this.lib.RangyManager.cancelSelection()
+    
+    await this.sleep(1000)
   }
 });
 

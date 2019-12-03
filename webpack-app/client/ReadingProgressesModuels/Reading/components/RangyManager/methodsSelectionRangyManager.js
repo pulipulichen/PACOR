@@ -1,8 +1,10 @@
 export default (RangyManager) => {
   
-
   RangyManager.methods.onselect = function () {
     let selection = this.rangy.getSelection()
+    
+    //PACORTestManager.log(selection.toString().length, selection.isCollapsed)
+    
     if (selection.toString().length > 0 && selection.isCollapsed === false) {
       let range = selection.getRangeAt(0).cloneRange()
       let rect = range.getBoundingDocumentRect()
@@ -17,6 +19,7 @@ export default (RangyManager) => {
       //console.log(nodes)
       let highlightClassList = []
 
+      //PACORTestManager.log(nodes.length)
       //console.log(nodes)
 
       //let section_seq_id = []
@@ -36,6 +39,7 @@ export default (RangyManager) => {
         }
         
         if (typeof (anchorNode.getAttribute) === 'function') {
+          //PACORTestManager.log('nodes.forEach(anchorNode)', 'typeof (anchorNode.getAttribute)')
           return false
         }
         
@@ -45,13 +49,23 @@ export default (RangyManager) => {
         let position = {}
 
         anchorNode = $(anchorNode)
-
+        //PACORTestManager.log('anchorNode', anchorNode.attr('data-pacor-section-seq-id'))
         // ------------------
 
 
         // ------------------
 
-        let parentSection = anchorNode.parents('[data-pacor-section-seq-id]:first')
+        let parentSection
+        if (anchorNode.attr('data-pacor-section-seq-id') !== undefined) {
+          
+          parentSection = anchorNode
+        }
+        else {
+          parentSection = anchorNode.parents('[data-pacor-section-seq-id]:first')
+        }
+        
+        //PACORTestManager.log('parentSection', parentSection.length)
+        
         if (parentSection.length === 1) {
           //selection.anchorPosition.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
           
@@ -66,6 +80,7 @@ export default (RangyManager) => {
 
         } else {
           // we will not select out of scope.
+          //PACORTestManager.log('nodes.forEach(anchorNode)', '1 we will not select out of scope.')
           return false
         }
 
@@ -87,13 +102,17 @@ export default (RangyManager) => {
           //}
         } else {
           // we will not select out of scope.
+          //PACORTestManager.log('nodes.forEach(anchorNode)', '2 we will not select out of scope.')
           return false
         }
 
         selection.anchorPositions.push(position)
       })  // nodes.forEach(anchorNode => {
+      
+      //PACORTestManager.log(selection.anchorPositions, selection.anchorPositions.length)
 
       if (selection.anchorPositions.length === 0) {
+        console.log('selection.anchorPositions.length === 0')
         return false
       }
 
@@ -106,6 +125,7 @@ export default (RangyManager) => {
       
       //console.log('select', selection.anchorPositions)
       
+      //PACORTestManager.log('triggerEvent')
       this.triggerEvent('select', selection)
 
       //console.log(highlightClassList)

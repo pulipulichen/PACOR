@@ -39,7 +39,7 @@ let TestBrowserHelper = function (title, url, config) {
     
     for (let name in config) {
       try {
-        console.log('Running: ' + name)
+        console.log('[RUNNING] ' + name)
         await config[name](args)
       }
       catch (e) {
