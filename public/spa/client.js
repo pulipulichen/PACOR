@@ -3250,14 +3250,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
-  PACORTestManager.methods.writeAnnotations = async function (ms) {
+  PACORTestManager.methods.writeAnnotations = async function () {
     let min = 3
     let max = 10
     let writeAnnotations = min + Math.floor(Math.random() *  (max - min - 1))
 
     for (let i = 0; i < writeAnnotations; i++) {
       // 隨意寫標註
-      this.log('撰寫' + i)
+      //this.log('撰寫' + i)
+      
+      this.lib.RangyManager.selectRandomRange()
+      
+      if (i % 2 === 0) {
+        // 選擇重點
+        
+      }
+      else {
+        // 選擇已澄清
+        
+      }
     }
   }
 });
@@ -3331,11 +3342,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
-  PACORTestManager.methods.writeQuestionnaire = async function (ms) {
+  PACORTestManager.methods.writeQuestionnaire = async function (page) {
     //throw new Error('Questionnaire')
     
     let textarea = await this.waitForElementVisible('textarea.answer')
-    textarea.val(RandomTextHelper())
+    textarea.val(this.createRandomText())
+            .trigger('input')
+            .trigger('change')
+    
     await this.waitForElementVisibleClick('.ui.button.questionnaire-submit:not(.disabled)')
   }
 });

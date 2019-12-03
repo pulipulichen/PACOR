@@ -1,4 +1,4 @@
-import rangy from './../rangy/rangy-webpack.js'
+import rangy from './rangy/rangy-webpack.js'
 import $ from 'jquery'
 
 export default {

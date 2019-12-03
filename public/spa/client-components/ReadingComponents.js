@@ -12909,18 +12909,18 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Traits_data_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Traits/data.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/data.js");
-/* harmony import */ var _Traits_computed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Traits/computed */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/computed.js");
-/* harmony import */ var _Traits_watch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Traits/watch */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/watch.js");
-/* harmony import */ var _Traits_methods_AnchorPosition__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Traits/methods/AnchorPosition */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/AnchorPosition.js");
-/* harmony import */ var _Traits_methods_Highlight__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Traits/methods/Highlight */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Highlight.js");
-/* harmony import */ var _Traits_methods_Hover__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Traits/methods/Hover */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Hover.js");
-/* harmony import */ var _Traits_methods_Search__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Traits/methods/Search */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Search.js");
-/* harmony import */ var _Traits_methods_Selection__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Traits/methods/Selection */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Selection.js");
-/* harmony import */ var _Traits_methods_Event__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Traits/methods/Event */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Event.js");
-/* harmony import */ var _Traits_methods_Load__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Traits/methods/Load */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Load.js");
-/* harmony import */ var _Traits_methods_Annotation__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Traits/methods/Annotation */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Annotation.js");
-/* harmony import */ var _Traits_methods_Init__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Traits/methods/Init */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Init.js");
+/* harmony import */ var _dataRangyManager_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dataRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/dataRangyManager.js");
+/* harmony import */ var _computedRangyManager_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./computedRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/computedRangyManager.js");
+/* harmony import */ var _watchRangyManager_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./watchRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/watchRangyManager.js");
+/* harmony import */ var _methodsAnchorPositionRangyManager_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsAnchorPositionRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsAnchorPositionRangyManager.js");
+/* harmony import */ var _methodsHighlightRangyManager_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsHighlightRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsHighlightRangyManager.js");
+/* harmony import */ var _methodsHoverRangyManager_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methodsHoverRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsHoverRangyManager.js");
+/* harmony import */ var _methodsSearchRangyManager_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./methodsSearchRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsSearchRangyManager.js");
+/* harmony import */ var _methodsSelectionRangyManager_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./methodsSelectionRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsSelectionRangyManager.js");
+/* harmony import */ var _methodsEventRangyManager_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./methodsEventRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsEventRangyManager.js");
+/* harmony import */ var _methodsLoadRangyManager_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./methodsLoadRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsLoadRangyManager.js");
+/* harmony import */ var _methodsAnnotationRangyManager_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./methodsAnnotationRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsAnnotationRangyManager.js");
+/* harmony import */ var _methodsInitRangyManager_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./methodsInitRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsInitRangyManager.js");
 //import rangy from 'rangy-updated'
 
 
@@ -12930,7 +12930,7 @@ let RangyManager = {
   data() {
     //console.log(this.status)
     //this.$i18n.locale = this.config.locale
-    return _Traits_data_js__WEBPACK_IMPORTED_MODULE_0__["default"]
+    return _dataRangyManager_js__WEBPACK_IMPORTED_MODULE_0__["default"]
   },  // data() {
   computed: {
   },  // computed: {
@@ -12965,37 +12965,37 @@ let RangyManager = {
 }
 
 
-Object(_Traits_computed__WEBPACK_IMPORTED_MODULE_1__["default"])(RangyManager)
+Object(_computedRangyManager_js__WEBPACK_IMPORTED_MODULE_1__["default"])(RangyManager)
 
 
-Object(_Traits_watch__WEBPACK_IMPORTED_MODULE_2__["default"])(RangyManager)
+Object(_watchRangyManager_js__WEBPACK_IMPORTED_MODULE_2__["default"])(RangyManager)
 
 
-Object(_Traits_methods_AnchorPosition__WEBPACK_IMPORTED_MODULE_3__["default"])(RangyManager)
+Object(_methodsAnchorPositionRangyManager_js__WEBPACK_IMPORTED_MODULE_3__["default"])(RangyManager)
 
 
-Object(_Traits_methods_Highlight__WEBPACK_IMPORTED_MODULE_4__["default"])(RangyManager)
+Object(_methodsHighlightRangyManager_js__WEBPACK_IMPORTED_MODULE_4__["default"])(RangyManager)
 
 
-Object(_Traits_methods_Hover__WEBPACK_IMPORTED_MODULE_5__["default"])(RangyManager)
+Object(_methodsHoverRangyManager_js__WEBPACK_IMPORTED_MODULE_5__["default"])(RangyManager)
 
 
-Object(_Traits_methods_Search__WEBPACK_IMPORTED_MODULE_6__["default"])(RangyManager)
+Object(_methodsSearchRangyManager_js__WEBPACK_IMPORTED_MODULE_6__["default"])(RangyManager)
 
 
-Object(_Traits_methods_Selection__WEBPACK_IMPORTED_MODULE_7__["default"])(RangyManager)
+Object(_methodsSelectionRangyManager_js__WEBPACK_IMPORTED_MODULE_7__["default"])(RangyManager)
 
 
-Object(_Traits_methods_Event__WEBPACK_IMPORTED_MODULE_8__["default"])(RangyManager)
+Object(_methodsEventRangyManager_js__WEBPACK_IMPORTED_MODULE_8__["default"])(RangyManager)
 
 
-Object(_Traits_methods_Load__WEBPACK_IMPORTED_MODULE_9__["default"])(RangyManager)
+Object(_methodsLoadRangyManager_js__WEBPACK_IMPORTED_MODULE_9__["default"])(RangyManager)
 
 
-Object(_Traits_methods_Annotation__WEBPACK_IMPORTED_MODULE_10__["default"])(RangyManager)
+Object(_methodsAnnotationRangyManager_js__WEBPACK_IMPORTED_MODULE_10__["default"])(RangyManager)
 
 
-Object(_Traits_methods_Init__WEBPACK_IMPORTED_MODULE_11__["default"])(RangyManager)
+Object(_methodsInitRangyManager_js__WEBPACK_IMPORTED_MODULE_11__["default"])(RangyManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (RangyManager);
 
@@ -13040,10 +13040,10 @@ component.options.__file = "webpack-app/client/ReadingProgressesModuels/Reading/
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/computed.js":
-/*!********************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/computed.js ***!
-  \********************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/computedRangyManager.js":
+/*!*************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/computedRangyManager.js ***!
+  \*************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13070,16 +13070,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/data.js":
-/*!****************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/data.js ***!
-  \****************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/dataRangyManager.js":
+/*!*********************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/dataRangyManager.js ***!
+  \*********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../rangy/rangy-webpack.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/rangy/rangy-webpack.js");
+/* harmony import */ var _rangy_rangy_webpack_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./rangy/rangy-webpack.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/rangy/rangy-webpack.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -13118,10 +13118,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/AnchorPosition.js":
-/*!**********************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/AnchorPosition.js ***!
-  \**********************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsAnchorPositionRangyManager.js":
+/*!**************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsAnchorPositionRangyManager.js ***!
+  \**************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13287,10 +13287,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Annotation.js":
-/*!******************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Annotation.js ***!
-  \******************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsAnnotationRangyManager.js":
+/*!**********************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsAnnotationRangyManager.js ***!
+  \**********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13339,10 +13339,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Event.js":
-/*!*************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Event.js ***!
-  \*************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsEventRangyManager.js":
+/*!*****************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsEventRangyManager.js ***!
+  \*****************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13384,10 +13384,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Highlight.js":
-/*!*****************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Highlight.js ***!
-  \*****************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsHighlightRangyManager.js":
+/*!*********************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsHighlightRangyManager.js ***!
+  \*********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13698,10 +13698,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Hover.js":
-/*!*************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Hover.js ***!
-  \*************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsHoverRangyManager.js":
+/*!*****************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsHoverRangyManager.js ***!
+  \*****************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13773,10 +13773,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Init.js":
-/*!************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Init.js ***!
-  \************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsInitRangyManager.js":
+/*!****************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsInitRangyManager.js ***!
+  \****************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13886,10 +13886,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Load.js":
-/*!************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Load.js ***!
-  \************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsLoadRangyManager.js":
+/*!****************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsLoadRangyManager.js ***!
+  \****************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13913,10 +13913,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Search.js":
-/*!**************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Search.js ***!
-  \**************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsSearchRangyManager.js":
+/*!******************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsSearchRangyManager.js ***!
+  \******************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13994,10 +13994,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Selection.js":
-/*!*****************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/methods/Selection.js ***!
-  \*****************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsSelectionRangyManager.js":
+/*!*********************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsSelectionRangyManager.js ***!
+  \*********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -14288,30 +14288,6 @@ __webpack_require__.r(__webpack_exports__);
   }
 });
 
-
-
-/***/ }),
-
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/watch.js":
-/*!*****************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/Traits/watch.js ***!
-  \*****************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// 這件事情不應該在這裡做，他應該在SearchManager做
-
-/* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
-  RangyManager.watch['status.search.keyword'] = function (keyword) {
-    clearTimeout(this.searchResultTimer)
-    this.searchResultTimer = setTimeout(() => {
-      //console.log('searchInArticle', keyword)
-      this.searchInArticle(keyword)
-    }, 100)
-  }
-});
 
 
 /***/ }),
@@ -23023,6 +22999,30 @@ Object(_rangy_textrange_js__WEBPACK_IMPORTED_MODULE_5__["default"])(_rangy_core_
 //rangy = HighlighterModule(rangy)
 //console.log(rangy)
 /* harmony default export */ __webpack_exports__["default"] = (_rangy_core_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/watchRangyManager.js":
+/*!**********************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/watchRangyManager.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// 這件事情不應該在這裡做，他應該在SearchManager做
+
+/* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
+  RangyManager.watch['status.search.keyword'] = function (keyword) {
+    clearTimeout(this.searchResultTimer)
+    this.searchResultTimer = setTimeout(() => {
+      //console.log('searchInArticle', keyword)
+      this.searchInArticle(keyword)
+    }, 100)
+  }
+});
+
 
 /***/ }),
 

@@ -66,9 +66,9 @@ let config = {
             .click('div.ui.button.login-submit:not(.disabled)')
   },
   'c1. pre image': async function ( { assert, client, browser, page } ) {
-    await page.assertFn(async function () {
-      await PACORTestManager.writeQuestionnaire()
-    })
+//    await page.assertFn(async function () {
+//      await PACORTestManager.writeQuestionnaire()
+//    })
     
     await page.waitForElement('textarea.answer')
             .type('textarea.answer', RandomTextHelper())

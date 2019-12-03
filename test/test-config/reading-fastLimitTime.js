@@ -4,7 +4,7 @@ module.exports = {
       limitMinutes: 3.04,
     },
     'PostRecall': {
-      limitMinutes: 0.04,
+      limitMinutes: 3.04,
     },
   },
 }

@@ -1,13 +1,13 @@
 //import rangy from 'rangy-updated'
 
-import data from './Traits/data.js'
+import dataRangyManager from './dataRangyManager.js'
 
 let RangyManager = {
   props: ['lib', 'status'],
   data() {
     //console.log(this.status)
     //this.$i18n.locale = this.config.locale
-    return data
+    return dataRangyManager
   },  // data() {
   computed: {
   },  // computed: {
@@ -41,37 +41,37 @@ let RangyManager = {
   } // methods
 }
 
-import computed from './Traits/computed'
-computed(RangyManager)
+import computedRangyManager from './computedRangyManager.js'
+computedRangyManager(RangyManager)
 
-import watch from './Traits/watch'
-watch(RangyManager)
+import watchRangyManager from './watchRangyManager.js'
+watchRangyManager(RangyManager)
 
-import AnchorPosition from './Traits/methods/AnchorPosition'
+import AnchorPosition from './methodsAnchorPositionRangyManager.js'
 AnchorPosition(RangyManager)
 
-import Highlight from './Traits/methods/Highlight'
+import Highlight from './methodsHighlightRangyManager.js'
 Highlight(RangyManager)
 
-import Hover from './Traits/methods/Hover'
+import Hover from './methodsHoverRangyManager.js'
 Hover(RangyManager)
 
-import Search from './Traits/methods/Search'
+import Search from './methodsSearchRangyManager.js'
 Search(RangyManager)
 
-import Selection from './Traits/methods/Selection'
+import Selection from './methodsSelectionRangyManager.js'
 Selection(RangyManager)
 
-import Event from './Traits/methods/Event'
+import Event from './methodsEventRangyManager.js'
 Event(RangyManager)
 
-import Load from './Traits/methods/Load'
+import Load from './methodsLoadRangyManager.js'
 Load(RangyManager)
 
-import Annotation from './Traits/methods/Annotation'
+import Annotation from './methodsAnnotationRangyManager.js'
 Annotation(RangyManager)
 
-import Init from './Traits/methods/Init'
+import Init from './methodsInitRangyManager.js'
 Init(RangyManager)
 
 export default RangyManager
