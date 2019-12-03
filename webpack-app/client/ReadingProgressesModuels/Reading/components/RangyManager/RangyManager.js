@@ -71,6 +71,9 @@ Load(RangyManager)
 import Annotation from './methodsAnnotationRangyManager.js'
 Annotation(RangyManager)
 
+import Test from './methodsTestRangyManager.js'
+Test(RangyManager)
+
 import Init from './methodsInitRangyManager.js'
 Init(RangyManager)
 

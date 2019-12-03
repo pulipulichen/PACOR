@@ -12920,7 +12920,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _methodsEventRangyManager_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./methodsEventRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsEventRangyManager.js");
 /* harmony import */ var _methodsLoadRangyManager_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./methodsLoadRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsLoadRangyManager.js");
 /* harmony import */ var _methodsAnnotationRangyManager_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./methodsAnnotationRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsAnnotationRangyManager.js");
-/* harmony import */ var _methodsInitRangyManager_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./methodsInitRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsInitRangyManager.js");
+/* harmony import */ var _methodsTestRangyManager_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./methodsTestRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsTestRangyManager.js");
+/* harmony import */ var _methodsInitRangyManager_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./methodsInitRangyManager.js */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsInitRangyManager.js");
 //import rangy from 'rangy-updated'
 
 
@@ -12995,7 +12996,10 @@ Object(_methodsLoadRangyManager_js__WEBPACK_IMPORTED_MODULE_9__["default"])(Rang
 Object(_methodsAnnotationRangyManager_js__WEBPACK_IMPORTED_MODULE_10__["default"])(RangyManager)
 
 
-Object(_methodsInitRangyManager_js__WEBPACK_IMPORTED_MODULE_11__["default"])(RangyManager)
+Object(_methodsTestRangyManager_js__WEBPACK_IMPORTED_MODULE_11__["default"])(RangyManager)
+
+
+Object(_methodsInitRangyManager_js__WEBPACK_IMPORTED_MODULE_12__["default"])(RangyManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (RangyManager);
 
@@ -14286,6 +14290,71 @@ __webpack_require__.r(__webpack_exports__);
     //console.log(this.rangy.getSelection().toString())
     return (this.rangy.getSelection().toString() !== '')
   }
+});
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsTestRangyManager.js":
+/*!****************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/RangyManager/methodsTestRangyManager.js ***!
+  \****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
+  
+  RangyManager.methods.selectRandomRange = function () {
+    
+    // 先隨便選一個data-pacor-paragraph-seq-id
+    let paragraphs = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-paragraph-seq-id]')
+    
+    let paragraphIndex = Math.floor(Math.random() * paragraphs.length)
+    let paragraph = paragraphs.eq(paragraphIndex)
+    
+    let maxLength = paragraph.text().length
+    
+    let point1 = Math.floor(Math.random() * maxLength)
+    let point2 = Math.floor(Math.random() * maxLength)
+    while (point1 === point2) {
+      point2 = Math.floor(Math.random() * maxLength)
+    }
+    
+    // --------------------------------
+    
+    let start_pos = Math.min(point1, point2)
+    let end_pos = Math.max(point1, point2)
+    let paragraphID = 'data-pacor-paragraph-seq-id'
+    
+    let selector = `[data-pacor-paragraph-seq-id="${paragraphIndex}"]`
+    //PACORTestManager.log('selector', selector)
+    
+    let elm = paragraph[0]
+    
+    elm.scrollIntoView({
+      behavior: 'smooth'
+    })
+    
+    let fc = elm.firstChild
+    let ec = elm.lastChild
+    let range = document.createRange()
+    let sel
+    elm.focus()
+    range.setStart(fc,start_pos)
+    range.setEnd(ec,end_pos)
+    sel = window.getSelection()
+    sel.removeAllRanges()
+    sel.addRange(range)
+    
+    this.onselect()
+  } // RangyManager.methods.selectRandomRange = function () {
 });
 
 
