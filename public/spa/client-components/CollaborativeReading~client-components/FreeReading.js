@@ -2284,16 +2284,19 @@ __webpack_require__.r(__webpack_exports__);
 
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
 
-let pauseAtStart = false
-if (pauseAtStart === true) {
-  console.log('@test pauseAtStart')
-}
+
 
 let NavigationItems = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {    
     this.$i18n.locale = this.config.locale
     
+    let pauseAtStart = this.lib.auth.currentStepConfig.debug.countdownPause
+
+    if (pauseAtStart === true) {
+      console.log('@test pauseAtStart')
+    }
+
     return {
       pauseAtStart
     }

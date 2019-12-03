@@ -31,6 +31,9 @@ export default function (PACORTestManager) {
       let check = () => {
         s = getElement()
         if (s.length > 0) {
+          s.eq(0)[0].scrollIntoView({
+            behavior: 'smooth'
+          })
           return resolve(s)
         }
         else {

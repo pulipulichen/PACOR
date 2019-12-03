@@ -625,7 +625,7 @@ var render = function() {
       "div",
       {
         ref: "Menu",
-        staticClass: "ui brown borderless inverted",
+        staticClass: "ui brown borderless inverted Navigation",
         class: _vm.computedClass
       },
       [

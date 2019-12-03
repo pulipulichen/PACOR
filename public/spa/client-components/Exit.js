@@ -50,6 +50,7 @@ var render = function() {
     [
       _c("modal", {
         ref: "ExitModal",
+        staticClass: "ExitModal",
         attrs: {
           config: _vm.config,
           status: _vm.status,
@@ -64,9 +65,9 @@ var render = function() {
             fn: function() {
               return [
                 _vm._v(
-                  "\r\n        " +
+                  "\r\n      " +
                     _vm._s(_vm.$t("Thank you for your reading")) +
-                    "\r\n      "
+                    "\r\n    "
                 )
               ]
             },
@@ -87,11 +88,11 @@ var render = function() {
                   _c("div", { staticClass: "twelve wide column" }, [
                     _c("h1", { staticClass: "ui header" }, [
                       _vm._v(
-                        "\r\n              " +
+                        "\r\n            " +
                           _vm._s(
                             _vm.$t("Congratulation! You finished reading.")
                           ) +
-                          "\r\n            "
+                          "\r\n          "
                       )
                     ])
                   ])

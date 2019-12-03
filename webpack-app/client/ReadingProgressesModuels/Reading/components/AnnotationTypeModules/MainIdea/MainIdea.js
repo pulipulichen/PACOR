@@ -135,6 +135,8 @@ let Editor = {
     },
     addAnnotation: async function () {
       
+      this.lib.AnnotationHelper.validate(this.annotation)
+      
       let data = {
         anchorPositions: this.annotation.anchorPositions, // 所以，應該要在交給它的時候，就已經放入anchorPositions
         type: this.annotation.type,

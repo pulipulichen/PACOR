@@ -83,6 +83,22 @@ let AnnotationHelper = {
             && typeof(this.status.filter.focusUser.id) === 'number') {
       data.focusUserID = this.status.filter.focusUser.id
     }
+  },
+  validate: function (annotation) {
+    if (!annotation) {
+      throw new Error('annotation is undefinded')
+    }
+    
+    if (Array.isArray(annotation.anchorPositions) === false
+            || annotation.anchorPositions.length === 0) {
+      throw new Error(`Annotation's anchor positions are required`)
+    }
+    
+    let pos = annotation.anchorPositions[0]
+    if (pos.type === 'textContent'
+            && (!pos.start_pos || !pos.end_pos) ) {
+      throw new Error(`Start pos and end pos of anchor positions are required`)
+    }
   }
 }
 

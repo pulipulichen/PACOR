@@ -18,4 +18,25 @@ export default function (PACORTestManager) {
       window.PACORTestManagerLog.apply(this, args)
     }
   }
+  
+  PACORTestManager.methods.typeInput = function (selector, text) {
+    if (typeof(window.PACORTestManagerTypeInput) === 'function') {
+      window.PACORTestManagerTypeInput(selector, text)
+    }
+    else {
+      let ele = $(selector)
+      let tagName = ele.prop('tagName').toLowerCase()
+      if (tagName === 'input'
+              || tagName === 'textarea') {
+        ele.val(text)
+      }
+      else {
+        ele.html(text)
+      }
+    }
+  }
+  
+  PACORTestManager.methods.nextStep = async function () {
+    await this.lib.auth.nextStep()
+  }
 }

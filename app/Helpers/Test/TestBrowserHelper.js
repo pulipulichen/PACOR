@@ -31,6 +31,10 @@ let TestBrowserHelper = function (title, url, config) {
       console.log.apply(this, args)
     })
     
+    await page.page.exposeFunction('PACORTestManagerTypeInput', async (selector, text) => {
+      await page.type(selector, text)
+    })
+    
     await page.assertFn(async () => {
       window.focus()
     })

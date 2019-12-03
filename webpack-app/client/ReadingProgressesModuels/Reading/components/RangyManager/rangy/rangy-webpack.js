@@ -18,6 +18,10 @@ Selection(rangy)
 
 import TextRange from './rangy-textrange.js'
 TextRange(rangy)
+
+//import Serializer from './rangy-serializer.js'
+//Serializer(rangy)
+
 //console.log(HighlighterModule)
 //rangy = HighlighterModule(rangy)
 //console.log(rangy)

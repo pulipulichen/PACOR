@@ -66,19 +66,9 @@ let config = {
             .click('div.ui.button.login-submit:not(.disabled)')
   },
   'c1. pre image': async function ( { assert, client, browser, page } ) {
-//    await page.assertFn(async function () {
-//      await PACORTestManager.writeQuestionnaire()
-//    })
-    
-    await page.waitForElement('textarea.answer')
-            .type('textarea.answer', RandomTextHelper())
-            .waitForElement('.ui.button.questionnaire-submit:not(.disabled)')
-            .click('.ui.button.questionnaire-submit:not(.disabled)')
-    
-    //let count = await page.getText('div.at-custom-sidebar-count')
-    //assert.isNumber(parseInt(count, 10))
-    
-    //assert.equal(PACORTestManager.status.username.startsWith('布丁'), true)
+    await page.assertFn(async function () {
+      await PACORTestManager.writeQuestionnaire()
+    })
   },
   
   'c2. 中場確認 is PACORTestManager work?': async function ( { assert, client, browser, page } ) {
@@ -125,6 +115,8 @@ let config = {
   'd2. 隨意寫標註': async function ( { assert, client, browser, page } ) {
     //let writeAnnotations = Math.random()
     await page.assertFn(async function () {
+      await PACORTestManager.waitForElementVisible('[data-pacor-paragraph-seq-id]')
+    
       await PACORTestManager.writeAnnotations()
     })  // await page.assertFn(async function () {
   },
@@ -142,12 +134,30 @@ let config = {
   'e2. 隨意寫標註': async function ( { assert, client, browser, page } ) {
     //let writeAnnotations = Math.random()
     await page.assertFn(async function () {
+      //PACORTestManager.log('呃，怎麽不能運作了...')
+      await PACORTestManager.waitForElementVisible('.Navigation.menu')
+      // Navigation
+      await PACORTestManager.sleep(1000)
       await PACORTestManager.writeAnnotations()
     })  // await page.assertFn(async function () {
   },
+  'e9. 強制進入下一個階段': async function ( { assert, client, browser, page } ) {
+    //let writeAnnotations = Math.random()
+    await page.assertFn(async function () {
+      await PACORTestManager.nextStep()
+    })  // await page.assertFn(async function () {
+  },
+  'f1. post recall': async function ( { assert, client, browser, page } ) {
+    await page.assertFn(async function () {
+      await PACORTestManager.writeQuestionnaire()
+      
+      await PACORTestManager.sleep(3000)
+      await PACORTestManager.waitForElementVisibleClick('.ExitModal .actions .button:first')
+    })
+  },
   'z999. 結束前等一下吧': async function ( { assert, client, browser, page } ) {
     await page.assertFn(async function () {
-      await PACORTestManager.lib.VueHelper.sleep(3 * 1000)
+      await PACORTestManager.lib.VueHelper.sleep(60 * 3 * 1000)
     })
   },
 //  'd1. 專注閱讀: 確認視窗': async function ( { assert, client, browser } ) {

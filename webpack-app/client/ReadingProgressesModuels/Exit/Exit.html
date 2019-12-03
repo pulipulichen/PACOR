@@ -1,32 +1,34 @@
 <div>
-  <modal ref="ExitModal"
-         v-bind:config="config"
-         v-bind:status="status"
-         v-bind:progress="progress"
-         v-bind:lib="lib"
-         dimmerTransparent="false"
-         cancelable="false">
-      <template v-slot:header>
-        {{ $t('Thank you for your reading') }}
-      </template>
-      <template v-slot:content>
-        <div class="ui middle aligned grid">
-          <div class="four wide column">
-            <img v-bind:src="status.avatar"
-                     class="ui image" />
-          </div>
-          <div class="twelve wide column">
-            <h1 class="ui header">
-              {{ $t('Congratulation! You finished reading.') }}
-            </h1>
-          </div>
+  <modal 
+    class="ExitModal"
+    ref="ExitModal"
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:progress="progress"
+    v-bind:lib="lib"
+    dimmerTransparent="false"
+    cancelable="false">
+    <template v-slot:header>
+      {{ $t('Thank you for your reading') }}
+    </template>
+    <template v-slot:content>
+      <div class="ui middle aligned grid">
+        <div class="four wide column">
+          <img v-bind:src="status.avatar"
+               class="ui image" />
         </div>
-      </template>
-      <template v-slot:actions>
-        <div class="ui button"
-             v-on:click="logout">{{ $t('LOGOUT') }}</div>
-        <div class="ui button"
-             v-on:click="exit">{{ $t('CLOSE WINDOW') }}</div>
-      </template>
+        <div class="twelve wide column">
+          <h1 class="ui header">
+            {{ $t('Congratulation! You finished reading.') }}
+          </h1>
+        </div>
+      </div>
+    </template>
+    <template v-slot:actions>
+      <div class="ui button"
+           v-on:click="logout">{{ $t('LOGOUT') }}</div>
+      <div class="ui button"
+           v-on:click="exit">{{ $t('CLOSE WINDOW') }}</div>
+    </template>
   </modal>
 </div>

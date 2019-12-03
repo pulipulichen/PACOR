@@ -65,6 +65,8 @@ export default (Editor) => {
       
       this.lib.AnnotationHelper.note(this.annotation, 'question', this.question)
       
+      this.lib.AnnotationHelper.validate(this.annotation)
+      
       let data = {
         anchorPositions: this.annotation.anchorPositions,
         type: this.annotation.type,

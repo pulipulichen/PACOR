@@ -2,16 +2,19 @@ import $ from 'jquery'
 
 export default function (PACORTestManager) {
   PACORTestManager.methods.writeAnnotations = async function () {
-    await this.waitForElementVisible('[data-pacor-paragraph-seq-id]')
     
-    let min = 4
-    let max = 10
-    let writeAnnotations = min + Math.floor(Math.random() *  (max - min - 1))
+    //let min = 4
+    //let max = 10
+    
+    let min = 3
+    let max = 6
+    let writeAnnotations = min + Math.floor(Math.random() *  (max - min))
+    //writeAnnotations--
 
     for (let i = 0; i < writeAnnotations; i++) {
-      await this.sleep(1000)
+      await this.sleep(100)
       
-      this.log('撰寫標註：' + i)
+      this.log('撰寫標註：' + (i+1) + '/' + (writeAnnotations) )
       await this.selectAnnotationType(i)
       
       if (i % 3 === 0) {
@@ -19,17 +22,24 @@ export default function (PACORTestManager) {
       }
       else if (i % 3 === 1) {
         await this.writeConfusedClarifiedAnnotation()
+        //await this.writeConfusedAnnotation()
       }
       else {
         await this.writeConfusedAnnotation()
       }
+      
+      await this.sleep(100)
     }
+    
+    this.log('writeAnnotations 結束了')
   }
   
   PACORTestManager.methods.selectAnnotationType = async function (i) {
+    //this.log('selectAnnotationType', 1)
     await this.lib.RangyManager.selectRandomRange()
     
-    await this.sleep(1000)
+    //this.log('selectAnnotationType', 2)
+    await this.sleep(100)
       
     let typeItemSelector = '.fab-main-container .fab-item-container .fab-cantainer'
 
@@ -47,6 +57,7 @@ export default function (PACORTestManager) {
     }
     
     await this.waitForElementVisibleClick(typeItemSelector)
+    //this.log('selectAnnotationType', 3)
   }
   
   PACORTestManager.methods.writeMainIdeaAnnotation = async function () {
@@ -55,74 +66,75 @@ export default function (PACORTestManager) {
       throw new Error('Add button should be disabled at default')
     }
     
-    await this.sleep(3000)
+    await this.sleep(100)
     
     let editor = await this.waitForElementVisible('.html-editor-container .note-editable')
     editor.html(this.createRandomHtml())
     
-    await this.sleep(3000)
+    await this.sleep(100)
     
     await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
     
-    await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
+    await this.waitForElementHidden('.AnnotationPanel .segment', 10000)
     
     //await this.lib.RangyManager.cancelSelection()
     
-    await this.sleep(1000)
+    await this.sleep(100)
   }
   
   PACORTestManager.methods.writeConfusedClarifiedAnnotation = async function () {
     
-    await this.sleep(1000)
+    await this.sleep(100)
     
     let questionEditor = await this.waitForElementVisible('.QuestionEditor.html-editor-container .note-editable')
     questionEditor.html(this.createRandomHtml())
     
-    await this.sleep(3000)
+    await this.sleep(100)
     
     await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
     
-    await this.sleep(3000)
+    await this.sleep(100)
     
     let answerEditor = await this.waitForElementVisible('.AnswerEditor.html-editor-container .note-editable')
     answerEditor.html(this.createRandomHtml())
     
-    await this.sleep(3000)
+    await this.sleep(100)
     
     await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton:last', 3000)
     
-    await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
+    await this.waitForElementHidden('.AnnotationPanel .segment', 10000)
     
     //await this.lib.RangyManager.cancelSelection()
     
-    await this.sleep(1000)
+    await this.sleep(100)
   }
   
   
   PACORTestManager.methods.writeConfusedAnnotation = async function () {
     
-    await this.sleep(1000)
+    await this.sleep(100)
     
     let questionEditor = await this.waitForElementVisible('.QuestionEditor.html-editor-container .note-editable')
     questionEditor.html(this.createRandomHtml())
     
-    await this.sleep(3000)
+    await this.sleep(100)
     
     await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
     
-    await this.sleep(3000)
+    await this.sleep(1000)
     
     await this.waitForElementVisibleClick('.annotation-panel-buttons .ui.button:first', 3000)
     
-    await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
+    await this.waitForElementHidden('.AnnotationPanel .segment', 10000)
     
     //await this.lib.RangyManager.cancelSelection()
     
-    await this.sleep(1000)
+    await this.sleep(100)
   }
   
   PACORTestManager.methods.confirmInstructionMessage = async function () {
-    await this.sleep(1000)
+    await this.sleep(100)
     await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button:last')
+    await this.sleep(100)
   }
 }

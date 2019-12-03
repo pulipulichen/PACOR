@@ -22,7 +22,7 @@ export default function (PACORTestManager) {
       }
 
       for (let j = 0; j < items.length; j++) {
-        await this.sleep(1000)
+        await this.sleep(100)
 
         let item = items.eq(j)
         item[0].scrollIntoView({
@@ -35,13 +35,13 @@ export default function (PACORTestManager) {
       await this.waitForElementVisible('.html-editor-container .note-editable', 1000)
       $('.html-editor-container .note-editable').html(this.createRandomHtml())
 
-      await this.sleep(1000)
+      await this.sleep(100)
       await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
-      await this.sleep(1000)
+      await this.sleep(100)
 
       await this.waitForElementVisibleClick(checklist, '.ui.fluid.button.positive', 3000)
 
-      await this.sleep(1000)
+      await this.sleep(100)
 
       //let editButton = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .', 1000)
       let editButton = await this.waitForElementVisible(panel, '.SectionAnnotationList > .ui.fluid.button:last', 1000)

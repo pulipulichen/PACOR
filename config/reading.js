@@ -78,6 +78,9 @@ module.exports = {
         'I have already written annotations on a sentence I don\'t understand.',
         'SectionMainIdea', // 'I have already written the main ideas of this section.',
       ],
+      debug: {
+        countdownPause: true
+      }
       
     },
     'CollaborativeReading': {
@@ -89,6 +92,9 @@ module.exports = {
         defaultPermission: 'public',
         eanbleSectionAnnotation: true
       },
+      debug: {
+        countdownPause: true
+      }
     },
     'PostRecall': {
       message: '/2020exp/PostRecall.html',

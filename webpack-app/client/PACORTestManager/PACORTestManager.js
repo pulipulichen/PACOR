@@ -30,8 +30,8 @@ methodsWaitPACORTestManager(PACORTestManager)
 import methodsQuestionnairePACORTestManager from './methodsQuestionnairePACORTestManager'
 methodsQuestionnairePACORTestManager(PACORTestManager)
 
-import methodsAnnotationPACORTestManager from './methodsAnnotationPACORTestManager'
-methodsAnnotationPACORTestManager(PACORTestManager)
+import methodsWriteAnnotationPACORTestManager from './methodsWriteAnnotationPACORTestManager'
+methodsWriteAnnotationPACORTestManager(PACORTestManager)
 
 import methodsSectionPACORTestManager from './methodsSectionPACORTestManager'
 methodsSectionPACORTestManager(PACORTestManager)

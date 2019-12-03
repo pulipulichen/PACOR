@@ -72,6 +72,7 @@
     "HTMLEditor": {
       "attributes": {
         "v-bind:title": {},
+        "v-bind:label": {},
         "v-bind:height": {},
         "v-bind:editable": {},
         "v-bind:contents": {}
