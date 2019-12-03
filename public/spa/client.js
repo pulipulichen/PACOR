@@ -3288,7 +3288,7 @@ __webpack_require__.r(__webpack_exports__);
   PACORTestManager.methods.writeMainIdeaAnnotation = async function () {
     let button = await this.waitForElementVisible('.annotation-panel-buttons .ValidationButton')
     if (button.hasClass('disabled') === false) {
-      throw new Error('Add button should be disabled at default')
+      //throw new Error('Add button should be disabled at default')
     }
     
     let editor = await this.waitForElementVisible('.html-editor-container .note-editable')
@@ -3425,10 +3425,9 @@ __webpack_require__.r(__webpack_exports__);
 
         let item = items.eq(j)
         item[0].scrollIntoView({
-          behavior : 'smooth'
+          behavior: 'smooth'
         })
-        item.focus()
-                .click()
+        item.focus().click()
       } // for (let j = 0; j < items.length; j++) {
 
       //item.parents('.item:first').find('label').click()
@@ -3567,7 +3566,10 @@ __webpack_require__.r(__webpack_exports__);
       let check = () => {
         s = getElement()
         if (s.length === 0) {
-          return resolve(true)
+          setTimeout(() => {
+            resolve(true)
+          }, 500)
+          return 
         }
         else {
           maxWaitMS = maxWaitMS - 500

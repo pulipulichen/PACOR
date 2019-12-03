@@ -2,7 +2,7 @@ import $ from 'jquery'
 
 export default (RangyManager) => {
   
-  RangyManager.methods.selectRandomRange = function () {
+  RangyManager.methods.selectRandomRange = async function () {
     
     // 先隨便選一個data-pacor-paragraph-seq-id
     let paragraphs = $('[data-pacor-paragraph-seq-id]')
@@ -44,7 +44,12 @@ export default (RangyManager) => {
     sel.removeAllRanges()
     sel.addRange(range)
     
-    this.onselect()
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        this.onselect()
+        resolve(true)
+      }, 1000)
+    })
   } // RangyManager.methods.selectRandomRange = function () {
 }
 

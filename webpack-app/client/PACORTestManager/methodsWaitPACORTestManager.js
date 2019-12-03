@@ -97,7 +97,10 @@ export default function (PACORTestManager) {
       let check = () => {
         s = getElement()
         if (s.length === 0) {
-          return resolve(true)
+          setTimeout(() => {
+            resolve(true)
+          }, 500)
+          return 
         }
         else {
           maxWaitMS = maxWaitMS - 500

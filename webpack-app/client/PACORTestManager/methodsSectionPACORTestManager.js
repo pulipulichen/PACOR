@@ -26,10 +26,9 @@ export default function (PACORTestManager) {
 
         let item = items.eq(j)
         item[0].scrollIntoView({
-          behavior : 'smooth'
+          behavior: 'smooth'
         })
-        item.focus()
-                .click()
+        item.focus().click()
       } // for (let j = 0; j < items.length; j++) {
 
       //item.parents('.item:first').find('label').click()

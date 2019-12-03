@@ -14311,7 +14311,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
   
-  RangyManager.methods.selectRandomRange = function () {
+  RangyManager.methods.selectRandomRange = async function () {
     
     // 先隨便選一個data-pacor-paragraph-seq-id
     let paragraphs = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-paragraph-seq-id]')
@@ -14353,7 +14353,12 @@ __webpack_require__.r(__webpack_exports__);
     sel.removeAllRanges()
     sel.addRange(range)
     
-    this.onselect()
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        this.onselect()
+        resolve(true)
+      }, 1000)
+    })
   } // RangyManager.methods.selectRandomRange = function () {
 });
 
