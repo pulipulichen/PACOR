@@ -21,4 +21,7 @@ let PACORTestManager = {
 import methodsPACORTestManager from './methodsPACORTestManager'
 methodsPACORTestManager(PACORTestManager)
 
+import methodsFactoryPACORTestManager from './methodsFactoryPACORTestManager'
+methodsFactoryPACORTestManager(PACORTestManager)
+
 export default PACORTestManager

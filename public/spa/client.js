@@ -3116,6 +3116,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _methodsPACORTestManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./methodsPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsPACORTestManager.js");
+/* harmony import */ var _methodsFactoryPACORTestManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsFactoryPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsFactoryPACORTestManager.js");
 let PACORTestManager = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -3138,6 +3139,9 @@ let PACORTestManager = {
 
 
 Object(_methodsPACORTestManager__WEBPACK_IMPORTED_MODULE_0__["default"])(PACORTestManager)
+
+
+Object(_methodsFactoryPACORTestManager__WEBPACK_IMPORTED_MODULE_1__["default"])(PACORTestManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (PACORTestManager);
 
@@ -3180,6 +3184,66 @@ component.options.__file = "webpack-app/client/PACORTestManager/PACORTestManager
 
 /***/ }),
 
+/***/ "./webpack-app/client/PACORTestManager/lib/RandomText.tpl":
+/*!****************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/lib/RandomText.tpl ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "到上別未得省過優由臺以\n牛是銀像狀必同投點因市大們中小：\n只灣毒致濟女成應致。\n最軍務以意度品費可認導生省樂各操往持美意西送只，\n同常藝著黨通教不、\n中會文不產心現位而對士太養人費存年、\n面過色夜的；和命面高文發……\n不管語他為文加服常灣展經然行到己北民動須的一隨家全求快傷。\n天定神全不今經象了日相：\n想受術……向東其不我人與去錯小字覺會這息……\n能相推生而響至；開老滿得。\n世家著可老書說分害，有少隊指！\n總本了入學想教草中飯機心望十。\n工企服先那待等答車組科心最球總理。\n意景中最我之精為包上了農條告市汽創看那下四得。\n醫而了險香明人散氣過理，來持果平當國竟真水同化？\n山太但公家……報現了這氣文如會濟資，\n層這場資學生依明回就學可紀險至邊然都明況我樂灣。\n遊樣山較位手他會使者時生的了得布望導到果引西的消下國！\n海寫結中立，馬成車可一出地陽天。一線花的站，\n龍國受；論近片的重向口爭？其雖的有是格意經故院一，\n年兒共！市路安室軍少企面品別竟上選向由把參節，\n五書布燈地不專會等死會家我的史來另夫。\n皮人支受中名但、\n盡問的當……\n子的照策由行想國性所意及強水紅手飛線對關美？\n兩她陸有育地日製語他變嗎太自，\n後高慢電與現不可友已公場操設麼第頭著總了一業、\n那初大望全產要不升不是斯的全？\n分化會商那了然不不五亞不較下遊法人同半大黨！\n以空氣以善的何身方良吃沒進王牛是言公選現確流充的當資了不想少爭富型民家音許重，\n的洋就間家中間友法想構前美人老？點高列一，\n未理走現條有供正這不帶一影加……導馬無說多你灣的、\n數於業源務導我差媽是營讀使了富大時得星義出，\n了高通了說法，真有議一求集才自最代好與性應手三。\n經得個令內……於具排不界過感然息紀式已議所反好與登的聯問結此觀卻更用，\n地急兒車操辦朋叫、眼重大定正國便社星候配子處！\n的同字如研子，的個一他無們此國。\n真小二國言因這養由委量現圖於變代的快面就化法活果排你為進理及車音任布常許你友工講覺常他選起不意點血停投量我年易究無一，\n靜界大員了食生校你皮回能很吃快便草我一、\n坡的小主、利的至的自面過的重下甚識機意子；\n一河看受四園動家驚布思子氣全？\n入球快色接行條特進無無十上安臺去驗我站出專狀產你黃天於；\n親人感此營陽要係慢；男神都：\n易年以麼傷表，家一如他重官權溫把而待都間始決。\n麼水年易真有，受朋國到？\n力高用我蘭長術目痛果保立像驗是如到如？\n口試中源我從，客一氣的去定最，\n不新今笑過題家縣溫候益代作裝他功西過是今這。\n主爸意是果友東期……\n界即有得三自他農坡人金還生格。\n使與學麼在外式只檢！不其個資資東。\n管片到打加不形象只計把想位北口子根據太人反長簡來論從：\n世升來熱裡，表白體於且同人果不朋識大考，\n作代改弟國園！回著己，統標當我？\n理急認的，成長心需轉要照件家三。\n麼提題聽舞角為容政子之。";
+
+/***/ }),
+
+/***/ "./webpack-app/client/PACORTestManager/lib/RandomTextHelper.js":
+/*!*********************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/lib/RandomTextHelper.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RandomText_tpl__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RandomText.tpl */ "./webpack-app/client/PACORTestManager/lib/RandomText.tpl");
+/* harmony import */ var _RandomText_tpl__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_RandomText_tpl__WEBPACK_IMPORTED_MODULE_0__);
+
+
+
+const textList = _RandomText_tpl__WEBPACK_IMPORTED_MODULE_0___default.a.trim().split('\n')
+const len = textList.length
+
+let RandomTextHelper = function () {
+  return textList[(Math.round(Math.random() * textList.length))]
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (RandomTextHelper);
+
+/***/ }),
+
+/***/ "./webpack-app/client/PACORTestManager/methodsFactoryPACORTestManager.js":
+/*!*******************************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/methodsFactoryPACORTestManager.js ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _lib_RandomTextHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/RandomTextHelper.js */ "./webpack-app/client/PACORTestManager/lib/RandomTextHelper.js");
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  PACORTestManager.methods.createRandomText = function () {
+    return Object(_lib_RandomTextHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])()
+  }
+  
+  PACORTestManager.methods.createRandomHtml = function () {
+    return '<p>' + Object(_lib_RandomTextHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])() + '</p>'
+  }
+});
+
+/***/ }),
+
 /***/ "./webpack-app/client/PACORTestManager/methodsPACORTestManager.js":
 /*!************************************************************************!*\
   !*** ./webpack-app/client/PACORTestManager/methodsPACORTestManager.js ***!
@@ -3194,24 +3258,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
-  PACORTestManager.methods.sleep = async function (seconds) {
-    return await this.lib.VueHelper.sleep(seconds)
+  PACORTestManager.methods.sleep = async function (ms) {
+    return await this.lib.VueHelper.sleep(ms)
   }
 
   PACORTestManager.methods.waitForElement = async function (selector, maxWaitMS = 15000) {
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector).length > 0) {
-      return true
+      return jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector)
     }
 
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       let check = () => {
-        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector).length > 0) {
-          return resolve(jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector).length)
+        let s = jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector)
+        if (s.length > 0) {
+          return resolve(s)
         }
         else {
           maxWaitMS = maxWaitMS - 500
           if (maxWaitMS <= 0) {
-            return resolve(0)
+            return reject('Element not found: ' + selector)
           }
           
           setTimeout(() => {
@@ -3222,6 +3287,23 @@ __webpack_require__.r(__webpack_exports__);
       
       check()
     })
+  } // PACORTestManager.methods.waitForElement = async function (selector, maxWaitMS = 15000) {
+  
+  PACORTestManager.methods.waitForElementVisible = async function (selector, maxWaitMS) {
+    if (selector.endsWith(':visible') === false) {
+      selector = selector + ':visible'
+    }
+    
+    return await this.waitForElement(selector, maxWaitMS)
+  } // PACORTestManager.methods.waitForElementVisible = async function (selector, maxWaitMS) {
+  
+  PACORTestManager.methods.waitForElementVisibleClick = async function (selector, maxWaitMS) {
+    let $ele = await this.waitForElementVisible(selector, maxWaitMS)
+    if (typeof($ele.click) === 'function') {
+      $ele.click()
+    }
+    
+    return $ele
   }
 });
 

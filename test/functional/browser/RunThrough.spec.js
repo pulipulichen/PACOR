@@ -56,7 +56,7 @@ let config = {
   },
   'c1. pre image': async function ( { assert, client, browser } ) {
     await page.waitForElement('textarea.answer')
-            .type('textarea.answer', 'asas as as as a sqww')
+            .type('textarea.answer', RandomTextHelper())
             .waitForElement('.ui.button.questionnaire-submit:not(.disabled)')
             .click('.ui.button.questionnaire-submit:not(.disabled)')
     
@@ -149,33 +149,45 @@ let config = {
       return true
     }, true)
   },
-  'd2. 處理檢核單': async function ( { assert, client, browser } ) {
+  'd3. 處理檢核單': async function ( { assert, client, browser } ) {
     await page.waitForElement('.SectionChecklist')
     await page.assertFn(async function () {
-      let checklists = $('.SectionPanel .SectionChecklist')
+      let checklists = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .SectionChecklist', 1000)
+      
+      if (checklists.length !== 2) {
+        throw new Error('.SectionPanel .SectionChecklist not found')
+      }
       
       for (let i = 0; i < checklists.length; i++) {
-        await PACORTestManager.lib.VueHelper.sleep(3000)
+        await PACORTestManager.sleep(100)
         
-        let items = checklists.eq(i).find('.item input[type="checkbox"]')
+        let items = checklists.eq(i).find('input[type="checkbox"]')
+        if (items.length !== 3) {
+          throw new Error('input[type="checkbox"] not found: ' + checklists.eq(i).html())
+        }
         
         for (let j = 0; j < items.length; j++) {
-          await PACORTestManager.lib.VueHelper.sleep(1000)
+          await PACORTestManager.sleep(1000)
           
-          items.eq(j).click()
+          items.eq(j)[0].scrollIntoView()
+          items.eq(j).focus()
+                  .click()
           
           if (j === items.length -1) {
+            await PACORTestManager.waitForElementVisible('.html-editor-container .note-editable', 1000)
+            $('.html-editor-container .note-editable').html(PACORTestManager.createRandomHtml())
             
+            await PACORTestManager.sleep(1000)
+            await PACORTestManager.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
+            await PACORTestManager.sleep(1000)
           }
         }
       }
     })
-    
-    
   },
   'z999. 結束前等一下吧': async function ( { assert, client, browser } ) {
     await page.assertFn(async function () {
-      await PACORTestManager.lib.VueHelper.sleep(3000)
+      await PACORTestManager.lib.VueHelper.sleep(10000)
     })
   },
 //  'd1. 專注閱讀: 確認視窗': async function ( { assert, client, browser } ) {
