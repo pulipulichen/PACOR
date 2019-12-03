@@ -3117,6 +3117,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _methodsPACORTestManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./methodsPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsPACORTestManager.js");
 /* harmony import */ var _methodsFactoryPACORTestManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsFactoryPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsFactoryPACORTestManager.js");
+/* harmony import */ var _methodsWaitPACORTestManager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsWaitPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsWaitPACORTestManager.js");
 let PACORTestManager = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -3142,6 +3143,9 @@ Object(_methodsPACORTestManager__WEBPACK_IMPORTED_MODULE_0__["default"])(PACORTe
 
 
 Object(_methodsFactoryPACORTestManager__WEBPACK_IMPORTED_MODULE_1__["default"])(PACORTestManager)
+
+
+Object(_methodsWaitPACORTestManager__WEBPACK_IMPORTED_MODULE_2__["default"])(PACORTestManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (PACORTestManager);
 
@@ -3261,15 +3265,53 @@ __webpack_require__.r(__webpack_exports__);
   PACORTestManager.methods.sleep = async function (ms) {
     return await this.lib.VueHelper.sleep(ms)
   }
+});
 
-  PACORTestManager.methods.waitForElement = async function (selector, maxWaitMS = 15000) {
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector).length > 0) {
-      return jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector)
+/***/ }),
+
+/***/ "./webpack-app/client/PACORTestManager/methodsWaitPACORTestManager.js":
+/*!****************************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/methodsWaitPACORTestManager.js ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  PACORTestManager.methods.waitForElement = async function (baseElement, selector, maxWaitMS) {
+    if (maxWaitMS === undefined && typeof(baseElement) === 'string') {
+      maxWaitMS = selector
+      selector = baseElement
+      baseElement = undefined
+    }
+    
+    let getElement = () => {
+      if (baseElement 
+              && typeof(baseElement.find) === 'function') {
+        return baseElement.find(selector)
+      }
+      else {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector)
+      }
+    }
+    
+    if (!maxWaitMS) {
+      maxWaitMS = 150000
+    }
+    
+    let s = getElement()
+    if (s.length > 0) {
+      return s
     }
 
     return new Promise((resolve, reject) => {
       let check = () => {
-        let s = jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector)
+        s = getElement()
         if (s.length > 0) {
           return resolve(s)
         }
@@ -3289,16 +3331,22 @@ __webpack_require__.r(__webpack_exports__);
     })
   } // PACORTestManager.methods.waitForElement = async function (selector, maxWaitMS = 15000) {
   
-  PACORTestManager.methods.waitForElementVisible = async function (selector, maxWaitMS) {
+  PACORTestManager.methods.waitForElementVisible = async function (baseElement, selector, maxWaitMS) {
+    if (maxWaitMS === undefined && typeof(baseElement) === 'string') {
+      maxWaitMS = selector
+      selector = baseElement
+      baseElement = undefined
+    }
+    
     if (selector.endsWith(':visible') === false) {
       selector = selector + ':visible'
     }
     
-    return await this.waitForElement(selector, maxWaitMS)
+    return await this.waitForElement(baseElement, selector, maxWaitMS)
   } // PACORTestManager.methods.waitForElementVisible = async function (selector, maxWaitMS) {
   
-  PACORTestManager.methods.waitForElementVisibleClick = async function (selector, maxWaitMS) {
-    let $ele = await this.waitForElementVisible(selector, maxWaitMS)
+  PACORTestManager.methods.waitForElementVisibleClick = async function (baseElement, selector, maxWaitMS) {
+    let $ele = await this.waitForElementVisible(baseElement, selector, maxWaitMS)
     if (typeof($ele.click) === 'function') {
       $ele.click()
     }

@@ -24,4 +24,7 @@ methodsPACORTestManager(PACORTestManager)
 import methodsFactoryPACORTestManager from './methodsFactoryPACORTestManager'
 methodsFactoryPACORTestManager(PACORTestManager)
 
+import methodsWaitPACORTestManager from './methodsWaitPACORTestManager'
+methodsWaitPACORTestManager(PACORTestManager)
+
 export default PACORTestManager

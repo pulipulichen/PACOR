@@ -161,7 +161,8 @@ let config = {
       for (let i = 0; i < checklists.length; i++) {
         await PACORTestManager.sleep(100)
         
-        let items = checklists.eq(i).find('input[type="checkbox"]')
+        let checklist = checklists.eq(i)
+        let items = checklist.find('input[type="checkbox"]')
         if (items.length !== 3) {
           throw new Error('input[type="checkbox"] not found: ' + checklists.eq(i).html())
         }
@@ -169,16 +170,22 @@ let config = {
         for (let j = 0; j < items.length; j++) {
           await PACORTestManager.sleep(1000)
           
-          items.eq(j)[0].scrollIntoView()
-          items.eq(j).focus()
+          let item = items.eq(j)
+          item[0].scrollIntoView()
+          item.focus()
                   .click()
           
           if (j === items.length -1) {
+            item.parents('.item:first').find('label').click()
             await PACORTestManager.waitForElementVisible('.html-editor-container .note-editable', 1000)
             $('.html-editor-container .note-editable').html(PACORTestManager.createRandomHtml())
             
             await PACORTestManager.sleep(1000)
             await PACORTestManager.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
+            await PACORTestManager.sleep(1000)
+            
+            await PACORTestManager.waitForElementVisibleClick(checklist, '.ui.fluid.button.positive', 3000)
+            
             await PACORTestManager.sleep(1000)
           }
         }
@@ -187,7 +194,7 @@ let config = {
   },
   'z999. 結束前等一下吧': async function ( { assert, client, browser } ) {
     await page.assertFn(async function () {
-      await PACORTestManager.lib.VueHelper.sleep(10000)
+      await PACORTestManager.lib.VueHelper.sleep(3000)
     })
   },
 //  'd1. 專注閱讀: 確認視窗': async function ( { assert, client, browser } ) {

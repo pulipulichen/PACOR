@@ -4159,13 +4159,7 @@ var render = function() {
                     _c("div", { staticClass: "ui checkbox" }, [
                       _c("input", {
                         attrs: { type: "checkbox" },
-                        domProps: { checked: _vm.checked[i] },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return (function() {})($event)
-                          }
-                        }
+                        domProps: { checked: _vm.checked[i] }
                       }),
                       _vm._v(" "),
                       _c("label", [
@@ -24241,7 +24235,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let debugMockUpdate = true
+let debugMockUpdate = false
 if (debugMockUpdate === true) {
   console.log('@test debugMockUpdate')
 }
