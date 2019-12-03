@@ -14,9 +14,9 @@ let TestBrowserHelper = function (title, url, config) {
    */
   trait('Test/Browser', {
     headless: (Env.get('TEST_BROWSER_HEADLESS') === 'true'),
-    dumpio: true,  // Log all browser console messages to the terminal.
+    //dumpio: true,  // Log all browser console messages to the terminal.
     devtools: true,
-    pipe: true,
+    //pipe: true,
     args: ['--start-maximized', '--auto-open-devtools-for-tabs']
   })
 

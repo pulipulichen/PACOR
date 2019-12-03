@@ -137,7 +137,7 @@ let config = {
       //PACORTestManager.log('呃，怎麽不能運作了...')
       await PACORTestManager.waitForElementVisible('.Navigation.menu')
       // Navigation
-      await PACORTestManager.sleep(1000)
+      await PACORTestManager.sleep(3000)
       await PACORTestManager.writeAnnotations()
     })  // await page.assertFn(async function () {
   },
@@ -157,14 +157,16 @@ let config = {
   },
   'z999. 結束前等一下吧': async function ( { assert, client, browser, page } ) {
     await page.assertFn(async function () {
-      await PACORTestManager.lib.VueHelper.sleep(60 * 3 * 1000)
+      await PACORTestManager.lib.VueHelper.sleep(3 * 1000)
     })
   },
 //  'd1. 專注閱讀: 確認視窗': async function ( { assert, client, browser } ) {
 //  },
 }
 
-TestBrowser(title, url, config)
+for (let i = 0; i < 10; i++) {
+  TestBrowser('[' + i + '] ' + title, url, config)
+}
 
 // Reset database
 //trait('DatabaseTransactions')
