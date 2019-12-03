@@ -48,16 +48,16 @@ let config = {
 //    await page.assertTitle('test-lorem-ipsum')
 //    //user = 1
 //  },
-  '0a. setup webpage config': async function ( { assert, client, browser, page } ) {
+  '0a. setup webpage config': async function ( { assert, client, browser }, page ) {
     webpage = await WebpageModel.findByURL(url)
     
     let config = use('./../../test-config/reading-fastLimitTime')
-    console.log(config)
+    //console.log(config)
     assert.isObject(config)
     webpage.config = config
     await webpage.save()
   },
-  'b1. login': async function ( { assert, client, browser, page } ) {
+  'b1. login': async function ( { assert, client, browser }, page ) {
     //console.log(user)
     await page.waitForElement('#loginUsername')
             .clear('#loginUsername')
@@ -65,13 +65,13 @@ let config = {
             .waitForElement('div.ui.button.login-submit:not(.disabled)')
             .click('div.ui.button.login-submit:not(.disabled)')
   },
-  'c1. pre image': async function ( { assert, client, browser, page } ) {
+  'c1. pre image': async function ( { assert, client, browser }, page ) {
     await page.assertFn(async function () {
       await PACORTestManager.writeQuestionnaire()
     })
   },
   
-  'c2. 中場確認 is PACORTestManager work?': async function ( { assert, client, browser, page } ) {
+  'c2. 中場確認 is PACORTestManager work?': async function ( { assert, client, browser }, page ) {
     const dimensions = await page.page.evaluate(() => {
       return {
         width: document.documentElement.clientWidth,
@@ -107,12 +107,12 @@ let config = {
     assert.isString(result2)
     assert.isTrue(result2.startsWith('布丁'))
   },
-  'd1. 專注閱讀: 確認視窗': async function ( { assert, client, browser, page } ) {
+  'd1. 專注閱讀: 確認視窗': async function ( { assert, client, browser }, page ) {
     await page.assertFn(async function () {
       await PACORTestManager.confirmInstructionMessage()
     })  // await page.assertFn(async function () {
   },
-  'd2. 隨意寫標註': async function ( { assert, client, browser, page } ) {
+  'd2. 隨意寫標註': async function ( { assert, client, browser }, page ) {
     //let writeAnnotations = Math.random()
     await page.assertFn(async function () {
       await PACORTestManager.waitForElementVisible('[data-pacor-paragraph-seq-id]')
@@ -120,18 +120,18 @@ let config = {
       await PACORTestManager.writeAnnotations()
     })  // await page.assertFn(async function () {
   },
-  'd3. 處理檢核單': async function ( { assert, client, browser, page } ) {
+  'd3. 處理檢核單': async function ( { assert, client, browser }, page ) {
     await page.waitForElement('.SectionChecklist')
     await page.assertFn(async function () {
       await PACORTestManager.completeChecklists()
     })
   },
-  'e1. 協助閱讀: 確認視窗': async function ( { assert, client, browser, page } ) {
+  'e1. 協助閱讀: 確認視窗': async function ( { assert, client, browser }, page ) {
     await page.assertFn(async function () {
       await PACORTestManager.confirmInstructionMessage()
     })  // await page.assertFn(async function () {
   },
-  'e2. 隨意寫標註': async function ( { assert, client, browser, page } ) {
+  'e2. 隨意寫標註': async function ( { assert, client, browser }, page ) {
     //let writeAnnotations = Math.random()
     await page.assertFn(async function () {
       //PACORTestManager.log('呃，怎麽不能運作了...')
@@ -141,13 +141,13 @@ let config = {
       await PACORTestManager.writeAnnotations()
     })  // await page.assertFn(async function () {
   },
-  'e9. 強制進入下一個階段': async function ( { assert, client, browser, page } ) {
+  'e9. 強制進入下一個階段': async function ( { assert, client, browser }, page ) {
     //let writeAnnotations = Math.random()
     await page.assertFn(async function () {
       await PACORTestManager.nextStep()
     })  // await page.assertFn(async function () {
   },
-  'f1. post recall': async function ( { assert, client, browser, page } ) {
+  'f1. post recall': async function ( { assert, client, browser }, page ) {
     await page.assertFn(async function () {
       await PACORTestManager.writeQuestionnaire()
       
@@ -155,7 +155,7 @@ let config = {
       await PACORTestManager.waitForElementVisibleClick('.ExitModal .actions .button:first')
     })
   },
-  'z999. 結束前等一下吧': async function ( { assert, client, browser, page } ) {
+  'z999. 結束前等一下吧': async function ( { assert, client, browser }, page ) {
     await page.assertFn(async function () {
       await PACORTestManager.lib.VueHelper.sleep(3 * 1000)
     })
@@ -164,9 +164,10 @@ let config = {
 //  },
 }
 
-for (let i = 0; i < 10; i++) {
-  TestBrowser('[' + i + '] ' + title, url, config)
-}
+TestBrowser(title, url, config, {
+  //threads: 10,
+  mode: 'parallel'
+})
 
 // Reset database
 //trait('DatabaseTransactions')

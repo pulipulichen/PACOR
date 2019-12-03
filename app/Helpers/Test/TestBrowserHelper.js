@@ -1,8 +1,66 @@
+/* global Promise */
+
 'use strict'
 
 const Env = use('Env')
 
-let TestBrowserHelper = function (title, url, config) {
+let exposeFunction = async function (browser, url, index) {
+  let page = await browser.visit(url)
+
+  let consolePrefix
+  if (!index) {
+    consolePrefix = '[CONSOLE]'
+  }
+  else {
+    consolePrefix = `[CONSOLE: ${index}]`
+  }
+
+  await page.page.exposeFunction('PACORTestManagerLog', (...args) => {
+    args.unshift(consolePrefix)
+    console.log.apply(this, args)
+  })
+
+  await page.page.exposeFunction('PACORTestManagerTypeInput', async (selector, text) => {
+    await page.type(selector, text)
+  })
+
+  await page.assertFn(async () => {
+    window.focus()
+  })
+  
+  return page
+}
+
+let excuteTest = async function (config, args, page, index) {
+  let errors = []
+
+  for (let name in config) {
+    try {
+      let consolePrefix = '[RUNNING] '
+      if (index !== undefined) {
+        consolePrefix = `[RUNNING: ${index}] `
+      }
+      console.log(consolePrefix + name)
+      await config[name](args, page)
+    }
+    catch (e) {
+      console.log(`[${name}]`, e)
+      errors.push(`[${name}] ` + e.message)
+      //throw e
+    }
+  }
+
+  if (errors.length > 0) {
+    throw new Error('\n\n' + errors.join('\n') + '\n')
+  }
+}
+
+let TestBrowserHelper = function (title, url, config, options) {
+
+  let {
+    threads,
+    mode  // sequential, parallel
+  } = options
 
   const { test, trait } = use('Test/Suite')(title)
 
@@ -20,43 +78,40 @@ let TestBrowserHelper = function (title, url, config) {
     args: ['--start-maximized', '--auto-open-devtools-for-tabs']
   })
 
-  let errors = []
+  console.log(threads, mode)
 
-  test(title, async function (args) {
-    
-    let page = await args.browser.visit(url)
-    
-    await page.page.exposeFunction('PACORTestManagerLog', (...args) => {
-      args.unshift('[CONSOLE]')
-      console.log.apply(this, args)
-    })
-    
-    await page.page.exposeFunction('PACORTestManagerTypeInput', async (selector, text) => {
-      await page.type(selector, text)
-    })
-    
-    await page.assertFn(async () => {
-      window.focus()
-    })
-    
-    args.page = page
-    
-    for (let name in config) {
-      try {
-        console.log('[RUNNING] ' + name)
-        await config[name](args)
-      }
-      catch (e) {
-        console.log(`[${name}]`, e)
-        errors.push(`[${name}] ` + e.message)
-        //throw e
-      }
+  if (!threads) {
+    console.log('aaa1')
+    test(title, async function (args) {
+      let page = await exposeFunction(args.browser, url)
+      await excuteTest(config, args, page)
+    }).timeout(0)
+  }
+  else if (!mode || mode === 'sequential') {
+    console.log('aaa2')
+    for (let i = 0; i < threads; i++) {
+      let t = `[${i}] ${title}`
+      test(t, async function (args) {
+        let page = await exposeFunction(args.browser, url)
+        await excuteTest(config, args, page)
+      }).timeout(0)
     }
-    
-    if (errors.length > 0) {
-      throw new Error('\n\n' + errors.join('\n') + '\n')
-    }
-  }).timeout(0)
+  }
+  else {
+    console.log('aaa3')
+    test(title, async function (args) {
+      let ary = []
+      for (let i = 0; i < threads; i++) {
+        ary.push(i)
+      }
+      
+      await Promise.all(ary.map(async (i) => {
+        // 等待非同步工作完成
+        let page = await exposeFunction(args.browser, url, i)
+        await excuteTest(config, args, page, i)
+      }))
+    }).timeout(0)
+  }
   
 }
 

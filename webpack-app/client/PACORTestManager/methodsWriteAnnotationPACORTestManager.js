@@ -69,13 +69,14 @@ export default function (PACORTestManager) {
     await this.sleep(100)
     
     let editor = await this.waitForElementVisible('.html-editor-container .note-editable')
-    editor.html(this.createRandomHtml())
+    //editor.html(this.createRandomHtml())
+    this.typeInput('.html-editor-container .note-editable', this.createRandomText())
     
     await this.sleep(100)
     
     await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
     
-    await this.waitForElementHidden('.AnnotationPanel .segment', 10000)
+    await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
     
     //await this.lib.RangyManager.cancelSelection()
     
@@ -87,7 +88,8 @@ export default function (PACORTestManager) {
     await this.sleep(100)
     
     let questionEditor = await this.waitForElementVisible('.QuestionEditor.html-editor-container .note-editable')
-    questionEditor.html(this.createRandomHtml())
+    //questionEditor.html(this.createRandomHtml())
+    this.typeInput('.QuestionEditor.html-editor-container .note-editable', this.createRandomText))
     
     await this.sleep(100)
     
@@ -96,13 +98,14 @@ export default function (PACORTestManager) {
     await this.sleep(100)
     
     let answerEditor = await this.waitForElementVisible('.AnswerEditor.html-editor-container .note-editable')
-    answerEditor.html(this.createRandomHtml())
+    //answerEditor.html(this.createRandomHtml())
+    this.typeInput('.AnswerEditor.html-editor-container .note-editable', this.createRandomText())
     
     await this.sleep(100)
     
     await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton:last', 3000)
     
-    await this.waitForElementHidden('.AnnotationPanel .segment', 10000)
+    await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
     
     //await this.lib.RangyManager.cancelSelection()
     
@@ -115,7 +118,8 @@ export default function (PACORTestManager) {
     await this.sleep(100)
     
     let questionEditor = await this.waitForElementVisible('.QuestionEditor.html-editor-container .note-editable')
-    questionEditor.html(this.createRandomHtml())
+    //questionEditor.html(this.createRandomHtml())
+    this.typeInput('.QuestionEditor.html-editor-container .note-editable', this.createRandomText())
     
     await this.sleep(100)
     
@@ -125,7 +129,7 @@ export default function (PACORTestManager) {
     
     await this.waitForElementVisibleClick('.annotation-panel-buttons .ui.button:first', 3000)
     
-    await this.waitForElementHidden('.AnnotationPanel .segment', 10000)
+    await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
     
     //await this.lib.RangyManager.cancelSelection()
     

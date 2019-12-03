@@ -36,4 +36,7 @@ methodsWriteAnnotationPACORTestManager(PACORTestManager)
 import methodsSectionPACORTestManager from './methodsSectionPACORTestManager'
 methodsSectionPACORTestManager(PACORTestManager)
 
+import methodsRandomPACORTestManager from './methodsRandomPACORTestManager'
+methodsRandomPACORTestManager(PACORTestManager)
+
 export default PACORTestManager

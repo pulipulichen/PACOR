@@ -3121,6 +3121,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _methodsQuestionnairePACORTestManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsQuestionnairePACORTestManager */ "./webpack-app/client/PACORTestManager/methodsQuestionnairePACORTestManager.js");
 /* harmony import */ var _methodsWriteAnnotationPACORTestManager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsWriteAnnotationPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsWriteAnnotationPACORTestManager.js");
 /* harmony import */ var _methodsSectionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methodsSectionPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsSectionPACORTestManager.js");
+/* harmony import */ var _methodsRandomPACORTestManager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./methodsRandomPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsRandomPACORTestManager.js");
 let PACORTestManager = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -3158,6 +3159,9 @@ Object(_methodsWriteAnnotationPACORTestManager__WEBPACK_IMPORTED_MODULE_4__["def
 
 
 Object(_methodsSectionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__["default"])(PACORTestManager)
+
+
+Object(_methodsRandomPACORTestManager__WEBPACK_IMPORTED_MODULE_6__["default"])(PACORTestManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (PACORTestManager);
 
@@ -3347,6 +3351,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./webpack-app/client/PACORTestManager/methodsRandomPACORTestManager.js":
+/*!******************************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/methodsRandomPACORTestManager.js ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+    
+  PACORTestManager.methods.getRandomInt = function (min, max) {
+    if (min && !max) {
+      max = min
+      min = 0
+    }
+    
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  
+  /**
+   * 給於一個0到1之間的數值，返回跟這個一樣的機率
+   */
+  PACORTestManager.methods.isRandomTrue = function (float) {
+    return (Math.random() < float)
+  }
+});
+
+/***/ }),
+
 /***/ "./webpack-app/client/PACORTestManager/methodsSectionPACORTestManager.js":
 /*!*******************************************************************************!*\
   !*** ./webpack-app/client/PACORTestManager/methodsSectionPACORTestManager.js ***!
@@ -3404,7 +3440,7 @@ __webpack_require__.r(__webpack_exports__);
       await this.sleep(100)
 
       //let editButton = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .', 1000)
-      let editButton = await this.waitForElementVisible(panel, '.SectionAnnotationList > .ui.fluid.button:last', 1000)
+      let editButton = await this.waitForElementVisible(panel, '.SectionAnnotationList > .ui.fluid.button:last', 3000)
       //PACORTestManager.log('editButton', editButton.text().trim())
       if (editButton.text().indexOf('撰寫小節重點') > -1) {
         throw new Error('Should not be 撰寫小節重點')
@@ -3568,152 +3604,9 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./webpack-app/client/PACORTestManager/methodsWriteAnnotationPACORTestManager.js ***!
   \***************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
-  PACORTestManager.methods.writeAnnotations = async function () {
-    
-    //let min = 4
-    //let max = 10
-    
-    let min = 3
-    let max = 6
-    let writeAnnotations = min + Math.floor(Math.random() *  (max - min))
-    //writeAnnotations--
-
-    for (let i = 0; i < writeAnnotations; i++) {
-      await this.sleep(100)
-      
-      this.log('撰寫標註：' + (i+1) + '/' + (writeAnnotations) )
-      await this.selectAnnotationType(i)
-      
-      if (i % 3 === 0) {
-        await this.writeMainIdeaAnnotation()
-      }
-      else if (i % 3 === 1) {
-        await this.writeConfusedClarifiedAnnotation()
-        //await this.writeConfusedAnnotation()
-      }
-      else {
-        await this.writeConfusedAnnotation()
-      }
-      
-      await this.sleep(100)
-    }
-    
-    this.log('writeAnnotations 結束了')
-  }
-  
-  PACORTestManager.methods.selectAnnotationType = async function (i) {
-    //this.log('selectAnnotationType', 1)
-    await this.lib.RangyManager.selectRandomRange()
-    
-    //this.log('selectAnnotationType', 2)
-    await this.sleep(100)
-      
-    let typeItemSelector = '.fab-main-container .fab-item-container .fab-cantainer'
-
-    //if (i % 2 === 0) {
-    if (i % 3 === 0) {
-      // 選擇重點
-      typeItemSelector = typeItemSelector + ':eq(0)'
-    }
-    else if (i % 3 === 1) {
-      typeItemSelector = typeItemSelector + ':eq(1)'
-    }
-    else {
-      // 選擇已澄清
-      typeItemSelector = typeItemSelector + ':eq(1)'
-    }
-    
-    await this.waitForElementVisibleClick(typeItemSelector)
-    //this.log('selectAnnotationType', 3)
-  }
-  
-  PACORTestManager.methods.writeMainIdeaAnnotation = async function () {
-    let button = await this.waitForElementVisible('.annotation-panel-buttons .ValidationButton')
-    if (button.hasClass('disabled') === false) {
-      throw new Error('Add button should be disabled at default')
-    }
-    
-    await this.sleep(100)
-    
-    let editor = await this.waitForElementVisible('.html-editor-container .note-editable')
-    editor.html(this.createRandomHtml())
-    
-    await this.sleep(100)
-    
-    await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
-    
-    await this.waitForElementHidden('.AnnotationPanel .segment', 10000)
-    
-    //await this.lib.RangyManager.cancelSelection()
-    
-    await this.sleep(100)
-  }
-  
-  PACORTestManager.methods.writeConfusedClarifiedAnnotation = async function () {
-    
-    await this.sleep(100)
-    
-    let questionEditor = await this.waitForElementVisible('.QuestionEditor.html-editor-container .note-editable')
-    questionEditor.html(this.createRandomHtml())
-    
-    await this.sleep(100)
-    
-    await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
-    
-    await this.sleep(100)
-    
-    let answerEditor = await this.waitForElementVisible('.AnswerEditor.html-editor-container .note-editable')
-    answerEditor.html(this.createRandomHtml())
-    
-    await this.sleep(100)
-    
-    await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton:last', 3000)
-    
-    await this.waitForElementHidden('.AnnotationPanel .segment', 10000)
-    
-    //await this.lib.RangyManager.cancelSelection()
-    
-    await this.sleep(100)
-  }
-  
-  
-  PACORTestManager.methods.writeConfusedAnnotation = async function () {
-    
-    await this.sleep(100)
-    
-    let questionEditor = await this.waitForElementVisible('.QuestionEditor.html-editor-container .note-editable')
-    questionEditor.html(this.createRandomHtml())
-    
-    await this.sleep(100)
-    
-    await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
-    
-    await this.sleep(1000)
-    
-    await this.waitForElementVisibleClick('.annotation-panel-buttons .ui.button:first', 3000)
-    
-    await this.waitForElementHidden('.AnnotationPanel .segment', 10000)
-    
-    //await this.lib.RangyManager.cancelSelection()
-    
-    await this.sleep(100)
-  }
-  
-  PACORTestManager.methods.confirmInstructionMessage = async function () {
-    await this.sleep(100)
-    await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button:last')
-    await this.sleep(100)
-  }
-});
+throw new Error("Module parse failed: Unexpected token (92:97)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n|     let questionEditor = await this.waitForElementVisible('.QuestionEditor.html-editor-container .note-editable')\n|     //questionEditor.html(this.createRandomHtml())\n>     this.typeInput('.QuestionEditor.html-editor-container .note-editable', this.createRandomText))\n|     \n|     await this.sleep(100)");
 
 /***/ }),
 
