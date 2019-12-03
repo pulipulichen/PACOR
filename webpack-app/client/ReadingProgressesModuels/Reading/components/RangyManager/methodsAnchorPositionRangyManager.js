@@ -105,6 +105,10 @@ export default (RangyManager) => {
   }
   
   RangyManager.methods.getAnchorPositionsFromSelection = function (selection) {
+    if (!selection) {
+      return null
+    }
+    
     let selectionSaved = this.rangy.saveSelection()
     //console.log(selectionSaved)
     

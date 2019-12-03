@@ -295,6 +295,7 @@ export default (RangyManager) => {
   
   RangyManager.methods.cancelSelection = function () {
     this.rangy.getSelection().removeAllRanges()
+    this.triggerEvent('selectcollapsed')
   }
   
   RangyManager.methods.isSelecting = function () {

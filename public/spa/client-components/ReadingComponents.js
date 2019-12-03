@@ -5800,15 +5800,8 @@ let AnnotationTypeSelector = {
           return false
         }
         
-        if (!this.selection) {
-          this.selection = data
-        }
-        else {
-          this.selection = null
-          setTimeout(() => {
-            this.selection = data
-          }, 100)
-        }
+        //PACORTestManager.log('initRangyEvent', (this.selection === null))
+        this.selection = data
         
         // For test
         if (debugEnableAutoList) {
@@ -5826,6 +5819,9 @@ let AnnotationTypeSelector = {
     addAnnotation: function (type) {
       //console.log('clickItem', type)
       //this.$emit('selectAnnotation', type)
+      if (!this.selection) {
+        return null
+      }
       
       let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
       
@@ -5843,6 +5839,8 @@ let AnnotationTypeSelector = {
           this.lib.RangyManager.unpinSelection(true)
         }
       })
+      
+      this.selection = null
     },
     list () {
       //this.$emit('list')
@@ -13250,6 +13248,10 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   RangyManager.methods.getAnchorPositionsFromSelection = function (selection) {
+    if (!selection) {
+      return null
+    }
+    
     let selectionSaved = this.rangy.saveSelection()
     //console.log(selectionSaved)
     
@@ -14316,6 +14318,7 @@ __webpack_require__.r(__webpack_exports__);
   
   RangyManager.methods.cancelSelection = function () {
     this.rangy.getSelection().removeAllRanges()
+    this.triggerEvent('selectcollapsed')
   }
   
   RangyManager.methods.isSelecting = function () {

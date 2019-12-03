@@ -55,6 +55,8 @@ export default function (PACORTestManager) {
       //throw new Error('Add button should be disabled at default')
     }
     
+    await this.sleep(1000)
+    
     let editor = await this.waitForElementVisible('.html-editor-container .note-editable')
     editor.html(this.createRandomHtml())
     
@@ -64,7 +66,7 @@ export default function (PACORTestManager) {
     
     await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
     
-    await this.lib.RangyManager.cancelSelection()
+    //await this.lib.RangyManager.cancelSelection()
     
     await this.sleep(1000)
   }

@@ -3293,6 +3293,8 @@ __webpack_require__.r(__webpack_exports__);
       //throw new Error('Add button should be disabled at default')
     }
     
+    await this.sleep(1000)
+    
     let editor = await this.waitForElementVisible('.html-editor-container .note-editable')
     editor.html(this.createRandomHtml())
     
@@ -3302,7 +3304,7 @@ __webpack_require__.r(__webpack_exports__);
     
     await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
     
-    await this.lib.RangyManager.cancelSelection()
+    //await this.lib.RangyManager.cancelSelection()
     
     await this.sleep(1000)
   }
