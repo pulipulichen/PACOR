@@ -165,7 +165,7 @@ let config = {
 }
 
 TestBrowser(title, url, config, {
-  //threads: 10,
+  threads: 10,
   mode: 'parallel'
 })
 

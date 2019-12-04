@@ -12,7 +12,7 @@ let exposeFunction = async function (browser, url, index) {
     consolePrefix = '[CONSOLE]'
   }
   else {
-    consolePrefix = `[CONSOLE: ${index}]`
+    consolePrefix = `[${index}: CONSOLE]`
   }
 
   await page.page.exposeFunction('PACORTestManagerLog', (...args) => {
@@ -20,8 +20,10 @@ let exposeFunction = async function (browser, url, index) {
     console.log.apply(this, args)
   })
 
-  await page.page.exposeFunction('PACORTestManagerTypeInput', async (selector, text) => {
-    await page.type(selector, text)
+  await page.page.exposeFunction('PACORTestManagerInteractions', async function (method, selector, ...args) {
+    //await page.type(selector, text)
+    args.unshift(selector)
+    await page[method].apply(this, args)
   })
 
   await page.assertFn(async () => {
@@ -31,28 +33,30 @@ let exposeFunction = async function (browser, url, index) {
   return page
 }
 
-let excuteTest = async function (config, args, page, index) {
-  let errors = []
+let excuteTest = async function (config, args, page, errors, index) {
+  
 
   for (let name in config) {
     try {
       let consolePrefix = '[RUNNING] '
       if (index !== undefined) {
-        consolePrefix = `[RUNNING: ${index}] `
+        consolePrefix = `[${index}: RUNNING] `
       }
       console.log(consolePrefix + name)
       await config[name](args, page)
     }
     catch (e) {
-      console.log(`[${name}]`, e)
-      errors.push(`[${name}] ` + e.message)
+      let consolePrefix = `[${name}]`
+      if (index !== undefined) {
+        consolePrefix = `[${index}: ${name}] `
+      }
+      console.log(consolePrefix, e)
+      errors.push(consolePrefix + ' ' + e.message)
       //throw e
     }
   }
 
-  if (errors.length > 0) {
-    throw new Error('\n\n' + errors.join('\n') + '\n')
-  }
+  
 }
 
 let TestBrowserHelper = function (title, url, config, options) {
@@ -84,7 +88,14 @@ let TestBrowserHelper = function (title, url, config, options) {
     console.log('aaa1')
     test(title, async function (args) {
       let page = await exposeFunction(args.browser, url)
-      await excuteTest(config, args, page)
+      
+      let errors = []
+      
+      await excuteTest(config, args, page, errors)
+      
+      if (errors.length > 0) {
+        throw new Error('\n\n' + errors.join('\n') + '\n')
+      }
     }).timeout(0)
   }
   else if (!mode || mode === 'sequential') {
@@ -93,7 +104,12 @@ let TestBrowserHelper = function (title, url, config, options) {
       let t = `[${i}] ${title}`
       test(t, async function (args) {
         let page = await exposeFunction(args.browser, url)
-        await excuteTest(config, args, page)
+        
+        let errors = []
+        await excuteTest(config, args, page, errors)
+        if (errors.length > 0) {
+          throw new Error('\n\n' + errors.join('\n') + '\n')
+        }
       }).timeout(0)
     }
   }
@@ -105,11 +121,16 @@ let TestBrowserHelper = function (title, url, config, options) {
         ary.push(i)
       }
       
+      let errors = []
       await Promise.all(ary.map(async (i) => {
         // 等待非同步工作完成
         let page = await exposeFunction(args.browser, url, i)
-        await excuteTest(config, args, page, i)
+        await excuteTest(config, args, page, errors, i)
       }))
+      if (errors.length > 0) {
+        throw new Error('\n\n' + errors.join('\n') + '\n')
+      }
+      
     }).timeout(0)
   }
   

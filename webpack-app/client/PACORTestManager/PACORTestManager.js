@@ -39,4 +39,7 @@ methodsSectionPACORTestManager(PACORTestManager)
 import methodsRandomPACORTestManager from './methodsRandomPACORTestManager'
 methodsRandomPACORTestManager(PACORTestManager)
 
+import methodsPuppeteerPACORTestManager from './methodsPuppeteerPACORTestManager'
+methodsPuppeteerPACORTestManager(PACORTestManager)
+
 export default PACORTestManager

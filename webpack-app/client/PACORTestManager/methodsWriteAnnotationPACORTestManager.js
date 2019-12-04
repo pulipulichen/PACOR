@@ -89,7 +89,7 @@ export default function (PACORTestManager) {
     
     let questionEditor = await this.waitForElementVisible('.QuestionEditor.html-editor-container .note-editable')
     //questionEditor.html(this.createRandomHtml())
-    this.typeInput('.QuestionEditor.html-editor-container .note-editable', this.createRandomText))
+    this.typeInput('.QuestionEditor.html-editor-container .note-editable', this.createRandomText())
     
     await this.sleep(100)
     
