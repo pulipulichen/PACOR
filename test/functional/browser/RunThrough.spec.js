@@ -156,9 +156,14 @@ let config = {
     //console.log('暫時跳過'); return
     await page.assertFn(async function () {
       await PACORTestManager.writeQuestionnaire()
-      
-      await PACORTestManager.sleep(3000)
-      await PACORTestManager.waitForElementVisibleClick('.ExitModal .actions .button:first')
+    })
+  },
+  'g1. exit': async function ( { assert, client, browser }, page ) {
+    //console.log('暫時跳過'); return
+    await page.assertFn(async function () {
+      // first 是登出
+      // last 是關閉
+      await PACORTestManager.waitForElementVisibleClick('.ExitModal .actions .button:last')
     })
   },
 //  'z999. 結束前等一下吧': async function ( { assert, client, browser }, page ) {

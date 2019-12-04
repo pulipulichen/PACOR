@@ -43,9 +43,9 @@ export default function (PACORTestManager) {
           if (maxWaitMS <= 0) {
             let message = []
             if (errorMessage) {
-              message.push(errorMessage + '\n')
+              message.push('\n' + errorMessage)
             }
-            message.push('Element not found: ' + selector)
+            message.push('\nElement not found: ' + selector)
             message.push(this.getStackTraceString())
             return reject(message.join(''))
           }
@@ -115,9 +115,9 @@ export default function (PACORTestManager) {
           if (maxWaitMS <= 0) {
             let message = []
             if (errorMessage) {
-              message.push(errorMessage + '\n')
+              message.push('\n' + errorMessage)
             }
-            message.push('Element still visible: ' + selector)
+            message.push('\nElement still visible: ' + selector)
             message.push(this.getStackTraceString())
             return reject(message.join(''))
           }

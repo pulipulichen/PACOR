@@ -7,13 +7,17 @@ let envHeadless = (Env.get('TEST_BROWSER_HEADLESS') === 'true')
 
 const Sleep = use('Sleep')
 
-let exposeFunction = async function (browser, url, index) {
-  let page = await browser.visit(url)
-
+let closeBlankPage = async function (page) {
   //console.log(JSON.stringify(browser, null, 2))
   let puppeteerBrowser = await page.page.browser();
   let pages = await puppeteerBrowser.pages();
   await pages[0].close()
+}
+
+let exposeFunction = async function (browser, url, index) {
+  let page = await browser.visit(url)
+
+  await closeBlankPage(page)
 
   //const session = await page.page.target().createCDPSession();
   //await session.send('Page.enable');
@@ -96,7 +100,7 @@ let handleException = async function (errors, headless, index) {
         prefix = `[${index}: ERROR]`
       }
       console.log(prefix, '\n\n' + errors.join('\n') + '\n')
-      await Sleep(3 * 60) // 暫停3分鐘
+      await Sleep(30 * 60) // 暫停30分鐘
       throw new Error('')
     }
     else {
@@ -135,7 +139,9 @@ let TestBrowserHelper = function (title, url, config, options) {
     args: [
       '--start-maximized'
       //'--start-minimized'
-      , '--auto-open-devtools-for-tabs']
+      , '--auto-open-devtools-for-tabs'
+      //, '--incognito'
+    ]
   })
 
   //console.log(threads, mode)

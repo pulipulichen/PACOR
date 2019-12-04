@@ -50,7 +50,8 @@ export default function (PACORTestManager) {
 
       await this.waitForElementVisibleClick('.ui.fluid.button.positive', {
         baseElement: checklist,
-        timeout: 3000
+        timeout: 3000,
+        errorMessage: '呃，是不是整個列表都不見了？發生什麼事情了嗎？'
       })
 
 

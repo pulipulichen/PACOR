@@ -273,6 +273,9 @@ const filterTags = (tags) => {
         //return tag.constructor.name + '_' + tag.primaryKeyValue
       }
     }
+    else if (typeof(tag) === 'function') {
+      o.push(tag.name)
+    }
     else {
       //return tag
       o.push(tag)

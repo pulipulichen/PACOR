@@ -27,7 +27,9 @@ export default function (PACORTestManager) {
         await window.PACORTestManagerInteractions.apply(this, args)
       }
       catch (e) {
-        throw new Error('Error from puppeteer: ' + e + this.getStackTraceString())
+        throw new Error('\nError from puppeteer: ' + e 
+                + 'Element DOM path: ' + this.getDomPath(ele)
+                + this.getStackTraceString())
       }
     }
     
@@ -35,7 +37,7 @@ export default function (PACORTestManager) {
       let ele = $(selector)
       
       if (ele.length === 0) {
-        throw new Error('Element not found: ' + selector + this.getStackTraceString())
+        throw new Error('\nElement not found: ' + selector + this.getStackTraceString())
       }
       
       await exec(ele)

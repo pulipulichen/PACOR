@@ -8,6 +8,9 @@ class AnnotationPermission {
     
     Model._setPermission = async function (webpage, user, data, instance) {
       let config = await user.getCurrentReadingProgressStepConfig(webpage)
+      if (!config) {
+        throw new Error('config is undefined')
+      }
       let annotationConfig = config.annotation
       if (typeof (annotationConfig) !== 'object') {
         throw new HttpException('You cannot use annotation in current step.')
