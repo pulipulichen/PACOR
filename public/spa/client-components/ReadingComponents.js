@@ -12997,6 +12997,14 @@ let RangyManager = {
     
     //this.status.search.keyword = '天' // for test
   },  // mounted() {
+  destroyed () {
+    // 移除所有的highlight吧
+    this.removeHighlights()
+    
+    this.selectionHighlighter.removeAllHighlights()
+    this.hoverHighlighter.removeAllHighlights()
+    this.rectHighlighter.removeAllHighlights()
+  },
   methods: {
     _initRangy () {
       this.rangy.init()

@@ -3503,12 +3503,12 @@ __webpack_require__.r(__webpack_exports__);
       await this.typeInput(editor, this.createRandomText())
 
       await this.sleep(100)
-      await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton', 3000)
+      await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', 3000)
       await this.sleep(100)
 
       await this.waitForElementVisibleClick(checklist, '.ui.fluid.button.positive', 3000)
 
-      await this.sleep(100)
+      await this.sleep(1000)
 
       //let editButton = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .', 1000)
       let editButton = await this.waitForElementVisible(panel, '.SectionAnnotationList > .ui.fluid.button:last', 3000)

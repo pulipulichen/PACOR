@@ -72,7 +72,7 @@ let config = {
   },
   
   'c2. 中場確認 is PACORTestManager work?': async function ( { assert, client, browser }, page ) {
-    console.log('暫時跳過'); return;
+    //console.log('暫時跳過'); return;
     
     const dimensions = await page.page.evaluate(() => {
       return {
@@ -115,7 +115,7 @@ let config = {
     })  // await page.assertFn(async function () {
   },
   'd2. 隨意寫標註': async function ( { assert, client, browser }, page ) {
-    console.log('暫時跳過'); return
+    //console.log('暫時跳過'); return
     //let writeAnnotations = Math.random()
     await page.assertFn(async function () {
       await PACORTestManager.waitForElementVisible('[data-pacor-paragraph-seq-id]')
@@ -135,7 +135,7 @@ let config = {
     })  // await page.assertFn(async function () {
   },
   'e2. 隨意寫標註': async function ( { assert, client, browser }, page ) {
-    console.log('暫時跳過'); return
+    //console.log('暫時跳過'); return
     //let writeAnnotations = Math.random()
     await page.assertFn(async function () {
       //PACORTestManager.log('呃，怎麽不能運作了...')
@@ -146,14 +146,14 @@ let config = {
     })  // await page.assertFn(async function () {
   },
   'e9. 強制進入下一個階段': async function ( { assert, client, browser }, page ) {
-    console.log('暫時跳過'); return
+    //console.log('暫時跳過'); return
     //let writeAnnotations = Math.random()
     await page.assertFn(async function () {
       await PACORTestManager.nextStep()
     })  // await page.assertFn(async function () {
   },
   'f1. post recall': async function ( { assert, client, browser }, page ) {
-    console.log('暫時跳過'); return
+    //console.log('暫時跳過'); return
     await page.assertFn(async function () {
       await PACORTestManager.writeQuestionnaire()
       
