@@ -3434,7 +3434,8 @@ __webpack_require__.r(__webpack_exports__);
       let ele = jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector)
       
       if (ele.length === 0) {
-        throw new Error('\nElement not found: ' + selector + this.getStackTraceString())
+        throw new Error('\nElement not found: ' + selector 
+                + this.getStackTraceString())
       }
       
       await exec(ele)
@@ -3694,7 +3695,15 @@ __webpack_require__.r(__webpack_exports__);
   PACORTestManager.methods.waitForElementVisibleClick = async function (selector, options) {
     let $ele = await this.waitForElementVisible(selector, options)
     
-    await this.click($ele)
+    try {
+      await this.click($ele)
+    }
+    catch (e) {
+      if (options.errorMessage) {
+        this.log(options.errorMessage)
+      }
+      throw e
+    }
     //if (typeof($ele.click) === 'function') {
     //  $ele.click()
     //}
@@ -3752,8 +3761,14 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
   PACORTestManager.methods.completeChecklists = async function () {
+    await this.waitForElementVisible('.SectionChecklist', {
+      timeout: 3000,
+      errorMessage: '是不是沒有讀取到section init啊？壞掉了嗎？'
+    })
+    
     let panels = await this.waitForElementVisible('body > article > .SectionPanel', {
-      timeout: 1000
+      timeout: 3000,
+      errorMessage: '是不是section init讀取太久了？'
     })
     //let checklists = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .SectionChecklist', 1000)
 
@@ -3766,7 +3781,7 @@ __webpack_require__.r(__webpack_exports__);
     for (let i = 0; i < panels.length; i++) {
       await this.sleep(100)
 
-      this.log('completeChecklists panel', i, 1)
+      //this.log('completeChecklists panel', i, 1)
 
       let panel = panels.eq(i)
       let checklist = panel.find('.SectionChecklist')
@@ -3775,7 +3790,7 @@ __webpack_require__.r(__webpack_exports__);
         throw new Error('input[type="checkbox"] not found: ' + checklist.html())
       }
       
-      this.log('completeChecklists panel', i, 2)
+      //this.log('completeChecklists panel', i, 2)
 
       for (let j = 0; j < items.length; j++) {
         await this.sleep(100)
@@ -3787,7 +3802,9 @@ __webpack_require__.r(__webpack_exports__);
         item.focus().click()
       } // for (let j = 0; j < items.length; j++) {
 
-      this.log('completeChecklists panel', i, 3)
+      this.sleep(3000)
+
+      //this.log('completeChecklists panel', i, 3)
 
       //item.parents('.item:first').find('label').click()
       let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', {
@@ -3933,7 +3950,8 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     await this.waitForElementVisibleClick(typeItemSelector, {
-      timeout: 10 * 1000
+      timeout: 10 * 1000,
+      errorMessage: '是不是太早選取了啊？'
     })
     //this.log('selectAnnotationType', 3)
   }

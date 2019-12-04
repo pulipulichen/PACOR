@@ -39,7 +39,8 @@ export default function (PACORTestManager) {
       let ele = $(selector)
       
       if (ele.length === 0) {
-        throw new Error('\nElement not found: ' + selector + this.getStackTraceString())
+        throw new Error('\nElement not found: ' + selector 
+                + this.getStackTraceString())
       }
       
       await exec(ele)

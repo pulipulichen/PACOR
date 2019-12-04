@@ -17,10 +17,14 @@ class Section extends Annotation {
     let enableCollaborative = await user.isEnableCollaboration(webpage)
     let cacheKey = Cache.key('Section', 'init', enableCollaborative)
     
-    return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
+    return await Cache.rememberWait([webpage, user, 'Section'], cacheKey, Config.get('view.indexCacheMinute'), async () => {
       let query = {}
+      
+      //console.log('init', 1)
+      
       let sectionsChecklist = await user.getSectionsChecklist(webpage, query)
       
+      //console.log('init', 2)
       
       let sectionsChecklistSubmitted = null
       if (Array.isArray(sectionsChecklist)) {
@@ -39,8 +43,15 @@ class Section extends Annotation {
         })
       }
       
+      //console.log('init', 3)
+      
       let checklistAnnotation = await AnnotationModel.getSectionsChecklistAnnotation(webpage, user, query)
+      
+      //console.log('init', 4)
+      
       let sectionsAnnotation = await AnnotationModel.buildSectionsAnnotationSummary(webpage, user, query)
+      
+      //console.log('init', 5)
       
       return {
         checklist: sectionsChecklist,

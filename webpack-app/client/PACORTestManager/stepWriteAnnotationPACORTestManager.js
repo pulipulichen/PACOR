@@ -58,7 +58,8 @@ export default function (PACORTestManager) {
     }
     
     await this.waitForElementVisibleClick(typeItemSelector, {
-      timeout: 10 * 1000
+      timeout: 10 * 1000,
+      errorMessage: '是不是太早選取了啊？'
     })
     //this.log('selectAnnotationType', 3)
   }

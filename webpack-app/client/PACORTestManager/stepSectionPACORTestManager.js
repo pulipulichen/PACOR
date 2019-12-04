@@ -2,8 +2,14 @@ import $ from 'jquery'
 
 export default function (PACORTestManager) {
   PACORTestManager.methods.completeChecklists = async function () {
+    await this.waitForElementVisible('.SectionChecklist', {
+      timeout: 3000,
+      errorMessage: '是不是沒有讀取到section init啊？壞掉了嗎？'
+    })
+    
     let panels = await this.waitForElementVisible('body > article > .SectionPanel', {
-      timeout: 1000
+      timeout: 3000,
+      errorMessage: '是不是section init讀取太久了？'
     })
     //let checklists = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .SectionChecklist', 1000)
 
@@ -16,7 +22,7 @@ export default function (PACORTestManager) {
     for (let i = 0; i < panels.length; i++) {
       await this.sleep(100)
 
-      this.log('completeChecklists panel', i, 1)
+      //this.log('completeChecklists panel', i, 1)
 
       let panel = panels.eq(i)
       let checklist = panel.find('.SectionChecklist')
@@ -25,7 +31,7 @@ export default function (PACORTestManager) {
         throw new Error('input[type="checkbox"] not found: ' + checklist.html())
       }
       
-      this.log('completeChecklists panel', i, 2)
+      //this.log('completeChecklists panel', i, 2)
 
       for (let j = 0; j < items.length; j++) {
         await this.sleep(100)
@@ -37,7 +43,9 @@ export default function (PACORTestManager) {
         item.focus().click()
       } // for (let j = 0; j < items.length; j++) {
 
-      this.log('completeChecklists panel', i, 3)
+      this.sleep(3000)
+
+      //this.log('completeChecklists panel', i, 3)
 
       //item.parents('.item:first').find('label').click()
       let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', {

@@ -144,9 +144,14 @@ class UserReadingProgressConfig {
       }
 
       let step = await this.startReadingProgress(webpage)
-      if (step.log === null) {
+      if (step === null) {
+        throw new Error('step is null')
+      }
+      
+      if (!step.log) {
         step.log = {}
       }
+      
       Object.keys(attrs).forEach(key => {
         step.log[key] = attrs[key]
       })
@@ -157,6 +162,11 @@ class UserReadingProgressConfig {
     
     Model.prototype.getReadingProgressLog = async function (webpage) {
       let step = await this.startReadingProgress(webpage)
+      
+      if (step === null) {
+        throw new Error('step is null')
+      }
+      
       //    console.log(step.toJSON())
       //    console.log(step.step_name)
       //    console.log(step.log)

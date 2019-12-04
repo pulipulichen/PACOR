@@ -55,12 +55,13 @@ class AnnotationCreate {
 
       await instance.save()
 
+      // ------------------
+
       this._setPermission(webpage, user, data, instance)
       this._createAnchorPositions(webpage, instance, data)
-
-      // ---------------------------------------
-
       this._createNotes(instance, data)
+      
+      // ------------------
 
       return instance
     } // Model.create = async function (webpage, user, data) {

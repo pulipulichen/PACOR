@@ -6,6 +6,7 @@
   compactWidth="400"
   position="bottom"
   v-bind:pauseAtStart="pauseAtStart"
+  v-if="status.progress.highlights"
   v-on:timeup="$emit('timeup')">
   <template v-slot:header>
     

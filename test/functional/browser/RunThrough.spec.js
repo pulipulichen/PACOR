@@ -119,12 +119,12 @@ let config = {
     //let writeAnnotations = Math.random()
     await page.assertFn(async function () {
       await PACORTestManager.waitForElementVisible('[data-pacor-paragraph-seq-id]')
-    
+      await PACORTestManager.waitForElementVisible('.CompactNavigation .CompactMenu')
+      
       await PACORTestManager.writeAnnotations()
     })  // await page.assertFn(async function () {
   },
   'd3. 處理檢核單': async function ( { assert, client, browser }, page ) {
-    await page.waitForElement('.SectionChecklist')
     await page.assertFn(async function () {
       await PACORTestManager.completeChecklists()
     })
@@ -176,7 +176,7 @@ let config = {
 }
 
 TestBrowser(title, url, config, {
-  threads: 8,
+  threads: 5,
   mode: 'parallel',
   headless: false
 })

@@ -100,7 +100,10 @@ let handleException = async function (errors, headless, index) {
         prefix = `[${index}: ERROR]`
       }
       console.log(prefix, '\n\n' + errors.join('\n') + '\n')
-      await Sleep(30 * 60) // 暫停30分鐘
+      
+      let time = 30 * 60
+      console.log(`Wait ${time} seconds for debug...`)
+      await Sleep(time) // 暫停30分鐘
       throw new Error('')
     }
     else {

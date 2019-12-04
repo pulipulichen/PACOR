@@ -75,7 +75,7 @@ Cache.key = function (...args) {
 }
 
 Cache.rememberWaitLocks = {}
-Cache.rememberWaitLocksMS = 1000
+Cache.rememberWaitLocksMS = 3000
 
 Cache.rememberWait = function (tags, cacheKey, minutes, callback) {
   
@@ -137,8 +137,10 @@ Cache.rememberWait = function (tags, cacheKey, minutes, callback) {
     if (typeof(this.rememberWaitLocks[lockName]) === 'boolean' 
             && this.rememberWaitLocks[lockName] === true) {
       // 被鎖定了
-      console.log('被鎖定了', lockName, ExceptionHelper.getStackTraceString())
+      console.log('LOCKED: ', lockName, ExceptionHelper.getStackTraceString())
       setTimeout(async () => {
+        this.rememberWaitLocks[lockName] = false
+        
         //console.log('再次嘗試')
         let result = await this.rememberWait(tags, cacheKey, minutes, callback)
         //console.log('鎖定解除', result)

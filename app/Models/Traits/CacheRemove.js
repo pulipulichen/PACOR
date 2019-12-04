@@ -9,7 +9,7 @@ class CacheRemove {
     let removeCache = async (instance) => {
       let tags = Cache.buildTags(instance)
       //console.log(tags)
-      await Cache.tags(tags).flush()
+      Cache.tags(tags).flush()
       //await Cache.flush()
     }
     
