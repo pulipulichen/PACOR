@@ -85,6 +85,10 @@ class UserReadingProgressConfig {
                 && typeof (webpage.primaryKeyValue) === 'number') {
           readingProgresses = await webpage.getReadingProgresses()
         }
+        else {
+          throw new Error('webpage is incorrect: \n' + JSON.stringify(webpage, null, 2))
+        }
+        
         if (Array.isArray(readingProgresses) === false) {
           throw new Error('readingProgresses should be array')
         }

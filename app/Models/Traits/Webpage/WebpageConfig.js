@@ -16,7 +16,7 @@ class WebpageConfig {
 
     Model.prototype.getReadingProgresses = async function () {
       let cacheKey = Cache.key('Webpage', 'getReadingProgresses')
-      return await Cache.rememberWait([this], cacheKey, async () => {
+      return await Cache.rememberWait([this, 'ReadingProgress'], cacheKey, async () => {
         // 先看看自己有沒有
         let config = await this.getConfig()
         

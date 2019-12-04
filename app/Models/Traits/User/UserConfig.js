@@ -12,6 +12,9 @@ class UserConfig {
 
     Model.prototype.getCurrentReadingProgressStepAnnotationTypes = async function (webpage) {
       let config = await this.getCurrentReadingProgressStepConfig(webpage)
+      if (!config) {
+        throw new Error('config is undefined')
+      }
       let types = config.annotation.types
       return types
     }

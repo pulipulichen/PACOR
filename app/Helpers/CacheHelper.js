@@ -232,8 +232,11 @@ Cache.rememberForeverWait = function (tags, cacheKey, callback) {
       return true
     }
     catch (e) {
-      console.error('[CacheHelper error]', tags, cacheKey, e)
-      throw new Error(e)
+      console.error('[CacheHelper error] ' 
+              + JSON.stringify(tags) 
+              + ' ' + cacheKey + '\n' 
+              + e)
+      throw e
     }
   })  // return new Promise((resolve, reject) => {
 }

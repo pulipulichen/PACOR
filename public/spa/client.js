@@ -3424,6 +3424,7 @@ __webpack_require__.r(__webpack_exports__);
       catch (e) {
         throw new Error('\nError from puppeteer: ' + e 
                 + '\nElement length: ' + ele.length
+                + '\nElement classList: ' + ele.prop('classList')
                 + '\nElement DOM path: ' + this.getDomPath(ele)
                 + this.getStackTraceString())
       }
@@ -3765,12 +3766,16 @@ __webpack_require__.r(__webpack_exports__);
     for (let i = 0; i < panels.length; i++) {
       await this.sleep(100)
 
+      this.log('completeChecklists panel', i, 1)
+
       let panel = panels.eq(i)
       let checklist = panel.find('.SectionChecklist')
       let items = checklist.find('input[type="checkbox"]')
       if (items.length !== 3) {
         throw new Error('input[type="checkbox"] not found: ' + checklist.html())
       }
+      
+      this.log('completeChecklists panel', i, 2)
 
       for (let j = 0; j < items.length; j++) {
         await this.sleep(100)
@@ -3782,9 +3787,12 @@ __webpack_require__.r(__webpack_exports__);
         item.focus().click()
       } // for (let j = 0; j < items.length; j++) {
 
+      this.log('completeChecklists panel', i, 3)
+
       //item.parents('.item:first').find('label').click()
       let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', {
-        timeout: 1000
+        timeout: 3000,
+        errorMessage: '有出現寫標註的地方嗎？'
       })
       //$('.html-editor-container .note-editable').html(this.createRandomHtml())
       await this.typeInput(editor, this.createRandomText())
@@ -3793,7 +3801,8 @@ __webpack_require__.r(__webpack_exports__);
 
       await this.sleep(100)
       await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
-        timeout: 3000
+        timeout: 3000,
+        errorMessage: '似乎不能儲存小節重點，是不是沒有寫文字？'
       })
       await this.sleep(100)
 

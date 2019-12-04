@@ -128,9 +128,9 @@ export default (RangyManager) => {
       /**
        * For test 20191204
        */
-      if (selection.anchorPositions.length > 1) {
-        throw new Error('selection.anchorPositions.length > 1', selection.anchorPositions)
-      }
+      //if (selection.anchorPositions.length > 1) {
+      //  throw new Error('selection.anchorPositions.length > 1', selection.anchorPositions)
+      //}
       
       this.triggerEvent('select', selection)
 
