@@ -52,8 +52,13 @@ let ActivityTimer = {
         await this.lib.AxiosHelper.get('/client/ReadingProgress/activityTimer', {
           seconds: this.toNow()
         }, (error) => {
-          console.error('Get error from server, force logout: ' + error)
           this.enable = false
+          if (this.lib.TestManager.isTesting === true) {
+            console.error('Get error from server: ' + error)
+            return null
+          }
+          
+          console.error('Get error from server, force logout: ' + error)
           this.lib.auth.logout()
         })
         acted = false

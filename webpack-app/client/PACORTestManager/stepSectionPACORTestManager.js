@@ -62,7 +62,8 @@ export default function (PACORTestManager) {
         timeout: 3000,
         errorMessage: '似乎不能儲存小節重點，是不是沒有寫文字？'
       })
-      await this.sleep(100)
+      
+      await this.sleep(1000)
 
       await this.waitForElementVisibleClick('.ui.fluid.button.positive', {
         baseElement: checklist,

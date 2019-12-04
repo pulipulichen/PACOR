@@ -2304,6 +2304,7 @@ let VueController = {
       SectionManager: null,
       ConfirmModal: null,
       NotificationManager: null,
+      TestManager: null,
     },
     errors: [],
     persistAttrs: [
@@ -2335,6 +2336,7 @@ let VueController = {
     this.lib.style = this.$refs.style
     this.lib.AnnotationHelper.setStatus(this.status)
     this.lib.ConfirmModal = this.$refs.ConfirmModal
+    this.lib.TestManager = this.$refs.TestManager
     //console.log(this.lib.auth.nextStep)
   },
   
@@ -3137,8 +3139,11 @@ let PACORTestManager = {
   },
 //  components: {
 //  },
-//  computed: {
-//  },
+  computed: {
+    isTesting () {
+      return (typeof(window.PACORTestManagerInteractions) === 'function')
+    }
+  },
 //  watch: {
 //  },
   mounted() {
@@ -3821,7 +3826,8 @@ __webpack_require__.r(__webpack_exports__);
         timeout: 3000,
         errorMessage: '似乎不能儲存小節重點，是不是沒有寫文字？'
       })
-      await this.sleep(100)
+      
+      await this.sleep(1000)
 
       await this.waitForElementVisibleClick('.ui.fluid.button.positive', {
         baseElement: checklist,
@@ -4259,7 +4265,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"auth\">\r\n  </auth>\r\n  \r\n  <StyleManager \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"style\">\r\n  </StyleManager>\r\n  \r\n  <PACORTestManager \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\">\r\n  </PACORTestManager>\r\n\r\n  <error-handler \r\n    v-bind:config=\"config\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:errors=\"errors\"\r\n    ref=\"ErrorHandler\">\r\n  </error-handler>\r\n  \r\n  <confirm-modal\r\n    v-bind:config=\"config\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:status=\"status\"\r\n    \r\n    ref=\"ConfirmModal\">\r\n  </confirm-modal>\r\n\r\n  <component \r\n    v-bind:is=\"status.view\"\r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:progress=\"progress\"\r\n    v-bind:lib=\"lib\">\r\n  </component>\r\n</div>";
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"auth\">\r\n  </auth>\r\n  \r\n  <StyleManager \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"style\">\r\n  </StyleManager>\r\n  \r\n  <PACORTestManager \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"TestManager\">\r\n  </PACORTestManager>\r\n\r\n  <error-handler \r\n    v-bind:config=\"config\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:errors=\"errors\"\r\n    ref=\"ErrorHandler\">\r\n  </error-handler>\r\n  \r\n  <confirm-modal\r\n    v-bind:config=\"config\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:status=\"status\"\r\n    \r\n    ref=\"ConfirmModal\">\r\n  </confirm-modal>\r\n\r\n  <component \r\n    v-bind:is=\"status.view\"\r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:progress=\"progress\"\r\n    v-bind:lib=\"lib\">\r\n  </component>\r\n</div>";
 
 /***/ }),
 
@@ -4500,8 +4506,13 @@ let ActivityTimer = {
         await this.lib.AxiosHelper.get('/client/ReadingProgress/activityTimer', {
           seconds: this.toNow()
         }, (error) => {
-          console.error('Get error from server, force logout: ' + error)
           this.enable = false
+          if (this.lib.TestManager.isTesting === true) {
+            console.error('Get error from server: ' + error)
+            return null
+          }
+          
+          console.error('Get error from server, force logout: ' + error)
           this.lib.auth.logout()
         })
         acted = false

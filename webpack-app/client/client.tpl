@@ -17,7 +17,8 @@
   <PACORTestManager 
     v-bind:config="config"
     v-bind:status="status"
-    v-bind:lib="lib">
+    v-bind:lib="lib"
+    ref="TestManager">
   </PACORTestManager>
 
   <error-handler 

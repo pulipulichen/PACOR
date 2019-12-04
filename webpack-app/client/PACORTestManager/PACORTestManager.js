@@ -7,8 +7,11 @@ let PACORTestManager = {
   },
 //  components: {
 //  },
-//  computed: {
-//  },
+  computed: {
+    isTesting () {
+      return (typeof(window.PACORTestManagerInteractions) === 'function')
+    }
+  },
 //  watch: {
 //  },
   mounted() {
