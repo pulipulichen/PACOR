@@ -10,6 +10,8 @@ const Config = use('Config')
  */
 const Cache = use('Adonis/Addons/Cache')
 
+const ExceptionHelper = use('App/Helpers/ExceptionHelper')
+
 let stringifyArray = (array) => {
   return array.map(item => {
     if (Array.isArray(item)) {
@@ -135,7 +137,7 @@ Cache.rememberWait = function (tags, cacheKey, minutes, callback) {
     if (typeof(this.rememberWaitLocks[lockName]) === 'boolean' 
             && this.rememberWaitLocks[lockName] === true) {
       // 被鎖定了
-      //console.log('被鎖定了', lockName)
+      console.log('被鎖定了', lockName, ExceptionHelper.getStackTraceString())
       setTimeout(async () => {
         //console.log('再次嘗試')
         let result = await this.rememberWait(tags, cacheKey, minutes, callback)

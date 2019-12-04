@@ -3,20 +3,29 @@
 const ReadingProgress = use('App/Models/ReadingProgress')
 const Cache = use('Cache')
 
+const dayjs = use('dayjs')
+const ExceptionHelper = use('App/Helpers/ExceptionHelper')
+
 class UserReadingProgressAction {
 
   register(Model) {
     
     Model.prototype.startReadingProgress = async function (webpage, stepName) {
       let time = (new Date()).getTime()
+      //console.log('startReadingProgress', 1, dayjs().format('mm:ss'), ExceptionHelper.getStackTraceString())
       if (typeof (stepName) !== 'string') {
+        //console.log('startReadingProgress', 2, dayjs().format('mm:ss'))
         stepName = await this.getCurrentReadingProgressStepName(webpage)
+        //console.log('startReadingProgress', 2.2, dayjs().format('mm:ss'), stepName)
         //console.log('current step name', this.username, stepName)
       }
       if (stepName === null) {
+        //console.log('startReadingProgress', 3, dayjs().format('mm:ss'))
         return null
       }
       //console.log('startReadingProgress', stepName)
+      
+      //console.log('startReadingProgress', 4, dayjs().format('mm:ss'))
       let step = await ReadingProgress.findOrCreate({
         'user_id': this.primaryKeyValue,
         'webpage_id': webpage.primaryKeyValue,
@@ -27,22 +36,28 @@ class UserReadingProgressAction {
         'step_name': stepName,
         'start_timestamp': time
       })
-      
+      //console.log('startReadingProgress', 5, dayjs().format('mm:ss'))
       if (step.start_timestamp === time) {
         // 表示這是新增的資料
-        
+        //console.log('startReadingProgress', 6, dayjs().format('mm:ss'))
         let isEnableCollaboration = await this.isEnableCollaboration(webpage)
-        if (isEnableCollaboration === true) {
-          await webpage.addNotification(this, {
+        let isInAnonymousGroup = await this.isInAnonymousGroup(webpage)
+        //console.log('startReadingProgress', 7, dayjs().format('mm:ss'), isEnableCollaboration)
+        if (isEnableCollaboration === true && isInAnonymousGroup === false) {
+        //if (isEnableCollaboration === true) {
+          //console.log('startReadingProgress', 8, dayjs().format('mm:ss'), ExceptionHelper.getStackTraceString())
+          webpage.addNotification(this, {
             triggerInstance: step
           })
         }
-        
+        //console.log('startReadingProgress', 9, dayjs().format('mm:ss'), ExceptionHelper.getStackTraceString())
         //console.log('新增')
         //await step.save()
         //await Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
         await Cache.forgetWithTags([webpage, this, 'ReadingProgresses'])
+        //console.log('startReadingProgress', 10, dayjs().format('mm:ss'))
       }
+      //console.log('startReadingProgress', 11, dayjs().format('mm:ss'), ExceptionHelper.getStackTraceString())
       //console.log('startReadingProgress AAA', step.start_timestamp)
       //console.log('startReadingProgress', step.toJSON())
       return step
@@ -60,21 +75,21 @@ class UserReadingProgressAction {
 
       let step
       if (typeof (stepName) === 'string') {
-        console.log('endReadingProgress', 1, stepName)
+        //console.log('endReadingProgress', 1, stepName)
         step = await this.readingProgresses(webpage, stepName).fetch()
         step = step.first()
-        console.log('endReadingProgress', 2)
+        //console.log('endReadingProgress', 2)
       } else {
         //console.log('AAAA')
-        console.log('endReadingProgress', 3)
+        //console.log('endReadingProgress', 3)
         step = await this.startReadingProgress(webpage)
         if (step === null) {
           return null
         }
-        console.log('endReadingProgress', 4)
+        //console.log('endReadingProgress', 4)
       }
 
-      console.log('endReadingProgress', 4.5)
+      //console.log('endReadingProgress', 4.5)
 //      console.log(step.toJSON())
 
       if (typeof (step.end_timestamp) !== 'number') {
@@ -84,19 +99,19 @@ class UserReadingProgressAction {
         step.end_timestamp = time
         //console.log('step.end_timestamp AAA', time)
         
-        console.log('endReadingProgress', 5, step.start_timestamp, step.end_timestamp)
+        //console.log('endReadingProgress', 5, step.start_timestamp, step.end_timestamp)
         
         //console.log(step)
         
         await step.save()
         
-        console.log('endReadingProgress', 6)
+        //console.log('endReadingProgress', 6)
         //console.log('step.end_timestamp BBB', time)
         
         await Cache.forgetWithTags([webpage, this, 'ReadingProgresses'])
         
         
-        console.log('endReadingProgress', 7)
+        //console.log('endReadingProgress', 7, dayjs().format('mm:ss'))
         //let status = await this.getReadingProgressStatus(webpage)
         //console.log('after update', status)
         //console.log('prev step', this.username, step.step_name)
@@ -104,14 +119,14 @@ class UserReadingProgressAction {
         //console.log('step.end_timestamp CCC', time)
         step = await this.startReadingProgress(webpage)
         
-        console.log('endReadingProgress', 8)
+        //console.log('endReadingProgress', 8, dayjs().format('mm:ss'))
         
         //let status = await this.getReadingProgressStatus(webpage)
         //console.log('after update', status)
         //console.log('next step', this.username, step.step_name)
       }
       
-      console.log('endReadingProgress', 9)
+      //console.log('endReadingProgress', 9)
 
       return step
     } // Model.prototype.endReadingProgress = async function (webpage, stepName) {

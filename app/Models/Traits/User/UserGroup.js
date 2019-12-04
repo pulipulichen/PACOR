@@ -99,6 +99,15 @@ class UserGroup {
       focusUserID = TypeHelper.parseInt(focusUserID)
       return (ids.indexOf(focusUserID) > -1)
     }
+    
+    Model.prototype.isInAnonymousGroup = async function (webpage) {
+      let groups = await this.group()
+                .where('webpage_id', webpage.primaryKeyValue)
+                .fetch()
+        
+      return (groups.size() === 0)
+    }
+    
   } // register (Model) {
 }
 

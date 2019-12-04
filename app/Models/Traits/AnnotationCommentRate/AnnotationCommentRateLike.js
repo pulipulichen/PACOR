@@ -56,7 +56,7 @@ class AnnotationCommentRateLike {
         //await UserNotificationModel.createFromModelInstance(webpage, user, rate, comment.user_id, {
         //  comment_id: comment
         //})
-        await webpage.addNotification(user, {
+        webpage.addNotification(user, {
           notifiedUserID: comment.user_id,
           triggerInstance: rate,
           anchorInstance: comment,

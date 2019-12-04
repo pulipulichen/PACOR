@@ -97,7 +97,7 @@ let AnnotationHelper = {
     
     let pos = annotation.anchorPositions[0]
     if (pos.type === 'textContent'
-            && (!pos.start_pos || !pos.end_pos) ) {
+            && (typeof(pos.start_pos) !== 'number' || typeof(pos.end_pos) !== 'number') ) {
       throw new Error(`Start pos and end pos of anchor positions are required. \n` 
         + JSON.stringify(annotation, null, 2))
     }

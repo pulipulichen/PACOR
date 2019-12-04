@@ -51,7 +51,7 @@ class AnnotationRateLike {
         //})
         
         let note = await annotation.getNoteSummary()
-        await webpage.addNotification(user, {
+        webpage.addNotification(user, {
           notifiedUserID: annotation.user_id,
           triggerInstance: rate,
           anchorInstance: annotation,

@@ -3846,7 +3846,7 @@ __webpack_require__.r(__webpack_exports__);
   
   PACORTestManager.methods.confirmInstructionMessage = async function () {
     await this.sleep(100)
-    await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button:last', 30 * 1000)
+    await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button:last', 3 * 1000)
     await this.sleep(100)
   }
 });
@@ -7280,7 +7280,7 @@ let AnnotationHelper = {
     
     let pos = annotation.anchorPositions[0]
     if (pos.type === 'textContent'
-            && (!pos.start_pos || !pos.end_pos) ) {
+            && (typeof(pos.start_pos) !== 'number' || typeof(pos.end_pos) !== 'number') ) {
       throw new Error(`Start pos and end pos of anchor positions are required. \n` 
         + JSON.stringify(annotation, null, 2))
     }
