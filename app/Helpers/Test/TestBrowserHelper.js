@@ -11,7 +11,7 @@ let exposeFunction = async function (browser, url, index) {
   let page = await browser.visit(url)
 
   let consolePrefix
-  if (!index) {
+  if (index === undefined) {
     consolePrefix = '[CONSOLE]'
   }
   else {
@@ -138,6 +138,10 @@ let TestBrowserHelper = function (title, url, config, options) {
       let errors = []
       await Promise.all(ary.map(async (i) => {
         // 等待非同步工作完成
+        if (i > 0) {
+          await Sleep(i * 0.1)
+        }
+        
         let page = await exposeFunction(args.browser, url, i)
         await excuteTest(config, args, page, errors, i)
       }))

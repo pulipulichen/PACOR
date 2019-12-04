@@ -4234,7 +4234,7 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "ui fluid button",
+        staticClass: "ui fluid button submit-button",
         class: _vm.computedSubmitButtonClass,
         attrs: { type: "button" },
         on: { click: _vm.submitChecklist }
@@ -5510,14 +5510,16 @@ let AnnotationManager = {
     },
   },
   watch: {
-    'lib.RangyManager' (rangy) {
+    'lib.RangyManager': async function (rangy) {
       //console.log('ok')
       if (!rangy) {
         return false
       }
       
       this.afterTime = null
-      this.loadHighlights()
+      await this.loadHighlights()
+      //PACORTestManager.log('highlights', this.status.progress.highlights)
+      this.status.progress.highlights = true
     },
     'status.filter.focusUser' () {
       this.reloadHighlights()
@@ -5525,6 +5527,10 @@ let AnnotationManager = {
     'status.filter.findType' () {
       this.reloadHighlights()
     }
+  },
+  destroyed () {
+    //PACORTestManager.log('destory highlights', this.status.progress.highlights)
+    this.status.progress.highlights = false
   },
 //  mounted () {  
 //    
@@ -5560,7 +5566,7 @@ let AnnotationManager = {
       //console.log(result)
       this.afterTime = (new Date()).getTime()
       if (result !== 0) {
-        this.lib.RangyManager.deserializeAppend(result)
+        await this.lib.RangyManager.deserializeAppend(result)
       }
       this.isLoaded = true
       //$('[data-pacor-highlight]:first').click() // for test
@@ -12976,7 +12982,7 @@ let RangyManager = {
   },  // computed: {
   watch: {
   },  // watch: {
-  mounted() {
+  mounted: function () {
     
     this._initRangy()
     
@@ -13731,18 +13737,18 @@ __webpack_require__.r(__webpack_exports__);
     return highlightJSONArray
   }
 
-  RangyManager.methods.deserialize = function (highlightJSONArray, options) {
+  RangyManager.methods.deserialize = async function (highlightJSONArray, options) {
     // "type:textContent|28$198$2$confused-clarified$pacor-paragraph-id-2"
     if (typeof (highlightJSONArray) !== 'string') {
       highlightJSONArray = this._annotationToHighlighString(highlightJSONArray)
     }
 
-    this.highlighter.deserializeAsync(highlightJSONArray, options)
+    await this.highlighter.deserializeAsync(highlightJSONArray, options)
     return this
   }
 
-  RangyManager.methods.deserializeAppend = function (highlightJSONArray) {
-    return this.deserialize(highlightJSONArray, {
+  RangyManager.methods.deserializeAppend = async function (highlightJSONArray) {
+    return await this.deserialize(highlightJSONArray, {
       append: true
     })
   }

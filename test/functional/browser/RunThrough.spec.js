@@ -139,7 +139,7 @@ let config = {
     //let writeAnnotations = Math.random()
     await page.assertFn(async function () {
       //PACORTestManager.log('呃，怎麽不能運作了...')
-      await PACORTestManager.waitForElementVisible('.Navigation.menu')
+      await PACORTestManager.waitForElementVisible('.Navigation.menu', 30 * 1000)
       // Navigation
       await PACORTestManager.sleep(3000)
       await PACORTestManager.writeAnnotations()
@@ -171,7 +171,7 @@ let config = {
 }
 
 TestBrowser(title, url, config, {
-  threads: 1,
+  threads: 2,
   mode: 'parallel'
 })
 

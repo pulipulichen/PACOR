@@ -13,7 +13,7 @@ let RangyManager = {
   },  // computed: {
   watch: {
   },  // watch: {
-  mounted() {
+  mounted: function () {
     
     this._initRangy()
     

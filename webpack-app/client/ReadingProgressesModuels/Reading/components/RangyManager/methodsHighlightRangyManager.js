@@ -279,18 +279,18 @@ export default (RangyManager) => {
     return highlightJSONArray
   }
 
-  RangyManager.methods.deserialize = function (highlightJSONArray, options) {
+  RangyManager.methods.deserialize = async function (highlightJSONArray, options) {
     // "type:textContent|28$198$2$confused-clarified$pacor-paragraph-id-2"
     if (typeof (highlightJSONArray) !== 'string') {
       highlightJSONArray = this._annotationToHighlighString(highlightJSONArray)
     }
 
-    this.highlighter.deserializeAsync(highlightJSONArray, options)
+    await this.highlighter.deserializeAsync(highlightJSONArray, options)
     return this
   }
 
-  RangyManager.methods.deserializeAppend = function (highlightJSONArray) {
-    return this.deserialize(highlightJSONArray, {
+  RangyManager.methods.deserializeAppend = async function (highlightJSONArray) {
+    return await this.deserialize(highlightJSONArray, {
       append: true
     })
   }

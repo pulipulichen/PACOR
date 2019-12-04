@@ -32,7 +32,7 @@ export default function (PACORTestManager) {
       await this.sleep(100)
     }
     
-    this.log('writeAnnotations 結束了')
+    //this.log('writeAnnotations 結束了')
   }
   
   PACORTestManager.methods.selectAnnotationType = async function (i) {
@@ -140,9 +140,5 @@ export default function (PACORTestManager) {
     await this.sleep(100)
   }
   
-  PACORTestManager.methods.confirmInstructionMessage = async function () {
-    await this.sleep(100)
-    await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button:last', 3 * 1000)
-    await this.sleep(100)
-  }
+  
 }

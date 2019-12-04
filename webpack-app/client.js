@@ -95,6 +95,9 @@ let VueController = {
         unreadNotifications: [],
         hasNotification: true,
       },
+      progress: {
+        highlights: false
+      }
     },
     progress: {
       component: false,

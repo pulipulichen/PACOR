@@ -69,14 +69,16 @@ let AnnotationManager = {
     },
   },
   watch: {
-    'lib.RangyManager' (rangy) {
+    'lib.RangyManager': async function (rangy) {
       //console.log('ok')
       if (!rangy) {
         return false
       }
       
       this.afterTime = null
-      this.loadHighlights()
+      await this.loadHighlights()
+      //PACORTestManager.log('highlights', this.status.progress.highlights)
+      this.status.progress.highlights = true
     },
     'status.filter.focusUser' () {
       this.reloadHighlights()
@@ -84,6 +86,10 @@ let AnnotationManager = {
     'status.filter.findType' () {
       this.reloadHighlights()
     }
+  },
+  destroyed () {
+    //PACORTestManager.log('destory highlights', this.status.progress.highlights)
+    this.status.progress.highlights = false
   },
 //  mounted () {  
 //    
@@ -119,7 +125,7 @@ let AnnotationManager = {
       //console.log(result)
       this.afterTime = (new Date()).getTime()
       if (result !== 0) {
-        this.lib.RangyManager.deserializeAppend(result)
+        await this.lib.RangyManager.deserializeAppend(result)
       }
       this.isLoaded = true
       //$('[data-pacor-highlight]:first').click() // for test

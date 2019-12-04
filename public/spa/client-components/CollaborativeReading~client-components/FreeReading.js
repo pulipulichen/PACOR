@@ -449,138 +449,162 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("navigation", {
-    ref: "nav",
-    attrs: {
-      config: _vm.config,
-      status: _vm.status,
-      lib: _vm.lib,
-      compactWidth: "640",
-      position: "bottom"
-    },
-    scopedSlots: _vm._u([
-      {
-        key: "header",
-        fn: function() {
-          return [
-            _vm.status.preference.leftHanded
-              ? _c("notification-icon", {
-                  attrs: {
-                    config: _vm.config,
-                    status: _vm.status,
-                    lib: _vm.lib
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "fitted item avatar in-top",
-                on: { click: _vm.showInstruction }
-              },
-              [
-                _c("img", { attrs: { src: _vm.status.avatar } }),
-                _vm._v(" "),
-                _c("div", { staticClass: "username" }, [
-                  _vm._v(
-                    "\r\n        " +
-                      _vm._s(_vm.lib.auth.username) +
-                      "\r\n      "
+  return _vm.status.progress.highlights
+    ? _c("navigation", {
+        ref: "nav",
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          lib: _vm.lib,
+          compactWidth: "640",
+          position: "bottom"
+        },
+        scopedSlots: _vm._u(
+          [
+            {
+              key: "header",
+              fn: function() {
+                return [
+                  _vm.status.preference.leftHanded
+                    ? _c("notification-icon", {
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib
+                        }
+                      })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "fitted item avatar in-top",
+                      on: { click: _vm.showInstruction }
+                    },
+                    [
+                      _c("img", { attrs: { src: _vm.status.avatar } }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "username" }, [
+                        _vm._v(
+                          "\r\n        " +
+                            _vm._s(_vm.lib.auth.username) +
+                            "\r\n      "
+                        ),
+                        _c("div", { staticClass: "step" }, [
+                          _vm._v(
+                            "\r\n        " +
+                              _vm._s(
+                                _vm.$t("In {0} step", [
+                                  _vm.$t(
+                                    "READING_PROGRESS." +
+                                      _vm.lib.auth.currentStep
+                                  )
+                                ])
+                              ) +
+                              "\r\n      "
+                          )
+                        ])
+                      ])
+                    ]
                   ),
-                  _c("div", { staticClass: "step" }, [
-                    _vm._v(
-                      "\r\n        " +
-                        _vm._s(
-                          _vm.$t("In {0} step", [
-                            _vm.$t(
-                              "READING_PROGRESS." + _vm.lib.auth.currentStep
-                            )
-                          ])
-                        ) +
-                        "\r\n      "
-                    )
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "fitted item" },
-              [
-                _c("digital-countdown-timer", {
-                  attrs: {
-                    config: _vm.config,
-                    status: _vm.status,
-                    lib: _vm.lib,
-                    pauseAtStart: _vm.pauseAtStart
-                  },
-                  on: {
-                    timeup: function($event) {
-                      return _vm.$emit("timeup")
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "fitted item" },
+                    [
+                      _c("digital-countdown-timer", {
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib,
+                          pauseAtStart: _vm.pauseAtStart
+                        },
+                        on: {
+                          timeup: function($event) {
+                            return _vm.$emit("timeup")
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]
+              },
+              proxy: true
+            },
+            {
+              key: "items",
+              fn: function() {
+                return [
+                  _c("user-filter", {
+                    ref: "UserFilter",
+                    attrs: {
+                      config: _vm.config,
+                      status: _vm.status,
+                      lib: _vm.lib
                     }
-                  }
-                })
-              ],
-              1
-            )
-          ]
-        },
-        proxy: true
-      },
-      {
-        key: "items",
-        fn: function() {
-          return [
-            _c("user-filter", {
-              ref: "UserFilter",
-              attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
-            }),
-            _vm._v(" "),
-            _c("annotation-type-filter", {
-              ref: "AnnotationTypeFilter",
-              attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "item" },
-              [
-                _c("search-manager", {
-                  attrs: { status: _vm.status, lib: _vm.lib, size: "mini" }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            !_vm.status.preference.leftHanded
-              ? _c("notification-icon", {
-                  attrs: {
-                    config: _vm.config,
-                    status: _vm.status,
-                    lib: _vm.lib
-                  }
-                })
-              : _vm._e()
-          ]
-        },
-        proxy: true
-      },
-      {
-        key: "compactItems",
-        fn: function() {
-          return [
-            _c("notification-icon", {
-              ref: "NotificationManager",
-              attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
-            })
-          ]
-        },
-        proxy: true
-      }
-    ])
-  })
+                  }),
+                  _vm._v(" "),
+                  _c("annotation-type-filter", {
+                    ref: "AnnotationTypeFilter",
+                    attrs: {
+                      config: _vm.config,
+                      status: _vm.status,
+                      lib: _vm.lib
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "item" },
+                    [
+                      _c("search-manager", {
+                        attrs: {
+                          status: _vm.status,
+                          lib: _vm.lib,
+                          size: "mini"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  !_vm.status.preference.leftHanded
+                    ? _c("notification-icon", {
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib
+                        }
+                      })
+                    : _vm._e()
+                ]
+              },
+              proxy: true
+            },
+            {
+              key: "compactItems",
+              fn: function() {
+                return [
+                  _c("notification-icon", {
+                    ref: "NotificationManager",
+                    attrs: {
+                      config: _vm.config,
+                      status: _vm.status,
+                      lib: _vm.lib
+                    }
+                  })
+                ]
+              },
+              proxy: true
+            }
+          ],
+          null,
+          false,
+          2652394139
+        )
+      })
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true

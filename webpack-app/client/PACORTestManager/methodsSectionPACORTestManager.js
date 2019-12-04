@@ -44,15 +44,19 @@ export default function (PACORTestManager) {
 
       await this.waitForElementVisibleClick(checklist, '.ui.fluid.button.positive', 3000)
 
-      await this.sleep(1000)
 
-      //let editButton = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .', 1000)
-      let editButton = await this.waitForElementVisible(panel, '.SectionAnnotationList > .ui.fluid.button:last', 3000)
-      //PACORTestManager.log('editButton', editButton.text().trim())
-      if (editButton.text().indexOf('撰寫小節重點') > -1) {
-        throw new Error('Should not be 撰寫小節重點')
+      if (i < panels.length - 1) {
+        await this.sleep(1000)
+
+        //let editButton = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .', 1000)
+
+
+        let editButton = await this.waitForElementVisible(panel, '.SectionAnnotationList > .ui.fluid.button:last', 10000)
+        //PACORTestManager.log('editButton', editButton.text().trim())
+        if (editButton.text().indexOf('撰寫小節重點') > -1) {
+          throw new Error('Should not be 撰寫小節重點')
+        }
       }
-
     } // for (let i = 0; i < checklists.length; i++) {
   }
 

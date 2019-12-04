@@ -2278,6 +2278,9 @@ let VueController = {
         unreadNotifications: [],
         hasNotification: true,
       },
+      progress: {
+        highlights: false
+      }
     },
     progress: {
       component: false,
@@ -3123,6 +3126,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _methodsSectionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methodsSectionPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsSectionPACORTestManager.js");
 /* harmony import */ var _methodsRandomPACORTestManager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./methodsRandomPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsRandomPACORTestManager.js");
 /* harmony import */ var _methodsPuppeteerPACORTestManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./methodsPuppeteerPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsPuppeteerPACORTestManager.js");
+/* harmony import */ var _methodsStepInstructionPACORTestManager__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./methodsStepInstructionPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsStepInstructionPACORTestManager.js");
+/* harmony import */ var _methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./methodsExceptionPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsExceptionPACORTestManager.js");
 let PACORTestManager = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -3166,6 +3171,12 @@ Object(_methodsRandomPACORTestManager__WEBPACK_IMPORTED_MODULE_6__["default"])(P
 
 
 Object(_methodsPuppeteerPACORTestManager__WEBPACK_IMPORTED_MODULE_7__["default"])(PACORTestManager)
+
+
+Object(_methodsStepInstructionPACORTestManager__WEBPACK_IMPORTED_MODULE_8__["default"])(PACORTestManager)
+
+
+Object(_methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_9__["default"])(PACORTestManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (PACORTestManager);
 
@@ -3250,6 +3261,44 @@ let RandomTextHelper = function () {
 
 /***/ }),
 
+/***/ "./webpack-app/client/PACORTestManager/methodsExceptionPACORTestManager.js":
+/*!*********************************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/methodsExceptionPACORTestManager.js ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  
+  PACORTestManager.methods.getStackTrace = function () {
+
+    var stack;
+
+    try {
+      throw new Error('');
+    } catch (error) {
+      stack = error.stack || '';
+    }
+
+    stack = stack.split('\n').map(function (line) {
+      return line.trim();
+    });
+    return stack.splice(stack[0] == 'Error' ? 3 : 1);
+  }
+  
+  PACORTestManager.methods.getStackTraceString = function () {
+    return '\n  ' + this.getStackTrace().join('\n  ')
+  }
+});
+
+/***/ }),
+
 /***/ "./webpack-app/client/PACORTestManager/methodsFactoryPACORTestManager.js":
 /*!*******************************************************************************!*\
   !*** ./webpack-app/client/PACORTestManager/methodsFactoryPACORTestManager.js ***!
@@ -3263,13 +3312,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
-  PACORTestManager.methods.createRandomText = function () {
-    return Object(_lib_RandomTextHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])()
+  
+  /**
+   * https://stackoverflow.com/a/28118170/6645399
+   */
+  PACORTestManager.methods.getStackTrace = function () {
+
+    var stack;
+
+    try {
+      throw new Error('');
+    } catch (error) {
+      stack = error.stack || '';
+    }
+
+    stack = stack.split('\n').map(function (line) {
+      return line.trim();
+    });
+    return stack.splice(stack[0] == 'Error' ? 3 : 1);
   }
   
-  PACORTestManager.methods.createRandomHtml = function () {
-    return '<p>' + Object(_lib_RandomTextHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])() + '</p>'
-  }
 });
 
 /***/ }),
@@ -3334,7 +3396,17 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     if (typeof(selector) === 'string') {
-      args.unshift(selector)
+      let ele = jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector)
+      
+      if (ele.length === 0) {
+        throw new Error('Element not found: ' + selector)
+      }
+      
+      let tmpClassName = 'PACORTestManagerInteractions-' + (new Date()).getTime()
+      ele.addClass(tmpClassName)
+      await this.sleep(100)
+      
+      args.unshift('.' + tmpClassName)
       args.unshift(method)
       await window.PACORTestManagerInteractions.apply(this, args)
     }
@@ -3508,18 +3580,46 @@ __webpack_require__.r(__webpack_exports__);
 
       await this.waitForElementVisibleClick(checklist, '.ui.fluid.button.positive', 3000)
 
-      await this.sleep(1000)
 
-      //let editButton = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .', 1000)
-      let editButton = await this.waitForElementVisible(panel, '.SectionAnnotationList > .ui.fluid.button:last', 3000)
-      //PACORTestManager.log('editButton', editButton.text().trim())
-      if (editButton.text().indexOf('撰寫小節重點') > -1) {
-        throw new Error('Should not be 撰寫小節重點')
+      if (i < panels.length - 1) {
+        await this.sleep(1000)
+
+        //let editButton = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .', 1000)
+
+
+        let editButton = await this.waitForElementVisible(panel, '.SectionAnnotationList > .ui.fluid.button:last', 10000)
+        //PACORTestManager.log('editButton', editButton.text().trim())
+        if (editButton.text().indexOf('撰寫小節重點') > -1) {
+          throw new Error('Should not be 撰寫小節重點')
+        }
       }
-
     } // for (let i = 0; i < checklists.length; i++) {
   }
 
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/PACORTestManager/methodsStepInstructionPACORTestManager.js":
+/*!***************************************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/methodsStepInstructionPACORTestManager.js ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  
+  PACORTestManager.methods.confirmInstructionMessage = async function () {
+    await this.sleep(100)
+    await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button:last', 3 * 1000)
+    await this.sleep(100)
+  }
 });
 
 /***/ }),
@@ -3669,24 +3769,6 @@ __webpack_require__.r(__webpack_exports__);
     return $ele
   }
   
-  /**
-   * https://stackoverflow.com/a/28118170/6645399
-   */
-  PACORTestManager.methods.getStackTrace = function () {
-
-    var stack;
-
-    try {
-      throw new Error('');
-    } catch (error) {
-      stack = error.stack || '';
-    }
-
-    stack = stack.split('\n').map(function (line) {
-      return line.trim();
-    });
-    return stack.splice(stack[0] == 'Error' ? 2 : 1);
-  }
 });
 
 /***/ }),
@@ -3736,7 +3818,7 @@ __webpack_require__.r(__webpack_exports__);
       await this.sleep(100)
     }
     
-    this.log('writeAnnotations 結束了')
+    //this.log('writeAnnotations 結束了')
   }
   
   PACORTestManager.methods.selectAnnotationType = async function (i) {
@@ -3844,11 +3926,7 @@ __webpack_require__.r(__webpack_exports__);
     await this.sleep(100)
   }
   
-  PACORTestManager.methods.confirmInstructionMessage = async function () {
-    await this.sleep(100)
-    await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button:last', 3 * 1000)
-    await this.sleep(100)
-  }
+  
 });
 
 /***/ }),

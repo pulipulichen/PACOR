@@ -16,7 +16,17 @@ export default function (PACORTestManager) {
     }
     
     if (typeof(selector) === 'string') {
-      args.unshift(selector)
+      let ele = $(selector)
+      
+      if (ele.length === 0) {
+        throw new Error('Element not found: ' + selector)
+      }
+      
+      let tmpClassName = 'PACORTestManagerInteractions-' + (new Date()).getTime()
+      ele.addClass(tmpClassName)
+      await this.sleep(100)
+      
+      args.unshift('.' + tmpClassName)
       args.unshift(method)
       await window.PACORTestManagerInteractions.apply(this, args)
     }

@@ -42,4 +42,10 @@ methodsRandomPACORTestManager(PACORTestManager)
 import methodsPuppeteerPACORTestManager from './methodsPuppeteerPACORTestManager'
 methodsPuppeteerPACORTestManager(PACORTestManager)
 
+import methodsStepInstructionPACORTestManager from './methodsStepInstructionPACORTestManager'
+methodsStepInstructionPACORTestManager(PACORTestManager)
+
+import methodsExceptionPACORTestManager from './methodsExceptionPACORTestManager'
+methodsExceptionPACORTestManager(PACORTestManager)
+
 export default PACORTestManager
