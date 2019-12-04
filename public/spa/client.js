@@ -3270,10 +3270,6 @@ let RandomTextHelper = function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-
-
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
   
   PACORTestManager.methods.getStackTrace = function () {
@@ -3312,26 +3308,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
-  
-  /**
-   * https://stackoverflow.com/a/28118170/6645399
-   */
-  PACORTestManager.methods.getStackTrace = function () {
-
-    var stack;
-
-    try {
-      throw new Error('');
-    } catch (error) {
-      stack = error.stack || '';
-    }
-
-    stack = stack.split('\n').map(function (line) {
-      return line.trim();
-    });
-    return stack.splice(stack[0] == 'Error' ? 3 : 1);
+  PACORTestManager.methods.createRandomText = function () {
+    return Object(_lib_RandomTextHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])()
   }
   
+  PACORTestManager.methods.createRandomHtml = function () {
+    return '<p>' + Object(_lib_RandomTextHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])() + '</p>'
+  }
 });
 
 /***/ }),
@@ -3426,7 +3409,41 @@ __webpack_require__.r(__webpack_exports__);
   
   PACORTestManager.methods.typeInput = async function (selector, text) {
     if (typeof(window.PACORTestManagerInteractions) === 'function') {
+      let ele = selector
+      if (typeof(ele) === 'string') {
+        ele = jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector)
+      }
+      let tagName = ele.prop('tagName').toLowerCase()
+      let value
+      if (tagName === 'input'
+              || tagName === 'textarea') {
+        value = ele.val()
+      }
+      else {
+        value = ele.html()
+      }
+      
       await this.interact('type', selector, text)
+      
+      await this.sleep(100)
+      
+      if (tagName === 'input'
+              || tagName === 'textarea') {
+        if (ele.val() === value) {
+          this.log('資料沒改變，重寫一次', this.getStackTraceString())
+          await this.sleep(1000)
+          return await this.typeInput(selector, text)
+        }
+      }
+      else {
+        if (ele.html() === value) {
+          this.log('資料沒改變，重寫一次', this.getStackTraceString())
+          await this.sleep(1000)
+          return await this.typeInput(selector, text)
+        }
+      }
+      
+      
     }
     else {
       let ele = selector
@@ -3674,14 +3691,14 @@ __webpack_require__.r(__webpack_exports__);
           return resolve(s)
         }
         else {
-          maxWaitMS = maxWaitMS - 500
+          maxWaitMS = maxWaitMS - 100
           if (maxWaitMS <= 0) {
-            return reject('Element not found: ' + selector)
+            return reject('Element not found: ' + selector + this.getStackTraceString())
           }
           
           setTimeout(() => {
             check()
-          }, 500)
+          }, 100)
         }
       }
       
@@ -3853,7 +3870,7 @@ __webpack_require__.r(__webpack_exports__);
       throw new Error('Add button should be disabled at default')
     }
     
-    await this.sleep(100)
+    await this.sleep(1000)
     
     let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', 3000)
     //editor.html(this.createRandomHtml())
@@ -3861,6 +3878,7 @@ __webpack_require__.r(__webpack_exports__);
     await this.sleep(500)
     await this.typeInput(editor, this.createRandomText())
     await this.sleep(500)
+    
     
     await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', 3000)
     
@@ -3873,7 +3891,7 @@ __webpack_require__.r(__webpack_exports__);
   
   PACORTestManager.methods.writeConfusedClarifiedAnnotation = async function () {
     
-    await this.sleep(100)
+    await this.sleep(1000)
     
     let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', 3000)
     //questionEditor.html(this.createRandomHtml())
@@ -3903,7 +3921,7 @@ __webpack_require__.r(__webpack_exports__);
   
   PACORTestManager.methods.writeConfusedAnnotation = async function () {
     
-    await this.sleep(100)
+    await this.sleep(1000)
     
     let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', 3000)
     //questionEditor.html(this.createRandomHtml())

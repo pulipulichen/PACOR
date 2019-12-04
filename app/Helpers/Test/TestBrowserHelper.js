@@ -3,12 +3,16 @@
 'use strict'
 
 const Env = use('Env')
-let headless = (Env.get('TEST_BROWSER_HEADLESS') === 'true')
+let envHeadless = (Env.get('TEST_BROWSER_HEADLESS') === 'true')
 
 const Sleep = use('Sleep')
 
 let exposeFunction = async function (browser, url, index) {
   let page = await browser.visit(url)
+
+  //const session = await page.page.target().createCDPSession();
+  //await session.send('Page.enable');
+  //await session.send('Page.setWebLifecycleState', {state: 'active'});
 
   let consolePrefix
   if (index === undefined) {
@@ -17,6 +21,10 @@ let exposeFunction = async function (browser, url, index) {
   else {
     consolePrefix = `[${index}: CONSOLE]`
   }
+
+  await page.page.exposeFunction('PACORTestManagerIndex', () => {
+    return index
+  })
 
   await page.page.exposeFunction('PACORTestManagerLog', (...args) => {
     args.unshift(consolePrefix)
@@ -28,10 +36,24 @@ let exposeFunction = async function (browser, url, index) {
     args.unshift(selector)
     await page[method].apply(this, args)
   })
+  
+  // 等待非同步工作完成
+  if (!index && index > 0) {
+    await Sleep(index * 2)
+  }
 
   await page.assertFn(async () => {
+    let index = await PACORTestManagerIndex()
+    if (index !== undefined) {
+      document.title = index + ': ' + document.title
+    }
     window.focus()
+    
+    setTimeout(() => {
+      window.focus()
+    }, 5000)
   })
+  
   
   return page
 }
@@ -60,7 +82,7 @@ let excuteTest = async function (config, args, page, errors, index) {
   }
 }
 
-let handleException = async function (errors, index) {
+let handleException = async function (errors, headless, index) {
   if (errors.length > 0) {
     if (headless === false) {
       let prefix = `[ERROR]`
@@ -81,13 +103,18 @@ let TestBrowserHelper = function (title, url, config, options) {
 
   let {
     threads,
-    mode  // sequential, parallel
+    mode,  // sequential, parallel
+    headless
   } = options
 
   const { test, trait } = use('Test/Suite')(title)
 
   trait('Test/ApiClient')
   trait('Session/Client')
+  
+  if (headless === undefined) {
+    headless = envHeadless
+  }
   
   /**
    * https://github.com/puppeteer/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions
@@ -97,7 +124,12 @@ let TestBrowserHelper = function (title, url, config, options) {
     //dumpio: true,  // Log all browser console messages to the terminal.
     devtools: true,
     //pipe: true,
-    args: ['--start-maximized', '--auto-open-devtools-for-tabs']
+    
+    // https://peter.sh/experiments/chromium-command-line-switches/
+    args: [
+      '--start-maximized'
+      //'--start-minimized'
+      , '--auto-open-devtools-for-tabs']
   })
 
   //console.log(threads, mode)
@@ -111,7 +143,7 @@ let TestBrowserHelper = function (title, url, config, options) {
       
       await excuteTest(config, args, page, errors)
       
-      await handleException(errors)
+      await handleException(errors, headless)
     }).timeout(0)
   }
   else if (!mode || mode === 'sequential') {
@@ -123,7 +155,7 @@ let TestBrowserHelper = function (title, url, config, options) {
         
         let errors = []
         await excuteTest(config, args, page, errors)
-        await handleException(errors, i)
+        await handleException(errors, headless, i)
       }).timeout(0)
     }
   }
@@ -137,16 +169,11 @@ let TestBrowserHelper = function (title, url, config, options) {
       
       let errors = []
       await Promise.all(ary.map(async (i) => {
-        // 等待非同步工作完成
-        if (i > 0) {
-          await Sleep(i * 0.1)
-        }
-        
         let page = await exposeFunction(args.browser, url, i)
         await excuteTest(config, args, page, errors, i)
       }))
       
-      await handleException(errors)
+      await handleException(errors, headless)
       
     }).timeout(0)
   }

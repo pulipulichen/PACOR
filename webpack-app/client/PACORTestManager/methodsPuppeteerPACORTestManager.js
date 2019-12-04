@@ -46,7 +46,41 @@ export default function (PACORTestManager) {
   
   PACORTestManager.methods.typeInput = async function (selector, text) {
     if (typeof(window.PACORTestManagerInteractions) === 'function') {
+      let ele = selector
+      if (typeof(ele) === 'string') {
+        ele = $(selector)
+      }
+      let tagName = ele.prop('tagName').toLowerCase()
+      let value
+      if (tagName === 'input'
+              || tagName === 'textarea') {
+        value = ele.val()
+      }
+      else {
+        value = ele.html()
+      }
+      
       await this.interact('type', selector, text)
+      
+      await this.sleep(100)
+      
+      if (tagName === 'input'
+              || tagName === 'textarea') {
+        if (ele.val() === value) {
+          this.log('資料沒改變，重寫一次', this.getStackTraceString())
+          await this.sleep(1000)
+          return await this.typeInput(selector, text)
+        }
+      }
+      else {
+        if (ele.html() === value) {
+          this.log('資料沒改變，重寫一次', this.getStackTraceString())
+          await this.sleep(1000)
+          return await this.typeInput(selector, text)
+        }
+      }
+      
+      
     }
     else {
       let ele = selector

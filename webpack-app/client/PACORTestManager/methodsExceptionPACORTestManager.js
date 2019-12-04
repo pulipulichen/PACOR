@@ -1,5 +1,3 @@
-import $ from 'jquery'
-
 export default function (PACORTestManager) {
   
   PACORTestManager.methods.getStackTrace = function () {

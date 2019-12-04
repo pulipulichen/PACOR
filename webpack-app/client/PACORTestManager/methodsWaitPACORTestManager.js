@@ -37,14 +37,14 @@ export default function (PACORTestManager) {
           return resolve(s)
         }
         else {
-          maxWaitMS = maxWaitMS - 500
+          maxWaitMS = maxWaitMS - 100
           if (maxWaitMS <= 0) {
-            return reject('Element not found: ' + selector)
+            return reject('Element not found: ' + selector + this.getStackTraceString())
           }
           
           setTimeout(() => {
             check()
-          }, 500)
+          }, 100)
         }
       }
       

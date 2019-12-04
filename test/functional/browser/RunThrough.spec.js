@@ -171,8 +171,9 @@ let config = {
 }
 
 TestBrowser(title, url, config, {
-  threads: 2,
-  mode: 'parallel'
+  threads: 5,
+  mode: 'parallel',
+  headless: false
 })
 
 // Reset database

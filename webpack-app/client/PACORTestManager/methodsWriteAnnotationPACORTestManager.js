@@ -67,7 +67,7 @@ export default function (PACORTestManager) {
       throw new Error('Add button should be disabled at default')
     }
     
-    await this.sleep(100)
+    await this.sleep(1000)
     
     let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', 3000)
     //editor.html(this.createRandomHtml())
@@ -75,6 +75,7 @@ export default function (PACORTestManager) {
     await this.sleep(500)
     await this.typeInput(editor, this.createRandomText())
     await this.sleep(500)
+    
     
     await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', 3000)
     
@@ -87,7 +88,7 @@ export default function (PACORTestManager) {
   
   PACORTestManager.methods.writeConfusedClarifiedAnnotation = async function () {
     
-    await this.sleep(100)
+    await this.sleep(1000)
     
     let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', 3000)
     //questionEditor.html(this.createRandomHtml())
@@ -117,7 +118,7 @@ export default function (PACORTestManager) {
   
   PACORTestManager.methods.writeConfusedAnnotation = async function () {
     
-    await this.sleep(100)
+    await this.sleep(1000)
     
     let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', 3000)
     //questionEditor.html(this.createRandomHtml())
