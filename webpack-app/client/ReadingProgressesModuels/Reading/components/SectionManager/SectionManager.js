@@ -122,13 +122,13 @@ let SectionManager = {
       return {
         type: 'SectionMainIdea',
         anchorPositions: [{
-            type: 'section',
-            seq_id: sectionSeqID
-          }],
+          type: 'section',
+          seq_id: sectionSeqID
+        }],
         notes: [{
-            type: 'default',
-            note: ''
-          }]
+          type: 'default',
+          note: ''
+        }]
       }
     }
   } // methods

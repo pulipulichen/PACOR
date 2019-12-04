@@ -108,7 +108,7 @@ export default function (PACORTestManager) {
         else {
           maxWaitMS = maxWaitMS - 500
           if (maxWaitMS <= 0) {
-            return reject('Element still visible: ' + selector)
+            return reject('Element still visible: ' + selector + '\n' + this.getStackTrace().join('\n'))
           }
           
           setTimeout(() => {
@@ -123,10 +123,31 @@ export default function (PACORTestManager) {
   
   PACORTestManager.methods.waitForElementVisibleClick = async function (baseElement, selector, maxWaitMS) {
     let $ele = await this.waitForElementVisible(baseElement, selector, maxWaitMS)
-    if (typeof($ele.click) === 'function') {
-      $ele.click()
-    }
+    
+    await this.click($ele)
+    //if (typeof($ele.click) === 'function') {
+    //  $ele.click()
+    //}
     
     return $ele
+  }
+  
+  /**
+   * https://stackoverflow.com/a/28118170/6645399
+   */
+  PACORTestManager.methods.getStackTrace = function () {
+
+    var stack;
+
+    try {
+      throw new Error('');
+    } catch (error) {
+      stack = error.stack || '';
+    }
+
+    stack = stack.split('\n').map(function (line) {
+      return line.trim();
+    });
+    return stack.splice(stack[0] == 'Error' ? 2 : 1);
   }
 }

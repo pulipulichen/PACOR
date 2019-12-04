@@ -32,11 +32,14 @@ export default function (PACORTestManager) {
       } // for (let j = 0; j < items.length; j++) {
 
       //item.parents('.item:first').find('label').click()
-      await this.waitForElementVisible('.html-editor-container .note-editable', 1000)
-      $('.html-editor-container .note-editable').html(this.createRandomHtml())
+      let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', 1000)
+      //$('.html-editor-container .note-editable').html(this.createRandomHtml())
+      await this.typeInput(editor, this.createRandomText())
+      await this.sleep(500)
+      await this.typeInput(editor, this.createRandomText())
 
       await this.sleep(100)
-      await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
+      await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton', 3000)
       await this.sleep(100)
 
       await this.waitForElementVisibleClick(checklist, '.ui.fluid.button.positive', 3000)

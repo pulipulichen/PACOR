@@ -24,11 +24,13 @@ export default function (PACORTestManager) {
       let tmpClassName = 'PACORTestManagerInteractions-' + (new Date()).getTime()
       selector.addClass(tmpClassName)
       
+      await this.sleep(100)
       args.unshift('.' + tmpClassName)
       args.unshift(method)
       await window.PACORTestManagerInteractions.apply(this, args)
       
-      selector.removeClass(tmpClassName)
+      //await this.sleep(600)
+      //selector.removeClass(tmpClassName)
     }
   }
   
@@ -52,7 +54,7 @@ export default function (PACORTestManager) {
     }
   }
   
-  PACORTestManager.methods.click = async function (selector, text) {
+  PACORTestManager.methods.click = async function (selector) {
     if (typeof(window.PACORTestManagerInteractions) === 'function') {
       await this.interact('click', selector)
     }

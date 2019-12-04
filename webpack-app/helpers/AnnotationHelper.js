@@ -91,13 +91,15 @@ let AnnotationHelper = {
     
     if (Array.isArray(annotation.anchorPositions) === false
             || annotation.anchorPositions.length === 0) {
-      throw new Error(`Annotation's anchor positions are required`)
+      throw new Error(`Annotation's anchor positions are required. \n`
+            + JSON.stringify(annotation, null, 2))
     }
     
     let pos = annotation.anchorPositions[0]
     if (pos.type === 'textContent'
             && (!pos.start_pos || !pos.end_pos) ) {
-      throw new Error(`Start pos and end pos of anchor positions are required`)
+      throw new Error(`Start pos and end pos of anchor positions are required. \n` 
+        + JSON.stringify(annotation, null, 2))
     }
   }
 }

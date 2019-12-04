@@ -3,6 +3,9 @@
 'use strict'
 
 const Env = use('Env')
+let headless = (Env.get('TEST_BROWSER_HEADLESS') === 'true')
+
+const Sleep = use('Sleep')
 
 let exposeFunction = async function (browser, url, index) {
   let page = await browser.visit(url)
@@ -55,8 +58,23 @@ let excuteTest = async function (config, args, page, errors, index) {
       //throw e
     }
   }
+}
 
-  
+let handleException = async function (errors, index) {
+  if (errors.length > 0) {
+    if (headless === false) {
+      let prefix = `[ERROR]`
+      if (index !== undefined) {
+        prefix = `[${index}: ERROR]`
+      }
+      console.log(prefix, '\n\n' + errors.join('\n') + '\n')
+      await Sleep(3 * 60) // 暫停3分鐘
+      throw new Error('')
+    }
+    else {
+      throw new Error('\n\n' + errors.join('\n') + '\n')
+    }
+  }
 }
 
 let TestBrowserHelper = function (title, url, config, options) {
@@ -75,17 +93,17 @@ let TestBrowserHelper = function (title, url, config, options) {
    * https://github.com/puppeteer/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions
    */
   trait('Test/Browser', {
-    headless: (Env.get('TEST_BROWSER_HEADLESS') === 'true'),
+    headless,
     //dumpio: true,  // Log all browser console messages to the terminal.
     devtools: true,
     //pipe: true,
     args: ['--start-maximized', '--auto-open-devtools-for-tabs']
   })
 
-  console.log(threads, mode)
+  //console.log(threads, mode)
 
   if (!threads) {
-    console.log('aaa1')
+    //console.log('aaa1')
     test(title, async function (args) {
       let page = await exposeFunction(args.browser, url)
       
@@ -93,28 +111,24 @@ let TestBrowserHelper = function (title, url, config, options) {
       
       await excuteTest(config, args, page, errors)
       
-      if (errors.length > 0) {
-        throw new Error('\n\n' + errors.join('\n') + '\n')
-      }
+      await handleException(errors)
     }).timeout(0)
   }
   else if (!mode || mode === 'sequential') {
-    console.log('aaa2')
+    //console.log('aaa2')
     for (let i = 0; i < threads; i++) {
       let t = `[${i}] ${title}`
       test(t, async function (args) {
-        let page = await exposeFunction(args.browser, url)
+        let page = await exposeFunction(args.browser, url, i)
         
         let errors = []
         await excuteTest(config, args, page, errors)
-        if (errors.length > 0) {
-          throw new Error('\n\n' + errors.join('\n') + '\n')
-        }
+        await handleException(errors, i)
       }).timeout(0)
     }
   }
   else {
-    console.log('aaa3')
+    //console.log('aaa3')
     test(title, async function (args) {
       let ary = []
       for (let i = 0; i < threads; i++) {
@@ -127,9 +141,8 @@ let TestBrowserHelper = function (title, url, config, options) {
         let page = await exposeFunction(args.browser, url, i)
         await excuteTest(config, args, page, errors, i)
       }))
-      if (errors.length > 0) {
-        throw new Error('\n\n' + errors.join('\n') + '\n')
-      }
+      
+      await handleException(errors)
       
     }).timeout(0)
   }

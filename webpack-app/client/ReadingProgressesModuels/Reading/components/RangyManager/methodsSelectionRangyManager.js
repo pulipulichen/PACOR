@@ -57,7 +57,6 @@ export default (RangyManager) => {
 
         let parentSection
         if (anchorNode.attr('data-pacor-section-seq-id') !== undefined) {
-          
           parentSection = anchorNode
         }
         else {
@@ -71,13 +70,6 @@ export default (RangyManager) => {
           
           //position.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
           position.seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
-          
-          /*
-           if (section_seq_id.indexOf(id) === -1) {
-           section_seq_id.push(id)
-           }
-           */
-
         } else {
           // we will not select out of scope.
           //PACORTestManager.log('nodes.forEach(anchorNode)', '1 we will not select out of scope.')
@@ -96,6 +88,12 @@ export default (RangyManager) => {
           //}
 
           position.paragraph_id = parentParagraph.attr('id')
+          
+          if (selection.anchorParagraphIds.indexOf(position.paragraph_id) > -1) {
+            // 同一個段落，不加入
+            return false
+          }
+          
           selection.anchorParagraphIds.push(position.paragraph_id)
           //if (paragraph_id.indexOf(id) === -1) {
           //  paragraph_id.push(id)
@@ -112,7 +110,7 @@ export default (RangyManager) => {
       //PACORTestManager.log(selection.anchorPositions, selection.anchorPositions.length)
 
       if (selection.anchorPositions.length === 0) {
-        console.log('selection.anchorPositions.length === 0')
+        //console.log('selection.anchorPositions.length === 0')
         return false
       }
 
@@ -126,6 +124,14 @@ export default (RangyManager) => {
       //console.log('select', selection.anchorPositions)
       
       //PACORTestManager.log('triggerEvent')
+      
+      /**
+       * For test 20191204
+       */
+      if (selection.anchorPositions.length > 1) {
+        throw new Error('selection.anchorPositions.length > 1', selection.anchorPositions)
+      }
+      
       this.triggerEvent('select', selection)
 
       //console.log(highlightClassList)

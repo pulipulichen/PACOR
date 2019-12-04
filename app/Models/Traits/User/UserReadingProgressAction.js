@@ -60,16 +60,21 @@ class UserReadingProgressAction {
 
       let step
       if (typeof (stepName) === 'string') {
+        console.log('endReadingProgress', 1, stepName)
         step = await this.readingProgresses(webpage, stepName).fetch()
         step = step.first()
+        console.log('endReadingProgress', 2)
       } else {
         //console.log('AAAA')
+        console.log('endReadingProgress', 3)
         step = await this.startReadingProgress(webpage)
         if (step === null) {
           return null
         }
+        console.log('endReadingProgress', 4)
       }
 
+      console.log('endReadingProgress', 4.5)
 //      console.log(step.toJSON())
 
       if (typeof (step.end_timestamp) !== 'number') {
@@ -79,13 +84,19 @@ class UserReadingProgressAction {
         step.end_timestamp = time
         //console.log('step.end_timestamp AAA', time)
         
+        console.log('endReadingProgress', 5, step.start_timestamp, step.end_timestamp)
+        
         //console.log(step)
         
         await step.save()
+        
+        console.log('endReadingProgress', 6)
         //console.log('step.end_timestamp BBB', time)
         
         await Cache.forgetWithTags([webpage, this, 'ReadingProgresses'])
         
+        
+        console.log('endReadingProgress', 7)
         //let status = await this.getReadingProgressStatus(webpage)
         //console.log('after update', status)
         //console.log('prev step', this.username, step.step_name)
@@ -93,10 +104,14 @@ class UserReadingProgressAction {
         //console.log('step.end_timestamp CCC', time)
         step = await this.startReadingProgress(webpage)
         
+        console.log('endReadingProgress', 8)
+        
         //let status = await this.getReadingProgressStatus(webpage)
         //console.log('after update', status)
         //console.log('next step', this.username, step.step_name)
       }
+      
+      console.log('endReadingProgress', 9)
 
       return step
     } // Model.prototype.endReadingProgress = async function (webpage, stepName) {

@@ -12109,6 +12109,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 _MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"].mounted = function () {
+  this.validateAnnotation()
+  
   this.loadDraft()
   //console.log(this.annotation)
 }
@@ -12135,6 +12137,23 @@ _MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"].methods.loadDraft 
     this.$refs.editor.html(this.note)
   }
   //}, 100)
+}
+
+_MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"].methods.validateAnnotation = function () {
+  if (!this.annotation) {
+    throw new Error('No annotation!')
+  }
+  
+  if (this.annotation.anchorPositions.length !== 1) {
+    console.log(this.annotation.anchorPositions)
+    throw new Error('Annotation anchorPositions are too much.')
+  }
+  
+  let pos = this.annotation.anchorPositions[0]
+  if (pos.type !== 'section') {
+    console.log(this.annotation.anchorPositions)
+    throw new Error('First anchorPosition is not section')
+  }
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (_MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
@@ -14090,7 +14109,6 @@ __webpack_require__.r(__webpack_exports__);
 
         let parentSection
         if (anchorNode.attr('data-pacor-section-seq-id') !== undefined) {
-          
           parentSection = anchorNode
         }
         else {
@@ -14104,13 +14122,6 @@ __webpack_require__.r(__webpack_exports__);
           
           //position.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
           position.seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
-          
-          /*
-           if (section_seq_id.indexOf(id) === -1) {
-           section_seq_id.push(id)
-           }
-           */
-
         } else {
           // we will not select out of scope.
           //PACORTestManager.log('nodes.forEach(anchorNode)', '1 we will not select out of scope.')
@@ -14129,6 +14140,12 @@ __webpack_require__.r(__webpack_exports__);
           //}
 
           position.paragraph_id = parentParagraph.attr('id')
+          
+          if (selection.anchorParagraphIds.indexOf(position.paragraph_id) > -1) {
+            // 同一個段落，不加入
+            return false
+          }
+          
           selection.anchorParagraphIds.push(position.paragraph_id)
           //if (paragraph_id.indexOf(id) === -1) {
           //  paragraph_id.push(id)
@@ -14145,7 +14162,7 @@ __webpack_require__.r(__webpack_exports__);
       //PACORTestManager.log(selection.anchorPositions, selection.anchorPositions.length)
 
       if (selection.anchorPositions.length === 0) {
-        console.log('selection.anchorPositions.length === 0')
+        //console.log('selection.anchorPositions.length === 0')
         return false
       }
 
@@ -14159,6 +14176,14 @@ __webpack_require__.r(__webpack_exports__);
       //console.log('select', selection.anchorPositions)
       
       //PACORTestManager.log('triggerEvent')
+      
+      /**
+       * For test 20191204
+       */
+      if (selection.anchorPositions.length > 1) {
+        throw new Error('selection.anchorPositions.length > 1', selection.anchorPositions)
+      }
+      
       this.triggerEvent('select', selection)
 
       //console.log(highlightClassList)
@@ -23513,13 +23538,13 @@ let SectionManager = {
       return {
         type: 'SectionMainIdea',
         anchorPositions: [{
-            type: 'section',
-            seq_id: sectionSeqID
-          }],
+          type: 'section',
+          seq_id: sectionSeqID
+        }],
         notes: [{
-            type: 'default',
-            note: ''
-          }]
+          type: 'default',
+          note: ''
+        }]
       }
     }
   } // methods

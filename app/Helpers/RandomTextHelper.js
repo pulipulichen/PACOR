@@ -8,7 +8,13 @@ const textList = allText.trim().split('\n')
 const len = textList.length
 
 let RandomTextHelper = function () {
-  return textList[(Math.round(Math.random() * textList.length))]
+  let text = textList[(Math.round(Math.random() * textList.length))]
+  if (text === null) {
+    return RandomTextHelper()
+  }
+  else {
+    return text
+  }
 }
 
 module.exports = RandomTextHelper

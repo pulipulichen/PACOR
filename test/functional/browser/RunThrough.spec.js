@@ -113,6 +113,7 @@ let config = {
     })  // await page.assertFn(async function () {
   },
   'd2. 隨意寫標註': async function ( { assert, client, browser }, page ) {
+    //console.log('暫時跳過'); return
     //let writeAnnotations = Math.random()
     await page.assertFn(async function () {
       await PACORTestManager.waitForElementVisible('[data-pacor-paragraph-seq-id]')
@@ -155,17 +156,17 @@ let config = {
       await PACORTestManager.waitForElementVisibleClick('.ExitModal .actions .button:first')
     })
   },
-  'z999. 結束前等一下吧': async function ( { assert, client, browser }, page ) {
-    await page.assertFn(async function () {
-      await PACORTestManager.lib.VueHelper.sleep(3 * 1000)
-    })
-  },
+//  'z999. 結束前等一下吧': async function ( { assert, client, browser }, page ) {
+//    await page.assertFn(async function () {
+//      await PACORTestManager.lib.VueHelper.sleep(3 * 1000)
+//    })
+//  },
 //  'd1. 專注閱讀: 確認視窗': async function ( { assert, client, browser } ) {
 //  },
 }
 
 TestBrowser(title, url, config, {
-  threads: 10,
+  threads: 1,
   mode: 'parallel'
 })
 

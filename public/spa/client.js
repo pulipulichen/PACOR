@@ -3237,7 +3237,13 @@ const textList = _RandomText_tpl__WEBPACK_IMPORTED_MODULE_0___default.a.trim().s
 const len = textList.length - 1
 
 let RandomTextHelper = function () {
-  return textList[(Math.round(Math.random() * textList.length))]
+  let text = textList[(Math.round(Math.random() * textList.length))]
+  if (text === null) {
+    return RandomTextHelper()
+  }
+  else {
+    return text
+  }
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (RandomTextHelper);
@@ -3336,11 +3342,13 @@ __webpack_require__.r(__webpack_exports__);
       let tmpClassName = 'PACORTestManagerInteractions-' + (new Date()).getTime()
       selector.addClass(tmpClassName)
       
+      await this.sleep(100)
       args.unshift('.' + tmpClassName)
       args.unshift(method)
       await window.PACORTestManagerInteractions.apply(this, args)
       
-      selector.removeClass(tmpClassName)
+      //await this.sleep(600)
+      //selector.removeClass(tmpClassName)
     }
   }
   
@@ -3364,7 +3372,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
   
-  PACORTestManager.methods.click = async function (selector, text) {
+  PACORTestManager.methods.click = async function (selector) {
     if (typeof(window.PACORTestManagerInteractions) === 'function') {
       await this.interact('click', selector)
     }
@@ -3488,11 +3496,14 @@ __webpack_require__.r(__webpack_exports__);
       } // for (let j = 0; j < items.length; j++) {
 
       //item.parents('.item:first').find('label').click()
-      await this.waitForElementVisible('.html-editor-container .note-editable', 1000)
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.html-editor-container .note-editable').html(this.createRandomHtml())
+      let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', 1000)
+      //$('.html-editor-container .note-editable').html(this.createRandomHtml())
+      await this.typeInput(editor, this.createRandomText())
+      await this.sleep(500)
+      await this.typeInput(editor, this.createRandomText())
 
       await this.sleep(100)
-      await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
+      await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton', 3000)
       await this.sleep(100)
 
       await this.waitForElementVisibleClick(checklist, '.ui.fluid.button.positive', 3000)
@@ -3634,7 +3645,7 @@ __webpack_require__.r(__webpack_exports__);
         else {
           maxWaitMS = maxWaitMS - 500
           if (maxWaitMS <= 0) {
-            return reject('Element still visible: ' + selector)
+            return reject('Element still visible: ' + selector + '\n' + this.getStackTrace().join('\n'))
           }
           
           setTimeout(() => {
@@ -3649,11 +3660,32 @@ __webpack_require__.r(__webpack_exports__);
   
   PACORTestManager.methods.waitForElementVisibleClick = async function (baseElement, selector, maxWaitMS) {
     let $ele = await this.waitForElementVisible(baseElement, selector, maxWaitMS)
-    if (typeof($ele.click) === 'function') {
-      $ele.click()
-    }
+    
+    await this.click($ele)
+    //if (typeof($ele.click) === 'function') {
+    //  $ele.click()
+    //}
     
     return $ele
+  }
+  
+  /**
+   * https://stackoverflow.com/a/28118170/6645399
+   */
+  PACORTestManager.methods.getStackTrace = function () {
+
+    var stack;
+
+    try {
+      throw new Error('');
+    } catch (error) {
+      stack = error.stack || '';
+    }
+
+    stack = stack.split('\n').map(function (line) {
+      return line.trim();
+    });
+    return stack.splice(stack[0] == 'Error' ? 2 : 1);
   }
 });
 
@@ -3691,6 +3723,7 @@ __webpack_require__.r(__webpack_exports__);
       
       if (i % 3 === 0) {
         await this.writeMainIdeaAnnotation()
+        //await this.writeConfusedAnnotation()
       }
       else if (i % 3 === 1) {
         await this.writeConfusedClarifiedAnnotation()
@@ -3728,25 +3761,26 @@ __webpack_require__.r(__webpack_exports__);
       typeItemSelector = typeItemSelector + ':eq(1)'
     }
     
-    await this.waitForElementVisibleClick(typeItemSelector)
+    await this.waitForElementVisibleClick(typeItemSelector, 10 * 1000)
     //this.log('selectAnnotationType', 3)
   }
   
   PACORTestManager.methods.writeMainIdeaAnnotation = async function () {
-    let button = await this.waitForElementVisible('.annotation-panel-buttons .ValidationButton')
+    let button = await this.waitForElementVisible('.AnnotationPanel .annotation-panel-buttons .ValidationButton', 3000)
     if (button.hasClass('disabled') === false) {
       throw new Error('Add button should be disabled at default')
     }
     
     await this.sleep(100)
     
-    let editor = await this.waitForElementVisible('.html-editor-container .note-editable')
+    let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', 3000)
     //editor.html(this.createRandomHtml())
-    this.typeInput('.html-editor-container .note-editable', this.createRandomText())
+    await this.typeInput(editor, this.createRandomText())
+    await this.sleep(500)
+    await this.typeInput(editor, this.createRandomText())
+    await this.sleep(500)
     
-    await this.sleep(100)
-    
-    await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', 3000)
     
     await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
     
@@ -3759,23 +3793,23 @@ __webpack_require__.r(__webpack_exports__);
     
     await this.sleep(100)
     
-    let questionEditor = await this.waitForElementVisible('.QuestionEditor.html-editor-container .note-editable')
+    let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', 3000)
     //questionEditor.html(this.createRandomHtml())
-    this.typeInput('.QuestionEditor.html-editor-container .note-editable', this.createRandomText())
+    await this.typeInput(questionEditor, this.createRandomText())
     
     await this.sleep(100)
     
-    await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', 3000)
     
     await this.sleep(100)
     
-    let answerEditor = await this.waitForElementVisible('.AnswerEditor.html-editor-container .note-editable')
+    let answerEditor = await this.waitForElementVisible('.AnnotationPanel .AnswerEditor.html-editor-container .note-editable', 3000)
     //answerEditor.html(this.createRandomHtml())
-    this.typeInput('.AnswerEditor.html-editor-container .note-editable', this.createRandomText())
+    await this.typeInput(answerEditor, this.createRandomText())
     
-    await this.sleep(100)
+    await this.sleep(3000)
     
-    await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton:last', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled):last', 3000)
     
     await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
     
@@ -3789,17 +3823,19 @@ __webpack_require__.r(__webpack_exports__);
     
     await this.sleep(100)
     
-    let questionEditor = await this.waitForElementVisible('.QuestionEditor.html-editor-container .note-editable')
+    let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', 3000)
     //questionEditor.html(this.createRandomHtml())
-    this.typeInput('.QuestionEditor.html-editor-container .note-editable', this.createRandomText())
+    await this.typeInput(questionEditor, this.createRandomText())
     
     await this.sleep(100)
     
-    await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', 3000)
     
-    await this.sleep(1000)
+    await this.sleep(3000)
     
-    await this.waitForElementVisibleClick('.annotation-panel-buttons .ui.button:first', 3000)
+    //await this.log('這邊我要確認一下'); await this.sleep(60 * 1000)
+    
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ui.button:first:not(.disabled)', 3000)
     
     await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
     
@@ -3810,7 +3846,7 @@ __webpack_require__.r(__webpack_exports__);
   
   PACORTestManager.methods.confirmInstructionMessage = async function () {
     await this.sleep(100)
-    await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button:last')
+    await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button:last', 30 * 1000)
     await this.sleep(100)
   }
 });
@@ -7238,13 +7274,15 @@ let AnnotationHelper = {
     
     if (Array.isArray(annotation.anchorPositions) === false
             || annotation.anchorPositions.length === 0) {
-      throw new Error(`Annotation's anchor positions are required`)
+      throw new Error(`Annotation's anchor positions are required. \n`
+            + JSON.stringify(annotation, null, 2))
     }
     
     let pos = annotation.anchorPositions[0]
     if (pos.type === 'textContent'
             && (!pos.start_pos || !pos.end_pos) ) {
-      throw new Error(`Start pos and end pos of anchor positions are required`)
+      throw new Error(`Start pos and end pos of anchor positions are required. \n` 
+        + JSON.stringify(annotation, null, 2))
     }
   }
 }

@@ -19,6 +19,7 @@ export default function (PACORTestManager) {
       
       if (i % 3 === 0) {
         await this.writeMainIdeaAnnotation()
+        //await this.writeConfusedAnnotation()
       }
       else if (i % 3 === 1) {
         await this.writeConfusedClarifiedAnnotation()
@@ -56,25 +57,26 @@ export default function (PACORTestManager) {
       typeItemSelector = typeItemSelector + ':eq(1)'
     }
     
-    await this.waitForElementVisibleClick(typeItemSelector)
+    await this.waitForElementVisibleClick(typeItemSelector, 10 * 1000)
     //this.log('selectAnnotationType', 3)
   }
   
   PACORTestManager.methods.writeMainIdeaAnnotation = async function () {
-    let button = await this.waitForElementVisible('.annotation-panel-buttons .ValidationButton')
+    let button = await this.waitForElementVisible('.AnnotationPanel .annotation-panel-buttons .ValidationButton', 3000)
     if (button.hasClass('disabled') === false) {
       throw new Error('Add button should be disabled at default')
     }
     
     await this.sleep(100)
     
-    let editor = await this.waitForElementVisible('.html-editor-container .note-editable')
+    let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', 3000)
     //editor.html(this.createRandomHtml())
-    this.typeInput('.html-editor-container .note-editable', this.createRandomText())
+    await this.typeInput(editor, this.createRandomText())
+    await this.sleep(500)
+    await this.typeInput(editor, this.createRandomText())
+    await this.sleep(500)
     
-    await this.sleep(100)
-    
-    await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', 3000)
     
     await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
     
@@ -87,23 +89,23 @@ export default function (PACORTestManager) {
     
     await this.sleep(100)
     
-    let questionEditor = await this.waitForElementVisible('.QuestionEditor.html-editor-container .note-editable')
+    let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', 3000)
     //questionEditor.html(this.createRandomHtml())
-    this.typeInput('.QuestionEditor.html-editor-container .note-editable', this.createRandomText())
+    await this.typeInput(questionEditor, this.createRandomText())
     
     await this.sleep(100)
     
-    await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', 3000)
     
     await this.sleep(100)
     
-    let answerEditor = await this.waitForElementVisible('.AnswerEditor.html-editor-container .note-editable')
+    let answerEditor = await this.waitForElementVisible('.AnnotationPanel .AnswerEditor.html-editor-container .note-editable', 3000)
     //answerEditor.html(this.createRandomHtml())
-    this.typeInput('.AnswerEditor.html-editor-container .note-editable', this.createRandomText())
+    await this.typeInput(answerEditor, this.createRandomText())
     
-    await this.sleep(100)
+    await this.sleep(3000)
     
-    await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton:last', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled):last', 3000)
     
     await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
     
@@ -117,17 +119,19 @@ export default function (PACORTestManager) {
     
     await this.sleep(100)
     
-    let questionEditor = await this.waitForElementVisible('.QuestionEditor.html-editor-container .note-editable')
+    let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', 3000)
     //questionEditor.html(this.createRandomHtml())
-    this.typeInput('.QuestionEditor.html-editor-container .note-editable', this.createRandomText())
+    await this.typeInput(questionEditor, this.createRandomText())
     
     await this.sleep(100)
     
-    await this.waitForElementVisibleClick('.annotation-panel-buttons .ValidationButton', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', 3000)
     
-    await this.sleep(1000)
+    await this.sleep(3000)
     
-    await this.waitForElementVisibleClick('.annotation-panel-buttons .ui.button:first', 3000)
+    //await this.log('這邊我要確認一下'); await this.sleep(60 * 1000)
+    
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ui.button:first:not(.disabled)', 3000)
     
     await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
     
@@ -138,7 +142,7 @@ export default function (PACORTestManager) {
   
   PACORTestManager.methods.confirmInstructionMessage = async function () {
     await this.sleep(100)
-    await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button:last')
+    await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button:last', 30 * 1000)
     await this.sleep(100)
   }
 }
