@@ -15,32 +15,33 @@ export default function (PACORTestManager) {
       return null
     }
     
+    let exec = async (ele) => {
+      let tmpClassName = 'PACORTestManagerInteractions-' + (new Date()).getTime()
+      ele.addClass(tmpClassName)
+      
+      await this.sleep(100)
+      args.unshift('.' + tmpClassName)
+      args.unshift(method)
+      
+      try {
+        await window.PACORTestManagerInteractions.apply(this, args)
+      }
+      catch (e) {
+        throw new Error('Error from puppeteer: ' + e + this.getStackTraceString())
+      }
+    }
+    
     if (typeof(selector) === 'string') {
       let ele = $(selector)
       
       if (ele.length === 0) {
-        throw new Error('Element not found: ' + selector)
+        throw new Error('Element not found: ' + selector + this.getStackTraceString())
       }
       
-      let tmpClassName = 'PACORTestManagerInteractions-' + (new Date()).getTime()
-      ele.addClass(tmpClassName)
-      await this.sleep(100)
-      
-      args.unshift('.' + tmpClassName)
-      args.unshift(method)
-      await window.PACORTestManagerInteractions.apply(this, args)
+      await exec(ele)
     }
     else {
-      let tmpClassName = 'PACORTestManagerInteractions-' + (new Date()).getTime()
-      selector.addClass(tmpClassName)
-      
-      await this.sleep(100)
-      args.unshift('.' + tmpClassName)
-      args.unshift(method)
-      await window.PACORTestManagerInteractions.apply(this, args)
-      
-      //await this.sleep(600)
-      //selector.removeClass(tmpClassName)
+      await exec(selector)
     }
   }
   

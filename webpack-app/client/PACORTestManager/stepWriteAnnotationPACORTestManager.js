@@ -57,19 +57,25 @@ export default function (PACORTestManager) {
       typeItemSelector = typeItemSelector + ':eq(1)'
     }
     
-    await this.waitForElementVisibleClick(typeItemSelector, 10 * 1000)
+    await this.waitForElementVisibleClick(typeItemSelector, {
+      timeout: 10 * 1000
+    })
     //this.log('selectAnnotationType', 3)
   }
   
   PACORTestManager.methods.writeMainIdeaAnnotation = async function () {
-    let button = await this.waitForElementVisible('.AnnotationPanel .annotation-panel-buttons .ValidationButton', 3000)
+    let button = await this.waitForElementVisible('.AnnotationPanel .annotation-panel-buttons .ValidationButton', {
+      timeout: 3000
+    })
     if (button.hasClass('disabled') === false) {
       throw new Error('Add button should be disabled at default')
     }
     
     await this.sleep(1000)
     
-    let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', 3000)
+    let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', {
+      timeout: 3000
+    })
     //editor.html(this.createRandomHtml())
     await this.typeInput(editor, this.createRandomText())
     await this.sleep(500)
@@ -77,9 +83,15 @@ export default function (PACORTestManager) {
     await this.sleep(500)
     
     
-    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
+      timeout: 3000,
+      errorMessage: '是不是資料沒有輸入？'
+    })
     
-    await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
+    await this.waitForElementHidden('.AnnotationPanel .segment', {
+      timeout: 3000,
+      errorMessage: '是不是傳送儲存花太多時間了？ writeMainIdeaAnnotation'
+    })
     
     //await this.lib.RangyManager.cancelSelection()
     
@@ -90,25 +102,43 @@ export default function (PACORTestManager) {
     
     await this.sleep(1000)
     
-    let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', 3000)
+    let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', {
+      timeout: 3000
+    })
     //questionEditor.html(this.createRandomHtml())
     await this.typeInput(questionEditor, this.createRandomText())
+    await this.sleep(500)
+    await this.typeInput(questionEditor, this.createRandomText())
+    
     
     await this.sleep(100)
     
-    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
+      timeout: 3000,
+      errorMessage: 'writeConfusedClarifiedAnnotation 是不是沒有寫到QuestionEditor? '
+    })
     
     await this.sleep(100)
     
-    let answerEditor = await this.waitForElementVisible('.AnnotationPanel .AnswerEditor.html-editor-container .note-editable', 3000)
+    let answerEditor = await this.waitForElementVisible('.AnnotationPanel .AnswerEditor.html-editor-container .note-editable', {
+      timeout: 6000,
+      errorMessage: '是不是傳送儲存花太多時間了？ writeConfusedClarifiedAnnotation'
+    })
     //answerEditor.html(this.createRandomHtml())
     await this.typeInput(answerEditor, this.createRandomText())
-    
+    await this.sleep(500)
+    await this.typeInput(questionEditor, this.createRandomText())
     await this.sleep(3000)
     
-    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled):last', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled):last', {
+      timeout: 3000,
+      errorMessage: 'writeConfusedClarifiedAnnotation 是不是沒有寫到 answerEditor? '
+    })
     
-    await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
+    await this.waitForElementHidden('.AnnotationPanel .segment', {
+      timeout: 3000,
+      errorMessage: '是不是傳送更新花太多時間了？ writeConfusedClarifiedAnnotation'
+    })
     
     //await this.lib.RangyManager.cancelSelection()
     
@@ -120,26 +150,36 @@ export default function (PACORTestManager) {
     
     await this.sleep(1000)
     
-    let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', 3000)
+    let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', {
+      timeout: 3000
+    })
     //questionEditor.html(this.createRandomHtml())
     await this.typeInput(questionEditor, this.createRandomText())
-    
+    await this.sleep(500)
+    await this.typeInput(questionEditor, this.createRandomText())
     await this.sleep(100)
     
-    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
+      timeout: 3000,
+      errorMessage: 'writeConfusedAnnotation 是不是沒有寫到QuestionEditor? '
+    })
     
     await this.sleep(3000)
     
     //await this.log('這邊我要確認一下'); await this.sleep(60 * 1000)
     
-    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ui.button:first:not(.disabled)', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ui.button:first:not(.disabled)', {
+      timeout: 3000,
+      errorMessage: 'writeConfusedAnnotation 這裡很奇怪？是不是儲存沒有存好？'
+    })
     
-    await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
+    await this.waitForElementHidden('.AnnotationPanel .segment', {
+      timeout: 3000,
+      errorMessage: 'writeConfusedAnnotation 應該只會看到前面'
+    })
     
     //await this.lib.RangyManager.cancelSelection()
     
     await this.sleep(100)
   }
-  
-  
 }

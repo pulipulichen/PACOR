@@ -5,8 +5,8 @@ const textList = RandomText.trim().split('\n')
 const len = textList.length - 1
 
 let RandomTextHelper = function () {
-  let text = textList[(Math.round(Math.random() * textList.length))]
-  if (text === null) {
+  let text = textList[(Math.floor(Math.random() * textList.length))]
+  if (!text) {
     return RandomTextHelper()
   }
   else {

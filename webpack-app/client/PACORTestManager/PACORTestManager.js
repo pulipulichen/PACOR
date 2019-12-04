@@ -27,25 +27,27 @@ methodsFactoryPACORTestManager(PACORTestManager)
 import methodsWaitPACORTestManager from './methodsWaitPACORTestManager'
 methodsWaitPACORTestManager(PACORTestManager)
 
-import methodsQuestionnairePACORTestManager from './methodsQuestionnairePACORTestManager'
-methodsQuestionnairePACORTestManager(PACORTestManager)
-
-import methodsWriteAnnotationPACORTestManager from './methodsWriteAnnotationPACORTestManager'
-methodsWriteAnnotationPACORTestManager(PACORTestManager)
-
-import methodsSectionPACORTestManager from './methodsSectionPACORTestManager'
-methodsSectionPACORTestManager(PACORTestManager)
-
 import methodsRandomPACORTestManager from './methodsRandomPACORTestManager'
 methodsRandomPACORTestManager(PACORTestManager)
 
 import methodsPuppeteerPACORTestManager from './methodsPuppeteerPACORTestManager'
 methodsPuppeteerPACORTestManager(PACORTestManager)
 
-import methodsStepInstructionPACORTestManager from './methodsStepInstructionPACORTestManager'
-methodsStepInstructionPACORTestManager(PACORTestManager)
-
 import methodsExceptionPACORTestManager from './methodsExceptionPACORTestManager'
 methodsExceptionPACORTestManager(PACORTestManager)
+
+// ---------------
+
+import stepQuestionnairePACORTestManager from './stepQuestionnairePACORTestManager'
+stepQuestionnairePACORTestManager(PACORTestManager)
+
+import stepWriteAnnotationPACORTestManager from './stepWriteAnnotationPACORTestManager'
+stepWriteAnnotationPACORTestManager(PACORTestManager)
+
+import stepSectionPACORTestManager from './stepSectionPACORTestManager'
+stepSectionPACORTestManager(PACORTestManager)
+
+import stepStepInstructionPACORTestManager from './stepStepInstructionPACORTestManager'
+stepStepInstructionPACORTestManager(PACORTestManager)
 
 export default PACORTestManager

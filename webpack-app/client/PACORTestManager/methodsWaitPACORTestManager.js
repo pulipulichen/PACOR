@@ -1,12 +1,14 @@
 import $ from 'jquery'
 
 export default function (PACORTestManager) {
-  PACORTestManager.methods.waitForElement = async function (baseElement, selector, maxWaitMS) {
-    if (maxWaitMS === undefined && typeof(baseElement) === 'string') {
-      maxWaitMS = selector
-      selector = baseElement
-      baseElement = undefined
-    }
+  PACORTestManager.methods.waitForElement = async function (selector, options = {}) {
+    let {
+      timeout,
+      baseElement,
+      errorMessage
+    } = options
+    
+    let maxWaitMS = timeout
     
     let getElement = () => {
       if (baseElement 
@@ -39,7 +41,13 @@ export default function (PACORTestManager) {
         else {
           maxWaitMS = maxWaitMS - 100
           if (maxWaitMS <= 0) {
-            return reject('Element not found: ' + selector + this.getStackTraceString())
+            let message = []
+            if (errorMessage) {
+              message.push(errorMessage + '\n')
+            }
+            message.push('Element not found: ' + selector)
+            message.push(this.getStackTraceString())
+            return reject(message.join(''))
           }
           
           setTimeout(() => {
@@ -52,26 +60,23 @@ export default function (PACORTestManager) {
     })
   } // PACORTestManager.methods.waitForElement = async function (selector, maxWaitMS = 15000) {
   
-  PACORTestManager.methods.waitForElementVisible = async function (baseElement, selector, maxWaitMS) {
-    if (maxWaitMS === undefined && typeof(baseElement) === 'string') {
-      maxWaitMS = selector
-      selector = baseElement
-      baseElement = undefined
-    }
+  PACORTestManager.methods.waitForElementVisible = async function (selector, options) {
     
     if (selector.endsWith(':visible') === false) {
       selector = selector + ':visible'
     }
     
-    return await this.waitForElement(baseElement, selector, maxWaitMS)
+    return await this.waitForElement(selector, options)
   } // PACORTestManager.methods.waitForElementVisible = async function (selector, maxWaitMS) {
   
-  PACORTestManager.methods.waitForElementHidden = async function (baseElement, selector, maxWaitMS) {
-    if (maxWaitMS === undefined && typeof(baseElement) === 'string') {
-      maxWaitMS = selector
-      selector = baseElement
-      baseElement = undefined
-    }
+  PACORTestManager.methods.waitForElementHidden = async function (selector, options = {}) {
+    let {
+      timeout,
+      baseElement,
+      errorMessage
+    } = options
+    
+    let maxWaitMS = timeout
     
     if (selector.endsWith(':visible') === false) {
       selector = selector + ':visible'
@@ -108,7 +113,13 @@ export default function (PACORTestManager) {
         else {
           maxWaitMS = maxWaitMS - 500
           if (maxWaitMS <= 0) {
-            return reject('Element still visible: ' + selector + '\n' + this.getStackTrace().join('\n'))
+            let message = []
+            if (errorMessage) {
+              message.push(errorMessage + '\n')
+            }
+            message.push('Element still visible: ' + selector)
+            message.push(this.getStackTraceString())
+            return reject(message.join(''))
           }
           
           setTimeout(() => {
@@ -121,8 +132,8 @@ export default function (PACORTestManager) {
     })
   } // PACORTestManager.methods.waitForElementVisible = async function (selector, maxWaitMS) {
   
-  PACORTestManager.methods.waitForElementVisibleClick = async function (baseElement, selector, maxWaitMS) {
-    let $ele = await this.waitForElementVisible(baseElement, selector, maxWaitMS)
+  PACORTestManager.methods.waitForElementVisibleClick = async function (selector, options) {
+    let $ele = await this.waitForElementVisible(selector, options)
     
     await this.click($ele)
     //if (typeof($ele.click) === 'function') {

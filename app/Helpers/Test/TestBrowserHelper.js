@@ -10,6 +10,11 @@ const Sleep = use('Sleep')
 let exposeFunction = async function (browser, url, index) {
   let page = await browser.visit(url)
 
+  //console.log(JSON.stringify(browser, null, 2))
+  let puppeteerBrowser = await page.page.browser();
+  let pages = await puppeteerBrowser.pages();
+  await pages[0].close()
+
   //const session = await page.page.target().createCDPSession();
   //await session.send('Page.enable');
   //await session.send('Page.setWebLifecycleState', {state: 'active'});
@@ -77,6 +82,7 @@ let excuteTest = async function (config, args, page, errors, index) {
       }
       console.log(consolePrefix, e)
       errors.push(consolePrefix + ' ' + e.message)
+      return  // 後面不繼續了，反正也就卡死了
       //throw e
     }
   }

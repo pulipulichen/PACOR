@@ -3121,13 +3121,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _methodsPACORTestManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./methodsPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsPACORTestManager.js");
 /* harmony import */ var _methodsFactoryPACORTestManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsFactoryPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsFactoryPACORTestManager.js");
 /* harmony import */ var _methodsWaitPACORTestManager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsWaitPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsWaitPACORTestManager.js");
-/* harmony import */ var _methodsQuestionnairePACORTestManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsQuestionnairePACORTestManager */ "./webpack-app/client/PACORTestManager/methodsQuestionnairePACORTestManager.js");
-/* harmony import */ var _methodsWriteAnnotationPACORTestManager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsWriteAnnotationPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsWriteAnnotationPACORTestManager.js");
-/* harmony import */ var _methodsSectionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methodsSectionPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsSectionPACORTestManager.js");
-/* harmony import */ var _methodsRandomPACORTestManager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./methodsRandomPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsRandomPACORTestManager.js");
-/* harmony import */ var _methodsPuppeteerPACORTestManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./methodsPuppeteerPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsPuppeteerPACORTestManager.js");
-/* harmony import */ var _methodsStepInstructionPACORTestManager__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./methodsStepInstructionPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsStepInstructionPACORTestManager.js");
-/* harmony import */ var _methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./methodsExceptionPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsExceptionPACORTestManager.js");
+/* harmony import */ var _methodsRandomPACORTestManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsRandomPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsRandomPACORTestManager.js");
+/* harmony import */ var _methodsPuppeteerPACORTestManager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsPuppeteerPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsPuppeteerPACORTestManager.js");
+/* harmony import */ var _methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methodsExceptionPACORTestManager */ "./webpack-app/client/PACORTestManager/methodsExceptionPACORTestManager.js");
+/* harmony import */ var _stepQuestionnairePACORTestManager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./stepQuestionnairePACORTestManager */ "./webpack-app/client/PACORTestManager/stepQuestionnairePACORTestManager.js");
+/* harmony import */ var _stepWriteAnnotationPACORTestManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./stepWriteAnnotationPACORTestManager */ "./webpack-app/client/PACORTestManager/stepWriteAnnotationPACORTestManager.js");
+/* harmony import */ var _stepSectionPACORTestManager__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./stepSectionPACORTestManager */ "./webpack-app/client/PACORTestManager/stepSectionPACORTestManager.js");
+/* harmony import */ var _stepStepInstructionPACORTestManager__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./stepStepInstructionPACORTestManager */ "./webpack-app/client/PACORTestManager/stepStepInstructionPACORTestManager.js");
 let PACORTestManager = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -3158,25 +3158,27 @@ Object(_methodsFactoryPACORTestManager__WEBPACK_IMPORTED_MODULE_1__["default"])(
 Object(_methodsWaitPACORTestManager__WEBPACK_IMPORTED_MODULE_2__["default"])(PACORTestManager)
 
 
-Object(_methodsQuestionnairePACORTestManager__WEBPACK_IMPORTED_MODULE_3__["default"])(PACORTestManager)
+Object(_methodsRandomPACORTestManager__WEBPACK_IMPORTED_MODULE_3__["default"])(PACORTestManager)
 
 
-Object(_methodsWriteAnnotationPACORTestManager__WEBPACK_IMPORTED_MODULE_4__["default"])(PACORTestManager)
+Object(_methodsPuppeteerPACORTestManager__WEBPACK_IMPORTED_MODULE_4__["default"])(PACORTestManager)
 
 
-Object(_methodsSectionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__["default"])(PACORTestManager)
+Object(_methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__["default"])(PACORTestManager)
+
+// ---------------
 
 
-Object(_methodsRandomPACORTestManager__WEBPACK_IMPORTED_MODULE_6__["default"])(PACORTestManager)
+Object(_stepQuestionnairePACORTestManager__WEBPACK_IMPORTED_MODULE_6__["default"])(PACORTestManager)
 
 
-Object(_methodsPuppeteerPACORTestManager__WEBPACK_IMPORTED_MODULE_7__["default"])(PACORTestManager)
+Object(_stepWriteAnnotationPACORTestManager__WEBPACK_IMPORTED_MODULE_7__["default"])(PACORTestManager)
 
 
-Object(_methodsStepInstructionPACORTestManager__WEBPACK_IMPORTED_MODULE_8__["default"])(PACORTestManager)
+Object(_stepSectionPACORTestManager__WEBPACK_IMPORTED_MODULE_8__["default"])(PACORTestManager)
 
 
-Object(_methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_9__["default"])(PACORTestManager)
+Object(_stepStepInstructionPACORTestManager__WEBPACK_IMPORTED_MODULE_9__["default"])(PACORTestManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (PACORTestManager);
 
@@ -3248,8 +3250,8 @@ const textList = _RandomText_tpl__WEBPACK_IMPORTED_MODULE_0___default.a.trim().s
 const len = textList.length - 1
 
 let RandomTextHelper = function () {
-  let text = textList[(Math.round(Math.random() * textList.length))]
-  if (text === null) {
+  let text = textList[(Math.floor(Math.random() * textList.length))]
+  if (!text) {
     return RandomTextHelper()
   }
   else {
@@ -3378,32 +3380,33 @@ __webpack_require__.r(__webpack_exports__);
       return null
     }
     
+    let exec = async (ele) => {
+      let tmpClassName = 'PACORTestManagerInteractions-' + (new Date()).getTime()
+      ele.addClass(tmpClassName)
+      
+      await this.sleep(100)
+      args.unshift('.' + tmpClassName)
+      args.unshift(method)
+      
+      try {
+        await window.PACORTestManagerInteractions.apply(this, args)
+      }
+      catch (e) {
+        throw new Error('Error from puppeteer: ' + e + this.getStackTraceString())
+      }
+    }
+    
     if (typeof(selector) === 'string') {
       let ele = jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector)
       
       if (ele.length === 0) {
-        throw new Error('Element not found: ' + selector)
+        throw new Error('Element not found: ' + selector + this.getStackTraceString())
       }
       
-      let tmpClassName = 'PACORTestManagerInteractions-' + (new Date()).getTime()
-      ele.addClass(tmpClassName)
-      await this.sleep(100)
-      
-      args.unshift('.' + tmpClassName)
-      args.unshift(method)
-      await window.PACORTestManagerInteractions.apply(this, args)
+      await exec(ele)
     }
     else {
-      let tmpClassName = 'PACORTestManagerInteractions-' + (new Date()).getTime()
-      selector.addClass(tmpClassName)
-      
-      await this.sleep(100)
-      args.unshift('.' + tmpClassName)
-      args.unshift(method)
-      await window.PACORTestManagerInteractions.apply(this, args)
-      
-      //await this.sleep(600)
-      //selector.removeClass(tmpClassName)
+      await exec(selector)
     }
   }
   
@@ -3477,37 +3480,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/PACORTestManager/methodsQuestionnairePACORTestManager.js":
-/*!*************************************************************************************!*\
-  !*** ./webpack-app/client/PACORTestManager/methodsQuestionnairePACORTestManager.js ***!
-  \*************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
-  PACORTestManager.methods.writeQuestionnaire = async function (page) {
-    //throw new Error('Questionnaire')
-    
-    let textarea = await this.waitForElementVisible('textarea.answer')
-    
-    await this.typeInput('textarea.answer', this.createRandomText())
-    
-//    textarea.val(this.createRandomText())
-//            .trigger('input')
-//            .trigger('change')
-    
-    await this.waitForElementVisibleClick('.ui.button.questionnaire-submit:not(.disabled)')
-  }
-});
-
-/***/ }),
-
 /***/ "./webpack-app/client/PACORTestManager/methodsRandomPACORTestManager.js":
 /*!******************************************************************************!*\
   !*** ./webpack-app/client/PACORTestManager/methodsRandomPACORTestManager.js ***!
@@ -3540,107 +3512,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/PACORTestManager/methodsSectionPACORTestManager.js":
-/*!*******************************************************************************!*\
-  !*** ./webpack-app/client/PACORTestManager/methodsSectionPACORTestManager.js ***!
-  \*******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
-  PACORTestManager.methods.completeChecklists = async function () {
-    let panels = await this.waitForElementVisible('body > article > .SectionPanel', 1000)
-    //let checklists = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .SectionChecklist', 1000)
-
-    if (panels.length !== 2) {
-      throw new Error('.SectionPanel .SectionChecklist not found')
-    }
-
-    //PACORTestManager.log('checklists.length', checklists.length)
-
-    for (let i = 0; i < panels.length; i++) {
-      await this.sleep(100)
-
-      let panel = panels.eq(i)
-      let checklist = panel.find('.SectionChecklist')
-      let items = checklist.find('input[type="checkbox"]')
-      if (items.length !== 3) {
-        throw new Error('input[type="checkbox"] not found: ' + checklist.html())
-      }
-
-      for (let j = 0; j < items.length; j++) {
-        await this.sleep(100)
-
-        let item = items.eq(j)
-        item[0].scrollIntoView({
-          behavior: 'smooth'
-        })
-        item.focus().click()
-      } // for (let j = 0; j < items.length; j++) {
-
-      //item.parents('.item:first').find('label').click()
-      let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', 1000)
-      //$('.html-editor-container .note-editable').html(this.createRandomHtml())
-      await this.typeInput(editor, this.createRandomText())
-      await this.sleep(500)
-      await this.typeInput(editor, this.createRandomText())
-
-      await this.sleep(100)
-      await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', 3000)
-      await this.sleep(100)
-
-      await this.waitForElementVisibleClick(checklist, '.ui.fluid.button.positive', 3000)
-
-
-      if (i < panels.length - 1) {
-        await this.sleep(1000)
-
-        //let editButton = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .', 1000)
-
-
-        let editButton = await this.waitForElementVisible(panel, '.SectionAnnotationList > .ui.fluid.button:last', 10000)
-        //PACORTestManager.log('editButton', editButton.text().trim())
-        if (editButton.text().indexOf('撰寫小節重點') > -1) {
-          throw new Error('Should not be 撰寫小節重點')
-        }
-      }
-    } // for (let i = 0; i < checklists.length; i++) {
-  }
-
-});
-
-/***/ }),
-
-/***/ "./webpack-app/client/PACORTestManager/methodsStepInstructionPACORTestManager.js":
-/*!***************************************************************************************!*\
-  !*** ./webpack-app/client/PACORTestManager/methodsStepInstructionPACORTestManager.js ***!
-  \***************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
-  
-  PACORTestManager.methods.confirmInstructionMessage = async function () {
-    await this.sleep(100)
-    await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button:last', 3 * 1000)
-    await this.sleep(100)
-  }
-});
-
-/***/ }),
-
 /***/ "./webpack-app/client/PACORTestManager/methodsWaitPACORTestManager.js":
 /*!****************************************************************************!*\
   !*** ./webpack-app/client/PACORTestManager/methodsWaitPACORTestManager.js ***!
@@ -3655,12 +3526,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
-  PACORTestManager.methods.waitForElement = async function (baseElement, selector, maxWaitMS) {
-    if (maxWaitMS === undefined && typeof(baseElement) === 'string') {
-      maxWaitMS = selector
-      selector = baseElement
-      baseElement = undefined
-    }
+  PACORTestManager.methods.waitForElement = async function (selector, options = {}) {
+    let {
+      timeout,
+      baseElement,
+      errorMessage
+    } = options
+    
+    let maxWaitMS = timeout
     
     let getElement = () => {
       if (baseElement 
@@ -3693,7 +3566,13 @@ __webpack_require__.r(__webpack_exports__);
         else {
           maxWaitMS = maxWaitMS - 100
           if (maxWaitMS <= 0) {
-            return reject('Element not found: ' + selector + this.getStackTraceString())
+            let message = []
+            if (errorMessage) {
+              message.push(errorMessage + '\n')
+            }
+            message.push('Element not found: ' + selector)
+            message.push(this.getStackTraceString())
+            return reject(message.join(''))
           }
           
           setTimeout(() => {
@@ -3706,26 +3585,23 @@ __webpack_require__.r(__webpack_exports__);
     })
   } // PACORTestManager.methods.waitForElement = async function (selector, maxWaitMS = 15000) {
   
-  PACORTestManager.methods.waitForElementVisible = async function (baseElement, selector, maxWaitMS) {
-    if (maxWaitMS === undefined && typeof(baseElement) === 'string') {
-      maxWaitMS = selector
-      selector = baseElement
-      baseElement = undefined
-    }
+  PACORTestManager.methods.waitForElementVisible = async function (selector, options) {
     
     if (selector.endsWith(':visible') === false) {
       selector = selector + ':visible'
     }
     
-    return await this.waitForElement(baseElement, selector, maxWaitMS)
+    return await this.waitForElement(selector, options)
   } // PACORTestManager.methods.waitForElementVisible = async function (selector, maxWaitMS) {
   
-  PACORTestManager.methods.waitForElementHidden = async function (baseElement, selector, maxWaitMS) {
-    if (maxWaitMS === undefined && typeof(baseElement) === 'string') {
-      maxWaitMS = selector
-      selector = baseElement
-      baseElement = undefined
-    }
+  PACORTestManager.methods.waitForElementHidden = async function (selector, options = {}) {
+    let {
+      timeout,
+      baseElement,
+      errorMessage
+    } = options
+    
+    let maxWaitMS = timeout
     
     if (selector.endsWith(':visible') === false) {
       selector = selector + ':visible'
@@ -3762,7 +3638,13 @@ __webpack_require__.r(__webpack_exports__);
         else {
           maxWaitMS = maxWaitMS - 500
           if (maxWaitMS <= 0) {
-            return reject('Element still visible: ' + selector + '\n' + this.getStackTrace().join('\n'))
+            let message = []
+            if (errorMessage) {
+              message.push(errorMessage + '\n')
+            }
+            message.push('Element still visible: ' + selector)
+            message.push(this.getStackTraceString())
+            return reject(message.join(''))
           }
           
           setTimeout(() => {
@@ -3775,8 +3657,8 @@ __webpack_require__.r(__webpack_exports__);
     })
   } // PACORTestManager.methods.waitForElementVisible = async function (selector, maxWaitMS) {
   
-  PACORTestManager.methods.waitForElementVisibleClick = async function (baseElement, selector, maxWaitMS) {
-    let $ele = await this.waitForElementVisible(baseElement, selector, maxWaitMS)
+  PACORTestManager.methods.waitForElementVisibleClick = async function (selector, options) {
+    let $ele = await this.waitForElementVisible(selector, options)
     
     await this.click($ele)
     //if (typeof($ele.click) === 'function') {
@@ -3790,10 +3672,157 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/PACORTestManager/methodsWriteAnnotationPACORTestManager.js":
-/*!***************************************************************************************!*\
-  !*** ./webpack-app/client/PACORTestManager/methodsWriteAnnotationPACORTestManager.js ***!
-  \***************************************************************************************/
+/***/ "./webpack-app/client/PACORTestManager/stepQuestionnairePACORTestManager.js":
+/*!**********************************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/stepQuestionnairePACORTestManager.js ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  PACORTestManager.methods.writeQuestionnaire = async function (page) {
+    //throw new Error('Questionnaire')
+    
+    let textarea = await this.waitForElementVisible('textarea.answer')
+    
+    await this.typeInput('textarea.answer', this.createRandomText())
+    
+//    textarea.val(this.createRandomText())
+//            .trigger('input')
+//            .trigger('change')
+    
+    await this.waitForElementVisibleClick('.ui.button.questionnaire-submit:not(.disabled)')
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/PACORTestManager/stepSectionPACORTestManager.js":
+/*!****************************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/stepSectionPACORTestManager.js ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  PACORTestManager.methods.completeChecklists = async function () {
+    let panels = await this.waitForElementVisible('body > article > .SectionPanel', {
+      timeout: 1000
+    })
+    //let checklists = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .SectionChecklist', 1000)
+
+    if (panels.length !== 2) {
+      throw new Error('.SectionPanel .SectionChecklist not found')
+    }
+
+    //PACORTestManager.log('checklists.length', checklists.length)
+
+    for (let i = 0; i < panels.length; i++) {
+      await this.sleep(100)
+
+      let panel = panels.eq(i)
+      let checklist = panel.find('.SectionChecklist')
+      let items = checklist.find('input[type="checkbox"]')
+      if (items.length !== 3) {
+        throw new Error('input[type="checkbox"] not found: ' + checklist.html())
+      }
+
+      for (let j = 0; j < items.length; j++) {
+        await this.sleep(100)
+
+        let item = items.eq(j)
+        item[0].scrollIntoView({
+          behavior: 'smooth'
+        })
+        item.focus().click()
+      } // for (let j = 0; j < items.length; j++) {
+
+      //item.parents('.item:first').find('label').click()
+      let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', {
+        timeout: 1000
+      })
+      //$('.html-editor-container .note-editable').html(this.createRandomHtml())
+      await this.typeInput(editor, this.createRandomText())
+      await this.sleep(500)
+      await this.typeInput(editor, this.createRandomText())
+
+      await this.sleep(100)
+      await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
+        timeout: 3000
+      })
+      await this.sleep(100)
+
+      await this.waitForElementVisibleClick('.ui.fluid.button.positive', {
+        baseElement: checklist,
+        timeout: 3000
+      })
+
+
+      if (i < panels.length - 1) {
+        await this.sleep(1000)
+
+        //let editButton = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .', 1000)
+
+
+        let editButton = await this.waitForElementVisible('.SectionAnnotationList > .ui.fluid.button:last', {
+          baseElement: panel,
+          timeout: 10000
+        })
+        //PACORTestManager.log('editButton', editButton.text().trim())
+        if (editButton.text().indexOf('撰寫小節重點') > -1) {
+          throw new Error('Should not be 撰寫小節重點')
+        }
+      }
+    } // for (let i = 0; i < checklists.length; i++) {
+  }
+
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/PACORTestManager/stepStepInstructionPACORTestManager.js":
+/*!************************************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/stepStepInstructionPACORTestManager.js ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  
+  PACORTestManager.methods.confirmInstructionMessage = async function () {
+    //await this.sleep(100)
+    await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button:last', {
+      timeout: 10 * 1000,
+      errorMessage: '是不是傳送給end花太多時間了？'
+    })
+    await this.sleep(100)
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/PACORTestManager/stepWriteAnnotationPACORTestManager.js":
+/*!************************************************************************************!*\
+  !*** ./webpack-app/client/PACORTestManager/stepWriteAnnotationPACORTestManager.js ***!
+  \************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3860,19 +3889,25 @@ __webpack_require__.r(__webpack_exports__);
       typeItemSelector = typeItemSelector + ':eq(1)'
     }
     
-    await this.waitForElementVisibleClick(typeItemSelector, 10 * 1000)
+    await this.waitForElementVisibleClick(typeItemSelector, {
+      timeout: 10 * 1000
+    })
     //this.log('selectAnnotationType', 3)
   }
   
   PACORTestManager.methods.writeMainIdeaAnnotation = async function () {
-    let button = await this.waitForElementVisible('.AnnotationPanel .annotation-panel-buttons .ValidationButton', 3000)
+    let button = await this.waitForElementVisible('.AnnotationPanel .annotation-panel-buttons .ValidationButton', {
+      timeout: 3000
+    })
     if (button.hasClass('disabled') === false) {
       throw new Error('Add button should be disabled at default')
     }
     
     await this.sleep(1000)
     
-    let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', 3000)
+    let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', {
+      timeout: 3000
+    })
     //editor.html(this.createRandomHtml())
     await this.typeInput(editor, this.createRandomText())
     await this.sleep(500)
@@ -3880,9 +3915,15 @@ __webpack_require__.r(__webpack_exports__);
     await this.sleep(500)
     
     
-    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
+      timeout: 3000,
+      errorMessage: '是不是資料沒有輸入？'
+    })
     
-    await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
+    await this.waitForElementHidden('.AnnotationPanel .segment', {
+      timeout: 3000,
+      errorMessage: '是不是傳送儲存花太多時間了？ writeMainIdeaAnnotation'
+    })
     
     //await this.lib.RangyManager.cancelSelection()
     
@@ -3893,25 +3934,43 @@ __webpack_require__.r(__webpack_exports__);
     
     await this.sleep(1000)
     
-    let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', 3000)
+    let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', {
+      timeout: 3000
+    })
     //questionEditor.html(this.createRandomHtml())
     await this.typeInput(questionEditor, this.createRandomText())
+    await this.sleep(500)
+    await this.typeInput(questionEditor, this.createRandomText())
+    
     
     await this.sleep(100)
     
-    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
+      timeout: 3000,
+      errorMessage: 'writeConfusedClarifiedAnnotation 是不是沒有寫到QuestionEditor? '
+    })
     
     await this.sleep(100)
     
-    let answerEditor = await this.waitForElementVisible('.AnnotationPanel .AnswerEditor.html-editor-container .note-editable', 3000)
+    let answerEditor = await this.waitForElementVisible('.AnnotationPanel .AnswerEditor.html-editor-container .note-editable', {
+      timeout: 6000,
+      errorMessage: '是不是傳送儲存花太多時間了？ writeConfusedClarifiedAnnotation'
+    })
     //answerEditor.html(this.createRandomHtml())
     await this.typeInput(answerEditor, this.createRandomText())
-    
+    await this.sleep(500)
+    await this.typeInput(questionEditor, this.createRandomText())
     await this.sleep(3000)
     
-    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled):last', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled):last', {
+      timeout: 3000,
+      errorMessage: 'writeConfusedClarifiedAnnotation 是不是沒有寫到 answerEditor? '
+    })
     
-    await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
+    await this.waitForElementHidden('.AnnotationPanel .segment', {
+      timeout: 3000,
+      errorMessage: '是不是傳送更新花太多時間了？ writeConfusedClarifiedAnnotation'
+    })
     
     //await this.lib.RangyManager.cancelSelection()
     
@@ -3923,28 +3982,38 @@ __webpack_require__.r(__webpack_exports__);
     
     await this.sleep(1000)
     
-    let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', 3000)
+    let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', {
+      timeout: 3000
+    })
     //questionEditor.html(this.createRandomHtml())
     await this.typeInput(questionEditor, this.createRandomText())
-    
+    await this.sleep(500)
+    await this.typeInput(questionEditor, this.createRandomText())
     await this.sleep(100)
     
-    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
+      timeout: 3000,
+      errorMessage: 'writeConfusedAnnotation 是不是沒有寫到QuestionEditor? '
+    })
     
     await this.sleep(3000)
     
     //await this.log('這邊我要確認一下'); await this.sleep(60 * 1000)
     
-    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ui.button:first:not(.disabled)', 3000)
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ui.button:first:not(.disabled)', {
+      timeout: 3000,
+      errorMessage: 'writeConfusedAnnotation 這裡很奇怪？是不是儲存沒有存好？'
+    })
     
-    await this.waitForElementHidden('.AnnotationPanel .segment', 3000)
+    await this.waitForElementHidden('.AnnotationPanel .segment', {
+      timeout: 3000,
+      errorMessage: 'writeConfusedAnnotation 應該只會看到前面'
+    })
     
     //await this.lib.RangyManager.cancelSelection()
     
     await this.sleep(100)
   }
-  
-  
 });
 
 /***/ }),
