@@ -5563,6 +5563,10 @@ let AnnotationManager = {
       //console.log(data)
       
       let result = await this.lib.AxiosHelper.get(this.highlightsURL, data)
+      if (!this.lib.RangyManager) {
+        return false  // 似乎被移除了...
+      }
+      
       //console.log(result)
       this.afterTime = (new Date()).getTime()
       if (result !== 0) {
@@ -11663,6 +11667,10 @@ let Editor = {
       this.annotation.id = id
       this.lib.AnnotationHelper.note(this.annotation, 'default', this.note)
       
+      if (!this.lib.RangyManager) {
+        return  // 似乎是不能執行RangeManager的時候了
+      }
+      
       this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
       if (this.$refs.editor) {
         this.$refs.editor.reset()
@@ -11912,6 +11920,10 @@ let Editor = {
       //this.lib.RangyManager.highlightPinnedSelectionFromAnnotation('my-' + this.annotation.type, this.pinSelection.anchorParagraphIds)
       this.annotation.id = id
       this.lib.AnnotationHelper.note(this.annotation, 'default', this.note)
+      
+      if (!this.lib.RangyManager) {
+        return  // 似乎是不能執行RangeManager的時候了
+      }
       
       this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
       if (this.$refs.editor) {

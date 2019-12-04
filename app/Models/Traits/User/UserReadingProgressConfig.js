@@ -85,6 +85,10 @@ class UserReadingProgressConfig {
                 && typeof (webpage.primaryKeyValue) === 'number') {
           readingProgresses = await webpage.getReadingProgresses()
         }
+        if (Array.isArray(readingProgresses) === false) {
+          throw new Error('readingProgresses should be array')
+        }
+        
         let status = await this.readingProgresses(webpage).fetch()
         status = status.toJSON()
         //console.log(status)

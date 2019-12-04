@@ -170,6 +170,10 @@ let Editor = {
       this.annotation.id = id
       this.lib.AnnotationHelper.note(this.annotation, 'default', this.note)
       
+      if (!this.lib.RangyManager) {
+        return  // 似乎是不能執行RangeManager的時候了
+      }
+      
       this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
       if (this.$refs.editor) {
         this.$refs.editor.reset()

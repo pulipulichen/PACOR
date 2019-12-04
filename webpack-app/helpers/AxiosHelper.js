@@ -43,6 +43,10 @@ let AxiosHelper = {
     
     try {
       let result = await axios.get(path, options)
+      if (result === undefined) {
+        throw new Error('No response: ' + path + `(${JSON.stringify(options)})`)
+      }
+      
       return result.data
     }
     catch (error) {

@@ -3800,6 +3800,10 @@ let AxiosHelper = {
     
     try {
       let result = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(path, options)
+      if (result === undefined) {
+        throw new Error('No response: ' + path + `(${JSON.stringify(options)})`)
+      }
+      
       return result.data
     }
     catch (error) {

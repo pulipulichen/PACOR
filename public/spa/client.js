@@ -4432,7 +4432,8 @@ let ActivityTimer = {
   data() {
     return {
       timer: null,
-      lastTime: null
+      lastTime: null,
+      enable: true
     }
   },
   created() {
@@ -4456,6 +4457,10 @@ let ActivityTimer = {
       return Math.round(((new Date()).getTime() - lastTime) / 1000)
     },
     send: async function () {
+      if (this.enable === false) {
+        // 已經發生錯誤了，就不要再送出了
+        return null
+      }
       //this.lib.auth.logout()
       //return
       
@@ -4464,6 +4469,7 @@ let ActivityTimer = {
           seconds: this.toNow()
         }, (error) => {
           console.error(error)
+          this.enable = false
           this.lib.auth.logout()
         })
         acted = false

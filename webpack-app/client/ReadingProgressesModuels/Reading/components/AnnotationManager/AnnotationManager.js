@@ -122,6 +122,10 @@ let AnnotationManager = {
       //console.log(data)
       
       let result = await this.lib.AxiosHelper.get(this.highlightsURL, data)
+      if (!this.lib.RangyManager) {
+        return false  // 似乎被移除了...
+      }
+      
       //console.log(result)
       this.afterTime = (new Date()).getTime()
       if (result !== 0) {
