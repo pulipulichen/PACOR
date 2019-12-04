@@ -182,7 +182,15 @@ let TestBrowserHelper = function (title, url, config, options) {
       let errors = []
       await Promise.all(ary.map(async (i) => {
         let page = await exposeFunction(args.browser, url, i)
-        await excuteTest(config, args, page, errors, i)
+        
+        let e = []
+        await excuteTest(config, args, page, e, i)
+        if (e.length === 0) {
+          await page.page.close()
+        }
+        else {
+          errors = errors.concat(e)
+        }
       }))
       
       await handleException(errors, headless)

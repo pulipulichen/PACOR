@@ -47,7 +47,8 @@ export default (RangyManager) => {
       if (!pos.paragraph_id 
               || !pos.start_pos 
               || !pos.end_pos) {
-        throw 'Anchor Positions is not well defined.'
+        throw new Error('Anchor Positions is not well defined.\n' 
+                + JSON.stringify(pos, null, 2))
       }
       
       let {start_pos, end_pos, paragraph_id} = pos

@@ -68,7 +68,11 @@ export default (SectionChecklist) => {
     }
 
     if (debugMockUpdate !== true) {
-      await this.lib.AxiosHelper.post('/client/Section/setChecklist', data)
+      //await this.lib.AxiosHelper.post('/client/Section/setChecklist', data)
+      
+      // 20191205
+      // 改成不等待，直接進入下一步
+      this.lib.AxiosHelper.post('/client/Section/setChecklist', data)
     }
 
     this.sectionsData.checklistSubmitted[this.sectionSeqID] = true

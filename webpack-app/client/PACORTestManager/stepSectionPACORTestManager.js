@@ -50,8 +50,8 @@ export default function (PACORTestManager) {
 
       await this.waitForElementVisibleClick('.ui.fluid.button.positive', {
         baseElement: checklist,
-        timeout: 3000,
-        errorMessage: '呃，是不是整個列表都不見了？發生什麼事情了嗎？'
+        timeout: 6000,
+        errorMessage: '呃，是不是整個列表都不見了？發生什麼事情了嗎？也可能是create annotation需要的時間過長...？'
       })
 
 
@@ -60,10 +60,10 @@ export default function (PACORTestManager) {
 
         //let editButton = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .', 1000)
 
-
         let editButton = await this.waitForElementVisible('.SectionAnnotationList > .ui.fluid.button:last', {
           baseElement: panel,
-          timeout: 10000
+          timeout: 10000,
+          errorMessage: '有看到撰寫小節重點嗎？是不是送出小節checklist的時間太久了？'
         })
         //PACORTestManager.log('editButton', editButton.text().trim())
         if (editButton.text().indexOf('撰寫小節重點') > -1) {

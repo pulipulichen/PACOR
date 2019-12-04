@@ -16,7 +16,11 @@ class AnnotationPermission {
         throw new HttpException('You cannot use annotation in current step.')
       }
 
-      let {enableControlPermission, defaultPermission} = annotationConfig
+      let {
+        enableControlPermission, 
+        defaultPermission
+      } = annotationConfig
+      
       if (enableControlPermission === true) {
         if (typeof (data.public) === 'boolean') {
           instance.public = data.public
@@ -38,7 +42,7 @@ class AnnotationPermission {
         }
       }
 
-      return instance
+      await instance.save()
     } // Model._setPermission = async function (webpage, user, data, instance) {
 
     Model._setPermissionTest = async function (webpage, user, data, instance) {

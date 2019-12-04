@@ -22,10 +22,14 @@ let ActivityTimer = {
     document.addEventListener('keyup', checkActed)
     document.addEventListener('touchend', checkActed)
     
-    let seconds = this.config.detectActivitySeconds
-    this.timer = setInterval(async () => {
+    this.timer = setTimeout(() => {
       this.send()
-    }, seconds * 1000)
+    }, this.seconds * 1000)
+  },
+  computed: {
+    seconds () {
+      return this.config.detectActivitySeconds
+    }
   },
   destroyed: async function () {
     clearInterval(this.timer)
@@ -48,11 +52,14 @@ let ActivityTimer = {
         await this.lib.AxiosHelper.get('/client/ReadingProgress/activityTimer', {
           seconds: this.toNow()
         }, (error) => {
-          console.error(error)
+          console.error('Get error from server, force logout: ' + error)
           this.enable = false
           this.lib.auth.logout()
         })
         acted = false
+        this.timer = setTimeout(() => {
+          this.send()
+        }, this.seconds * 1000)
       }
     }
   }

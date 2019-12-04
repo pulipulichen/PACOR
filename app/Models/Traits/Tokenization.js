@@ -9,7 +9,11 @@ class Tokenization {
       throw 'Lost fromField and toField'
     }
     
-    Model.addHook('beforeSave', async (instance) => {
+    Model.addHook('afterSave', async (instance) => {
+      if (!instance[toField]) {
+        return false
+      }
+      
       let properties = {}
       let html = instance[fromField]
       if (typeof(html) !== 'string') {
@@ -23,7 +27,7 @@ class Tokenization {
       properties.wordFrequency = TokenizationHelper.parseWordFrequency(properties.rawText, ['n', 'v', 'adj'])
       //console.log('Tokenization', 3)
       instance[toField] = properties
-      //await instance.save()
+      await instance.save()
       //console.log('Tokenization', 4)
     })
   } // register (Model) {

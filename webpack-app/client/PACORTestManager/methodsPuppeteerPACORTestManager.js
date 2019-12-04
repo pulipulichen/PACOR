@@ -28,7 +28,8 @@ export default function (PACORTestManager) {
       }
       catch (e) {
         throw new Error('\nError from puppeteer: ' + e 
-                + 'Element DOM path: ' + this.getDomPath(ele)
+                + '\nElement length: ' + ele.length
+                + '\nElement DOM path: ' + this.getDomPath(ele)
                 + this.getStackTraceString())
       }
     }

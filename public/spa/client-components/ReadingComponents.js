@@ -13245,7 +13245,8 @@ __webpack_require__.r(__webpack_exports__);
       if (!pos.paragraph_id 
               || !pos.start_pos 
               || !pos.end_pos) {
-        throw 'Anchor Positions is not well defined.'
+        throw new Error('Anchor Positions is not well defined.\n' 
+                + JSON.stringify(pos, null, 2))
       }
       
       let {start_pos, end_pos, paragraph_id} = pos
@@ -24511,7 +24512,11 @@ if (debugMockUpdate === true) {
     }
 
     if (debugMockUpdate !== true) {
-      await this.lib.AxiosHelper.post('/client/Section/setChecklist', data)
+      //await this.lib.AxiosHelper.post('/client/Section/setChecklist', data)
+      
+      // 20191205
+      // 改成不等待，直接進入下一步
+      this.lib.AxiosHelper.post('/client/Section/setChecklist', data)
     }
 
     this.sectionsData.checklistSubmitted[this.sectionSeqID] = true

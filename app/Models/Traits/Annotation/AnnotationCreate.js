@@ -51,11 +51,21 @@ class AnnotationCreate {
         instance.properties = data.properties
       }
 
-      instance = await this._setPermission(webpage, user, data, instance)
       //instance = await this._setPermissionTest(webpage, user, data, instance)
 
       await instance.save()
 
+      this._setPermission(webpage, user, data, instance)
+      this._createAnchorPositions(webpage, instance, data)
+
+      // ---------------------------------------
+
+      this._createNotes(instance, data)
+
+      return instance
+    } // Model.create = async function (webpage, user, data) {
+    
+    Model._createAnchorPositions = async function (webpage, instance, data) {
       let anchorTextIds = []
       for (let i = 0; i < data.anchorPositions.length; i++) {
         let a = data.anchorPositions[i]
@@ -114,9 +124,9 @@ class AnnotationCreate {
       }
       //console.log(anchorTextIds)
       await instance.anchorPositions().attach(anchorTextIds)
-
-      // ---------------------------------------
-
+    } // Model._createAnchorPositions = async function () {
+    
+    Model._createNotes = async function (instance, data) {
       if (typeof (data.notes) === 'undefined'
               && typeof (data.note) === 'string') {
         data.notes = {
@@ -133,12 +143,9 @@ class AnnotationCreate {
       })  // Object.keys(data.notes).forEach(type => {
       //console.log(anchorTextIds)
 
-      instance.note = data.note
-
-
-      return instance
-    } // Model.create = async function (webpage, user, data) {
-    
+      //instance.note = data.note
+      
+    } // Model._createNotes = async function (webpage, instance, data) {
     
     Model.createSectionAnnotation = async function (webpage, user, data) {
 

@@ -3300,7 +3300,7 @@ __webpack_require__.r(__webpack_exports__);
   PACORTestManager.methods.getDomPath = function (el) {
     var stack = [];
     while (el.parentNode != null) {
-      console.log(el.nodeName);
+      //console.log(el.nodeName);
       var sibCount = 0;
       var sibIndex = 0;
       for (var i = 0; i < el.parentNode.childNodes.length; i++) {
@@ -3423,7 +3423,8 @@ __webpack_require__.r(__webpack_exports__);
       }
       catch (e) {
         throw new Error('\nError from puppeteer: ' + e 
-                + 'Element DOM path: ' + this.getDomPath(ele)
+                + '\nElement length: ' + ele.length
+                + '\nElement DOM path: ' + this.getDomPath(ele)
                 + this.getStackTraceString())
       }
     }
@@ -3798,8 +3799,8 @@ __webpack_require__.r(__webpack_exports__);
 
       await this.waitForElementVisibleClick('.ui.fluid.button.positive', {
         baseElement: checklist,
-        timeout: 3000,
-        errorMessage: '呃，是不是整個列表都不見了？發生什麼事情了嗎？'
+        timeout: 6000,
+        errorMessage: '呃，是不是整個列表都不見了？發生什麼事情了嗎？也可能是create annotation需要的時間過長...？'
       })
 
 
@@ -3808,10 +3809,10 @@ __webpack_require__.r(__webpack_exports__);
 
         //let editButton = await PACORTestManager.waitForElementVisible('body > article > .SectionPanel .', 1000)
 
-
         let editButton = await this.waitForElementVisible('.SectionAnnotationList > .ui.fluid.button:last', {
           baseElement: panel,
-          timeout: 10000
+          timeout: 10000,
+          errorMessage: '有看到撰寫小節重點嗎？是不是送出小節checklist的時間太久了？'
         })
         //PACORTestManager.log('editButton', editButton.text().trim())
         if (editButton.text().indexOf('撰寫小節重點') > -1) {
@@ -3979,7 +3980,7 @@ __webpack_require__.r(__webpack_exports__);
     await this.sleep(100)
     
     await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
-      timeout: 6000,
+      timeout: 3000,
       errorMessage: 'writeConfusedClarifiedAnnotation 是不是沒有寫到QuestionEditor? 或是寫不夠長？'
     })
     
@@ -3996,7 +3997,7 @@ __webpack_require__.r(__webpack_exports__);
     await this.sleep(3000)
     
     await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled):last', {
-      timeout: 6000,
+      timeout: 3000,
       errorMessage: 'writeConfusedClarifiedAnnotation 是不是沒有寫到 answerEditor? 或是寫不夠長？'
     })
     
@@ -4025,7 +4026,7 @@ __webpack_require__.r(__webpack_exports__);
     await this.sleep(100)
     
     await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
-      timeout: 6000,
+      timeout: 3000,
       errorMessage: 'writeConfusedAnnotation 是不是沒有寫到QuestionEditor? '
     })
     
@@ -4034,12 +4035,12 @@ __webpack_require__.r(__webpack_exports__);
     //await this.log('這邊我要確認一下'); await this.sleep(60 * 1000)
     
     await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ui.button:first:not(.disabled)', {
-      timeout: 6000,
+      timeout: 3000,
       errorMessage: 'writeConfusedAnnotation 這裡很奇怪？是不是儲存沒有存好？'
     })
     
     await this.waitForElementHidden('.AnnotationPanel .segment', {
-      timeout: 6000,
+      timeout: 3000,
       errorMessage: 'writeConfusedAnnotation 應該只會看到前面'
     })
     
@@ -4442,10 +4443,14 @@ let ActivityTimer = {
     document.addEventListener('keyup', checkActed)
     document.addEventListener('touchend', checkActed)
     
-    let seconds = this.config.detectActivitySeconds
-    this.timer = setInterval(async () => {
+    this.timer = setTimeout(() => {
       this.send()
-    }, seconds * 1000)
+    }, this.seconds * 1000)
+  },
+  computed: {
+    seconds () {
+      return this.config.detectActivitySeconds
+    }
   },
   destroyed: async function () {
     clearInterval(this.timer)
@@ -4468,11 +4473,14 @@ let ActivityTimer = {
         await this.lib.AxiosHelper.get('/client/ReadingProgress/activityTimer', {
           seconds: this.toNow()
         }, (error) => {
-          console.error(error)
+          console.error('Get error from server, force logout: ' + error)
           this.enable = false
           this.lib.auth.logout()
         })
         acted = false
+        this.timer = setTimeout(() => {
+          this.send()
+        }, this.seconds * 1000)
       }
     }
   }
