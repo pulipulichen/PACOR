@@ -35,7 +35,9 @@ class WebpageGroupUserFilter {
         }
         else {
           let userIdList = await webpage.getUserIDsInGroups()
-          query.whereNotIn('id', userIdList)
+          if (userIdList !== null) {
+            query.whereNotIn('id', userIdList)
+          }
         }
         
         let users = await query.fetch()

@@ -226,6 +226,9 @@ class UserGroup {
       }
       else {
         let userIdList = await webpage.getUserIDsInGroups()
+        if (userIdList === null) {
+          return true
+        }
         return (userIdList.indexOf(focusUserID) === -1)
       }
     }

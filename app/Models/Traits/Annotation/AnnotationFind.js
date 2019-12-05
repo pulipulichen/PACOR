@@ -115,7 +115,9 @@ class AnnotationFind {
           else {
             profiler.before('await webpage.getUserIDsInGroups()')
             let userIdList = await webpage.getUserIDsInGroups()
-            query.whereNotIn('user_id', userIdList)
+            if (userIdList !== null) {
+              query.whereNotIn('user_id', userIdList)
+            }
           }
           
           profiler.after('await user.getUserIDsInGroup(webpage, true)')
@@ -239,6 +241,7 @@ class AnnotationFind {
         catch (e) {
           console.error('[ANNOTATION FIND ERROR]')
           console.log(JSON.stringify(options, null, 2))
+          console.log(query.toSQL().toNative())
           throw e
         }
         //console.log(result)
@@ -324,8 +327,10 @@ class AnnotationFind {
           }
           else {
             // 因為自己也不被分配為小組內，所以不需要考慮自己
-            let userIdList = await webpage.getUserIDsInGroups() 
-            query.whereNotIn('user_id', userIdList)
+            let userIdList = await webpage.getUserIDsInGroups()
+            if (userIdList !== null) {
+              query.whereNotIn('user_id', userIdList)
+            }
           }
         }
         

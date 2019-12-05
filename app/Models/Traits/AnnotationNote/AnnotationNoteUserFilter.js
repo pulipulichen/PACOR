@@ -86,7 +86,9 @@ class AnnotationNoteUserFilter {
           }
           else {
             let userList = await webpage.getUserIDsInGroups()
-            query.whereNotIn('annotations.user_id', userList)
+            if (userList !== null) { 
+              query.whereNotIn('annotations.user_id', userList)
+            }
           }
         }
         
