@@ -6,6 +6,7 @@ const Env = use('Env')
 let envHeadless = (Env.get('TEST_BROWSER_HEADLESS') === 'true')
 
 const Sleep = use('Sleep')
+const rimraf = use('rimraf')
 
 let closeBlankPage = async function (page) {
   //console.log(JSON.stringify(browser, null, 2))
@@ -14,7 +15,25 @@ let closeBlankPage = async function (page) {
   await pages[0].close()
 }
 
-let exposeFunction = async function (browser, url, index) {
+let exposeFunction = async function (headless, browser, url, index) {
+  if (headless === false) {
+    let chromeArgs = [
+      '--start-maximized'
+    ]
+    if (index !== undefined) {
+      chromeArgs.push('--user-data-dir=test/profiles/TestProfile_' + index + '_' + (new Date()).getTime())
+    }
+
+    await browser.launch({
+      headless,
+      //dumpio: true,  // Log all browser console messages to the terminal.
+      devtools: true,
+      //pipe: true,
+
+      // https://peter.sh/experiments/chromium-command-line-switches/
+      args: chromeArgs
+    })
+  }
   let page = await browser.visit(url)
 
   await closeBlankPage(page)
@@ -112,23 +131,7 @@ let handleException = async function (errors, headless, index) {
   }
 }
 
-let TestBrowserHelper = function (title, url, config, options) {
-
-  let {
-    threads,
-    mode,  // sequential, parallel
-    headless
-  } = options
-
-  const { test, trait } = use('Test/Suite')(title)
-
-  trait('Test/ApiClient')
-  trait('Session/Client')
-  
-  if (headless === undefined) {
-    headless = envHeadless
-  }
-  
+let setTraitBrowser = function (trait, headless) {
   /**
    * https://github.com/puppeteer/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions
    */
@@ -146,13 +149,34 @@ let TestBrowserHelper = function (title, url, config, options) {
       //, '--incognito'
     ]
   })
+}
+
+let TestBrowserHelper = function (title, url, config, options) {
+
+  let {
+    threads,
+    mode,  // sequential, parallel
+    headless
+  } = options
+
+  const { test, trait } = use('Test/Suite')(title)
+
+  trait('Test/ApiClient')
+  trait('Session/Client')
+  
+  if (headless === undefined) {
+    headless = envHeadless
+  }
+  
+  setTraitBrowser(trait, headless)
 
   //console.log(threads, mode)
 
   if (!threads) {
     //console.log('aaa1')
+    
     test(title, async function (args) {
-      let page = await exposeFunction(args.browser, url)
+      let page = await exposeFunction(headless, args.browser, url)
       
       let errors = []
       
@@ -166,7 +190,7 @@ let TestBrowserHelper = function (title, url, config, options) {
     for (let i = 0; i < threads; i++) {
       let t = `[${i}] ${title}`
       test(t, async function (args) {
-        let page = await exposeFunction(args.browser, url, i)
+        let page = await exposeFunction(headless, args.browser, url, i)
         
         let errors = []
         await excuteTest(config, args, page, errors)
@@ -184,12 +208,14 @@ let TestBrowserHelper = function (title, url, config, options) {
       
       let errors = []
       await Promise.all(ary.map(async (i) => {
-        let page = await exposeFunction(args.browser, url, i)
+        let page = await exposeFunction(headless, args.browser, url, i)
         
         let e = []
         await excuteTest(config, args, page, e, i)
         if (e.length === 0) {
-          await page.page.close()
+          setTimeout(() => {
+            page.page.close()
+          }, 3000)
         }
         else {
           errors = errors.concat(e)
@@ -197,7 +223,6 @@ let TestBrowserHelper = function (title, url, config, options) {
       }))
       
       await handleException(errors, headless)
-      
     }).timeout(0)
   }
   

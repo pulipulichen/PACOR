@@ -49,6 +49,7 @@ let config = {
 //    //user = 1
 //  },
   '0a. setup webpage config': async function ( { assert, client, browser }, page ) {
+    console.log('暫時跳過'); return
     webpage = await WebpageModel.findByURL(url)
     
     let config = use('./../../test-config/reading-fastLimitTime')
@@ -58,6 +59,7 @@ let config = {
     await webpage.save()
   },
   'b1. login': async function ( { assert, client, browser }, page ) {
+    //console.log('暫時跳過'); return
     //console.log(user)
     await page.waitForElement('#loginUsername')
             .clear('#loginUsername')
@@ -66,6 +68,7 @@ let config = {
             .click('div.ui.button.login-submit:not(.disabled)')
   },
   'c1. pre image': async function ( { assert, client, browser }, page ) {
+    //console.log('暫時跳過'); return
     await page.assertFn(async function () {
       await PACORTestManager.writeQuestionnaire()
     })
@@ -110,6 +113,7 @@ let config = {
     assert.isTrue(result2.startsWith('布丁'))
   },
   'd1. 專注閱讀: 確認視窗': async function ( { assert, client, browser }, page ) {
+    //console.log('暫時跳過'); return
     await page.assertFn(async function () {
       await PACORTestManager.confirmInstructionMessage()
     })  // await page.assertFn(async function () {
@@ -125,11 +129,13 @@ let config = {
     })  // await page.assertFn(async function () {
   },
   'd3. 處理檢核單': async function ( { assert, client, browser }, page ) {
+    //console.log('暫時跳過'); return
     await page.assertFn(async function () {
       await PACORTestManager.completeChecklists()
     })
   },
   'e1. 協助閱讀: 確認視窗': async function ( { assert, client, browser }, page ) {
+    //console.log('暫時跳過'); return
     await page.assertFn(async function () {
       await PACORTestManager.confirmInstructionMessage()
     })  // await page.assertFn(async function () {
@@ -176,9 +182,9 @@ let config = {
 }
 
 TestBrowser(title, url, config, {
-  threads: 5,
+  threads: 2,
   mode: 'parallel',
-  headless: false
+  headless: true
 })
 
 // Reset database
