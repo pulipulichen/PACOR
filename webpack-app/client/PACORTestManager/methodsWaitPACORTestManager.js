@@ -8,6 +8,8 @@ export default function (PACORTestManager) {
       errorMessage
     } = options
     
+    //timeout = 5 * 60 * 1000 // 先不管，強制試試看
+    
     let maxWaitMS = timeout
     
     let getElement = () => {
@@ -76,6 +78,8 @@ export default function (PACORTestManager) {
       errorMessage
     } = options
     
+    //timeout = 5 * 60 * 1000 // 先不管，強制試試看
+    
     let maxWaitMS = timeout
     
     if (selector.endsWith(':visible') === false) {
@@ -132,7 +136,7 @@ export default function (PACORTestManager) {
     })
   } // PACORTestManager.methods.waitForElementVisible = async function (selector, maxWaitMS) {
   
-  PACORTestManager.methods.waitForElementVisibleClick = async function (selector, options) {
+  PACORTestManager.methods.waitForElementVisibleClick = async function (selector, options = {}) {
     let $ele = await this.waitForElementVisible(selector, options)
     
     try {

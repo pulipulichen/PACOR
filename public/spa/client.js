@@ -3573,6 +3573,8 @@ __webpack_require__.r(__webpack_exports__);
       errorMessage
     } = options
     
+    //timeout = 5 * 60 * 1000 // 先不管，強制試試看
+    
     let maxWaitMS = timeout
     
     let getElement = () => {
@@ -3641,6 +3643,8 @@ __webpack_require__.r(__webpack_exports__);
       errorMessage
     } = options
     
+    //timeout = 5 * 60 * 1000 // 先不管，強制試試看
+    
     let maxWaitMS = timeout
     
     if (selector.endsWith(':visible') === false) {
@@ -3697,7 +3701,7 @@ __webpack_require__.r(__webpack_exports__);
     })
   } // PACORTestManager.methods.waitForElementVisible = async function (selector, maxWaitMS) {
   
-  PACORTestManager.methods.waitForElementVisibleClick = async function (selector, options) {
+  PACORTestManager.methods.waitForElementVisibleClick = async function (selector, options = {}) {
     let $ele = await this.waitForElementVisible(selector, options)
     
     try {
@@ -3904,8 +3908,13 @@ __webpack_require__.r(__webpack_exports__);
     //let min = 4
     //let max = 10
     
+    //let min = 4
+    //let max = 10
+    
     let min = 3
     let max = 6
+    
+    
     let writeAnnotations = min + Math.floor(Math.random() *  (max - min))
     //writeAnnotations--
 

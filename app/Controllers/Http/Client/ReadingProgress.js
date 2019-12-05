@@ -17,7 +17,7 @@ class ReadingProgress {
     let log = request.all()
     
     //console.log('ReadingProgress.end', 1)
-    await webpage.log(user, 'ReadingProgress.end', log)
+    webpage.log(user, 'ReadingProgress.end', log)
     
     //console.log('ReadingProgress.end', 2)
     if (typeof(log) === 'object' && JSON.stringify(log) !== '{}') {
@@ -53,7 +53,7 @@ class ReadingProgress {
   
   async setLog({request, webpage, user}) {
     let log = request.all()
-    await webpage.log(user, 'ReadingProgress.setLog', log)
+    webpage.log(user, 'ReadingProgress.setLog', log)
     
     await user.setReadingProgressLog(webpage, log)
     /*
@@ -81,7 +81,7 @@ class ReadingProgress {
   
   async setLogAttr({request, webpage, user}) {
     let attrs = request.all()
-    await webpage.log(user, 'ReadingProgress.setLogAttr', attrs)
+    webpage.log(user, 'ReadingProgress.setLogAttr', attrs)
     
     await user.setReadingProgressLogAttr(webpage, attrs)
     

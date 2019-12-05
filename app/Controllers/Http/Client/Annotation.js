@@ -11,6 +11,8 @@ const Config = use('Config')
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
+const Profiler = use('Profiler')
+
 class Annotation extends WebpageUserBaseController {
   constructor () {
     super('Annotation')
@@ -18,16 +20,17 @@ class Annotation extends WebpageUserBaseController {
   
   async create({request, webpage, user}) {
     let data = request.all()
-    
-    await webpage.log(user, 'Annotation.create', data)
-    
+    let profilter = new Profilter(3, 'Annotation.create()', data)
+    webpage.log(user, 'Annotation.create', data)
+    profilter.mark('webpage.log()')
     let instance = await AnnotationModel.create(webpage, user, data)
+    profilter.finish()
     return instance.id
   }
   
   async createSectionAnnotation({request, webpage, user}) {
     let data = request.all()
-    await webpage.log(user, 'Annotation.crecreateSectionAnnotationateSection', data)
+    webpage.log(user, 'Annotation.crecreateSectionAnnotationateSection', data)
     
     let instance = await AnnotationModel.buildSectionsAnnotationSummary(webpage, user, data)
     return instance.id
@@ -91,7 +94,7 @@ class Annotation extends WebpageUserBaseController {
    */
   async floatWidget({request, webpage, user}) {
     let query = request.all()
-    await webpage.log(user, 'Annotation.floatWidget', query)
+    webpage.log(user, 'Annotation.floatWidget', query)
     
     let cacheKey = Cache.key('Controllers.Client.Annotation.floatWidget', query)
     return await Cache.rememberWait([webpage, user, this.modelName], cacheKey, 3, async () => {
@@ -127,7 +130,7 @@ class Annotation extends WebpageUserBaseController {
   
   async listSummary({request, webpage, user}) {
     let query = request.all()
-    await webpage.log(user, 'Annotation.listSummary', query)
+    webpage.log(user, 'Annotation.listSummary', query)
     
     let cacheKey = Cache.key('Controllers.Client.Annotation.list', query)
     return await Cache.rememberWait([webpage, user, this.modelName], cacheKey, 3, async () => {
@@ -265,7 +268,7 @@ class Annotation extends WebpageUserBaseController {
   async update ({request, webpage, user}) {
     //console.log('ready to update 4')
     let data = request.all()
-    await webpage.log(user, 'Annotation.update', data)
+    webpage.log(user, 'Annotation.update', data)
     
     //console.log('update')
     await ReadingActivityLog.log(webpage, user, this.modelName + '.update', data)

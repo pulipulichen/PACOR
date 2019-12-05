@@ -206,6 +206,11 @@ let TestBrowserHelper = function (title, url, config, options) {
         ary.push(i)
       }
       
+      if (threads > 10) {
+        process.setMaxListeners(0)
+        headless = true
+      }
+      
       let errors = []
       await Promise.all(ary.map(async (i) => {
         let page = await exposeFunction(headless, args.browser, url, i)

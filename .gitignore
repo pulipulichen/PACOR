@@ -39,3 +39,4 @@ database/development.sqlite
 /database/*.sqlite-journal
 /database/*.sqlite
 /test/profiles/
+/test/log/

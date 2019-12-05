@@ -20,7 +20,7 @@ class AnnotationRate extends Annotation {
     
     let annotation = await AnnotationModel.find(data.annotationID)
     let annotationUser = await annotation.user().fetch()
-    await webpage.log(user, 'AnnotationRate.like', data, annotationUser)
+    webpage.log(user, 'AnnotationRate.like', data, annotationUser)
     
     return await AnnotationRateModel.like(webpage, user, data)
     //throw new Error('@TODO AnnotationRate.like()')
@@ -31,7 +31,7 @@ class AnnotationRate extends Annotation {
     
     let comment = await AnnotationCommentModel.find(data.commentID)
     let commentUser = await comment.user().fetch()
-    await webpage.log(user, 'AnnotationRate.likeComment', data, commentUser)
+    webpage.log(user, 'AnnotationRate.likeComment', data, commentUser)
     
     //throw new Error('@TODO AnnotationRate.likeComment()')
     return await AnnotationCommentRateModel.like(webpage, user, data)
