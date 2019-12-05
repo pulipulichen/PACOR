@@ -45,6 +45,8 @@ class AnnotationFind {
         
         profiler.mark('doQuery')
         
+        pick = TypeHelper.parseInt(pick)
+      
         //console.log('findByWebpageGroupPosition', anchorPositions)
 
         let query = this.query()
@@ -62,6 +64,15 @@ class AnnotationFind {
         //console.log(types)
         if (types.length > 0) {
           query.whereIn('type', types)
+        }
+        else {
+          profiler.finish()
+          if (pick === 1) {
+            return null
+          }
+          else {
+            return []
+          }
         }
         profiler.after('types', types)
 
@@ -228,7 +239,6 @@ class AnnotationFind {
         
         let result
         //console.log(pick)
-        pick = TypeHelper.parseInt(pick)
         try {
           if (typeof (pick) !== 'number') {
             result = await query.fetch()
@@ -281,7 +291,8 @@ class AnnotationFind {
       let {
         afterTime,
         focusUserID,
-        findType
+        findType,
+        limit
       } = options
       
       const doQuery = async evt => {
@@ -300,6 +311,14 @@ class AnnotationFind {
         let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
         if (types.length > 0) {
           query.whereIn('type', types)
+        }
+        else {
+          return []
+        }
+        
+        limit = TypeHelper.parseInt(limit)
+        if (limit !== undefined) {
+          query.limit(limit)
         }
 
         //console.log(afterTime, typeof(afterTime))
@@ -410,6 +429,9 @@ class AnnotationFind {
           //console.log(types)
           if (types.length > 0) {
             query.whereIn('type', types)
+          }
+          else {
+            return []
           }
         }
 

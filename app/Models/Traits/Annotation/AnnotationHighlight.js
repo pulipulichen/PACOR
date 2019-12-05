@@ -95,6 +95,11 @@ class AnnotationHighlight {
       const doQuery = async evt => {
         //console.log('getOthersHighlightsArrayByWebpageGroup', 1)
         //console.log('getOthersHighlightsArrayByWebpageGroup', options)
+        if (!options) {
+          options = {}
+        }
+        options.limit = 50
+        
         let annotations = await this.findOthersByWebpageGroup(webpage, user, options)
         //console.log('getOthersHighlightsArrayByWebpageGroup', 2)
         return this._convertToHighlighArray(annotations, user)
@@ -104,7 +109,7 @@ class AnnotationHighlight {
         return await doQuery()
       } else {
         let cacheKey = Cache.key(`Annotation.getOthersHighlightsArrayByWebpageGroup`, webpage, user)
-        return await Cache.rememberWait([webpage, user], cacheKey, 2, async () => {
+        return await Cache.rememberWait([webpage, user, 'Annotation'], cacheKey, 2, async () => {
           let result = await doQuery()
           //await Cache.put(cacheKey, result, 2)
           return result
