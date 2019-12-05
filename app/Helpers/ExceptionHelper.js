@@ -1,5 +1,5 @@
 const ExceptionHelper = {
-  getStackTrace: function () {
+  getStackTrace: function (spliceStart = 3) {
 
     var stack;
 
@@ -12,10 +12,11 @@ const ExceptionHelper = {
     stack = stack.split('\n').map(function (line) {
       return line.trim();
     });
-    return stack.splice(stack[0] === 'Error' ? 3 : 1);
+    return stack.splice(stack[0] === 'Error' ? spliceStart : 1);
   },
-  getStackTraceString: function () {
-    return '\n  ' + this.getStackTrace().join('\n  ')
+  
+  getStackTraceString: function (spliceStart) {
+    return '\n  ' + this.getStackTrace(spliceStart).join('\n  ')
   }
 }
 

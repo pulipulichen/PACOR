@@ -20,15 +20,25 @@ class WebpageGroupUserFilter {
         //console.log('getInit', 0)
 
         // 這包含了自己
-        let userIDs = await user.getUserIDsInGroup(webpage, true)
+        
         
         //console.log('getInit', 1, userIDs)
         
-        let users = await UserModel
+        let query = UserModel
                 .query()
-                .whereIn('id', userIDs)
                 .setVisible(['id', 'username', 'display_name', 'role', 'avatar_url'])
-                .fetch()
+        
+        let isInAnonymousGroup = await user.isInAnonymousGroup(webpage)
+        if (isInAnonymousGroup === false) {
+          let userIDs = await user.getUserIDsInGroup(webpage, true)
+          query.whereIn('id', userIDs)
+        }
+        else {
+          let userIdList = await webpage.getUserIDsInGroups()
+          query.whereNotIn('id', userIdList)
+        }
+        
+        let users = await query.fetch()
         
         //console.log('getInit', 2)
                 

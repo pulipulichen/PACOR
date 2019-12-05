@@ -3,17 +3,30 @@
 const Cache = use('Cache')
 const HttpException = use('HttpException')
 
+const Profiler = use('Profiler')
+
 class UserReadingProgressConfig {
 
   register(Model) {
     
     Model.prototype.getCurrentReadingProgressStepName = async function (webpage) {
+      let profiler = new Profiler(0, 'User/UserReadingProgressConfig.getCurrentReadingProgressStepName()')
+      
+      profiler.before('status User.getReadingProgressStatus()')
       let status = await this.getReadingProgressStatus(webpage)
+      profiler.after('status', status)
+      
       if (status === null || status.length === 0) {
+        console.error('status is not found.')
+        profiler.finish()
         return null
       }
       //let stepName = status[0].step_name
+      
+      profiler.before('for (let i = 0; i < status.length; i++) {')
+      
       for (let i = 0; i < status.length; i++) {
+        profiler.after('for', i)
         let step = status[i]
         if (step.isCompleted === true) {
           continue
@@ -22,11 +35,13 @@ class UserReadingProgressConfig {
         if (typeof (step.start_timestamp) === 'number'
                 && typeof (step.end_timestamp) !== 'number') {
           //console.log('step.step_name', step.step_name)
+          profiler.finish()
           return step.step_name
         }
 
         if (typeof (step.start_timestamp) !== 'number') {
           //console.log('step.step_name', step.step_name)
+          profiler.finish()
           return step.step_name
         }
         /*
@@ -37,6 +52,7 @@ class UserReadingProgressConfig {
          */
       }
       //console.log('null')
+      profiler.finish()
       return null
     }
     
@@ -77,25 +93,34 @@ class UserReadingProgressConfig {
       if (webpage === undefined) {
         throw new HttpException('Webpage object is required.')
       }
-      let cacheKey = Cache.key('getReadingProgressStatus', showDetails)
-      return await Cache.rememberWait([webpage, this], cacheKey, async () => {
+      
+      let profiler = new Profiler(0, 'User/UserReadingProgressConfig.getReadingProgressStatus()', showDetails)
+      
+      let doQuery = async () => {
         //console.log('getReadingProgressStatus', 'not from cache')
-        let readingProgresses
-        if (Array.isArray(webpage) === false
-                && typeof (webpage.primaryKeyValue) === 'number') {
-          readingProgresses = await webpage.getReadingProgresses()
-        }
-        else {
+        
+        profiler.before('check webpage')
+        
+        if (Array.isArray(webpage) === true
+                || typeof (webpage.primaryKeyValue) !== 'number') {
           throw new Error('webpage is incorrect: \n' + JSON.stringify(webpage, null, 2))
+          
         }
         
+        profiler.before('await webpage.getReadingProgresses()')
+        let readingProgresses = await webpage.getReadingProgresses()
+        
+        profiler.after('await webpage.getReadingProgresses()')
+        
         if (Array.isArray(readingProgresses) === false) {
+          profiler.finish()
           throw new Error('readingProgresses should be array')
         }
         
         let status = await this.readingProgresses(webpage).fetch()
         status = status.toJSON()
         //console.log(status)
+        profiler.after('fetch status')
         
         readingProgresses = readingProgresses.map(stepName => {
           let output = {
@@ -115,12 +140,21 @@ class UserReadingProgressConfig {
               }
             }
           }
-
+          
           return output
         })
+        profiler.after('readingProgresses = readingProgresses.map(stepName => {')
+
+        profiler.finish()
+        
         //Cache.forever(cacheKey, readingProgresses)
         return readingProgresses
-      })
+      }
+      
+      //let cacheKey = Cache.key('getReadingProgressStatus', showDetails)
+      //return await Cache.rememberWait([webpage, this, 'User'], cacheKey, doQuery)
+      return await doQuery()
+      
     } //  Model.prototype.getReadingProgressStatus = async function (webpage, showDetails) {
     
     Model.prototype.setReadingProgressLog = async function (webpage, log) {
@@ -164,7 +198,9 @@ class UserReadingProgressConfig {
       let step = await this.startReadingProgress(webpage)
       
       if (step === null) {
-        throw new Error('step is null')
+        console.error('Step is null: ' + await this.getCurrentReadingProgressStepName(webpage))
+        return {}
+        //throw new Error('step is null')
       }
       
       //    console.log(step.toJSON())

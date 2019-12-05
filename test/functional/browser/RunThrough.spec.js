@@ -182,11 +182,13 @@ let config = {
 //  },
 }
 
-//config = TestConfig(config, 'd3. 處理檢核單')
+//config = TestConfig(config, 'e2. 隨意寫標註')
 
 TestBrowser(title, url, config, {
+  //threads: 1,
   //threads: 2, // 完全運作正常
-  threads: 1,  // 10個錯誤
+  threads: 5,  // 10個錯誤
+  //threads: 10,  // 10個錯誤
   //threads: 40,  // 10個錯誤
   mode: 'parallel',
   headless: true

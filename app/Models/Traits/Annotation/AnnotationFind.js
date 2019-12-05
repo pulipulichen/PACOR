@@ -19,7 +19,7 @@ class AnnotationFind {
     
     Model.findByWebpageGroupPosition = async function (webpage, user, options = {}) {
       
-      let profiler = new Profiler('Annotation.AnnotationFind.findByWebpageGroupPosition()', webpage, user, options)
+      let profiler = new Profiler(1, 'Annotation.AnnotationFind.findByWebpageGroupPosition()')
       
       //options = options ? options : {}
       
@@ -28,7 +28,7 @@ class AnnotationFind {
         , anchorMode
         , withCount
         , pick
-        //, findUserID
+        , findUserID
         //, findType
         , page
         , keyword
@@ -61,7 +61,8 @@ class AnnotationFind {
         let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
         //console.log(types)
         query.whereIn('type', types)
-        profiler.mark('types', types)
+        
+        profiler.after('types', types)
 
         if (withCount === true) {
           query.withCount('likes')
@@ -91,11 +92,29 @@ class AnnotationFind {
           }
           query.orderBy('user_id', dir)
         }
+        else if (typeof(TypeHelper.parseInt(findUserID)) === 'number') {
+          //console.log(findUserID)
+          query.where('user_id', findUserID)
+        }
         else {
           profiler.before('await user.getUserIDsInGroup(webpage, true)')
           
-          let userList = await user.getUserIDsInGroup(webpage, true)
-          query.whereIn('user_id', userList)
+          let isInAnonymousGroup = await user.isInAnonymousGroup(webpage)
+          
+          if (isInAnonymousGroup === false) {
+            let userIdList = await user.getUserIDsInGroup(webpage, true)
+
+            if (userIdList.length > 0) {
+              if (typeof(userIdList[0]) !== 'number') {
+                throw new Error('userList should be id list')
+              }
+              query.whereIn('user_id', userIdList)
+            }
+          }
+          else {
+            let userIdList = await webpage.getUserIDsInGroups()
+            query.whereNotIn('user_id', userIdList)
+          }
           
           profiler.after('await user.getUserIDsInGroup(webpage, true)')
         }
@@ -198,11 +217,13 @@ class AnnotationFind {
 
         //if (anchorMode === 'exact') console.log(query.toSQL())
         
-        //console.log(query.toSQL())
+        //console.log('Annotation.findByWebpageGroupPosition()', query.toSQL())
         
         profiler.mark('before fetch')
+        
         let result
         //console.log(pick)
+        pick = TypeHelper.parseInt(pick)
         if (typeof (pick) !== 'number') {
           result = await query.fetch()
         } else {
@@ -286,8 +307,17 @@ class AnnotationFind {
         }
         else {
           //console.log('before user.getOtherUserIDsInGroup')
-          let userList = await user.getOtherUserIDsInGroup(webpage)
-          query.whereIn('user_id', userList)
+          let isInAnonymousGroup = await user.isInAnonymousGroup(webpage)
+          
+          if (isInAnonymousGroup === false) {
+            let userList = await user.getOtherUserIDsInGroup(webpage)
+            query.whereIn('user_id', userList)
+          }
+          else {
+            // 因為自己也不被分配為小組內，所以不需要考慮自己
+            let userIdList = await webpage.getUserIDsInGroups() 
+            query.whereNotIn('user_id', userIdList)
+          }
         }
         
         // ---------------------------------

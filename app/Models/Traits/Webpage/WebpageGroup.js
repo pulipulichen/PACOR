@@ -5,6 +5,8 @@ const User = use('App/Models/User')
 
 const WebpageGroupModel = use('App/Models/WebpageGroup')
 
+const Profiler = use('Profiler')
+
 class WebpageGroup {
 
   register(Model) {
@@ -127,15 +129,10 @@ class WebpageGroup {
       return readers
     }
     
-    Model.prototype.getUserIDsNotInGroup = async function () {
-      let cacheKey = `getUserIDsNotInGroup`
+    Model.prototype.getUserIDsInGroups = async function () {
+      let cacheKey = `Webpage.getUserIDsInGroups`
       
-      return await Cache.rememberWait([this], cacheKey, async () => {
-        let relation = User
-                .query()
-                .where('role', 'reader')
-                .where('domain_id', this.domain_id)
-
+      return await Cache.rememberWait([this, 'Webpage'], cacheKey, async () => {
         let groups = await this.groups().fetch()
         let usersInGroups = []
         groups.toJSON().forEach(group => {
@@ -143,22 +140,59 @@ class WebpageGroup {
             usersInGroups.push(user.id)
           })
         })
+        return usersInGroups
+      })
+    }
+    
+    Model.prototype.getUserIDsNotInGroup = async function () {
+      let profiler = new Profiler(1, 'Webpage/WebpageGroup.getUserIDsNotInGroup()')
+      
+      let cacheKey = `Webpage.getUserIDsNotInGroup`
+      
+      profiler.before('Cache.rememberWait')
+      
+      let doQuery = async () => {
+        
+        profiler.before('relation')
+        
+        let relation = User
+                .query()
+                .where('role', 'reader')
+                .where('domain_id', this.domain_id)
+                .select('id')
+
+        profiler.before('getUserIDsInGroups()')
+
+        let usersInGroups = await this.getUserIDsInGroups()
 
         if (usersInGroups.length > 0) {
           relation.whereNotIn('id', usersInGroups)
         }
 
+        profiler.before('fetch')
+
         let users = await relation.fetch()
+        
+        profiler.after('fetch')
+        
         let output = []
         if (users !== null) {
           output = users.toJSON().map(user => user.id)
         }
         
+        profiler.before('getAdminIDs()')
+        
         let adminIDs = await this.getAdminIDs()
         output = output.concat(adminIDs)
         
         return output
-      })
+      }
+      
+      //let output = await Cache.rememberWait([this, 'Webpage'], cacheKey, doQuery)
+      let output = await doQuery()  // 先不使用快取看看
+      
+      profiler.finish()
+      return output
     }
     
   } // register (Model) {

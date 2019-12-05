@@ -6,26 +6,38 @@ const Cache = use('Cache')
 const ReadingConfig = use('Config').get('reading')
 const TypeHelper = use('App/Helpers/TypeHelper')
 
+const DomainModel = use('App/Models/Domain')
+
 const fs = use('fs')
 const Helpers = use('Helpers')
 
+const Profiler = use('Profiler')
+
+//const ReadingConfig = use('Config').get('reading')
 
 class WebpageConfig {
 
   register(Model) {
 
     Model.prototype.getReadingProgresses = async function () {
-      let cacheKey = Cache.key('getReadingProgresses')
-      return await Cache.rememberWait([this, 'Webpage'], cacheKey, async () => {
+      let profiler = new Profiler(0, 'Webpage/WebpageConfig.getReadingProgresses()')
+      
+      //let cacheKey = Cache.key('getReadingProgresses')
+      //return await Cache.rememberWait([this, 'Webpage'], cacheKey, async () => {
+        profiler.before('await this.getConfig()')
         // 先看看自己有沒有
         let config = await this.getConfig()
+        profiler.after('await this.getConfig()')
         
         if (!config || Array.isArray(config.readingProgresses) === false) {
           throw new Error('config is wrong!' , config)
         }
         
+        profiler.after('check readingProgresses')
+        profiler.finish()
+        
         return config.readingProgresses
-      })
+      //})
     }
 
     Model.prototype.getAgreement = async function () {
@@ -50,34 +62,67 @@ class WebpageConfig {
     }
 
     Model.prototype.getConfig = async function () {
-      let cacheKey = Cache.key('getConfig')
+      let profiler = new Profiler(5, 'Webpage/WebpageConfig.getConfig()')
+      
       let doQuery = async () => {
-        let output
+        let output = ReadingConfig
         
-        let domain = await this.domain().fetch()
-        let baseConfig = await domain.getConfig()
+        profiler.before('get domain')
+        let query = DomainModel
+                .query()
+                .where('id', this.domain_id)
+                .select('config')
+                
+        profiler.before('get domain pick', query.toSQL())
+        
+        let domains = await query.pick(1)
+        let domainConfig = domains.config
+        
+        profiler.before('mergeDeep')
+        
+        if (domainConfig && 
+                typeof(domainConfig) === 'object') {
+          output = TypeHelper.mergeDeep(output, this.config)
+        }
+        
+        //profiler.before('get config from domain')
+        //let baseConfig = await domain.getConfig()
+        
+        profiler.before('this.config')
         
         if (this.config && typeof(this.config) === 'object') {
+          profiler.before('mergeDeep')
+          
           console.log('before TypeHelper.mergeDeep()')
           console.log(baseConfig)
           console.log(this.config)
           output = TypeHelper.mergeDeep(baseConfig, this.config)
           console.log(output)
+          
+          profiler.after('mergeDeep')
         }
-        else {
-          output = baseConfig
-        }
+        //else {
+        //  output = baseConfig
+        //}
+        
+        profiler.before('check output')
         
         if (!output) {
           throw new Error('config is null: Webpage ' + this.primaryKeyValue)
         }
-        
         return output
       }
       
-      return await doQuery()  // 捨棄快取，反正就是給我資料就對了
+      //profiler.finish()
       
-      //return await Cache.rememberWait([this, 'Webpage'], cacheKey, doQuery)
+      //let output = await doQuery()  // 捨棄快取，反正就是給我資料就對了
+      //let tags = Cache.filterTags(tags)
+      let cacheKey = Cache.key('Webpage.getConfig', this)
+      let output = await Cache.rememberForever(cacheKey, doQuery)
+      
+      profiler.finish()
+      return output
+        
       
       /*
       let o = await Cache.rememberWait([this, 'Config'], cacheKey, doQuery)

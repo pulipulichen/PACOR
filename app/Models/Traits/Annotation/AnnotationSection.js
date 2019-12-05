@@ -18,11 +18,18 @@ class AnnotationSection {
       //throw new HttpException('@TODO')
       //return []
       
-      let profiler = new Profiler(1, 'Annotation/AnnotationSection.buildSectionsAnnotationSummary()', query)
+      let profiler = new Profiler(0, 'Annotation/AnnotationSection.buildSectionsAnnotationSummary()', query)
       
 //      let {
 //        focusUserID
 //      } = query
+      
+      profiler.before('await user.isEnableCollaboration(webpage)')
+      let isEnableCollaboration = await user.isEnableCollaboration(webpage)
+      if (isEnableCollaboration === false) {
+        profiler.finish()
+        return []
+      }
       
       let cacheKey = Cache.key(`Annotation.buildSectionsAnnotationSummary`, query)
 
@@ -32,7 +39,7 @@ class AnnotationSection {
       //cacheMinute = 0.001 // for test
       profiler.mark('before Cache.rememberWait()', cacheKey)
       
-      let output = await Cache.rememberWait([webpage, user], cacheKey, cacheMinute, async () => {
+      let output = await Cache.rememberWait([webpage, user, 'Annotation'], cacheKey, cacheMinute, async () => {
         profiler.mark('start Cache.rememberWait()')
         
         let itemsPerPage = Config.get('view.itemsPerPage')
@@ -41,13 +48,18 @@ class AnnotationSection {
         query.withCount = true
         query.page = 1
         
-        profiler.mark('before findByWebpageGroupPosition', query)
+        if (query.selector) {
+          console.error(query)
+          throw new Error('query is incorrect.')
+        }
+        
+        profiler.after('before findByWebpageGroupPosition', query)
         
         let annotations = await this.findByWebpageGroupPosition(webpage, user, query)
 
         annotations = annotations.toJSON()
         
-        profiler.mark('annotations.toJSON()')
+        profiler.after('annotations.toJSON()')
         
         //console.log(annotations.size())
         let sectionAnnotations = {}
@@ -154,16 +166,20 @@ class AnnotationSection {
     Model.getSectionsChecklistAnnotation = async function (webpage, user, options = {}) {
       let profiler = new Profiler(1, 'Annotation.AnnotationSection.getSectionsChecklistAnnotation', webpage, user, options)
       
-      let cacheKey = Cache.key(`Annotation.getSectionsChecklistAnnotation`, options)
-      let output = await Cache.rememberWait([webpage, user], cacheKey, async () => {
+      let cacheKey = Cache.key(`getSectionsChecklistAnnotation`, options)
+      //console.log('getSectionsChecklistAnnotation')
+      
+      let doQuery = async () => {
         //let itemsPerPage = Config.get('view.itemsPerPage')
         //console.log(query)
         options.onlySectionAnnotation = true
         options.findUserID = user.primaryKeyValue
         options.withCount = true
-        options.page = 1
+        //options.page = options.page
         
-        profiler.mark('before findByWebpageGroupPosition()')
+        //console.log('getSectionsChecklistAnnotation', options)
+        
+        profiler.mark('before findByWebpageGroupPosition()', options)
         let annotations = await this.findByWebpageGroupPosition(webpage, user, options)
         profiler.mark('findByWebpageGroupPosition()')
         
@@ -193,7 +209,10 @@ class AnnotationSection {
         profiler.mark('keys()')
         
         return output
-      })
+      } // let doQuery = async () => {
+      
+      let output = await Cache.rememberWait([webpage, user, 'Annotation'], cacheKey, doQuery)
+      //let output = await doQuery()
       profiler.mark('before finish')
       
       profiler.finish()

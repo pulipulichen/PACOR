@@ -57,6 +57,12 @@ let SectionManager = {
         //console.log('initSectionNodes')
         return false
       }
+      
+      if (this.query.selector) {
+        console.error(this.query)
+        throw new Error('this.query is incorrect.')
+      }
+      
       this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init', this.query)
       //console.log(this.sectionsData)
       

@@ -116,7 +116,7 @@ class UserGroup {
      */
     Model.prototype.getUserIDsInGroup = async function (webpage, includeAdmins) {
       
-      let profiler = new Profiler(1, 'User/UserGroup.getUserIDsInGroup()', includeAdmins)
+      let profiler = new Profiler(0, 'User/UserGroup.getUserIDsInGroup()', includeAdmins)
       
       let cacheKey = Cache.key(`User.getUserIDsInGroup`, includeAdmins)
       
@@ -135,7 +135,7 @@ class UserGroup {
       
       profiler.after('this.isEnableCollaboration()')
         
-      let output = await Cache.rememberWait([webpage, this], cacheKey, async () => {
+      let output = await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
         
         /*
          let groups = await this.manyThrough('App/Models/WebpageGroup', 'users')
@@ -170,12 +170,12 @@ class UserGroup {
           // 查詢沒有加入群組的使用者
           //console.log('User.getUsersInGroup', '查詢沒有加入群組的使用者')
           
-          profiler.before('webpage.getUsersNotInGroup()')
+          profiler.before('webpage.getUserIDsNotInGroup()')
           
-          users = await webpage.getUsersNotInGroup()
-          users = users.toJSON()
+          users = await webpage.getUserIDsNotInGroup()
+          //users = users.toJSON()
           
-          profiler.after('webpage.getUsersNotInGroup()')
+          profiler.after('webpage.getUserIDsNotInGroup()')
         }
         
         profiler.after('filter users')
@@ -186,11 +186,8 @@ class UserGroup {
           profiler.after('await webpage.getAdmins()')
           //console.log(admins)
           if (admins !== null) {
-            admins = admins.toJSON()
-            if (typeof(users.toJSON) === 'function') { 
-              users = users.toJSON()
-            }
-            else if (Array.isArray(users) === false) {
+            //admins = admins.toJSON()
+            if (Array.isArray(users) === false) {
               users = []
             }
             users = users.concat(admins)
@@ -220,14 +217,23 @@ class UserGroup {
         return true
       }
       
-      let ids = await this.getOtherUserIDsInGroup(webpage)
-      focusUserID = TypeHelper.parseInt(focusUserID)
-      return (ids.indexOf(focusUserID) > -1)
+      let isInAnonymousGroup = await this.isInAnonymousGroup(webpage)
+      
+      if (isInAnonymousGroup === false) {
+        let ids = await this.getOtherUserIDsInGroup(webpage)
+        focusUserID = TypeHelper.parseInt(focusUserID)
+        return (ids.indexOf(focusUserID) > -1)
+      }
+      else {
+        let userIdList = await webpage.getUserIDsInGroups()
+        return (userIdList.indexOf(focusUserID) === -1)
+      }
     }
     
     Model.prototype.isInAnonymousGroup = async function (webpage) {
       let groups = await this.group()
                 .where('webpage_id', webpage.primaryKeyValue)
+                .select('id')
                 .fetch()
         
       return (groups.size() === 0)

@@ -300,6 +300,8 @@ const filterTags = (tags) => {
   return output
 }
 
+Cache.filterTags = filterTags
+
 /**
  * @deprecated 20191117 應該要捨棄不使用
  */

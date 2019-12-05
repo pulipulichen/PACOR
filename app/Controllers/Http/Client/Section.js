@@ -92,18 +92,14 @@ class Section extends Annotation {
     })  // return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
     profiler.mark('sectionsChecklist sectionsChecklistSubmitted')
     
-    let cacheKeyChecklistAnnotation = Cache.key('Section', 'init', enableCollaborative, 'checklistAnnotation')
-    let checklistAnnotation = await Cache.rememberWait([webpage, user, 'Section'], cacheKeyChecklistAnnotation, Config.get('view.indexCacheMinute'), async () => {
-      return await AnnotationModel.getSectionsChecklistAnnotation(webpage, user, {
-        page: 1
-      })
-    })  // return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
+    //let cacheKeyChecklistAnnotation = Cache.key('Section', 'init', enableCollaborative, 'checklistAnnotation')
+    let checklistAnnotation = await AnnotationModel.getSectionsChecklistAnnotation(webpage, user, {
+      page: 1
+    })
     profiler.mark('checklistAnnotation')
     
-    let cacheKeySectionsAnnotation = Cache.key('Section', 'init', enableCollaborative, 'sectionsAnnotation')
-    let sectionsAnnotation = await Cache.rememberWait([webpage, user, 'Section'], cacheKeySectionsAnnotation, Config.get('view.indexCacheMinute'), async () => {
-      return await AnnotationModel.buildSectionsAnnotationSummary(webpage, user)
-    })  // return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
+    //let cacheKeySectionsAnnotation = Cache.key('Section', 'init', enableCollaborative, 'sectionsAnnotation')
+    let sectionsAnnotation = await AnnotationModel.buildSectionsAnnotationSummary(webpage, user)
     profiler.mark('sectionsAnnotation')
     
     profiler.finish()
@@ -129,7 +125,7 @@ class Section extends Annotation {
   
   async setChecklist({request, webpage, user}) {
     let attrs = request.all()
-    let profiler = new Profilter(1, 'Section.setChecklist()', attrs)
+    let profiler = new Profiler(1, 'Section.setChecklist()', attrs)
     
     webpage.log(user, 'Section.setChecklist', attrs)
     

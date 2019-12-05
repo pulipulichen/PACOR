@@ -1,6 +1,7 @@
 'use strict'
 
-const { HttpException } = use('@adonisjs/generic-exceptions') 
+//const { HttpException } = use('@adonisjs/generic-exceptions') 
+//const ExceptionHelper = use('App/Helpers/ExceptionHelper')
 
 class Profiler {
   constructor(timeout = 5, ...args) {
@@ -21,6 +22,8 @@ class Profiler {
       return false
     }
     
+    this.timeout = timeout
+    
     this.timer = setTimeout(() => {
       this.displayTimeoutMessage()
     }, timeout * 1000)
@@ -39,12 +42,12 @@ class Profiler {
   }
   
   before (...args) {
-    args.unshift('before: ')
+    args.unshift('[BEFORE]\t')
     return this.mark.apply(this, args)
   }
   
   after (...args) {
-    args.unshift('after: ')
+    args.unshift('[AFTER]\t')
     return this.mark.apply(this, args)
   }
   
@@ -55,7 +58,8 @@ class Profiler {
     for (let i = 0; i < this.marks.length; i++) {
       let mark = this.marks[i]
       if (!basetime) {
-        message.push('[PROFILER] ' + mark)
+        message.push('[PROFILER] timeout: ' + this.timeout)
+        message.push(mark)
         basetime = this.marksTime[i]
       }
       else {
@@ -63,7 +67,9 @@ class Profiler {
         message.push(`${sec}\t: ${mark}`)
       }
     }
+    
     message = message.join('\n  ')
+    //message = message + ExceptionHelper.getStackTraceString()
     
     console.error(message)
     //throw new HttpException(message)
@@ -75,7 +81,10 @@ class Profiler {
   
   argsToMark (args = []) {
     return args.map(arg => {
-      if (typeof(arg) === 'object') {
+      if (arg === null) {
+        return 'null'
+      }
+      else if (typeof(arg) === 'object') {
         if (arg.primaryKeyValue !== undefined) {
           let className = ''
           if (arg.contructor && arg.contructor.name) {
@@ -86,8 +95,11 @@ class Profiler {
           }
           return className + arg.primaryKeyValue
         }
-        else {
+        else if (Array.isArray(arg)) {
           return JSON.stringify(arg)
+        }
+        else {
+          return '\n' + JSON.stringify(arg, null, 2)
         }
       }
       else if (typeof(arg) === 'function') {

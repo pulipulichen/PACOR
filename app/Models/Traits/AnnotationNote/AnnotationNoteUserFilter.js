@@ -77,9 +77,17 @@ class AnnotationNoteUserFilter {
         }
         else {
           // 搜尋該組的
-          let userIdList = await user.getUserIDsInGroup(webpage, true)
-          //console.log('getUserWords', 'all', userIdList)
-          query.whereIn('annotations.user_id', userIdList)
+          let isInAnonymousGroup = await user.isInAnonymousGroup(webpage)
+          
+          if (isInAnonymousGroup === false) {
+            let userIdList = await user.getUserIDsInGroup(webpage, true)
+            //console.log('getUserWords', 'all', userIdList)
+            query.whereIn('annotations.user_id', userIdList)
+          }
+          else {
+            let userIdList = await webpage.getUserIDsInGroups()
+            query.whereNotIn('annotations.user_id', userIdList)
+          }
         }
         
         //console.log(query.toSQL())
