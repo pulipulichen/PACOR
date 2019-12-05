@@ -92,8 +92,12 @@ class AnnotationFind {
           query.orderBy('user_id', dir)
         }
         else {
+          profiler.before('await user.getUserIDsInGroup(webpage, true)')
+          
           let userList = await user.getUserIDsInGroup(webpage, true)
           query.whereIn('user_id', userList)
+          
+          profiler.after('await user.getUserIDsInGroup(webpage, true)')
         }
         profiler.mark('focusUserID', focusUserID)
 

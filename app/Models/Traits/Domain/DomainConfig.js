@@ -34,7 +34,7 @@ class DomainConfig {
         return output
       }
       
-      return await Cache.rememberWait([this], cacheKey, doQuery)
+      return await Cache.rememberWait([this, 'Domain'], cacheKey, doQuery)
       /*
       let o = await Cache.rememberWait([this, 'config'], cacheKey, doQuery)
       if (!o) {

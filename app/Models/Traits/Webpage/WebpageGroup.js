@@ -103,13 +103,13 @@ class WebpageGroup {
       
       //console.log('setGroupsList', 4)
       
-      await Cache.forgetWithTags([this, 'User'])
+      await Cache.forgetWithTags([this])
 
-      await Cache.forget(`User.getUsersInGroup.${this.primaryKeyValue}`)
-
-      await Cache.forget(`Webpage.getUsersNotInGroup.${this.primaryKeyValue}`)
-      await Cache.forget(`Webpage.getUserIDsNotInGroup.${this.primaryKeyValue}`)
-      await Cache.forget(`Webpage.getGroupsList.${this.primaryKeyValue}`)
+//      await Cache.forget(`User.getUsersInGroup.${this.primaryKeyValue}`)
+//
+//      await Cache.forget(`Webpage.getUsersNotInGroup.${this.primaryKeyValue}`)
+//      await Cache.forget(`Webpage.getUserIDsNotInGroup.${this.primaryKeyValue}`)
+//      await Cache.forget(`Webpage.getGroupsList.${this.primaryKeyValue}`)
 
       //console.log('setGroupsList', 5)
     } // Model.prototype.setGroupsList = async function (list) {

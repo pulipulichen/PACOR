@@ -16,7 +16,7 @@ class WebpageConfig {
 
     Model.prototype.getReadingProgresses = async function () {
       let cacheKey = Cache.key('getReadingProgresses')
-      return await Cache.rememberWait([this], cacheKey, async () => {
+      return await Cache.rememberWait([this, 'Webpage'], cacheKey, async () => {
         // 先看看自己有沒有
         let config = await this.getConfig()
         
@@ -30,7 +30,7 @@ class WebpageConfig {
 
     Model.prototype.getAgreement = async function () {
       let cacheKey = Cache.key('getAgreement')
-      return await Cache.rememberWait([this], cacheKey, async () => {
+      return await Cache.rememberWait([this, 'Webpage'], cacheKey, async () => {
         let output
         if (typeof (this.agreement) === 'string') {
           output = this.agreement
@@ -75,7 +75,10 @@ class WebpageConfig {
         return output
       }
       
-      return await Cache.rememberWait([this], cacheKey, doQuery)
+      return await doQuery()  // 捨棄快取，反正就是給我資料就對了
+      
+      //return await Cache.rememberWait([this, 'Webpage'], cacheKey, doQuery)
+      
       /*
       let o = await Cache.rememberWait([this, 'Config'], cacheKey, doQuery)
       if (!o) {
@@ -89,8 +92,8 @@ class WebpageConfig {
     }
 
     Model.prototype.getStepConfig = async function (stepName) {
-      let cacheKey = Cache.key('getStepConfig', stepName)
-      return await Cache.rememberWait([this], cacheKey, async () => {
+      //let cacheKey = Cache.key('getStepConfig', stepName)
+      //return await Cache.rememberWait([this, 'Webpage'], cacheKey, async () => {
         let config = await this.getConfig()
         
         if (!config) {
@@ -108,7 +111,7 @@ class WebpageConfig {
         }
         //Cache.forever(cacheKey, output)
         return output
-      })  // return await Cache.get(cacheKey, async () => {
+      //})  // return await Cache.get(cacheKey, async () => {
     } // Model.prototype.getStepConfig = async function (stepName) {
 
   } // register (Model) {

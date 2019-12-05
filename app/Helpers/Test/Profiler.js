@@ -9,6 +9,10 @@ class Profiler {
       timeout = 5
     }
     
+    if (timeout === 0) {
+      return false
+    }
+    
     //this.basetime = (new Date()).getTime()
     this.marks = []
     this.marksTime = []
@@ -31,6 +35,16 @@ class Profiler {
     this.marksTime.push(this.time())
     
     //console.log(mark)
+  }
+  
+  before (...args) {
+    args.unshift('before: ')
+    return this.mark.apply(this, args)
+  }
+  
+  after (...args) {
+    args.unshift('after: ')
+    return this.mark.apply(this, args)
   }
   
   displayTimeoutMessage () {

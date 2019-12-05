@@ -16,7 +16,7 @@ const Profiler = use('Profiler')
 class Section extends Annotation {
   
   async init ({request, webpage, user}) {
-    let profiler = new Profiler(1, 'Section.init()')
+    let profiler = new Profiler(0, 'Section.init()')
     
     let enableCollaborative = await user.isEnableCollaboration(webpage)
     

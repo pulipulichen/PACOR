@@ -4,6 +4,8 @@ const AnnotationModel = use('App/Models/Annotation')
 const AnchorPositionModel = use('App/Models/AnchorPosition')
 const AnnotationNoteModel = use('App/Models/AnnotationNote')
 
+const Profiler = use('Profiler')
+
 class AnnotationCreate {
 
   register(Model) {
@@ -38,6 +40,8 @@ class AnnotationCreate {
         throw new Error('Create annotation need anochorPositions')
         return false
       }
+      
+      let profiler = new Profiler(1, 'Annotation/AnnotationCreate.create()', data)
 
       let instance = new AnnotationModel()
 
@@ -53,15 +57,29 @@ class AnnotationCreate {
 
       //instance = await this._setPermissionTest(webpage, user, data, instance)
 
+      profiler.mark('before await instance.save()')
+
       await instance.save()
+      
+      profiler.after('await instance.save()')
 
       // ------------------
 
       this._setPermission(webpage, user, data, instance)
+      
+      profiler.after('this._setPermission()')
+      
       this._createAnchorPositions(webpage, instance, data)
+      
+      profiler.after('this._createAnchorPositions()')
+      
       this._createNotes(instance, data)
       
+      profiler.after('this._createNotes()')
+      
       // ------------------
+      
+      profiler.finish()
 
       return instance
     } // Model.create = async function (webpage, user, data) {
