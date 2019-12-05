@@ -126,7 +126,7 @@ class WebpageGroup {
               .fetch()
       return readers
     }
-
+    
     Model.prototype.getUserIDsNotInGroup = async function () {
       let cacheKey = `getUserIDsNotInGroup`
       

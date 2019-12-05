@@ -39,7 +39,7 @@ class AnnotationFind {
         , focusUserID
       } = options
       
-      profiler.mark('parsing options')
+      profiler.mark('parsing options', options)
       
       const doQuery = async () => {
         
@@ -198,7 +198,7 @@ class AnnotationFind {
 
         //if (anchorMode === 'exact') console.log(query.toSQL())
         
-        //console.log(query.toSQL())
+        console.log(query.toSQL())
         profiler.mark('before fetch')
         let result
         //console.log(pick)
@@ -284,6 +284,7 @@ class AnnotationFind {
           query.where('user_id', focusUserID)
         }
         else {
+          console.log('before user.getOtherUserIDsInGroup')
           let userList = await user.getOtherUserIDsInGroup(webpage)
           query.whereIn('user_id', userList)
         }

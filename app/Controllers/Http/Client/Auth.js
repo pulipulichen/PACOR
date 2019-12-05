@@ -151,7 +151,7 @@ class Auth {
     //throw new Error('錯誤')
     
     if (flushCache === true) {
-      await Cache.flush()
+      await Cache.forgetWithTags()
     }
     
     let config = await webpage.getConfig()

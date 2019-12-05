@@ -382,6 +382,11 @@ Cache.forgetWithTags = async function (tags, cacheKey) {
   if (Array.isArray(tags)) {
     cacheQuery = Cache.tags(tags)
   }
+  else {
+    cacheQuery = Cache
+  }
+  
+  this.rememberWaitLocks = {}
   
   if (typeof(cacheKey) === 'string') {
     await cacheQuery.forget(cacheKey)

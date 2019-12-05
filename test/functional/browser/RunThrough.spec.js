@@ -186,7 +186,7 @@ let config = {
 
 TestBrowser(title, url, config, {
   //threads: 2, // 完全運作正常
-  threads: 5,  // 10個錯誤
+  threads: 1,  // 10個錯誤
   //threads: 40,  // 10個錯誤
   mode: 'parallel',
   headless: true
