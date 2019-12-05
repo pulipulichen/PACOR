@@ -1,7 +1,7 @@
 import $ from 'jquery'
 
-let forceTimeout5min = true
-if (forceTimeout5min === true) {
+let forceTimeout = true
+if (forceTimeout === true) {
   console.log('@TODO forceTimeout5min')
 } 
 
@@ -13,8 +13,8 @@ export default function (PACORTestManager) {
       errorMessage
     } = options
     
-    if (forceTimeout5min === true) {
-      timeout = 5 * 60 * 1000 // 先不管，強制試試看
+    if (forceTimeout === true) {
+      timeout = 1 * 60 * 1000 // 先不管，強制試試看
     }
     
     let maxWaitMS = timeout
@@ -85,8 +85,8 @@ export default function (PACORTestManager) {
       errorMessage
     } = options
     
-    if (forceTimeout5min === true) {
-      timeout = 5 * 60 * 1000 // 先不管，強制試試看
+    if (forceTimeout === true) {
+      timeout = 1 * 60 * 1000 // 先不管，強制試試看
     }
     
     let maxWaitMS = timeout

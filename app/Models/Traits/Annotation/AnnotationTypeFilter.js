@@ -39,6 +39,11 @@ class AnnotationTypeFilter {
         }
         
         let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
+        if (types.length === 0) {
+          throw new Error('No types')
+          return []
+        }
+        
         types = types.filter(type => (type !== 'SectionMainIdea'))
         
         let myCounts = await user.getAnnotationTypes(webpage)

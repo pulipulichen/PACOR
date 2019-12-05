@@ -3565,8 +3565,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 
-let forceTimeout5min = true
-if (forceTimeout5min === true) {
+let forceTimeout = true
+if (forceTimeout === true) {
   console.log('@TODO forceTimeout5min')
 } 
 
@@ -3578,8 +3578,8 @@ if (forceTimeout5min === true) {
       errorMessage
     } = options
     
-    if (forceTimeout5min === true) {
-      timeout = 5 * 60 * 1000 // 先不管，強制試試看
+    if (forceTimeout === true) {
+      timeout = 1 * 60 * 1000 // 先不管，強制試試看
     }
     
     let maxWaitMS = timeout
@@ -3650,8 +3650,8 @@ if (forceTimeout5min === true) {
       errorMessage
     } = options
     
-    if (forceTimeout5min === true) {
-      timeout = 5 * 60 * 1000 // 先不管，強制試試看
+    if (forceTimeout === true) {
+      timeout = 1 * 60 * 1000 // 先不管，強制試試看
     }
     
     let maxWaitMS = timeout

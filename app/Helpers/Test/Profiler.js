@@ -28,7 +28,7 @@ class Profiler {
     }
     
     if (forceTimeout5min === true) {
-      timeout = 5 * 60
+      timeout = 1 * 60
     }
     
     this.timeout = timeout

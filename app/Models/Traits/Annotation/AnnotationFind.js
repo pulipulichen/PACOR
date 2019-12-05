@@ -60,8 +60,9 @@ class AnnotationFind {
 
         let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
         //console.log(types)
-        query.whereIn('type', types)
-        
+        if (types.length > 0) {
+          query.whereIn('type', types)
+        }
         profiler.after('types', types)
 
         if (withCount === true) {
@@ -297,7 +298,9 @@ class AnnotationFind {
                 .orderBy('updated_at_unixms', 'desc')
 
         let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
-        query.whereIn('type', types)
+        if (types.length > 0) {
+          query.whereIn('type', types)
+        }
 
         //console.log(afterTime, typeof(afterTime))
         if (typeof (afterTime) === 'string') {
@@ -405,7 +408,9 @@ class AnnotationFind {
         else {
           let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
           //console.log(types)
-          query.whereIn('type', types)
+          if (types.length > 0) {
+            query.whereIn('type', types)
+          }
         }
 
         //console.log(afterTime, typeof(afterTime))

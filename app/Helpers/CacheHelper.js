@@ -137,7 +137,7 @@ Cache.rememberWait = function (tags, cacheKey, minutes, callback) {
     if (typeof(this.rememberWaitLocks[lockName]) === 'boolean' 
             && this.rememberWaitLocks[lockName] === true) {
       // 被鎖定了
-      console.log('LOCKED: ', lockName, ExceptionHelper.getStackTraceString())
+      console.log('LOCKED: ', lockName)
       setTimeout(async () => {
         this.rememberWaitLocks[lockName] = false
         
