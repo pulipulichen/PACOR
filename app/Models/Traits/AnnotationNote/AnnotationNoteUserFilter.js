@@ -38,7 +38,7 @@ class AnnotationNoteUserFilter {
       } = options
       
       let cacheKey = Cache.key(`getInit`, userID)
-      return await Cache.rememberWait([webpage, user, this], cacheKey, 1, async () => {
+      return await Cache.rememberWait([webpage, user], cacheKey, 1, async () => {
         let output = {}
 
         output.userJSON = await this.getUserWords(webpage, user, {
@@ -63,7 +63,7 @@ class AnnotationNoteUserFilter {
       } = options
       
       let cacheKey = Cache.key(`getUserWords`, userID)
-      return await Cache.rememberWait([webpage, user, this], cacheKey, 1, async () => {
+      return await Cache.rememberWait([webpage, user], cacheKey, 1, async () => {
         
         let query = AnnotationNoteModel
                 .query()

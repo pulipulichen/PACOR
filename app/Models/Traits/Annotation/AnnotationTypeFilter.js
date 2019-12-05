@@ -29,7 +29,7 @@ class AnnotationTypeFilter {
       let cacheMinute = 2
       //cacheMinute = 0.001 // for test
             
-      return await Cache.rememberWait([webpage, user, this], cacheKey, cacheMinute, async () => {
+      return await Cache.rememberWait([webpage, user], cacheKey, cacheMinute, async () => {
         
         if (focusUserID) {
           let isFocusUserInMyGroup = await user.isUserInMyGroup(webpage, focusUserID)

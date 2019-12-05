@@ -1,8 +1,15 @@
 'use strict'
 
+const { HttpException } = use('@adonisjs/generic-exceptions') 
+
 class Profiler {
   constructor(timeout = 5, ...args) {
-    this.basetime = (new Date()).getTime()
+    if (typeof(timeout) !== 'number') {
+      args.unshift(timeout)
+      timeout = 5
+    }
+    
+    //this.basetime = (new Date()).getTime()
     this.marks = []
     this.marksTime = []
     this.mark.apply(this, args)
@@ -37,12 +44,14 @@ class Profiler {
         basetime = this.marksTime[i]
       }
       else {
-        let sec = Math.round((this.marksTime[i] - basetime) / 1000)
+        let sec = (this.marksTime[i] - basetime) / 1000
         message.push(`${sec}\t: ${mark}`)
       }
     }
     message = message.join('\n  ')
-    throw new Error(message)
+    
+    console.error(message)
+    //throw new HttpException(message)
   }
   
   finish () {
@@ -53,8 +62,14 @@ class Profiler {
     return args.map(arg => {
       if (typeof(arg) === 'object') {
         if (arg.primaryKeyValue !== undefined) {
-          let className = arg.contructor.name
-          return className + '_' + arg.primaryKeyValue
+          let className = ''
+          if (arg.contructor && arg.contructor.name) {
+            className = arg.contructor.name + '_'
+          }
+          else if (arg.name) {
+            className = arg.name + '_'
+          }
+          return className + arg.primaryKeyValue
         }
         else {
           return JSON.stringify(arg)

@@ -3,7 +3,6 @@
 'use strict'
 
 const Cache = use('Cache')
-const ReadingConfig = use('Config').get('reading')
 const TypeHelper = use('App/Helpers/TypeHelper')
 
 class DomainConfig {
@@ -15,10 +14,14 @@ class DomainConfig {
       let doQuery = async () => {
         let output = {}
         
-        let baseConfig = ReadingConfig
+        let baseConfig = use('Config').get('reading')
         
-        if (this.config) {
+        if (this.config && typeof(this.config) === 'object') {
+          console.log('before TypeHelper.mergeDeep()')
+          console.log(baseConfig)
+          console.log(this.config)
           output = TypeHelper.mergeDeep(baseConfig, this.config)
+          console.log(output)
         }
         else {
           output = baseConfig
@@ -31,7 +34,9 @@ class DomainConfig {
         return output
       }
       
-      let o = await Cache.rememberWait([this], cacheKey, doQuery)
+      return await Cache.rememberWait([this], cacheKey, doQuery)
+      /*
+      let o = await Cache.rememberWait([this, 'config'], cacheKey, doQuery)
       if (!o) {
         await Cache.forgetWithTags([this], cacheKey)
         return await this.getConfig()
@@ -39,6 +44,7 @@ class DomainConfig {
       else {
         return o
       }
+       */
     }
 
   } // register (Model) {

@@ -78,7 +78,7 @@ class UserReadingProgressConfig {
         throw new HttpException('Webpage object is required.')
       }
       let cacheKey = Cache.key('User', 'getReadingProgressStatus', webpage, this, showDetails)
-      return await Cache.rememberWait([webpage, this, 'ReadingProgresses'], cacheKey, async () => {
+      return await Cache.rememberWait([webpage, this], cacheKey, async () => {
         //console.log('getReadingProgressStatus', 'not from cache')
         let readingProgresses
         if (Array.isArray(webpage) === false

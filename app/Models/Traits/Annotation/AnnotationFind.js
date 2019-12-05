@@ -7,6 +7,8 @@ const AnnotationModel = use('App/Models/Annotation')
 const TypeHelper = use('App/Helpers/TypeHelper')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
+const Profiler = use('Profiler')
+
 class AnnotationFind {
 
   register(Model) {
@@ -15,8 +17,11 @@ class AnnotationFind {
       builder.setHidden(['preference', 'email', 'password', 'role', 'domain_id', 'updated_at', 'created_at'])
     }
     
-    Model.findByWebpageGroupPosition = async function (webpage, user, options) {
-      options = options ? options : {}
+    Model.findByWebpageGroupPosition = async function (webpage, user, options = {}) {
+      
+      let profiler = new Profiler('Annotation.AnnotationFind.findByWebpageGroupPosition()', webpage, user, options)
+      
+      //options = options ? options : {}
       
       let { afterTime
         , anchorPositions
@@ -33,7 +38,13 @@ class AnnotationFind {
         , excludeIDList
         , focusUserID
       } = options
-      const doQuery = async evt => {
+      
+      profiler.mark('parsing options')
+      
+      const doQuery = async () => {
+        
+        profiler.mark('doQuery')
+        
         //console.log('findByWebpageGroupPosition', anchorPositions)
 
         let query = this.query()
@@ -44,10 +55,13 @@ class AnnotationFind {
                 .whereRaw('((user_id = ? ) or (user_id != ? and public = ?))', [user.primaryKeyValue, user.primaryKeyValue, true])
                 //.whereRaw('user_id = ?', [user.primaryKeyValue])
                 .with('anchorPositions')
+        
+        profiler.mark('query')
 
         let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
         //console.log(types)
         query.whereIn('type', types)
+        profiler.mark('types', types)
 
         if (withCount === true) {
           query.withCount('likes')
@@ -60,8 +74,10 @@ class AnnotationFind {
             queryBuilder.where('user_id', user.primaryKeyValue)
           })
         }
+        profiler.mark('withCount', withCount)
 
         _queryFindType(query, options)
+        profiler.mark('_queryFindType')
         
         // -------------------------
         
@@ -79,6 +95,7 @@ class AnnotationFind {
           let userList = await user.getUserIDsInGroup(webpage, true)
           query.whereIn('user_id', userList)
         }
+        profiler.mark('focusUserID', focusUserID)
 
         // -------------------------
 
@@ -91,6 +108,7 @@ class AnnotationFind {
           query.limit(itemsPerPage)
           query.offset(itemsPerPage * page)
         }
+        profiler.mark('page', page)
         
         // -------------------------
 
@@ -105,6 +123,7 @@ class AnnotationFind {
               this._buildAnchorPositionWhere(builder, anchorMode, anchorPositions)
             })
           }
+          profiler.mark('anchorPositions', anchorPositions)
         }
         else if (onlySectionAnnotation === true) {
           query.whereHas('anchorPositions', (builder) => {
@@ -115,6 +134,7 @@ class AnnotationFind {
               builder.where('seq_id', seq_id)
             }
           })
+          profiler.mark('onlySectionAnnotation', seq_id)
         }
         
         // -------------------------
@@ -128,6 +148,7 @@ class AnnotationFind {
             builder.where('seq_id', seq_id)
           })
         }
+        profiler.mark('seq_id', seq_id)
         
         // --------------------------
         
@@ -136,6 +157,7 @@ class AnnotationFind {
             keyword = keyword.toLowerCase()
             builder.whereRaw('lower(note) like ?', `%${keyword}%`)
           })
+          profiler.mark('keyword', keyword)
         }
 
         //console.log(afterTime, typeof(afterTime))
@@ -146,6 +168,7 @@ class AnnotationFind {
           //console.log(afterTime)
           // 這邊應該還要做些調整
           query.where('updated_at_unixms', '>', afterTime)
+          profiler.mark('afterTime', afterTime)
         }
         
         // ---------------------------------------------------
@@ -158,19 +181,21 @@ class AnnotationFind {
             query.orderBy(field, orderBy[field])
           })
         }
+        profiler.mark('orderBy', orderBy)
         
         // ---------------------------------------------------
         
         if (Array.isArray(excludeIDList)) {
           query.whereNotIn('id', excludeIDList)
+          profiler.mark('excludeIDList', excludeIDList)
         }
         
         // ---------------------------------------------------
 
-        if (anchorMode === 'exact') console.log(query.toSQL())
+        //if (anchorMode === 'exact') console.log(query.toSQL())
         
         //console.log(query.toSQL())
-        
+        profiler.mark('before fetch')
         let result
         //console.log(pick)
         if (typeof (pick) !== 'number') {
@@ -182,9 +207,16 @@ class AnnotationFind {
           }
         }
         //console.log(result)
-
+        profiler.finish()
         return result
       }
+      
+      // ---------------------------
+      
+      // 如果不使用快取的話呢？
+      return await doQuery()
+      
+      // -------------------
 
       if (afterTime !== undefined || true) {
         return await doQuery()
@@ -192,7 +224,7 @@ class AnnotationFind {
         let cacheKey = Cache.key(`Annotation.findByWebpageGroupPosition`, webpage, user, options)
 
         //console.log(cacheKey)
-        return await Cache.rememberWait([webpage, user, this], cacheKey, 0.5, async () => {
+        return await Cache.rememberWait([webpage, user], cacheKey, 0.5, async () => {
           let result = await doQuery()
           //await Cache.put(cacheKey, result, 2)
           return result
@@ -269,7 +301,7 @@ class AnnotationFind {
       } 
       else {
         let cacheKey = Cache.key(`Annotation.findOthersByWebpageGroup`, webpage, user, focusUserID, findType)
-        return await Cache.rememberWait([webpage, user, this], cacheKey, 2, async () => {
+        return await Cache.rememberWait([webpage, user], cacheKey, 2, async () => {
           let result = await doQuery()
           //await Cache.put(cacheKey, result, 2)
           return result

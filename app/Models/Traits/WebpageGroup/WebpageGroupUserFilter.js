@@ -13,8 +13,8 @@ class WebpageGroupUserFilter {
     Model.getInit = async function (webpage, user, options) {
       //throw new Error('getInit')
       
-      let cacheKey = Cache.key('getInit')
-      return await Cache.rememberWait([webpage, user, this], cacheKey, 0.01, async () => {
+      //let cacheKey = Cache.key('getInit', options)
+      //return await Cache.rememberWait([webpage, user, 'WebpageGroup'], cacheKey, async () => {
         // 取得這一組裡面的成員
         
         //console.log('getInit', 0)
@@ -114,7 +114,7 @@ class WebpageGroupUserFilter {
         users = users.concat(me)
 
         return users
-      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+      //})  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
     
     let sortAlreadyReaders = async function (webpage, user, readersJSON, readersInstance) {

@@ -275,7 +275,11 @@ const filterTags = (tags) => {
       if (typeof(tag.primaryKeyValue) === 'number') {
         let name = tag.constructor.name
         let nameWithID = tag.constructor.name + '_' + tag.primaryKeyValue
-        o.push(name, nameWithID)
+        //o.push(name, nameWithID)
+        
+        // 是不是tag太多引起的恐慌啊？少一點tag好了...
+        o.push(nameWithID)
+        
         //return tag.constructor.name + '_' + tag.primaryKeyValue
       }
     }

@@ -34,7 +34,7 @@ class WebpageGroup {
     }
 
     Model.prototype.getGroupsList = async function () {
-      let cacheKey = `Webpage.getGroupsList.${this.primaryKeyValue}`
+      let cacheKey = 'getGroupsList'
       return await Cache.rememberWait([this], cacheKey, async () => {
         let groups = await this.groups().fetch()
 
@@ -128,7 +128,7 @@ class WebpageGroup {
     }
 
     Model.prototype.getUserIDsNotInGroup = async function () {
-      let cacheKey = `Webpage.getUserIDsNotInGroup.${this.primaryKeyValue}`
+      let cacheKey = `getUserIDsNotInGroup`
       
       return await Cache.rememberWait([this], cacheKey, async () => {
         let relation = User

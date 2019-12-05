@@ -67,7 +67,7 @@ class UserNotificationFind {
         return await doQuery()
       }
       
-      return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+      return await Cache.rememberWait([webpage, user], cacheKey, async () => {
         return await doQuery()
       })
     } // Model.getInit = async function (webpage, user, options) {
@@ -118,7 +118,7 @@ class UserNotificationFind {
         return await doQuery()
       }
       
-      return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+      return await Cache.rememberWait([webpage, user], cacheKey, async () => {
         return await doQuery()
       })
     } // Model.getFullInit = async function (webpage, user, options) {
@@ -136,7 +136,7 @@ class UserNotificationFind {
       } = options
       
       let cacheKey = Cache.key('getOlderNotifications', basetime)
-      return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+      return await Cache.rememberWait([webpage, user], cacheKey, async () => {
         let query = UserNotificationModel
               .query()
               .where('webpage_id', webpage.primaryKeyValue)
@@ -171,7 +171,7 @@ class UserNotificationFind {
     Model.getUnreadCount = async function (webpage, user) {
       let cacheKey = Cache.key('getUnreadCount')
       
-      return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+      return await Cache.rememberWait([webpage, user], cacheKey, async () => {
         let result = await UserNotificationModel
                 .query()
                 .where('webpage_id', webpage.primaryKeyValue)
@@ -191,7 +191,7 @@ class UserNotificationFind {
     Model.hasNotification = async function (webpage, user) {
       let cacheKey = Cache.key('hasNotification')
       
-      return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+      return await Cache.rememberWait([webpage, user], cacheKey, async () => {
         let result = await UserNotificationModel
                 .query()
                 .where('webpage_id', webpage.primaryKeyValue)
@@ -210,7 +210,7 @@ class UserNotificationFind {
     Model.getTriggerUsers = async function (webpage, user) {
       let cacheKey = Cache.key('getTriggerUsers')
       
-      return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+      return await Cache.rememberWait([webpage, user], cacheKey, async () => {
         let users = await UserModel
                 .query()
                 .whereHas('notifies', (builder) => {

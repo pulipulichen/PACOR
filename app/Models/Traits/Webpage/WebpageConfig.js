@@ -15,8 +15,8 @@ class WebpageConfig {
   register(Model) {
 
     Model.prototype.getReadingProgresses = async function () {
-      let cacheKey = Cache.key('Webpage', 'getReadingProgresses')
-      return await Cache.rememberWait([this, 'ReadingProgress'], cacheKey, async () => {
+      let cacheKey = Cache.key('getReadingProgresses')
+      return await Cache.rememberWait([this], cacheKey, async () => {
         // 先看看自己有沒有
         let config = await this.getConfig()
         
@@ -29,7 +29,7 @@ class WebpageConfig {
     }
 
     Model.prototype.getAgreement = async function () {
-      let cacheKey = Cache.key('Models.Webpage.getAgreement')
+      let cacheKey = Cache.key('getAgreement')
       return await Cache.rememberWait([this], cacheKey, async () => {
         let output
         if (typeof (this.agreement) === 'string') {
@@ -57,8 +57,12 @@ class WebpageConfig {
         let domain = await this.domain().fetch()
         let baseConfig = await domain.getConfig()
         
-        if (this.config) {
+        if (this.config && typeof(this.config) === 'object') {
+          console.log('before TypeHelper.mergeDeep()')
+          console.log(baseConfig)
+          console.log(this.config)
           output = TypeHelper.mergeDeep(baseConfig, this.config)
+          console.log(output)
         }
         else {
           output = baseConfig
@@ -71,7 +75,9 @@ class WebpageConfig {
         return output
       }
       
-      let o = await Cache.rememberWait([this], cacheKey, doQuery)
+      return await Cache.rememberWait([this], cacheKey, doQuery)
+      /*
+      let o = await Cache.rememberWait([this, 'Config'], cacheKey, doQuery)
       if (!o) {
         await Cache.forgetWithTags([this], cacheKey)
         return await this.getConfig()
@@ -79,11 +85,12 @@ class WebpageConfig {
       else {
         return o
       }
+       */
     }
 
     Model.prototype.getStepConfig = async function (stepName) {
       let cacheKey = Cache.key('getStepConfig', stepName)
-      return await Cache.rememberWait([this, 'ReadingProgress'], cacheKey, async () => {
+      return await Cache.rememberWait([this], cacheKey, async () => {
         let config = await this.getConfig()
         
         if (!config) {
@@ -94,6 +101,10 @@ class WebpageConfig {
         let output = {}
         if (typeof (config.readingProgressModules[stepName]) === 'object') {
           output = config.readingProgressModules[stepName]
+        }
+        else {
+          console.error(config)
+          throw new Error('config has no readingProgressModules: ' + stepName)
         }
         //Cache.forever(cacheKey, output)
         return output

@@ -23,7 +23,7 @@ class UserGroup {
         return [this]
       }
         
-      return await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+      return await Cache.rememberWait([webpage, this], cacheKey, async () => {
         
         /*
          let groups = await this.manyThrough('App/Models/WebpageGroup', 'users')

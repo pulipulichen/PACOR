@@ -94,7 +94,9 @@ class Section extends Annotation {
     
     let cacheKeyChecklistAnnotation = Cache.key('Section', 'init', enableCollaborative, 'checklistAnnotation')
     let checklistAnnotation = await Cache.rememberWait([webpage, user, 'Section'], cacheKeyChecklistAnnotation, Config.get('view.indexCacheMinute'), async () => {
-      return await AnnotationModel.getSectionsChecklistAnnotation(webpage, user)
+      return await AnnotationModel.getSectionsChecklistAnnotation(webpage, user, {
+        page: 1
+      })
     })  // return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
     profiler.mark('checklistAnnotation')
     

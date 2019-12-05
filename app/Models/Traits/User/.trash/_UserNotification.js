@@ -13,7 +13,7 @@ class UserNotification {
   register(Model) {
     Model.prototype.getNotifications = async function (webpage, basetime) {
       let cacheKey = 'getNotifications'
-      return await Cache.rememberWait([webpage, this, 'UserNotification'], cacheKey, async () => {
+      return await Cache.rememberWait([webpage, this], cacheKey, async () => {
         let query = UserNotification
                 .query()
                 .with('triggerUser')
@@ -60,7 +60,7 @@ class UserNotification {
     
     Model.prototype.getNotificationSummary = async function (webpage) {
       let cacheKey = 'getNotificationSummary'
-      return await Cache.rememberWait([webpage, this, 'UserNotification'], cacheKey, async () => {
+      return await Cache.rememberWait([webpage, this], cacheKey, async () => {
         let notifications = await this.getNotifications(webpage)
         let unreadCount = await this.getNotificationUnreadCount()
         
