@@ -231,12 +231,15 @@ class UserGroup {
     }
     
     Model.prototype.isInAnonymousGroup = async function (webpage) {
-      let groups = await this.group()
-                .where('webpage_id', webpage.primaryKeyValue)
-                .select('id')
-                .fetch()
-        
-      return (groups.size() === 0)
+      let cacheKey = Cache.key('isInAnonymousGroup')
+      return await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        let groups = await this.group()
+                  .where('webpage_id', webpage.primaryKeyValue)
+                  .select('id')
+                  .fetch()
+
+        return (groups.size() === 0)
+      })
     }
     
   } // register (Model) {

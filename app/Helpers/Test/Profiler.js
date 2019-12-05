@@ -3,6 +3,11 @@
 //const { HttpException } = use('@adonisjs/generic-exceptions') 
 //const ExceptionHelper = use('App/Helpers/ExceptionHelper')
 
+let forceTimeout5min = true
+if (forceTimeout5min === true){
+  console.log('@TODO forceTimeout5min')
+}
+
 class Profiler {
   constructor(timeout = 5, ...args) {
     if (typeof(timeout) !== 'number') {
@@ -20,6 +25,10 @@ class Profiler {
     
     if (timeout === 0) {
       return false
+    }
+    
+    if (forceTimeout5min === true) {
+      timeout = 5 * 60
     }
     
     this.timeout = timeout
@@ -95,7 +104,7 @@ class Profiler {
           }
           return className + arg.primaryKeyValue
         }
-        else if (Array.isArray(arg)) {
+        else if (Array.isArray(arg) || Object.keys(arg).length <= 3) {
           return JSON.stringify(arg)
         }
         else {

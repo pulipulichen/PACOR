@@ -3565,6 +3565,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 
+let forceTimeout5min = true
+if (forceTimeout5min === true) {
+  console.log('@TODO forceTimeout5min')
+} 
+
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
   PACORTestManager.methods.waitForElement = async function (selector, options = {}) {
     let {
@@ -3573,7 +3578,9 @@ __webpack_require__.r(__webpack_exports__);
       errorMessage
     } = options
     
-    //timeout = 5 * 60 * 1000 // 先不管，強制試試看
+    if (forceTimeout5min === true) {
+      timeout = 5 * 60 * 1000 // 先不管，強制試試看
+    }
     
     let maxWaitMS = timeout
     
@@ -3643,7 +3650,9 @@ __webpack_require__.r(__webpack_exports__);
       errorMessage
     } = options
     
-    //timeout = 5 * 60 * 1000 // 先不管，強制試試看
+    if (forceTimeout5min === true) {
+      timeout = 5 * 60 * 1000 // 先不管，強制試試看
+    }
     
     let maxWaitMS = timeout
     
@@ -3816,20 +3825,39 @@ __webpack_require__.r(__webpack_exports__);
       //this.log('completeChecklists panel', i, 3)
 
       //item.parents('.item:first').find('label').click()
-      let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', {
-        timeout: 3000,
-        errorMessage: '有出現寫標註的地方嗎？'
-      })
-      //$('.html-editor-container .note-editable').html(this.createRandomHtml())
-      await this.typeInput(editor, this.createRandomText())
-      await this.sleep(500)
-      await this.typeInput(editor, this.createRandomText())
+      let retry = 0
+      
+      // 強制讓沒選到的地方重新選3次的做法
+      let writeSectionNote = async () => {
+        try {
+          let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', {
+            timeout: 3000,
+            errorMessage: '有出現寫標註的地方嗎？'
+          })
+          //$('.html-editor-container .note-editable').html(this.createRandomHtml())
+          await this.typeInput(editor, this.createRandomText())
+          await this.sleep(500)
+          await this.typeInput(editor, this.createRandomText())
 
-      await this.sleep(100)
-      await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
-        timeout: 3000,
-        errorMessage: '似乎不能儲存小節重點，是不是沒有寫文字？'
-      })
+          await this.sleep(100)
+          await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
+            timeout: 3000,
+            errorMessage: '似乎不能儲存小節重點，是不是沒有寫文字？'
+          })
+        }
+        catch (e) {
+          retry++
+          if (retry < 3) {
+            console.log('再試一次', e)
+            await writeSectionNote()
+          }
+          else {
+            throw e
+          }
+        }
+      }
+      
+      await writeSectionNote()
       
       await this.sleep(1000)
 

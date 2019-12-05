@@ -206,13 +206,13 @@ class AnnotationSection {
           output[i] = map[seq_id]
         })
         
-        profiler.mark('keys()')
+        profiler.before('return output')
         
         return output
       } // let doQuery = async () => {
       
-      let output = await Cache.rememberWait([webpage, user, 'Annotation'], cacheKey, doQuery)
-      //let output = await doQuery()
+      //let output = await Cache.rememberWait([webpage, user, 'Annotation'], cacheKey, doQuery)
+      let output = await doQuery()
       profiler.mark('before finish')
       
       profiler.finish()

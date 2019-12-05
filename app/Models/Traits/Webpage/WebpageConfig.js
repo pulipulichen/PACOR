@@ -62,7 +62,7 @@ class WebpageConfig {
     }
 
     Model.prototype.getConfig = async function () {
-      let profiler = new Profiler(5, 'Webpage/WebpageConfig.getConfig()')
+      let profiler = new Profiler(3, 'Webpage/WebpageConfig.getConfig()')
       
       let doQuery = async () => {
         let output = ReadingConfig

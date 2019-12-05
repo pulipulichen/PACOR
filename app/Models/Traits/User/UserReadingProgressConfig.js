@@ -10,50 +10,63 @@ class UserReadingProgressConfig {
   register(Model) {
     
     Model.prototype.getCurrentReadingProgressStepName = async function (webpage) {
+      if (!webpage) {
+        throw new HttpException('Webpage object is required.')
+      }
+      
       let profiler = new Profiler(0, 'User/UserReadingProgressConfig.getCurrentReadingProgressStepName()')
       
-      profiler.before('status User.getReadingProgressStatus()')
-      let status = await this.getReadingProgressStatus(webpage)
-      profiler.after('status', status)
-      
-      if (status === null || status.length === 0) {
-        console.error('status is not found.')
-        profiler.finish()
+      let doQuery = async () => {
+        profiler.before('status User.getReadingProgressStatus()')
+        let status = await this.getReadingProgressStatus(webpage)
+        profiler.after('status', status)
+
+        if (status === null || status.length === 0) {
+          console.error('status is not found.')
+          profiler.finish()
+          return null
+        }
+        //let stepName = status[0].step_name
+
+        profiler.before('for (let i = 0; i < status.length; i++) {')
+
+        for (let i = 0; i < status.length; i++) {
+          profiler.after('for', i)
+          let step = status[i]
+          if (step.isCompleted === true) {
+            continue
+          }
+
+          if (typeof (step.start_timestamp) === 'number'
+                  && typeof (step.end_timestamp) !== 'number') {
+            //console.log('step.step_name', step.step_name)
+            profiler.finish()
+            return step.step_name
+          }
+
+          if (typeof (step.start_timestamp) !== 'number') {
+            //console.log('step.step_name', step.step_name)
+            profiler.finish()
+            return step.step_name
+          }
+          /*
+           if (typeof(step.start_timestamp) === 'number'
+           && typeof(step.end_timestamp) !== 'number') {
+           return step.step_name
+           }
+           */
+        }
         return null
-      }
-      //let stepName = status[0].step_name
+      } // let doQuery = async () => {
       
-      profiler.before('for (let i = 0; i < status.length; i++) {')
+      //profiler.before('await Cache.rememberWait()')
+      //let cacheKey = Cache.key('User.getCurrentReadingProgressStepName')
+      //let output = await Cache.rememberWait([webpage, this, 'ReadingProgress'], cacheKey, doQuery)
+      let output = await doQuery()
       
-      for (let i = 0; i < status.length; i++) {
-        profiler.after('for', i)
-        let step = status[i]
-        if (step.isCompleted === true) {
-          continue
-        }
-
-        if (typeof (step.start_timestamp) === 'number'
-                && typeof (step.end_timestamp) !== 'number') {
-          //console.log('step.step_name', step.step_name)
-          profiler.finish()
-          return step.step_name
-        }
-
-        if (typeof (step.start_timestamp) !== 'number') {
-          //console.log('step.step_name', step.step_name)
-          profiler.finish()
-          return step.step_name
-        }
-        /*
-         if (typeof(step.start_timestamp) === 'number'
-         && typeof(step.end_timestamp) !== 'number') {
-         return step.step_name
-         }
-         */
-      }
       //console.log('null')
       profiler.finish()
-      return null
+      return output
     }
     
     Model.prototype.getCurrentReadingProgressStep = async function (webpage) {
@@ -94,7 +107,7 @@ class UserReadingProgressConfig {
         throw new HttpException('Webpage object is required.')
       }
       
-      let profiler = new Profiler(0, 'User/UserReadingProgressConfig.getReadingProgressStatus()', showDetails)
+      let profiler = new Profiler(3, 'User/UserReadingProgressConfig.getReadingProgressStatus()', showDetails)
       
       let doQuery = async () => {
         //console.log('getReadingProgressStatus', 'not from cache')

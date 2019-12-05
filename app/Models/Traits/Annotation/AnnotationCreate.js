@@ -41,7 +41,7 @@ class AnnotationCreate {
         return false
       }
       
-      let profiler = new Profiler(1, 'Annotation/AnnotationCreate.create()', data)
+      let profiler = new Profiler(3, 'Annotation/AnnotationCreate.create()', data)
 
       let instance = new AnnotationModel()
 
@@ -57,7 +57,7 @@ class AnnotationCreate {
 
       //instance = await this._setPermissionTest(webpage, user, data, instance)
 
-      profiler.mark('before await instance.save()')
+      profiler.before('await instance.save()')
 
       await instance.save()
       

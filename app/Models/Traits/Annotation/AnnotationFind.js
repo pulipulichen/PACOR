@@ -19,7 +19,7 @@ class AnnotationFind {
     
     Model.findByWebpageGroupPosition = async function (webpage, user, options = {}) {
       
-      let profiler = new Profiler(1, 'Annotation.AnnotationFind.findByWebpageGroupPosition()')
+      let profiler = new Profiler(3, 'Annotation.AnnotationFind.findByWebpageGroupPosition()')
       
       //options = options ? options : {}
       
@@ -97,11 +97,12 @@ class AnnotationFind {
           query.where('user_id', findUserID)
         }
         else {
-          profiler.before('await user.getUserIDsInGroup(webpage, true)')
           
+          profiler.before('await user.isInAnonymousGroup(webpage)')
           let isInAnonymousGroup = await user.isInAnonymousGroup(webpage)
           
           if (isInAnonymousGroup === false) {
+            profiler.before('await user.getUserIDsInGroup(webpage, true)')
             let userIdList = await user.getUserIDsInGroup(webpage, true)
 
             if (userIdList.length > 0) {
@@ -112,6 +113,7 @@ class AnnotationFind {
             }
           }
           else {
+            profiler.before('await webpage.getUserIDsInGroups()')
             let userIdList = await webpage.getUserIDsInGroups()
             query.whereNotIn('user_id', userIdList)
           }
@@ -224,13 +226,20 @@ class AnnotationFind {
         let result
         //console.log(pick)
         pick = TypeHelper.parseInt(pick)
-        if (typeof (pick) !== 'number') {
-          result = await query.fetch()
-        } else {
-          result = await query.pick(pick)
-          if (pick === 1) {
-            result = result.first()
+        try {
+          if (typeof (pick) !== 'number') {
+            result = await query.fetch()
+          } else {
+            result = await query.pick(pick)
+            if (pick === 1) {
+              result = result.first()
+            }
           }
+        }
+        catch (e) {
+          console.error('[ANNOTATION FIND ERROR]')
+          console.log(JSON.stringify(options, null, 2))
+          throw e
         }
         //console.log(result)
         profiler.finish()

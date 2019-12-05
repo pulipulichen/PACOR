@@ -24,9 +24,9 @@ class Annotation extends WebpageUserBaseController {
     
     //console.log('create', 1)
     
-    let profiler = new Profiler(1, 'Annotation.create()', data)
+    let profiler = new Profiler(0, 'Annotation.create()', data)
     webpage.log(user, 'Annotation.create', data)
-    profiler.mark('webpage.log()')
+    profiler.after('webpage.log()')
     
     //console.log('create', 2)
     

@@ -6,26 +6,36 @@ const Cache = use('Cache')
 const dayjs = use('dayjs')
 const ExceptionHelper = use('App/Helpers/ExceptionHelper')
 
+const Profiler = use('Profiler')
+
 class UserReadingProgressAction {
 
   register(Model) {
     
     Model.prototype.startReadingProgress = async function (webpage, stepName) {
+      let profiler = new Profiler(1, 'User/UserReadingProgressAction.startReadingProgress()', this, stepName)
+      
       let time = (new Date()).getTime()
       //console.log('startReadingProgress', 1, dayjs().format('mm:ss'), ExceptionHelper.getStackTraceString())
       if (typeof (stepName) !== 'string') {
         //console.log('startReadingProgress', 2, dayjs().format('mm:ss'))
+        
+        profiler.before('await this.getCurrentReadingProgressStepName(webpage)')
         stepName = await this.getCurrentReadingProgressStepName(webpage)
+        profiler.after('await this.getCurrentReadingProgressStepName(webpage)')
         //console.log('startReadingProgress', 2.2, dayjs().format('mm:ss'), stepName)
         //console.log('current step name', this.username, stepName)
       }
       if (stepName === null) {
         //console.log('startReadingProgress', 3, dayjs().format('mm:ss'))
+        profiler.finish()
         return null
       }
       //console.log('startReadingProgress', stepName)
       
       //console.log('startReadingProgress', 4, dayjs().format('mm:ss'))
+      
+      profiler.before('await ReadingProgress.findOrCreate()')
       let step = await ReadingProgress.findOrCreate({
         'user_id': this.primaryKeyValue,
         'webpage_id': webpage.primaryKeyValue,
@@ -36,16 +46,23 @@ class UserReadingProgressAction {
         'step_name': stepName,
         'start_timestamp': time
       })
+      profiler.after('await ReadingProgress.findOrCreate()')
+      
       //console.log('startReadingProgress', 5, dayjs().format('mm:ss'))
       if (step.start_timestamp === time) {
         // 表示這是新增的資料
         //console.log('startReadingProgress', 6, dayjs().format('mm:ss'))
+        
+        profiler.before('await this.isEnableCollaboration(webpage)')
         let isEnableCollaboration = await this.isEnableCollaboration(webpage)
+        
+        profiler.before('await this.isInAnonymousGroup(webpage)')
         let isInAnonymousGroup = await this.isInAnonymousGroup(webpage)
         //console.log('startReadingProgress', 7, dayjs().format('mm:ss'), isEnableCollaboration)
         if (isEnableCollaboration === true && isInAnonymousGroup === false) {
         //if (isEnableCollaboration === true) {
           //console.log('startReadingProgress', 8, dayjs().format('mm:ss'), ExceptionHelper.getStackTraceString())
+          profiler.before('webpage.addNotification()')
           webpage.addNotification(this, {
             triggerInstance: step
           })
@@ -53,13 +70,19 @@ class UserReadingProgressAction {
         //console.log('startReadingProgress', 9, dayjs().format('mm:ss'), ExceptionHelper.getStackTraceString())
         //console.log('新增')
         //await step.save()
-        //await Cache.forget(Cache.key('User', 'getReadingProgressStatus', webpage, this))
-        await Cache.forgetWithTags([webpage, this, 'ReadingProgresses'])
+        
+        //profiler.before(`await Cache.forgetWithTags([this])`)
+        //await Cache.forgetWithTags([webpage, this, 'ReadingProgress'])
+        
+        //await Cache.forgetWithTags([this])
         //console.log('startReadingProgress', 10, dayjs().format('mm:ss'))
       }
       //console.log('startReadingProgress', 11, dayjs().format('mm:ss'), ExceptionHelper.getStackTraceString())
       //console.log('startReadingProgress AAA', step.start_timestamp)
       //console.log('startReadingProgress', step.toJSON())
+      
+      profiler.finish()
+      
       return step
     } // Model.prototype.startReadingProgress = async function (webpage, stepName) {
 
@@ -71,26 +94,35 @@ class UserReadingProgressAction {
      * @returns {User}
      */
     Model.prototype.endReadingProgress = async function (webpage, stepName) {
+      let profiler = new Profiler(0, 'User/UserReadingProgressAction.endReadingProgress()', this, stepName)
+      
       let time = (new Date()).getTime()
 
       let step
       if (typeof (stepName) === 'string') {
         //console.log('endReadingProgress', 1, stepName)
+        
+        profiler.before('await this.readingProgresses(webpage, stepName).fetch()')
         step = await this.readingProgresses(webpage, stepName).fetch()
         step = step.first()
+        profiler.after('step.first()')
         //console.log('endReadingProgress', 2)
       } else {
         //console.log('AAAA')
         //console.log('endReadingProgress', 3)
+        profiler.before('await this.startReadingProgress(webpage)')
         step = await this.startReadingProgress(webpage)
         if (step === null) {
+          profiler.finish()
           return null
         }
+        profiler.after('await this.startReadingProgress(webpage)')
         //console.log('endReadingProgress', 4)
       }
 
       //console.log('endReadingProgress', 4.5)
 //      console.log(step.toJSON())
+
 
       if (typeof (step.end_timestamp) !== 'number') {
         if (!step.start_timestamp) {
@@ -102,13 +134,15 @@ class UserReadingProgressAction {
         //console.log('endReadingProgress', 5, step.start_timestamp, step.end_timestamp)
         
         //console.log(step)
-        
+        profiler.before('await step.save()')
         await step.save()
         
         //console.log('endReadingProgress', 6)
         //console.log('step.end_timestamp BBB', time)
         
-        await Cache.forgetWithTags([webpage, this, 'ReadingProgresses'])
+        //await Cache.forgetWithTags([webpage, this, 'ReadingProgresses'])
+        //profiler.before('await Cache.forgetWithTags([this])')
+        //await Cache.forgetWithTags([this])
         
         
         //console.log('endReadingProgress', 7, dayjs().format('mm:ss'))
@@ -117,7 +151,9 @@ class UserReadingProgressAction {
         //console.log('prev step', this.username, step.step_name)
         //console.log('prev step', this.username, step.step_name)
         //console.log('step.end_timestamp CCC', time)
+        profiler.before('await this.startReadingProgress(webpage)')
         step = await this.startReadingProgress(webpage)
+        profiler.after('await this.startReadingProgress(webpage)')
         
         //console.log('endReadingProgress', 8, dayjs().format('mm:ss'))
         
@@ -127,6 +163,7 @@ class UserReadingProgressAction {
       }
       
       //console.log('endReadingProgress', 9)
+      profiler.finish()
 
       return step
     } // Model.prototype.endReadingProgress = async function (webpage, stepName) {

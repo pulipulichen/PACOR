@@ -3,6 +3,8 @@
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
 
+const Profiler = use('Profiler')
+
 class ReadingProgress {
   /*
   async start({webpage, user}) {
@@ -16,24 +18,34 @@ class ReadingProgress {
   async end({request, webpage, user}) {
     let log = request.all()
     
+    let profiler = new Profiler(0, 'Client/ReadingProgress.end()', log)
+    
     //console.log('ReadingProgress.end', 1)
     webpage.log(user, 'ReadingProgress.end', log)
+    profiler.after('webpage.log()')
     
     //console.log('ReadingProgress.end', 2)
     if (typeof(log) === 'object' && JSON.stringify(log) !== '{}') {
+      profiler.before('await user.startReadingProgress(webpage)')
       let currentStep = await user.startReadingProgress(webpage)
-      currentStep.log = log
-      await currentStep.save()
+      if (currentStep !== null) {
+        profiler.before('currentStep.log = log')
+        currentStep.log = log
+        await currentStep.save()
+      }
     }
     
     //console.log('ReadingProgress.end', 3)
     
     //throw new HttpException('#TODO start')
-    await user.endReadingProgress(webpage)
+    profiler.before('await user.endReadingProgress(webpage)')
+    let nextStep = await user.endReadingProgress(webpage)
     
     //console.log('ReadingProgress.end', 4)
     
-    let nextStep = await user.startReadingProgress(webpage)
+    //let nextStep = await user.startReadingProgress(webpage)
+    
+    profiler.finish()
     
     //console.log('ReadingProgress.end', 5)
     if (nextStep === null) {

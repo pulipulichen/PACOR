@@ -48,20 +48,39 @@ export default function (PACORTestManager) {
       //this.log('completeChecklists panel', i, 3)
 
       //item.parents('.item:first').find('label').click()
-      let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', {
-        timeout: 3000,
-        errorMessage: '有出現寫標註的地方嗎？'
-      })
-      //$('.html-editor-container .note-editable').html(this.createRandomHtml())
-      await this.typeInput(editor, this.createRandomText())
-      await this.sleep(500)
-      await this.typeInput(editor, this.createRandomText())
+      let retry = 0
+      
+      // 強制讓沒選到的地方重新選3次的做法
+      let writeSectionNote = async () => {
+        try {
+          let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', {
+            timeout: 3000,
+            errorMessage: '有出現寫標註的地方嗎？'
+          })
+          //$('.html-editor-container .note-editable').html(this.createRandomHtml())
+          await this.typeInput(editor, this.createRandomText())
+          await this.sleep(500)
+          await this.typeInput(editor, this.createRandomText())
 
-      await this.sleep(100)
-      await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
-        timeout: 3000,
-        errorMessage: '似乎不能儲存小節重點，是不是沒有寫文字？'
-      })
+          await this.sleep(100)
+          await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
+            timeout: 3000,
+            errorMessage: '似乎不能儲存小節重點，是不是沒有寫文字？'
+          })
+        }
+        catch (e) {
+          retry++
+          if (retry < 3) {
+            console.log('再試一次', e)
+            await writeSectionNote()
+          }
+          else {
+            throw e
+          }
+        }
+      }
+      
+      await writeSectionNote()
       
       await this.sleep(1000)
 
