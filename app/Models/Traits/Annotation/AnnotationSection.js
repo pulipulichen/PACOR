@@ -13,7 +13,7 @@ class AnnotationSection {
 
   register(Model) {
     
-    Model.buildSectionsAnnotationSummary = async function (webpage, user, query) {
+    Model.buildSectionsAnnotationSummary = async function (webpage, user, query = {}) {
       //throw new HttpException('@TODO')
       //return []
       
@@ -134,7 +134,7 @@ class AnnotationSection {
       })
     }
     
-    Model.getSectionsChecklistAnnotation = async function (webpage, user, query) {
+    Model.getSectionsChecklistAnnotation = async function (webpage, user, query = {}) {
       let cacheKey = Cache.key(`Annotation.getSectionsChecklistAnnotation`, query)
       return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
         //let itemsPerPage = Config.get('view.itemsPerPage')

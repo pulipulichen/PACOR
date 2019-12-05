@@ -10,6 +10,7 @@
 let title = __filename
 
 const TestBrowser = use('TestBrowser')
+const TestConfig = use('TestConfig')
 
 const DomainModel = use('App/Models/Domain')
 const WebpageModel = use('App/Models/Webpage')
@@ -181,9 +182,11 @@ let config = {
 //  },
 }
 
+//config = TestConfig(config, 'd3. 處理檢核單')
+
 TestBrowser(title, url, config, {
   //threads: 2, // 完全運作正常
-  threads: 8,  // 10個錯誤
+  threads: 10,  // 10個錯誤
   //threads: 40,  // 10個錯誤
   mode: 'parallel',
   headless: true

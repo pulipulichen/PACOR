@@ -1,11 +1,13 @@
 'use strict'
 
 class Profiler {
-  constrcutor(timeout = 5, ...args) {
+  constructor(timeout = 5, ...args) {
     this.basetime = (new Date()).getTime()
     this.marks = []
     this.marksTime = []
-    this.mark(args)
+    this.mark.apply(this, args)
+    
+    //console.log('Profiler')
     
     this.timer = setTimeout(() => {
       this.displayTimeoutMessage()
@@ -17,8 +19,11 @@ class Profiler {
   }
   
   mark (...args) {
-    this.marks.push(this.argsToMark(args))
-    this.marksTIme.push(this.time())
+    let mark = this.argsToMark(args)
+    this.marks.push(mark)
+    this.marksTime.push(this.time())
+    
+    //console.log(mark)
   }
   
   displayTimeoutMessage () {
@@ -28,7 +33,7 @@ class Profiler {
     for (let i = 0; i < this.marks.length; i++) {
       let mark = this.marks[i]
       if (!basetime) {
-        message.push(mark)
+        message.push('[PROFILER] ' + mark)
         basetime = this.marksTime[i]
       }
       else {

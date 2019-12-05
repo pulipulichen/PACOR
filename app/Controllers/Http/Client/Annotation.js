@@ -12,6 +12,7 @@ const Config = use('Config')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
 const Profiler = use('Profiler')
+const Sleep = use('Sleep')
 
 class Annotation extends WebpageUserBaseController {
   constructor () {
@@ -20,11 +21,19 @@ class Annotation extends WebpageUserBaseController {
   
   async create({request, webpage, user}) {
     let data = request.all()
-    let profilter = new Profilter(3, 'Annotation.create()', data)
+    
+    //console.log('create', 1)
+    
+    let profiler = new Profiler(1, 'Annotation.create()', data)
     webpage.log(user, 'Annotation.create', data)
-    profilter.mark('webpage.log()')
+    profiler.mark('webpage.log()')
+    
+    //console.log('create', 2)
+    
+    //await Sleep(3)
+    
     let instance = await AnnotationModel.create(webpage, user, data)
-    profilter.finish()
+    profiler.finish()
     return instance.id
   }
   

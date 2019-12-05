@@ -142,7 +142,8 @@ Cache.rememberWait = function (tags, cacheKey, minutes, callback) {
         this.rememberWaitLocks[lockName] = false
         
         //console.log('再次嘗試')
-        let result = await this.rememberWait(tags, cacheKey, minutes, callback)
+        //let result = await this.rememberWait(tags, cacheKey, minutes, callback)
+        let result = await callback()
         //console.log('鎖定解除', result)
         resolve(result)
         return true

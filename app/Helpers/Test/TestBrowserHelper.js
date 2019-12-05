@@ -208,7 +208,11 @@ let TestBrowserHelper = function (title, url, config, options) {
       
       if (threads > 10) {
         process.setMaxListeners(0)
-        headless = true
+        
+        if (headless === false) {
+          console.log(`Threads ${threads} are too much. Force headless = true.`)
+          headless = true
+        }
       }
       
       let errors = []
