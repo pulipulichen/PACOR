@@ -54,18 +54,18 @@ class AnnotationFind {
         }
 
         //console.log(afterTime, typeof(afterTime))
-        if (typeof (afterTime) === 'string') {
-          afterTime = parseInt(afterTime, 10)
-        }
+        afterTime = TypeHelper.parseInt(afterTime)
         if (typeof (afterTime) === 'number') {
           //console.log(afterTime)
           // 這邊應該還要做些調整
-          query.where('updated_at_unixms', '>', afterTime)
+          //query.where('updated_at_unixms', '>', afterTime)
+          query.where(function () {
+            this.where('updated_at_unixms', '>', afterTime)
+            Model._quertExceptArea(this, exceptArea)
+          })
         }
         
         this._queryFindType(query, options)
-        
-        this._quertExceptArea(query, exceptArea)
         
         // ----------------------------------
         
@@ -122,7 +122,8 @@ class AnnotationFind {
       
       query.limit(50)
       
-      query.whereHas('anchorPositions', builder => {
+      // 前面會有aftertime撐著
+      query.orWhereHas('anchorPositions', builder => {
         builder.where('seq_id', '>', area.article.maxSeqID)
         
         if (area.article.minSeqID > 0) {

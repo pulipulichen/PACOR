@@ -55,7 +55,7 @@ let AnnotationManager = {
     highlightsURL () {
       let highlightsURL
       if (this.lib.auth.isEnableCollaboration === true) {
-        if (this.afterTime === null) {
+        if (this.afterTime === null && this.isLoaded === false) {
           highlightsURL = '/client/Highlight/highlights'
         }
         else {
@@ -81,9 +81,11 @@ let AnnotationManager = {
       this.status.progress.highlights = true
     },
     'status.filter.focusUser' () {
+      this.afterTime = null
       this.reloadHighlights()
     },
     'status.filter.findType' () {
+      this.afterTime = null
       this.reloadHighlights()
     }
   },
@@ -118,6 +120,7 @@ let AnnotationManager = {
         data.afterTime = this.afterTime
       }
       
+      // 什麼意思？意義不明
       this.lib.AnnotationHelper.filter(data)
       //console.log(data)
       

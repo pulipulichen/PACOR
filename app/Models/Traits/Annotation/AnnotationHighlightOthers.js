@@ -7,12 +7,17 @@ class AnnotationHighlightOthers {
   register(Model) {
     Model.getOthersHighlightsByWebpageGroup = async function (webpage, user, query, session) {
       let area
-      let { sessionToken } = query
-      if (sessionToken) {
-        area = session.get('highlightArea.' + sessionToken)
+      let { afterTime, sessionToken } = query
+      if (afterTime) {
+        if (sessionToken) {
+          area = session.get('highlightArea.' + sessionToken)
+        }
+        if (area && area.keepSearch) {
+          query.exceptArea = area
+        }
       }
-      if (area && area.keepSearch) {
-        query.exceptArea = area
+      else {
+        session.forget('highlightArea.' + sessionToken)
       }
       
       let highlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, query)
