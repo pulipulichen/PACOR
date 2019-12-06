@@ -43,7 +43,7 @@ class Tokenization {
      * 似乎是不能這樣做...
      */
     Model.addHook('afterSave', async (instance) => {
-      console.log(instance[toField])
+      //console.log(instance[toField])
       if (instance[toField]
               || (typeof(instance[toField]) === 'object' && Object.keys(instance[toField]).length > 0)) {
         return false

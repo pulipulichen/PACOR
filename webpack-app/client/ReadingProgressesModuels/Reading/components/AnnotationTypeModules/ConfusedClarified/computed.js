@@ -2,7 +2,8 @@ export default (Editor) => {
   Editor.computed = {
 
     isQuestionEdited() {
-      return (this.question !== this.questionReset)
+      let note = this.lib.StringHelper.htmlToText(this.question).trim()
+      return (note !== this.questionReset)
     },
 
 //    isQuestionSubmitted() {
@@ -24,7 +25,8 @@ export default (Editor) => {
     // ----------------------------------
 
     isAnswerEdited() {
-      return (this.answer !== this.answerReset)
+      let note = this.lib.StringHelper.htmlToText(this.answer).trim()
+      return (note !== this.answerReset)
     },
 
     isAnswerSubmitted() {
