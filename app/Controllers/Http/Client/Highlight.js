@@ -48,24 +48,60 @@ class Highlight {
    * @param {User} user
    * @returns {Object}
    */
-  async highlightsOthers ({request, webpage, user}) {
+  async highlightsOthers ({request, webpage, user, session}) {
     let query = request.all()
-    return await AnnotationModel.getOthersHighlightsByWebpageGroup(webpage, user, query)
+    return await AnnotationModel.getOthersHighlightsByWebpageGroup(webpage, user, query, session)
   }
   
-  async testSession({session}) {
-    let time = session.get('time')
-    if (!time) {
-      time = (new Date).getTime()
-      session.put('time', time)
+  /**
+   * 測試用
+   * @param {type} request
+   * @param {type} session
+   * @returns {token}
+   */
+  async testSessionToken({request, session}) {
+    let token = (new Date).getTime().toString(36)
+    let time = {
+      time: (new Date).getTime()
     }
-    return time
+    let key = 'time.' + token
+    console.log(key)
+    session.put('time.' + token, time)
+    return token
   }
   
-  async clearSession({session}) {
-    session.forget('time')
+  /**
+   * 測試用
+   * @param {type} request
+   * @param {type} session
+   * @returns {token}
+   */
+  async testSession({request, session}) {
+    let {
+      token
+    } = request.all()
     
-    return session.get('time')
+    console.log(token)
+    let key = 'time.' + token
+    console.log(key)
+    return session.get(key)
+  }
+  
+  /**
+   * 測試用
+   * @param {type} request
+   * @param {type} session
+   * @returns {token}
+   */
+  async clearSession({request, session}) {
+    let {
+      token
+    } = request.all()
+    let key = 'time.' + token
+    console.log(key)
+    session.forget(key)
+    
+    return session.get(key)
   }
 }
 

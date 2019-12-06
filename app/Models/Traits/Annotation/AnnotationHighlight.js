@@ -99,6 +99,7 @@ class AnnotationHighlight {
           options = {}
         }
         options.limit = 50
+        options.exceptTypes = ['SectionMainIdea']
         
         let annotations = await this.findOthersByWebpageGroup(webpage, user, options)
         //console.log('getOthersHighlightsArrayByWebpageGroup', 2)
@@ -139,13 +140,14 @@ class AnnotationHighlight {
       return this._convertHighlighArrayToString(highlights, webpage, user)
     }
 
-    Model.getOthersHighlightsByWebpageGroup = async function (webpage, user, query) {
+    Model.getOthersHighlightsByWebpageGroup = async function (webpage, user, query, session) {
       let highlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, query)
       return this._convertHighlighArrayToString(highlights, webpage, user)
     }
 
     Model.getMyHighlightsArrayByWebpageGroup = async function (webpage, user, query) {
       const doQuery = async evt => {
+        query.exceptTypes = ['SectionMainIdea']
         let annotations = await this.findMyByWebpageGroup(webpage, user, query)
         return this._convertToHighlighArray(annotations, user)
       }

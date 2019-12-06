@@ -97,7 +97,8 @@ let VueController = {
       },
       progress: {
         highlights: false
-      }
+      },
+      sessionToken: null
     },
     progress: {
       component: false,

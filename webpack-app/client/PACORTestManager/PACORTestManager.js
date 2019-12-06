@@ -20,21 +20,36 @@ let PACORTestManager = {
     //this.testSession()
   },
   methods: {
+    /**
+    * 測試用
+    * @returns {token}
+    */
     testSession: async function () {
-      let time = await this.lib.AxiosHelper.get('/client/Highlight/testSession')
-      console.log(time)
+      let token = await this.lib.AxiosHelper.get('/client/Highlight/testSessionToken')
+      console.log(token)
+      
+      let time = await this.lib.AxiosHelper.get('/client/Highlight/testSession', {
+        token
+      })
+      console.log(time.time)
       
       await this.lib.VueHelper.sleep(3000)
-      let time2 = await this.lib.AxiosHelper.get('/client/Highlight/testSession')
-      console.log(time2, (time === time2))
+      let time2 = await this.lib.AxiosHelper.get('/client/Highlight/testSession', {
+        token
+      })
+      console.log(time2.time, (time.time === time2.time))
       
       await this.lib.VueHelper.sleep(3000)
-      let time3 = await this.lib.AxiosHelper.get('/client/Highlight/testSession')
-      console.log(time3, (time === time3))
+      let time3 = await this.lib.AxiosHelper.get('/client/Highlight/testSession', {
+        token
+      })
+      console.log(time3.time, (time.time === time3.time))
       
       await this.lib.VueHelper.sleep(3000)
-      let time4 = await this.lib.AxiosHelper.get('/client/Highlight/clearSession')
-      console.log(time4, (time === time4))
+      let time4 = await this.lib.AxiosHelper.get('/client/Highlight/clearSession', {
+        token
+      })
+      console.log(time4.time, (time.time === time4.time))
     }
   } // methods
 }

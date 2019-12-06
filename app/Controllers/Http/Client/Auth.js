@@ -123,6 +123,8 @@ class Auth {
     let readingProgresses = await user.getReadingProgressStatus(webpage)
     let userJSON = user.toJSON()
     
+    let sessionToken = Math.floor((new Date()).getTime() / 1000).toString(36)
+    
     //let notificationUnreadCount = await user.getNotificationUnreadCount(webpage)
     //notificationUnreadCount = 20  // for test 20191122
     
@@ -138,6 +140,7 @@ class Auth {
       //readingProgressesFinish: config.readingProgressesFinish,
       //readingConfig: config,
       preference: userJSON.preference,
+      sessionToken
       //notificationUnreadCount: notificationUnreadCount
     }
     //console.log(data)

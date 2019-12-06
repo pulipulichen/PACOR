@@ -18,7 +18,9 @@ class Annotation extends Model {
     
     this.addTrait('Annotation/AnnotationCreate')
     this.addTrait('Annotation/AnnotationHighlight')
+    this.addTrait('Annotation/AnnotationHighlightOthers')
     this.addTrait('Annotation/AnnotationFind')
+    this.addTrait('Annotation/AnnotationFindOthers')
     this.addTrait('Annotation/AnnotationPermission')
     this.addTrait('Annotation/AnnotationAnchorPositions')
     this.addTrait('Annotation/AnnotationSection')

@@ -89,7 +89,7 @@ class AnnotationFind {
         }
         profiler.mark('withCount', withCount)
 
-        _queryFindType(query, options)
+        this._queryFindType(query, options)
         profiler.mark('_queryFindType')
         
         // -------------------------
@@ -292,7 +292,8 @@ class AnnotationFind {
         afterTime,
         focusUserID,
         findType,
-        limit
+        limit,
+        exceptTypes
       } = options
       
       const doQuery = async evt => {
@@ -316,6 +317,10 @@ class AnnotationFind {
           return []
         }
         
+        if (Array.isArray(exceptTypes)) {
+          query.whereNotIn('type', exceptTypes)
+        }
+        
         limit = TypeHelper.parseInt(limit)
         if (limit !== undefined) {
           query.limit(limit)
@@ -331,7 +336,7 @@ class AnnotationFind {
           query.where('updated_at_unixms', '>', afterTime)
         }
         
-        _queryFindType(query, options)
+        this._queryFindType(query, options)
         
         // ----------------------------------
         
@@ -381,7 +386,7 @@ class AnnotationFind {
       }
     } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
     
-    let _queryFindType = function (query, options) {
+    Model._queryFindType = function (query, options) {
       let {
         findType
       } = options
@@ -409,7 +414,9 @@ class AnnotationFind {
     Model.findMyByWebpageGroup = async function (webpage, user, options) {
       let {
         afterTime,
-        findType
+        findType,
+        exceptTypes,
+        limit
       } = options
       
       const doQuery = async evt => {
@@ -433,6 +440,15 @@ class AnnotationFind {
           else {
             return []
           }
+        }
+        
+        if (Array.isArray(exceptTypes)) {
+          query.whereNotIn('type', exceptTypes)
+        }
+        
+        limit = TypeHelper.parseInt(limit)
+        if (limit !== undefined) {
+          query.limit(limit)
         }
 
         //console.log(afterTime, typeof(afterTime))
