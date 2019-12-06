@@ -14,8 +14,11 @@
   </div>
   <div class="content"
        v-if="contentURL">
-    <iframe v-bind:src="computedContentURL"
-            frameborder="0"></iframe>
+    <iframe 
+      v-if="isShow"
+      v-bind:src="computedContentURL"
+      frameborder="0">
+    </iframe>
   </div>
   <div class="actions"
        v-if="$slots.actions || cancelable === 'true' || cancelable === true || reset || cancelButtonText"

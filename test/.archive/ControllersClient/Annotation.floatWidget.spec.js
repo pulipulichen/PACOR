@@ -233,7 +233,7 @@ f g`
 
     assert.equal(logs.length, 2)
 
-    let response = await client.get('/client/Annotation/indexMy')
+    let response = await client.get('/client/AnnotationTest/indexMy')
             .header('Referer', url)
             .session('adonis-auth', userAID)
             .end()
@@ -262,7 +262,7 @@ f g`
   },
 
   'a7: test index': async function ({ assert, client }) {
-    let response = await client.get('/client/Annotation/index')
+    let response = await client.get('/client/AnnotationTest/index')
             .header('Referer', url)
             .session('adonis-auth', userAID)
             .end()

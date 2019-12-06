@@ -191,7 +191,7 @@ let AnnotationEditorModules = {
         id: this.annotation.id
       }
 
-      await this.lib.AxiosHelper.get('/client/Annotation/destroy', data)
+      await this.lib.AxiosHelper.get('/client/AnnotationSave/destroy', data)
 
       await this.reloadMyHighlights()
 

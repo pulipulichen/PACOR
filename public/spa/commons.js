@@ -526,9 +526,11 @@ var render = function() {
     _vm._v(" "),
     _vm.contentURL
       ? _c("div", { staticClass: "content" }, [
-          _c("iframe", {
-            attrs: { src: _vm.computedContentURL, frameborder: "0" }
-          })
+          _vm.isShow
+            ? _c("iframe", {
+                attrs: { src: _vm.computedContentURL, frameborder: "0" }
+              })
+            : _vm._e()
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -1805,7 +1807,8 @@ let Modal = {
     this.$i18n.locale = this.config.locale
     return {
       resetCache: null,
-      modal: null
+      modal: null,
+      isShow: false
     }
   },
 //  components: {
@@ -1891,7 +1894,12 @@ let Modal = {
           }
         }
         
+        options.onShow = () => {
+          this.isShow = true
+        }
+        
         options.onHidden = () => {
+          this.isShow = false
           this.$emit('hide')
         }
         

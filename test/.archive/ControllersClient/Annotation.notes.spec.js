@@ -236,7 +236,7 @@ f g`
 
     assert.equal(logs.length, 2)
 
-    let response = await client.get('/client/Annotation/indexMy')
+    let response = await client.get('/client/AnnotationTest/indexMy')
             .header('Referer', url)
             .session('adonis-auth', userAID)
             .end()

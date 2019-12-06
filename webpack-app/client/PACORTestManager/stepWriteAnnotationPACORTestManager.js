@@ -6,33 +6,48 @@ export default function (PACORTestManager) {
     //let min = 4
     //let max = 10
     
-    //let min = 4
-    //let max = 10
+    let min = 4
+    let max = 10
     
-    let min = 3
-    let max = 6
+    //let min = 3
+    //let max = 6
     
     
     let writeAnnotations = min + Math.floor(Math.random() *  (max - min))
     //writeAnnotations--
+    let retry = 0
+    
+    let writeAnnotation = async (i) => {
+      try {
+        if (i % 3 === 0) {
+          await this.writeMainIdeaAnnotation()
+          //await this.writeConfusedAnnotation()
+        }
+        else if (i % 3 === 1) {
+          await this.writeConfusedClarifiedAnnotation()
+          //await this.writeConfusedAnnotation()
+        }
+        else {
+          await this.writeConfusedAnnotation()
+        }
+      }
+      catch (e) {
+        this.log('[RETRY]' + e)
+        retry++
+        if (retry < 3) {
+          await writeAnnotation(i)
+        }
+        else {
+          throw e
+        }
+      }
+    }
 
     for (let i = 0; i < writeAnnotations; i++) {
       await this.sleep(100)
-      
+     
       this.log('撰寫標註：' + (i+1) + '/' + (writeAnnotations) )
       await this.selectAnnotationType(i)
-      
-      if (i % 3 === 0) {
-        await this.writeMainIdeaAnnotation()
-        //await this.writeConfusedAnnotation()
-      }
-      else if (i % 3 === 1) {
-        await this.writeConfusedClarifiedAnnotation()
-        //await this.writeConfusedAnnotation()
-      }
-      else {
-        await this.writeConfusedAnnotation()
-      }
       
       await this.sleep(100)
     }

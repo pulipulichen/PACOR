@@ -114,6 +114,18 @@ Route.any('/client/Annotation/:action', (options) => {
   return controllerMapping(options, 'client', 'Annotation')
 }).middleware(['user', 'webpage'])
 
+Route.any('/client/Highlight/:action', (options) => {
+  return controllerMapping(options, 'client', 'Highlight')
+}).middleware(['user', 'webpage'])
+
+Route.any('/client/AnnotationSave/:action', (options) => {
+  return controllerMapping(options, 'client', 'AnnotationSave')
+}).middleware(['user', 'webpage'])
+
+Route.any('/client/AnnotationTest/:action', (options) => {
+  return controllerMapping(options, 'client', 'AnnotationTest')
+}).middleware(['user', 'webpage'])
+
 Route.any('/client/Section/:action', (options) => {
   return controllerMapping(options, 'client', 'Section')
 }).middleware(['user', 'webpage'])

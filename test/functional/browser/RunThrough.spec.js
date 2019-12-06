@@ -146,7 +146,6 @@ let config = {
     //let writeAnnotations = Math.random()
     await page.assertFn(async function () {
       //PACORTestManager.log('呃，怎麽不能運作了...')
-      throw new Error('測試')
       await PACORTestManager.waitForElementVisible('.Navigation.menu', 30 * 1000)
       // Navigation
       await PACORTestManager.sleep(3000)
@@ -183,7 +182,7 @@ let config = {
 //  },
 }
 
-//config = TestConfig(config, 'e2. 隨意寫標註')
+config = TestConfig(config, 'e2. 隨意寫標註')
 
 TestBrowser(title, url, config, {
   threads: 1,

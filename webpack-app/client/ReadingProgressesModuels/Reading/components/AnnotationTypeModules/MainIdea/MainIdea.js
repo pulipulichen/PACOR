@@ -152,7 +152,7 @@ let Editor = {
       //console.log(data)
       let id = 1
       if (debugMockSend === false) {
-        id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+        id = await this.lib.AxiosHelper.post('/client/AnnotationSave/create', data)
       }
       //let id = 1
       //console.log(id) // for test

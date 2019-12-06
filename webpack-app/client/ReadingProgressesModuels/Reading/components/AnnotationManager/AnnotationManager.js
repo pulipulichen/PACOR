@@ -56,14 +56,14 @@ let AnnotationManager = {
       let highlightsURL
       if (this.lib.auth.isEnableCollaboration === true) {
         if (this.afterTime === null) {
-          highlightsURL = '/client/Annotation/highlights'
+          highlightsURL = '/client/Highlight/highlights'
         }
         else {
-          highlightsURL = '/client/Annotation/highlightsOthers'
+          highlightsURL = '/client/Highlight/highlightsOthers'
         }
       }
       else {
-        highlightsURL = '/client/Annotation/highlightsMy'
+        highlightsURL = '/client/Highlight/highlightsMy'
       }
       return highlightsURL
     },

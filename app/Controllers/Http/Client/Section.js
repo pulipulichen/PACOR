@@ -141,6 +141,17 @@ class Section extends Annotation {
     let query = request.all()
     return await AnnotationModel.getMainIdeasInSection(webpage, user, query)
   }
+  
+  /**
+   * @deprecated 20191206 似乎是用不到了...
+   */
+  async createSectionAnnotation({request, webpage, user}) {
+    let data = request.all()
+    webpage.log(user, 'Section.createSectionAnnotation', data)
+    
+    let instance = await AnnotationModel.buildSectionsAnnotationSummary(webpage, user, data)
+    return instance.id
+  }
 }
 
 module.exports = Section

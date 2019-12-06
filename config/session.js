@@ -15,7 +15,7 @@ module.exports = {
   | For `redis` driver, make sure to install and register `@adonisjs/redis`
   |
   */
-  driver: Env.get('SESSION_DRIVER', 'file'),
+  driver: Env.get('SESSION_DRIVER', 'redis'),
 
   /*
   |--------------------------------------------------------------------------
@@ -99,6 +99,6 @@ module.exports = {
     port: 6379,
     password: null,
     db: 0,
-    keyPrefix: ''
+    keyPrefix: 'session'
   }
 }

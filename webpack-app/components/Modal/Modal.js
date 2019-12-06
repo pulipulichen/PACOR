@@ -8,7 +8,8 @@ let Modal = {
     this.$i18n.locale = this.config.locale
     return {
       resetCache: null,
-      modal: null
+      modal: null,
+      isShow: false
     }
   },
 //  components: {
@@ -94,7 +95,12 @@ let Modal = {
           }
         }
         
+        options.onShow = () => {
+          this.isShow = true
+        }
+        
         options.onHidden = () => {
+          this.isShow = false
           this.$emit('hide')
         }
         

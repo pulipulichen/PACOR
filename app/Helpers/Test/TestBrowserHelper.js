@@ -20,9 +20,9 @@ let exposeFunction = async function (headless, browser, url, index) {
     let chromeArgs = [
       '--start-maximized'
     ]
-    if (index !== undefined) {
-      chromeArgs.push('--user-data-dir=test/profiles/TestProfile_' + index + '_' + (new Date()).getTime())
-    }
+    //if (index !== undefined) {
+    //  chromeArgs.push('--user-data-dir=test/profiles/TestProfile_' + index + '_' + (new Date()).getTime())
+    //}
 
     await browser.launch({
       headless,

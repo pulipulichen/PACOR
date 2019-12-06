@@ -5497,14 +5497,14 @@ let AnnotationManager = {
       let highlightsURL
       if (this.lib.auth.isEnableCollaboration === true) {
         if (this.afterTime === null) {
-          highlightsURL = '/client/Annotation/highlights'
+          highlightsURL = '/client/Highlight/highlights'
         }
         else {
-          highlightsURL = '/client/Annotation/highlightsOthers'
+          highlightsURL = '/client/Highlight/highlightsOthers'
         }
       }
       else {
-        highlightsURL = '/client/Annotation/highlightsMy'
+        highlightsURL = '/client/Highlight/highlightsMy'
       }
       return highlightsURL
     },
@@ -9049,7 +9049,7 @@ let AnnotationEditorModules = {
         id: this.annotation.id
       }
 
-      await this.lib.AxiosHelper.get('/client/Annotation/destroy', data)
+      await this.lib.AxiosHelper.get('/client/AnnotationSave/destroy', data)
 
       await this.reloadMyHighlights()
 
@@ -11262,7 +11262,7 @@ __webpack_require__.r(__webpack_exports__);
       
       //console.log(data)
       
-      let id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+      let id = await this.lib.AxiosHelper.post('/client/AnnotationSave/create', data)
       //let id = 1
       
       //console.log(id) // for test
@@ -11649,7 +11649,7 @@ let Editor = {
       //console.log(data)
       let id = 1
       if (debugMockSend === false) {
-        id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+        id = await this.lib.AxiosHelper.post('/client/AnnotationSave/create', data)
       }
       //let id = 1
       //console.log(id) // for test
@@ -11903,7 +11903,7 @@ let Editor = {
       //console.log(data)
       let id = 1
       if (debugMockSend === false) {
-        id = await this.lib.AxiosHelper.post('/client/Annotation/create', data)
+        id = await this.lib.AxiosHelper.post('/client/AnnotationSave/create', data)
       }
       //let id = 1
       //console.log(id) // for test
@@ -13974,7 +13974,7 @@ __webpack_require__.r(__webpack_exports__);
   RangyManager.methods.reloadMyHighlights = async function () {
     this.removeMyHighlights()
     let data = {}
-    let result = await this.lib.AxiosHelper.get('/client/Annotation/highlightsMy', data)
+    let result = await this.lib.AxiosHelper.get('/client/Highlight/highlightsMy', data)
     //console.log(result)
     if (result !== 0) {
       this.deserializeAppend(result)

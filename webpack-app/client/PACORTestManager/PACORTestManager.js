@@ -16,8 +16,26 @@ let PACORTestManager = {
 //  },
   mounted() {
     window.PACORTestManager = this
+    
+    //this.testSession()
   },
   methods: {
+    testSession: async function () {
+      let time = await this.lib.AxiosHelper.get('/client/Highlight/testSession')
+      console.log(time)
+      
+      await this.lib.VueHelper.sleep(3000)
+      let time2 = await this.lib.AxiosHelper.get('/client/Highlight/testSession')
+      console.log(time2, (time === time2))
+      
+      await this.lib.VueHelper.sleep(3000)
+      let time3 = await this.lib.AxiosHelper.get('/client/Highlight/testSession')
+      console.log(time3, (time === time3))
+      
+      await this.lib.VueHelper.sleep(3000)
+      let time4 = await this.lib.AxiosHelper.get('/client/Highlight/clearSession')
+      console.log(time4, (time === time4))
+    }
   } // methods
 }
 
