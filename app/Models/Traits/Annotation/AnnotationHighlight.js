@@ -1,6 +1,7 @@
 'use strict'
 
 const Cache = use('Cache')
+const TypeHelper = use('App/Helpers/TypeHelper')
 
 class AnnotationHighlight {
 
@@ -9,11 +10,15 @@ class AnnotationHighlight {
      * // "type:textContent|28$198$2$confused-clarified$pacor-paragraph-id-2"
      */
     Model._convertToHighlighArray = function (annotations, user) {
-      let highlights = []
-
+      
       if (typeof (annotations.toJSON) === 'function') {
         annotations = annotations.toJSON()
       }
+      
+      // -------------------------------------------
+      
+      let highlightTypes = {}
+      
       //console.log(annotations.length)
       annotations.forEach(annotation => {
         if (annotation.anchorPositions.length === 1
@@ -28,13 +33,75 @@ class AnnotationHighlight {
         } else {
           highlightType = 'others-' + type
         }
+        
+        if (!highlightTypes[highlightType]) {
+          highlightTypes[highlightType] = {}
+        }
 
         annotation.anchorPositions.forEach(position => {
-          position.type = type
-          position.highlightType = highlightType
-          highlights.push(position)
+          //position.type = type
+          //position.highlightType = highlightType
+          //highlights.push(position)
+          let {paragraph_id, start_pos, end_pos} = position
+          if (!paragraph_id) {
+            return null
+          }
+          
+          if (!highlightTypes[highlightType][paragraph_id]) {
+            highlightTypes[highlightType][paragraph_id] = {}
+          }
+          
+          for (let i = start_pos; i <= end_pos; i++) {
+            highlightTypes[highlightType][paragraph_id][i] = true
+          }
         })
       })
+      
+      // -------------------------------------------
+      // 再來重新合併
+      let highlights = []
+
+      for (let highlightType in highlightTypes) {
+        let type = highlightType.slice(highlightType.indexOf('-') + 1)
+        for (let paragraph_id in highlightTypes[highlightType]) {
+          let highlight = {
+            type,
+            highlightType,
+            paragraph_id
+          }
+          let lastI = null
+          for (let i in highlightTypes[highlightType][paragraph_id]) {
+            i = TypeHelper.parseInt(i)
+            if (lastI === null) {
+              highlight.start_pos = i
+              lastI = i
+            }
+            else if (lastI === (i - 1) ) {
+              lastI = i
+            }
+            else {
+              // 跳下一個開始了
+              highlight.end_pos = lastI
+              highlights.push(highlight)
+              
+              highlight = {
+                type,
+                highlightType,
+                paragraph_id,
+                start_pos: i
+              }
+              lastI = i
+            }
+          } // for (let i in highlightTypes[highlightType][paragraph_id]) {
+          
+          if (typeof(highlight.start_pos) === 'number'
+                  && typeof(lastI) === 'number' ) {
+            highlight.end_pos = lastI
+            highlights.push(highlight)
+          }
+        }
+      }
+      
       //console.log(highlights.length)
       return highlights
     }

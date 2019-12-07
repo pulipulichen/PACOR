@@ -45,7 +45,7 @@ class Tokenization {
     Model.addHook('afterSave', async (instance) => {
       //console.log(instance[toField])
       if (instance[toField]
-              || (typeof(instance[toField]) === 'object' && Object.keys(instance[toField]).length > 0)) {
+              || (typeof(instance[toField]) === 'object' && instance[toField] !== null && Object.keys(instance[toField]).length > 0)) {
         return false
       }
       let html = instance[fromField]

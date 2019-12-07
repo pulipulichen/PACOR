@@ -53,6 +53,8 @@ class Highlight {
     return await AnnotationModel.getOthersHighlightsByWebpageGroup(webpage, user, query, session)
   }
   
+  // ---------------------------------------------
+  
   /**
    * 測試用
    * @param {type} request
