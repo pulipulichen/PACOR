@@ -4145,6 +4145,19 @@ let StringHelper = {
             || s.startsWith('http://')
             || s.startsWith('https://')
             || s.startsWith('/'))
+  },
+  htmlTrim(html) {
+    while (html.indexOf('<p>&nbsp;') > -1) {
+      let reg = new RegExp('<p>&nbsp;', 'g')
+      html = html.replace(reg, '<p>')
+    }
+    
+    while (html.indexOf('&nbsp;</p>') > -1) {
+      let reg = new RegExp('&nbsp;</p>', 'g')
+      html = html.replace(reg, '</p>')
+    }
+    
+    return html
   }
 }
 

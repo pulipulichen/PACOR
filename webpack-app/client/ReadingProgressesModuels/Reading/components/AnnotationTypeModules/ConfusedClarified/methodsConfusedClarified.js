@@ -34,7 +34,7 @@ export default (Editor) => {
       let q = this._convertQuestionTemplate(question.template)
       this.$refs.QuestionEditor.html(q)
       this.question = q
-      this.questionReset = q
+      this.questionReset = this.lib.StringHelper.htmlTrim(q)
       this.recommandResourceSearchIndex = question.searchIndex
     },
     
@@ -218,6 +218,7 @@ export default (Editor) => {
       }
       
       this.answer = commentNote
+      this.answerReset = this.lib.StringHelper.htmlTrim(commentNote)
       this.$refs.AnswerEditor.html(this.answer)
     }
   } // methods

@@ -11221,7 +11221,7 @@ __webpack_require__.r(__webpack_exports__);
       let q = this._convertQuestionTemplate(question.template)
       this.$refs.QuestionEditor.html(q)
       this.question = q
-      this.questionReset = q
+      this.questionReset = this.lib.StringHelper.htmlTrim(q)
       this.recommandResourceSearchIndex = question.searchIndex
     },
     
@@ -11405,6 +11405,7 @@ __webpack_require__.r(__webpack_exports__);
       }
       
       this.answer = commentNote
+      this.answerReset = this.lib.StringHelper.htmlTrim(commentNote)
       this.$refs.AnswerEditor.html(this.answer)
     }
   } // methods
@@ -11440,10 +11441,10 @@ __webpack_require__.r(__webpack_exports__);
         })
       
         this.question = question
-        this.questionReset = question
+        this.questionReset = this.lib.StringHelper.htmlTrim(question)
         
         this.answer = answer
-        this.answerReset = answer
+        this.answerReset = this.lib.StringHelper.htmlTrim(answer)
         
         //console.log(answer)
       }
@@ -11551,9 +11552,13 @@ let Editor = {
 //    },
     isNoteDifferent () {
       //let note = this.lib.StringHelper.htmlToText(this.note).trim()
-      //console.log([note, this.noteReset, (this.note !== this.noteReset)])
+      //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
+      let note = this.lib.StringHelper.htmlTrim(this.note)
+      //let noteReset = this.lib.StringHelper.htmlTrim(this.noteReset)
+      //console.log([note, this.noteReset, (note !== this.noteReset)])
+      
       //return (note !== this.noteReset)
-      return (this.note !== this.noteReset)
+      return (note !== this.noteReset)
     },
     
     isEnableSubmitAdd () {
@@ -11611,7 +11616,7 @@ let Editor = {
             && Array.isArray(annotation.notes)
             && annotation.notes.length > 0) {
         this.note = annotation.notes[0].note
-        this.noteReset = this.note
+        this.noteReset = this.lib.StringHelper.htmlTrim(this.note)
         this.$refs.editor.html(this.note)
       }
     },
@@ -11634,7 +11639,7 @@ let Editor = {
       note = this.lib.StringHelper.removePunctuations(note).trim()
       note = `<p>${note}</p>`
       this.note = note
-      this.noteReset = note
+      this.noteReset = this.lib.StringHelper.htmlTrim(note)
       if (this.$refs.editor) {
         this.$refs.editor.html(this.note)
       }
@@ -11807,9 +11812,13 @@ let Editor = {
 //    },
     isNoteDifferent () {
       //let note = this.lib.StringHelper.htmlToText(this.note).trim()
-      //console.log([note, this.noteReset, (this.note !== this.noteReset)])
+      //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
+      let note = this.lib.StringHelper.htmlTrim(this.note)
+      //let noteReset = this.lib.StringHelper.htmlTrim(this.noteReset)
+      //console.log([note, this.noteReset, (note !== this.noteReset)])
+      
       //return (note !== this.noteReset)
-      return (this.note !== this.noteReset)
+      return (note !== this.noteReset)
     },
     
     isEnableSubmitAdd () {
@@ -11867,7 +11876,7 @@ let Editor = {
             && Array.isArray(annotation.notes)
             && annotation.notes.length > 0) {
         this.note = annotation.notes[0].note
-        this.noteReset = this.note
+        this.noteReset = this.lib.StringHelper.htmlTrim(this.note)
         this.$refs.editor.html(this.note)
       }
     },
@@ -11890,7 +11899,7 @@ let Editor = {
       note = this.lib.StringHelper.removePunctuations(note).trim()
       note = `<p>${note}</p>`
       this.note = note
-      this.noteReset = note
+      this.noteReset = this.lib.StringHelper.htmlTrim(note)
       if (this.$refs.editor) {
         this.$refs.editor.html(this.note)
       }
