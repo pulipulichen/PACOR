@@ -5522,11 +5522,9 @@ let AnnotationManager = {
       this.status.progress.highlights = true
     },
     'status.filter.focusUser' () {
-      this.afterTime = null
       this.reloadHighlights()
     },
     'status.filter.findType' () {
-      this.afterTime = null
       this.reloadHighlights()
     }
   },
@@ -5556,7 +5554,9 @@ let AnnotationManager = {
         return null
       }
       
-      let data = {}
+      let data = {
+        sessionToken: this.status.sessionToken
+      }
       if (typeof(this.afterTime) === 'number') {
         data.afterTime = this.afterTime
       }
@@ -10413,10 +10413,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _props__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../props */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/props.js");
 /* harmony import */ var _QuestionTemplate_QuestionTemplate_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QuestionTemplate/QuestionTemplate.vue */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/QuestionTemplate/QuestionTemplate.vue");
 /* harmony import */ var _ResourceSearch_ResourceSearch_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ResourceSearch/ResourceSearch.vue */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/ResourceSearch/ResourceSearch.vue");
-/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./data */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/data.js");
-/* harmony import */ var _computed__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./computed */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/computed.js");
-/* harmony import */ var _watch__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./watch */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/watch.js");
-/* harmony import */ var _methods__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./methods */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/methods.js");
+/* harmony import */ var _dataConfusedClarified__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dataConfusedClarified */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/dataConfusedClarified.js");
+/* harmony import */ var _computedConfusedClarified__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./computedConfusedClarified */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/computedConfusedClarified.js");
+/* harmony import */ var _watchConfusedClarified__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./watchConfusedClarified */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/watchConfusedClarified.js");
+/* harmony import */ var _methodsConfusedClarified__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./methodsConfusedClarified */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/methodsConfusedClarified.js");
 /* harmony import */ var _computed_ComputedConfig__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../computed/ComputedConfig */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/computed/ComputedConfig.js");
 /* harmony import */ var _computed_ComputedButtons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../computed/ComputedButtons */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/computed/ComputedButtons.js");
 /* harmony import */ var _methods_MethodsAnnotation__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../methods/MethodsAnnotation */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/methods/MethodsAnnotation.js");
@@ -10440,16 +10440,16 @@ let Editor = {
 }
 
 
-Object(_data__WEBPACK_IMPORTED_MODULE_3__["default"])(Editor)
+Object(_dataConfusedClarified__WEBPACK_IMPORTED_MODULE_3__["default"])(Editor)
 
 
-Object(_computed__WEBPACK_IMPORTED_MODULE_4__["default"])(Editor)
+Object(_computedConfusedClarified__WEBPACK_IMPORTED_MODULE_4__["default"])(Editor)
 
 
-Object(_watch__WEBPACK_IMPORTED_MODULE_5__["default"])(Editor)
+Object(_watchConfusedClarified__WEBPACK_IMPORTED_MODULE_5__["default"])(Editor)
 
 
-Object(_methods__WEBPACK_IMPORTED_MODULE_6__["default"])(Editor)
+Object(_methodsConfusedClarified__WEBPACK_IMPORTED_MODULE_6__["default"])(Editor)
 
 
 Object(_computed_ComputedConfig__WEBPACK_IMPORTED_MODULE_7__["default"])(Editor)
@@ -10957,10 +10957,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/computed.js":
-/*!****************************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/computed.js ***!
-  \****************************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/computedConfusedClarified.js":
+/*!*********************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/computedConfusedClarified.js ***!
+  \*********************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -10970,8 +10970,9 @@ __webpack_require__.r(__webpack_exports__);
   Editor.computed = {
 
     isQuestionEdited() {
-      let note = this.lib.StringHelper.htmlToText(this.question).trim()
-      return (note !== this.questionReset)
+      //let note = this.lib.StringHelper.htmlToText(this.question).trim()
+      //return (note !== this.questionReset)
+      return (this.question !== this.questionReset)
     },
 
 //    isQuestionSubmitted() {
@@ -10993,8 +10994,9 @@ __webpack_require__.r(__webpack_exports__);
     // ----------------------------------
 
     isAnswerEdited() {
-      let note = this.lib.StringHelper.htmlToText(this.answer).trim()
-      return (note !== this.answerReset)
+      //let note = this.lib.StringHelper.htmlToText(this.answer).trim()
+      //return (note !== this.answerReset)
+      return (this.answer !== this.answerReset)
     },
 
     isAnswerSubmitted() {
@@ -11109,10 +11111,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/data.js":
-/*!************************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/data.js ***!
-  \************************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/dataConfusedClarified.js":
+/*!*****************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/dataConfusedClarified.js ***!
+  \*****************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11174,10 +11176,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/methods.js":
-/*!***************************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/methods.js ***!
-  \***************************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/methodsConfusedClarified.js":
+/*!********************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/methodsConfusedClarified.js ***!
+  \********************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11410,10 +11412,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/watch.js":
-/*!*************************************************************************************************************************!*\
-  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/watch.js ***!
-  \*************************************************************************************************************************/
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/watchConfusedClarified.js":
+/*!******************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/components/AnnotationTypeModules/ConfusedClarified/watchConfusedClarified.js ***!
+  \******************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11548,9 +11550,10 @@ let Editor = {
 //      return (this.annotationConfig.defaultPermission === 'public')
 //    },
     isNoteDifferent () {
-      let note = this.lib.StringHelper.htmlToText(this.note).trim()
+      //let note = this.lib.StringHelper.htmlToText(this.note).trim()
       //console.log([note, this.noteReset, (this.note !== this.noteReset)])
-      return (note !== this.noteReset)
+      //return (note !== this.noteReset)
+      return (this.note !== this.noteReset)
     },
     
     isEnableSubmitAdd () {
@@ -11629,6 +11632,7 @@ let Editor = {
       
       let note = this.lib.RangyManager.getPinSelectionAnchorText()
       note = this.lib.StringHelper.removePunctuations(note).trim()
+      note = `<p>${note}</p>`
       this.note = note
       this.noteReset = note
       if (this.$refs.editor) {
@@ -11802,9 +11806,10 @@ let Editor = {
 //      return (this.annotationConfig.defaultPermission === 'public')
 //    },
     isNoteDifferent () {
-      let note = this.lib.StringHelper.htmlToText(this.note).trim()
+      //let note = this.lib.StringHelper.htmlToText(this.note).trim()
       //console.log([note, this.noteReset, (this.note !== this.noteReset)])
-      return (note !== this.noteReset)
+      //return (note !== this.noteReset)
+      return (this.note !== this.noteReset)
     },
     
     isEnableSubmitAdd () {
@@ -11883,6 +11888,7 @@ let Editor = {
       
       let note = this.lib.RangyManager.getPinSelectionAnchorText()
       note = this.lib.StringHelper.removePunctuations(note).trim()
+      note = `<p>${note}</p>`
       this.note = note
       this.noteReset = note
       if (this.$refs.editor) {

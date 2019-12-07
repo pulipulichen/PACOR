@@ -46,9 +46,10 @@ let Editor = {
 //      return (this.annotationConfig.defaultPermission === 'public')
 //    },
     isNoteDifferent () {
-      let note = this.lib.StringHelper.htmlToText(this.note).trim()
+      //let note = this.lib.StringHelper.htmlToText(this.note).trim()
       //console.log([note, this.noteReset, (this.note !== this.noteReset)])
-      return (note !== this.noteReset)
+      //return (note !== this.noteReset)
+      return (this.note !== this.noteReset)
     },
     
     isEnableSubmitAdd () {
@@ -127,6 +128,7 @@ let Editor = {
       
       let note = this.lib.RangyManager.getPinSelectionAnchorText()
       note = this.lib.StringHelper.removePunctuations(note).trim()
+      note = `<p>${note}</p>`
       this.note = note
       this.noteReset = note
       if (this.$refs.editor) {

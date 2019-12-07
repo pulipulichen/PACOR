@@ -38,13 +38,14 @@ class AnnotationHighlightOthers {
           area = this._createEmptyArea()
         }
         
-        highlights.forEach(highlight => {
-          this._analyzeHighlightArticleArea(area, highlight)
-          this._analyzeHighlightParagraphArea(area, highlight)
-        })
-        
-        if (highlights.length === 0) {
+        if (highlights.length === 0 || highlights.length < 50) {
           area.keepSearch = false
+        }
+        else {
+          highlights.forEach(highlight => {
+            this._analyzeHighlightArticleArea(area, highlight)
+            this._analyzeHighlightParagraphArea(area, highlight)
+          })
         }
         
         session.put('highlightArea.' + sessionToken, area)

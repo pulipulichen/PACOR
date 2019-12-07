@@ -17,16 +17,16 @@ let Editor = {
   //methods: 
 }
 
-import data from './data'
+import data from './dataConfusedClarified'
 data(Editor)
 
-import computed from './computed'
+import computed from './computedConfusedClarified'
 computed(Editor)
 
-import watch from './watch'
+import watch from './watchConfusedClarified'
 watch(Editor)
 
-import methods from './methods'
+import methods from './methodsConfusedClarified'
 methods(Editor)
 
 import ComputedConfig from './../computed/ComputedConfig'

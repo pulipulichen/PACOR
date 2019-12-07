@@ -24,6 +24,11 @@ class AnnotationNote extends Model {
   static get hidden () {
     return ['annotation_id', 'created_at', 'updated_at', 'properties', 'id']
   }
+  
+  setNote (note) {
+    this.properties = null
+    return note
+  }
 }
 
 module.exports = AnnotationNote

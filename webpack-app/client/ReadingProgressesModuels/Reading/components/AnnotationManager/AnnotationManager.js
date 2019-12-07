@@ -81,11 +81,9 @@ let AnnotationManager = {
       this.status.progress.highlights = true
     },
     'status.filter.focusUser' () {
-      this.afterTime = null
       this.reloadHighlights()
     },
     'status.filter.findType' () {
-      this.afterTime = null
       this.reloadHighlights()
     }
   },
@@ -115,7 +113,9 @@ let AnnotationManager = {
         return null
       }
       
-      let data = {}
+      let data = {
+        sessionToken: this.status.sessionToken
+      }
       if (typeof(this.afterTime) === 'number') {
         data.afterTime = this.afterTime
       }
