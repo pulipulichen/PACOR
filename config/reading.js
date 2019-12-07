@@ -90,7 +90,18 @@ module.exports = {
         enableCollaboration: true,
         enableControlPermission: false,
         defaultPermission: 'public',
-        eanbleSectionAnnotation: true
+        eanbleSectionAnnotation: true,
+        
+        /**
+         * 每次讀取其他人highlight的數量限制
+         */
+        otherHighlightBatchSize: 10,
+        
+        /**
+         * 每次讀取其他人highlight的數量間隔，單位是毫秒
+         */
+        //otherHighlightBatchInterval: 300000
+        otherHighlightBatchInterval: 3000
       },
       debug: {
         countdownPause: true

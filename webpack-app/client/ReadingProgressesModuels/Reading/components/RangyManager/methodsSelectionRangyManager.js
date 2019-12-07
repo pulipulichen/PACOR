@@ -81,7 +81,7 @@ export default (RangyManager) => {
           //selection.anchorPosition.paragraph_seq_id = parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10)
           //selection.anchorPosition.paragraph_id = parentParagraph.attr('id')
           
-          position.paragraph_seq_id = parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10)
+          position.seq_id = parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10)
           
           //if (paragraph_seq_id.indexOf(seqID) === -1) {
           //  paragraph_seq_id.push(seqID)

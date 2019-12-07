@@ -5,57 +5,149 @@ const Cache = use('Cache')
 class AnnotationHighlightOthers {
 
   register(Model) {
-    Model.getOthersHighlightsByWebpageGroup = async function (webpage, user, query, session) {
+    
+    Model.getOthersHighlightsArrayByWebpageGroup = async function (webpage, user, options, session) {
+      const doQuery = async () => {
+        //console.log('getOthersHighlightsArrayByWebpageGroup', 1)
+        //console.log('getOthersHighlightsArrayByWebpageGroup', options)
+        if (!options) {
+          options = {}
+        }
+        
+        let config = await user.getCurrentReadingProgressStepAnnotationConfig(webpage)
+        let limit = config.otherHighlightBatchSize
+        if (typeof(limit) !== 'number') {
+          console.error('config.otherHighlightBatchSize is not a number')
+          console.log(config)
+          return false
+        }
+        
+        options.limit = limit
+        options.exceptTypes = ['SectionMainIdea']
+        
+        let area = await Model._getAreaFromSession(webpage, user, options, session, user)
+        if (area && area.keepSearch) {
+          options.exceptArea = area
+        }
+        
+        let annotations = await this.findOthersByWebpageGroup(webpage, user, options)
+        //console.log('getOthersHighlightsArrayByWebpageGroup', 2)
+        let highlights = this._convertToHighlighArray(annotations, user)
+        console.log('getOthersHighlightsArrayByWebpageGroup', JSON.stringify(highlights, null, 2))
+        
+        this._analyzeHighlighsArea(highlights, options, session, webpage, user)
+        
+        return highlights
+      }
+      
+      return await doQuery()
+      /*
+      if (options !== undefined) {
+        return await doQuery()
+      } else {
+        let cacheKey = Cache.key(`Annotation.getOthersHighlightsArrayByWebpageGroup`, webpage, user)
+        return await Cache.rememberWait([webpage, user, 'Annotation'], cacheKey, 2, async () => {
+          let result = await doQuery()
+          //await Cache.put(cacheKey, result, 2)
+          return result
+        })  // return await Cache.get(cacheKey, async () => {
+      }
+       */
+    }
+    
+    Model._getAreaFromSession = async function (webpage, user, query, session) {
       let area
       let { afterTime, sessionToken } = query
+      //console.log('_getAreaFromSession', query)
       if (afterTime) {
         if (sessionToken) {
-          area = session.get('highlightArea.' + sessionToken)
+          //area = session.get('ha.' + sessionToken)
+          let cacheKey = Cache.key('highlightArea', sessionToken)
+          area = await Cache.getWithTags([webpage, user, 'Highlight'], cacheKey)
+          //console.log('_getAreaFromSession 3', 'ha.' + sessionToken, area)
         }
+        //console.log('_getAreaFromSession 4', area)
         if (area && area.keepSearch) {
-          query.exceptArea = area
+          return area
         }
       }
-      else {
-        session.forget('highlightArea.' + sessionToken)
+      //else {
+        //session.forget('ha.' + sessionToken)
+        //await 
+      //}
+    }
+    
+    Model.getOthersHighlightsByWebpageGroup = async function (webpage, user, query, session) {
+      let area = await Model._getAreaFromSession(webpage, user, query, session)
+      //console.log('getOthersHighlightsByWebpageGroup', 1, area)
+      if (area && area.keepSearch) {
+        query.exceptArea = area
       }
       
-      let highlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, query)
+      //console.log('getOthersHighlightsByWebpageGroup', 2, JSON.stringify(query, null, 2))
       
-      this._analyzeHighlighsArea(highlights, query, session)
+      let highlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, query, session)
+      console.log(highlights.length)
+      this._analyzeHighlighsArea(highlights, query, session, webpage, user)
       
       return this._convertHighlighArrayToString(highlights, webpage, user)
     }
     
-    Model._analyzeHighlighsArea = async function (highlights, query, session) {
+    Model._analyzeHighlighsArea = async function (highlights, query, session, webpage, user) {
+      //console.log('_analyzeHighlighsArea', 1, highlights.length)
       return new Promise(async (resolve, reject) => {
         let area
+        
+        
         let { sessionToken } = query
+        let cacheKey = Cache.key('highlightArea', sessionToken)
+        
         if (sessionToken) {
-          area = session.get('highlightArea.' + sessionToken)
-        }
-        if (!area) {
-          area = this._createEmptyArea()
+          //area = session.get('ha.' + sessionToken)
+          
+          area = await Cache.getWithTags([webpage, user, 'highlight'], cacheKey, this._createEmptyArea())
         }
         
-        if (highlights.length === 0 || highlights.length < 50) {
+        //let config = await webpage.getConfig()
+        let config = await user.getCurrentReadingProgressStepAnnotationConfig(webpage)
+        let limit = config.otherHighlightBatchSize
+        if (typeof(limit) !== 'number') {
+          console.error('config.otherHighlightBatchSize is not a number')
+          console.log(config)
+          return false
+        }
+        
+        //console.log('_analyzeHighlighsArea', 2, highlights.length)
+        //if (highlights.length === 0 || highlights.length < limit) {
+        if (false) {
           area.keepSearch = false
         }
         else {
           highlights.forEach(highlight => {
+            //console.log('highlights.forEach(highlight => {', 3, highlight)
             this._analyzeHighlightArticleArea(area, highlight)
             this._analyzeHighlightParagraphArea(area, highlight)
           })
         }
         
-        session.put('highlightArea.' + sessionToken, area)
+        //console.log('put session', 'ha.' + sessionToken)
+        //console.log('area', area)
+        //session.put('ha.' + sessionToken, area)
+        //session.commit()
+        
+        //await Cache.getWithTags([webpage, user, 'Highlight'], cacheKey)
+        
+        
+        await Cache.foreverWithTags([webpage, user, 'Highlight'], cacheKey, area)
+        resolve(true)
       })  // return new Promise(async (resolve, reject) => {
     } // Model._analyzeHighlighsArea = async function (highlights, query, session) {
     
     Model._analyzeHighlightArticleArea = function (area, highlight) {
+      //console.log(JSON.stringify(highlight, null, 2))
       let { seq_id } = highlight
       
-      if (!seq_id) {
+      if (typeof(seq_id) !== 'number') {
         throw new Error('highlight lost seq_id')
       }
           
@@ -80,7 +172,7 @@ class AnnotationHighlightOthers {
       
       let paragraphArea
       if (!area.paragraphs[seq_id]) {
-        area.paragraphs[seq_id] = this._createEmptyParagraphArea
+        area.paragraphs[seq_id] = this._createEmptyParagraphArea()
       }
       paragraphArea = area.paragraphs[seq_id]
       
@@ -97,16 +189,17 @@ class AnnotationHighlightOthers {
       }
       
       // ------------------------
+      let highlights = {}
       for (let i = start_pos; i <= end_pos; i++) {
-        if (!paragraphArea.highlights[i]) {
-          paragraphArea.highlights[i] = true
+        if (!highlights[i]) {
+          highlights[i] = true
         }
       }
       
       let gap = []
       paragraphArea.gaps = []
       for (let i = paragraphArea.minPos + 2; i < paragraphArea.maxPos - 1; i++) {
-        if (paragraphArea.highlights[i]) {
+        if (highlights[i]) {
           if (typeof(gap[0]) !== 'number') {
             continue
           }
@@ -144,7 +237,7 @@ class AnnotationHighlightOthers {
         maxPos: null,
         // 由兩兩數字組成，表示這兩個數字是空格的開頭與結尾
         gaps: [],
-        highlights: {},
+        //highlights: {},
       }
     }
   } // register (Model) {

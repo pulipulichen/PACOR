@@ -30,6 +30,7 @@ class AnnotationCommentSave {
       
       let annotation = await AnnotationModel.find(annotationID)
       if (annotation.webpage_id !== webpage.primaryKeyValue) {
+        console.error('AnnotationComment/AnnotationCommentSave.createFromJSON() Forbidden')
         throw new HttpException('Forbidden', 403)
       }
       
@@ -41,7 +42,7 @@ class AnnotationCommentSave {
       comment.annotation_id = annotationID
       comment.user_id = user.primaryKeyValue
       comment.note = note
-      
+      //console.log('before comment save()')
       await comment.save()
       
       /**
@@ -53,10 +54,12 @@ class AnnotationCommentSave {
           replyToCommentIDList = [replyToCommentIDList]
         }
         
-        await comment.replyToComments().create(replyToCommentIDList)
+        comment.replyToComments().create(replyToCommentIDList)
       }
       
       //console.log('AnnotationCommentSave 這邊應該要加入通知')
+      //console.log('webpage.addNotification()')
+      
       webpage.addNotification(user, {
         notifiedUserID: annotation.user_id,
         triggerInstance: comment,

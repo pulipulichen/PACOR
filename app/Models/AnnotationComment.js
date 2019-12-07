@@ -99,10 +99,10 @@ class AnnotationComment extends Model {
     return note
   }
   
-  setNote (note) {
-    this.properties = null
-    return note
-  }
+//  setNote (note) {
+//    this.properties = null
+//    return note
+//  }
 }
 
 module.exports = AnnotationComment

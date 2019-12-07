@@ -23,10 +23,10 @@ class Highlight {
    * @param {User} user
    * @returns {Object}
    */
-  async highlights ({request, webpage, user}) {
+  async highlights ({request, webpage, user, session}) {
     let query = request.all()
     //console.log(query)
-    return await AnnotationModel.getHighlightsByWebpageGroup(webpage, user, query)
+    return await AnnotationModel.getHighlightsByWebpageGroup(webpage, user, query, session)
   }
   
   /**

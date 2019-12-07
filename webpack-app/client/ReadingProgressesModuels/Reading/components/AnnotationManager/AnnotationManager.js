@@ -4,6 +4,8 @@ import AnnotationTypeSelector from './AnnotationTypeSelector/AnnotationTypeSelec
 import AnnotationFloatWidget from './AnnotationFloatWidget/AnnotationFloatWidget.vue'
 //import SectionAnnotationManager from './SectionAnnotationManager/SectionAnnotationManager.vue'
 
+let reloadCount = 0
+
 let AnnotationManager = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -17,7 +19,8 @@ let AnnotationManager = {
 //      annotationModule: null,
       //annotationModule: 'MainIdea', // for test
       afterTime: null,
-      loadHighlightInterval: 60 * 1000,
+      //loadHighlightInterval: 60 * 1000,
+      loadHighlightInterval: this.lib.auth.currentStepAnnotationConfig.otherHighlightBatchInterval
       
 //      highlightPos: null,
 //      highlightEvent: null,
@@ -130,7 +133,7 @@ let AnnotationManager = {
       }
       
       //console.log(result)
-      this.afterTime = (new Date()).getTime()
+      
       if (result !== 0) {
         await this.lib.RangyManager.deserializeAppend(result)
       }
@@ -142,9 +145,26 @@ let AnnotationManager = {
         return false
       }
       
-      setTimeout(() => {
-        this.loadHighlights()
-      }, this.loadHighlightInterval)
+      //return false  // 先不要reload
+      //if (this.afterTime) {
+        //console.log('@TEST Pause reload highlight')
+        //return false // for test
+      //}
+      
+      reloadCount++
+      if (reloadCount === 1) {
+        console.log('@TEST stop reload highlights')
+        return false
+      }
+      
+      //console.log(this.loadHighlightInterval)
+      if (typeof(this.loadHighlightInterval) === 'number') {
+        setTimeout(() => {
+          this.loadHighlights()
+        }, this.loadHighlightInterval)
+      }
+      
+      this.afterTime = (new Date()).getTime()
     },
     reloadHighlights () {
       this.afterTime = null

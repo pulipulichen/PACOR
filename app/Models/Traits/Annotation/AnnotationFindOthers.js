@@ -8,6 +8,7 @@ const TypeHelper = use('App/Helpers/TypeHelper')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
 const Profiler = use('Profiler')
+const DatabaseHelper = use('App/Helpers/DatabaseHelper')
 
 class AnnotationFind {
 
@@ -36,16 +37,22 @@ class AnnotationFind {
                 .with('anchorPositions')
                 .orderBy('updated_at_unixms', 'desc')
 
-        let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
-        if (types.length > 0) {
-          query.whereIn('type', types)
-        }
-        else {
-          return []
-        }
+        
         
         if (Array.isArray(exceptTypes)) {
           query.whereNotIn('type', exceptTypes)
+        }
+        else if (findType) {
+          this._queryFindType(query, options)
+        }
+        else {
+          let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
+          if (types.length > 0) {
+            query.whereIn('type', types)
+          }
+          else {
+            return []
+          }
         }
         
         limit = TypeHelper.parseInt(limit)
@@ -65,7 +72,7 @@ class AnnotationFind {
           })
         }
         
-        this._queryFindType(query, options)
+        
         
         // ----------------------------------
         
@@ -96,8 +103,26 @@ class AnnotationFind {
 
         //console.log(query.toSQL())
         
-        let result = await query.fetch()
-        return result
+        //console.log(JSON.stringify(exceptArea, null, 2))
+        //console.log(query.toSQL().toNative())
+        console.log(DatabaseHelper.toSQL(query))
+        //console.log(query.toSQL().toNative().binds)
+        
+        try {
+          let result = await query.fetch()
+          if (result.size() === 0) {
+            throw 'No result'
+          }
+          else {
+            console.log('result', result.size())
+          }
+          return result
+        }
+        catch (e) {
+          console.error('Annotation/AnnotationFindOther.findOthersByWebpageGroup(): ' + e)
+          console.log(query.toSQL().toNative())
+          throw e
+        }
       }
       
       // ---------------------------
@@ -116,14 +141,18 @@ class AnnotationFind {
     } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
     
     Model._quertExceptArea = function (query, area) {
+      //console.log('Model._quertExceptArea', area)
       if (!area || !area.keepSearch) {
+        throw new Error('area is undefined')
         return false
       }
       
-      query.limit(50)
+      //console.log(JSON.stringify(area, null, 2))
+      //query.limit(50)
       
       // 前面會有aftertime撐著
       query.orWhereHas('anchorPositions', builder => {
+        //builder.limit(1)
         builder.where('seq_id', '>', area.article.maxSeqID)
         
         if (area.article.minSeqID > 0) {
@@ -137,18 +166,18 @@ class AnnotationFind {
         for (let seq_id in area.paragraphs) {
           let paragraph = area.paragraphs[seq_id]
           seq_id = parseInt(seq_id, 10)
+          //builder.orWhere('seq_id', seq_id)
           
           builder.orWhere(function () {
             this.where('seq_id', seq_id)
                     .where(function () {
-              
               Model._quertExceptAreaParagraph(this, paragraph)
-              
             })
           })
-          
         } // for (let seq_id in area.paragraphs) {
       })
+      
+      //console.log('Model._quertExceptArea end')
     } // Model._quertExceptArea = function (query, area) {
     
     Model._quertExceptAreaParagraph = function (builder, paragraph) {

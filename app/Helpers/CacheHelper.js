@@ -398,4 +398,19 @@ Cache.forgetWithTags = async function (tags, cacheKey) {
   }
 }
 
+Cache.foreverWithTags = function (tags, cacheKey, value) {
+  tags = filterTags(tags)
+  return Cache.tags(tags).forever(cacheKey, value)
+}
+
+Cache.rememberForeverWithTags = function (tags, cacheKey, callback) {
+  tags = filterTags(tags)
+  return Cache.tags(tags).rememberForever(cacheKey, callback)
+}
+
+Cache.getWithTags = function (tags, cacheKey, defaultValue) {
+  tags = filterTags(tags)
+  return Cache.tags(tags).get(cacheKey, defaultValue)
+}
+
 module.exports = Cache

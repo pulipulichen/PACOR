@@ -15,9 +15,13 @@ class AnnotationHighlight {
         annotations = annotations.toJSON()
       }
       
+      console.log('_convertToHighlighArray', annotations.map(annotation => annotation.id))
+      
       // -------------------------------------------
       
       let highlightTypes = {}
+      
+      let seqIDMap = {}
       
       //console.log(annotations.length)
       annotations.forEach(annotation => {
@@ -42,10 +46,12 @@ class AnnotationHighlight {
           //position.type = type
           //position.highlightType = highlightType
           //highlights.push(position)
-          let {paragraph_id, start_pos, end_pos} = position
+          let {paragraph_id, start_pos, end_pos, seq_id} = position
           if (!paragraph_id) {
             return null
           }
+          
+          seqIDMap[paragraph_id] = seq_id
           
           if (!highlightTypes[highlightType][paragraph_id]) {
             highlightTypes[highlightType][paragraph_id] = {}
@@ -57,6 +63,8 @@ class AnnotationHighlight {
         })
       })
       
+      console.log(seqIDMap)
+      
       // -------------------------------------------
       // 再來重新合併
       let highlights = []
@@ -64,7 +72,10 @@ class AnnotationHighlight {
       for (let highlightType in highlightTypes) {
         let type = highlightType.slice(highlightType.indexOf('-') + 1)
         for (let paragraph_id in highlightTypes[highlightType]) {
+          let seq_id = seqIDMap[paragraph_id]
+          
           let highlight = {
+            seq_id,
             type,
             highlightType,
             paragraph_id
@@ -85,6 +96,7 @@ class AnnotationHighlight {
               highlights.push(highlight)
               
               highlight = {
+                seq_id,
                 type,
                 highlightType,
                 paragraph_id,
@@ -103,6 +115,7 @@ class AnnotationHighlight {
       }
       
       //console.log(highlights.length)
+      //console.log(JSON.stringify(highlights, null, 2))
       return highlights
     }
 
@@ -158,34 +171,9 @@ class AnnotationHighlight {
       return output.join('|')
     }
 
-    Model.getOthersHighlightsArrayByWebpageGroup = async function (webpage, user, options) {
-      const doQuery = async evt => {
-        //console.log('getOthersHighlightsArrayByWebpageGroup', 1)
-        //console.log('getOthersHighlightsArrayByWebpageGroup', options)
-        if (!options) {
-          options = {}
-        }
-        options.limit = 50
-        options.exceptTypes = ['SectionMainIdea']
-        
-        let annotations = await this.findOthersByWebpageGroup(webpage, user, options)
-        //console.log('getOthersHighlightsArrayByWebpageGroup', 2)
-        return this._convertToHighlighArray(annotations, user)
-      }
+    
 
-      if (options !== undefined) {
-        return await doQuery()
-      } else {
-        let cacheKey = Cache.key(`Annotation.getOthersHighlightsArrayByWebpageGroup`, webpage, user)
-        return await Cache.rememberWait([webpage, user, 'Annotation'], cacheKey, 2, async () => {
-          let result = await doQuery()
-          //await Cache.put(cacheKey, result, 2)
-          return result
-        })  // return await Cache.get(cacheKey, async () => {
-      }
-    }
-
-    Model.getHighlightsByWebpageGroup = async function (webpage, user, query) {
+    Model.getHighlightsByWebpageGroup = async function (webpage, user, query, session) {
       //console.log('getHighlightsByWebpageGroup', 1)
       let highlights = await this.getMyHighlightsArrayByWebpageGroup(webpage, user, query)
       if (Array.isArray(highlights) === false) {
@@ -193,7 +181,7 @@ class AnnotationHighlight {
       }
       //console.log(highlights)
       //console.log('getHighlightsByWebpageGroup', 2)
-      let othersHighlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, query)
+      let othersHighlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, query, session)
       //console.log('getHighlightsByWebpageGroup', 3)
       highlights = highlights.concat(othersHighlights)
       //console.log('getHighlightsByWebpageGroup', 4)
@@ -207,10 +195,10 @@ class AnnotationHighlight {
       return this._convertHighlighArrayToString(highlights, webpage, user)
     }
 
-    Model.getOthersHighlightsByWebpageGroup = async function (webpage, user, query, session) {
-      let highlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, query)
-      return this._convertHighlighArrayToString(highlights, webpage, user)
-    }
+//    Model.getOthersHighlightsByWebpageGroup = async function (webpage, user, query, session) {
+//      let highlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, query)
+//      return this._convertHighlighArrayToString(highlights, webpage, user)
+//    }
 
     Model.getMyHighlightsArrayByWebpageGroup = async function (webpage, user, query) {
       const doQuery = async evt => {

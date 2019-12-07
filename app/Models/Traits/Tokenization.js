@@ -42,12 +42,13 @@ class Tokenization {
     /**
      * 似乎是不能這樣做...
      */
+    /*
     Model.addHook('afterSave', async (instance) => {
       //console.log(instance[toField])
-      if (instance[toField]
-              || (typeof(instance[toField]) === 'object' && instance[toField] !== null && Object.keys(instance[toField]).length > 0)) {
+      if (instance[toField] !== null) {
         return false
       }
+      console.log('Tokenization', toField, instance[toField])
       let html = instance[fromField]
       
       let properties = tokenize(html)
@@ -55,19 +56,19 @@ class Tokenization {
       await instance.save()
       //console.log('Tokenization', 4)
     })
-    
-//    Model.addHook('beforeSave', async (instance) => {
-//      console.log(instance[toField])
-////      if (!instance[toField]
-////              || (typeof(instance[toField]) === 'object' && Object.keys(instance[toField]).length === 0)) {
-////        return false
-////      }
-//      let html = instance[fromField]
-//      
-//      let properties = tokenize(html)
-//      instance[toField] = properties
-//      //console.log('Tokenization', 4)
-//    })
+    */
+    Model.addHook('beforeSave', async (instance) => {
+      //console.log(instance[toField])
+//      if (!instance[toField]
+//              || (typeof(instance[toField]) === 'object' && Object.keys(instance[toField]).length === 0)) {
+//        return false
+//      }
+      let html = instance[fromField]
+      
+      let properties = tokenize(html)
+      instance[toField] = properties
+      //console.log('Tokenization', 4)
+    })
   } // register (Model) {
 }
 

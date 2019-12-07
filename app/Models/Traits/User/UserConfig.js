@@ -18,6 +18,19 @@ class UserConfig {
       
       return config
     }
+    
+    Model.prototype.getCurrentReadingProgressStepAnnotationConfig = async function (webpage) {
+      let config = await this.getCurrentReadingProgressStepConfig(webpage)
+      if (!config || !config.annotation) {
+        //throw new Error('config is undefined')
+        let stepName = await this.getCurrentReadingProgressStepName(webpage)
+        if (stepName !== 'PostRecall') {
+          console.error('config is error: ' + stepName)
+        }
+        return undefined
+      }
+      return config.annotation
+    }
 
     Model.prototype.getCurrentReadingProgressStepAnnotationTypes = async function (webpage) {
       let config = await this.getCurrentReadingProgressStepConfig(webpage)

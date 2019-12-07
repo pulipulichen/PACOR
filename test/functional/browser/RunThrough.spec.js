@@ -182,7 +182,7 @@ let config = {
 //  },
 }
 
-config = TestConfig(config, 'e2. 隨意寫標註')
+//config = TestConfig(config, 'e2. 隨意寫標註')
 
 TestBrowser(title, url, config, {
   threads: 1,

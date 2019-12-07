@@ -5445,6 +5445,8 @@ __webpack_require__.r(__webpack_exports__);
 
 //import SectionAnnotationManager from './SectionAnnotationManager/SectionAnnotationManager.vue'
 
+let reloadCount = 0
+
 let AnnotationManager = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -5458,7 +5460,8 @@ let AnnotationManager = {
 //      annotationModule: null,
       //annotationModule: 'MainIdea', // for test
       afterTime: null,
-      loadHighlightInterval: 60 * 1000,
+      //loadHighlightInterval: 60 * 1000,
+      loadHighlightInterval: this.lib.auth.currentStepAnnotationConfig.otherHighlightBatchInterval
       
 //      highlightPos: null,
 //      highlightEvent: null,
@@ -5571,7 +5574,7 @@ let AnnotationManager = {
       }
       
       //console.log(result)
-      this.afterTime = (new Date()).getTime()
+      
       if (result !== 0) {
         await this.lib.RangyManager.deserializeAppend(result)
       }
@@ -5583,9 +5586,26 @@ let AnnotationManager = {
         return false
       }
       
-      setTimeout(() => {
-        this.loadHighlights()
-      }, this.loadHighlightInterval)
+      //return false  // 先不要reload
+      //if (this.afterTime) {
+        //console.log('@TEST Pause reload highlight')
+        //return false // for test
+      //}
+      
+      reloadCount++
+      if (reloadCount === 1) {
+        console.log('@TEST stop reload highlights')
+        return false
+      }
+      
+      //console.log(this.loadHighlightInterval)
+      if (typeof(this.loadHighlightInterval) === 'number') {
+        setTimeout(() => {
+          this.loadHighlights()
+        }, this.loadHighlightInterval)
+      }
+      
+      this.afterTime = (new Date()).getTime()
     },
     reloadHighlights () {
       this.afterTime = null
@@ -11508,7 +11528,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = false
+let debugMockSend = true
 if (debugMockSend === true) {
   console.log('@test debugMockSend')
 }
@@ -11664,6 +11684,9 @@ let Editor = {
       let id = 1
       if (debugMockSend === false) {
         id = await this.lib.AxiosHelper.post('/client/AnnotationSave/create', data)
+      }
+      else {
+        console.log(data)
       }
       //let id = 1
       //console.log(id) // for test
@@ -11768,7 +11791,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = false
+let debugMockSend = true
 if (debugMockSend === true) {
   console.log('@test debugMockSend')
 }
@@ -11924,6 +11947,9 @@ let Editor = {
       let id = 1
       if (debugMockSend === false) {
         id = await this.lib.AxiosHelper.post('/client/AnnotationSave/create', data)
+      }
+      else {
+        console.log(data)
       }
       //let id = 1
       //console.log(id) // for test
@@ -14180,7 +14206,7 @@ __webpack_require__.r(__webpack_exports__);
           //selection.anchorPosition.paragraph_seq_id = parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10)
           //selection.anchorPosition.paragraph_id = parentParagraph.attr('id')
           
-          position.paragraph_seq_id = parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10)
+          position.seq_id = parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10)
           
           //if (paragraph_seq_id.indexOf(seqID) === -1) {
           //  paragraph_seq_id.push(seqID)

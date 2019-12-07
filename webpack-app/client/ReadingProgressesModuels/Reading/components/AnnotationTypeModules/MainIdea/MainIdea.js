@@ -3,7 +3,7 @@ import props from './../props'
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = false
+let debugMockSend = true
 if (debugMockSend === true) {
   console.log('@test debugMockSend')
 }
@@ -159,6 +159,9 @@ let Editor = {
       let id = 1
       if (debugMockSend === false) {
         id = await this.lib.AxiosHelper.post('/client/AnnotationSave/create', data)
+      }
+      else {
+        console.log(data)
       }
       //let id = 1
       //console.log(id) // for test

@@ -15,11 +15,11 @@ let TestConfigHelper = function (config, stopName) {
   let i = 0
   for (let name in config) {
     if (stopNumber && i === stopNumber) {
-      output[name] = createExceptionTest()
+      output[name] = createExceptionTest
       break
     }
     else if (name === stopName) {
-      output[name] = createExceptionTest()
+      output[name] = createExceptionTest
       break
     }
     

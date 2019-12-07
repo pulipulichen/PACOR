@@ -6,11 +6,11 @@ export default function (PACORTestManager) {
     //let min = 4
     //let max = 10
     
-    let min = 4
-    let max = 10
+    //let min = 4
+    //let max = 10
     
-    //let min = 3
-    //let max = 6
+    let min = 3
+    let max = 6
     
     
     let writeAnnotations = min + Math.floor(Math.random() *  (max - min))
