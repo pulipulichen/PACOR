@@ -14,7 +14,7 @@ class AnnotationFind {
 
   register(Model) {
     
-    Model.findOthersByWebpageGroup = async function (webpage, user, options) {
+    Model.findOthersHighlightByWebpageGroup = async function (webpage, user, options) {
       let {
         afterTime,
         focusUserID,
@@ -103,7 +103,7 @@ class AnnotationFind {
 
         
         //console.log(JSON.stringify(exceptArea, null, 2))
-        console.log('findOthersByWebpageGroup', DatabaseHelper.toSQL(query))
+        //console.log('findOthersByWebpageGroup', DatabaseHelper.toSQL(query))
         
         try {
           let result = await query.fetch()
@@ -195,8 +195,8 @@ class AnnotationFind {
                 .orWhereBetween('end_pos', gap)
                 .orWhere(function () {
           // 涵蓋gap
-          this.where('start_pos', '<=', gap[0])
-              .where('end_pos', '>=', gap[1])
+          this.where('start_pos', '<', gap[0])
+              .where('end_pos', '>', gap[1])
         })
       })
     } // Model._quertExceptAreaParagraph = function (builder, paragraph) {

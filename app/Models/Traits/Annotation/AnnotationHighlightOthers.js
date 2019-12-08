@@ -27,12 +27,12 @@ class AnnotationHighlightOthers {
         options.exceptTypes = ['SectionMainIdea']
         
         let area = await Model._getAreaFromSession(webpage, user, options, session, user)
-        this._consoleLogArea('after find', area)
+        //this._consoleLogArea('after find', area)
         if (area && area.keepSearch) {
           options.exceptArea = area
         }
         
-        let annotations = await this.findOthersByWebpageGroup(webpage, user, options)
+        let annotations = await this.findOthersHighlightByWebpageGroup(webpage, user, options)
         //console.log('getOthersHighlightsArrayByWebpageGroup', '最終目標應該要有')
         let highlights = this._convertToHighlighArray(annotations, user)
         //console.log('getOthersHighlightsArrayByWebpageGroup', JSON.stringify(highlights, null, 2))
@@ -118,15 +118,16 @@ class AnnotationHighlightOthers {
         }
         
         //let config = await webpage.getConfig()
-        let config = await user.getCurrentReadingProgressStepAnnotationConfig(webpage)
-        let limit = config.otherHighlightBatchSize
-        if (typeof(limit) !== 'number') {
-          console.error('config.otherHighlightBatchSize is not a number')
-          console.log(config)
-          return false
-        }
+//        let config = await user.getCurrentReadingProgressStepAnnotationConfig(webpage)
+//        let limit = config.otherHighlightBatchSize
+//        if (typeof(limit) !== 'number') {
+//          console.error('config.otherHighlightBatchSize is not a number')
+//          console.log(config)
+//          return false
+//        }
         
         //console.log('_analyzeHighlighsArea', 2, highlights.length)
+        //if (highlights.length === 0 || highlights.length < limit) {
         if (highlights.length === 0) {
         //if (false) {
           area.keepSearch = false
@@ -139,10 +140,7 @@ class AnnotationHighlightOthers {
           })
         }
         
-        //console.log('put session', 'ha.' + sessionToken)
-        this._consoleLogArea('before save', area)
-        //session.put('ha.' + sessionToken, area)
-        //session.commit()
+        //this._consoleLogArea('before save', area)
         
         //await Cache.getWithTags([webpage, user, 'Highlight'], cacheKey)
         
@@ -162,29 +160,35 @@ class AnnotationHighlightOthers {
         let highlightsArray = []
         let highlight = []
         let lastI = null
-        for (let i in area2.paragraphs[seq_id].highlights) {
+        let paragraph = area2.paragraphs[seq_id]
+        for (let i = paragraph.minPos; i <= paragraph.maxPos; i++) {
           lastI = i
-          if (area2.paragraphs[seq_id].highlights[i] === true) {
+          if (paragraph.highlights[i + ''] === true) {
             if (!highlight[0]) {
               highlight[0] = i
             }
           }
           else {
-            highlight[1] = i
-            highlightsArray.push(highlight)
+            if (highlight[0]) {            
+              highlight[1] = i
+              highlightsArray.push(highlight.join('-'))
+
+              highlight = []
+            }
           }
         }
         
         if (highlight[0]) {
           //console.log('最後一個是', lastI)
           highlight[1] = lastI
+          highlightsArray.push(highlight.join('-'))
         }
-        highlightsArray.push(highlight)
         
         area2.paragraphs[seq_id].highlights = highlightsArray
       }
 
-      console.log(message, JSON.stringify(area2, null, 2))
+      //console.log(message, JSON.stringify(area2, null, 2))
+      console.log(message, JSON.stringify(area2.paragraphs, null, 2))
     }
     
     Model._analyzeHighlightArticleArea = function (area, highlight) {
@@ -237,7 +241,10 @@ class AnnotationHighlightOthers {
       
       // ------------------------
       let highlights = paragraphArea.highlights
-      for (let i = start_pos; i <= end_pos; i++) {
+//      if (seq_id === 8) {
+//        console.log(start_pos, end_pos)
+//      }
+      for (let i = start_pos; i < end_pos; i++) {
         i = i + ''
         if (!highlights[i]) {
           highlights[i] = true
@@ -248,8 +255,7 @@ class AnnotationHighlightOthers {
       let gap = []
       paragraphArea.gaps = []
       for (let i = paragraphArea.minPos + 1; i < paragraphArea.maxPos - 1; i++) {
-        i = i + ''
-        if (highlights[i] === true) {
+        if (highlights[i + ''] === true) {
           if (typeof(gap[0]) !== 'number') {
             continue
           }
@@ -260,11 +266,11 @@ class AnnotationHighlightOthers {
             
             gap = []
             //i++
-            continue
+            //continue
           }
         }
         else if (typeof(gap[0]) !== 'number') {
-          gap[0] = i
+          gap[0] = i + 1
         }
       }
     }

@@ -15,7 +15,28 @@ class AnnotationHighlight {
         annotations = annotations.toJSON()
       }
       
-      console.log('_convertToHighlighArray', annotations.map(annotation => annotation.id))
+//      (async function () {
+//        let allIdList = await Cache.get(user.primaryKeyValue + '._convertToHighlighArray', [])
+//        let idList = annotations.map(annotation => annotation.id)
+//        if (idList.length === 0) {
+//          return
+//        }
+//        
+//        idList.forEach(id => {
+//          if (allIdList.indexOf(id) === -1) {
+//            allIdList.push(id)
+//          }
+//          else {
+//            console.error(`${id} is existed.`)
+//          }
+//        })
+//        
+//        await Cache.forever(user.primaryKeyValue + '._convertToHighlighArray', allIdList)
+//
+//        
+//        console.log('_convertToHighlighArray', idList)
+//      })()
+        
       
       // -------------------------------------------
       

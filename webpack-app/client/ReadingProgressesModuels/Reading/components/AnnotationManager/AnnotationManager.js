@@ -151,11 +151,11 @@ let AnnotationManager = {
         //return false // for test
       //}
       
-      reloadCount++
-      if (reloadCount >= 3) {
-        console.log('@TEST stop reload highlights', '數量好像不太對...')
-        return false
-      }
+//      reloadCount++
+//      if (reloadCount >= 30) {
+//        console.log('@TEST stop reload highlights')
+//        return false
+//      }
       
       //console.log(this.loadHighlightInterval)
       if (typeof(this.loadHighlightInterval) === 'number') {
