@@ -480,7 +480,7 @@ var render = function() {
       _c(
         "button",
         {
-          staticClass: "ui button",
+          staticClass: "ui button login-submit",
           class: { disabled: !_vm.isLoginEnable },
           attrs: { type: "button" },
           on: { click: _vm.login }
@@ -923,8 +923,8 @@ let VueController = {
       }
     }
   },
-  created: function () {
-  },
+//  created: function () {
+//  },
   mounted: function () {
     if (typeof(this.$route.query.origin) === 'string' 
             && this.$route.query.origin !== '') {
@@ -938,6 +938,8 @@ let VueController = {
     this.lib.AxiosHelper.setErrorHandler((error) => {
       this.errors.push(error)
     })
+    
+    this.lib.style = this.$refs.style
   },
   methods: {
     loadUsers: async function (origin) {
@@ -979,7 +981,7 @@ window.VueController = VueController
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        ref=\"auth\"></auth>\r\n\r\n  <template v-if=\"progress.display === true && status.needLogin === false\">\r\n    <navigation-items v-bind:config=\"config\"\r\n                v-bind:status=\"status\"\r\n                v-bind:progress=\"progress\"\r\n                v-bind:lib=\"lib\"></navigation-items>\r\n  </template>\r\n\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:lib=\"lib\"\r\n                 v-bind:errors=\"errors\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n\r\n\r\n  <template v-if=\"progress.display === false\">\r\n    <loading></loading>\r\n  </template>\r\n  <template v-else>\r\n    <template v-if=\"status.needLogin === true\">\r\n      <login v-bind:config=\"config\"\r\n             v-bind:status=\"status\"\r\n             v-bind:progress=\"progress\"\r\n             v-bind:lib=\"lib\"></login>\r\n    </template>\r\n    <template v-else>\r\n\r\n      <router-view v-bind:config=\"config\"\r\n                   v-bind:status=\"status\"\r\n                   v-bind:progress=\"progress\"\r\n                   v-bind:lib=\"lib\"></router-view>\r\n    </template>\r\n  </template>\r\n</div>";
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        ref=\"auth\"></auth>\r\n\r\n  <template v-if=\"progress.display === true && status.needLogin === false\">\r\n    <navigation-items v-bind:config=\"config\"\r\n                v-bind:status=\"status\"\r\n                v-bind:progress=\"progress\"\r\n                v-bind:lib=\"lib\"></navigation-items>\r\n  </template>\r\n\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:lib=\"lib\"\r\n                 v-bind:errors=\"errors\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n\r\n  <StyleManager \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"style\">\r\n  </StyleManager>\r\n  \r\n  <!-- ========================================== -->\r\n\r\n  <template v-if=\"progress.display === false\">\r\n    <loading></loading>\r\n  </template>\r\n  <template v-else>\r\n    <template v-if=\"status.needLogin === true\">\r\n      <login v-bind:config=\"config\"\r\n             v-bind:status=\"status\"\r\n             v-bind:progress=\"progress\"\r\n             v-bind:lib=\"lib\"></login>\r\n    </template>\r\n    <template v-else>\r\n\r\n      <router-view v-bind:config=\"config\"\r\n                   v-bind:status=\"status\"\r\n                   v-bind:progress=\"progress\"\r\n                   v-bind:lib=\"lib\"></router-view>\r\n    </template>\r\n  </template>\r\n  \r\n  \r\n</div>";
 
 /***/ }),
 
@@ -1471,6 +1473,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Login_Login_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Login/Login.vue */ "./webpack-app/admin/components/Login/Login.vue");
 /* harmony import */ var _components_NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/NavigationItems/NavigationItems.vue */ "./webpack-app/admin/components/NavigationItems/NavigationItems.vue");
 /* harmony import */ var _components_Loading_Loading_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../components/Loading/Loading.vue */ "./webpack-app/components/Loading/Loading.vue");
+/* harmony import */ var _components_StyleManager_StyleManager_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../components/StyleManager/StyleManager.vue */ "./webpack-app/components/StyleManager/StyleManager.vue");
+
 
 
 
@@ -1483,6 +1487,7 @@ let components = {
   Auth: _components_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
   Login: _components_Login_Login_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
   NavigationItems: _components_NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+  StyleManager: _components_StyleManager_StyleManager_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (components);

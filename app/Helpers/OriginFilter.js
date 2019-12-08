@@ -2,13 +2,19 @@
 
 const Config = use('Config')
 let mapping = Config.get('origin.originMapping')
+const Env = use('Env')
 
 let OriginFilter = function (origin) {
   if (typeof(origin) !== 'string') {
     return '__direct'
   }
 
-  origin = origin.split('/').slice(0,3).join('/')
+  if (origin.startsWith('/') && !origin.startsWith('//')) {
+      origin = Env.get('APP_URL')
+    }
+    else {
+      origin = origin.split('/').slice(0,3).join('/')
+    }
 
   // ---------------------
   // 先把127.0.0.1對應成localhost

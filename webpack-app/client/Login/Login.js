@@ -25,6 +25,7 @@ let Login = {
         return (!this.isUsernameValid)
       }
       else {
+        //console.log(this.isUsernameValid, this.password)
         return (!this.isUsernameValid || this.password === '')
       }
       
@@ -78,9 +79,15 @@ let Login = {
         data.password = this.password
       }
       
-      let result = await this.lib.AxiosHelper.get(`/client/Auth/login`, data)
+      let result
+      result = await this.lib.AxiosHelper.get(`/client/Auth/login`, data, (e) => {
+        window.alert(this.$t('Login failed.'))
+      })
+      
+      //console.log(result)
       
       if (typeof(result) !== 'object') {
+        this.waiting = false
         return false
       }
       

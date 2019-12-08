@@ -118,8 +118,8 @@ let VueController = {
       }
     }
   },
-  created: function () {
-  },
+//  created: function () {
+//  },
   mounted: function () {
     if (typeof(this.$route.query.origin) === 'string' 
             && this.$route.query.origin !== '') {
@@ -133,6 +133,8 @@ let VueController = {
     this.lib.AxiosHelper.setErrorHandler((error) => {
       this.errors.push(error)
     })
+    
+    this.lib.style = this.$refs.style
   },
   methods: {
     loadUsers: async function (origin) {

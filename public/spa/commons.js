@@ -627,7 +627,7 @@ var render = function() {
       "div",
       {
         ref: "Menu",
-        staticClass: "ui brown borderless inverted Navigation",
+        staticClass: "ui borderless inverted Navigation",
         class: _vm.computedClass
       },
       [
@@ -803,6 +803,30 @@ var render = function() {
       )
     ]
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/StyleManager/StyleManager.html?vue&type=template&id=a38ededc&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/StyleManager/StyleManager.html?vue&type=template&id=a38ededc& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("fragment")
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2053,7 +2077,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let Navigation = {
-  props: ['config', 'compactWidth', 'position'],
+  props: ['config', 'compactWidth', 'position', 'color'],
   data() {
     return {
       sideMenuDisplay: false,
@@ -2094,6 +2118,10 @@ let Navigation = {
       
       if (this.isCompactMode === true) {
         classList.push('compact-mode')
+      }
+      
+      if (this.color) {
+        classList.push(this.color)
       }
       
       return classList.join(' ') + ' fixed menu'
@@ -2612,6 +2640,179 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_StepProgressBar_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CStepProgressBar_5CStepProgressBar_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_StepProgressBar_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CStepProgressBar_5CStepProgressBar_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_StepProgressBar_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CStepProgressBar_5CStepProgressBar_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_StepProgressBar_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CStepProgressBar_5CStepProgressBar_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_StepProgressBar_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5CStepProgressBar_5CStepProgressBar_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/StyleManager/StyleManager.html?vue&type=template&id=a38ededc&":
+/*!**********************************************************************************************!*\
+  !*** ./webpack-app/components/StyleManager/StyleManager.html?vue&type=template&id=a38ededc& ***!
+  \**********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_StyleManager_html_vue_type_template_id_a38ededc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./StyleManager.html?vue&type=template&id=a38ededc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/StyleManager/StyleManager.html?vue&type=template&id=a38ededc&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_StyleManager_html_vue_type_template_id_a38ededc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_StyleManager_html_vue_type_template_id_a38ededc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/components/StyleManager/StyleManager.js?vue&type=script&lang=js&?2204":
+/*!**************************************************************************************!*\
+  !*** ./webpack-app/components/StyleManager/StyleManager.js?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _computedStyleManager_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./computedStyleManager.js */ "./webpack-app/components/StyleManager/computedStyleManager.js");
+/* harmony import */ var _methodsStyleManager_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsStyleManager.js */ "./webpack-app/components/StyleManager/methodsStyleManager.js");
+let StyleManager = {
+  props: ['lib', 'status', 'config'],
+  data() {
+    return {
+    }
+  },
+//  components: {
+//  },
+  computed: {
+  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
+  methods: {
+    
+    
+  } // methods
+}
+
+
+Object(_computedStyleManager_js__WEBPACK_IMPORTED_MODULE_0__["default"])(StyleManager)
+
+
+Object(_methodsStyleManager_js__WEBPACK_IMPORTED_MODULE_1__["default"])(StyleManager)
+
+/* harmony default export */ __webpack_exports__["default"] = (StyleManager);
+
+/***/ }),
+
+/***/ "./webpack-app/components/StyleManager/StyleManager.js?vue&type=script&lang=js&?95a5":
+/*!**************************************************************************************!*\
+  !*** ./webpack-app/components/StyleManager/StyleManager.js?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _StyleManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./StyleManager.js?vue&type=script&lang=js& */ "./webpack-app/components/StyleManager/StyleManager.js?vue&type=script&lang=js&?2204");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_StyleManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/StyleManager/StyleManager.vue":
+/*!**************************************************************!*\
+  !*** ./webpack-app/components/StyleManager/StyleManager.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _StyleManager_html_vue_type_template_id_a38ededc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StyleManager.html?vue&type=template&id=a38ededc& */ "./webpack-app/components/StyleManager/StyleManager.html?vue&type=template&id=a38ededc&");
+/* harmony import */ var _StyleManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StyleManager.js?vue&type=script&lang=js& */ "./webpack-app/components/StyleManager/StyleManager.js?vue&type=script&lang=js&?95a5");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _StyleManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _StyleManager_html_vue_type_template_id_a38ededc___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _StyleManager_html_vue_type_template_id_a38ededc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/components/StyleManager/StyleManager.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/components/StyleManager/computedStyleManager.js":
+/*!*********************************************************************!*\
+  !*** ./webpack-app/components/StyleManager/computedStyleManager.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (StyleManager) {
+  
+  StyleManager.computed.isLeftHanded = function () {
+    if (this.status.preference
+            && this.status.preference.leftHanded) {
+      return this.status.preference.leftHanded
+    }
+    return false
+  } // StyleManager.computed.isLeftHanded = function () {
+
+  StyleManager.computed.isEnableAnimate = function () {
+    if (this.status.preference
+            && this.status.preference.enableAnimate) {
+      return this.status.preference.enableAnimate
+    }
+    return true
+  } // StyleManager.computed.isEnableAnimate = function () {
+});
+
+/***/ }),
+
+/***/ "./webpack-app/components/StyleManager/methodsStyleManager.js":
+/*!********************************************************************!*\
+  !*** ./webpack-app/components/StyleManager/methodsStyleManager.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (StyleManager) {
+    
+  StyleManager.methods.isStackWidth = function () {
+    let StackWidth = this.config.StackWidth
+    return (window.innerWidth < StackWidth)
+  }
+  
+  StyleManager.methods.isSmallHeight = function () {
+    return (window.innerHeight < this.config.SmallHeight)
+  }
+  
+  StyleManager.methods.getClientHeight = function (unit) {
+    let height = window.innerHeight
+
+    if (typeof (unit) === 'string') {
+      height = height + unit
+    }
+
+    return height
+  } // StyleManager.methods.getClientHeight = function (unit) {
+});
 
 /***/ }),
 

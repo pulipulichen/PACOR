@@ -81,7 +81,6 @@ module.exports = {
       debug: {
         countdownPause: true
       }
-      
     },
     'CollaborativeReading': {
       message: '/2020exp/CollaborativeReading.html',

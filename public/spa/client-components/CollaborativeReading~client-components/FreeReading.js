@@ -457,7 +457,8 @@ var render = function() {
           status: _vm.status,
           lib: _vm.lib,
           compactWidth: "640",
-          position: "bottom"
+          position: "bottom",
+          color: "brown"
         },
         scopedSlots: _vm._u(
           [

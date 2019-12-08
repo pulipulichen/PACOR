@@ -1,7 +1,7 @@
 import Media from 'vue-media'
 
 let Navigation = {
-  props: ['config', 'compactWidth', 'position'],
+  props: ['config', 'compactWidth', 'position', 'color'],
   data() {
     return {
       sideMenuDisplay: false,
@@ -42,6 +42,10 @@ let Navigation = {
       
       if (this.isCompactMode === true) {
         classList.push('compact-mode')
+      }
+      
+      if (this.color) {
+        classList.push(this.color)
       }
       
       return classList.join(' ') + ' fixed menu'

@@ -40,6 +40,13 @@ config.baseURL = baseURL
 
 let baseScript = $(document.currentScript)
 if (baseScript.length === 1) {
+  
+  //console.log(baseScript[0].src)
+  let testBaseURL = 'http://127.0.0.1:4000/'
+  if (baseScript[0].src.startsWith(testBaseURL)) {
+    config.baseURL = testBaseURL
+  }
+  
   baseScript.before(`<div id="app"></div>`)
 }
 

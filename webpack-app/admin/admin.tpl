@@ -17,6 +17,14 @@
                  v-bind:errors="errors"
                  ref="ErrorHandler"></error-handler>
 
+  <StyleManager 
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+    ref="style">
+  </StyleManager>
+  
+  <!-- ========================================== -->
 
   <template v-if="progress.display === false">
     <loading></loading>
@@ -36,4 +44,6 @@
                    v-bind:lib="lib"></router-view>
     </template>
   </template>
+  
+  
 </div>
