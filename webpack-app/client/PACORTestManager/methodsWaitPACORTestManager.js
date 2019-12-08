@@ -1,10 +1,5 @@
 import $ from 'jquery'
 
-let forceTimeout = true
-if (forceTimeout === true) {
-  console.log('@TODO forceTimeout5min')
-} 
-
 export default function (PACORTestManager) {
   PACORTestManager.methods.waitForElement = async function (selector, options = {}) {
     let {
@@ -13,8 +8,8 @@ export default function (PACORTestManager) {
       errorMessage
     } = options
     
-    if (forceTimeout === true) {
-      timeout = 1 * 60 * 1000 // 先不管，強制試試看
+    if (typeof(this.forceMaxTimeoutMinutes) === 'number') {
+      timeout = this.forceMaxTimeoutMinutes * 60 * 1000 // 先不管，強制試試看
     }
     
     let maxWaitMS = timeout
@@ -85,8 +80,8 @@ export default function (PACORTestManager) {
       errorMessage
     } = options
     
-    if (forceTimeout === true) {
-      timeout = 1 * 60 * 1000 // 先不管，強制試試看
+    if (typeof(this.forceMaxTimeoutMinutes) === 'number') {
+      timeout = this.forceMaxTimeoutMinutes * 60 * 1000 // 先不管，強制試試看
     }
     
     let maxWaitMS = timeout

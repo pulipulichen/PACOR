@@ -13289,8 +13289,8 @@ __webpack_require__.r(__webpack_exports__);
       }
       
       if (!pos.paragraph_id 
-              || !pos.start_pos 
-              || !pos.end_pos) {
+              || typeof(pos.start_pos) !== 'number' 
+              || typeof(pos.end_pos) !== 'number' ) {
         throw new Error('Anchor Positions is not well defined.\n' 
                 + JSON.stringify(pos, null, 2))
       }

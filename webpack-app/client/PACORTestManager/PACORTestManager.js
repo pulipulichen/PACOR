@@ -10,6 +10,13 @@ let PACORTestManager = {
   computed: {
     isTesting () {
       return (typeof(window.PACORTestManagerInteractions) === 'function')
+    },
+    forceMaxTimeoutMinutes () {
+      let forceMaxTimeoutMinutes = this.status.readingConfig.debug.forceMaxTimeoutMinutes
+      if (typeof(forceMaxTimeoutMinutes) === 'number') {
+        console.log('@TEST forceMaxTimeoutMinutes', forceMaxTimeoutMinutes)
+      }
+      return forceMaxTimeoutMinutes
     }
   },
 //  watch: {

@@ -176,6 +176,14 @@ let TestBrowserHelper = function (title, url, config, options) {
     headless = envHeadless
   }
   
+  if (threads > 10) {
+    process.setMaxListeners(0)
+
+    if (headless === false) {
+      console.log(`Threads ${threads} are too much. Force headless = true.`)
+      headless = true
+    }
+  }
   setTraitBrowser(trait, headless)
 
   //console.log(threads, mode)
@@ -214,14 +222,7 @@ let TestBrowserHelper = function (title, url, config, options) {
         ary.push(i)
       }
       
-      if (threads > 10) {
-        process.setMaxListeners(0)
-        
-        if (headless === false) {
-          console.log(`Threads ${threads} are too much. Force headless = true.`)
-          headless = true
-        }
-      }
+      
       
       let errors = []
       await Promise.all(ary.map(async (i) => {

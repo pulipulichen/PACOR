@@ -3,9 +3,10 @@
 //const { HttpException } = use('@adonisjs/generic-exceptions') 
 //const ExceptionHelper = use('App/Helpers/ExceptionHelper')
 
-let forceTimeout5min = true
-if (forceTimeout5min === true){
-  console.log('@TODO forceTimeout5min')
+const forceMaxTimeoutMinutes = use('Config').get('reading').debug.forceMaxTimeoutMinutes
+
+if (typeof(forceMaxTimeoutMinutes) === 'number'){
+  console.log('@TODO forceMaxTimeoutMinutes', forceMaxTimeoutMinutes)
 }
 
 class Profiler {
@@ -27,8 +28,8 @@ class Profiler {
       return false
     }
     
-    if (forceTimeout5min === true) {
-      timeout = 1 * 60
+    if (typeof(forceMaxTimeoutMinutes) === 'number') {
+      timeout = forceMaxTimeoutMinutes * 60
     }
     
     this.timeout = timeout

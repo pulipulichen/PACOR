@@ -3143,6 +3143,13 @@ let PACORTestManager = {
   computed: {
     isTesting () {
       return (typeof(window.PACORTestManagerInteractions) === 'function')
+    },
+    forceMaxTimeoutMinutes () {
+      let forceMaxTimeoutMinutes = this.status.readingConfig.debug.forceMaxTimeoutMinutes
+      if (typeof(forceMaxTimeoutMinutes) === 'number') {
+        console.log('@TEST forceMaxTimeoutMinutes', forceMaxTimeoutMinutes)
+      }
+      return forceMaxTimeoutMinutes
     }
   },
 //  watch: {
@@ -3599,11 +3606,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 
-let forceTimeout = true
-if (forceTimeout === true) {
-  console.log('@TODO forceTimeout5min')
-} 
-
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
   PACORTestManager.methods.waitForElement = async function (selector, options = {}) {
     let {
@@ -3612,8 +3614,8 @@ if (forceTimeout === true) {
       errorMessage
     } = options
     
-    if (forceTimeout === true) {
-      timeout = 1 * 60 * 1000 // 先不管，強制試試看
+    if (typeof(this.forceMaxTimeoutMinutes) === 'number') {
+      timeout = this.forceMaxTimeoutMinutes * 60 * 1000 // 先不管，強制試試看
     }
     
     let maxWaitMS = timeout
@@ -3684,8 +3686,8 @@ if (forceTimeout === true) {
       errorMessage
     } = options
     
-    if (forceTimeout === true) {
-      timeout = 1 * 60 * 1000 // 先不管，強制試試看
+    if (typeof(this.forceMaxTimeoutMinutes) === 'number') {
+      timeout = this.forceMaxTimeoutMinutes * 60 * 1000 // 先不管，強制試試看
     }
     
     let maxWaitMS = timeout

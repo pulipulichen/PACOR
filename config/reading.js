@@ -239,5 +239,8 @@ module.exports = {
         }
       }
     }
+  }, // annotationTypeModules: {
+  debug: {
+    forceMaxTimeoutMinutes: 1
   }
 }
