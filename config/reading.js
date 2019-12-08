@@ -95,13 +95,13 @@ module.exports = {
         /**
          * 每次讀取其他人highlight的數量限制
          */
-        otherHighlightBatchSize: 10,
+        otherHighlightBatchSize: 2,
         
         /**
          * 每次讀取其他人highlight的數量間隔，單位是毫秒
          */
         //otherHighlightBatchInterval: 300000
-        otherHighlightBatchInterval: 3000
+        otherHighlightBatchInterval: 1000
       },
       debug: {
         countdownPause: true

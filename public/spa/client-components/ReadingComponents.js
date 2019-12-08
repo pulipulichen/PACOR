@@ -5593,7 +5593,7 @@ let AnnotationManager = {
       //}
       
       reloadCount++
-      if (reloadCount === 4) {
+      if (reloadCount >= 3) {
         console.log('@TEST stop reload highlights', '數量好像不太對...')
         return false
       }

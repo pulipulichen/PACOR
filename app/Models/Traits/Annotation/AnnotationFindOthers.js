@@ -195,8 +195,8 @@ class AnnotationFind {
                 .orWhereBetween('end_pos', gap)
                 .orWhere(function () {
           // 涵蓋gap
-          this.where('start_pos', '<', gap[0])
-              .where('end_pos', '>', gap[1])
+          this.where('start_pos', '<=', gap[0])
+              .where('end_pos', '>=', gap[1])
         })
       })
     } // Model._quertExceptAreaParagraph = function (builder, paragraph) {

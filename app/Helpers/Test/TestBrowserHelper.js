@@ -7,6 +7,7 @@ let envHeadless = (Env.get('TEST_BROWSER_HEADLESS') === 'true')
 
 const Sleep = use('Sleep')
 const rimraf = use('rimraf')
+const TestConfigHelper = use('App/Helpers/Test/TestConfigHelper')
 
 let closeBlankPage = async function (page) {
   //console.log(JSON.stringify(browser, null, 2))
@@ -151,15 +152,22 @@ let setTraitBrowser = function (trait, headless) {
   })
 }
 
+// ---------------------------------
+
 let TestBrowserHelper = function (title, url, config, options) {
 
   let {
     threads,
     mode,  // sequential, parallel
-    headless
+    headless,
+    stopAt
   } = options
 
   const { test, trait } = use('Test/Suite')(title)
+
+  if (stopAt) {
+    config = TestConfigHelper(config, stopAt)
+  }
 
   trait('Test/ApiClient')
   trait('Session/Client')

@@ -27,6 +27,7 @@ class AnnotationHighlightOthers {
         options.exceptTypes = ['SectionMainIdea']
         
         let area = await Model._getAreaFromSession(webpage, user, options, session, user)
+        this._consoleLogArea('after find', area)
         if (area && area.keepSearch) {
           options.exceptArea = area
         }
@@ -38,7 +39,7 @@ class AnnotationHighlightOthers {
         //console.log('getOthersHighlightsArrayByWebpageGroup', '最終目標應該要有', highlights.length)
         // getOthersHighlightsArrayByWebpageGroup 最終目標應該要有 28
         
-        this._analyzeHighlighsArea(highlights, options, session, webpage, user, area)
+        await this._analyzeHighlighsArea(highlights, options, session, webpage, user, area)
         
         return highlights
       }
@@ -139,7 +140,7 @@ class AnnotationHighlightOthers {
         }
         
         //console.log('put session', 'ha.' + sessionToken)
-        //console.log('area', area)
+        this._consoleLogArea('before save', area)
         //session.put('ha.' + sessionToken, area)
         //session.commit()
         
@@ -150,6 +151,41 @@ class AnnotationHighlightOthers {
         resolve(true)
       })  // return new Promise(async (resolve, reject) => {
     } // Model._analyzeHighlighsArea = async function (highlights, query, session) {
+    
+    Model._consoleLogArea = function (message, area) {
+      if (!area) {
+        return
+      }
+      let area2 = JSON.parse(JSON.stringify(area))
+      for (let seq_id in area2.paragraphs) {
+        //delete area2.paragraphs[seq_id].highlights
+        let highlightsArray = []
+        let highlight = []
+        let lastI = null
+        for (let i in area2.paragraphs[seq_id].highlights) {
+          lastI = i
+          if (area2.paragraphs[seq_id].highlights[i] === true) {
+            if (!highlight[0]) {
+              highlight[0] = i
+            }
+          }
+          else {
+            highlight[1] = i
+            highlightsArray.push(highlight)
+          }
+        }
+        
+        if (highlight[0]) {
+          //console.log('最後一個是', lastI)
+          highlight[1] = lastI
+        }
+        highlightsArray.push(highlight)
+        
+        area2.paragraphs[seq_id].highlights = highlightsArray
+      }
+
+      console.log(message, JSON.stringify(area2, null, 2))
+    }
     
     Model._analyzeHighlightArticleArea = function (area, highlight) {
       //console.log(JSON.stringify(highlight, null, 2))
@@ -179,7 +215,7 @@ class AnnotationHighlightOthers {
       let { seq_id, start_pos, end_pos } = highlight
       
       let paragraphArea
-      if (!area.paragraphs[seq_id] + '') {
+      if (!area.paragraphs[seq_id + '']) {
         area.paragraphs[seq_id + ''] = this._createEmptyParagraphArea()
       }
       paragraphArea = area.paragraphs[seq_id + '']
@@ -188,6 +224,9 @@ class AnnotationHighlightOthers {
       
       if (paragraphArea.minPos === null 
               || paragraphArea.minPos > start_pos) {
+        //if (seq_id === 8) {
+        //  console.log(seq_id, paragraphArea.minPos, start_pos)
+        //}
         paragraphArea.minPos = start_pos
       }
       
@@ -197,17 +236,20 @@ class AnnotationHighlightOthers {
       }
       
       // ------------------------
-      let highlights = {}
+      let highlights = paragraphArea.highlights
       for (let i = start_pos; i <= end_pos; i++) {
+        i = i + ''
         if (!highlights[i]) {
           highlights[i] = true
         }
       }
+      paragraphArea.highlights = highlights
       
       let gap = []
       paragraphArea.gaps = []
-      for (let i = paragraphArea.minPos + 2; i < paragraphArea.maxPos - 1; i++) {
-        if (highlights[i]) {
+      for (let i = paragraphArea.minPos + 1; i < paragraphArea.maxPos - 1; i++) {
+        i = i + ''
+        if (highlights[i] === true) {
           if (typeof(gap[0]) !== 'number') {
             continue
           }
@@ -217,7 +259,7 @@ class AnnotationHighlightOthers {
             paragraphArea.gaps.push(gap)
             
             gap = []
-            i++
+            //i++
             continue
           }
         }
@@ -245,7 +287,7 @@ class AnnotationHighlightOthers {
         maxPos: null,
         // 由兩兩數字組成，表示這兩個數字是空格的開頭與結尾
         gaps: [],
-        //highlights: {},
+        highlights: {},
       }
     }
   } // register (Model) {

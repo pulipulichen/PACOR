@@ -182,8 +182,6 @@ let config = {
 //  },
 }
 
-config = TestConfig(config, 'e2. 隨意寫標註')
-
 TestBrowser(title, url, config, {
   threads: 1,
   //threads: 2, // 完全運作正常
@@ -194,7 +192,8 @@ TestBrowser(title, url, config, {
   //threads: 40,  // 10個錯誤
   mode: 'parallel',
   //headless: true
-  headless: false
+  headless: false,
+  stopAt: 'e2. 隨意寫標註'
 })
 
 // Reset database
