@@ -1,6 +1,7 @@
 'use strict'
 
 const Cache = use('Cache')
+const ExceptionHelper = use('App/Helpers/ExceptionHelper')
 
 class AnnotationHighlightOthers {
 
@@ -31,16 +32,19 @@ class AnnotationHighlightOthers {
         }
         
         let annotations = await this.findOthersByWebpageGroup(webpage, user, options)
-        //console.log('getOthersHighlightsArrayByWebpageGroup', 2)
+        //console.log('getOthersHighlightsArrayByWebpageGroup', '最終目標應該要有')
         let highlights = this._convertToHighlighArray(annotations, user)
-        console.log('getOthersHighlightsArrayByWebpageGroup', JSON.stringify(highlights, null, 2))
+        //console.log('getOthersHighlightsArrayByWebpageGroup', JSON.stringify(highlights, null, 2))
+        //console.log('getOthersHighlightsArrayByWebpageGroup', '最終目標應該要有', highlights.length)
+        // getOthersHighlightsArrayByWebpageGroup 最終目標應該要有 28
         
-        this._analyzeHighlighsArea(highlights, options, session, webpage, user)
+        this._analyzeHighlighsArea(highlights, options, session, webpage, user, area)
         
         return highlights
       }
       
-      return await doQuery()
+      //console.log('getOthersHighlightsArrayByWebpageGroup', '是誰呼叫我？', ExceptionHelper.getStackTraceString())
+      return doQuery()
       /*
       if (options !== undefined) {
         return await doQuery()
@@ -87,25 +91,29 @@ class AnnotationHighlightOthers {
       //console.log('getOthersHighlightsByWebpageGroup', 2, JSON.stringify(query, null, 2))
       
       let highlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, query, session)
-      console.log(highlights.length)
-      this._analyzeHighlighsArea(highlights, query, session, webpage, user)
+      //console.log('重複呼叫了嗎？', highlights.length)
+      //await this._analyzeHighlighsArea(highlights, query, session, webpage, user, area)
       
       return this._convertHighlighArrayToString(highlights, webpage, user)
     }
     
-    Model._analyzeHighlighsArea = async function (highlights, query, session, webpage, user) {
+    Model._analyzeHighlighsArea = async function (highlights, query, session, webpage, user, area) {
       //console.log('_analyzeHighlighsArea', 1, highlights.length)
+      //console.log('_analyzeHighlighsArea', '是誰呼叫我？', ExceptionHelper.getStackTraceString())
       return new Promise(async (resolve, reject) => {
-        let area
-        
-        
+//        let area
+//        
+//        
         let { sessionToken } = query
         let cacheKey = Cache.key('highlightArea', sessionToken)
+//        
+//        if (sessionToken) {
+//          //area = session.get('ha.' + sessionToken)
+//          area = await Cache.getWithTags([webpage, user, 'highlight'], cacheKey, this._createEmptyArea())
+//        }
         
-        if (sessionToken) {
-          //area = session.get('ha.' + sessionToken)
-          
-          area = await Cache.getWithTags([webpage, user, 'highlight'], cacheKey, this._createEmptyArea())
+        if (!area) {
+          area = this._createEmptyArea()
         }
         
         //let config = await webpage.getConfig()
@@ -118,8 +126,8 @@ class AnnotationHighlightOthers {
         }
         
         //console.log('_analyzeHighlighsArea', 2, highlights.length)
-        //if (highlights.length === 0 || highlights.length < limit) {
-        if (false) {
+        if (highlights.length === 0) {
+        //if (false) {
           area.keepSearch = false
         }
         else {
@@ -171,10 +179,10 @@ class AnnotationHighlightOthers {
       let { seq_id, start_pos, end_pos } = highlight
       
       let paragraphArea
-      if (!area.paragraphs[seq_id]) {
-        area.paragraphs[seq_id] = this._createEmptyParagraphArea()
+      if (!area.paragraphs[seq_id] + '') {
+        area.paragraphs[seq_id + ''] = this._createEmptyParagraphArea()
       }
-      paragraphArea = area.paragraphs[seq_id]
+      paragraphArea = area.paragraphs[seq_id + '']
       
       // ----------------------
       
@@ -227,7 +235,7 @@ class AnnotationHighlightOthers {
           maxSeqID: null,
           seqIDList: []
         },
-        paragraphs: []
+        paragraphs: {}
       }
     }
     

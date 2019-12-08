@@ -152,8 +152,8 @@ let AnnotationManager = {
       //}
       
       reloadCount++
-      if (reloadCount === 1) {
-        console.log('@TEST stop reload highlights')
+      if (reloadCount === 4) {
+        console.log('@TEST stop reload highlights', '數量好像不太對...')
         return false
       }
       

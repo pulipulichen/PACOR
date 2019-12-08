@@ -120,7 +120,7 @@ let config = {
     })  // await page.assertFn(async function () {
   },
   'd2. 隨意寫標註': async function ( { assert, client, browser }, page ) {
-    //console.log('暫時跳過'); return
+    console.log('暫時跳過'); return
     //let writeAnnotations = Math.random()
     await page.assertFn(async function () {
       await PACORTestManager.waitForElementVisible('[data-pacor-paragraph-seq-id]')
@@ -182,7 +182,7 @@ let config = {
 //  },
 }
 
-//config = TestConfig(config, 'e2. 隨意寫標註')
+config = TestConfig(config, 'e2. 隨意寫標註')
 
 TestBrowser(title, url, config, {
   threads: 1,

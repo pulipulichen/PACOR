@@ -149,7 +149,7 @@ export default (Editor) => {
       
       //console.log(data)
       
-      let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      let result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
       //let result = 1
       
       //console.log(result) // for test
@@ -190,7 +190,7 @@ export default (Editor) => {
       
       //console.log(data)
       
-      let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      let result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
       //console.log(id) // for test
       if (result !== 1) {
         throw 'Update failed'

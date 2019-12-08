@@ -63,7 +63,7 @@ class AnnotationHighlight {
         })
       })
       
-      console.log(seqIDMap)
+      //console.log(seqIDMap)
       
       // -------------------------------------------
       // 再來重新合併

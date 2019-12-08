@@ -209,7 +209,7 @@ let Editor = {
       
       let result = 0
       if (debugMockSend === false) {
-        result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+        result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
       }
       
       if (result !== 1) {

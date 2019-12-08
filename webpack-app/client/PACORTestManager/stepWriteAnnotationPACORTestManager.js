@@ -9,8 +9,9 @@ export default function (PACORTestManager) {
     //let min = 4
     //let max = 10
     
-    let min = 3
-    let max = 6
+    //let min = 3, max = 6
+    let min = 4, max = 10
+    //let 
     
     
     let writeAnnotations = min + Math.floor(Math.random() *  (max - min))
@@ -48,6 +49,7 @@ export default function (PACORTestManager) {
      
       this.log('撰寫標註：' + (i+1) + '/' + (writeAnnotations) )
       await this.selectAnnotationType(i)
+      await writeAnnotation(i)
       
       await this.sleep(100)
     }

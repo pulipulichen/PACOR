@@ -101,21 +101,18 @@ class AnnotationFind {
         // 
         //console.log('findOthersByWebpageGroup', options)
 
-        //console.log(query.toSQL())
         
         //console.log(JSON.stringify(exceptArea, null, 2))
-        //console.log(query.toSQL().toNative())
-        console.log(DatabaseHelper.toSQL(query))
-        //console.log(query.toSQL().toNative().binds)
+        console.log('findOthersByWebpageGroup', DatabaseHelper.toSQL(query))
         
         try {
           let result = await query.fetch()
-          if (result.size() === 0) {
-            throw 'No result'
-          }
-          else {
-            console.log('result', result.size())
-          }
+//          if (result.size() === 0) {
+//            throw 'No result'
+//          }
+//          else {
+//            console.log('result', result.size())
+//          }
           return result
         }
         catch (e) {
@@ -143,7 +140,7 @@ class AnnotationFind {
     Model._quertExceptArea = function (query, area) {
       //console.log('Model._quertExceptArea', area)
       if (!area || !area.keepSearch) {
-        throw new Error('area is undefined')
+        //throw new Error('area is undefined')
         return false
       }
       
@@ -153,29 +150,35 @@ class AnnotationFind {
       // 前面會有aftertime撐著
       query.orWhereHas('anchorPositions', builder => {
         //builder.limit(1)
-        builder.where('seq_id', '>', area.article.maxSeqID)
-        
-        if (area.article.minSeqID > 0) {
-          builder.orWhere('seq_id', '<', area.article.minSeqID)
-        }
-        
-        builder.orWhereNotIn('seq_id', area.article.seqIDList)
-        
-        // -----------------------------
-        
-        for (let seq_id in area.paragraphs) {
-          let paragraph = area.paragraphs[seq_id]
-          seq_id = parseInt(seq_id, 10)
-          //builder.orWhere('seq_id', seq_id)
-          
-          builder.orWhere(function () {
-            this.where('seq_id', seq_id)
-                    .where(function () {
-              Model._quertExceptAreaParagraph(this, paragraph)
+        builder.where(function () {
+          this.where('seq_id', '>', area.article.maxSeqID)
+
+          if (area.article.minSeqID > 0) {
+            this.orWhere('seq_id', '<', area.article.minSeqID)
+          }
+
+          this.orWhereNotIn('seq_id', area.article.seqIDList)
+
+          // -----------------------------
+
+          for (let seq_id in area.paragraphs) {
+            let paragraph = area.paragraphs[seq_id]
+            if (!paragraph) {
+              continue
+            }
+            seq_id = parseInt(seq_id, 10)
+            //builder.orWhere('seq_id', seq_id)
+
+            this.orWhere(function () {
+              this.where('seq_id', seq_id)
+                      .where(function () {
+                Model._quertExceptAreaParagraph(this, paragraph)
+              })
             })
-          })
-        } // for (let seq_id in area.paragraphs) {
-      })
+          } // for (let seq_id in area.paragraphs) {
+        })  // builder.where(function () {
+        //builder.where('seq_id', '>', area.article.maxSeqID)
+      })  // query.orWhereHas('anchorPositions', builder => {
       
       //console.log('Model._quertExceptArea end')
     } // Model._quertExceptArea = function (query, area) {

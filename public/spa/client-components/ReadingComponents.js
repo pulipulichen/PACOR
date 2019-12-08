@@ -5593,8 +5593,8 @@ let AnnotationManager = {
       //}
       
       reloadCount++
-      if (reloadCount === 1) {
-        console.log('@TEST stop reload highlights')
+      if (reloadCount === 4) {
+        console.log('@TEST stop reload highlights', '數量好像不太對...')
         return false
       }
       
@@ -11356,7 +11356,7 @@ __webpack_require__.r(__webpack_exports__);
       
       //console.log(data)
       
-      let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      let result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
       //let result = 1
       
       //console.log(result) // for test
@@ -11397,7 +11397,7 @@ __webpack_require__.r(__webpack_exports__);
       
       //console.log(data)
       
-      let result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+      let result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
       //console.log(id) // for test
       if (result !== 1) {
         throw 'Update failed'
@@ -11734,7 +11734,7 @@ let Editor = {
       
       let result = 0
       if (debugMockSend === false) {
-        result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+        result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
       }
       
       if (result !== 1) {
@@ -11997,7 +11997,7 @@ let Editor = {
       
       let result = 0
       if (debugMockSend === false) {
-        result = await this.lib.AxiosHelper.post('/client/Annotation/update', data)
+        result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
       }
       
       if (result !== 1) {
