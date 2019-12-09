@@ -1,18 +1,24 @@
-.note ::v-deep {
-   p {
-    line-height: 2em !important;
-    display: inline !important;
-    vertical-align: top;
-  }
+.note {
+  max-height: 6rem;
+  overflow-x: hidden;
+  overflow-y: auto;
   
-  img {
-    max-width: 4em;
-    max-height: 4em;
-    width: auto;
-    height: auto;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-  }
+  ::v-deep {
+    p {
+      line-height: 2em !important;
+      display: inline !important;
+      vertical-align: top;
+    }
+
+    img {
+      max-width: 4em;
+      max-height: 4em;
+      width: auto;
+      height: auto;
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+    }
+  } 
 }
 
 .annotation-item-compact .note ::v-deep {

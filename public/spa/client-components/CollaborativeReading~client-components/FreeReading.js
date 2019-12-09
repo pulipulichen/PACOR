@@ -359,7 +359,7 @@ exports.push([module.i, ".non-invasive-web-style-framework .ui.items > .item.Pee
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".items-list[data-v-1da3f758] {\n  overflow-y: auto;\n  max-height: 100%;\n  padding-bottom: 1em !important;\n}\n.all-item[data-v-1da3f758] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n", "",{"version":3,"sources":["PeerList.less?vue&type=style&index=0&id=1da3f758&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,gBAAgB;EAChB,8BAA8B;AAChC;AACA;EACE,0DAA0D;AAC5D","file":"PeerList.less?vue&type=style&index=0&id=1da3f758&lang=less&scoped=true&","sourcesContent":[".items-list[data-v-1da3f758] {\n  overflow-y: auto;\n  max-height: 100%;\n  padding-bottom: 1em !important;\n}\n.all-item[data-v-1da3f758] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n"]}]);
+exports.push([module.i, ".items-list[data-v-1da3f758] {\n  overflow-y: auto;\n  max-height: calc(100% - 6rem);\n  padding-bottom: 1em !important;\n}\n.all-item[data-v-1da3f758] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n", "",{"version":3,"sources":["PeerList.less?vue&type=style&index=0&id=1da3f758&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,6BAA6B;EAC7B,8BAA8B;AAChC;AACA;EACE,0DAA0D;AAC5D","file":"PeerList.less?vue&type=style&index=0&id=1da3f758&lang=less&scoped=true&","sourcesContent":[".items-list[data-v-1da3f758] {\n  overflow-y: auto;\n  max-height: calc(100% - 6rem);\n  padding-bottom: 1em !important;\n}\n.all-item[data-v-1da3f758] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -1330,7 +1330,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "PeerList" }, [
+  return _c("div", { staticClass: "PeerList content-full-height" }, [
     _c(
       "div",
       { staticClass: "ui link items all-item" },
@@ -1396,7 +1396,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "UserChart" },
+    { staticClass: "UserChart content-full-height" },
     [
       _c("div", { staticClass: "jqcloud-wrapper" }, [
         _c("div", { ref: "jQCloudContainer", staticClass: "jqcloud-container" })
@@ -1699,8 +1699,7 @@ var render = function() {
           config: _vm.config,
           status: _vm.status,
           cancelable: "true",
-          lib: _vm.lib,
-          fullContent: true
+          lib: _vm.lib
         },
         scopedSlots: _vm._u([
           {
