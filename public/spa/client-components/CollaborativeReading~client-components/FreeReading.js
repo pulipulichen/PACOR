@@ -331,7 +331,7 @@ exports.push([module.i, ".floating.label[data-v-50bdb9e1] {\n  padding-top: 0 !i
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".notification-list[data-v-51a28ac8] {\n  max-height: calc(100vh - 26em);\n  overflow-y: auto;\n}\n.trigger-users[data-v-51a28ac8] {\n  text-align: center;\n}\n.trigger-users .column[data-v-51a28ac8] {\n  display: inline-block;\n  vertical-align: middle;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["NotificationModal.less?vue&type=style&index=0&id=51a28ac8&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;EAC9B,gBAAgB;AAClB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,qBAAqB;EACrB,sBAAsB;EACtB,kBAAkB;EAClB,mBAAmB;AACrB","file":"NotificationModal.less?vue&type=style&index=0&id=51a28ac8&lang=less&scoped=true&","sourcesContent":[".notification-list[data-v-51a28ac8] {\n  max-height: calc(100vh - 26em);\n  overflow-y: auto;\n}\n.trigger-users[data-v-51a28ac8] {\n  text-align: center;\n}\n.trigger-users .column[data-v-51a28ac8] {\n  display: inline-block;\n  vertical-align: middle;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n"]}]);
+exports.push([module.i, ".notification-list[data-v-51a28ac8] {\n  max-height: calc(100% - 2em);\n  overflow-y: auto;\n}\n.trigger-users[data-v-51a28ac8] {\n  text-align: center;\n}\n.trigger-users .column[data-v-51a28ac8] {\n  display: inline-block;\n  vertical-align: middle;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["NotificationModal.less?vue&type=style&index=0&id=51a28ac8&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,4BAA4B;EAC5B,gBAAgB;AAClB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,qBAAqB;EACrB,sBAAsB;EACtB,kBAAkB;EAClB,mBAAmB;AACrB","file":"NotificationModal.less?vue&type=style&index=0&id=51a28ac8&lang=less&scoped=true&","sourcesContent":[".notification-list[data-v-51a28ac8] {\n  max-height: calc(100% - 2em);\n  overflow-y: auto;\n}\n.trigger-users[data-v-51a28ac8] {\n  text-align: center;\n}\n.trigger-users .column[data-v-51a28ac8] {\n  display: inline-block;\n  vertical-align: middle;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -359,7 +359,7 @@ exports.push([module.i, ".non-invasive-web-style-framework .ui.items > .item.Pee
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".items-list[data-v-1da3f758] {\n  overflow-y: auto;\n  max-height: calc(100vh - 24em);\n  padding-bottom: 1em !important;\n}\n.all-item[data-v-1da3f758] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n", "",{"version":3,"sources":["PeerList.less?vue&type=style&index=0&id=1da3f758&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,8BAA8B;EAC9B,8BAA8B;AAChC;AACA;EACE,0DAA0D;AAC5D","file":"PeerList.less?vue&type=style&index=0&id=1da3f758&lang=less&scoped=true&","sourcesContent":[".items-list[data-v-1da3f758] {\n  overflow-y: auto;\n  max-height: calc(100vh - 24em);\n  padding-bottom: 1em !important;\n}\n.all-item[data-v-1da3f758] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n"]}]);
+exports.push([module.i, ".items-list[data-v-1da3f758] {\n  overflow-y: auto;\n  max-height: 100%;\n  padding-bottom: 1em !important;\n}\n.all-item[data-v-1da3f758] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n", "",{"version":3,"sources":["PeerList.less?vue&type=style&index=0&id=1da3f758&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,gBAAgB;EAChB,8BAA8B;AAChC;AACA;EACE,0DAA0D;AAC5D","file":"PeerList.less?vue&type=style&index=0&id=1da3f758&lang=less&scoped=true&","sourcesContent":[".items-list[data-v-1da3f758] {\n  overflow-y: auto;\n  max-height: 100%;\n  padding-bottom: 1em !important;\n}\n.all-item[data-v-1da3f758] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -373,7 +373,7 @@ exports.push([module.i, ".items-list[data-v-1da3f758] {\n  overflow-y: auto;\n  
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".jqcloud-wrapper[data-v-1ca05e3c] {\n  height: calc(100vh - 24em);\n  max-height: calc(100vh - 24em);\n  overflow: hidden;\n}\n.jqcloud-container[data-v-1ca05e3c] {\n  width: 100%;\n  height: calc(100vh - 24em);\n  user-select: none;\n}\n.jqcloud-container[data-v-1ca05e3c]  span {\n  cursor: pointer;\n}\n", "",{"version":3,"sources":["UserChart.less?vue&type=style&index=0&id=1ca05e3c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,8BAA8B;EAC9B,gBAAgB;AAClB;AACA;EACE,WAAW;EACX,0BAA0B;EAC1B,iBAAiB;AACnB;AACA;EACE,eAAe;AACjB","file":"UserChart.less?vue&type=style&index=0&id=1ca05e3c&lang=less&scoped=true&","sourcesContent":[".jqcloud-wrapper[data-v-1ca05e3c] {\n  height: calc(100vh - 24em);\n  max-height: calc(100vh - 24em);\n  overflow: hidden;\n}\n.jqcloud-container[data-v-1ca05e3c] {\n  width: 100%;\n  height: calc(100vh - 24em);\n  user-select: none;\n}\n.jqcloud-container[data-v-1ca05e3c]  span {\n  cursor: pointer;\n}\n"]}]);
+exports.push([module.i, ".jqcloud-wrapper[data-v-1ca05e3c] {\n  height: calc(100% - 2em);\n  overflow: hidden;\n}\n.jqcloud-container[data-v-1ca05e3c] {\n  width: 100%;\n  height: calc(100% - 2em);\n  user-select: none;\n}\n.jqcloud-container[data-v-1ca05e3c]  span {\n  cursor: pointer;\n}\n", "",{"version":3,"sources":["UserChart.less?vue&type=style&index=0&id=1ca05e3c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;EACxB,gBAAgB;AAClB;AACA;EACE,WAAW;EACX,wBAAwB;EACxB,iBAAiB;AACnB;AACA;EACE,eAAe;AACjB","file":"UserChart.less?vue&type=style&index=0&id=1ca05e3c&lang=less&scoped=true&","sourcesContent":[".jqcloud-wrapper[data-v-1ca05e3c] {\n  height: calc(100% - 2em);\n  overflow: hidden;\n}\n.jqcloud-container[data-v-1ca05e3c] {\n  width: 100%;\n  height: calc(100% - 2em);\n  user-select: none;\n}\n.jqcloud-container[data-v-1ca05e3c]  span {\n  cursor: pointer;\n}\n"]}]);
 
 
 /***/ }),
@@ -1047,7 +1047,8 @@ var render = function() {
           config: _vm.config,
           status: _vm.status,
           lib: _vm.lib,
-          cancelButtonText: _vm.$t("CLOSE")
+          cancelButtonText: _vm.$t("CLOSE"),
+          fullContent: true
         },
         scopedSlots: _vm._u([
           {
@@ -1698,7 +1699,8 @@ var render = function() {
           config: _vm.config,
           status: _vm.status,
           cancelable: "true",
-          lib: _vm.lib
+          lib: _vm.lib,
+          fullContent: true
         },
         scopedSlots: _vm._u([
           {

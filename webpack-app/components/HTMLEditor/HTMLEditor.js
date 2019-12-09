@@ -16,53 +16,7 @@ let HTMLEditor = {
     }
   },  // data() {
   computed: {
-    computedClass () {
-      let classList = []
-      if (this.editable) {
-        classList.push('editable')
-      }
-      else {
-        classList.push('secondary')
-      }
-      
-      if (this.label) {
-        classList.push('labeled')
-      }
-      
-      return classList
-    },
-    computedStyle () {
-      if (this.editable === false) {
-        return null
-      }
-      
-      if (typeof(this.height) === 'string') {
-        
-        let calc = this.height
-        if (calc.startsWith('calc')) {
-          calc = calc.slice(5, -1)
-        }
-        
-        let padding = 30
-        if (this.label) {
-          padding = padding + 30
-        }
-        
-        calc = `calc(${calc} - ${padding}px)`
-        //console.log(calc)
-        setTimeout(() => {
-          $(this.$refs.editorContainer).find('.note-editable:visible').css('max-height', calc)
-          //console.log($(this.$refs.editorContainer).find('.note-editable:visible').length)
-        }, 100)
-        
-        
-        return {
-          height: this.height,
-          'max-height': this.height
-          //border: '1px solid red'
-        }
-      }
-    }
+    
   },  // computed: {
 //  watch: {
 //  },  // watch: {
@@ -73,13 +27,16 @@ let HTMLEditor = {
   } // methods
 }
 
-import methodsEditor_HTMLEditor from './methodsEditor_HTMLEditor'
+import computed_HTMLEditor from './computed_HTMLEditor.js'
+computed_HTMLEditor(HTMLEditor)
+
+import methodsEditor_HTMLEditor from './methodsEditor_HTMLEditor.js'
 methodsEditor_HTMLEditor(HTMLEditor)
 
-import methodsSummernote_HTMLEditor from './methodsSummernote_HTMLEditor'
+import methodsSummernote_HTMLEditor from './methodsSummernote_HTMLEditor.js'
 methodsSummernote_HTMLEditor(HTMLEditor)
 
-import methodsSummernoteCallback_HTMLEditor from './methodsSummernoteCallback_HTMLEditor'
+import methodsSummernoteCallback_HTMLEditor from './methodsSummernoteCallback_HTMLEditor.js'
 methodsSummernoteCallback_HTMLEditor(HTMLEditor)
 
 export default HTMLEditor

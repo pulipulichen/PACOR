@@ -15,3 +15,13 @@ https://github.com/pulipulichen/Non-Invasive-Web-Style-Framework
 # Offline Manual
 Zeal doc
 https://zealdocs.org/download.html
+
+# media query
+@media (max-height: 700px) {
+@media only screen and (max-height: 700px) and (max-width: 767px) {
+
+@media only screen and (max-width: 767px) {
+@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1920px) {

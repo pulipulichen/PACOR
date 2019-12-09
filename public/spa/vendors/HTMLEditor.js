@@ -129,7 +129,7 @@ exports.push([module.i, ".note-popover {\n  max-width: none;\n}\n.note-popover .
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n  padding: 0 !important;\n}\n.html-editor-container.editable[data-v-5af2455c] {\n  min-height: 7em;\n}\n.html-editor-container .label[data-v-5af2455c] {\n  user-select: none;\n  cursor: default;\n  z-index: 700;\n  width: auto !important;\n  font-size: calc(1rem + 1px) !important;\n}\n.html-editor-container .ribbon.label[data-v-5af2455c] {\n  margin-bottom: 0.5em;\n}\n@media only screen and (max-width: 767px) {\n.html-editor-container[data-v-5af2455c]  .note-toolbar.center {\n    text-align: right;\n}\n}\n", "",{"version":3,"sources":["HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;EAClB,gBAAgB;EAChB,WAAW;EACX,qBAAqB;AACvB;AACA;EACE,eAAe;AACjB;AACA;EACE,iBAAiB;EACjB,eAAe;EACf,YAAY;EACZ,sBAAsB;EACtB,sCAAsC;AACxC;AACA;EACE,oBAAoB;AACtB;AACA;AACA;IACI,iBAAiB;AACrB;AACA","file":"HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n  padding: 0 !important;\n}\n.html-editor-container.editable[data-v-5af2455c] {\n  min-height: 7em;\n}\n.html-editor-container .label[data-v-5af2455c] {\n  user-select: none;\n  cursor: default;\n  z-index: 700;\n  width: auto !important;\n  font-size: calc(1rem + 1px) !important;\n}\n.html-editor-container .ribbon.label[data-v-5af2455c] {\n  margin-bottom: 0.5em;\n}\n@media only screen and (max-width: 767px) {\n.html-editor-container[data-v-5af2455c]  .note-toolbar.center {\n    text-align: right;\n}\n}\n"]}]);
+exports.push([module.i, ".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n  padding: 0 !important;\n}\n.html-editor-container.editable[data-v-5af2455c] {\n  min-height: 7em;\n}\n.html-editor-container .label[data-v-5af2455c] {\n  user-select: none;\n  cursor: default;\n  z-index: 700;\n  width: auto !important;\n  font-size: calc(1rem + 1px) !important;\n}\n.html-editor-container .ribbon.label[data-v-5af2455c] {\n  margin-bottom: 0.5em;\n}\n@media only screen and (max-width: 767px) {\n.html-editor-container[data-v-5af2455c]  .note-toolbar.center {\n    text-align: right;\n}\n.html-editor-container.editor-left-handed[data-v-5af2455c]  .note-toolbar.center {\n    text-align: left;\n}\n}\n", "",{"version":3,"sources":["HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;EAClB,gBAAgB;EAChB,WAAW;EACX,qBAAqB;AACvB;AACA;EACE,eAAe;AACjB;AACA;EACE,iBAAiB;EACjB,eAAe;EACf,YAAY;EACZ,sBAAsB;EACtB,sCAAsC;AACxC;AACA;EACE,oBAAoB;AACtB;AACA;AACA;IACI,iBAAiB;AACrB;AACA;IACI,gBAAgB;AACpB;AACA","file":"HTMLEditor.local.less?vue&type=style&index=0&id=5af2455c&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-5af2455c] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n  padding: 0 !important;\n}\n.html-editor-container.editable[data-v-5af2455c] {\n  min-height: 7em;\n}\n.html-editor-container .label[data-v-5af2455c] {\n  user-select: none;\n  cursor: default;\n  z-index: 700;\n  width: auto !important;\n  font-size: calc(1rem + 1px) !important;\n}\n.html-editor-container .ribbon.label[data-v-5af2455c] {\n  margin-bottom: 0.5em;\n}\n@media only screen and (max-width: 767px) {\n.html-editor-container[data-v-5af2455c]  .note-toolbar.center {\n    text-align: right;\n}\n.html-editor-container.editor-left-handed[data-v-5af2455c]  .note-toolbar.center {\n    text-align: left;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -174,7 +174,7 @@ var render = function() {
     },
     [
       _vm.label
-        ? _c("div", { staticClass: "ui top left attached large label" }, [
+        ? _c("div", { class: _vm.computedLabelClassList }, [
             _vm._v("\r\n    " + _vm._s(_vm.label) + "\r\n  ")
           ])
         : _vm._e(),
@@ -269,9 +269,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _summernote_summernote_lite_webpack_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./summernote/summernote-lite.webpack.js */ "./webpack-app/components/HTMLEditor/summernote/summernote-lite.webpack.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _methodsEditor_HTMLEditor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsEditor_HTMLEditor */ "./webpack-app/components/HTMLEditor/methodsEditor_HTMLEditor.js");
-/* harmony import */ var _methodsSummernote_HTMLEditor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsSummernote_HTMLEditor */ "./webpack-app/components/HTMLEditor/methodsSummernote_HTMLEditor.js");
-/* harmony import */ var _methodsSummernoteCallback_HTMLEditor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsSummernoteCallback_HTMLEditor */ "./webpack-app/components/HTMLEditor/methodsSummernoteCallback_HTMLEditor.js");
+/* harmony import */ var _computed_HTMLEditor_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./computed_HTMLEditor.js */ "./webpack-app/components/HTMLEditor/computed_HTMLEditor.js");
+/* harmony import */ var _methodsEditor_HTMLEditor_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsEditor_HTMLEditor.js */ "./webpack-app/components/HTMLEditor/methodsEditor_HTMLEditor.js");
+/* harmony import */ var _methodsSummernote_HTMLEditor_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsSummernote_HTMLEditor.js */ "./webpack-app/components/HTMLEditor/methodsSummernote_HTMLEditor.js");
+/* harmony import */ var _methodsSummernoteCallback_HTMLEditor_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methodsSummernoteCallback_HTMLEditor.js */ "./webpack-app/components/HTMLEditor/methodsSummernoteCallback_HTMLEditor.js");
 
 
 
@@ -290,53 +291,7 @@ let HTMLEditor = {
     }
   },  // data() {
   computed: {
-    computedClass () {
-      let classList = []
-      if (this.editable) {
-        classList.push('editable')
-      }
-      else {
-        classList.push('secondary')
-      }
-      
-      if (this.label) {
-        classList.push('labeled')
-      }
-      
-      return classList
-    },
-    computedStyle () {
-      if (this.editable === false) {
-        return null
-      }
-      
-      if (typeof(this.height) === 'string') {
-        
-        let calc = this.height
-        if (calc.startsWith('calc')) {
-          calc = calc.slice(5, -1)
-        }
-        
-        let padding = 30
-        if (this.label) {
-          padding = padding + 30
-        }
-        
-        calc = `calc(${calc} - ${padding}px)`
-        //console.log(calc)
-        setTimeout(() => {
-          jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.editorContainer).find('.note-editable:visible').css('max-height', calc)
-          //console.log($(this.$refs.editorContainer).find('.note-editable:visible').length)
-        }, 100)
-        
-        
-        return {
-          height: this.height,
-          'max-height': this.height
-          //border: '1px solid red'
-        }
-      }
-    }
+    
   },  // computed: {
 //  watch: {
 //  },  // watch: {
@@ -348,13 +303,16 @@ let HTMLEditor = {
 }
 
 
-Object(_methodsEditor_HTMLEditor__WEBPACK_IMPORTED_MODULE_2__["default"])(HTMLEditor)
+Object(_computed_HTMLEditor_js__WEBPACK_IMPORTED_MODULE_2__["default"])(HTMLEditor)
 
 
-Object(_methodsSummernote_HTMLEditor__WEBPACK_IMPORTED_MODULE_3__["default"])(HTMLEditor)
+Object(_methodsEditor_HTMLEditor_js__WEBPACK_IMPORTED_MODULE_3__["default"])(HTMLEditor)
 
 
-Object(_methodsSummernoteCallback_HTMLEditor__WEBPACK_IMPORTED_MODULE_4__["default"])(HTMLEditor)
+Object(_methodsSummernote_HTMLEditor_js__WEBPACK_IMPORTED_MODULE_4__["default"])(HTMLEditor)
+
+
+Object(_methodsSummernoteCallback_HTMLEditor_js__WEBPACK_IMPORTED_MODULE_5__["default"])(HTMLEditor)
 
 /* harmony default export */ __webpack_exports__["default"] = (HTMLEditor);
 
@@ -465,6 +423,81 @@ if (typeof _HTMLEditor_json_vue_type_custom_index_0_blockType_i18n_issuerPath_D_
 if (false) { var api; }
 component.options.__file = "webpack-app/components/HTMLEditor/HTMLEditor.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/components/HTMLEditor/computed_HTMLEditor.js":
+/*!******************************************************************!*\
+  !*** ./webpack-app/components/HTMLEditor/computed_HTMLEditor.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (HTMLEditor) {
+
+  HTMLEditor.computed.computedClass = function () {
+    let classList = []
+    if (this.editable) {
+      classList.push('editable')
+    } else {
+      classList.push('secondary')
+    }
+
+    if (this.label) {
+      classList.push('labeled')
+    }
+    
+    if (this.lib.style.isLeftHanded) {
+      classList.push('editor-left-handed')
+    }
+
+    return classList
+  } // HTMLEditor.computed.computedClass = function () {
+
+  HTMLEditor.computed.computedStyle = function () {
+    if (this.editable === false) {
+      return null
+    }
+
+    if (typeof (this.height) === 'string') {
+
+      let calc = this.height
+      if (calc.startsWith('calc')) {
+        calc = calc.slice(5, -1)
+      }
+
+      let padding = 30
+      if (this.label) {
+        padding = padding + 30
+      }
+
+      calc = `calc(${calc} - ${padding}px)`
+      //console.log(calc)
+      setTimeout(() => {
+        $(this.$refs.editorContainer).find('.note-editable:visible').css('max-height', calc)
+        //console.log($(this.$refs.editorContainer).find('.note-editable:visible').length)
+      }, 100)
+
+
+      return {
+        height: this.height,
+        'max-height': this.height
+                //border: '1px solid red'
+      }
+    }
+  } // HTMLEditor.computed.computedStyle = function () {
+  
+  HTMLEditor.computed.computedLabelClassList = function () {
+    if (this.lib.style.isLeftHanded) {
+      return 'ui top right attached large label'
+    }
+    else {
+      return 'ui top left attached large label'
+    }
+  }
+});
 
 /***/ }),
 

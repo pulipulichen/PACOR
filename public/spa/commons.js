@@ -520,7 +520,12 @@ var render = function() {
     _vm._v(" "),
     _vm.$slots.content
       ? _c("div", { staticClass: "scrolling content" }, [
-          _c("div", { staticClass: "ui form" }, [_vm._t("content")], 2)
+          _c(
+            "div",
+            { staticClass: "ui form", class: { full: _vm.fullContent } },
+            [_vm._t("content")],
+            2
+          )
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -1827,7 +1832,7 @@ __webpack_require__.r(__webpack_exports__);
 let Modal = {
   props: ['lib', 'status', 'config'
     , 'cancelable', 'reset', 'dimmerTransparent', 'contentURL'
-    , 'cancelButtonText'],
+    , 'cancelButtonText', 'fullContent'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {

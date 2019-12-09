@@ -4,7 +4,7 @@
      v-bind:class="computedClass"
      ref="editorContainer">
   <div v-if="label" 
-       class="ui top left attached large label">
+       v-bind:class="computedLabelClassList">
     {{ label }}
   </div>
   <div ref="editor" v-if="editable"></div>

@@ -33,7 +33,8 @@
     v-bind:config="config"
     v-bind:status="status"
     cancelable="true"
-    v-bind:lib="lib">
+    v-bind:lib="lib"
+    v-bind:fullContent="true">
       <template v-slot:header>
         {{ $t('Please select a peer') }}
       </template>
@@ -41,13 +42,13 @@
         <div class="ui grid">
           <div class="six wide column left-column">
             <peer-list 
-            ref="PeerList"
-            v-bind:config="config"
-            v-bind:status="status"
-            v-bind:lib="lib"
+              ref="PeerList"
+              v-bind:config="config"
+              v-bind:status="status"
+              v-bind:lib="lib"
 
-            v-bind:filterData="filterData">
-          </peer-list>
+              v-bind:filterData="filterData">
+            </peer-list>
           </div>
           <div class="ten wide column right-column">
             <user-chart
