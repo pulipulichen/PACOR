@@ -250,6 +250,11 @@
     display: block;
     padding: 1rem !important;
     
+    // top 6% + bottom 6%
+    // header: padding: 0.75rem + font-size: 1.6
+    // content: padding: 1.5rem
+    // actions: padding: 1rem + button padding: 0.78em + font-size: 1rem
+    //max-height: calc(100vh - 12vh - 2.5rem - 1.6em - 2rem - 1.5em - 1rem);  
     max-height: calc(88vh - 6.5rem - 3.1em);
     &> .full {
       height: calc(88vh - 10rem - 3.1em);
@@ -587,10 +592,34 @@
     //max-height: calc(100vh - 9rem);
     padding-top: 1.5rem !important;
     padding-bottom: 1.5rem !important;
+    
+    // top: 5px + bottom: 5px
+    // header: padding: 1.25rem + font-size: 1.6rem
+    // content: padding: 1.5rem
+    // actions: padding: 1rem + button padding: 0.78em + font-size: 1rem
+    //max-height: calc(100vh - 10px - 2.5rem - 1.6rem - 3rem - 2rem - 1.5em - 1rem);
+    max-height: calc(100vh - 10px - 11.6rem);
+    &> .full {
+      height: calc(100vh - 10px - 15rem);
+    }
   }
   
   .non-invasive-web-style-framework .ui.modal .content > .description {
     padding: 0;
+  }
+}
+
+@media only screen and (max-height: 700px) and (max-width: 767px) {
+  .non-invasive-web-style-framework .ui.modal > .content {
+    // top: 5px + bottom: 5px
+    // header: padding: 1.25rem + font-size: 1.6rem
+    // content: padding: 1.5rem
+    // actions: padding: 1rem + button padding: 0.78em + font-size: 1rem
+    //max-height: calc(100vh - 10px - 2.5rem - 1.6rem - 3rem - 2rem - 1.5em - 1rem);
+    max-height: calc(100vh - 10px - 8.6rem);
+    &> .full {
+      height: calc(100vh - 10px - 14rem);
+    }
   }
 }
 

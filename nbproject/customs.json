@@ -98,6 +98,7 @@
         "v-bind:progress": {},
         "dimmerTransparent": {},
         "v-on:hide": {},
+        "v-bind:cancelButtonText": {},
         "cancelButtonText": {}
       }
     }
