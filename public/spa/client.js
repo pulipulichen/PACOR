@@ -3414,6 +3414,30 @@ __webpack_require__.r(__webpack_exports__);
   PACORTestManager.methods.nextStep = async function () {
     await this.lib.auth.nextStep()
   }
+  
+  PACORTestManager.methods.retry = async function (max, callback) {
+    if (typeof(max) === 'function' 
+            && callback === undefined) {
+      callback = max
+      max = 3
+    }
+    
+    for (let i = 0; i < max; i++) {
+      try {
+        await callback()
+        break
+      }
+      catch (e) {
+        if (i === max - 1) {
+          throw e
+        }
+        else {
+          console.error(e)
+          console.log('[RETRY] ' + (i+1))
+        }
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -3776,15 +3800,22 @@ __webpack_require__.r(__webpack_exports__);
   PACORTestManager.methods.writeQuestionnaire = async function (page) {
     //throw new Error('Questionnaire')
     
-    let textarea = await this.waitForElementVisible('textarea.answer')
-    
-    await this.typeInput('textarea.answer', this.createRandomText())
-    
-//    textarea.val(this.createRandomText())
-//            .trigger('input')
-//            .trigger('change')
-    
-    await this.waitForElementVisibleClick('.ui.button.questionnaire-submit:not(.disabled)')
+    this.retry(async () => {
+      let textarea = await this.waitForElementVisible('textarea.answer')
+
+      await this.typeInput('textarea.answer', this.createRandomText())
+
+      await this.sleep(500)
+
+      await this.typeInput('textarea.answer', this.createRandomText())
+
+  //    textarea.val(this.createRandomText())
+  //            .trigger('input')
+  //            .trigger('change')
+
+      await this.waitForElementVisibleClick('.ui.button.questionnaire-submit:not(.disabled)')
+    })
+      
   }
 });
 
