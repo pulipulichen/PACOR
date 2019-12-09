@@ -1,4 +1,5 @@
-<div class="ui segment IframeMessageSegment">
+<div class="IframeMessageSegment"
+     v-bind:class="computedClassList">
   <template 
     v-if="!url"
     v-html="message">

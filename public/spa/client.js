@@ -600,7 +600,7 @@ exports.push([module.i, ".DigitalCountdownTimer[data-v-3fb22da8] {\n  color: #ff
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".IframeMessageSegment[data-v-20b1c012] {\n  text-align: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.IframeMessageSegment iframe[data-v-20b1c012] {\n  width: 100%;\n}\n", "",{"version":3,"sources":["IframeMessageSegment.less?vue&type=style&index=0&id=20b1c012&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,WAAW;AACb","file":"IframeMessageSegment.less?vue&type=style&index=0&id=20b1c012&lang=less&scoped=true&","sourcesContent":[".IframeMessageSegment[data-v-20b1c012] {\n  text-align: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.IframeMessageSegment iframe[data-v-20b1c012] {\n  width: 100%;\n}\n"]}]);
+exports.push([module.i, ".IframeMessageSegment[data-v-20b1c012] {\n  text-align: center;\n  overflow-x: hidden;\n  overflow-y: hidden;\n}\n.IframeMessageSegment iframe[data-v-20b1c012] {\n  width: 100%;\n}\n", "",{"version":3,"sources":["IframeMessageSegment.less?vue&type=style&index=0&id=20b1c012&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,kBAAkB;EAClB,kBAAkB;AACpB;AACA;EACE,WAAW;AACb","file":"IframeMessageSegment.less?vue&type=style&index=0&id=20b1c012&lang=less&scoped=true&","sourcesContent":[".IframeMessageSegment[data-v-20b1c012] {\n  text-align: center;\n  overflow-x: hidden;\n  overflow-y: hidden;\n}\n.IframeMessageSegment iframe[data-v-20b1c012] {\n  width: 100%;\n}\n"]}]);
 
 
 /***/ }),
@@ -1618,7 +1618,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "ui segment IframeMessageSegment" },
+    { staticClass: "IframeMessageSegment", class: _vm.computedClassList },
     [
       !_vm.url
         ? void 0
@@ -6458,7 +6458,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let IframeMessageSegment = {
-  props: ['config', 'message'],
+  props: ['config', 'message', 'showBorder'],
   data() {
     return {
     }
@@ -6473,6 +6473,14 @@ let IframeMessageSegment = {
       else if (this.message.startsWith('http://')
               || this.message.startsWith('https://')) {
         return this.message
+      }
+    },
+    computedClassList () {
+      if (this.showBorder === false) {
+        return ''
+      }
+      else {
+        return 'ui segment'
       }
     }
   },

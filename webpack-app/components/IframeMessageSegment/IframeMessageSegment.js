@@ -1,5 +1,5 @@
 let IframeMessageSegment = {
-  props: ['config', 'message'],
+  props: ['config', 'message', 'showBorder'],
   data() {
     return {
     }
@@ -14,6 +14,14 @@ let IframeMessageSegment = {
       else if (this.message.startsWith('http://')
               || this.message.startsWith('https://')) {
         return this.message
+      }
+    },
+    computedClassList () {
+      if (this.showBorder === false) {
+        return ''
+      }
+      else {
+        return 'ui segment'
       }
     }
   },
