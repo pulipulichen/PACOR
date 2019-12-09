@@ -85,8 +85,20 @@
   line-height: 1.4;
   padding: 1.5rem;
   background: #FFFFFF;
-  max-height: calc(100vh - 15rem);
+  
+  // top 6% + bottom 6%
+  // header 1.25rem padding + 1.6 font-size
+  // content padding 1.5rem
+  // actions 1rem padding + 0.78em + font-size 1rem
+  //max-height: calc(100vh - 12vh - 2.5rem - 1.6em - 2rem - 1.5em - 1rem);  
+  max-height: calc(88vh - 8.5rem - 3.1em);
   overflow-y: auto;
+  
+  &> .full {
+    height: calc(88vh - 12rem - 3.1em);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }
 
 @media (max-height: 700px) {
@@ -156,7 +168,9 @@
   border-top: 1px solid rgba(34, 36, 38, 0.15);
   text-align: right;
   
-  
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 .non-invasive-web-style-framework .ui.modal .actions > .button {
   margin-left: 0.75em;
@@ -235,6 +249,11 @@
   .non-invasive-web-style-framework .ui.modal > .content {
     display: block;
     padding: 1rem !important;
+    
+    max-height: calc(88vh - 6.5rem - 3.1em);
+    &> .full {
+      height: calc(88vh - 10rem - 3.1em);
+    }
   }
   .non-invasive-web-style-framework .ui.modal > .close {
     top: 0.5rem !important;
@@ -514,6 +533,9 @@
 }
 .non-invasive-web-style-framework .ui.large.modal > .header {
   font-size: 1.6em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
 }
 @media only screen and (max-width: 767px) {
   .non-invasive-web-style-framework .ui.large.modal {

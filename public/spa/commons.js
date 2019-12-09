@@ -528,6 +528,7 @@ var render = function() {
       ? _c("div", { staticClass: "content" }, [
           _vm.isShow
             ? _c("iframe", {
+                staticClass: "full",
                 attrs: { src: _vm.computedContentURL, frameborder: "0" }
               })
             : _vm._e()
