@@ -136,6 +136,197 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.js?vue&type=script&lang=js&?9d9e":
+/*!***********************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.js?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CollaborativeReading_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./CollaborativeReading.js?vue&type=script&lang=js& */ "./webpack-app/client/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.js?vue&type=script&lang=js&?c330");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_CollaborativeReading_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.js?vue&type=script&lang=js&?c330":
+/*!***********************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.js?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NavigationItems/NavigationItems.vue */ "./webpack-app/client/ReadingProgressesModuels/Reading/CollaborativeReading/NavigationItems/NavigationItems.vue");
+/* harmony import */ var _components_NotificationManager_NotificationManager_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../components/NotificationManager/NotificationManager.vue */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/NotificationManager/NotificationManager.vue");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+let CollaborativeReading = {
+  props: ['lib', 'status', 'config'],
+  data() {
+    return {
+    }
+  },
+  components: {
+    'navigation-items': _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    'notification-manager': _components_NotificationManager_NotificationManager_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+//  computed: {
+//  },
+//  watch: {
+//  },
+  mounted() {
+    this.initComponentToLib()
+    
+    //this._testNotificationFullList()
+  },
+  destroyed () {
+    //console.log('退場了')
+    this.lib.RangyManager = null
+    this.lib.AnnotationPanel = null
+    this.lib.SectionManager = null
+    this.lib.UserFilter = null
+    this.lib.AnnotationTypeFilter = null
+    this.lib.NotificationManager = null
+  },
+  methods: {
+    initComponentToLib () {
+      if (!this.$refs.RangyManager) {
+        setTimeout(() => {
+          this.initComponentToLib()
+        }, 100)
+        return false
+      }
+      
+      this.lib.RangyManager = this.$refs.RangyManager
+      this.lib.AnnotationPanel = this.$refs.AnnotationPanel
+      this.lib.SectionManager = this.$refs.SectionManager
+      this.lib.UserFilter = this.$refs.nav.$refs.UserFilter
+      this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
+      this.lib.NotificationManager = this.$refs.NotificationManager
+      //console.log(this.lib.AnnotationPanel)
+    },
+    showInstruction() {
+      this.$refs.InstructionMessage.show()
+    },
+    timeup () {
+      //throw new Error('Wait')
+      this.lib.auth.nextStep()
+    },
+    
+    // --------------------------------
+    _testConfirmModal: async function () {
+      console.log('_testSearch')
+      await this.lib.VueHelper.sleep(1000)
+      
+      let r1 = await this.lib.ConfirmModal.show()
+      console.log(r1)
+      let r2 = await this.lib.ConfirmModal.show()
+      console.log(r2)
+    },
+    
+    _testSearch: async function () {
+      console.log('_testSearch')
+      await this.lib.VueHelper.sleep(1000)
+      
+      if (!this.lib.AnnotationPanel) {
+        setTimeout(() => {
+          this._testSearch()
+        }, 100)
+        return null
+      }
+      
+      this.status.search.keyword = "不"
+      return
+      
+      // 先設定篩選條件
+      this.lib.AnnotationPanel.findKeyword(this.status.search.keyword)
+      
+      // 再來顯示
+      this.lib.AnnotationPanel.setAnchorPositions()
+    },
+    
+    _testAnnotationSingle () {
+      console.log('_testAnnotationSingle')
+      setTimeout(() => {
+        jquery__WEBPACK_IMPORTED_MODULE_2___default()('.others-MainIdea:first').click()
+        
+        setTimeout(() => {
+          jquery__WEBPACK_IMPORTED_MODULE_2___default()('.AnnotationFloatWidget .meta').click()
+        }, 300)
+      }, 500)
+    },
+    _testAnnotationSingleManyComments () {
+      console.log('_testAnnotationSingleManyComments')
+      setTimeout(() => {
+        if (jquery__WEBPACK_IMPORTED_MODULE_2___default()('.others-Clarified:first').length === 0) {
+          this._testAnnotationSingleManyComments()
+          return
+        }
+        jquery__WEBPACK_IMPORTED_MODULE_2___default()('.others-Clarified:first').click()
+        setTimeout(() => {
+          jquery__WEBPACK_IMPORTED_MODULE_2___default()('.AnnotationFloatWidget .AnnotationTypeButton[title="已釐清"]:last').click()
+          
+          setTimeout(() => {
+            //console.log($('.FilteredList .list .AnnotationItem:last .meta i').length)
+            jquery__WEBPACK_IMPORTED_MODULE_2___default()('.FilteredList .list .AnnotationItem:last .meta i').click()
+            
+            // 測試搜尋
+            //this.lib.AnnotationPanel.findKeyword('co')
+            
+          }, 1000)
+        }, 300)
+      }, 500)
+    },
+    _testAnnotationSingleFocusComment () {
+      console.log('_testAnnotationSingleFocusComment')
+      setTimeout(() => {
+        this.lib.AnnotationPanel.focusComment(19)
+      }, 500)
+    },
+    _testUserFilter: async function () {
+      console.log('_testUserFilter')
+      await this.lib.VueHelper.sleep(1000)
+      
+      this.lib.UserFilter.show()
+      
+      /*
+      this.status.filter.focusUser = {
+        id: 1
+      }
+      */
+    },
+    _testTypeFilter: async function () {
+      console.log('_testTypeFilter')
+      await this.lib.VueHelper.sleep(1000)
+      
+      this.lib.AnnotationTypeFilter.show()
+      
+      /*
+      this.status.filter.focusUser = {
+        id: 1
+      }
+      */
+    },
+    _testNotificationFullList: async function () {
+      console.log('_testNotificationModal')
+      await this.lib.VueHelper.sleep(1000)
+      
+      this.lib.NotificationManager.showFull()
+    }
+   } // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (CollaborativeReading);
+
+/***/ }),
+
 /***/ "./webpack-app/client/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.less?vue&type=style&index=0&id=cfebb7b2&lang=less&scoped=true&":
 /*!**********************************************************************************************************************************************************************!*\
   !*** ./webpack-app/client/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.less?vue&type=style&index=0&id=cfebb7b2&lang=less&scoped=true& ***!

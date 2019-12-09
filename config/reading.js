@@ -53,7 +53,7 @@ module.exports = {
   
   readingProgressModules: {
     'PreImaginary': {
-      message: '/2020exp/PostRecall.html',
+      instruction: '/2020exp/PostRecall.html',
       minWords: 10,
       limitMinutes: 0.05,
     },
@@ -64,7 +64,7 @@ module.exports = {
       totalLimitMinutes: 1.5, // 54秒
     },
     'IndividualReading': {
-      message: '/2020exp/IndividualReading.html',
+      instruction: '/2020exp/IndividualReading.html',
       limitMinutes: 1,
       annotation: {
         types: ['Clarified', 'Confused', 'MainIdea', 'SectionMainIdea'],
@@ -83,7 +83,7 @@ module.exports = {
       }
     },
     'CollaborativeReading': {
-      message: '/2020exp/CollaborativeReading.html',
+      instruction: '/2020exp/CollaborativeReading.html',
       annotation: {
         types: ['Clarified', 'Confused', 'MainIdea', 'SectionMainIdea'],
         enableCollaboration: true,
@@ -107,7 +107,7 @@ module.exports = {
       }
     },
     'PostRecall': {
-      message: '/2020exp/PostRecall.html',
+      instruction: '/2020exp/PostRecall.html',
       minWords: 10,
       limitMinutes: 0.05
     },
@@ -117,7 +117,18 @@ module.exports = {
         enableCollaboration: true,
         enableControlPermission: false,
         defaultPermission: 'public',
-        eanbleSectionAnnotation: true
+        eanbleSectionAnnotation: true,
+        
+        /**
+         * 每次讀取其他人highlight的數量限制
+         */
+        otherHighlightBatchSize: 50,
+        
+        /**
+         * 每次讀取其他人highlight的數量間隔，單位是毫秒
+         */
+        otherHighlightBatchInterval: 300000
+        //otherHighlightBatchInterval: 1000 // for test
       },
     },
   },

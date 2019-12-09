@@ -2,6 +2,7 @@
 
 const Cache = use('Cache')
 const TypeHelper = use('App/Helpers/TypeHelper')
+const ExceptionHelper = use('App/Helpers/ExceptionHelper')
 
 class AnnotationHighlight {
 
@@ -144,7 +145,9 @@ class AnnotationHighlight {
      * // "type:textContent|28$198$2$confused-clarified$pacor-paragraph-id-2"
      */
     Model._convertHighlighArrayToString = async function (highlights, webpage, user) {
-      if (highlights.length === 0) {
+      //console.log(highlights, ExceptionHelper.getStackTrace())
+      if (Array.isArray(highlights) === false 
+              || highlights.length === 0) {
         return 0
       }
 
@@ -204,7 +207,9 @@ class AnnotationHighlight {
       //console.log('getHighlightsByWebpageGroup', 2)
       let othersHighlights = await this.getOthersHighlightsArrayByWebpageGroup(webpage, user, query, session)
       //console.log('getHighlightsByWebpageGroup', 3)
-      highlights = highlights.concat(othersHighlights)
+      if (othersHighlights.length > 0) {
+        highlights = highlights.concat(othersHighlights)
+      }
       //console.log('getHighlightsByWebpageGroup', 4)
       return this._convertHighlighArrayToString(highlights, webpage, user)
     }

@@ -76,6 +76,10 @@ let StringHelper = {
     }
   },
   isURL (s) {
+    if (typeof(s) !== 'string') {
+      return false
+    }
+    
     return (s.startsWith('//')
             || s.startsWith('http://')
             || s.startsWith('https://')

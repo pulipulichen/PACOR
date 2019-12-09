@@ -22,7 +22,8 @@
   </template>
 
   <div class="annotation-list"
-       v-on:scroll.stop="scrollList">
+       v-on:scroll.stop="scrollList"
+       v-if="hasAnnotation">
     <annotation-item
       v-for="annotation in sectionsData.annotation[sectionSeqID].annotations"
       v-bind:key="annotation.id"

@@ -4342,6 +4342,10 @@ let StringHelper = {
     }
   },
   isURL (s) {
+    if (typeof(s) !== 'string') {
+      return false
+    }
+    
     return (s.startsWith('//')
             || s.startsWith('http://')
             || s.startsWith('https://')
@@ -4433,7 +4437,18 @@ let i18nGlobal = {
     "{0} sec": "{0} sec",
     "{0} Annotations": "{0} Annotation | {0} Annotations",
     "Total {0} Annotations": "Total {0} Annotation | Total {0} Annotations",
-    '"{0}"': '"{0}"'
+    '"{0}"': '"{0}"',
+    "READING_PROGRESS.not-yet-started": "Not yet started",
+    "READING_PROGRESS.PreImaginary": "Pre-Imaginary",
+    "READING_PROGRESS.IndividualReading": "Focus Reading",
+    "READING_PROGRESS.CollaborativeReading": "Assisting Reading",
+    "READING_PROGRESS.PostRecall": "Post Recall",
+    "READING_PROGRESS.FreeReading": "Free Reading",
+    "ANNOTATION_TYPE.MainIdea": "Main Idea",
+    "ANNOTATION_TYPE.ConfusedClarified": "Confused",
+    "ANNOTATION_TYPE.Confused": "Confused",
+    "ANNOTATION_TYPE.Clarified": "Clearified",
+    "ANNOTATION_TYPE.SectionMainIdea": "Section Main Idea",
   },
   "zh-TW": {
     "LOGIN": "登入",
@@ -4468,6 +4483,7 @@ let i18nGlobal = {
     "READING_PROGRESS.IndividualReading": "專注閱讀",
     "READING_PROGRESS.CollaborativeReading": "協助閱讀",
     "READING_PROGRESS.PostRecall": "閱讀後的回想",
+    "READING_PROGRESS.FreeReading": "自由閱讀",
     "READING_PROGRESS.finish": "已經完成",
     "in {0} day": "在{0}天內",
     "in {0} month": "在{0}月內",

@@ -1,5 +1,5 @@
 import NavigationItems from './NavigationItems/NavigationItems.vue'
-import NotificationManager from './NotificationManager/NotificationManager.vue'
+import NotificationManager from './../components/NotificationManager/NotificationManager.vue'
 import $ from 'jquery'
 
 let CollaborativeReading = {

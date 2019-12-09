@@ -4003,62 +4003,64 @@ var render = function() {
           ]
         : _vm._e(),
       _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "annotation-list",
-          on: {
-            scroll: function($event) {
-              $event.stopPropagation()
-              return _vm.scrollList($event)
-            }
-          }
-        },
-        [
-          _vm._l(
-            _vm.sectionsData.annotation[_vm.sectionSeqID].annotations,
-            function(annotation) {
-              return _c("annotation-item", {
-                key: annotation.id,
-                attrs: {
-                  config: _vm.config,
-                  status: _vm.status,
-                  lib: _vm.lib,
-                  annotation: annotation,
-                  findAnnotation: _vm.findAnnotation
+      _vm.hasAnnotation
+        ? _c(
+            "div",
+            {
+              staticClass: "annotation-list",
+              on: {
+                scroll: function($event) {
+                  $event.stopPropagation()
+                  return _vm.scrollList($event)
                 }
-              })
-            }
-          ),
-          _vm._v(" "),
-          _vm.noMore
-            ? _c(
-                "div",
-                { staticClass: "ui secondary segment no-more" },
-                [
-                  _vm.sectionsData.annotation[_vm.sectionSeqID].annotations
-                    .length > 0
-                    ? [
-                        _vm._v(
-                          "\r\n        " +
-                            _vm._s(_vm.$t("No More")) +
-                            "\r\n      "
-                        )
-                      ]
-                    : [
-                        _vm._v(
-                          "\r\n        " +
-                            _vm._s(_vm.$t("No Search Result")) +
-                            "\r\n      "
-                        )
-                      ]
-                ],
-                2
-              )
-            : _vm._e()
-        ],
-        2
-      ),
+              }
+            },
+            [
+              _vm._l(
+                _vm.sectionsData.annotation[_vm.sectionSeqID].annotations,
+                function(annotation) {
+                  return _c("annotation-item", {
+                    key: annotation.id,
+                    attrs: {
+                      config: _vm.config,
+                      status: _vm.status,
+                      lib: _vm.lib,
+                      annotation: annotation,
+                      findAnnotation: _vm.findAnnotation
+                    }
+                  })
+                }
+              ),
+              _vm._v(" "),
+              _vm.noMore
+                ? _c(
+                    "div",
+                    { staticClass: "ui secondary segment no-more" },
+                    [
+                      _vm.sectionsData.annotation[_vm.sectionSeqID].annotations
+                        .length > 0
+                        ? [
+                            _vm._v(
+                              "\r\n        " +
+                                _vm._s(_vm.$t("No More")) +
+                                "\r\n      "
+                            )
+                          ]
+                        : [
+                            _vm._v(
+                              "\r\n        " +
+                                _vm._s(_vm.$t("No Search Result")) +
+                                "\r\n      "
+                            )
+                          ]
+                    ],
+                    2
+                  )
+                : _vm._e()
+            ],
+            2
+          )
+        : _vm._e(),
       _vm._v(" "),
       _c("editor-button", {
         attrs: {
@@ -12818,10 +12820,10 @@ let InstructionMessage = {
       return 'InstructionMessage.' + this.status.userID + '.' + this.tempStepName
     },
     message () {
-      return this.lib.auth.currentStepConfig.message
+      return this.lib.auth.currentStepConfig.instruction
     },
     contentURL () {
-      if (this.lib.StringHelper.isURL(this.message) ) {
+      if (this.lib.StringHelper.isURL(this.instruction) ) {
         return this.message
       }
     }

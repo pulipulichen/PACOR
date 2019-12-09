@@ -18,8 +18,8 @@ class AnnotationHighlightOthers {
         let config = await user.getCurrentReadingProgressStepAnnotationConfig(webpage)
         let limit = config.otherHighlightBatchSize
         if (typeof(limit) !== 'number') {
-          console.error('config.otherHighlightBatchSize is not a number')
-          console.log(config)
+          //console.error('config.otherHighlightBatchSize is not a number')
+          //console.log(config)
           return false
         }
         

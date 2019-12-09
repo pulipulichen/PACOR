@@ -16,10 +16,10 @@ let InstructionMessage = {
       return 'InstructionMessage.' + this.status.userID + '.' + this.tempStepName
     },
     message () {
-      return this.lib.auth.currentStepConfig.message
+      return this.lib.auth.currentStepConfig.instruction
     },
     contentURL () {
-      if (this.lib.StringHelper.isURL(this.message) ) {
+      if (this.lib.StringHelper.isURL(this.instruction) ) {
         return this.message
       }
     }

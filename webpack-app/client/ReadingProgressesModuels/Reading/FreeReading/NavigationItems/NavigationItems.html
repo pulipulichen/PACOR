@@ -15,14 +15,10 @@
       v-bind:lib="lib">
     </notification-icon>
     
-    <a class="fitted item avatar in-top"
-       v-on:click="showInstruction">
+    <a class="fitted item avatar in-top">
       <img v-bind:src="status.avatar">
       <div class="username">
         {{ lib.auth.username }}
-        <div class="step">
-          {{ $t('In {0} step', [$t('READING_PROGRESS.' + lib.auth.currentStep)]) }}
-        </div>
       </div>
     </a>
     
