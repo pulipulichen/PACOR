@@ -1,0 +1,16 @@
+<div class="WebpageAdminModal">
+  <modal ref="Modal"
+         v-bind:config="config"
+         v-bind:status="status"
+         v-bind:lib="lib"
+         v-bind:contentURL="contentURL"
+         v-bind:cancelable="true"
+         v-bind:cancelButtonText="$t('CLOSE')">
+      <template v-slot:header>
+        {{ $t('Webpage Admin') }}
+      </template>
+      <template v-slot:content
+                v-if="!contentURL">
+      </template>
+  </modal>
+</div>

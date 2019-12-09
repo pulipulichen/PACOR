@@ -5,8 +5,8 @@ let Template = {
     return {
     }
   },
-  components: {
-  },
+//  components: {
+//  },
   computed: {
   },
   watch: {

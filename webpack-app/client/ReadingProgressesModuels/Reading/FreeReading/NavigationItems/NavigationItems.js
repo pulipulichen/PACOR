@@ -1,5 +1,7 @@
 import NotificationIcon from './../../components/NotificationManager/NotificationIcon/NotificationIcon.vue'
 import UserFilter from './../../components/UserFilter/UserFilter.vue'
+import WebpageAdminModal from './WebpageAdminModal/WebpageAdminModal.vue'
+
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
 
 let NavigationItems = {
@@ -7,24 +9,14 @@ let NavigationItems = {
   data() {    
     this.$i18n.locale = this.config.locale
     
-    let pauseAtStart = true
-    if (this.lib.auth.currentStepConfig.debug
-            && typeof(this.lib.auth.currentStepConfig.debug.countdownPause) === 'boolean') {
-      pauseAtStart = this.lib.auth.currentStepConfig.debug.countdownPause
-    }
-
-    if (pauseAtStart === true) {
-      console.log('@test pauseAtStart')
-    }
-
     return {
-      pauseAtStart
     }
   },
   components: {
     //'annotation-type-filter': AnnotationTypeFilter,
     'notification-icon': NotificationIcon,
-    'user-filter': UserFilter
+    'user-filter': UserFilter,
+    WebpageAdminModal
   },
 //  
 //  computed: {
@@ -47,8 +39,8 @@ let NavigationItems = {
 //    this.initLibComponents()
 //  },
   methods: {
-    showInstruction () {
-      this.$emit('showInstruction')
+    showWebpageConfig () {
+      this.$refs.WebpageAdminModal.show()
     },
 //    nextStep () {
 //      this.lib.auth.nextStep()

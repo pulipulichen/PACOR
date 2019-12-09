@@ -32,6 +32,22 @@ module.exports = function (Component) {
 
 /***/ }),
 
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReadingProgressesModuels%5CReading%5CFreeReading%5CNavigationItems%5CWebpageAdminModal%5CWebpageAdminModal.vue&lang=yaml":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReadingProgressesModuels%5CReading%5CFreeReading%5CNavigationItems%5CWebpageAdminModal%5CWebpageAdminModal.vue&lang=yaml ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Webpage Admin":"網頁設定管理"}}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.less?vue&type=style&index=0&id=86ce256e&lang=less&scoped=true&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.less?vue&type=style&index=0&id=86ce256e&lang=less&scoped=true& ***!
@@ -55,7 +71,21 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".username[data-v-0f64c09c] {\n  margin-left: 0.5em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-0f64c09c] {\n  font-size: 1rem;\n  font-weight: normal;\n  line-height: 1.5em;\n}\n.avatar img[data-v-0f64c09c] {\n  margin-left: 0.5em !important;\n}\n/*@media (max-width: 400px) {\n  .username .step {\n    display: none;\n  }\n}*/\n", "",{"version":3,"sources":["NavigationItems.less?vue&type=style&index=0&id=0f64c09c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,iBAAiB;AACnB;AACA;EACE,eAAe;EACf,mBAAmB;EACnB,kBAAkB;AACpB;AACA;EACE,6BAA6B;AAC/B;AACA;;;;EAIE","file":"NavigationItems.less?vue&type=style&index=0&id=0f64c09c&lang=less&scoped=true&","sourcesContent":[".username[data-v-0f64c09c] {\n  margin-left: 0.5em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-0f64c09c] {\n  font-size: 1rem;\n  font-weight: normal;\n  line-height: 1.5em;\n}\n.avatar img[data-v-0f64c09c] {\n  margin-left: 0.5em !important;\n}\n/*@media (max-width: 400px) {\n  .username .step {\n    display: none;\n  }\n}*/\n"]}]);
+exports.push([module.i, ".username[data-v-0f64c09c] {\n  margin-left: 0.5em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-0f64c09c] {\n  font-size: 1rem;\n  font-weight: normal;\n  line-height: 1.5em;\n}\n.avatar img[data-v-0f64c09c] {\n  margin-left: 0.5em !important;\n}\n/*@media (max-width: 400px) {\n  .username .step {\n    display: none;\n  }\n}*/\n.cog.icon[data-v-0f64c09c] {\n  margin-left: 0.5em !important;\n}\n", "",{"version":3,"sources":["NavigationItems.less?vue&type=style&index=0&id=0f64c09c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,iBAAiB;AACnB;AACA;EACE,eAAe;EACf,mBAAmB;EACnB,kBAAkB;AACpB;AACA;EACE,6BAA6B;AAC/B;AACA;;;;EAIE;AACF;EACE,6BAA6B;AAC/B","file":"NavigationItems.less?vue&type=style&index=0&id=0f64c09c&lang=less&scoped=true&","sourcesContent":[".username[data-v-0f64c09c] {\n  margin-left: 0.5em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-0f64c09c] {\n  font-size: 1rem;\n  font-weight: normal;\n  line-height: 1.5em;\n}\n.avatar img[data-v-0f64c09c] {\n  margin-left: 0.5em !important;\n}\n/*@media (max-width: 400px) {\n  .username .step {\n    display: none;\n  }\n}*/\n.cog.icon[data-v-0f64c09c] {\n  margin-left: 0.5em !important;\n}\n"]}]);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.less?vue&type=style&index=0&id=35e6c639&lang=less&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.less?vue&type=style&index=0&id=35e6c639&lang=less&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"WebpageAdminModal.less?vue&type=style&index=0&id=35e6c639&lang=less&scoped=true&"}]);
 
 
 /***/ }),
@@ -142,16 +172,180 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.status.progress.highlights
-    ? _c("navigation", {
-        ref: "nav",
+  return _c(
+    "div",
+    { staticClass: "NavigationItems" },
+    [
+      _vm.status.progress.highlights
+        ? _c("navigation", {
+            ref: "nav",
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              compactWidth: "640",
+              position: "bottom",
+              color: "blue"
+            },
+            scopedSlots: _vm._u(
+              [
+                {
+                  key: "header",
+                  fn: function() {
+                    return [
+                      _vm.status.preference.leftHanded
+                        ? _c("notification-icon", {
+                            attrs: {
+                              config: _vm.config,
+                              status: _vm.status,
+                              lib: _vm.lib
+                            }
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "fitted item avatar in-top",
+                          on: { click: _vm.showWebpageConfig }
+                        },
+                        [
+                          _c("img", { attrs: { src: _vm.status.avatar } }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "username" }, [
+                            _vm._v(
+                              "\r\n          " +
+                                _vm._s(_vm.lib.auth.username) +
+                                "\r\n        "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _vm.status.role !== "reader"
+                            ? _c("i", { staticClass: "cog icon" })
+                            : _vm._e()
+                        ]
+                      )
+                    ]
+                  },
+                  proxy: true
+                },
+                {
+                  key: "items",
+                  fn: function() {
+                    return [
+                      _c("user-filter", {
+                        ref: "UserFilter",
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("annotation-type-filter", {
+                        ref: "AnnotationTypeFilter",
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "item" },
+                        [
+                          _c("search-manager", {
+                            attrs: {
+                              status: _vm.status,
+                              lib: _vm.lib,
+                              size: "mini"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      !_vm.status.preference.leftHanded
+                        ? _c("notification-icon", {
+                            attrs: {
+                              config: _vm.config,
+                              status: _vm.status,
+                              lib: _vm.lib
+                            }
+                          })
+                        : _vm._e()
+                    ]
+                  },
+                  proxy: true
+                },
+                {
+                  key: "compactItems",
+                  fn: function() {
+                    return [
+                      _c("notification-icon", {
+                        ref: "NotificationManager",
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib
+                        }
+                      })
+                    ]
+                  },
+                  proxy: true
+                }
+              ],
+              null,
+              false,
+              4170995407
+            )
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _c("WebpageAdminModal", {
+        ref: "WebpageAdminModal",
+        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.html?vue&type=template&id=35e6c639&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.html?vue&type=template&id=35e6c639&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "WebpageAdminModal" },
+    [
+      _c("modal", {
+        ref: "Modal",
         attrs: {
           config: _vm.config,
           status: _vm.status,
           lib: _vm.lib,
-          compactWidth: "640",
-          position: "bottom",
-          color: "brown"
+          contentURL: _vm.contentURL,
+          cancelable: true,
+          cancelButtonText: _vm.$t("CLOSE")
         },
         scopedSlots: _vm._u(
           [
@@ -159,125 +353,32 @@ var render = function() {
               key: "header",
               fn: function() {
                 return [
-                  _vm.status.preference.leftHanded
-                    ? _c("notification-icon", {
-                        attrs: {
-                          config: _vm.config,
-                          status: _vm.status,
-                          lib: _vm.lib
-                        }
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("a", { staticClass: "fitted item avatar in-top" }, [
-                    _c("img", { attrs: { src: _vm.status.avatar } }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "username" }, [
-                      _vm._v(
-                        "\r\n        " +
-                          _vm._s(_vm.lib.auth.username) +
-                          "\r\n      "
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "fitted item" },
-                    [
-                      _c("digital-countdown-timer", {
-                        attrs: {
-                          config: _vm.config,
-                          status: _vm.status,
-                          lib: _vm.lib,
-                          pauseAtStart: _vm.pauseAtStart
-                        },
-                        on: {
-                          timeup: function($event) {
-                            return _vm.$emit("timeup")
-                          }
-                        }
-                      })
-                    ],
-                    1
+                  _vm._v(
+                    "\r\n        " +
+                      _vm._s(_vm.$t("Webpage Admin")) +
+                      "\r\n      "
                   )
                 ]
               },
               proxy: true
             },
-            {
-              key: "items",
-              fn: function() {
-                return [
-                  _c("user-filter", {
-                    ref: "UserFilter",
-                    attrs: {
-                      config: _vm.config,
-                      status: _vm.status,
-                      lib: _vm.lib
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("annotation-type-filter", {
-                    ref: "AnnotationTypeFilter",
-                    attrs: {
-                      config: _vm.config,
-                      status: _vm.status,
-                      lib: _vm.lib
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "item" },
-                    [
-                      _c("search-manager", {
-                        attrs: {
-                          status: _vm.status,
-                          lib: _vm.lib,
-                          size: "mini"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  !_vm.status.preference.leftHanded
-                    ? _c("notification-icon", {
-                        attrs: {
-                          config: _vm.config,
-                          status: _vm.status,
-                          lib: _vm.lib
-                        }
-                      })
-                    : _vm._e()
-                ]
-              },
-              proxy: true
-            },
-            {
-              key: "compactItems",
-              fn: function() {
-                return [
-                  _c("notification-icon", {
-                    ref: "NotificationManager",
-                    attrs: {
-                      config: _vm.config,
-                      status: _vm.status,
-                      lib: _vm.lib
-                    }
-                  })
-                ]
-              },
-              proxy: true
-            }
+            !_vm.contentURL
+              ? {
+                  key: "content",
+                  fn: function() {
+                    return undefined
+                  },
+                  proxy: true
+                }
+              : null
           ],
           null,
-          false,
-          1643758748
+          true
         )
       })
-    : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -323,6 +424,27 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("63ad60cb", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.less?vue&type=style&index=0&id=35e6c639&lang=less&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.less?vue&type=style&index=0&id=35e6c639&lang=less&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./WebpageAdminModal.less?vue&type=style&index=0&id=35e6c639&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.less?vue&type=style&index=0&id=35e6c639&lang=less&scoped=true&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("86e34c12", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -666,6 +788,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_NotificationManager_NotificationIcon_NotificationIcon_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../components/NotificationManager/NotificationIcon/NotificationIcon.vue */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/NotificationManager/NotificationIcon/NotificationIcon.vue");
 /* harmony import */ var _components_UserFilter_UserFilter_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../components/UserFilter/UserFilter.vue */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/UserFilter/UserFilter.vue");
+/* harmony import */ var _WebpageAdminModal_WebpageAdminModal_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WebpageAdminModal/WebpageAdminModal.vue */ "./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.vue");
+
+
 
 
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
@@ -675,24 +800,14 @@ let NavigationItems = {
   data() {    
     this.$i18n.locale = this.config.locale
     
-    let pauseAtStart = true
-    if (this.lib.auth.currentStepConfig.debug
-            && typeof(this.lib.auth.currentStepConfig.debug.countdownPause) === 'boolean') {
-      pauseAtStart = this.lib.auth.currentStepConfig.debug.countdownPause
-    }
-
-    if (pauseAtStart === true) {
-      console.log('@test pauseAtStart')
-    }
-
     return {
-      pauseAtStart
     }
   },
   components: {
     //'annotation-type-filter': AnnotationTypeFilter,
     'notification-icon': _components_NotificationManager_NotificationIcon_NotificationIcon_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'user-filter': _components_UserFilter_UserFilter_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    'user-filter': _components_UserFilter_UserFilter_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    WebpageAdminModal: _WebpageAdminModal_WebpageAdminModal_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
 //  
 //  computed: {
@@ -715,8 +830,8 @@ let NavigationItems = {
 //    this.initLibComponents()
 //  },
   methods: {
-    showInstruction () {
-      this.$emit('showInstruction')
+    showWebpageConfig () {
+      this.$refs.WebpageAdminModal.show()
     },
 //    nextStep () {
 //      this.lib.auth.nextStep()
@@ -815,6 +930,150 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReadingProgressesModuels_5CReading_5CFreeReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReadingProgressesModuels_5CReading_5CFreeReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReadingProgressesModuels_5CReading_5CFreeReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReadingProgressesModuels_5CReading_5CFreeReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReadingProgressesModuels_5CReading_5CFreeReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.html?vue&type=template&id=35e6c639&scoped=true&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.html?vue&type=template&id=35e6c639&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_WebpageAdminModal_html_vue_type_template_id_35e6c639_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./WebpageAdminModal.html?vue&type=template&id=35e6c639&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.html?vue&type=template&id=35e6c639&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_WebpageAdminModal_html_vue_type_template_id_35e6c639_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_WebpageAdminModal_html_vue_type_template_id_35e6c639_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.js?vue&type=script&lang=js&?ab23":
+/*!*********************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.js?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _WebpageAdminModal_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./WebpageAdminModal.js?vue&type=script&lang=js& */ "./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.js?vue&type=script&lang=js&?e2b6");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_WebpageAdminModal_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.js?vue&type=script&lang=js&?e2b6":
+/*!*********************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.js?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let WebpageAdminModal = {
+  props: ['lib', 'status', 'config'],
+  data() {    
+    this.$i18n.locale = this.config.locale
+    return {
+      contentURL: this.config.baseURL + '/admin'
+    }
+  },
+//  components: {
+//  },
+//  computed: {
+//  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
+  methods: {
+    show () {
+      this.$refs.Modal.show()
+    }
+  } // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (WebpageAdminModal);
+
+/***/ }),
+
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.less?vue&type=style&index=0&id=35e6c639&lang=less&scoped=true&":
+/*!********************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.less?vue&type=style&index=0&id=35e6c639&lang=less&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_WebpageAdminModal_less_vue_type_style_index_0_id_35e6c639_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-style-loader!../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./WebpageAdminModal.less?vue&type=style&index=0&id=35e6c639&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.less?vue&type=style&index=0&id=35e6c639&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_WebpageAdminModal_less_vue_type_style_index_0_id_35e6c639_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_WebpageAdminModal_less_vue_type_style_index_0_id_35e6c639_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_WebpageAdminModal_less_vue_type_style_index_0_id_35e6c639_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_WebpageAdminModal_less_vue_type_style_index_0_id_35e6c639_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_WebpageAdminModal_less_vue_type_style_index_0_id_35e6c639_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.vue":
+/*!*********************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.vue ***!
+  \*********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _WebpageAdminModal_html_vue_type_template_id_35e6c639_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WebpageAdminModal.html?vue&type=template&id=35e6c639&scoped=true& */ "./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.html?vue&type=template&id=35e6c639&scoped=true&");
+/* harmony import */ var _WebpageAdminModal_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WebpageAdminModal.js?vue&type=script&lang=js& */ "./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.js?vue&type=script&lang=js&?ab23");
+/* empty/unused harmony star reexport *//* harmony import */ var _WebpageAdminModal_less_vue_type_style_index_0_id_35e6c639_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WebpageAdminModal.less?vue&type=style&index=0&id=35e6c639&lang=less&scoped=true& */ "./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.less?vue&type=style&index=0&id=35e6c639&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _WebpageAdminModal_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReadingProgressesModuels_5CReading_5CFreeReading_5CNavigationItems_5CWebpageAdminModal_5CWebpageAdminModal_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./WebpageAdminModal.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReadingProgressesModuels%5CReading%5CFreeReading%5CNavigationItems%5CWebpageAdminModal%5CWebpageAdminModal.vue&lang=yaml */ "./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReadingProgressesModuels%5CReading%5CFreeReading%5CNavigationItems%5CWebpageAdminModal%5CWebpageAdminModal.vue&lang=yaml");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _WebpageAdminModal_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _WebpageAdminModal_html_vue_type_template_id_35e6c639_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _WebpageAdminModal_html_vue_type_template_id_35e6c639_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "35e6c639",
+  null
+  
+)
+
+/* custom blocks */
+
+if (typeof _WebpageAdminModal_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReadingProgressesModuels_5CReading_5CFreeReading_5CNavigationItems_5CWebpageAdminModal_5CWebpageAdminModal_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_WebpageAdminModal_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReadingProgressesModuels_5CReading_5CFreeReading_5CNavigationItems_5CWebpageAdminModal_5CWebpageAdminModal_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReadingProgressesModuels%5CReading%5CFreeReading%5CNavigationItems%5CWebpageAdminModal%5CWebpageAdminModal.vue&lang=yaml":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReadingProgressesModuels%5CReading%5CFreeReading%5CNavigationItems%5CWebpageAdminModal%5CWebpageAdminModal.vue&lang=yaml ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_WebpageAdminModal_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReadingProgressesModuels_5CReading_5CFreeReading_5CNavigationItems_5CWebpageAdminModal_5CWebpageAdminModal_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./WebpageAdminModal.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReadingProgressesModuels%5CReading%5CFreeReading%5CNavigationItems%5CWebpageAdminModal%5CWebpageAdminModal.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReadingProgressesModuels%5CReading%5CFreeReading%5CNavigationItems%5CWebpageAdminModal%5CWebpageAdminModal.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_WebpageAdminModal_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReadingProgressesModuels_5CReading_5CFreeReading_5CNavigationItems_5CWebpageAdminModal_5CWebpageAdminModal_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_WebpageAdminModal_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReadingProgressesModuels_5CReading_5CFreeReading_5CNavigationItems_5CWebpageAdminModal_5CWebpageAdminModal_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_WebpageAdminModal_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReadingProgressesModuels_5CReading_5CFreeReading_5CNavigationItems_5CWebpageAdminModal_5CWebpageAdminModal_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_WebpageAdminModal_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReadingProgressesModuels_5CReading_5CFreeReading_5CNavigationItems_5CWebpageAdminModal_5CWebpageAdminModal_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_WebpageAdminModal_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReadingProgressesModuels_5CReading_5CFreeReading_5CNavigationItems_5CWebpageAdminModal_5CWebpageAdminModal_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ })
 
