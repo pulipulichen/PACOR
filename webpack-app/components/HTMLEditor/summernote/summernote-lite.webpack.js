@@ -1,2 +1,10 @@
 import './summernote-lite.js'
-import './summernote-lite.less'
+//import './summernote-lite.less'
+
+import './summernote-lite.dropdown.less'
+import './summernote-lite.editor.less'
+import './summernote-lite.handle.less'
+import './summernote-lite.icon.less'
+import './summernote-lite.input.less'
+import './summernote-lite.modal.less'
+import './summernote-lite.popover.less'

@@ -3,9 +3,18 @@
   overflow-x: hidden;
   overflow-y: auto;
   clear: both;
+  padding: 0 !important;
   
   &.editable {
     min-height: 7em;
+  }
+  
+  .label {
+    user-select: none;
+    cursor: default;
+    z-index: 700;
+    width: auto !important;
+    font-size: calc(1rem + 1px) !important;
   }
   
   .ribbon.label {
@@ -13,6 +22,14 @@
   }
   
   &.labeled {
-    padding-top: 2.5em;
+    //padding-top: 2.5em;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .html-editor-container {
+    ::v-deep .note-toolbar.center {
+      text-align: right;
+    }
   }
 }

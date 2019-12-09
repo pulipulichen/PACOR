@@ -283,6 +283,7 @@
 
   var editor = renderer.create('<div class="note-editor note-frame"/>');
   var toolbar = renderer.create('<div class="note-toolbar" role="toolbar"/>');
+  
   var editingArea = renderer.create('<div class="note-editing-area"/>');
   var codable = renderer.create('<textarea class="note-codable" role="textbox" aria-multiline="true"/>');
   var editable = renderer.create('<div class="note-editable show-heading-label" contentEditable="true" role="textbox" aria-multiline="true" />');
@@ -883,6 +884,17 @@
               ui.statusbar()
           ])).render();
           $editor.insertAfter($note);
+          
+          if (typeof(options) === 'object' 
+              && typeof(options.toolbarAlign) === 'string') {
+            $editor.find('.note-toolbar').addClass(options.toolbarAlign)
+          }
+          
+          if (typeof(options) === 'object' 
+              && options.toolbarCompact === true) {
+            $editor.find('.note-toolbar').addClass('compact')
+          }
+          
           return {
               note: $note,
               editor: $editor,
@@ -10915,6 +10927,8 @@ sel.addRange(range);
           },
           dialogsInBody: false,
           dialogsFade: false,
+          toolbarAlign: 'left',
+          toolbarCompact: false,
           maxHeight: null,
           maximumImageFileSize: null,
           callbacks: {

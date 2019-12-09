@@ -43,7 +43,7 @@ let HTMLEditor = {
           calc = calc.slice(5, -1)
         }
         
-        let padding = 90
+        let padding = 30
         if (this.label) {
           padding = padding + 30
         }

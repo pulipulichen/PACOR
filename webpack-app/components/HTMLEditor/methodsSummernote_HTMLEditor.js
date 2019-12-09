@@ -31,6 +31,8 @@ export default function (HTMLEditor) {
          */
       ],
       enableStatusbar: false,
+      toolbarAlign: 'center',
+      toolbarCompact: true,
       //maxHeight: '5em',
       //disableDragAndDrop: true,
       callbacks: {
