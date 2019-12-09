@@ -509,7 +509,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { ref: "modal", staticClass: "ui modal" }, [
+  return _c("div", { ref: "modal", staticClass: "ui large modal" }, [
     _vm.cancelable !== "false" && _vm.cancelable !== false
       ? _c("i", { staticClass: "close icon" })
       : _vm._e(),

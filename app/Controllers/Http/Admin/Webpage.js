@@ -306,6 +306,12 @@ e f`)
     
     return 1
   }
+  
+  async find({request}) {
+    const { url } = request.all()
+    let webpage = await WebpageModel.findByURL(url)
+    return webpage.primaryKeyValue
+  }
 }
 
 module.exports = Webpage
