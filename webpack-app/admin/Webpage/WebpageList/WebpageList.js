@@ -110,73 +110,8 @@ let WebpageList = {
       this.webpages[index].isChanged = false
       this.$forceUpdate()
     },
-    editGroupsOpen: function (webpage) {
-      //console.log(domain)
-      this.editingGroups = webpage
-      this.$refs.ModelEditGroups.show()
-    },
-    editGroupsSubmit: async function () {
-      let webpage = this.editingGroups
-      this.$refs.ModelEditGroups.hide()
-      
-      let data = {
-        id: webpage.id
-      }
-      
-      let usersCount = 0
-      if (webpage.groups !== '') {
-        data.groups = []
-        webpage.groups.trim().split('\n').forEach(line => {
-          line = line.trim()
-          if (line !== '') {
-            let group = line.split(' ')
-            data.groups.push(group)
-            usersCount = usersCount + group.length
-          }
-        })
-      }
-      
-      if (data.groups.length === 0) {
-        return false
-      }
-      
-      webpage.groupsCount = data.groups.length
-      webpage.usersCount = usersCount
-      
-      await this.lib.AxiosHelper.post('/Admin/Webpage/editGroups', data)
-      
-    },
-    editConfigOpen: function (webpage) {
-      //console.log(domain)
-      this.editingConfig = webpage
-      this.$refs.ModelEditConfig.show()
-    },
-    editConfigSubmit: async function () {
-      this.$refs.ModelEditConfig.hide()
-      
-      let webpage = this.editingConfig
-      let data = {
-        id: webpage.id
-      }
-      
-      if (webpage.config !== '') {
-        try {
-          data.config = JSON.parse(webpage.config)
-        }
-        catch (e) {}
-      }
-      else {
-        data.config = null
-      }
-      
-      if (typeof(data.config) === 'undefined') {
-        return false
-      }
-      
-      await this.lib.AxiosHelper.post('/Admin/Webpage/editConfig', data)
-      
-      // 關閉Modal
-    }
+
+    
   } // methods
 }
 

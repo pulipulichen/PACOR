@@ -58,13 +58,16 @@ class WebpageGroup {
         lines.forEach(line => {
           let lineArray = []
           line.trim().split(' ').forEach(user => {
-            if (user !== '') {
-              lineArray.push(user)
+            //console.log(`*${user}*`)
+            if (user.trim() !== '') {
+              lineArray.push(user.trim())
             }
           })
           list.push(lineArray)
         })
       }
+      
+      console.log('setGroupsList', list)
       
       //console.log('setGroupsList', 2)
 
@@ -89,6 +92,7 @@ class WebpageGroup {
         // ----------------------
 
         let usersToAdd = list[currentSeqID]
+        
         await group.setUsers(usersToAdd)
 
         // ----------------------

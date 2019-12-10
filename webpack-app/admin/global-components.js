@@ -18,3 +18,11 @@ Vue.component('HTMLEditor', () => import(/* webpackChunkName: "vendors/HTMLEdito
 
 import TableOfContents from './../components/TableOfContents/TableOfContents.vue'
 Vue.component('table-of-contents', TableOfContents)
+
+// ----------------------
+
+import WebpageConfigEditor from './components/WebpageConfigEditor/WebpageConfigEditor.vue'
+Vue.component('webpage-config-editor', WebpageConfigEditor)
+
+import WebpageGroupEditor from './components/WebpageGroupEditor/WebpageGroupEditor.vue'
+Vue.component('webpage-group-editor', WebpageGroupEditor)

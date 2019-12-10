@@ -25,7 +25,7 @@ import ValidateHelper from './helpers/ValidateHelper'
 // --------------------
 // Components
 
-import Auth from './admin/components/Auth/Auth.vue'
+import Auth from './admin/Auth/Auth.vue'
 
 // ----------------------
 

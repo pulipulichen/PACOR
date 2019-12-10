@@ -1,0 +1,66 @@
+let WebpageGroupEditor = {
+  props: ['lib', 'status', 'config'
+    , 'webpage'],
+  data() {    
+    this.$i18n.locale = this.config.locale
+    return {
+      editingGroups: this.webpage
+    }
+  },
+//  components: {
+//  },
+  computed: {
+    title () {
+      if (this.editingGroups.title !== '' 
+              && this.editingGroups.title) {
+        return '(' + this.editingGroups.title + ')'
+      }
+    }
+  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
+  methods: {
+    editGroupsOpen: function () {
+      //console.log(domain)
+      //this.editingGroups = this.webpage
+      this.$refs.ModelEditGroups.show()
+    },
+    editGroupsSubmit: async function () {
+      let webpage = this.editingGroups
+      this.$refs.ModelEditGroups.hide()
+      
+      let data = {
+        id: webpage.id
+      }
+      
+      let usersCount = 0
+      if (webpage.groups !== '') {
+        data.groups = []
+        webpage.groups.trim().split('\n').forEach(line => {
+          line = line.trim()
+          if (line !== '') {
+            let group = line.split(' ')
+            group = group.filter(u => u.trim() !== '')
+            data.groups.push(group)
+            usersCount = usersCount + group.length
+          }
+        })
+      }
+      
+      if (data.groups.length === 0) {
+        return false
+      }
+      
+      webpage.groupsCount = data.groups.length
+      webpage.usersCount = usersCount
+      
+      await this.lib.AxiosHelper.post('/Admin/Webpage/editGroups', data)
+      
+      this.$emit('change', webpage)
+    },
+  } // methods
+}
+
+export default WebpageGroupEditor
