@@ -1,4 +1,5 @@
 import WebpageDashboardGroups from "./WebpageDashboardGroups/WebpageDashboardGroups.vue"
+import WebpageDashboardSubMenu from "./WebpageDashboardSubMenu/WebpageDashboardSubMenu.vue"
 
 let WebpageDashboard = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
@@ -10,7 +11,8 @@ let WebpageDashboard = {
     }
   },
   components: {
-    'webpage-dashboard-groups': WebpageDashboardGroups
+    'webpage-dashboard-groups': WebpageDashboardGroups,
+    'webpage-dashboard-sub-menu': WebpageDashboardSubMenu
   },
   computed: {
     'webpagePath': function () {
@@ -46,7 +48,7 @@ let WebpageDashboard = {
       this.status.title = this.$t('Dashboard') + ' ' + this.webpagePath
       this.domainID = result.domainID
       
-      console.log(this.webpage)
+      //console.log(this.webpage)
     }
   } // methods
 }

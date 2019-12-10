@@ -5,7 +5,34 @@
   
   h2 {
     word-break: break-all;
-    width: calc(100vw - 39rem);
+    width: calc(100vw - 43rem);
     min-width: 10rem;
+  }
+  
+}
+
+.right.menu {
+  &> ::v-deep .ui.item {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+.full-sub-menu {
+  display: none;
+}
+
+@media only screen and (max-width: 992px) {
+  h2 {
+    width: calc(100vw - 18.5rem) !important;
+  }
+  
+  .full-sub-menu {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .right-sub-menu {
+    display: none !important;
   }
 }

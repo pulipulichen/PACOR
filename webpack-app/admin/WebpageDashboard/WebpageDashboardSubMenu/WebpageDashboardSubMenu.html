@@ -1,0 +1,41 @@
+<fragment>
+  <span class="ui item">
+        <webpage-group-editor
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib"
+          v-bind:webpage="webpage"
+          v-on:change="reload">
+        </webpage-group-editor>
+      </span>
+      <span class="ui item">
+        <webpage-config-editor
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib"
+          v-bind:webpage="webpage"
+          v-on:change="reload">
+        </webpage-config-editor>
+      </span>
+      <span v-bind:href="status.webpageURL"
+         class="ui item"
+         target="_blank">
+        <button type="button"
+          class="ui icon button"
+          v-bind:title="$t('Open Webpage')">
+          <i class="external link icon"></i>
+        </button>
+        <!-- {{ $t('Open Webpage') }} -->
+      </span>
+      <span href="/admin/Database/admin?table=webpages"
+         class="ui item"
+         target="_blank"
+         v-if="status.role='global_admin'">
+        <button type="button"
+          class="ui icon button"
+          v-bind:title="$t('Database')">
+          <i class="database icon"></i>
+        </button>
+        <!-- {{ $t('Database') }} -->
+      </span>
+</fragment>

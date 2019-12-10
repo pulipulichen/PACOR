@@ -14,61 +14,23 @@
         </div>
       </div>
     </div>
-    <div class="right menu">
-      <!--
-        <a v-bind:href="`#/webpage/${$route.params.domainID}/list/`"
-           class="ui item"
-           v-bind:class="{'active disabled': ($route.params.action === 'list')}">
-          <i class="list icon"></i>
-          {{ $t('List') }}
-        </a>
-
-        <a v-bind:href="`#/webpage/${$route.params.domainID}/add`"
-           class="ui item"
-           v-bind:class="{'active disabled': ($route.params.action === 'add')}">
-          <i class="plus icon"></i>
-          {{ $t('Add') }}
-        </a>
-      
-        <a href="/admin/Database/admin?table=webpages"
-           class="ui item"
-           target="_blank">
-          <i class="database icon"></i>
-          {{ $t('Database') }}
-        </a>
-      -->
-      <a class="ui item">
-        <webpage-config-editor
-          v-bind:config="config"
-          v-bind:status="status"
-          v-bind:lib="lib"
-          v-bind:webpage="webpage"
-          v-on:change="(w) => {location.reload()}">
-        </webpage-config-editor>
-      </a>
-      <a class="ui item">
-        <webpage-group-editor
-          v-bind:config="config"
-          v-bind:status="status"
-          v-bind:lib="lib"
-          v-bind:webpage="webpage"
-          v-on:change="(w) => {location.reload()}">
-        </webpage-group-editor>
-      </a>
-      <a v-bind:href="status.webpageURL"
-         class="ui item"
-         target="_blank">
-        <i class="external link icon"></i>
-        {{ $t('Open Webpage') }}
-      </a>
-      <a href="/admin/Database/admin?table=webpages"
-         class="ui item"
-         target="_blank"
-         v-if="status.role='global_admin'">
-        <i class="database icon"></i>
-        {{ $t('Database') }}
-      </a>
+    <div class="right-sub-menu right menu">
+      <webpage-dashboard-sub-menu 
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:webpage="webpage">
+      </webpage-dashboard-sub-menu>
     </div>
+  </div>
+  
+  <div class="full-sub-menu menu">
+    <webpage-dashboard-sub-menu 
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+      v-bind:webpage="webpage">
+    </webpage-dashboard-sub-menu>
   </div>
   
   <table-of-contents 
