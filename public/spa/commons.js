@@ -175,7 +175,7 @@ exports.push([module.i, "iframe[data-v-4cdf972e] {\n  width: 100%;\n  height: ca
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "body > .placeholder:first-of-type {\n  padding-top: 60px;\n}\n", "",{"version":3,"sources":["Navigation.global.less?vue&type=style&index=1&lang=less&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;AACnB","file":"Navigation.global.less?vue&type=style&index=1&lang=less&","sourcesContent":["body > .placeholder:first-of-type {\n  padding-top: 60px;\n}\n"]}]);
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"Navigation.global.less?vue&type=style&index=1&lang=less&"}]);
 
 
 /***/ }),
@@ -2141,7 +2141,9 @@ let Navigation = {
   mounted() {
     let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     this.isCompactMode = (width < this.compactWidth)
-    this.initPlaceholder()
+    setTimeout(() => {
+      this.initPlaceholder()
+    }, 0)
   },
   destroyed () {
     this.removePlaceholder()

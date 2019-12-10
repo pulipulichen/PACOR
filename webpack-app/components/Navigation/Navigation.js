@@ -59,7 +59,9 @@ let Navigation = {
   mounted() {
     let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     this.isCompactMode = (width < this.compactWidth)
-    this.initPlaceholder()
+    setTimeout(() => {
+      this.initPlaceholder()
+    }, 0)
   },
   destroyed () {
     this.removePlaceholder()

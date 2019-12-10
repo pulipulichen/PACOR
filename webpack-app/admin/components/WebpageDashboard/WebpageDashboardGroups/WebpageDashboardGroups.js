@@ -31,7 +31,9 @@ let WebpageDashboardGroups = {
         this[name] = result[name]
       }
       
-      this.$parent.$refs.toc.refresh()
+      if (this.$parent.$refs.toc) {
+        this.$parent.$refs.toc.refresh()
+      }
     },
     attrHeaderID: function (anchor) {
       return '/webpage-dashboard/' + this.$route.params.webpageID + '/' + anchor
