@@ -43,6 +43,10 @@ let WebpageDashboard = {
       }
       
       let result = await this.lib.AxiosHelper.get('/admin/WebpageDashboard/info', data)
+      if (result === 0) {
+        this.$router.replace('/')
+      }
+      
       this.status.webpageURL = result.webpageURL
       this.webpage = result.webpage
       this.status.title = this.$t('Dashboard') + ' ' + this.webpagePath

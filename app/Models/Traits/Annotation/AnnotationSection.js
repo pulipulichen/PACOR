@@ -184,7 +184,12 @@ class AnnotationSection {
         let annotations = await this.findByWebpageGroupPosition(webpage, user, options)
         profiler.mark('findByWebpageGroupPosition()')
         
-        annotations = annotations.toJSON()
+        if (typeof(annotations.toJSON) === 'function') {
+          annotations = annotations.toJSON()
+        }
+        else {
+          annotations = []
+        }
         
         profiler.mark('annotations.toJSON()')
         

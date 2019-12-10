@@ -23,6 +23,10 @@ class WebpageDashboard {
               .where('id', webpageID)
               .pick(1)
 
+      if (webpageInstance === null || webpageInstance.size() === 0) {
+        return 0
+      }
+
       webpageInstance = webpageInstance.first()
       let webpage = webpageInstance.toJSON()
 

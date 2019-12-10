@@ -17,25 +17,23 @@
           v-on:change="reload">
         </webpage-config-editor>
       </span>
-      <span v-bind:href="status.webpageURL"
-         class="ui item"
-         target="_blank">
-        <button type="button"
+      <span  class="ui item">
+        <a v-bind:href="status.webpageURL"
+           target="_blank"
           class="ui icon button"
           v-bind:title="$t('Open Webpage')">
           <i class="external link icon"></i>
-        </button>
+        </a>
         <!-- {{ $t('Open Webpage') }} -->
       </span>
-      <span href="/admin/Database/admin?table=webpages"
-         class="ui item"
-         target="_blank"
+      <span class="ui item"
          v-if="status.role='global_admin'">
-        <button type="button"
+        <a href="/admin/Database/admin?table=webpages"
+         target="_blank"
           class="ui icon button"
           v-bind:title="$t('Database')">
           <i class="database icon"></i>
-        </button>
+        </a>
         <!-- {{ $t('Database') }} -->
       </span>
 </fragment>

@@ -2,16 +2,16 @@
 
 const Domain = use('App/Models/Domain')
 const Webpage = use('App/Models/Webpage')
+const Env = use('Env')
+const URLFilter = use('App/Helpers/URLFilter')
 
 class WebpageFind {
 
   register(Model) {
     
     Model.findByURL = async function (URL) {
-      if (typeof (URL) !== 'string') {
-        URL = '/'
-      }
-
+      URL = URLFilter(URL)
+      //console.log({URL})
       let webpage = await Webpage.findBy('url', URL)
 
       if (webpage !== null) {

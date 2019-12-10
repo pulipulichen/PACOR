@@ -10,6 +10,10 @@ class UserReadingProgressConfig {
   register(Model) {
     
     Model.prototype.getCurrentReadingProgressStepName = async function (webpage) {
+      if (this.isAdmin()) {
+        return 'FreeReading'
+      }
+      
       if (!webpage) {
         throw new HttpException('Webpage object is required.')
       }

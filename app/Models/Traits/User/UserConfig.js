@@ -56,7 +56,14 @@ class UserConfig {
       }
       return config.annotation.enableCollaboration
     }
+    
+    Model.prototype.isAdmin = function () {
+      return (this.role === 'domain_admin' || this.role === 'global_admin')
+    }
+    
   } // register (Model) {
+  
+  
 }
 
 module.exports = UserConfig

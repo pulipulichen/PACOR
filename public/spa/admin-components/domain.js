@@ -406,11 +406,27 @@ var render = function() {
           "tbody",
           _vm._l(_vm.domains, function(domain, index) {
             return _c("tr", [
-              _c("td", [
-                _vm._v(
-                  "\r\n          " + _vm._s(domain.domain) + "\r\n        "
-                )
-              ]),
+              _c(
+                "td",
+                [
+                  domain.domain
+                    ? [
+                        _vm._v(
+                          "\r\n            " +
+                            _vm._s(domain.domain) +
+                            "\r\n          "
+                        )
+                      ]
+                    : _c("templace", [
+                        _vm._v(
+                          "\r\n            " +
+                            _vm._s(_vm.$t("(For Global Admin)")) +
+                            "\r\n          "
+                        )
+                      ])
+                ],
+                2
+              ),
               _vm._v(" "),
               _c(
                 "td",

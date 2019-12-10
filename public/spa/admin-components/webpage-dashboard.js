@@ -203,14 +203,16 @@ var render = function() {
         attrs: { config: _vm.config, lib: _vm.lib, headings: "h3, h4" }
       }),
       _vm._v(" "),
-      _c("webpage-dashboard-groups", {
-        attrs: {
-          config: _vm.config,
-          status: _vm.status,
-          progress: _vm.progress,
-          lib: _vm.lib
-        }
-      })
+      _vm.webpage
+        ? _c("webpage-dashboard-groups", {
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              progress: _vm.progress,
+              lib: _vm.lib
+            }
+          })
+        : _vm._e()
     ],
     1
   )
@@ -479,45 +481,36 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c(
-      "span",
-      {
-        staticClass: "ui item",
-        attrs: { href: _vm.status.webpageURL, target: "_blank" }
-      },
-      [
-        _c(
-          "button",
-          {
-            staticClass: "ui icon button",
-            attrs: { type: "button", title: _vm.$t("Open Webpage") }
-          },
-          [_c("i", { staticClass: "external link icon" })]
-        )
-      ]
-    ),
+    _c("span", { staticClass: "ui item" }, [
+      _c(
+        "a",
+        {
+          staticClass: "ui icon button",
+          attrs: {
+            href: _vm.status.webpageURL,
+            target: "_blank",
+            title: _vm.$t("Open Webpage")
+          }
+        },
+        [_c("i", { staticClass: "external link icon" })]
+      )
+    ]),
     _vm._v(" "),
     (_vm.status.role = "global_admin")
-      ? _c(
-          "span",
-          {
-            staticClass: "ui item",
-            attrs: {
-              href: "/admin/Database/admin?table=webpages",
-              target: "_blank"
-            }
-          },
-          [
-            _c(
-              "button",
-              {
-                staticClass: "ui icon button",
-                attrs: { type: "button", title: _vm.$t("Database") }
-              },
-              [_c("i", { staticClass: "database icon" })]
-            )
-          ]
-        )
+      ? _c("span", { staticClass: "ui item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "ui icon button",
+              attrs: {
+                href: "/admin/Database/admin?table=webpages",
+                target: "_blank",
+                title: _vm.$t("Database")
+              }
+            },
+            [_c("i", { staticClass: "database icon" })]
+          )
+        ])
       : _vm._e()
   ])
 }
@@ -686,6 +679,10 @@ let WebpageDashboard = {
       }
       
       let result = await this.lib.AxiosHelper.get('/admin/WebpageDashboard/info', data)
+      if (result === 0) {
+        this.$router.replace('/')
+      }
+      
       this.status.webpageURL = result.webpageURL
       this.webpage = result.webpage
       this.status.title = this.$t('Dashboard') + ' ' + this.webpagePath

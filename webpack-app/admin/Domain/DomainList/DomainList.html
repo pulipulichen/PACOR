@@ -25,7 +25,12 @@
     <tbody>
       <tr v-for="(domain, index) in domains">
         <td>
-          {{ domain.domain }}
+          <template v-if="domain.domain">
+            {{ domain.domain }}
+          </template>
+          <templace v-else>
+            {{ $t('(For Global Admin)') }}
+          </templace>
         </td>
         <td class="field"
             v-bind:class="{error: (domain.title === '')}">

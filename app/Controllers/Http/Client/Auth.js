@@ -34,7 +34,7 @@ class Auth {
     
     //console.log({username, password, role})
     
-    console.log(query.toSQL().toNative())
+    //console.log(query.toSQL().toNative())
     
     let user = await query.pick(1)
     //console.log(user.size())
