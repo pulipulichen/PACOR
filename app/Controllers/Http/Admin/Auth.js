@@ -4,6 +4,7 @@ const User = use('App/Models/User')
 const Domain = use('App/Models/Domain')
 
 const Env = use('Env')
+const Cache = use('Cache')
 const ADMIN_USERNAME = Env.get('ADMIN_USERNAME')
 const ADMIN_PASSWORD = Env.get('ADMIN_PASSWORD')
 
@@ -144,6 +145,8 @@ class Auth {
         else {
           avatarURL = AvatarHelper.userURL(user.avatar)
         }
+        
+        await Cache.flush()
         
         return {
           username: user.username,

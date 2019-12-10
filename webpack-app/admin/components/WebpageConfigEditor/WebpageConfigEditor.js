@@ -6,7 +6,8 @@ let WebpageConfigEditor = {
     
     //console.log(this.webpage.config)
     let configString = ''
-    if (this.webpage.config) {
+    if (this.webpage 
+            && this.webpage.config) {
       configString = JSON.stringify(this.webpage.config, null, 2)
     }
     
@@ -23,11 +24,39 @@ let WebpageConfigEditor = {
               && this.webpage.title) {
         return '(' + this.webpage.title + ')'
       }
-    }
+    },
+    uri () {
+      if (this.webpage.url) {
+        return '/' + this.webpage.url.split('/').slice(3).join('/')
+      }
+    },
+    computedButtonTitle () {
+      let title = [
+        this.$t('Edit config of')
+        , '# ' + this.webpage.id
+        , this.uri
+      ]
       
+      if (this.title) {
+        title.push(this.title)
+      }
+      
+      return title.join(' ').trim()
+    }
   },
-//  watch: {
-//  },
+  watch: {
+    webpage (webpage) {
+      
+      let configString = ''
+      if (webpage 
+              && webpage.config) {
+        configString = JSON.stringify(webpage.config, null, 2)
+      }
+      
+      this.editingConfig = webpage,
+      this.configString = configString
+    }
+  },
 //  mounted() {
 //  },
   methods: {

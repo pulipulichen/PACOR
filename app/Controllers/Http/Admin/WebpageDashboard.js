@@ -15,23 +15,29 @@ class WebpageDashboard {
     let {webpageID} = request.all()
     let cacheKey = Cache.key('WebpageDashboard', 'info', webpageID)
     
-    return await Cache.get(cacheKey, async () => {
-      let webpage = await WebpageModel
+    return await Cache.rememberWait(['Webpage_' + webpageID], cacheKey, 3, async () => {
+      let webpageInstance = await WebpageModel
               .query()
               .with('domain')
+              .with('groups')
               .where('id', webpageID)
               .pick(1)
 
-      webpage = webpage.first().toJSON()
+      webpageInstance = webpageInstance.first()
+      let webpage = webpageInstance.toJSON()
 
       await auth.checkDomainAdmin(webpage.domain_id)
+      webpage.config = webpageInstance.config
+      
+      WebpageModel.parseAdminGroups(webpage)
 
       let webpageURL = webpage.url
       let output = {
         webpageURL,
+        webpage,
         domainID: webpage.domain_id
       }
-      Cache.put(cacheKey, output, 3)
+      //Cache.put(cacheKey, output, 3)
       return output
     })
   }

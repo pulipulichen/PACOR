@@ -198,6 +198,23 @@ class WebpageGroup {
       return output
     }
     
+    Model.parseAdminGroups = function (webpage) {
+
+      let groups = []
+      let usersCount = 0
+      //console.log(webpage.groups)
+      webpage.groups.forEach(group => {
+        if (group.users.length > 0) {
+          let g = group.users.map(user => user.username).filter(username => (username !== '') )
+          groups.push(g.join(' '))
+          usersCount = usersCount + g.length
+        }
+      })
+      webpage.groupsCount = groups.length
+      webpage.usersCount = usersCount
+      webpage.groups = groups.join('\n')
+    }
+    
   } // register (Model) {
 }
 

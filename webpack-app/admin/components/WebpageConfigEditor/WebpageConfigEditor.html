@@ -1,7 +1,9 @@
-<div class="WebpageConfigEditor">
+<div class="WebpageConfigEditor"
+     v-if="webpage">
   <span class="ui icon button"
-        v-on:click="editConfigOpen()">
-    <i class="edit icon"></i>
+        v-on:click="editConfigOpen()"
+        v-bind:title="computedButtonTitle">
+    <i class="cog icon"></i>
   </span>
 
   <modal 

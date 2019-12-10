@@ -15,10 +15,31 @@ let WebpageGroupEditor = {
               && this.editingGroups.title) {
         return '(' + this.editingGroups.title + ')'
       }
+    },
+    uri () {
+      if (this.webpage.url) {
+        return '/' + this.webpage.url.split('/').slice(3).join('/')
+      }
+    },
+    computedButtonTitle () {
+      let title = [
+        this.$t('Edit groups of')
+        , '# ' + this.webpage.id
+        , this.uri
+      ]
+      
+      if (this.title) {
+        title.push(this.title)
+      }
+      
+      return title.join(' ').trim()
     }
   },
-//  watch: {
-//  },
+  watch: {
+    webpage (webpage) {
+      this.editingGroups = webpage
+    }
+  },
 //  mounted() {
 //  },
   methods: {

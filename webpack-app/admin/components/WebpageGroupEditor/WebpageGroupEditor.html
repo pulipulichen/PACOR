@@ -1,5 +1,7 @@
-<div class="WebpageGroupEditor">
+<div class="WebpageGroupEditor"
+     v-if="webpage">
   <span class="ui right labeled icon button"
+        v-bind:title="computedButtonTitle"
         v-on:click="editGroupsOpen()">
     {{ webpage.usersCount }}
     {{ $t('Readers', webpage.usersCount) }}

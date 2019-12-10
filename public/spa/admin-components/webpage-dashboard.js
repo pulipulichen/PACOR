@@ -138,6 +138,48 @@ var render = function() {
         _c("div", { staticClass: "right menu" }, [
           _c(
             "a",
+            { staticClass: "ui item" },
+            [
+              _c("webpage-config-editor", {
+                attrs: {
+                  config: _vm.config,
+                  status: _vm.status,
+                  lib: _vm.lib,
+                  webpage: _vm.webpage
+                },
+                on: {
+                  change: function(w) {
+                    _vm.location.reload()
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "ui item" },
+            [
+              _c("webpage-group-editor", {
+                attrs: {
+                  config: _vm.config,
+                  status: _vm.status,
+                  lib: _vm.lib,
+                  webpage: _vm.webpage
+                },
+                on: {
+                  change: function(w) {
+                    _vm.location.reload()
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
             {
               staticClass: "ui item",
               attrs: { href: _vm.status.webpageURL, target: "_blank" }
@@ -177,7 +219,6 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("webpage-dashboard-groups", {
-        ref: "auth",
         attrs: {
           config: _vm.config,
           status: _vm.status,
@@ -501,7 +542,8 @@ let WebpageDashboard = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      domainID: null
+      domainID: null,
+      webpage: null
     }
   },
   components: {
@@ -514,8 +556,8 @@ let WebpageDashboard = {
       }
     }
   },
-  watch: {
-  },
+//  watch: {
+//  },
   mounted() {
     this.initDashboard()
     
@@ -537,8 +579,11 @@ let WebpageDashboard = {
       
       let result = await this.lib.AxiosHelper.get('/admin/WebpageDashboard/info', data)
       this.status.webpageURL = result.webpageURL
+      this.webpage = result.webpage
       this.status.title = this.$t('Dashboard') + ' ' + this.webpagePath
       this.domainID = result.domainID
+      
+      console.log(this.webpage)
     }
   } // methods
 }

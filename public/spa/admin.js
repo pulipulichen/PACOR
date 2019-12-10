@@ -760,150 +760,160 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "WebpageConfigEditor" },
-    [
-      _c(
-        "span",
-        {
-          staticClass: "ui icon button",
-          on: {
-            click: function($event) {
-              return _vm.editConfigOpen()
-            }
-          }
-        },
-        [_c("i", { staticClass: "edit icon" })]
-      ),
-      _vm._v(" "),
-      _c("modal", {
-        ref: "ModelEditConfig",
-        attrs: {
-          config: _vm.config,
-          status: _vm.status,
-          lib: _vm.lib,
-          reset: _vm.editingConfig
-        },
-        scopedSlots: _vm._u([
-          {
-            key: "header",
-            fn: function() {
-              return [
-                _c(
-                  "a",
-                  {
-                    staticClass: "ui button",
-                    attrs: {
-                      href: "/admin/Database/admin?table=domains",
-                      target: "_blank"
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\r\n        " + _vm._s(_vm.$t("DATABASE")) + "\r\n      "
-                    )
-                  ]
-                ),
-                _vm._v(
-                  "\r\n      # " +
-                    _vm._s(_vm.webpage.id) +
-                    "\r\n      " +
-                    _vm._s(_vm.webpage.url) +
-                    "\r\n      " +
-                    _vm._s(_vm.title) +
-                    "\r\n    "
-                )
-              ]
+  return _vm.webpage
+    ? _c(
+        "div",
+        { staticClass: "WebpageConfigEditor" },
+        [
+          _c(
+            "span",
+            {
+              staticClass: "ui icon button",
+              attrs: { title: _vm.computedButtonTitle },
+              on: {
+                click: function($event) {
+                  return _vm.editConfigOpen()
+                }
+              }
             },
-            proxy: true
-          },
-          {
-            key: "content",
-            fn: function() {
-              return [
-                _c("div", { staticClass: "ui field" }, [
-                  _c("label", [
-                    _vm._v(
-                      "\r\n          " +
-                        _vm._s(_vm.$t("Edit Config")) +
-                        "\r\n          (" +
-                        _vm._s(_vm.$t("JSON format.")) +
-                        "\r\n          "
-                    ),
-                    _c(
-                      "a",
-                      {
-                        attrs: {
-                          href:
-                            "https://github.com/pulipulichen/PACOR/blob/master/help/ConfigExample.md",
-                          target: "_blank"
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\r\n            " +
-                            _vm._s(_vm.$t("Example")) +
-                            "\r\n          "
-                        )
-                      ]
-                    ),
-                    _vm._v(")\r\n        ")
-                  ]),
-                  _vm._v(" "),
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.configString,
-                        expression: "configString"
-                      }
-                    ],
-                    domProps: { value: _vm.configString },
-                    on: {
-                      input: [
-                        function($event) {
-                          if ($event.target.composing) {
-                            return
+            [_c("i", { staticClass: "cog icon" })]
+          ),
+          _vm._v(" "),
+          _c("modal", {
+            ref: "ModelEditConfig",
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              reset: _vm.editingConfig
+            },
+            scopedSlots: _vm._u(
+              [
+                {
+                  key: "header",
+                  fn: function() {
+                    return [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "ui button",
+                          attrs: {
+                            href: "/admin/Database/admin?table=domains",
+                            target: "_blank"
                           }
-                          _vm.configString = $event.target.value
                         },
-                        function($event) {
-                          _vm.editingConfig.isChanged = true
-                        }
-                      ]
-                    }
-                  })
-                ])
-              ]
-            },
-            proxy: true
-          },
-          {
-            key: "actions",
-            fn: function() {
-              return [
-                _c(
-                  "div",
-                  {
-                    staticClass: "ui button",
-                    class: {
-                      disabled: !(_vm.editingConfig.isChanged === true)
-                    },
-                    on: { click: _vm.editConfigSubmit }
+                        [
+                          _vm._v(
+                            "\r\n        " +
+                              _vm._s(_vm.$t("DATABASE")) +
+                              "\r\n      "
+                          )
+                        ]
+                      ),
+                      _vm._v(
+                        "\r\n      # " +
+                          _vm._s(_vm.webpage.id) +
+                          "\r\n      " +
+                          _vm._s(_vm.webpage.url) +
+                          "\r\n      " +
+                          _vm._s(_vm.title) +
+                          "\r\n    "
+                      )
+                    ]
                   },
-                  [_vm._v(_vm._s(_vm.$t("OK")))]
-                )
-              ]
-            },
-            proxy: true
-          }
-        ])
-      })
-    ],
-    1
-  )
+                  proxy: true
+                },
+                {
+                  key: "content",
+                  fn: function() {
+                    return [
+                      _c("div", { staticClass: "ui field" }, [
+                        _c("label", [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("Edit Config")) +
+                              "\r\n          (" +
+                              _vm._s(_vm.$t("JSON format.")) +
+                              "\r\n          "
+                          ),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "https://github.com/pulipulichen/PACOR/blob/master/help/ConfigExample.md",
+                                target: "_blank"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\r\n            " +
+                                  _vm._s(_vm.$t("Example")) +
+                                  "\r\n          "
+                              )
+                            ]
+                          ),
+                          _vm._v(")\r\n        ")
+                        ]),
+                        _vm._v(" "),
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.configString,
+                              expression: "configString"
+                            }
+                          ],
+                          domProps: { value: _vm.configString },
+                          on: {
+                            input: [
+                              function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.configString = $event.target.value
+                              },
+                              function($event) {
+                                _vm.editingConfig.isChanged = true
+                              }
+                            ]
+                          }
+                        })
+                      ])
+                    ]
+                  },
+                  proxy: true
+                },
+                {
+                  key: "actions",
+                  fn: function() {
+                    return [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "ui button",
+                          class: {
+                            disabled: !(_vm.editingConfig.isChanged === true)
+                          },
+                          on: { click: _vm.editConfigSubmit }
+                        },
+                        [_vm._v(_vm._s(_vm.$t("OK")))]
+                      )
+                    ]
+                  },
+                  proxy: true
+                }
+              ],
+              null,
+              false,
+              3603043520
+            )
+          })
+        ],
+        1
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -927,165 +937,175 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "WebpageGroupEditor" },
-    [
-      _c(
-        "span",
-        {
-          staticClass: "ui right labeled icon button",
-          on: {
-            click: function($event) {
-              return _vm.editGroupsOpen()
-            }
-          }
-        },
+  return _vm.webpage
+    ? _c(
+        "div",
+        { staticClass: "WebpageGroupEditor" },
         [
-          _vm._v(
-            "\r\n    " +
-              _vm._s(_vm.webpage.usersCount) +
-              "\r\n    " +
-              _vm._s(_vm.$t("Readers", _vm.webpage.usersCount)) +
-              "\r\n    /\r\n    " +
-              _vm._s(_vm.webpage.groupsCount) +
-              "\r\n    " +
-              _vm._s(_vm.$t("Groups", _vm.webpage.groupsCount)) +
-              "\r\n    "
+          _c(
+            "span",
+            {
+              staticClass: "ui right labeled icon button",
+              attrs: { title: _vm.computedButtonTitle },
+              on: {
+                click: function($event) {
+                  return _vm.editGroupsOpen()
+                }
+              }
+            },
+            [
+              _vm._v(
+                "\r\n    " +
+                  _vm._s(_vm.webpage.usersCount) +
+                  "\r\n    " +
+                  _vm._s(_vm.$t("Readers", _vm.webpage.usersCount)) +
+                  "\r\n    /\r\n    " +
+                  _vm._s(_vm.webpage.groupsCount) +
+                  "\r\n    " +
+                  _vm._s(_vm.$t("Groups", _vm.webpage.groupsCount)) +
+                  "\r\n    "
+              ),
+              _c("i", { staticClass: "edit icon" })
+            ]
           ),
-          _c("i", { staticClass: "edit icon" })
-        ]
-      ),
-      _vm._v(" "),
-      _c("modal", {
-        ref: "ModelEditGroups",
-        attrs: {
-          config: _vm.config,
-          status: _vm.status,
-          lib: _vm.lib,
-          reset: _vm.editingGroups
-        },
-        scopedSlots: _vm._u([
-          {
-            key: "header",
-            fn: function() {
-              return [
-                _c(
-                  "a",
-                  {
-                    staticClass: "ui button",
-                    attrs: {
-                      href: "/admin/Database/admin?table=users",
-                      target: "_blank"
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\r\n        " + _vm._s(_vm.$t("DATABASE")) + "\r\n      "
-                    )
-                  ]
-                ),
-                _vm._v(
-                  "\r\n      # " +
-                    _vm._s(_vm.editingGroups.id) +
-                    "\r\n      " +
-                    _vm._s(_vm.editingGroups.url) +
-                    "\r\n      " +
-                    _vm._s(_vm.title) +
-                    "\r\n    "
-                )
-              ]
+          _vm._v(" "),
+          _c("modal", {
+            ref: "ModelEditGroups",
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              reset: _vm.editingGroups
             },
-            proxy: true
-          },
-          {
-            key: "content",
-            fn: function() {
-              return [
-                _c("div", { staticClass: "ui field" }, [
-                  _c("label", [
-                    _vm._v(
-                      "\r\n          " +
-                        _vm._s(_vm.$t("Edit Groups")) +
-                        "\r\n          (" +
-                        _vm._s(
-                          _vm.$t(
-                            "each group per line. Readers in group is splited by space."
-                          )
-                        ) +
-                        "\r\n          "
-                    ),
-                    _c(
-                      "a",
-                      {
-                        attrs: {
-                          href:
-                            "https://github.com/pulipulichen/PACOR/blob/master/help/GroupsExample.md",
-                          target: "_blank"
-                        }
-                      },
-                      [_vm._v(_vm._s(_vm.$t("Example")))]
-                    ),
-                    _vm._v(")\r\n        ")
-                  ]),
-                  _vm._v(" "),
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.editingGroups.groups,
-                        expression: "editingGroups.groups"
-                      }
-                    ],
-                    domProps: { value: _vm.editingGroups.groups },
-                    on: {
-                      input: [
-                        function($event) {
-                          if ($event.target.composing) {
-                            return
+            scopedSlots: _vm._u(
+              [
+                {
+                  key: "header",
+                  fn: function() {
+                    return [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "ui button",
+                          attrs: {
+                            href: "/admin/Database/admin?table=users",
+                            target: "_blank"
                           }
-                          _vm.$set(
-                            _vm.editingGroups,
-                            "groups",
-                            $event.target.value
-                          )
                         },
-                        function($event) {
-                          _vm.editingGroups.isChanged = true
-                        }
-                      ]
-                    }
-                  })
-                ])
-              ]
-            },
-            proxy: true
-          },
-          {
-            key: "actions",
-            fn: function() {
-              return [
-                _c(
-                  "div",
-                  {
-                    staticClass: "ui button",
-                    class: {
-                      disabled: !(_vm.editingGroups.isChanged === true)
-                    },
-                    on: { click: _vm.editGroupsSubmit }
+                        [
+                          _vm._v(
+                            "\r\n        " +
+                              _vm._s(_vm.$t("DATABASE")) +
+                              "\r\n      "
+                          )
+                        ]
+                      ),
+                      _vm._v(
+                        "\r\n      # " +
+                          _vm._s(_vm.editingGroups.id) +
+                          "\r\n      " +
+                          _vm._s(_vm.editingGroups.url) +
+                          "\r\n      " +
+                          _vm._s(_vm.title) +
+                          "\r\n    "
+                      )
+                    ]
                   },
-                  [_vm._v(_vm._s(_vm.$t("OK")))]
-                )
-              ]
-            },
-            proxy: true
-          }
-        ])
-      })
-    ],
-    1
-  )
+                  proxy: true
+                },
+                {
+                  key: "content",
+                  fn: function() {
+                    return [
+                      _c("div", { staticClass: "ui field" }, [
+                        _c("label", [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("Edit Groups")) +
+                              "\r\n          (" +
+                              _vm._s(
+                                _vm.$t(
+                                  "each group per line. Readers in group is splited by space."
+                                )
+                              ) +
+                              "\r\n          "
+                          ),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href:
+                                  "https://github.com/pulipulichen/PACOR/blob/master/help/GroupsExample.md",
+                                target: "_blank"
+                              }
+                            },
+                            [_vm._v(_vm._s(_vm.$t("Example")))]
+                          ),
+                          _vm._v(")\r\n        ")
+                        ]),
+                        _vm._v(" "),
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editingGroups.groups,
+                              expression: "editingGroups.groups"
+                            }
+                          ],
+                          domProps: { value: _vm.editingGroups.groups },
+                          on: {
+                            input: [
+                              function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.editingGroups,
+                                  "groups",
+                                  $event.target.value
+                                )
+                              },
+                              function($event) {
+                                _vm.editingGroups.isChanged = true
+                              }
+                            ]
+                          }
+                        })
+                      ])
+                    ]
+                  },
+                  proxy: true
+                },
+                {
+                  key: "actions",
+                  fn: function() {
+                    return [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "ui button",
+                          class: {
+                            disabled: !(_vm.editingGroups.isChanged === true)
+                          },
+                          on: { click: _vm.editGroupsSubmit }
+                        },
+                        [_vm._v(_vm._s(_vm.$t("OK")))]
+                      )
+                    ]
+                  },
+                  proxy: true
+                }
+              ],
+              null,
+              false,
+              2264056311
+            )
+          })
+        ],
+        1
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1921,7 +1941,8 @@ let WebpageConfigEditor = {
     
     //console.log(this.webpage.config)
     let configString = ''
-    if (this.webpage.config) {
+    if (this.webpage 
+            && this.webpage.config) {
       configString = JSON.stringify(this.webpage.config, null, 2)
     }
     
@@ -1938,11 +1959,39 @@ let WebpageConfigEditor = {
               && this.webpage.title) {
         return '(' + this.webpage.title + ')'
       }
-    }
+    },
+    uri () {
+      if (this.webpage.url) {
+        return '/' + this.webpage.url.split('/').slice(3).join('/')
+      }
+    },
+    computedButtonTitle () {
+      let title = [
+        this.$t('Edit config of')
+        , '# ' + this.webpage.id
+        , this.uri
+      ]
       
+      if (this.title) {
+        title.push(this.title)
+      }
+      
+      return title.join(' ').trim()
+    }
   },
-//  watch: {
-//  },
+  watch: {
+    webpage (webpage) {
+      
+      let configString = ''
+      if (webpage 
+              && webpage.config) {
+        configString = JSON.stringify(webpage.config, null, 2)
+      }
+      
+      this.editingConfig = webpage,
+      this.configString = configString
+    }
+  },
 //  mounted() {
 //  },
   methods: {
@@ -2122,10 +2171,31 @@ let WebpageGroupEditor = {
               && this.editingGroups.title) {
         return '(' + this.editingGroups.title + ')'
       }
+    },
+    uri () {
+      if (this.webpage.url) {
+        return '/' + this.webpage.url.split('/').slice(3).join('/')
+      }
+    },
+    computedButtonTitle () {
+      let title = [
+        this.$t('Edit groups of')
+        , '# ' + this.webpage.id
+        , this.uri
+      ]
+      
+      if (this.title) {
+        title.push(this.title)
+      }
+      
+      return title.join(' ').trim()
     }
   },
-//  watch: {
-//  },
+  watch: {
+    webpage (webpage) {
+      this.editingGroups = webpage
+    }
+  },
 //  mounted() {
 //  },
   methods: {

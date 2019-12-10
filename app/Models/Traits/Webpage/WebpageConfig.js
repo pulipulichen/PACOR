@@ -93,11 +93,15 @@ class WebpageConfig {
         if (this.config && typeof(this.config) === 'object') {
           profiler.before('mergeDeep')
           
-          console.log('before TypeHelper.mergeDeep()')
-          console.log(baseConfig)
-          console.log(this.config)
-          output = TypeHelper.mergeDeep(baseConfig, this.config)
-          console.log(output)
+          if (domainConfig) {
+            output = TypeHelper.mergeDeep(output, domainConfig)
+          }
+          
+//          console.log('before TypeHelper.mergeDeep()')
+//          console.log(domainConfig)
+//          console.log(this.config)
+          output = TypeHelper.mergeDeep(output, this.config)
+//          console.log(output)
           
           profiler.after('mergeDeep')
         }

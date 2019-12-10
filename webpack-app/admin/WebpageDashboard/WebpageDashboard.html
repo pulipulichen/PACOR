@@ -37,6 +37,24 @@
           {{ $t('Database') }}
         </a>
       -->
+      <a class="ui item">
+        <webpage-config-editor
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib"
+          v-bind:webpage="webpage"
+          v-on:change="(w) => {location.reload()}">
+        </webpage-config-editor>
+      </a>
+      <a class="ui item">
+        <webpage-group-editor
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib"
+          v-bind:webpage="webpage"
+          v-on:change="(w) => {location.reload()}">
+        </webpage-group-editor>
+      </a>
       <a v-bind:href="status.webpageURL"
          class="ui item"
          target="_blank">
@@ -53,14 +71,17 @@
     </div>
   </div>
   
-  <table-of-contents v-bind:config="config"
-                     v-bind:lib="lib"
-                     headings="h3, h4"
-                     ref='toc'></table-of-contents>
-  
-  <webpage-dashboard-groups v-bind:config="config"
-        v-bind:status="status"
-        v-bind:progress="progress"
-        v-bind:lib="lib"
-        ref="auth"></webpage-dashboard-groups>
+  <table-of-contents 
+    v-bind:config="config"
+    v-bind:lib="lib"
+    headings="h3, h4"
+    ref='toc'>
+  </table-of-contents>
+
+  <webpage-dashboard-groups 
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:progress="progress"
+    v-bind:lib="lib">
+  </webpage-dashboard-groups>
 </div>

@@ -45,19 +45,8 @@ class Webpage {
         
         webpage.path = '/' + webpage.url.split('/').slice(3).join('/')
       
-        let groups = []
-        let usersCount = 0
-        //console.log(webpage.groups)
-        webpage.groups.forEach(group => {
-          if (group.users.length > 0) {
-            let g = group.users.map(user => user.username).filter(username => (username !== '') )
-            groups.push(g.join(' '))
-            usersCount = usersCount + g.length
-          }
-        })
-        webpage.groupsCount = groups.length
-        webpage.usersCount = usersCount
-        webpage.groups = groups.join('\n')
+        WebpageModel.parseAdminGroups(webpage)
+        
         try {
           if (webpage.config === null) {
             webpage.config = ''
