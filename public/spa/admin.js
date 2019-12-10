@@ -856,22 +856,18 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.editingConfig.config,
-                        expression: "editingConfig.config"
+                        value: _vm.configString,
+                        expression: "configString"
                       }
                     ],
-                    domProps: { value: _vm.editingConfig.config },
+                    domProps: { value: _vm.configString },
                     on: {
                       input: [
                         function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.$set(
-                            _vm.editingConfig,
-                            "config",
-                            $event.target.value
-                          )
+                          _vm.configString = $event.target.value
                         },
                         function($event) {
                           _vm.editingConfig.isChanged = true
@@ -1922,8 +1918,16 @@ let WebpageConfigEditor = {
             , 'webpage'],
   data() {
     this.$i18n.locale = this.config.locale
+    
+    //console.log(this.webpage.config)
+    let configString = ''
+    if (this.webpage.config) {
+      configString = JSON.stringify(this.webpage.config, null, 2)
+    }
+    
     return {
-      editingConfig: this.webpage
+      editingConfig: this.webpage,
+      configString
     }
   },
 //  components: {
@@ -1953,22 +1957,28 @@ let WebpageConfigEditor = {
         id: webpage.id
       }
 
-      if (webpage.config !== '') {
-        try {
-          data.config = JSON.parse(webpage.config)
-        } catch (e) {
-        }
-      } else {
-        data.config = null
+      
+      try {
+        //data.config = JSON.parse(webpage.config)
+        eval(`data.config = ${this.configString}`)
+      } 
+      catch (e) {
+        console.log(e)
       }
+      
+      console.log(data)
 
-      if (typeof (data.config) === 'undefined') {
+      if (typeof (data.config) !== 'object'
+              && data.config) {
         return false
       }
+
 
       await this.lib.AxiosHelper.post('/Admin/Webpage/editConfig', data)
 
       // 關閉Modal
+      //console.log(data)
+      webpage.config = data.config
       this.$emit('change', webpage)
     }
   } // methods

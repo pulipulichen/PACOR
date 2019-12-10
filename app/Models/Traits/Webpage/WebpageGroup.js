@@ -67,8 +67,7 @@ class WebpageGroup {
         })
       }
       
-      console.log('setGroupsList', list)
-      
+      //console.log('setGroupsList', list)
       //console.log('setGroupsList', 2)
 
       // ---------------------

@@ -3,8 +3,16 @@ let WebpageConfigEditor = {
             , 'webpage'],
   data() {
     this.$i18n.locale = this.config.locale
+    
+    //console.log(this.webpage.config)
+    let configString = ''
+    if (this.webpage.config) {
+      configString = JSON.stringify(this.webpage.config, null, 2)
+    }
+    
     return {
-      editingConfig: this.webpage
+      editingConfig: this.webpage,
+      configString
     }
   },
 //  components: {
@@ -34,22 +42,28 @@ let WebpageConfigEditor = {
         id: webpage.id
       }
 
-      if (webpage.config !== '') {
-        try {
-          data.config = JSON.parse(webpage.config)
-        } catch (e) {
-        }
-      } else {
-        data.config = null
+      
+      try {
+        //data.config = JSON.parse(webpage.config)
+        eval(`data.config = ${this.configString}`)
+      } 
+      catch (e) {
+        console.log(e)
       }
+      
+      console.log(data)
 
-      if (typeof (data.config) === 'undefined') {
+      if (typeof (data.config) !== 'object'
+              && data.config) {
         return false
       }
+
 
       await this.lib.AxiosHelper.post('/Admin/Webpage/editConfig', data)
 
       // 關閉Modal
+      //console.log(data)
+      webpage.config = data.config
       this.$emit('change', webpage)
     }
   } // methods

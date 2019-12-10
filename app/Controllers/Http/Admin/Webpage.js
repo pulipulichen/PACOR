@@ -27,7 +27,7 @@ class Webpage {
     const limit = Config.get('view.itemsPerPage')
     const offset = (page - 1) * limit
     
-    let webpages = await WebpageModel
+    let webpagesInstance = await WebpageModel
             .query()
             //.where('domain', '!=', '')
             .where('domain_id', domainID)
@@ -37,34 +37,42 @@ class Webpage {
             .orderBy('created_at', 'desc')
             .fetch()
     
-    
-    webpages = webpages.toJSON().map(webpage => {
-      webpage.path = '/' + webpage.url.split('/').slice(3).join('/')
+    let webpages = []
+    if (webpagesInstance !== null) {
+      for (let i = 0; i < webpagesInstance.size(); i++) {
+        let webpageInstance = webpagesInstance.nth(i)
+        let webpage = webpageInstance.toJSON()
+        
+        webpage.path = '/' + webpage.url.split('/').slice(3).join('/')
       
-      let groups = []
-      let usersCount = 0
-      //console.log(webpage.groups)
-      webpage.groups.forEach(group => {
-        if (group.users.length > 0) {
-          let g = group.users.map(user => user.username).filter(username => (username !== '') )
-          groups.push(g.join(' '))
-          usersCount = usersCount + g.length
+        let groups = []
+        let usersCount = 0
+        //console.log(webpage.groups)
+        webpage.groups.forEach(group => {
+          if (group.users.length > 0) {
+            let g = group.users.map(user => user.username).filter(username => (username !== '') )
+            groups.push(g.join(' '))
+            usersCount = usersCount + g.length
+          }
+        })
+        webpage.groupsCount = groups.length
+        webpage.usersCount = usersCount
+        webpage.groups = groups.join('\n')
+        try {
+          if (webpage.config === null) {
+            webpage.config = ''
+          }
+          else {
+            webpage.config = JSON.stringify(webpage.config, null, '  ')
+          }
         }
-      })
-      webpage.groupsCount = groups.length
-      webpage.usersCount = usersCount
-      webpage.groups = groups.join('\n')
-      try {
-        if (webpage.config === null) {
-          webpage.config = ''
-        }
-        else {
-          webpage.config = JSON.stringify(webpage.config, null, '  ')
-        }
-      }
-      catch (e) {}
-      return webpage
-    })
+        catch (e) {}
+
+        webpage.config = webpageInstance.config
+
+        webpages.push(webpage)
+      } 
+    }
     
     //await domains.loadMany(['admins'])
     
@@ -303,7 +311,7 @@ e f`)
     const webpage = await WebpageModel.find(data.id)
     webpage.config = data.config
     await webpage.save()
-    
+    //console.log(webpage.config)
     return 1
   }
   
