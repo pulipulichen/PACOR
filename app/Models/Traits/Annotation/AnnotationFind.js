@@ -35,6 +35,7 @@ class AnnotationFind {
         , keyword
         , onlySectionAnnotation
         , seq_id
+        , section_id
         , orderBy
         , excludeIDList
         , focusUserID
@@ -203,6 +204,16 @@ class AnnotationFind {
           })
         }
         profiler.mark('seq_id', seq_id)
+        
+        // ------------------------
+        
+        section_id = TypeHelper.parseInt(section_id)
+        if (typeof(section_id) === 'number') {
+          query.whereHas('anchorPositions', (builder) => {
+            builder.where('section_id', section_id)
+          })
+        }
+        profiler.mark('section_id', section_id)
         
         // --------------------------
         

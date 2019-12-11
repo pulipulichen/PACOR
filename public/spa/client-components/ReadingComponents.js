@@ -5857,6 +5857,7 @@ let AnnotationTypeSelector = {
           return false
         }
         
+        //console.log(data.anchorPositions)
         //PACORTestManager.log('initRangyEvent', (this.selection === null))
         this.selection = data
         
@@ -5881,7 +5882,7 @@ let AnnotationTypeSelector = {
       }
       
       let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
-      
+      //console.log(anchorPositions)
       let annotation = {
         anchorPositions: anchorPositions,
         type: type
@@ -11704,7 +11705,7 @@ _MainIdea_MainIdea_js__WEBPACK_IMPORTED_MODULE_0__["default"].methods.loadDraft 
   
   //setTimeout(async () => {
   let note = await this.lib.AxiosHelper.get('/client/Section/getMainIdeasInSection', {
-    seq_id: this.annotation.anchorPositions[0].seq_id
+    section_id: this.annotation.anchorPositions[0].section_id
   })
 
   this.note = note
@@ -12327,17 +12328,32 @@ __webpack_require__.r(__webpack_exports__);
       containerElementId: this.selection.anchorParagraphIds
     })
     
-    selection.anchorPositions.forEach((position, i) => {
-      let h = highlights[i]
-      let { start_pos, end_pos, anchor_text } = this._getAnchorPositionFromHighlight(h)
+    let anchorPositions = []
+    //console.log(highlights)
+    highlights.forEach(highlight => {
+      let paragraph_id = highlight.containerElementId
+      
+      for (let i = 0; i < selection.anchorPositions.length; i++) {
+        let position = selection.anchorPositions[i]
+        if (position.paragraph_id === paragraph_id) {
+          let pos = this._getAnchorPositionFromHighlight(highlight)
+          let { start_pos, end_pos, anchor_text } = pos
 
-      position.start_pos = start_pos
-      position.end_pos = end_pos
-      position.anchor_text = anchor_text
-      position.type = 'textContent'
-      //console.log(anchor_text)
-      //position.anchor_text = h.classApplier.toString()
+          position.start_pos = start_pos
+          position.end_pos = end_pos
+          position.anchor_text = anchor_text
+          position.type = 'textContent'
+          //console.log(anchor_text)
+          //position.anchor_text = h.classApplier.toString()
+
+          anchorPositions.push(position)
+          break
+        }
+      }
     })
+    
+    selection.anchorPositions = anchorPositions
+    //console.log(anchorPositions)
     
     this.rectHighlighter.removeAllHighlights()
     //throw '有嗎'
@@ -12580,7 +12596,7 @@ __webpack_require__.r(__webpack_exports__);
   
   RangyManager.methods._getAnchorPositionFromHighlight = function (highlight) {
     if (highlight === undefined) {
-      return ''
+      return undefined
     }
     let start_pos = highlight.characterRange.start
     let end_pos = highlight.characterRange.end
@@ -13131,12 +13147,15 @@ __webpack_require__.r(__webpack_exports__);
           })
         }
         
-        if (typeof (anchorNode.getAttribute) === 'function') {
+        if (typeof (anchorNode.getAttribute) === 'function'
+                || typeof(anchorNode.wholeText) !== 'string'
+                || anchorNode.wholeText.trim().length === 0) {
           //PACORTestManager.log('nodes.forEach(anchorNode)', 'typeof (anchorNode.getAttribute)')
           return false
         }
         
-        //console.log(anchorNode)
+        //window.an = anchorNode
+        //console.log(anchorNode.wholeText.trim().length, anchorNode)
 
         //let anchorNode = window.$(selection.anchorNode)
         let position = {}
@@ -13162,14 +13181,24 @@ __webpack_require__.r(__webpack_exports__);
           //selection.anchorPosition.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
           
           //position.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
-          position.seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
+          position.section_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
         } else {
           // we will not select out of scope.
           //PACORTestManager.log('nodes.forEach(anchorNode)', '1 we will not select out of scope.')
           return false
         }
+        
+        // ------------------------------------
 
-        let parentParagraph = anchorNode.parents('[data-pacor-paragraph-seq-id]:first')
+        let parentParagraph
+        if (anchorNode.attr('data-pacor-paragraph-seq-id') !== undefined) {
+          parentParagraph = anchorNode
+        }
+        else {
+          parentParagraph = anchorNode.parents('[data-pacor-paragraph-seq-id]:first')
+        }
+        //console.log(parentParagraph)
+        
         if (parentParagraph.length === 1) {
           //selection.anchorPosition.paragraph_seq_id = parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10)
           //selection.anchorPosition.paragraph_id = parentParagraph.attr('id')
@@ -13181,6 +13210,7 @@ __webpack_require__.r(__webpack_exports__);
           //}
 
           position.paragraph_id = parentParagraph.attr('id')
+          //console.log(position.paragraph_id)
           
           if (selection.anchorParagraphIds.indexOf(position.paragraph_id) > -1) {
             // 同一個段落，不加入
@@ -13199,6 +13229,8 @@ __webpack_require__.r(__webpack_exports__);
 
         selection.anchorPositions.push(position)
       })  // nodes.forEach(anchorNode => {
+      
+      //console.log(selection.anchorPositions)
       
       //PACORTestManager.log(selection.anchorPositions, selection.anchorPositions.length)
 
@@ -13323,6 +13355,8 @@ __webpack_require__.r(__webpack_exports__);
       //console.log(anchor_text)
       //position.anchor_text = h.classApplier.toString()
     })
+    
+    //this.selection.anchorPositions = this.selection.anchorPositions.filter(position => (typeof(position.start_pos) === 'number') )
     //console.log(this.selection.anchorPositions)
 
     //console.log(highlight)
@@ -19361,7 +19395,7 @@ __webpack_require__.r(__webpack_exports__);
                     
                     setTimeout(() => {
                       loop(i)
-                    }, 1000)
+                    }, 0)
                   }
                   else {
                     if (append === true) {
@@ -22344,7 +22378,7 @@ let SectionManager = {
       }
       
       this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init', this.query)
-      console.log(this.sectionsData)
+      //console.log(this.sectionsData)
       
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-section-seq-id]').toArray()
@@ -22410,7 +22444,7 @@ let SectionManager = {
         type: 'SectionMainIdea',
         anchorPositions: [{
           type: 'section',
-          seq_id: sectionSeqID
+          section_id: sectionSeqID
         }],
         notes: [{
           type: 'default',

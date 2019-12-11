@@ -99,7 +99,7 @@ module.exports = {
         /**
          * 每次讀取其他人highlight的數量間隔，單位是毫秒
          */
-        otherHighlightBatchInterval: 300000
+        otherHighlightBatchInterval: 30000
         //otherHighlightBatchInterval: 1000 // for test
       },
       debug: {
@@ -127,7 +127,7 @@ module.exports = {
         /**
          * 每次讀取其他人highlight的數量間隔，單位是毫秒
          */
-        otherHighlightBatchInterval: 300000
+        otherHighlightBatchInterval: 30000
         //otherHighlightBatchInterval: 1000 // for test
       },
     },

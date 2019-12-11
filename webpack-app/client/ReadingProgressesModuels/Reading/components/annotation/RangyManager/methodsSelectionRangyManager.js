@@ -38,12 +38,15 @@ export default (RangyManager) => {
           })
         }
         
-        if (typeof (anchorNode.getAttribute) === 'function') {
+        if (typeof (anchorNode.getAttribute) === 'function'
+                || typeof(anchorNode.wholeText) !== 'string'
+                || anchorNode.wholeText.trim().length === 0) {
           //PACORTestManager.log('nodes.forEach(anchorNode)', 'typeof (anchorNode.getAttribute)')
           return false
         }
         
-        //console.log(anchorNode)
+        //window.an = anchorNode
+        //console.log(anchorNode.wholeText.trim().length, anchorNode)
 
         //let anchorNode = window.$(selection.anchorNode)
         let position = {}
@@ -69,14 +72,24 @@ export default (RangyManager) => {
           //selection.anchorPosition.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
           
           //position.section_seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
-          position.seq_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
+          position.section_id = parseInt(parentSection.attr('data-pacor-section-seq-id'), 10)
         } else {
           // we will not select out of scope.
           //PACORTestManager.log('nodes.forEach(anchorNode)', '1 we will not select out of scope.')
           return false
         }
+        
+        // ------------------------------------
 
-        let parentParagraph = anchorNode.parents('[data-pacor-paragraph-seq-id]:first')
+        let parentParagraph
+        if (anchorNode.attr('data-pacor-paragraph-seq-id') !== undefined) {
+          parentParagraph = anchorNode
+        }
+        else {
+          parentParagraph = anchorNode.parents('[data-pacor-paragraph-seq-id]:first')
+        }
+        //console.log(parentParagraph)
+        
         if (parentParagraph.length === 1) {
           //selection.anchorPosition.paragraph_seq_id = parseInt(parentParagraph.attr('data-pacor-paragraph-seq-id'), 10)
           //selection.anchorPosition.paragraph_id = parentParagraph.attr('id')
@@ -88,6 +101,7 @@ export default (RangyManager) => {
           //}
 
           position.paragraph_id = parentParagraph.attr('id')
+          //console.log(position.paragraph_id)
           
           if (selection.anchorParagraphIds.indexOf(position.paragraph_id) > -1) {
             // 同一個段落，不加入
@@ -106,6 +120,8 @@ export default (RangyManager) => {
 
         selection.anchorPositions.push(position)
       })  // nodes.forEach(anchorNode => {
+      
+      //console.log(selection.anchorPositions)
       
       //PACORTestManager.log(selection.anchorPositions, selection.anchorPositions.length)
 
@@ -230,6 +246,8 @@ export default (RangyManager) => {
       //console.log(anchor_text)
       //position.anchor_text = h.classApplier.toString()
     })
+    
+    //this.selection.anchorPositions = this.selection.anchorPositions.filter(position => (typeof(position.start_pos) === 'number') )
     //console.log(this.selection.anchorPositions)
 
     //console.log(highlight)

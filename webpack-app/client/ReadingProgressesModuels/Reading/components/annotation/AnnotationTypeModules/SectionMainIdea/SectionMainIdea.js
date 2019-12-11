@@ -19,7 +19,7 @@ Editor.methods.loadDraft = async function () {
   
   //setTimeout(async () => {
   let note = await this.lib.AxiosHelper.get('/client/Section/getMainIdeasInSection', {
-    seq_id: this.annotation.anchorPositions[0].seq_id
+    section_id: this.annotation.anchorPositions[0].section_id
   })
 
   this.note = note

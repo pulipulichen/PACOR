@@ -40,10 +40,10 @@ class AnnotationSection {
       profiler.mark('before Cache.rememberWait()', cacheKey)
       
       let output = await Cache.rememberWait([webpage, user, 'Annotation'], cacheKey, cacheMinute, async () => {
-        let seq_id = 0
+        let section_id = 0
         let output = []
         while (true) {
-          query.seq_id = seq_id
+          query.section_id = section_id
           let result = await this.buildSeqSectionAnnotation(webpage, user, query)
           
           //console.log(result)
@@ -51,7 +51,7 @@ class AnnotationSection {
             break
           }
           output.push(result)
-          seq_id++
+          section_id++
           //break
         }
         return output
@@ -275,12 +275,12 @@ class AnnotationSection {
     Model.getMainIdeasInSection = async function (webpage, user, query) {
       let cacheKey = Cache.key(`Annotation.getSectionAnnotationsDraft`, query)
       return await Cache.rememberWait([webpage, user], cacheKey, async () => {
-        let { seq_id } = query
+        let { section_id } = query
         
         let annotations = await this.findByWebpageGroupPosition(webpage, user, {
           findUserID: user.primaryKeyValue,
           findType: 'MainIdea',
-          seq_id: seq_id
+          section_id: section_id
         })
         
         //console.log(annotations.size())

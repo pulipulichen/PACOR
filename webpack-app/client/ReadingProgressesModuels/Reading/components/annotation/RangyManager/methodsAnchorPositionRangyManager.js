@@ -143,17 +143,32 @@ export default (RangyManager) => {
       containerElementId: this.selection.anchorParagraphIds
     })
     
-    selection.anchorPositions.forEach((position, i) => {
-      let h = highlights[i]
-      let { start_pos, end_pos, anchor_text } = this._getAnchorPositionFromHighlight(h)
+    let anchorPositions = []
+    //console.log(highlights)
+    highlights.forEach(highlight => {
+      let paragraph_id = highlight.containerElementId
+      
+      for (let i = 0; i < selection.anchorPositions.length; i++) {
+        let position = selection.anchorPositions[i]
+        if (position.paragraph_id === paragraph_id) {
+          let pos = this._getAnchorPositionFromHighlight(highlight)
+          let { start_pos, end_pos, anchor_text } = pos
 
-      position.start_pos = start_pos
-      position.end_pos = end_pos
-      position.anchor_text = anchor_text
-      position.type = 'textContent'
-      //console.log(anchor_text)
-      //position.anchor_text = h.classApplier.toString()
+          position.start_pos = start_pos
+          position.end_pos = end_pos
+          position.anchor_text = anchor_text
+          position.type = 'textContent'
+          //console.log(anchor_text)
+          //position.anchor_text = h.classApplier.toString()
+
+          anchorPositions.push(position)
+          break
+        }
+      }
     })
+    
+    selection.anchorPositions = anchorPositions
+    //console.log(anchorPositions)
     
     this.rectHighlighter.removeAllHighlights()
     //throw '有嗎'

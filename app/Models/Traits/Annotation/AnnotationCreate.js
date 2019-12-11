@@ -130,6 +130,7 @@ class AnnotationCreate {
             throw new Error('anchorPosisitions format error: \n' + JSON.stringify(a, null, ' '))
           }
           
+          query.section_id = a.section_id
           query.paragraph_id = a.paragraph_id
           query.start_pos = a.start_pos
           query.end_pos = a.end_pos

@@ -99,7 +99,7 @@ export default (RangyManager) => {
   
   RangyManager.methods._getAnchorPositionFromHighlight = function (highlight) {
     if (highlight === undefined) {
-      return ''
+      return undefined
     }
     let start_pos = highlight.characterRange.start
     let end_pos = highlight.characterRange.end

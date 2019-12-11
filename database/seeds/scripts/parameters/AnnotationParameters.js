@@ -15,6 +15,7 @@ module.exports =  {
       },
       anchorPositions: [
         {
+          section_id: 0,
           seq_id: 0,
           type: 'textContent',
           paragraph_id: 'pacor-paragraph-id-1',
@@ -33,6 +34,7 @@ module.exports =  {
       },
       anchorPositions: [
         {
+          section_id: 0,
           seq_id: 0,
           type: 'textContent',
           paragraph_id: 'pacor-paragraph-id-1',
@@ -52,6 +54,7 @@ module.exports =  {
       },
       anchorPositions: [
         {
+          section_id: 0,
           seq_id: 0,
           type: 'textContent',
           paragraph_id: 'pacor-paragraph-id-1',
@@ -70,6 +73,7 @@ module.exports =  {
       },
       anchorPositions: [
         {
+          section_id: 0,
           seq_id: 1,
           type: 'textContent',
           paragraph_id: 'pacor-paragraph-id-7',
@@ -88,6 +92,7 @@ module.exports =  {
       },
       anchorPositions: [
         {
+          section_id: 0,
           seq_id: 1,
           type: 'textContent',
           paragraph_id: 'pacor-paragraph-id-7',
@@ -107,6 +112,7 @@ module.exports =  {
       },
       anchorPositions: [
         {
+          section_id: 0,
           seq_id: 1,
           type: 'textContent',
           paragraph_id: 'pacor-paragraph-id-7',
@@ -125,7 +131,7 @@ module.exports =  {
       },
       anchorPositions: [
         {
-          seq_id: 0,
+          section_id: 0,
           type: 'section'
         }
       ]
@@ -140,7 +146,7 @@ module.exports =  {
       },
       anchorPositions: [
         {
-          seq_id: 1,
+          section_id: 1,
           type: 'section'
         }
       ]
@@ -155,7 +161,7 @@ module.exports =  {
       },
       anchorPositions: [
         {
-          seq_id: 0,
+          section_id: 0,
           type: 'section'
         }
       ]

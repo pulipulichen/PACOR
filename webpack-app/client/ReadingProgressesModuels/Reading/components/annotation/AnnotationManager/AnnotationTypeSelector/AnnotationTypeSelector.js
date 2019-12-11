@@ -95,6 +95,7 @@ let AnnotationTypeSelector = {
           return false
         }
         
+        //console.log(data.anchorPositions)
         //PACORTestManager.log('initRangyEvent', (this.selection === null))
         this.selection = data
         
@@ -119,7 +120,7 @@ let AnnotationTypeSelector = {
       }
       
       let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
-      
+      //console.log(anchorPositions)
       let annotation = {
         anchorPositions: anchorPositions,
         type: type
