@@ -1,6 +1,10 @@
 export default (AnnotationPanel) => {
 
   AnnotationPanel.methods.scrollToRect = function (rect) {
+    if (!rect) {
+      return false
+    }
+    
     let viewportHeight = window.innerHeight
 
     let panelHeight = this.panelData.heightPX

@@ -9705,6 +9705,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((AnnotationPanel) => {
 
   AnnotationPanel.methods.scrollToRect = function (rect) {
+    if (!rect) {
+      return false
+    }
+    
     let viewportHeight = window.innerHeight
 
     let panelHeight = this.panelData.heightPX
@@ -10525,6 +10529,9 @@ let answerHeightPadding = '8em'
 
     computedQuestionEditorHeight() {
       if (this.isQuestionSubmitted === false) {
+        if (this.heightPX < 250) {
+          return '7em'
+        }
         
         let height
         if (this.enableCollaboration === true
@@ -12284,7 +12291,7 @@ __webpack_require__.r(__webpack_exports__);
   
   RangyManager.methods.getRectFromAnchorPositions = function (anchorPositions) {
     if (anchorPositions[0].type === 'section') {
-      return this.getRectFromSection(anchorPositions[0].seq_id)
+      return this.getRectFromSection(anchorPositions[0].section_id)
     }
     
     let selectionSaved = this.rangy.saveSelection()
@@ -12367,6 +12374,9 @@ __webpack_require__.r(__webpack_exports__);
     let selector = `[data-pacor-section-seq-id="${seq_id}"]`
     //console.log(selector)
     let section = document.querySelector(selector)
+    if (!section) {
+      return undefined
+    }
     
     return {
       top: section.offsetTop,

@@ -61,6 +61,9 @@ export default (Editor) => {
 
     computedQuestionEditorHeight() {
       if (this.isQuestionSubmitted === false) {
+        if (this.heightPX < 250) {
+          return '7em'
+        }
         
         let height
         if (this.enableCollaboration === true

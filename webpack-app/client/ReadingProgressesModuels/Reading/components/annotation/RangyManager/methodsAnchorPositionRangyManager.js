@@ -99,7 +99,7 @@ export default (RangyManager) => {
   
   RangyManager.methods.getRectFromAnchorPositions = function (anchorPositions) {
     if (anchorPositions[0].type === 'section') {
-      return this.getRectFromSection(anchorPositions[0].seq_id)
+      return this.getRectFromSection(anchorPositions[0].section_id)
     }
     
     let selectionSaved = this.rangy.saveSelection()
@@ -182,6 +182,9 @@ export default (RangyManager) => {
     let selector = `[data-pacor-section-seq-id="${seq_id}"]`
     //console.log(selector)
     let section = document.querySelector(selector)
+    if (!section) {
+      return undefined
+    }
     
     return {
       top: section.offsetTop,
