@@ -12169,6 +12169,11 @@ __webpack_require__.r(__webpack_exports__);
         highlightLength = text.length
       }
     })
+    
+    if (!highlight) {
+      return
+    }
+    
     //window.hl = highlight
     //console.log(highlight.getText())
     
@@ -12463,6 +12468,10 @@ __webpack_require__.r(__webpack_exports__);
             
       let pos = this._getAnchorPositionFromElement(ele, event)
       
+      if (!pos) {
+        return null
+      }
+      
       lock[type] = true
       //console.log(type)
       this.triggerEvent(type, pos)
@@ -12726,7 +12735,7 @@ __webpack_require__.r(__webpack_exports__);
       highlightJSONArray = this._annotationToHighlighString(highlightJSONArray)
     }
 
-    await this.highlighter.deserializeAsync(highlightJSONArray, options)
+    this.highlighter.deserializeAsync(highlightJSONArray, options)
     return this
   }
 
@@ -19317,7 +19326,7 @@ __webpack_require__.r(__webpack_exports__);
                     
                     setTimeout(() => {
                       loop(i)
-                    }, 0)
+                    }, 1000)
                   }
                   else {
                     if (append === true) {

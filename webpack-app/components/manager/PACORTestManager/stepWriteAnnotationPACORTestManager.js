@@ -3,6 +3,8 @@ import $ from 'jquery'
 export default function (PACORTestManager) {
   PACORTestManager.methods.writeAnnotations = async function () {
     
+    await this.sleep(3000)
+    
     //let min = 4
     //let max = 10
     

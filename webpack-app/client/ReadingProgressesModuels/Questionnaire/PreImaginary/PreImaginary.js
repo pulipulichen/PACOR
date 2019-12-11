@@ -24,6 +24,7 @@ let PreImaginary = {
     data.answer = ''
     data.header = this.$t('READING_PROGRESS.' + key)
     data.isTimeUp = false
+    
     return data
   },
   //components: {
@@ -99,6 +100,8 @@ let PreImaginary = {
     }
   },
   mounted() {
+    //throw new Error('test 45454545454545454')
+    
     this.initLog()
     this.$refs.Modal.show()
   },

@@ -1350,7 +1350,7 @@ let NavigationItems = {
 //    }
 //  },
   mounted() {
-    this.testShowWebpageConfig()
+    //this.testShowWebpageConfig()
   },
   methods: {
     showWebpageConfig () {

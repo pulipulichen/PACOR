@@ -59,7 +59,20 @@ let exposeFunction = async function (headless, browser, url, index) {
     args.unshift(consolePrefix)
     console.log.apply(this, args)
   })
-
+  
+  page.page.on('console', (error) => {
+    if (error._type === 'error'
+            && error._args
+            && error._args[0]
+            && error._args[0]._remoteObject) {
+      let description = error._args[0]._remoteObject.description
+      if (description.indexOf('\n') > -1) {
+        description = description.slice(0, description.indexOf('\n')).trim()
+      }
+      throw consolePrefix + ' ' + description
+    }
+  });
+  
   await page.page.exposeFunction('PACORTestManagerInteractions', async function (method, selector, ...args) {
     //await page.type(selector, text)
     args.unshift(selector)
@@ -88,7 +101,7 @@ let exposeFunction = async function (headless, browser, url, index) {
 }
 
 let excuteTest = async function (config, args, page, errors, index) {
-  
+  let stop = false
 
   for (let name in config) {
     try {
@@ -98,6 +111,11 @@ let excuteTest = async function (config, args, page, errors, index) {
       }
       console.log(consolePrefix + name)
       await config[name](args, page)
+      
+      if (stop) {
+        throw stop
+        break
+      }
     }
     catch (e) {
       let consolePrefix = `[${name}]`
@@ -235,8 +253,6 @@ let TestBrowserHelper = function (title, url, config, options) {
       for (let i = 0; i < threads; i++) {
         ary.push(i)
       }
-      
-      
       
       let errors = []
       await Promise.all(ary.map(async (i) => {

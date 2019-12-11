@@ -798,7 +798,7 @@ export default (rangy) => {
                     
                     setTimeout(() => {
                       loop(i)
-                    }, 0)
+                    }, 1000)
                   }
                   else {
                     if (append === true) {

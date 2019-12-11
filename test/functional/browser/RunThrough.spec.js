@@ -76,7 +76,7 @@ let config = {
   },
   
   'c2. 中場確認 is PACORTestManager work?': async function ( { assert, client, browser }, page ) {
-    //console.log('暫時跳過'); return;
+    console.log('暫時跳過'); return;
     
     const dimensions = await page.page.evaluate(() => {
       return {
@@ -95,7 +95,7 @@ let config = {
       return window.PACORTestManager.status.username
     })
     
-    //console.log(result)
+    console.log(result)
     assert.isString(result)
     assert.isTrue(result.startsWith('布丁'))
     
@@ -198,6 +198,8 @@ TestBrowser(title, url, config, {
   headless: false,
   //stopAt: 'e2. 隨意寫標註'
   //stopAt: '0a. setup webpage config',
+  //stopAt: 'c2. 中場確認 is PACORTestManager work?',
+  //stopAt: 'd1. 專注閱讀: 確認視窗',
   
   groupSetting: ``,
   webpageConfig

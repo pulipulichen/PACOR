@@ -103,7 +103,7 @@ var render = function() {
               return [
                 _c("iframe-message-segment", {
                   staticClass: "field hint",
-                  attrs: { config: _vm.config, message: _vm.message }
+                  attrs: { config: _vm.config, message: _vm.instruction }
                 }),
                 _vm._v(" "),
                 _c("div", { staticClass: "field" }, [
@@ -254,7 +254,7 @@ var render = function() {
               return [
                 _c("iframe-message-segment", {
                   staticClass: "field hint",
-                  attrs: { config: _vm.config, message: _vm.message }
+                  attrs: { config: _vm.config, message: _vm.instruction }
                 }),
                 _vm._v(" "),
                 _c("div", { staticClass: "field" }, [
@@ -596,6 +596,7 @@ let PreImaginary = {
     data.answer = ''
     data.header = this.$t('READING_PROGRESS.' + key)
     data.isTimeUp = false
+    
     return data
   },
   //components: {
@@ -671,6 +672,8 @@ let PreImaginary = {
     }
   },
   mounted() {
+    //throw new Error('test 45454545454545454')
+    
     this.initLog()
     this.$refs.Modal.show()
   },
@@ -771,6 +774,7 @@ let PreImaginary = {
     data.answer = ''
     data.header = this.$t('READING_PROGRESS.' + key)
     data.isTimeUp = false
+    
     return data
   },
   //components: {
@@ -846,6 +850,8 @@ let PreImaginary = {
     }
   },
   mounted() {
+    //throw new Error('test 45454545454545454')
+    
     this.initLog()
     this.$refs.Modal.show()
   },

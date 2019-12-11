@@ -119,6 +119,19 @@ let ErrorHandler = {
         this.showError = true
         this.showServerErrorStack = false
         this.showErrorStack = false
+        
+//        console.log(typeof(window.PACORTestManagerError))
+        if (typeof(window.PACORTestManagerError) === 'function') {
+          let message = this.responseErrorMessage
+          if (!message) {
+            message = this.localErrorMessage
+          }
+//          console.log('有嗎？', message)
+//          console.log(message)
+//          console.log(typeof(message))
+          window.PACORTestManagerError(message)
+//          throw new Error(this.error)
+        }
       }
     },
   },

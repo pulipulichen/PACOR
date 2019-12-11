@@ -22,6 +22,10 @@ export default (RangyManager) => {
             
       let pos = this._getAnchorPositionFromElement(ele, event)
       
+      if (!pos) {
+        return null
+      }
+      
       lock[type] = true
       //console.log(type)
       this.triggerEvent(type, pos)
@@ -285,7 +289,7 @@ export default (RangyManager) => {
       highlightJSONArray = this._annotationToHighlighString(highlightJSONArray)
     }
 
-    await this.highlighter.deserializeAsync(highlightJSONArray, options)
+    this.highlighter.deserializeAsync(highlightJSONArray, options)
     return this
   }
 

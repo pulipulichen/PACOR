@@ -20,6 +20,11 @@ export default (RangyManager) => {
         highlightLength = text.length
       }
     })
+    
+    if (!highlight) {
+      return
+    }
+    
     //window.hl = highlight
     //console.log(highlight.getText())
     

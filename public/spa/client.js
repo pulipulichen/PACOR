@@ -4048,14 +4048,10 @@ if (baseScript.length === 1) {
 // 錯誤訊息的設置
 
 window.onerror = function(message, source, lineno, colno, error) {
-  //window.onerror = function(...args) {
-  //console.log(error.stack)
-  //console.log(message, source, lineno, colno, error)
   if (error === null) {
     error = message
   }
   VueController.data.errors.push(error)
-  
 }
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].config.errorHandler  = function(err, vm, info) {
