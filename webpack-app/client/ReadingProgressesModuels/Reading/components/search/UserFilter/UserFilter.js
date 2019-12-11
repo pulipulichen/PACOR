@@ -50,7 +50,7 @@ let UserSelector = {
 //  watch: {
 //  },
 //  mounted() {
-//    //this.show() // for test
+//    this.testShow() // for test
 //  },
   methods: {
     show () {

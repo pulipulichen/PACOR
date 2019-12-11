@@ -441,7 +441,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Viewing All":"觀看全員","Asist":"協助","View":"觀看"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Viewing All":"觀看全員","Asist":"協助","View":"觀看","Please select a peer":"選擇您欲協助的同儕"}}')
   delete Component.options._Ctor
 }
 
@@ -777,7 +777,7 @@ exports.push([module.i, ".notification-list[data-v-135dd4ea] {\n  max-height: ca
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-abd88654],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-abd88654] {\n  user-select: none;\n  padding-top: 1em !important;\n  padding-bottom: 1em !important;\n}\n.PeerItem.selected[data-v-abd88654] {\n  background-color: yellow !important;\n}\n.PeerItem.disabled[data-v-abd88654] {\n  opacity: 0.6;\n  background-color: #DDD !important;\n  cursor: default !important;\n}\n.PeerItem.disabled .header .message[data-v-abd88654] {\n  font-size: 0.8em;\n  font-weight: normal;\n}\n.PeerItem.disabled:hover .header[data-v-abd88654] {\n  color: rgba(0, 0, 0, 0.85) !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-abd88654] {\n  text-align: right;\n}\n.ui.image .icon[data-v-abd88654] {\n  font-size: 25px;\n}\n.description[data-v-abd88654]  .AnnotationTypeButton {\n  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;\n}\n", "",{"version":3,"sources":["PeerItem.less?vue&type=style&index=0&id=abd88654&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;EAEE,iBAAiB;EACjB,2BAA2B;EAC3B,8BAA8B;AAChC;AACA;EACE,mCAAmC;AACrC;AACA;EACE,YAAY;EACZ,iCAAiC;EACjC,0BAA0B;AAC5B;AACA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;AACA;EACE,qCAAqC;AACvC;AACA;;;EAGE;AACF;EACE,iBAAiB;AACnB;AACA;EACE,eAAe;AACjB;AACA;EACE,8BAA8B;EAC9B,+BAA+B;AACjC","file":"PeerItem.less?vue&type=style&index=0&id=abd88654&lang=less&scoped=true&","sourcesContent":[".non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-abd88654],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-abd88654] {\n  user-select: none;\n  padding-top: 1em !important;\n  padding-bottom: 1em !important;\n}\n.PeerItem.selected[data-v-abd88654] {\n  background-color: yellow !important;\n}\n.PeerItem.disabled[data-v-abd88654] {\n  opacity: 0.6;\n  background-color: #DDD !important;\n  cursor: default !important;\n}\n.PeerItem.disabled .header .message[data-v-abd88654] {\n  font-size: 0.8em;\n  font-weight: normal;\n}\n.PeerItem.disabled:hover .header[data-v-abd88654] {\n  color: rgba(0, 0, 0, 0.85) !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-abd88654] {\n  text-align: right;\n}\n.ui.image .icon[data-v-abd88654] {\n  font-size: 25px;\n}\n.description[data-v-abd88654]  .AnnotationTypeButton {\n  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;\n}\n"]}]);
+exports.push([module.i, ".non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-abd88654],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-abd88654] {\n  user-select: none;\n  padding-top: 1em !important;\n  padding-bottom: 1em !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem.selected[data-v-abd88654],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem.selected[data-v-abd88654] {\n  background-color: #f8ffff !important;\n  box-shadow: 0 0 0 1px #a9d5de inset, 0 0 0 0 transparent;\n  color: #276f86;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .header[data-v-abd88654],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .header[data-v-abd88654] {\n  vertical-align: middle;\n}\n.PeerItem.disabled[data-v-abd88654] {\n  opacity: 0.6;\n  background-color: #DDD !important;\n  cursor: default !important;\n}\n.PeerItem.disabled .header .message[data-v-abd88654] {\n  font-size: 0.8em;\n  font-weight: normal;\n}\n.PeerItem.disabled:hover .header[data-v-abd88654] {\n  color: rgba(0, 0, 0, 0.85) !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-abd88654] {\n  text-align: right;\n  margin-left: 0.5em !important;\n}\n.ui.image .icon[data-v-abd88654] {\n  font-size: 25px;\n}\n.description[data-v-abd88654]  .AnnotationTypeButton {\n  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;\n}\n", "",{"version":3,"sources":["PeerItem.less?vue&type=style&index=0&id=abd88654&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;EAEE,iBAAiB;EACjB,2BAA2B;EAC3B,8BAA8B;AAChC;AACA;;EAEE,oCAAoC;EACpC,wDAAwD;EACxD,cAAc;AAChB;AACA;;EAEE,sBAAsB;AACxB;AACA;EACE,YAAY;EACZ,iCAAiC;EACjC,0BAA0B;AAC5B;AACA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;AACA;EACE,qCAAqC;AACvC;AACA;;;EAGE;AACF;EACE,iBAAiB;EACjB,6BAA6B;AAC/B;AACA;EACE,eAAe;AACjB;AACA;EACE,8BAA8B;EAC9B,+BAA+B;AACjC","file":"PeerItem.less?vue&type=style&index=0&id=abd88654&lang=less&scoped=true&","sourcesContent":[".non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-abd88654],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-abd88654] {\n  user-select: none;\n  padding-top: 1em !important;\n  padding-bottom: 1em !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem.selected[data-v-abd88654],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem.selected[data-v-abd88654] {\n  background-color: #f8ffff !important;\n  box-shadow: 0 0 0 1px #a9d5de inset, 0 0 0 0 transparent;\n  color: #276f86;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .header[data-v-abd88654],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .header[data-v-abd88654] {\n  vertical-align: middle;\n}\n.PeerItem.disabled[data-v-abd88654] {\n  opacity: 0.6;\n  background-color: #DDD !important;\n  cursor: default !important;\n}\n.PeerItem.disabled .header .message[data-v-abd88654] {\n  font-size: 0.8em;\n  font-weight: normal;\n}\n.PeerItem.disabled:hover .header[data-v-abd88654] {\n  color: rgba(0, 0, 0, 0.85) !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-abd88654] {\n  text-align: right;\n  margin-left: 0.5em !important;\n}\n.ui.image .icon[data-v-abd88654] {\n  font-size: 25px;\n}\n.description[data-v-abd88654]  .AnnotationTypeButton {\n  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -791,7 +791,7 @@ exports.push([module.i, ".non-invasive-web-style-framework .ui.items > .item.Pee
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".items-list[data-v-30e3b3ee] {\n  overflow-y: auto;\n  max-height: calc(100% - 6rem);\n  padding-bottom: 1em !important;\n}\n.all-item[data-v-30e3b3ee] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n", "",{"version":3,"sources":["PeerList.less?vue&type=style&index=0&id=30e3b3ee&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,6BAA6B;EAC7B,8BAA8B;AAChC;AACA;EACE,0DAA0D;AAC5D","file":"PeerList.less?vue&type=style&index=0&id=30e3b3ee&lang=less&scoped=true&","sourcesContent":[".items-list[data-v-30e3b3ee] {\n  overflow-y: auto;\n  max-height: calc(100% - 6rem);\n  padding-bottom: 1em !important;\n}\n.all-item[data-v-30e3b3ee] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n"]}]);
+exports.push([module.i, ".items-list[data-v-30e3b3ee] {\n  overflow-y: auto;\n  max-height: calc(100% - 6rem);\n  padding-bottom: 1em !important;\n  margin-top: 0 !important;\n}\n.all-item[data-v-30e3b3ee] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n  margin-bottom: 0 !important;\n  width: calc(100% - 10px);\n}\n", "",{"version":3,"sources":["PeerList.less?vue&type=style&index=0&id=30e3b3ee&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,6BAA6B;EAC7B,8BAA8B;EAC9B,wBAAwB;AAC1B;AACA;EACE,0DAA0D;EAC1D,2BAA2B;EAC3B,wBAAwB;AAC1B","file":"PeerList.less?vue&type=style&index=0&id=30e3b3ee&lang=less&scoped=true&","sourcesContent":[".items-list[data-v-30e3b3ee] {\n  overflow-y: auto;\n  max-height: calc(100% - 6rem);\n  padding-bottom: 1em !important;\n  margin-top: 0 !important;\n}\n.all-item[data-v-30e3b3ee] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n  margin-bottom: 0 !important;\n  width: calc(100% - 10px);\n}\n"]}]);
 
 
 /***/ }),
@@ -2000,35 +2000,37 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "description" },
-          [
-            _vm._l(_vm.annotationTypes, function(t) {
-              return _c("annotation-type-button", {
-                key: t.type,
-                attrs: {
-                  lib: _vm.lib,
-                  config: _vm.config,
-                  status: _vm.status,
-                  type: t.type,
-                  count: t.count
-                }
-              })
-            }),
-            _vm._v(" "),
-            _vm.user && _vm.annotationTypes.length === 0
-              ? [
-                  _vm._v(
-                    "\r\n        " +
-                      _vm._s(_vm.$t("No annotation")) +
-                      "\r\n      "
-                  )
-                ]
-              : _vm._e()
-          ],
-          2
-        )
+        _vm.user
+          ? _c(
+              "div",
+              { staticClass: "description" },
+              [
+                _vm._l(_vm.annotationTypes, function(t) {
+                  return _c("annotation-type-button", {
+                    key: t.type,
+                    attrs: {
+                      lib: _vm.lib,
+                      config: _vm.config,
+                      status: _vm.status,
+                      type: t.type,
+                      count: t.count
+                    }
+                  })
+                }),
+                _vm._v(" "),
+                _vm.user && _vm.annotationTypes.length === 0
+                  ? [
+                      _vm._v(
+                        "\r\n        " +
+                          _vm._s(_vm.$t("No annotation")) +
+                          "\r\n      "
+                      )
+                    ]
+                  : _vm._e()
+              ],
+              2
+            )
+          : _vm._e()
       ])
     ]
   )
@@ -8413,7 +8415,7 @@ let UserSelector = {
 //  watch: {
 //  },
 //  mounted() {
-//    //this.show() // for test
+//    this.testShow() // for test
 //  },
   methods: {
     show () {

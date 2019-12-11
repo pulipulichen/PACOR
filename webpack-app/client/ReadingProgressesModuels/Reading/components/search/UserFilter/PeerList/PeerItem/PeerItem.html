@@ -31,7 +31,8 @@
         {{ $t('(Reading...)') }}
       </span>
     </div>
-    <div class="description">
+    <div class="description"
+         v-if="user">
       <annotation-type-button 
         v-for="t in annotationTypes"
         v-bind:key="t.type"

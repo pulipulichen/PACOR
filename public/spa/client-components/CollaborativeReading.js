@@ -183,7 +183,7 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    //this._testNotificationFullList()
+    this._testUserFilter()
   },
   destroyed () {
     //console.log('退場了')
@@ -206,10 +206,21 @@ let CollaborativeReading = {
       this.lib.RangyManager = this.$refs.RangyManager
       this.lib.AnnotationPanel = this.$refs.AnnotationPanel
       this.lib.SectionManager = this.$refs.SectionManager
+      this.lib.NotificationManager = this.$refs.NotificationManager
+      
+      //console.log(this.lib.AnnotationPanel)
+      this.initNavComponentToLib()
+    },
+    initNavComponentToLib () {
+       if (!this.$refs.nav.$refs.UserFilter) {
+        setTimeout(() => {
+          this.initNavComponentToLib()
+        }, 100)
+        return false
+      }
+      
       this.lib.UserFilter = this.$refs.nav.$refs.UserFilter
       this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
-      this.lib.NotificationManager = this.$refs.NotificationManager
-      //console.log(this.lib.AnnotationPanel)
     },
     showInstruction() {
       this.$refs.InstructionMessage.show()
@@ -291,7 +302,7 @@ let CollaborativeReading = {
     },
     _testUserFilter: async function () {
       console.log('_testUserFilter')
-      await this.lib.VueHelper.sleep(1000)
+      await this.lib.VueHelper.sleep(2000)
       
       this.lib.UserFilter.show()
       
