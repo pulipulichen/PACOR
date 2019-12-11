@@ -476,11 +476,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NavigationItems/NavigationItems.vue */ "./webpack-app/client/ReadingProgressesModuels/Reading/CollaborativeReading/NavigationItems/NavigationItems.vue");
-/* harmony import */ var _components_NotificationManager_NotificationManager_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../components/NotificationManager/NotificationManager.vue */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/NotificationManager/NotificationManager.vue");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 
-
+//import NotificationManager from './../components/NotificationManager/NotificationManager.vue'
 
 
 let CollaborativeReading = {
@@ -491,7 +490,7 @@ let CollaborativeReading = {
   },
   components: {
     'navigation-items': _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'notification-manager': _components_NotificationManager_NotificationManager_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    //'notification-manager': NotificationManager
   },
 //  computed: {
 //  },
@@ -571,27 +570,27 @@ let CollaborativeReading = {
     _testAnnotationSingle () {
       console.log('_testAnnotationSingle')
       setTimeout(() => {
-        jquery__WEBPACK_IMPORTED_MODULE_2___default()('.others-MainIdea:first').click()
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()('.others-MainIdea:first').click()
         
         setTimeout(() => {
-          jquery__WEBPACK_IMPORTED_MODULE_2___default()('.AnnotationFloatWidget .meta').click()
+          jquery__WEBPACK_IMPORTED_MODULE_1___default()('.AnnotationFloatWidget .meta').click()
         }, 300)
       }, 500)
     },
     _testAnnotationSingleManyComments () {
       console.log('_testAnnotationSingleManyComments')
       setTimeout(() => {
-        if (jquery__WEBPACK_IMPORTED_MODULE_2___default()('.others-Clarified:first').length === 0) {
+        if (jquery__WEBPACK_IMPORTED_MODULE_1___default()('.others-Clarified:first').length === 0) {
           this._testAnnotationSingleManyComments()
           return
         }
-        jquery__WEBPACK_IMPORTED_MODULE_2___default()('.others-Clarified:first').click()
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()('.others-Clarified:first').click()
         setTimeout(() => {
-          jquery__WEBPACK_IMPORTED_MODULE_2___default()('.AnnotationFloatWidget .AnnotationTypeButton[title="已釐清"]:last').click()
+          jquery__WEBPACK_IMPORTED_MODULE_1___default()('.AnnotationFloatWidget .AnnotationTypeButton[title="已釐清"]:last').click()
           
           setTimeout(() => {
             //console.log($('.FilteredList .list .AnnotationItem:last .meta i').length)
-            jquery__WEBPACK_IMPORTED_MODULE_2___default()('.FilteredList .list .AnnotationItem:last .meta i').click()
+            jquery__WEBPACK_IMPORTED_MODULE_1___default()('.FilteredList .list .AnnotationItem:last .meta i').click()
             
             // 測試搜尋
             //this.lib.AnnotationPanel.findKeyword('co')
@@ -784,11 +783,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_NotificationManager_NotificationIcon_NotificationIcon_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../components/NotificationManager/NotificationIcon/NotificationIcon.vue */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/NotificationManager/NotificationIcon/NotificationIcon.vue");
-/* harmony import */ var _components_UserFilter_UserFilter_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../components/UserFilter/UserFilter.vue */ "./webpack-app/client/ReadingProgressesModuels/Reading/components/UserFilter/UserFilter.vue");
-/* harmony import */ var _WebpageAdminModal_WebpageAdminModal_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WebpageAdminModal/WebpageAdminModal.vue */ "./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.vue");
-
-
+/* harmony import */ var _WebpageAdminModal_WebpageAdminModal_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WebpageAdminModal/WebpageAdminModal.vue */ "./webpack-app/client/ReadingProgressesModuels/Reading/FreeReading/NavigationItems/WebpageAdminModal/WebpageAdminModal.vue");
+//import NotificationIcon from './../../components/manager/NotificationManager/NotificationIcon/NotificationIcon.vue'
+//import UserFilter from './../../components/search/UserFilter/UserFilter.vue'
 
 
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
@@ -803,9 +800,9 @@ let NavigationItems = {
   },
   components: {
     //'annotation-type-filter': AnnotationTypeFilter,
-    'notification-icon': _components_NotificationManager_NotificationIcon_NotificationIcon_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'user-filter': _components_UserFilter_UserFilter_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    WebpageAdminModal: _WebpageAdminModal_WebpageAdminModal_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    //'notification-icon': NotificationIcon,
+    //'user-filter': UserFilter,
+    WebpageAdminModal: _WebpageAdminModal_WebpageAdminModal_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
 //  
 //  computed: {

@@ -37,8 +37,6 @@ class AnnotationFind {
                 .with('anchorPositions')
                 .orderBy('updated_at_unixms', 'desc')
 
-        
-        
         if (Array.isArray(exceptTypes)) {
           query.whereNotIn('type', exceptTypes)
         }
@@ -72,13 +70,14 @@ class AnnotationFind {
           })
         }
         
-        
-        
         // ----------------------------------
         
         focusUserID = TypeHelper.parseInt(focusUserID)
         if (typeof(focusUserID) === 'number') {
           query.where('user_id', focusUserID)
+        }
+        else if (user.isAdmin()) {
+          query.whereNot('user_id', user.primaryKeyValue)
         }
         else {
           //console.log('before user.getOtherUserIDsInGroup')

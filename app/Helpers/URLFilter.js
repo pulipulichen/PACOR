@@ -14,7 +14,7 @@ let URLFilter = function (url) {
       //console.log(origin)
     }
     
-  console.log({url})
+  //console.log({url})
 
   // ---------------------
   // 先把127.0.0.1對應成localhost

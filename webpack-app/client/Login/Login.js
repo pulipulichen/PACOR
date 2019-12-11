@@ -67,6 +67,7 @@ let Login = {
       let password = localStorage.getItem(this.key + 'login.password')
       if (typeof(password) === 'string') {
         this.password = password
+        this.adminMode = true
       }
     },
     login: async function() {

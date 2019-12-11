@@ -108,6 +108,9 @@ class AnnotationFind {
           //console.log(findUserID)
           query.where('user_id', findUserID)
         }
+        else if (user.isAdmin()) {
+          // 不做任何限制
+        }
         else {
           
           profiler.before('await user.isInAnonymousGroup(webpage)')

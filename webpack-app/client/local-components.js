@@ -1,9 +1,9 @@
-import Loading from './../components/Loading/Loading.vue'
-import ErrorHandler from './../components/ErrorHandler/ErrorHandler.vue'
+import Loading from './../components/ui-modal/Loading/Loading.vue'
+import ErrorHandler from './../components/manager/ErrorHandler/ErrorHandler.vue'
 
 import Auth from './Auth/Auth.vue'
 import Login from './Login/Login.vue'
-import StyleManager from './../components/StyleManager/StyleManager.vue'
+import StyleManager from './../components/manager/StyleManager/StyleManager.vue'
 import PACORTestManager from './PACORTestManager/PACORTestManager.vue'
 //import RangyManager from './components/RangyManager/RangyManager.vue'
 //import NoteEditorManager from './components/NoteEditorManager/NoteEditorManager.vue'

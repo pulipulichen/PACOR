@@ -1,9 +1,9 @@
-import ErrorHandler from './../components/ErrorHandler/ErrorHandler.vue'
+import ErrorHandler from './../components/manager/ErrorHandler/ErrorHandler.vue'
 import Auth from './Auth/Auth.vue'
 import Login from './Login/Login.vue'
 import NavigationItems from './NavigationItems/NavigationItems.vue'
-import Loading from './../components/Loading/Loading.vue'
-import StyleManager from './../components/StyleManager/StyleManager.vue'
+import Loading from './../components/ui-modal/Loading/Loading.vue'
+import StyleManager from './../components/manager/StyleManager/StyleManager.vue'
 
 let components = {
   Loading: Loading,

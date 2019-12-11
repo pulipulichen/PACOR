@@ -29,6 +29,8 @@ import config from './config.js'
 // Components or routes
 
 import './client/global-components'
+import './client/local-global-dynamic-components'
+import './client/local-global-static-components'
 import components from './client/local-components'
 
 // -----------------------
