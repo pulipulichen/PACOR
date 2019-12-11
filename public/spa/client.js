@@ -889,7 +889,7 @@ exports.push([module.i, ".note[data-v-21a9a788] {\n  max-height: 4rem;\n  overfl
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationInteractive button[type=\"button\"].ui.button[data-v-6ce3bf7e] {\n  vertical-align: top !important;\n}\n", "",{"version":3,"sources":["AnnotationItemInteractive.less?vue&type=style&index=0&id=6ce3bf7e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC","file":"AnnotationItemInteractive.less?vue&type=style&index=0&id=6ce3bf7e&lang=less&scoped=true&","sourcesContent":[".AnnotationInteractive button[type=\"button\"].ui.button[data-v-6ce3bf7e] {\n  vertical-align: top !important;\n}\n"]}]);
+exports.push([module.i, ".AnnotationInteractive button[type=\"button\"].ui.button[data-v-6ce3bf7e] {\n  vertical-align: top !important;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button.with-count[data-v-6ce3bf7e] {\n  padding-left: 1em;\n  padding-right: 1em;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button.with-count > i[data-v-6ce3bf7e] {\n  margin-right: 0 !important;\n}\n", "",{"version":3,"sources":["AnnotationItemInteractive.less?vue&type=style&index=0&id=6ce3bf7e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,iBAAiB;EACjB,kBAAkB;AACpB;AACA;EACE,0BAA0B;AAC5B","file":"AnnotationItemInteractive.less?vue&type=style&index=0&id=6ce3bf7e&lang=less&scoped=true&","sourcesContent":[".AnnotationInteractive button[type=\"button\"].ui.button[data-v-6ce3bf7e] {\n  vertical-align: top !important;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button.with-count[data-v-6ce3bf7e] {\n  padding-left: 1em;\n  padding-right: 1em;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button.with-count > i[data-v-6ce3bf7e] {\n  margin-right: 0 !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -9087,6 +9087,9 @@ let AnnotationInteractive = {
       if (this.likes === 0) {
         classList.push('icon')
       }
+      else {
+        classList.push('with-count')
+      }
       
       return classList.join(' ')
     },
@@ -9102,6 +9105,9 @@ let AnnotationInteractive = {
       
       if (this.comments === 0) {
         classList.push('icon')
+      }
+      else {
+        classList.push('with-count')
       }
       
       return classList.join(' ')

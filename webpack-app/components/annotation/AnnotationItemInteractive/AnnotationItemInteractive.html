@@ -1,9 +1,10 @@
 <span class="AnnotationInteractive">
   <span v-if="isNotMe">
-    <button type="button" 
-            class="like ui button"
-            v-bind:class="computedLikesButtonClass"
-            v-on:click.stop="like">
+    <button 
+      type="button" 
+      class="like ui button"
+      v-bind:class="computedLikesButtonClass"
+      v-on:click.stop="like">
       <i class="thumbs up outline icon"></i>
       <template v-if="showLabel">
         <template v-if="likes > 0">

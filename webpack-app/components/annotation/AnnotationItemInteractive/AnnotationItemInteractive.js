@@ -32,6 +32,9 @@ let AnnotationInteractive = {
       if (this.likes === 0) {
         classList.push('icon')
       }
+      else {
+        classList.push('with-count')
+      }
       
       return classList.join(' ')
     },
@@ -47,6 +50,9 @@ let AnnotationInteractive = {
       
       if (this.comments === 0) {
         classList.push('icon')
+      }
+      else {
+        classList.push('with-count')
       }
       
       return classList.join(' ')
