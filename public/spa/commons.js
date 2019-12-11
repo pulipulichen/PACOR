@@ -5273,13 +5273,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var dayjs_plugin_relativeTime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dayjs/plugin/relativeTime */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\dayjs\\plugin\\relativeTime.js");
 /* harmony import */ var dayjs_plugin_relativeTime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dayjs_plugin_relativeTime__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var dayjs_locale_zh_tw__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dayjs/locale/zh-tw */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\dayjs\\locale\\zh-tw.js");
+/* harmony import */ var dayjs_locale_zh_tw__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(dayjs_locale_zh_tw__WEBPACK_IMPORTED_MODULE_2__);
 
 
 //import 'dayjs/locale/zh-tw' // load on demand
 dayjs__WEBPACK_IMPORTED_MODULE_0___default.a.extend(dayjs_plugin_relativeTime__WEBPACK_IMPORTED_MODULE_1___default.a)
 
 // preload locales
-__webpack_require__(/*! dayjs/locale/zh-tw */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\dayjs\\locale\\zh-tw.js").default
+//require(`dayjs/locale/zh-tw`).default
+//import 'dayjs/locale/zh-tw'
+
+dayjs__WEBPACK_IMPORTED_MODULE_0___default.a.locale(dayjs_locale_zh_tw__WEBPACK_IMPORTED_MODULE_2___default.a)
 
 let DayJSHelper = {
   $t: null,

@@ -4,7 +4,10 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 dayjs.extend(relativeTime)
 
 // preload locales
-require(`dayjs/locale/zh-tw`).default
+//require(`dayjs/locale/zh-tw`).default
+//import 'dayjs/locale/zh-tw'
+import zhTWConf from 'dayjs/locale/zh-tw';
+dayjs.locale(zhTWConf)
 
 let DayJSHelper = {
   $t: null,
