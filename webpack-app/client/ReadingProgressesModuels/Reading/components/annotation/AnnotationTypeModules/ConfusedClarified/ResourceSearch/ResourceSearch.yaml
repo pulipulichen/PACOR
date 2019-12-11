@@ -1,6 +1,6 @@
 en:
-  TEST_MESSAGE: Test Message
   
 zh-TW:
-  # 這是註解
-  TEST_MESSAGE: 測試訊息
+  Find your answer: 找尋解答
+  Find answers from Google: 從Google找解答
+  Find answers from Wikipedia: 從維基百科找解答

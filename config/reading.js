@@ -156,11 +156,11 @@ module.exports = {
       ],
       'externalResourceSearches': [
         {
-          'name': 'Find answer in Google',
+          'name': 'Find answers from Google',
           'urlPattern': 'https://www.google.com/search?q={question}'
         },
         {
-          'name': 'Find answer in Wikipedia',
+          'name': 'Find answers from Wikipedia',
           'urlPattern': 'https://zh.wikipedia.org/w/index.php?search={anchorText}&title=Special%3A搜索&go=執行&ns0=1'
         }
       ],

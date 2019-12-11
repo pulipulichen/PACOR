@@ -102,7 +102,7 @@ module.exports =  {
     return {
       type: 'Clarified',
       notes: {
-        'question': '2009年11月8日，Node. j s之父RyanDahl在歐洲JSConf大會',
+        'question': '2009年11月8日，Node.js之父RyanDahl在歐洲JSConf大會',
         'answer': '首度發布了Node.js專案，一鳴驚人，將瀏覽器端的JavaScript技術'
       },
       anchorPositions: [

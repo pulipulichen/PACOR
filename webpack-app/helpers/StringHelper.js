@@ -63,11 +63,18 @@ let StringHelper = {
     return s.replace(/ /g, '')
   },
   htmlToText (s, spaceInDifferentElement) {
+    if (typeof(s) !== 'string') {
+      return ''
+    }
+    if (!s.startsWith('<') && !s.endsWith('<')) {
+      s = '<div>' + s + '</div>'
+    }
+    
     if (!spaceInDifferentElement || spaceInDifferentElement === false) { 
       return $(s).text()
     }
     else {
-      let children = $('<div>' + s + '</div>').children()
+      let children = $(s).children()
       let output = []
       children.each((i, ele) => {
         output.push(ele.innerText)

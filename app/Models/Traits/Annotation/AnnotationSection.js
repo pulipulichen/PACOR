@@ -194,7 +194,7 @@ class AnnotationSection {
           annotations = []
         }
         
-        console.log(annotations.length)
+        //console.log(annotations.length)
         
         profiler.mark('annotations.toJSON()')
         

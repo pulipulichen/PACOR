@@ -6,7 +6,8 @@ let ResourceSearch = {
     return {
       selectIndex: this.propSelectIndex,
       anchorText: this.propAnchorText,
-      question: this.lib.StringHelper.htmlToText(this.propQuestion)
+      //question: this.lib.StringHelper.htmlToText(this.propQuestion)
+      question: ''
     }
   },
 //  components: {
@@ -62,10 +63,10 @@ let ResourceSearch = {
     propAnchorText(propAnchorText) {
       this.anchorText = propAnchorText
     },
-    propQuestion(question) {
-      question = this.lib.StringHelper.htmlToText(question)
-      this.question = question
-    }
+    //propQuestion(question) {
+      //question = this.lib.StringHelper.htmlToText(question)
+      //this.question = question
+    //}
   },
 //  mounted() {
 //  },
@@ -74,6 +75,9 @@ let ResourceSearch = {
       if (this.urlPattern === null) {
         return false
       }
+      
+      this.question = this.lib.StringHelper.htmlToText(this.propQuestion)
+      
       let url = this.urlPattern.replace('{anchorText}', this.anchorText)
       url = url.replace('{question}', this.question)
 
@@ -81,8 +85,6 @@ let ResourceSearch = {
       //window.open(url, windowname, "resizable=no, toolbar=no, scrollbars=no, menubar=no, status=no, directories=no, width=" + w + ", height=" + h + ", left=" + x + ", top=" + y)
 
       let ratio = 0.8
-
-
       this._popupCenter(url, '_blank', screen.availWidth * ratio, screen.availHeight * ratio)
     },
     _popupCenter: function (url, title, w, h) {

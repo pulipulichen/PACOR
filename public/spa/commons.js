@@ -5487,11 +5487,18 @@ let StringHelper = {
     return s.replace(/ /g, '')
   },
   htmlToText (s, spaceInDifferentElement) {
+    if (typeof(s) !== 'string') {
+      return ''
+    }
+    if (!s.startsWith('<') && !s.endsWith('<')) {
+      s = '<div>' + s + '</div>'
+    }
+    
     if (!spaceInDifferentElement || spaceInDifferentElement === false) { 
       return jquery__WEBPACK_IMPORTED_MODULE_0___default()(s).text()
     }
     else {
-      let children = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>' + s + '</div>').children()
+      let children = jquery__WEBPACK_IMPORTED_MODULE_0___default()(s).children()
       let output = []
       children.each((i, ele) => {
         output.push(ele.innerText)
@@ -5629,6 +5636,7 @@ let i18nGlobal = {
     "DATABASE": "資料庫",
     "RESET": "重設",
     "PUBLIC": "公開",
+    "SEARCH": "搜尋",
     "Path": "路徑",
     "Config": "設定",
     "Group": "分組",

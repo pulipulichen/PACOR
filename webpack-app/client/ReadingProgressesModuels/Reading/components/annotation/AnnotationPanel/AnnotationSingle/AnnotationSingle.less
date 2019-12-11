@@ -1,8 +1,17 @@
 .AnnotationSingle {
   overflow-y: auto;
 
-  .annotation-panel-buttons {
+  ::v-deep .annotation-panel-buttons {
     margin-top: -0.5em !important;
+    
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    margin-left: 0 !important;
+    
+    &> .column {
+      padding: 0.5em 0 !important;
+    }
   }
   
   .display-time {

@@ -1,3 +1,5 @@
+let answerHeightPadding = '8em'
+
 export default (Editor) => {
   Editor.computed = {
 
@@ -72,8 +74,7 @@ export default (Editor) => {
         return height
         
       } else {
-        
-        return '13em'
+        return answerHeightPadding
         
 //        let height
 //        if (this.enableCollaboration === true
@@ -95,10 +96,13 @@ export default (Editor) => {
       if (this.enableCollaboration === true
               && this.lib.style.isStackWidth()) {
         height = (this.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 13em)`
-      } else {
+        height = `calc(${height}px - ${answerHeightPadding})`
+      } else if (this.heightPX > 400) {
         //console.log(this.heightPX)
-        height = `calc(${this.heightPX}px - 23em)`
+        height = `calc(${this.heightPX}px - ${answerHeightPadding} - 10em)`
+      }
+      else {
+        height = `10em`
       }
       //console.log(height)
       return height

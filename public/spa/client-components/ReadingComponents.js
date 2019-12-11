@@ -249,7 +249,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Find your answer":"找尋解答","Find answers from Google":"從Google找解答","Find answers from Wikipedia":"從維基百科找解答"}}')
   delete Component.options._Ctor
 }
 
@@ -667,7 +667,7 @@ exports.push([module.i, "img[data-v-75e77d7c] {\n  height: 2em;\n  width: auto;\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationSingle[data-v-180f6a86] {\n  overflow-y: auto;\n}\n.AnnotationSingle .annotation-panel-buttons[data-v-180f6a86] {\n  margin-top: -0.5em !important;\n}\n.AnnotationSingle .display-time[data-v-180f6a86] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n@media (max-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-180f6a86] {\n    border-top: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-180f6a86] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-180f6a86] {\n    border-left: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-180f6a86] {\n    overflow-y: auto;\n}\n}\n", "",{"version":3,"sources":["AnnotationSingle.less?vue&type=style&index=0&id=180f6a86&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;AACA;EACE,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;AACA;IACI,qCAAqC;AACzC;AACA;IACI,2BAA2B;AAC/B;AACA;AACA;AACA;IACI,sCAAsC;AAC1C;AACA;IACI,gBAAgB;AACpB;AACA","file":"AnnotationSingle.less?vue&type=style&index=0&id=180f6a86&lang=less&scoped=true&","sourcesContent":[".AnnotationSingle[data-v-180f6a86] {\n  overflow-y: auto;\n}\n.AnnotationSingle .annotation-panel-buttons[data-v-180f6a86] {\n  margin-top: -0.5em !important;\n}\n.AnnotationSingle .display-time[data-v-180f6a86] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n@media (max-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-180f6a86] {\n    border-top: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-180f6a86] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-180f6a86] {\n    border-left: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-180f6a86] {\n    overflow-y: auto;\n}\n}\n"]}]);
+exports.push([module.i, ".AnnotationSingle[data-v-180f6a86] {\n  overflow-y: auto;\n}\n.AnnotationSingle[data-v-180f6a86]  .annotation-panel-buttons {\n  margin-top: -0.5em !important;\n  max-width: 100% !important;\n  overflow-x: auto !important;\n  overflow-y: hidden !important;\n  margin-left: 0 !important;\n}\n.AnnotationSingle[data-v-180f6a86]  .annotation-panel-buttons > .column {\n  padding: 0.5em 0 !important;\n}\n.AnnotationSingle .display-time[data-v-180f6a86] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n@media (max-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-180f6a86] {\n    border-top: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-180f6a86] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-180f6a86] {\n    border-left: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-180f6a86] {\n    overflow-y: auto;\n}\n}\n", "",{"version":3,"sources":["AnnotationSingle.less?vue&type=style&index=0&id=180f6a86&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;AACA;EACE,6BAA6B;EAC7B,0BAA0B;EAC1B,2BAA2B;EAC3B,6BAA6B;EAC7B,yBAAyB;AAC3B;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,qBAAqB;EACrB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;AACA;IACI,qCAAqC;AACzC;AACA;IACI,2BAA2B;AAC/B;AACA;AACA;AACA;IACI,sCAAsC;AAC1C;AACA;IACI,gBAAgB;AACpB;AACA","file":"AnnotationSingle.less?vue&type=style&index=0&id=180f6a86&lang=less&scoped=true&","sourcesContent":[".AnnotationSingle[data-v-180f6a86] {\n  overflow-y: auto;\n}\n.AnnotationSingle[data-v-180f6a86]  .annotation-panel-buttons {\n  margin-top: -0.5em !important;\n  max-width: 100% !important;\n  overflow-x: auto !important;\n  overflow-y: hidden !important;\n  margin-left: 0 !important;\n}\n.AnnotationSingle[data-v-180f6a86]  .annotation-panel-buttons > .column {\n  padding: 0.5em 0 !important;\n}\n.AnnotationSingle .display-time[data-v-180f6a86] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n@media (max-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-180f6a86] {\n    border-top: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-180f6a86] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-180f6a86] {\n    border-left: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-180f6a86] {\n    overflow-y: auto;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -10222,7 +10222,8 @@ let ResourceSearch = {
     return {
       selectIndex: this.propSelectIndex,
       anchorText: this.propAnchorText,
-      question: this.lib.StringHelper.htmlToText(this.propQuestion)
+      //question: this.lib.StringHelper.htmlToText(this.propQuestion)
+      question: ''
     }
   },
 //  components: {
@@ -10278,10 +10279,10 @@ let ResourceSearch = {
     propAnchorText(propAnchorText) {
       this.anchorText = propAnchorText
     },
-    propQuestion(question) {
-      question = this.lib.StringHelper.htmlToText(question)
-      this.question = question
-    }
+    //propQuestion(question) {
+      //question = this.lib.StringHelper.htmlToText(question)
+      //this.question = question
+    //}
   },
 //  mounted() {
 //  },
@@ -10290,6 +10291,9 @@ let ResourceSearch = {
       if (this.urlPattern === null) {
         return false
       }
+      
+      this.question = this.lib.StringHelper.htmlToText(this.propQuestion)
+      
       let url = this.urlPattern.replace('{anchorText}', this.anchorText)
       url = url.replace('{question}', this.question)
 
@@ -10297,8 +10301,6 @@ let ResourceSearch = {
       //window.open(url, windowname, "resizable=no, toolbar=no, scrollbars=no, menubar=no, status=no, directories=no, width=" + w + ", height=" + h + ", left=" + x + ", top=" + y)
 
       let ratio = 0.8
-
-
       this._popupCenter(url, '_blank', screen.availWidth * ratio, screen.availHeight * ratio)
     },
     _popupCenter: function (url, title, w, h) {
@@ -10444,6 +10446,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+let answerHeightPadding = '8em'
+
 /* harmony default export */ __webpack_exports__["default"] = ((Editor) => {
   Editor.computed = {
 
@@ -10518,8 +10522,7 @@ __webpack_require__.r(__webpack_exports__);
         return height
         
       } else {
-        
-        return '13em'
+        return answerHeightPadding
         
 //        let height
 //        if (this.enableCollaboration === true
@@ -10541,10 +10544,13 @@ __webpack_require__.r(__webpack_exports__);
       if (this.enableCollaboration === true
               && this.lib.style.isStackWidth()) {
         height = (this.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 13em)`
-      } else {
+        height = `calc(${height}px - ${answerHeightPadding})`
+      } else if (this.heightPX > 400) {
         //console.log(this.heightPX)
-        height = `calc(${this.heightPX}px - 23em)`
+        height = `calc(${this.heightPX}px - ${answerHeightPadding} - 10em)`
+      }
+      else {
+        height = `10em`
       }
       //console.log(height)
       return height
