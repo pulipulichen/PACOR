@@ -64,7 +64,7 @@ let SectionManager = {
       }
       
       this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init', this.query)
-      //console.log(this.sectionsData)
+      console.log(this.sectionsData)
       
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = $('[data-pacor-section-seq-id]').toArray()

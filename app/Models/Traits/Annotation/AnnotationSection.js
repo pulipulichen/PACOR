@@ -40,6 +40,50 @@ class AnnotationSection {
       profiler.mark('before Cache.rememberWait()', cacheKey)
       
       let output = await Cache.rememberWait([webpage, user, 'Annotation'], cacheKey, cacheMinute, async () => {
+        let seq_id = 0
+        let output = []
+        while (true) {
+          query.seq_id = seq_id
+          let result = await this.buildSeqSectionAnnotation(webpage, user, query)
+          
+          //console.log(result)
+          if (Array.isArray(result.annotations) === false) {
+            break
+          }
+          output.push(result)
+          seq_id++
+          //break
+        }
+        return output
+      })
+      
+      profiler.finish()
+      
+      return output
+    }
+    
+    Model.buildSeqSectionAnnotation = async function (webpage, user, query = {}) {
+      //throw new HttpException('@TODO')
+      //return []
+      
+      let profiler = new Profiler(0, 'Annotation/AnnotationSection.buildSeqSectionAnnotation()', query)
+      
+      profiler.before('await user.isEnableCollaboration(webpage)')
+      let isEnableCollaboration = await user.isEnableCollaboration(webpage)
+      if (isEnableCollaboration === false) {
+        profiler.finish()
+        return []
+      }
+      
+      let cacheKey = Cache.key(`Annotation.buildSeqSectionAnnotation`, query)
+
+      //console.log(cacheKey)
+      
+      let cacheMinute = 2
+      //cacheMinute = 0.001 // for test
+      profiler.mark('before Cache.rememberWait()', cacheKey)
+      
+      let output = await Cache.rememberWait([webpage, user, 'Annotation'], cacheKey, cacheMinute, async () => {
         profiler.mark('start Cache.rememberWait()')
         
         let itemsPerPage = Config.get('view.itemsPerPage')
@@ -59,6 +103,9 @@ class AnnotationSection {
         //console.log({query})
         if (typeof(annotations.toJSON) === 'function') {
           annotations = annotations.toJSON()
+        }
+        else {
+          return undefined
         }
         
         profiler.after('annotations.toJSON()')
@@ -131,18 +178,13 @@ class AnnotationSection {
           }
         })
         */
-        let output = []
-        for (let i = 0; i < maxSectionID + 1; i++) {
-          let seqID = i + ''
-          output.push({
-            annotations: sectionAnnotations[seqID],
-            users: sectionUsers[seqID],
-            userCount: sectionUserCount[seqID]
-          })
+       
+        let seqID = maxSectionID + ''
+        return {
+          annotations: sectionAnnotations[seqID],
+          users: sectionUsers[seqID],
+          userCount: sectionUserCount[seqID]
         }
-        profiler.mark('after output[]')
-        
-        return output
       })
       
       profiler.finish()
