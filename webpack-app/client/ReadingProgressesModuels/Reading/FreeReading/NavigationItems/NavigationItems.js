@@ -35,13 +35,22 @@ let NavigationItems = {
 //      }
 //    }
 //  },
-//  mounted() {
-//    this.initLibComponents()
-//  },
+  mounted() {
+    
+    this.testShowWebpageConfig()
+  },
   methods: {
     showWebpageConfig () {
       this.$refs.WebpageAdminModal.show()
     },
+    
+    // ----------------------------
+    
+    testShowWebpageConfig () {
+      console.log('@TEST testShowWebpageConfig')
+      this.showWebpageConfig()
+    }
+    
 //    nextStep () {
 //      this.lib.auth.nextStep()
 //    }
