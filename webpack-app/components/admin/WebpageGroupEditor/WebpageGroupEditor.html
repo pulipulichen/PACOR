@@ -1,14 +1,18 @@
 <div class="WebpageGroupEditor"
-     v-if="webpage">
-  <span class="ui right labeled icon button"
-        v-bind:title="computedButtonTitle"
-        v-on:click="editGroupsOpen()">
+     v-if="webpage"
+     v-bind:class="computedContainerClassList">
+  <span v-bind:title="computedButtonTitle"
+        v-on:click="editGroupsOpen()"
+        v-bind:class="computedButtonClassList">
+    <i class="edit icon"
+       v-if="!buttonMode"></i>
     {{ webpage.usersCount }}
     {{ $t('Readers', webpage.usersCount) }}
     /
     {{ webpage.groupsCount }}
     {{ $t('Groups', webpage.groupsCount) }}
-    <i class="edit icon"></i>
+    <i class="edit icon"
+       v-if="buttonMode"></i>
   </span>
   
   <modal 

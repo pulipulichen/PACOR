@@ -6,8 +6,10 @@
     <i v-else
        class="question icon"></i>
     
-    <template v-if="title"
-              v-html="title"></template>
+    <div 
+      v-if="title"
+      v-html="title">
+    </div>
     <template v-else>
       {{ $t('Are you sure?') }}
     </template>

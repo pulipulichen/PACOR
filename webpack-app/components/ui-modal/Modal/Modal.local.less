@@ -10,3 +10,25 @@ iframe {
     text-align: left !important;
   }
 }
+
+.header-menu {
+  float: right;
+  margin-right: 3em !important;
+  cursor: pointer;
+  
+  &> .item.more {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .header-menu {
+    &> .item {
+      display: none !important;
+    }
+    
+    &> .item.more {
+      display: block !important;
+    }
+  }
+}

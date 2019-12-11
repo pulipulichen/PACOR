@@ -1,9 +1,11 @@
 let ConfirmModel = {
   props: ['lib', 'status', 'config'
-    , 'icon', 'title', 'message'],
+    , 'icon'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      title: '',
+      message: '',
       modal: null
     }
   },
@@ -24,7 +26,15 @@ let ConfirmModel = {
 //  mounted() {
 //  },
   methods: {
-    show: function () {
+    show: function (title, message) {
+      if (typeof(title) === 'string'
+              && !title.startsWith('<') && !title.endsWith('>')) {
+        title = '<div>' + title + '</div>'
+      }
+      this.title = title
+      this.message = message
+      console.log(this.title, this.message)
+      
       return new Promise((resolve, reject) => {
         if (!this.modal) {
           this.modal = $(this.$refs.modal)

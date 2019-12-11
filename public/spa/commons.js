@@ -217,7 +217,7 @@ exports.push([module.i, ".non-invasive-web-style-framework.dimmable > .ui.dimmer
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "iframe[data-v-64f3eac6] {\n  width: 100%;\n  height: calc(100vh - 14.5em);\n}\n.actions[data-v-64f3eac6] {\n  user-select: none;\n}\n.actions.left-handed[data-v-64f3eac6] {\n  text-align: left !important;\n}\n", "",{"version":3,"sources":["Modal.local.less?vue&type=style&index=1&id=64f3eac6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,4BAA4B;AAC9B;AACA;EACE,iBAAiB;AACnB;AACA;EACE,2BAA2B;AAC7B","file":"Modal.local.less?vue&type=style&index=1&id=64f3eac6&lang=less&scoped=true&","sourcesContent":["iframe[data-v-64f3eac6] {\n  width: 100%;\n  height: calc(100vh - 14.5em);\n}\n.actions[data-v-64f3eac6] {\n  user-select: none;\n}\n.actions.left-handed[data-v-64f3eac6] {\n  text-align: left !important;\n}\n"]}]);
+exports.push([module.i, "iframe[data-v-64f3eac6] {\n  width: 100%;\n  height: calc(100vh - 14.5em);\n}\n.actions[data-v-64f3eac6] {\n  user-select: none;\n}\n.actions.left-handed[data-v-64f3eac6] {\n  text-align: left !important;\n}\n.header-menu[data-v-64f3eac6] {\n  float: right;\n  margin-right: 3em !important;\n  cursor: pointer;\n}\n.header-menu > .item.more[data-v-64f3eac6] {\n  display: none !important;\n}\n@media only screen and (max-width: 767px) {\n.header-menu > .item[data-v-64f3eac6] {\n    display: none !important;\n}\n.header-menu > .item.more[data-v-64f3eac6] {\n    display: block !important;\n}\n}\n", "",{"version":3,"sources":["Modal.local.less?vue&type=style&index=1&id=64f3eac6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,4BAA4B;AAC9B;AACA;EACE,iBAAiB;AACnB;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,YAAY;EACZ,4BAA4B;EAC5B,eAAe;AACjB;AACA;EACE,wBAAwB;AAC1B;AACA;AACA;IACI,wBAAwB;AAC5B;AACA;IACI,yBAAyB;AAC7B;AACA","file":"Modal.local.less?vue&type=style&index=1&id=64f3eac6&lang=less&scoped=true&","sourcesContent":["iframe[data-v-64f3eac6] {\n  width: 100%;\n  height: calc(100vh - 14.5em);\n}\n.actions[data-v-64f3eac6] {\n  user-select: none;\n}\n.actions.left-handed[data-v-64f3eac6] {\n  text-align: left !important;\n}\n.header-menu[data-v-64f3eac6] {\n  float: right;\n  margin-right: 3em !important;\n  cursor: pointer;\n}\n.header-menu > .item.more[data-v-64f3eac6] {\n  display: none !important;\n}\n@media only screen and (max-width: 767px) {\n.header-menu > .item[data-v-64f3eac6] {\n    display: none !important;\n}\n.header-menu > .item.more[data-v-64f3eac6] {\n    display: block !important;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -890,7 +890,38 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _vm.$slots.header
-      ? _c("div", { staticClass: "header" }, [_vm._t("header")], 2)
+      ? _c(
+          "div",
+          { staticClass: "header" },
+          [
+            _vm.$slots.headerMenu
+              ? _c(
+                  "div",
+                  { staticClass: "header-menu ui mini compact menu" },
+                  [
+                    _vm._t("headerMenu"),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        ref: "HeaderMenuDropdown",
+                        staticClass: "more ui dropdown icon item"
+                      },
+                      [
+                        _c("i", { staticClass: "ellipsis vertical icon" }),
+                        _vm._v(" "),
+                        _vm._m(0)
+                      ]
+                    )
+                  ],
+                  2
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._t("header")
+          ],
+          2
+        )
       : _vm._e(),
     _vm._v(" "),
     _vm.$slots.content
@@ -981,7 +1012,46 @@ var render = function() {
       : _vm._e()
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "menu" }, [
+      _c("div", { staticClass: "item" }, [
+        _c("i", { staticClass: "dropdown icon" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "text" }, [_vm._v("New")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "menu" }, [
+          _c("div", { staticClass: "item" }, [_vm._v("Document")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "item" }, [_vm._v("Image")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item" }, [
+        _vm._v("\r\n            Open...\r\n          ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item" }, [
+        _vm._v("\r\n            Save...\r\n          ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item" }, [_vm._v("Edit Permissions")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "divider" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "header" }, [
+        _vm._v("\r\n            Export\r\n          ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "item" }, [
+        _vm._v("\r\n            Share...\r\n          ")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -4512,12 +4582,20 @@ let Modal = {
       catch (e) {}
     }
   },
-//  mounted() {
+  mounted() {
+    this.initDropdown()
 //    //setTimeout(() => {
 //    //  this.show()
 //    //}, 1000)
-//  },
+  },
   methods: {
+    initDropdown () {
+      return
+      
+      if (this.$refs.HeaderMenuDropdown) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.HeaderMenuDropdown).dropdown()
+      }
+    },
     getModal: function () {
       if (this.modal === null) {
         this.modal = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.modal)

@@ -203,6 +203,10 @@ class WebpageGroup {
       let groups = []
       let usersCount = 0
       //console.log(webpage.groups)
+      if (Array.isArray(webpage.groups) === false) {
+        throw new Error(`You need query Webpage with('groups')`)
+      }
+      
       webpage.groups.forEach(group => {
         if (group.users.length > 0) {
           let g = group.users.map(user => user.username).filter(username => (username !== '') )

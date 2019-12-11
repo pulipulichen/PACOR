@@ -3120,7 +3120,7 @@ var render = function() {
             : _c("i", { staticClass: "question icon" }),
           _vm._v(" "),
           _vm.title
-            ? void 0
+            ? _c("div", { domProps: { innerHTML: _vm._s(_vm.title) } })
             : [
                 _vm._v(
                   "\r\n      " + _vm._s(_vm.$t("Are you sure?")) + "\r\n    "
@@ -10919,10 +10919,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 let ConfirmModel = {
   props: ['lib', 'status', 'config'
-    , 'icon', 'title', 'message'],
+    , 'icon'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      title: '',
+      message: '',
       modal: null
     }
   },
@@ -10943,7 +10945,15 @@ let ConfirmModel = {
 //  mounted() {
 //  },
   methods: {
-    show: function () {
+    show: function (title, message) {
+      if (typeof(title) === 'string'
+              && !title.startsWith('<') && !title.endsWith('>')) {
+        title = '<div>' + title + '</div>'
+      }
+      this.title = title
+      this.message = message
+      console.log(this.title, this.message)
+      
       return new Promise((resolve, reject) => {
         if (!this.modal) {
           this.modal = $(this.$refs.modal)

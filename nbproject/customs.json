@@ -108,6 +108,9 @@
     },
     "v-on:input": {},
     "v-on:update": {},
+    "v-slot:headermenu": {
+      "context": "template"
+    },
     "v-bind:src": {
       "context": "img"
     },

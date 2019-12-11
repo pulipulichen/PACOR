@@ -21,8 +21,8 @@ Vue.component('table-of-contents', TableOfContents)
 
 // ----------------------
 
-import WebpageConfigEditor from './components/WebpageConfigEditor/WebpageConfigEditor.vue'
+import WebpageConfigEditor from './../components/admin/WebpageConfigEditor/WebpageConfigEditor.vue'
 Vue.component('webpage-config-editor', WebpageConfigEditor)
 
-import WebpageGroupEditor from './components/WebpageGroupEditor/WebpageGroupEditor.vue'
+import WebpageGroupEditor from './../components/admin/WebpageGroupEditor/WebpageGroupEditor.vue'
 Vue.component('webpage-group-editor', WebpageGroupEditor)

@@ -1,9 +1,12 @@
 <div class="WebpageConfigEditor"
      v-if="webpage">
-  <span class="ui icon button"
-        v-on:click="editConfigOpen()"
+  <span v-on:click="editConfigOpen()"
+        v-bind:class="computedButtonClassList"
         v-bind:title="computedButtonTitle">
     <i class="cog icon"></i>
+    <template v-if="showLabel">
+      {{ $t('Config') }}
+    </template>
   </span>
 
   <modal 

@@ -9,7 +9,7 @@ class WebpageFind {
 
   register(Model) {
     
-    Model.findByURL = async function (URL) {
+    Model.findByURL = async function (URL, options) {
       URL = URLFilter(URL)
       //console.log({URL})
       let webpage = await Webpage.findBy('url', URL)

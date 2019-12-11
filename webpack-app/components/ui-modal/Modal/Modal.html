@@ -4,6 +4,40 @@
      v-if="cancelable !== 'false' && cancelable !== false"></i>
   <div class="header"
        v-if="$slots.header">
+    
+    <div v-if="$slots.headerMenu"
+         class="header-menu ui mini compact menu">
+      <slot name="headerMenu"></slot>
+      <div class="more ui dropdown icon item"
+           ref="HeaderMenuDropdown">
+        <i class="ellipsis vertical icon"></i>
+        <div class="menu">
+          <div class="item">
+            <i class="dropdown icon"></i>
+            <span class="text">New</span>
+            <div class="menu">
+              <div class="item">Document</div>
+              <div class="item">Image</div>
+            </div>
+          </div>
+          <div class="item">
+            Open...
+          </div>
+          <div class="item">
+            Save...
+          </div>
+          <div class="item">Edit Permissions</div>
+          <div class="divider"></div>
+          <div class="header">
+            Export
+          </div>
+          <div class="item">
+            Share...
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <slot name="header"></slot>
   </div>
   <div class="scrolling content"

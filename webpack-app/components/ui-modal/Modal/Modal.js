@@ -55,12 +55,20 @@ let Modal = {
       catch (e) {}
     }
   },
-//  mounted() {
+  mounted() {
+    this.initDropdown()
 //    //setTimeout(() => {
 //    //  this.show()
 //    //}, 1000)
-//  },
+  },
   methods: {
+    initDropdown () {
+      return
+      
+      if (this.$refs.HeaderMenuDropdown) {
+        $(this.$refs.HeaderMenuDropdown).dropdown()
+      }
+    },
     getModal: function () {
       if (this.modal === null) {
         this.modal = $(this.$refs.modal)

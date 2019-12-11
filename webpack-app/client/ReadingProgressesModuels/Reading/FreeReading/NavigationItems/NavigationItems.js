@@ -36,7 +36,6 @@ let NavigationItems = {
 //    }
 //  },
   mounted() {
-    
     this.testShowWebpageConfig()
   },
   methods: {

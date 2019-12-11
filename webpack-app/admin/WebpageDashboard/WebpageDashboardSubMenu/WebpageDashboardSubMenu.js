@@ -16,7 +16,10 @@ let WebpageDashboardSubMenu = {
 //  },
   methods: {
     reload () {
-      location.reload()
+      let confirm = window.confirm(this.$t('You need reload to active the change. Do you want to reload now?'))
+      if (confirm === true) {
+        location.reload()
+      }
     }
   } // methods
 }

@@ -12,22 +12,36 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 
 class WebpageDashboard {
   async info ({request, auth}) {
-    let {webpageID} = request.all()
+    let {webpageID, referer} = request.all()
+    let webpageInstance
+    
+    if (!webpageID && referer) {
+      webpageInstance = await WebpageModel.findByURL(referer)
+      webpageID = webpageInstance.primaryKey
+    }
+    
     let cacheKey = Cache.key('WebpageDashboard', 'info', webpageID)
     
     return await Cache.rememberWait(['Webpage_' + webpageID], cacheKey, 3, async () => {
-      let webpageInstance = await WebpageModel
-              .query()
-              .with('domain')
-              .with('groups')
-              .where('id', webpageID)
-              .pick(1)
+      
+      if (!webpageInstance) {
+        webpageInstance = await WebpageModel
+                .query()
+                .with('domain')
+                .with('groups')
+                .where('id', webpageID)
+                .pick(1)
 
-      if (webpageInstance === null || webpageInstance.size() === 0) {
-        return 0
+        if (webpageInstance === null || webpageInstance.size() === 0) {
+          return 0
+        }
+
+        webpageInstance = webpageInstance.first()
       }
-
-      webpageInstance = webpageInstance.first()
+      else {
+        await webpageInstance.load('domain')
+        await webpageInstance.load('groups')
+      }
       let webpage = webpageInstance.toJSON()
 
       await auth.checkDomainAdmin(webpage.domain_id)

@@ -1,6 +1,6 @@
 let WebpageGroupEditor = {
   props: ['lib', 'status', 'config'
-    , 'webpage'],
+    , 'webpage', 'buttonMode'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -33,6 +33,19 @@ let WebpageGroupEditor = {
       }
       
       return title.join(' ').trim()
+    },
+    computedButtonClassList () {
+      if (this.buttonMode === false) {
+        return
+      }
+      else {
+        return 'ui right labeled icon button'
+      }
+    },
+    computedContainerClassList () {
+      if (this.buttonMode === false) {
+        return 'text-mode'
+      }
     }
   },
   watch: {

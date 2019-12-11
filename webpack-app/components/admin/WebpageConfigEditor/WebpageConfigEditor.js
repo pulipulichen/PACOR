@@ -1,6 +1,6 @@
 let WebpageConfigEditor = {
   props: ['lib', 'status', 'config'
-            , 'webpage'],
+            , 'webpage', 'buttonMode', 'showLabel'],
   data() {
     this.$i18n.locale = this.config.locale
     
@@ -42,6 +42,14 @@ let WebpageConfigEditor = {
       }
       
       return title.join(' ').trim()
+    },
+    computedButtonClassList () {
+      if (this.buttonMode === false) {
+        return
+      }
+      else {
+        return 'ui icon button'
+      }
     }
   },
   watch: {
