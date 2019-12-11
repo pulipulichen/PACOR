@@ -13,13 +13,13 @@ export default (RangyManager) => {
     //window.hl = this.highlighter  // @TODO for test
 
     let vm = this
-    
+        
     let lock = {}
     let triggerEvent = (ele, event, type) => {
       if (lock[type] && lock[type] === true) {
         return null
       }
-      
+            
       let pos = this._getAnchorPositionFromElement(ele, event)
       
       lock[type] = true

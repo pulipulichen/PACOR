@@ -5,9 +5,28 @@ export default (RangyManager) => {
     if (highlights === null) {
       return null
     }
+    
+    // --------------------
+    
+    // 只取最短的那一個highlights
+    let highlight
+    let highlightLength
+    highlights.forEach(hl => {
+      let text = hl.getText()
+      //console.log({text})
+      if (!highlight
+              || highlightLength > text.length) {
+        highlight = hl
+        highlightLength = text.length
+      }
+    })
+    //window.hl = highlight
+    //console.log(highlight.getText())
+    
+    // --------------------
 
     let pidJSON = {}
-    highlights.forEach(highlight => {
+    //highlights.forEach(highlight => {
       let start_pos = highlight.characterRange.start
       let end_pos = highlight.characterRange.end
       let paragraph_id = highlight.containerElementId
@@ -26,7 +45,7 @@ export default (RangyManager) => {
           pidJSON[paragraph_id].end_pos = end_pos
         }
       }
-    })
+    //})
 
     let output = []
     for (let key in pidJSON) {

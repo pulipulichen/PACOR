@@ -12154,9 +12154,28 @@ __webpack_require__.r(__webpack_exports__);
     if (highlights === null) {
       return null
     }
+    
+    // --------------------
+    
+    // 只取最短的那一個highlights
+    let highlight
+    let highlightLength
+    highlights.forEach(hl => {
+      let text = hl.getText()
+      //console.log({text})
+      if (!highlight
+              || highlightLength > text.length) {
+        highlight = hl
+        highlightLength = text.length
+      }
+    })
+    //window.hl = highlight
+    //console.log(highlight.getText())
+    
+    // --------------------
 
     let pidJSON = {}
-    highlights.forEach(highlight => {
+    //highlights.forEach(highlight => {
       let start_pos = highlight.characterRange.start
       let end_pos = highlight.characterRange.end
       let paragraph_id = highlight.containerElementId
@@ -12175,7 +12194,7 @@ __webpack_require__.r(__webpack_exports__);
           pidJSON[paragraph_id].end_pos = end_pos
         }
       }
-    })
+    //})
 
     let output = []
     for (let key in pidJSON) {
@@ -12435,13 +12454,13 @@ __webpack_require__.r(__webpack_exports__);
     //window.hl = this.highlighter  // @TODO for test
 
     let vm = this
-    
+        
     let lock = {}
     let triggerEvent = (ele, event, type) => {
       if (lock[type] && lock[type] === true) {
         return null
       }
-      
+            
       let pos = this._getAnchorPositionFromElement(ele, event)
       
       lock[type] = true
