@@ -2383,6 +2383,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NavigationItems/NavigationItems.vue */ "./webpack-app/admin/NavigationItems/NavigationItems.vue");
 /* harmony import */ var _components_ui_modal_Loading_Loading_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../components/ui-modal/Loading/Loading.vue */ "./webpack-app/components/ui-modal/Loading/Loading.vue");
 /* harmony import */ var _components_manager_StyleManager_StyleManager_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../components/manager/StyleManager/StyleManager.vue */ "./webpack-app/components/manager/StyleManager/StyleManager.vue");
+/* harmony import */ var _components_manager_PACORTestManager_PACORTestManager_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../components/manager/PACORTestManager/PACORTestManager.vue */ "./webpack-app/components/manager/PACORTestManager/PACORTestManager.vue");
+
 
 
 
@@ -2397,6 +2399,7 @@ let components = {
   Login: _Login_Login_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
   NavigationItems: _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
   StyleManager: _components_manager_StyleManager_StyleManager_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+  PACORTestManager: _components_manager_PACORTestManager_PACORTestManager_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (components);

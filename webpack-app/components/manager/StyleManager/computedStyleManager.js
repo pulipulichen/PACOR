@@ -10,8 +10,8 @@ export default function (StyleManager) {
 
   StyleManager.computed.isEnableAnimate = function () {
     if (this.status.preference
-            && this.status.preference.enableAnimate) {
-      return this.status.preference.enableAnimate
+            && typeof(this.status.preference.EInkMode) === 'boolean' ) {
+      return !this.status.preference.EInkMode
     }
     return true
   } // StyleManager.computed.isEnableAnimate = function () {

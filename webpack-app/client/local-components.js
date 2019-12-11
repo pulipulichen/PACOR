@@ -4,7 +4,7 @@ import ErrorHandler from './../components/manager/ErrorHandler/ErrorHandler.vue'
 import Auth from './Auth/Auth.vue'
 import Login from './Login/Login.vue'
 import StyleManager from './../components/manager/StyleManager/StyleManager.vue'
-import PACORTestManager from './PACORTestManager/PACORTestManager.vue'
+import PACORTestManager from './../components/manager/PACORTestManager/PACORTestManager.vue'
 //import RangyManager from './components/RangyManager/RangyManager.vue'
 //import NoteEditorManager from './components/NoteEditorManager/NoteEditorManager.vue'
 
