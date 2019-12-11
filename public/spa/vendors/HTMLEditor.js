@@ -143,7 +143,7 @@ exports.push([module.i, ".html-editor-container[data-v-2b488c08] {\n  cursor: te
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".html-editor-container[data-v-2b488c08]  .note-editor .note-editable {\n  overflow-y: auto;\n  padding-top: 0 !important;\n}\n", "",{"version":3,"sources":["HTMLEditor.summernote.local.less?vue&type=style&index=1&id=2b488c08&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,yBAAyB;AAC3B","file":"HTMLEditor.summernote.local.less?vue&type=style&index=1&id=2b488c08&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-2b488c08]  .note-editor .note-editable {\n  overflow-y: auto;\n  padding-top: 0 !important;\n}\n"]}]);
+exports.push([module.i, ".html-editor-container[data-v-2b488c08]  .note-editor .note-editable {\n  overflow-y: auto;\n  padding-top: 0.5em !important;\n}\n", "",{"version":3,"sources":["HTMLEditor.summernote.local.less?vue&type=style&index=1&id=2b488c08&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,6BAA6B;AAC/B","file":"HTMLEditor.summernote.local.less?vue&type=style&index=1&id=2b488c08&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-2b488c08]  .note-editor .note-editable {\n  overflow-y: auto;\n  padding-top: 0.5em !important;\n}\n"]}]);
 
 
 /***/ }),
