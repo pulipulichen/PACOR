@@ -11,7 +11,7 @@
       {{ $t('Webpage Admin') }}
     </template>
     <template v-slot:headerMenu>
-      <span class="item">
+      <a class="item">
         <webpage-group-editor
           v-bind:config="config"
           v-bind:status="status"
@@ -20,8 +20,8 @@
           v-on:change="reload"
           v-bind:buttonMode="false">
         </webpage-group-editor>
-      </span>
-      <span class="item">
+      </a>
+      <a class="item">
         <webpage-config-editor
           v-bind:config="config"
           v-bind:status="status"
@@ -31,7 +31,7 @@
           v-bind:buttonMode="false"
           v-bind:showLabel="true">
         </webpage-config-editor>
-      </span>
+      </a>
     </template>
     <template 
       v-slot:content

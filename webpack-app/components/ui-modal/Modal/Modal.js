@@ -9,7 +9,8 @@ let Modal = {
     return {
       resetCache: null,
       modal: null,
-      isShow: false
+      isShow: false,
+      headerMenuInited: false
     }
   },
 //  components: {
@@ -34,6 +35,11 @@ let Modal = {
       }
       
       return classList.join(' ')
+    },
+    computedHeaderClassList () {
+      if (this.$slots.headerMenu) {
+        return 'has-header-menu'
+      }
     }
   },
   destroyed: function () {
@@ -55,18 +61,23 @@ let Modal = {
       catch (e) {}
     }
   },
-  mounted() {
-    this.initDropdown()
-//    //setTimeout(() => {
-//    //  this.show()
-//    //}, 1000)
-  },
   methods: {
-    initDropdown () {
-      return
-      
+    initDropdown() {
+      if (this.headerMenuInited === true) {
+        return
+      }
       if (this.$refs.HeaderMenuDropdown) {
-        $(this.$refs.HeaderMenuDropdown).dropdown()
+        $(this.$refs.HeaderMenuDropdown).popup({
+          inline: true,
+          hoverable: true,
+          //position: 'bottom left',
+          position: 'bottom right',
+          delay: {
+            //show: 300,
+            hide: 800 
+          }
+        })
+        this.headerMenuInited = true
       }
     },
     getModal: function () {
@@ -104,6 +115,8 @@ let Modal = {
         }
         
         options.onShow = () => {
+          
+          this.initDropdown()
           this.isShow = true
         }
         

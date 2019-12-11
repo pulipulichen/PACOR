@@ -425,7 +425,7 @@ var render = function() {
               fn: function() {
                 return [
                   _c(
-                    "span",
+                    "a",
                     { staticClass: "item" },
                     [
                       _c("webpage-group-editor", {
@@ -443,7 +443,7 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c(
-                    "span",
+                    "a",
                     { staticClass: "item" },
                     [
                       _c("webpage-config-editor", {
