@@ -45,3 +45,33 @@
     }
   } 
 }
+
+@media only screen and (max-width: 991px) {
+  .AnnotationSingle.two.column ::v-deep {
+    .AnnotationEditorHeader {
+      .left.column {
+        .user-avatar, .username {
+          display: none;
+        }
+      }
+      
+      .left.column {
+        width: calc(100% - 6em);
+      }
+    } //.AnnotationEditorHeader {
+    
+    .html-editor-container {
+      .note-toolbar.center {
+        text-align: right;
+      }
+
+      &.editor-left-handed .note-toolbar.center {
+        text-align: left;
+      }
+    } // .html-editor-container {
+  } // .AnnotationSingle.two.column ::v-deep {
+  
+    
+  
+  
+}
