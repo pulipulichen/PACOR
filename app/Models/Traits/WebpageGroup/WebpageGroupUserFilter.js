@@ -10,6 +10,9 @@ class WebpageGroupUserFilter {
 
   register(Model) {
     
+    /**
+     * 這是給admin用的
+     */
     Model.getInit = async function (webpage, user, options) {
       //throw new Error('getInit')
       

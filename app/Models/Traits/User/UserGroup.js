@@ -213,7 +213,7 @@ class UserGroup {
     }
     
     Model.prototype.isUserInMyGroup = async function (webpage, focusUserID) {
-      if (!focusUserID) {
+      if (!focusUserID || this.isAdmin()) {
         return true
       }
       

@@ -75,6 +75,9 @@ class AnnotationNoteUserFilter {
         if (userID) {
           query.where('annotations.user_id', userID)
         }
+        else if (user.isAdmin()) {
+          // 沒有限制
+        }
         else {
           // 搜尋該組的
           let isInAnonymousGroup = await user.isInAnonymousGroup(webpage)

@@ -56,16 +56,18 @@ class UserReadingProgressAction {
         profiler.before('await this.isEnableCollaboration(webpage)')
         let isEnableCollaboration = await this.isEnableCollaboration(webpage)
         
-        profiler.before('await this.isInAnonymousGroup(webpage)')
-        let isInAnonymousGroup = await this.isInAnonymousGroup(webpage)
-        //console.log('startReadingProgress', 7, dayjs().format('mm:ss'), isEnableCollaboration)
-        if (isEnableCollaboration === true && isInAnonymousGroup === false) {
-        //if (isEnableCollaboration === true) {
-          //console.log('startReadingProgress', 8, dayjs().format('mm:ss'), ExceptionHelper.getStackTraceString())
-          profiler.before('webpage.addNotification()')
-          webpage.addNotification(this, {
-            triggerInstance: step
-          })
+        if (this.isAdmin() === false) {
+          profiler.before('await this.isInAnonymousGroup(webpage)')
+          let isInAnonymousGroup = await this.isInAnonymousGroup(webpage)
+          //console.log('startReadingProgress', 7, dayjs().format('mm:ss'), isEnableCollaboration)
+          if (isEnableCollaboration === true && isInAnonymousGroup === false) {
+          //if (isEnableCollaboration === true) {
+            //console.log('startReadingProgress', 8, dayjs().format('mm:ss'), ExceptionHelper.getStackTraceString())
+            profiler.before('webpage.addNotification()')
+            webpage.addNotification(this, {
+              triggerInstance: step
+            })
+          }
         }
         //console.log('startReadingProgress', 9, dayjs().format('mm:ss'), ExceptionHelper.getStackTraceString())
         //console.log('新增')

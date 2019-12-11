@@ -21,52 +21,7 @@ class Section extends Annotation {
     let enableCollaborative = await user.isEnableCollaboration(webpage)
     
     profiler.mark('enableCollaborative', enableCollaborative)
-    /*
-    let cacheKey = Cache.key('Section', 'init', enableCollaborative)
-    let result = await Cache.rememberWait([webpage, user, 'Section'], cacheKey, Config.get('view.indexCacheMinute'), async () => {
-      let query = {}
-      
-      //console.log('init', 1)
-      
-      let sectionsChecklist = await user.getSectionsChecklist(webpage)
-      
-      //console.log('init', 2)
-      
-      let sectionsChecklistSubmitted = null
-      if (Array.isArray(sectionsChecklist)) {
-        sectionsChecklistSubmitted = sectionsChecklist.map(checklist => {
-          if (Array.isArray(checklist) === false
-                  || checklist.length === 0) {
-            return false
-          }
-          
-          for (let i = 0; i < checklist.length; i++) {
-            if (checklist[i] === false) {
-              return false
-            }
-          }
-          return true
-        })
-      }
-      
-      //console.log('init', 3)
-      
-      let checklistAnnotation = await AnnotationModel.getSectionsChecklistAnnotation(webpage, user, query)
-      
-      //console.log('init', 4)
-      
-      let sectionsAnnotation = await AnnotationModel.buildSectionsAnnotationSummary(webpage, user, query)
-      
-      //console.log('init', 5)
-      
-      return {
-        checklist: sectionsChecklist,
-        checklistSubmitted: sectionsChecklistSubmitted,
-        checklistAnnotation: checklistAnnotation,
-        annotation: sectionsAnnotation
-      }
-    })  // return await Cache.rememberWait([webpage, user, this.modelName], Config.get('view.indexCacheMinute'), cacheKey, async () => {
-    */
+    
     let cacheKeySectionsChecklist = Cache.key('Section', 'init', enableCollaborative, 'sectionsChecklist')
     let {sectionsChecklist, sectionsChecklistSubmitted} = await Cache.rememberWait([webpage, user, 'Section'], cacheKeySectionsChecklist, Config.get('view.indexCacheMinute'), async () => {
       let sectionsChecklist = await user.getSectionsChecklist(webpage)

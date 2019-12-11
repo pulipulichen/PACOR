@@ -8,6 +8,7 @@ const TypeHelper = use('App/Helpers/TypeHelper')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 
 const Profiler = use('Profiler')
+const DatabaseHelper = use('App/Helpers/DatabaseHelper')
 
 class AnnotationFind {
 
@@ -60,21 +61,32 @@ class AnnotationFind {
         
         profiler.mark('query')
 
-        let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
-        //console.log(types)
-        if (types.length > 0) {
-          query.whereIn('type', types)
-        }
-        else {
-          profiler.finish()
-          if (pick === 1) {
-            return null
+        if (!onlySectionAnnotation) {
+          if (!options.findType) {
+            let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
+            //console.log(types)
+            if (types.length > 0) {
+              query.whereIn('type', types)
+            }
+            else {
+              profiler.finish()
+              if (pick === 1) {
+                return null
+              }
+              else {
+                return []
+              }
+            }
+            profiler.after('types', types)
           }
           else {
-            return []
+            this._queryFindType(query, options)
+            profiler.mark('_queryFindType')
           }
         }
-        profiler.after('types', types)
+        
+
+        // -----------------------------
 
         if (withCount === true) {
           query.withCount('likes')
@@ -89,8 +101,6 @@ class AnnotationFind {
         }
         profiler.mark('withCount', withCount)
 
-        this._queryFindType(query, options)
-        profiler.mark('_queryFindType')
         
         // -------------------------
         
@@ -109,6 +119,7 @@ class AnnotationFind {
           query.where('user_id', findUserID)
         }
         else if (user.isAdmin()) {
+          //console.log('不做任何限制')
           // 不做任何限制
         }
         else {
@@ -168,7 +179,8 @@ class AnnotationFind {
           profiler.mark('anchorPositions', anchorPositions)
         }
         else if (onlySectionAnnotation === true) {
-          query.whereHas('anchorPositions', (builder) => {
+          query.where('type', 'SectionMainIdea')
+                .whereHas('anchorPositions', (builder) => {
             builder.where('webpage_id', webpage.primaryKeyValue)
                     .where('type', 'section')
             
@@ -236,7 +248,7 @@ class AnnotationFind {
 
         //if (anchorMode === 'exact') console.log(query.toSQL())
         
-        //console.log('Annotation.findByWebpageGroupPosition()', query.toSQL())
+        //console.log(DatabaseHelper.toSQL(query))
         
         profiler.mark('before fetch')
         
@@ -346,6 +358,9 @@ class AnnotationFind {
         focusUserID = TypeHelper.parseInt(focusUserID)
         if (typeof(focusUserID) === 'number') {
           query.where('user_id', focusUserID)
+        }
+        else if (user.isAdmin()) {
+          query.whereNot('user_id', user.primaryKeyValue)
         }
         else {
           //console.log('before user.getOtherUserIDsInGroup')

@@ -46,7 +46,7 @@ class AnnotationSection {
         
         query.onlySectionAnnotation = true
         query.withCount = true
-        query.page = 1
+        query.page = 0
         
         if (query.selector) {
           console.error(query)
@@ -54,8 +54,9 @@ class AnnotationSection {
         }
         
         profiler.after('before findByWebpageGroupPosition', query)
-        
+        //console.log({query})
         let annotations = await this.findByWebpageGroupPosition(webpage, user, query)
+        //console.log({query})
         if (typeof(annotations.toJSON) === 'function') {
           annotations = annotations.toJSON()
         }
@@ -181,7 +182,9 @@ class AnnotationSection {
         //console.log('getSectionsChecklistAnnotation', options)
         
         profiler.mark('before findByWebpageGroupPosition()', options)
+        //console.log({options})
         let annotations = await this.findByWebpageGroupPosition(webpage, user, options)
+        
         profiler.mark('findByWebpageGroupPosition()')
         
         if (typeof(annotations.toJSON) === 'function') {
@@ -190,6 +193,8 @@ class AnnotationSection {
         else {
           annotations = []
         }
+        
+        console.log(annotations.length)
         
         profiler.mark('annotations.toJSON()')
         
