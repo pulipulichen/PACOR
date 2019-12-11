@@ -2187,7 +2187,9 @@ var render = function() {
             _vm._v(
               "\r\n    " +
                 _vm._s(
-                  _vm.$t("Load previous comments...", [_vm.olderCommentCount])
+                  _vm.$t("Load previous {0} comments...", [
+                    _vm.olderCommentCount
+                  ])
                 ) +
                 "\r\n  "
             )
@@ -11063,6 +11065,10 @@ let Editor = {
     },
     
     editorHeight () {
+      if (this.heightPX < 200) {
+        return '10em'
+      }
+      
       let vm = this
       let height
       if (vm.enableCollaboration === true
@@ -11340,6 +11346,10 @@ let Editor = {
     },
     
     editorHeight () {
+      if (this.heightPX < 200) {
+        return '10em'
+      }
+      
       let vm = this
       let height
       if (vm.enableCollaboration === true

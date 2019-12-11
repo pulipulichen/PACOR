@@ -66,9 +66,10 @@ let StringHelper = {
     if (typeof(s) !== 'string') {
       return ''
     }
-    if (!s.startsWith('<') && !s.endsWith('<')) {
-      s = '<div>' + s + '</div>'
-    }
+    s = s.trim()
+    //if (!s.startsWith('<') && !s.endsWith('>')) {
+    s = '<div>' + s + '</div>'
+    //}
     
     if (!spaceInDifferentElement || spaceInDifferentElement === false) { 
       return $(s).text()

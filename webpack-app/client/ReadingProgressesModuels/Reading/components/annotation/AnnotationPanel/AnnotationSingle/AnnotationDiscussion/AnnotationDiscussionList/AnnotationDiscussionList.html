@@ -17,7 +17,7 @@
   
   <div class="ui secondary segment no-more"
        v-if="!noMoreOlder && olderCommentCount > 0">
-    {{ $t('Load previous comments...', [olderCommentCount]) }}
+    {{ $t('Load previous {0} comments...', [olderCommentCount]) }}
   </div>
   
   <annotation-comment 

@@ -70,6 +70,10 @@ let Editor = {
     },
     
     editorHeight () {
+      if (this.heightPX < 200) {
+        return '10em'
+      }
+      
       let vm = this
       let height
       if (vm.enableCollaboration === true
