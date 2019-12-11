@@ -4,10 +4,31 @@ const Config = use('Config')
 let mapping = Config.get('origin.originMapping')
 const Env = use('Env')
 
+const directoryIndexList = [
+  'index.html', 'index.htm', 'index.shtml', 'index.php', 'index.php4', 'index.php3', 'index.phtml', 'index.cgi'
+]
+
 let URLFilter = function (url) {
   if (typeof(url) !== 'string') {
     return '__direct'
   }
+  
+  if (url.endsWith('#')) {
+    url = url.slice(0, -1)
+  }
+  
+  if (url.endsWith('?')) {
+    url = url.slice(0, -1)
+  }
+  
+  for (let i = 0; i < directoryIndexList.length; i++) {
+    let fileName = directoryIndexList[i]
+    if (url.endsWith(fileName)) {
+      url = url.slice(0, ( -1 * fileName.length) )
+    }
+  }
+  
+  // -----------------------------------------
 
   if (url.startsWith('/') && !url.startsWith('//')) {
       url = Env.get('APP_URL') + url

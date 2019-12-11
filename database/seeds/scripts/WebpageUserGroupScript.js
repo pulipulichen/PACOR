@@ -63,6 +63,8 @@ module.exports = {
     await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataUpper1())
     await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataUpper2())
     await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataUpper3())
+    
+    await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataLower1())
   },
   
   processGroup0User2: async function () {
@@ -81,6 +83,10 @@ module.exports = {
     await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataUpper1())
     await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataUpper3())
     await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataUpper3())
+    
+    await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataLower1())
+    await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataLower2())
+    await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataLower3())
   },
   
   processGroup0User3: async function () {
@@ -100,6 +106,8 @@ module.exports = {
     await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataUpper1())
     await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataUpper2())
     await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataUpper3())
+    
+    await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataLower3())
   },
   
   processGroup0User4: async function () {
@@ -115,6 +123,8 @@ module.exports = {
     
     await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataUpper3())
     
+    await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataLower1())
+    await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataLower1())
     // 走到這裡應該要是 CollaborativeReading
   },
   
