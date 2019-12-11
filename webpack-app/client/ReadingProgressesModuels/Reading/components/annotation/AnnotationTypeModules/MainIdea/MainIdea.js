@@ -134,7 +134,16 @@ let Editor = {
         return false
       }
       
-      let note = this.lib.RangyManager.getPinSelectionAnchorText()
+      let note
+      try {
+        note = this.lib.RangyManager.getPinSelectionAnchorText()
+      }
+      catch (e) {
+        console.error(e)
+        this.lib.AnnotationPanel.hide()
+        return false
+      }
+      
       note = this.lib.StringHelper.removePunctuations(note).trim()
       note = `<p>${note}</p>`
       this.note = note

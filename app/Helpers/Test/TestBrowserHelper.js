@@ -66,10 +66,11 @@ let exposeFunction = async function (headless, browser, url, index) {
             && error._args[0]
             && error._args[0]._remoteObject) {
       let description = error._args[0]._remoteObject.description
-      if (description.indexOf('\n') > -1) {
+      if (typeof(description) === 'string' && description.indexOf('\n') > -1) {
         description = description.slice(0, description.indexOf('\n')).trim()
       }
-      throw consolePrefix + ' ' + description
+      //throw consolePrefix + ' ' + description
+      console.error(consolePrefix, description)
     }
   });
   

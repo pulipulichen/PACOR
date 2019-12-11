@@ -2157,14 +2157,14 @@ __webpack_require__.r(__webpack_exports__);
         if (ele.val() === value) {
           this.log('資料沒改變，重寫一次', this.getStackTraceString())
           await this.sleep(1000)
-          return await this.typeInput(selector, text)
+          return await this.typeInput(ele, text)
         }
       }
       else {
         if (ele.html() === value) {
           this.log('資料沒改變，重寫一次', this.getStackTraceString())
           await this.sleep(1000)
-          return await this.typeInput(selector, text)
+          return await this.typeInput(ele, text)
         }
       }
       
@@ -2632,6 +2632,7 @@ __webpack_require__.r(__webpack_exports__);
     
     let writeAnnotations = min + Math.floor(Math.random() *  (max - min))
     //writeAnnotations--
+    /*
     let retry = 0
     
     let writeAnnotation = async (i) => {
@@ -2669,8 +2670,30 @@ __webpack_require__.r(__webpack_exports__);
       
       await this.sleep(100)
     }
-    
+    */
     //this.log('writeAnnotations 結束了')
+    
+    for (let i = 0; i < writeAnnotations; i++) {
+      await this.retry(3, async () => {
+        await this.sleep(100)
+
+        this.log('撰寫標註：' + (i+1) + '/' + (writeAnnotations) )
+        await this.selectAnnotationType(i)
+        if (i % 3 === 0) {
+          await this.writeMainIdeaAnnotation()
+          //await this.writeConfusedAnnotation()
+        }
+        else if (i % 3 === 1) {
+          await this.writeConfusedClarifiedAnnotation()
+          //await this.writeConfusedAnnotation()
+        }
+        else {
+          await this.writeConfusedAnnotation()
+        }
+
+        await this.sleep(100)
+      })
+    }
   }
   
   PACORTestManager.methods.selectAnnotationType = async function (i) {

@@ -5887,6 +5887,15 @@ let AnnotationTypeSelector = {
         type: type
       }
       
+      try {
+        this.lib.AnnotationHelper.validate(annotation)
+      }
+      catch (e) {
+        console.error(e)
+        this.selection = null
+        return null
+      }
+      
       this.lib.RangyManager.pinSelection(this.selection)
       
       this.lib.AnnotationPanel.setAnnotation(annotation, {
@@ -10577,7 +10586,15 @@ let answerHeightPadding = '8em'
     anchorText() {
       //console.log(this.annotation)
       
-      let anchorTexts = this.lib.RangyManager.getAnchorTextArrayFromAnnotation(this.annotation)
+      let anchorTexts
+      //try {
+        anchorTexts = this.lib.RangyManager.getAnchorTextArrayFromAnnotation(this.annotation)
+      //}
+//      catch (e) {
+//        console.error(e)
+//        this.lib.AnnotationPanel.hide()
+//        return ''
+//      }
       let anchorText = anchorTexts.join(' ')
 
       if (anchorText === undefined) {
@@ -11129,7 +11146,16 @@ let Editor = {
         return false
       }
       
-      let note = this.lib.RangyManager.getPinSelectionAnchorText()
+      let note
+      try {
+        note = this.lib.RangyManager.getPinSelectionAnchorText()
+      }
+      catch (e) {
+        console.error(e)
+        this.lib.AnnotationPanel.hide()
+        return false
+      }
+      
       note = this.lib.StringHelper.removePunctuations(note).trim()
       note = `<p>${note}</p>`
       this.note = note
@@ -11410,7 +11436,16 @@ let Editor = {
         return false
       }
       
-      let note = this.lib.RangyManager.getPinSelectionAnchorText()
+      let note
+      try {
+        note = this.lib.RangyManager.getPinSelectionAnchorText()
+      }
+      catch (e) {
+        console.error(e)
+        this.lib.AnnotationPanel.hide()
+        return false
+      }
+      
       note = this.lib.StringHelper.removePunctuations(note).trim()
       note = `<p>${note}</p>`
       this.note = note
@@ -22348,8 +22383,9 @@ let SectionManager = {
       //console.log(this.query)
       let result = await this.lib.AxiosHelper.get('/client/Section/annotations', this.query)
       //console.log(result)
-      this.sectionsData.annotation = result
-      
+      if (Array.isArray(result)) {
+        this.sectionsData.annotation = result
+      }
     },
     setRefreshInterval: async function () {
       if (this.lib.auth.isEnableCollaboration === false) {

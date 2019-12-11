@@ -18,6 +18,7 @@ export default function (PACORTestManager) {
     
     let writeAnnotations = min + Math.floor(Math.random() *  (max - min))
     //writeAnnotations--
+    /*
     let retry = 0
     
     let writeAnnotation = async (i) => {
@@ -55,8 +56,30 @@ export default function (PACORTestManager) {
       
       await this.sleep(100)
     }
-    
+    */
     //this.log('writeAnnotations 結束了')
+    
+    for (let i = 0; i < writeAnnotations; i++) {
+      await this.retry(3, async () => {
+        await this.sleep(100)
+
+        this.log('撰寫標註：' + (i+1) + '/' + (writeAnnotations) )
+        await this.selectAnnotationType(i)
+        if (i % 3 === 0) {
+          await this.writeMainIdeaAnnotation()
+          //await this.writeConfusedAnnotation()
+        }
+        else if (i % 3 === 1) {
+          await this.writeConfusedClarifiedAnnotation()
+          //await this.writeConfusedAnnotation()
+        }
+        else {
+          await this.writeConfusedAnnotation()
+        }
+
+        await this.sleep(100)
+      })
+    }
   }
   
   PACORTestManager.methods.selectAnnotationType = async function (i) {

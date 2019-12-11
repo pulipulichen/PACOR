@@ -103,8 +103,9 @@ let SectionManager = {
       //console.log(this.query)
       let result = await this.lib.AxiosHelper.get('/client/Section/annotations', this.query)
       //console.log(result)
-      this.sectionsData.annotation = result
-      
+      if (Array.isArray(result)) {
+        this.sectionsData.annotation = result
+      }
     },
     setRefreshInterval: async function () {
       if (this.lib.auth.isEnableCollaboration === false) {

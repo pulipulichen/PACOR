@@ -123,7 +123,15 @@ export default (Editor) => {
     anchorText() {
       //console.log(this.annotation)
       
-      let anchorTexts = this.lib.RangyManager.getAnchorTextArrayFromAnnotation(this.annotation)
+      let anchorTexts
+      //try {
+        anchorTexts = this.lib.RangyManager.getAnchorTextArrayFromAnnotation(this.annotation)
+      //}
+//      catch (e) {
+//        console.error(e)
+//        this.lib.AnnotationPanel.hide()
+//        return ''
+//      }
       let anchorText = anchorTexts.join(' ')
 
       if (anchorText === undefined) {

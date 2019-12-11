@@ -251,6 +251,6 @@ module.exports = {
     }
   }, // annotationTypeModules: {
   debug: {
-    forceMaxTimeoutMinutes: 5
+    forceMaxTimeoutMinutes: 1
   }
 }

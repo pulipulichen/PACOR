@@ -188,8 +188,8 @@ console.log(webpageConfig)
 TestBrowser(title, url, config, {
   //threads: 1,
   //threads: 2, // 完全運作正常
-  threads: 5,  // 10個錯誤
-  //threads: 10,  // 0個錯誤
+  //threads: 5,  // 10個錯誤
+  threads: 10,  // 0個錯誤
   //threads: 20,  // 0個錯誤
   //threads: 30,  // 0個錯誤
   //threads: 40,  // 10個錯誤

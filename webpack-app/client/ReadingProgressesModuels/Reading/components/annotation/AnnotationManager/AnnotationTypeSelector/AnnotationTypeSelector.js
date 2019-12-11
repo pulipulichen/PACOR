@@ -125,6 +125,15 @@ let AnnotationTypeSelector = {
         type: type
       }
       
+      try {
+        this.lib.AnnotationHelper.validate(annotation)
+      }
+      catch (e) {
+        console.error(e)
+        this.selection = null
+        return null
+      }
+      
       this.lib.RangyManager.pinSelection(this.selection)
       
       this.lib.AnnotationPanel.setAnnotation(annotation, {
