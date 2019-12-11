@@ -41,6 +41,7 @@ class Annotation extends Model {
   
   anchorPositions () {
     return this.belongsToMany('App/Models/AnchorPosition')
+            .orderBy('section_id', 'asc')
             .orderBy('seq_id', 'asc')
             .orderBy('start_pos', 'asc')
             .pivotTable('anchor_positions_annotations')

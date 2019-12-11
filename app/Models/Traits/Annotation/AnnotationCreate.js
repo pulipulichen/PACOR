@@ -102,7 +102,7 @@ class AnnotationCreate {
 
         let query = {
           webpage_id: webpage.primaryKeyValue,
-          seq_id: a.seq_id,
+          section_id: a.section_id,
           type: a.type,
           //start_pos: a.start_pos,
           //end_pos: a.end_pos,
@@ -130,7 +130,7 @@ class AnnotationCreate {
             throw new Error('anchorPosisitions format error: \n' + JSON.stringify(a, null, ' '))
           }
           
-          query.section_id = a.section_id
+          query.seq_id = a.seq_id
           query.paragraph_id = a.paragraph_id
           query.start_pos = a.start_pos
           query.end_pos = a.end_pos
@@ -189,7 +189,7 @@ class AnnotationCreate {
               .where('deteled', false)
               .whereHas('anchorPositions', (builder) => {
                 builder.where('webpage_id', webpage.primaryKeyValue)
-                  .where('seq_id')
+                  .where('section_id')
               })
               .pick(1)
       

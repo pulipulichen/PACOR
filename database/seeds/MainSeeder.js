@@ -28,8 +28,8 @@ class UserSeeder {
     console.log('=========================================')
     console.log(__filename + ' start...\n')
     
-    //await WebpageUserGroupScript.main()
-    //await AnnotationInteractScript.main()
+    await WebpageUserGroupScript.main()
+    await AnnotationInteractScript.main()
     
     console.log('\n' + __filename + ' is finished.')
     console.log('=========================================')
