@@ -226,6 +226,8 @@ export default (Editor) => {
       this.answer = commentNote
       this.answerReset = this.lib.StringHelper.htmlTrim(commentNote)
       this.$refs.AnswerEditor.html(this.answer)
+      
+      this.$refs.AnswerEditor.focus(true)
     }
   } // methods
 }

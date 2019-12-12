@@ -1,6 +1,8 @@
+import $ from 'jquery'
+
 export default function (HTMLEditor) {
 
-  HTMLEditor.methods.focus = function () {
+  HTMLEditor.methods.focus = function (glow) {
     this.editor.summernote('focus')
 
     // 會導致無法點選選單，不可使用 20191116
@@ -9,7 +11,11 @@ export default function (HTMLEditor) {
 //    document.execCommand('selectAll', false, null)
 //    // collapse selection to the end
 //    document.getSelection().collapseToEnd()
+    if (glow === true) {
+      $(this.$refs.editorContainer).transition('glow')
+    }
   }
+  
   HTMLEditor.methods.html = function (html) {
     if (this.editor === null) {
       setTimeout(() => {
@@ -29,8 +35,9 @@ export default function (HTMLEditor) {
       this.editor.summernote('code')
     }
     return this
-  }
+  } // HTMLEditor.methods.html = function (html) {
+  
   HTMLEditor.methods.reset = function () {
     this.html('')
-  }
+  } // HTMLEditor.methods.reset = function () {
 }

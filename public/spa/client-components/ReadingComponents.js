@@ -10949,6 +10949,8 @@ __webpack_require__.r(__webpack_exports__);
       this.answer = commentNote
       this.answerReset = this.lib.StringHelper.htmlTrim(commentNote)
       this.$refs.AnswerEditor.html(this.answer)
+      
+      this.$refs.AnswerEditor.focus(true)
     }
   } // methods
 });
