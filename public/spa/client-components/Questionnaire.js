@@ -158,6 +158,7 @@ var render = function() {
                     locale: _vm.status.preference.locale,
                     countdownSec: _vm.remainingSeconds,
                     enable: _vm.isTimeUp,
+                    isWaitingLoading: _vm.isWaitingLoading,
                     ignoreWordCount: true,
                     autoClickSeconds: 5
                   },
@@ -309,6 +310,7 @@ var render = function() {
                     locale: _vm.status.preference.locale,
                     countdownSec: _vm.remainingSeconds,
                     enable: _vm.isTimeUp,
+                    isWaitingLoading: _vm.isWaitingLoading,
                     ignoreWordCount: true,
                     autoClickSeconds: 5
                   },
@@ -418,7 +420,30 @@ __webpack_require__.r(__webpack_exports__);
 
 _PreImaginary_PreImaginary_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = function () {
   /*
+   this.$i18n.locale = this.config.locale
+   let key = 'PostRecall'
+   let data = {}
+   if (typeof (this.status) === 'object'
+   && typeof (this.status.readingConfig) === 'object') {
+   if (typeof (this.status.readingConfig.readingProgressModules) === 'object'
+   && typeof (this.status.readingConfig.readingProgressModules[key]) === 'object') {
+   for (let name in this.status.readingConfig.readingProgressModules[key]) {
+   data[name] = this.status.readingConfig.readingProgressModules[key][name]
+   }
+   }
+   data.readingConfig = this.status.readingConfig
+   }
+   data.log = {
+   answer: '',
+   start_timestamp: null
+   }
+   data.persistKey = key + '.log'
+   data.remainingSeconds = null
+   return data
+   */
+
   this.$i18n.locale = this.config.locale
+
   let key = 'PostRecall'
   let data = {}
   if (typeof (this.status) === 'object'
@@ -437,34 +462,13 @@ _PreImaginary_PreImaginary_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = fun
   }
   data.persistKey = key + '.log'
   data.remainingSeconds = null
+  data.answer = ''
+  data.header = this.$t(key)
+  data.isTimeUp = false
+  data.header = this.$t('READING_PROGRESS.' + key)
+
+  data.isWaitingLoading = false
   return data
-  */
-  
-  this.$i18n.locale = this.config.locale
-    
-    let key = 'PostRecall'
-    let data = {}
-    if (typeof(this.status) === 'object' 
-            && typeof(this.status.readingConfig) === 'object') {
-      if (typeof(this.status.readingConfig.readingProgressModules) === 'object'
-              && typeof(this.status.readingConfig.readingProgressModules[key]) === 'object') {
-        for (let name in this.status.readingConfig.readingProgressModules[key]) {
-          data[name] = this.status.readingConfig.readingProgressModules[key][name]
-        }
-      }
-      data.readingConfig = this.status.readingConfig
-    }
-    data.log = {
-      answer: '',
-      start_timestamp: null
-    }
-    data.persistKey = key + '.log'
-    data.remainingSeconds = null
-    data.answer = ''
-    data.header = this.$t(key)
-    data.isTimeUp = false
-    data.header = this.$t('READING_PROGRESS.' + key)
-    return data
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (_PreImaginary_PreImaginary_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
@@ -571,7 +575,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let PreImaginary = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+  props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
     
@@ -596,6 +600,8 @@ let PreImaginary = {
     data.answer = ''
     data.header = this.$t('READING_PROGRESS.' + key)
     data.isTimeUp = false
+    
+    data.isWaitingLoading = false
     
     return data
   },
@@ -724,6 +730,7 @@ let PreImaginary = {
       }
       */
       //console.log(data)
+      this.isWaitingLoading = true
       
       await this.lib.AxiosHelper.post('/client/ReadingProgress/end', this.log)
       localStorage.removeItem(this.persistKey)
@@ -749,7 +756,7 @@ let PreImaginary = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let PreImaginary = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+  props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
     
@@ -774,6 +781,8 @@ let PreImaginary = {
     data.answer = ''
     data.header = this.$t('READING_PROGRESS.' + key)
     data.isTimeUp = false
+    
+    data.isWaitingLoading = false
     
     return data
   },
@@ -902,6 +911,7 @@ let PreImaginary = {
       }
       */
       //console.log(data)
+      this.isWaitingLoading = true
       
       await this.lib.AxiosHelper.post('/client/ReadingProgress/end', this.log)
       localStorage.removeItem(this.persistKey)

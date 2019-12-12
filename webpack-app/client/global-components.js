@@ -34,10 +34,10 @@ Vue.component('annotation-type-button', AnnotationTypeButton)
 
 Vue.component('HTMLEditor', () => import(/* webpackChunkName: "vendors/HTMLEditor" */ './../components/annotation/HTMLEditor/HTMLEditor.vue'))
 
-import CheckboxToggle from './../components/ui/CheckboxToggle/CheckboxToggle.vue'
+import CheckboxToggle from './../components/ui-button/CheckboxToggle/CheckboxToggle.vue'
 Vue.component('checkbox-toggle', CheckboxToggle)
 
-import CountdownButton from './../components/reading-progress/CountdownButton/CountdownButton.vue'
+import CountdownButton from './../components/ui-button/CountdownButton/CountdownButton.vue'
 Vue.component('countdown-button', CountdownButton)
 
 import SimpleCountdownTimer from './../components/reading-progress/SimpleCountdownTimer/SimpleCountdownTimer.vue'

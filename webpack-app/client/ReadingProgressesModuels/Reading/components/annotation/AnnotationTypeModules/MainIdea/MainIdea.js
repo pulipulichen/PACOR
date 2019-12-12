@@ -153,7 +153,7 @@ let Editor = {
       }
     },
     addAnnotation: async function () {
-      
+      this.setWaitSubmit()
       this.lib.AnnotationHelper.validate(this.annotation)
       
       let data = {
@@ -208,7 +208,7 @@ let Editor = {
      * 編輯標註
      */
     editAnnotation: async function () {
-      
+      this.setWaitSubmit()
       let data = {
         id: this.annotation.id,
         notes: {

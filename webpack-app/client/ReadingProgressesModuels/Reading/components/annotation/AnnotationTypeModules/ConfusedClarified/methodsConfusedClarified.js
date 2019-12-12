@@ -59,6 +59,8 @@ export default (Editor) => {
     // ------------------
     
     submitQuestion: async function () {
+      this.setWaitSubmit()
+      
       this.annotation.properties = {
         question_submitted_at: (new Date()).getTime()
       }
@@ -122,9 +124,11 @@ export default (Editor) => {
 //      setTimeout(() => {
 //        console.log(this.answer)
 //      }, 100)
+      this.awaitSubmit = false
     },
     
     submitAnswer: async function () {
+      this.setWaitSubmit()
       let type = 'Clarified'
       this.annotation.properties.answer_submitted_at = (new Date()).getTime()
       
@@ -173,6 +177,8 @@ export default (Editor) => {
     },
     
     writeLater: async function () {
+      this.setWaitSubmit()
+      
       this.lib.AnnotationHelper.note(this.annotation, 'question', this.question)
       this.lib.AnnotationHelper.note(this.annotation, 'answer', this.answer)
       

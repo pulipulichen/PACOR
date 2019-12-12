@@ -73,7 +73,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Back to list":"回到列表","Back to full list":"回到完整列表","Finding":"正在搜尋","No Search Result":"沒有符合的標註"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Back to list":"回到列表","Back to full list":"回到完整列表","Finding":"正在搜尋","No Search Result":"沒有符合的標註","No More":"沒有更多標註了"}}')
   delete Component.options._Ctor
 }
 
@@ -89,7 +89,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Back to list":"回到列表","Back to full list":"回到完整列表","Finding":"正在搜尋","No Search Result":"沒有符合的標註"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Back to list":"回到列表","Back to full list":"回到完整列表","Finding":"正在搜尋","No Search Result":"沒有符合的標註","No More":"沒有更多標註了"}}')
   delete Component.options._Ctor
 }
 
@@ -2661,7 +2661,10 @@ var render = function() {
                   _vm._v(" "),
                   _vm.annotationConfig.enableControlPermission
                     ? _c("checkbox-toggle", {
-                        attrs: { label: _vm.$t("PUBLIC") },
+                        attrs: {
+                          label: _vm.$t("PUBLIC"),
+                          enable: !_vm.awaitSubmit
+                        },
                         model: {
                           value: _vm.public,
                           callback: function($$v) {
@@ -2677,6 +2680,7 @@ var render = function() {
                         _c(
                           "validation-button",
                           {
+                            class: _vm.computedSubmitButtonClassList,
                             attrs: {
                               lib: _vm.lib,
                               text: _vm.question,
@@ -2701,6 +2705,7 @@ var render = function() {
                               "button",
                               {
                                 staticClass: "ui button",
+                                class: _vm.computedSubmitButtonClassList,
                                 attrs: { type: "button" },
                                 on: { click: _vm.writeLater }
                               },
@@ -2717,6 +2722,7 @@ var render = function() {
                         _c(
                           "validation-button",
                           {
+                            class: _vm.computedSubmitButtonClassList,
                             attrs: {
                               lib: _vm.lib,
                               text: _vm.answer,
@@ -2740,6 +2746,7 @@ var render = function() {
                               "button",
                               {
                                 staticClass: "ui red button",
+                                class: _vm.computedSubmitButtonClassList,
                                 attrs: { type: "button" },
                                 on: { click: _vm.deleteAnnotation }
                               },
@@ -2999,7 +3006,10 @@ var render = function() {
                   _vm._v(" "),
                   _vm.annotationConfig.enableControlPermission
                     ? _c("checkbox-toggle", {
-                        attrs: { label: _vm.$t("PUBLIC") },
+                        attrs: {
+                          label: _vm.$t("PUBLIC"),
+                          enable: !_vm.awaitSubmit
+                        },
                         model: {
                           value: _vm.public,
                           callback: function($$v) {
@@ -3015,6 +3025,7 @@ var render = function() {
                         _c(
                           "validation-button",
                           {
+                            class: _vm.computedSubmitButtonClassList,
                             attrs: {
                               lib: _vm.lib,
                               text: _vm.note,
@@ -3038,6 +3049,7 @@ var render = function() {
                               "button",
                               {
                                 staticClass: "ui button",
+                                class: _vm.computedSubmitButtonClassList,
                                 attrs: { type: "button" },
                                 on: { click: _vm.deleteAnnotation }
                               },
@@ -3055,6 +3067,7 @@ var render = function() {
                         _c(
                           "validation-button",
                           {
+                            class: _vm.computedSubmitButtonClassList,
                             attrs: {
                               lib: _vm.lib,
                               minWordCount: _vm.minWords,
@@ -3145,7 +3158,10 @@ var render = function() {
                   _vm._v(" "),
                   _vm.annotationConfig.enableControlPermission
                     ? _c("checkbox-toggle", {
-                        attrs: { label: _vm.$t("PUBLIC") },
+                        attrs: {
+                          label: _vm.$t("PUBLIC"),
+                          enable: !_vm.awaitSubmit
+                        },
                         model: {
                           value: _vm.public,
                           callback: function($$v) {
@@ -3161,6 +3177,7 @@ var render = function() {
                         _c(
                           "validation-button",
                           {
+                            class: _vm.computedSubmitButtonClassList,
                             attrs: {
                               lib: _vm.lib,
                               text: _vm.note,
@@ -3184,6 +3201,7 @@ var render = function() {
                               "button",
                               {
                                 staticClass: "ui button",
+                                class: _vm.computedSubmitButtonClassList,
                                 attrs: { type: "button" },
                                 on: { click: _vm.deleteAnnotation }
                               },
@@ -3201,6 +3219,7 @@ var render = function() {
                         _c(
                           "validation-button",
                           {
+                            class: _vm.computedSubmitButtonClassList,
                             attrs: {
                               lib: _vm.lib,
                               minWordCount: _vm.minWords,
@@ -10685,6 +10704,8 @@ __webpack_require__.r(__webpack_exports__);
       
       questionMinWords: this.status.readingConfig.annotationTypeModules['ConfusedClarified'].questionMinWords,
       answerMinWords: this.status.readingConfig.annotationTypeModules['ConfusedClarified'].answerMinWords,
+      
+      awaitSubmit: false
     }
   }
 });
@@ -10761,6 +10782,8 @@ __webpack_require__.r(__webpack_exports__);
     // ------------------
     
     submitQuestion: async function () {
+      this.setWaitSubmit()
+      
       this.annotation.properties = {
         question_submitted_at: (new Date()).getTime()
       }
@@ -10824,9 +10847,11 @@ __webpack_require__.r(__webpack_exports__);
 //      setTimeout(() => {
 //        console.log(this.answer)
 //      }, 100)
+      this.awaitSubmit = false
     },
     
     submitAnswer: async function () {
+      this.setWaitSubmit()
       let type = 'Clarified'
       this.annotation.properties.answer_submitted_at = (new Date()).getTime()
       
@@ -10875,6 +10900,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     
     writeLater: async function () {
+      this.setWaitSubmit()
+      
       this.lib.AnnotationHelper.note(this.annotation, 'question', this.question)
       this.lib.AnnotationHelper.note(this.annotation, 'answer', this.answer)
       
@@ -11173,7 +11200,7 @@ let Editor = {
       }
     },
     addAnnotation: async function () {
-      
+      this.setWaitSubmit()
       this.lib.AnnotationHelper.validate(this.annotation)
       
       let data = {
@@ -11228,7 +11255,7 @@ let Editor = {
      * 編輯標註
      */
     editAnnotation: async function () {
-      
+      this.setWaitSubmit()
       let data = {
         id: this.annotation.id,
         notes: {
@@ -11463,7 +11490,7 @@ let Editor = {
       }
     },
     addAnnotation: async function () {
-      
+      this.setWaitSubmit()
       this.lib.AnnotationHelper.validate(this.annotation)
       
       let data = {
@@ -11518,7 +11545,7 @@ let Editor = {
      * 編輯標註
      */
     editAnnotation: async function () {
-      
+      this.setWaitSubmit()
       let data = {
         id: this.annotation.id,
         notes: {
@@ -11820,7 +11847,13 @@ __webpack_require__.r(__webpack_exports__);
     } else {
       return 'column'
     }
-  }
+  } // Editor.computed.computedButtonsClass = function () {
+  
+  Editor.computed.computedSubmitButtonClassList = function () {
+    if (this.awaitSubmit === true) {
+      return 'disabled'
+    }
+  } // Editor.computed.computedSubmitButtonClassList = function () {
 });
 
 /***/ }),
@@ -11878,7 +11911,15 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((Editor) => {
   Editor.methods.deleteAnnotation = function () {
+    this.setWaitSubmit()
     this.$emit('delete')
+  }
+  
+  Editor.methods.setWaitSubmit = function () {
+    this.awaitSubmit = true
+    setTimeout(() => {
+      this.awaitSubmit = false
+    }, 3000)
   }
 });
 

@@ -19,12 +19,14 @@ let CountdownButton = {
     
     return {
       remainingSeconds: 0,
-      autoClickRemainingSeconds
+      autoClickRemainingSeconds,
+      awaitSubmit: false
     }
   },
   computed: {
     computedClassName () {
-      if (this.isEnable === false) {
+      if (this.isEnable === false 
+              || this.awaitSubmit === true) {
         return 'disabled'
       }
       else if (typeof(this.enableClassNames) === 'string') {
@@ -152,7 +154,12 @@ let CountdownButton = {
       if (!this.isEnable) {
         return null
       }
+      this.awaitSubmit = true
       this.$emit('click')
+      
+      setTimeout(() => {
+        this.awaitSubmit = false
+      }, 3000)
     }
   }
 }

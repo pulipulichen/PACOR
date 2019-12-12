@@ -1,17 +1,18 @@
-<button type="button"
-        class="ui button ValidationButton"
-        v-bind:class="computedClassName"
-        v-on:click="onclick">
-  
+<button 
+  type="button"
+  class="ui button ValidationButton"
+  v-bind:class="computedClassName"
+  v-on:click="onclick">
+
   <template v-if="isEnable || !enable">
     <template v-if="hasLabeledIcon">
       <i v-if="leftLabeledIcon"
-       v-bind:class="computedLeftLabeledIcon"></i>
+         v-bind:class="computedLeftLabeledIcon"></i>
 
       <slot></slot>
 
       <i v-if="rightLabeledIcon"
-       v-bind:class="computedRightLabeledIcon"></i>
+         v-bind:class="computedRightLabeledIcon"></i>
     </template>
     <template v-else>
       <div class="ui active mini inline loader"></div>
@@ -23,7 +24,4 @@
   <template v-else>
     ({{ disabledMessage }})
   </template>
-  
-  
-  
 </button>

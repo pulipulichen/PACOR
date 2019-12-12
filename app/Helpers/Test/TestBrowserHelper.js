@@ -44,11 +44,14 @@ let exposeFunction = async function (headless, browser, url, index) {
   //await session.send('Page.setWebLifecycleState', {state: 'active'});
 
   let consolePrefix
+  let errorPrefix
   if (index === undefined) {
     consolePrefix = '[CONSOLE]'
+    errorPrefix = '[ERROR]'
   }
   else {
     consolePrefix = `[${index}: CONSOLE]`
+    errorPrefix = `[${index}: ERROR]`
   }
 
   await page.page.exposeFunction('PACORTestManagerIndex', () => {
@@ -65,12 +68,15 @@ let exposeFunction = async function (headless, browser, url, index) {
             && error._args
             && error._args[0]
             && error._args[0]._remoteObject) {
-      let description = error._args[0]._remoteObject.description
+      let description = error._args[0]._remoteObject
+      if (typeof(description) === 'object' && description.description) {
+        description = description.description
+      }
       if (typeof(description) === 'string' && description.indexOf('\n') > -1) {
         description = description.slice(0, description.indexOf('\n')).trim()
       }
       //throw consolePrefix + ' ' + description
-      console.error(consolePrefix, description)
+      console.error(errorPrefix, description)
     }
   });
   

@@ -18,6 +18,7 @@
     "toc": {},
     "slot": {
       "attributes": {
+        "v-bind:autoClickRemainingSeconds": {},
         "name": {}
       }
     },

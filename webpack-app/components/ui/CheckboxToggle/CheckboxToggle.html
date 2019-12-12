@@ -1,9 +1,0 @@
-<div class="ui toggle checkbox checkbox-toggle">
-  <input type="checkbox" 
-         name="public" 
-         v-bind:checked="value"
-         v-on:change="$emit('input', $event.target.checked)"
-         ref="input">
-  <label v-if="label"
-         v-on:click="$refs.input.click()">{{ label }}</label>
-</div>

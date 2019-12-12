@@ -7,14 +7,15 @@ let ValidationButton = {
     this.$i18n.locale = this.locale
     return {
       remainingSeconds: 0,
-      await: false
+      awaitSubmit: false
     }
   },
   computed: {
     computedClassName () {
       //return 'await disabled' // for test
       
-      if (this.isEnable === false) {
+      if (this.isEnable === false
+              || this.awaitSubmit === true) {
         return 'disabled'
       }
       
@@ -28,8 +29,8 @@ let ValidationButton = {
       if (this.rightLabeledIcon) {
         classList.push('right labeled icon button')
       }
-      if (this.await) {
-        classList.push('await disabled')
+      if (this.awaitSubmit) {
+        classList.push('await-submit disabled')
       }
       
       return classList.join(' ')
@@ -107,7 +108,7 @@ let ValidationButton = {
               && this.rightLabeledIcon === null)
     },
     computedLeftLabeledIcon () {
-      if (this.await === true) {
+      if (this.awaitSubmit === true) {
         return 'hourglass icon'
       }
       else {
@@ -115,7 +116,7 @@ let ValidationButton = {
       }
     },
     computedRightLabeledIcon () {
-      if (this.await === true) {
+      if (this.awaitSubmit === true) {
         return 'hourglass icon'
       }
       else {
@@ -130,7 +131,7 @@ let ValidationButton = {
       }
     },
     text () {
-      this.await = false
+      this.awaitSubmit = false
     }
   },
 //  mounted () {
@@ -158,10 +159,14 @@ let ValidationButton = {
         }
       }, 1000)
     },
-    onclick () {
-      this.await = true
+    onclick: function () {
+      this.awaitSubmit = true
       //return  // for test
       this.$emit('click')
+      
+      setTimeout(() => {
+        this.awaitSubmit = false
+      }, 3000)
     }
   }
 }

@@ -48,6 +48,8 @@ export default (Editor) => {
       
       questionMinWords: this.status.readingConfig.annotationTypeModules['ConfusedClarified'].questionMinWords,
       answerMinWords: this.status.readingConfig.annotationTypeModules['ConfusedClarified'].answerMinWords,
+      
+      awaitSubmit: false
     }
   }
 }

@@ -58,6 +58,7 @@
         v-bind:locale="status.preference.locale"
         v-bind:countdownSec="remainingSeconds"
         v-bind:enable="isTimeUp"
+        v-bind:isWaitingLoading="isWaitingLoading"
         v-bind:ignoreWordCount="true"
         v-bind:autoClickSeconds="5"
         v-on:click="nextStep"

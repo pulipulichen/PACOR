@@ -17,8 +17,6 @@
       v-if="isNoteDifferent">
     </block-exit>
     
-    
-    
     <div v-bind:class="computedButtonsClass">
       
       <admin-badge 
@@ -33,7 +31,8 @@
       <checkbox-toggle 
         v-if="annotationConfig.enableControlPermission"
         v-bind:label="$t('PUBLIC')"
-        v-model="public">
+        v-model="public"
+        v-bind:enable="!awaitSubmit">
       </checkbox-toggle>
 
       <template v-if="annotation.id">
@@ -45,7 +44,8 @@
           v-bind:locale="status.preference.locale"
           v-bind:enable="isEnableSubmitEdit"
           
-          v-on:click="editAnnotation">
+          v-on:click="editAnnotation"
+          v-bind:class="computedSubmitButtonClassList">
           {{ $t('SAVE') }}  
         </validation-button>
         
@@ -53,7 +53,8 @@
           v-if="enableDelete"
           type="button"
           class="ui button"
-          v-on:click="deleteAnnotation">
+          v-on:click="deleteAnnotation"
+          v-bind:class="computedSubmitButtonClassList">
           {{ $t('DELETE') }}  
         </button>
       </template>
@@ -68,7 +69,8 @@
           v-bind:locale="status.preference.locale"
           v-bind:enable="isEnableSubmitAdd"
           
-          v-on:click="addAnnotation">
+          v-on:click="addAnnotation"
+          v-bind:class="computedSubmitButtonClassList">
           {{ $t('ADD') }}  
         </validation-button>
       </template>

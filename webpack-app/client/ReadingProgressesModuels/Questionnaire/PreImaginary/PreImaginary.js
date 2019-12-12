@@ -1,5 +1,5 @@
 let PreImaginary = {
-  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
+  props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
     
@@ -24,6 +24,8 @@ let PreImaginary = {
     data.answer = ''
     data.header = this.$t('READING_PROGRESS.' + key)
     data.isTimeUp = false
+    
+    data.isWaitingLoading = false
     
     return data
   },
@@ -152,6 +154,7 @@ let PreImaginary = {
       }
       */
       //console.log(data)
+      this.isWaitingLoading = true
       
       await this.lib.AxiosHelper.post('/client/ReadingProgress/end', this.log)
       localStorage.removeItem(this.persistKey)

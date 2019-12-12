@@ -1,77 +1,76 @@
-  <div class="annotation-panel AnnotationPanel"
-       v-bind:class="{'hidden': isHide}">
-  
-    <div class="ui secondary segment form "
-         v-bind:class="computedSegmentClass"
-         v-bind:style="computedSegmentStyle"
-         ref="panel">
-    
-      <div class="close-container floating ui black label"
-           v-on:click.stop="hide">
-        <i class="close icon"></i>
-      </div>
-      
-      <div class="resize-handler"
-           v-bind:class="{'moving': resizeLocker}"
-           v-on:mousedown="onResizeStart"
-           v-on:touchstart="onResizeStart"></div>
-      
-      <!-- ============================ -->
-      <!-- 下面才是真正顯示的元件內容 -->
-      
-      <template v-if="panelData.annotation">
-        <!--
-        <annotation-editor-modules
-          v-bind:config="config"
-          v-bind:status="status"
-          v-bind:lib="lib"
-          v-bind:annotation="annotation"
-          v-bind:heightPX="heightPX"
-          v-on:hide="hide"></annotation-editor-modules>
-        -->
-        <annotation-single
-          ref="AnnotationSingle"
-          v-bind:config="config"
-          v-bind:status="status"
-          v-bind:lib="lib"
-          
-          v-bind:panelData="panelData"
-          v-bind:annotation="panelData.annotation"
-          v-bind:heightPX="panelData.heightPX"
-          
-          v-on:update="hide"
-          v-on:delete="hide">
-        </annotation-single>
-        
-      </template>
-      <template v-if="panelData.anchorPositions">
-        <!--
-        <annotation-list ref="AnnotationList"
-          v-bind:config="config"
-          v-bind:status="status"
-          v-bind:lib="lib"
-          v-bind:listPositions="listPositions"
-          v-bind:findAnnotation="findAnnotation"
-          v-bind:propFindUser="findUser"
-          v-bind:propFindType="findType"
-          v-bind:heightPX="heightPX"
-          v-bind:rangy="lib.rangy"
-          v-on:close="hide(true)"></annotation-list>
-        -->
-        
-        <annotation-list 
-          ref="AnnotationList"
-          
-          v-bind:config="config"
-          v-bind:status="status"
-          v-bind:lib="lib"
-          
-          v-bind:panelData="panelData">
-        </annotation-list>
-        
-      </template> <!-- <template v-if="listPositions"> -->
-      
-        
+<div class="annotation-panel AnnotationPanel"
+     v-bind:class="{'hidden': isHide}">
+
+  <div class="ui secondary segment form "
+       v-bind:class="computedSegmentClass"
+       v-bind:style="computedSegmentStyle"
+       ref="panel">
+
+    <div class="close-container floating ui black label"
+         v-on:click.stop="hide">
+      <i class="close icon"></i>
     </div>
+
+    <div class="resize-handler"
+         v-bind:class="{'moving': resizeLocker}"
+         v-on:mousedown="onResizeStart"
+         v-on:touchstart="onResizeStart"></div>
+
+    <!-- ============================ -->
+    <!-- 下面才是真正顯示的元件內容 -->
+
+    <template v-if="panelData.annotation">
+      <!--
+      <annotation-editor-modules
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:annotation="annotation"
+        v-bind:heightPX="heightPX"
+        v-on:hide="hide"></annotation-editor-modules>
+      -->
+      <annotation-single
+        ref="AnnotationSingle"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+
+        v-bind:panelData="panelData"
+        v-bind:annotation="panelData.annotation"
+        v-bind:heightPX="panelData.heightPX"
+
+        v-on:update="hide"
+        v-on:delete="hide">
+      </annotation-single>
+
+    </template>
+    <template v-if="panelData.anchorPositions">
+      <!--
+      <annotation-list ref="AnnotationList"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:listPositions="listPositions"
+        v-bind:findAnnotation="findAnnotation"
+        v-bind:propFindUser="findUser"
+        v-bind:propFindType="findType"
+        v-bind:heightPX="heightPX"
+        v-bind:rangy="lib.rangy"
+        v-on:close="hide(true)"></annotation-list>
+      -->
+
+      <annotation-list 
+        ref="AnnotationList"
+
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+
+        v-bind:panelData="panelData">
+      </annotation-list>
+
+    </template> <!-- <template v-if="listPositions"> -->
+
+
   </div>
-  
+</div>

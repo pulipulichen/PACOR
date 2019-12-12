@@ -91,7 +91,8 @@
       <checkbox-toggle 
         v-if="annotationConfig.enableControlPermission"
         v-bind:label="$t('PUBLIC')"
-        v-model="public">
+        v-model="public"
+        v-bind:enable="!awaitSubmit">
       </checkbox-toggle>
 
       <template v-if="!annotation.id">
@@ -111,7 +112,8 @@
           v-bind:locale="status.preference.locale"
           v-bind:enable="isEnableSubmitQuestion"
           
-          v-on:click="submitQuestion">
+          v-on:click="submitQuestion"
+          v-bind:class="computedSubmitButtonClassList">
           {{ $t('SAVE') }}  
         </validation-button>
       </template>
@@ -120,10 +122,12 @@
       
       <template v-else>
         
-        <button type="button"
-                class="ui button"
-                v-on:click="writeLater"
-                v-if="isQuestionSubmitted && !isAnswerSubmitted">
+        <button 
+          type="button"
+          class="ui button"
+          v-on:click="writeLater"
+          v-if="isQuestionSubmitted && !isAnswerSubmitted"
+          v-bind:class="computedSubmitButtonClassList">
           {{ $t('WRITE LATER') }}  
         </button>
 
@@ -144,16 +148,19 @@
           v-bind:locale="status.preference.locale"
           v-bind:enable="isEnableSubmitAnswer"
           
-          v-on:click="submitAnswer">
+          v-on:click="submitAnswer"
+          v-bind:class="computedSubmitButtonClassList">
           {{ $t('SAVE') }}  
         </validation-button>
 
         <!-- ======================================== -->
         
-        <button type="button"
-                class="ui red button"
-                v-on:click="deleteAnnotation"
-                v-if="isQuestionSubmitted">
+        <button 
+          type="button"
+          class="ui red button"
+          v-on:click="deleteAnnotation"
+          v-if="isQuestionSubmitted"
+          v-bind:class="computedSubmitButtonClassList">
           {{ $t('DELETE') }}  
         </button>
       </template>

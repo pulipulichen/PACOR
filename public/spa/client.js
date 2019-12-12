@@ -512,22 +512,6 @@ module.exports = function (Component) {
 
 /***/ }),
 
-/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/reading-progress/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CCountdownButton%5CCountdownButton.vue&lang=yaml":
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/components/reading-progress/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CCountdownButton%5CCountdownButton.vue&lang=yaml ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function (Component) {
-  Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
-  delete Component.options._Ctor
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CDigitalCountdownTimer%5CDigitalCountdownTimer.vue&lang=yaml":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CDigitalCountdownTimer%5CDigitalCountdownTimer.vue&lang=yaml ***!
@@ -554,6 +538,38 @@ module.exports = function (Component) {
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
   Component.options.__i18n.push('{"en":null,"zh-TW":{"Remaining Time":"剩餘時間"}}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui-button%5CCheckboxToggle%5CCheckboxToggle.vue&lang=yaml":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui-button%5CCheckboxToggle%5CCheckboxToggle.vue&lang=yaml ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/ui-button/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui-button%5CCountdownButton%5CCountdownButton.vue&lang=yaml":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/components/ui-button/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui-button%5CCountdownButton%5CCountdownButton.vue&lang=yaml ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
   delete Component.options._Ctor
 }
 
@@ -634,22 +650,6 @@ module.exports = function (Component) {
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
   Component.options.__i18n.push('{"en":null,"zh-TW":{"You":"就是您本人"}}')
-  delete Component.options._Ctor
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui%5CCheckboxToggle%5CCheckboxToggle.vue&lang=yaml":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui%5CCheckboxToggle%5CCheckboxToggle.vue&lang=yaml ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function (Component) {
-  Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
   delete Component.options._Ctor
 }
 
@@ -908,20 +908,6 @@ exports.push([module.i, ".button[data-v-75d99c9c] {\n  white-space: nowrap;\n  t
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/reading-progress/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=7cf92a63&lang=less&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/reading-progress/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=7cf92a63&lang=less&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
-// Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"CountdownButton.less?vue&type=style&index=0&id=7cf92a63&lang=less&scoped=true&"}]);
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.less?vue&type=style&index=0&id=2b3215b5&lang=less&scoped=true&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.less?vue&type=style&index=0&id=2b3215b5&lang=less&scoped=true& ***!
@@ -953,6 +939,34 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=52746eae&lang=less&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=52746eae&lang=less&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, ".checkbox-toggle[data-v-52746eae] {\n  margin-left: 1em;\n  margin-right: 1em;\n  cursor: pointer !important;\n}\n.checkbox-toggle label[data-v-52746eae] {\n  cursor: pointer !important;\n}\n", "",{"version":3,"sources":["CheckboxToggle.less?vue&type=style&index=0&id=52746eae&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,0BAA0B;AAC5B;AACA;EACE,0BAA0B;AAC5B","file":"CheckboxToggle.less?vue&type=style&index=0&id=52746eae&lang=less&scoped=true&","sourcesContent":[".checkbox-toggle[data-v-52746eae] {\n  margin-left: 1em;\n  margin-right: 1em;\n  cursor: pointer !important;\n}\n.checkbox-toggle label[data-v-52746eae] {\n  cursor: pointer !important;\n}\n"]}]);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui-button/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=5c294b16&lang=less&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/ui-button/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=5c294b16&lang=less&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"CountdownButton.less?vue&type=style&index=0&id=5c294b16&lang=less&scoped=true&"}]);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui-button/ValidationButton/ValidationButton.less?vue&type=style&index=0&id=d771c0a4&lang=less&scoped=true&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/ui-button/ValidationButton/ValidationButton.less?vue&type=style&index=0&id=d771c0a4&lang=less&scoped=true& ***!
@@ -962,7 +976,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".non-invasive-web-style-framework .ValidationButton[data-v-d771c0a4] {\n  overflow-y: hidden;\n  max-height: 2.5em;\n}\n.non-invasive-web-style-framework .ValidationButton .loader[data-v-d771c0a4] {\n  display: none !important;\n}\n.non-invasive-web-style-framework .ValidationButton.await.ui.button.disabled[data-v-d771c0a4] {\n  overflow-y: hidden;\n  max-height: 2.5em;\n  pointer-events: all !important;\n  cursor: wait !important;\n}\n.non-invasive-web-style-framework .ValidationButton.await.ui.button.disabled .loader[data-v-d771c0a4] {\n  display: inline-block !important;\n}\n.non-invasive-web-style-framework .ValidationButton.await.ui.button.disabled .message[data-v-d771c0a4] {\n  margin-top: 50px;\n}\n", "",{"version":3,"sources":["ValidationButton.less?vue&type=style&index=0&id=d771c0a4&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,iBAAiB;AACnB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,kBAAkB;EAClB,iBAAiB;EACjB,8BAA8B;EAC9B,uBAAuB;AACzB;AACA;EACE,gCAAgC;AAClC;AACA;EACE,gBAAgB;AAClB","file":"ValidationButton.less?vue&type=style&index=0&id=d771c0a4&lang=less&scoped=true&","sourcesContent":[".non-invasive-web-style-framework .ValidationButton[data-v-d771c0a4] {\n  overflow-y: hidden;\n  max-height: 2.5em;\n}\n.non-invasive-web-style-framework .ValidationButton .loader[data-v-d771c0a4] {\n  display: none !important;\n}\n.non-invasive-web-style-framework .ValidationButton.await.ui.button.disabled[data-v-d771c0a4] {\n  overflow-y: hidden;\n  max-height: 2.5em;\n  pointer-events: all !important;\n  cursor: wait !important;\n}\n.non-invasive-web-style-framework .ValidationButton.await.ui.button.disabled .loader[data-v-d771c0a4] {\n  display: inline-block !important;\n}\n.non-invasive-web-style-framework .ValidationButton.await.ui.button.disabled .message[data-v-d771c0a4] {\n  margin-top: 50px;\n}\n"]}]);
+exports.push([module.i, ".non-invasive-web-style-framework .ValidationButton[data-v-d771c0a4] {\n  overflow-y: hidden;\n  max-height: 2.5em;\n}\n.non-invasive-web-style-framework .ValidationButton .loader[data-v-d771c0a4] {\n  display: none !important;\n}\n.non-invasive-web-style-framework .ValidationButton.await-submit.ui.button.disabled[data-v-d771c0a4] {\n  overflow-y: hidden;\n  max-height: 2.5em;\n  pointer-events: all !important;\n  cursor: wait !important;\n}\n.non-invasive-web-style-framework .ValidationButton.await-submit.ui.button.disabled .loader[data-v-d771c0a4] {\n  display: inline-block !important;\n}\n.non-invasive-web-style-framework .ValidationButton.await-submit.ui.button.disabled .message[data-v-d771c0a4] {\n  margin-top: 50px;\n}\n", "",{"version":3,"sources":["ValidationButton.less?vue&type=style&index=0&id=d771c0a4&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,iBAAiB;AACnB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,kBAAkB;EAClB,iBAAiB;EACjB,8BAA8B;EAC9B,uBAAuB;AACzB;AACA;EACE,gCAAgC;AAClC;AACA;EACE,gBAAgB;AAClB","file":"ValidationButton.less?vue&type=style&index=0&id=d771c0a4&lang=less&scoped=true&","sourcesContent":[".non-invasive-web-style-framework .ValidationButton[data-v-d771c0a4] {\n  overflow-y: hidden;\n  max-height: 2.5em;\n}\n.non-invasive-web-style-framework .ValidationButton .loader[data-v-d771c0a4] {\n  display: none !important;\n}\n.non-invasive-web-style-framework .ValidationButton.await-submit.ui.button.disabled[data-v-d771c0a4] {\n  overflow-y: hidden;\n  max-height: 2.5em;\n  pointer-events: all !important;\n  cursor: wait !important;\n}\n.non-invasive-web-style-framework .ValidationButton.await-submit.ui.button.disabled .loader[data-v-d771c0a4] {\n  display: inline-block !important;\n}\n.non-invasive-web-style-framework .ValidationButton.await-submit.ui.button.disabled .message[data-v-d771c0a4] {\n  margin-top: 50px;\n}\n"]}]);
 
 
 /***/ }),
@@ -1019,20 +1033,6 @@ exports.push([module.i, ".UserAvatarIcons[data-v-2027b2d6] {\n  display: inline-
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
 exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"UserSelfBadge.less?vue&type=style&index=0&id=3e220741&lang=less&scoped=true&"}]);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=74379ec1&lang=less&scoped=true&":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=74379ec1&lang=less&scoped=true& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
-// Module
-exports.push([module.i, ".checkbox-toggle[data-v-74379ec1] {\n  margin-left: 1em;\n  margin-right: 1em;\n  cursor: pointer !important;\n}\n.checkbox-toggle label[data-v-74379ec1] {\n  cursor: pointer !important;\n}\n", "",{"version":3,"sources":["CheckboxToggle.less?vue&type=style&index=0&id=74379ec1&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,0BAA0B;AAC5B;AACA;EACE,0BAA0B;AAC5B","file":"CheckboxToggle.less?vue&type=style&index=0&id=74379ec1&lang=less&scoped=true&","sourcesContent":[".checkbox-toggle[data-v-74379ec1] {\n  margin-left: 1em;\n  margin-right: 1em;\n  cursor: pointer !important;\n}\n.checkbox-toggle label[data-v-74379ec1] {\n  cursor: pointer !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -2885,48 +2885,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/reading-progress/CountdownButton/CountdownButton.html?vue&type=template&id=7cf92a63&scoped=true&":
-/*!*************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/reading-progress/CountdownButton/CountdownButton.html?vue&type=template&id=7cf92a63&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "button",
-    {
-      staticClass: "ui button",
-      class: _vm.computedClassName,
-      attrs: { type: "button" },
-      on: { click: _vm.onClick }
-    },
-    [
-      _vm.isEnable
-        ? [
-            _vm._t("default", null, {
-              autoClickRemainingSeconds: _vm.autoClickRemainingSeconds
-            })
-          ]
-        : [_vm._v("\r\n    (" + _vm._s(_vm.disabledMessage) + ")\r\n  ")]
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.html?vue&type=template&id=2b3215b5&scoped=true&":
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.html?vue&type=template&id=2b3215b5&scoped=true& ***!
@@ -3030,6 +2988,104 @@ var render = function() {
         )
       ])
     : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.html?vue&type=template&id=52746eae&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.html?vue&type=template&id=52746eae&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "ui toggle checkbox checkbox-toggle",
+      class: _vm.computedCheckboxClassList
+    },
+    [
+      _c("input", {
+        ref: "input",
+        attrs: { type: "checkbox", name: "public" },
+        domProps: { checked: _vm.value },
+        on: {
+          change: function($event) {
+            return _vm.$emit("input", $event.target.checked)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _vm.label
+        ? _c(
+            "label",
+            {
+              on: {
+                click: function($event) {
+                  return _vm.$refs.input.click()
+                }
+              }
+            },
+            [_vm._v("\r\n    " + _vm._s(_vm.label) + "\r\n  ")]
+          )
+        : _vm._e()
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/ui-button/CountdownButton/CountdownButton.html?vue&type=template&id=5c294b16&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/ui-button/CountdownButton/CountdownButton.html?vue&type=template&id=5c294b16&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "button",
+    {
+      staticClass: "ui button",
+      class: _vm.computedClassName,
+      attrs: { type: "button" },
+      on: { click: _vm.onClick }
+    },
+    [
+      _vm.isEnable
+        ? [
+            _vm._t("default", null, {
+              autoClickRemainingSeconds: _vm.autoClickRemainingSeconds
+            })
+          ]
+        : [_vm._v("\r\n    (" + _vm._s(_vm.disabledMessage) + ")\r\n  ")]
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3276,55 +3332,6 @@ var render = function() {
         attrs: { title: _vm.$t("You") }
       })
     : _vm._e()
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.html?vue&type=template&id=74379ec1&scoped=true&":
-/*!*********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.html?vue&type=template&id=74379ec1&scoped=true& ***!
-  \*********************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui toggle checkbox checkbox-toggle" }, [
-    _c("input", {
-      ref: "input",
-      attrs: { type: "checkbox", name: "public" },
-      domProps: { checked: _vm.value },
-      on: {
-        change: function($event) {
-          return _vm.$emit("input", $event.target.checked)
-        }
-      }
-    }),
-    _vm._v(" "),
-    _vm.label
-      ? _c(
-          "label",
-          {
-            on: {
-              click: function($event) {
-                return _vm.$refs.input.click()
-              }
-            }
-          },
-          [_vm._v(_vm._s(_vm.label))]
-        )
-      : _vm._e()
-  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3754,27 +3761,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/reading-progress/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=7cf92a63&lang=less&scoped=true&":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/reading-progress/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=7cf92a63&lang=less&scoped=true& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./CountdownButton.less?vue&type=style&index=0&id=7cf92a63&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/reading-progress/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=7cf92a63&lang=less&scoped=true&");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("00f46f1e", content, false, {});
-// Hot Module Replacement
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.less?vue&type=style&index=0&id=2b3215b5&lang=less&scoped=true&":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.less?vue&type=style&index=0&id=2b3215b5&lang=less&scoped=true& ***!
@@ -3812,6 +3798,48 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("07fe79ad", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=52746eae&lang=less&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=52746eae&lang=less&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./CheckboxToggle.less?vue&type=style&index=0&id=52746eae&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=52746eae&lang=less&scoped=true&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("ec219910", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui-button/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=5c294b16&lang=less&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/ui-button/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=5c294b16&lang=less&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./CountdownButton.less?vue&type=style&index=0&id=5c294b16&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui-button/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=5c294b16&lang=less&scoped=true&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("9b4df6d2", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -3917,27 +3945,6 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("0596ad56", content, false, {});
-// Hot Module Replacement
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=74379ec1&lang=less&scoped=true&":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=74379ec1&lang=less&scoped=true& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./CheckboxToggle.less?vue&type=style&index=0&id=74379ec1&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=74379ec1&lang=less&scoped=true&");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("02369f85", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -8563,8 +8570,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ui_Navigation_Navigation_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../components/ui/Navigation/Navigation.vue */ "./webpack-app/components/ui/Navigation/Navigation.vue");
 /* harmony import */ var _components_reading_progress_Clock_Clock_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../components/reading-progress/Clock/Clock.vue */ "./webpack-app/components/reading-progress/Clock/Clock.vue");
 /* harmony import */ var _components_annotation_AnnotationTypeButton_AnnotationTypeButton_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../components/annotation/AnnotationTypeButton/AnnotationTypeButton.vue */ "./webpack-app/components/annotation/AnnotationTypeButton/AnnotationTypeButton.vue");
-/* harmony import */ var _components_ui_CheckboxToggle_CheckboxToggle_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../components/ui/CheckboxToggle/CheckboxToggle.vue */ "./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.vue");
-/* harmony import */ var _components_reading_progress_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../components/reading-progress/CountdownButton/CountdownButton.vue */ "./webpack-app/components/reading-progress/CountdownButton/CountdownButton.vue");
+/* harmony import */ var _components_ui_button_CheckboxToggle_CheckboxToggle_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../components/ui-button/CheckboxToggle/CheckboxToggle.vue */ "./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.vue");
+/* harmony import */ var _components_ui_button_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../components/ui-button/CountdownButton/CountdownButton.vue */ "./webpack-app/components/ui-button/CountdownButton/CountdownButton.vue");
 /* harmony import */ var _components_reading_progress_SimpleCountdownTimer_SimpleCountdownTimer_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./../components/reading-progress/SimpleCountdownTimer/SimpleCountdownTimer.vue */ "./webpack-app/components/reading-progress/SimpleCountdownTimer/SimpleCountdownTimer.vue");
 /* harmony import */ var _components_reading_progress_DigitalCountdownTimer_DigitalCountdownTimer_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./../components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.vue */ "./webpack-app/components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.vue");
 /* harmony import */ var _components_ui_button_ValidationButton_ValidationButton_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./../components/ui-button/ValidationButton/ValidationButton.vue */ "./webpack-app/components/ui-button/ValidationButton/ValidationButton.vue");
@@ -8614,10 +8621,10 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('annotation-type-button', 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('HTMLEditor', () => Promise.all(/*! import() | vendors/HTMLEditor */[__webpack_require__.e("vendors"), __webpack_require__.e("vendors/HTMLEditor")]).then(__webpack_require__.bind(null, /*! ./../components/annotation/HTMLEditor/HTMLEditor.vue */ "./webpack-app/components/annotation/HTMLEditor/HTMLEditor.vue")))
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('checkbox-toggle', _components_ui_CheckboxToggle_CheckboxToggle_vue__WEBPACK_IMPORTED_MODULE_10__["default"])
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('checkbox-toggle', _components_ui_button_CheckboxToggle_CheckboxToggle_vue__WEBPACK_IMPORTED_MODULE_10__["default"])
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('countdown-button', _components_reading_progress_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_11__["default"])
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('countdown-button', _components_ui_button_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_11__["default"])
 
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('simple-countdown-timer', _components_reading_progress_SimpleCountdownTimer_SimpleCountdownTimer_vue__WEBPACK_IMPORTED_MODULE_12__["default"])
@@ -9850,286 +9857,6 @@ component.options.__file = "webpack-app/components/reading-progress/Clock/Clock.
 
 /***/ }),
 
-/***/ "./webpack-app/components/reading-progress/CountdownButton/CountdownButton.html?vue&type=template&id=7cf92a63&scoped=true&":
-/*!*********************************************************************************************************************************!*\
-  !*** ./webpack-app/components/reading-progress/CountdownButton/CountdownButton.html?vue&type=template&id=7cf92a63&scoped=true& ***!
-  \*********************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CountdownButton_html_vue_type_template_id_7cf92a63_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./CountdownButton.html?vue&type=template&id=7cf92a63&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/reading-progress/CountdownButton/CountdownButton.html?vue&type=template&id=7cf92a63&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CountdownButton_html_vue_type_template_id_7cf92a63_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CountdownButton_html_vue_type_template_id_7cf92a63_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./webpack-app/components/reading-progress/CountdownButton/CountdownButton.js?vue&type=script&lang=js&?33d8":
-/*!*************************************************************************************************************!*\
-  !*** ./webpack-app/components/reading-progress/CountdownButton/CountdownButton.js?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-let debugDisable = false
-if (debugDisable === true) {
-  console.log('@test debugDisable')
-}
-
-
-let CountdownButton = {
-  props: ['locale', 'lib', 'countdownSec'
-    , 'minWordCount', 'maxWordCount', 'text', 'ignoreWordCount'
-    , 'enableClassNames', 'enable'
-    , 'autoClickSeconds'],
-  data() {    
-    this.$i18n.locale = this.locale
-    
-    let autoClickRemainingSeconds = 0
-    if (this.autoClickSeconds) {
-      autoClickRemainingSeconds = this.autoClickSeconds
-    }
-    
-    return {
-      remainingSeconds: 0,
-      autoClickRemainingSeconds
-    }
-  },
-  computed: {
-    computedClassName () {
-      if (this.isEnable === false) {
-        return 'disabled'
-      }
-      else if (typeof(this.enableClassNames) === 'string') {
-        return this.enableClassNames
-      }
-    },
-    wordCount () {
-      let count = this.lib.StringHelper.countWords(this.text)
-      //console.log(count)
-      return count
-    },
-    validWordCount () {
-      if (typeof(this.minWordCount) !== 'number'
-              && typeof(this.maxWordCount) !== 'number') {
-        return true
-      }
-      
-      let wordCount = this.wordCount
-      if (typeof(this.minWordCount) === 'number'
-              && wordCount < this.minWordCount) {
-        return false
-      }
-      if (typeof(this.maxWordCount) === 'number'
-              && wordCount > this.maxWordCount) {
-        return false
-      }
-      return true
-    },
-    isEnable () {
-      if (this.enable === false) {
-        return false
-      }
-      else if (this.ignoreWordCount === true) {
-        return (this.remainingSeconds === 0)
-      }
-      else {
-        //console.log(this.remainingSeconds, this.validWordCount, this.wordCount)
-        return (this.remainingSeconds === 0 && this.validWordCount === true)
-      }
-    },
-    disabledMessage () {
-      let messages = []
-      //console.log(this.remainingSeconds)
-      if (this.remainingSeconds > 0) {
-        let remainingTime = this.lib.DayJSHelper.formatHHMMSS(this.remainingSeconds)
-        if (this.remainingSeconds <= 60) {
-          remainingTime = this.$t('{0} sec', [this.remainingSeconds])
-        }
-        //console.log(remainingTime)
-        messages.push( this.$t('Remaining Time: {0}', [remainingTime]) )
-      }
-      
-      let wordCount = this.wordCount
-      if (typeof(this.minWordCount) === 'number'
-              && wordCount < this.minWordCount) {
-        let interval = this.minWordCount - wordCount
-        messages.push( this.$t('You still need to write {0} words more', [interval]) )
-      }
-      else if (typeof(this.maxWordCount) === 'number'
-              && wordCount > this.maxWordCount) {
-        let interval = wordCount - this.maxWordCount
-        messages.push( this.$t('You still need to delete {0} words more', [interval]) )
-      }
-      
-      return messages.join(' / ')
-    }
-  },
-  watch: {
-    countdownSec (countdownSec) {
-      if (typeof(countdownSec) === 'number') {
-        this._initCountdown()
-      }
-    },
-  },
-//  mounted () {
-//    
-//    //console.log(this.countdownSec)
-//    
-//  },
-  methods: {
-    _initCountdown() {
-      if (typeof(this.countdownSec) !== 'number'
-              || this.countdownSec <= 0) {
-        return false
-      }
-      this.remainingSeconds = this.countdownSec
-      //console.log(this.remainingSeconds)
-      
-      if (debugDisable === true) {
-        return null
-      }
-      
-      this.countdown()
-    },
-    countdown () {
-      //console.log('AAA')
-      setTimeout(() => {
-        //console.log(this.remainingSeconds)
-        this.remainingSeconds = this.remainingSeconds - 1
-        if (this.remainingSeconds > 0) {
-          this.countdown()
-        }
-        else {
-          //console.log('等於0了')
-          this.$emit('timeup')
-          if (typeof(this.autoClickSeconds) === 'number') {
-            this.autoClickCountdown()
-          }
-        }
-      }, 1000)
-    },
-    autoClickCountdown () {
-      setTimeout(() => {
-        this.autoClickRemainingSeconds--
-        
-        if (this.autoClickRemainingSeconds > 0) {
-          this.autoClickCountdown()
-        }
-        else {
-          this.onClick()
-        }
-      }, 1000)
-    },
-    onClick () {
-      if (!this.isEnable) {
-        return null
-      }
-      this.$emit('click')
-    }
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (CountdownButton);
-
-/***/ }),
-
-/***/ "./webpack-app/components/reading-progress/CountdownButton/CountdownButton.js?vue&type=script&lang=js&?bdd9":
-/*!*************************************************************************************************************!*\
-  !*** ./webpack-app/components/reading-progress/CountdownButton/CountdownButton.js?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CountdownButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./CountdownButton.js?vue&type=script&lang=js& */ "./webpack-app/components/reading-progress/CountdownButton/CountdownButton.js?vue&type=script&lang=js&?33d8");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_CountdownButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./webpack-app/components/reading-progress/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=7cf92a63&lang=less&scoped=true&":
-/*!************************************************************************************************************************************************!*\
-  !*** ./webpack-app/components/reading-progress/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=7cf92a63&lang=less&scoped=true& ***!
-  \************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_7cf92a63_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-style-loader!../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./CountdownButton.less?vue&type=style&index=0&id=7cf92a63&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/reading-progress/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=7cf92a63&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_7cf92a63_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_7cf92a63_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_7cf92a63_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_7cf92a63_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_7cf92a63_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./webpack-app/components/reading-progress/CountdownButton/CountdownButton.vue":
-/*!*************************************************************************************!*\
-  !*** ./webpack-app/components/reading-progress/CountdownButton/CountdownButton.vue ***!
-  \*************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CountdownButton_html_vue_type_template_id_7cf92a63_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CountdownButton.html?vue&type=template&id=7cf92a63&scoped=true& */ "./webpack-app/components/reading-progress/CountdownButton/CountdownButton.html?vue&type=template&id=7cf92a63&scoped=true&");
-/* harmony import */ var _CountdownButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CountdownButton.js?vue&type=script&lang=js& */ "./webpack-app/components/reading-progress/CountdownButton/CountdownButton.js?vue&type=script&lang=js&?bdd9");
-/* empty/unused harmony star reexport *//* harmony import */ var _CountdownButton_less_vue_type_style_index_0_id_7cf92a63_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CountdownButton.less?vue&type=style&index=0&id=7cf92a63&lang=less&scoped=true& */ "./webpack-app/components/reading-progress/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=7cf92a63&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-/* harmony import */ var _CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CCountdownButton%5CCountdownButton.vue&lang=yaml */ "./webpack-app/components/reading-progress/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CCountdownButton%5CCountdownButton.vue&lang=yaml");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _CountdownButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CountdownButton_html_vue_type_template_id_7cf92a63_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _CountdownButton_html_vue_type_template_id_7cf92a63_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "7cf92a63",
-  null
-  
-)
-
-/* custom blocks */
-
-if (typeof _CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "webpack-app/components/reading-progress/CountdownButton/CountdownButton.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./webpack-app/components/reading-progress/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CCountdownButton%5CCountdownButton.vue&lang=yaml":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/components/reading-progress/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CCountdownButton%5CCountdownButton.vue&lang=yaml ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/@kazupon/vue-i18n-loader/lib!./CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CCountdownButton%5CCountdownButton.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/reading-progress/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CCountdownButton%5CCountdownButton.vue&lang=yaml");
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
 /***/ "./webpack-app/components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.html?vue&type=template&id=2b3215b5&scoped=true&":
 /*!*********************************************************************************************************************************************!*\
   !*** ./webpack-app/components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.html?vue&type=template&id=2b3215b5&scoped=true& ***!
@@ -10599,6 +10326,429 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.html?vue&type=template&id=52746eae&scoped=true&":
+/*!************************************************************************************************************************!*\
+  !*** ./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.html?vue&type=template&id=52746eae&scoped=true& ***!
+  \************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CheckboxToggle_html_vue_type_template_id_52746eae_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./CheckboxToggle.html?vue&type=template&id=52746eae&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.html?vue&type=template&id=52746eae&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CheckboxToggle_html_vue_type_template_id_52746eae_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CheckboxToggle_html_vue_type_template_id_52746eae_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.js?vue&type=script&lang=js&?0fbe":
+/*!****************************************************************************************************!*\
+  !*** ./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.js?vue&type=script&lang=js& ***!
+  \****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let CheckboxToggle = {
+  props: ['label', 'value', 'enable'],
+  data() {
+    return {
+    }
+  },
+  computed: {
+    computedCheckboxClassList () {
+      if (this.enable === false) {
+        return 'disabled'
+      }
+    }
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (CheckboxToggle);
+
+/***/ }),
+
+/***/ "./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.js?vue&type=script&lang=js&?5777":
+/*!****************************************************************************************************!*\
+  !*** ./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.js?vue&type=script&lang=js& ***!
+  \****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CheckboxToggle_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./CheckboxToggle.js?vue&type=script&lang=js& */ "./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.js?vue&type=script&lang=js&?0fbe");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_CheckboxToggle_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=52746eae&lang=less&scoped=true&":
+/*!***************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=52746eae&lang=less&scoped=true& ***!
+  \***************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CheckboxToggle_less_vue_type_style_index_0_id_52746eae_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-style-loader!../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./CheckboxToggle.less?vue&type=style&index=0&id=52746eae&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=52746eae&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CheckboxToggle_less_vue_type_style_index_0_id_52746eae_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CheckboxToggle_less_vue_type_style_index_0_id_52746eae_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CheckboxToggle_less_vue_type_style_index_0_id_52746eae_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CheckboxToggle_less_vue_type_style_index_0_id_52746eae_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CheckboxToggle_less_vue_type_style_index_0_id_52746eae_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.vue":
+/*!****************************************************************************!*\
+  !*** ./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.vue ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CheckboxToggle_html_vue_type_template_id_52746eae_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CheckboxToggle.html?vue&type=template&id=52746eae&scoped=true& */ "./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.html?vue&type=template&id=52746eae&scoped=true&");
+/* harmony import */ var _CheckboxToggle_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CheckboxToggle.js?vue&type=script&lang=js& */ "./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.js?vue&type=script&lang=js&?5777");
+/* empty/unused harmony star reexport *//* harmony import */ var _CheckboxToggle_less_vue_type_style_index_0_id_52746eae_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CheckboxToggle.less?vue&type=style&index=0&id=52746eae&lang=less&scoped=true& */ "./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=52746eae&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CheckboxToggle.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui-button%5CCheckboxToggle%5CCheckboxToggle.vue&lang=yaml */ "./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui-button%5CCheckboxToggle%5CCheckboxToggle.vue&lang=yaml");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _CheckboxToggle_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CheckboxToggle_html_vue_type_template_id_52746eae_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CheckboxToggle_html_vue_type_template_id_52746eae_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "52746eae",
+  null
+  
+)
+
+/* custom blocks */
+
+if (typeof _CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui-button%5CCheckboxToggle%5CCheckboxToggle.vue&lang=yaml":
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui-button%5CCheckboxToggle%5CCheckboxToggle.vue&lang=yaml ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/@kazupon/vue-i18n-loader/lib!./CheckboxToggle.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui-button%5CCheckboxToggle%5CCheckboxToggle.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/ui-button/CheckboxToggle/CheckboxToggle.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui-button%5CCheckboxToggle%5CCheckboxToggle.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/ui-button/CountdownButton/CountdownButton.html?vue&type=template&id=5c294b16&scoped=true&":
+/*!**************************************************************************************************************************!*\
+  !*** ./webpack-app/components/ui-button/CountdownButton/CountdownButton.html?vue&type=template&id=5c294b16&scoped=true& ***!
+  \**************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CountdownButton_html_vue_type_template_id_5c294b16_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./CountdownButton.html?vue&type=template&id=5c294b16&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/ui-button/CountdownButton/CountdownButton.html?vue&type=template&id=5c294b16&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CountdownButton_html_vue_type_template_id_5c294b16_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CountdownButton_html_vue_type_template_id_5c294b16_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/components/ui-button/CountdownButton/CountdownButton.js?vue&type=script&lang=js&?3595":
+/*!******************************************************************************************************!*\
+  !*** ./webpack-app/components/ui-button/CountdownButton/CountdownButton.js?vue&type=script&lang=js& ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CountdownButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./CountdownButton.js?vue&type=script&lang=js& */ "./webpack-app/components/ui-button/CountdownButton/CountdownButton.js?vue&type=script&lang=js&?9bb5");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_CountdownButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/ui-button/CountdownButton/CountdownButton.js?vue&type=script&lang=js&?9bb5":
+/*!******************************************************************************************************!*\
+  !*** ./webpack-app/components/ui-button/CountdownButton/CountdownButton.js?vue&type=script&lang=js& ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let debugDisable = false
+if (debugDisable === true) {
+  console.log('@test debugDisable')
+}
+
+
+let CountdownButton = {
+  props: ['locale', 'lib', 'countdownSec'
+    , 'minWordCount', 'maxWordCount', 'text', 'ignoreWordCount'
+    , 'enableClassNames', 'enable'
+    , 'autoClickSeconds'],
+  data() {    
+    this.$i18n.locale = this.locale
+    
+    let autoClickRemainingSeconds = 0
+    if (this.autoClickSeconds) {
+      autoClickRemainingSeconds = this.autoClickSeconds
+    }
+    
+    return {
+      remainingSeconds: 0,
+      autoClickRemainingSeconds,
+      awaitSubmit: false
+    }
+  },
+  computed: {
+    computedClassName () {
+      if (this.isEnable === false 
+              || this.awaitSubmit === true) {
+        return 'disabled'
+      }
+      else if (typeof(this.enableClassNames) === 'string') {
+        return this.enableClassNames
+      }
+    },
+    wordCount () {
+      let count = this.lib.StringHelper.countWords(this.text)
+      //console.log(count)
+      return count
+    },
+    validWordCount () {
+      if (typeof(this.minWordCount) !== 'number'
+              && typeof(this.maxWordCount) !== 'number') {
+        return true
+      }
+      
+      let wordCount = this.wordCount
+      if (typeof(this.minWordCount) === 'number'
+              && wordCount < this.minWordCount) {
+        return false
+      }
+      if (typeof(this.maxWordCount) === 'number'
+              && wordCount > this.maxWordCount) {
+        return false
+      }
+      return true
+    },
+    isEnable () {
+      if (this.enable === false) {
+        return false
+      }
+      else if (this.ignoreWordCount === true) {
+        return (this.remainingSeconds === 0)
+      }
+      else {
+        //console.log(this.remainingSeconds, this.validWordCount, this.wordCount)
+        return (this.remainingSeconds === 0 && this.validWordCount === true)
+      }
+    },
+    disabledMessage () {
+      let messages = []
+      //console.log(this.remainingSeconds)
+      if (this.remainingSeconds > 0) {
+        let remainingTime = this.lib.DayJSHelper.formatHHMMSS(this.remainingSeconds)
+        if (this.remainingSeconds <= 60) {
+          remainingTime = this.$t('{0} sec', [this.remainingSeconds])
+        }
+        //console.log(remainingTime)
+        messages.push( this.$t('Remaining Time: {0}', [remainingTime]) )
+      }
+      
+      let wordCount = this.wordCount
+      if (typeof(this.minWordCount) === 'number'
+              && wordCount < this.minWordCount) {
+        let interval = this.minWordCount - wordCount
+        messages.push( this.$t('You still need to write {0} words more', [interval]) )
+      }
+      else if (typeof(this.maxWordCount) === 'number'
+              && wordCount > this.maxWordCount) {
+        let interval = wordCount - this.maxWordCount
+        messages.push( this.$t('You still need to delete {0} words more', [interval]) )
+      }
+      
+      return messages.join(' / ')
+    }
+  },
+  watch: {
+    countdownSec (countdownSec) {
+      if (typeof(countdownSec) === 'number') {
+        this._initCountdown()
+      }
+    },
+  },
+//  mounted () {
+//    
+//    //console.log(this.countdownSec)
+//    
+//  },
+  methods: {
+    _initCountdown() {
+      if (typeof(this.countdownSec) !== 'number'
+              || this.countdownSec <= 0) {
+        return false
+      }
+      this.remainingSeconds = this.countdownSec
+      //console.log(this.remainingSeconds)
+      
+      if (debugDisable === true) {
+        return null
+      }
+      
+      this.countdown()
+    },
+    countdown () {
+      //console.log('AAA')
+      setTimeout(() => {
+        //console.log(this.remainingSeconds)
+        this.remainingSeconds = this.remainingSeconds - 1
+        if (this.remainingSeconds > 0) {
+          this.countdown()
+        }
+        else {
+          //console.log('等於0了')
+          this.$emit('timeup')
+          if (typeof(this.autoClickSeconds) === 'number') {
+            this.autoClickCountdown()
+          }
+        }
+      }, 1000)
+    },
+    autoClickCountdown () {
+      setTimeout(() => {
+        this.autoClickRemainingSeconds--
+        
+        if (this.autoClickRemainingSeconds > 0) {
+          this.autoClickCountdown()
+        }
+        else {
+          this.onClick()
+        }
+      }, 1000)
+    },
+    onClick () {
+      if (!this.isEnable) {
+        return null
+      }
+      this.awaitSubmit = true
+      this.$emit('click')
+      
+      setTimeout(() => {
+        this.awaitSubmit = false
+      }, 3000)
+    }
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (CountdownButton);
+
+/***/ }),
+
+/***/ "./webpack-app/components/ui-button/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=5c294b16&lang=less&scoped=true&":
+/*!*****************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/ui-button/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=5c294b16&lang=less&scoped=true& ***!
+  \*****************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_5c294b16_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-style-loader!../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./CountdownButton.less?vue&type=style&index=0&id=5c294b16&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui-button/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=5c294b16&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_5c294b16_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_5c294b16_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_5c294b16_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_5c294b16_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_5c294b16_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/ui-button/CountdownButton/CountdownButton.vue":
+/*!******************************************************************************!*\
+  !*** ./webpack-app/components/ui-button/CountdownButton/CountdownButton.vue ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CountdownButton_html_vue_type_template_id_5c294b16_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CountdownButton.html?vue&type=template&id=5c294b16&scoped=true& */ "./webpack-app/components/ui-button/CountdownButton/CountdownButton.html?vue&type=template&id=5c294b16&scoped=true&");
+/* harmony import */ var _CountdownButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CountdownButton.js?vue&type=script&lang=js& */ "./webpack-app/components/ui-button/CountdownButton/CountdownButton.js?vue&type=script&lang=js&?3595");
+/* empty/unused harmony star reexport *//* harmony import */ var _CountdownButton_less_vue_type_style_index_0_id_5c294b16_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CountdownButton.less?vue&type=style&index=0&id=5c294b16&lang=less&scoped=true& */ "./webpack-app/components/ui-button/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=5c294b16&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui-button%5CCountdownButton%5CCountdownButton.vue&lang=yaml */ "./webpack-app/components/ui-button/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui-button%5CCountdownButton%5CCountdownButton.vue&lang=yaml");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _CountdownButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CountdownButton_html_vue_type_template_id_5c294b16_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CountdownButton_html_vue_type_template_id_5c294b16_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "5c294b16",
+  null
+  
+)
+
+/* custom blocks */
+
+if (typeof _CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/components/ui-button/CountdownButton/CountdownButton.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/components/ui-button/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui-button%5CCountdownButton%5CCountdownButton.vue&lang=yaml":
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/ui-button/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui-button%5CCountdownButton%5CCountdownButton.vue&lang=yaml ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/@kazupon/vue-i18n-loader/lib!./CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui-button%5CCountdownButton%5CCountdownButton.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/ui-button/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui-button%5CCountdownButton%5CCountdownButton.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_button_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
 /***/ "./webpack-app/components/ui-button/ValidationButton/ValidationButton.html?vue&type=template&id=d771c0a4&scoped=true&":
 /*!****************************************************************************************************************************!*\
   !*** ./webpack-app/components/ui-button/ValidationButton/ValidationButton.html?vue&type=template&id=d771c0a4&scoped=true& ***!
@@ -10635,14 +10785,15 @@ let ValidationButton = {
     this.$i18n.locale = this.locale
     return {
       remainingSeconds: 0,
-      await: false
+      awaitSubmit: false
     }
   },
   computed: {
     computedClassName () {
       //return 'await disabled' // for test
       
-      if (this.isEnable === false) {
+      if (this.isEnable === false
+              || this.awaitSubmit === true) {
         return 'disabled'
       }
       
@@ -10656,8 +10807,8 @@ let ValidationButton = {
       if (this.rightLabeledIcon) {
         classList.push('right labeled icon button')
       }
-      if (this.await) {
-        classList.push('await disabled')
+      if (this.awaitSubmit) {
+        classList.push('await-submit disabled')
       }
       
       return classList.join(' ')
@@ -10735,7 +10886,7 @@ let ValidationButton = {
               && this.rightLabeledIcon === null)
     },
     computedLeftLabeledIcon () {
-      if (this.await === true) {
+      if (this.awaitSubmit === true) {
         return 'hourglass icon'
       }
       else {
@@ -10743,7 +10894,7 @@ let ValidationButton = {
       }
     },
     computedRightLabeledIcon () {
-      if (this.await === true) {
+      if (this.awaitSubmit === true) {
         return 'hourglass icon'
       }
       else {
@@ -10758,7 +10909,7 @@ let ValidationButton = {
       }
     },
     text () {
-      this.await = false
+      this.awaitSubmit = false
     }
   },
 //  mounted () {
@@ -10786,10 +10937,14 @@ let ValidationButton = {
         }
       }, 1000)
     },
-    onclick () {
-      this.await = true
+    onclick: function () {
+      this.awaitSubmit = true
       //return  // for test
       this.$emit('click')
+      
+      setTimeout(() => {
+        this.awaitSubmit = false
+      }, 3000)
     }
   }
 }
@@ -11526,135 +11681,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserSelfBadge_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_user_5CUserSelfBadge_5CUserSelfBadge_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_UserSelfBadge_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_user_5CUserSelfBadge_5CUserSelfBadge_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserSelfBadge_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_user_5CUserSelfBadge_5CUserSelfBadge_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserSelfBadge_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_user_5CUserSelfBadge_5CUserSelfBadge_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_UserSelfBadge_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_user_5CUserSelfBadge_5CUserSelfBadge_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.html?vue&type=template&id=74379ec1&scoped=true&":
-/*!*****************************************************************************************************************!*\
-  !*** ./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.html?vue&type=template&id=74379ec1&scoped=true& ***!
-  \*****************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CheckboxToggle_html_vue_type_template_id_74379ec1_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./CheckboxToggle.html?vue&type=template&id=74379ec1&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.html?vue&type=template&id=74379ec1&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CheckboxToggle_html_vue_type_template_id_74379ec1_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CheckboxToggle_html_vue_type_template_id_74379ec1_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.js?vue&type=script&lang=js&?57d2":
-/*!*********************************************************************************************!*\
-  !*** ./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.js?vue&type=script&lang=js& ***!
-  \*********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CheckboxToggle_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./CheckboxToggle.js?vue&type=script&lang=js& */ "./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.js?vue&type=script&lang=js&?8e0a");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_CheckboxToggle_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.js?vue&type=script&lang=js&?8e0a":
-/*!*********************************************************************************************!*\
-  !*** ./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.js?vue&type=script&lang=js& ***!
-  \*********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-let CheckboxToggle = {
-  props: ['label', 'value'],
-  data() {
-    return {
-    }
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (CheckboxToggle);
-
-/***/ }),
-
-/***/ "./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=74379ec1&lang=less&scoped=true&":
-/*!********************************************************************************************************************************!*\
-  !*** ./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=74379ec1&lang=less&scoped=true& ***!
-  \********************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CheckboxToggle_less_vue_type_style_index_0_id_74379ec1_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-style-loader!../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./CheckboxToggle.less?vue&type=style&index=0&id=74379ec1&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=74379ec1&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CheckboxToggle_less_vue_type_style_index_0_id_74379ec1_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CheckboxToggle_less_vue_type_style_index_0_id_74379ec1_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CheckboxToggle_less_vue_type_style_index_0_id_74379ec1_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CheckboxToggle_less_vue_type_style_index_0_id_74379ec1_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CheckboxToggle_less_vue_type_style_index_0_id_74379ec1_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.vue":
-/*!*********************************************************************!*\
-  !*** ./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.vue ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CheckboxToggle_html_vue_type_template_id_74379ec1_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CheckboxToggle.html?vue&type=template&id=74379ec1&scoped=true& */ "./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.html?vue&type=template&id=74379ec1&scoped=true&");
-/* harmony import */ var _CheckboxToggle_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CheckboxToggle.js?vue&type=script&lang=js& */ "./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.js?vue&type=script&lang=js&?57d2");
-/* empty/unused harmony star reexport *//* harmony import */ var _CheckboxToggle_less_vue_type_style_index_0_id_74379ec1_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CheckboxToggle.less?vue&type=style&index=0&id=74379ec1&lang=less&scoped=true& */ "./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.less?vue&type=style&index=0&id=74379ec1&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-/* harmony import */ var _CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CheckboxToggle.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui%5CCheckboxToggle%5CCheckboxToggle.vue&lang=yaml */ "./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui%5CCheckboxToggle%5CCheckboxToggle.vue&lang=yaml");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _CheckboxToggle_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CheckboxToggle_html_vue_type_template_id_74379ec1_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _CheckboxToggle_html_vue_type_template_id_74379ec1_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "74379ec1",
-  null
-  
-)
-
-/* custom blocks */
-
-if (typeof _CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "webpack-app/components/ui/CheckboxToggle/CheckboxToggle.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui%5CCheckboxToggle%5CCheckboxToggle.vue&lang=yaml":
-/*!********************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui%5CCheckboxToggle%5CCheckboxToggle.vue&lang=yaml ***!
-  \********************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/@kazupon/vue-i18n-loader/lib!./CheckboxToggle.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui%5CCheckboxToggle%5CCheckboxToggle.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/ui/CheckboxToggle/CheckboxToggle.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cui%5CCheckboxToggle%5CCheckboxToggle.vue&lang=yaml");
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_CheckboxToggle_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cui_5CCheckboxToggle_5CCheckboxToggle_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
