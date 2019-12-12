@@ -44,7 +44,7 @@ let WebpageAdminModal = {
       this.webpage = result.webpage
     },
     reload: async function () {
-      console.log(this.$t('You need reload to active the change. Do you want to reload now?'))
+      //console.log(this.$t('You need reload to active the change. Do you want to reload now?'))
       let confirm = await this.lib.ConfirmModal.show(this.$t('You need reload to active the change. Do you want to reload now?'))
       if (confirm === true) {
         location.reload()

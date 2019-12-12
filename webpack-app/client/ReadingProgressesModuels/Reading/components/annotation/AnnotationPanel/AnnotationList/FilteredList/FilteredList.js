@@ -177,33 +177,37 @@ let List = {
     glowAnnotation () {
       
     },
-    backToList () {
-      this.glowAnnotation()
-      this.annotation = null
-    }
+//    backToList () {
+//      
+//      this.glowAnnotation()
+//      this.annotation = null
+//    }
   } // methods
 }
 
-import Height from './../Traits/computed/Height'
+import Height from './../commonList/computedList/heightList'
 Height(List)
 
-import ComputedFilter from './../Traits/computed/ComputedFilter'
+import ComputedFilter from './../commonList/computedList/computedFilterList'
 ComputedFilter(List)
 
-import Query from './../Traits/computed/Query'
+import Query from './../commonList/computedList/queryList'
 Query(List)
 
-import Filter from './../Traits/methods/Filter'
+import Filter from './../commonList/methodsList/filterList'
 Filter(List)
 
-import Scroll from './../Traits/methods/Scroll'
+import Scroll from './../commonList/methodsList/scrollList'
 Scroll(List)
 
-import Load from './../Traits/methods/Load'
+import Load from './../commonList/methodsList/loadList'
 Load(List)
 
-import Keyword from './../Traits/methods/Keyword'
+import Keyword from './../commonList/methodsList/keywordList'
 Keyword(List)
+
+import Event from './../commonList/methodsList/eventList'
+Event(List)
 
 //import Event from './../Traits/methods/Event'
 //Event(List)

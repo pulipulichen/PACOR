@@ -54,7 +54,9 @@ export default (Editor) => {
     // ----------------------------------
 
     isNoteEdited() {
-      return (this.isQuestionEdited || this.isAnswerEdited)
+      let isNoteEdited = (this.isQuestionEdited || this.isAnswerEdited)
+      this.panelData.isAnnotationEditing = isNoteEdited
+      return isNoteEdited
     },
 
     // ----------------------------------

@@ -20,10 +20,14 @@ export default (AnnotationPanel) => {
   }
   
   AnnotationPanel.methods.triggerEvent = async function (event) {
+    let result = true
     if (Array.isArray(this.events[event])) {
       let events = this.events[event]
       for (let i = 0; i < events.length; i++) {
-        await events[i](this.panelData.annotation)
+        result = await events[i](this.panelData.annotation)
+        if (result === false) {
+          return false
+        }
       }
     }
     

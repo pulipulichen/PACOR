@@ -5,7 +5,7 @@ export default (Editor) => {
   
   Editor.computed.annotationModuleConfig = function () {
     if (!this.annotation) {
-      return
+      return undefined
     }
     
     let type = this.annotation.type

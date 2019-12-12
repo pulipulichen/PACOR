@@ -3,6 +3,7 @@ export default {
   panelData: {
     anchorPositions: null,
     annotation: null,
+    isAnnotationEditing: false,
     
     filter: {
       user: null,

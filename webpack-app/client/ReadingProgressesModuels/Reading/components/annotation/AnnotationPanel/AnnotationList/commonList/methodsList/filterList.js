@@ -83,7 +83,12 @@ export default (List) => {
     this.$forceUpdate()
   }
   
-  List.methods.backToList = function () {
+  List.methods.backToList = async function () {
+    let confirm = await this.checkBeforeHide()
+    if (confirm === false) {
+      return null
+    }
+    
     this.glowAnnotation()
     this.annotation = null
   }

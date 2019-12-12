@@ -28,13 +28,18 @@ export default (AnnotationPanel) => {
     //this.scrollToPinSelection()
   } // AnnotationPanel.methods.show = function () {
   
-  AnnotationPanel.methods.hide = function (doEmitCancel) {
+  AnnotationPanel.methods.hide = async function (doEmitCancel) {
     // 這個太怪了，根本就不應該在這裡使用
 //    if (this.sectionsData.sectionAnnotation.instance !== null) {
 //      this.sectionsData.sectionAnnotation.instance = null
 //      return false
 //    }
 
+    let checkBeforeHide = await this.checkBeforeHide()
+    if (checkBeforeHide === false) {
+      return false
+    }
+    
     let transitionCallback = () => {
       if (this.isHide === true) {
         return false
@@ -70,5 +75,17 @@ export default (AnnotationPanel) => {
     this.lib.RangyManager.hoverOut(true)
     this.reset()
     
+  } // AnnotationPanel.methods.hide = async function (doEmitCancel) {
+  
+  AnnotationPanel.methods.checkBeforeHide = async function () {
+    if (this.panelData.isAnnotationEditing === true) {
+      return true
+    }
+    
+    let confirm = await this.lib.ConfirmModal.show(this.$t('You are still editing. Are you sure to discard changes?'))
+    if (confirm === true) {
+      this.panelData.isAnnotationEditing = false
+    }
+    return !confirm
   }
 }

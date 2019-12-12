@@ -53,7 +53,9 @@ let Editor = {
       //console.log([note, this.noteReset, (note !== this.noteReset)])
       
       //return (note !== this.noteReset)
-      return (note !== this.noteReset)
+      let isNoteDifferent = (note !== this.noteReset)
+      this.pandelData.isAnnotationEditing = isNoteDifferent
+      return isNoteDifferent
     },
     
     isEnableSubmitAdd () {
@@ -179,6 +181,8 @@ let Editor = {
       //let id = 1
       //console.log(id) // for test
       
+      this.pandelData.isAnnotationEditing = false
+      
       if (typeof(id) !== 'number') {
         throw 'Create failed'
         return false  // 新增失敗
@@ -224,6 +228,8 @@ let Editor = {
       if (debugMockSend === false) {
         result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
       }
+      
+      this.pandelData.isAnnotationEditing = false
       
       if (result !== 1) {
         throw this.$t('Update failed.')
