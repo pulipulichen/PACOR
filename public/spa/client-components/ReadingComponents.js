@@ -6951,7 +6951,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((List) => {
   
   List.methods.checkBeforeHide = async function () {
-    if (this.panelData.isAnnotationEditing === true) {
+    if (this.panelData.isAnnotationEditing === false) {
       return true
     }
     
@@ -6959,7 +6959,8 @@ __webpack_require__.r(__webpack_exports__);
     if (confirm === true) {
       this.panelData.isAnnotationEditing = false
     }
-    return !confirm
+    //console.log({confirm})
+    return confirm
   }
   
 });
@@ -9392,6 +9393,7 @@ const transitionMode = 'slide up'
 //    }
 
     let checkBeforeHide = await this.checkBeforeHide()
+    //console.log({checkBeforeHide})
     if (checkBeforeHide === false) {
       return false
     }
@@ -9434,7 +9436,7 @@ const transitionMode = 'slide up'
   } // AnnotationPanel.methods.hide = async function (doEmitCancel) {
   
   AnnotationPanel.methods.checkBeforeHide = async function () {
-    if (this.panelData.isAnnotationEditing === true) {
+    if (this.panelData.isAnnotationEditing === false) {
       return true
     }
     
@@ -9442,7 +9444,8 @@ const transitionMode = 'slide up'
     if (confirm === true) {
       this.panelData.isAnnotationEditing = false
     }
-    return !confirm
+    //console.log({confirm})
+    return confirm
   }
 });
 
@@ -11177,7 +11180,7 @@ let Editor = {
       
       //return (note !== this.noteReset)
       let isNoteDifferent = (note !== this.noteReset)
-      this.pandelData.isAnnotationEditing = isNoteDifferent
+      this.panelData.isAnnotationEditing = isNoteDifferent
       return isNoteDifferent
     },
     
@@ -11304,7 +11307,7 @@ let Editor = {
       //let id = 1
       //console.log(id) // for test
       
-      this.pandelData.isAnnotationEditing = false
+      this.panelData.isAnnotationEditing = false
       
       if (typeof(id) !== 'number') {
         throw 'Create failed'
@@ -11352,7 +11355,7 @@ let Editor = {
         result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
       }
       
-      this.pandelData.isAnnotationEditing = false
+      this.panelData.isAnnotationEditing = false
       
       if (result !== 1) {
         throw this.$t('Update failed.')
@@ -11473,7 +11476,7 @@ let Editor = {
       
       //return (note !== this.noteReset)
       let isNoteDifferent = (note !== this.noteReset)
-      this.pandelData.isAnnotationEditing = isNoteDifferent
+      this.panelData.isAnnotationEditing = isNoteDifferent
       return isNoteDifferent
     },
     
@@ -11600,7 +11603,7 @@ let Editor = {
       //let id = 1
       //console.log(id) // for test
       
-      this.pandelData.isAnnotationEditing = false
+      this.panelData.isAnnotationEditing = false
       
       if (typeof(id) !== 'number') {
         throw 'Create failed'
@@ -11648,7 +11651,7 @@ let Editor = {
         result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
       }
       
-      this.pandelData.isAnnotationEditing = false
+      this.panelData.isAnnotationEditing = false
       
       if (result !== 1) {
         throw this.$t('Update failed.')

@@ -3,7 +3,7 @@
 export default (List) => {
   
   List.methods.checkBeforeHide = async function () {
-    if (this.panelData.isAnnotationEditing === true) {
+    if (this.panelData.isAnnotationEditing === false) {
       return true
     }
     
@@ -11,7 +11,8 @@ export default (List) => {
     if (confirm === true) {
       this.panelData.isAnnotationEditing = false
     }
-    return !confirm
+    //console.log({confirm})
+    return confirm
   }
   
 }

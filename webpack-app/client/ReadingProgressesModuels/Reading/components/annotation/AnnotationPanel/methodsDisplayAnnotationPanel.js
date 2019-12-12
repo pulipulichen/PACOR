@@ -36,6 +36,7 @@ export default (AnnotationPanel) => {
 //    }
 
     let checkBeforeHide = await this.checkBeforeHide()
+    //console.log({checkBeforeHide})
     if (checkBeforeHide === false) {
       return false
     }
@@ -78,7 +79,7 @@ export default (AnnotationPanel) => {
   } // AnnotationPanel.methods.hide = async function (doEmitCancel) {
   
   AnnotationPanel.methods.checkBeforeHide = async function () {
-    if (this.panelData.isAnnotationEditing === true) {
+    if (this.panelData.isAnnotationEditing === false) {
       return true
     }
     
@@ -86,6 +87,7 @@ export default (AnnotationPanel) => {
     if (confirm === true) {
       this.panelData.isAnnotationEditing = false
     }
-    return !confirm
+    //console.log({confirm})
+    return confirm
   }
 }

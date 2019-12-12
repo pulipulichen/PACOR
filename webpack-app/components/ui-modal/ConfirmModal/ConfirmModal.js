@@ -33,7 +33,7 @@ let ConfirmModel = {
       }
       this.title = title
       this.message = message
-      console.log(this.title, this.message)
+      //console.log(this.title, this.message)
       
       return new Promise((resolve, reject) => {
         if (!this.modal) {
