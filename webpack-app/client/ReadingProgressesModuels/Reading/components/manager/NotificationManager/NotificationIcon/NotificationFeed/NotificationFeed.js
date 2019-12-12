@@ -85,6 +85,9 @@ let NotificationFeed = {
       }
       this.loadLock = true
       
+      if (!this.feed) {
+        this.feed = $(this.$refs.feed)
+      }
       let focusComment = this.feed.children('.event:first')
       
       let data = {

@@ -17,11 +17,15 @@ export default (Editor) => {
         })
       
         this.question = question
-        this.questionReset = this.lib.StringHelper.htmlTrim(question)
+        let questionReset = this.lib.StringHelper.htmlTrim(question)
+        questionReset = this.lib.StringHelper.htmlToText(questionReset)
+        this.questionReset = questionReset
         
         this.answer = answer
-        this.answerReset = this.lib.StringHelper.htmlTrim(answer)
-        
+        //this.answerReset = this.lib.StringHelper.htmlTrim(answer)
+        let answerReset = this.lib.StringHelper.htmlTrim(answer)
+        answerReset = this.lib.StringHelper.htmlToText(answerReset)
+        this.answerReset = answerReset
         //console.log(answer)
       }
     }

@@ -10587,7 +10587,11 @@ let answerHeightPadding = '8em'
     isQuestionEdited() {
       //let note = this.lib.StringHelper.htmlToText(this.question).trim()
       //return (note !== this.questionReset)
-      return (this.question !== this.questionReset)
+      //return (this.question !== this.questionReset)
+      
+      let note = this.lib.StringHelper.htmlTrim(this.question)
+      note = this.lib.StringHelper.htmlToText(note)
+      return (note !== this.questionReset)
     },
 
 //    isQuestionSubmitted() {
@@ -10611,7 +10615,11 @@ let answerHeightPadding = '8em'
     isAnswerEdited() {
       //let note = this.lib.StringHelper.htmlToText(this.answer).trim()
       //return (note !== this.answerReset)
-      return (this.answer !== this.answerReset)
+      //return (this.answer !== this.answerReset)
+      
+      let note = this.lib.StringHelper.htmlTrim(this.answer)
+      note = this.lib.StringHelper.htmlToText(note)
+      return (note !== this.answerReset)
     },
 
     isAnswerSubmitted() {
@@ -10636,6 +10644,7 @@ let answerHeightPadding = '8em'
 
     isNoteEdited() {
       let isNoteEdited = (this.isQuestionEdited || this.isAnswerEdited)
+      //console.log(isNoteEdited, this.isQuestionEdited, this.isAnswerEdited)
       this.panelData.isAnnotationEditing = isNoteEdited
       return isNoteEdited
     },
@@ -11088,11 +11097,15 @@ __webpack_require__.r(__webpack_exports__);
         })
       
         this.question = question
-        this.questionReset = this.lib.StringHelper.htmlTrim(question)
+        let questionReset = this.lib.StringHelper.htmlTrim(question)
+        questionReset = this.lib.StringHelper.htmlToText(questionReset)
+        this.questionReset = questionReset
         
         this.answer = answer
-        this.answerReset = this.lib.StringHelper.htmlTrim(answer)
-        
+        //this.answerReset = this.lib.StringHelper.htmlTrim(answer)
+        let answerReset = this.lib.StringHelper.htmlTrim(answer)
+        answerReset = this.lib.StringHelper.htmlToText(answerReset)
+        this.answerReset = answerReset
         //console.log(answer)
       }
     }

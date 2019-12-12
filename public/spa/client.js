@@ -5814,6 +5814,9 @@ let NotificationFeed = {
       }
       this.loadLock = true
       
+      if (!this.feed) {
+        this.feed = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.feed)
+      }
       let focusComment = this.feed.children('.event:first')
       
       let data = {
