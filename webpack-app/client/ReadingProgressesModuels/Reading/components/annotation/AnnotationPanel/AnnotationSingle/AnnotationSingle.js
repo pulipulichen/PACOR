@@ -48,6 +48,13 @@ let AnnotationEditorModules = {
       let classList = []
       //console.log(this.annotationConfig)
       
+      if (this.isEditable) {
+        classList.push('edit-mode')
+      }
+      else {
+        classList.push('display-mode')
+      }
+      
       if (this.enableDiscussion === true) {
         classList.push('two')
       }
@@ -96,6 +103,7 @@ let AnnotationEditorModules = {
     displayTime () {
       return this.lib.DayJSHelper.fromNow(this.annotation.updated_at_unixms)
     }
+    
 //    isAdding () {
 //      return (this.annotation
 //              && typeof(this.annotation.id) === 'number' )

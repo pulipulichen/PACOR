@@ -5775,7 +5775,8 @@ let i18nGlobal = {
     '...': '…',
     ':': "：",
     'You': "您",
-    'All Readers': "所有讀者"
+    'All Readers': "所有讀者",
+    "You are still editing. Are you sure to discard changes?": "您依然在編輯中，您確定要離開嗎？"
   }
 }
 

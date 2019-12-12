@@ -19,7 +19,16 @@ export default function (HTMLEditor) {
     return classList
   } // HTMLEditor.computed.computedClass = function () {
 
+  HTMLEditor.computed.showContainer = function () {
+//    console.log(this.editable, this.contents, (this.editable === false 
+//            && (!this.contents || this.contents === '')))
+    return (this.editable === true
+            || (this.contents && this.contents !== ''))
+  }
+
   HTMLEditor.computed.computedStyle = function () {
+    
+    
     if (this.editable === false) {
       return null
     }
@@ -60,4 +69,14 @@ export default function (HTMLEditor) {
       return 'ui top left attached large label'
     }
   }
+  
+  HTMLEditor.computed.computedDisplayStyle = function () {
+    return {
+//      height: this.height,
+//      'max-height': this.height
+      'margin-top': '0.5em !important',
+      //'margin-bottom': '0.5em !important'
+    }
+  }
+  
 }

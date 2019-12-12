@@ -86,7 +86,7 @@ export default (Editor) => {
       
       let id = await this.lib.AxiosHelper.post('/client/AnnotationSave/create', data)
       //let id = 1
-      this.pandelData.isAnnotationEditing = false
+      this.panelData.isAnnotationEditing = false
       
       //console.log(id) // for test
       
@@ -156,7 +156,7 @@ export default (Editor) => {
       
       let result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
       //let result = 1
-      this.pandelData.isAnnotationEditing = false
+      this.panelData.isAnnotationEditing = false
       //console.log(result) // for test
       if (result !== 1) {
         throw 'Update failed'
@@ -200,7 +200,7 @@ export default (Editor) => {
       let result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
       //console.log(id) // for test
       
-      this.pandelData.isAnnotationEditing = false
+      this.panelData.isAnnotationEditing = false
       
       if (result !== 1) {
         throw 'Update failed'
@@ -230,7 +230,7 @@ export default (Editor) => {
       this.answer = commentNote
       this.answerReset = this.lib.StringHelper.htmlTrim(commentNote)
       
-      this.pandelData.isAnnotationEditing = true
+      this.panelData.isAnnotationEditing = true
       
       this.$refs.AnswerEditor.html(this.answer)
       

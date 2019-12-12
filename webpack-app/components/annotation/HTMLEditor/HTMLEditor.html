@@ -2,11 +2,16 @@
      v-on:click="focus"
      v-bind:style="computedStyle"
      v-bind:class="computedClass"
-     ref="editorContainer">
+     ref="editorContainer"
+     v-if="showContainer">
   <div v-if="label" 
        v-bind:class="computedLabelClassList">
     {{ label }}
   </div>
   <div ref="editor" v-if="editable"></div>
-  <div ref="display" v-if="!editable" v-html="contents"></div>
+  <div ref="display" 
+       v-if="!editable" 
+       class="display"
+       v-html="contents"
+       v-bind:style="computedDisplayStyle"></div>
 </div>

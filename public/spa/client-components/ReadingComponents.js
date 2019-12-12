@@ -583,7 +583,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationDiscussionInput[data-v-0c1c21a4] {\n  white-space: nowrap;\n  overflow: hidden;\n  margin-top: 0.5em;\n}\nimg[data-v-0c1c21a4] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-0c1c21a4] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-0c1c21a4] {\n  width: calc(100% - 16em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-0c1c21a4] {\n  float: right;\n}\n.right-column > span[data-v-0c1c21a4] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-0c1c21a4] {\n  height: 42px;\n}\n.left-column[data-v-0c1c21a4] {\n  width: 8em;\n}\n.left-column[data-v-0c1c21a4],\n.center-column[data-v-0c1c21a4],\n.right-column[data-v-0c1c21a4] {\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["AnnotationDiscussionInput.less?vue&type=style&index=0&id=0c1c21a4&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,iBAAiB;AACnB;AACA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,cAAc;EACd,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,mCAAmC;EACnC,gCAAgC;AAClC;AACA;EACE,YAAY;AACd;AACA;EACE,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,YAAY;AACd;AACA;EACE,UAAU;AACZ;AACA;;;EAGE,qBAAqB;EACrB,sBAAsB;AACxB","file":"AnnotationDiscussionInput.less?vue&type=style&index=0&id=0c1c21a4&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionInput[data-v-0c1c21a4] {\n  white-space: nowrap;\n  overflow: hidden;\n  margin-top: 0.5em;\n}\nimg[data-v-0c1c21a4] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-0c1c21a4] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-0c1c21a4] {\n  width: calc(100% - 16em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-0c1c21a4] {\n  float: right;\n}\n.right-column > span[data-v-0c1c21a4] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-0c1c21a4] {\n  height: 42px;\n}\n.left-column[data-v-0c1c21a4] {\n  width: 8em;\n}\n.left-column[data-v-0c1c21a4],\n.center-column[data-v-0c1c21a4],\n.right-column[data-v-0c1c21a4] {\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
+exports.push([module.i, ".AnnotationDiscussionInput[data-v-0c1c21a4] {\n  white-space: nowrap;\n  overflow: hidden;\n  padding-top: 0.5em;\n  border-top: 1px solid #ccc;\n}\nimg[data-v-0c1c21a4] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-0c1c21a4] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-0c1c21a4] {\n  width: calc(100% - 16em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-0c1c21a4] {\n  float: right;\n}\n.right-column > span[data-v-0c1c21a4] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-0c1c21a4] {\n  height: 42px;\n}\n.left-column[data-v-0c1c21a4] {\n  width: 8em;\n}\n.left-column[data-v-0c1c21a4],\n.center-column[data-v-0c1c21a4],\n.right-column[data-v-0c1c21a4] {\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["AnnotationDiscussionInput.less?vue&type=style&index=0&id=0c1c21a4&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,0BAA0B;AAC5B;AACA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,cAAc;EACd,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,mCAAmC;EACnC,gCAAgC;AAClC;AACA;EACE,YAAY;AACd;AACA;EACE,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,YAAY;AACd;AACA;EACE,UAAU;AACZ;AACA;;;EAGE,qBAAqB;EACrB,sBAAsB;AACxB","file":"AnnotationDiscussionInput.less?vue&type=style&index=0&id=0c1c21a4&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionInput[data-v-0c1c21a4] {\n  white-space: nowrap;\n  overflow: hidden;\n  padding-top: 0.5em;\n  border-top: 1px solid #ccc;\n}\nimg[data-v-0c1c21a4] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-0c1c21a4] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-0c1c21a4] {\n  width: calc(100% - 16em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-0c1c21a4] {\n  float: right;\n}\n.right-column > span[data-v-0c1c21a4] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-0c1c21a4] {\n  height: 42px;\n}\n.left-column[data-v-0c1c21a4] {\n  width: 8em;\n}\n.left-column[data-v-0c1c21a4],\n.center-column[data-v-0c1c21a4],\n.right-column[data-v-0c1c21a4] {\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
 
 
 /***/ }),
@@ -611,7 +611,7 @@ exports.push([module.i, ".meta[data-v-45380be0] {\n  float: right;\n  user-selec
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationDiscussionList[data-v-62d0d066] {\n  overflow-y: auto;\n  border-radius: 0.3em;\n  border: 1px solid #CCC;\n  border-width: 1px 0;\n}\n.no-more[data-v-62d0d066] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList.little-comments[data-v-62d0d066] {\n    height: auto !important;\n    max-height: auto !important;\n}\n}\n", "",{"version":3,"sources":["AnnotationDiscussionList.less?vue&type=style&index=0&id=62d0d066&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,oBAAoB;EACpB,sBAAsB;EACtB,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,iBAAiB;EACjB,eAAe;AACjB;AACA;AACA;IACI,uBAAuB;IACvB,2BAA2B;AAC/B;AACA","file":"AnnotationDiscussionList.less?vue&type=style&index=0&id=62d0d066&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionList[data-v-62d0d066] {\n  overflow-y: auto;\n  border-radius: 0.3em;\n  border: 1px solid #CCC;\n  border-width: 1px 0;\n}\n.no-more[data-v-62d0d066] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList.little-comments[data-v-62d0d066] {\n    height: auto !important;\n    max-height: auto !important;\n}\n}\n"]}]);
+exports.push([module.i, ".AnnotationDiscussionList[data-v-62d0d066] {\n  overflow-y: auto;\n  border-radius: 0.3em;\n  border: 1px solid #CCC;\n  border-width: 0;\n}\n.no-more[data-v-62d0d066] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList.little-comments[data-v-62d0d066] {\n    height: auto !important;\n    max-height: auto !important;\n    padding-bottom: 1em;\n}\n}\n", "",{"version":3,"sources":["AnnotationDiscussionList.less?vue&type=style&index=0&id=62d0d066&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,oBAAoB;EACpB,sBAAsB;EACtB,eAAe;AACjB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,iBAAiB;EACjB,eAAe;AACjB;AACA;AACA;IACI,uBAAuB;IACvB,2BAA2B;IAC3B,mBAAmB;AACvB;AACA","file":"AnnotationDiscussionList.less?vue&type=style&index=0&id=62d0d066&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionList[data-v-62d0d066] {\n  overflow-y: auto;\n  border-radius: 0.3em;\n  border: 1px solid #CCC;\n  border-width: 0;\n}\n.no-more[data-v-62d0d066] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList.little-comments[data-v-62d0d066] {\n    height: auto !important;\n    max-height: auto !important;\n    padding-bottom: 1em;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -653,7 +653,7 @@ exports.push([module.i, ".right[data-v-8305ff60] {\n  float: right;\n  margin-to
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "img[data-v-75e77d7c] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-75e77d7c] {\n  display: inline-block;\n  max-width: 100%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.UserInformation[data-v-75e77d7c] {\n  white-space: nowrap;\n  overflow: hidden;\n}\n@media only screen and (max-width: 767px) {\n.user-avatar[data-v-75e77d7c],\n  .username[data-v-75e77d7c] {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["UserInformation.less?vue&type=style&index=0&id=75e77d7c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,eAAe;EACf,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,mBAAmB;EACnB,gBAAgB;AAClB;AACA;AACA;;IAEI,aAAa;AACjB;AACA","file":"UserInformation.less?vue&type=style&index=0&id=75e77d7c&lang=less&scoped=true&","sourcesContent":["img[data-v-75e77d7c] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-75e77d7c] {\n  display: inline-block;\n  max-width: 100%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.UserInformation[data-v-75e77d7c] {\n  white-space: nowrap;\n  overflow: hidden;\n}\n@media only screen and (max-width: 767px) {\n.user-avatar[data-v-75e77d7c],\n  .username[data-v-75e77d7c] {\n    display: none;\n}\n}\n"]}]);
+exports.push([module.i, "img[data-v-75e77d7c] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-75e77d7c] {\n  display: inline-block;\n  max-width: 100%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.UserInformation[data-v-75e77d7c] {\n  white-space: nowrap;\n  overflow: hidden;\n}\n@media only screen and (max-width: 767px) {\n.edit-mode .user-avatar[data-v-75e77d7c],\n  .edit-mode .username[data-v-75e77d7c] {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["UserInformation.less?vue&type=style&index=0&id=75e77d7c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,eAAe;EACf,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,mBAAmB;EACnB,gBAAgB;AAClB;AACA;AACA;;IAEI,aAAa;AACjB;AACA","file":"UserInformation.less?vue&type=style&index=0&id=75e77d7c&lang=less&scoped=true&","sourcesContent":["img[data-v-75e77d7c] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-75e77d7c] {\n  display: inline-block;\n  max-width: 100%;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.UserInformation[data-v-75e77d7c] {\n  white-space: nowrap;\n  overflow: hidden;\n}\n@media only screen and (max-width: 767px) {\n.edit-mode .user-avatar[data-v-75e77d7c],\n  .edit-mode .username[data-v-75e77d7c] {\n    display: none;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -667,7 +667,7 @@ exports.push([module.i, "img[data-v-75e77d7c] {\n  height: 2em;\n  width: auto;\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationSingle[data-v-180f6a86] {\n  overflow-y: auto;\n}\n.AnnotationSingle[data-v-180f6a86]  .annotation-panel-buttons {\n  margin-top: -0.5em !important;\n  max-width: 100% !important;\n  overflow-x: auto !important;\n  overflow-y: hidden !important;\n  margin-left: 0 !important;\n}\n.AnnotationSingle[data-v-180f6a86]  .annotation-panel-buttons > .column {\n  padding: 0.5em 0 !important;\n}\n.AnnotationSingle[data-v-180f6a86]  .annotation-panel-buttons .display-time {\n  display: inline-block;\n  vertical-align: baseline;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n@media (max-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-180f6a86] {\n    border-top: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-180f6a86] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-180f6a86] {\n    border-left: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-180f6a86] {\n    overflow-y: auto;\n}\n}\n@media only screen and (max-width: 991px) {\n.AnnotationSingle.two.column[data-v-180f6a86]  .AnnotationEditorHeader .left.column .user-avatar,\n  .AnnotationSingle.two.column[data-v-180f6a86]  .AnnotationEditorHeader .left.column .username {\n    display: none;\n}\n.AnnotationSingle.two.column[data-v-180f6a86]  .AnnotationEditorHeader .left.column {\n    width: calc(100% - 6em);\n}\n.AnnotationSingle.two.column[data-v-180f6a86]  .html-editor-container .note-toolbar.center {\n    text-align: right;\n}\n.AnnotationSingle.two.column[data-v-180f6a86]  .html-editor-container.editor-left-handed .note-toolbar.center {\n    text-align: left;\n}\n.AnnotationSingle.two.column[data-v-180f6a86]  .AnnotationComment .meta .display-time {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["AnnotationSingle.less?vue&type=style&index=0&id=180f6a86&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;AACA;EACE,6BAA6B;EAC7B,0BAA0B;EAC1B,2BAA2B;EAC3B,6BAA6B;EAC7B,yBAAyB;AAC3B;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,qBAAqB;EACrB,wBAAwB;EACxB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;AACA;IACI,qCAAqC;AACzC;AACA;IACI,2BAA2B;AAC/B;AACA;AACA;AACA;IACI,sCAAsC;AAC1C;AACA;IACI,gBAAgB;AACpB;AACA;AACA;AACA;;IAEI,aAAa;AACjB;AACA;IACI,uBAAuB;AAC3B;AACA;IACI,iBAAiB;AACrB;AACA;IACI,gBAAgB;AACpB;AACA;IACI,aAAa;AACjB;AACA","file":"AnnotationSingle.less?vue&type=style&index=0&id=180f6a86&lang=less&scoped=true&","sourcesContent":[".AnnotationSingle[data-v-180f6a86] {\n  overflow-y: auto;\n}\n.AnnotationSingle[data-v-180f6a86]  .annotation-panel-buttons {\n  margin-top: -0.5em !important;\n  max-width: 100% !important;\n  overflow-x: auto !important;\n  overflow-y: hidden !important;\n  margin-left: 0 !important;\n}\n.AnnotationSingle[data-v-180f6a86]  .annotation-panel-buttons > .column {\n  padding: 0.5em 0 !important;\n}\n.AnnotationSingle[data-v-180f6a86]  .annotation-panel-buttons .display-time {\n  display: inline-block;\n  vertical-align: baseline;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n@media (max-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-180f6a86] {\n    border-top: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-180f6a86] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-180f6a86] {\n    border-left: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-180f6a86] {\n    overflow-y: auto;\n}\n}\n@media only screen and (max-width: 991px) {\n.AnnotationSingle.two.column[data-v-180f6a86]  .AnnotationEditorHeader .left.column .user-avatar,\n  .AnnotationSingle.two.column[data-v-180f6a86]  .AnnotationEditorHeader .left.column .username {\n    display: none;\n}\n.AnnotationSingle.two.column[data-v-180f6a86]  .AnnotationEditorHeader .left.column {\n    width: calc(100% - 6em);\n}\n.AnnotationSingle.two.column[data-v-180f6a86]  .html-editor-container .note-toolbar.center {\n    text-align: right;\n}\n.AnnotationSingle.two.column[data-v-180f6a86]  .html-editor-container.editor-left-handed .note-toolbar.center {\n    text-align: left;\n}\n.AnnotationSingle.two.column[data-v-180f6a86]  .AnnotationComment .meta .display-time {\n    display: none;\n}\n}\n"]}]);
+exports.push([module.i, ".AnnotationSingle[data-v-180f6a86] {\n  overflow-y: auto;\n}\n.AnnotationSingle[data-v-180f6a86]  .annotation-panel-buttons {\n  margin-top: -0.5em !important;\n  max-width: 100% !important;\n  overflow-x: auto !important;\n  overflow-y: hidden !important;\n  margin-left: 0 !important;\n}\n.AnnotationSingle[data-v-180f6a86]  .annotation-panel-buttons > .column {\n  padding: 0.5em 0 !important;\n}\n.AnnotationSingle[data-v-180f6a86]  .annotation-panel-buttons .display-time {\n  display: inline-block;\n  vertical-align: baseline;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n.AnnotationSingle.display-mode[data-v-180f6a86]  .annotation-panel-buttons {\n  margin-top: 0.5rem !important;\n}\n.AnnotationSingle .annotation-discussion > .divider[data-v-180f6a86] {\n  display: none;\n}\n@media (max-width: 767px) {\n.ui.stackable.grid.AnnotationSingle .annotation-discussion[data-v-180f6a86] {\n    padding-top: 0 !important;\n}\n.ui.stackable.grid.AnnotationSingle .annotation-discussion > .divider[data-v-180f6a86] {\n    display: block;\n}\n.ui.stackable.grid.AnnotationSingle .annotation-editor[data-v-180f6a86] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-180f6a86] {\n    border-left: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-180f6a86] {\n    overflow-y: auto;\n}\n}\n@media only screen and (max-width: 991px) {\n.AnnotationSingle.two.column[data-v-180f6a86]  .AnnotationEditorHeader.edit-mode .left.column .user-avatar,\n  .AnnotationSingle.two.column[data-v-180f6a86]  .AnnotationEditorHeader.edit-mode .left.column .username {\n    display: none;\n}\n.AnnotationSingle.two.column[data-v-180f6a86]  .AnnotationEditorHeader.edit-mode .left.column {\n    width: calc(100% - 6em);\n}\n.AnnotationSingle.two.column[data-v-180f6a86]  .html-editor-container .note-toolbar.center {\n    text-align: right;\n}\n.AnnotationSingle.two.column[data-v-180f6a86]  .html-editor-container.editor-left-handed .note-toolbar.center {\n    text-align: left;\n}\n.AnnotationSingle.two.column[data-v-180f6a86]  .AnnotationComment .meta .display-time {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["AnnotationSingle.less?vue&type=style&index=0&id=180f6a86&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;AACA;EACE,6BAA6B;EAC7B,0BAA0B;EAC1B,2BAA2B;EAC3B,6BAA6B;EAC7B,yBAAyB;AAC3B;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,qBAAqB;EACrB,wBAAwB;EACxB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,6BAA6B;AAC/B;AACA;EACE,aAAa;AACf;AACA;AACA;IACI,yBAAyB;AAC7B;AACA;IACI,cAAc;AAClB;AACA;IACI,2BAA2B;AAC/B;AACA;AACA;AACA;IACI,sCAAsC;AAC1C;AACA;IACI,gBAAgB;AACpB;AACA;AACA;AACA;;IAEI,aAAa;AACjB;AACA;IACI,uBAAuB;AAC3B;AACA;IACI,iBAAiB;AACrB;AACA;IACI,gBAAgB;AACpB;AACA;IACI,aAAa;AACjB;AACA","file":"AnnotationSingle.less?vue&type=style&index=0&id=180f6a86&lang=less&scoped=true&","sourcesContent":[".AnnotationSingle[data-v-180f6a86] {\n  overflow-y: auto;\n}\n.AnnotationSingle[data-v-180f6a86]  .annotation-panel-buttons {\n  margin-top: -0.5em !important;\n  max-width: 100% !important;\n  overflow-x: auto !important;\n  overflow-y: hidden !important;\n  margin-left: 0 !important;\n}\n.AnnotationSingle[data-v-180f6a86]  .annotation-panel-buttons > .column {\n  padding: 0.5em 0 !important;\n}\n.AnnotationSingle[data-v-180f6a86]  .annotation-panel-buttons .display-time {\n  display: inline-block;\n  vertical-align: baseline;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n.AnnotationSingle.display-mode[data-v-180f6a86]  .annotation-panel-buttons {\n  margin-top: 0.5rem !important;\n}\n.AnnotationSingle .annotation-discussion > .divider[data-v-180f6a86] {\n  display: none;\n}\n@media (max-width: 767px) {\n.ui.stackable.grid.AnnotationSingle .annotation-discussion[data-v-180f6a86] {\n    padding-top: 0 !important;\n}\n.ui.stackable.grid.AnnotationSingle .annotation-discussion > .divider[data-v-180f6a86] {\n    display: block;\n}\n.ui.stackable.grid.AnnotationSingle .annotation-editor[data-v-180f6a86] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-180f6a86] {\n    border-left: 1px solid #CCC !important;\n}\n.AnnotationSingle .annotation-editor[data-v-180f6a86] {\n    overflow-y: auto;\n}\n}\n@media only screen and (max-width: 991px) {\n.AnnotationSingle.two.column[data-v-180f6a86]  .AnnotationEditorHeader.edit-mode .left.column .user-avatar,\n  .AnnotationSingle.two.column[data-v-180f6a86]  .AnnotationEditorHeader.edit-mode .left.column .username {\n    display: none;\n}\n.AnnotationSingle.two.column[data-v-180f6a86]  .AnnotationEditorHeader.edit-mode .left.column {\n    width: calc(100% - 6em);\n}\n.AnnotationSingle.two.column[data-v-180f6a86]  .html-editor-container .note-toolbar.center {\n    text-align: right;\n}\n.AnnotationSingle.two.column[data-v-180f6a86]  .html-editor-container.editor-left-handed .note-toolbar.center {\n    text-align: left;\n}\n.AnnotationSingle.two.column[data-v-180f6a86]  .AnnotationComment .meta .display-time {\n    display: none;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -2338,47 +2338,54 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "AnnotationEditorHeader" }, [
-    _vm.editable
-      ? _c(
-          "div",
-          { staticClass: "right column" },
-          [
-            _c("annotaion-instruction", {
-              ref: "AnnotationInstruction",
-              attrs: {
-                config: _vm.config,
-                status: _vm.status,
-                lib: _vm.lib,
-                type: _vm.annotation.type,
-                editable: _vm.editable
+  return _c(
+    "div",
+    {
+      staticClass: "AnnotationEditorHeader",
+      class: _vm.computedContainerClassList
+    },
+    [
+      _vm.editable
+        ? _c(
+            "div",
+            { staticClass: "right column" },
+            [
+              _c("annotaion-instruction", {
+                ref: "AnnotationInstruction",
+                attrs: {
+                  config: _vm.config,
+                  status: _vm.status,
+                  lib: _vm.lib,
+                  type: _vm.annotation.type,
+                  editable: _vm.editable
+                }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "left column" },
+        [
+          _c("user-information", {
+            attrs: {
+              annotation: _vm.annotation,
+              config: _vm.config,
+              status: _vm.status
+            },
+            on: {
+              showInstruction: function() {
+                _vm.$refs.AnnotationInstruction.showInstruction()
               }
-            })
-          ],
-          1
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "left column" },
-      [
-        _c("user-information", {
-          attrs: {
-            annotation: _vm.annotation,
-            config: _vm.config,
-            status: _vm.status
-          },
-          on: {
-            showInstruction: function() {
-              _vm.$refs.AnnotationInstruction.showInstruction()
             }
-          }
-        })
-      ],
-      1
-    )
-  ])
+          })
+        ],
+        1
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2529,6 +2536,8 @@ var render = function() {
             "div",
             { staticClass: "column annotation-discussion" },
             [
+              _c("div", { staticClass: "ui divider" }),
+              _vm._v(" "),
               _c("annotation-discussion", {
                 ref: "AnnotationDisscussion",
                 attrs: {
@@ -8688,9 +8697,18 @@ let AnnotationEditorHeader = {
     'user-information': _UserInformation_UserInformation_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     'annotaion-instruction': _AnnotaionInstruction_AnnotaionInstruction_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  /*
+  
   computed: {
+    computedContainerClassList () {
+      if (this.editable) {
+        return 'edit-mode'
+      }
+      else {
+        return 'display-mode'
+      }
+    }
   },
+  /*
   watch: {
   },
   mounted() {
@@ -9024,6 +9042,13 @@ let AnnotationEditorModules = {
       let classList = []
       //console.log(this.annotationConfig)
       
+      if (this.isEditable) {
+        classList.push('edit-mode')
+      }
+      else {
+        classList.push('display-mode')
+      }
+      
       if (this.enableDiscussion === true) {
         classList.push('two')
       }
@@ -9072,6 +9097,7 @@ let AnnotationEditorModules = {
     displayTime () {
       return this.lib.DayJSHelper.fromNow(this.annotation.updated_at_unixms)
     }
+    
 //    isAdding () {
 //      return (this.annotation
 //              && typeof(this.annotation.id) === 'number' )
@@ -10879,7 +10905,7 @@ __webpack_require__.r(__webpack_exports__);
       
       let id = await this.lib.AxiosHelper.post('/client/AnnotationSave/create', data)
       //let id = 1
-      this.pandelData.isAnnotationEditing = false
+      this.panelData.isAnnotationEditing = false
       
       //console.log(id) // for test
       
@@ -10949,7 +10975,7 @@ __webpack_require__.r(__webpack_exports__);
       
       let result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
       //let result = 1
-      this.pandelData.isAnnotationEditing = false
+      this.panelData.isAnnotationEditing = false
       //console.log(result) // for test
       if (result !== 1) {
         throw 'Update failed'
@@ -10993,7 +11019,7 @@ __webpack_require__.r(__webpack_exports__);
       let result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
       //console.log(id) // for test
       
-      this.pandelData.isAnnotationEditing = false
+      this.panelData.isAnnotationEditing = false
       
       if (result !== 1) {
         throw 'Update failed'
@@ -11023,7 +11049,7 @@ __webpack_require__.r(__webpack_exports__);
       this.answer = commentNote
       this.answerReset = this.lib.StringHelper.htmlTrim(commentNote)
       
-      this.pandelData.isAnnotationEditing = true
+      this.panelData.isAnnotationEditing = true
       
       this.$refs.AnswerEditor.html(this.answer)
       
@@ -11175,11 +11201,15 @@ let Editor = {
       //let note = this.lib.StringHelper.htmlToText(this.note).trim()
       //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
       let note = this.lib.StringHelper.htmlTrim(this.note)
+      note = this.lib.StringHelper.htmlToText(note, true)
+      
+      let noteReset = this.noteReset
       //let noteReset = this.lib.StringHelper.htmlTrim(this.noteReset)
-      //console.log([note, this.noteReset, (note !== this.noteReset)])
+      //let noteReset = this.lib.StringHelper.htmlToText(this.noteReset, true)
+      console.log([note, noteReset, (note !== noteReset)])
       
       //return (note !== this.noteReset)
-      let isNoteDifferent = (note !== this.noteReset)
+      let isNoteDifferent = (note !== noteReset)
       this.panelData.isAnnotationEditing = isNoteDifferent
       return isNoteDifferent
     },
@@ -11275,7 +11305,11 @@ let Editor = {
       note = this.lib.StringHelper.removePunctuations(note).trim()
       note = `<p>${note}</p>`
       this.note = note
-      this.noteReset = this.lib.StringHelper.htmlTrim(note)
+      
+      let noteReset = this.lib.StringHelper.htmlTrim(note)
+      noteReset = this.lib.StringHelper.htmlToText(noteReset, true)
+      this.noteReset = noteReset
+      
       if (this.$refs.editor) {
         this.$refs.editor.html(this.note)
       }
@@ -11471,11 +11505,15 @@ let Editor = {
       //let note = this.lib.StringHelper.htmlToText(this.note).trim()
       //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
       let note = this.lib.StringHelper.htmlTrim(this.note)
+      note = this.lib.StringHelper.htmlToText(note, true)
+      
+      let noteReset = this.noteReset
       //let noteReset = this.lib.StringHelper.htmlTrim(this.noteReset)
-      //console.log([note, this.noteReset, (note !== this.noteReset)])
+      //let noteReset = this.lib.StringHelper.htmlToText(this.noteReset, true)
+      console.log([note, noteReset, (note !== noteReset)])
       
       //return (note !== this.noteReset)
-      let isNoteDifferent = (note !== this.noteReset)
+      let isNoteDifferent = (note !== noteReset)
       this.panelData.isAnnotationEditing = isNoteDifferent
       return isNoteDifferent
     },
@@ -11571,7 +11609,11 @@ let Editor = {
       note = this.lib.StringHelper.removePunctuations(note).trim()
       note = `<p>${note}</p>`
       this.note = note
-      this.noteReset = this.lib.StringHelper.htmlTrim(note)
+      
+      let noteReset = this.lib.StringHelper.htmlTrim(note)
+      noteReset = this.lib.StringHelper.htmlToText(noteReset, true)
+      this.noteReset = noteReset
+      
       if (this.$refs.editor) {
         this.$refs.editor.html(this.note)
       }

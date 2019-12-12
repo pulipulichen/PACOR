@@ -49,11 +49,15 @@ let Editor = {
       //let note = this.lib.StringHelper.htmlToText(this.note).trim()
       //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
       let note = this.lib.StringHelper.htmlTrim(this.note)
+      note = this.lib.StringHelper.htmlToText(note, true)
+      
+      let noteReset = this.noteReset
       //let noteReset = this.lib.StringHelper.htmlTrim(this.noteReset)
-      //console.log([note, this.noteReset, (note !== this.noteReset)])
+      //let noteReset = this.lib.StringHelper.htmlToText(this.noteReset, true)
+      console.log([note, noteReset, (note !== noteReset)])
       
       //return (note !== this.noteReset)
-      let isNoteDifferent = (note !== this.noteReset)
+      let isNoteDifferent = (note !== noteReset)
       this.panelData.isAnnotationEditing = isNoteDifferent
       return isNoteDifferent
     },
@@ -149,7 +153,11 @@ let Editor = {
       note = this.lib.StringHelper.removePunctuations(note).trim()
       note = `<p>${note}</p>`
       this.note = note
-      this.noteReset = this.lib.StringHelper.htmlTrim(note)
+      
+      let noteReset = this.lib.StringHelper.htmlTrim(note)
+      noteReset = this.lib.StringHelper.htmlToText(noteReset, true)
+      this.noteReset = noteReset
+      
       if (this.$refs.editor) {
         this.$refs.editor.html(this.note)
       }

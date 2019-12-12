@@ -12,9 +12,18 @@ let AnnotationEditorHeader = {
     'user-information': UserInformation,
     'annotaion-instruction': AnnotaionInstruction
   },
-  /*
+  
   computed: {
+    computedContainerClassList () {
+      if (this.editable) {
+        return 'edit-mode'
+      }
+      else {
+        return 'display-mode'
+      }
+    }
   },
+  /*
   watch: {
   },
   mounted() {

@@ -27,6 +27,23 @@
   &.labeled {
     //padding-top: 2.5em;
   }
+  
+  &.secondary.labeled {
+    &> .label {
+      display: inline-block;
+      position: static;
+      margin-right: 0.5em;
+      margin-bottom: 0.5em;
+      padding-top: 0.5em !important;
+      padding-bottom: 0.5em !important;
+      float:left;
+    }
+    
+    &> .display {
+      //padding: 1em;
+      margin: 0.5em !important;
+    }
+  }
 }
 
 @media only screen and (max-width: 767px) {

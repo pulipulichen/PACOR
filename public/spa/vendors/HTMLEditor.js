@@ -129,7 +129,7 @@ exports.push([module.i, ".note-popover {\n  max-width: none;\n}\n.note-popover .
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".html-editor-container[data-v-2b488c08] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n  padding: 0 !important;\n}\n.html-editor-container.editable[data-v-2b488c08] {\n  min-height: 7em;\n}\n.html-editor-container .label[data-v-2b488c08] {\n  user-select: none;\n  cursor: default;\n  z-index: 700;\n  width: auto !important;\n  font-size: calc(1rem) !important;\n  border-bottom-right-radius: 0 !important;\n  padding-top: 0.8em !important;\n  padding-bottom: 0.8em !important;\n}\n.html-editor-container .ribbon.label[data-v-2b488c08] {\n  margin-bottom: 0.5em;\n}\n@media only screen and (max-width: 767px) {\n.html-editor-container[data-v-2b488c08]  .note-toolbar.center {\n    text-align: right;\n}\n.html-editor-container.editor-left-handed[data-v-2b488c08]  .note-toolbar.center {\n    text-align: left;\n}\n}\n", "",{"version":3,"sources":["HTMLEditor.local.less?vue&type=style&index=0&id=2b488c08&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;EAClB,gBAAgB;EAChB,WAAW;EACX,qBAAqB;AACvB;AACA;EACE,eAAe;AACjB;AACA;EACE,iBAAiB;EACjB,eAAe;EACf,YAAY;EACZ,sBAAsB;EACtB,gCAAgC;EAChC,wCAAwC;EACxC,6BAA6B;EAC7B,gCAAgC;AAClC;AACA;EACE,oBAAoB;AACtB;AACA;AACA;IACI,iBAAiB;AACrB;AACA;IACI,gBAAgB;AACpB;AACA","file":"HTMLEditor.local.less?vue&type=style&index=0&id=2b488c08&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-2b488c08] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n  padding: 0 !important;\n}\n.html-editor-container.editable[data-v-2b488c08] {\n  min-height: 7em;\n}\n.html-editor-container .label[data-v-2b488c08] {\n  user-select: none;\n  cursor: default;\n  z-index: 700;\n  width: auto !important;\n  font-size: calc(1rem) !important;\n  border-bottom-right-radius: 0 !important;\n  padding-top: 0.8em !important;\n  padding-bottom: 0.8em !important;\n}\n.html-editor-container .ribbon.label[data-v-2b488c08] {\n  margin-bottom: 0.5em;\n}\n@media only screen and (max-width: 767px) {\n.html-editor-container[data-v-2b488c08]  .note-toolbar.center {\n    text-align: right;\n}\n.html-editor-container.editor-left-handed[data-v-2b488c08]  .note-toolbar.center {\n    text-align: left;\n}\n}\n"]}]);
+exports.push([module.i, ".html-editor-container[data-v-2b488c08] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n  padding: 0 !important;\n}\n.html-editor-container.editable[data-v-2b488c08] {\n  min-height: 7em;\n}\n.html-editor-container .label[data-v-2b488c08] {\n  user-select: none;\n  cursor: default;\n  z-index: 700;\n  width: auto !important;\n  font-size: calc(1rem) !important;\n  border-bottom-right-radius: 0 !important;\n  padding-top: 0.8em !important;\n  padding-bottom: 0.8em !important;\n}\n.html-editor-container .ribbon.label[data-v-2b488c08] {\n  margin-bottom: 0.5em;\n}\n.html-editor-container.secondary.labeled > .label[data-v-2b488c08] {\n  display: inline-block;\n  position: static;\n  margin-right: 0.5em;\n  margin-bottom: 0.5em;\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  float: left;\n}\n.html-editor-container.secondary.labeled > .display[data-v-2b488c08] {\n  margin: 0.5em !important;\n}\n@media only screen and (max-width: 767px) {\n.html-editor-container[data-v-2b488c08]  .note-toolbar.center {\n    text-align: right;\n}\n.html-editor-container.editor-left-handed[data-v-2b488c08]  .note-toolbar.center {\n    text-align: left;\n}\n}\n", "",{"version":3,"sources":["HTMLEditor.local.less?vue&type=style&index=0&id=2b488c08&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,kBAAkB;EAClB,gBAAgB;EAChB,WAAW;EACX,qBAAqB;AACvB;AACA;EACE,eAAe;AACjB;AACA;EACE,iBAAiB;EACjB,eAAe;EACf,YAAY;EACZ,sBAAsB;EACtB,gCAAgC;EAChC,wCAAwC;EACxC,6BAA6B;EAC7B,gCAAgC;AAClC;AACA;EACE,oBAAoB;AACtB;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,oBAAoB;EACpB,6BAA6B;EAC7B,gCAAgC;EAChC,WAAW;AACb;AACA;EACE,wBAAwB;AAC1B;AACA;AACA;IACI,iBAAiB;AACrB;AACA;IACI,gBAAgB;AACpB;AACA","file":"HTMLEditor.local.less?vue&type=style&index=0&id=2b488c08&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-2b488c08] {\n  cursor: text;\n  overflow-x: hidden;\n  overflow-y: auto;\n  clear: both;\n  padding: 0 !important;\n}\n.html-editor-container.editable[data-v-2b488c08] {\n  min-height: 7em;\n}\n.html-editor-container .label[data-v-2b488c08] {\n  user-select: none;\n  cursor: default;\n  z-index: 700;\n  width: auto !important;\n  font-size: calc(1rem) !important;\n  border-bottom-right-radius: 0 !important;\n  padding-top: 0.8em !important;\n  padding-bottom: 0.8em !important;\n}\n.html-editor-container .ribbon.label[data-v-2b488c08] {\n  margin-bottom: 0.5em;\n}\n.html-editor-container.secondary.labeled > .label[data-v-2b488c08] {\n  display: inline-block;\n  position: static;\n  margin-right: 0.5em;\n  margin-bottom: 0.5em;\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  float: left;\n}\n.html-editor-container.secondary.labeled > .display[data-v-2b488c08] {\n  margin: 0.5em !important;\n}\n@media only screen and (max-width: 767px) {\n.html-editor-container[data-v-2b488c08]  .note-toolbar.center {\n    text-align: right;\n}\n.html-editor-container.editor-left-handed[data-v-2b488c08]  .note-toolbar.center {\n    text-align: left;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -163,32 +163,36 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      ref: "editorContainer",
-      staticClass: "ui raised segment html-editor-container",
-      class: _vm.computedClass,
-      style: _vm.computedStyle,
-      on: { click: _vm.focus }
-    },
-    [
-      _vm.label
-        ? _c("div", { class: _vm.computedLabelClassList }, [
-            _vm._v("\r\n    " + _vm._s(_vm.label) + "\r\n  ")
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.editable ? _c("div", { ref: "editor" }) : _vm._e(),
-      _vm._v(" "),
-      !_vm.editable
-        ? _c("div", {
-            ref: "display",
-            domProps: { innerHTML: _vm._s(_vm.contents) }
-          })
-        : _vm._e()
-    ]
-  )
+  return _vm.showContainer
+    ? _c(
+        "div",
+        {
+          ref: "editorContainer",
+          staticClass: "ui raised segment html-editor-container",
+          class: _vm.computedClass,
+          style: _vm.computedStyle,
+          on: { click: _vm.focus }
+        },
+        [
+          _vm.label
+            ? _c("div", { class: _vm.computedLabelClassList }, [
+                _vm._v("\r\n    " + _vm._s(_vm.label) + "\r\n  ")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.editable ? _c("div", { ref: "editor" }) : _vm._e(),
+          _vm._v(" "),
+          !_vm.editable
+            ? _c("div", {
+                ref: "display",
+                staticClass: "display",
+                style: _vm.computedDisplayStyle,
+                domProps: { innerHTML: _vm._s(_vm.contents) }
+              })
+            : _vm._e()
+        ]
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -456,7 +460,16 @@ __webpack_require__.r(__webpack_exports__);
     return classList
   } // HTMLEditor.computed.computedClass = function () {
 
+  HTMLEditor.computed.showContainer = function () {
+//    console.log(this.editable, this.contents, (this.editable === false 
+//            && (!this.contents || this.contents === '')))
+    return (this.editable === true
+            || (this.contents && this.contents !== ''))
+  }
+
   HTMLEditor.computed.computedStyle = function () {
+    
+    
     if (this.editable === false) {
       return null
     }
@@ -497,6 +510,16 @@ __webpack_require__.r(__webpack_exports__);
       return 'ui top left attached large label'
     }
   }
+  
+  HTMLEditor.computed.computedDisplayStyle = function () {
+    return {
+//      height: this.height,
+//      'max-height': this.height
+      'margin-top': '0.5em !important',
+      //'margin-bottom': '0.5em !important'
+    }
+  }
+  
 });
 
 /***/ }),

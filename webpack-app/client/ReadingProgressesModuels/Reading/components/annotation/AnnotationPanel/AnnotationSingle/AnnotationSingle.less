@@ -19,15 +19,30 @@
       line-height: 2.3em;
       margin-right: 0.5em;
     }
+  } // ::v-deep .annotation-panel-buttons {
+  
+  &.display-mode ::v-deep .annotation-panel-buttons {
+    margin-top: 0.5rem !important
   }
   
-  
+  .annotation-discussion {
+    //border-top: 1px solid #CCC !important;
+
+    &> .divider {
+      display: none;
+    }
+  }
 }
 
 @media (max-width: 767px) {
-  .AnnotationSingle {
+  .ui.stackable.grid.AnnotationSingle {
     .annotation-discussion {
-      border-top: 1px solid #CCC !important;
+      //border-top: 1px solid #CCC !important;
+      padding-top: 0 !important;
+      
+      &> .divider {
+        display: block;
+      }
     }
     
     .annotation-editor {
@@ -50,7 +65,7 @@
 
 @media only screen and (max-width: 991px) {
   .AnnotationSingle.two.column ::v-deep {
-    .AnnotationEditorHeader {
+    .AnnotationEditorHeader.edit-mode {
       .left.column {
         .user-avatar, .username {
           display: none;
