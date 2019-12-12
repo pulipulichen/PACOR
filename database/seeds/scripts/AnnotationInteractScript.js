@@ -13,6 +13,7 @@ const Sleep = use('Sleep')
 const url = '/test-lorem-ipsum'
 let webpage
 let annotation
+let annotation2
 
 module.exports = {
   main: async function () {
@@ -29,6 +30,9 @@ module.exports = {
     console.log('await this.addCommentRates()')
     await this.addCommentRates()
     
+    console.log('await this.addCommentRatesAll()')
+    await this.addCommentRatesAll()
+    
     console.log(__filename + ' is finished.')
   },
   addComments: async function () {
@@ -39,18 +43,26 @@ module.exports = {
     //console.log(userBeCommented.primaryKeyValue)
     //console.log(annotations.size())
     annotation = annotations.nth(1)
+    annotation2 = annotations.nth(2)
     
     // -------------------
     
-    let commenter = await UserModel.findByNameInWebpage(webpage, '布丙')
-    let commentData = {
-      annotationID: annotation.id,
-      note: '回應評論回應評論回應評論'
-    }
+    let commenter1 = await UserModel.findByNameInWebpage(webpage, '布丙')
+    let commenter2 = await UserModel.findByNameInWebpage(webpage, '布丁')
+    //let commenter3 = await UserModel.findByNameInWebpage(webpage, '布戊')
+    
+    
     
     for (let i = 0; i < 100; i++) {
       //console.log('Add comment', i)
-      let comment = await AnnotationCommentModel.createFromJSON(webpage, commenter, commentData)
+      let commentData = {
+        annotationID: annotation.id,
+        note: '#' + i + ' 回應評論回應評論回應評論'
+      }
+      
+      await AnnotationCommentModel.createFromJSON(webpage, commenter1, commentData)
+      await AnnotationCommentModel.createFromJSON(webpage, commenter2, commentData)
+      //await AnnotationCommentModel.createFromJSON(webpage, commenter3, commentData)
     }
     
   },
@@ -81,5 +93,21 @@ module.exports = {
     
     await AnnotationCommentRateModel.like(webpage, rater1, rateData)
     await AnnotationCommentRateModel.like(webpage, rater2, rateData)
+  },
+  
+  addCommentRatesAll: async function () {
+    let comments = await annotation.comments().fetch()
+    
+    // -------------------
+    
+    let rater1 = await UserModel.findByNameInWebpage(webpage, '布戊')
+    
+    for (let i = 0; i < comments.size(); i++) {
+      let comment = comments.nth(i)
+      let rateData = {
+        commentID: comment.id,
+      }
+      await AnnotationCommentRateModel.like(webpage, rater1, rateData)
+    }
   },
 }

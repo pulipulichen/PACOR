@@ -9,6 +9,9 @@ const Cache = use('Cache')
 const Config = use('Config')
 
 const TypeHelper = use('App/Helpers/TypeHelper')
+const DatabaseHelper = use('App/Helpers/DatabaseHelper')
+
+// -------------------------------
 
 class UserNotificationFind {
 
@@ -71,6 +74,8 @@ class UserNotificationFind {
         return await doQuery()
       })
     } // Model.getInit = async function (webpage, user, options) {
+    
+    // -------------------------------------------
     
     Model.getFullInit = async function (webpage, user, options) {
       let {
@@ -160,6 +165,8 @@ class UserNotificationFind {
         if (basetime) {
           query.where('created_at_unixms', '<' , basetime)
         }
+
+        //console.log(DatabaseHelper.toSQL(query))
 
         let notifications = await query.fetch()
         notifications = notifications.toJSON()

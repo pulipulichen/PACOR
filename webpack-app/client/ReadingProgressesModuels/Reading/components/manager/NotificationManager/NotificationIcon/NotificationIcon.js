@@ -40,6 +40,9 @@ let NotificationIcon = {
               this.showFull()
               return false
             }
+            else {
+              this.$refs.feed.scrollToBottom()
+            }
             this.lib.NotificationManager.stopReloadData()
           },
           onHidden: () => {

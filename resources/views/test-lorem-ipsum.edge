@@ -16,6 +16,10 @@
         /*background-color: #CCC;*/
       }
     </style>
+    <script>
+      $ = 1
+      jQuery = 1
+    </script>
   </head>
   <body>
     
@@ -39,6 +43,13 @@
     </article>
   
     <script src="/spa/client-loader.js" async></script>
-    
+    <script>
+      $ = 2
+      jQuery = 2
+      
+      setTimeout(() => {
+        console.log('is $ a number?', typeof($))
+      }, 3000)
+    </script>
   </body>
 </html>

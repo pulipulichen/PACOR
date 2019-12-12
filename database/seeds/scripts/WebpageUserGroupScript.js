@@ -24,6 +24,7 @@ module.exports = {
     this.processGroup0User2()
     this.processGroup0User3()
     this.processGroup0User4()
+    this.processGroup0User5()
     this.processGroup1User1()
     this.processGroup1User2()
     
@@ -41,7 +42,7 @@ module.exports = {
   createGroups: async function () {
     webpage = await WebpageModel.findByURL(url)
     
-    let groupSetting = `布甲 布乙 布丙 布丁 布戊
+    let groupSetting = `布甲 布乙 布丙 布丁 布戊 布戊2
 布己 布庚 布辛 布壬 布癸`
     await webpage.setGroupsList(groupSetting)
   },
@@ -125,6 +126,19 @@ module.exports = {
     
     await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataLower1())
     await AnnotationModel.create(webpage, user, AnnotationParameters.annotationDataLower1())
+    // 走到這裡應該要是 CollaborativeReading
+  },
+  
+  processGroup0User5: async function () {
+    let user = await UserModel.findByNameInWebpage(webpage, '布戊')
+    
+    await user.startReadingProgress(webpage)
+    await Sleep(0.3)
+    await user.endReadingProgress(webpage)
+    
+    await AnnotationModel.create(webpage, user, AnnotationParameters.sectionAnnotation2())
+    await Sleep(0.3)
+    await user.endReadingProgress(webpage)
     // 走到這裡應該要是 CollaborativeReading
   },
   

@@ -19,8 +19,13 @@ let NotificationFeed = {
       basetime: null
     }
   },
-  components: {
-  },
+//  mounted () {
+//    setTimeout(() => {
+//      this.scrollToBottom()
+//    }, 1000)
+//  },
+//  components: {
+//  },
 //  computed: {
 //    basetime () {
 //      this.notificationData.notifications[0].created_at_unixms
@@ -28,10 +33,12 @@ let NotificationFeed = {
 //  },
   watch: {
     'notificationData.unreadNotifications' () {
+      //console.log(this.notificationData)
       if (this.notificationData.unreadNotifications.length < 3) {
         return null
       }
       
+      //console.log(this.basetime)
       if (!this.basetime) {
         this.scrollToBottom()
       }
@@ -44,6 +51,7 @@ let NotificationFeed = {
       }
     }
   },
+  components: {}, // 必須要有
 //  mounted() {
 //  },
   methods: {
@@ -90,6 +98,10 @@ let NotificationFeed = {
       }
       let focusComment = this.feed.children('.event:first')
       
+      if (!this.basetime) {
+        this.basetime = parseInt(this.notificationData.unreadNotifications[0].created_at_unixms, 10)
+      }
+      
       let data = {
         basetime: this.basetime
       }
@@ -98,12 +110,18 @@ let NotificationFeed = {
       //return
       
       let notifications = await this.lib.AxiosHelper.get('/client/UserNotification/unreadOlder', data)
-      //console.log(notifications)
+      
       if (notifications.length === 0) {
         this.noOlder = true
         this.loadLock = false
         return null
       }
+      
+      //this.basetime = parseInt(notifications[(notifications.length - 1)].created_at_unixms, 10)
+      this.basetime = parseInt(notifications[0].created_at_unixms, 10)
+      
+      //console.log(this.basetime)
+      //console.log(notifications)
       
       this.notificationData.unreadNotifications = notifications.concat(this.notificationData.unreadNotifications)
       

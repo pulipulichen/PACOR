@@ -11219,7 +11219,7 @@ let Editor = {
       let noteReset = this.noteReset
       //let noteReset = this.lib.StringHelper.htmlTrim(this.noteReset)
       //let noteReset = this.lib.StringHelper.htmlToText(this.noteReset, true)
-      console.log([note, noteReset, (note !== noteReset)])
+      //console.log([note, noteReset, (note !== noteReset)])
       
       //return (note !== this.noteReset)
       let isNoteDifferent = (note !== noteReset)
@@ -11523,7 +11523,7 @@ let Editor = {
       let noteReset = this.noteReset
       //let noteReset = this.lib.StringHelper.htmlTrim(this.noteReset)
       //let noteReset = this.lib.StringHelper.htmlToText(this.noteReset, true)
-      console.log([note, noteReset, (note !== noteReset)])
+      //console.log([note, noteReset, (note !== noteReset)])
       
       //return (note !== this.noteReset)
       let isNoteDifferent = (note !== noteReset)
