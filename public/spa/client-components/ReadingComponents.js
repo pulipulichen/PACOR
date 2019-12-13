@@ -361,7 +361,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"All Types":"全部標註"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"All Types":"全部標註","Type Filtering":"選擇標註類型"}}')
   delete Component.options._Ctor
 }
 
@@ -865,7 +865,7 @@ exports.push([module.i, ".header-container[data-v-f84ea218] {\n  text-align: cen
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationTypeFilter[data-v-76134036]  .AnnotationTypeButton {\n  padding: 0.5em 0.7em !important;\n}\n", "",{"version":3,"sources":["AnnotationTypeFilter.less?vue&type=style&index=0&id=76134036&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,+BAA+B;AACjC","file":"AnnotationTypeFilter.less?vue&type=style&index=0&id=76134036&lang=less&scoped=true&","sourcesContent":[".AnnotationTypeFilter[data-v-76134036]  .AnnotationTypeButton {\n  padding: 0.5em 0.7em !important;\n}\n"]}]);
+exports.push([module.i, ".AnnotationTypeFilter[data-v-76134036]  .AnnotationTypeButton {\n  padding: 0.5em 0.7em !important;\n}\n.vertical.menu .item-icon[data-v-76134036] {\n  float: right;\n  margin-top: -0.2em;\n  margin-right: -0.5em;\n}\n", "",{"version":3,"sources":["AnnotationTypeFilter.less?vue&type=style&index=0&id=76134036&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,+BAA+B;AACjC;AACA;EACE,YAAY;EACZ,kBAAkB;EAClB,oBAAoB;AACtB","file":"AnnotationTypeFilter.less?vue&type=style&index=0&id=76134036&lang=less&scoped=true&","sourcesContent":[".AnnotationTypeFilter[data-v-76134036]  .AnnotationTypeButton {\n  padding: 0.5em 0.7em !important;\n}\n.vertical.menu .item-icon[data-v-76134036] {\n  float: right;\n  margin-top: -0.2em;\n  margin-right: -0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -3811,27 +3811,49 @@ var render = function() {
     {
       ref: "anchor",
       staticClass: "item AnnotationTypeFilter",
-      on: { click: _vm.show }
+      on: {
+        click: function($event) {
+          if ($event.target !== $event.currentTarget) {
+            return null
+          }
+          return _vm.show($event)
+        }
+      }
     },
     [
-      _vm.type
-        ? [
-            _c("annotation-type-button", {
-              attrs: {
-                lib: _vm.lib,
-                config: _vm.config,
-                status: _vm.status,
-                type: _vm.type
-              },
-              on: { find: _vm.show }
-            })
-          ]
-        : [
-            _c("annotation-type-button", {
-              attrs: { lib: _vm.lib, config: _vm.config, status: _vm.status },
-              on: { find: _vm.show }
-            })
-          ],
+      _c(
+        "span",
+        { staticClass: "item-icon" },
+        [
+          _vm.type
+            ? [
+                _c("annotation-type-button", {
+                  attrs: {
+                    lib: _vm.lib,
+                    config: _vm.config,
+                    status: _vm.status,
+                    type: _vm.type
+                  },
+                  on: { find: _vm.show }
+                })
+              ]
+            : [
+                _c("annotation-type-button", {
+                  attrs: {
+                    lib: _vm.lib,
+                    config: _vm.config,
+                    status: _vm.status
+                  },
+                  on: { find: _vm.show }
+                })
+              ]
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("span", { staticClass: "item-label in-vertical" }, [
+        _vm._v("\r\n    " + _vm._s(_vm.$t("Type Filtering")) + "\r\n  ")
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -3844,8 +3866,7 @@ var render = function() {
         ],
         1
       )
-    ],
-    2
+    ]
   )
 }
 var staticRenderFns = []
@@ -23957,6 +23978,7 @@ let AnnotationTypeFilter = {
                 hoverable  : true,
                 on    : 'click',
                 position: "top center",
+                //boundary: document.body,
                 onShow: () => {
                   this.$refs.AnnotationTypeFilterPopup.load()
                 }

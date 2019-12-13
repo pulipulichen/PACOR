@@ -46,6 +46,7 @@ let AnnotationTypeFilter = {
                 hoverable  : true,
                 on    : 'click',
                 position: "top center",
+                //boundary: document.body,
                 onShow: () => {
                   this.$refs.AnnotationTypeFilterPopup.load()
                 }

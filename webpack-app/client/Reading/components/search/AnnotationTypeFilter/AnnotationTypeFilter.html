@@ -1,25 +1,32 @@
 <a class="item AnnotationTypeFilter"
-   v-on:click="show"
+   v-on:click.self="show"
    ref="anchor">
-  <template v-if="type">
-    <annotation-type-button 
+  
+  <span class="item-icon">
+    <template v-if="type">
+      <annotation-type-button 
+          v-bind:lib="lib"
+          v-bind:config="config"
+          v-bind:status="status"
+
+          v-bind:type="type"
+          v-on:find="show">
+      </annotation-type-button>
+    </template>
+    <template v-else>
+      <annotation-type-button 
         v-bind:lib="lib"
         v-bind:config="config"
         v-bind:status="status"
 
-        v-bind:type="type"
         v-on:find="show">
-    </annotation-type-button>
-  </template>
-  <template v-else>
-    <annotation-type-button 
-      v-bind:lib="lib"
-      v-bind:config="config"
-      v-bind:status="status"
-
-      v-on:find="show">
-    </annotation-type-button>
-  </template>
+      </annotation-type-button>
+    </template>
+  </span>
+  
+  <span class="item-label in-vertical">
+    {{ $t('Type Filtering') }}
+  </span>
   
   <div class="ui tertiary popup"
        ref="popup">
