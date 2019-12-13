@@ -1,0 +1,32 @@
+@media only screen and (max-width: 767px) {
+  .summary-information {
+    .search-input {
+      width: calc(100% - 10em);
+    }
+    
+    .counting.label {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 10em;
+    }
+    
+    ::v-deep .AnnotationTypeButton,
+    ::v-deep .UserAvatarIcons {
+      display: none;
+    }
+
+/*    ::v-deep .AnnotationTypeButton {
+      text-indent: -9999px;
+      padding-left: 0;
+      padding-right: 0;
+      width: 1em;
+    }
+    
+    .counting.label,
+    ::v-deep .user-count {
+      display: none;
+    }*/
+  }
+    
+}

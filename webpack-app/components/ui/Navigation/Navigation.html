@@ -2,7 +2,7 @@
   <div class="ui borderless inverted Navigation horizontal-menu"
        ref="Menu"
        v-bind:class="computedTopMenuClass"
-       v-show="isVisible">
+       v-show="isVisible !== false">
     <slot name="header"></slot>
     
     <media v-bind:query="{minWidth: maxWidth}"

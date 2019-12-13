@@ -1075,8 +1075,8 @@ var render = function() {
           {
             name: "show",
             rawName: "v-show",
-            value: _vm.isVisible,
-            expression: "isVisible"
+            value: _vm.isVisible !== false,
+            expression: "isVisible !== false"
           }
         ],
         ref: "Menu",

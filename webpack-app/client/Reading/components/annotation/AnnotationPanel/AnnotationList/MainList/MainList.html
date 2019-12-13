@@ -4,7 +4,7 @@
 
     <div class="summary-information">
       
-      <div class="ui icon mini input search-input"
+      <div class="ui icon input search-input"
            v-if="annotation === null">
         <input type="text" 
                v-model="panelData.keyword"
@@ -44,7 +44,7 @@
           v-on:find="findType">
         </annotation-type-button>
 
-        <div class="label">
+        <div class="counting label">
           {{ $t('Total {0} Annotations', [ annotationCount ]) }}
         </div>
       </template>
