@@ -19,7 +19,8 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    this._testUserFilter()
+    //this._testUserFilter()
+    this._testVerticalMenu()
   },
   destroyed () {
     //console.log('退場了')
@@ -165,7 +166,15 @@ let CollaborativeReading = {
       await this.lib.VueHelper.sleep(1000)
       
       this.lib.NotificationManager.showFull()
+    },
+    _testVerticalMenu: async function () {
+      console.log('_testVerticalMenu')
+      await this.lib.VueHelper.sleep(1000)
+      
+      $('.Navigation .right.menu .ellipsis.icon').click()
     }
+    
+    
    } // methods
 }
 

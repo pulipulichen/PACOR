@@ -1123,10 +1123,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      {
-        staticClass: "ui inverted right fixed vertical menu",
-        class: _vm.computedVerticalMenuClass
-      },
+      { staticClass: "ui inverted", class: _vm.computedVerticalMenuClass },
       [
         _c(
           "div",
@@ -4965,6 +4962,13 @@ let Navigation = {
       
       if (this.color) {
         classList.push(this.color)
+      }
+      
+      if (this.lib.style.isLeftHanded) {
+        classList.push('left')
+      }
+      else {
+        classList.push('right')
       }
       
       return classList.join(' ') + ' fixed vertical menu'

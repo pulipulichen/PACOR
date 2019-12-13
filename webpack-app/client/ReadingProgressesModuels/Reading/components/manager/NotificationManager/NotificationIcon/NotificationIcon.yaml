@@ -1,4 +1,7 @@
 en:
+  'Unread Notifications: {0}': "'Unread Notification: {0}' | 'Unread Notifications: {0}'"
   
 zh-TW:
   View All Notifications: 檢視所有通知
+  'Unread Notifications: {0}': 未讀通知：{0}
+  Notification: 通知

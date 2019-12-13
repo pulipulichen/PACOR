@@ -5,6 +5,15 @@
      ref="anchor"
      v-on:click.once="initPopup"></i>
 
+  <span class="item-label in-vertical">
+    <template v-if="notificationData.unreadCount > 0">
+      {{ $t('Unread Notifications: {0}', [notificationData.unreadCount]) }}
+    </template>
+    <template v-else>
+      {{ $t('Notification') }}
+    </template>
+  </span>
+  
   <div v-if="notificationData.unreadCount > 0"
        class="floating ui red label"
        v-on:click.self="() => { $refs.anchor.click() }">

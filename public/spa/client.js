@@ -329,7 +329,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"View All Notifications":"檢視所有通知"}}')
+  Component.options.__i18n.push('{"en":{"Unread Notifications: {0}":"\u0027Unread Notification: {0}\u0027 | \u0027Unread Notifications: {0}\u0027"},"zh-TW":{"View All Notifications":"檢視所有通知","Unread Notifications: {0}":"未讀通知：{0}","Notification":"通知"}}')
   delete Component.options._Ctor
 }
 
@@ -847,7 +847,7 @@ exports.push([module.i, ".popup[data-v-31df0066] {\n  cursor: pointer;\n  z-inde
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".right-column[data-v-5e5c50d9] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-5e5c50d9] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-5e5c50d9] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-5e5c50d9] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-5e5c50d9] {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["UserFilter.less?vue&type=style&index=0&id=5e5c50d9&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wDAAwD;AAC1D;AACA;EACE,mBAAmB;AACrB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,0BAA0B;EAC1B,sBAAsB;AACxB;AACA;AACA;IACI,aAAa;AACjB;AACA","file":"UserFilter.less?vue&type=style&index=0&id=5e5c50d9&lang=less&scoped=true&","sourcesContent":[".right-column[data-v-5e5c50d9] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-5e5c50d9] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-5e5c50d9] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-5e5c50d9] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-5e5c50d9] {\n    display: none;\n}\n}\n"]}]);
+exports.push([module.i, ".right-column[data-v-5e5c50d9] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-5e5c50d9] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-5e5c50d9] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-5e5c50d9] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-5e5c50d9] {\n    display: none;\n}\n.vertical.menu .peer-label[data-v-5e5c50d9] {\n    display: inline;\n}\n}\n", "",{"version":3,"sources":["UserFilter.less?vue&type=style&index=0&id=5e5c50d9&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wDAAwD;AAC1D;AACA;EACE,mBAAmB;AACrB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,0BAA0B;EAC1B,sBAAsB;AACxB;AACA;AACA;IACI,aAAa;AACjB;AACA;IACI,eAAe;AACnB;AACA","file":"UserFilter.less?vue&type=style&index=0&id=5e5c50d9&lang=less&scoped=true&","sourcesContent":[".right-column[data-v-5e5c50d9] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-5e5c50d9] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-5e5c50d9] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-5e5c50d9] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-5e5c50d9] {\n    display: none;\n}\n.vertical.menu .peer-label[data-v-5e5c50d9] {\n    display: inline;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -1696,6 +1696,31 @@ var render = function() {
           }
         }
       }),
+      _vm._v(" "),
+      _c(
+        "span",
+        { staticClass: "item-label in-vertical" },
+        [
+          _vm.notificationData.unreadCount > 0
+            ? [
+                _vm._v(
+                  "\r\n      " +
+                    _vm._s(
+                      _vm.$t("Unread Notifications: {0}", [
+                        _vm.notificationData.unreadCount
+                      ])
+                    ) +
+                    "\r\n    "
+                )
+              ]
+            : [
+                _vm._v(
+                  "\r\n      " + _vm._s(_vm.$t("Notification")) + "\r\n    "
+                )
+              ]
+        ],
+        2
+      ),
       _vm._v(" "),
       _vm.notificationData.unreadCount > 0
         ? _c(

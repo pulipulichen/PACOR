@@ -62,6 +62,13 @@ let Navigation = {
         classList.push(this.color)
       }
       
+      if (this.lib.style.isLeftHanded) {
+        classList.push('left')
+      }
+      else {
+        classList.push('right')
+      }
+      
       return classList.join(' ') + ' fixed vertical menu'
     }
   },
