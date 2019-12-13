@@ -10,6 +10,7 @@ let NavigationItems = {
     this.$i18n.locale = this.config.locale
     
     return {
+      isSideMenuDisplay: false
     }
   },
   components: {
@@ -19,8 +20,13 @@ let NavigationItems = {
     WebpageAdminModal
   },
 //  
-//  computed: {
-//  },
+  computed: {
+    searchManagerSize () {
+      if (this.isSideMenuDisplay === false) {
+        return 'mini'
+      }
+    }
+  },
 //  watch: {
 //    '$refs.UserFilter' (UserFilter) {
 //      if (UserFilter) {
@@ -42,7 +48,9 @@ let NavigationItems = {
     showWebpageConfig () {
       this.$refs.WebpageAdminModal.show()
     },
-    
+    hideSideMenu () {
+      this.$refs.nav.hideSideMenu()
+    },
     // ----------------------------
     
     testShowWebpageConfig () {

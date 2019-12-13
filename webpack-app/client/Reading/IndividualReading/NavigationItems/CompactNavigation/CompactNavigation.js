@@ -87,11 +87,11 @@ let CompactNavigation = {
     removePlaceholder: function () {
       this.placeholder.remove()
     },
-    showSideMenu: function () {
-      this.sideMenuDisplay = true
-    },
+//    showSideMenu: function () {
+//      this.sideMenuDisplay = true
+//    },
     hideSideMenu: function () {
-      this.sideMenuDisplay = false
+      this.$refs.nav.hideSideMenu()
     },
 //    timeup () {
 //      this.lib.auth.nextStep()

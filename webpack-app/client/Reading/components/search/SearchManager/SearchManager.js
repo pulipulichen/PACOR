@@ -54,6 +54,7 @@ let SearchInput = {
       }
     },
     searchAnnotation () {
+      this.$emit('search')
       
       // 先設定篩選條件
       this.lib.AnnotationPanel.findKeyword(this.status.search.keyword)

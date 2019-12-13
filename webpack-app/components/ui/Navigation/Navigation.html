@@ -1,7 +1,8 @@
 <fragment>
-  <div class="ui borderless inverted Navigation"
+  <div class="ui borderless inverted Navigation horizontal-menu"
        ref="Menu"
-       v-bind:class="computedTopMenuClass">
+       v-bind:class="computedTopMenuClass"
+       v-show="isVisible">
     <slot name="header"></slot>
     
     <media v-bind:query="{minWidth: maxWidth}"
@@ -25,18 +26,20 @@
   
   <!-- ========== -->
   
-  <div class="ui inverted"
+  <div class="vertical-menu ui inverted"
        v-bind:class="computedVerticalMenuClass">
     
     <div class="item in-vertical close"
          v-on:click="hideSideMenu">
       
-      <img v-bind:src="config.baseURL + '/imgs/pacor.svg'" />
-      
-      <div class="site-header">
-        {{ $t('PACOR') }}
-      </div>
-      
+      <template v-if="!$slots.verticalHeaderItem">
+        <img v-bind:src="config.baseURL + '/imgs/pacor.svg'" />
+
+        <div class="site-header">
+          {{ $t('PACOR') }}
+        </div>
+      </template>
+      <slot name="verticalHeaderItem"></slot>
       
       <i class="close icon"></i>
     </div>
@@ -45,5 +48,6 @@
   </div>
   
   <div class="overlay"
-       v-if="sideMenuDisplay"></div>
+       v-if="sideMenuDisplay"
+       v-on:click="hideSideMenu"></div>
 </fragment>

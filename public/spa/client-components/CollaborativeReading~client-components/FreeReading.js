@@ -52,9 +52,14 @@ var render = function() {
           config: _vm.config,
           status: _vm.status,
           lib: _vm.lib,
-          compactWidth: "640",
+          compactWidth: "767",
           position: "bottom",
           color: "brown"
+        },
+        on: {
+          onSideMenuChange: function(m) {
+            _vm.isSideMenuDisplay = m
+          }
         },
         scopedSlots: _vm._u(
           [
@@ -136,8 +141,9 @@ var render = function() {
                         attrs: {
                           status: _vm.status,
                           lib: _vm.lib,
-                          size: "mini"
-                        }
+                          size: _vm.searchManagerSize
+                        },
+                        on: { search: _vm.hideSideMenu }
                       })
                     ],
                     1
@@ -174,11 +180,27 @@ var render = function() {
                 ]
               },
               proxy: true
+            },
+            {
+              key: "verticalHeaderItem",
+              fn: function() {
+                return [
+                  _c("navigation-header-item", {
+                    attrs: {
+                      config: _vm.config,
+                      status: _vm.status,
+                      lib: _vm.lib
+                    },
+                    on: { click: _vm.showInstruction }
+                  })
+                ]
+              },
+              proxy: true
             }
           ],
           null,
           false,
-          391045621
+          687199592
         )
       })
     : _vm._e()
@@ -258,7 +280,8 @@ let NavigationItems = {
     }
 
     return {
-      pauseAtStart
+      pauseAtStart,
+      isSideMenuDisplay: false
     }
   },
   components: {
@@ -267,8 +290,13 @@ let NavigationItems = {
     //'user-filter': UserFilter
   },
 //  
-//  computed: {
-//  },
+  computed: {
+    searchManagerSize () {
+      if (this.isSideMenuDisplay === false) {
+        return 'mini'
+      }
+    }
+  },
 //  watch: {
 //    '$refs.UserFilter' (UserFilter) {
 //      if (UserFilter) {
@@ -289,6 +317,9 @@ let NavigationItems = {
   methods: {
     showInstruction () {
       this.$emit('showInstruction')
+    },
+    hideSideMenu () {
+      this.$refs.nav.hideSideMenu()
     },
 //    nextStep () {
 //      this.lib.auth.nextStep()

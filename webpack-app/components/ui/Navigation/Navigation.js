@@ -1,7 +1,8 @@
 import Media from 'vue-media'
 
 let Navigation = {
-  props: ['config', 'lib', 'compactWidth', 'position', 'color'],
+  props: ['config', 'lib'
+    , 'compactWidth', 'position', 'color', 'isVisible'],
   data() {
     return {
       sideMenuDisplay: false,
@@ -15,6 +16,10 @@ let Navigation = {
   watch: {
     isCompactMode (isCompactMode) {
       this.$emit('changeCompactMode', isCompactMode)
+    },
+    
+    sideMenuDisplay (sideMenuDisplay) {
+      this.$emit('onSideMenuChange', sideMenuDisplay)
     }
   },
   computed: {
@@ -72,10 +77,6 @@ let Navigation = {
       return classList.join(' ') + ' fixed vertical menu'
     }
   },
-  /*
-  watch: {
-  },
-   */
   mounted() {
     let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     this.isCompactMode = (width < this.compactWidth)

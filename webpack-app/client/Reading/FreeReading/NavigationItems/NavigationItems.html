@@ -6,9 +6,10 @@
     v-bind:status="status"
     v-bind:lib="lib"
     v-if="status.progress.highlights"
-    compactWidth="640"
+    compactWidth="767"
     position="bottom"
-    color="blue">
+    color="blue"
+    v-on:onSideMenuChange="(m) => {isSideMenuDisplay = m}">
     <template v-slot:header>
       
       <notification-icon
@@ -56,7 +57,8 @@
         <search-manager 
           v-bind:status="status"
           v-bind:lib="lib"
-          size="mini">
+          v-bind:size="searchManagerSize"
+          v-on:search="hideSideMenu">
         </search-manager>
       </div>
 
@@ -78,7 +80,16 @@
         v-bind:lib="lib">
       </notification-icon>
     </template>
-
+    
+    <template v-slot:verticalHeaderItem>
+      <navigation-header-item 
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-on:click="showWebpageConfig">
+      </navigation-header-item>
+    </template>
+    
   </navigation>
 
   <WebpageAdminModal 
@@ -87,5 +98,4 @@
     v-bind:status="status"
     v-bind:lib="lib">
   </WebpageAdminModal>
-
 </div>

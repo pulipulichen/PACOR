@@ -259,7 +259,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".overlay[data-v-338540a1] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(255, 255, 255, 0.7);\n  z-index: 102;\n}\n", "",{"version":3,"sources":["Navigation.overlay.less?vue&type=style&index=3&id=338540a1&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,YAAY;EACZ,aAAa;EACb,0CAA0C;EAC1C,YAAY;AACd","file":"Navigation.overlay.less?vue&type=style&index=3&id=338540a1&lang=less&scoped=true&","sourcesContent":[".overlay[data-v-338540a1] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(255, 255, 255, 0.7);\n  z-index: 102;\n}\n"]}]);
+exports.push([module.i, ".overlay[data-v-338540a1] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(255, 255, 255, 0.7);\n  z-index: 102;\n  cursor: pointer;\n}\n", "",{"version":3,"sources":["Navigation.overlay.less?vue&type=style&index=3&id=338540a1&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,YAAY;EACZ,aAAa;EACb,0CAA0C;EAC1C,YAAY;EACZ,eAAe;AACjB","file":"Navigation.overlay.less?vue&type=style&index=3&id=338540a1&lang=less&scoped=true&","sourcesContent":[".overlay[data-v-338540a1] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(255, 255, 255, 0.7);\n  z-index: 102;\n  cursor: pointer;\n}\n"]}]);
 
 
 /***/ }),
@@ -1071,8 +1071,16 @@ var render = function() {
     _c(
       "div",
       {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.isVisible,
+            expression: "isVisible"
+          }
+        ],
         ref: "Menu",
-        staticClass: "ui borderless inverted Navigation",
+        staticClass: "ui borderless inverted Navigation horizontal-menu",
         class: _vm.computedTopMenuClass
       },
       [
@@ -1123,7 +1131,10 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "ui inverted", class: _vm.computedVerticalMenuClass },
+      {
+        staticClass: "vertical-menu ui inverted",
+        class: _vm.computedVerticalMenuClass
+      },
       [
         _c(
           "div",
@@ -1132,16 +1143,27 @@ var render = function() {
             on: { click: _vm.hideSideMenu }
           },
           [
-            _c("img", {
-              attrs: { src: _vm.config.baseURL + "/imgs/pacor.svg" }
-            }),
+            !_vm.$slots.verticalHeaderItem
+              ? [
+                  _c("img", {
+                    attrs: { src: _vm.config.baseURL + "/imgs/pacor.svg" }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "site-header" }, [
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(_vm.$t("PACOR")) +
+                        "\r\n        "
+                    )
+                  ])
+                ]
+              : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "site-header" }, [
-              _vm._v("\r\n        " + _vm._s(_vm.$t("PACOR")) + "\r\n      ")
-            ]),
+            _vm._t("verticalHeaderItem"),
             _vm._v(" "),
             _c("i", { staticClass: "close icon" })
-          ]
+          ],
+          2
         ),
         _vm._v(" "),
         _vm._t("items")
@@ -1149,7 +1171,9 @@ var render = function() {
       2
     ),
     _vm._v(" "),
-    _vm.sideMenuDisplay ? _c("div", { staticClass: "overlay" }) : _vm._e()
+    _vm.sideMenuDisplay
+      ? _c("div", { staticClass: "overlay", on: { click: _vm.hideSideMenu } })
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -4903,7 +4927,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let Navigation = {
-  props: ['config', 'lib', 'compactWidth', 'position', 'color'],
+  props: ['config', 'lib'
+    , 'compactWidth', 'position', 'color', 'isVisible'],
   data() {
     return {
       sideMenuDisplay: false,
@@ -4917,6 +4942,10 @@ let Navigation = {
   watch: {
     isCompactMode (isCompactMode) {
       this.$emit('changeCompactMode', isCompactMode)
+    },
+    
+    sideMenuDisplay (sideMenuDisplay) {
+      this.$emit('onSideMenuChange', sideMenuDisplay)
     }
   },
   computed: {
@@ -4974,10 +5003,6 @@ let Navigation = {
       return classList.join(' ') + ' fixed vertical menu'
     }
   },
-  /*
-  watch: {
-  },
-   */
   mounted() {
     let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     this.isCompactMode = (width < this.compactWidth)

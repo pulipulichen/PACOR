@@ -243,9 +243,14 @@ var render = function() {
               config: _vm.config,
               status: _vm.status,
               lib: _vm.lib,
-              compactWidth: "640",
+              compactWidth: "767",
               position: "bottom",
               color: "blue"
+            },
+            on: {
+              onSideMenuChange: function(m) {
+                _vm.isSideMenuDisplay = m
+              }
             },
             scopedSlots: _vm._u(
               [
@@ -305,8 +310,9 @@ var render = function() {
                             attrs: {
                               status: _vm.status,
                               lib: _vm.lib,
-                              size: "mini"
-                            }
+                              size: _vm.searchManagerSize
+                            },
+                            on: { search: _vm.hideSideMenu }
                           })
                         ],
                         1
@@ -342,11 +348,27 @@ var render = function() {
                     ]
                   },
                   proxy: true
+                },
+                {
+                  key: "verticalHeaderItem",
+                  fn: function() {
+                    return [
+                      _c("navigation-header-item", {
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib
+                        },
+                        on: { click: _vm.showWebpageConfig }
+                      })
+                    ]
+                  },
+                  proxy: true
                 }
               ],
               null,
               false,
-              3455811372
+              257274208
             )
           })
         : _vm._e(),
@@ -1347,6 +1369,7 @@ let NavigationItems = {
     this.$i18n.locale = this.config.locale
     
     return {
+      isSideMenuDisplay: false
     }
   },
   components: {
@@ -1356,8 +1379,13 @@ let NavigationItems = {
     WebpageAdminModal: _WebpageAdminModal_WebpageAdminModal_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
 //  
-//  computed: {
-//  },
+  computed: {
+    searchManagerSize () {
+      if (this.isSideMenuDisplay === false) {
+        return 'mini'
+      }
+    }
+  },
 //  watch: {
 //    '$refs.UserFilter' (UserFilter) {
 //      if (UserFilter) {
@@ -1379,7 +1407,9 @@ let NavigationItems = {
     showWebpageConfig () {
       this.$refs.WebpageAdminModal.show()
     },
-    
+    hideSideMenu () {
+      this.$refs.nav.hideSideMenu()
+    },
     // ----------------------------
     
     testShowWebpageConfig () {

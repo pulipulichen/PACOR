@@ -18,7 +18,8 @@ let NavigationItems = {
     }
 
     return {
-      pauseAtStart
+      pauseAtStart,
+      isSideMenuDisplay: false
     }
   },
   components: {
@@ -27,8 +28,13 @@ let NavigationItems = {
     //'user-filter': UserFilter
   },
 //  
-//  computed: {
-//  },
+  computed: {
+    searchManagerSize () {
+      if (this.isSideMenuDisplay === false) {
+        return 'mini'
+      }
+    }
+  },
 //  watch: {
 //    '$refs.UserFilter' (UserFilter) {
 //      if (UserFilter) {
@@ -49,6 +55,9 @@ let NavigationItems = {
   methods: {
     showInstruction () {
       this.$emit('showInstruction')
+    },
+    hideSideMenu () {
+      this.$refs.nav.hideSideMenu()
     },
 //    nextStep () {
 //      this.lib.auth.nextStep()

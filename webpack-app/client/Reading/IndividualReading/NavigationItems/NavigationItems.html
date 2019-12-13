@@ -3,7 +3,7 @@
   v-bind:config="config"
   v-bind:status="status"
   v-bind:lib="lib"
-  compactWidth="400"
+  compactWidth="767"
   position="bottom"
   v-bind:pauseAtStart="pauseAtStart"
   v-if="status.progress.highlights"
@@ -52,11 +52,19 @@
     <div class="item">
       <search-manager 
         v-bind:status="status"
-        v-bind:lib="lib">
+        v-bind:lib="lib"
+        v-on:search="hideSideMenu">
       </search-manager>
     </div>
-
   </template>
   
+  <template v-slot:verticalHeaderItem>
+    <navigation-header-item 
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+      v-on:click="showInstruction">
+    </navigation-header-item>
+  </template>
 
 </compact-navigation>

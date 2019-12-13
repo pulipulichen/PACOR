@@ -1,8 +1,8 @@
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
+import CompactNavigation from './CompactNavigation/CompactNavigation.vue'
 
 let NavigationItems = {
-  props: ['lib', 'status', 'config'
-    , 'progress', 'error'],
+  props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
     
@@ -13,8 +13,12 @@ let NavigationItems = {
     }
     //console.log(pauseAtStart)
     return {
-      pauseAtStart
+      pauseAtStart,
+//      isSideMenuDisplay: false
     }
+  },
+  components: {
+    "compact-navigation": CompactNavigation
   },
 //  components: {
 //    'annotation-type-filter': AnnotationTypeFilter,
@@ -44,6 +48,9 @@ let NavigationItems = {
     showInstruction () {
       this.$emit('showInstruction')
     },
+    hideSideMenu () {
+      this.$refs.nav.hideSideMenu()
+    }
 //    nextStep () {
 //      this.lib.auth.nextStep()
 //    }
