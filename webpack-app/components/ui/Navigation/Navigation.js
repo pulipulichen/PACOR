@@ -30,7 +30,7 @@ let Navigation = {
         return 0
       }
     },
-    computedClass: function () {
+    computedTopMenuClass: function () {
       let classList = []
       
       if (typeof(this.position) !== 'string') {
@@ -49,8 +49,21 @@ let Navigation = {
       }
       
       return classList.join(' ') + ' fixed menu'
+    },
+    computedVerticalMenuClass: function () {
+      let classList = []
+      
+      // {hide: !sideMenuDisplay}
+      if (!this.sideMenuDisplay) {
+        classList.push('hide')
+      }
+      
+      if (this.color) {
+        classList.push(this.color)
+      }
+      
+      return classList.join(' ') + ' fixed vertical menu'
     }
-    
   },
   /*
   watch: {

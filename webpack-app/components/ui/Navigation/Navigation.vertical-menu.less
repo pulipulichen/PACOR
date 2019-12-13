@@ -37,29 +37,6 @@
   }
 }
 
-/*
-@media screen and (min-width: @TopMenuMinWidth) {
-  
-}
-*/
-/*
-@media screen and (max-width: @TopMenuMinWidth) {
-  .placeholder {
-    padding-top: 0;
-  }
-}
-*/
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(255,255,255,0.7);
-  z-index: 102;
-}
-
 .ui.vertical.menu {
   .close.item {
     cursor: pointer;
@@ -84,29 +61,10 @@
   }
 }
 
-/*
-@media screen and (min-width: @TopMenuMinWidth) {
-  .ui.top.menu .menu-compact.right.menu {
-    display:none !important; 
-  }
-}
+// -----------------------
 
-@media screen and (max-width: @TopMenuMinWidth) {
-  .ui.top.menu .menu-full.right.menu {
+.top.menu ::v-deep {
+  .in-vertical {
     display: none !important;
   }
-  
-  .ui.top.menu .item.title {
-    max-width: calc(100vw - 8rem);
-  }
 }
-*/
-
-.ui.top.menu.compact-mode .item.title {
-  max-width: calc(100vw - 8rem);
-}
-
-/*.compact-mode.bottom.menu {
-  top: auto !important;
-  bottom: 0 !important;
-}*/

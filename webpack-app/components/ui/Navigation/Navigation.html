@@ -1,7 +1,7 @@
 <fragment>
   <div class="ui borderless inverted Navigation"
        ref="Menu"
-       v-bind:class="computedClass">
+       v-bind:class="computedTopMenuClass">
     <slot name="header"></slot>
     
     <media v-bind:query="{minWidth: maxWidth}"
@@ -26,7 +26,7 @@
   <!-- ========== -->
   
   <div class="ui inverted right fixed vertical menu"
-       v-bind:class="{hide: !sideMenuDisplay}">
+       v-bind:class="computedVerticalMenuClass">
     
     <div class="item in-vertical close"
          v-on:click="hideSideMenu">
