@@ -1,6 +1,6 @@
 .non-invasive-web-style-framework {
-  .ui.items > .item.PeerItem,
-  .ui.divided.items > .item.PeerItem {
+  .PeerList .PeerItem,
+  .PeerList .PeerItem {
     user-select: none;
     padding-top: 1em !important;
     padding-bottom: 1em !important;
@@ -50,7 +50,25 @@
   }
 }
 
-.description ::v-deep .AnnotationTypeButton {
+
+.image,
+.content-row {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.content-row {
+  width: calc(100% - 3.5em);
+  margin-left: 0.5em;
+  
+  .type-row {
+    margin-top: 0.5em;
+  }
+}
+
+
+.PeerItem ::v-deep .AnnotationTypeButton {
   padding-left: 0.7em !important;
   padding-right: 0.7em !important;
 }
+  
