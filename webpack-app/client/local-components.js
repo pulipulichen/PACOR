@@ -18,11 +18,11 @@ let components = {
   StyleManager,
   PACORTestManager,
   //Chat: () => import(/* webpackChunkName: "client-components/Chat" */ './components/Chat/Chat.vue'),
-  'CollaborativeReading': () => import(/* webpackChunkName: "client-components/CollaborativeReading" */ './ReadingProgressesModuels/Reading/CollaborativeReading/CollaborativeReading.vue'),
-  'IndividualReading': () => import(/* webpackChunkName: "client-components/IndividualReading" */ './ReadingProgressesModuels/Reading/IndividualReading/IndividualReading.vue'),
-  'PostRecall': () => import(/* webpackChunkName: "client-components/Questionnaire" */ './ReadingProgressesModuels/Questionnaire/PostRecall/PostRecall.vue'),
-  'PreImaginary': () => import(/* webpackChunkName: "client-components/Questionnaire" */ './ReadingProgressesModuels/Questionnaire/PreImaginary/PreImaginary.vue'),
-  'Exit': () => import(/* webpackChunkName: "client-components/Exit" */ './ReadingProgressesModuels/Exit/Exit.vue'),
-  'FreeReading': () => import(/* webpackChunkName: "client-components/FreeReading" */ './ReadingProgressesModuels/Reading/FreeReading/FreeReading.vue'),
+  'CollaborativeReading': () => import(/* webpackChunkName: "client-components/CollaborativeReading" */ './Reading/CollaborativeReading/CollaborativeReading.vue'),
+  'IndividualReading': () => import(/* webpackChunkName: "client-components/IndividualReading" */ './Reading/IndividualReading/IndividualReading.vue'),
+  'PostRecall': () => import(/* webpackChunkName: "client-components/Questionnaire" */ './Questionnaire/PostRecall/PostRecall.vue'),
+  'PreImaginary': () => import(/* webpackChunkName: "client-components/Questionnaire" */ './Questionnaire/PreImaginary/PreImaginary.vue'),
+  'Exit': () => import(/* webpackChunkName: "client-components/Exit" */ './Exit/Exit.vue'),
+  'FreeReading': () => import(/* webpackChunkName: "client-components/FreeReading" */ './Reading/FreeReading/FreeReading.vue'),
 }
 export default components

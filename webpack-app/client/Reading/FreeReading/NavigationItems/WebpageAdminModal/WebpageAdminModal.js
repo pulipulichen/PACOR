@@ -1,5 +1,5 @@
-import WebpageConfigEditor from './../../../../../../components/admin/WebpageConfigEditor/WebpageConfigEditor.vue'
-import WebpageGroupEditor from './../../../../../../components/admin/WebpageGroupEditor/WebpageGroupEditor.vue'
+import WebpageConfigEditor from './../../../../../components/admin/WebpageConfigEditor/WebpageConfigEditor.vue'
+import WebpageGroupEditor from './../../../../../components/admin/WebpageGroupEditor/WebpageGroupEditor.vue'
 
 let WebpageAdminModal = {
   props: ['lib', 'status', 'config'],
