@@ -1,5 +1,7 @@
 # Model
 
+.content-full-height
+
 ````html
   <modal ref="Modal"
          v-bind:config="config"

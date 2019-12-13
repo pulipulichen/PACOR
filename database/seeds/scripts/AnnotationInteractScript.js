@@ -60,7 +60,9 @@ module.exports = {
         note: '#' + i + ' 回應評論回應評論回應評論'
       }
       
+      await Sleep(0.01)
       await AnnotationCommentModel.createFromJSON(webpage, commenter1, commentData)
+      await Sleep(0.01)
       await AnnotationCommentModel.createFromJSON(webpage, commenter2, commentData)
       //await AnnotationCommentModel.createFromJSON(webpage, commenter3, commentData)
     }
@@ -107,6 +109,7 @@ module.exports = {
       let rateData = {
         commentID: comment.id,
       }
+      await Sleep(0.01)
       await AnnotationCommentRateModel.like(webpage, rater1, rateData)
     }
   },

@@ -2,9 +2,11 @@ import $ from 'jquery'
 import NotificationFeed from './NotificationFeed/NotificationFeed.vue'
 
 let NotificationIcon = {
-  props: ['lib', 'status', 'config'],
+  props: ['lib', 'status', 'config'
+    , 'position'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
     return {
     }
   },
@@ -22,6 +24,16 @@ let NotificationIcon = {
       if (this.notificationData.unreadCount === 0) {
         return 'disabled'
       }
+    },
+    computedContainerClassList () {
+      let classList = []
+      
+      console.log(this.position)
+      if (this.position) {
+        classList.push(this.position)
+      }
+      
+      return classList.join(' ')
     }
   },
   methods: {

@@ -67,7 +67,8 @@ var render = function() {
                         attrs: {
                           config: _vm.config,
                           status: _vm.status,
-                          lib: _vm.lib
+                          lib: _vm.lib,
+                          position: "right"
                         }
                       })
                     : _vm._e(),
@@ -171,7 +172,8 @@ var render = function() {
                         attrs: {
                           config: _vm.config,
                           status: _vm.status,
-                          lib: _vm.lib
+                          lib: _vm.lib,
+                          position: "left"
                         }
                       })
                     : _vm._e()
@@ -188,7 +190,8 @@ var render = function() {
                     attrs: {
                       config: _vm.config,
                       status: _vm.status,
-                      lib: _vm.lib
+                      lib: _vm.lib,
+                      position: "left"
                     }
                   })
                 ]
@@ -198,7 +201,7 @@ var render = function() {
           ],
           null,
           false,
-          1898268699
+          1937300116
         )
       })
     : _vm._e()

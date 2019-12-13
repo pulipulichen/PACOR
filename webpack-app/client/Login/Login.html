@@ -6,7 +6,8 @@
     v-bind:progress="progress"
     v-bind:lib="lib"
     dimmerTransparent="false"
-    cancelable="false">
+    cancelable="false"
+    v-bind:fullContent="true">
 
     <template v-slot:header>
       <div v-on:click="adminMode = !adminMode">
@@ -14,8 +15,6 @@
       </div>
     </template>
     <template v-slot:content>
-
-
       <div class="ui middle aligned grid">
         <media v-bind:query="{minWidth: compactWidth}"
                v-on:media-enter="isCompactMode = false"
@@ -30,7 +29,8 @@
           </div>
 
         </media>
-        <div v-bind:class="computedFormClassList">
+        <div v-bind:class="computedFormClassList"
+             class="content-full-height">
 
           <iframe-message-segment 
             class="login-message"

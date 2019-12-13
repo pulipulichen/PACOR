@@ -1,11 +1,13 @@
 <a class="NotificationIcon item"
-   v-on:click.self="() => { $refs.anchor.click() }">
+   v-on:click.self="() => { $refs.anchor.click() }"
+   v-bind:class="computedContainerClassList">
   <i class="bell icon"
      ref="anchor"
      v-on:click.once="initPopup"></i>
 
   <div v-if="notificationData.unreadCount > 0"
-       class="floating ui red label">
+       class="floating ui red label"
+       v-on:click.self="() => { $refs.anchor.click() }">
     {{ notificationData.unreadCount }}
   </div>
 

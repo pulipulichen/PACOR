@@ -665,7 +665,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".login-message[data-v-15c3505b] {\n  max-height: calc(100vh - 30em);\n}\n", "",{"version":3,"sources":["Login.less?vue&type=style&index=0&id=15c3505b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC","file":"Login.less?vue&type=style&index=0&id=15c3505b&lang=less&scoped=true&","sourcesContent":[".login-message[data-v-15c3505b] {\n  max-height: calc(100vh - 30em);\n}\n"]}]);
+exports.push([module.i, ".login-message[data-v-15c3505b] {\n  max-height: calc(100% - 7em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.admin-mode .login-message[data-v-15c3505b] {\n  max-height: calc(100% - 12em);\n}\n", "",{"version":3,"sources":["Login.less?vue&type=style&index=0&id=15c3505b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,4BAA4B;EAC5B,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,6BAA6B;AAC/B","file":"Login.less?vue&type=style&index=0&id=15c3505b&lang=less&scoped=true&","sourcesContent":[".login-message[data-v-15c3505b] {\n  max-height: calc(100% - 7em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.admin-mode .login-message[data-v-15c3505b] {\n  max-height: calc(100% - 12em);\n}\n"]}]);
 
 
 /***/ }),
@@ -749,7 +749,7 @@ exports.push([module.i, ".NotificationFeed[data-v-23ad6084] {\n  overflow-y: aut
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".floating.label[data-v-3f6b6eff] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-3f6b6eff] {\n  color: #666;\n}\n.view-all[data-v-3f6b6eff] {\n  text-align: center;\n  cursor: pointer;\n}\n.button[data-v-3f6b6eff] {\n  position: absolute;\n}\n.popup[data-v-3f6b6eff] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-3f6b6eff]::before {\n  background: #DCDDDE !important;\n}\n", "",{"version":3,"sources":["NotificationIcon.less?vue&type=style&index=0&id=3f6b6eff&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,6BAA6B;EAC7B,8BAA8B;EAC9B,+BAA+B;EAC/B,gCAAgC;EAChC,mCAAmC;EACnC,oBAAoB;EACpB,qBAAqB;AACvB;AACA;EACE,WAAW;AACb;AACA;EACE,kBAAkB;EAClB,eAAe;AACjB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,sBAAsB;EACtB,2BAA2B;EAC3B,8BAA8B;EAC9B,gCAAgC;AAClC;AACA;EACE,8BAA8B;AAChC","file":"NotificationIcon.less?vue&type=style&index=0&id=3f6b6eff&lang=less&scoped=true&","sourcesContent":[".floating.label[data-v-3f6b6eff] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-3f6b6eff] {\n  color: #666;\n}\n.view-all[data-v-3f6b6eff] {\n  text-align: center;\n  cursor: pointer;\n}\n.button[data-v-3f6b6eff] {\n  position: absolute;\n}\n.popup[data-v-3f6b6eff] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-3f6b6eff]::before {\n  background: #DCDDDE !important;\n}\n"]}]);
+exports.push([module.i, ".floating.label[data-v-3f6b6eff] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-3f6b6eff] {\n  color: #666;\n}\n.left .floating.label[data-v-3f6b6eff] {\n  left: 10% !important;\n  line-height: 1em !important;\n  padding-top: 0.1em !important;\n  padding-bottom: 0.2em !important;\n  padding-left: 0.1em !important;\n  padding-right: 0.2em !important;\n}\n.view-all[data-v-3f6b6eff] {\n  text-align: center;\n  cursor: pointer;\n}\n.button[data-v-3f6b6eff] {\n  position: absolute;\n}\n.popup[data-v-3f6b6eff] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-3f6b6eff]::before {\n  background: #DCDDDE !important;\n}\n", "",{"version":3,"sources":["NotificationIcon.less?vue&type=style&index=0&id=3f6b6eff&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,6BAA6B;EAC7B,8BAA8B;EAC9B,+BAA+B;EAC/B,gCAAgC;EAChC,mCAAmC;EACnC,oBAAoB;EACpB,qBAAqB;AACvB;AACA;EACE,WAAW;AACb;AACA;EACE,oBAAoB;EACpB,2BAA2B;EAC3B,6BAA6B;EAC7B,gCAAgC;EAChC,8BAA8B;EAC9B,+BAA+B;AACjC;AACA;EACE,kBAAkB;EAClB,eAAe;AACjB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,sBAAsB;EACtB,2BAA2B;EAC3B,8BAA8B;EAC9B,gCAAgC;AAClC;AACA;EACE,8BAA8B;AAChC","file":"NotificationIcon.less?vue&type=style&index=0&id=3f6b6eff&lang=less&scoped=true&","sourcesContent":[".floating.label[data-v-3f6b6eff] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-3f6b6eff] {\n  color: #666;\n}\n.left .floating.label[data-v-3f6b6eff] {\n  left: 10% !important;\n  line-height: 1em !important;\n  padding-top: 0.1em !important;\n  padding-bottom: 0.2em !important;\n  padding-left: 0.1em !important;\n  padding-right: 0.2em !important;\n}\n.view-all[data-v-3f6b6eff] {\n  text-align: center;\n  cursor: pointer;\n}\n.button[data-v-3f6b6eff] {\n  position: absolute;\n}\n.popup[data-v-3f6b6eff] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-3f6b6eff]::before {\n  background: #DCDDDE !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -1116,7 +1116,8 @@ var render = function() {
           progress: _vm.progress,
           lib: _vm.lib,
           dimmerTransparent: "false",
-          cancelable: "false"
+          cancelable: "false",
+          fullContent: true
         },
         scopedSlots: _vm._u([
           {
@@ -1182,7 +1183,10 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "div",
-                      { class: _vm.computedFormClassList },
+                      {
+                        staticClass: "content-full-height",
+                        class: _vm.computedFormClassList
+                      },
                       [
                         _c("iframe-message-segment", {
                           staticClass: "login-message",
@@ -1670,6 +1674,7 @@ var render = function() {
     "a",
     {
       staticClass: "NotificationIcon item",
+      class: _vm.computedContainerClassList,
       on: {
         click: function($event) {
           if ($event.target !== $event.currentTarget) {
@@ -1693,11 +1698,27 @@ var render = function() {
       }),
       _vm._v(" "),
       _vm.notificationData.unreadCount > 0
-        ? _c("div", { staticClass: "floating ui red label" }, [
-            _vm._v(
-              "\r\n    " + _vm._s(_vm.notificationData.unreadCount) + "\r\n  "
-            )
-          ])
+        ? _c(
+            "div",
+            {
+              staticClass: "floating ui red label",
+              on: {
+                click: function($event) {
+                  if ($event.target !== $event.currentTarget) {
+                    return null
+                  }
+                  return (function() {
+                    _vm.$refs.anchor.click()
+                  })($event)
+                }
+              }
+            },
+            [
+              _vm._v(
+                "\r\n    " + _vm._s(_vm.notificationData.unreadCount) + "\r\n  "
+              )
+            ]
+          )
         : _vm._e(),
       _vm._v(" "),
       _c(
@@ -4737,12 +4758,20 @@ let Login = {
       return this.config.baseURL + '/client/webpage/agreement'
     },
     computedFormClassList () {
+      let classList = []
+      
       if (this.isCompactMode === false) {
-        return 'ten wide column'
+        classList.push('ten wide column')
       }
       else {
-        return 'sixteen wide column'
+        classList.push('sixteen wide column')
       }
+      
+      if (this.adminMode === true) {
+        classList.push('admin-mode')
+      }
+      
+      return classList.join(' ')
     }
   },
   components: {
@@ -5677,7 +5706,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   read() {
-    throw new Error('read' + this.notification)
+    throw new Error('@TODO read' + this.notification)
   }
 }); // methods
 
@@ -5861,7 +5890,9 @@ let NotificationFeed = {
       await this.lib.VueHelper.sleep(100)
       this.loadLock = false
     },
-    afterOnRead (notification) {
+    afterOnRead: async function (notification) {
+      await this.lib.VueHelper.sleep(1000)
+      
       this.notificationData.unreadNotifications = this.notificationData.unreadNotifications.filter(n => {
         return (n !== notification)
       })
@@ -6003,9 +6034,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let NotificationIcon = {
-  props: ['lib', 'status', 'config'],
+  props: ['lib', 'status', 'config'
+    , 'position'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
     return {
     }
   },
@@ -6023,6 +6056,16 @@ let NotificationIcon = {
       if (this.notificationData.unreadCount === 0) {
         return 'disabled'
       }
+    },
+    computedContainerClassList () {
+      let classList = []
+      
+      console.log(this.position)
+      if (this.position) {
+        classList.push(this.position)
+      }
+      
+      return classList.join(' ')
     }
   },
   methods: {
@@ -6481,7 +6524,7 @@ let NotificationManager = {
       }
       //console.log(this.isLoading)
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/init', data)
-      console.log(result)
+      //console.log(result)
       this.afterTime = (new Date()).getTime()
       this.startReloadData()
       this.isLoading = false

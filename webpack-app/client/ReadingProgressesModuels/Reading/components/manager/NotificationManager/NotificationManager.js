@@ -50,7 +50,7 @@ let NotificationManager = {
       }
       //console.log(this.isLoading)
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/init', data)
-      console.log(result)
+      //console.log(result)
       this.afterTime = (new Date()).getTime()
       this.startReloadData()
       this.isLoading = false

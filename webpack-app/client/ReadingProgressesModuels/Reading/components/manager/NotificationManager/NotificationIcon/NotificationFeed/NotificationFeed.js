@@ -132,7 +132,9 @@ let NotificationFeed = {
       await this.lib.VueHelper.sleep(100)
       this.loadLock = false
     },
-    afterOnRead (notification) {
+    afterOnRead: async function (notification) {
+      await this.lib.VueHelper.sleep(1000)
+      
       this.notificationData.unreadNotifications = this.notificationData.unreadNotifications.filter(n => {
         return (n !== notification)
       })

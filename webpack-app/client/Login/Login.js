@@ -39,12 +39,20 @@ let Login = {
       return this.config.baseURL + '/client/webpage/agreement'
     },
     computedFormClassList () {
+      let classList = []
+      
       if (this.isCompactMode === false) {
-        return 'ten wide column'
+        classList.push('ten wide column')
       }
       else {
-        return 'sixteen wide column'
+        classList.push('sixteen wide column')
       }
+      
+      if (this.adminMode === true) {
+        classList.push('admin-mode')
+      }
+      
+      return classList.join(' ')
     }
   },
   components: {

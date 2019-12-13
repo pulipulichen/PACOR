@@ -130,6 +130,7 @@ class UserNotificationFind {
     
     Model.getUnreadOlderNotifications = async function (webpage, user, options = {}) {
       options.unread = true
+      options.reverse = true
       return await this.getOlderNotifications(webpage, user, options)
     } // Model.getUnreadOlderNotifications = async function (webpage, user, options) {
     
@@ -137,7 +138,8 @@ class UserNotificationFind {
       let {
         basetime,
         unread,
-        focusUserID
+        focusUserID,
+        reverse
       } = options
       
       let cacheKey = Cache.key('getOlderNotifications', basetime)
@@ -170,6 +172,10 @@ class UserNotificationFind {
 
         let notifications = await query.fetch()
         notifications = notifications.toJSON()
+
+        if (reverse === true) {
+          notifications.reverse()
+        }
 
         return notifications
       })
