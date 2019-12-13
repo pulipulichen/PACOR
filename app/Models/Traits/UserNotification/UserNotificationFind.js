@@ -26,7 +26,7 @@ class UserNotificationFind {
         afterTime
       } = options
       
-      let cacheKey = Cache.key('getInit')
+      let cacheKey = Cache.key('UserNotification.getInit')
       
       let doQuery = async () => {
         let query = UserNotificationModel

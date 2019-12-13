@@ -110,7 +110,8 @@ let UserChart = {
       }
       
       let result = await this.lib.AxiosHelper.get(url, data)
-      //console.log(result)
+      console.log(result)
+      
       this.filterData.chart.userJSON = result.userJSON
       if (this.filterData.selectUser) {
         if (!this.filterData.chart.othersJSONMap) {

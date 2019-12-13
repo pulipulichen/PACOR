@@ -37,7 +37,7 @@ class AnnotationNoteUserFilter {
         userID
       } = options
       
-      let cacheKey = Cache.key(`getInit`, userID)
+      let cacheKey = Cache.key(`AnnotationNote.getUserChart`, userID)
       return await Cache.rememberWait([webpage, user], cacheKey, 1, async () => {
         let output = {}
 
@@ -62,7 +62,7 @@ class AnnotationNoteUserFilter {
         userID
       } = options
       
-      let cacheKey = Cache.key(`getUserWords`, userID)
+      let cacheKey = Cache.key(`AnnotationNote.getUserWords`, userID)
       return await Cache.rememberWait([webpage, user], cacheKey, 1, async () => {
         
         
@@ -78,7 +78,7 @@ class AnnotationNoteUserFilter {
         }
         else if (user.isAdmin()) {
           // 沒有限制
-          let peerIDList = await user.getPeerIDList(webpage)
+          let peerIDList = await user.getPeersIDList(webpage)
           query.whereIn('user_id', peerIDList)
         }
         else {
