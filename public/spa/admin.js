@@ -574,10 +574,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "NavigationItems" },
     [
       _c("navigation", {
         ref: "nav",
-        attrs: { config: _vm.config, compactWidth: "600" },
+        attrs: { config: _vm.config, lib: _vm.lib, compactWidth: "600" },
         scopedSlots: _vm._u([
           {
             key: "header",

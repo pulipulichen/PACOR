@@ -1,0 +1,11 @@
+<a class="fitted item avatar in-top"
+   v-on:click="$emit('click')">
+  <img v-bind:src="status.avatar">
+  <div class="username">
+    {{ lib.auth.username }}
+    <div class="step" 
+         v-if="lib.auth.currentStep !== 'FreeReading'">
+      {{ $t('In {0} step', [$t('READING_PROGRESS.' + lib.auth.currentStep)]) }}
+    </div>
+  </div>
+</a>

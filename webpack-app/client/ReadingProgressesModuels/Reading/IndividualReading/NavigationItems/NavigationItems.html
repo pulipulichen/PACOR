@@ -10,16 +10,12 @@
   v-on:timeup="$emit('timeup')">
   <template v-slot:header>
     
-    <a class="fitted item avatar in-top"
-       v-on:click="showInstruction">
-      <img v-bind:src="status.avatar">
-      <div class="username">
-        {{ lib.auth.username }}
-      <div class="step">
-        {{ $t('In {0} step', [$t('READING_PROGRESS.' + lib.auth.currentStep)]) }}
-      </div>
-      </div>
-    </a>
+    <navigation-header-item 
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+      v-on:click="showInstruction">
+    </navigation-header-item>
     
     
     <div class="fitted item">

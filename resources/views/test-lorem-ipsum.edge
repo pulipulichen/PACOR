@@ -48,7 +48,9 @@
       jQuery = 2
       
       setTimeout(() => {
-        console.log('is $ a number?', typeof($))
+        if (typeof($) !== 'number') {
+          console.error('#66 is $ a number?', typeof($))
+        }
       }, 3000)
     </script>
   </body>

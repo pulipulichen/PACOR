@@ -160,38 +160,14 @@ var render = function() {
               key: "header",
               fn: function() {
                 return [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "fitted item avatar in-top",
-                      on: { click: _vm.showInstruction }
+                  _c("navigation-header-item", {
+                    attrs: {
+                      config: _vm.config,
+                      status: _vm.status,
+                      lib: _vm.lib
                     },
-                    [
-                      _c("img", { attrs: { src: _vm.status.avatar } }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "username" }, [
-                        _vm._v(
-                          "\r\n        " +
-                            _vm._s(_vm.lib.auth.username) +
-                            "\r\n      "
-                        ),
-                        _c("div", { staticClass: "step" }, [
-                          _vm._v(
-                            "\r\n        " +
-                              _vm._s(
-                                _vm.$t("In {0} step", [
-                                  _vm.$t(
-                                    "READING_PROGRESS." +
-                                      _vm.lib.auth.currentStep
-                                  )
-                                ])
-                              ) +
-                              "\r\n      "
-                          )
-                        ])
-                      ])
-                    ]
-                  ),
+                    on: { click: _vm.showInstruction }
+                  }),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -242,7 +218,7 @@ var render = function() {
           ],
           null,
           false,
-          1448860283
+          2262489979
         )
       })
     : _vm._e()

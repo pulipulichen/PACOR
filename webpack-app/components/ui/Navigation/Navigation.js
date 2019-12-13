@@ -1,7 +1,7 @@
 import Media from 'vue-media'
 
 let Navigation = {
-  props: ['config', 'compactWidth', 'position', 'color'],
+  props: ['config', 'lib', 'compactWidth', 'position', 'color'],
   data() {
     return {
       sideMenuDisplay: false,

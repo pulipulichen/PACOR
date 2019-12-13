@@ -263,28 +263,14 @@ var render = function() {
                           })
                         : _vm._e(),
                       _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "fitted item avatar in-top",
-                          on: { click: _vm.showWebpageConfig }
+                      _c("navigation-header-item", {
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib
                         },
-                        [
-                          _c("img", { attrs: { src: _vm.status.avatar } }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "username" }, [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(_vm.lib.auth.username) +
-                                "\r\n        "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _vm.status.role !== "reader"
-                            ? _c("i", { staticClass: "cog icon" })
-                            : _vm._e()
-                        ]
-                      )
+                        on: { click: _vm.showWebpageConfig }
+                      })
                     ]
                   },
                   proxy: true
@@ -358,7 +344,7 @@ var render = function() {
               ],
               null,
               false,
-              4170995407
+              602156185
             )
           })
         : _vm._e(),

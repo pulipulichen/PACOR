@@ -66,25 +66,3 @@ Vue.component('user-self-badge', UserSelfBadge)
 
 import IframeMessageSegment from './../components/ui/IframeMessageSegment/IframeMessageSegment.vue'
 Vue.component('iframe-message-segment', IframeMessageSegment)
-
-// -----------------------
-
-import NotificationManager from './ReadingProgressesModuels/Reading/components/manager/NotificationManager/NotificationManager.vue'
-Vue.component('notification-manager', NotificationManager)
-
-import NotificationIcon from './ReadingProgressesModuels/Reading/components/manager/NotificationManager/NotificationIcon/NotificationIcon.vue'
-Vue.component('notification-icon', NotificationIcon)
-
-import UserFilter from './ReadingProgressesModuels/Reading/components/search/UserFilter/UserFilter.vue'
-Vue.component('user-filter', UserFilter)
-
-// -------------------------
-
-Vue.component('rangy', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './ReadingProgressesModuels/Reading/components/annotation/RangyManager/RangyManager.vue'))
-Vue.component('annotation-panel', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './ReadingProgressesModuels/Reading/components/annotation/AnnotationPanel/AnnotationPanel.vue'))
-Vue.component('annotation-manager', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './ReadingProgressesModuels/Reading/components/annotation/AnnotationManager/AnnotationManager.vue'))
-Vue.component('section-manager', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './ReadingProgressesModuels/Reading/components/annotation/SectionManager/SectionManager.vue'))
-Vue.component('search-manager', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './ReadingProgressesModuels/Reading/components/search/SearchManager/SearchManager.vue'))
-Vue.component('instruction-message', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './ReadingProgressesModuels/Reading/components/ui/InstructionMessage/InstructionMessage.vue'))
-Vue.component('compact-navigation', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './ReadingProgressesModuels/Reading/components/ui/CompactNavigation/CompactNavigation.vue'))
-Vue.component('annotation-type-filter', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './ReadingProgressesModuels/Reading/components/search/AnnotationTypeFilter/AnnotationTypeFilter.vue'))
