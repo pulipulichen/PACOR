@@ -2,8 +2,8 @@
   .ui.items > .item.PeerItem,
   .ui.divided.items > .item.PeerItem {
     user-select: none;
-    padding-top: 1em !important;
-    padding-bottom: 1em !important;
+    padding-top: 0.5em !important;
+    padding-bottom: 0.5em !important;
     
     &.selected {
       background-color: #f8ffff !important;
@@ -11,8 +11,17 @@
       color: #276f86;
     }
     
-    .content > .header {
-      vertical-align: middle;
+    .content {
+      padding-left: 0.5em;
+      
+      &> .header {
+        font-size: 1.1em;
+        vertical-align: middle;
+      }
+
+      &> .description {
+        margin-top: 0.1em;
+      }
     }
   }
 }
@@ -24,10 +33,12 @@
   background-color: #DDD !important;
   cursor: default !important;
   
-  .header .message {
-    font-size: 0.8em;
-    font-weight: normal;
-  }
+  .header {
+    .message {
+      font-size: 0.8em;
+      font-weight: normal;
+    }
+  } 
   
   &:hover {
     .header {
@@ -50,7 +61,36 @@
   }
 }
 
-.description ::v-deep .AnnotationTypeButton {
-  padding-left: 0.7em !important;
-  padding-right: 0.7em !important;
+.PeerItem ::v-deep .AnnotationTypeButton {
+/*  padding-left: 0.7em !important;
+  padding-right: 0.7em !important;*/
+  padding: 0.5em !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .non-invasive-web-style-framework {
+    .ui.items > .item.PeerItem,
+    .ui.divided.items > .item.PeerItem {
+      display: -webkit-box;
+      vertical-align: top;
+      
+      .image {
+        width: 2.5em !important;
+        display: inline-block;
+        vertical-align: top;
+        
+        &> img {
+          width: 100% !important;
+          display: inline;
+        }
+      } 
+      
+      &> .content {
+        padding-top: 0;
+        width: calc(100% - 3.5em);
+        display: inline-block;
+        vertical-align: top;
+      }
+    }
+  }
 }
