@@ -73,6 +73,7 @@
     .ui.divided.items > .item.PeerItem {
       display: -webkit-box;
       vertical-align: top;
+      margin: 0 !important;
       
       .image {
         width: 2.5em !important;
@@ -86,10 +87,26 @@
       } 
       
       &> .content {
-        padding-top: 0;
+        padding-top: 0 !important;
         width: calc(100% - 3.5em);
-        display: inline-block;
+        display: inline-block !important;
         vertical-align: top;
+        
+        &> .header {
+          text-overflow: ellipsis;
+          max-width: 100%;
+          white-space: nowrap;
+          overflow-x: hidden;
+          overflow-y: hidden;
+          
+          .message {
+            margin-left: -0.7em;
+          }
+        }
+        
+        &> .description {
+          padding: 0 !important;
+        }
       }
     }
   }
