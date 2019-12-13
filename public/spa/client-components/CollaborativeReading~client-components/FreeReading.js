@@ -145,6 +145,7 @@ var render = function() {
                   _vm._v(" "),
                   !_vm.status.preference.leftHanded
                     ? _c("notification-icon", {
+                        staticClass: "in-top",
                         attrs: {
                           config: _vm.config,
                           status: _vm.status,
@@ -177,7 +178,7 @@ var render = function() {
           ],
           null,
           false,
-          2634201460
+          391045621
         )
       })
     : _vm._e()

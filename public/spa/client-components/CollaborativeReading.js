@@ -166,11 +166,12 @@ let CollaborativeReading = {
 //  },
 //  watch: {
 //  },
-  mounted() {
+  mounted: async function () {
     this.initComponentToLib()
     
     //this._testUserFilter()
-    this._testVerticalMenu()
+    await this._testVerticalMenu()
+    this._testSearch()
   },
   destroyed () {
     //console.log('退場了')

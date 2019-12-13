@@ -314,10 +314,12 @@ var render = function() {
                       _vm._v(" "),
                       !_vm.status.preference.leftHanded
                         ? _c("notification-icon", {
+                            staticClass: "in-top",
                             attrs: {
                               config: _vm.config,
                               status: _vm.status,
-                              lib: _vm.lib
+                              lib: _vm.lib,
+                              position: "left"
                             }
                           })
                         : _vm._e()
@@ -344,7 +346,7 @@ var render = function() {
               ],
               null,
               false,
-              602156185
+              3455811372
             )
           })
         : _vm._e(),
@@ -1010,11 +1012,12 @@ let CollaborativeReading = {
 //  },
 //  watch: {
 //  },
-  mounted() {
+  mounted: async function () {
     this.initComponentToLib()
     
     //this._testUserFilter()
-    this._testVerticalMenu()
+    await this._testVerticalMenu()
+    this._testSearch()
   },
   destroyed () {
     //console.log('退場了')
