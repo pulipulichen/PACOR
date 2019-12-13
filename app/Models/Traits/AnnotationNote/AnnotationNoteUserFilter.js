@@ -72,6 +72,8 @@ class AnnotationNoteUserFilter {
                 .where('annotations.deleted', false)
                 .where('annotations.webpage_id', webpage.primaryKeyValue)
                 .select('annotation_notes.properties')
+                .limit(500)
+                .orderBy('annotations.updated_at_unixms', 'desc')
         
         if (userID) {
           query.where('annotations.user_id', userID)

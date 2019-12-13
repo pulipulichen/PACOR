@@ -805,7 +805,7 @@ exports.push([module.i, ".items-list[data-v-5935224c] {\n  overflow-y: auto;\n  
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".jqcloud-wrapper[data-v-c1504398] {\n  height: calc(100% - 2em);\n  overflow: hidden;\n}\n.jqcloud-container[data-v-c1504398] {\n  width: 100%;\n  height: calc(100% - 2em);\n  user-select: none;\n}\n.jqcloud-container[data-v-c1504398]  span {\n  cursor: pointer;\n}\n", "",{"version":3,"sources":["UserChart.less?vue&type=style&index=0&id=c1504398&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;EACxB,gBAAgB;AAClB;AACA;EACE,WAAW;EACX,wBAAwB;EACxB,iBAAiB;AACnB;AACA;EACE,eAAe;AACjB","file":"UserChart.less?vue&type=style&index=0&id=c1504398&lang=less&scoped=true&","sourcesContent":[".jqcloud-wrapper[data-v-c1504398] {\n  height: calc(100% - 2em);\n  overflow: hidden;\n}\n.jqcloud-container[data-v-c1504398] {\n  width: 100%;\n  height: calc(100% - 2em);\n  user-select: none;\n}\n.jqcloud-container[data-v-c1504398]  span {\n  cursor: pointer;\n}\n"]}]);
+exports.push([module.i, ".jqcloud-wrapper[data-v-c1504398] {\n  height: calc(100% - 6em);\n  overflow: hidden;\n}\n.jqcloud-container[data-v-c1504398] {\n  width: 100%;\n  height: calc(100% - 2em);\n  user-select: none;\n}\n.jqcloud-container[data-v-c1504398]  span {\n  cursor: pointer;\n}\n", "",{"version":3,"sources":["UserChart.less?vue&type=style&index=0&id=c1504398&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;EACxB,gBAAgB;AAClB;AACA;EACE,WAAW;EACX,wBAAwB;EACxB,iBAAiB;AACnB;AACA;EACE,eAAe;AACjB","file":"UserChart.less?vue&type=style&index=0&id=c1504398&lang=less&scoped=true&","sourcesContent":[".jqcloud-wrapper[data-v-c1504398] {\n  height: calc(100% - 6em);\n  overflow: hidden;\n}\n.jqcloud-container[data-v-c1504398] {\n  width: 100%;\n  height: calc(100% - 2em);\n  user-select: none;\n}\n.jqcloud-container[data-v-c1504398]  span {\n  cursor: pointer;\n}\n"]}]);
 
 
 /***/ }),
@@ -819,7 +819,7 @@ exports.push([module.i, ".jqcloud-wrapper[data-v-c1504398] {\n  height: calc(100
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".chart-labels[data-v-61d08fb2] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-61d08fb2] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-61d08fb2]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-61d08fb2] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-61d08fb2] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-61d08fb2] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-61d08fb2] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;AACpB;AACA;EACE,iBAAiB;EACjB,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;EACE,WAAW;AACb;AACA;EACE,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,WAAW;EACX,mBAAmB;EACnB,qBAAqB;EACrB,sBAAsB;AACxB","file":"UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true&","sourcesContent":[".chart-labels[data-v-61d08fb2] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-61d08fb2] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-61d08fb2]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-61d08fb2] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-61d08fb2] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-61d08fb2] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-61d08fb2] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
+exports.push([module.i, ".UserChartLables[data-v-61d08fb2] {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.chart-labels[data-v-61d08fb2] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-61d08fb2] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-61d08fb2]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-61d08fb2] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-61d08fb2] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-61d08fb2] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-61d08fb2] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,uBAAuB;AACzB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,iBAAiB;EACjB,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;EACE,WAAW;AACb;AACA;EACE,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,WAAW;EACX,mBAAmB;EACnB,qBAAqB;EACrB,sBAAsB;AACxB","file":"UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true&","sourcesContent":[".UserChartLables[data-v-61d08fb2] {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.chart-labels[data-v-61d08fb2] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-61d08fb2] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-61d08fb2]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-61d08fb2] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-61d08fb2] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-61d08fb2] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-61d08fb2] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
 
 
 /***/ }),
@@ -7088,6 +7088,7 @@ let UserChart = {
       },
       //allArray: null,
       othersArrayMap: {},
+      inited: false
     }
   },
   components: {
@@ -7117,10 +7118,12 @@ let UserChart = {
       return this._processWordFrequency(words)
     },
     jQCloudWords () {
-      if (!this.$refs.UserChartPopup) {
+      if (!this.inited) {
+        //console.log('尚未初始化')
         return []
       }
       
+      //console.log(this.otherIsAll, this.otherIsMe)
       let words
       if (this.otherIsAll) {
         // 先看看有沒有暫存
@@ -7135,6 +7138,7 @@ let UserChart = {
           return this.othersArrayMap[userID]
         }
         
+        console.log(this.filterData.chart)
         let words = this.filterData.chart.othersJSONMap[userID]
         if (!words) {
           return []
@@ -7156,9 +7160,16 @@ let UserChart = {
 //  },
   methods: {
     loadInit: async function () {
+      if (!this.$refs.UserChartPopup) {
+        setTimeout(() => {
+          this.loadInit()
+        }, 100)
+        return false
+      }
+      
       this.filterData.chart.userJSON = null
       this.filterData.chart.allJSON = null
-      this.filterData.chart.othersJSONMap = null
+      this.filterData.chart.othersJSONMap = {}
       
       // 載入
       let url = '/client/UserFilter/initUserChart'
@@ -7169,6 +7180,7 @@ let UserChart = {
       
       let result = await this.lib.AxiosHelper.get(url, data)
       console.log(result)
+      //console.log(this.$refs.UserChartPopup)
       
       this.filterData.chart.userJSON = result.userJSON
       if (this.filterData.selectUser) {
@@ -7181,6 +7193,7 @@ let UserChart = {
         this.filterData.chart.allJSON = result.allJSON
       }
       
+      this.inited = true
       this._draw()
     },
     load: async function () {
@@ -7240,6 +7253,10 @@ let UserChart = {
     // ---------------------------------
     
     _processWordFrequency (words) {
+      if (!words) {
+        return []
+      }
+      
       let initPopup = this.$refs.UserChartPopup.initPopup
       //let _this = this
       //console.log(typeof(initPopup))

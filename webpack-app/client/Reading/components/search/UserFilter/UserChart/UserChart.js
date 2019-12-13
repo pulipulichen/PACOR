@@ -30,6 +30,7 @@ let UserChart = {
       },
       //allArray: null,
       othersArrayMap: {},
+      inited: false
     }
   },
   components: {
@@ -59,10 +60,12 @@ let UserChart = {
       return this._processWordFrequency(words)
     },
     jQCloudWords () {
-      if (!this.$refs.UserChartPopup) {
+      if (!this.inited) {
+        //console.log('尚未初始化')
         return []
       }
       
+      //console.log(this.otherIsAll, this.otherIsMe)
       let words
       if (this.otherIsAll) {
         // 先看看有沒有暫存
@@ -77,6 +80,7 @@ let UserChart = {
           return this.othersArrayMap[userID]
         }
         
+        console.log(this.filterData.chart)
         let words = this.filterData.chart.othersJSONMap[userID]
         if (!words) {
           return []
@@ -98,9 +102,16 @@ let UserChart = {
 //  },
   methods: {
     loadInit: async function () {
+      if (!this.$refs.UserChartPopup) {
+        setTimeout(() => {
+          this.loadInit()
+        }, 100)
+        return false
+      }
+      
       this.filterData.chart.userJSON = null
       this.filterData.chart.allJSON = null
-      this.filterData.chart.othersJSONMap = null
+      this.filterData.chart.othersJSONMap = {}
       
       // 載入
       let url = '/client/UserFilter/initUserChart'
@@ -111,6 +122,7 @@ let UserChart = {
       
       let result = await this.lib.AxiosHelper.get(url, data)
       console.log(result)
+      //console.log(this.$refs.UserChartPopup)
       
       this.filterData.chart.userJSON = result.userJSON
       if (this.filterData.selectUser) {
@@ -123,6 +135,7 @@ let UserChart = {
         this.filterData.chart.allJSON = result.allJSON
       }
       
+      this.inited = true
       this._draw()
     },
     load: async function () {
@@ -182,6 +195,10 @@ let UserChart = {
     // ---------------------------------
     
     _processWordFrequency (words) {
+      if (!words) {
+        return []
+      }
+      
       let initPopup = this.$refs.UserChartPopup.initPopup
       //let _this = this
       //console.log(typeof(initPopup))
