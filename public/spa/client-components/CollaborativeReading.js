@@ -183,7 +183,7 @@ let CollaborativeReading = {
   mounted() {
     this.initComponentToLib()
     
-    //this._testUserFilter()
+    this._testUserFilter()
   },
   destroyed () {
     //console.log('退場了')

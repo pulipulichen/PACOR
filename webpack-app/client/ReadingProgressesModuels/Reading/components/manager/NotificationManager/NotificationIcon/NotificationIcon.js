@@ -28,7 +28,7 @@ let NotificationIcon = {
     computedContainerClassList () {
       let classList = []
       
-      console.log(this.position)
+      //console.log(this.position)
       if (this.position) {
         classList.push(this.position)
       }

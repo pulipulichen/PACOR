@@ -32,7 +32,7 @@ class AnnotationNoteUserFilter {
 
   register(Model) {
     
-    Model.getInit = async function (webpage, user, options) {
+    Model.getUserChart = async function (webpage, user, options) {
       let {
         userID
       } = options
@@ -65,6 +65,7 @@ class AnnotationNoteUserFilter {
       let cacheKey = Cache.key(`getUserWords`, userID)
       return await Cache.rememberWait([webpage, user], cacheKey, 1, async () => {
         
+        
         let query = AnnotationNoteModel
                 .query()
                 .innerJoin('annotations', 'annotations.id', 'annotation_notes.annotation_id')
@@ -77,6 +78,8 @@ class AnnotationNoteUserFilter {
         }
         else if (user.isAdmin()) {
           // 沒有限制
+          let peerIDList = await user.getPeerIDList(webpage)
+          query.whereIn('user_id', peerIDList)
         }
         else {
           // 搜尋該組的

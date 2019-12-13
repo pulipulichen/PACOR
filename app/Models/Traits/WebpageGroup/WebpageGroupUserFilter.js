@@ -10,10 +10,7 @@ class WebpageGroupUserFilter {
 
   register(Model) {
     
-    /**
-     * 這是給admin用的
-     */
-    Model.getInit = async function (webpage, user, options) {
+    Model.getPeerList = async function (webpage, user, options) {
       //throw new Error('getInit')
       
       //let cacheKey = Cache.key('getInit', options)
@@ -24,26 +21,7 @@ class WebpageGroupUserFilter {
 
         // 這包含了自己
         
-        
-        //console.log('getInit', 1, userIDs)
-        
-        let query = UserModel
-                .query()
-                .setVisible(['id', 'username', 'display_name', 'role', 'avatar_url'])
-        
-        let isInAnonymousGroup = await user.isInAnonymousGroup(webpage)
-        if (isInAnonymousGroup === false) {
-          let userIDs = await user.getUserIDsInGroup(webpage, true)
-          query.whereIn('id', userIDs)
-        }
-        else {
-          let userIdList = await webpage.getUserIDsInGroups()
-          if (userIdList !== null) {
-            query.whereNotIn('id', userIdList)
-          }
-        }
-        
-        let users = await query.fetch()
+        let users = await user.getPeers(webpage)
         
         //console.log('getInit', 2)
                 
@@ -119,7 +97,6 @@ class WebpageGroupUserFilter {
         
         await sortAlreadyReaders(webpage, user, readersAlready, readerInstancesAlready)
         
-
         // ------------------
         // 合併
         

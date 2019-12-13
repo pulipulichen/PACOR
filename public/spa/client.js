@@ -4167,7 +4167,11 @@ let VueController = {
   mounted: function () {
     this.lib.AxiosHelper.setErrorHandler((error) => {
       //console.log(error)
-      if (error.response.data.error.message === 'Please login') {
+      if (error 
+              && error.response
+              && error.response.data
+              && error.response.data.error
+              && error.response.data.error.message === 'Please login') {
         return null
       }
       this.errors.push(error)
@@ -6060,7 +6064,7 @@ let NotificationIcon = {
     computedContainerClassList () {
       let classList = []
       
-      console.log(this.position)
+      //console.log(this.position)
       if (this.position) {
         classList.push(this.position)
       }
