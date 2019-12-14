@@ -72,6 +72,15 @@ let PeerItem = {
       else {
         return false
       }
+    },
+    group () {
+      if (!this.user
+              || !this.user.groups
+              || !this.user.groups[0]) {
+        return undefined
+      }
+      
+      return this.user.groups[0].group_seq_id
     }
   },
 //  watch: {

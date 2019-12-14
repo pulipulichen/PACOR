@@ -53,7 +53,9 @@ class UserFilter {
               .setVisible(['id', 'username', 'display_name', 'role', 'avatar_url'])
 
       if (this.isAdmin()) {
-        // 不做限制...嗎？
+        query.with('groups', builder => {
+                builder.where('webpage_id', webpage.primaryKeyValue)
+              })
       }
       else {
         let isInAnonymousGroup = await this.isInAnonymousGroup(webpage)

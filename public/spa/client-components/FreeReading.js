@@ -290,7 +290,8 @@ var render = function() {
                           config: _vm.config,
                           status: _vm.status,
                           lib: _vm.lib
-                        }
+                        },
+                        on: { show: _vm.hideSideMenu }
                       }),
                       _vm._v(" "),
                       _c("annotation-type-filter", {
@@ -368,7 +369,7 @@ var render = function() {
               ],
               null,
               false,
-              257274208
+              337191808
             )
           })
         : _vm._e(),
@@ -1037,7 +1038,7 @@ let CollaborativeReading = {
   mounted: async function () {
     this.initComponentToLib()
     
-    //this._testUserFilter()
+    this._testUserFilter()
     //await this._testVerticalMenu()
     //this._testSearch()
   },

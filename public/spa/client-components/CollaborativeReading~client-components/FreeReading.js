@@ -121,7 +121,8 @@ var render = function() {
                       config: _vm.config,
                       status: _vm.status,
                       lib: _vm.lib
-                    }
+                    },
+                    on: { show: _vm.hideSideMenu }
                   }),
                   _vm._v(" "),
                   _c("annotation-type-filter", {
@@ -200,7 +201,7 @@ var render = function() {
           ],
           null,
           false,
-          687199592
+          2563384040
         )
       })
     : _vm._e()

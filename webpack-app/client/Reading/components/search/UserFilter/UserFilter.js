@@ -63,7 +63,7 @@ let UserSelector = {
       this.$refs.UserChart.loadInit()
       
       this.$refs.Modal.show()
-      
+      this.$emit('show')
     },
     selectUser (id) {
       //console.log(id)

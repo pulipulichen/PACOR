@@ -10,7 +10,16 @@
   </div>
   <div class="content">
     <div class="header">
-      {{ username }}
+      
+      <span class="ui basic blue mini label group-label"
+            v-if="typeof(group) === 'number'">
+        <i class="users icon" />
+        {{ group }}
+      </span>
+      
+      <span class="username">
+        {{ username }}
+      </span>
       
       
       <admin-badge 
