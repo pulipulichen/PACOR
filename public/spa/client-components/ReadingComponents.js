@@ -23976,8 +23976,8 @@ let AnnotationTypeFilterPopup = {
       this.loadLock = true
       let data = {}
       
-      if (this.status.search.focusUser) {
-        data.focusUserID = this.status.search.focusUser.id
+      if (this.status.filter.focusUser) {
+        data.focusUserID = this.status.filter.focusUser.id
       }
       
       let result = await this.lib.AxiosHelper.get('/client/AnnotationTypeFilter/init', data)
@@ -24147,22 +24147,22 @@ let TypeItem = {
       return this.status.avatar
     },
     othersUsername () {
-      if (this.status.search.focusUser) {
-        return this.lib.auth.getUsername(this.status.search.focusUser)
+      if (this.status.filter.focusUser) {
+        return this.lib.auth.getUsername(this.status.filter.focusUser)
       }
     },
     othersAvatar () {
-      if (this.status.search.focusUser) {
-        return this.status.search.focusUser.avatar_url
+      if (this.status.filter.focusUser) {
+        return this.status.filter.focusUser.avatar_url
       }
     },
     othersIsAll () {
       //console.log(this.status.search.focusUser)
-      return (!this.status.search.focusUser)
+      return (!this.status.filter.focusUser)
     },
     othersIsMe () {
-      return (this.status.search.focusUser
-              && this.status.search.focusUser.id === this.status.userID)
+      return (this.status.filter.focusUser
+              && this.status.filter.focusUser.id === this.status.userID)
     },
     isOtherVisiable () {
       return (this.lib.auth.isEnableCollaboration 

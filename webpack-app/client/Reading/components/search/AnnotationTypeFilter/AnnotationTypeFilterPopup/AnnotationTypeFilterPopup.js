@@ -26,8 +26,8 @@ let AnnotationTypeFilterPopup = {
       this.loadLock = true
       let data = {}
       
-      if (this.status.search.focusUser) {
-        data.focusUserID = this.status.search.focusUser.id
+      if (this.status.filter.focusUser) {
+        data.focusUserID = this.status.filter.focusUser.id
       }
       
       let result = await this.lib.AxiosHelper.get('/client/AnnotationTypeFilter/init', data)

@@ -46,6 +46,10 @@ class UserFilter {
                 builder.where('webpage_id', webpage.primaryKeyValue)
                        .limit(1)
               }) // 至少要在這個網頁有進度
+              .withCount('annotations', builder => {
+                builder.where('webpage_id', webpage.primaryKeyValue)
+                        .whereNot('type', 'SectionMainIdea')
+              })
               .setVisible(['id', 'username', 'display_name', 'role', 'avatar_url'])
 
       if (this.isAdmin()) {

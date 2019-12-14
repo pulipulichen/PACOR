@@ -22,7 +22,7 @@ class WebpageGroupUserFilter {
         // 這包含了自己
         
         let users = await user.getPeers(webpage)
-        
+        //console.log(JSON.stringify(users, null, 2))
         //console.log('getInit', 2)
                 
         // ----------------
@@ -70,6 +70,7 @@ class WebpageGroupUserFilter {
           userJSON.annotationTypes = annotationTypes
           userJSON.isReady = isReady
           userJSON.stepDuration = stepDuration
+          userJSON.annotationsCount = parseInt(userJSON.__meta__.annotations_count, 10)
           if (user.id === userJSON.id) {
             // 排除掉自己
             me.push(userJSON)
@@ -134,7 +135,16 @@ class WebpageGroupUserFilter {
       
       // ----------------------------------
       
+      //console.log(JSON.stringify(readersJSON, null, 2))
+      
       readersJSON.sort(function(a, b){
+        if (a.annotationsCount === 0) {
+          return 1
+        }
+        if (b.annotationsCount === 0) {
+          return -1
+        }
+        
         if (a.interactTime && b.interactTime) {
           return b.interactTime - a.interactTime
         }
