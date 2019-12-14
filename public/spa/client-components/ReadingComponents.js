@@ -4129,6 +4129,10 @@ var render = function() {
                   "\r\n    "
               )
             ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.status.role !== "reader"
+          ? _c("i", { staticClass: "cog icon" })
           : _vm._e()
       ])
     ]
@@ -5564,6 +5568,7 @@ let AnnotationManager = {
       this.afterTime = (new Date()).getTime()
     },
     reloadHighlights () {
+      console.log('重新讀取')
       this.afterTime = null
       this.lib.RangyManager.removeHighlights()
       

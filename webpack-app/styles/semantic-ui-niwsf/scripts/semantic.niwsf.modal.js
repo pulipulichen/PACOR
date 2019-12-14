@@ -350,6 +350,11 @@ $.fn.modal = function(parameters) {
             ? callback
             : function(){}
           ;
+          
+          if ($('.non-invasive-web-style-framework.dimmable.dimmed').length <= 1) {
+            $('body').removeClass('non-invasive-web-style-framework-scroll-disable')
+          }
+          
           module.refreshModals();
           module.hideModal(() => {
             module.hideOverlay()
@@ -380,9 +385,7 @@ $.fn.modal = function(parameters) {
         hideOverlay: function () {
           
           // let body enable scroll
-          if ($('.non-invasive-web-style-framework.dimmable.dimmed').length === 0) {
-            $('body').removeClass('non-invasive-web-style-framework-scroll-disable')
-          }
+          
           
           modalQueue.pop()
           if (modalQueue.length < 2) {

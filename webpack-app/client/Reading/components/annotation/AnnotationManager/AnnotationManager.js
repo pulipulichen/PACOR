@@ -167,6 +167,7 @@ let AnnotationManager = {
       this.afterTime = (new Date()).getTime()
     },
     reloadHighlights () {
+      console.log('重新讀取')
       this.afterTime = null
       this.lib.RangyManager.removeHighlights()
       

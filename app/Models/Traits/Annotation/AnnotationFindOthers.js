@@ -24,6 +24,8 @@ class AnnotationFind {
         exceptArea
       } = options
       
+      //console.log('findOthersHighlightByWebpageGroup', findType)
+      
       const doQuery = async evt => {
 
         //console.log(userList)
@@ -37,11 +39,12 @@ class AnnotationFind {
                 .with('anchorPositions')
                 .orderBy('updated_at_unixms', 'desc')
 
-        if (Array.isArray(exceptTypes)) {
-          query.whereNotIn('type', exceptTypes)
-        }
-        else if (findType) {
+        if (findType) {
+          //console.log(findType)
           this._queryFindType(query, options)
+        }
+        else if (Array.isArray(exceptTypes)) {
+          query.whereNotIn('type', exceptTypes)
         }
         else {
           let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
@@ -127,8 +130,10 @@ class AnnotationFind {
         return await doQuery()
       } 
       else {
-        let cacheKey = Cache.key(`Annotation.findOthersByWebpageGroup`, webpage, user, focusUserID, findType)
+        let cacheKey = Cache.key(`Annotation.findOthersByWebpageGroup`, focusUserID, findType)
+        //console.log(cacheKey)
         return await Cache.rememberWait([webpage, user], cacheKey, 2, async () => {
+          //console.log('有嗎？')
           let result = await doQuery()
           //await Cache.put(cacheKey, result, 2)
           return result

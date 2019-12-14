@@ -1837,31 +1837,33 @@ var render = function() {
             key: "content",
             fn: function() {
               return [
-                _c("div", { staticClass: "ui segment trigger-users" }, [
-                  _c("span", { staticClass: "column" }, [
-                    _vm._v(
-                      "\r\n        " +
-                        _vm._s(_vm.$t("Readers interacted with you")) +
-                        ":\r\n        "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    { staticClass: "column" },
-                    [
-                      _c("user-avatar-icons", {
-                        attrs: {
-                          config: _vm.config,
-                          status: _vm.status,
-                          lib: _vm.lib,
-                          users: _vm.triggerUsers
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ]),
+                _vm.triggerUsers.length > 0
+                  ? _c("div", { staticClass: "ui segment trigger-users" }, [
+                      _c("span", { staticClass: "column" }, [
+                        _vm._v(
+                          "\r\n        " +
+                            _vm._s(_vm.$t("Readers interacted with you")) +
+                            ":\r\n        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        { staticClass: "column" },
+                        [
+                          _c("user-avatar-icons", {
+                            attrs: {
+                              config: _vm.config,
+                              status: _vm.status,
+                              lib: _vm.lib,
+                              users: _vm.triggerUsers
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -6092,11 +6094,19 @@ let NotificationIcon = {
         classList.push(this.position)
       }
       
+      if (this.status.notificationData.hasNotification === false) {
+        classList.push('disabled')
+      }
+      
       return classList.join(' ')
     }
   },
   methods: {
     initPopup () {
+      if (this.status.notificationData.hasNotification === false) {
+        return false
+      }
+      
       let anchor = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.anchor)
       
       anchor.popup({
@@ -6124,10 +6134,16 @@ let NotificationIcon = {
       anchor.click()
     },
     show () {
+      if (this.status.notificationData.hasNotification === false) {
+        return false
+      }
       this.$refs.anchor.click()
       //throw new Error('show')
     },
     showFull () {
+      if (this.status.notificationData.hasNotification === false) {
+        return false
+      }
       this.lib.NotificationManager.showFull()
     }
   } // methods

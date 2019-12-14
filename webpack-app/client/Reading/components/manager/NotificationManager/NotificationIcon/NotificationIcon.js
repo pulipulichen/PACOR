@@ -33,11 +33,19 @@ let NotificationIcon = {
         classList.push(this.position)
       }
       
+      if (this.status.notificationData.hasNotification === false) {
+        classList.push('disabled')
+      }
+      
       return classList.join(' ')
     }
   },
   methods: {
     initPopup () {
+      if (this.status.notificationData.hasNotification === false) {
+        return false
+      }
+      
       let anchor = $(this.$refs.anchor)
       
       anchor.popup({
@@ -65,10 +73,16 @@ let NotificationIcon = {
       anchor.click()
     },
     show () {
+      if (this.status.notificationData.hasNotification === false) {
+        return false
+      }
       this.$refs.anchor.click()
       //throw new Error('show')
     },
     showFull () {
+      if (this.status.notificationData.hasNotification === false) {
+        return false
+      }
       this.lib.NotificationManager.showFull()
     }
   } // methods

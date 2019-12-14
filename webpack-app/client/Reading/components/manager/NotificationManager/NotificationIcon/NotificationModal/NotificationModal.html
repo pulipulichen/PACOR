@@ -10,7 +10,8 @@
       {{ $t('Notifications') }}
     </template>
     <template v-slot:content>
-      <div class="ui segment trigger-users">
+      <div class="ui segment trigger-users"
+           v-if="triggerUsers.length > 0">
         <span class="column">
         {{ $t('Readers interacted with you') }}:
         </span>
