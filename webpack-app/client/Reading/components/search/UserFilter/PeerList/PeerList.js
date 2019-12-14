@@ -23,7 +23,7 @@ let PeerList = {
       }
       
       let result = await this.lib.AxiosHelper.get('/client/UserFilter/initPeerList', data)
-      console.log(result)
+      //console.log(result)
       
       if (Array.isArray(result)) {
         this.checkTempSelectUserID(result)
