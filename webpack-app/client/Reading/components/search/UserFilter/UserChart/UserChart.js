@@ -59,37 +59,6 @@ let UserChart = {
       let words = this.filterData.chart.userJSON
       return this._processWordFrequency(words)
     },
-    jQCloudWords () {
-      if (!this.inited) {
-        //console.log('尚未初始化')
-        return []
-      }
-      
-      //console.log(this.otherIsAll, this.otherIsMe)
-      let words
-      if (this.otherIsAll) {
-        // 先看看有沒有暫存
-        return this.allWords
-      }
-      else if (this.otherIsMe) {
-        return this.userWords
-      }
-      else {
-        let userID = this.filterData.selectUser.id
-        if (Array.isArray(this.othersArrayMap[userID])) {
-          return this.othersArrayMap[userID]
-        }
-        
-        console.log(this.filterData.chart)
-        let words = this.filterData.chart.othersJSONMap[userID]
-        if (!words) {
-          return []
-        }
-        
-        this.othersArrayMap[userID] = this._processWordFrequency(words)
-        return this.othersArrayMap[userID]
-      }
-    }
   },
   watch: {
     'filterData.selectUser' () {
@@ -121,7 +90,7 @@ let UserChart = {
       }
       
       let result = await this.lib.AxiosHelper.get(url, data)
-      console.log(result)
+      //console.log(result)
       //console.log(this.$refs.UserChartPopup)
       
       this.filterData.chart.userJSON = result.userJSON
@@ -152,10 +121,11 @@ let UserChart = {
         return null
       }
       else if (this.filterData.selectUser) {
-        //console.log('是某人')
         let userID = this.filterData.selectUser.id
+        //console.log('是某人', this.filterData.chart.othersJSONMap[userID])
         if (this.filterData.chart.othersJSONMap
             && this.filterData.chart.othersJSONMap[userID]) {
+          //console.log('ok 開畫')
           this._draw(true)
           return null
         }
@@ -169,6 +139,7 @@ let UserChart = {
         data.userID = this.filterData.selectUser.id
       }
       let result = await this.lib.AxiosHelper.get(url, data)
+      //console.log(result)
       if (this.otherIsAll === true) {
         this.filterData.chart.allJSON = result
       }
@@ -176,6 +147,7 @@ let UserChart = {
         if (!this.filterData.chart.othersJSONMap) {
           this.filterData.chart.othersJSONMap = {}
         }
+        //console.log('是我是我', data.userID, result)
         this.filterData.chart.othersJSONMap[data.userID] = result
       }
       
@@ -185,11 +157,11 @@ let UserChart = {
       // 畫
       //console.log(this.jQCloudWords)
       if (doUpdate === undefined) {
-        $(this.$refs.jQCloudContainer).jQCloud(this.jQCloudWords, this.jQCloudOptions)
+        $(this.$refs.jQCloudContainer).jQCloud(this.jQCloudWords(), this.jQCloudOptions)
       }
       else {
-        //console.log('update')
-        $(this.$refs.jQCloudContainer).jQCloud('update', this.jQCloudWords)
+        //console.log('update', this.jQCloudWords())
+        $(this.$refs.jQCloudContainer).jQCloud('update', this.jQCloudWords())
       }
     },
     // ---------------------------------
@@ -276,6 +248,40 @@ let UserChart = {
       await this.lib.VueHelper.sleep(3000)
       
       ///$(this.$refs.jQCloudContainer).jQCloud(words, 'update');
+    },
+    
+    
+    jQCloudWords () {
+      if (!this.inited) {
+        //console.log('尚未初始化')
+        return []
+      }
+      
+      //console.log(this.otherIsAll, this.otherIsMe)
+      let words
+      if (this.otherIsAll) {
+        // 先看看有沒有暫存
+        return this.allWords
+      }
+      else if (this.otherIsMe) {
+        return this.userWords
+      }
+      else {
+        let userID = this.filterData.selectUser.id
+        if (Array.isArray(this.othersArrayMap[userID])) {
+          return this.othersArrayMap[userID]
+        }
+        
+        //console.log(this.filterData.chart)
+        let words = this.filterData.chart.othersJSONMap[userID]
+        //console.log(words)
+        if (!words) {
+          return []
+        }
+        
+        this.othersArrayMap[userID] = this._processWordFrequency(words)
+        return this.othersArrayMap[userID]
+      }
     },
     
 //    _mockupData () {

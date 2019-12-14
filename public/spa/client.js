@@ -791,7 +791,7 @@ exports.push([module.i, ".non-invasive-web-style-framework .ui.items > .item.Pee
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".items-list[data-v-5935224c] {\n  overflow-y: auto;\n  max-height: calc(100% - 2.6rem);\n  padding-bottom: 1em !important;\n  margin-top: 0 !important;\n}\n.all-item[data-v-5935224c] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n  margin-bottom: 0 !important;\n  width: calc(100% - 10px);\n}\n", "",{"version":3,"sources":["PeerList.less?vue&type=style&index=0&id=5935224c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,+BAA+B;EAC/B,8BAA8B;EAC9B,wBAAwB;AAC1B;AACA;EACE,0DAA0D;EAC1D,2BAA2B;EAC3B,wBAAwB;AAC1B","file":"PeerList.less?vue&type=style&index=0&id=5935224c&lang=less&scoped=true&","sourcesContent":[".items-list[data-v-5935224c] {\n  overflow-y: auto;\n  max-height: calc(100% - 2.6rem);\n  padding-bottom: 1em !important;\n  margin-top: 0 !important;\n}\n.all-item[data-v-5935224c] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n  margin-bottom: 0 !important;\n  width: calc(100% - 10px);\n}\n"]}]);
+exports.push([module.i, ".items-list[data-v-5935224c] {\n  overflow-y: auto;\n  max-height: calc(100% - 2.7rem);\n  padding-bottom: 1em !important;\n  margin-top: 0 !important;\n}\n.all-item[data-v-5935224c] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n  margin-bottom: 0 !important;\n  width: calc(100% - 10px);\n}\n", "",{"version":3,"sources":["PeerList.less?vue&type=style&index=0&id=5935224c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,+BAA+B;EAC/B,8BAA8B;EAC9B,wBAAwB;AAC1B;AACA;EACE,0DAA0D;EAC1D,2BAA2B;EAC3B,wBAAwB;AAC1B","file":"PeerList.less?vue&type=style&index=0&id=5935224c&lang=less&scoped=true&","sourcesContent":[".items-list[data-v-5935224c] {\n  overflow-y: auto;\n  max-height: calc(100% - 2.7rem);\n  padding-bottom: 1em !important;\n  margin-top: 0 !important;\n}\n.all-item[data-v-5935224c] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n  margin-bottom: 0 !important;\n  width: calc(100% - 10px);\n}\n"]}]);
 
 
 /***/ }),
@@ -2185,17 +2185,15 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _vm.jQCloudWords.length > 0
-        ? _c("user-chart-labels", {
-            ref: "UserChartLabels",
-            attrs: {
-              config: _vm.config,
-              status: _vm.status,
-              lib: _vm.lib,
-              filterData: _vm.filterData
-            }
-          })
-        : _vm._e()
+      _c("user-chart-labels", {
+        ref: "UserChartLabels",
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          lib: _vm.lib,
+          filterData: _vm.filterData
+        }
+      })
     ],
     1
   )
@@ -7117,37 +7115,6 @@ let UserChart = {
       let words = this.filterData.chart.userJSON
       return this._processWordFrequency(words)
     },
-    jQCloudWords () {
-      if (!this.inited) {
-        //console.log('尚未初始化')
-        return []
-      }
-      
-      //console.log(this.otherIsAll, this.otherIsMe)
-      let words
-      if (this.otherIsAll) {
-        // 先看看有沒有暫存
-        return this.allWords
-      }
-      else if (this.otherIsMe) {
-        return this.userWords
-      }
-      else {
-        let userID = this.filterData.selectUser.id
-        if (Array.isArray(this.othersArrayMap[userID])) {
-          return this.othersArrayMap[userID]
-        }
-        
-        console.log(this.filterData.chart)
-        let words = this.filterData.chart.othersJSONMap[userID]
-        if (!words) {
-          return []
-        }
-        
-        this.othersArrayMap[userID] = this._processWordFrequency(words)
-        return this.othersArrayMap[userID]
-      }
-    }
   },
   watch: {
     'filterData.selectUser' () {
@@ -7179,7 +7146,7 @@ let UserChart = {
       }
       
       let result = await this.lib.AxiosHelper.get(url, data)
-      console.log(result)
+      //console.log(result)
       //console.log(this.$refs.UserChartPopup)
       
       this.filterData.chart.userJSON = result.userJSON
@@ -7210,10 +7177,11 @@ let UserChart = {
         return null
       }
       else if (this.filterData.selectUser) {
-        //console.log('是某人')
         let userID = this.filterData.selectUser.id
+        //console.log('是某人', this.filterData.chart.othersJSONMap[userID])
         if (this.filterData.chart.othersJSONMap
             && this.filterData.chart.othersJSONMap[userID]) {
+          //console.log('ok 開畫')
           this._draw(true)
           return null
         }
@@ -7227,6 +7195,7 @@ let UserChart = {
         data.userID = this.filterData.selectUser.id
       }
       let result = await this.lib.AxiosHelper.get(url, data)
+      //console.log(result)
       if (this.otherIsAll === true) {
         this.filterData.chart.allJSON = result
       }
@@ -7234,6 +7203,7 @@ let UserChart = {
         if (!this.filterData.chart.othersJSONMap) {
           this.filterData.chart.othersJSONMap = {}
         }
+        //console.log('是我是我', data.userID, result)
         this.filterData.chart.othersJSONMap[data.userID] = result
       }
       
@@ -7243,11 +7213,11 @@ let UserChart = {
       // 畫
       //console.log(this.jQCloudWords)
       if (doUpdate === undefined) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.jQCloudContainer).jQCloud(this.jQCloudWords, this.jQCloudOptions)
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.jQCloudContainer).jQCloud(this.jQCloudWords(), this.jQCloudOptions)
       }
       else {
-        //console.log('update')
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.jQCloudContainer).jQCloud('update', this.jQCloudWords)
+        //console.log('update', this.jQCloudWords())
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.jQCloudContainer).jQCloud('update', this.jQCloudWords())
       }
     },
     // ---------------------------------
@@ -7334,6 +7304,40 @@ let UserChart = {
       await this.lib.VueHelper.sleep(3000)
       
       ///$(this.$refs.jQCloudContainer).jQCloud(words, 'update');
+    },
+    
+    
+    jQCloudWords () {
+      if (!this.inited) {
+        //console.log('尚未初始化')
+        return []
+      }
+      
+      //console.log(this.otherIsAll, this.otherIsMe)
+      let words
+      if (this.otherIsAll) {
+        // 先看看有沒有暫存
+        return this.allWords
+      }
+      else if (this.otherIsMe) {
+        return this.userWords
+      }
+      else {
+        let userID = this.filterData.selectUser.id
+        if (Array.isArray(this.othersArrayMap[userID])) {
+          return this.othersArrayMap[userID]
+        }
+        
+        //console.log(this.filterData.chart)
+        let words = this.filterData.chart.othersJSONMap[userID]
+        //console.log(words)
+        if (!words) {
+          return []
+        }
+        
+        this.othersArrayMap[userID] = this._processWordFrequency(words)
+        return this.othersArrayMap[userID]
+      }
     },
     
 //    _mockupData () {
