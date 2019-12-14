@@ -142,7 +142,8 @@ let CollaborativeReading = {
       console.log('_testUserFilter')
       await this.lib.VueHelper.sleep(2000)
       
-      this.lib.UserFilter.show()
+      //this.lib.UserFilter.show()
+      $('.Navigation .peer-label:first').click()
       
       /*
       this.status.filter.focusUser = {
