@@ -19,41 +19,57 @@ class UserConfig {
       return config
     }
     
-    Model.prototype.getCurrentReadingProgressStepAnnotationConfig = async function (webpage) {
+    //Model.prototype.getCurrentReadingProgressStepAnnotationConfig = async function (webpage) {
+    Model.prototype.getStepSectionAnnotationConfig = async function (webpage) {
       let config = await this.getCurrentReadingProgressStepConfig(webpage)
-      if (!config || !config.annotation) {
+      if (!config || !config.sectionAnnotation) {
         //throw new Error('config is undefined')
         let stepName = await this.getCurrentReadingProgressStepName(webpage)
         if (stepName !== 'PostRecall') {
-          console.error('config is error: ' + stepName)
+          console.error('[User.getStepSectionAnnotationConfig()] config is error: ' + stepName)
         }
         return undefined
       }
-      return config.annotation
+      return config.sectionAnnotation
+    }
+    
+    Model.prototype.getStepHighlightAnnotationConfig = async function (webpage) {
+      let config = await this.getCurrentReadingProgressStepConfig(webpage)
+      if (!config || !config.highlightAnnotation) {
+        //throw new Error('config is undefined')
+        let stepName = await this.getCurrentReadingProgressStepName(webpage)
+        if (stepName !== 'PostRecall') {
+          console.error('getStepHighlightAnnotationConfig config is error: ' + stepName)
+        }
+        return undefined
+      }
+      return config.highlightAnnotation
     }
     
     Model.prototype.getStepAnnotationTypes = async function (webpage) {
       let config = await this.getCurrentReadingProgressStepConfig(webpage)
-      if (!config || !config.annotation) {
+      if (!config || !config.highlightAnnotation
+              || !config.sectionAnnotation) {
         //throw new Error('config is undefined')
         let stepName = await this.getCurrentReadingProgressStepName(webpage)
         if (stepName !== 'PostRecall') {
-          console.error('config is error: ' + stepName)
+          console.error('[User.getStepAnnotationTypes()] config is error: ' + stepName)
         }
         return []
       }
-      let types = config.highlightAnnotation.types
-      return types
+      let highlightTypes = config.highlightAnnotation.types
+      let sectionTypes = config.sectionAnnotation.types
+      return highlightTypes.concat(sectionTypes)
     }
 
     //Model.prototype.getCurrentReadingProgressStepAnnotationTypes = async function (webpage) {
     Model.prototype.getStepHighlightAnnotationTypes = async function (webpage) {
       let config = await this.getCurrentReadingProgressStepConfig(webpage)
-      if (!config || !config.annotation) {
+      if (!config || !config.highlightAnnotation) {
         //throw new Error('config is undefined')
         let stepName = await this.getCurrentReadingProgressStepName(webpage)
         if (stepName !== 'PostRecall') {
-          console.error('config is error: ' + stepName)
+          console.error('[User.getStepHighlightAnnotationTypes()] config is error: ' + stepName)
         }
         return []
       }
@@ -63,11 +79,11 @@ class UserConfig {
     
     Model.prototype.getStepSectionAnnotationTypes = async function (webpage) {
       let config = await this.getCurrentReadingProgressStepConfig(webpage)
-      if (!config || !config.annotation) {
+      if (!config || !config.sectionAnnotation) {
         //throw new Error('config is undefined')
         let stepName = await this.getCurrentReadingProgressStepName(webpage)
         if (stepName !== 'PostRecall') {
-          console.error('config is error: ' + stepName)
+          console.error('[User.getStepSectionAnnotationTypes()] config is error: ' + stepName)
         }
         return []
       }

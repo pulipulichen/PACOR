@@ -4,6 +4,30 @@ const Cache = use('Cache')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 const AnnotationNoteModel = use('App/Models/AnnotationNote')
 
+let mockAllWords = {
+  Lorem: 13,
+  Ipsum: 10.5,
+  Dolor: 9.4,
+  Sit: 8,
+  Amet: 6.2,
+  Consectetur: 5,
+  Adipiscing: 5
+}
+
+let mockOtherWords = {
+  Lorem: 13,
+  Ipsum: 10.5,
+  Sit: 8,
+  Amet: 6.2,
+  Adipiscing: 5
+}
+
+let mockMyWords = {
+  Lorem: 13,
+  Amet: 6.2,
+  Adipiscing: 5
+}
+
 class AnnotationNoteUserFilter {
 
   register(Model) {
@@ -41,7 +65,7 @@ class AnnotationNoteUserFilter {
       let cacheKey = Cache.key(`AnnotationNote.getUserWords`, userID)
       return await Cache.rememberWait([webpage, user], cacheKey, 1, async () => {
         
-        let types = await user.getStepAnnotationTypes(webpage)
+        let types = await user.getStepHighlightAnnotationTypes(webpage)
         if (types.legnth === 0) {
           return undefined
         }

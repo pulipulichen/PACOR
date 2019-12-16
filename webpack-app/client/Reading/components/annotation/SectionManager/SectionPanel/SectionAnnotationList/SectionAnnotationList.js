@@ -16,6 +16,11 @@ let SectionAnnotationList = {
   },
   computed: {
     instance () {
+      if (!this.sectionsData) {
+        throw new Error('no section data')
+        return
+      }
+      
       if (typeof(this.sectionsData.annotation[this.sectionSeqID]) !== 'object') {
         this.sectionsData.annotation[this.sectionSeqID] = {}
       }

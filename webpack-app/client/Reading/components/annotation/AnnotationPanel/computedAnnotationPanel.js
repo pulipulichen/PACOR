@@ -19,7 +19,7 @@ export default (AnnotationPanel) => {
   }
 
   AnnotationPanel.computed.computedSegmentStyle = function () {
-    if (this.annotationConfig.enableCollaboration === true
+    if (this.lib.auth.isEnableCollaboration === true
             && this.lib.style.isStackWidth() === true) {
       return {
         'max-height': `${this.panelData.heightPX}px`,

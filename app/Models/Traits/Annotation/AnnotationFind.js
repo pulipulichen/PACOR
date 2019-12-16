@@ -279,7 +279,8 @@ class AnnotationFind {
         catch (e) {
           console.error('[ANNOTATION FIND ERROR]')
           console.log(JSON.stringify(options, null, 2))
-          console.log(query.toSQL().toNative())
+          //console.log(query.toSQL().toNative())
+          console.log(DatabaseHelper.toSQL(query))
           throw e
         }
         //console.log(result)

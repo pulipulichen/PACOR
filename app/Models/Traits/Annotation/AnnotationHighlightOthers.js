@@ -15,7 +15,7 @@ class AnnotationHighlightOthers {
           options = {}
         }
         
-        let config = await user.getCurrentReadingProgressStepAnnotationConfig(webpage)
+        let config = await user.getStepHighlightAnnotationConfig(webpage)
         let limit = config.otherHighlightBatchSize
         if (typeof(limit) !== 'number') {
           //console.error('config.otherHighlightBatchSize is not a number')
@@ -24,7 +24,7 @@ class AnnotationHighlightOthers {
         }
         
         options.limit = limit
-        options.exceptTypes = await user.getStepSectionAnnotationTypes(webpage)
+        //options.exceptTypes = await user.getStepSectionAnnotationTypes(webpage)
         
         let area = await Model._getAreaFromSession(webpage, user, options, session, user)
         //this._consoleLogArea('after find', area)

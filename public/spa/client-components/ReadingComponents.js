@@ -9251,7 +9251,7 @@ __webpack_require__.r(__webpack_exports__);
   }
 
   AnnotationPanel.computed.computedSegmentStyle = function () {
-    if (this.annotationConfig.enableCollaboration === true
+    if (this.lib.auth.isEnableCollaboration === true
             && this.lib.style.isStackWidth() === true) {
       return {
         'max-height': `${this.panelData.heightPX}px`,
@@ -22901,6 +22901,11 @@ let SectionAnnotationList = {
   },
   computed: {
     instance () {
+      if (!this.sectionsData) {
+        throw new Error('no section data')
+        return
+      }
+      
       if (typeof(this.sectionsData.annotation[this.sectionSeqID]) !== 'object') {
         this.sectionsData.annotation[this.sectionSeqID] = {}
       }
