@@ -41,6 +41,15 @@ let NotificationIcon = {
       }
       
       return classList.join(' ')
+    },
+    computedPopupClassList () {
+      let classList = []
+      
+      if (this.lib.style.isLeftHanded) {
+        classList.push('left-handed')
+      }
+      
+      return classList.join(' ')
     }
   },
   methods: {
@@ -57,7 +66,7 @@ let NotificationIcon = {
           hoverable  : true,
           on    : 'click',
           distanceAway: 20,
-          position: "top center",
+          //position: "top center",
           onShow: () => {
             if (this.notificationData.unreadNotifications.length === 0) {
               this.showFull()

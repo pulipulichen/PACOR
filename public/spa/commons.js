@@ -231,7 +231,7 @@ exports.push([module.i, "iframe[data-v-64f3eac6] {\n  width: 100%;\n  height: ca
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".ui.top.menu.compact-mode .item.title[data-v-338540a1] {\n  max-width: calc(100vw - 8rem);\n}\n", "",{"version":3,"sources":["Navigation-compact.less?vue&type=style&index=1&id=338540a1&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,6BAA6B;AAC/B","file":"Navigation-compact.less?vue&type=style&index=1&id=338540a1&lang=less&scoped=true&","sourcesContent":[".ui.top.menu.compact-mode .item.title[data-v-338540a1] {\n  max-width: calc(100vw - 8rem);\n}\n"]}]);
+exports.push([module.i, ".ui.horizontal-menu.compact-mode .item.title[data-v-338540a1] {\n  max-width: calc(100vw - 8rem);\n}\n.ui.horizontal-menu.compact-mode[data-v-338540a1]  .in-fullmode {\n  display: none !important;\n}\n", "",{"version":3,"sources":["Navigation-compact.less?vue&type=style&index=1&id=338540a1&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,6BAA6B;AAC/B;AACA;EACE,wBAAwB;AAC1B","file":"Navigation-compact.less?vue&type=style&index=1&id=338540a1&lang=less&scoped=true&","sourcesContent":[".ui.horizontal-menu.compact-mode .item.title[data-v-338540a1] {\n  max-width: calc(100vw - 8rem);\n}\n.ui.horizontal-menu.compact-mode[data-v-338540a1]  .in-fullmode {\n  display: none !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -1084,6 +1084,28 @@ var render = function() {
         class: _vm.computedTopMenuClass
       },
       [
+        _vm.status.preference.leftHanded
+          ? _c("media", { attrs: { query: { maxWidth: _vm.maxWidth } } }, [
+              _c(
+                "div",
+                { staticClass: "menu-compact left menu" },
+                [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "icon item",
+                      on: { click: _vm.showSideMenu }
+                    },
+                    [_c("i", { staticClass: "ellipsis vertical icon" })]
+                  ),
+                  _vm._v(" "),
+                  _vm._t("compactItems")
+                ],
+                2
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
         _vm._t("header"),
         _vm._v(" "),
         _c(
@@ -1109,22 +1131,27 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c("media", { attrs: { query: { maxWidth: _vm.maxWidth } } }, [
-          _c(
-            "div",
-            { staticClass: "menu-compact right menu" },
-            [
-              _vm._t("compactItems"),
-              _vm._v(" "),
+        !_vm.status.preference.leftHanded
+          ? _c("media", { attrs: { query: { maxWidth: _vm.maxWidth } } }, [
               _c(
-                "a",
-                { staticClass: "icon item", on: { click: _vm.showSideMenu } },
-                [_c("i", { staticClass: "ellipsis vertical icon" })]
+                "div",
+                { staticClass: "menu-compact right menu" },
+                [
+                  _vm._t("compactItems"),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "icon item",
+                      on: { click: _vm.showSideMenu }
+                    },
+                    [_c("i", { staticClass: "ellipsis vertical icon" })]
+                  )
+                ],
+                2
               )
-            ],
-            2
-          )
-        ])
+            ])
+          : _vm._e()
       ],
       2
     ),
@@ -4927,7 +4954,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let Navigation = {
-  props: ['config', 'lib'
+  props: ['config', 'lib', 'status'
     , 'compactWidth', 'position', 'color', 'isVisible'],
   data() {
     return {

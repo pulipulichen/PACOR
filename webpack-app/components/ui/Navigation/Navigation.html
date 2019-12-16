@@ -3,6 +3,18 @@
        ref="Menu"
        v-bind:class="computedTopMenuClass"
        v-show="isVisible !== false">
+    
+    <media v-bind:query="{maxWidth: maxWidth}"
+           v-if="status.preference.leftHanded">
+      <div class="menu-compact left menu">
+        <a class="icon item"
+           v-on:click="showSideMenu">
+          <i class="ellipsis vertical icon"></i>
+        </a>
+        <slot name="compactItems"></slot>
+      </div>
+    </media>
+    
     <slot name="header"></slot>
     
     <media v-bind:query="{minWidth: maxWidth}"
@@ -13,7 +25,8 @@
       </div>
     </media>
     
-    <media v-bind:query="{maxWidth: maxWidth}">
+    <media v-bind:query="{maxWidth: maxWidth}"
+           v-if="!status.preference.leftHanded">
       <div class="menu-compact right menu">
         <slot name="compactItems"></slot>
         <a class="icon item"
@@ -46,6 +59,8 @@
     
     <slot name="items"></slot>
   </div>
+  
+  <!-- ========== -->
   
   <div class="overlay"
        v-if="sideMenuDisplay"

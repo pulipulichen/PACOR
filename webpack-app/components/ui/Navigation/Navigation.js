@@ -1,7 +1,7 @@
 import Media from 'vue-media'
 
 let Navigation = {
-  props: ['config', 'lib'
+  props: ['config', 'lib', 'status'
     , 'compactWidth', 'position', 'color', 'isVisible'],
   data() {
     return {

@@ -69,6 +69,7 @@ var render = function() {
                 return [
                   _vm.status.preference.leftHanded
                     ? _c("notification-icon", {
+                        staticClass: "in-fullmode",
                         attrs: {
                           config: _vm.config,
                           status: _vm.status,
@@ -201,7 +202,7 @@ var render = function() {
           ],
           null,
           false,
-          4020494349
+          2965564439
         )
       })
     : _vm._e()

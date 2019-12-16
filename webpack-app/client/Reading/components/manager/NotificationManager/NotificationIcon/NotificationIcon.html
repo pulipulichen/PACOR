@@ -20,7 +20,8 @@
     {{ unreadCount }}
   </div>
 
-  <div class="list ui popup"
+  <div class="list ui fluid popup"
+       v-bind:class="computedPopupClassList"
        ref="popup">
     <notification-feed 
       ref="feed"

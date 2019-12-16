@@ -749,7 +749,7 @@ exports.push([module.i, ".NotificationFeed[data-v-21e07861] {\n  overflow-y: aut
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".floating.label.disabled[data-v-1a46cd82] {\n  color: #666;\n}\n.left .floating.label[data-v-1a46cd82] {\n  /*  text-align: right;\n  line-height: 1em !important;\n  padding-top: 0.1em !important;\n  padding-bottom: 0.2em !important;\n  padding-left: 0.1em !important;\n  padding-right: 0.2em !important;*/\n  /*  left: 80% !important;\n  top: 0.15em !important;\n  line-height: 1em !important;\n  padding-top: 0.2em !important;\n  padding-bottom: 0.3em !important;\n  padding-left: 0.3em !important;\n  padding-right: 0.4em !important;\n  white-space: nowrap;*/\n}\n.view-all[data-v-1a46cd82] {\n  text-align: center;\n  cursor: pointer;\n}\n.button[data-v-1a46cd82] {\n  position: absolute;\n}\n.popup[data-v-1a46cd82] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-1a46cd82]::before {\n  background: #DCDDDE !important;\n}\n", "",{"version":3,"sources":["NotificationIcon.less?vue&type=style&index=0&id=1a46cd82&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;AACb;AACA;EACE;;;;;mCAKiC;EACjC;;;;;;;uBAOqB;AACvB;AACA;EACE,kBAAkB;EAClB,eAAe;AACjB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,sBAAsB;EACtB,2BAA2B;EAC3B,8BAA8B;EAC9B,gCAAgC;AAClC;AACA;EACE,8BAA8B;AAChC","file":"NotificationIcon.less?vue&type=style&index=0&id=1a46cd82&lang=less&scoped=true&","sourcesContent":[".floating.label.disabled[data-v-1a46cd82] {\n  color: #666;\n}\n.left .floating.label[data-v-1a46cd82] {\n  /*  text-align: right;\n  line-height: 1em !important;\n  padding-top: 0.1em !important;\n  padding-bottom: 0.2em !important;\n  padding-left: 0.1em !important;\n  padding-right: 0.2em !important;*/\n  /*  left: 80% !important;\n  top: 0.15em !important;\n  line-height: 1em !important;\n  padding-top: 0.2em !important;\n  padding-bottom: 0.3em !important;\n  padding-left: 0.3em !important;\n  padding-right: 0.4em !important;\n  white-space: nowrap;*/\n}\n.view-all[data-v-1a46cd82] {\n  text-align: center;\n  cursor: pointer;\n}\n.button[data-v-1a46cd82] {\n  position: absolute;\n}\n.popup[data-v-1a46cd82] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-1a46cd82]::before {\n  background: #DCDDDE !important;\n}\n"]}]);
+exports.push([module.i, ".floating.label.disabled[data-v-1a46cd82] {\n  color: #666;\n}\n.left .floating.label[data-v-1a46cd82] {\n  /*  text-align: right;\n  line-height: 1em !important;\n  padding-top: 0.1em !important;\n  padding-bottom: 0.2em !important;\n  padding-left: 0.1em !important;\n  padding-right: 0.2em !important;*/\n  /*  left: 80% !important;\n  top: 0.15em !important;\n  line-height: 1em !important;\n  padding-top: 0.2em !important;\n  padding-bottom: 0.3em !important;\n  padding-left: 0.3em !important;\n  padding-right: 0.4em !important;\n  white-space: nowrap;*/\n}\n.view-all[data-v-1a46cd82] {\n  text-align: center;\n  cursor: pointer;\n}\n.button[data-v-1a46cd82] {\n  position: absolute;\n}\n.popup[data-v-1a46cd82] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-1a46cd82]::before {\n  background: #DCDDDE !important;\n}\n@media only screen and (max-width: 767px) {\n.popup[data-v-1a46cd82] {\n    width: 100vw !important;\n    left: 0 !important;\n    position: fixed !important;\n    padding-left: 0 !important;\n}\n.popup[data-v-1a46cd82]::before {\n    right: 5.4em !important;\n    left: auto !important;\n}\n.popup.left-handed[data-v-1a46cd82] {\n    direction: ltr;\n    text-align: left;\n}\n.popup.left-handed[data-v-1a46cd82]::before {\n    left: 4em !important;\n}\n}\n", "",{"version":3,"sources":["NotificationIcon.less?vue&type=style&index=0&id=1a46cd82&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;AACb;AACA;EACE;;;;;mCAKiC;EACjC;;;;;;;uBAOqB;AACvB;AACA;EACE,kBAAkB;EAClB,eAAe;AACjB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,sBAAsB;EACtB,2BAA2B;EAC3B,8BAA8B;EAC9B,gCAAgC;AAClC;AACA;EACE,8BAA8B;AAChC;AACA;AACA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,0BAA0B;IAC1B,0BAA0B;AAC9B;AACA;IACI,uBAAuB;IACvB,qBAAqB;AACzB;AACA;IACI,cAAc;IACd,gBAAgB;AACpB;AACA;IACI,oBAAoB;AACxB;AACA","file":"NotificationIcon.less?vue&type=style&index=0&id=1a46cd82&lang=less&scoped=true&","sourcesContent":[".floating.label.disabled[data-v-1a46cd82] {\n  color: #666;\n}\n.left .floating.label[data-v-1a46cd82] {\n  /*  text-align: right;\n  line-height: 1em !important;\n  padding-top: 0.1em !important;\n  padding-bottom: 0.2em !important;\n  padding-left: 0.1em !important;\n  padding-right: 0.2em !important;*/\n  /*  left: 80% !important;\n  top: 0.15em !important;\n  line-height: 1em !important;\n  padding-top: 0.2em !important;\n  padding-bottom: 0.3em !important;\n  padding-left: 0.3em !important;\n  padding-right: 0.4em !important;\n  white-space: nowrap;*/\n}\n.view-all[data-v-1a46cd82] {\n  text-align: center;\n  cursor: pointer;\n}\n.button[data-v-1a46cd82] {\n  position: absolute;\n}\n.popup[data-v-1a46cd82] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-1a46cd82]::before {\n  background: #DCDDDE !important;\n}\n@media only screen and (max-width: 767px) {\n.popup[data-v-1a46cd82] {\n    width: 100vw !important;\n    left: 0 !important;\n    position: fixed !important;\n    padding-left: 0 !important;\n}\n.popup[data-v-1a46cd82]::before {\n    right: 5.4em !important;\n    left: auto !important;\n}\n.popup.left-handed[data-v-1a46cd82] {\n    direction: ltr;\n    text-align: left;\n}\n.popup.left-handed[data-v-1a46cd82]::before {\n    left: 4em !important;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -1744,7 +1744,11 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { ref: "popup", staticClass: "list ui popup" },
+        {
+          ref: "popup",
+          staticClass: "list ui fluid popup",
+          class: _vm.computedPopupClassList
+        },
         [
           _c("notification-feed", {
             ref: "feed",
@@ -6139,6 +6143,15 @@ let NotificationIcon = {
       }
       
       return classList.join(' ')
+    },
+    computedPopupClassList () {
+      let classList = []
+      
+      if (this.lib.style.isLeftHanded) {
+        classList.push('left-handed')
+      }
+      
+      return classList.join(' ')
     }
   },
   methods: {
@@ -6155,7 +6168,7 @@ let NotificationIcon = {
           hoverable  : true,
           on    : 'click',
           distanceAway: 20,
-          position: "top center",
+          //position: "top center",
           onShow: () => {
             if (this.notificationData.unreadNotifications.length === 0) {
               this.showFull()
