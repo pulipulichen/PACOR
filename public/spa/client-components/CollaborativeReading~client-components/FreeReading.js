@@ -80,6 +80,7 @@ var render = function() {
                     : _vm._e(),
                   _vm._v(" "),
                   _c("navigation-header-item", {
+                    staticClass: "in-top",
                     attrs: {
                       config: _vm.config,
                       status: _vm.status,
@@ -218,7 +219,7 @@ var render = function() {
           ],
           null,
           false,
-          206811280
+          3828697617
         )
       })
     : _vm._e()

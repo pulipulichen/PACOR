@@ -262,7 +262,7 @@ class AnnotationFind {
 
         //if (anchorMode === 'exact') console.log(query.toSQL())
         
-        console.log(DatabaseHelper.toSQL(query))
+        //console.log(DatabaseHelper.toSQL(query))
         
         profiler.mark('before fetch')
         

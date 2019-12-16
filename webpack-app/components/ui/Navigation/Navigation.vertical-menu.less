@@ -37,9 +37,17 @@
 }
 
 .ui.vertical.menu {
+  
+  &.default-header .close.item {
+    height: 3rem;
+  }
+  
+  &.with-header .close.item {
+    background-color: rgba(0,0,0,0.2);
+  }
+  
   .close.item {
     cursor: pointer;
-    height: 3rem;
     line-height: inherit;
     //border-bottom: 1px solid #ccc;
 

@@ -45,6 +45,8 @@
     <div class="item in-vertical close"
          v-on:click="hideSideMenu">
       
+      <i class="close icon"></i>
+      
       <template v-if="!$slots.verticalHeaderItem">
         <img v-bind:src="config.baseURL + '/imgs/pacor.svg'" />
 
@@ -54,7 +56,7 @@
       </template>
       <slot name="verticalHeaderItem"></slot>
       
-      <i class="close icon"></i>
+      
     </div>
     
     <slot name="items"></slot>

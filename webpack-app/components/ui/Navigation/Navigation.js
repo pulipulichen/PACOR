@@ -58,6 +58,14 @@ let Navigation = {
     computedVerticalMenuClass: function () {
       let classList = []
       
+      
+      if (this.$slots.verticalHeaderItem) {
+        classList.push('with-header')
+      }
+      else {
+        classList.push('default-header')
+      }
+      
       // {hide: !sideMenuDisplay}
       if (!this.sideMenuDisplay) {
         classList.push('hide')

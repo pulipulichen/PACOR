@@ -273,7 +273,7 @@ exports.push([module.i, ".overlay[data-v-338540a1] {\n  position: fixed;\n  top:
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".vertical.menu[data-v-338540a1] {\n  z-index: 103 !important;\n}\n.vertical.menu.hide[data-v-338540a1] {\n  display: none !important;\n}\n.top.menu[data-v-338540a1]  .in-vertical {\n  display: none !important;\n}\n.vertical.menu[data-v-338540a1]  {\n  /*\n  .menu-full {\n    display: block !important;\n  }\n  */\n}\n.vertical.menu[data-v-338540a1]  .menu-compact {\n  display: none !important;\n}\n.vertical.menu[data-v-338540a1]  .right.menu > .item {\n  line-height: 3rem;\n  color: white !important;\n}\n.vertical.menu[data-v-338540a1]  .menu-full {\n  display: block !important;\n}\n.vertical.menu[data-v-338540a1]  .in-top {\n  display: none !important;\n}\n.ui.vertical.menu .close.item[data-v-338540a1] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n}\n.ui.vertical.menu .close.item img[data-v-338540a1] {\n  width: 1.5em;\n  float: left;\n  margin-top: -0.2em;\n}\n.ui.vertical.menu .close.item .site-header[data-v-338540a1] {\n  display: inline-block;\n  padding-left: 1em;\n}\n.ui.vertical.menu .right.menu[data-v-338540a1]  .item {\n  font-size: 16px;\n}\n.Navigation.menu[data-v-338540a1]  .in-vertical {\n  display: none !important;\n}\n", "",{"version":3,"sources":["Navigation.vertical-menu.less?vue&type=style&index=2&id=338540a1&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,uBAAuB;AACzB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,wBAAwB;AAC1B;AACA;EACE;;;;GAIC;AACH;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,iBAAiB;EACjB,uBAAuB;AACzB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,eAAe;EACf,YAAY;EACZ,oBAAoB;AACtB;AACA;EACE,YAAY;EACZ,WAAW;EACX,kBAAkB;AACpB;AACA;EACE,qBAAqB;EACrB,iBAAiB;AACnB;AACA;EACE,eAAe;AACjB;AACA;EACE,wBAAwB;AAC1B","file":"Navigation.vertical-menu.less?vue&type=style&index=2&id=338540a1&lang=less&scoped=true&","sourcesContent":[".vertical.menu[data-v-338540a1] {\n  z-index: 103 !important;\n}\n.vertical.menu.hide[data-v-338540a1] {\n  display: none !important;\n}\n.top.menu[data-v-338540a1]  .in-vertical {\n  display: none !important;\n}\n.vertical.menu[data-v-338540a1]  {\n  /*\n  .menu-full {\n    display: block !important;\n  }\n  */\n}\n.vertical.menu[data-v-338540a1]  .menu-compact {\n  display: none !important;\n}\n.vertical.menu[data-v-338540a1]  .right.menu > .item {\n  line-height: 3rem;\n  color: white !important;\n}\n.vertical.menu[data-v-338540a1]  .menu-full {\n  display: block !important;\n}\n.vertical.menu[data-v-338540a1]  .in-top {\n  display: none !important;\n}\n.ui.vertical.menu .close.item[data-v-338540a1] {\n  cursor: pointer;\n  height: 3rem;\n  line-height: inherit;\n}\n.ui.vertical.menu .close.item img[data-v-338540a1] {\n  width: 1.5em;\n  float: left;\n  margin-top: -0.2em;\n}\n.ui.vertical.menu .close.item .site-header[data-v-338540a1] {\n  display: inline-block;\n  padding-left: 1em;\n}\n.ui.vertical.menu .right.menu[data-v-338540a1]  .item {\n  font-size: 16px;\n}\n.Navigation.menu[data-v-338540a1]  .in-vertical {\n  display: none !important;\n}\n"]}]);
+exports.push([module.i, ".vertical.menu[data-v-338540a1] {\n  z-index: 103 !important;\n}\n.vertical.menu.hide[data-v-338540a1] {\n  display: none !important;\n}\n.top.menu[data-v-338540a1]  .in-vertical {\n  display: none !important;\n}\n.vertical.menu[data-v-338540a1]  {\n  /*\n  .menu-full {\n    display: block !important;\n  }\n  */\n}\n.vertical.menu[data-v-338540a1]  .menu-compact {\n  display: none !important;\n}\n.vertical.menu[data-v-338540a1]  .right.menu > .item {\n  line-height: 3rem;\n  color: white !important;\n}\n.vertical.menu[data-v-338540a1]  .menu-full {\n  display: block !important;\n}\n.vertical.menu[data-v-338540a1]  .in-top {\n  display: none !important;\n}\n.ui.vertical.menu.default-header .close.item[data-v-338540a1] {\n  height: 3rem;\n}\n.ui.vertical.menu.with-header .close.item[data-v-338540a1] {\n  background-color: rgba(0, 0, 0, 0.2);\n}\n.ui.vertical.menu .close.item[data-v-338540a1] {\n  cursor: pointer;\n  line-height: inherit;\n}\n.ui.vertical.menu .close.item img[data-v-338540a1] {\n  width: 1.5em;\n  float: left;\n  margin-top: -0.2em;\n}\n.ui.vertical.menu .close.item .site-header[data-v-338540a1] {\n  display: inline-block;\n  padding-left: 1em;\n}\n.ui.vertical.menu .right.menu[data-v-338540a1]  .item {\n  font-size: 16px;\n}\n.Navigation.menu[data-v-338540a1]  .in-vertical {\n  display: none !important;\n}\n", "",{"version":3,"sources":["Navigation.vertical-menu.less?vue&type=style&index=2&id=338540a1&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,uBAAuB;AACzB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,wBAAwB;AAC1B;AACA;EACE;;;;GAIC;AACH;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,iBAAiB;EACjB,uBAAuB;AACzB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,YAAY;AACd;AACA;EACE,oCAAoC;AACtC;AACA;EACE,eAAe;EACf,oBAAoB;AACtB;AACA;EACE,YAAY;EACZ,WAAW;EACX,kBAAkB;AACpB;AACA;EACE,qBAAqB;EACrB,iBAAiB;AACnB;AACA;EACE,eAAe;AACjB;AACA;EACE,wBAAwB;AAC1B","file":"Navigation.vertical-menu.less?vue&type=style&index=2&id=338540a1&lang=less&scoped=true&","sourcesContent":[".vertical.menu[data-v-338540a1] {\n  z-index: 103 !important;\n}\n.vertical.menu.hide[data-v-338540a1] {\n  display: none !important;\n}\n.top.menu[data-v-338540a1]  .in-vertical {\n  display: none !important;\n}\n.vertical.menu[data-v-338540a1]  {\n  /*\n  .menu-full {\n    display: block !important;\n  }\n  */\n}\n.vertical.menu[data-v-338540a1]  .menu-compact {\n  display: none !important;\n}\n.vertical.menu[data-v-338540a1]  .right.menu > .item {\n  line-height: 3rem;\n  color: white !important;\n}\n.vertical.menu[data-v-338540a1]  .menu-full {\n  display: block !important;\n}\n.vertical.menu[data-v-338540a1]  .in-top {\n  display: none !important;\n}\n.ui.vertical.menu.default-header .close.item[data-v-338540a1] {\n  height: 3rem;\n}\n.ui.vertical.menu.with-header .close.item[data-v-338540a1] {\n  background-color: rgba(0, 0, 0, 0.2);\n}\n.ui.vertical.menu .close.item[data-v-338540a1] {\n  cursor: pointer;\n  line-height: inherit;\n}\n.ui.vertical.menu .close.item img[data-v-338540a1] {\n  width: 1.5em;\n  float: left;\n  margin-top: -0.2em;\n}\n.ui.vertical.menu .close.item .site-header[data-v-338540a1] {\n  display: inline-block;\n  padding-left: 1em;\n}\n.ui.vertical.menu .right.menu[data-v-338540a1]  .item {\n  font-size: 16px;\n}\n.Navigation.menu[data-v-338540a1]  .in-vertical {\n  display: none !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -1170,6 +1170,8 @@ var render = function() {
             on: { click: _vm.hideSideMenu }
           },
           [
+            _c("i", { staticClass: "close icon" }),
+            _vm._v(" "),
             !_vm.$slots.verticalHeaderItem
               ? [
                   _c("img", {
@@ -1186,9 +1188,7 @@ var render = function() {
                 ]
               : _vm._e(),
             _vm._v(" "),
-            _vm._t("verticalHeaderItem"),
-            _vm._v(" "),
-            _c("i", { staticClass: "close icon" })
+            _vm._t("verticalHeaderItem")
           ],
           2
         ),
@@ -5010,6 +5010,14 @@ let Navigation = {
     },
     computedVerticalMenuClass: function () {
       let classList = []
+      
+      
+      if (this.$slots.verticalHeaderItem) {
+        classList.push('with-header')
+      }
+      else {
+        classList.push('default-header')
+      }
       
       // {hide: !sideMenuDisplay}
       if (!this.sideMenuDisplay) {
