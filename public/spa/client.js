@@ -329,7 +329,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Unread Notifications: {0}":"\u0027Unread Notification: {0}\u0027 | \u0027Unread Notifications: {0}\u0027"},"zh-TW":{"View All Notifications":"檢視所有通知","Unread Notifications: {0}":"未讀通知：{0}","Notification":"通知"}}')
+  Component.options.__i18n.push('{"en":{"Unread Notifications: {0}":"\u0027Unread Notification: {0}\u0027 | \u0027Unread Notifications: {0}\u0027","{0}0K":"{0}0K","{0}K":"{0}K",".{0}K":".{0}K"},"zh-TW":{"View All Notifications":"檢視所有通知","Unread Notifications: {0}":"未讀通知：{0}","Notification":"通知","{0}0K":"{0}萬","{0}K":"{0}千",".{0}K":"{0}百"}}')
   delete Component.options._Ctor
 }
 
@@ -749,7 +749,7 @@ exports.push([module.i, ".NotificationFeed[data-v-21e07861] {\n  overflow-y: aut
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".floating.label[data-v-1a46cd82] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-1a46cd82] {\n  color: #666;\n}\n.left .floating.label[data-v-1a46cd82] {\n  left: 10% !important;\n  line-height: 1em !important;\n  padding-top: 0.1em !important;\n  padding-bottom: 0.2em !important;\n  padding-left: 0.1em !important;\n  padding-right: 0.2em !important;\n}\n.view-all[data-v-1a46cd82] {\n  text-align: center;\n  cursor: pointer;\n}\n.button[data-v-1a46cd82] {\n  position: absolute;\n}\n.popup[data-v-1a46cd82] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-1a46cd82]::before {\n  background: #DCDDDE !important;\n}\n", "",{"version":3,"sources":["NotificationIcon.less?vue&type=style&index=0&id=1a46cd82&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,6BAA6B;EAC7B,8BAA8B;EAC9B,+BAA+B;EAC/B,gCAAgC;EAChC,mCAAmC;EACnC,oBAAoB;EACpB,qBAAqB;AACvB;AACA;EACE,WAAW;AACb;AACA;EACE,oBAAoB;EACpB,2BAA2B;EAC3B,6BAA6B;EAC7B,gCAAgC;EAChC,8BAA8B;EAC9B,+BAA+B;AACjC;AACA;EACE,kBAAkB;EAClB,eAAe;AACjB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,sBAAsB;EACtB,2BAA2B;EAC3B,8BAA8B;EAC9B,gCAAgC;AAClC;AACA;EACE,8BAA8B;AAChC","file":"NotificationIcon.less?vue&type=style&index=0&id=1a46cd82&lang=less&scoped=true&","sourcesContent":[".floating.label[data-v-1a46cd82] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-1a46cd82] {\n  color: #666;\n}\n.left .floating.label[data-v-1a46cd82] {\n  left: 10% !important;\n  line-height: 1em !important;\n  padding-top: 0.1em !important;\n  padding-bottom: 0.2em !important;\n  padding-left: 0.1em !important;\n  padding-right: 0.2em !important;\n}\n.view-all[data-v-1a46cd82] {\n  text-align: center;\n  cursor: pointer;\n}\n.button[data-v-1a46cd82] {\n  position: absolute;\n}\n.popup[data-v-1a46cd82] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-1a46cd82]::before {\n  background: #DCDDDE !important;\n}\n"]}]);
+exports.push([module.i, ".floating.label[data-v-1a46cd82] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-1a46cd82] {\n  color: #666;\n}\n.left .floating.label[data-v-1a46cd82] {\n  /*  text-align: right;\n  line-height: 1em !important;\n  padding-top: 0.1em !important;\n  padding-bottom: 0.2em !important;\n  padding-left: 0.1em !important;\n  padding-right: 0.2em !important;*/\n  left: 80% !important;\n  top: 0.15em !important;\n  line-height: 1em !important;\n  padding-top: 0.2em !important;\n  padding-bottom: 0.3em !important;\n  padding-left: 0.3em !important;\n  padding-right: 0.4em !important;\n  white-space: nowrap;\n}\n.view-all[data-v-1a46cd82] {\n  text-align: center;\n  cursor: pointer;\n}\n.button[data-v-1a46cd82] {\n  position: absolute;\n}\n.popup[data-v-1a46cd82] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-1a46cd82]::before {\n  background: #DCDDDE !important;\n}\n", "",{"version":3,"sources":["NotificationIcon.less?vue&type=style&index=0&id=1a46cd82&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,6BAA6B;EAC7B,8BAA8B;EAC9B,+BAA+B;EAC/B,gCAAgC;EAChC,mCAAmC;EACnC,oBAAoB;EACpB,qBAAqB;AACvB;AACA;EACE,WAAW;AACb;AACA;EACE;;;;;mCAKiC;EACjC,oBAAoB;EACpB,sBAAsB;EACtB,2BAA2B;EAC3B,6BAA6B;EAC7B,gCAAgC;EAChC,8BAA8B;EAC9B,+BAA+B;EAC/B,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,eAAe;AACjB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,sBAAsB;EACtB,2BAA2B;EAC3B,8BAA8B;EAC9B,gCAAgC;AAClC;AACA;EACE,8BAA8B;AAChC","file":"NotificationIcon.less?vue&type=style&index=0&id=1a46cd82&lang=less&scoped=true&","sourcesContent":[".floating.label[data-v-1a46cd82] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-1a46cd82] {\n  color: #666;\n}\n.left .floating.label[data-v-1a46cd82] {\n  /*  text-align: right;\n  line-height: 1em !important;\n  padding-top: 0.1em !important;\n  padding-bottom: 0.2em !important;\n  padding-left: 0.1em !important;\n  padding-right: 0.2em !important;*/\n  left: 80% !important;\n  top: 0.15em !important;\n  line-height: 1em !important;\n  padding-top: 0.2em !important;\n  padding-bottom: 0.3em !important;\n  padding-left: 0.3em !important;\n  padding-right: 0.4em !important;\n  white-space: nowrap;\n}\n.view-all[data-v-1a46cd82] {\n  text-align: center;\n  cursor: pointer;\n}\n.button[data-v-1a46cd82] {\n  position: absolute;\n}\n.popup[data-v-1a46cd82] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-1a46cd82]::before {\n  background: #DCDDDE !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -1738,11 +1738,7 @@ var render = function() {
                 }
               }
             },
-            [
-              _vm._v(
-                "\r\n    " + _vm._s(_vm.notificationData.unreadCount) + "\r\n  "
-              )
-            ]
+            [_vm._v("\r\n    " + _vm._s(_vm.unreadCount) + "\r\n  ")]
           )
         : _vm._e(),
       _vm._v(" "),
@@ -6122,6 +6118,26 @@ let NotificationIcon = {
       if (this.notificationData.unreadCount === 0) {
         return 'disabled'
       }
+    },
+    unreadCount () {
+      let count = this.notificationData.unreadCount
+      count = 12
+      if (count > 100000) {
+        count = '!'
+      }
+      else if (count > 10000) {
+        count = Math.floor(count / 10000)
+        count = this.$t('{0}0K', [count])
+      }
+      else if (count > 1000) {
+        count = Math.floor(count / 1000)
+        count = this.$t('{0}K', [count])
+      }
+      else if (count > 100) {
+        count = Math.floor(count / 100)
+        count = this.$t('.{0}K', [count])
+      }
+      return count
     },
     computedContainerClassList () {
       let classList = []

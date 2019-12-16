@@ -17,7 +17,7 @@
   <div v-if="notificationData.unreadCount > 0"
        class="floating ui red label"
        v-on:click.self="() => { $refs.anchor.click() }">
-    {{ notificationData.unreadCount }}
+    {{ unreadCount }}
   </div>
 
   <div class="list ui popup"

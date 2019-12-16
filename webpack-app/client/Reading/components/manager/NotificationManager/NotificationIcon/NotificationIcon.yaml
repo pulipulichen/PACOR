@@ -1,7 +1,14 @@
 en:
   'Unread Notifications: {0}': "'Unread Notification: {0}' | 'Unread Notifications: {0}'"
+  '{0}0K': '{0}0K'
+  '{0}K': '{0}K'
+  '.{0}K': '.{0}K'
   
 zh-TW:
   View All Notifications: 檢視所有通知
   'Unread Notifications: {0}': 未讀通知：{0}
   Notification: 通知
+  '{0}0K': '{0}萬'
+  '{0}K': '{0}千'
+  '.{0}K': '{0}百'
+  
