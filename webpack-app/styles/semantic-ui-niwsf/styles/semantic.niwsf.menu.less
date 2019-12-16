@@ -119,8 +119,15 @@ align-items: inherit;
 flex-direction: inherit;
 }
 .non-invasive-web-style-framework .ui.menu .item > .input {
-width: 100%;
+  width: 100%;
 }
+.non-invasive-web-style-framework .ui.vertical.menu .item > .input {
+  &> input[type="text"],
+  &> input[type="number"] {
+    width: calc(100% - 2.4em);
+  }
+}
+
 .non-invasive-web-style-framework .ui.menu:not(.vertical) .item > .input {
 position: relative;
 top: 0em;
@@ -243,18 +250,34 @@ width: 100%;
   color: #FFFFFF;
   margin-left: 1em;
   padding: 0.3em 0.78571429em;
-  
-  &.floating {
-    left: 80% !important;
-    top: 0.15em !important;
-    line-height: 1em !important;
-    padding-top: 0.2em !important;
-    padding-bottom: 0.3em !important;
-    padding-left: 0.3em !important;
-    padding-right: 0.4em !important;
+}
+.non-invasive-web-style-framework .ui.menu {
+  .ui.floating.label {
     white-space: nowrap;
   }
+
+/*  .item > .input .ui.floating.label {
+    padding-top: 0.2em;
+    line-height: 1em;
+    padding-left: 0.3em;
+    padding-right: 0.5em;
+    left: 108% !important;
+    top: -0.5em;
+    padding-bottom: 0.3em;
+  }*/
+
+  &.vertical .item > .input .ui.floating.label {
+    padding-left: 0.2em;
+    padding-right: 0.5em;
+    padding-top: 0.2em;
+    line-height: 1em;
+    padding-bottom: 0.2em;
+    left: 105%;
+    top: -0.5em;
+  }
 }
+
+
 .non-invasive-web-style-framework .ui.vertical.menu .item > .label {
 background: #999999;
 color: #FFFFFF;
@@ -263,7 +286,15 @@ margin-bottom: -0.15em;
 padding: 0.3em 0.78571429em;
 }
 .non-invasive-web-style-framework .ui.menu .item > .floating.label {
-padding: 0.3em 0.78571429em;
+  
+  //padding: 0.3em 0.78571429em;
+  left: 80%;
+  top: 0.15em;
+  line-height: 1em;
+  padding-top: 0.2em;
+  padding-bottom: 0.3em;
+  padding-left: 0.3em;
+  padding-right: 0.4em;
 }
 .non-invasive-web-style-framework .ui.menu .item > img:not(.ui) {
 display: inline-block;

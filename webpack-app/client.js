@@ -18,6 +18,7 @@ import ValidateHelper from './helpers/ValidateHelper'
 //import StyleHelper from './helpers/StyleHelper'
 import AnnotationHelper from './helpers/AnnotationHelper'
 import VueHelper from './helpers/VueHelper'
+import NumberHelper from './helpers/NumberHelper'
 
 // ----------------------
 
@@ -119,6 +120,7 @@ let VueController = {
       //style: StyleHelper.setConfig(config),
       AnnotationHelper: AnnotationHelper,
       VueHelper: VueHelper,
+      NumberHelper,
       
       auth: null,
       RangyManager: null,

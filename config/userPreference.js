@@ -8,7 +8,7 @@ module.exports = {
    * 左撇子模式
    * @type boolean
    */ 
-  'leftHanded': false,
+  'leftHanded': true,
   /**
    * 是否啟用動畫
    * @type boolean

@@ -26,24 +26,7 @@ let NotificationIcon = {
       }
     },
     unreadCount () {
-      let count = this.notificationData.unreadCount
-      count = 12
-      if (count > 100000) {
-        count = '!'
-      }
-      else if (count > 10000) {
-        count = Math.floor(count / 10000)
-        count = this.$t('{0}0K', [count])
-      }
-      else if (count > 1000) {
-        count = Math.floor(count / 1000)
-        count = this.$t('{0}K', [count])
-      }
-      else if (count > 100) {
-        count = Math.floor(count / 100)
-        count = this.$t('.{0}K', [count])
-      }
-      return count
+      return this.lib.NumberHelper.parseRoughNumber(this.$t, this.notificationData.unreadCount)
     },
     computedContainerClassList () {
       let classList = []

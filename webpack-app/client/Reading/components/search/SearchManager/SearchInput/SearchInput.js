@@ -11,7 +11,7 @@ let SearchInput = {
 //  },
   computed: {
     count () {
-      return this.status.search.count
+      return this.lib.NumberHelper.parseRoughNumber(this.$t, this.status.search.count)
     },
     computedInputClassList () {
       let classList = []

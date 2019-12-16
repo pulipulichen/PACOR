@@ -27,6 +27,9 @@ let i18nGlobal = {
     "ANNOTATION_TYPE.Confused": "Confused",
     "ANNOTATION_TYPE.Clarified": "Clearified",
     "ANNOTATION_TYPE.SectionMainIdea": "Section Main Idea",
+    '{0}0K': '{0}0K',
+    '{0}K': '{0}K',
+    '.{0}K': '.{0}K'
   },
   "zh-TW": {
     "LOGIN": "登入",
@@ -88,7 +91,10 @@ let i18nGlobal = {
     ':': "：",
     'You': "您",
     'All Readers': "所有讀者",
-    "You are still editing. Are you sure to discard changes?": "您依然在編輯中，您確定要離開嗎？"
+    "You are still editing. Are you sure to discard changes?": "您依然在編輯中，您確定要離開嗎？",
+    '{0}0K': '{0}萬',
+    '{0}K': '{0}千',
+    '.{0}K': '{0}百'
   }
 }
 

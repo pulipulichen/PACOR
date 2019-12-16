@@ -329,7 +329,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Unread Notifications: {0}":"\u0027Unread Notification: {0}\u0027 | \u0027Unread Notifications: {0}\u0027","{0}0K":"{0}0K","{0}K":"{0}K",".{0}K":".{0}K"},"zh-TW":{"View All Notifications":"檢視所有通知","Unread Notifications: {0}":"未讀通知：{0}","Notification":"通知","{0}0K":"{0}萬","{0}K":"{0}千",".{0}K":"{0}百"}}')
+  Component.options.__i18n.push('{"en":{"Unread Notifications: {0}":"\u0027Unread Notification: {0}\u0027 | \u0027Unread Notifications: {0}\u0027"},"zh-TW":{"View All Notifications":"檢視所有通知","Unread Notifications: {0}":"未讀通知：{0}","Notification":"通知"}}')
   delete Component.options._Ctor
 }
 
@@ -749,7 +749,7 @@ exports.push([module.i, ".NotificationFeed[data-v-21e07861] {\n  overflow-y: aut
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".floating.label[data-v-1a46cd82] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-1a46cd82] {\n  color: #666;\n}\n.left .floating.label[data-v-1a46cd82] {\n  /*  text-align: right;\n  line-height: 1em !important;\n  padding-top: 0.1em !important;\n  padding-bottom: 0.2em !important;\n  padding-left: 0.1em !important;\n  padding-right: 0.2em !important;*/\n  /*  left: 80% !important;\n  top: 0.15em !important;\n  line-height: 1em !important;\n  padding-top: 0.2em !important;\n  padding-bottom: 0.3em !important;\n  padding-left: 0.3em !important;\n  padding-right: 0.4em !important;\n  white-space: nowrap;*/\n}\n.view-all[data-v-1a46cd82] {\n  text-align: center;\n  cursor: pointer;\n}\n.button[data-v-1a46cd82] {\n  position: absolute;\n}\n.popup[data-v-1a46cd82] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-1a46cd82]::before {\n  background: #DCDDDE !important;\n}\n", "",{"version":3,"sources":["NotificationIcon.less?vue&type=style&index=0&id=1a46cd82&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,6BAA6B;EAC7B,8BAA8B;EAC9B,+BAA+B;EAC/B,gCAAgC;EAChC,mCAAmC;EACnC,oBAAoB;EACpB,qBAAqB;AACvB;AACA;EACE,WAAW;AACb;AACA;EACE;;;;;mCAKiC;EACjC;;;;;;;uBAOqB;AACvB;AACA;EACE,kBAAkB;EAClB,eAAe;AACjB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,sBAAsB;EACtB,2BAA2B;EAC3B,8BAA8B;EAC9B,gCAAgC;AAClC;AACA;EACE,8BAA8B;AAChC","file":"NotificationIcon.less?vue&type=style&index=0&id=1a46cd82&lang=less&scoped=true&","sourcesContent":[".floating.label[data-v-1a46cd82] {\n  padding-top: 0 !important;\n  line-height: 0.5em !important;\n  padding-left: 0.5em !important;\n  padding-right: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  /* margin-right: -1em !important; */\n  left: 95% !important;\n  top: 0.3em !important;\n}\n.floating.label.disabled[data-v-1a46cd82] {\n  color: #666;\n}\n.left .floating.label[data-v-1a46cd82] {\n  /*  text-align: right;\n  line-height: 1em !important;\n  padding-top: 0.1em !important;\n  padding-bottom: 0.2em !important;\n  padding-left: 0.1em !important;\n  padding-right: 0.2em !important;*/\n  /*  left: 80% !important;\n  top: 0.15em !important;\n  line-height: 1em !important;\n  padding-top: 0.2em !important;\n  padding-bottom: 0.3em !important;\n  padding-left: 0.3em !important;\n  padding-right: 0.4em !important;\n  white-space: nowrap;*/\n}\n.view-all[data-v-1a46cd82] {\n  text-align: center;\n  cursor: pointer;\n}\n.button[data-v-1a46cd82] {\n  position: absolute;\n}\n.popup[data-v-1a46cd82] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-1a46cd82]::before {\n  background: #DCDDDE !important;\n}\n"]}]);
+exports.push([module.i, ".floating.label.disabled[data-v-1a46cd82] {\n  color: #666;\n}\n.left .floating.label[data-v-1a46cd82] {\n  /*  text-align: right;\n  line-height: 1em !important;\n  padding-top: 0.1em !important;\n  padding-bottom: 0.2em !important;\n  padding-left: 0.1em !important;\n  padding-right: 0.2em !important;*/\n  /*  left: 80% !important;\n  top: 0.15em !important;\n  line-height: 1em !important;\n  padding-top: 0.2em !important;\n  padding-bottom: 0.3em !important;\n  padding-left: 0.3em !important;\n  padding-right: 0.4em !important;\n  white-space: nowrap;*/\n}\n.view-all[data-v-1a46cd82] {\n  text-align: center;\n  cursor: pointer;\n}\n.button[data-v-1a46cd82] {\n  position: absolute;\n}\n.popup[data-v-1a46cd82] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-1a46cd82]::before {\n  background: #DCDDDE !important;\n}\n", "",{"version":3,"sources":["NotificationIcon.less?vue&type=style&index=0&id=1a46cd82&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;AACb;AACA;EACE;;;;;mCAKiC;EACjC;;;;;;;uBAOqB;AACvB;AACA;EACE,kBAAkB;EAClB,eAAe;AACjB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,sBAAsB;EACtB,2BAA2B;EAC3B,8BAA8B;EAC9B,gCAAgC;AAClC;AACA;EACE,8BAA8B;AAChC","file":"NotificationIcon.less?vue&type=style&index=0&id=1a46cd82&lang=less&scoped=true&","sourcesContent":[".floating.label.disabled[data-v-1a46cd82] {\n  color: #666;\n}\n.left .floating.label[data-v-1a46cd82] {\n  /*  text-align: right;\n  line-height: 1em !important;\n  padding-top: 0.1em !important;\n  padding-bottom: 0.2em !important;\n  padding-left: 0.1em !important;\n  padding-right: 0.2em !important;*/\n  /*  left: 80% !important;\n  top: 0.15em !important;\n  line-height: 1em !important;\n  padding-top: 0.2em !important;\n  padding-bottom: 0.3em !important;\n  padding-left: 0.3em !important;\n  padding-right: 0.4em !important;\n  white-space: nowrap;*/\n}\n.view-all[data-v-1a46cd82] {\n  text-align: center;\n  cursor: pointer;\n}\n.button[data-v-1a46cd82] {\n  position: absolute;\n}\n.popup[data-v-1a46cd82] {\n  width: 25em !important;\n  max-width: 100vw !important;\n  background: #DCDDDE !important;\n  padding-bottom: 0.5em !important;\n}\n.popup[data-v-1a46cd82]::before {\n  background: #DCDDDE !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -4042,15 +4042,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers/ValidateHelper */ "./webpack-app/helpers/ValidateHelper.js");
 /* harmony import */ var _helpers_AnnotationHelper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers/AnnotationHelper */ "./webpack-app/helpers/AnnotationHelper.js");
 /* harmony import */ var _helpers_VueHelper__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./helpers/VueHelper */ "./webpack-app/helpers/VueHelper.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./client/client.tpl */ "./webpack-app/client/client.tpl");
-/* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_client_client_tpl__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
-/* harmony import */ var _client_global_components__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./client/global-components */ "./webpack-app/client/global-components.js");
-/* harmony import */ var _client_local_global_dynamic_components__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./client/local-global-dynamic-components */ "./webpack-app/client/local-global-dynamic-components.js");
-/* harmony import */ var _client_local_global_static_components__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./client/local-global-static-components */ "./webpack-app/client/local-global-static-components.js");
-/* harmony import */ var _client_local_components__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./client/local-components */ "./webpack-app/client/local-components.js");
+/* harmony import */ var _helpers_NumberHelper__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./helpers/NumberHelper */ "./webpack-app/helpers/NumberHelper.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./client/client.tpl */ "./webpack-app/client/client.tpl");
+/* harmony import */ var _client_client_tpl__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_client_client_tpl__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
+/* harmony import */ var _client_global_components__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./client/global-components */ "./webpack-app/client/global-components.js");
+/* harmony import */ var _client_local_global_dynamic_components__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./client/local-global-dynamic-components */ "./webpack-app/client/local-global-dynamic-components.js");
+/* harmony import */ var _client_local_global_static_components__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./client/local-global-static-components */ "./webpack-app/client/local-global-static-components.js");
+/* harmony import */ var _client_local_components__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./client/local-components */ "./webpack-app/client/local-components.js");
 /* global __webpack_public_path__ */
 
 
@@ -4069,6 +4070,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //import StyleHelper from './helpers/StyleHelper'
+
 
 
 
@@ -4091,15 +4093,15 @@ __webpack_require__.r(__webpack_exports__);
 
 let baseURL = __webpack_require__.p
 baseURL = baseURL.split('/').slice(0, 3).join('/')
-_config_js__WEBPACK_IMPORTED_MODULE_12__["default"].baseURL = baseURL
+_config_js__WEBPACK_IMPORTED_MODULE_13__["default"].baseURL = baseURL
 
-let baseScript = jquery__WEBPACK_IMPORTED_MODULE_10___default()(document.currentScript)
+let baseScript = jquery__WEBPACK_IMPORTED_MODULE_11___default()(document.currentScript)
 if (baseScript.length === 1) {
   
   //console.log(baseScript[0].src)
   let testBaseURL = 'http://127.0.0.1:4000/'
   if (baseScript[0].src.startsWith(testBaseURL)) {
-    _config_js__WEBPACK_IMPORTED_MODULE_12__["default"].baseURL = testBaseURL
+    _config_js__WEBPACK_IMPORTED_MODULE_13__["default"].baseURL = testBaseURL
   }
   
   baseScript.before(`<div id="app"></div>`)
@@ -4125,7 +4127,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].config.errorHandler  = function(err,
 
 let VueController = {
   data: {
-    config: _config_js__WEBPACK_IMPORTED_MODULE_12__["default"],
+    config: _config_js__WEBPACK_IMPORTED_MODULE_13__["default"],
     status: {
       needLogin: true,
       userID: -1,
@@ -4172,6 +4174,7 @@ let VueController = {
       //style: StyleHelper.setConfig(config),
       AnnotationHelper: _helpers_AnnotationHelper__WEBPACK_IMPORTED_MODULE_8__["default"],
       VueHelper: _helpers_VueHelper__WEBPACK_IMPORTED_MODULE_9__["default"],
+      NumberHelper: _helpers_NumberHelper__WEBPACK_IMPORTED_MODULE_10__["default"],
       
       auth: null,
       RangyManager: null,
@@ -4230,14 +4233,14 @@ let VueController = {
   el: '#app',
   i18n: _plugins_i18n__WEBPACK_IMPORTED_MODULE_3__["default"],
   
-  template: _client_client_tpl__WEBPACK_IMPORTED_MODULE_11___default.a,
-  components: _client_local_components__WEBPACK_IMPORTED_MODULE_16__["default"]
+  template: _client_client_tpl__WEBPACK_IMPORTED_MODULE_12___default.a,
+  components: _client_local_components__WEBPACK_IMPORTED_MODULE_17__["default"]
 }
 
 if (typeof(baseURL) === 'string') {
-  jquery__WEBPACK_IMPORTED_MODULE_10___default()(() => {
+  jquery__WEBPACK_IMPORTED_MODULE_11___default()(() => {
     new vue__WEBPACK_IMPORTED_MODULE_0__["default"](VueController)
-    jquery__WEBPACK_IMPORTED_MODULE_10___default()('body > #TestMessage').remove()
+    jquery__WEBPACK_IMPORTED_MODULE_11___default()('body > #TestMessage').remove()
   })
 }
 
@@ -6121,24 +6124,7 @@ let NotificationIcon = {
       }
     },
     unreadCount () {
-      let count = this.notificationData.unreadCount
-      count = 12
-      if (count > 100000) {
-        count = '!'
-      }
-      else if (count > 10000) {
-        count = Math.floor(count / 10000)
-        count = this.$t('{0}0K', [count])
-      }
-      else if (count > 1000) {
-        count = Math.floor(count / 1000)
-        count = this.$t('{0}K', [count])
-      }
-      else if (count > 100) {
-        count = Math.floor(count / 100)
-        count = this.$t('.{0}K', [count])
-      }
-      return count
+      return this.lib.NumberHelper.parseRoughNumber(this.$t, this.notificationData.unreadCount)
     },
     computedContainerClassList () {
       let classList = []
@@ -12108,6 +12094,40 @@ let AnnotationHelper = {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (AnnotationHelper);
+
+/***/ }),
+
+/***/ "./webpack-app/helpers/NumberHelper.js":
+/*!*********************************************!*\
+  !*** ./webpack-app/helpers/NumberHelper.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const NumberHelper = {
+  parseRoughNumber: function ($t, number) {
+    if (number > 100000) {
+      number = '!'
+    }
+    else if (number > 10000) {
+      number = Math.floor(number / 10000)
+      number = $t('{0}0K', [number])
+    }
+    else if (number > 1000) {
+      number = Math.floor(number / 1000)
+      number = $t('{0}K', [number])
+    }
+    else if (number > 100) {
+      number = Math.floor(number / 100)
+      number = $t('.{0}K', [number])
+    }
+    return number
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (NumberHelper);
 
 /***/ }),
 
