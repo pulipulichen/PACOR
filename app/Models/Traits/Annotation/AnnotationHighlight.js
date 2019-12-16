@@ -228,7 +228,8 @@ class AnnotationHighlight {
 
     Model.getMyHighlightsArrayByWebpageGroup = async function (webpage, user, query) {
       const doQuery = async evt => {
-        query.exceptTypes = ['SectionMainIdea']
+        let types = await user.getStepSectionAnnotationTypes(webpage)
+        query.exceptTypes = types
         let annotations = await this.findMyByWebpageGroup(webpage, user, query)
         return this._convertToHighlighArray(annotations, user)
       }

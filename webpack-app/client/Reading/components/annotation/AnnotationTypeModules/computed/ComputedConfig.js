@@ -1,6 +1,6 @@
 export default (Editor) => {
   Editor.computed.annotationConfig = function () {
-    return this.lib.auth.currentStepAnnotationConfig
+    return this.lib.auth.stepHighlightAnnotationConfig
   }
   
   Editor.computed.annotationModuleConfig = function () {

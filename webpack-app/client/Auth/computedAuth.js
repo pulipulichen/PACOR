@@ -45,23 +45,43 @@ export default function (Auth) {
     return null
   } // Auth.computed.currentStepConfig = function () {
     
-  Auth.computed.currentStepAnnotationConfig = function () {
+  //Auth.computed.currentStepAnnotationConfig = function () {
+  Auth.computed.stepHighlightAnnotationConfig = function () {
     let config = this.currentStepConfig
     if (config) {
-      return config.annotation
+      return config.highlightAnnotation
     }
     return null
-  } // Auth.computed.currentStepAnnotationConfig = function () {
-  Auth.computed.enableCollaboration = function () {
-    let config = this.currentStepAnnotationConfig
+  } // Auth.computed.stepHighlightAnnotationConfig = function () {
+  
+  Auth.computed.stepSectionAnnotationConfig = function () {
+    let config = this.currentStepConfig
     if (config) {
-      return config.enableCollaboration
+      return config.sectionAnnotation
+    }
+    return null
+  } // Auth.computed.stepHighlightAnnotationConfig = function () {
+  
+  Auth.computed.enableCollaboration = function () {
+    let config = this.currentStepConfig
+    if (config
+            && config.permission) {
+      return config.permission.collaboration
     }
     return false
   } // Auth.computed.enableCollaboration = function () {
   
   Auth.computed.isEnableCollaboration = function () {
     return this.enableCollaboration
+  } // Auth.computed.isEnableCollaboration = function () {
+  
+  Auth.computed.isEnableControlPermission = function () {
+    let config = this.currentStepConfig
+    if (config
+            && config.permission) {
+      return config.permission.control
+    }
+    return false
   } // Auth.computed.isEnableCollaboration = function () {
   
   Auth.computed.username = function () {
@@ -73,7 +93,14 @@ export default function (Auth) {
   }
   
   Auth.computed.defaultPremission = function () {
-    return this.currentStepAnnotationConfig.defaultPermission
+    if (this.currentStepConfig
+            && this.currentStepConfig.permission
+            && this.currentStepConfig.permission.defaultPermission) {
+      return this.currentStepConfig.permission.defaultPermission
+    }
+    else {
+      return 'public'
+    }
   }
   
   Auth.computed.isAdmin = function () {

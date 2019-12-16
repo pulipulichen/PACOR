@@ -47,7 +47,7 @@ class AnnotationFind {
           query.whereNotIn('type', exceptTypes)
         }
         else {
-          let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
+          let types = await user.getStepHighlightAnnotationTypes(webpage)
           if (types.length > 0) {
             query.whereIn('type', types)
           }

@@ -24,7 +24,7 @@ class AnnotationHighlightOthers {
         }
         
         options.limit = limit
-        options.exceptTypes = ['SectionMainIdea']
+        options.exceptTypes = await user.getStepSectionAnnotationTypes(webpage)
         
         let area = await Model._getAreaFromSession(webpage, user, options, session, user)
         //this._consoleLogArea('after find', area)

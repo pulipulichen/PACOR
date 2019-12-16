@@ -3,41 +3,18 @@
 const Cache = use('Cache')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 const UserModel = use('App/Models/User')
+const AnnotationModel = use('App/Models/Annotation')
 
 class UserFilter {
 
   register(Model) {
     
-    Model.prototype.getAnnotationTypes = async function (webpage) {
-      let cacheKey = Cache.key('getAnnotationTypes')
-      
-      let tags = []
-      if (webpage) {
-        tags.push(webpage)
-      }
-      tags.push(this)
-      
-      return await Cache.rememberWait(tags, cacheKey, async () => {
-        let query = this.hasMany('App/Models/Annotation')
-                      .groupBy('type')
-                      .select(['type'])
-        
-        // 排除小結重點
-        query.whereNot('type', 'SectionMainIdea')
-        
-        if (webpage) {
-          query.groupBy('webpage_id')
-               .where('webpage_id', webpage.primaryKeyValue)
-        }
-              
-        return query.count('id as count')
-      })
-    }
-    
     Model.prototype.getPeers = async function (webpage) {
       if (!webpage) {
         throw new Error('Webpage object is required.')
       }
+      
+      let types = await this.getStepHighlightAnnotationTypes(webpage)
       
       let query = UserModel
               .query()
@@ -48,7 +25,8 @@ class UserFilter {
               }) // 至少要在這個網頁有進度
               .withCount('annotations', builder => {
                 builder.where('webpage_id', webpage.primaryKeyValue)
-                        .whereNot('type', 'SectionMainIdea')
+                        //.whereNot('type', 'SectionMainIdea')
+                        whereIn('type', types)
               })
               .setVisible(['id', 'username', 'display_name', 'role', 'avatar_url'])
 

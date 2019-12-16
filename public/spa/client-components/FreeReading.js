@@ -1038,7 +1038,7 @@ let CollaborativeReading = {
   mounted: async function () {
     this.initComponentToLib()
     
-    this._testUserFilter()
+    //this._testUserFilter()
     //await this._testVerticalMenu()
     //this._testSearch()
   },

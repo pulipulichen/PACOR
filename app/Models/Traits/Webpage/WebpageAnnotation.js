@@ -7,7 +7,11 @@ class WebpageAnnotation {
 
   register(Model) {
     
-    Model.prototype.getAnnotationTypes = async function () {
+    /**
+     * @deprecated 不使用 20191216
+     */
+    //Model.prototype.getAnnotationTypes = async function () {
+    Model.prototype.getHighlightAnnotationTypes = async function () {
       let cacheKey = Cache.key('getAnnotationTypes')
       
       let tags = [this]
@@ -25,7 +29,7 @@ class WebpageAnnotation {
               
         return query.count('id as count')
       })
-    }
+    } // Model.prototype.getHighlightAnnotationTypes = async function () {
     
   } // register (Model) {
 }

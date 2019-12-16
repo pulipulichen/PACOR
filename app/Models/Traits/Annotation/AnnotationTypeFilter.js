@@ -38,15 +38,15 @@ class AnnotationTypeFilter {
           }
         }
         
-        let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
+        let types = await user.getStepHighlightAnnotationTypes(webpage)
         if (types.length === 0) {
           throw new Error('No types')
           return []
         }
         
-        types = types.filter(type => (type !== 'SectionMainIdea'))
+        //types = types.filter(type => (type !== 'SectionMainIdea'))
         
-        let myCounts = await user.getAnnotationTypes(webpage)
+        let myCounts = await user.getHighlightAnnotationTypes(webpage)
         let othersCounts
         
         if (focusUserID) {
@@ -54,7 +54,7 @@ class AnnotationTypeFilter {
           othersCounts = await otherUser.getAnnotationTypes(webpage)
         }
         else {
-          othersCounts = await webpage.getAnnotationTypes()
+          othersCounts = await user.getWebpageHighlightAnnotationTypes(webpage)
         }
         
         // ---------------

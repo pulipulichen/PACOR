@@ -14,7 +14,7 @@
     <div v-bind:class="computedButtonsClass">
       <checkbox-toggle v-bind:label="$t('PUBLIC')"
         v-model="public"
-        v-if="annotationConfig.enableControlPermission"></checkbox-toggle>
+        v-if="lib.auth.isEnableControlPermission"></checkbox-toggle>
       
       <!--
       <button type="button"

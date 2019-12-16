@@ -174,7 +174,7 @@ let Editor = {
         }
       }
       
-      if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
+      if (this.lib.auth.isEnableControlPermission === true) {
         data.public = this.public
       }
       

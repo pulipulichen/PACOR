@@ -2678,7 +2678,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm.annotationConfig.enableControlPermission
+                  _vm.lib.auth.isEnableControlPermission
                     ? _c("checkbox-toggle", {
                         attrs: {
                           label: _vm.$t("PUBLIC"),
@@ -3023,7 +3023,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm.annotationConfig.enableControlPermission
+                  _vm.lib.auth.isEnableControlPermission
                     ? _c("checkbox-toggle", {
                         attrs: {
                           label: _vm.$t("PUBLIC"),
@@ -3175,7 +3175,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm.annotationConfig.enableControlPermission
+                  _vm.lib.auth.isEnableControlPermission
                     ? _c("checkbox-toggle", {
                         attrs: {
                           label: _vm.$t("PUBLIC"),
@@ -5177,7 +5177,7 @@ let AnnotationFloatWidget = {
     },
 //    
     load: async function () {
-      if (!this.lib.auth.currentStepAnnotationConfig) {
+      if (!this.lib.auth.stepHighlightAnnotationConfig) {
         return false
       }
       
@@ -5421,7 +5421,7 @@ let AnnotationManager = {
       //annotationModule: 'MainIdea', // for test
       afterTime: null,
       //loadHighlightInterval: 60 * 1000,
-      loadHighlightInterval: this.lib.auth.currentStepAnnotationConfig.otherHighlightBatchInterval
+      loadHighlightInterval: this.lib.auth.stepHighlightAnnotationConfig.otherHighlightBatchInterval
       
 //      highlightPos: null,
 //      highlightEvent: null,
@@ -5513,7 +5513,7 @@ let AnnotationManager = {
 //      this.$refs.AnnotationPanel.show()
 //    },
     loadHighlights: async function () {
-      if (!this.lib.auth.currentStepAnnotationConfig) {
+      if (!this.lib.auth.stepHighlightAnnotationConfig) {
         return null
       }
       
@@ -5746,7 +5746,7 @@ let AnnotationTypeSelector = {
         
         let config = this.status.readingConfig
         if (typeof(config) === 'object') {
-          let annotationTypes = config.readingProgressModules[currentStep].annotation.types
+          let annotationTypes = config.readingProgressModules[currentStep].highlightAnnotation.types
           if (Array.isArray(annotationTypes)) {
             annotationTypes.forEach(type => {
               let module = config.annotationTypeModules[type]
@@ -8975,7 +8975,7 @@ let AnnotationEditorModules = {
   },
   computed: {
     annotationConfig () {
-      return this.lib.auth.currentStepAnnotationConfig
+      return this.lib.auth.stepHighlightAnnotationConfig
     },
     enableDiscussion () {
       if (typeof(this.annotation.id) !== 'number') {
@@ -10853,7 +10853,7 @@ __webpack_require__.r(__webpack_exports__);
         properties: this.annotation.properties
       }
       
-      if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
+      if (this.lib.auth.isEnableControlPermission === true) {
         data.public = this.public
       }
       
@@ -10923,7 +10923,7 @@ __webpack_require__.r(__webpack_exports__);
         properties: this.annotation.properties
       }
       
-      if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
+      if (this.lib.auth.isEnableControlPermission === true) {
         data.public = this.public
       }
       
@@ -10966,7 +10966,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
       
-      if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
+      if (this.lib.auth.isEnableControlPermission === true) {
         data.public = this.public
       }
       
@@ -11286,7 +11286,7 @@ let Editor = {
         }
       }
       
-      if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
+      if (this.lib.auth.isEnableControlPermission === true) {
         data.public = this.public
       }
       
@@ -11590,7 +11590,7 @@ let Editor = {
         }
       }
       
-      if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
+      if (this.lib.auth.isEnableControlPermission === true) {
         data.public = this.public
       }
       
@@ -11962,7 +11962,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((Editor) => {
   Editor.computed.annotationConfig = function () {
-    return this.lib.auth.currentStepAnnotationConfig
+    return this.lib.auth.stepHighlightAnnotationConfig
   }
   
   Editor.computed.annotationModuleConfig = function () {
@@ -22512,7 +22512,7 @@ let SectionManager = {
   methods: {
     initSectionNodes: async function () {
       //console.log('initSectionNodes', this.lib.auth.currentStepAnnotationConfig)
-      if (!this.lib.auth.currentStepAnnotationConfig) {
+      if (!this.lib.auth.stepSectionAnnotationConfig) {
         //console.log('initSectionNodes')
         return false
       }
@@ -23313,46 +23313,14 @@ __webpack_require__.r(__webpack_exports__);
     return i
   }
   SectionChecklist.computed.checklist = function () {
-    if (Array.isArray(this.lib.auth.currentStepConfig.checklist)) {
-      let checklist = this.lib.auth.currentStepConfig.checklist
-      //console.log(checklist)
-
-      //this.checklistAnnotationIndex = checklist.indexOf('SectionMainIdea')
-
-      //
-
-      //console.log(this.sectionSeqID)
-      //console.log(this.sectionsData)
-//        if (!this.sectionsData.checklist 
-//                || typeof(this.sectionsData.checklist[this.sectionSeqID]) === 'undefined') {
-//          //this.sectionsData.checklist
-//          this.sectionsData.checklist = []
-//          this.sectionsData.checklist[this.sectionSeqID] = {}
-//        }
-
-
-      //this.checklistData = checklistData
-      //console.log(checklistData, typeof(checklistData), Array.isArray(checklistData))
-      //this.checked = checklistData
-      /*
-       if (Array.isArray(checklistData) === false
-       && typeof(checklistData) === 'object') {
-       Object.keys(checklistData).forEach(key => {
-       this.checked[key] = checklistData[key]
-       })
-       }
-       else if (Array.isArray(checklistData)) {
-       checklistData.forEach((value, i) => {
-       this.checked[i] = value
-       })
-       }
-       */
-
-      //this.checked[this.checklistAnnotationIndex] = (this.isChecklistAnnotationSubmitted === true)
-      //this.$forceUpdate()
-      //console.log(this.checked)
-      return checklist
+    if (!this.lib.auth.stepSectionAnnotationConfig
+            && Array.isArray(this.lib.auth.stepSectionAnnotationConfig.checklist) === false) {
+      throw new Error(this.$t('Lost checklist config'))
+      return []
     }
+    
+    let checklist = this.lib.auth.stepSectionAnnotationConfig.checklist
+    return checklist
   }
 
   SectionChecklist.computed.computedSubmitButtonClass = function () {
@@ -23409,9 +23377,9 @@ __webpack_require__.r(__webpack_exports__);
     if (!this.sectionsData.checklist[this.sectionSeqID]) {
       this.sectionsData.checklist[this.sectionSeqID] = []
       
-      if (this.lib.auth.currentStepConfig 
-              && this.lib.auth.currentStepConfig.checklist) {
-        let checkListLength = this.lib.auth.currentStepConfig.checklist.length
+      if (this.lib.auth.stepSectionAnnotationConfig 
+              && this.lib.auth.stepSectionAnnotationConfig.checklist) {
+        let checkListLength = this.lib.auth.stepSectionAnnotationConfig.checklist.length
         for (let i = 0; i < checkListLength; i++) {
           this.sectionsData.checklist[this.sectionSeqID].push(false)
         }

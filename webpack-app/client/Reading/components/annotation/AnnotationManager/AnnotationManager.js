@@ -20,7 +20,7 @@ let AnnotationManager = {
       //annotationModule: 'MainIdea', // for test
       afterTime: null,
       //loadHighlightInterval: 60 * 1000,
-      loadHighlightInterval: this.lib.auth.currentStepAnnotationConfig.otherHighlightBatchInterval
+      loadHighlightInterval: this.lib.auth.stepHighlightAnnotationConfig.otherHighlightBatchInterval
       
 //      highlightPos: null,
 //      highlightEvent: null,
@@ -112,7 +112,7 @@ let AnnotationManager = {
 //      this.$refs.AnnotationPanel.show()
 //    },
     loadHighlights: async function () {
-      if (!this.lib.auth.currentStepAnnotationConfig) {
+      if (!this.lib.auth.stepHighlightAnnotationConfig) {
         return null
       }
       

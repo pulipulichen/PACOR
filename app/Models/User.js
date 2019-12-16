@@ -61,6 +61,7 @@ class User extends Model {
     //this.addTrait('User/UserNotification')
     this.addTrait('User/UserSection')
     this.addTrait('User/UserFilter')
+    this.addTrait('User/UserTypeFilter')
     this.addTrait('User/UserInteract')
     this.addTrait('User/UserReadingActivityLog')
     

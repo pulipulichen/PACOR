@@ -66,30 +66,36 @@ module.exports = {
     'IndividualReading': {
       instruction: '/2020exp/IndividualReading.html',
       limitMinutes: 1,
-      annotation: {
-        types: ['Clarified', 'Confused', 'MainIdea', 'SectionMainIdea'],
-        enableCollaboration: false,
-        enableControlPermission: false,
+      permission: {
+        collaboration: false,
+        control: false,
         defaultPermission: 'public',
-        enableSectionAnnotation: true
       },
-      checklist: [
-        'I have already read this section.',
-        'I have already written annotations on a sentence I don\'t understand.',
-        'SectionMainIdea', // 'I have already written the main ideas of this section.',
-      ],
+      highlightAnnotation: {
+        types: ['Clarified', 'Confused', 'MainIdea'],
+      },
+      sectionAnnotation: {
+        enableSectionAnnotation: true,
+        type: ['SectionMainIdea'],
+        checklist: [
+          'I have already read this section.',
+          'I have already written annotations on a sentence I don\'t understand.',
+          'SectionMainIdea', // 'I have already written the main ideas of this section.',
+        ],
+      },
       debug: {
         countdownPause: true
       }
     },
     'CollaborativeReading': {
       instruction: '/2020exp/CollaborativeReading.html',
-      annotation: {
-        types: ['Clarified', 'Confused', 'MainIdea', 'SectionMainIdea'],
-        enableCollaboration: true,
-        enableControlPermission: false,
+      permission: {
+        collaboration: true,
+        control: false,
         defaultPermission: 'public',
-        eanbleSectionAnnotation: true,
+      },
+      highlightAnnotation: {
+        types: ['Clarified', 'Confused', 'MainIdea'],
         
         /**
          * 每次讀取其他人highlight的數量限制
@@ -101,6 +107,10 @@ module.exports = {
          */
         otherHighlightBatchInterval: 30000
         //otherHighlightBatchInterval: 1000 // for test
+      },
+      sectionAnnotation: {
+        enableSectionAnnotation: true,
+        type: ['SectionMainIdea'],
       },
       debug: {
         countdownPause: true
@@ -112,12 +122,13 @@ module.exports = {
       limitMinutes: 0.05
     },
     'FreeReading': {
-      annotation: {
-        types: ['Clarified', 'Confused', 'MainIdea', 'SectionMainIdea'],
-        enableCollaboration: true,
-        enableControlPermission: false,
+      permission: {
+        collaboration: true,
+        control: false,
         defaultPermission: 'public',
-        eanbleSectionAnnotation: true,
+      },
+      highlightAnnotation: {
+        types: ['Clarified', 'Confused', 'MainIdea'],
         
         /**
          * 每次讀取其他人highlight的數量限制
@@ -129,6 +140,10 @@ module.exports = {
          */
         otherHighlightBatchInterval: 30000
         //otherHighlightBatchInterval: 1000 // for test
+      },
+      sectionAnnotation: {
+        enableSectionAnnotation: true,
+        type: ['SectionMainIdea'],
       },
     },
   },

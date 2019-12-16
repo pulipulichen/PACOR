@@ -31,8 +31,8 @@ class UserConfig {
       }
       return config.annotation
     }
-
-    Model.prototype.getCurrentReadingProgressStepAnnotationTypes = async function (webpage) {
+    
+    Model.prototype.getStepAnnotationTypes = async function (webpage) {
       let config = await this.getCurrentReadingProgressStepConfig(webpage)
       if (!config || !config.annotation) {
         //throw new Error('config is undefined')
@@ -42,7 +42,36 @@ class UserConfig {
         }
         return []
       }
-      let types = config.annotation.types
+      let types = config.highlightAnnotation.types
+      return types
+    }
+
+    //Model.prototype.getCurrentReadingProgressStepAnnotationTypes = async function (webpage) {
+    Model.prototype.getStepHighlightAnnotationTypes = async function (webpage) {
+      let config = await this.getCurrentReadingProgressStepConfig(webpage)
+      if (!config || !config.annotation) {
+        //throw new Error('config is undefined')
+        let stepName = await this.getCurrentReadingProgressStepName(webpage)
+        if (stepName !== 'PostRecall') {
+          console.error('config is error: ' + stepName)
+        }
+        return []
+      }
+      let types = config.highlightAnnotation.types
+      return types
+    }
+    
+    Model.prototype.getStepSectionAnnotationTypes = async function (webpage) {
+      let config = await this.getCurrentReadingProgressStepConfig(webpage)
+      if (!config || !config.annotation) {
+        //throw new Error('config is undefined')
+        let stepName = await this.getCurrentReadingProgressStepName(webpage)
+        if (stepName !== 'PostRecall') {
+          console.error('config is error: ' + stepName)
+        }
+        return []
+      }
+      let types = config.sectionAnnotation.types
       return types
     }
     
@@ -50,11 +79,11 @@ class UserConfig {
       let config = await this.getCurrentReadingProgressStepConfig(webpage)
       //console.log(config)
       if (!config 
-              || !config.annotation 
-              || typeof(config.annotation.enableCollaboration) !== 'boolean') {
+              || !config.permission 
+              || typeof(config.permission.collaboration) !== 'boolean') {
         return false
       }
-      return config.annotation.enableCollaboration
+      return config.permission.collaboration
     }
     
     Model.prototype.isAdmin = function () {

@@ -152,7 +152,7 @@ let AnnotationFloatWidget = {
     },
 //    
     load: async function () {
-      if (!this.lib.auth.currentStepAnnotationConfig) {
+      if (!this.lib.auth.stepHighlightAnnotationConfig) {
         return false
       }
       

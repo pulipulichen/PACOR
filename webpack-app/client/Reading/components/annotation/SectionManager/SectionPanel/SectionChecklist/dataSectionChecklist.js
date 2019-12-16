@@ -7,9 +7,9 @@ export default (SectionChecklist) => {
     if (!this.sectionsData.checklist[this.sectionSeqID]) {
       this.sectionsData.checklist[this.sectionSeqID] = []
       
-      if (this.lib.auth.currentStepConfig 
-              && this.lib.auth.currentStepConfig.checklist) {
-        let checkListLength = this.lib.auth.currentStepConfig.checklist.length
+      if (this.lib.auth.stepSectionAnnotationConfig 
+              && this.lib.auth.stepSectionAnnotationConfig.checklist) {
+        let checkListLength = this.lib.auth.stepSectionAnnotationConfig.checklist.length
         for (let i = 0; i < checkListLength; i++) {
           this.sectionsData.checklist[this.sectionSeqID].push(false)
         }

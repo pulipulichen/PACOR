@@ -64,7 +64,7 @@ class AnnotationFind {
 
         if (!onlySectionAnnotation) {
           if (!options.findType) {
-            let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
+            let types = await user.getStepHighlightAnnotationTypes(webpage)
             //console.log(types)
             if (types.length > 0) {
               query.whereIn('type', types)
@@ -180,7 +180,8 @@ class AnnotationFind {
           profiler.mark('anchorPositions', anchorPositions)
         }
         else if (onlySectionAnnotation === true) {
-          query.where('type', 'SectionMainIdea')
+          let types = await user.getStepSectionAnnotationTypes(webpage)
+          query.whereIn('type', types)
                 .whereHas('anchorPositions', (builder) => {
             builder.where('webpage_id', webpage.primaryKeyValue)
                     .where('type', 'section')
@@ -335,7 +336,7 @@ class AnnotationFind {
                 .with('anchorPositions')
                 .orderBy('updated_at_unixms', 'desc')
 
-        let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
+        let types = await user.getStepHighlightAnnotationTypes(webpage)
         if (types.length > 0) {
           query.whereIn('type', types)
         }
@@ -461,7 +462,7 @@ class AnnotationFind {
           query.where('type', findType)
         }
         else {
-          let types = await user.getCurrentReadingProgressStepAnnotationTypes(webpage)
+          let types = await user.getStepHighlightAnnotationTypes(webpage)
           //console.log(types)
           if (types.length > 0) {
             query.whereIn('type', types)

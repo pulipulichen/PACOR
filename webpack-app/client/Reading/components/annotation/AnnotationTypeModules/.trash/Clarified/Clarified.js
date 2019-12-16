@@ -28,7 +28,7 @@ let MainIdea = {
   },
   computed: {
     annotationConfig () {
-      return this.lib.auth.currentStepAnnotationConfig
+      return this.lib.auth.stepHighlightAnnotationConfig
     },
     public () {
       return (this.annotationConfig.defaultPermission === 'public')
@@ -95,7 +95,7 @@ let MainIdea = {
         note: this.note
       }
       
-      if (this.lib.auth.currentStepAnnotationConfig.enableControlPermission === true) {
+      if (this.lib.auth.isEnableControlPermission === true) {
         data.public = this.public
       }
       

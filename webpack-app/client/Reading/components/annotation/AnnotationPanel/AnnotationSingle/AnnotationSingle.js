@@ -34,7 +34,7 @@ let AnnotationEditorModules = {
   },
   computed: {
     annotationConfig () {
-      return this.lib.auth.currentStepAnnotationConfig
+      return this.lib.auth.stepHighlightAnnotationConfig
     },
     enableDiscussion () {
       if (typeof(this.annotation.id) !== 'number') {

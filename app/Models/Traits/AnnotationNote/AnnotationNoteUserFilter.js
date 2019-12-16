@@ -65,12 +65,17 @@ class AnnotationNoteUserFilter {
       let cacheKey = Cache.key(`AnnotationNote.getUserWords`, userID)
       return await Cache.rememberWait([webpage, user], cacheKey, 1, async () => {
         
+        let types = await user.getStepHighlightAnnotationTypes(webpage)
+        if (types.legnth === 0) {
+          return undefined
+        }
         
         let query = AnnotationNoteModel
                 .query()
                 .innerJoin('annotations', 'annotations.id', 'annotation_notes.annotation_id')
                 .where('annotations.deleted', false)
                 .where('annotations.webpage_id', webpage.primaryKeyValue)
+                .whereIn('annotations.type', types)
                 .select('annotation_notes.properties')
                 .limit(500)
                 .orderBy('annotations.updated_at_unixms', 'desc')

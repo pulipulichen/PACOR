@@ -11,17 +11,18 @@ class AnnotationPermission {
       if (!config) {
         throw new Error('config is undefined')
       }
-      let annotationConfig = config.annotation
-      if (typeof (annotationConfig) !== 'object') {
-        throw new HttpException('You cannot use annotation in current step.')
+      let permissionConfig = config.permission
+      if (typeof (permissionConfig) !== 'object') {
+        //throw new HttpException('You cannot use annotation in current step.')
+        throw new HttpException('Permission config is undefined in current step.')
       }
 
       let {
-        enableControlPermission, 
+        control, 
         defaultPermission
-      } = annotationConfig
+      } = permissionConfig
       
-      if (enableControlPermission === true) {
+      if (control === true) {
         if (typeof (data.public) === 'boolean') {
           instance.public = data.public
         } else {

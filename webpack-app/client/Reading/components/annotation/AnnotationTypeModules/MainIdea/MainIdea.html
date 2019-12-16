@@ -29,7 +29,7 @@
       </span>
       
       <checkbox-toggle 
-        v-if="annotationConfig.enableControlPermission"
+        v-if="lib.auth.isEnableControlPermission"
         v-bind:label="$t('PUBLIC')"
         v-model="public"
         v-bind:enable="!awaitSubmit">

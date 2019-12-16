@@ -60,46 +60,14 @@ export default (SectionChecklist) => {
     return i
   }
   SectionChecklist.computed.checklist = function () {
-    if (Array.isArray(this.lib.auth.currentStepConfig.checklist)) {
-      let checklist = this.lib.auth.currentStepConfig.checklist
-      //console.log(checklist)
-
-      //this.checklistAnnotationIndex = checklist.indexOf('SectionMainIdea')
-
-      //
-
-      //console.log(this.sectionSeqID)
-      //console.log(this.sectionsData)
-//        if (!this.sectionsData.checklist 
-//                || typeof(this.sectionsData.checklist[this.sectionSeqID]) === 'undefined') {
-//          //this.sectionsData.checklist
-//          this.sectionsData.checklist = []
-//          this.sectionsData.checklist[this.sectionSeqID] = {}
-//        }
-
-
-      //this.checklistData = checklistData
-      //console.log(checklistData, typeof(checklistData), Array.isArray(checklistData))
-      //this.checked = checklistData
-      /*
-       if (Array.isArray(checklistData) === false
-       && typeof(checklistData) === 'object') {
-       Object.keys(checklistData).forEach(key => {
-       this.checked[key] = checklistData[key]
-       })
-       }
-       else if (Array.isArray(checklistData)) {
-       checklistData.forEach((value, i) => {
-       this.checked[i] = value
-       })
-       }
-       */
-
-      //this.checked[this.checklistAnnotationIndex] = (this.isChecklistAnnotationSubmitted === true)
-      //this.$forceUpdate()
-      //console.log(this.checked)
-      return checklist
+    if (!this.lib.auth.stepSectionAnnotationConfig
+            && Array.isArray(this.lib.auth.stepSectionAnnotationConfig.checklist) === false) {
+      throw new Error(this.$t('Lost checklist config'))
+      return []
     }
+    
+    let checklist = this.lib.auth.stepSectionAnnotationConfig.checklist
+    return checklist
   }
 
   SectionChecklist.computed.computedSubmitButtonClass = function () {
