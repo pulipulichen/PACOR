@@ -75,6 +75,7 @@ module.exports = {
         types: ['Clarified', 'Confused', 'MainIdea'],
       },
       sectionAnnotation: {
+        types: ['SectionMainIdea'],
         enableSectionAnnotation: true,
         type: ['SectionMainIdea'],
         checklist: [
@@ -110,7 +111,7 @@ module.exports = {
       },
       sectionAnnotation: {
         enableSectionAnnotation: true,
-        type: ['SectionMainIdea'],
+        types: ['SectionMainIdea'],
       },
       debug: {
         countdownPause: true
@@ -143,7 +144,7 @@ module.exports = {
       },
       sectionAnnotation: {
         enableSectionAnnotation: true,
-        type: ['SectionMainIdea'],
+        types: ['SectionMainIdea'],
       },
     },
   },

@@ -152,15 +152,7 @@ class AnnotationHighlight {
       }
 
       if (highlights.length > 1) {
-        let config = await user.getCurrentReadingProgressStepConfig(webpage)
-        if (!config || !config.annotation) {
-          let stepName = await user.getCurrentReadingProgressStepName(webpage)
-          throw new Error('Types of annotation in config is not defined.\n'
-                  + 'Step name: ' + stepName
-                  + 'Config: ' + JSON.stringify(config))
-        }
-        
-        let configTypes = config.annotation.types
+        let configTypes = await user.getStepHighlightAnnotationTypes(webpage)
 
         let typesArray = []
         configTypes.forEach(() => {

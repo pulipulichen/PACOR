@@ -181,16 +181,17 @@ class AnnotationFind {
         }
         else if (onlySectionAnnotation === true) {
           let types = await user.getStepSectionAnnotationTypes(webpage)
+          //console.log(types)
           query.whereIn('type', types)
                 .whereHas('anchorPositions', (builder) => {
-            builder.where('webpage_id', webpage.primaryKeyValue)
-                    .where('type', 'section')
-            
-            if (typeof(seq_id) === 'number') {
-              builder.where('seq_id', seq_id)
-            }
-          })
-          profiler.mark('onlySectionAnnotation', seq_id)
+                  builder.where('webpage_id', webpage.primaryKeyValue)
+                         .where('type', 'section')
+
+                  if (typeof(seq_id) === 'number') {
+                    builder.where('seq_id', seq_id)
+                  }
+                })
+          profiler.mark('onlySectionAnnotation', seq_id, types)
         }
         
         // -------------------------
