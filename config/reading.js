@@ -66,6 +66,9 @@ module.exports = {
     'IndividualReading': {
       instruction: '/2020exp/IndividualReading.html',
       limitMinutes: 1,
+      notification: {
+        updateInterval: 30000
+      },
       permission: {
         collaboration: false,
         control: false,
@@ -83,6 +86,7 @@ module.exports = {
           'I have already written annotations on a sentence I don\'t understand.',
           'SectionMainIdea', // 'I have already written the main ideas of this section.',
         ],
+        updateInterval: 30000
       },
       debug: {
         countdownPause: true
@@ -94,6 +98,9 @@ module.exports = {
         collaboration: true,
         control: false,
         defaultPermission: 'public',
+      },
+      notification: {
+        updateInterval: 30000
       },
       highlightAnnotation: {
         types: ['Clarified', 'Confused', 'MainIdea'],
@@ -112,6 +119,7 @@ module.exports = {
       sectionAnnotation: {
         enableSectionAnnotation: true,
         types: ['SectionMainIdea'],
+        updateInterval: 30000
       },
       debug: {
         countdownPause: true
@@ -128,6 +136,9 @@ module.exports = {
         control: false,
         defaultPermission: 'public',
       },
+      notification: {
+        updateInterval: 30000
+      },
       highlightAnnotation: {
         types: ['Clarified', 'Confused', 'MainIdea'],
         
@@ -145,6 +156,7 @@ module.exports = {
       sectionAnnotation: {
         enableSectionAnnotation: true,
         types: ['SectionMainIdea'],
+        updateInterval: 30000
       },
     },
   },

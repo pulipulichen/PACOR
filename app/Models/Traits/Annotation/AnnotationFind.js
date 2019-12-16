@@ -64,7 +64,8 @@ class AnnotationFind {
 
         if (!onlySectionAnnotation) {
           if (!options.findType) {
-            let types = await user.getStepHighlightAnnotationTypes(webpage)
+            //let types = await user.getStepHighlightAnnotationTypes(webpage)
+            let types = await user.getStepAnnotationTypes(webpage)
             //console.log(types)
             if (types.length > 0) {
               query.whereIn('type', types)

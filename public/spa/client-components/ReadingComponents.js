@@ -5437,6 +5437,7 @@ let AnnotationManager = {
     this.$i18n.locale = this.config.locale
     return {
       isLoaded: false,
+      pause: false,
       
 //      selection: null,
 //      pinSelection: null,
@@ -5504,6 +5505,7 @@ let AnnotationManager = {
       }
       
       this.afterTime = null
+      this.addFocusBlurEvent()
       await this.loadHighlights()
       //PACORTestManager.log('highlights', this.status.progress.highlights)
       this.status.progress.highlights = true
@@ -5518,6 +5520,7 @@ let AnnotationManager = {
   destroyed () {
     //PACORTestManager.log('destory highlights', this.status.progress.highlights)
     this.status.progress.highlights = false
+    this.removeFocusBlurEvent()
   },
 //  mounted () {  
 //    
@@ -5536,8 +5539,27 @@ let AnnotationManager = {
 //      this.annotationModule = 'Confused'
 //      this.$refs.AnnotationPanel.show()
 //    },
+    addFocusBlurEvent () {
+      window.addEventListener('focus', this.focusEvent) 
+      window.addEventListener('blur', this.blurEvent)
+    },
+    removeFocusBlurEvent () {
+      window.removeEventListener('focus', this.focusEvent) 
+      window.removeEventListener('blur', this.blurEvent)
+      this.pause = true
+    },
+    focusEvent () {
+      if (this.pause === true) {
+        this.pause = false
+        this.loadHighlights()
+      }
+    },
+    blurEvent () {
+      this.pause = true
+    },
     loadHighlights: async function () {
-      if (!this.lib.auth.stepHighlightAnnotationConfig) {
+      if (!this.lib.auth.stepHighlightAnnotationConfig
+              || this.pause === true) {
         return null
       }
       
@@ -5592,7 +5614,7 @@ let AnnotationManager = {
       this.afterTime = (new Date()).getTime()
     },
     reloadHighlights () {
-      console.log('重新讀取')
+      //console.log('重新讀取')
       this.afterTime = null
       this.lib.RangyManager.removeHighlights()
       
@@ -22496,7 +22518,8 @@ let SectionManager = {
         checklistSubmitted: [],
         annotation: []
       },
-      enableLoad: true
+      enableLoad: true,
+      pause: false,
       //sectionData: []
     }
   },
@@ -22526,10 +22549,12 @@ let SectionManager = {
     }
   },
   mounted() {
+    this.addFocusBlurEvent()
     this.initSectionNodes()
   },
   destroyed () {
     this.enableLoad = false
+    this.removeFocusBlurEvent()
     //console.log('退場了')
     //$('.non-invasive-web-style-framework.SectionPanel').remove()
   },
@@ -22578,13 +22603,36 @@ let SectionManager = {
       
       //console.log(this.sectionsData)
     },
+    
+    
+    addFocusBlurEvent () {
+      window.addEventListener('focus', this.focusEvent) 
+      window.addEventListener('blur', this.blurEvent)
+    },
+    removeFocusBlurEvent () {
+      window.removeEventListener('focus', this.focusEvent) 
+      window.removeEventListener('blur', this.blurEvent)
+      this.pause = true
+    },
+    focusEvent () {
+      if (this.pause === true) {
+        this.pause = false
+        this.loadAnnotation()
+      }
+    },
+    blurEvent () {
+      this.pause = true
+    },
+    
     loadAnnotation: async function () {
-      if (this.enableLoad === false || this.lib.auth.isEnableCollaboration === false) {
+      if (this.enableLoad === false 
+              || this.lib.auth.isEnableCollaboration === false
+              || this.pause === true) {
         return false
       } 
       
       //console.log(this.query)
-      let result = await this.lib.AxiosHelper.get('/client/Section/annotations', this.query)
+      let result = await this.lib.AxiosHelper.get('/client/Section/getSectionAnnotations', this.query)
       //console.log(result)
       if (Array.isArray(result)) {
         this.sectionsData.annotation = result
@@ -22596,9 +22644,16 @@ let SectionManager = {
         return false
       }
       
-      await this.lib.VueHelper.sleep(30 * 1000)
+      let updateInterval = this.lib.auth.stepSectionAnnotationConfig.updateInterval
+      if (typeof(updateInterval) !== 'number') {
+        return false
+      }
       
-      if (this.enableLoad === false || this.lib.auth.isEnableCollaboration === false) {
+      await this.lib.VueHelper.sleep(updateInterval)
+      
+      if (this.enableLoad === false 
+              || this.lib.auth.isEnableCollaboration === false
+              || this.pause === true) {
         return false
       } 
       

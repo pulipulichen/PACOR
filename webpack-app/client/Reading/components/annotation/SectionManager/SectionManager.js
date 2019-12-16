@@ -13,7 +13,8 @@ let SectionManager = {
         checklistSubmitted: [],
         annotation: []
       },
-      enableLoad: true
+      enableLoad: true,
+      pause: false,
       //sectionData: []
     }
   },
@@ -43,10 +44,12 @@ let SectionManager = {
     }
   },
   mounted() {
+    this.addFocusBlurEvent()
     this.initSectionNodes()
   },
   destroyed () {
     this.enableLoad = false
+    this.removeFocusBlurEvent()
     //console.log('退場了')
     //$('.non-invasive-web-style-framework.SectionPanel').remove()
   },
@@ -95,13 +98,36 @@ let SectionManager = {
       
       //console.log(this.sectionsData)
     },
+    
+    
+    addFocusBlurEvent () {
+      window.addEventListener('focus', this.focusEvent) 
+      window.addEventListener('blur', this.blurEvent)
+    },
+    removeFocusBlurEvent () {
+      window.removeEventListener('focus', this.focusEvent) 
+      window.removeEventListener('blur', this.blurEvent)
+      this.pause = true
+    },
+    focusEvent () {
+      if (this.pause === true) {
+        this.pause = false
+        this.loadAnnotation()
+      }
+    },
+    blurEvent () {
+      this.pause = true
+    },
+    
     loadAnnotation: async function () {
-      if (this.enableLoad === false || this.lib.auth.isEnableCollaboration === false) {
+      if (this.enableLoad === false 
+              || this.lib.auth.isEnableCollaboration === false
+              || this.pause === true) {
         return false
       } 
       
       //console.log(this.query)
-      let result = await this.lib.AxiosHelper.get('/client/Section/annotations', this.query)
+      let result = await this.lib.AxiosHelper.get('/client/Section/getSectionAnnotations', this.query)
       //console.log(result)
       if (Array.isArray(result)) {
         this.sectionsData.annotation = result
@@ -113,9 +139,16 @@ let SectionManager = {
         return false
       }
       
-      await this.lib.VueHelper.sleep(30 * 1000)
+      let updateInterval = this.lib.auth.stepSectionAnnotationConfig.updateInterval
+      if (typeof(updateInterval) !== 'number') {
+        return false
+      }
       
-      if (this.enableLoad === false || this.lib.auth.isEnableCollaboration === false) {
+      await this.lib.VueHelper.sleep(updateInterval)
+      
+      if (this.enableLoad === false 
+              || this.lib.auth.isEnableCollaboration === false
+              || this.pause === true) {
         return false
       } 
       

@@ -67,7 +67,7 @@ class Section extends Annotation {
     }
   }
   
-  async annotations ({request, webpage, user}) {
+  async getSectionAnnotations ({request, webpage, user}) {
     let query = request.all()
     return await AnnotationModel.buildSectionsAnnotationSummary(webpage, user, query)
   }

@@ -90,7 +90,7 @@ let CollaborativeReading = {
         return null
       }
       
-      this.status.search.keyword = "不"
+      this.status.search.keyword = "特別的"
       return
       
       // 先設定篩選條件

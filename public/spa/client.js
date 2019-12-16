@@ -6564,8 +6564,10 @@ let NotificationManager = {
       
       afterTime: null,
       timer: null,
-      reloadIntervalSeconds: 30,
-      isLoading: false
+      //reloadIntervalSeconds: 30,
+      //reloadIntervalSeconds: 1, // for test
+      isLoading: false,
+      pause: false
     }
   },
   components: {
@@ -6587,16 +6589,37 @@ let NotificationManager = {
 //  watch: {
 //  },
   mounted() {
-    this.initNotificationData()
+    this.addFocusBlurEvent()
+    this.loadNotificationData()
     
     //this.startReloadData()
   },
   destroyed () {
     this.stopReloadData()
+    this.removeFocusBlurEvent()
   },
   methods: {
-    initNotificationData: async function () {
-      if (this.isLoading === true) {
+    addFocusBlurEvent () {
+      window.addEventListener('focus', this.focusEvent) 
+      window.addEventListener('blur', this.blurEvent)
+    },
+    removeFocusBlurEvent () {
+      window.removeEventListener('focus', this.focusEvent) 
+      window.removeEventListener('blur', this.blurEvent)
+      this.pause = true
+    },
+    focusEvent () {
+      if (this.pause === true) {
+        this.pause = false
+        this.loadNotificationData()
+      }
+    },
+    blurEvent () {
+      this.pause = true
+    },
+    
+    loadNotificationData: async function () {
+      if (this.isLoading === true || this.pause === true) {
         return null
       }
       this.isLoading = true
@@ -6605,7 +6628,7 @@ let NotificationManager = {
         afterTime: this.afterTime
       }
       //console.log(this.isLoading)
-      let result = await this.lib.AxiosHelper.get('/client/UserNotification/init', data)
+      let result = await this.lib.AxiosHelper.get('/client/UserNotification/getNotification', data)
       //console.log(result)
       this.afterTime = (new Date()).getTime()
       this.startReloadData()
@@ -6624,6 +6647,9 @@ let NotificationManager = {
     },
     startReloadData () {
       clearTimeout(this.timer)
+      let updateInterval = this.lib.auth.currentStepConfig.notification.updateInterval
+      //console.log(updateInterval)
+      
       this.timer = setTimeout(() => {
         //console.log('重新讀取')
         if (this.timer === null) {
@@ -6632,8 +6658,9 @@ let NotificationManager = {
         clearTimeout(this.timer)
         //console.trace('讀了讀了')
         //return
-        this.initNotificationData()
-      }, this.reloadIntervalSeconds * 1000)
+        this.loadNotificationData()
+      //}, this.reloadIntervalSeconds * 1000)
+      }, updateInterval)
     },
     stopReloadData () {
       clearTimeout(this.timer)

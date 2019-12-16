@@ -26,7 +26,7 @@ class UserFilter {
               .withCount('annotations', builder => {
                 builder.where('webpage_id', webpage.primaryKeyValue)
                         //.whereNot('type', 'SectionMainIdea')
-                        whereIn('type', types)
+                        .whereIn('type', types)
               })
               .setVisible(['id', 'username', 'display_name', 'role', 'avatar_url'])
 

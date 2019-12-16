@@ -12,6 +12,7 @@ let AnnotationManager = {
     this.$i18n.locale = this.config.locale
     return {
       isLoaded: false,
+      pause: false,
       
 //      selection: null,
 //      pinSelection: null,
@@ -79,6 +80,7 @@ let AnnotationManager = {
       }
       
       this.afterTime = null
+      this.addFocusBlurEvent()
       await this.loadHighlights()
       //PACORTestManager.log('highlights', this.status.progress.highlights)
       this.status.progress.highlights = true
@@ -93,6 +95,7 @@ let AnnotationManager = {
   destroyed () {
     //PACORTestManager.log('destory highlights', this.status.progress.highlights)
     this.status.progress.highlights = false
+    this.removeFocusBlurEvent()
   },
 //  mounted () {  
 //    
@@ -111,8 +114,27 @@ let AnnotationManager = {
 //      this.annotationModule = 'Confused'
 //      this.$refs.AnnotationPanel.show()
 //    },
+    addFocusBlurEvent () {
+      window.addEventListener('focus', this.focusEvent) 
+      window.addEventListener('blur', this.blurEvent)
+    },
+    removeFocusBlurEvent () {
+      window.removeEventListener('focus', this.focusEvent) 
+      window.removeEventListener('blur', this.blurEvent)
+      this.pause = true
+    },
+    focusEvent () {
+      if (this.pause === true) {
+        this.pause = false
+        this.loadHighlights()
+      }
+    },
+    blurEvent () {
+      this.pause = true
+    },
     loadHighlights: async function () {
-      if (!this.lib.auth.stepHighlightAnnotationConfig) {
+      if (!this.lib.auth.stepHighlightAnnotationConfig
+              || this.pause === true) {
         return null
       }
       
@@ -167,7 +189,7 @@ let AnnotationManager = {
       this.afterTime = (new Date()).getTime()
     },
     reloadHighlights () {
-      console.log('重新讀取')
+      //console.log('重新讀取')
       this.afterTime = null
       this.lib.RangyManager.removeHighlights()
       
