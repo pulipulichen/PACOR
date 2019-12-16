@@ -285,17 +285,28 @@ margin-top: -0.15em;
 margin-bottom: -0.15em;
 padding: 0.3em 0.78571429em;
 }
-.non-invasive-web-style-framework .ui.menu .item > .floating.label {
+
+.non-invasive-web-style-framework .ui.menu .item {
+  .floating.label {
+    padding-top: 0.2em;
+    padding-bottom: 0.3em;
+    padding-left: 0.3em;
+    padding-right: 0.4em;
+  }
   
-  //padding: 0.3em 0.78571429em;
-  left: 80%;
-  top: 0.15em;
-  line-height: 1em;
-  padding-top: 0.2em;
-  padding-bottom: 0.3em;
-  padding-left: 0.3em;
-  padding-right: 0.4em;
+  &> .floating.label {
+    //padding: 0.3em 0.78571429em;
+    left: 80%;
+    top: 0.15em;
+    line-height: 1em;
+  }
+  
+  &> .input > .button > .floating.label {
+    left: 108%;
+    top: -0.5em;
+  }
 }
+
 .non-invasive-web-style-framework .ui.menu .item > img:not(.ui) {
 display: inline-block;
 vertical-align: middle;
