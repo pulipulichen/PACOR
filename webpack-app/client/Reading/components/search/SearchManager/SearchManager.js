@@ -1,21 +1,7 @@
-let SearchInput = {
-  props: ['status', 'lib', 'size'],
+let SearchManager = {
+  props: ['status', 'lib', 'config'],
   data() {    
     return {
-      enableShowList: false,
-      count: 0,
-      composition: false
-    }
-  },
-//  components: {
-//  },
-  computed: {
-    computedInputClassList () {
-      let classList = []
-      if (this.size) {
-        classList.push(this.size)
-      }
-      return classList.join(' ')
     }
   },
   watch: {
@@ -46,27 +32,14 @@ let SearchInput = {
       
       this.lib.AnnotationHelper.filter(query)
 
-      this.count = await this.lib.AxiosHelper.post(url, query)
+      this.status.search.count = await this.lib.AxiosHelper.post(url, query)
       
       if (this.status.search.keyword === '') {
         this.count = 0
         return false
       }
     },
-    searchAnnotation () {
-      this.$emit('search')
-      
-      // 先設定篩選條件
-      this.lib.AnnotationPanel.findKeyword(this.status.search.keyword)
-      
-      // 再來顯示
-      this.lib.AnnotationPanel.setAnchorPositions({
-        'delete' () {
-          this.count--
-        }
-      })
-    }
   } // methods
 }
 
-export default SearchInput
+export default SearchManager

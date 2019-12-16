@@ -80,6 +80,11 @@ var render = function() {
         attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
       }),
       _vm._v(" "),
+      _c("search-manager", {
+        ref: "SearchManager",
+        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+      }),
+      _vm._v(" "),
       _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
       _vm._v(" "),
       _c("notification-manager", {

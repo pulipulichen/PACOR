@@ -149,6 +149,11 @@ var render = function() {
         attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
       }),
       _vm._v(" "),
+      _c("search-manager", {
+        ref: "SearchManager",
+        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+      }),
+      _vm._v(" "),
       _c("section-manager", {
         ref: "SectionManager",
         attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib },
@@ -418,7 +423,7 @@ var render = function() {
                     "div",
                     { staticClass: "item" },
                     [
-                      _c("search-manager", {
+                      _c("search-input", {
                         attrs: { status: _vm.status, lib: _vm.lib },
                         on: { search: _vm.hideSideMenu }
                       })
@@ -448,7 +453,7 @@ var render = function() {
           ],
           null,
           false,
-          1220131485
+          1709460920
         )
       })
     : _vm._e()

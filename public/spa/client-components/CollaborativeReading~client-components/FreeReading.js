@@ -138,7 +138,7 @@ var render = function() {
                     "div",
                     { staticClass: "item" },
                     [
-                      _c("search-manager", {
+                      _c("search-input", {
                         attrs: {
                           status: _vm.status,
                           lib: _vm.lib,
@@ -201,7 +201,7 @@ var render = function() {
           ],
           null,
           false,
-          2563384040
+          4020494349
         )
       })
     : _vm._e()

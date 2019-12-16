@@ -239,10 +239,21 @@ box-shadow: none;
 width: 100%;
 }
 .non-invasive-web-style-framework .ui.menu .item > .label {
-background: #999999;
-color: #FFFFFF;
-margin-left: 1em;
-padding: 0.3em 0.78571429em;
+  background: #999999;
+  color: #FFFFFF;
+  margin-left: 1em;
+  padding: 0.3em 0.78571429em;
+  
+  &.floating {
+    left: 80% !important;
+    top: 0.15em !important;
+    line-height: 1em !important;
+    padding-top: 0.2em !important;
+    padding-bottom: 0.3em !important;
+    padding-left: 0.3em !important;
+    padding-right: 0.4em !important;
+    white-space: nowrap;
+  }
 }
 .non-invasive-web-style-framework .ui.vertical.menu .item > .label {
 background: #999999;

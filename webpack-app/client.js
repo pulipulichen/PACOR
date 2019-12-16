@@ -88,7 +88,8 @@ let VueController = {
       search: {
         keyword: '',
         showAnnotationList: false,
-        peerID: null
+        peerID: null,
+        count: 0,
       },
       readingConfig: {},
       filter: {
