@@ -271,7 +271,7 @@ width: 100%;
     padding-right: 0.5em;
     padding-top: 0.2em;
     line-height: 1em;
-    padding-bottom: 0.2em;
+    padding-bottom: 0.3em;
     left: 105%;
     top: -0.5em;
   }
@@ -301,9 +301,15 @@ padding: 0.3em 0.78571429em;
     line-height: 1em;
   }
   
-  &> .input > .button > .floating.label {
-    left: 108%;
-    top: -0.5em;
+  &> .input {
+    & > .button > .floating.label {
+      left: 104%;
+      top: -0.5em;
+    }
+    
+    &.mini > .button > .floating.label {
+      left: 108%;
+    }
   }
 }
 

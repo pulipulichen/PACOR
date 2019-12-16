@@ -38,6 +38,15 @@
         Next Step (for test)
       </a>
       -->
+      
+      <div class="item in-vertical">
+        <search-input 
+          v-bind:status="status"
+          v-bind:lib="lib"
+          v-bind:size="searchManagerSize"
+          v-on:search="hideSideMenu">
+        </search-input>
+      </div>
 
       <user-filter 
         ref="UserFilter"
@@ -54,7 +63,7 @@
         v-bind:lib="lib">
       </annotation-type-filter>
 
-      <div class="item">
+      <div class="item in-top">
         <search-input 
           v-bind:status="status"
           v-bind:lib="lib"

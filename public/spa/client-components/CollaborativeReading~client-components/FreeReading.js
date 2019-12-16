@@ -116,6 +116,22 @@ var render = function() {
               key: "items",
               fn: function() {
                 return [
+                  _c(
+                    "div",
+                    { staticClass: "item in-vertical" },
+                    [
+                      _c("search-input", {
+                        attrs: {
+                          status: _vm.status,
+                          lib: _vm.lib,
+                          size: _vm.searchManagerSize
+                        },
+                        on: { search: _vm.hideSideMenu }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
                   _c("user-filter", {
                     ref: "UserFilter",
                     attrs: {
@@ -137,7 +153,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "item" },
+                    { staticClass: "item in-top" },
                     [
                       _c("search-input", {
                         attrs: {
@@ -202,7 +218,7 @@ var render = function() {
           ],
           null,
           false,
-          2965564439
+          206811280
         )
       })
     : _vm._e()
