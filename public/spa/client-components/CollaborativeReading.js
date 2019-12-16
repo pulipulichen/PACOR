@@ -175,8 +175,8 @@ let CollaborativeReading = {
     this.initComponentToLib()
     
     //this._testUserFilter()
-    await this._testVerticalMenu()
-    this._testSearch()
+    //await this._testVerticalMenu()
+    //this._testSearch()
   },
   destroyed () {
     //console.log('退場了')

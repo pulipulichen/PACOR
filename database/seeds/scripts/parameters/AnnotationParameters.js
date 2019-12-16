@@ -127,7 +127,7 @@ module.exports =  {
     return {
       type: 'SectionMainIdea',
       notes: {
-        'default': '相關機制的有效性，特別的'
+        'default': '節點 相關機制的有效性，特別的'
       },
       anchorPositions: [
         {
@@ -142,7 +142,7 @@ module.exports =  {
     return {
       type: 'SectionMainIdea',
       notes: {
-        'default': '曝露於網路上的用戶資料包括電子郵件、帳號建立時間等，並未包括信用卡號或密碼。'
+        'default': '節點 曝露於網路上的用戶資料包括電子郵件、帳號建立時間等，並未包括信用卡號或密碼。'
       },
       anchorPositions: [
         {
@@ -157,7 +157,7 @@ module.exports =  {
     return {
       type: 'SectionMainIdea',
       notes: {
-        'default': '安全部落格Comparitech Paul Bischoff於本月和安全廠商研究人員Bob Diachenko合作下'
+        'default': '節點 安全部落格Comparitech Paul Bischoff於本月和安全廠商研究人員Bob Diachenko合作下'
       },
       anchorPositions: [
         {

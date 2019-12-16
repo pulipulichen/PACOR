@@ -174,7 +174,7 @@ class AnnotationFind {
           if (Array.isArray(anchorPositions)) {
             query.whereHas('anchorPositions', (builder) => {
               builder.where('webpage_id', webpage.primaryKeyValue)
-                      .where('type', 'textContent')
+                      //.where('type', 'textContent') // 這個限制會讓人看不到SectionMainIdea，先拿掉了
               this._buildAnchorPositionWhere(builder, anchorMode, anchorPositions)
             })
           }
@@ -262,7 +262,7 @@ class AnnotationFind {
 
         //if (anchorMode === 'exact') console.log(query.toSQL())
         
-        //console.log(DatabaseHelper.toSQL(query))
+        console.log(DatabaseHelper.toSQL(query))
         
         profiler.mark('before fetch')
         
