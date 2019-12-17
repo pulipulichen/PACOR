@@ -7155,7 +7155,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _jQCloud_jqcloud_webpage_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./jQCloud/jqcloud.webpage.js */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/jQCloud/jqcloud.webpage.js");
+/* harmony import */ var _jQCloud_jqcloud_webpack_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./jQCloud/jqcloud.webpack.js */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/jQCloud/jqcloud.webpack.js");
 /* harmony import */ var _UserChartPopup_UserChartPopup_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserChartPopup/UserChartPopup.vue */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.vue");
 /* harmony import */ var _UserChartLables_UserChartLables_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UserChartLables/UserChartLables.vue */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.vue");
 /* global this */
@@ -7771,14 +7771,24 @@ let UserChartPopup = {
               && this.filterData.selectUser.id === this.status.userID)
     },
     popupOptions () {
+      let popup = this.$refs.popup
+      let isOpened = false
       return {
-        popup: this.$refs.popup,
+        popup: popup,
         hoverable: true,
         distanceAway: -10,
         //position: 'top center',
         //duration: 0,
         exclusive: true,
         on: "click",
+        onShow: function (...args) {
+          //console.log($(popup).popup('is hidden'))
+          if (isOpened === true) {
+            isOpened = false
+            return false
+          }
+          isOpened = true
+        },
         boundary: this.boundary
       }
       // jqcloud-wrapper
@@ -8529,9 +8539,9 @@ $.fn.jQCloud.defaults = {
 
 /***/ }),
 
-/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/jQCloud/jqcloud.webpage.js":
+/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/jQCloud/jqcloud.webpack.js":
 /*!******************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/jQCloud/jqcloud.webpage.js ***!
+  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/jQCloud/jqcloud.webpack.js ***!
   \******************************************************************************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {

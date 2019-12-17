@@ -2,7 +2,7 @@
 
 //import WordCloud from 'wordcloud'
 import $ from 'jquery'
-import './jQCloud/jqcloud.webpage.js'
+import './jQCloud/jqcloud.webpack.js'
 
 import UserChartPopup from './UserChartPopup/UserChartPopup.vue'
 import UserChartLables from './UserChartLables/UserChartLables.vue'

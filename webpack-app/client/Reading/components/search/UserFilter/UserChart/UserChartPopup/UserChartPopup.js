@@ -21,14 +21,24 @@ let UserChartPopup = {
               && this.filterData.selectUser.id === this.status.userID)
     },
     popupOptions () {
+      let popup = this.$refs.popup
+      let isOpened = false
       return {
-        popup: this.$refs.popup,
+        popup: popup,
         hoverable: true,
         distanceAway: -10,
         //position: 'top center',
         //duration: 0,
         exclusive: true,
         on: "click",
+        onShow: function (...args) {
+          //console.log($(popup).popup('is hidden'))
+          if (isOpened === true) {
+            isOpened = false
+            return false
+          }
+          isOpened = true
+        },
         boundary: this.boundary
       }
       // jqcloud-wrapper
