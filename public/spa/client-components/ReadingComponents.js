@@ -10935,6 +10935,7 @@ __webpack_require__.r(__webpack_exports__);
     this.$i18n.locale = this.config.locale
 
     let question = ''
+    let questionReset = ''
     let answer = ''
 
     if (Array.isArray(this.annotation.notes)) {
@@ -10950,6 +10951,10 @@ __webpack_require__.r(__webpack_exports__);
     if (question === '') {
       let template = this.status.readingConfig.annotationTypeModules['ConfusedClarified'].questionTemplates[0].template
       question = this._convertQuestionTemplate(template)
+      
+      let note = this.lib.StringHelper.htmlTrim(question)
+      note = this.lib.StringHelper.htmlToText(note)
+      questionReset = note
     }
     
     let isQuestionSubmitted = false
@@ -10965,7 +10970,7 @@ __webpack_require__.r(__webpack_exports__);
 
     return {
       question: question,
-      questionReset: question,
+      questionReset: questionReset,
 
       answer: answer,
       answerReset: answer,
@@ -11016,7 +11021,7 @@ __webpack_require__.r(__webpack_exports__);
         //}, 100)
         return false
       }
-      //console.log([this.isQuestionEdited, this.question, this.questionReset])
+      //console.log(this.isQuestionEdited, this.question, this.questionReset)
       if (this.isQuestionEdited === true
           && this.question !== '') {
         let title = this.$t('New question will overwrite your question. Are you sure?')
@@ -23848,6 +23853,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SectionChecklist_SectionChecklist_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SectionChecklist/SectionChecklist.vue */ "./webpack-app/client/Reading/components/annotation/SectionManager/SectionPanel/SectionChecklist/SectionChecklist.vue");
 /* harmony import */ var _SectionAnnotationList_SectionAnnotationList_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SectionAnnotationList/SectionAnnotationList.vue */ "./webpack-app/client/Reading/components/annotation/SectionManager/SectionPanel/SectionAnnotationList/SectionAnnotationList.vue");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -23893,7 +23901,7 @@ let SectionPanel = {
   destroyed () {
     //console.log('SectionPanel 退場了')
     //$(this.$refs.panel).remove()
-    $(`.non-invasive-web-style-framework.SectionPanel[data-section-id="${this.sectionSeqID}"]`).remove()
+    jquery__WEBPACK_IMPORTED_MODULE_2___default()(`.non-invasive-web-style-framework.SectionPanel[data-section-id="${this.sectionSeqID}"]`).remove()
   },
   methods: {
     initPanel () {

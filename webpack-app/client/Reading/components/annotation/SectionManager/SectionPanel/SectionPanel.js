@@ -1,5 +1,6 @@
 import SectionChecklist from './SectionChecklist/SectionChecklist.vue'
 import SectionAnnotationList from './SectionAnnotationList/SectionAnnotationList.vue'
+import $ from 'jquery'
 
 let SectionPanel = {
   props: ['lib', 'status', 'config'

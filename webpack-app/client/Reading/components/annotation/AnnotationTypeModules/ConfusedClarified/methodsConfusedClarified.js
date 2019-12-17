@@ -21,7 +21,7 @@ export default (Editor) => {
         //}, 100)
         return false
       }
-      //console.log([this.isQuestionEdited, this.question, this.questionReset])
+      //console.log(this.isQuestionEdited, this.question, this.questionReset)
       if (this.isQuestionEdited === true
           && this.question !== '') {
         let title = this.$t('New question will overwrite your question. Are you sure?')

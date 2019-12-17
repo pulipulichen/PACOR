@@ -7,6 +7,7 @@ export default (Editor) => {
     this.$i18n.locale = this.config.locale
 
     let question = ''
+    let questionReset = ''
     let answer = ''
 
     if (Array.isArray(this.annotation.notes)) {
@@ -22,6 +23,10 @@ export default (Editor) => {
     if (question === '') {
       let template = this.status.readingConfig.annotationTypeModules['ConfusedClarified'].questionTemplates[0].template
       question = this._convertQuestionTemplate(template)
+      
+      let note = this.lib.StringHelper.htmlTrim(question)
+      note = this.lib.StringHelper.htmlToText(note)
+      questionReset = note
     }
     
     let isQuestionSubmitted = false
@@ -37,7 +42,7 @@ export default (Editor) => {
 
     return {
       question: question,
-      questionReset: question,
+      questionReset: questionReset,
 
       answer: answer,
       answerReset: answer,

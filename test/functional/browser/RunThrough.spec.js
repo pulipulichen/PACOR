@@ -1,6 +1,32 @@
 /* global __filename */
 
 'use strict'
+
+let webpageConfig = use('./../../test-config/reading-fastLimitTime')
+//console.log(webpageConfig)
+
+const TestOptions = {
+  threads: 1,
+  //threads: 2, // 完全運作正常
+  //threads: 5,  // 10個錯誤
+  //threads: 10,  // 0個錯誤
+  //threads: 20,  // 0個錯誤
+  //threads: 30,  // 0個錯誤
+  //threads: 40,  // 10個錯誤
+  mode: 'parallel',
+  //headless: true
+  headless: false,
+  //stopAt: 'e2. 隨意寫標註'
+  //stopAt: '0a. setup webpage config',
+  //stopAt: 'c2. 中場確認 is PACORTestManager work?',
+  //stopAt: 'd1. 專注閱讀: 確認視窗',
+  
+  groupSetting: ``,
+  webpageConfig
+}
+
+// ------------------------
+
 /**
  * https://www.chaijs.com/api/assert/
  * https://adonisjs.com/docs/4.1/browser-tests
@@ -182,28 +208,7 @@ let config = {
 //  },
 }
 
-let webpageConfig = use('./../../test-config/reading-fastLimitTime')
-console.log(webpageConfig)
-
-TestBrowser(title, url, config, {
-  //threads: 1,
-  //threads: 2, // 完全運作正常
-  threads: 5,  // 10個錯誤
-  //threads: 10,  // 0個錯誤
-  //threads: 20,  // 0個錯誤
-  //threads: 30,  // 0個錯誤
-  //threads: 40,  // 10個錯誤
-  mode: 'parallel',
-  //headless: true
-  headless: false,
-  //stopAt: 'e2. 隨意寫標註'
-  //stopAt: '0a. setup webpage config',
-  //stopAt: 'c2. 中場確認 is PACORTestManager work?',
-  //stopAt: 'd1. 專注閱讀: 確認視窗',
-  
-  groupSetting: ``,
-  webpageConfig
-})
+TestBrowser(title, url, config, TestOptions)
 
 // Reset database
 //trait('DatabaseTransactions')
