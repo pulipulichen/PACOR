@@ -41,7 +41,8 @@ let AnnotationEditorModules = {
         return false
       }
       else {
-        return this.annotationConfig.enableCollaboration
+        //return this.annotationConfig.enableCollaboration
+        return this.lib.auth.isEnableCollaboration
       }
     },
     computedGridClass () {

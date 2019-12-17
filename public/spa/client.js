@@ -2621,7 +2621,7 @@ var render = function() {
                 _vm._v("\r\n      " + _vm._s(_vm.displayTime) + "\r\n    ")
               ]),
               _vm._v(" "),
-              _vm.lib.auth.enableCollaboration
+              _vm.lib.auth.isEnableCollaboration
                 ? _c("annotation-item-interactive", {
                     attrs: {
                       config: _vm.config,

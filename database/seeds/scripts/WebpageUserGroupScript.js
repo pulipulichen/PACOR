@@ -9,6 +9,7 @@ const Sleep = use('Sleep')
 
 //const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
 const url = '/test-lorem-ipsum'
+const urlTest = 'http://localhost:4000/test-lorem-ipsum'
 let webpage
 
 module.exports = {
@@ -36,6 +37,9 @@ module.exports = {
     let domain = await DomainModel.findByURL(url)
     let adminsSetting = '布布:password'
     await domain.setAdmins(adminsSetting)
+    
+    let domain2 = await DomainModel.findByURL(urlTest)
+    await domain2.setAdmins(adminsSetting)
     //console.log('aaa')
   },
   
