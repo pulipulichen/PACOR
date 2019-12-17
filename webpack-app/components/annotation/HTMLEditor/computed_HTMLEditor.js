@@ -69,7 +69,7 @@ export default function (HTMLEditor) {
       return 'ui top left attached large label'
     }
   }
-  
+  /*
   HTMLEditor.computed.computedDisplayStyle = function () {
     return {
 //      height: this.height,
@@ -78,5 +78,5 @@ export default function (HTMLEditor) {
       //'margin-bottom': '0.5em !important'
     }
   }
-  
+  */
 }

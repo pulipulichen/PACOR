@@ -32,6 +32,7 @@ class AnnotationCommentSave {
       //console.log(options)
       
       if (commentID) {
+        //console.log('commentID', commentID)
         return await this.findFocusComment(webpage, user, {
           annotationID,
           commentID
@@ -210,7 +211,8 @@ class AnnotationCommentSave {
       
       // -----------------------------------
       
-      if (focusComment === null) {
+      if (focusComment === null
+              || focusComment.size() === 0) {
         return []
       }
       
@@ -230,6 +232,11 @@ class AnnotationCommentSave {
       let olderCommentCount = olderComment.size()
       
       olderComment = olderComment.toJSON().slice(0, halfItemsLimit)
+      
+      olderCommentCount = olderCommentCount - olderComment.length
+      if (olderCommentCount < 0) {
+        throw new HttpException('olderCommentCount is less 0: ' + olderCommentCount)
+      }
       
       // 如果前面查到的數量不夠多，則挪給後面的使用
       halfItemsLimit = halfItemsLimit + (halfItemsLimit - olderComment.length)

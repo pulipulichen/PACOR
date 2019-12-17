@@ -15,7 +15,7 @@ const Config = use('Config')
 
 class AnnotationComment extends WebpageUserBaseController {
   
-  async init({request, webpage, user}) {
+  async getCommentSummary({request, webpage, user}) {
     const options = request.all()
     return await AnnotationCommentModel.findSummary(webpage, user, options)
   }

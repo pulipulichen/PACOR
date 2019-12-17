@@ -169,7 +169,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Load previous {0} comments...":"Load previous {0} comment... | Load previous {0} comments..."},"zh-TW":{"Load previous {0} comments...":"讀取前面 {0} 篇留言...","Write the first comment now":"沒有留言，要不要寫下第一個留言呢？","No More":"沒有更多留言了"}}')
+  Component.options.__i18n.push('{"en":{"Load previous {0} comments...":"Load previous {0} comment... | Load previous {0} comments...","Load next {0} comments...":"Load next {0} comment... | Load next {0} comments..."},"zh-TW":{"Load previous {0} comments...":"讀取前面 {0} 篇留言...","Load next {0} comments...":"讀取後面 {0} 篇留言...","Write the first comment now":"沒有留言，要不要寫下第一個留言呢？","No More":"沒有更多留言了"}}')
   delete Component.options._Ctor
 }
 
@@ -2240,7 +2240,7 @@ var render = function() {
             _vm._v(
               "\r\n    " +
                 _vm._s(
-                  _vm.$t("Load next comments...", [_vm.newerCommentCount])
+                  _vm.$t("Load next {0} comments...", [_vm.newerCommentCount])
                 ) +
                 "\r\n  "
             )
@@ -8188,7 +8188,7 @@ let AnnotationDiscussionList = {
       
       //console.log(data)
       
-      let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/init', data)
+      let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/getCommentSummary', data)
       //console.log(result)
       
       this.comments = result.comments
@@ -8220,12 +8220,15 @@ let AnnotationDiscussionList = {
       if (this.noMoreOlder !== true) {
         this.scrollToBottom()
       }
+      this.loadLock = false
     },
     scrollToBottom: async function () {
       //console.log(this.comments.length)
       setTimeout(async () => {
         //console.log(this.comments.length)
-        this.list = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.list)
+        if (!this.list) {
+          this.list = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.list)
+        }
         let focusComment
         if (!this.panelData.focusCommentID) {
           focusComment = this.list.children('.AnnotationComment:last')
@@ -8262,6 +8265,9 @@ let AnnotationDiscussionList = {
       }
       this.loadLock = true
       
+      if (!this.list) {
+        this.list = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.list)
+      }
       // 先記好最上面一個
       let firstComment = this.list.children('.AnnotationComment:first')
       
@@ -8295,10 +8301,15 @@ let AnnotationDiscussionList = {
       }, 100)
     },
     loadNewer: async function () {
+      //console.log(this.loadLock)
       if (this.loadLock === true) {
         return null
       }
       this.loadLock = true
+      
+      if (!this.list) {
+        this.list = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.list)
+      }
       
       // 先記好最上面一個
       let focusComment = this.list.children('.AnnotationComment:last')
@@ -8339,6 +8350,7 @@ let AnnotationDiscussionList = {
       throw new Error('autoLoadNextPage')
     },
     scrollList: function (event) {
+      //console.log(this.noMoreOlder, this.noMoreNewer, this.loadLock)
       if (this.loadLock === true) {
         event.preventDefault()
         event.stopPropagation()
@@ -8353,6 +8365,7 @@ let AnnotationDiscussionList = {
       
       let element = event.target
       //console.log(element.scrollTop, this.noMoreOlder, this.noMoreNewer, this.loadLock)
+      //console.log(element.scrollHeight, element.scrollTop, element.clientHeight, (element.scrollHeight - element.scrollTop === element.clientHeight))
       if (element.scrollTop === 0) {
         if (this.noMoreOlder === true) {
           return false
@@ -8361,6 +8374,7 @@ let AnnotationDiscussionList = {
         this.loadOlder()
       }
       else if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+        //console.log(element.scrollHeight, element.scrollTop, element.clientHeight)
         if (this.noMoreNewer === true) {
           return false
         }
@@ -9651,6 +9665,10 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   AnnotationPanel.methods.focusAnnotation = async function (annotationID) {
+    if (typeof(annotationID) !== 'number') {
+      throw new Error('annotationID is not a number. ' + annotationID)
+    }
+    
     // 先從commentID找回annotation
     let annotation = await this.lib.AxiosHelper.get('/client/Annotation/getAnnotation', {
       annotationID: annotationID

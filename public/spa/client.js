@@ -5046,7 +5046,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let debugSkipRead = true
+let debugSkipRead = false
 
 if (debugSkipRead === true) {
   console.log('@TEST debugSkipRead')
@@ -12167,6 +12167,10 @@ let AnnotationHelper = {
 __webpack_require__.r(__webpack_exports__);
 const NumberHelper = {
   parseRoughNumber: function ($t, number) {
+    if (typeof($t) === 'function') {
+      return number
+    }
+    
     if (number > 100000) {
       number = '!'
     }

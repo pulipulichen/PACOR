@@ -90,7 +90,7 @@ let AnnotationDiscussionList = {
       
       //console.log(data)
       
-      let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/init', data)
+      let result = await this.lib.AxiosHelper.get('/client/AnnotationComment/getCommentSummary', data)
       //console.log(result)
       
       this.comments = result.comments
@@ -122,12 +122,15 @@ let AnnotationDiscussionList = {
       if (this.noMoreOlder !== true) {
         this.scrollToBottom()
       }
+      this.loadLock = false
     },
     scrollToBottom: async function () {
       //console.log(this.comments.length)
       setTimeout(async () => {
         //console.log(this.comments.length)
-        this.list = $(this.$refs.list)
+        if (!this.list) {
+          this.list = $(this.$refs.list)
+        }
         let focusComment
         if (!this.panelData.focusCommentID) {
           focusComment = this.list.children('.AnnotationComment:last')
@@ -164,6 +167,9 @@ let AnnotationDiscussionList = {
       }
       this.loadLock = true
       
+      if (!this.list) {
+        this.list = $(this.$refs.list)
+      }
       // 先記好最上面一個
       let firstComment = this.list.children('.AnnotationComment:first')
       
@@ -197,10 +203,15 @@ let AnnotationDiscussionList = {
       }, 100)
     },
     loadNewer: async function () {
+      //console.log(this.loadLock)
       if (this.loadLock === true) {
         return null
       }
       this.loadLock = true
+      
+      if (!this.list) {
+        this.list = $(this.$refs.list)
+      }
       
       // 先記好最上面一個
       let focusComment = this.list.children('.AnnotationComment:last')
@@ -241,6 +252,7 @@ let AnnotationDiscussionList = {
       throw new Error('autoLoadNextPage')
     },
     scrollList: function (event) {
+      //console.log(this.noMoreOlder, this.noMoreNewer, this.loadLock)
       if (this.loadLock === true) {
         event.preventDefault()
         event.stopPropagation()
@@ -255,6 +267,7 @@ let AnnotationDiscussionList = {
       
       let element = event.target
       //console.log(element.scrollTop, this.noMoreOlder, this.noMoreNewer, this.loadLock)
+      //console.log(element.scrollHeight, element.scrollTop, element.clientHeight, (element.scrollHeight - element.scrollTop === element.clientHeight))
       if (element.scrollTop === 0) {
         if (this.noMoreOlder === true) {
           return false
@@ -263,6 +276,7 @@ let AnnotationDiscussionList = {
         this.loadOlder()
       }
       else if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+        //console.log(element.scrollHeight, element.scrollTop, element.clientHeight)
         if (this.noMoreNewer === true) {
           return false
         }

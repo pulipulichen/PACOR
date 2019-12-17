@@ -1,5 +1,9 @@
 const NumberHelper = {
   parseRoughNumber: function ($t, number) {
+    if (typeof($t) === 'function') {
+      return number
+    }
+    
     if (number > 100000) {
       number = '!'
     }

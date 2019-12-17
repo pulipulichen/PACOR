@@ -1,4 +1,4 @@
-let debugSkipRead = true
+let debugSkipRead = false
 
 if (debugSkipRead === true) {
   console.log('@TEST debugSkipRead')
