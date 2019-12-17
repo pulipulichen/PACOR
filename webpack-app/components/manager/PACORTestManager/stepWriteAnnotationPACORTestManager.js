@@ -11,8 +11,9 @@ export default function (PACORTestManager) {
     //let min = 4
     //let max = 10
     
+    let min = 3, max = 3
     //let min = 3, max = 6
-    let min = 4, max = 10
+    //let min = 4, max = 10
     //let 
     
     
