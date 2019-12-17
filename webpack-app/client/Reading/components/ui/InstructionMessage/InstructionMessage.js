@@ -35,7 +35,7 @@ let InstructionMessage = {
   },
   methods: {
     checkAutoShow () {
-      if (!this.message) {
+      if (!this.instruction) {
         return null
       }
       

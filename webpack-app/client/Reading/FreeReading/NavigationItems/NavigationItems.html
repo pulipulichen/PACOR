@@ -71,6 +71,12 @@
           v-on:search="hideSideMenu">
         </search-input>
       </div>
+      
+      <about-item 
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib">
+      </about-item>
 
       <notification-icon
         v-if="!status.preference.leftHanded"

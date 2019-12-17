@@ -340,6 +340,14 @@ var render = function() {
                         1
                       ),
                       _vm._v(" "),
+                      _c("about-item", {
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib
+                        }
+                      }),
+                      _vm._v(" "),
                       !_vm.status.preference.leftHanded
                         ? _c("notification-icon", {
                             staticClass: "in-top",
@@ -390,7 +398,7 @@ var render = function() {
               ],
               null,
               false,
-              4163368130
+              1633277294
             )
           })
         : _vm._e(),
