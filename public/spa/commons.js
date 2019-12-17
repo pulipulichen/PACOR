@@ -969,14 +969,22 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _vm.contentURL
-      ? _c("div", { staticClass: "content" }, [
-          _vm.isShow
-            ? _c("iframe", {
-                staticClass: "full",
-                attrs: { src: _vm.computedContentURL, frameborder: "0" }
-              })
-            : _vm._e()
-        ])
+      ? _c(
+          "div",
+          { staticClass: "content" },
+          [
+            _vm.isShow
+              ? _c("iframe-message-segment", {
+                  attrs: {
+                    config: _vm.config,
+                    message: _vm.computedContentURL,
+                    showBorder: false
+                  }
+                })
+              : _vm._e()
+          ],
+          1
+        )
       : _vm._e(),
     _vm._v(" "),
     _vm.$slots.actions ||

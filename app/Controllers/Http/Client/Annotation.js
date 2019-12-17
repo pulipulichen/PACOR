@@ -84,7 +84,11 @@ class Annotation extends WebpageUserBaseController {
       //}
       
       // ------------------------------------------------------------------
-      query.page = null
+      //query.page = null
+      if (query.page !== undefined) {
+        delete query.page
+      }
+      
       annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
 
       // 來做計算

@@ -33,9 +33,10 @@ let List = {
         excludeIDList: this.annotationsIDList
       }
       
-        if (this.panelData.anchorPositions) {
-          query.anchorPositions = this.panelData.anchorPositions
-        }
+      if (Array.isArray(this.panelData.anchorPositions)
+              && this.panelData.anchorPositions.length > 0) {
+        query.anchorPositions = this.panelData.anchorPositions
+      }
       
       if (this.panelData.keyword 
               && this.panelData.keyword !== '') {
@@ -45,6 +46,10 @@ let List = {
       //window.qqq = this.panelData.query
       //console.log(this.panelData.query)
       //console.log(this.$get('panelData.query.keyword'))
+      
+      if (query.page === null) {
+        throw new Error('query.page is null')
+      }
       
       return query
     },

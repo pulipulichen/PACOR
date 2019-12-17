@@ -32,20 +32,20 @@
   </div>
   <div class="content"
        v-if="contentURL">
+    <!--
     <iframe 
       v-if="isShow"
       v-bind:src="computedContentURL"
       frameborder="0"
       class="full">
     </iframe>
-    <!--
+    -->
     <iframe-message-segment 
       v-if="isShow"
       v-bind:config="config"
       v-bind:message="computedContentURL"
       v-bind:showBorder="false">
     </iframe-message-segment>
-    -->
   </div>
   <div class="actions"
        v-if="$slots.actions || cancelable === 'true' || cancelable === true || reset || cancelButtonText"

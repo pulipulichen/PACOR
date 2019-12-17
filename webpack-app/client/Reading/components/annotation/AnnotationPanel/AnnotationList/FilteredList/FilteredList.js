@@ -72,9 +72,10 @@ let List = {
         excludeIDList: this.annotationsIDList
       }
       
-        if (this.panelData.anchorPositions) {
-          query.anchorPositions = this.panelData.anchorPositions
-        }
+      if (Array.isArray(this.panelData.anchorPositions)
+              && this.panelData.anchorPositions.length > 0) {
+        query.anchorPositions = this.panelData.anchorPositions
+      }
 //        if (this.panelData.query.keyword 
 //                && this.panelData.query.keyword !== '') {
 //          query.keyword = this.panelData.query.keyword
@@ -93,6 +94,10 @@ let List = {
         if (this.panelData.filter.type) {
           query.findType = this.panelData.filter.type
         }
+      }
+      
+      if (query.page === null) {
+        throw new Error('query.page is null')
       }
       
       return query

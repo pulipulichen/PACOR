@@ -15,12 +15,12 @@ let InstructionMessage = {
     localStorageKeyPrefix () {
       return 'InstructionMessage.' + this.status.userID + '.' + this.tempStepName
     },
-    message () {
+    instruction () {
       return this.lib.auth.currentStepConfig.instruction
     },
     contentURL () {
       if (this.lib.StringHelper.isURL(this.instruction) ) {
-        return this.message
+        return this.instruction
       }
     }
   },

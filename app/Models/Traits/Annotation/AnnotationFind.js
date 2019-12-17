@@ -20,6 +20,11 @@ class AnnotationFind {
     
     Model.findByWebpageGroupPosition = async function (webpage, user, options = {}) {
       
+      //console.log(options)
+      if (options.page === null) {
+        throw new HttpException('options.page is null')
+      }
+      
       let profiler = new Profiler(3, 'Annotation.AnnotationFind.findByWebpageGroupPosition()')
       
       //options = options ? options : {}
@@ -171,10 +176,11 @@ class AnnotationFind {
           if (Array.isArray(anchorPositions) === false) {
             anchorPositions = [anchorPositions]
           }
-          if (Array.isArray(anchorPositions)) {
+          if (Array.isArray(anchorPositions) 
+                  && anchorPositions.length > 0) {
             query.whereHas('anchorPositions', (builder) => {
               builder.where('webpage_id', webpage.primaryKeyValue)
-                      //.where('type', 'textContent') // 這個限制會讓人看不到SectionMainIdea，先拿掉了
+                      .where('type', 'textContent') // 這個限制會讓人看不到SectionMainIdea，先拿掉了
               this._buildAnchorPositionWhere(builder, anchorMode, anchorPositions)
             })
           }
