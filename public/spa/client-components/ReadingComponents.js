@@ -8221,8 +8221,10 @@ let AnnotationDiscussionList = {
         this.scrollToBottom()
       }
     },
-    scrollToBottom () {
-      setTimeout(() => {
+    scrollToBottom: async function () {
+      //console.log(this.comments.length)
+      setTimeout(async () => {
+        //console.log(this.comments.length)
         this.list = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.list)
         let focusComment
         if (!this.panelData.focusCommentID) {
@@ -8233,13 +8235,21 @@ let AnnotationDiscussionList = {
           focusComment.transition('glow')
           this.panelData.focusCommentID = null
         }
-        focusComment[0].scrollIntoView({
-          behavior: 'smooth'
-        })
         
-        setTimeout(() => {
-          this.loadLock = false
-        }, 500)
+        let commentEle = focusComment[0]
+        //console.log()
+        
+        //console.log(this.list.scrollTop(), this.list.height(), commentEle.offsetTop)
+        while ((this.list.scrollTop() + this.list.height()) < commentEle.offsetTop) {
+          commentEle.scrollIntoView({
+            behavior: 'smooth'
+          })
+          await this.lib.VueHelper.sleep(500)
+        }
+        
+        //setTimeout(() => {
+        this.loadLock = false
+        //}, 500)
         //window.list = list
         //list.scrollTop = list.scrollHeight
         
@@ -9650,6 +9660,10 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   AnnotationPanel.methods.focusComment = async function (commentID) {
+    if (typeof(commentID) !== 'number') {
+      throw new Error('commentID is not a number. ' + commentID)
+    }
+    
     // 先從commentID找回annotation
     let annotation = await this.lib.AxiosHelper.get('/client/AnnotationComment/getAnnotation', {
       commentID: commentID

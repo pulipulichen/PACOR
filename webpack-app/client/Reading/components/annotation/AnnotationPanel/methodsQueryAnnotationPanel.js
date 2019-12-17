@@ -47,6 +47,10 @@ export default (AnnotationPanel) => {
   }
   
   AnnotationPanel.methods.focusComment = async function (commentID) {
+    if (typeof(commentID) !== 'number') {
+      throw new Error('commentID is not a number. ' + commentID)
+    }
+    
     // 先從commentID找回annotation
     let annotation = await this.lib.AxiosHelper.get('/client/AnnotationComment/getAnnotation', {
       commentID: commentID

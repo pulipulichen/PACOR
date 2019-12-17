@@ -5148,7 +5148,8 @@ EventAnnotationComment.computed.summary = function () {
 
 
 EventAnnotationComment.methods.read = function () {
-  this.lib.AnnotationPanel.focusComment(this.notification.id)
+  //console.log(this.notification)
+  this.lib.AnnotationPanel.focusComment(this.notification.trigger_model_id)
   //console.log(this.notification)
   //throw new Error('EventAnnotationComment ' + this.notification)
   this.$emit('read')
@@ -5351,7 +5352,7 @@ EventAnnotationRate.computed.action = function () {
 
 EventAnnotationRate.computed.summary = function () {
   if (!this.notification.summary) {
-    return
+    return undefined
   }
   let summary = this.notification.summary.summary
   return this.$t('"{0}"', [this.notification.summary.summary])

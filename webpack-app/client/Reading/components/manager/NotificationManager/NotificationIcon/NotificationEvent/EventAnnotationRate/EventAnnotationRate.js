@@ -24,7 +24,7 @@ EventAnnotationRate.computed.action = function () {
 
 EventAnnotationRate.computed.summary = function () {
   if (!this.notification.summary) {
-    return
+    return undefined
   }
   let summary = this.notification.summary.summary
   return this.$t('"{0}"', [this.notification.summary.summary])
