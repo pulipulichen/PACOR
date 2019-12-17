@@ -1,3 +1,9 @@
+let debugSkipRead = true
+
+if (debugSkipRead === true) {
+  console.log('@TEST debugSkipRead')
+}
+
 export default (VM) => {
   VM.methods.eventType = function (notification) {
     //return 'NotificationEvent'  // for test
@@ -10,10 +16,12 @@ export default (VM) => {
       id: notification.id
     }
 
-    let result = await this.lib.AxiosHelper.get('/client/UserNotification/read', data)
-    //console.log(result)
-    if (result !== 1) {
-      throw new Error(this.$t('Set notification read error'))
+    if (debugSkipRead !== true) {
+      let result = await this.lib.AxiosHelper.get('/client/UserNotification/read', data)
+      //console.log(result)
+      if (result !== 1) {
+        throw new Error(this.$t('Set notification read error'))
+      }
     }
 
     if (notification.has_read === false) {
