@@ -1133,7 +1133,20 @@ var render = function() {
             _c(
               "div",
               { staticClass: "menu-full right menu" },
-              [_vm._t("items")],
+              [
+                _vm._t("items"),
+                _vm._v(" "),
+                _vm.showMoreButton
+                  ? _c(
+                      "a",
+                      {
+                        staticClass: "icon item",
+                        on: { click: _vm.showSideMenu }
+                      },
+                      [_c("i", { staticClass: "ellipsis vertical icon" })]
+                    )
+                  : _vm._e()
+              ],
               2
             )
           ]
@@ -4971,7 +4984,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let Navigation = {
   props: ['config', 'lib', 'status'
-    , 'compactWidth', 'position', 'color', 'isVisible'],
+    , 'compactWidth', 'position', 'color', 'isVisible', 'showMoreButton'],
   data() {
     return {
       sideMenuDisplay: false,

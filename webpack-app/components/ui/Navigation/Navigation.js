@@ -3,7 +3,7 @@ import $ from 'jquery'
 
 let Navigation = {
   props: ['config', 'lib', 'status'
-    , 'compactWidth', 'position', 'color', 'isVisible'],
+    , 'compactWidth', 'position', 'color', 'isVisible', 'showMoreButton'],
   data() {
     return {
       sideMenuDisplay: false,

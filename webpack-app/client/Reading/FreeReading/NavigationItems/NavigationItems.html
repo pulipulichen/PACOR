@@ -9,7 +9,8 @@
     compactWidth="767"
     position="bottom"
     color="blue"
-    v-on:onSideMenuChange="(m) => {isSideMenuDisplay = m}">
+    v-on:onSideMenuChange="(m) => {isSideMenuDisplay = m}"
+    v-bind:showMoreButton="true">
     <template v-slot:header>
       
       <notification-icon

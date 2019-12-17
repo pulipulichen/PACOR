@@ -22,6 +22,12 @@
            v-on:media-leave="isCompactMode = true">
       <div class="menu-full right menu">
         <slot name="items"></slot>
+        
+        <a class="icon item"
+           v-if="showMoreButton"
+           v-on:click="showSideMenu">
+          <i class="ellipsis vertical icon"></i>
+        </a>
       </div>
     </media>
     

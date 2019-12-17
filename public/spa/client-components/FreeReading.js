@@ -250,7 +250,8 @@ var render = function() {
               lib: _vm.lib,
               compactWidth: "767",
               position: "bottom",
-              color: "blue"
+              color: "blue",
+              showMoreButton: true
             },
             on: {
               onSideMenuChange: function(m) {

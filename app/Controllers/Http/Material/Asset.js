@@ -4,7 +4,7 @@ const clientScriptTag = `<script>document.write('ClientJS is injected.')</script
 
 // ---------------
 
-const Drive = use('Drive')
+//const Drive = use('Drive')
 const Helpers = use('Helpers')
 
 const path = require('path')

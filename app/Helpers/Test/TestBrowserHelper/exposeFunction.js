@@ -1,5 +1,4 @@
 const Sleep = use('Sleep')
-
 const closeBlankPage = use('./closeBlankPage.js')
 
 let exposeFunction = async function (headless, browser, url, index) {
