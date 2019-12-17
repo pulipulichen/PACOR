@@ -1,5 +1,10 @@
 import $ from 'jquery'
 
+let debugSkipCreate = false
+if (debugSkipCreate === true) {
+  console.log('@TEST debugSkipCreate')
+}
+
 let AnnotationDiscussionInput = {
   props: ['lib', 'status', 'config', 'annotation'],
   data() {    
@@ -41,9 +46,9 @@ let AnnotationDiscussionInput = {
   },
   watch: {
     'comment' (comment) {
-      if (this.comment
-            && typeof(this.comment.note) === 'string') {
-        this.note = this.comment.note
+      if (comment
+            && typeof(comment.note) === 'string') {
+        this.note = comment.note
       }
       else {
         this.note = ''
@@ -84,11 +89,19 @@ let AnnotationDiscussionInput = {
         note: this.note
       }
       
-      let result = await this.lib.AxiosHelper.post('/client/AnnotationComment/create', data)
-      
-      if (typeof(result.id) !== 'number') {
-        throw new Error('Add failed')
-        return null
+      let result
+      if (debugSkipCreate !== true) {
+        result = await this.lib.AxiosHelper.post('/client/AnnotationComment/create', data)
+
+        if (typeof(result.id) !== 'number') {
+          throw new Error('Add failed')
+          return null
+        }
+      }
+      else {
+        result = {
+          id: (new Date()).getTime()
+        }
       }
       
       let comment = {
@@ -102,6 +115,8 @@ let AnnotationDiscussionInput = {
         },
         //updated_at_unixms: (new Date()).getTime()
       }
+      
+      //console.log({comment})
       //this.$emit('add', comment)
       this.AnnotationDiscussionList.onInputAdd(comment)
       this.reset()

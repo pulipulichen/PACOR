@@ -119,6 +119,7 @@ let AnnotationDiscussionList = {
       }
       
       //console.log('@TODO AnnotationDiscussionList.initComments()')
+      
       if (this.noMoreOlder !== true) {
         this.scrollToBottom()
       }
@@ -289,7 +290,13 @@ let AnnotationDiscussionList = {
       this.annotation.__meta__.comments_count--
       this.annotation.__meta__.i_have_commented_count--
     },
-    onInputAdd (comment) {
+    onInputAdd: async function (comment) {
+      if (this.noMoreNewer === false) {
+        // 重新整理
+        await this.reload(comment.id)
+        this.annotation.__meta__.comments_count++
+        return undefined
+      }
       this.comments.push(comment)
       this.noMoreOlder = false
       this.scrollToBottom()
@@ -325,6 +332,22 @@ let AnnotationDiscussionList = {
       if (typeof(this.hook.commentLike) === 'function') {
         this.hook.commentLike(comment)
       }
+    },
+    reload: async function (commentID) {
+      if (commentID) {
+        this.panelData.focusCommentID = commentID
+      }
+      else {
+        this.panelData.focusCommentID = null
+      }
+      this.loadLock = false
+      this.comments = []
+      this.noMoreOlder = false
+      this.noMoreNewer = true
+      this.oldestCommnetTime = null
+      this.newestCommnetTime = null
+      
+      await this.initComments()
     }
   } // methods
 }

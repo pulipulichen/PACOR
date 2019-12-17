@@ -254,6 +254,8 @@ class AnnotationCommentSave {
       newerComment = newerComment.toJSON().slice(0, halfItemsLimit)
       //console.log(newerComment)
       
+      newerCommentCount = newerCommentCount - newerComment.length
+      
       // -------------------------------------
       // 合併
       

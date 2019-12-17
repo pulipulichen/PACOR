@@ -7664,6 +7664,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 
+let debugSkipCreate = false
+if (debugSkipCreate === true) {
+  console.log('@TEST debugSkipCreate')
+}
+
 let AnnotationDiscussionInput = {
   props: ['lib', 'status', 'config', 'annotation'],
   data() {    
@@ -7705,9 +7710,9 @@ let AnnotationDiscussionInput = {
   },
   watch: {
     'comment' (comment) {
-      if (this.comment
-            && typeof(this.comment.note) === 'string') {
-        this.note = this.comment.note
+      if (comment
+            && typeof(comment.note) === 'string') {
+        this.note = comment.note
       }
       else {
         this.note = ''
@@ -7748,11 +7753,19 @@ let AnnotationDiscussionInput = {
         note: this.note
       }
       
-      let result = await this.lib.AxiosHelper.post('/client/AnnotationComment/create', data)
-      
-      if (typeof(result.id) !== 'number') {
-        throw new Error('Add failed')
-        return null
+      let result
+      if (debugSkipCreate !== true) {
+        result = await this.lib.AxiosHelper.post('/client/AnnotationComment/create', data)
+
+        if (typeof(result.id) !== 'number') {
+          throw new Error('Add failed')
+          return null
+        }
+      }
+      else {
+        result = {
+          id: (new Date()).getTime()
+        }
       }
       
       let comment = {
@@ -7766,6 +7779,8 @@ let AnnotationDiscussionInput = {
         },
         //updated_at_unixms: (new Date()).getTime()
       }
+      
+      //console.log({comment})
       //this.$emit('add', comment)
       this.AnnotationDiscussionList.onInputAdd(comment)
       this.reset()
@@ -8217,6 +8232,7 @@ let AnnotationDiscussionList = {
       }
       
       //console.log('@TODO AnnotationDiscussionList.initComments()')
+      
       if (this.noMoreOlder !== true) {
         this.scrollToBottom()
       }
@@ -8387,7 +8403,13 @@ let AnnotationDiscussionList = {
       this.annotation.__meta__.comments_count--
       this.annotation.__meta__.i_have_commented_count--
     },
-    onInputAdd (comment) {
+    onInputAdd: async function (comment) {
+      if (this.noMoreNewer === false) {
+        // 重新整理
+        await this.reload(comment.id)
+        this.annotation.__meta__.comments_count++
+        return undefined
+      }
       this.comments.push(comment)
       this.noMoreOlder = false
       this.scrollToBottom()
@@ -8423,6 +8445,22 @@ let AnnotationDiscussionList = {
       if (typeof(this.hook.commentLike) === 'function') {
         this.hook.commentLike(comment)
       }
+    },
+    reload: async function (commentID) {
+      if (commentID) {
+        this.panelData.focusCommentID = commentID
+      }
+      else {
+        this.panelData.focusCommentID = null
+      }
+      this.loadLock = false
+      this.comments = []
+      this.noMoreOlder = false
+      this.noMoreNewer = true
+      this.oldestCommnetTime = null
+      this.newestCommnetTime = null
+      
+      await this.initComments()
     }
   } // methods
 }
