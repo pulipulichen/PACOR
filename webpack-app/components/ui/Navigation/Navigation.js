@@ -1,4 +1,5 @@
 import Media from 'vue-media'
+import $ from 'jquery'
 
 let Navigation = {
   props: ['config', 'lib', 'status'
@@ -97,7 +98,7 @@ let Navigation = {
   },
   methods: {
     initPlaceholder: function () {
-      this.placeholder = window.$(`<div class="Navigation placeholder"></div>`)
+      this.placeholder = $(`<div class="Navigation placeholder"></div>`)
       
       if (this.position === 'bottom') {
         this.placeholder.appendTo('body')

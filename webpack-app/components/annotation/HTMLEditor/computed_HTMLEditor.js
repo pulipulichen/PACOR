@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 export default function (HTMLEditor) {
 
   HTMLEditor.computed.computedClass = function () {

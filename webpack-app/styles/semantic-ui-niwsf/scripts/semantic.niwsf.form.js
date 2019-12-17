@@ -1,4 +1,4 @@
- 
+import jQuery from 'jquery'
 /*!
  * # Semantic UI 2.4.2 - Form Validation
  * http://github.com/semantic-org/semantic-ui/

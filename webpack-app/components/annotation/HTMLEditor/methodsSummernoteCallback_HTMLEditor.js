@@ -32,13 +32,13 @@ export default function (HTMLEditor) {
   HTMLEditor.methods._onImageUpload = async function (files) {
     // upload image to server and create imgNode...
     //$summernote.summernote('insertNode', imgNode);
-    console.log('_onImageUpload', files)
+    //console.log('_onImageUpload', files)
     let imageURL = await this.lib.AxiosHelper.upload('/client/File/upload', {
       file: files[0]
     })
       
     //let imageURL = result
-    console.log(imageURL)
+    //console.log(imageURL)
     let message = `<a href="${imageURL}" target="_blank"><img src="${imageURL}" /></a>`
     
     this.editor.summernote('editor.insert', message)

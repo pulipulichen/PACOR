@@ -56,20 +56,14 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 /*!**********************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.accordion.js ***!
   \**********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/*!
- * # Semantic UI 2.4.2 - Accordion
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -670,7 +664,7 @@ $.extend( $.easing, {
   }
 });
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 
@@ -680,20 +674,14 @@ $.extend( $.easing, {
 /*!****************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.api.js ***!
   \****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/*!
- * # Semantic UI 2.4.2 - API
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -1849,7 +1837,7 @@ $.api.settings = {
 
 
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -1858,22 +1846,14 @@ $.api.settings = {
 /*!*********************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.checkbox.js ***!
   \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
-
-/*!
- * # Semantic UI 2.4.2 - Checkbox
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -2693,7 +2673,7 @@ $.fn.checkbox.settings = {
 
 };
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -2702,21 +2682,14 @@ $.fn.checkbox.settings = {
 /*!*******************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.dimmer.js ***!
   \*******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
-/*!
- * # Semantic UI 2.4.2 - Dimmer
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -3439,7 +3412,7 @@ $.fn.dimmer.settings = {
 
 };
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -3448,21 +3421,14 @@ $.fn.dimmer.settings = {
 /*!*********************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.dropdown.js ***!
   \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
-/*!
- * # Semantic UI 2.4.2 - Dropdown
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -7406,7 +7372,7 @@ $.fn.dropdown.settings.templates = {
 
 };
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -7415,21 +7381,14 @@ $.fn.dropdown.settings.templates = {
 /*!******************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.embed.js ***!
   \******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
-/*!
- * # Semantic UI 2.4.2 - Embed
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 "use strict";
 
@@ -8124,7 +8083,7 @@ $.fn.embed.settings = {
 
 
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -8133,21 +8092,14 @@ $.fn.embed.settings = {
 /*!*****************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.form.js ***!
   \*****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
- 
-/*!
- * # Semantic UI 2.4.2 - Form Validation
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -9842,7 +9794,7 @@ $.fn.form.settings = {
 
 };
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -9851,21 +9803,14 @@ $.fn.form.settings = {
 /*!******************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.modal.js ***!
   \******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
-/*!
- * # Semantic UI 2.4.2 - Modal
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -10968,7 +10913,7 @@ $.fn.modal.settings = {
 };
 
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -10977,21 +10922,14 @@ $.fn.modal.settings = {
 /*!****************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.nag.js ***!
   \****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
-/*!
- * # Semantic UI 2.4.2 - Nag
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -11488,7 +11426,7 @@ $.extend( $.easing, {
   }
 });
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -11497,21 +11435,14 @@ $.extend( $.easing, {
 /*!******************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.popup.js ***!
   \******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
-/*!
- * # Semantic UI 2.4.2 - Popup
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -13034,7 +12965,7 @@ $.fn.popup.settings = {
 };
 
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -13043,21 +12974,14 @@ $.fn.popup.settings = {
 /*!*********************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.progress.js ***!
   \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
-/*!
- * # Semantic UI 2.4.2 - Progress
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -13977,7 +13901,7 @@ $.fn.progress.settings = {
 };
 
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -13986,20 +13910,14 @@ $.fn.progress.settings = {
 /*!*******************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.rating.js ***!
   \*******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/*!
- * # Semantic UI 2.4.2 - Rating
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -14496,7 +14414,7 @@ $.fn.rating.settings = {
 
 };
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -14505,21 +14423,14 @@ $.fn.rating.settings = {
 /*!*******************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.search.js ***!
   \*******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
-/*!
- * # Semantic UI 2.4.2 - Search
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -16013,7 +15924,7 @@ $.fn.search.settings = {
   }
 };
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -16022,20 +15933,14 @@ $.fn.search.settings = {
 /*!******************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.shape.js ***!
   \******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/*!
- * # Semantic UI 2.4.2 - Shape
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -16946,7 +16851,7 @@ $.fn.shape.settings = {
 };
 
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -16955,20 +16860,14 @@ $.fn.shape.settings = {
 /*!********************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.sidebar.js ***!
   \********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/*!
- * # Semantic UI 2.4.2 - Sidebar
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -17995,7 +17894,7 @@ $.fn.sidebar.settings = {
 };
 
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -18004,20 +17903,14 @@ $.fn.sidebar.settings = {
 /*!*****************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.site.js ***!
   \*****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/*!
- * # Semantic UI 2.4.2 - Site
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 $.site = $.fn.site = function(parameters) {
   var
@@ -18493,7 +18386,7 @@ $.extend($.expr[ ":" ], {
 });
 
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 // end of ;(function ($, window, document, undefined) {
 
 /***/ }),
@@ -18502,20 +18395,14 @@ $.extend($.expr[ ":" ], {
 /*!*******************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.sticky.js ***!
   \*******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/*!
- * # Semantic UI 2.4.2 - Sticky
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -19463,7 +19350,7 @@ $.fn.sticky.settings = {
 
 };
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -19472,20 +19359,14 @@ $.fn.sticky.settings = {
 /*!****************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.tab.js ***!
   \****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/*!
- * # Semantic UI 2.4.2 - Tab
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -20427,7 +20308,7 @@ $.fn.tab.settings = {
 
 };
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -20436,20 +20317,14 @@ $.fn.tab.settings = {
 /*!***********************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.transition.js ***!
   \***********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/*!
- * # Semantic UI 2.4.2 - Transition
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -21533,7 +21408,7 @@ $.fn.transition.settings = {
 };
 
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -21542,21 +21417,14 @@ $.fn.transition.settings = {
 /*!***********************************************************************************!*\
   !*** ./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.visibility.js ***!
   \***********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
-/*!
- * # Semantic UI 2.4.2 - Visibility
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-;(function ($, window, document, undefined) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+(function ($, window, document, undefined) {
 
 'use strict';
 
@@ -22856,7 +22724,7 @@ $.fn.visibility.settings = {
 
 };
 
-})( jQuery, window, document );
+})( jquery__WEBPACK_IMPORTED_MODULE_0___default.a, window, document );
 
 
 /***/ }),
@@ -22883,45 +22751,25 @@ __webpack_require__(/*! ./semantic-ui-niwsf.js */ "./webpack-app/styles/semantic
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_semantic_niwsf_site_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scripts/semantic.niwsf.site.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.site.js");
-/* harmony import */ var _scripts_semantic_niwsf_site_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_site_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _scripts_semantic_niwsf_form_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/semantic.niwsf.form.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.form.js");
-/* harmony import */ var _scripts_semantic_niwsf_form_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_form_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _scripts_semantic_niwsf_accordion_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/semantic.niwsf.accordion.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.accordion.js");
-/* harmony import */ var _scripts_semantic_niwsf_accordion_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_accordion_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _scripts_semantic_niwsf_checkbox_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scripts/semantic.niwsf.checkbox.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.checkbox.js");
-/* harmony import */ var _scripts_semantic_niwsf_checkbox_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_checkbox_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _scripts_semantic_niwsf_dimmer_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scripts/semantic.niwsf.dimmer.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.dimmer.js");
-/* harmony import */ var _scripts_semantic_niwsf_dimmer_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_dimmer_js__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _scripts_semantic_niwsf_dropdown_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scripts/semantic.niwsf.dropdown.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.dropdown.js");
-/* harmony import */ var _scripts_semantic_niwsf_dropdown_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_dropdown_js__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _scripts_semantic_niwsf_embed_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scripts/semantic.niwsf.embed.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.embed.js");
-/* harmony import */ var _scripts_semantic_niwsf_embed_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_embed_js__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _scripts_semantic_niwsf_modal_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./scripts/semantic.niwsf.modal.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.modal.js");
-/* harmony import */ var _scripts_semantic_niwsf_modal_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_modal_js__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _scripts_semantic_niwsf_nag_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./scripts/semantic.niwsf.nag.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.nag.js");
-/* harmony import */ var _scripts_semantic_niwsf_nag_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_nag_js__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _scripts_semantic_niwsf_popup_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./scripts/semantic.niwsf.popup.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.popup.js");
-/* harmony import */ var _scripts_semantic_niwsf_popup_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_popup_js__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _scripts_semantic_niwsf_progress_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./scripts/semantic.niwsf.progress.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.progress.js");
-/* harmony import */ var _scripts_semantic_niwsf_progress_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_progress_js__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _scripts_semantic_niwsf_rating_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./scripts/semantic.niwsf.rating.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.rating.js");
-/* harmony import */ var _scripts_semantic_niwsf_rating_js__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_rating_js__WEBPACK_IMPORTED_MODULE_11__);
 /* harmony import */ var _scripts_semantic_niwsf_search_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./scripts/semantic.niwsf.search.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.search.js");
-/* harmony import */ var _scripts_semantic_niwsf_search_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_search_js__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _scripts_semantic_niwsf_shape_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./scripts/semantic.niwsf.shape.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.shape.js");
-/* harmony import */ var _scripts_semantic_niwsf_shape_js__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_shape_js__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var _scripts_semantic_niwsf_sidebar_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./scripts/semantic.niwsf.sidebar.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.sidebar.js");
-/* harmony import */ var _scripts_semantic_niwsf_sidebar_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_sidebar_js__WEBPACK_IMPORTED_MODULE_14__);
 /* harmony import */ var _scripts_semantic_niwsf_sticky_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./scripts/semantic.niwsf.sticky.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.sticky.js");
-/* harmony import */ var _scripts_semantic_niwsf_sticky_js__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_sticky_js__WEBPACK_IMPORTED_MODULE_15__);
 /* harmony import */ var _scripts_semantic_niwsf_tab_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./scripts/semantic.niwsf.tab.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.tab.js");
-/* harmony import */ var _scripts_semantic_niwsf_tab_js__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_tab_js__WEBPACK_IMPORTED_MODULE_16__);
 /* harmony import */ var _scripts_semantic_niwsf_transition_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./scripts/semantic.niwsf.transition.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.transition.js");
-/* harmony import */ var _scripts_semantic_niwsf_transition_js__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_transition_js__WEBPACK_IMPORTED_MODULE_17__);
 /* harmony import */ var _scripts_semantic_niwsf_api_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./scripts/semantic.niwsf.api.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.api.js");
-/* harmony import */ var _scripts_semantic_niwsf_api_js__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_api_js__WEBPACK_IMPORTED_MODULE_18__);
 /* harmony import */ var _scripts_semantic_niwsf_visibility_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./scripts/semantic.niwsf.visibility.js */ "./webpack-app/styles/semantic-ui-niwsf/scripts/semantic.niwsf.visibility.js");
-/* harmony import */ var _scripts_semantic_niwsf_visibility_js__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_scripts_semantic_niwsf_visibility_js__WEBPACK_IMPORTED_MODULE_19__);
  /*
  * # Semantic UI - 2.4.2
  * https://github.com/Semantic-Org/Semantic-UI

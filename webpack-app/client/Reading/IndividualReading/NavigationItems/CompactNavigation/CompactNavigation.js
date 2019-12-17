@@ -1,5 +1,6 @@
 import ReadingProgressIndicator from './ReadingProgressIndicator/ReadingProgressIndicator.vue'
 import Media from 'vue-media'
+import $ from 'jquery'
 
 let CompactNavigation = {
   props: ['lib', 'status', 'config'
@@ -73,7 +74,7 @@ let CompactNavigation = {
       this.isCompactMode = (width < this.compactWidth)
     },
     initPlaceholder: function () {
-      this.placeholder = window.$(`<div class="Navigation placeholder"></div>`)
+      this.placeholder = $(`<div class="Navigation placeholder"></div>`)
       
       if (this.position === 'bottom') {
         this.placeholder.appendTo('body')

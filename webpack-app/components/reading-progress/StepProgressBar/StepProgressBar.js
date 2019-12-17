@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 let StepProgressBar = {
   props: ['lib', 'config', 'progresses'],
   data() {    
@@ -60,7 +62,7 @@ let StepProgressBar = {
       //console.log(Array.isArray(this.progresses))
       if (Array.isArray(this.progresses)) {
         setTimeout(() => {
-          let buttons = window.$(this.$refs.buttons).children()
+          let buttons = $(this.$refs.buttons).children()
           if (buttons.length > 0) {
             buttons.popup()
           }

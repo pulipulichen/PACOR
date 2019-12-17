@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 let ConfirmModel = {
   props: ['lib', 'status', 'config'
     , 'icon'],

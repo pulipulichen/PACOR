@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 /**
  * Super simple wysiwyg editor v0.8.11
  * https://summernote.org

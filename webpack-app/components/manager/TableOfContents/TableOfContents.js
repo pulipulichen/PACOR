@@ -1,4 +1,5 @@
 import tocbot from './tocbot/tocbot.webpack.js'
+import $ from 'jquery'
 
 let TableOfContent = {
   props: ['lib', 'config', 'headings'],
@@ -71,7 +72,7 @@ let TableOfContent = {
       //this.container = window.$(this.$refs.toc)
       //container.prependTo('body')
 
-      this.rootContainer = window.$('.non-invasive-web-style-framework:first')
+      this.rootContainer = $('.non-invasive-web-style-framework:first')
       this.rootContainer.addClass('tocbot')
     },
     removeContainer: function () {

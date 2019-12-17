@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 export default (RangyManager) => {
   
   RangyManager.methods.onselect = function () {

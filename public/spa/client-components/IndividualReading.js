@@ -792,6 +792,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ReadingProgressIndicator_ReadingProgressIndicator_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ReadingProgressIndicator/ReadingProgressIndicator.vue */ "./webpack-app/client/Reading/IndividualReading/NavigationItems/CompactNavigation/ReadingProgressIndicator/ReadingProgressIndicator.vue");
 /* harmony import */ var vue_media__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-media */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue-media\\dist\\vue-media.common.js");
 /* harmony import */ var vue_media__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_media__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -867,7 +870,7 @@ let CompactNavigation = {
       this.isCompactMode = (width < this.compactWidth)
     },
     initPlaceholder: function () {
-      this.placeholder = window.$(`<div class="Navigation placeholder"></div>`)
+      this.placeholder = jquery__WEBPACK_IMPORTED_MODULE_2___default()(`<div class="Navigation placeholder"></div>`)
       
       if (this.position === 'bottom') {
         this.placeholder.appendTo('body')

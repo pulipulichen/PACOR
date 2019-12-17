@@ -438,6 +438,10 @@ component.options.__file = "webpack-app/components/annotation/HTMLEditor/HTMLEdi
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 /* harmony default export */ __webpack_exports__["default"] = (function (HTMLEditor) {
 
   HTMLEditor.computed.computedClass = function () {
@@ -488,7 +492,7 @@ __webpack_require__.r(__webpack_exports__);
       calc = `calc(${calc} - ${padding}px)`
       //console.log(calc)
       setTimeout(() => {
-        $(this.$refs.editorContainer).find('.note-editable:visible').css('max-height', calc)
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.editorContainer).find('.note-editable:visible').css('max-height', calc)
         //console.log($(this.$refs.editorContainer).find('.note-editable:visible').length)
       }, 100)
 
@@ -623,13 +627,13 @@ __webpack_require__.r(__webpack_exports__);
   HTMLEditor.methods._onImageUpload = async function (files) {
     // upload image to server and create imgNode...
     //$summernote.summernote('insertNode', imgNode);
-    console.log('_onImageUpload', files)
+    //console.log('_onImageUpload', files)
     let imageURL = await this.lib.AxiosHelper.upload('/client/File/upload', {
       file: files[0]
     })
       
     //let imageURL = result
-    console.log(imageURL)
+    //console.log(imageURL)
     let message = `<a href="${imageURL}" target="_blank"><img src="${imageURL}" /></a>`
     
     this.editor.summernote('editor.insert', message)
@@ -647,10 +651,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 /* harmony default export */ __webpack_exports__["default"] = (function (HTMLEditor) {
   HTMLEditor.methods.initEditor = function () {
     
-    this.editor = window.$(this.$refs.editor)
+    this.editor = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.editor)
     this.editor.summernote(this._summernoteOptions())
 
     //console.log(this.contents)
@@ -844,8 +852,14 @@ if(false) {}
 /*!************************************************************************************!*\
   !*** ./webpack-app/components/annotation/HTMLEditor/summernote/summernote-lite.js ***!
   \************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
 
 /**
  * Super simple wysiwyg editor v0.8.11
@@ -860,10 +874,10 @@ if(false) {}
   //typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('jquery')) :
   //typeof define === 'function' && define.amd ? define(['jquery'], factory) :
   //(factory(global.jQuery));
-  factory($)
+  factory(jquery__WEBPACK_IMPORTED_MODULE_0___default.a)
   //console.log(typeof($))
   
-}(this, (function ($$1) { 
+}(undefined, (function ($$1) { 
   //'use strict';
 
   $$1 = $$1 && $$1.hasOwnProperty('default') ? $$1['default'] : $$1;
@@ -928,14 +942,14 @@ if(false) {}
   var TooltipUI = /** @class */ (function () {
       function TooltipUI($node, options) {
           this.$node = $node;
-          this.options = $.extend({}, {
+          this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, {
               title: '',
               target: options.container,
               trigger: 'hover focus',
               placement: 'bottom'
           }, options);
           // create tooltip node
-          this.$tooltip = $([
+          this.$tooltip = jquery__WEBPACK_IMPORTED_MODULE_0___default()([
               '<div class="note-tooltip in">',
               '  <div class="note-tooltip-arrow"/>',
               '  <div class="note-tooltip-content"/>',
@@ -1017,7 +1031,7 @@ if(false) {}
   var DropdownUI = /** @class */ (function () {
       function DropdownUI($node, options) {
           this.$button = $node;
-          this.options = $.extend({}, {
+          this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, {
               target: options.container
           }, options);
           this.setEvent();
@@ -1030,7 +1044,7 @@ if(false) {}
           });
       };
       DropdownUI.prototype.clear = function () {
-          var $parent = $('.note-btn-group.open');
+          var $parent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.note-btn-group.open');
           $parent.find('.note-btn.active').removeClass('active');
           $parent.removeClass('open');
       };
@@ -1066,21 +1080,21 @@ if(false) {}
       return DropdownUI;
   }());
   $$1(document).on('click', function (e) {
-      if (!$(e.target).closest('.note-btn-group').length) {
-          $('.note-btn-group.open').removeClass('open');
+      if (!jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).closest('.note-btn-group').length) {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.note-btn-group.open').removeClass('open');
       }
   });
   $$1(document).on('click.note-dropdown-menu', function (e) {
-      $(e.target).closest('.note-dropdown-menu').parent().removeClass('open');
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).closest('.note-dropdown-menu').parent().removeClass('open');
   });
 
   var ModalUI = /** @class */ (function () {
       function ModalUI($node, options) {
-          this.options = $.extend({}, {
+          this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, {
               target: options.container || 'body'
           }, options);
           this.$modal = $node;
-          this.$backdrop = $('<div class="note-modal-backdrop" />');
+          this.$backdrop = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="note-modal-backdrop" />');
           let contentChildren = this.$modal.find(".note-modal-content > *")
           let enableClickHide = true
           contentChildren.mousedown((event) => {
@@ -1191,20 +1205,20 @@ if(false) {}
       */
   });
   var dropdown = renderer.create('<div class="note-dropdown-menu" role="list">', function ($node, options) {
-      var markup = $.isArray(options.items) ? options.items.map(function (item) {
+      var markup = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.isArray(options.items) ? options.items.map(function (item) {
           var value = (typeof item === 'string') ? item : (item.value || '');
           var content = options.template ? options.template(item) : item;
           let areaLabel = item
           if (typeof(areaLabel) === 'object' && typeof(areaLabel.title) === 'string') {
             areaLabel = areaLabel.title
           } 
-          var $temp = $('<a class="note-dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + areaLabel + '"></a>');
+          var $temp = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a class="note-dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + areaLabel + '"></a>');
           $temp.html(content).data('item', item);
           return $temp;
       }) : options.items;
       $node.html(markup).attr({ 'aria-label': options.title });
       $node.on('click', '> .note-dropdown-item', function (e) {
-          var $a = $(this);
+          var $a = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this);
           var item = $a.data('item');
           var value = $a.data('value');
           if (item.click) {
@@ -1216,16 +1230,16 @@ if(false) {}
       });
   });
   var dropdownCheck = renderer.create('<div class="note-dropdown-menu note-check" role="list">', function ($node, options) {
-      var markup = $.isArray(options.items) ? options.items.map(function (item) {
+      var markup = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.isArray(options.items) ? options.items.map(function (item) {
           var value = (typeof item === 'string') ? item : (item.value || '');
           var content = options.template ? options.template(item) : item;
-          var $temp = $('<a class="note-dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + item + '"></a>');
+          var $temp = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a class="note-dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + item + '"></a>');
           $temp.html([icon(options.checkClassName), ' ', content]).data('item', item);
           return $temp;
       }) : options.items;
       $node.html(markup).attr({ 'aria-label': options.title });
       $node.on('click', '> .note-dropdown-item', function (e) {
-          var $a = $(this);
+          var $a = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this);
           var item = $a.data('item');
           var value = $a.data('value');
           if (item.click) {
@@ -1301,7 +1315,7 @@ if(false) {}
   };
   var tableMoveHandler = function (event, col, row) {
       var PX_PER_EM = 18;
-      var $picker = $(event.target.parentNode); // target is mousecatcher
+      var $picker = jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.target.parentNode); // target is mousecatcher
       var $dimensionDisplay = $picker.next();
       var $catcher = $picker.find('.note-dimension-picker-mousecatcher');
       var $highlighted = $picker.find('.note-dimension-picker-highlighted');
@@ -1309,7 +1323,7 @@ if(false) {}
       var posOffset;
       // HTML5 with jQuery - e.offsetX is undefined in Firefox
       if (event.offsetX === undefined) {
-          var posCatcher = $(event.target).offset();
+          var posCatcher = jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.target).offset();
           posOffset = {
               x: event.pageX - posCatcher.left,
               y: event.pageY - posCatcher.top
@@ -1394,7 +1408,7 @@ if(false) {}
       }
       $node.html(contents.join(''));
       $node.find('.note-color-btn').each(function () {
-          $(this).data('_lite_tooltip', new TooltipUI($(this), {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('_lite_tooltip', new TooltipUI(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this), {
               container: options.container
           }));
       });
@@ -1463,7 +1477,7 @@ if(false) {}
                   ].join(''),
                   callback: function ($dropdown) {
                       $dropdown.find('.note-holder').each(function () {
-                          var $holder = $(this);
+                          var $holder = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this);
                           $holder.append(palette({
                               colors: opt.colors,
                               eventName: $holder.data('event')
@@ -1481,7 +1495,7 @@ if(false) {}
                   click: function (event) {
                     //console.log('set color')
                     
-                      var $button = $(event.target);
+                      var $button = jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.target);
                       var eventName = $button.data('event');
                       var value = $button.data('value');
                       var foreinput = document.getElementById('html5fcp').value;
@@ -1960,7 +1974,7 @@ if(false) {}
       }
   });
 
-  var isSupportAmd =  true && __webpack_require__(/*! !webpack amd options */ "./node_modules/webpack/buildin/amd-options.js"); // eslint-disable-line
+  var isSupportAmd = typeof define === 'function' && __webpack_require__(/*! !webpack amd options */ "./node_modules/webpack/buildin/amd-options.js"); // eslint-disable-line
   /**
    * returns whether font is installed or not.
    *
@@ -2132,7 +2146,7 @@ if(false) {}
    * @return {Number} bounds.height
    */
   function rect2bnd(rect) {
-      var $document = $(document);
+      var $document = jquery__WEBPACK_IMPORTED_MODULE_0___default()(document);
       return {
           top: rect.top + $document.scrollTop(),
           left: rect.left + $document.scrollLeft(),
@@ -2653,7 +2667,7 @@ if(false) {}
    */
   function isParentsHasList(node) {
     if (typeof(node) !== 'object' || typeof(node.parent) !== 'function') {
-      node = $(node)
+      node = jquery__WEBPACK_IMPORTED_MODULE_0___default()(node)
     }
     
     let tagName = node.prop('tagName')
@@ -4097,7 +4111,7 @@ if(false) {}
               let postBody = $$1(info.container)
 
               postBody.find('a.fragment-start').each((i, a) => {
-                a = $(a)
+                a = jquery__WEBPACK_IMPORTED_MODULE_0___default()(a)
                 //console.log(a.prevAll().length)
 
                 let parent = a.parent()
@@ -6155,11 +6169,11 @@ ${links}`
            */
           this.insertHorizontalRule = this.wrapCommand(function () {
               let hrNode = _this.createRange().insertNode(dom.create('HR'));
-              let prev = $(hrNode).prev()
+              let prev = jquery__WEBPACK_IMPORTED_MODULE_0___default()(hrNode).prev()
               if (prev.length > 0 && prev.text().trim() === '') {
                   prev.remove()
               }
-              let next = $(hrNode).next()
+              let next = jquery__WEBPACK_IMPORTED_MODULE_0___default()(hrNode).next()
               if (next.length > 0 && next.text().trim() === '') {
                   next.remove()
               }
@@ -6431,7 +6445,7 @@ ${links}`
                 //$target.remove();
                 //_this.context.invoke('insertNode', '<p></p>')
                 //$target.replaceWith($('<p><br /></p>')[0])
-                $target.replaceWith($(`<p>${blankHTML}</p>`)[0])
+                $target.replaceWith(jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<p>${blankHTML}</p>`)[0])
                 _this.context.triggerEvent('change', _this.$editable.html());
                 //setTimeout(() => {
                 //  _this.context.invoke('editor.restoreScrollPosition')
@@ -6474,7 +6488,7 @@ ${links}`
                   this.beforeCommand();
                   document.execCommand('delete')
                   this.afterCommand();
-                  _this.context.triggerEvent('link.delete', $(rng.sc), _this.$editable);
+                  _this.context.triggerEvent('link.delete', jquery__WEBPACK_IMPORTED_MODULE_0___default()(rng.sc), _this.$editable);
               }
           });
           /**
@@ -6948,7 +6962,7 @@ ${links}`
             || typeof(target.sc.parentElement) !== 'object') {
           return
         }
-        let $parent = $(target.sc.parentElement)
+        let $parent = jquery__WEBPACK_IMPORTED_MODULE_0___default()(target.sc.parentElement)
         let tagName = $parent.prop('tagName').toLowerCase()
         
         //console.log(tagName, (blockTagList.indexOf(tagName) === -1))
@@ -6991,7 +7005,7 @@ ${links}`
        */
       Editor.prototype.getRangeElement = function () {
           let range = this.createRange()
-          return $(range.sc.parentElement)
+          return jquery__WEBPACK_IMPORTED_MODULE_0___default()(range.sc.parentElement)
       };
       
       /**
@@ -7313,7 +7327,7 @@ ${links}`
             })
           }
           else if (tagName === '') {
-            let t = $($target)
+            let t = jquery__WEBPACK_IMPORTED_MODULE_0___default()($target)
             let options = {
               tagName: t.prop('tagName')
             }
@@ -7355,10 +7369,10 @@ ${links}`
       };
       Editor.prototype.removeEmptySibling = function (node) {
         if (node === undefined) {
-          node = $(this.createRange().sc.parentElement);
+          node = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.createRange().sc.parentElement);
         }
         if (typeof(node.prev) !== 'function') {
-          node = $(node)
+          node = jquery__WEBPACK_IMPORTED_MODULE_0___default()(node)
         }
         
         //return
@@ -7469,10 +7483,10 @@ ${links}`
               //console.log(rng)
               
               
-              let parent = $(rng.sc)
+              let parent = jquery__WEBPACK_IMPORTED_MODULE_0___default()(rng.sc)
               //console.log([rng.sc.nodeType, Node.TEXT_NODE])
               if (rng.sc.nodeType === Node.TEXT_NODE) {
-                parent = $(rng.sc.parentElement)
+                parent = jquery__WEBPACK_IMPORTED_MODULE_0___default()(rng.sc.parentElement)
               }
               
               
@@ -8036,7 +8050,7 @@ sel.addRange(range);
    * @class Codeview
    */
   var CodeView = /** @class */ (function () {
-      let editorViewScrollTop, codeViewScrollTop, $window = $(window)
+      let editorViewScrollTop, codeViewScrollTop, $window = jquery__WEBPACK_IMPORTED_MODULE_0___default()(window)
   
       function CodeView(context) {
           this.context = context;
@@ -8063,7 +8077,7 @@ sel.addRange(range);
       CodeView.prototype.toggle = function () {
           //console.log()
           //console.log("codeview.toggle 2")
-          $(".note-popover").hide()
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(".note-popover").hide()
           //console.log(["a", $(this.$codable).val()])
           if (this.isActivated()) {
               //console.log(["b", $(this.$codable).val()])
@@ -11977,7 +11991,6 @@ if(false) {}
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _summernote_lite_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./summernote-lite.js */ "./webpack-app/components/annotation/HTMLEditor/summernote/summernote-lite.js");
-/* harmony import */ var _summernote_lite_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_summernote_lite_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _summernote_lite_dropdown_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./summernote-lite.dropdown.less */ "./webpack-app/components/annotation/HTMLEditor/summernote/summernote-lite.dropdown.less");
 /* harmony import */ var _summernote_lite_dropdown_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_summernote_lite_dropdown_less__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _summernote_lite_editor_less__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./summernote-lite.editor.less */ "./webpack-app/components/annotation/HTMLEditor/summernote/summernote-lite.editor.less");

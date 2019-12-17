@@ -217,7 +217,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"I don\u0027t know what is \\"{0}\\"?":"I don\u0027t know what is \\"{0}\\"?","Why is \\"{0}\\"?":"Why is \\"{0}\\"?"},"zh-TW":{"I don\u0027t know what is \\"{0}\\"?":"我不知道什麼是「{0}」？","Why is \\"{0}\\"?":"為什麼是「{0}」？","WRITE LATER":"稍後再來寫解答","Question":"問題","Answer":"解答","Do you want to use his comment as your answer?":"您要將這個評論作為您的解答嗎？"}}')
+  Component.options.__i18n.push('{"en":{"I don\u0027t know what is \\"{0}\\"?":"I don\u0027t know what is \\"{0}\\"?","Why is \\"{0}\\"?":"Why is \\"{0}\\"?"},"zh-TW":{"I don\u0027t know what is \\"{0}\\"?":"我不知道什麼是「{0}」？","Why is \\"{0}\\"?":"為什麼是「{0}」？","WRITE LATER":"稍後再來寫解答","Question":"問題","Answer":"解答","Do you want to use his comment as your answer?":"您要將這個評論作為您的解答嗎？","New question will overwrite your question. Are you sure?":"您要用新問題取代目前的問題嗎？"}}')
   delete Component.options._Ctor
 }
 
@@ -233,7 +233,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Write your question":"寫下您的問題","What is it?":"這是什麼？","Why is it?":"為什麼會發生這件事情？"}}')
   delete Component.options._Ctor
 }
 
@@ -9536,6 +9536,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 const transitionMode = 'slide up'
 
 /* harmony default export */ __webpack_exports__["default"] = ((AnnotationPanel) => {
@@ -9555,11 +9559,11 @@ const transitionMode = 'slide up'
     if (this.lib.style.isEnableAnimte) {
       this.placeholder.transition(transitionMode)
       // @todo 可以不要用semantic ui的jquery嗎？
-      window.$(this.$refs.panel).transition(transitionMode, transitionCallback)
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).transition(transitionMode, transitionCallback)
     }
     else {
       this.placeholder.show()
-      window.$(this.$refs.panel).show()
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).show()
       transitionCallback()
     }
 
@@ -9591,11 +9595,11 @@ const transitionMode = 'slide up'
       this.placeholder.transition(transitionMode)
 
       // @TODO Semantic UI的jQuery
-      window.$(this.$refs.panel).transition(transitionMode, transitionCallback)
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).transition(transitionMode, transitionCallback)
     }
     else {
       this.placeholder.show()
-      window.$(this.$refs.panel).show()
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).show()
       transitionCallback()
     }
     
@@ -13247,6 +13251,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 /* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
 
   RangyManager.methods._initOnSelectEventListener = function () {
@@ -13297,7 +13305,7 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     for (let i = 0; i < this.rangyConfig.articleSelector.length; i++) {
-      let node = $(this.rangyConfig.articleSelector[i])
+      let node = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.rangyConfig.articleSelector[i])
       if (node.length > 0) {
         this.articleNode = node
         break
@@ -13468,6 +13476,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 /* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
   
   RangyManager.methods.onselect = function () {
@@ -13521,7 +13533,7 @@ __webpack_require__.r(__webpack_exports__);
         //let anchorNode = window.$(selection.anchorNode)
         let position = {}
 
-        anchorNode = $(anchorNode)
+        anchorNode = jquery__WEBPACK_IMPORTED_MODULE_0___default()(anchorNode)
         //PACORTestManager.log('anchorNode', anchorNode.attr('data-pacor-section-seq-id'))
         // ------------------
 

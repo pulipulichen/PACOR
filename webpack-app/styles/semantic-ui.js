@@ -1,5 +1,6 @@
-let $ = require('jquery')
-window.jQuery = window.$ = $
+import $ from 'jquery'
+////let $ = require('jquery')
+//window.jQuery = window.$ = $
 
 // Use Semantic UI original version
 //require('./../vendors/semantic-ui/semantic.min.css')

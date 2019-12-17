@@ -3174,6 +3174,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 let StepProgressBar = {
   props: ['lib', 'config', 'progresses'],
   data() {    
@@ -3236,7 +3240,7 @@ let StepProgressBar = {
       //console.log(Array.isArray(this.progresses))
       if (Array.isArray(this.progresses)) {
         setTimeout(() => {
-          let buttons = window.$(this.$refs.buttons).children()
+          let buttons = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.buttons).children()
           if (buttons.length > 0) {
             buttons.popup()
           }
@@ -4959,6 +4963,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_media__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-media */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\vue-media\\dist\\vue-media.common.js");
 /* harmony import */ var vue_media__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_media__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 let Navigation = {
@@ -5058,7 +5065,7 @@ let Navigation = {
   },
   methods: {
     initPlaceholder: function () {
-      this.placeholder = window.$(`<div class="Navigation placeholder"></div>`)
+      this.placeholder = jquery__WEBPACK_IMPORTED_MODULE_1___default()(`<div class="Navigation placeholder"></div>`)
       
       if (this.position === 'bottom') {
         this.placeholder.appendTo('body')
@@ -6077,11 +6084,16 @@ if(false) {}
 /*!*******************************************!*\
   !*** ./webpack-app/styles/semantic-ui.js ***!
   \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-let $ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js")
-window.jQuery = window.$ = $
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+////let $ = require('jquery')
+//window.jQuery = window.$ = $
 
 // Use Semantic UI original version
 //require('./../vendors/semantic-ui/semantic.min.css')
@@ -6128,7 +6140,6 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _semantic_ui__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./semantic-ui */ "./webpack-app/styles/semantic-ui.js");
-/* harmony import */ var _semantic_ui__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_semantic_ui__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _global_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./global.less */ "./webpack-app/styles/global.less");
 /* harmony import */ var _global_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_global_less__WEBPACK_IMPORTED_MODULE_1__);
 

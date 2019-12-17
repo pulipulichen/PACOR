@@ -1,6 +1,6 @@
 en:
-  TEST_MESSAGE: Test Message
   
 zh-TW:
-  # 這是註解
-  TEST_MESSAGE: 測試訊息
+  "Write your question": 寫下您的問題
+  "What is it?": 這是什麼？
+  "Why is it?": 為什麼會發生這件事情？

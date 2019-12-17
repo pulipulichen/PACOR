@@ -1,7 +1,9 @@
+import $ from 'jquery'
+
 export default function (HTMLEditor) {
   HTMLEditor.methods.initEditor = function () {
     
-    this.editor = window.$(this.$refs.editor)
+    this.editor = $(this.$refs.editor)
     this.editor.summernote(this._summernoteOptions())
 
     //console.log(this.contents)

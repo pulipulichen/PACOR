@@ -8017,14 +8017,20 @@ if(false) {}
 /*!**********************************************************************************************!*\
   !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/jQCloud/jqcloud.js ***!
   \**********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
 
 /*
  * Plugin class
  */
 var jQCloud = function(element, word_array, options) {
-    this.$element = $(element);
+    this.$element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element);
 
     this.word_array = word_array || [];
     this.options = options;
@@ -8083,7 +8089,7 @@ jQCloud.prototype = {
         }
 
         // Default options value
-        this.options = $.extend(true, {}, jQCloud.DEFAULTS, this.options);
+        this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(true, {}, jQCloud.DEFAULTS, this.options);
 
         // Ensure delay
         if (this.options.delay === null) {
@@ -8102,7 +8108,7 @@ jQCloud.prototype = {
             this.colorGenerator = this.options.colors;
         }
         // Array of sizes
-        else if ($.isArray(this.options.colors)) {
+        else if (jquery__WEBPACK_IMPORTED_MODULE_0___default.a.isArray(this.options.colors)) {
             var cl = this.options.colors.length;
             if (cl > 0) {
                 // Fill the sizes array to X items
@@ -8124,7 +8130,7 @@ jQCloud.prototype = {
             this.sizeGenerator = this.options.fontSize;
         }
         // Object with 'from' and 'to'
-        else if ($.isPlainObject(this.options.fontSize)) {
+        else if (jquery__WEBPACK_IMPORTED_MODULE_0___default.a.isPlainObject(this.options.fontSize)) {
             this.sizeGenerator = function(width, height, weight) {
                 var max = width * this.options.fontSize.from,
                     min = width * this.options.fontSize.to;
@@ -8132,7 +8138,7 @@ jQCloud.prototype = {
             };
         }
         // Array of sizes
-        else if ($.isArray(this.options.fontSize)) {
+        else if (jquery__WEBPACK_IMPORTED_MODULE_0___default.a.isArray(this.options.fontSize)) {
             var sl = this.options.fontSize.length;
             if (sl > 0) {
                 // Fill the sizes array to X items
@@ -8164,17 +8170,17 @@ jQCloud.prototype = {
         }
 
         // Delay execution so that the browser can render the page before the computatively intensive word cloud drawing
-        this.createTimeout($.proxy(this.drawWordCloud, this), 10);
+        this.createTimeout(jquery__WEBPACK_IMPORTED_MODULE_0___default.a.proxy(this.drawWordCloud, this), 10);
 
         // Attach window resize event
         if (this.options.autoResize) {
-            $(window).on('resize.' + this.data.namespace, throttle(this.resize, 50, this));
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('resize.' + this.data.namespace, throttle(this.resize, 50, this));
         }
     },
 
     // Helper function to keep track of timeouts so they can be destroyed
     createTimeout: function(callback, time) {
-        var timeout = setTimeout($.proxy(function() {
+        var timeout = setTimeout(jquery__WEBPACK_IMPORTED_MODULE_0___default.a.proxy(function() {
             delete this.data.timeouts[timeout];
             callback();
         }, this), time);
@@ -8183,7 +8189,7 @@ jQCloud.prototype = {
 
     // Destroy all timeouts
     clearTimeouts: function() {
-        $.each(this.data.timeouts, function(key) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default.a.each(this.data.timeouts, function(key) {
             clearTimeout(key);
         });
         this.data.timeouts = {};
@@ -8284,14 +8290,14 @@ jQCloud.prototype = {
             word_style;
 
         // Create word attr object
-        word.attr = $.extend({}, word.html, { id: word_id });
+        word.attr = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, word.html, { id: word_id });
 
         // Linearly map the original weight to a discrete scale from 1 to 10
         // Only if weights are different
         if (this.data.max_weight != this.data.min_weight) {
             weight = Math.round((word.weight - this.data.min_weight) * 1.0 * (this.options.steps - 1) / (this.data.max_weight - this.data.min_weight)) + 1;
         }
-        word_span = $('<span>').attr(word.attr);
+        word_span = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<span>').attr(word.attr);
 
         word_span.addClass('jqcloud-word');
 
@@ -8329,7 +8335,7 @@ jQCloud.prototype = {
                 word.link.href = encodeURI(word.link.href).replace(/'/g, '%27');
             }
 
-            word_span.append($('<a>').attr(word.link).text(word.text));
+            word_span.append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a>').attr(word.link).text(word.text));
         }
         else {
             word_span.text(word.text);
@@ -8417,7 +8423,7 @@ jQCloud.prototype = {
 
         // if not visible then do not attempt to draw
         if (!this.$element.is(':visible')) {
-            this.createTimeout($.proxy(function() {
+            this.createTimeout(jquery__WEBPACK_IMPORTED_MODULE_0___default.a.proxy(function() {
                 this.drawOneWordDelayed(index);
             }, this), 10);
 
@@ -8427,7 +8433,7 @@ jQCloud.prototype = {
         if (index < this.word_array.length) {
             this.drawOneWord(index, this.word_array[index]);
 
-            this.createTimeout($.proxy(function() {
+            this.createTimeout(jquery__WEBPACK_IMPORTED_MODULE_0___default.a.proxy(function() {
                 this.drawOneWordDelayed(index + 1);
             }, this), this.options.delay);
         }
@@ -8441,7 +8447,7 @@ jQCloud.prototype = {
     // Destroy any data and objects added by the plugin
     destroy: function() {
         if (this.options.autoResize) {
-            $(window).off('resize.' + this.data.namespace);
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off('resize.' + this.data.namespace);
         }
 
         this.clearTimeouts();
@@ -8511,11 +8517,11 @@ function throttle(callback, delay, context) {
 /*
  * jQuery plugin
  */
-$.fn.jQCloud = function(word_array, option) {
+jquery__WEBPACK_IMPORTED_MODULE_0___default.a.fn.jQCloud = function(word_array, option) {
     var args = arguments;
 
     return this.each(function() {
-        var $this = $(this),
+        var $this = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),
             data = $this.data('jqcloud');
 
         if (!data && word_array === 'destroy') {
@@ -8532,16 +8538,16 @@ $.fn.jQCloud = function(word_array, option) {
     });
 };
 
-$.fn.jQCloud.defaults = {
+jquery__WEBPACK_IMPORTED_MODULE_0___default.a.fn.jQCloud.defaults = {
     set: function(options) {
-        $.extend(true, jQCloud.DEFAULTS, options);
+        jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(true, jQCloud.DEFAULTS, options);
     },
     get: function(key) {
         var options = jQCloud.DEFAULTS;
         if (key) {
             options = options[key];
         }
-        return $.extend(true, {}, options);
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(true, {}, options);
     }
 };
 
@@ -8558,7 +8564,6 @@ $.fn.jQCloud.defaults = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _jqcloud_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jqcloud.js */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/jQCloud/jqcloud.js");
-/* harmony import */ var _jqcloud_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_jqcloud_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _jqcloud_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./jqcloud.css */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/jQCloud/jqcloud.css");
 /* harmony import */ var _jqcloud_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_jqcloud_css__WEBPACK_IMPORTED_MODULE_1__);
 //import './jqcloud-1.0.4.js'
@@ -11310,6 +11315,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 let ConfirmModel = {
   props: ['lib', 'status', 'config'
     , 'icon'],
@@ -11349,7 +11358,7 @@ let ConfirmModel = {
       
       return new Promise((resolve, reject) => {
         if (!this.modal) {
-          this.modal = $(this.$refs.modal)
+          this.modal = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.modal)
         }
         
         let hasBeenReturned = false
