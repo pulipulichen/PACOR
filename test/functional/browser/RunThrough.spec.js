@@ -93,6 +93,8 @@ let config = {
             .type('#loginUsername', '布丁' + (new Date()).getTime())
             .waitForElement('div.ui.button.login-submit:not(.disabled)')
             .click('div.ui.button.login-submit:not(.disabled)')
+    
+    throw new Error('測試錯誤')
   },
   'c1. pre image': async function ( { assert, client, browser }, page ) {
     //console.log('暫時跳過'); return
