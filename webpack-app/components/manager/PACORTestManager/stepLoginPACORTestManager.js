@@ -13,10 +13,17 @@ export default function (PACORTestManager) {
     
     await this.interact('clear', '#loginUsername')
     
-    let name = await window.PACORTestManagerName()
+    let name = await this.getName()
     //console.log(name)
     await this.typeInput('#loginUsername', name)
     
+    let index = await this.getIndex()
+    //if (index === 0) {
+    if (false) {
+      await this.waitForElementVisibleClick('div.ui.button.login-submit1111:not(.disabled)', {
+        timeout: 100
+      })
+    }
     await this.waitForElementVisibleClick('div.ui.button.login-submit:not(.disabled)')
     
   }

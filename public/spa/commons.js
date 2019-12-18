@@ -2346,6 +2346,20 @@ __webpack_require__.r(__webpack_exports__);
       ele.click()
     }
   }
+  
+  PACORTestManager.methods.getIndex = async function (selector) {
+    if (typeof(window.PACORTestManagerIndex) === 'function') {
+      return await window.PACORTestManagerIndex()
+    }
+    return 0
+  }
+  
+  PACORTestManager.methods.getName = async function (selector) {
+    if (typeof(window.PACORTestManagerName) === 'function') {
+      return await window.PACORTestManagerName()
+    }
+    return 0
+  }
 });
 
 /***/ }),
@@ -2584,10 +2598,13 @@ __webpack_require__.r(__webpack_exports__);
     
     await this.interact('clear', '#loginUsername')
     
-    let name = await window.PACORTestManagerName()
+    let name = await this.getName()
     //console.log(name)
     await this.typeInput('#loginUsername', name)
     
+    let index = await this.getIndex()
+    //if (index === 0) {
+    if (false) {}
     await this.waitForElementVisibleClick('div.ui.button.login-submit:not(.disabled)')
     
   }

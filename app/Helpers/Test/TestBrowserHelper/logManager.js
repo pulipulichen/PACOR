@@ -72,6 +72,12 @@ let logManager = {
       }
       args[0] = m
     }
+    
+    console.log(args[0])
+    if (args[0] === 'Scripts may close only the windows that were opened by it.') {
+      return null
+    }
+    
     //console.log('error...', args[0].message, typeof(args[0].message), args[0].startsWith('Evaluation failed: '))
     
     let prefix = this.buildPrefix('ERROR', index)
@@ -92,7 +98,7 @@ let logManager = {
       return `[${prefix}]`
     }
     else {
-      return `[${index} ${prefix}]`
+      return `[${index}\t${prefix}]`
     }
   },
   argsToString (args) {
@@ -127,7 +133,7 @@ let logManager = {
       }
       
       if (first === false) {
-        console.log('\n==============================\n')
+        console.log('==============================\n')
       }
       first = true
       
@@ -154,7 +160,7 @@ let logManager = {
       
       if (isDirMade === false) {
         fs.mkdirSync(basedir)
-        console.log('Logs are saved in ' + basedir)
+        console.log('\nLogs are saved in ' + basedir)
       }
       
       isDirMade = true

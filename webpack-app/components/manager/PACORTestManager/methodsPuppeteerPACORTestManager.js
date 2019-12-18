@@ -116,4 +116,18 @@ export default function (PACORTestManager) {
       ele.click()
     }
   }
+  
+  PACORTestManager.methods.getIndex = async function (selector) {
+    if (typeof(window.PACORTestManagerIndex) === 'function') {
+      return await window.PACORTestManagerIndex()
+    }
+    return 0
+  }
+  
+  PACORTestManager.methods.getName = async function (selector) {
+    if (typeof(window.PACORTestManagerName) === 'function') {
+      return await window.PACORTestManagerName()
+    }
+    return 0
+  }
 }
