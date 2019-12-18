@@ -1018,7 +1018,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".UserAvatarIcons[data-v-2027b2d6] {\n  display: inline-block;\n  user-select: none;\n}\n.UserAvatarIcons .avatar-list[data-v-2027b2d6] {\n  display: inline-block;\n  vertical-align: top;\n  direction: ltr;\n}\n.UserAvatarIcons .avatar[data-v-2027b2d6] {\n  max-height: 2em;\n  width: auto;\n  margin-left: -0.5em;\n  position: relative;\n  filter: drop-shadow(1px 1px 3px rgba(255, 255, 255, 0.7));\n}\n.UserAvatarIcons .avatar[data-v-2027b2d6]:first-of-type {\n  margin-left: 0;\n}\n.UserAvatarIcons .user-count[data-v-2027b2d6] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["UserAvatarIcons.less?vue&type=style&index=0&id=2027b2d6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,iBAAiB;AACnB;AACA;EACE,qBAAqB;EACrB,mBAAmB;EACnB,cAAc;AAChB;AACA;EACE,eAAe;EACf,WAAW;EACX,mBAAmB;EACnB,kBAAkB;EAClB,yDAAyD;AAC3D;AACA;EACE,cAAc;AAChB;AACA;EACE,qBAAqB;EACrB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB","file":"UserAvatarIcons.less?vue&type=style&index=0&id=2027b2d6&lang=less&scoped=true&","sourcesContent":[".UserAvatarIcons[data-v-2027b2d6] {\n  display: inline-block;\n  user-select: none;\n}\n.UserAvatarIcons .avatar-list[data-v-2027b2d6] {\n  display: inline-block;\n  vertical-align: top;\n  direction: ltr;\n}\n.UserAvatarIcons .avatar[data-v-2027b2d6] {\n  max-height: 2em;\n  width: auto;\n  margin-left: -0.5em;\n  position: relative;\n  filter: drop-shadow(1px 1px 3px rgba(255, 255, 255, 0.7));\n}\n.UserAvatarIcons .avatar[data-v-2027b2d6]:first-of-type {\n  margin-left: 0;\n}\n.UserAvatarIcons .user-count[data-v-2027b2d6] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n"]}]);
+exports.push([module.i, ".UserAvatarIcons[data-v-2027b2d6] {\n  display: inline-block;\n  user-select: none;\n}\n.UserAvatarIcons .avatar-list[data-v-2027b2d6] {\n  display: inline-block;\n  vertical-align: top;\n  direction: ltr;\n}\n.UserAvatarIcons .avatar[data-v-2027b2d6] {\n  max-height: 2em;\n  width: auto;\n  margin-left: -0.5em;\n  position: relative;\n  -webkit-filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px 1px 0 white) drop-shadow(1px -1px 0 white) drop-shadow(-1px -1px 0 white);\n  filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px 1px 0 white) drop-shadow(1px -1px 0 white) drop-shadow(-1px -1px 0 white);\n}\n.UserAvatarIcons .avatar[data-v-2027b2d6]:first-of-type {\n  margin-left: 0;\n}\n.UserAvatarIcons .user-count[data-v-2027b2d6] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["UserAvatarIcons.less?vue&type=style&index=0&id=2027b2d6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,iBAAiB;AACnB;AACA;EACE,qBAAqB;EACrB,mBAAmB;EACnB,cAAc;AAChB;AACA;EACE,eAAe;EACf,WAAW;EACX,mBAAmB;EACnB,kBAAkB;EAClB,uIAAuI;EACvI,+HAA+H;AACjI;AACA;EACE,cAAc;AAChB;AACA;EACE,qBAAqB;EACrB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB","file":"UserAvatarIcons.less?vue&type=style&index=0&id=2027b2d6&lang=less&scoped=true&","sourcesContent":[".UserAvatarIcons[data-v-2027b2d6] {\n  display: inline-block;\n  user-select: none;\n}\n.UserAvatarIcons .avatar-list[data-v-2027b2d6] {\n  display: inline-block;\n  vertical-align: top;\n  direction: ltr;\n}\n.UserAvatarIcons .avatar[data-v-2027b2d6] {\n  max-height: 2em;\n  width: auto;\n  margin-left: -0.5em;\n  position: relative;\n  -webkit-filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px 1px 0 white) drop-shadow(1px -1px 0 white) drop-shadow(-1px -1px 0 white);\n  filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px 1px 0 white) drop-shadow(1px -1px 0 white) drop-shadow(-1px -1px 0 white);\n}\n.UserAvatarIcons .avatar[data-v-2027b2d6]:first-of-type {\n  margin-left: 0;\n}\n.UserAvatarIcons .user-count[data-v-2027b2d6] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -1182,7 +1182,7 @@ var render = function() {
                     ),
                     _vm._v(" "),
                     _c(
-                      "div",
+                      "form",
                       {
                         staticClass: "content-full-height",
                         class: _vm.computedFormClassList
@@ -1265,6 +1265,7 @@ var render = function() {
                                 ],
                                 attrs: {
                                   type: "password",
+                                  autocomplete: "false",
                                   id: "loginPassword"
                                 },
                                 domProps: { value: _vm.password },
@@ -11685,14 +11686,14 @@ let UserAvatarIcons = {
     return {
     }
   },
-  components: {
-  },
-  computed: {
-  },
-  watch: {
-  },
-  mounted() {
-  },
+//  components: {
+//  },
+//  computed: {
+//  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
   methods: {
     username (user) {
       if (typeof(user.displayName) === 'string') {
@@ -11705,7 +11706,7 @@ let UserAvatarIcons = {
     computedAvatarStyle (i) {
       // {'z-index': (users.length - i)}
       let zIndex = (this.users.length - i)
-      let opacity = 1 - (0.2 * i)
+      let opacity = 1 - (0.1 * i)
       let style = {
         'z-index': zIndex,
         opacity: opacity

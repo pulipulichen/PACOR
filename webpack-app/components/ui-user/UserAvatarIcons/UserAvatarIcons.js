@@ -5,14 +5,14 @@ let UserAvatarIcons = {
     return {
     }
   },
-  components: {
-  },
-  computed: {
-  },
-  watch: {
-  },
-  mounted() {
-  },
+//  components: {
+//  },
+//  computed: {
+//  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
   methods: {
     username (user) {
       if (typeof(user.displayName) === 'string') {
@@ -25,7 +25,7 @@ let UserAvatarIcons = {
     computedAvatarStyle (i) {
       // {'z-index': (users.length - i)}
       let zIndex = (this.users.length - i)
-      let opacity = 1 - (0.2 * i)
+      let opacity = 1 - (0.1 * i)
       let style = {
         'z-index': zIndex,
         opacity: opacity

@@ -29,7 +29,7 @@
           </div>
 
         </media>
-        <div v-bind:class="computedFormClassList"
+        <form v-bind:class="computedFormClassList"
              class="content-full-height">
 
           <iframe-message-segment 
@@ -55,13 +55,14 @@
               {{ $t('Password') }}
             </label>
             <input type="password" 
+                   autocomplete="false"
                    id="loginPassword"
                    v-model="password"
                    v-on:keyup.enter="login" />
           </div>
 
           <div class="ui field" v-html="$t('agreement-link', [agreementLink])"></div>
-        </div>
+        </form>
       </div>
 
     </template>
