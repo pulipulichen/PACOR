@@ -177,10 +177,10 @@ let logManager = {
     
     let name
     if (index) {
-      name = 'Puli' + index + '_' + this.basename
+      name = '丁丁' + index + '_' + this.basename
     }
     else {
-      name = 'Puli' + this.basename
+      name = '丁丁' + this.basename
     }
     
     return name

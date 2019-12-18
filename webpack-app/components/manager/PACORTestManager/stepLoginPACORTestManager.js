@@ -14,7 +14,7 @@ export default function (PACORTestManager) {
     await this.interact('clear', '#loginUsername')
     
     let name = await window.PACORTestManagerName()
-    console.log(name)
+    //console.log(name)
     await this.typeInput('#loginUsername', name)
     
     await this.waitForElementVisibleClick('div.ui.button.login-submit:not(.disabled)')
