@@ -14,7 +14,7 @@
     <template v-slot:header>
       
       <notification-icon
-        v-if="status.preference.leftHanded"
+        v-if="lib.style.isLeftHanded"
         v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib">
@@ -80,7 +80,7 @@
       </about-item>
 
       <notification-icon
-        v-if="!status.preference.leftHanded"
+        v-if="!lib.style.isLeftHanded"
         v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib"

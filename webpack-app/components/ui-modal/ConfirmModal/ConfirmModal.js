@@ -20,7 +20,7 @@ let ConfirmModel = {
       }
     },
     isLeftHanded () {
-      return this.status.preference.leftHanded
+      return this.lib.style.isLeftHanded
     }
   },
 //  watch: {

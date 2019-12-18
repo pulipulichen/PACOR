@@ -2,6 +2,7 @@ let TypeItem = {
   props: ['lib', 'status', 'config', 'typeData'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
     return {
     }
   },

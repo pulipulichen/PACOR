@@ -67,7 +67,7 @@ var render = function() {
               key: "header",
               fn: function() {
                 return [
-                  _vm.status.preference.leftHanded
+                  _vm.lib.style.isLeftHanded
                     ? _c("notification-icon", {
                         staticClass: "in-fullmode",
                         attrs: {
@@ -168,7 +168,7 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  !_vm.status.preference.leftHanded
+                  !_vm.lib.style.isLeftHanded
                     ? _c("notification-icon", {
                         staticClass: "in-top",
                         attrs: {
@@ -219,7 +219,7 @@ var render = function() {
           ],
           null,
           false,
-          3828697617
+          52038225
         )
       })
     : _vm._e()

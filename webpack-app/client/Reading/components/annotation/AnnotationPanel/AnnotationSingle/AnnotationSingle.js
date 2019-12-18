@@ -84,8 +84,7 @@ let AnnotationEditorModules = {
     },
     computedButtonsClass: function () {
       let vm = this
-      if (vm.status.preference === null
-              || vm.status.preference.leftHanded === false) {
+      if (vm.lib.style.isLeftHanded === false) {
         return 'right aligned column'
       } else {
         return 'column'

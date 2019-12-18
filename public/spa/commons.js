@@ -975,6 +975,7 @@ var render = function() {
           [
             _vm.isShow
               ? _c("iframe-message-segment", {
+                  staticClass: "content-full-height",
                   attrs: {
                     config: _vm.config,
                     message: _vm.computedContentURL,
@@ -1092,7 +1093,7 @@ var render = function() {
         class: _vm.computedTopMenuClass
       },
       [
-        _vm.status.preference.leftHanded
+        _vm.lib.style.isLeftHanded
           ? _c("media", { attrs: { query: { maxWidth: _vm.maxWidth } } }, [
               _c(
                 "div",
@@ -1152,7 +1153,7 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        !_vm.status.preference.leftHanded
+        !_vm.lib.style.isLeftHanded
           ? _c("media", { attrs: { query: { maxWidth: _vm.maxWidth } } }, [
               _c(
                 "div",

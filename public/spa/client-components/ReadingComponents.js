@@ -5199,7 +5199,7 @@ let AnnotationFloatWidget = {
     computedButtonsClassNames () {
       let classList = []
       //console.log(this.status.preference.leftHanded)
-      if (this.status.preference.leftHanded === true) {
+      if (this.lib.style.isLeftHanded === true) {
         classList.push('left-handed')
       }
       else {
@@ -5901,7 +5901,7 @@ let AnnotationTypeSelector = {
     },
     computedFABPosition () {
       //console.log(this.status.preference.leftHanded)
-      if (this.status.preference.leftHanded === true) {
+      if (this.lib.style.isLeftHanded === true) {
         return 'bottom-left'
       }
       else {
@@ -9232,8 +9232,7 @@ let AnnotationEditorModules = {
     },
     computedButtonsClass: function () {
       let vm = this
-      if (vm.status.preference === null
-              || vm.status.preference.leftHanded === false) {
+      if (vm.lib.style.isLeftHanded === false) {
         return 'right aligned column'
       } else {
         return 'column'
@@ -24378,6 +24377,7 @@ let TypeItem = {
   props: ['lib', 'status', 'config', 'typeData'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
     return {
     }
   },

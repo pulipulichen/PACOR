@@ -1046,7 +1046,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".IframeMessageSegment[data-v-54264361] {\n  text-align: center;\n  overflow-x: hidden;\n  overflow-y: hidden;\n}\n.IframeMessageSegment iframe[data-v-54264361] {\n  width: 100%;\n}\n", "",{"version":3,"sources":["IframeMessageSegment.less?vue&type=style&index=0&id=54264361&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,kBAAkB;EAClB,kBAAkB;AACpB;AACA;EACE,WAAW;AACb","file":"IframeMessageSegment.less?vue&type=style&index=0&id=54264361&lang=less&scoped=true&","sourcesContent":[".IframeMessageSegment[data-v-54264361] {\n  text-align: center;\n  overflow-x: hidden;\n  overflow-y: hidden;\n}\n.IframeMessageSegment iframe[data-v-54264361] {\n  width: 100%;\n}\n"]}]);
+exports.push([module.i, ".IframeMessageSegment[data-v-54264361] {\n  text-align: center;\n  overflow-x: hidden;\n  overflow-y: hidden;\n}\n.IframeMessageSegment iframe[data-v-54264361] {\n  width: 100%;\n  height: 100%;\n}\n", "",{"version":3,"sources":["IframeMessageSegment.less?vue&type=style&index=0&id=54264361&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,kBAAkB;EAClB,kBAAkB;AACpB;AACA;EACE,WAAW;EACX,YAAY;AACd","file":"IframeMessageSegment.less?vue&type=style&index=0&id=54264361&lang=less&scoped=true&","sourcesContent":[".IframeMessageSegment[data-v-54264361] {\n  text-align: center;\n  overflow-x: hidden;\n  overflow-y: hidden;\n}\n.IframeMessageSegment iframe[data-v-54264361] {\n  width: 100%;\n  height: 100%;\n}\n"]}]);
 
 
 /***/ }),
@@ -11339,7 +11339,7 @@ let ConfirmModel = {
       }
     },
     isLeftHanded () {
-      return this.status.preference.leftHanded
+      return this.lib.style.isLeftHanded
     }
   },
 //  watch: {

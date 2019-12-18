@@ -65,7 +65,7 @@ let AnnotationTypeSelector = {
     },
     computedFABPosition () {
       //console.log(this.status.preference.leftHanded)
-      if (this.status.preference.leftHanded === true) {
+      if (this.lib.style.isLeftHanded === true) {
         return 'bottom-left'
       }
       else {

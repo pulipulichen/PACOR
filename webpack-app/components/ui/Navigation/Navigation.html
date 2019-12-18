@@ -5,7 +5,7 @@
        v-show="isVisible !== false">
     
     <media v-bind:query="{maxWidth: maxWidth}"
-           v-if="status.preference.leftHanded">
+           v-if="lib.style.isLeftHanded">
       <div class="menu-compact left menu">
         <a class="icon item"
            v-on:click="showSideMenu">
@@ -32,7 +32,7 @@
     </media>
     
     <media v-bind:query="{maxWidth: maxWidth}"
-           v-if="!status.preference.leftHanded">
+           v-if="!lib.style.isLeftHanded">
       <div class="menu-compact right menu">
         <slot name="compactItems"></slot>
         <a class="icon item"

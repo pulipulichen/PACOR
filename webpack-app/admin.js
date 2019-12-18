@@ -70,7 +70,8 @@ let VueController = {
       domainID: null,
       needLogin: true,
       title: '',
-      webpageURL: ''
+      webpageURL: '',
+      preference: null
     },
     progress: {
       component: false,
