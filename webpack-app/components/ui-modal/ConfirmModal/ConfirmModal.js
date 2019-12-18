@@ -20,7 +20,10 @@ let ConfirmModel = {
       }
     },
     isLeftHanded () {
-      return this.lib.style.isLeftHanded
+      if (this.lib.style) {
+        return this.lib.style.isLeftHanded
+      }
+      return false
     }
   },
 //  watch: {

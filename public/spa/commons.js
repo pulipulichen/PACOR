@@ -1888,6 +1888,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _stepWriteAnnotationPACORTestManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./stepWriteAnnotationPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/stepWriteAnnotationPACORTestManager.js");
 /* harmony import */ var _stepSectionPACORTestManager__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./stepSectionPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/stepSectionPACORTestManager.js");
 /* harmony import */ var _stepStepInstructionPACORTestManager__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./stepStepInstructionPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/stepStepInstructionPACORTestManager.js");
+/* harmony import */ var _stepLoginPACORTestManager__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./stepLoginPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/stepLoginPACORTestManager.js");
 let PACORTestManager = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -1902,6 +1903,10 @@ let PACORTestManager = {
       return (typeof(window.PACORTestManagerInteractions) === 'function')
     },
     forceMaxTimeoutMinutes () {
+      if (!this.status.readingConfig.debug) {
+        return 1
+      }
+      
       let forceMaxTimeoutMinutes = this.status.readingConfig.debug.forceMaxTimeoutMinutes
       if (typeof(forceMaxTimeoutMinutes) === 'number') {
         console.log('@TEST forceMaxTimeoutMinutes', forceMaxTimeoutMinutes)
@@ -1982,6 +1987,9 @@ Object(_stepSectionPACORTestManager__WEBPACK_IMPORTED_MODULE_8__["default"])(PAC
 
 
 Object(_stepStepInstructionPACORTestManager__WEBPACK_IMPORTED_MODULE_9__["default"])(PACORTestManager)
+
+
+Object(_stepLoginPACORTestManager__WEBPACK_IMPORTED_MODULE_10__["default"])(PACORTestManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (PACORTestManager);
 
@@ -2227,9 +2235,9 @@ __webpack_require__.r(__webpack_exports__);
   PACORTestManager.methods.log = function (...args) {
     console.log.apply(this, args)
     
-    if (typeof(window.PACORTestManagerLog) === 'function') {
-      window.PACORTestManagerLog.apply(this, args)
-    }
+    //if (typeof(window.PACORTestManagerLog) === 'function') {
+    //  window.PACORTestManagerLog.apply(this, args)
+    //}
   }
   
   PACORTestManager.methods.interact = async function (method, selector, ...args) {
@@ -2550,6 +2558,43 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./webpack-app/components/manager/PACORTestManager/stepLoginPACORTestManager.js":
+/*!**************************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/stepLoginPACORTestManager.js ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  PACORTestManager.methods.login = async function (page) {
+    
+//    await page.waitForElement('#loginUsername')
+//          .clear('#loginUsername')
+//          .type('#loginUsername', '布丁' + (new Date()).getTime())
+//          .waitForElement('div.ui.button.login-submit:not(.disabled)')
+//          .click('div.ui.button.login-submit:not(.disabled)')
+  
+    await this.waitForElementVisible('#loginUsername')
+    
+    await this.interact('clear', '#loginUsername')
+    
+    let name = await window.PACORTestManagerName()
+    console.log(name)
+    await this.typeInput('#loginUsername', name)
+    
+    await this.waitForElementVisibleClick('div.ui.button.login-submit:not(.disabled)')
+    
+  }
+});
+
+/***/ }),
+
 /***/ "./webpack-app/components/manager/PACORTestManager/stepQuestionnairePACORTestManager.js":
 /*!**********************************************************************************************!*\
   !*** ./webpack-app/components/manager/PACORTestManager/stepQuestionnairePACORTestManager.js ***!
@@ -2565,7 +2610,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
   PACORTestManager.methods.writeQuestionnaire = async function (page) {
-    //throw new Error('Questionnaire')
     
     this.retry(async () => {
       let textarea = await this.waitForElementVisible('textarea.answer')

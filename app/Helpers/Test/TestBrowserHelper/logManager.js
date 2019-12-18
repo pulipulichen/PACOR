@@ -30,6 +30,8 @@ let logManager = {
       index = 0
     }
     
+    args = this.argsToString(args)
+    
     let prefix = this.buildPrefix('LOG', index)
     args.unshift(prefix)
     
@@ -43,6 +45,8 @@ let logManager = {
       args.unshift(index)
       index = 0
     }
+    
+    args = this.argsToString(args)
     
     let prefix = this.buildPrefix('STEP', index)
     args.unshift(prefix)
@@ -58,9 +62,23 @@ let logManager = {
       index = 0
     }
     
+    //console.log('error...', args[0], typeof(args[0].startsWith('Error: Evaluation failed: '))
+    if (typeof(args[0]) === 'object'
+            && typeof(args[0].message) === 'string') {
+      let m = args[0].message
+      let needle = 'Evaluation failed: '
+      if (m.startsWith(needle)) {
+        m = m.slice(needle.length).trim()
+      }
+      args[0] = m
+    }
+    //console.log('error...', args[0].message, typeof(args[0].message), args[0].startsWith('Evaluation failed: '))
+    
     let prefix = this.buildPrefix('ERROR', index)
     args.unshift(prefix)
     let message = args.join(' ')
+    
+    
     console.error(message)
     
     this.logs[index].logs.push(message)
@@ -77,32 +95,95 @@ let logManager = {
       return `[${index} ${prefix}]`
     }
   },
+  argsToString (args) {
+    return args.map(arg => {
+      if (arg && typeof(arg) === 'object') {
+        try {
+          //console.log(arg)
+          if (arg._text) {
+            return arg._text
+          }
+          
+          return JSON.stringify(arg, null, 2)
+        }
+        catch (e) {
+          //return arg.toString()
+          return arg + ''
+        }
+      }
+      return arg
+    })
+  },
   
   // ----------------------------
   
   printErrorMessage () {
+    
+    let first = false
+    
     this.logs.forEach(l => {
       if (l.isError === false) {
         return null
       }
+      
+      if (first === false) {
+        console.log('\n==============================\n')
+      }
+      first = true
+      
       console.error(l.errorMessage)
     })
+    
+    if (first === true) {
+      console.log('\n==============================\n')
+    }
+    
   },
   
   saveErrorLogs () {
-    let basedir = Helpers.appRoot() + '/log/' + dayjs().format('YYYY-MM-DD-HH-mm') + '/'
+    let basedir = Helpers.appRoot() + '/test/log/' + dayjs().format('YYYY-MMDD-HHmm') + '/'
+    
+    //console.log(basedir)
+    
+    let isDirMade = false
     
     this.logs.forEach((l, index) => {
       if (l.isError === false) {
         return null
       }
       
+      if (isDirMade === false) {
+        fs.mkdirSync(basedir)
+        console.log('Logs are saved in ' + basedir)
+      }
+      
+      isDirMade = true
+      
       let logs = l.logs.join('\n')
       let filename = `${index}.txt`
+      
       fs.writeFile(basedir + filename, logs, 'utf8', () => {
         // do nothings
       })
     })
+  },
+  
+  // --------------------------------
+  basename: null,
+  getBasename (index) {
+    if (!this.basename) {
+      this.basename = (new Date()).getTime().toString(36)
+    }
+    
+    let name
+    if (index) {
+      name = 'Puli' + index + '_' + this.basename
+    }
+    else {
+      name = 'Puli' + this.basename
+    }
+    
+    return name
   }
 }
 

@@ -131,6 +131,7 @@ let VueController = {
       ConfirmModal: null,
       NotificationManager: null,
       TestManager: null,
+      style: null,
     },
     errors: [],
     persistAttrs: [

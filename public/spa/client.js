@@ -4189,6 +4189,7 @@ let VueController = {
       ConfirmModal: null,
       NotificationManager: null,
       TestManager: null,
+      style: null,
     },
     errors: [],
     persistAttrs: [
@@ -11339,7 +11340,10 @@ let ConfirmModel = {
       }
     },
     isLeftHanded () {
-      return this.lib.style.isLeftHanded
+      if (this.lib.style) {
+        return this.lib.style.isLeftHanded
+      }
+      return false
     }
   },
 //  watch: {

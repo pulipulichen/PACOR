@@ -2,7 +2,6 @@ import $ from 'jquery'
 
 export default function (PACORTestManager) {
   PACORTestManager.methods.writeQuestionnaire = async function (page) {
-    //throw new Error('Questionnaire')
     
     this.retry(async () => {
       let textarea = await this.waitForElementVisible('textarea.answer')

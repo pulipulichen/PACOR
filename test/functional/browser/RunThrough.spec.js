@@ -6,8 +6,8 @@ let webpageConfig = use('./../../test-config/reading-fastLimitTime')
 //console.log(webpageConfig)
 
 const TestOptions = {
-  threads: 1,
-  //threads: 2, // 完全運作正常
+  //threads: 1,
+  threads: 1, // 完全運作正常
   //threads: 5,  // 10個錯誤
   //threads: 10,  // 0個錯誤
   //threads: 20,  // 0個錯誤
@@ -36,7 +36,7 @@ const TestOptions = {
 let title = __filename
 
 const TestBrowser = use('TestBrowser')
-const TestConfig = use('TestConfig')
+//const TestConfig = use('TestConfig')
 
 const DomainModel = use('App/Models/Domain')
 const WebpageModel = use('App/Models/Webpage')
@@ -64,35 +64,19 @@ const Env = use('Env')
 //let page
 
 let config = {
-//  '0. RandomTextHelper': async function ( { assert, client, browser } ) {
-//    let text = RandomTextHelper()
-//    //console.log(text)
-//    assert.isString(text)
-//  },
-//  'a1. open web page browser': async function ( { assert, client, browser } ) {
-//    page = await browser.visit(url)
-//    //console.log(page)
-//    await page.assertTitle('test-lorem-ipsum')
-//    //user = 1
-//  },
-  '0a. setup webpage config': async function ( { assert, client, browser }, page ) {
-    console.log('暫時跳過'); return
-    webpage = await WebpageModel.findByURL(url)
-    
-    let config = use('./../../test-config/reading-fastLimitTime')
-    //console.log(config)
-    assert.isObject(config)
-    webpage.config = config
-    await webpage.save()
-  },
   'b1. login': async function ( { assert, client, browser }, page ) {
     //console.log('暫時跳過'); return
     //console.log(user)
-    await page.waitForElement('#loginUsername')
-            .clear('#loginUsername')
-            .type('#loginUsername', '布丁' + (new Date()).getTime())
-            .waitForElement('div.ui.button.login-submit:not(.disabled)')
-            .click('div.ui.button.login-submit:not(.disabled)')
+    
+//    await page.waitForElement('#loginUsername')
+//            .clear('#loginUsername')
+//            .type('#loginUsername', '布丁' + (new Date()).getTime())
+//            .waitForElement('div.ui.button.login-submit:not(.disabled)')
+//            .click('div.ui.button.login-submit:not(.disabled)')
+
+    await page.assertFn(async function () {
+      await PACORTestManager.login()
+    })
     
     //throw new Error('測試錯誤')
   },
@@ -101,45 +85,6 @@ let config = {
     await page.assertFn(async function () {
       await PACORTestManager.writeQuestionnaire()
     })
-  },
-  
-  'c2. 中場確認 is PACORTestManager work?': async function ( { assert, client, browser }, page ) {
-    console.log('暫時跳過'); return;
-    
-    const dimensions = await page.page.evaluate(() => {
-      return {
-        width: document.documentElement.clientWidth,
-        height: document.documentElement.clientHeight,
-        deviceScaleFactor: window.devicePixelRatio
-      };
-    });
-    
-    assert.isNumber(dimensions.width)
-    
-
-    let result = await page.page.evaluate(async function () {
-      //console.log(window.PACORTestManager)
-      //PACORTestManager = window.PACORTestManager
-      return window.PACORTestManager.status.username
-    })
-    
-    console.log(result)
-    assert.isString(result)
-    assert.isTrue(result.startsWith('布丁'))
-    
-    //console.log('開始準備sleep')
-    let result2 = await page.page.evaluate(async function () {
-      
-      await window.PACORTestManager.lib.VueHelper.sleep(100)
-      
-      //console.log(window.PACORTestManager)
-      //PACORTestManager = window.PACORTestManager
-      return window.PACORTestManager.status.username
-    })
-    
-    //console.log(result2)
-    assert.isString(result2)
-    assert.isTrue(result2.startsWith('布丁'))
   },
   'd1. 專注閱讀: 確認視窗': async function ( { assert, client, browser }, page ) {
     //console.log('暫時跳過'); return

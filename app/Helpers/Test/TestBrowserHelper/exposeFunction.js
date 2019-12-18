@@ -47,12 +47,16 @@ let exposeFunction = async function ({headless, browser, url, index, logManager}
   await page.page.exposeFunction('PACORTestManagerIndex', () => {
     return index
   })
+  
+  await page.page.exposeFunction('PACORTestManagerName', () => {
+    return logManager.getBasename(index)
+  })
 
   await page.page.exposeFunction('PACORTestManagerLog', (...args) => {
     //args.unshift(consolePrefix)
     //console.log.apply(this, args)
-    args.unshift(index)
-    logManager.log.apply(this, args)
+    //args.unshift(index)
+    //logManager.log.apply(logManager, args)
   })
   
   page.page.on('console', (error) => {
@@ -73,7 +77,10 @@ let exposeFunction = async function ({headless, browser, url, index, logManager}
     }
     */
     //args.unshift(index)
-    logManager.log.apply(this, [index, error])
+    
+    //console.log(JSON.stringify(error, null, 2))
+    
+    logManager.log.apply(logManager, [index, error])
   });
   
   await page.page.exposeFunction('PACORTestManagerInteractions', async function (method, selector, ...args) {

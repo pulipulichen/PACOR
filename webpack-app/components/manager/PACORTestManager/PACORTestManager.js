@@ -12,6 +12,10 @@ let PACORTestManager = {
       return (typeof(window.PACORTestManagerInteractions) === 'function')
     },
     forceMaxTimeoutMinutes () {
+      if (!this.status.readingConfig.debug) {
+        return 1
+      }
+      
       let forceMaxTimeoutMinutes = this.status.readingConfig.debug.forceMaxTimeoutMinutes
       if (typeof(forceMaxTimeoutMinutes) === 'number') {
         console.log('@TEST forceMaxTimeoutMinutes', forceMaxTimeoutMinutes)
@@ -92,5 +96,8 @@ stepSectionPACORTestManager(PACORTestManager)
 
 import stepStepInstructionPACORTestManager from './stepStepInstructionPACORTestManager'
 stepStepInstructionPACORTestManager(PACORTestManager)
+
+import stepLoginPACORTestManager from './stepLoginPACORTestManager'
+stepLoginPACORTestManager(PACORTestManager)
 
 export default PACORTestManager

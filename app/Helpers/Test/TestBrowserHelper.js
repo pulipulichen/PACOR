@@ -7,13 +7,14 @@ let envHeadless = (Env.get('TEST_BROWSER_HEADLESS') === 'true')
 
 const Sleep = use('Sleep')
 const rimraf = use('rimraf')
-const TestConfigHelper = use('./TestBrowserHelper/TestConfigHelper')
 
-const exposeFunction = use('./TestBrowserHelper/exposeFunction.js')
-const excuteTest = use('./TestBrowserHelper/excuteTest.js')
-const handleException = use('./TestBrowserHelper/handleException.js')
-const setTraitBrowser = use('./TestBrowserHelper/setTraitBrowser.js')
-const setupWepbage = use('./TestBrowserHelper/setupWepbage.js')
+const TestConfigHelper = use('App/Helpers/Test/TestBrowserHelper/TestConfigHelper.js')
+
+const exposeFunction = use('App/Helpers/Test/TestBrowserHelper/exposeFunction.js')
+const excuteTest = use('App/Helpers/Test/TestBrowserHelper/excuteTest.js')
+const handleException = use('App/Helpers/Test/TestBrowserHelper/handleException.js')
+const setTraitBrowser = use('App/Helpers/Test/TestBrowserHelper/setTraitBrowser.js')
+const setupWepbage = use('App/Helpers/Test/TestBrowserHelper/setupWepbage.js')
 
 
 
@@ -21,7 +22,7 @@ const setupWepbage = use('./TestBrowserHelper/setupWepbage.js')
 
 let TestBrowserHelper = function (title, url, config, options) {
   
-  let logManager = use('./TestBrowserHelper/logManager.js')
+  let logManager = use('App/Helpers/Test/TestBrowserHelper/logManager.js')
 
   let {
     threads,
@@ -83,7 +84,7 @@ let TestBrowserHelper = function (title, url, config, options) {
         
         let errors = []
         await excuteTest({config, args, page, errors, logManager})
-        await handleException({errors, headless, index = i, logManager})
+        await handleException({errors, headless, index, logManager})
       }).timeout(0)
     }
   }
@@ -102,7 +103,7 @@ let TestBrowserHelper = function (title, url, config, options) {
         let page = await exposeFunction({headless, browser, url, index, logManager})
         
         let e = []
-        await excuteTest({config, args, page, errors = e, index = i, logManager})
+        await excuteTest({config, args, page, errors: e, index, logManager})
         if (e.length === 0) {
           setTimeout(() => {
             page.page.close()
