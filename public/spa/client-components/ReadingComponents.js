@@ -10757,6 +10757,7 @@ let answerHeightPadding = '8em'
       
       let note = this.lib.StringHelper.htmlTrim(this.question)
       note = this.lib.StringHelper.htmlToText(note)
+      //console.log('isQuestionEdited', {q: this.question, note: note, reset: this.questionReset, diff: (note !== this.questionReset)})
       return (note !== this.questionReset)
     },
 
@@ -10810,7 +10811,7 @@ let answerHeightPadding = '8em'
 
     isNoteEdited() {
       let isNoteEdited = (this.isQuestionEdited || this.isAnswerEdited)
-      //console.log(isNoteEdited, this.isQuestionEdited, this.isAnswerEdited)
+      //console.log('isNoteEdited', isNoteEdited, this.isQuestionEdited, this.isAnswerEdited)
       this.panelData.isAnnotationEditing = isNoteEdited
       return isNoteEdited
     },
@@ -10950,7 +10951,9 @@ __webpack_require__.r(__webpack_exports__);
     if (question === '') {
       let template = this.status.readingConfig.annotationTypeModules['ConfusedClarified'].questionTemplates[0].template
       question = this._convertQuestionTemplate(template)
-      
+    }
+    
+    if (question !== '') {
       let note = this.lib.StringHelper.htmlTrim(question)
       note = this.lib.StringHelper.htmlToText(note)
       questionReset = note
@@ -11033,7 +11036,10 @@ __webpack_require__.r(__webpack_exports__);
       let q = this._convertQuestionTemplate(question.template)
       this.$refs.QuestionEditor.html(q)
       this.question = q
-      this.questionReset = this.lib.StringHelper.htmlTrim(q)
+      
+      let questionReset = this.lib.StringHelper.htmlTrim(q)
+      this.questionReset = this.lib.StringHelper.htmlToText(questionReset)
+      //this.questionReset = this.lib.StringHelper.htmlTrim(q)
       this.recommandResourceSearchIndex = question.searchIndex
     },
     
@@ -11271,6 +11277,7 @@ __webpack_require__.r(__webpack_exports__);
         let questionReset = this.lib.StringHelper.htmlTrim(question)
         questionReset = this.lib.StringHelper.htmlToText(questionReset)
         this.questionReset = questionReset
+        console.log({questionReset})
         
         this.answer = answer
         //this.answerReset = this.lib.StringHelper.htmlTrim(answer)

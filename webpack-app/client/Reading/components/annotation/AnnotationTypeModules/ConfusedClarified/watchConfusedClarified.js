@@ -20,6 +20,7 @@ export default (Editor) => {
         let questionReset = this.lib.StringHelper.htmlTrim(question)
         questionReset = this.lib.StringHelper.htmlToText(questionReset)
         this.questionReset = questionReset
+        console.log({questionReset})
         
         this.answer = answer
         //this.answerReset = this.lib.StringHelper.htmlTrim(answer)

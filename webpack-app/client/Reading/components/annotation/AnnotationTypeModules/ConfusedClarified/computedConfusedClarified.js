@@ -10,6 +10,7 @@ export default (Editor) => {
       
       let note = this.lib.StringHelper.htmlTrim(this.question)
       note = this.lib.StringHelper.htmlToText(note)
+      //console.log('isQuestionEdited', {q: this.question, note: note, reset: this.questionReset, diff: (note !== this.questionReset)})
       return (note !== this.questionReset)
     },
 
@@ -63,7 +64,7 @@ export default (Editor) => {
 
     isNoteEdited() {
       let isNoteEdited = (this.isQuestionEdited || this.isAnswerEdited)
-      //console.log(isNoteEdited, this.isQuestionEdited, this.isAnswerEdited)
+      //console.log('isNoteEdited', isNoteEdited, this.isQuestionEdited, this.isAnswerEdited)
       this.panelData.isAnnotationEditing = isNoteEdited
       return isNoteEdited
     },

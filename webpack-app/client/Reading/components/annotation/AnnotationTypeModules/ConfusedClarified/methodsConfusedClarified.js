@@ -34,7 +34,10 @@ export default (Editor) => {
       let q = this._convertQuestionTemplate(question.template)
       this.$refs.QuestionEditor.html(q)
       this.question = q
-      this.questionReset = this.lib.StringHelper.htmlTrim(q)
+      
+      let questionReset = this.lib.StringHelper.htmlTrim(q)
+      this.questionReset = this.lib.StringHelper.htmlToText(questionReset)
+      //this.questionReset = this.lib.StringHelper.htmlTrim(q)
       this.recommandResourceSearchIndex = question.searchIndex
     },
     

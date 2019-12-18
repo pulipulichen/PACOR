@@ -23,7 +23,9 @@ export default (Editor) => {
     if (question === '') {
       let template = this.status.readingConfig.annotationTypeModules['ConfusedClarified'].questionTemplates[0].template
       question = this._convertQuestionTemplate(template)
-      
+    }
+    
+    if (question !== '') {
       let note = this.lib.StringHelper.htmlTrim(question)
       note = this.lib.StringHelper.htmlToText(note)
       questionReset = note
