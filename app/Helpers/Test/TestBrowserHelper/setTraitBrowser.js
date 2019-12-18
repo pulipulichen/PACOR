@@ -1,4 +1,5 @@
 let setTraitBrowser = function (trait, headless) {
+  
   /**
    * https://github.com/puppeteer/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions
    */

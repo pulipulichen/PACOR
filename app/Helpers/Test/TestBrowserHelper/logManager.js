@@ -38,6 +38,20 @@ let logManager = {
     
     this.logs[index].logs.push(message)
   },
+  logStep (index, ...args) {
+    if (typeof(index) !== 'number') {
+      args.unshift(index)
+      index = 0
+    }
+    
+    let prefix = this.buildPrefix('STEP', index)
+    args.unshift(prefix)
+    
+    let message = args.join(' ')
+    console.log(message)
+    
+    this.logs[index].logs.push(message)
+  },
   error (index, ...args) {
     if (typeof(index) !== 'number') {
       args.unshift(index)

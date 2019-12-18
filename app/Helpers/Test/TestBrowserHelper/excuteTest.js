@@ -1,5 +1,5 @@
 
-let excuteTest = async function (config, args, page, errors, index) {
+let excuteTest = async function ({config, args, page, errors, index, logManager}) {
   let stop = false
 
   for (let name in config) {
@@ -8,7 +8,10 @@ let excuteTest = async function (config, args, page, errors, index) {
       if (index !== undefined) {
         consolePrefix = `[${index}: RUNNING] `
       }
-      console.log(consolePrefix + name)
+      
+      //console.log(consolePrefix + name)
+      logManager.logStep(index, name)
+      
       await config[name](args, page)
       
       if (stop) {

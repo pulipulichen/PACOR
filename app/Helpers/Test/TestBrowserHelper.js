@@ -7,10 +7,7 @@ let envHeadless = (Env.get('TEST_BROWSER_HEADLESS') === 'true')
 
 const Sleep = use('Sleep')
 const rimraf = use('rimraf')
-const TestConfigHelper = use('App/Helpers/Test/TestConfigHelper')
-
-let logs = {}
-
+const TestConfigHelper = use('./TestBrowserHelper/TestConfigHelper')
 
 const exposeFunction = use('./TestBrowserHelper/exposeFunction.js')
 const excuteTest = use('./TestBrowserHelper/excuteTest.js')
@@ -18,9 +15,13 @@ const handleException = use('./TestBrowserHelper/handleException.js')
 const setTraitBrowser = use('./TestBrowserHelper/setTraitBrowser.js')
 const setupWepbage = use('./TestBrowserHelper/setupWepbage.js')
 
+
+
 // ---------------------------------
 
 let TestBrowserHelper = function (title, url, config, options) {
+  
+  let logManager = use('./TestBrowserHelper/logManager.js')
 
   let {
     threads,
@@ -46,25 +47,29 @@ let TestBrowserHelper = function (title, url, config, options) {
     process.setMaxListeners(0)
 
     if (headless === false) {
-      console.log(`Threads ${threads} are too much. Force headless = true.`)
+      console.log(`\n[WARNING] Threads ${threads} are too much. Force headless = true.\n`)
       headless = true
     }
   }
   setTraitBrowser(trait, headless)
-
+  logManager.init(threads)
+  
   //console.log(threads, mode)
+
+  // -----------------------------
 
   if (!threads) {
     //console.log('aaa1')
     
     test(title, async function (args) {
-      let page = await exposeFunction(headless, args.browser, url)
+      let browser = args.browser
+      let page = await exposeFunction({headless, browser, url, logManager})
       
       let errors = []
       
-      await excuteTest(config, args, page, errors)
+      await excuteTest({config, args, page, errors, logManager})
       
-      await handleException(errors, headless)
+      await handleException({errors, headless, logManager})
     }).timeout(0)
   }
   else if (!mode || mode === 'sequential') {
@@ -72,11 +77,13 @@ let TestBrowserHelper = function (title, url, config, options) {
     for (let i = 0; i < threads; i++) {
       let t = `[${i}] ${title}`
       test(t, async function (args) {
-        let page = await exposeFunction(headless, args.browser, url, i)
+        let index = i
+        let browser = args.browser
+        let page = await exposeFunction({headless, browser, url, index, logManager})
         
         let errors = []
-        await excuteTest(config, args, page, errors)
-        await handleException(errors, headless, i)
+        await excuteTest({config, args, page, errors, logManager})
+        await handleException({errors, headless, index = i, logManager})
       }).timeout(0)
     }
   }
@@ -84,16 +91,18 @@ let TestBrowserHelper = function (title, url, config, options) {
     //console.log('aaa3')
     test(title, async function (args) {
       let ary = []
+      let browser = args.browser
       for (let i = 0; i < threads; i++) {
         ary.push(i)
       }
       
       let errors = []
       await Promise.all(ary.map(async (i) => {
-        let page = await exposeFunction(headless, args.browser, url, i)
+        let index = i
+        let page = await exposeFunction({headless, browser, url, index, logManager})
         
         let e = []
-        await excuteTest(config, args, page, e, i)
+        await excuteTest({config, args, page, errors = e, index = i, logManager})
         if (e.length === 0) {
           setTimeout(() => {
             page.page.close()
@@ -104,7 +113,7 @@ let TestBrowserHelper = function (title, url, config, options) {
         }
       }))
       
-      await handleException(errors, headless)
+      await handleException({errors, headless, logManager})
     }).timeout(0)
   }
   

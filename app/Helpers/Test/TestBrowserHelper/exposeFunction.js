@@ -1,7 +1,7 @@
 const Sleep = use('Sleep')
 const closeBlankPage = use('./closeBlankPage.js')
 
-let exposeFunction = async function (headless, browser, url, index) {
+let exposeFunction = async function ({headless, browser, url, index, logManager}) {
   if (headless === false) {
     let chromeArgs = [
       '--start-maximized'
@@ -20,9 +20,12 @@ let exposeFunction = async function (headless, browser, url, index) {
       args: chromeArgs
     })
   }
+  
   let page = await browser.visit(url)
 
   await closeBlankPage(page)
+  
+  // -------------------------------------------
 
   //const session = await page.page.target().createCDPSession();
   //await session.send('Page.enable');
@@ -38,17 +41,22 @@ let exposeFunction = async function (headless, browser, url, index) {
     consolePrefix = `[${index}: CONSOLE]`
     errorPrefix = `[${index}: ERROR]`
   }
+  
+  // --------------------------------------
 
   await page.page.exposeFunction('PACORTestManagerIndex', () => {
     return index
   })
 
   await page.page.exposeFunction('PACORTestManagerLog', (...args) => {
-    args.unshift(consolePrefix)
-    console.log.apply(this, args)
+    //args.unshift(consolePrefix)
+    //console.log.apply(this, args)
+    args.unshift(index)
+    logManager.log.apply(this, args)
   })
   
   page.page.on('console', (error) => {
+    /*
     if (error._type === 'error'
             && error._args
             && error._args[0]
@@ -63,6 +71,9 @@ let exposeFunction = async function (headless, browser, url, index) {
       //throw consolePrefix + ' ' + description
       console.error(errorPrefix, description)
     }
+    */
+    //args.unshift(index)
+    logManager.log.apply(this, [index, error])
   });
   
   await page.page.exposeFunction('PACORTestManagerInteractions', async function (method, selector, ...args) {
