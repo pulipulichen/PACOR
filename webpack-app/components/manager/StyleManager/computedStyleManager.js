@@ -15,4 +15,8 @@ export default function (StyleManager) {
     }
     return true
   } // StyleManager.computed.isEnableAnimate = function () {
+  
+  StyleManager.computed.params = function () {
+    return this.config.styleConfig
+  }
 }

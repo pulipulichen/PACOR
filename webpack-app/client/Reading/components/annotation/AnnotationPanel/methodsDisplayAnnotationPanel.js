@@ -8,8 +8,8 @@ export default (AnnotationPanel) => {
     //console.log(this.lib.rangy) // for test
     this.isHide = false
     
-    if (this.panelData.heightPX < this.lib.style.config.AnnotationPanelDisplayMinPanelHeight) {
-      this.panelData.heightPX = this.lib.style.config.AnnotationPanelDisplayMinPanelHeight
+    if (this.panelData.heightPX < this.lib.style.params.AnnotationPanelDisplayMinPanelHeight) {
+      this.panelData.heightPX = this.lib.style.params.AnnotationPanelDisplayMinPanelHeight
     }
     
     let transitionCallback = () => {

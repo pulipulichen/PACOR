@@ -7440,6 +7440,7 @@ let AnnotationPanel = {
   },
   destroyed() {
     this.placeholder.remove()
+    this.this.addWindowResizeEvents()
   },
   methods: {
   } // methods
@@ -9547,8 +9548,8 @@ const transitionMode = 'slide up'
     //console.log(this.lib.rangy) // for test
     this.isHide = false
     
-    if (this.panelData.heightPX < this.lib.style.config.AnnotationPanelDisplayMinPanelHeight) {
-      this.panelData.heightPX = this.lib.style.config.AnnotationPanelDisplayMinPanelHeight
+    if (this.panelData.heightPX < this.lib.style.params.AnnotationPanelDisplayMinPanelHeight) {
+      this.panelData.heightPX = this.lib.style.params.AnnotationPanelDisplayMinPanelHeight
     }
     
     let transitionCallback = () => {
@@ -9714,20 +9715,44 @@ const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Readin
       sizeRatio = parseFloat(sizeRatio)
     }
     
-    if (sizeRatio < this.lib.style.config.AnnotationPanelDisplayMinPanelRatio) {
-      sizeRatio = this.lib.style.config.AnnotationPanelDisplayMinPanelRatio
+    if (sizeRatio < this.lib.style.params.AnnotationPanelDisplayMinPanelRatio) {
+      sizeRatio = this.lib.style.params.AnnotationPanelDisplayMinPanelRatio
     }
-    //console.log(sizeRatio, this.lib.style.config.AnnotationPanelDisplayMinPanelRatio)
+    //console.log(sizeRatio, this.lib.style.params.AnnotationPanelDisplayMinPanelRatio)
     
     //console.log(sizeRatio)
     let height = (window.innerHeight * sizeRatio)
     
-    if (height < this.lib.style.config.AnnotationPanelDisplayMinPanelHeight) {
-      height = this.lib.style.config.AnnotationPanelDisplayMinPanelHeight
+    if (height < this.lib.style.params.AnnotationPanelDisplayMinPanelHeight) {
+      height = this.lib.style.params.AnnotationPanelDisplayMinPanelHeight
     }
     
     this.panelData.heightPX = height
+    
+    this.addWindowResizeEvents()
+    
   } // AnnotationPanel.methods._initHeightPX = function () {
+  
+  AnnotationPanel.methods.addWindowResizeEvents = function () {
+    window.addEventListener('resize', this.onWindowResize)
+  }
+  
+  AnnotationPanel.methods.removeWindowResizeEvents = function () {
+    window.removeEventListener('resize', this.onWindowResize)
+  }
+  
+  AnnotationPanel.methods.onWindowResize = function () {
+    let maxHeight = window.innerHeight
+    
+    //console.log(maxHeight, this.lib.style.params.AnnotationPanelDisplayMinPanelHeight)
+    if (maxHeight < this.lib.style.params.AnnotationPanelDisplayMinPanelHeight) {
+      maxHeight = this.lib.style.params.AnnotationPanelDisplayMinPanelHeight
+    }
+    
+    if (maxHeight < this.panelData.heightPX) {
+      this.panelData.heightPX = maxHeight
+    }
+  }
   
   AnnotationPanel.methods._initPlaceholder = function () {
     let navPH = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.Navigation.placeholder:first')
@@ -9918,8 +9943,8 @@ let body = null
     //console.log(event)
     let currentY = event.clientY
     
-    let maxTopGap = this.lib.style.config.AnnotationPanelMaxTopGap
-    let minPanelHeight = this.lib.style.config.AnnotationPanelMinPanelHeight
+    let maxTopGap = this.lib.style.params.AnnotationPanelMaxTopGap
+    let minPanelHeight = this.lib.style.params.AnnotationPanelMinPanelHeight
 
     let moveEvent = (event) => {
       if (this.lib.style.isSmallHeight() === false) {

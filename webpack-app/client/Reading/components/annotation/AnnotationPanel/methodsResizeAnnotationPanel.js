@@ -23,8 +23,8 @@ export default (AnnotationPanel) => {
     //console.log(event)
     let currentY = event.clientY
     
-    let maxTopGap = this.lib.style.config.AnnotationPanelMaxTopGap
-    let minPanelHeight = this.lib.style.config.AnnotationPanelMinPanelHeight
+    let maxTopGap = this.lib.style.params.AnnotationPanelMaxTopGap
+    let minPanelHeight = this.lib.style.params.AnnotationPanelMinPanelHeight
 
     let moveEvent = (event) => {
       if (this.lib.style.isSmallHeight() === false) {

@@ -11,20 +11,44 @@ export default (AnnotationPanel) => {
       sizeRatio = parseFloat(sizeRatio)
     }
     
-    if (sizeRatio < this.lib.style.config.AnnotationPanelDisplayMinPanelRatio) {
-      sizeRatio = this.lib.style.config.AnnotationPanelDisplayMinPanelRatio
+    if (sizeRatio < this.lib.style.params.AnnotationPanelDisplayMinPanelRatio) {
+      sizeRatio = this.lib.style.params.AnnotationPanelDisplayMinPanelRatio
     }
-    //console.log(sizeRatio, this.lib.style.config.AnnotationPanelDisplayMinPanelRatio)
+    //console.log(sizeRatio, this.lib.style.params.AnnotationPanelDisplayMinPanelRatio)
     
     //console.log(sizeRatio)
     let height = (window.innerHeight * sizeRatio)
     
-    if (height < this.lib.style.config.AnnotationPanelDisplayMinPanelHeight) {
-      height = this.lib.style.config.AnnotationPanelDisplayMinPanelHeight
+    if (height < this.lib.style.params.AnnotationPanelDisplayMinPanelHeight) {
+      height = this.lib.style.params.AnnotationPanelDisplayMinPanelHeight
     }
     
     this.panelData.heightPX = height
+    
+    this.addWindowResizeEvents()
+    
   } // AnnotationPanel.methods._initHeightPX = function () {
+  
+  AnnotationPanel.methods.addWindowResizeEvents = function () {
+    window.addEventListener('resize', this.onWindowResize)
+  }
+  
+  AnnotationPanel.methods.removeWindowResizeEvents = function () {
+    window.removeEventListener('resize', this.onWindowResize)
+  }
+  
+  AnnotationPanel.methods.onWindowResize = function () {
+    let maxHeight = window.innerHeight
+    
+    //console.log(maxHeight, this.lib.style.params.AnnotationPanelDisplayMinPanelHeight)
+    if (maxHeight < this.lib.style.params.AnnotationPanelDisplayMinPanelHeight) {
+      maxHeight = this.lib.style.params.AnnotationPanelDisplayMinPanelHeight
+    }
+    
+    if (maxHeight < this.panelData.heightPX) {
+      this.panelData.heightPX = maxHeight
+    }
+  }
   
   AnnotationPanel.methods._initPlaceholder = function () {
     let navPH = $('.Navigation.placeholder:first')

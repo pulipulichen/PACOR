@@ -3186,6 +3186,10 @@ __webpack_require__.r(__webpack_exports__);
     }
     return true
   } // StyleManager.computed.isEnableAnimate = function () {
+  
+  StyleManager.computed.params = function () {
+    return this.config.styleConfig
+  }
 });
 
 /***/ }),
