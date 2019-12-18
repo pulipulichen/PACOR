@@ -4855,6 +4855,8 @@ let Login = {
     //console.log('掛載！')
     this.$refs.LoginModal.show()
     this._loadFromLocalStorage()
+    
+    //this.ttttt()  // for test
   },
   methods: {
     _loadFromLocalStorage () {

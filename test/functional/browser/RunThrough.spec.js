@@ -8,15 +8,17 @@ let webpageConfig = use('./../../test-config/reading-fastLimitTime')
 const TestOptions = {
   //threads: 1,
   //threads: 2, // ok 完全運作正常
-  //threads: 5,  // ?個錯誤
+  threads: 5,  // ?個錯誤
   //threads: 10,  // ?個錯誤
-  threads: 20,  // 10個錯誤
+  //threads: 20,  // 10個錯誤
   //threads: 30,  // ?個錯誤
   //threads: 40,  // 10個錯誤
+  maxHeadlessThreads: 2,
   mode: 'parallel',
-  //headless: true
   headless: false,
-  //stopAt: 'e2. 隨意寫標註'
+  //headless: false,
+  //stopAt: 'c1. pre image',
+  //stopAt: 'e2. 隨意寫標註',
   //stopAt: '0a. setup webpage config',
   //stopAt: 'c2. 中場確認 is PACORTestManager work?',
   //stopAt: 'd1. 專注閱讀: 確認視窗',
@@ -145,14 +147,8 @@ let config = {
       // last 是關閉
       await PACORTestManager.waitForElementVisibleClick('.ExitModal .actions .button:last')
     })
+    
   },
-//  'z999. 結束前等一下吧': async function ( { assert, client, browser }, page ) {
-//    await page.assertFn(async function () {
-//      await PACORTestManager.lib.VueHelper.sleep(3 * 1000)
-//    })
-//  },
-//  'd1. 專注閱讀: 確認視窗': async function ( { assert, client, browser } ) {
-//  },
 }
 
 TestBrowser(title, url, config, TestOptions)

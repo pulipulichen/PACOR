@@ -1699,7 +1699,10 @@ let ErrorHandler = {
         this.showServerErrorStack = false
         this.showErrorStack = false
         
-//        console.log(typeof(window.PACORTestManagerError))
+        /*
+        console.log(typeof(window.PACORTestManagerError))
+        console.log(typeof(window.PACORTestManagerIndex))
+        
         if (typeof(window.PACORTestManagerError) === 'function') {
           let message = this.responseErrorMessage
           if (!message) {
@@ -1710,6 +1713,14 @@ let ErrorHandler = {
 //          console.log(typeof(message))
           window.PACORTestManagerError(message)
 //          throw new Error(this.error)
+        }
+        */
+        if (window.PACORTestManager) {
+          let message = this.responseErrorMessage
+          if (!message) {
+            message = this.localErrorMessage
+          }
+          window.PACORTestManager.error(message)
         }
       }
     },
@@ -2359,6 +2370,15 @@ __webpack_require__.r(__webpack_exports__);
       return await window.PACORTestManagerName()
     }
     return 0
+  }
+  
+  PACORTestManager.methods.error = async function (message) {
+    if (typeof(window.PACORTestManagerError) !== 'function') {
+      return setTimeout(() => {
+        this.error(message)
+      }, 500)
+    }
+    window.PACORTestManagerError(message)
   }
 });
 

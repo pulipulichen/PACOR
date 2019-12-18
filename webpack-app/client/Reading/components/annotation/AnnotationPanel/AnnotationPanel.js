@@ -38,7 +38,8 @@ let AnnotationPanel = {
   },
   destroyed() {
     this.placeholder.remove()
-    this.this.addWindowResizeEvents()
+    //this.this.WindowResizeEvents()
+    this.removeWindowResizeEvents()
   },
   methods: {
   } // methods

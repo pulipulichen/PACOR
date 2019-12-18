@@ -14,6 +14,13 @@ let excuteTest = async function ({config, args, page, errors, index, logManager}
       
       await config[name](args, page)
       
+      if (logManager.isError(index)) {
+        errors.push(consolePrefix + ' ' + logManager.getErrorMessage(index))
+        return false
+        //throw logManager.getErrorMessage(index)
+        //break
+      }
+      
       if (stop) {
         throw stop
         break
@@ -28,7 +35,7 @@ let excuteTest = async function ({config, args, page, errors, index, logManager}
       logManager.error(index, e)
       
       errors.push(consolePrefix + ' ' + e.message)
-      return  // 後面不繼續了，反正也就卡死了
+      return false  // 後面不繼續了，反正也就卡死了
       //throw e
     }
   }

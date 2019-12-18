@@ -120,7 +120,10 @@ let ErrorHandler = {
         this.showServerErrorStack = false
         this.showErrorStack = false
         
-//        console.log(typeof(window.PACORTestManagerError))
+        /*
+        console.log(typeof(window.PACORTestManagerError))
+        console.log(typeof(window.PACORTestManagerIndex))
+        
         if (typeof(window.PACORTestManagerError) === 'function') {
           let message = this.responseErrorMessage
           if (!message) {
@@ -131,6 +134,14 @@ let ErrorHandler = {
 //          console.log(typeof(message))
           window.PACORTestManagerError(message)
 //          throw new Error(this.error)
+        }
+        */
+        if (window.PACORTestManager) {
+          let message = this.responseErrorMessage
+          if (!message) {
+            message = this.localErrorMessage
+          }
+          window.PACORTestManager.error(message)
         }
       }
     },

@@ -130,4 +130,13 @@ export default function (PACORTestManager) {
     }
     return 0
   }
+  
+  PACORTestManager.methods.error = async function (message) {
+    if (typeof(window.PACORTestManagerError) !== 'function') {
+      return setTimeout(() => {
+        this.error(message)
+      }, 500)
+    }
+    window.PACORTestManagerError(message)
+  }
 }

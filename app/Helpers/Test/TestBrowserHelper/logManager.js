@@ -7,6 +7,7 @@ let logManager = {
   logs: [],
   useThreads: true,
   gotError: false,
+  indexWidth: 1,
   init (threads) {
     if (typeof(threads) !== 'number') {
       threads = 1
@@ -15,6 +16,13 @@ let logManager = {
     
     for (let i = 0; i < threads; i++) {
       this.logs.push(this.buildDefaultLogData())
+    }
+    
+    if (threads > 100) {
+      this.indexWidth = 3
+    }
+    else if (threads > 10) {
+      this.indexWidth = 2
     }
   },
   buildDefaultLogData () {
@@ -28,6 +36,23 @@ let logManager = {
     if (typeof(index) !== 'number') {
       args.unshift(index)
       index = 0
+    }
+    
+    //console.log(args)
+    if (args[0] 
+            && args[0]._args[0]
+            && args[0]._args[0]._remoteObject
+            && args[0]._args[0]._remoteObject.subtype
+            && args[0]._args[0]._remoteObject.subtype === 'error') {
+      args.unshift(index)
+      console.log('error occured')
+      return this.error.apply(this, args)
+    }
+    
+    //console.log('log', args[0])
+    if (args[0] 
+            && args[0]._text === 'Scripts may close only the windows that were opened by it.') {
+      return null
     }
     
     args = this.argsToString(args)
@@ -62,6 +87,7 @@ let logManager = {
       index = 0
     }
     
+    //console.log(args[0])
     //console.log('error...', args[0], typeof(args[0].startsWith('Error: Evaluation failed: '))
     if (typeof(args[0]) === 'object'
             && typeof(args[0].message) === 'string') {
@@ -73,7 +99,6 @@ let logManager = {
       args[0] = m
     }
     
-    console.log(args[0])
     if (args[0] === 'Scripts may close only the windows that were opened by it.') {
       return null
     }
@@ -92,21 +117,44 @@ let logManager = {
     this.logs[index].errorMessage = message
     this.gotError = true
   },
+  isError: function (index) {
+    return this.logs[index].isError
+  },
+  getErrorMessage: function (index) {
+    let message = this.logs[index].errorMessage
+    return message.slice(message.indexOf('] '))
+  },
   buildPrefix (prefix, index) {
     if (this.useThreads === false
             || typeof(index) !== 'number') {
       return `[${prefix}]`
     }
     else {
-      return `[${index}\t${prefix}]`
+      let i = index + ''
+      while (i.length < this.indexWidth) {
+        i = ' ' + i
+      }
+      
+      return `[${i} ${prefix}]`
     }
   },
   argsToString (args) {
     return args.map(arg => {
       if (arg && typeof(arg) === 'object') {
         try {
-          //console.log(arg)
-          if (arg._text) {
+          //console.log('a2s', arg._args[0]._remoteObject)
+          if (arg 
+              && arg._args[0]
+              && arg._args[0]._remoteObject) {
+            let remoteObject = arg._args[0]._remoteObject
+            if (remoteObject.description) {
+              return remoteObject.description
+            }
+            else if (remoteObject.value) {
+              return remoteObject.value
+            }
+          }
+          else if (arg._text) {
             return arg._text
           }
           
@@ -149,9 +197,16 @@ let logManager = {
   saveErrorLogs () {
     let basedir = Helpers.appRoot() + '/test/log/' + dayjs().format('YYYY-MMDD-HHmm') + '/'
     
+    
     //console.log(basedir)
     
     let isDirMade = false
+    
+    if (fs.existsSync(basedir)) {
+      //console.error(`Dir is existed: ${basedir}`)
+      //return null
+      isDirMade = true
+    }
     
     this.logs.forEach((l, index) => {
       if (l.isError === false) {

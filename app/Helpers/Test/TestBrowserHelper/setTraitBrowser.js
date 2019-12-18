@@ -4,7 +4,7 @@ let setTraitBrowser = function (trait, headless) {
    * https://github.com/puppeteer/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions
    */
   trait('Test/Browser', {
-    headless,
+    headless, // 這邊似乎是沒用的，會被後面覆蓋過去
     //dumpio: true,  // Log all browser console messages to the terminal.
     devtools: true,
     //pipe: true,

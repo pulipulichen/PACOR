@@ -2,7 +2,7 @@ const Sleep = use('Sleep')
 const closeBlankPage = use('./closeBlankPage.js')
 
 let exposeFunction = async function ({headless, browser, url, index, logManager}) {
-  if (headless === false) {
+  //if (headless === false) {
     let chromeArgs = [
       '--start-maximized'
     ]
@@ -19,7 +19,7 @@ let exposeFunction = async function ({headless, browser, url, index, logManager}
       // https://peter.sh/experiments/chromium-command-line-switches/
       args: chromeArgs
     })
-  }
+  //}
   
   let page = await browser.visit(url)
 
@@ -59,7 +59,11 @@ let exposeFunction = async function ({headless, browser, url, index, logManager}
     //logManager.log.apply(logManager, args)
   })
   
-  page.page.on('console', (error) => {
+  await page.page.exposeFunction('PACORTestManagerError', (message) => {
+    return logManager.error(index, message)
+  })
+  
+  page.page.on('console', (message) => {
     /*
     if (error._type === 'error'
             && error._args
@@ -80,8 +84,19 @@ let exposeFunction = async function ({headless, browser, url, index, logManager}
     
     //console.log(JSON.stringify(error, null, 2))
     
-    logManager.log.apply(logManager, [index, error])
-  });
+    //console.log('log', message)
+    logManager.log.apply(logManager, [index, message])
+  })
+  
+//  page.page.on('error', (message) => {
+//    console.log('error', message)
+//    //logManager.log.apply(logManager, [index, message])
+//  })
+//  
+//  page.page.on('pageerror', (message) => {
+//    console.log('pageerror', message)
+//    //logManager.log.apply(logManager, [index, message])
+//  })
   
   await page.page.exposeFunction('PACORTestManagerInteractions', async function (method, selector, ...args) {
     //await page.type(selector, text)

@@ -26,6 +26,7 @@ let TestBrowserHelper = function (title, url, config, options) {
 
   let {
     threads,
+    maxHeadlessThreads = 10,
     mode,  // sequential, parallel
     headless,
     stopAt
@@ -40,15 +41,27 @@ let TestBrowserHelper = function (title, url, config, options) {
   trait('Test/ApiClient')
   trait('Session/Client')
   
+  let forceShowIndexes = []
+  
   if (headless === undefined) {
     headless = envHeadless
   }
   
-  if (threads > 10) {
+  if (threads > maxHeadlessThreads) {
     process.setMaxListeners(0)
 
     if (headless === false) {
-      console.log(`\n[WARNING] Threads ${threads} are too much. Force headless = true.\n`)
+      
+      // 來決定那些要顯示的吧
+      let interval = Math.ceil(threads / maxHeadlessThreads)
+      for (let i = 0; i < threads; i++) {
+        if (i % interval !== 0) {
+          continue
+        }
+        forceShowIndexes.push(i)
+      }
+      
+      console.log(`\n[WARNING] Threads ${threads} are too much. Force ${forceShowIndexes.join(', ')}'s headless = true.\n`)
       headless = true
     }
   }
@@ -64,6 +77,7 @@ let TestBrowserHelper = function (title, url, config, options) {
     
     test(title, async function (args) {
       let browser = args.browser
+      
       let page = await exposeFunction({headless, browser, url, logManager})
       
       let errors = []
@@ -80,11 +94,21 @@ let TestBrowserHelper = function (title, url, config, options) {
       test(t, async function (args) {
         let index = i
         let browser = args.browser
-        let page = await exposeFunction({headless, browser, url, index, logManager})
+        
+        let h = headless
+        if (forceShowIndexes.indexOf(i) > -1) {
+          h = false
+        }
+        let page = await exposeFunction({headless: h, browser, url, index, logManager})
         
         let errors = []
         await excuteTest({config, args, page, errors, logManager})
-        await handleException({errors, headless, index, logManager})
+        
+        let finalHeadless = headless
+        if (forceShowIndexes.length > 0) {
+          finalHeadless = false
+        }
+        await handleException({errors, headless: finalHeadless, index, logManager})
       }).timeout(0)
     }
   }
@@ -100,21 +124,34 @@ let TestBrowserHelper = function (title, url, config, options) {
       let errors = []
       await Promise.all(ary.map(async (i) => {
         let index = i
-        let page = await exposeFunction({headless, browser, url, index, logManager})
+        
+        let h = headless
+        if (forceShowIndexes.indexOf(i) > -1) {
+          h = false
+        }
+        let page = await exposeFunction({headless: h, browser, url, index, logManager})
         
         let e = []
         await excuteTest({config, args, page, errors: e, index, logManager})
         if (e.length === 0) {
-          setTimeout(() => {
-            page.page.close()
-          }, 3000)
+          if (page.page.isClosed() === false) {
+            setTimeout(() => {
+              if (page.page.isClosed() === false) {
+                page.page.close()
+              }
+            }, 3000)
+          }
         }
         else {
           errors = errors.concat(e)
         }
       }))
       
-      await handleException({errors, headless, logManager})
+      let finalHeadless = headless
+      if (forceShowIndexes.length > 0) {
+        finalHeadless = false
+      }
+      await handleException({errors, headless: finalHeadless, logManager})
     }).timeout(0)
   }
   
