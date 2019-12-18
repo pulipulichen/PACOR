@@ -24,7 +24,8 @@ let excuteTest = async function ({config, args, page, errors, index, logManager}
       if (index !== undefined) {
         consolePrefix = `[${index}: ${name}] `
       }
-      console.log(consolePrefix, e)
+      //console.log(consolePrefix, e)
+      logManager.error(index, e)
       
       errors.push(consolePrefix + ' ' + e.message)
       return  // 後面不繼續了，反正也就卡死了
