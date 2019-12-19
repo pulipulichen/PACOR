@@ -10,20 +10,27 @@ class WebpageFind {
   register(Model) {
     
     Model.findByURL = async function (URL, options) {
-      URL = URLFilter(URL)
-      //console.log({URL})
-      let webpage = await Webpage.findBy('url', URL)
+      try {
+        URL = URLFilter(URL)
+        //console.log({URL})
+        let webpage = await Webpage.findBy('url', URL)
 
-      if (webpage !== null) {
+        if (webpage !== null) {
+          return webpage
+        }
+
+        let domain = await Domain.findByURL(URL)
+        webpage = new Webpage
+        webpage.url = URL
+        await domain.webpages().save(webpage)
+
         return webpage
       }
-
-      let domain = await Domain.findByURL(URL)
-      webpage = new Webpage
-      webpage.url = URL
-      await domain.webpages().save(webpage)
-
-      return webpage
+      catch (e) {
+        setTimeout(() => {
+          return this.findByURL(URL, options)
+        }, 100)
+      }
     } // Model.findByURL = async function (URL) {
     
   } // register (Model) {
