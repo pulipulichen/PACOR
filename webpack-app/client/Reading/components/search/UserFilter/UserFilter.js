@@ -45,6 +45,20 @@ let UserSelector = {
           return user.username
         }
       }
+    },
+    selectUsername () {
+      if (!this.filterData.selectUser) {
+        return undefined
+      }
+      
+      let user = this.filterData.selectUser
+
+      if (typeof(user.displayName) === 'string') {
+        return user.displayName
+      }
+      else {
+        return user.username
+      }
     }
   },
 //  watch: {

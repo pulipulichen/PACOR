@@ -81,7 +81,7 @@ let PeerItem = {
         return undefined
       }
       
-      return this.user.groups[0].group_seq_id
+      return this.user.groups[0].group_seq_id + 1
     }
   },
 //  watch: {

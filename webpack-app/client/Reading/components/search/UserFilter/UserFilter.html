@@ -62,10 +62,32 @@
         </div>
       </template>
       <template v-slot:actions>
-        <div class="ui button"
+        <div class="ui button submit-button"
              v-if="filterData.selectUser !== status.filter.focusUser"
              v-on:click="submit">
-          {{ $t('SELECT') }}
+          
+          <template v-if="peerIsMe">
+            <span class="username-header">
+            {{ $t('Only Show You') }}
+            ({{ username }})
+            </span>
+            <img v-bind:src="status.avatar"
+                 v-bind:title="username"
+                 class="user-avatar" />
+          </template>
+          <template v-else-if="filterData.selectUser">
+            <span class="username-header">
+            {{ $t('Asist') }}:
+            {{ selectUsername }}
+            </span>
+            <img v-bind:src="filterData.selectUser.avatar_url"
+                 v-bind:title="selectUsername"
+                 class="user-avatar" />
+          </template>
+          <template v-else>
+            {{ $t('Show All') }}
+          </template>
+          
         </div>
       </template>
   </modal>

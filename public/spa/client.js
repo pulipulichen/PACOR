@@ -441,7 +441,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Viewing All":"觀看全員","Asist":"協助","View":"觀看","Please select a peer":"選擇您欲協助的同儕"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Viewing All":"觀看全員","Asist":"協助","View":"觀看","Please select a peer":"選擇您欲協助的同儕","Only Show Me":"只顯示您","Show All":"顯示所有同儕"}}')
   delete Component.options._Ctor
 }
 
@@ -847,7 +847,7 @@ exports.push([module.i, ".popup[data-v-360d97d0] {\n  cursor: pointer;\n  z-inde
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".right-column[data-v-45dd49f6] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-45dd49f6] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-45dd49f6] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-45dd49f6] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-45dd49f6] {\n    display: none;\n}\n.vertical.menu .peer-label[data-v-45dd49f6] {\n    display: inline;\n}\n}\n", "",{"version":3,"sources":["UserFilter.less?vue&type=style&index=0&id=45dd49f6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wDAAwD;AAC1D;AACA;EACE,mBAAmB;AACrB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,0BAA0B;EAC1B,sBAAsB;AACxB;AACA;AACA;IACI,aAAa;AACjB;AACA;IACI,eAAe;AACnB;AACA","file":"UserFilter.less?vue&type=style&index=0&id=45dd49f6&lang=less&scoped=true&","sourcesContent":[".right-column[data-v-45dd49f6] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-45dd49f6] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-45dd49f6] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-45dd49f6] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-45dd49f6] {\n    display: none;\n}\n.vertical.menu .peer-label[data-v-45dd49f6] {\n    display: inline;\n}\n}\n"]}]);
+exports.push([module.i, ".right-column[data-v-45dd49f6] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-45dd49f6] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-45dd49f6] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-45dd49f6] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n.submit-button .user-avatar[data-v-45dd49f6] {\n  max-height: 1.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n  margin-top: -0.7em;\n  margin-bottom: -0.5em;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-45dd49f6] {\n    display: none;\n}\n.vertical.menu .peer-label[data-v-45dd49f6] {\n    display: inline;\n}\n}\n", "",{"version":3,"sources":["UserFilter.less?vue&type=style&index=0&id=45dd49f6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wDAAwD;AAC1D;AACA;EACE,mBAAmB;AACrB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,0BAA0B;EAC1B,sBAAsB;AACxB;AACA;EACE,4BAA4B;EAC5B,qBAAqB;EACrB,sBAAsB;EACtB,kBAAkB;EAClB,qBAAqB;AACvB;AACA;AACA;IACI,aAAa;AACjB;AACA;IACI,eAAe;AACnB;AACA","file":"UserFilter.less?vue&type=style&index=0&id=45dd49f6&lang=less&scoped=true&","sourcesContent":[".right-column[data-v-45dd49f6] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-45dd49f6] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-45dd49f6] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-45dd49f6] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n.submit-button .user-avatar[data-v-45dd49f6] {\n  max-height: 1.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n  margin-top: -0.7em;\n  margin-bottom: -0.5em;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-45dd49f6] {\n    display: none;\n}\n.vertical.menu .peer-label[data-v-45dd49f6] {\n    display: inline;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -2549,14 +2549,60 @@ var render = function() {
                 _vm.filterData.selectUser !== _vm.status.filter.focusUser
                   ? _c(
                       "div",
-                      { staticClass: "ui button", on: { click: _vm.submit } },
+                      {
+                        staticClass: "ui button submit-button",
+                        on: { click: _vm.submit }
+                      },
                       [
-                        _vm._v(
-                          "\r\n          " +
-                            _vm._s(_vm.$t("SELECT")) +
-                            "\r\n        "
-                        )
-                      ]
+                        _vm.peerIsMe
+                          ? [
+                              _c("span", { staticClass: "username-header" }, [
+                                _vm._v(
+                                  "\r\n            " +
+                                    _vm._s(_vm.$t("Only Show You")) +
+                                    "\r\n            (" +
+                                    _vm._s(_vm.username) +
+                                    ")\r\n            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("img", {
+                                staticClass: "user-avatar",
+                                attrs: {
+                                  src: _vm.status.avatar,
+                                  title: _vm.username
+                                }
+                              })
+                            ]
+                          : _vm.filterData.selectUser
+                          ? [
+                              _c("span", { staticClass: "username-header" }, [
+                                _vm._v(
+                                  "\r\n            " +
+                                    _vm._s(_vm.$t("Asist")) +
+                                    ":\r\n            " +
+                                    _vm._s(_vm.selectUsername) +
+                                    "\r\n            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("img", {
+                                staticClass: "user-avatar",
+                                attrs: {
+                                  src: _vm.filterData.selectUser.avatar_url,
+                                  title: _vm.selectUsername
+                                }
+                              })
+                            ]
+                          : [
+                              _vm._v(
+                                "\r\n            " +
+                                  _vm._s(_vm.$t("Show All")) +
+                                  "\r\n          "
+                              )
+                            ]
+                      ],
+                      2
                     )
                   : _vm._e()
               ]
@@ -6854,7 +6900,7 @@ let PeerItem = {
         return undefined
       }
       
-      return this.user.groups[0].group_seq_id
+      return this.user.groups[0].group_seq_id + 1
     }
   },
 //  watch: {
@@ -8671,6 +8717,20 @@ let UserSelector = {
         else {
           return user.username
         }
+      }
+    },
+    selectUsername () {
+      if (!this.filterData.selectUser) {
+        return undefined
+      }
+      
+      let user = this.filterData.selectUser
+
+      if (typeof(user.displayName) === 'string') {
+        return user.displayName
+      }
+      else {
+        return user.username
       }
     }
   },
