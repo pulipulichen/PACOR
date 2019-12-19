@@ -162,8 +162,8 @@ module.exports = {
   },
   annotationTypeModules: {
     'ConfusedClarified': {
-      'questionPlaceholder': 'Question placeholder',
-      'answerPlaceholder': 'Answer placeholder',
+      'questionPlaceholder': 'Write your question here...',
+      'answerPlaceholder': 'Write your answer here...',
       'questionMinWords': 5,
       'answerMinWords': 10,
       /**

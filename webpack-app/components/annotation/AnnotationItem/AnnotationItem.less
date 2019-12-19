@@ -96,4 +96,22 @@
     }
   }
 }
+
+.annotation-item-header {
+  white-space: nowrap;
+}
+
+@media only screen and (max-width: 480px) {
+  .annotation-item-header {
+    ::v-deep .AnnotationTypeButton {
+      text-indent: -999em;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      width: 1em;
+    }
+  }
   
+  .display-time {
+    display: none;
+  }
+}

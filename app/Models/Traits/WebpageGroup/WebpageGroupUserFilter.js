@@ -53,8 +53,7 @@ class WebpageGroupUserFilter {
           // 直接在這邊做查詢
           //console.log('getInit', 2, i, 1, u)
           
-          let annotationTypes = await u.getStepAnnotationTypes(webpage)
-          
+          let annotationTypes = await u.getStepAnnotationTypeCounts(webpage)
           
           let stepDuration
           

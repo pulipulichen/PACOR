@@ -72,6 +72,33 @@ class UserFilter {
       })
     }
     
+    Model.prototype.getStepAnnotationTypeCounts = async function (webpage) {
+      let cacheKey = Cache.key('getStepAnnotationTypeCounts')
+      
+      let tags = []
+      if (webpage) {
+        tags.push(webpage)
+      }
+      tags.push(this)
+      
+      return await Cache.rememberWait(tags, cacheKey, async () => {
+        let query = this.hasMany('App/Models/Annotation')
+                      .groupBy('type')
+                      .select(['type'])
+        
+        // 排除小結重點
+        let types = await this.getStepHighlightAnnotationTypes(webpage)
+        query.whereIn('type', types)
+        
+        if (webpage) {
+          query.groupBy('webpage_id')
+               .where('webpage_id', webpage.primaryKeyValue)
+        }
+              
+        return query.count('id as count')
+      })
+    }
+    
   } // register (Model) {
 }
 

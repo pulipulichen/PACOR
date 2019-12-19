@@ -35,6 +35,7 @@ let PeerItem = {
       }
     },
     annotationTypes () {
+      //console.log(this.user)
       if (!this.user) {
         return this.filterData.allAnnotationTypes
       }

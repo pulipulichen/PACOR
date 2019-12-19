@@ -16,7 +16,8 @@
   z-index: -1;
   width: calc(100vw - 4em);
   top: @verticalMargin;
-  max-height: calc(50vh - @TopMenuHeight - 2em);
+  //max-height: calc(50vh - @TopMenuHeight - 2em);
+  max-height: calc(50vh - @TopMenuHeight - 1em);
   overflow-x: hidden;
   overflow-y: auto;
   
@@ -40,6 +41,17 @@
     margin-right: 0.5em;
     vertical-align: top !important;
     direction: ltr;
+  }
+  
+  .footer-row > .column {
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    margin-left: 1em;
+    margin-right: 1em;
+    padding-left: 0em !important;
+    padding-right: 0 !important;
   }
 }
 
@@ -72,3 +84,16 @@
   .footer-row .UserAvatarIcons {
     vertical-align: top;
   }
+
+@media only screen and (max-width: 480px) {
+  .footer-row > .column {
+    //padding-bottom: 0 !important;
+    
+    ::v-deep {
+      .UserAvatarIcons,
+      .AnnotationTypeButton {
+        display: none;
+      }
+    }
+  }
+}

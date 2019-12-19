@@ -861,7 +861,7 @@ exports.push([module.i, ".right-column[data-v-45dd49f6] {\n  border-left: 1px so
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".meta[data-v-21a9a788] {\n  float: right;\n  user-select: none;\n  line-height: 2em !important;\n}\n.user[data-v-21a9a788] {\n  display: inline-block;\n}\n.avatar[data-v-21a9a788] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-21a9a788],\n.username[data-v-21a9a788] {\n  margin-right: 0.5em;\n}\n.username[data-v-21a9a788] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-21a9a788] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.clickable[data-v-21a9a788] {\n  cursor: pointer !important;\n}\n.meta[data-v-21a9a788]  .AnnotationInteractive {\n  margin-left: 0.5em;\n}\n.annotation-item-compact[data-v-21a9a788] {\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  margin-bottom: 0.5em !important;\n}\n.annotation-item-compact .text-container[data-v-21a9a788] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-21a9a788] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-21a9a788] {\n  display: inline-block;\n  margin-left: 0.5em;\n  white-space: nowrap;\n  max-width: calc(100vw - 28em);\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n@media (max-width: 480px) {\n.AnnotationItem.annotation-item-compact[data-v-21a9a788]  .AnnotationTypeButton {\n    text-indent: -9999px;\n    padding-left: 0;\n    padding-right: 0;\n    width: 1em;\n}\n.AnnotationItem.annotation-item-compact .note[data-v-21a9a788] {\n    max-width: calc(100vw - 10em);\n}\n.AnnotationItem.annotation-item-compact .display-time[data-v-21a9a788] {\n    max-width: 0;\n    overflow-x: hidden;\n}\n}\n", "",{"version":3,"sources":["AnnotationItem.less?vue&type=style&index=0&id=21a9a788&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,iBAAiB;EACjB,2BAA2B;AAC7B;AACA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;EACf,WAAW;AACb;AACA;;EAEE,mBAAmB;AACrB;AACA;EACE,cAAc;EACd,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;EACnB,qBAAqB;EACrB,mBAAmB;EACnB,gBAAgB;AAClB;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,0BAA0B;AAC5B;AACA;EACE,kBAAkB;AACpB;AACA;EACE,6BAA6B;EAC7B,gCAAgC;EAChC,+BAA+B;AACjC;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,kBAAkB;EAClB,mBAAmB;EACnB,6BAA6B;EAC7B,uBAAuB;EACvB,gBAAgB;AAClB;AACA;AACA;IACI,oBAAoB;IACpB,eAAe;IACf,gBAAgB;IAChB,UAAU;AACd;AACA;IACI,6BAA6B;AACjC;AACA;IACI,YAAY;IACZ,kBAAkB;AACtB;AACA","file":"AnnotationItem.less?vue&type=style&index=0&id=21a9a788&lang=less&scoped=true&","sourcesContent":[".meta[data-v-21a9a788] {\n  float: right;\n  user-select: none;\n  line-height: 2em !important;\n}\n.user[data-v-21a9a788] {\n  display: inline-block;\n}\n.avatar[data-v-21a9a788] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-21a9a788],\n.username[data-v-21a9a788] {\n  margin-right: 0.5em;\n}\n.username[data-v-21a9a788] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-21a9a788] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.clickable[data-v-21a9a788] {\n  cursor: pointer !important;\n}\n.meta[data-v-21a9a788]  .AnnotationInteractive {\n  margin-left: 0.5em;\n}\n.annotation-item-compact[data-v-21a9a788] {\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  margin-bottom: 0.5em !important;\n}\n.annotation-item-compact .text-container[data-v-21a9a788] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-21a9a788] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-21a9a788] {\n  display: inline-block;\n  margin-left: 0.5em;\n  white-space: nowrap;\n  max-width: calc(100vw - 28em);\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n@media (max-width: 480px) {\n.AnnotationItem.annotation-item-compact[data-v-21a9a788]  .AnnotationTypeButton {\n    text-indent: -9999px;\n    padding-left: 0;\n    padding-right: 0;\n    width: 1em;\n}\n.AnnotationItem.annotation-item-compact .note[data-v-21a9a788] {\n    max-width: calc(100vw - 10em);\n}\n.AnnotationItem.annotation-item-compact .display-time[data-v-21a9a788] {\n    max-width: 0;\n    overflow-x: hidden;\n}\n}\n"]}]);
+exports.push([module.i, ".meta[data-v-21a9a788] {\n  float: right;\n  user-select: none;\n  line-height: 2em !important;\n}\n.user[data-v-21a9a788] {\n  display: inline-block;\n}\n.avatar[data-v-21a9a788] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-21a9a788],\n.username[data-v-21a9a788] {\n  margin-right: 0.5em;\n}\n.username[data-v-21a9a788] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-21a9a788] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.clickable[data-v-21a9a788] {\n  cursor: pointer !important;\n}\n.meta[data-v-21a9a788]  .AnnotationInteractive {\n  margin-left: 0.5em;\n}\n.annotation-item-compact[data-v-21a9a788] {\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  margin-bottom: 0.5em !important;\n}\n.annotation-item-compact .text-container[data-v-21a9a788] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-21a9a788] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-21a9a788] {\n  display: inline-block;\n  margin-left: 0.5em;\n  white-space: nowrap;\n  max-width: calc(100vw - 28em);\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n@media (max-width: 480px) {\n.AnnotationItem.annotation-item-compact[data-v-21a9a788]  .AnnotationTypeButton {\n    text-indent: -9999px;\n    padding-left: 0;\n    padding-right: 0;\n    width: 1em;\n}\n.AnnotationItem.annotation-item-compact .note[data-v-21a9a788] {\n    max-width: calc(100vw - 10em);\n}\n.AnnotationItem.annotation-item-compact .display-time[data-v-21a9a788] {\n    max-width: 0;\n    overflow-x: hidden;\n}\n}\n.annotation-item-header[data-v-21a9a788] {\n  white-space: nowrap;\n}\n@media only screen and (max-width: 480px) {\n.annotation-item-header[data-v-21a9a788]  .AnnotationTypeButton {\n    text-indent: -999em;\n    padding-left: 0 !important;\n    padding-right: 0 !important;\n    width: 1em;\n}\n.display-time[data-v-21a9a788] {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["AnnotationItem.less?vue&type=style&index=0&id=21a9a788&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,iBAAiB;EACjB,2BAA2B;AAC7B;AACA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;EACf,WAAW;AACb;AACA;;EAEE,mBAAmB;AACrB;AACA;EACE,cAAc;EACd,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;EACnB,qBAAqB;EACrB,mBAAmB;EACnB,gBAAgB;AAClB;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,0BAA0B;AAC5B;AACA;EACE,kBAAkB;AACpB;AACA;EACE,6BAA6B;EAC7B,gCAAgC;EAChC,+BAA+B;AACjC;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,kBAAkB;EAClB,mBAAmB;EACnB,6BAA6B;EAC7B,uBAAuB;EACvB,gBAAgB;AAClB;AACA;AACA;IACI,oBAAoB;IACpB,eAAe;IACf,gBAAgB;IAChB,UAAU;AACd;AACA;IACI,6BAA6B;AACjC;AACA;IACI,YAAY;IACZ,kBAAkB;AACtB;AACA;AACA;EACE,mBAAmB;AACrB;AACA;AACA;IACI,mBAAmB;IACnB,0BAA0B;IAC1B,2BAA2B;IAC3B,UAAU;AACd;AACA;IACI,aAAa;AACjB;AACA","file":"AnnotationItem.less?vue&type=style&index=0&id=21a9a788&lang=less&scoped=true&","sourcesContent":[".meta[data-v-21a9a788] {\n  float: right;\n  user-select: none;\n  line-height: 2em !important;\n}\n.user[data-v-21a9a788] {\n  display: inline-block;\n}\n.avatar[data-v-21a9a788] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-21a9a788],\n.username[data-v-21a9a788] {\n  margin-right: 0.5em;\n}\n.username[data-v-21a9a788] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-21a9a788] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.clickable[data-v-21a9a788] {\n  cursor: pointer !important;\n}\n.meta[data-v-21a9a788]  .AnnotationInteractive {\n  margin-left: 0.5em;\n}\n.annotation-item-compact[data-v-21a9a788] {\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  margin-bottom: 0.5em !important;\n}\n.annotation-item-compact .text-container[data-v-21a9a788] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-21a9a788] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-21a9a788] {\n  display: inline-block;\n  margin-left: 0.5em;\n  white-space: nowrap;\n  max-width: calc(100vw - 28em);\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n@media (max-width: 480px) {\n.AnnotationItem.annotation-item-compact[data-v-21a9a788]  .AnnotationTypeButton {\n    text-indent: -9999px;\n    padding-left: 0;\n    padding-right: 0;\n    width: 1em;\n}\n.AnnotationItem.annotation-item-compact .note[data-v-21a9a788] {\n    max-width: calc(100vw - 10em);\n}\n.AnnotationItem.annotation-item-compact .display-time[data-v-21a9a788] {\n    max-width: 0;\n    overflow-x: hidden;\n}\n}\n.annotation-item-header[data-v-21a9a788] {\n  white-space: nowrap;\n}\n@media only screen and (max-width: 480px) {\n.annotation-item-header[data-v-21a9a788]  .AnnotationTypeButton {\n    text-indent: -999em;\n    padding-left: 0 !important;\n    padding-right: 0 !important;\n    width: 1em;\n}\n.display-time[data-v-21a9a788] {\n    display: none;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -2648,56 +2648,60 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "left column" },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "user",
-                  class: { clickable: _vm.findUser },
+          _c("div", { staticClass: "left column" }, [
+            _c(
+              "span",
+              { staticClass: "annotation-item-header" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "user",
+                    class: { clickable: _vm.findUser },
+                    on: {
+                      click: function($event) {
+                        $event.stopPropagation()
+                        return _vm.onFindUser(_vm.annotation.user)
+                      }
+                    }
+                  },
+                  [
+                    _c("img", {
+                      staticClass: "avatar",
+                      attrs: { src: _vm.annotation.user.avatar_url }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "username text-container" }, [
+                      _vm._v(
+                        "\r\n        " + _vm._s(_vm.username) + "\r\n      "
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("annotation-type-button", {
+                  attrs: {
+                    status: _vm.status,
+                    type: _vm.annotation.type,
+                    clickable: typeof _vm.findType === "function"
+                  },
                   on: {
-                    click: function($event) {
-                      $event.stopPropagation()
-                      return _vm.onFindUser(_vm.annotation.user)
+                    find: function(type) {
+                      _vm.onFindType(type)
                     }
                   }
-                },
-                [
-                  _c("img", {
-                    staticClass: "avatar",
-                    attrs: { src: _vm.annotation.user.avatar_url }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "username text-container" }, [
-                    _vm._v("\r\n        " + _vm._s(_vm.username) + "\r\n      ")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c("annotation-type-button", {
-                attrs: {
-                  status: _vm.status,
-                  type: _vm.annotation.type,
-                  clickable: typeof _vm.findType === "function"
-                },
-                on: {
-                  find: function(type) {
-                    _vm.onFindType(type)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.note
-                ? _c("div", {
-                    staticClass: "note text-container",
-                    domProps: { innerHTML: _vm._s(_vm.note) }
-                  })
-                : _vm._e()
-            ],
-            1
-          )
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm.note
+              ? _c("div", {
+                  staticClass: "note text-container",
+                  domProps: { innerHTML: _vm._s(_vm.note) }
+                })
+              : _vm._e()
+          ])
         ]
       )
     : _vm._e()
@@ -6804,6 +6808,7 @@ let PeerItem = {
       }
     },
     annotationTypes () {
+      //console.log(this.user)
       if (!this.user) {
         return this.filterData.allAnnotationTypes
       }
