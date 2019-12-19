@@ -24,7 +24,7 @@ let TestBrowserHelper = function (title, url, config, options) {
 
   let {
     threads,
-    maxHeadlessThreads = 10,
+    maxShowThreads = 10,
     mode,  // sequential, parallel
     headless,
     stopAt
@@ -45,13 +45,13 @@ let TestBrowserHelper = function (title, url, config, options) {
     headless = envHeadless
   }
   
-  if (threads > maxHeadlessThreads) {
+  if (threads > maxShowThreads) {
     process.setMaxListeners(0)
 
     if (headless === false) {
       
       // 來決定那些要顯示的吧
-      let interval = Math.ceil(threads / maxHeadlessThreads)
+      let interval = Math.ceil(threads / maxShowThreads)
       for (let i = 0; i < threads; i++) {
         if (i % interval !== 0) {
           continue
@@ -131,7 +131,9 @@ let TestBrowserHelper = function (title, url, config, options) {
         
         let e = []
         await excuteTest({config, args, page, errors: e, index, logManager})
-        if (e.length === 0) {
+        
+        //if (e.length === 0) {
+        if (logManager.isError(index) === false) {
           if (page.page.isClosed() === false) {
             setTimeout(() => {
               if (page.page.isClosed() === false) {

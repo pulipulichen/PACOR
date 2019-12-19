@@ -5,6 +5,8 @@ const Webpage = use('App/Models/Webpage')
 const Env = use('Env')
 const URLFilter = use('App/Helpers/URLFilter')
 
+const Sleep = use('Sleep')
+
 class WebpageFind {
 
   register(Model) {
@@ -27,9 +29,10 @@ class WebpageFind {
         return webpage
       }
       catch (e) {
-        setTimeout(() => {
-          return this.findByURL(URL, options)
-        }, 100)
+        //setTimeout(() => {
+        await Sleep(0.1)
+        return this.findByURL(URL, options)
+        //}, 100)
       }
     } // Model.findByURL = async function (URL) {
     

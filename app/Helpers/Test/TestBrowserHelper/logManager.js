@@ -45,7 +45,7 @@ let logManager = {
             && args[0]._args[0]._remoteObject.subtype
             && args[0]._args[0]._remoteObject.subtype === 'error') {
       args.unshift(index)
-      console.log('error occured')
+      console.log('error occured', args[0])
       return this.error.apply(this, args)
     }
     
@@ -107,6 +107,9 @@ let logManager = {
     
     let prefix = this.buildPrefix('ERROR', index)
     args.unshift(prefix)
+    
+    args = this.argsToString(args)
+    
     let message = args.join(' ')
     
     
