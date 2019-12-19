@@ -4,6 +4,8 @@ const Cache = use('Cache')
 const TypeHelper = use('App/Helpers/TypeHelper')
 const ExceptionHelper = use('App/Helpers/ExceptionHelper')
 
+const { HttpException } = use('@adonisjs/generic-exceptions') 
+
 class AnnotationHighlight {
 
   register(Model) {
@@ -161,6 +163,9 @@ class AnnotationHighlight {
 
         highlights.forEach(h => {
           let i = configTypes.indexOf(h.type)
+          if (i === -1 || !typesArray[i]) {
+            throw new HttpException('type is undefined: ' + h.type)
+          } 
           typesArray[i].push(h)
         })
 

@@ -665,7 +665,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".login-message[data-v-15c3505b] {\n  max-height: calc(100% - 7em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.admin-mode .login-message[data-v-15c3505b] {\n  max-height: calc(100% - 12em);\n}\n", "",{"version":3,"sources":["Login.less?vue&type=style&index=0&id=15c3505b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,4BAA4B;EAC5B,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,6BAA6B;AAC/B","file":"Login.less?vue&type=style&index=0&id=15c3505b&lang=less&scoped=true&","sourcesContent":[".login-message[data-v-15c3505b] {\n  max-height: calc(100% - 7em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.admin-mode .login-message[data-v-15c3505b] {\n  max-height: calc(100% - 12em);\n}\n"]}]);
+exports.push([module.i, ".login-message[data-v-15c3505b] {\n  max-height: calc(100% - 8em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.admin-mode .login-message[data-v-15c3505b] {\n  max-height: calc(100% - 12em);\n}\n", "",{"version":3,"sources":["Login.less?vue&type=style&index=0&id=15c3505b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,4BAA4B;EAC5B,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,6BAA6B;AAC/B","file":"Login.less?vue&type=style&index=0&id=15c3505b&lang=less&scoped=true&","sourcesContent":[".login-message[data-v-15c3505b] {\n  max-height: calc(100% - 8em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.admin-mode .login-message[data-v-15c3505b] {\n  max-height: calc(100% - 12em);\n}\n"]}]);
 
 
 /***/ }),

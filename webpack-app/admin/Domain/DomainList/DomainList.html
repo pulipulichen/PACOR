@@ -28,9 +28,9 @@
           <template v-if="domain.domain">
             {{ domain.domain }}
           </template>
-          <templace v-else>
+          <template v-else>
             {{ $t('(For Global Admin)') }}
-          </templace>
+          </template>
         </td>
         <td class="field"
             v-bind:class="{error: (domain.title === '')}">

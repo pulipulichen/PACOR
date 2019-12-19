@@ -417,13 +417,13 @@ var render = function() {
                             "\r\n          "
                         )
                       ]
-                    : _c("templace", [
+                    : [
                         _vm._v(
                           "\r\n            " +
                             _vm._s(_vm.$t("(For Global Admin)")) +
                             "\r\n          "
                         )
-                      ])
+                      ]
                 ],
                 2
               ),

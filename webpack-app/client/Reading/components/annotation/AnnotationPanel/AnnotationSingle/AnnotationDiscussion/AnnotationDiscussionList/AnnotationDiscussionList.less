@@ -14,10 +14,12 @@
 }
 
 @media (max-width: 767px) {
-  .AnnotationDiscussionList.little-comments {
-    height: auto !important;
-    max-height: auto !important;
+  .AnnotationDiscussionList {
+    height: inherit !important;
+    max-height: inherit !important;
     
-    padding-bottom: 1em;
+    &.little-comments {
+      padding-bottom: 1em;
+    }
   } 
 }

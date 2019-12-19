@@ -21,6 +21,11 @@ let exposeFunction = async function ({headless, browser, url, index, logManager}
     })
   //}
   
+  // 等待非同步工作完成
+  if (!index && index > 0) {
+    await Sleep(index * 4)
+  }
+  
   let page = await browser.visit(url)
 
   await closeBlankPage(page)
@@ -103,11 +108,6 @@ let exposeFunction = async function ({headless, browser, url, index, logManager}
     args.unshift(selector)
     await page[method].apply(this, args)
   })
-  
-  // 等待非同步工作完成
-  if (!index && index > 0) {
-    await Sleep(index * 2)
-  }
 
   await page.assertFn(async () => {
     let index = await PACORTestManagerIndex()
