@@ -33,7 +33,6 @@ let ActivityTimer = {
   },
   destroyed: async function () {
     clearInterval(this.timer)
-    
     this.send()
   },
   methods: {

@@ -59,7 +59,7 @@ let TestBrowserHelper = function (title, url, config, options) {
         forceShowIndexes.push(i)
       }
       
-      console.log(`\n[WARNING] Threads ${threads} are too much. Force ${forceShowIndexes.join(', ')}'s headless = true.\n`)
+      console.log(`\n[WARNING] Threads ${threads} are too much. Force ${forceShowIndexes.join(', ')}'s headless = false.\n`)
       headless = true
     }
   }

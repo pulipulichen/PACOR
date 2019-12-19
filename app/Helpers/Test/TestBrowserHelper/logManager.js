@@ -51,6 +51,7 @@ let logManager = {
     }
     if (args[0] 
             && args[0]._type === 'error') {
+      console.log('error occured', args[0])
       args.unshift(index)
       return this.error.apply(this, args)
     }
@@ -136,15 +137,15 @@ let logManager = {
   buildPrefix (prefix, index) {
     if (this.useThreads === false
             || typeof(index) !== 'number') {
-      return `[${prefix}]`
+      return `[ ${prefix}\t]`
     }
     else {
       let i = index + ''
-      while (i.length < this.indexWidth) {
+      while (i.length < this.indexWidth + 1) {
         i = ' ' + i
       }
       
-      return `[${i} ${prefix}]`
+      return `[${i} ${prefix}\t]`
     }
   },
   argsToString (args) {
@@ -164,7 +165,12 @@ let logManager = {
             }
           }
           else if (arg._text) {
-            return arg._text
+            let text = arg._text
+            if (arg._type === 'error') {
+              text = text + '\n' + JSON.stringify(arg._location, null, 2)
+            }
+            
+            return text
           }
           
           return JSON.stringify(arg, null, 2)
