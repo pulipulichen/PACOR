@@ -283,7 +283,7 @@ import $ from 'jquery'
       return ModalUI;
   }());
 
-  var editor = renderer.create('<div class="note-editor note-frame"/>');
+  var editor = renderer.create('<div class="summernote note-editor note-frame"/>');
   var toolbar = renderer.create('<div class="note-toolbar" role="toolbar"/>');
   
   var editingArea = renderer.create('<div class="note-editing-area"/>');

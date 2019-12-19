@@ -361,7 +361,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"View All":"觀看全部成員","No annotation":"沒有撰寫標註","(Reading...)":"(仍在閱讀中...)"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"View All":"觀看若有讀者","No annotation":"沒有撰寫標註","(Reading...)":"(仍在閱讀中...)"}}')
   delete Component.options._Ctor
 }
 
@@ -441,7 +441,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Viewing All":"觀看全員","Asist":"協助","View":"觀看","Please select a peer":"選擇您欲協助的同儕","Only Show Me":"只顯示您","Show All":"顯示所有同儕"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Viewing All":"觀看所有讀者","Asist":"協助","View":"觀看","Please select a peer":"選擇一位您想要協助的同儕吧","Only Show Me":"只顯示您","Show All":"顯示所有同儕"}}')
   delete Component.options._Ctor
 }
 
