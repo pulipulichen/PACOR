@@ -233,7 +233,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"agreement-link":"By clicking Sign Up, you agree to our <a href=\u0027{0}\u0027 target=\u0027_blank\u0027>Agreement Terms</a>."},"zh-TW":{"User {0} is not existed.":"使用者{0}不存在。","User {0} is registed.":"使用者{0}已經註冊。","Password is incorrect.":"密碼錯誤。","Username":"使用者名稱","Password":"密碼","Email":"電子信箱地址","Login":"登入","Register":"註冊","Login from Google":"從Google帳號登入","Login from GitHub":"從GitHub帳號登入","Login from Instagram":"從Instagram帳號登入","agreement-link":"如果您按下「登入」按鈕，表示您同意我們的<a href=\u0027{0}\u0027 target=\u0027_blank\u0027>知情同意書</a>。","cannot contain space":"不能包含空格"}}')
+  Component.options.__i18n.push('{"en":{"agreement-link":"By clicking Sign Up, you agree to our <a href=\u0027{0}\u0027 target=\u0027_blank\u0027>Agreement Terms</a>."},"zh-TW":{"User {0} is not existed.":"使用者{0}不存在。","User {0} is registed.":"使用者{0}已經註冊。","Password is incorrect.":"密碼錯誤。","Username":"使用者名稱","Password":"密碼","Email":"電子信箱地址","LOGIN":"準備開始閱讀囉","Register":"註冊","Login from Google":"從Google帳號登入","Login from GitHub":"從GitHub帳號登入","Login from Instagram":"從Instagram帳號登入","agreement-link":"如果您按下「登入」按鈕，表示您同意我們的<a href=\u0027{0}\u0027 target=\u0027_blank\u0027>知情同意書</a>。","cannot contain space":"不能包含空格"}}')
   delete Component.options._Ctor
 }
 
@@ -665,7 +665,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".login-message[data-v-15c3505b] {\n  max-height: calc(100% - 8em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.admin-mode .login-message[data-v-15c3505b] {\n  max-height: calc(100% - 12em);\n}\n", "",{"version":3,"sources":["Login.less?vue&type=style&index=0&id=15c3505b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,4BAA4B;EAC5B,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,6BAA6B;AAC/B","file":"Login.less?vue&type=style&index=0&id=15c3505b&lang=less&scoped=true&","sourcesContent":[".login-message[data-v-15c3505b] {\n  max-height: calc(100% - 8em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.admin-mode .login-message[data-v-15c3505b] {\n  max-height: calc(100% - 12em);\n}\n"]}]);
+exports.push([module.i, ".login-message[data-v-15c3505b] {\n  max-height: calc(100% - 8em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.admin-mode .login-message[data-v-15c3505b] {\n  max-height: calc(100% - 12em);\n}\n.logo-column[data-v-15c3505b] {\n  text-align: center;\n}\n.logo-column img[data-v-15c3505b] {\n  max-height: 100%;\n  margin-left: auto;\n  margin-right: auto;\n}\n", "",{"version":3,"sources":["Login.less?vue&type=style&index=0&id=15c3505b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,4BAA4B;EAC5B,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,6BAA6B;AAC/B;AACA;EACE,kBAAkB;AACpB;AACA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,kBAAkB;AACpB","file":"Login.less?vue&type=style&index=0&id=15c3505b&lang=less&scoped=true&","sourcesContent":[".login-message[data-v-15c3505b] {\n  max-height: calc(100% - 8em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.admin-mode .login-message[data-v-15c3505b] {\n  max-height: calc(100% - 12em);\n}\n.logo-column[data-v-15c3505b] {\n  text-align: center;\n}\n.logo-column img[data-v-15c3505b] {\n  max-height: 100%;\n  margin-left: auto;\n  margin-right: auto;\n}\n"]}]);
 
 
 /***/ }),
@@ -1168,15 +1168,22 @@ var render = function() {
                       },
                       [
                         !_vm.isCompactMode
-                          ? _c("div", { staticClass: "six wide column" }, [
-                              _c("img", {
-                                staticClass: "ui image",
-                                attrs: {
-                                  src: _vm.config.baseURL + "/imgs/pacor.svg"
-                                },
-                                on: { dblclick: _vm.createMockupUsername }
-                              })
-                            ])
+                          ? _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "content-full-height logo-column six wide column"
+                              },
+                              [
+                                _c("img", {
+                                  staticClass: "ui image",
+                                  attrs: {
+                                    src: _vm.config.baseURL + "/imgs/pacor.svg"
+                                  },
+                                  on: { dblclick: _vm.createMockupUsername }
+                                })
+                              ]
+                            )
                           : _vm._e()
                       ]
                     ),
