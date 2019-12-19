@@ -10,8 +10,7 @@ let setupWepbage = async function (headless, args) {
   await page.type('#loginPassword', Env.get('ADMIN_PASSWORD'))
   await page.click('.login-submit')
   
-  await Sleep(3)
-  
+  //await Sleep(3)
   
 }
 
