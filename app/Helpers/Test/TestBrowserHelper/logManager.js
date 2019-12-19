@@ -44,8 +44,14 @@ let logManager = {
             && args[0]._args[0]._remoteObject
             && args[0]._args[0]._remoteObject.subtype
             && args[0]._args[0]._remoteObject.subtype === 'error') {
+      //console.log('error occured', args[0])
+      
       args.unshift(index)
-      console.log('error occured', args[0])
+      return this.error.apply(this, args)
+    }
+    if (args[0] 
+            && args[0]._type === 'error') {
+      args.unshift(index)
       return this.error.apply(this, args)
     }
     

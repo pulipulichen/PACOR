@@ -10,10 +10,11 @@ const TestOptions = {
   //threads: 2, // ok 完全運作正常
   //threads: 5,  // ?個錯誤
   //threads: 10,  // ?個錯誤
+  //threads: 15,  // 10個錯誤
   //threads: 20,  // 10個錯誤
   //threads: 30,  // ?個錯誤
   //threads: 40,  // 10個錯誤
-  maxShowThreads: 2,
+  maxShowThreads: 5,
   mode: 'parallel',
   headless: false,
   //headless: false,
@@ -22,7 +23,8 @@ const TestOptions = {
   //stopAt: '0a. setup webpage config',
   //stopAt: 'c2. 中場確認 is PACORTestManager work?',
   //stopAt: 'd1. 專注閱讀: 確認視窗',
-  groupSetting: ``,
+  stopAt: 'd2. 隨意寫標註',
+  groupSize: 6,
   webpageConfig
 }
 

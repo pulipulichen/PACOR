@@ -4866,7 +4866,7 @@ let Login = {
       }
       
       let password = localStorage.getItem(this.key + 'login.password')
-      if (typeof(password) === 'string') {
+      if (typeof(password) === 'string' && password !== '') {
         this.password = password
         this.adminMode = true
       }

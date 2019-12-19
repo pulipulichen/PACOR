@@ -57,6 +57,8 @@ class ReadingProgress {
   }
   
   async activityTimer({request, webpage, user}) {
+    //throw new HttpException('For Test', 403)
+    
     const { seconds } = request.all()
     //console.log(seconds)
     await user.addActivitySeconds(webpage, seconds)
