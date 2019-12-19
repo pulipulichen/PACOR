@@ -3007,60 +3007,56 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.dataRemainingSec > 0
-    ? _c("span", { ref: "timer", staticClass: "DigitalCountdownTimer" }, [
-        _c("div", { staticClass: "clock" }, [
-          _c("div", { staticClass: "message" }, [
-            _vm._v("\r\n      " + _vm._s(_vm.$t("Remaining Time")) + "\r\n    ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "numbers minutes-numbers" }, [
-            _c(
-              "p",
-              {
-                ref: "minutesNumbers",
-                staticClass: "minutes",
-                class: _vm.computedMinutesClassList
-              },
-              [
-                _vm.dataMinutes
-                  ? [
-                      _vm._v(
-                        "\r\n          " +
-                          _vm._s(_vm.dataMinutes) +
-                          "\r\n        "
-                      )
-                    ]
-                  : [_vm._v("\r\n          88\r\n        ")]
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _c("p", { staticClass: "placeholder" }, [_vm._v("88")])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "colon", class: _vm.computedMinutesColonClassList },
-            [_c("p", [_vm._v(":")])]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "numbers seconds-numbers" }, [
-            _c(
-              "p",
-              {
-                ref: "secondsNumbers",
-                staticClass: "seconds",
-                class: _vm.computedSecondsClassList
-              },
-              [_vm._v("\r\n        " + _vm._s(_vm.dataSeconds) + "\r\n      ")]
-            ),
-            _vm._v(" "),
-            _c("p", { staticClass: "placeholder" }, [_vm._v("88")])
-          ])
-        ])
+  return _c("span", { ref: "timer", staticClass: "DigitalCountdownTimer" }, [
+    _c("div", { staticClass: "clock" }, [
+      _c("div", { staticClass: "message" }, [
+        _vm._v("\r\n      " + _vm._s(_vm.$t("Remaining Time")) + "\r\n    ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "numbers minutes-numbers" }, [
+        _c(
+          "p",
+          {
+            ref: "minutesNumbers",
+            staticClass: "minutes",
+            class: _vm.computedMinutesClassList
+          },
+          [
+            _vm.dataMinutes
+              ? [
+                  _vm._v(
+                    "\r\n          " + _vm._s(_vm.dataMinutes) + "\r\n        "
+                  )
+                ]
+              : [_vm._v("\r\n          88\r\n        ")]
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "placeholder" }, [_vm._v("88")])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "colon", class: _vm.computedMinutesColonClassList },
+        [_c("p", [_vm._v(":")])]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "numbers seconds-numbers" }, [
+        _c(
+          "p",
+          {
+            ref: "secondsNumbers",
+            staticClass: "seconds",
+            class: _vm.computedSecondsClassList
+          },
+          [_vm._v("\r\n        " + _vm._s(_vm.dataSeconds) + "\r\n      ")]
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "placeholder" }, [_vm._v("88")])
       ])
-    : _vm._e()
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -4677,6 +4673,12 @@ __webpack_require__.r(__webpack_exports__);
     //setTimeout(() => {
       //console.log([this.currentStep, this.getCurrentStep()])
       //console.log(this.status.readingProgresses)
+      
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+      
       this.status.view = this.currentStep
     //}, 0)
     

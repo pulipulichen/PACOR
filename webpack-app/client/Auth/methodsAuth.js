@@ -111,6 +111,12 @@ export default function (Auth) {
     //setTimeout(() => {
       //console.log([this.currentStep, this.getCurrentStep()])
       //console.log(this.status.readingProgresses)
+      
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+      
       this.status.view = this.currentStep
     //}, 0)
     
