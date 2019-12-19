@@ -22,7 +22,6 @@ const TestOptions = {
   //stopAt: '0a. setup webpage config',
   //stopAt: 'c2. 中場確認 is PACORTestManager work?',
   //stopAt: 'd1. 專注閱讀: 確認視窗',
-  
   groupSetting: ``,
   webpageConfig
 }
@@ -53,7 +52,8 @@ const RandomTextHelper = use('App/Helpers/RandomTextHelper')
 
 //const url = 'http://blog.pulipuli.info/'
 //const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
-const url = '/test-lorem-ipsum'
+
+const url = '/test-lorem-ipsum?r=' + (new Date()).getTime().toString(36)
 
 let webpage
 let user

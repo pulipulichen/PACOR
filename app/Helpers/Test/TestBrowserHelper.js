@@ -16,8 +16,6 @@ const handleException = use('App/Helpers/Test/TestBrowserHelper/handleException.
 const setTraitBrowser = use('App/Helpers/Test/TestBrowserHelper/setTraitBrowser.js')
 const setupWepbage = use('App/Helpers/Test/TestBrowserHelper/setupWepbage.js')
 
-
-
 // ---------------------------------
 
 let TestBrowserHelper = function (title, url, config, options) {
