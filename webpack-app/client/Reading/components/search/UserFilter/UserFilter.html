@@ -63,7 +63,7 @@
       </template>
       <template v-slot:actions>
         <div class="ui button submit-button"
-             v-if="filterData.selectUser !== status.filter.focusUser"
+             v-if="isSelectAnotherUser"
              v-on:click="submit">
           
           <template v-if="peerIsMe">

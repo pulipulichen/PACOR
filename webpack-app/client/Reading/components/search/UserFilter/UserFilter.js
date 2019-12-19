@@ -59,6 +59,23 @@ let UserSelector = {
       else {
         return user.username
       }
+    },
+    isSelectAnotherUser() {
+      if (!this.filterData.selectUser && !this.status.filter.focusUser) {
+        return false
+      }
+      else if (this.filterData.selectUser) {
+        if (!this.status.filter.focusUser) {
+          return true
+        }
+        return (this.filterData.selectUser.id !== this.status.filter.focusUser.id)
+      }
+      else if (this.status.filter.focusUser) {
+        if (!this.filterData.selectUser) {
+          return true
+        }
+        return (this.filterData.selectUser.id !== this.status.filter.focusUser.id)
+      }
     }
   },
 //  watch: {
