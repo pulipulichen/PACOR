@@ -278,9 +278,11 @@ let logManager = {
       ...screenSize
     }
     
-    // 0 1 2
-    // 3 4 5
     // 6 7 8
+    // 3 4 5
+    // 0 1 2
+    
+    
     
     output.width = Math.ceil(output.width / 3)
     output.height = Math.ceil(output.height / 2)
@@ -299,7 +301,7 @@ let logManager = {
     if ([3,4,5].indexOf(index) > -1) {
       output.top = ((output.height / 2) * 1) + 1
     }
-    if ([6,7,8].indexOf(index) > -1) {
+    if ([0,1,2].indexOf(index) > -1) {
       output.top = ((output.height / 2) * 2) + 1
     }
     

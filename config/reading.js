@@ -281,6 +281,6 @@ module.exports = {
   debug: {
     //forceMaxTimeoutMinutes: 0.4
     //forceMaxTimeoutMinutes: 0.2
-    forceMaxTimeoutMinutes: 2
+    forceMaxTimeoutMinutes: 1
   }
 }
