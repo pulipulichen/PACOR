@@ -52,7 +52,7 @@ class AnnotationSave extends WebpageUserBaseController {
     }
     //console.log('ready to update 2')
     let instance = await this.model.find(id)
-    if (instance.user_id !== user.id) {
+    if (user.isAdmin() === false && instance.user_id !== user.id) {
       throw new HttpException('You are not owner of it.')
     }
     //console.log('ready to update 1')
