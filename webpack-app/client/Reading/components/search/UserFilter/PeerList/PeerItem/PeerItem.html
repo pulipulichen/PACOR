@@ -39,6 +39,10 @@
             class="message">
         {{ $t('(Reading...)') }}
       </span>
+      
+      <template v-if="user && annotationTypes.length === 0">
+        {{ $t('(No annotation)') }}
+      </template>
     </div>
     <div class="description"
          v-if="user">
@@ -53,9 +57,6 @@
         v-bind:type="t.type"
         v-bind:count="t.count">
       </annotation-type-button>
-      <template v-if="user && annotationTypes.length === 0">
-        {{ $t('No annotation') }}
-      </template>
     </div>
   </div>
 </div>

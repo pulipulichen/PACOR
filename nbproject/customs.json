@@ -150,6 +150,7 @@
     "v-bind:status": {},
     "v-bind:lib": {},
     "v-on:add": {},
+    "v-bind:disableOpenWindow": {},
     "v-bind:reset": {},
     "v-bind:error": {},
     "v-on:scroll.stop": {},

@@ -7,6 +7,7 @@
     v-bind:lib="lib"
     v-bind:cancelable="false"
     v-bind:contentURL="contentURL"
+    v-bind:disableOpenWindow="true"
     v-on:hide="onHide">
       <template v-slot:header>
         <div v-on:dblclick="nextStep">

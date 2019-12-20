@@ -3,7 +3,7 @@ import $ from 'jquery'
 let Modal = {
   props: ['lib', 'status', 'config'
     , 'cancelable', 'reset', 'dimmerTransparent', 'contentURL'
-    , 'cancelButtonText', 'fullContent'],
+    , 'cancelButtonText', 'fullContent', 'disableOpenWindow'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {

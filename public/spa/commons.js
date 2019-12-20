@@ -997,7 +997,7 @@ var render = function() {
           "div",
           { staticClass: "actions", class: _vm.computedActionsClassList },
           [
-            _vm.contentURL
+            _vm.contentURL && !_vm.disableOpenWindow
               ? _c(
                   "div",
                   {
@@ -4764,7 +4764,7 @@ __webpack_require__.r(__webpack_exports__);
 let Modal = {
   props: ['lib', 'status', 'config'
     , 'cancelable', 'reset', 'dimmerTransparent', 'contentURL'
-    , 'cancelButtonText', 'fullContent'],
+    , 'cancelButtonText', 'fullContent', 'disableOpenWindow'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {

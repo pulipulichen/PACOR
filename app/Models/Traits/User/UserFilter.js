@@ -86,8 +86,9 @@ class UserFilter {
                       .groupBy('type')
                       .select(['type'])
         
-        // 排除小結重點
-        let types = await this.getStepHighlightAnnotationTypes(webpage)
+        // 包含小節重點
+        //let types = await this.getStepHighlightAnnotationTypes(webpage)
+        let types = await this.getStepAnnotationTypes(webpage)
         query.whereIn('type', types)
         
         if (webpage) {

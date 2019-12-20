@@ -361,7 +361,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"View All":"觀看若有讀者","No annotation":"沒有撰寫標註","(Reading...)":"(仍在閱讀中...)"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"View All":"觀看所有讀者","(No annotation)":"(沒有撰寫標註)","(Reading...)":"(仍在閱讀中...)"}}')
   delete Component.options._Ctor
 }
 
@@ -441,7 +441,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Viewing All":"觀看所有讀者","Asist":"協助","View":"觀看","Please select a peer":"選擇一位您想要協助的同儕吧","Only Show Me":"只顯示您","Show All":"顯示所有同儕"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Viewing All":"觀看所有讀者","Asist":"協助","View":"觀看","Please select a peer":"選擇一位您想要協助的同儕吧","Only Show Me":"只顯示您","Show All":"顯示所有同儕","Cancel":"待會再選"}}')
   delete Component.options._Ctor
 }
 
@@ -2061,40 +2061,38 @@ var render = function() {
                       "\r\n      "
                   )
                 ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.user && _vm.annotationTypes.length === 0
+              ? [
+                  _vm._v(
+                    "\r\n        " +
+                      _vm._s(_vm.$t("(No annotation)")) +
+                      "\r\n      "
+                  )
+                ]
               : _vm._e()
           ],
-          1
+          2
         ),
         _vm._v(" "),
         _vm.user
           ? _c(
               "div",
               { staticClass: "description" },
-              [
-                _vm._l(_vm.annotationTypes, function(t) {
-                  return _c("annotation-type-button", {
-                    key: t.type,
-                    attrs: {
-                      lib: _vm.lib,
-                      config: _vm.config,
-                      status: _vm.status,
-                      type: t.type,
-                      count: t.count
-                    }
-                  })
-                }),
-                _vm._v(" "),
-                _vm.user && _vm.annotationTypes.length === 0
-                  ? [
-                      _vm._v(
-                        "\r\n        " +
-                          _vm._s(_vm.$t("No annotation")) +
-                          "\r\n      "
-                      )
-                    ]
-                  : _vm._e()
-              ],
-              2
+              _vm._l(_vm.annotationTypes, function(t) {
+                return _c("annotation-type-button", {
+                  key: t.type,
+                  attrs: {
+                    lib: _vm.lib,
+                    config: _vm.config,
+                    status: _vm.status,
+                    type: t.type,
+                    count: t.count
+                  }
+                })
+              }),
+              1
             )
           : _vm._e()
       ])
@@ -2490,6 +2488,7 @@ var render = function() {
           config: _vm.config,
           status: _vm.status,
           cancelable: "true",
+          cancelButtonText: _vm.$t("Cancel"),
           lib: _vm.lib
         },
         scopedSlots: _vm._u([

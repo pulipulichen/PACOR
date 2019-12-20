@@ -53,7 +53,7 @@
        v-bind:class="computedActionsClassList">
     
     <div class="ui button"
-         v-if="contentURL"
+         v-if="contentURL && !disableOpenWindow"
          v-on:click="openContentURLWindow">
       {{ $t('Open in Another Window') }}
     </div>

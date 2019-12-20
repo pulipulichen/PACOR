@@ -4268,7 +4268,8 @@ var render = function() {
           status: _vm.status,
           lib: _vm.lib,
           cancelable: false,
-          contentURL: _vm.contentURL
+          contentURL: _vm.contentURL,
+          disableOpenWindow: true
         },
         on: { hide: _vm.onHide },
         scopedSlots: _vm._u(
