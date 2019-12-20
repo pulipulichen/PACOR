@@ -1,3 +1,5 @@
+/* global define */
+
 import $ from 'jquery'
 
 /**
@@ -29,6 +31,7 @@ import $ from 'jquery'
           this.callback = callback;
       }
       Renderer.prototype.render = function ($parent) {
+        
           var $node = $$1(this.markup);
           if (this.options && this.options.contents) {
               $node.html(this.options.contents);
@@ -669,7 +672,7 @@ import $ from 'jquery'
           ]
       }).render();
   };
-  var dialog = renderer.create('<div class="note-modal" aria-hidden="false" tabindex="-1" role="dialog"/>', function ($node, options) {
+  var dialog = renderer.create('<div class="summernote note-modal" aria-hidden="false" tabindex="-1" role="dialog"/>', function ($node, options) {
       if (options.fade) {
         $node.addClass('fade');
       }
@@ -762,7 +765,7 @@ import $ from 'jquery'
       }).render();
   };
   var popover = renderer.create([
-      '<div class="note-popover bottom">',
+      '<div class="summernote note-popover bottom">',
       '  <div class="note-popover-arrow"/>',
       '  <div class="popover-content note-children-container"/>',
       '</div>'
@@ -843,13 +846,13 @@ import $ from 'jquery'
           $dom.find('[data-value="' + value + '"]').addClass('checked');
       },
       onDialogShown: function ($dialog, handler) {
-          $dialog.one('note.modal.show', handler);
+        $dialog.one('note.modal.show', handler);
       },
       onDialogHidden: function ($dialog, handler) {
-          $dialog.one('note.modal.hide', handler);
+        $dialog.one('note.modal.hide', handler);
       },
       showDialog: function ($dialog) {
-          $dialog.data('modal').show();
+        $dialog.data('modal').show();
       },
       hideDialog: function ($dialog) {
           $dialog.data('modal').hide();
@@ -7220,7 +7223,7 @@ sel.addRange(range);
       CodeView.prototype.toggle = function () {
           //console.log()
           //console.log("codeview.toggle 2")
-          $(".note-popover").hide()
+          $$1(".note-popover").hide()
           //console.log(["a", $(this.$codable).val()])
           if (this.isActivated()) {
               //console.log(["b", $(this.$codable).val()])
@@ -8877,12 +8880,12 @@ sel.addRange(range);
           
           this.$dialog.find('.note-comment-title').focus(function (event) {
             if ($$1(this).hasClass('first-focus') === false) {
-              return
+              return undefined
             }
             $$1(this).removeClass('first-focus')
           
             if (this.value !== undefined && this.value.trim() !== "") {
-              return
+              return undefined
             }
           })
       };
@@ -9171,6 +9174,8 @@ sel.addRange(range);
       LinkDialog.prototype.showLinkDialog = function (linkInfo) {
           var _this = this;
           
+          console.log('showLinkDialog')
+          
           return $$1.Deferred(function (deferred) {
               var $linkText = _this.$dialog.find('.note-link-text');
               var $linkUrl = _this.$dialog.find('.note-link-url');
@@ -9382,12 +9387,12 @@ sel.addRange(range);
           
           this.$dialog.find('input.note-iframe-url').focus(function (event) {
             if ($$1(this).hasClass('first-focus') === false) {
-              return
+              return undefined
             }
             $$1(this).removeClass('first-focus')
           
             if (this.value !== undefined && this.value.trim() !== "") {
-              return
+              return undefined
             }
             navigator.clipboard.readText()
               .then(text => {
