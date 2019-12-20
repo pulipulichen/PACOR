@@ -16,7 +16,9 @@
     </template>
     <template v-else>
       <span class="column">
-        <img v-bind:src="othersAvatar" />
+        <img v-bind:src="othersAvatar"
+             class="user-avatar"
+             v-bind:title="othersUsername" />
       </span>
       <span class="column username">
         {{ othersUsername }}
@@ -40,7 +42,9 @@
   </span>
   
   <span class="column">
-    <img v-bind:src="myAvatar" />
+    <img v-bind:src="myAvatar"
+         class="user-avatar"
+         v-bind:title="username"  />
   </span>
   <span class="column username">
     {{ username }}

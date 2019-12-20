@@ -963,7 +963,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".username[data-v-6eab25ef] {\n  margin-left: 0.5em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-6eab25ef] {\n  font-size: 1rem;\n  font-weight: normal;\n  line-height: 1.5em;\n}\n.avatar img[data-v-6eab25ef] {\n  margin-left: 0.5em !important;\n}\n/*@media (max-width: 400px) {\n  .username .step {\n    display: none;\n  }\n}*/\n.cog.icon[data-v-6eab25ef] {\n  margin-left: 0.5em !important;\n}\n.vertical-menu .avatar.item[data-v-6eab25ef] {\n  display: inline-block;\n}\n.vertical-menu .avatar.item[data-v-6eab25ef]:before {\n  background-color: transparent !important;\n}\n.vertical-menu .avatar.item img[data-v-6eab25ef] {\n  margin-left: 0em !important;\n  display: inline-block;\n  vertical-align: middle;\n}\n.vertical-menu .avatar.item .username[data-v-6eab25ef] {\n  margin-left: 0 !important;\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["NavigationHeaderItem.less?vue&type=style&index=0&id=6eab25ef&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,iBAAiB;AACnB;AACA;EACE,eAAe;EACf,mBAAmB;EACnB,kBAAkB;AACpB;AACA;EACE,6BAA6B;AAC/B;AACA;;;;EAIE;AACF;EACE,6BAA6B;AAC/B;AACA;EACE,qBAAqB;AACvB;AACA;EACE,wCAAwC;AAC1C;AACA;EACE,2BAA2B;EAC3B,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,yBAAyB;EACzB,qBAAqB;EACrB,sBAAsB;AACxB","file":"NavigationHeaderItem.less?vue&type=style&index=0&id=6eab25ef&lang=less&scoped=true&","sourcesContent":[".username[data-v-6eab25ef] {\n  margin-left: 0.5em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-6eab25ef] {\n  font-size: 1rem;\n  font-weight: normal;\n  line-height: 1.5em;\n}\n.avatar img[data-v-6eab25ef] {\n  margin-left: 0.5em !important;\n}\n/*@media (max-width: 400px) {\n  .username .step {\n    display: none;\n  }\n}*/\n.cog.icon[data-v-6eab25ef] {\n  margin-left: 0.5em !important;\n}\n.vertical-menu .avatar.item[data-v-6eab25ef] {\n  display: inline-block;\n}\n.vertical-menu .avatar.item[data-v-6eab25ef]:before {\n  background-color: transparent !important;\n}\n.vertical-menu .avatar.item img[data-v-6eab25ef] {\n  margin-left: 0em !important;\n  display: inline-block;\n  vertical-align: middle;\n}\n.vertical-menu .avatar.item .username[data-v-6eab25ef] {\n  margin-left: 0 !important;\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
+exports.push([module.i, ".username[data-v-6eab25ef] {\n  margin-left: 0.5em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-6eab25ef] {\n  font-size: 1rem;\n  font-weight: normal;\n  line-height: 1.5em;\n}\n.user-avatar[data-v-6eab25ef] {\n  max-height: 2.5em;\n  width: auto !important;\n}\n.avatar img[data-v-6eab25ef] {\n  margin-left: 0.5em !important;\n}\n/*@media (max-width: 400px) {\n  .username .step {\n    display: none;\n  }\n}*/\n.cog.icon[data-v-6eab25ef] {\n  margin-left: 0.5em !important;\n}\n.vertical-menu .avatar.item[data-v-6eab25ef] {\n  display: inline-block;\n}\n.vertical-menu .avatar.item[data-v-6eab25ef]:before {\n  background-color: transparent !important;\n}\n.vertical-menu .avatar.item img[data-v-6eab25ef] {\n  margin-left: 0em !important;\n  display: inline-block;\n  vertical-align: middle;\n}\n.vertical-menu .avatar.item .username[data-v-6eab25ef] {\n  margin-left: 0 !important;\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["NavigationHeaderItem.less?vue&type=style&index=0&id=6eab25ef&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,iBAAiB;AACnB;AACA;EACE,eAAe;EACf,mBAAmB;EACnB,kBAAkB;AACpB;AACA;EACE,iBAAiB;EACjB,sBAAsB;AACxB;AACA;EACE,6BAA6B;AAC/B;AACA;;;;EAIE;AACF;EACE,6BAA6B;AAC/B;AACA;EACE,qBAAqB;AACvB;AACA;EACE,wCAAwC;AAC1C;AACA;EACE,2BAA2B;EAC3B,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,yBAAyB;EACzB,qBAAqB;EACrB,sBAAsB;AACxB","file":"NavigationHeaderItem.less?vue&type=style&index=0&id=6eab25ef&lang=less&scoped=true&","sourcesContent":[".username[data-v-6eab25ef] {\n  margin-left: 0.5em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-6eab25ef] {\n  font-size: 1rem;\n  font-weight: normal;\n  line-height: 1.5em;\n}\n.user-avatar[data-v-6eab25ef] {\n  max-height: 2.5em;\n  width: auto !important;\n}\n.avatar img[data-v-6eab25ef] {\n  margin-left: 0.5em !important;\n}\n/*@media (max-width: 400px) {\n  .username .step {\n    display: none;\n  }\n}*/\n.cog.icon[data-v-6eab25ef] {\n  margin-left: 0.5em !important;\n}\n.vertical-menu .avatar.item[data-v-6eab25ef] {\n  display: inline-block;\n}\n.vertical-menu .avatar.item[data-v-6eab25ef]:before {\n  background-color: transparent !important;\n}\n.vertical-menu .avatar.item img[data-v-6eab25ef] {\n  margin-left: 0em !important;\n  display: inline-block;\n  vertical-align: middle;\n}\n.vertical-menu .avatar.item .username[data-v-6eab25ef] {\n  margin-left: 0 !important;\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
 
 
 /***/ }),
@@ -3969,7 +3969,13 @@ var render = function() {
                 ]
               : [
                   _c("span", { staticClass: "column" }, [
-                    _c("img", { attrs: { src: _vm.othersAvatar } })
+                    _c("img", {
+                      staticClass: "user-avatar",
+                      attrs: {
+                        src: _vm.othersAvatar,
+                        title: _vm.othersUsername
+                      }
+                    })
                   ]),
                   _vm._v(" "),
                   _c("span", { staticClass: "column username" }, [
@@ -4007,7 +4013,10 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("span", { staticClass: "column" }, [
-        _c("img", { attrs: { src: _vm.myAvatar } })
+        _c("img", {
+          staticClass: "user-avatar",
+          attrs: { src: _vm.myAvatar, title: _vm.username }
+        })
       ]),
       _vm._v(" "),
       _c("span", { staticClass: "column username" }, [
@@ -4209,7 +4218,10 @@ var render = function() {
       }
     },
     [
-      _c("img", { attrs: { src: _vm.status.avatar } }),
+      _c("img", {
+        staticClass: "user-avatar",
+        attrs: { src: _vm.status.avatar }
+      }),
       _vm._v(" "),
       _c("div", { staticClass: "username" }, [
         _vm._v("\r\n    " + _vm._s(_vm.lib.auth.username) + "\r\n    "),
@@ -4222,8 +4234,9 @@ var render = function() {
                       _vm.$t("READING_PROGRESS." + _vm.lib.auth.currentStep)
                     ])
                   ) +
-                  "\r\n    "
-              )
+                  "\r\n      "
+              ),
+              _c("i", { staticClass: "question circle icon" })
             ])
           : _vm._e(),
         _vm._v(" "),

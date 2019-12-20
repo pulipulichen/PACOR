@@ -1,11 +1,13 @@
 <a class="fitted item avatar"
    v-on:click="$emit('click')">
-  <img v-bind:src="status.avatar">
+  <img v-bind:src="status.avatar"
+       class="user-avatar">
   <div class="username">
     {{ lib.auth.username }}
     <div class="step" 
          v-if="lib.auth.currentStep !== 'FreeReading'">
       {{ $t('In {0} step', [$t('READING_PROGRESS.' + lib.auth.currentStep)]) }}
+      <i class="question circle icon"></i>
     </div>
     <i class="cog icon"
        v-if="status.role !== 'reader'" />

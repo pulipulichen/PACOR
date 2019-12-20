@@ -2,7 +2,9 @@
      v-bind:class="computedEventClassList"
      v-on:click="read">
   <div class="label">
-    <img v-bind:src="avatar">
+    <img v-bind:src="avatar"
+         class="user-avatar"
+         v-bind:title="username">
   </div>
   <div class="content">
     <div class="summary">

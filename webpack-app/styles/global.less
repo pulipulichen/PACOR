@@ -24,4 +24,17 @@
     font-size: 0.8rem;
     font-style: italic;
   }
+  
+  .user-avatar {
+    //filter: drop-shadow(1px 1px 3px rgba(255, 255, 255, 0.7));
+    -webkit-filter: drop-shadow(1px 1px 0 white)
+                drop-shadow(-1px 1px 0 white)
+                drop-shadow(1px -1px 0 white)
+                drop-shadow(-1px -1px 0 white);
+
+    filter: drop-shadow(1px 1px 0 white)
+            drop-shadow(-1px 1px 0 white)
+            drop-shadow(1px -1px 0 white)
+            drop-shadow(-1px -1px 0 white);
+  }
 }

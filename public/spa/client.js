@@ -1018,7 +1018,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".UserAvatarIcons[data-v-2027b2d6] {\n  display: inline-block;\n  user-select: none;\n}\n.UserAvatarIcons .avatar-list[data-v-2027b2d6] {\n  display: inline-block;\n  vertical-align: top;\n  direction: ltr;\n}\n.UserAvatarIcons .avatar[data-v-2027b2d6] {\n  max-height: 2em;\n  width: auto;\n  margin-left: -0.5em;\n  position: relative;\n  -webkit-filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px 1px 0 white) drop-shadow(1px -1px 0 white) drop-shadow(-1px -1px 0 white);\n  filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px 1px 0 white) drop-shadow(1px -1px 0 white) drop-shadow(-1px -1px 0 white);\n}\n.UserAvatarIcons .avatar[data-v-2027b2d6]:first-of-type {\n  margin-left: 0;\n}\n.UserAvatarIcons .user-count[data-v-2027b2d6] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["UserAvatarIcons.less?vue&type=style&index=0&id=2027b2d6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,iBAAiB;AACnB;AACA;EACE,qBAAqB;EACrB,mBAAmB;EACnB,cAAc;AAChB;AACA;EACE,eAAe;EACf,WAAW;EACX,mBAAmB;EACnB,kBAAkB;EAClB,uIAAuI;EACvI,+HAA+H;AACjI;AACA;EACE,cAAc;AAChB;AACA;EACE,qBAAqB;EACrB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB","file":"UserAvatarIcons.less?vue&type=style&index=0&id=2027b2d6&lang=less&scoped=true&","sourcesContent":[".UserAvatarIcons[data-v-2027b2d6] {\n  display: inline-block;\n  user-select: none;\n}\n.UserAvatarIcons .avatar-list[data-v-2027b2d6] {\n  display: inline-block;\n  vertical-align: top;\n  direction: ltr;\n}\n.UserAvatarIcons .avatar[data-v-2027b2d6] {\n  max-height: 2em;\n  width: auto;\n  margin-left: -0.5em;\n  position: relative;\n  -webkit-filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px 1px 0 white) drop-shadow(1px -1px 0 white) drop-shadow(-1px -1px 0 white);\n  filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px 1px 0 white) drop-shadow(1px -1px 0 white) drop-shadow(-1px -1px 0 white);\n}\n.UserAvatarIcons .avatar[data-v-2027b2d6]:first-of-type {\n  margin-left: 0;\n}\n.UserAvatarIcons .user-count[data-v-2027b2d6] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n"]}]);
+exports.push([module.i, ".UserAvatarIcons[data-v-2027b2d6] {\n  display: inline-block;\n  user-select: none;\n}\n.UserAvatarIcons .avatar-list[data-v-2027b2d6] {\n  display: inline-block;\n  vertical-align: top;\n  direction: ltr;\n}\n.UserAvatarIcons .user-avatar[data-v-2027b2d6] {\n  max-height: 2em;\n  width: auto;\n  margin-left: -0.5em;\n  position: relative;\n}\n.UserAvatarIcons .user-avatar[data-v-2027b2d6]:first-of-type {\n  margin-left: 0;\n}\n.UserAvatarIcons .user-count[data-v-2027b2d6] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["UserAvatarIcons.less?vue&type=style&index=0&id=2027b2d6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,iBAAiB;AACnB;AACA;EACE,qBAAqB;EACrB,mBAAmB;EACnB,cAAc;AAChB;AACA;EACE,eAAe;EACf,WAAW;EACX,mBAAmB;EACnB,kBAAkB;AACpB;AACA;EACE,cAAc;AAChB;AACA;EACE,qBAAqB;EACrB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB","file":"UserAvatarIcons.less?vue&type=style&index=0&id=2027b2d6&lang=less&scoped=true&","sourcesContent":[".UserAvatarIcons[data-v-2027b2d6] {\n  display: inline-block;\n  user-select: none;\n}\n.UserAvatarIcons .avatar-list[data-v-2027b2d6] {\n  display: inline-block;\n  vertical-align: top;\n  direction: ltr;\n}\n.UserAvatarIcons .user-avatar[data-v-2027b2d6] {\n  max-height: 2em;\n  width: auto;\n  margin-left: -0.5em;\n  position: relative;\n}\n.UserAvatarIcons .user-avatar[data-v-2027b2d6]:first-of-type {\n  margin-left: 0;\n}\n.UserAvatarIcons .user-count[data-v-2027b2d6] {\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -1375,7 +1375,10 @@ var render = function() {
     },
     [
       _c("div", { staticClass: "label" }, [
-        _c("img", { attrs: { src: _vm.avatar } })
+        _c("img", {
+          staticClass: "user-avatar",
+          attrs: { src: _vm.avatar, title: _vm.username }
+        })
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "content" }, [
@@ -1432,7 +1435,10 @@ var render = function() {
     },
     [
       _c("div", { staticClass: "label" }, [
-        _c("img", { attrs: { src: _vm.avatar } })
+        _c("img", {
+          staticClass: "user-avatar",
+          attrs: { src: _vm.avatar, title: _vm.username }
+        })
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "content" }, [
@@ -1489,7 +1495,10 @@ var render = function() {
     },
     [
       _c("div", { staticClass: "label" }, [
-        _c("img", { attrs: { src: _vm.avatar } })
+        _c("img", {
+          staticClass: "user-avatar",
+          attrs: { src: _vm.avatar, title: _vm.username }
+        })
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "content" }, [
@@ -1546,7 +1555,10 @@ var render = function() {
     },
     [
       _c("div", { staticClass: "label" }, [
-        _c("img", { attrs: { src: _vm.avatar } })
+        _c("img", {
+          staticClass: "user-avatar",
+          attrs: { src: _vm.avatar, title: _vm.username }
+        })
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "content" }, [
@@ -3388,7 +3400,7 @@ var render = function() {
       { staticClass: "avatar-list" },
       _vm._l(_vm.users, function(user, i) {
         return _c("img", {
-          staticClass: "avatar",
+          staticClass: "user-avatar avatar",
           style: _vm.computedAvatarStyle(i),
           attrs: { title: _vm.username(user), src: user.avatar_url },
           on: {
