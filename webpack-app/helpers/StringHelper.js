@@ -72,15 +72,15 @@ let StringHelper = {
     //}
     
     if (!spaceInDifferentElement || spaceInDifferentElement === false) { 
-      return $(s).text()
+      return $(s).text().trim()
     }
     else {
       let children = $(s).children()
       let output = []
       children.each((i, ele) => {
-        output.push(ele.innerText)
+        output.push(ele.innerText.trim())
       })
-      return output.join(' ')
+      return output.join(' ').trim()
     }
   },
   isURL (s) {

@@ -5894,15 +5894,15 @@ let StringHelper = {
     //}
     
     if (!spaceInDifferentElement || spaceInDifferentElement === false) { 
-      return jquery__WEBPACK_IMPORTED_MODULE_0___default()(s).text()
+      return jquery__WEBPACK_IMPORTED_MODULE_0___default()(s).text().trim()
     }
     else {
       let children = jquery__WEBPACK_IMPORTED_MODULE_0___default()(s).children()
       let output = []
       children.each((i, ele) => {
-        output.push(ele.innerText)
+        output.push(ele.innerText.trim())
       })
-      return output.join(' ')
+      return output.join(' ').trim()
     }
   },
   isURL (s) {
