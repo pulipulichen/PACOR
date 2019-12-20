@@ -3054,7 +3054,7 @@ __webpack_require__.r(__webpack_exports__);
     
     //await this.log('這邊我要確認一下'); await this.sleep(60 * 1000)
     
-    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ui.button:first:not(.disabled)', {
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ui.button:eq(1):not(.disabled)', {
       timeout: 3000,
       errorMessage: 'writeConfusedAnnotation 這裡很奇怪？是不是儲存沒有存好？'
     })

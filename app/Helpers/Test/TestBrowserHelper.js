@@ -25,7 +25,7 @@ let TestBrowserHelper = function (title, url, config, options) {
 
   let {
     threads,
-    maxShowThreads = 10,
+    maxShowThreads = 9,
     mode,  // sequential, parallel
     headless,
     stopAt,
@@ -53,12 +53,20 @@ let TestBrowserHelper = function (title, url, config, options) {
     if (headless === false) {
       
       // 來決定那些要顯示的吧
-      let interval = Math.ceil(threads / maxShowThreads)
+      let interval = Math.floor(threads / maxShowThreads)
+      if (interval < 1) {
+        interval = 1
+      }
+      
       for (let i = 0; i < threads; i++) {
         if (i % interval !== 0) {
           continue
         }
         forceShowIndexes.push(i)
+        
+        if (forceShowIndexes.length === maxShowThreads) {
+          break
+        }
       }
       
       console.log(`\n[WARNING] Threads ${threads} are too much. Force ${forceShowIndexes.join(', ')}'s headless = false.\n`)

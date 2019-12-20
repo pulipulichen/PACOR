@@ -21,6 +21,11 @@
   overflow-x: hidden;
   overflow-y: auto;
   
+  @media only screen and (max-height: 700px) {
+    top: 1em;
+    max-height: inherit;
+  }
+  
   &.show {
     opacity: 1;
     z-index: 1;
@@ -30,6 +35,11 @@
   &.bottom {
     top: auto;
     bottom: @verticalMargin;
+    
+    @media only screen and (max-height: 700px) {
+      bottom: 1em;
+      z-index: 999;
+    }
     
     &.selecting {
       width: calc(100vw - 14em); // 保留FAB的寬度
