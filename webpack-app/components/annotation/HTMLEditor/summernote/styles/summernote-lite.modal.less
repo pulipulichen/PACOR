@@ -14,7 +14,11 @@
   -moz-opacity: 1;
   opacity: 1;
   -ms-filter: alpha(opacity=100);
-  filter: alpha(opacity=100) 
+  //filter: alpha(opacity=100) drop-shadow(0px 0px 0.5em #000000);
+  filter: drop-shadow(0px 0px 0.5em #000000);
+  
+  //border-radius: 0.3em;
+  border-radius: 0.5em;
 }
 
 &.note-modal.open {
@@ -28,12 +32,17 @@
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.2);
   outline: 0;
-  background-clip: border-box
+  background-clip: border-box;
+  
+  border-radius: 0.5em;
 }
 
 .note-modal-header {
   padding: 30px 20px 20px 20px;
-  border: 1px solid #ededef
+  border: 1px solid #ededef;
+  
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
 }
 
 .note-modal-header .close {
@@ -48,7 +57,10 @@
 .note-modal-footer {
   height: 40px;
   padding: 10px;
-  text-align: center
+  text-align: center;
+  
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
 }
 
 .note-modal-footer a {
