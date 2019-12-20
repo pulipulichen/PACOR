@@ -1,12 +1,30 @@
 const Sleep = use('Sleep')
 const closeBlankPage = use('./closeBlankPage.js')
 
-let exposeFunction = async function ({headless, browser, url, index, logManager, displayDevTools}) {
+let exposeFunction = async function ({headless, browser, url, index, logManager, displayDevTools, sizeOptions}) {
   //if (headless === false) {
+  let page
+  
     let chromeArgs = [
-      '--start-maximized',
-      //`--window-size=640,480`
+      //'--start-maximized',
+//      `--window-size=640,480`,
+//      `--window-position=640,480`
     ]
+    
+    if (!sizeOptions) {
+      chromeArgs = [
+        '--start-maximized',
+        //'--app',
+        //'--kiosk'
+      ]
+    }
+    else {
+      chromeArgs = [
+        `--window-size=${sizeOptions.width},${sizeOptions.height}`,
+        `--window-position=${sizeOptions.left},${sizeOptions.top}`,
+      ]
+      //console.log(index, sizeOptions)
+    }
     
     //if (index !== undefined) {
     //  chromeArgs.push('--user-data-dir=test/profiles/TestProfile_' + index + '_' + (new Date()).getTime())
@@ -32,9 +50,15 @@ let exposeFunction = async function ({headless, browser, url, index, logManager,
     await Sleep(index * 4)
   }
   
-  let page = await browser.visit(url)
+  //if (!sizeOptions) {
+    page = await browser.visit(url)
+    await closeBlankPage(page)
+  //}
+  //else {
+  //  page = 
+  //}
 
-  await closeBlankPage(page)
+  
   
   // -------------------------------------------
 

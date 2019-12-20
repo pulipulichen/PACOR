@@ -2,7 +2,8 @@ let closeBlankPage = async function (page) {
   //console.log(JSON.stringify(browser, null, 2))
   let puppeteerBrowser = await page.page.browser();
   let pages = await puppeteerBrowser.pages();
-  await pages[0].close()
+  let blankPage = pages[0]
+  await blankPage.close()
 }
 
 module.exports = closeBlankPage

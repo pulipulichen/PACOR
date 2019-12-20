@@ -27,7 +27,6 @@ let PACORTestManager = {
 //  },
   mounted() {
     window.PACORTestManager = this
-    
     //this.testSession()
   },
   methods: {
@@ -82,6 +81,9 @@ methodsPuppeteerPACORTestManager(PACORTestManager)
 
 import methodsExceptionPACORTestManager from './methodsExceptionPACORTestManager'
 methodsExceptionPACORTestManager(PACORTestManager)
+
+//import methodsWindowPACORTestManager from './methodsWindowPACORTestManager'
+//methodsWindowPACORTestManager(PACORTestManager)
 
 // ---------------
 

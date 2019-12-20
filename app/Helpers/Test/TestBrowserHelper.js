@@ -15,6 +15,7 @@ const excuteTest = use('App/Helpers/Test/TestBrowserHelper/excuteTest.js')
 const handleException = use('App/Helpers/Test/TestBrowserHelper/handleException.js')
 const setTraitBrowser = use('App/Helpers/Test/TestBrowserHelper/setTraitBrowser.js')
 const setupWepbage = use('App/Helpers/Test/TestBrowserHelper/setupWepbage.js')
+const detectScreenSize = use('App/Helpers/Test/TestBrowserHelper/detectScreenSize.js')
 
 // ---------------------------------
 
@@ -120,15 +121,23 @@ let TestBrowserHelper = function (title, url, config, options) {
         ary.push(i)
       }
       
+      // 偵測尺寸
+      let screenSize = await detectScreenSize(browser)
+      
       let errors = []
       await Promise.all(ary.map(async (i) => {
         let index = i
         
         let h = headless
+        let sizeOptions
         if (forceShowIndexes.indexOf(i) > -1) {
           h = false
         }
-        let page = await exposeFunction({headless: h, browser, url, index, logManager, displayDevTools})
+        if (h === false) {
+          sizeOptions = logManager.getSizeOptions(index, screenSize)
+        }
+        
+        let page = await exposeFunction({headless: h, browser, url, index, logManager, displayDevTools, sizeOptions})
         
         let e = []
         await excuteTest({config, args, page, errors: e, index, logManager})

@@ -271,6 +271,39 @@ let logManager = {
       return this.displayIndexes.length - 1
     }
     return i
+  },
+  
+  getSizeOptions (index, screenSize) {
+    let output = {
+      ...screenSize
+    }
+    
+    // 0 1 2
+    // 3 4 5
+    // 6 7 8
+    
+    output.width = Math.ceil(output.width / 3)
+    output.height = Math.ceil(output.height / 2)
+    
+    output.top = 0
+    output.left = 0
+    
+    let i = this.getDisplayIndex(index) % 9
+    if ([1,4,7].indexOf(index) > -1) {
+      output.left = output.width + 1
+    }
+    if ([2,5,8].indexOf(index) > -1) {
+      output.left = (output.width * 2) + 1
+    }
+    
+    if ([3,4,5].indexOf(index) > -1) {
+      output.top = ((output.height / 2) * 1) + 1
+    }
+    if ([6,7,8].indexOf(index) > -1) {
+      output.top = ((output.height / 2) * 2) + 1
+    }
+    
+    return output
   }
 }
 
