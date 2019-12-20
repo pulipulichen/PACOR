@@ -20,6 +20,7 @@ export default function (HTMLEditor) {
   
   HTMLEditor.methods._summernoteOptions = function () {
     let options = {
+      lang: this.config.locale,
       //airMode: true,
       toolbar: [
         // [groupName, [list of button]]

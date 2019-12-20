@@ -16,6 +16,7 @@
     class="QuestionEditor"
     
     v-bind:lib='lib'
+    v-bind:config='config'
     v-bind:contents="question"
     v-on:input="onQuestionChange"
     v-bind:label="$t('Question')"
@@ -46,6 +47,7 @@
       class="AnswerEditor"
       
       v-bind:lib='lib'
+      v-bind:config='config'
       v-bind:contents="answer"
       v-on:input="onAnswerChange"
       v-bind:label="$t('Answer')"

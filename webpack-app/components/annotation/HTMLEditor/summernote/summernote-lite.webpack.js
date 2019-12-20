@@ -8,3 +8,5 @@ import './styles/summernote-lite.icon.less'
 import './styles/summernote-lite.input.less'
 import './styles/summernote-lite.modal.less'
 import './styles/summernote-lite.popover.less'
+
+import './lang/summernote-zh-TW.js'

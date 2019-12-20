@@ -2636,6 +2636,7 @@ var render = function() {
         staticClass: "QuestionEditor",
         attrs: {
           lib: _vm.lib,
+          config: _vm.config,
           contents: _vm.question,
           label: _vm.$t("Question"),
           editable: _vm.isEditable,
@@ -2678,6 +2679,7 @@ var render = function() {
         staticClass: "AnswerEditor",
         attrs: {
           lib: _vm.lib,
+          config: _vm.config,
           contents: _vm.answer,
           label: _vm.$t("Answer"),
           editable: _vm.isEditable,
@@ -3024,6 +3026,7 @@ var render = function() {
         ref: "editor",
         attrs: {
           lib: _vm.lib,
+          config: _vm.config,
           contents: _vm.note,
           editable: _vm.isEditable,
           height: _vm.editorHeight,
@@ -3176,6 +3179,7 @@ var render = function() {
         ref: "editor",
         attrs: {
           lib: _vm.lib,
+          config: _vm.config,
           contents: _vm.note,
           editable: _vm.isEditable,
           height: _vm.editorHeight,
