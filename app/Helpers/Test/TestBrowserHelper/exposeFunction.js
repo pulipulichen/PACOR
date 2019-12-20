@@ -1,23 +1,29 @@
 const Sleep = use('Sleep')
 const closeBlankPage = use('./closeBlankPage.js')
 
-let exposeFunction = async function ({headless, browser, url, index, logManager}) {
+let exposeFunction = async function ({headless, browser, url, index, logManager, displayDevTools}) {
   //if (headless === false) {
     let chromeArgs = [
-      '--start-maximized'
+      '--start-maximized',
+      //`--window-size=640,480`
     ]
+    
     //if (index !== undefined) {
     //  chromeArgs.push('--user-data-dir=test/profiles/TestProfile_' + index + '_' + (new Date()).getTime())
     //}
+    
+    // 畫面大小是800 x 600
 
     await browser.launch({
       headless,
       //dumpio: true,  // Log all browser console messages to the terminal.
-      devtools: true,
+      devtools: displayDevTools,
       //pipe: true,
+      defaultViewport: null,  // 這樣就不會限定視窗大小了
 
       // https://peter.sh/experiments/chromium-command-line-switches/
-      args: chromeArgs
+      args: chromeArgs,
+      ignoreHTTPSErrors: true,
     })
   //}
   
@@ -107,6 +113,13 @@ let exposeFunction = async function ({headless, browser, url, index, logManager}
     //await page.type(selector, text)
     args.unshift(selector)
     await page[method].apply(this, args)
+  })
+  
+  await page.page.exposeFunction('PACORTestManagerDisplayIndex', async function (method, selector, ...args) {
+    if (headless === true) {
+      return null
+    }
+    return logManager.getDisplayIndex(index)
   })
 
   await page.assertFn(async () => {

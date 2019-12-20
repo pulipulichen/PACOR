@@ -8,6 +8,7 @@ let logManager = {
   useThreads: true,
   gotError: false,
   indexWidth: 1,
+  displayIndexes: [],
   init (threads) {
     if (typeof(threads) !== 'number') {
       threads = 1
@@ -260,6 +261,16 @@ let logManager = {
     }
     
     return name
+  },
+  
+  // ----------------------------
+  getDisplayIndex (index) {
+    let i = this.displayIndexes.indexOf(index)
+    if (i === -1) {
+      this.displayIndexes.push(index)
+      return this.displayIndexes.length - 1
+    }
+    return i
   }
 }
 

@@ -27,7 +27,8 @@ let TestBrowserHelper = function (title, url, config, options) {
     maxShowThreads = 10,
     mode,  // sequential, parallel
     headless,
-    stopAt
+    stopAt,
+    displayDevTools = false
   } = options
 
   const { test, trait } = use('Test/Suite')(title)
@@ -76,7 +77,7 @@ let TestBrowserHelper = function (title, url, config, options) {
     test(title, async function (args) {
       let browser = args.browser
       
-      let page = await exposeFunction({headless, browser, url, logManager})
+      let page = await exposeFunction({headless, browser, url, logManager, displayDevTools})
       
       let errors = []
       
@@ -97,7 +98,7 @@ let TestBrowserHelper = function (title, url, config, options) {
         if (forceShowIndexes.indexOf(i) > -1) {
           h = false
         }
-        let page = await exposeFunction({headless: h, browser, url, index, logManager})
+        let page = await exposeFunction({headless: h, browser, url, index, logManager, displayDevTools})
         
         let errors = []
         await excuteTest({config, args, page, errors, logManager})
@@ -127,7 +128,7 @@ let TestBrowserHelper = function (title, url, config, options) {
         if (forceShowIndexes.indexOf(i) > -1) {
           h = false
         }
-        let page = await exposeFunction({headless: h, browser, url, index, logManager})
+        let page = await exposeFunction({headless: h, browser, url, index, logManager, displayDevTools})
         
         let e = []
         await excuteTest({config, args, page, errors: e, index, logManager})
