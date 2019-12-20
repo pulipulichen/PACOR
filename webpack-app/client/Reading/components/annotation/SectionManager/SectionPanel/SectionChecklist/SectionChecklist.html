@@ -15,7 +15,8 @@
   <button 
     type="button"
     class="ui fluid button"
-    v-on:click="openSectionAnnotationEditor">
+    v-on:click="openSectionAnnotationEditor"
+    v-bind:style="computedSectionMainIdeaButtonStyle">
     <template v-if="isChecklistAnnotationSubmitted">
       {{ $t('Edit section main ideas') }}
     </template>

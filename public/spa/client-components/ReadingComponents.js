@@ -217,7 +217,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"I don\u0027t know what is \\"{0}\\"?":"I don\u0027t know what is \\"{0}\\"?","Why is \\"{0}\\"?":"Why is \\"{0}\\"?"},"zh-TW":{"I don\u0027t know what is \\"{0}\\"?":"我不知道什麼是「{0}」？","Why is \\"{0}\\"?":"為什麼是「{0}」？","WRITE LATER":"稍後再來寫解答","Question":"問題","Answer":"解答","Do you want to use his comment as your answer?":"您要將這個評論作為您的解答嗎？","New question will overwrite your question. Are you sure?":"您要用新問題取代目前的問題嗎？","Write your question here...":"請在這裡寫下您的問題...","Write your answer here...":"請在這裡寫下您的解答..."}}')
+  Component.options.__i18n.push('{"en":{"I don\u0027t know what is \\"{0}\\"?":"I don\u0027t know what is \\"{0}\\"?","Why is \\"{0}\\"?":"Why is \\"{0}\\"?"},"zh-TW":{"I don\u0027t know what is \\"{0}\\"?":"我不知道什麼是「{0}」？","Why is \\"{0}\\"?":"為什麼是「{0}」？","WRITE LATER":"留下「疑問」，稍後再來澄清","Question":"問題","Answer":"解答","Do you want to use his comment as your answer?":"您要將這個評論作為您的解答嗎？","New question will overwrite your question. Are you sure?":"您要用新問題取代目前的問題嗎？","Write your question here...":"請在這裡寫下您的問題...","Write your answer here...":"請在這裡寫下您的解答...","SAVE QUESTION":"記下「疑問」","SAVE ANSWER":"改為「已澄清」"}}')
   delete Component.options._Ctor
 }
 
@@ -265,23 +265,23 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"ADD":"記下「重點」","UPDATE":"更新「重點」"}}')
   delete Component.options._Ctor
 }
 
 
 /***/ }),
 
-/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/MainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CSectionMainIdea%5CSectionMainIdea.vue&lang=yaml":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/MainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CSectionMainIdea%5CSectionMainIdea.vue&lang=yaml ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/SectionMainIdea/SectionMainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CSectionMainIdea%5CSectionMainIdea.vue&lang=yaml":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/SectionMainIdea/SectionMainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CSectionMainIdea%5CSectionMainIdea.vue&lang=yaml ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"ADD":"記下「小節重點」","UPDATE":"更新「小節重點」"}}')
   delete Component.options._Ctor
 }
 
@@ -2732,6 +2732,7 @@ var render = function() {
                           "validation-button",
                           {
                             class: _vm.computedSubmitButtonClassList,
+                            style: _vm.computedSubmitQuestionStyle,
                             attrs: {
                               lib: _vm.lib,
                               text: _vm.question,
@@ -2744,13 +2745,32 @@ var render = function() {
                           [
                             _vm._v(
                               "\r\n          " +
-                                _vm._s(_vm.$t("SAVE")) +
+                                _vm._s(_vm.$t("SAVE QUESTION")) +
                                 "  \r\n        "
                             )
                           ]
                         )
                       ]
                     : [
+                        _vm.isQuestionSubmitted
+                          ? _c(
+                              "button",
+                              {
+                                staticClass: "ui button",
+                                class: _vm.computedSubmitButtonClassList,
+                                attrs: { type: "button" },
+                                on: { click: _vm.deleteAnnotation }
+                              },
+                              [
+                                _vm._v(
+                                  "\r\n          " +
+                                    _vm._s(_vm.$t("DELETE")) +
+                                    "  \r\n        "
+                                )
+                              ]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
                         _vm.isQuestionSubmitted && !_vm.isAnswerSubmitted
                           ? _c(
                               "button",
@@ -2774,6 +2794,7 @@ var render = function() {
                           "validation-button",
                           {
                             class: _vm.computedSubmitButtonClassList,
+                            style: _vm.computedSubmitAnswerStyle,
                             attrs: {
                               lib: _vm.lib,
                               text: _vm.answer,
@@ -2786,30 +2807,11 @@ var render = function() {
                           [
                             _vm._v(
                               "\r\n          " +
-                                _vm._s(_vm.$t("SAVE")) +
+                                _vm._s(_vm.$t("SAVE ANSWER")) +
                                 "  \r\n        "
                             )
                           ]
-                        ),
-                        _vm._v(" "),
-                        _vm.isQuestionSubmitted
-                          ? _c(
-                              "button",
-                              {
-                                staticClass: "ui red button",
-                                class: _vm.computedSubmitButtonClassList,
-                                attrs: { type: "button" },
-                                on: { click: _vm.deleteAnnotation }
-                              },
-                              [
-                                _vm._v(
-                                  "\r\n          " +
-                                    _vm._s(_vm.$t("DELETE")) +
-                                    "  \r\n        "
-                                )
-                              ]
-                            )
-                          : _vm._e()
+                        )
                       ]
                 ],
                 2
@@ -3074,28 +3076,6 @@ var render = function() {
                   _vm._v(" "),
                   _vm.annotation.id
                     ? [
-                        _c(
-                          "validation-button",
-                          {
-                            class: _vm.computedSubmitButtonClassList,
-                            attrs: {
-                              lib: _vm.lib,
-                              text: _vm.note,
-                              minWordCount: _vm.minWords,
-                              locale: _vm.status.preference.locale,
-                              enable: _vm.isEnableSubmitEdit
-                            },
-                            on: { click: _vm.editAnnotation }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(_vm.$t("SAVE")) +
-                                "  \r\n        "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
                         _vm.enableDelete
                           ? _c(
                               "button",
@@ -3113,13 +3093,37 @@ var render = function() {
                                 )
                               ]
                             )
-                          : _vm._e()
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "validation-button",
+                          {
+                            class: _vm.computedSubmitButtonClassList,
+                            style: _vm.computedSubmitButtonStyle,
+                            attrs: {
+                              lib: _vm.lib,
+                              text: _vm.note,
+                              minWordCount: _vm.minWords,
+                              locale: _vm.status.preference.locale,
+                              enable: _vm.isEnableSubmitEdit
+                            },
+                            on: { click: _vm.editAnnotation }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n          " +
+                                _vm._s(_vm.$t("UPDATE")) +
+                                "  \r\n        "
+                            )
+                          ]
+                        )
                       ]
                     : [
                         _c(
                           "validation-button",
                           {
                             class: _vm.computedSubmitButtonClassList,
+                            style: _vm.computedSubmitButtonStyle,
                             attrs: {
                               lib: _vm.lib,
                               minWordCount: _vm.minWords,
@@ -3227,28 +3231,6 @@ var render = function() {
                   _vm._v(" "),
                   _vm.annotation.id
                     ? [
-                        _c(
-                          "validation-button",
-                          {
-                            class: _vm.computedSubmitButtonClassList,
-                            attrs: {
-                              lib: _vm.lib,
-                              text: _vm.note,
-                              minWordCount: _vm.minWords,
-                              locale: _vm.status.preference.locale,
-                              enable: _vm.isEnableSubmitEdit
-                            },
-                            on: { click: _vm.editAnnotation }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(_vm.$t("SAVE")) +
-                                "  \r\n        "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
                         _vm.enableDelete
                           ? _c(
                               "button",
@@ -3266,13 +3248,37 @@ var render = function() {
                                 )
                               ]
                             )
-                          : _vm._e()
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "validation-button",
+                          {
+                            class: _vm.computedSubmitButtonClassList,
+                            style: _vm.computedSubmitButtonStyle,
+                            attrs: {
+                              lib: _vm.lib,
+                              text: _vm.note,
+                              minWordCount: _vm.minWords,
+                              locale: _vm.status.preference.locale,
+                              enable: _vm.isEnableSubmitEdit
+                            },
+                            on: { click: _vm.editAnnotation }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n          " +
+                                _vm._s(_vm.$t("UPDATE")) +
+                                "  \r\n        "
+                            )
+                          ]
+                        )
                       ]
                     : [
                         _c(
                           "validation-button",
                           {
                             class: _vm.computedSubmitButtonClassList,
+                            style: _vm.computedSubmitButtonStyle,
                             attrs: {
                               lib: _vm.lib,
                               minWordCount: _vm.minWords,
@@ -3551,6 +3557,7 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _c("editor-button", {
+        style: _vm.computedSectionMainIdeaButtonStyle,
         attrs: {
           config: _vm.config,
           status: _vm.status,
@@ -3607,6 +3614,7 @@ var render = function() {
       "button",
       {
         staticClass: "ui fluid button",
+        style: _vm.computedSectionMainIdeaButtonStyle,
         attrs: { type: "button" },
         on: { click: _vm.openSectionAnnotationEditor }
       },
@@ -10950,6 +10958,23 @@ let answerHeightPadding = '8em'
       //console.log(anchorText)
       return anchorText
     },
+    
+    computedSubmitQuestionStyle () {
+      let type = 'Confused'
+      let buttonStyle = this.status.readingConfig.annotationTypeModules[type].style.button
+      return {
+        color: buttonStyle.color,
+        'background-color': buttonStyle.backgroundColor,
+      }
+    },
+    computedSubmitAnswerStyle () {
+      let type = 'Clarified'
+      let buttonStyle = this.status.readingConfig.annotationTypeModules[type].style.button
+      return {
+        color: buttonStyle.color,
+        'background-color': buttonStyle.backgroundColor,
+      }
+    }
 //    isEditable () {
 //      return CommonComputed.isEditable(this)
 //    },
@@ -12060,22 +12085,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/MainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CSectionMainIdea%5CSectionMainIdea.vue&lang=yaml":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/MainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CSectionMainIdea%5CSectionMainIdea.vue&lang=yaml ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_MainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./MainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CSectionMainIdea%5CSectionMainIdea.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/MainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CSectionMainIdea%5CSectionMainIdea.vue&lang=yaml");
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_MainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_MainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_MainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_MainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_MainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
 /***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/SectionMainIdea/SectionMainIdea.js?vue&type=script&lang=js&?5c2f":
 /*!********************************************************************************************************************************************!*\
   !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/SectionMainIdea/SectionMainIdea.js?vue&type=script&lang=js& ***!
@@ -12167,7 +12176,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SectionMainIdea_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SectionMainIdea.js?vue&type=script&lang=js& */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/SectionMainIdea/SectionMainIdea.js?vue&type=script&lang=js&?659c");
 /* empty/unused harmony star reexport *//* harmony import */ var _MainIdea_MainIdea_less_vue_type_style_index_0_id_1e98a1d0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../MainIdea/MainIdea.less?vue&type=style&index=0&id=1e98a1d0&lang=less&scoped=true& */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/MainIdea.less?vue&type=style&index=0&id=1e98a1d0&lang=less&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-/* harmony import */ var _MainIdea_MainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../MainIdea/MainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CSectionMainIdea%5CSectionMainIdea.vue&lang=yaml */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/MainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CSectionMainIdea%5CSectionMainIdea.vue&lang=yaml");
+/* harmony import */ var _SectionMainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SectionMainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CSectionMainIdea%5CSectionMainIdea.vue&lang=yaml */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/SectionMainIdea/SectionMainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CSectionMainIdea%5CSectionMainIdea.vue&lang=yaml");
 
 
 
@@ -12189,12 +12198,28 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* custom blocks */
 
-if (typeof _MainIdea_MainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_MainIdea_MainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+if (typeof _SectionMainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_SectionMainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
 
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "webpack-app/client/Reading/components/annotation/AnnotationTypeModules/SectionMainIdea/SectionMainIdea.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/SectionMainIdea/SectionMainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CSectionMainIdea%5CSectionMainIdea.vue&lang=yaml":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/SectionMainIdea/SectionMainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CSectionMainIdea%5CSectionMainIdea.vue&lang=yaml ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionMainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./SectionMainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CSectionMainIdea%5CSectionMainIdea.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/SectionMainIdea/SectionMainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CSectionMainIdea%5CSectionMainIdea.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionMainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionMainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionMainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionMainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_SectionMainIdea_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CSectionMainIdea_5CSectionMainIdea_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -12220,6 +12245,15 @@ __webpack_require__.r(__webpack_exports__);
   Editor.computed.computedSubmitButtonClassList = function () {
     if (this.awaitSubmit === true) {
       return 'disabled'
+    }
+  } // Editor.computed.computedSubmitButtonClassList = function () {
+  
+  Editor.computed.computedSubmitButtonStyle = function () {
+    let type = this.annotation.type
+    let buttonStyle = this.status.readingConfig.annotationTypeModules[type].style.button
+    return {
+      color: buttonStyle.color,
+      'background-color': buttonStyle.backgroundColor,
     }
   } // Editor.computed.computedSubmitButtonClassList = function () {
 });
@@ -23219,7 +23253,7 @@ let SectionAnnotationList = {
     instance () {
       if (!this.sectionsData) {
         throw new Error('no section data')
-        return
+        return undefined
       }
       
       if (typeof(this.sectionsData.annotation[this.sectionSeqID]) !== 'object') {
@@ -23249,6 +23283,14 @@ let SectionAnnotationList = {
               && this.sectionsData.annotation[this.sectionSeqID].annotations
               && this.sectionsData.annotation[this.sectionSeqID].annotations.length > 0)
     },
+    computedSectionMainIdeaButtonStyle: function () {
+      let type = 'SectionMainIdea'
+      let buttonStyle = this.status.readingConfig.annotationTypeModules[type].style.button
+      return {
+        color: buttonStyle.color,
+        'background-color': buttonStyle.backgroundColor,
+      }
+    }
   },
   watch: {
     'page' (page) {
@@ -23671,10 +23713,19 @@ __webpack_require__.r(__webpack_exports__);
       header = header.eq(0)
     }
     else {
-      return
+      return undefined
     }
     
     return this.$t(':') + ' ' + header.text().trim()
+  }
+  
+  SectionChecklist.computed.computedSectionMainIdeaButtonStyle = function () {
+    let type = 'SectionMainIdea'
+    let buttonStyle = this.status.readingConfig.annotationTypeModules[type].style.button
+    return {
+      color: buttonStyle.color,
+      'background-color': buttonStyle.backgroundColor,
+    }
   }
 });
 

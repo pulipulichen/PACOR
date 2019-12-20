@@ -202,14 +202,14 @@ module.exports = {
       "style": {
         //'highlight': 'border-bottom: 1px solid green',
         'highlight': {
-          'my': 'background-color: rgba(255,0,0,0.5); color: white;',
-          'others': 'border-bottom: 2px solid red'
+          'my': 'background-color: rgba(219,40,40,0.5); color: white;',
+          'others': 'border-bottom: 2px solid #db2828'
         },
-        'segmentColor': 'red',
+        'segmentColor': '#db2828',
         'button': {
           'icon': 'question',
           'color': 'white',
-          'backgroundColor': 'red',
+          'backgroundColor': '#db2828',
         }
       }
     },
@@ -220,16 +220,18 @@ module.exports = {
         'url': '/annotation-instruction/ConfusedClarified.html'
       },
       "style": {
+        // https://www.colorhexa.com/15792d
         //'highlight': 'border-bottom: 1px solid green',
         'highlight': {
-          'my': 'background-color: rgba(0,128,0,0.5); color: white;',
-          'others': 'border-bottom: 2px solid rgba(0,128,0)'
+          'my': 'background-color: rgba(21,121,45,0.5); color: white;',
+          'others': 'border-bottom: 2px solid rgba(21,121,45)'
         },
-        'segmentColor': 'green',
+        'segmentColor': '#21ba45',
         'button': {
           'icon': 'check',
           'color': 'white',
-          'backgroundColor': 'green',
+          //'backgroundColor': 'green',
+          'backgroundColor': '#21ba45',
       }
       }
     },
@@ -244,14 +246,15 @@ module.exports = {
       "style": {
         //'highlight': 'border-bottom: 1px solid red',
         'highlight': {
-          'my': 'background-color: rgba(255,255,0,0.5); color: black;',
-          'others': 'border-bottom: 2px solid #CC0'
+          'my': 'background-color: rgba(229,91,0,0.5); color: black;',
+          'others': 'border-bottom: 2px solid #e55b00'
         },
-        'segmentColor': 'yellow',
+        'segmentColor': '#e55b00',
         'button': {
           'icon': 'exclamation',
           'color': 'white',
-          'backgroundColor': 'orange',
+          //'backgroundColor': 'orange',
+          'backgroundColor': '#e55b00',
         }
       }
     },
@@ -265,15 +268,16 @@ module.exports = {
       },
       "style": {
         //'highlight': 'border-bottom: 1px solid red',
-        'highlight': {
-          'my': 'background-color: rgba(255,255,0,0.5); color: black;',
-          'others': 'border-bottom: 2px solid #CC0'
-        },
-        'segmentColor': 'yellow',
+//        'highlight': {
+//          'my': 'background-color: rgba(255,255,0,0.5); color: black;',
+//          'others': 'border-bottom: 2px solid #CC0'
+//        },
+        'segmentColor': '#a5783f',
         'button': {
           'icon': 'exclamation',
           'color': 'white',
-          'backgroundColor': 'orange',
+          //'backgroundColor': 'orange',
+          'backgroundColor': '#a5783f',
         }
       }
     }

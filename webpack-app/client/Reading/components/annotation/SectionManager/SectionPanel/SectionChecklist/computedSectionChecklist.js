@@ -97,9 +97,18 @@ export default (SectionChecklist) => {
       header = header.eq(0)
     }
     else {
-      return
+      return undefined
     }
     
     return this.$t(':') + ' ' + header.text().trim()
+  }
+  
+  SectionChecklist.computed.computedSectionMainIdeaButtonStyle = function () {
+    let type = 'SectionMainIdea'
+    let buttonStyle = this.status.readingConfig.annotationTypeModules[type].style.button
+    return {
+      color: buttonStyle.color,
+      'background-color': buttonStyle.backgroundColor,
+    }
   }
 }

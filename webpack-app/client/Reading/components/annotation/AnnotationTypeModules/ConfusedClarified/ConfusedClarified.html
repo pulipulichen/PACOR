@@ -115,14 +115,24 @@
           v-bind:enable="isEnableSubmitQuestion"
           
           v-on:click="submitQuestion"
-          v-bind:class="computedSubmitButtonClassList">
-          {{ $t('SAVE') }}  
+          v-bind:class="computedSubmitButtonClassList"
+          v-bind:style="computedSubmitQuestionStyle">
+          {{ $t('SAVE QUESTION') }}  
         </validation-button>
       </template>
       
       <!-- ======================================== -->
       
       <template v-else>
+        
+        <button 
+          type="button"
+          class="ui button"
+          v-on:click="deleteAnnotation"
+          v-if="isQuestionSubmitted"
+          v-bind:class="computedSubmitButtonClassList">
+          {{ $t('DELETE') }}  
+        </button>
         
         <button 
           type="button"
@@ -151,20 +161,14 @@
           v-bind:enable="isEnableSubmitAnswer"
           
           v-on:click="submitAnswer"
-          v-bind:class="computedSubmitButtonClassList">
-          {{ $t('SAVE') }}  
+          v-bind:class="computedSubmitButtonClassList"
+          v-bind:style="computedSubmitAnswerStyle">
+          {{ $t('SAVE ANSWER') }}  
         </validation-button>
 
         <!-- ======================================== -->
         
-        <button 
-          type="button"
-          class="ui red button"
-          v-on:click="deleteAnnotation"
-          v-if="isQuestionSubmitted"
-          v-bind:class="computedSubmitButtonClassList">
-          {{ $t('DELETE') }}  
-        </button>
+        
       </template>
         
     </div>

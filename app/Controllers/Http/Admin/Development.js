@@ -1,5 +1,7 @@
 'use strict'
 
+// http://localhost:3333/admin/Development/avatars
+
 const Env = use('Env')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 const Helpers = use('Helpers')
@@ -18,6 +20,9 @@ class Development {
       let subpath = basedir + '/' + basefile
       let baseStats = fs.statSync(subpath)
       
+      if (basefile === '.trash') {
+        return false
+      }
       if (baseStats.isDirectory() === false) {
         return false
       }

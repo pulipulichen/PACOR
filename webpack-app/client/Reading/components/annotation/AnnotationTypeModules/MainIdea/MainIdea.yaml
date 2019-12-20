@@ -1,6 +1,6 @@
 en:
-  TEST_MESSAGE: Test Message
   
 zh-TW:
   # 這是註解
-  TEST_MESSAGE: 測試訊息
+  ADD: 記下「重點」
+  UPDATE: 更新「重點」

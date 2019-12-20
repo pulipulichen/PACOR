@@ -18,7 +18,7 @@ let SectionAnnotationList = {
     instance () {
       if (!this.sectionsData) {
         throw new Error('no section data')
-        return
+        return undefined
       }
       
       if (typeof(this.sectionsData.annotation[this.sectionSeqID]) !== 'object') {
@@ -48,6 +48,14 @@ let SectionAnnotationList = {
               && this.sectionsData.annotation[this.sectionSeqID].annotations
               && this.sectionsData.annotation[this.sectionSeqID].annotations.length > 0)
     },
+    computedSectionMainIdeaButtonStyle: function () {
+      let type = 'SectionMainIdea'
+      let buttonStyle = this.status.readingConfig.annotationTypeModules[type].style.button
+      return {
+        color: buttonStyle.color,
+        'background-color': buttonStyle.backgroundColor,
+      }
+    }
   },
   watch: {
     'page' (page) {

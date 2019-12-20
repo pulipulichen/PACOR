@@ -13,4 +13,13 @@ export default (Editor) => {
       return 'disabled'
     }
   } // Editor.computed.computedSubmitButtonClassList = function () {
+  
+  Editor.computed.computedSubmitButtonStyle = function () {
+    let type = this.annotation.type
+    let buttonStyle = this.status.readingConfig.annotationTypeModules[type].style.button
+    return {
+      color: buttonStyle.color,
+      'background-color': buttonStyle.backgroundColor,
+    }
+  } // Editor.computed.computedSubmitButtonClassList = function () {
 }

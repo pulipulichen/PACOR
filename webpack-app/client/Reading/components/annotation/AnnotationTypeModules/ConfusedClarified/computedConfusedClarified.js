@@ -159,6 +159,23 @@ export default (Editor) => {
       //console.log(anchorText)
       return anchorText
     },
+    
+    computedSubmitQuestionStyle () {
+      let type = 'Confused'
+      let buttonStyle = this.status.readingConfig.annotationTypeModules[type].style.button
+      return {
+        color: buttonStyle.color,
+        'background-color': buttonStyle.backgroundColor,
+      }
+    },
+    computedSubmitAnswerStyle () {
+      let type = 'Clarified'
+      let buttonStyle = this.status.readingConfig.annotationTypeModules[type].style.button
+      return {
+        color: buttonStyle.color,
+        'background-color': buttonStyle.backgroundColor,
+      }
+    }
 //    isEditable () {
 //      return CommonComputed.isEditable(this)
 //    },

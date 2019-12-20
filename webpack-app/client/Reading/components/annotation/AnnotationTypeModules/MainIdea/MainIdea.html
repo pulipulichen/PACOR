@@ -37,18 +37,6 @@
       </checkbox-toggle>
 
       <template v-if="annotation.id">
-        <validation-button 
-          v-bind:lib="lib"
-          
-          v-bind:text="note"
-          v-bind:minWordCount="minWords"
-          v-bind:locale="status.preference.locale"
-          v-bind:enable="isEnableSubmitEdit"
-          
-          v-on:click="editAnnotation"
-          v-bind:class="computedSubmitButtonClassList">
-          {{ $t('SAVE') }}  
-        </validation-button>
         
         <button 
           v-if="enableDelete"
@@ -58,6 +46,21 @@
           v-bind:class="computedSubmitButtonClassList">
           {{ $t('DELETE') }}  
         </button>
+        
+        <validation-button 
+          v-bind:lib="lib"
+          
+          v-bind:text="note"
+          v-bind:minWordCount="minWords"
+          v-bind:locale="status.preference.locale"
+          v-bind:enable="isEnableSubmitEdit"
+          
+          v-on:click="editAnnotation"
+          v-bind:class="computedSubmitButtonClassList"
+          v-bind:style="computedSubmitButtonStyle">
+          {{ $t('UPDATE') }}  
+        </validation-button>
+        
       </template>
       
       <template v-else>
@@ -71,7 +74,8 @@
           v-bind:enable="isEnableSubmitAdd"
           
           v-on:click="addAnnotation"
-          v-bind:class="computedSubmitButtonClassList">
+          v-bind:class="computedSubmitButtonClassList"
+          v-bind:style="computedSubmitButtonStyle">
           {{ $t('ADD') }}  
         </validation-button>
       </template>
