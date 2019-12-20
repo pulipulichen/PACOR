@@ -130,8 +130,8 @@ import jQuery from 'jquery'
       color: {
         recent: '字型顏色',
         more: '更多',
-        background: '背景',
-        foreground: '前景',
+        background: '背景顏色',
+        foreground: '前景顏色',
         transparent: '透明',
         setTransparent: '透明',
         reset: '重設',
