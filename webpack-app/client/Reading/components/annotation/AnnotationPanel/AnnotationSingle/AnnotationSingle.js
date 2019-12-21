@@ -37,13 +37,16 @@ let AnnotationEditorModules = {
       return this.lib.auth.stepHighlightAnnotationConfig
     },
     enableDiscussion () {
+      let enableDiscussion
       if (typeof(this.annotation.id) !== 'number') {
-        return false
+        enableDiscussion = false
       }
       else {
         //return this.annotationConfig.enableCollaboration
-        return this.lib.auth.isEnableCollaboration
+        enableDiscussion = this.lib.auth.isEnableCollaboration
       }
+      this.panelData.enableDiscussion = enableDiscussion
+      return enableDiscussion
     },
     computedGridClass () {
       let classList = []

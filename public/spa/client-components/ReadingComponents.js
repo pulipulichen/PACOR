@@ -783,7 +783,7 @@ exports.push([module.i, ".display-time[data-v-3882afce] {\n  vertical-align: bas
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-panel-buttons[data-v-6fa9e8ca]  .AnnotationInteractive {\n  margin-right: 4px;\n}\n.buttons-row > button[data-v-6fa9e8ca] {\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.buttons-row.second[data-v-6fa9e8ca] {\n  margin-top: 0.5em;\n}\n.buttons-row .delete-button[data-v-6fa9e8ca] {\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;AACnB;AACA;EACE,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE,iBAAiB;AACnB;AACA;EACE,sBAAsB;AACxB","file":"FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&","sourcesContent":[".annotation-panel-buttons[data-v-6fa9e8ca]  .AnnotationInteractive {\n  margin-right: 4px;\n}\n.buttons-row > button[data-v-6fa9e8ca] {\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.buttons-row.second[data-v-6fa9e8ca] {\n  margin-top: 0.5em;\n}\n.buttons-row .delete-button[data-v-6fa9e8ca] {\n  vertical-align: middle;\n}\n"]}]);
+exports.push([module.i, ".annotation-panel-buttons[data-v-6fa9e8ca]  .AnnotationInteractive {\n  margin-right: 4px;\n}\n.buttons-row > button[data-v-6fa9e8ca] {\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.buttons-row.second[data-v-6fa9e8ca] {\n  margin-top: 0.5em;\n}\n.buttons-row.second .delete-button[data-v-6fa9e8ca] {\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;AACnB;AACA;EACE,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE,iBAAiB;AACnB;AACA;EACE,sBAAsB;AACxB","file":"FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&","sourcesContent":[".annotation-panel-buttons[data-v-6fa9e8ca]  .AnnotationInteractive {\n  margin-right: 4px;\n}\n.buttons-row > button[data-v-6fa9e8ca] {\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.buttons-row.second[data-v-6fa9e8ca] {\n  margin-top: 0.5em;\n}\n.buttons-row.second .delete-button[data-v-6fa9e8ca] {\n  vertical-align: middle;\n}\n"]}]);
 
 
 /***/ }),
@@ -2760,151 +2760,278 @@ var render = function() {
         [
           _vm.$parent.isNoteEdited ? _c("block-exit") : _vm._e(),
           _vm._v(" "),
-          _c("div", { class: _vm.$parent.computedButtonsClass }, [
-            _c(
-              "div",
-              { staticClass: "buttons-row" },
-              [
-                _c("admin-badge", {
-                  attrs: { status: _vm.status, config: _vm.config }
-                }),
-                _vm._v(" "),
-                _vm.lib.auth.isEnableControlPermission
-                  ? _c("checkbox-toggle", {
-                      attrs: {
-                        label: _vm.$t("PUBLIC"),
-                        enable: !_vm.$parent.awaitSubmit
-                      },
-                      model: {
-                        value: _vm.public,
-                        callback: function($$v) {
-                          _vm.public = $$v
-                        },
-                        expression: "public"
-                      }
-                    })
-                  : _vm._e(),
-                _vm._v(" "),
-                !_vm.$parent.annotation.id
-                  ? [
-                      _c(
-                        "validation-button",
-                        {
-                          class: _vm.$parent.computedSubmitButtonClassList,
-                          style: _vm.computedSubmitQuestionStyle,
+          _vm.panelData.enableDiscussion
+            ? _c("div", { class: _vm.$parent.computedButtonsClass }, [
+                _c(
+                  "div",
+                  { staticClass: "buttons-row" },
+                  [
+                    _c("admin-badge", {
+                      attrs: { status: _vm.status, config: _vm.config }
+                    }),
+                    _vm._v(" "),
+                    _vm.lib.auth.isEnableControlPermission
+                      ? _c("checkbox-toggle", {
                           attrs: {
-                            lib: _vm.lib,
-                            text: _vm.$parent.question,
-                            minWordCount: _vm.$parent.questionMinWords,
-                            locale: _vm.status.preference.locale,
-                            enable: _vm.$parent.isEnableSubmitQuestion
+                            label: _vm.$t("PUBLIC"),
+                            enable: !_vm.$parent.awaitSubmit
                           },
-                          on: { click: _vm.submitQuestion }
-                        },
-                        [
-                          _vm._v(
-                            "\r\n          " +
-                              _vm._s(_vm.$t("SAVE QUESTION")) +
-                              "  \r\n        "
-                          )
-                        ]
-                      )
-                    ]
-                  : [
-                      _vm.$parent.isQuestionSubmitted &&
-                      !_vm.$parent.isAnswerSubmitted
-                        ? _c(
-                            "button",
+                          model: {
+                            value: _vm.public,
+                            callback: function($$v) {
+                              _vm.public = $$v
+                            },
+                            expression: "public"
+                          }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    !_vm.$parent.annotation.id
+                      ? [
+                          _c(
+                            "validation-button",
                             {
-                              staticClass: "ui compact button",
                               class: _vm.$parent.computedSubmitButtonClassList,
-                              attrs: { type: "button" },
-                              on: { click: _vm.writeLater }
+                              style: _vm.computedSubmitQuestionStyle,
+                              attrs: {
+                                lib: _vm.lib,
+                                text: _vm.$parent.question,
+                                minWordCount: _vm.$parent.questionMinWords,
+                                locale: _vm.status.preference.locale,
+                                enable: _vm.$parent.isEnableSubmitQuestion
+                              },
+                              on: { click: _vm.submitQuestion }
                             },
                             [
                               _vm._v(
                                 "\r\n          " +
-                                  _vm._s(_vm.$t("WRITE LATER")) +
+                                  _vm._s(_vm.$t("SAVE QUESTION")) +
                                   "  \r\n        "
                               )
                             ]
                           )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c(
-                        "validation-button",
-                        {
-                          class: _vm.$parent.computedSubmitButtonClassList,
-                          style: _vm.computedSubmitAnswerStyle,
-                          attrs: {
-                            lib: _vm.lib,
-                            text: _vm.$parent.answer,
-                            minWordCount: _vm.$parent.answerMinWords,
-                            locale: _vm.status.preference.locale,
-                            enable: _vm.$parent.isEnableSubmitAnswer
-                          },
-                          on: { click: _vm.submitAnswer }
-                        },
-                        [
-                          _vm._v(
-                            "\r\n          " +
-                              _vm._s(_vm.$t("SAVE ANSWER")) +
-                              "  \r\n        "
+                        ]
+                      : [
+                          _vm.$parent.isQuestionSubmitted &&
+                          !_vm.$parent.isAnswerSubmitted
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "ui compact button",
+                                  class:
+                                    _vm.$parent.computedSubmitButtonClassList,
+                                  attrs: { type: "button" },
+                                  on: { click: _vm.writeLater }
+                                },
+                                [
+                                  _vm._v(
+                                    "\r\n          " +
+                                      _vm._s(_vm.$t("WRITE LATER")) +
+                                      "  \r\n        "
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c(
+                            "validation-button",
+                            {
+                              class: _vm.$parent.computedSubmitButtonClassList,
+                              style: _vm.computedSubmitAnswerStyle,
+                              attrs: {
+                                lib: _vm.lib,
+                                text: _vm.$parent.answer,
+                                minWordCount: _vm.$parent.answerMinWords,
+                                locale: _vm.status.preference.locale,
+                                enable: _vm.$parent.isEnableSubmitAnswer
+                              },
+                              on: { click: _vm.submitAnswer }
+                            },
+                            [
+                              _vm._v(
+                                "\r\n          " +
+                                  _vm._s(_vm.$t("SAVE ANSWER")) +
+                                  "  \r\n        "
+                              )
+                            ]
                           )
                         ]
-                      )
-                    ]
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _vm.$parent.annotation.id
-              ? _c(
-                  "div",
-                  { staticClass: "buttons-row second" },
-                  [
-                    _vm.$parent.annotation.id
-                      ? _c("span", { staticClass: "display-time" }, [
-                          _vm._v(
-                            "\r\n        " +
-                              _vm._s(_vm.$parent.displayTime) +
-                              "\r\n      "
-                          )
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.$parent.annotation.id
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "ui compact button delete-button",
-                            class: _vm.$parent.computedSubmitButtonClassList,
-                            attrs: { type: "button" },
-                            on: { click: _vm.$parent.deleteAnnotation }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n        " +
-                                _vm._s(_vm.$t("DELETE")) +
-                                "  \r\n      "
-                            )
-                          ]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("annotation-item-interactive", {
-                      attrs: {
-                        config: _vm.config,
-                        status: _vm.status,
-                        lib: _vm.lib,
-                        annotation: _vm.annotation
-                      }
-                    })
                   ],
-                  1
+                  2
+                ),
+                _vm._v(" "),
+                _vm.$parent.annotation.id
+                  ? _c(
+                      "div",
+                      { staticClass: "buttons-row second" },
+                      [
+                        _vm.$parent.annotation.id
+                          ? _c("span", { staticClass: "display-time" }, [
+                              _vm._v(
+                                "\r\n        " +
+                                  _vm._s(_vm.$parent.displayTime) +
+                                  "\r\n      "
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.$parent.annotation.id
+                          ? _c(
+                              "button",
+                              {
+                                staticClass: "ui compact button delete-button",
+                                class:
+                                  _vm.$parent.computedSubmitButtonClassList,
+                                attrs: { type: "button" },
+                                on: { click: _vm.$parent.deleteAnnotation }
+                              },
+                              [
+                                _vm._v(
+                                  "\r\n        " +
+                                    _vm._s(_vm.$t("DELETE")) +
+                                    "  \r\n      "
+                                )
+                              ]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("annotation-item-interactive", {
+                          attrs: {
+                            config: _vm.config,
+                            status: _vm.status,
+                            lib: _vm.lib,
+                            annotation: _vm.annotation
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  : _vm._e()
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.panelData.enableDiscussion
+            ? _c("div", { class: _vm.$parent.computedButtonsClass }, [
+                _c(
+                  "div",
+                  { staticClass: "buttons-row" },
+                  [
+                    _c("admin-badge", {
+                      attrs: { status: _vm.status, config: _vm.config }
+                    }),
+                    _vm._v(" "),
+                    _vm.lib.auth.isEnableControlPermission
+                      ? _c("checkbox-toggle", {
+                          attrs: {
+                            label: _vm.$t("PUBLIC"),
+                            enable: !_vm.$parent.awaitSubmit
+                          },
+                          model: {
+                            value: _vm.public,
+                            callback: function($$v) {
+                              _vm.public = $$v
+                            },
+                            expression: "public"
+                          }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    !_vm.$parent.annotation.id
+                      ? [
+                          _c(
+                            "validation-button",
+                            {
+                              class: _vm.$parent.computedSubmitButtonClassList,
+                              style: _vm.computedSubmitQuestionStyle,
+                              attrs: {
+                                lib: _vm.lib,
+                                text: _vm.$parent.question,
+                                minWordCount: _vm.$parent.questionMinWords,
+                                locale: _vm.status.preference.locale,
+                                enable: _vm.$parent.isEnableSubmitQuestion
+                              },
+                              on: { click: _vm.submitQuestion }
+                            },
+                            [
+                              _vm._v(
+                                "\r\n          " +
+                                  _vm._s(_vm.$t("SAVE QUESTION")) +
+                                  "  \r\n        "
+                              )
+                            ]
+                          )
+                        ]
+                      : [
+                          _vm.$parent.annotation.id
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "ui compact button delete-button",
+                                  class:
+                                    _vm.$parent.computedSubmitButtonClassList,
+                                  attrs: { type: "button" },
+                                  on: { click: _vm.$parent.deleteAnnotation }
+                                },
+                                [
+                                  _vm._v(
+                                    "\r\n          " +
+                                      _vm._s(_vm.$t("DELETE")) +
+                                      "  \r\n        "
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.$parent.isQuestionSubmitted &&
+                          !_vm.$parent.isAnswerSubmitted
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "ui compact button",
+                                  class:
+                                    _vm.$parent.computedSubmitButtonClassList,
+                                  attrs: { type: "button" },
+                                  on: { click: _vm.writeLater }
+                                },
+                                [
+                                  _vm._v(
+                                    "\r\n          " +
+                                      _vm._s(_vm.$t("WRITE LATER")) +
+                                      "  \r\n        "
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c(
+                            "validation-button",
+                            {
+                              class: _vm.$parent.computedSubmitButtonClassList,
+                              style: _vm.computedSubmitAnswerStyle,
+                              attrs: {
+                                lib: _vm.lib,
+                                text: _vm.$parent.answer,
+                                minWordCount: _vm.$parent.answerMinWords,
+                                locale: _vm.status.preference.locale,
+                                enable: _vm.$parent.isEnableSubmitAnswer
+                              },
+                              on: { click: _vm.submitAnswer }
+                            },
+                            [
+                              _vm._v(
+                                "\r\n          " +
+                                  _vm._s(_vm.$t("SAVE ANSWER")) +
+                                  "  \r\n        "
+                              )
+                            ]
+                          )
+                        ]
+                  ],
+                  2
                 )
-              : _vm._e()
-          ])
+              ])
+            : _vm._e()
         ],
         1
       )
@@ -9452,13 +9579,16 @@ let AnnotationEditorModules = {
       return this.lib.auth.stepHighlightAnnotationConfig
     },
     enableDiscussion () {
+      let enableDiscussion
       if (typeof(this.annotation.id) !== 'number') {
-        return false
+        enableDiscussion = false
       }
       else {
         //return this.annotationConfig.enableCollaboration
-        return this.lib.auth.isEnableCollaboration
+        enableDiscussion = this.lib.auth.isEnableCollaboration
       }
+      this.panelData.enableDiscussion = enableDiscussion
+      return enableDiscussion
     },
     computedGridClass () {
       let classList = []
@@ -9764,6 +9894,7 @@ __webpack_require__.r(__webpack_exports__);
     anchorPositions: null,
     annotation: null,
     isAnnotationEditing: false,
+    enableDiscussion: false,
     
     filter: {
       user: null,
@@ -11464,6 +11595,9 @@ let answerHeightPadding = '8em'
     computedAnswerEditorHeight() {
       let height
       let basePadding = `12em`
+      if (!this.panelData.enableDiscussion) {
+        basePadding = `10em`
+      }
       
       if (this.enableCollaboration === true
               && this.lib.style.isStackWidth()) {
