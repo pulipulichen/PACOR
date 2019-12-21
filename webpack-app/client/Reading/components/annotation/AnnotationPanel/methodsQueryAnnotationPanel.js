@@ -32,14 +32,15 @@ export default (AnnotationPanel) => {
   AnnotationPanel.methods.focusCommentInput = function (annotation) {
     if (annotation) {
       this.setAnnotation(annotation)
-      
-      setTimeout(() => {
-        this.$refs.AnnotationSingle.focusCommentInput()
-      }, 0)
     }
-    else {
-      this.$refs.AnnotationSingle.focusCommentInput()
-    } 
+    setTimeout(() => {
+      if (this.$refs.AnnotationSingle) {
+        this.$refs.AnnotationSingle.focusCommentInput()
+      }
+      else {
+        this.$refs.AnnotationList.focusCommentInput()
+      }
+    }, 0)
   }
   
   AnnotationPanel.methods.focusAnnotation = async function (annotationID) {

@@ -484,7 +484,7 @@ __webpack_require__.r(__webpack_exports__);
         calc = calc.slice(5, -1)
       }
 
-      let padding = 44
+      let padding = 46
       //if (this.label) {
       //  padding = padding + 30
       //}

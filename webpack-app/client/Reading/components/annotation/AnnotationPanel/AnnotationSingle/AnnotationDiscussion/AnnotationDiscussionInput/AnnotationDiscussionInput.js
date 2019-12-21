@@ -62,7 +62,7 @@ let AnnotationDiscussionInput = {
       let input = this.$refs.input
       input.focus()
       $(input).transition('glow')
-      console.trace('who trigger focus()?')
+      //console.trace('who trigger focus()?')
     },
     submit () {
       if (this.isEnableSubmit === false) {

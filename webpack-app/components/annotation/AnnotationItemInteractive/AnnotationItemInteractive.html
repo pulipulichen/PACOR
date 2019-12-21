@@ -28,13 +28,18 @@
   <span 
     class="button-column"
     v-if="!isNotMe && likes > 0">
-    <i class="thumbs up outline icon"></i>
-    <template v-if="showLabel">
-      {{ $t('{0} Likes', [likes]) }}
-    </template>
-    <template v-else>
-      {{ likes }}
-    </template>
+    <button 
+      type="button" 
+      class="basic like ui compact button display-like"
+      v-bind:class="computedLikesButtonClass">
+      <i class="thumbs up outline icon"></i>
+      <template v-if="showLabel">
+        {{ $t('{0} Likes', [likes]) }}
+      </template>
+      <template v-else>
+        {{ likes }}
+      </template>
+    </button>
   </span>
   
   <!-- ==================================== -->

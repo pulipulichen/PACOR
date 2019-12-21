@@ -889,7 +889,7 @@ exports.push([module.i, ".note[data-v-21a9a788] {\n  max-height: 4rem;\n  overfl
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationInteractive[data-v-6ce3bf7e] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button[data-v-6ce3bf7e] {\n  vertical-align: middle !important;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button.with-count[data-v-6ce3bf7e] {\n  padding-left: 1em;\n  padding-right: 1em;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button.with-count > i[data-v-6ce3bf7e] {\n  margin-right: 0 !important;\n}\n", "",{"version":3,"sources":["AnnotationItemInteractive.less?vue&type=style&index=0&id=6ce3bf7e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,iCAAiC;AACnC;AACA;EACE,iBAAiB;EACjB,kBAAkB;AACpB;AACA;EACE,0BAA0B;AAC5B","file":"AnnotationItemInteractive.less?vue&type=style&index=0&id=6ce3bf7e&lang=less&scoped=true&","sourcesContent":[".AnnotationInteractive[data-v-6ce3bf7e] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button[data-v-6ce3bf7e] {\n  vertical-align: middle !important;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button.with-count[data-v-6ce3bf7e] {\n  padding-left: 1em;\n  padding-right: 1em;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button.with-count > i[data-v-6ce3bf7e] {\n  margin-right: 0 !important;\n}\n"]}]);
+exports.push([module.i, ".AnnotationInteractive[data-v-6ce3bf7e] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button[data-v-6ce3bf7e] {\n  vertical-align: middle !important;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button.with-count[data-v-6ce3bf7e] {\n  padding-left: 1em;\n  padding-right: 1em;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button.with-count > i[data-v-6ce3bf7e] {\n  margin-right: 0 !important;\n}\n.AnnotationInteractive .display-like[data-v-6ce3bf7e] {\n  pointer-events: none;\n  cursor: default;\n}\n", "",{"version":3,"sources":["AnnotationItemInteractive.less?vue&type=style&index=0&id=6ce3bf7e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,iCAAiC;AACnC;AACA;EACE,iBAAiB;EACjB,kBAAkB;AACpB;AACA;EACE,0BAA0B;AAC5B;AACA;EACE,oBAAoB;EACpB,eAAe;AACjB","file":"AnnotationItemInteractive.less?vue&type=style&index=0&id=6ce3bf7e&lang=less&scoped=true&","sourcesContent":[".AnnotationInteractive[data-v-6ce3bf7e] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button[data-v-6ce3bf7e] {\n  vertical-align: middle !important;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button.with-count[data-v-6ce3bf7e] {\n  padding-left: 1em;\n  padding-right: 1em;\n}\n.AnnotationInteractive button[type=\"button\"].ui.button.with-count > i[data-v-6ce3bf7e] {\n  margin-right: 0 !important;\n}\n.AnnotationInteractive .display-like[data-v-6ce3bf7e] {\n  pointer-events: none;\n  cursor: default;\n}\n"]}]);
 
 
 /***/ }),
@@ -2864,24 +2864,34 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         !_vm.isNotMe && _vm.likes > 0
-          ? _c(
-              "span",
-              { staticClass: "button-column" },
-              [
-                _c("i", { staticClass: "thumbs up outline icon" }),
-                _vm._v(" "),
-                _vm.showLabel
-                  ? [
-                      _vm._v(
-                        "\r\n      " +
-                          _vm._s(_vm.$t("{0} Likes", [_vm.likes])) +
-                          "\r\n    "
-                      )
-                    ]
-                  : [_vm._v("\r\n      " + _vm._s(_vm.likes) + "\r\n    ")]
-              ],
-              2
-            )
+          ? _c("span", { staticClass: "button-column" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "basic like ui compact button display-like",
+                  class: _vm.computedLikesButtonClass,
+                  attrs: { type: "button" }
+                },
+                [
+                  _c("i", { staticClass: "thumbs up outline icon" }),
+                  _vm._v(" "),
+                  _vm.showLabel
+                    ? [
+                        _vm._v(
+                          "\r\n        " +
+                            _vm._s(_vm.$t("{0} Likes", [_vm.likes])) +
+                            "\r\n      "
+                        )
+                      ]
+                    : [
+                        _vm._v(
+                          "\r\n        " + _vm._s(_vm.likes) + "\r\n      "
+                        )
+                      ]
+                ],
+                2
+              )
+            ])
           : _vm._e(),
         _vm._v(" "),
         !_vm.enableComment && _vm.enableComment !== false
@@ -9500,9 +9510,9 @@ let AnnotationInteractive = {
   computed: {
     computedLikesButtonClass () {
       let classList = []
-      if (!this.enableLike) {
-        classList.push('disabled')
-      }
+      //if (!this.enableLike) {
+      //  classList.push('disabled')
+      //}
       if (this.i_have_liked) {
         classList.push('green')
       }
@@ -12363,12 +12373,15 @@ let AnnotationHelper = {
   },
   autoComplete (annotation) {
     if (!annotation.user) {
+      annotation.user_id = this.status.userID
       annotation.user = {
         id: this.status.userID,
         username: this.status.username,
         displayName: this.status.displayName,
         avatar_url: this.status.avatar
       }
+      
+      //console.log(annotation.user)
     }
     if (!annotation.updated_at_unixms) {
       annotation.updated_at_unixms = (new Date()).getTime()

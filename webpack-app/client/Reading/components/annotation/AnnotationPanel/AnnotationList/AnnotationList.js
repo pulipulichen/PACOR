@@ -61,6 +61,14 @@ let AnnotationList = {
       if (this.$refs.MainList.annotations.length < 2) {
         this.lib.AnnotationPanel.hide()
       }
+    },
+    focusCommentInput() {
+      if (!this.isFiltering) {
+        this.$refs.MainList.focusCommentInput()
+      }
+      else {
+        this.$refs.FilteredList.focusCommentInput()
+      }
     }
     //onUpdate () {
     //  this.annotation = null

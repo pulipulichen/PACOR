@@ -15,4 +15,9 @@ export default (List) => {
     return confirm
   }
   
+  List.methods.focusCommentInput = function () {
+    if (this.$refs.AnnotationSingle) {
+      this.$refs.AnnotationSingle.focusCommentInput()
+    }
+  }
 }

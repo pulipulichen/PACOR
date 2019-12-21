@@ -18,9 +18,9 @@ let AnnotationInteractive = {
   computed: {
     computedLikesButtonClass () {
       let classList = []
-      if (!this.enableLike) {
-        classList.push('disabled')
-      }
+      //if (!this.enableLike) {
+      //  classList.push('disabled')
+      //}
       if (this.i_have_liked) {
         classList.push('green')
       }

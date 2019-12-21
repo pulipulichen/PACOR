@@ -104,12 +104,15 @@ let AnnotationHelper = {
   },
   autoComplete (annotation) {
     if (!annotation.user) {
+      annotation.user_id = this.status.userID
       annotation.user = {
         id: this.status.userID,
         username: this.status.username,
         displayName: this.status.displayName,
         avatar_url: this.status.avatar
       }
+      
+      //console.log(annotation.user)
     }
     if (!annotation.updated_at_unixms) {
       annotation.updated_at_unixms = (new Date()).getTime()

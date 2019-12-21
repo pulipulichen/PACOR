@@ -6584,6 +6584,14 @@ let AnnotationList = {
       if (this.$refs.MainList.annotations.length < 2) {
         this.lib.AnnotationPanel.hide()
       }
+    },
+    focusCommentInput() {
+      if (!this.isFiltering) {
+        this.$refs.MainList.focusCommentInput()
+      }
+      else {
+        this.$refs.FilteredList.focusCommentInput()
+      }
     }
     //onUpdate () {
     //  this.annotation = null
@@ -7451,6 +7459,11 @@ __webpack_require__.r(__webpack_exports__);
     return confirm
   }
   
+  List.methods.focusCommentInput = function () {
+    if (this.$refs.AnnotationSingle) {
+      this.$refs.AnnotationSingle.focusCommentInput()
+    }
+  }
 });
 
 /***/ }),
@@ -8204,7 +8217,7 @@ let AnnotationDiscussionInput = {
       let input = this.$refs.input
       input.focus()
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(input).transition('glow')
-      console.trace('who trigger focus()?')
+      //console.trace('who trigger focus()?')
     },
     submit () {
       if (this.isEnableSubmit === false) {
@@ -10206,14 +10219,15 @@ __webpack_require__.r(__webpack_exports__);
   AnnotationPanel.methods.focusCommentInput = function (annotation) {
     if (annotation) {
       this.setAnnotation(annotation)
-      
-      setTimeout(() => {
-        this.$refs.AnnotationSingle.focusCommentInput()
-      }, 0)
     }
-    else {
-      this.$refs.AnnotationSingle.focusCommentInput()
-    } 
+    setTimeout(() => {
+      if (this.$refs.AnnotationSingle) {
+        this.$refs.AnnotationSingle.focusCommentInput()
+      }
+      else {
+        this.$refs.AnnotationList.focusCommentInput()
+      }
+    }, 0)
   }
   
   AnnotationPanel.methods.focusAnnotation = async function (annotationID) {
