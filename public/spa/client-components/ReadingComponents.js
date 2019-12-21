@@ -9851,7 +9851,7 @@ __webpack_require__.r(__webpack_exports__);
 
   AnnotationPanel.computed.computedSegmentStyle = function () {
     if (this.lib.auth.isEnableCollaboration === true
-            && this.lib.style.isStackWidth() === true) {
+            && this.lib.style.isStackWidth === true) {
       return {
         'max-height': `${this.panelData.heightPX}px`,
         'overflow-y': 'auto',
@@ -10344,7 +10344,7 @@ let body = null
     let minPanelHeight = this.lib.style.params.AnnotationPanelMinPanelHeight
 
     let moveEvent = (event) => {
-      if (this.lib.style.isSmallHeight() === false) {
+      if (this.lib.style.isSmallHeight === false) {
         if (event.clientY < maxTopGap
                 || (window.innerHeight - event.clientY) < minPanelHeight) {
           return false
@@ -11569,12 +11569,14 @@ let answerHeightPadding = '8em'
         }
         
         let height
+        let basePadding = `9em`
+        
         if (this.enableCollaboration === true
-                && this.lib.style.isStackWidth()) {
-          height = (this.lib.style.getClientHeight() / 2)
-          height = `calc(${height}px - 9em)`
+                && this.lib.style.isStackWidth) {
+          height = (this.lib.style.clientHeight / 2)
+          height = `calc(${height}px - ${basePadding})`
         } else {
-          height = `calc(${this.heightPX}px - 9em)`
+          height = `calc(${this.heightPX}px - ${basePadding})`
         }
         //console.log(height)
         return height
@@ -11605,8 +11607,8 @@ let answerHeightPadding = '8em'
       }
       
       if (this.enableCollaboration === true
-              && this.lib.style.isStackWidth()) {
-        height = (this.lib.style.getClientHeight() / 2)
+              && this.lib.style.isStackWidth) {
+        height = (this.lib.style.clientHeight / 2)
         height = `calc(${height}px - ${answerHeightPadding})`
       } else if (this.heightPX > 400) {
         //console.log(this.heightPX)
@@ -12128,9 +12130,15 @@ let Editor = {
     }
     //console.log(note)
     
+    let noteReset = note
+    if (noteReset) {
+      noteReset = this.lib.StringHelper.htmlTrim(noteReset)
+      noteReset = this.lib.StringHelper.htmlToText(noteReset, true)
+    }
+    
     return {
       note: note,
-      noteReset: note,
+      noteReset: noteReset,
       //public: 
     }
   },
@@ -12184,8 +12192,8 @@ let Editor = {
       let basePadding = `5em`
       
       if (vm.enableCollaboration === true) {
-        height = (vm.lib.style.getClientHeight() / 2)
-        if (vm.lib.style.isStackWidth()) {
+        height = (vm.lib.style.clientHeight / 2)
+        if (vm.lib.style.isStackWidth) {
           height = `calc(${height}px - ${basePadding})`
         }
         else {
@@ -12439,9 +12447,15 @@ let Editor = {
     }
     //console.log(note)
     
+    let noteReset = note
+    if (noteReset) {
+      noteReset = this.lib.StringHelper.htmlTrim(noteReset)
+      noteReset = this.lib.StringHelper.htmlToText(noteReset, true)
+    }
+    
     return {
       note: note,
-      noteReset: note,
+      noteReset: noteReset,
       //public: 
     }
   },
@@ -12495,8 +12509,8 @@ let Editor = {
       let basePadding = `5em`
       
       if (vm.enableCollaboration === true) {
-        height = (vm.lib.style.getClientHeight() / 2)
-        if (vm.lib.style.isStackWidth()) {
+        height = (vm.lib.style.clientHeight / 2)
+        if (vm.lib.style.isStackWidth) {
           height = `calc(${height}px - ${basePadding})`
         }
         else {

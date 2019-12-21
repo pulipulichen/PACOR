@@ -2,20 +2,21 @@ let StyleManager = {
   props: ['lib', 'status', 'config'],
   data() {
     return {
+      isStackWidth: null,
+      isSmallHeight: null,
+      clientHeight: null
     }
   },
-//  components: {
-//  },
-  computed: {
-  },
+  computed: {}, // computedStyleManager.js
 //  watch: {
 //  },
-//  mounted() {
-//  },
-  methods: {
-    
-    
-  } // methods
+  mounted () {
+    window.addEventListener('resize', this.onWindowResize)
+  },
+  destroyed () {
+    window.removeEventListener('resize', this.onWindowResize)
+  },
+  methods: {} // methodsStyleManager.js
 }
 
 import computedStyleManager from './computedStyleManager.js'

@@ -27,7 +27,7 @@ export default (AnnotationPanel) => {
     let minPanelHeight = this.lib.style.params.AnnotationPanelMinPanelHeight
 
     let moveEvent = (event) => {
-      if (this.lib.style.isSmallHeight() === false) {
+      if (this.lib.style.isSmallHeight === false) {
         if (event.clientY < maxTopGap
                 || (window.innerHeight - event.clientY) < minPanelHeight) {
           return false

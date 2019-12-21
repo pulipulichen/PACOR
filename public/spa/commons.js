@@ -3105,20 +3105,21 @@ let StyleManager = {
   props: ['lib', 'status', 'config'],
   data() {
     return {
+      isStackWidth: null,
+      isSmallHeight: null,
+      clientHeight: null
     }
   },
-//  components: {
-//  },
-  computed: {
-  },
+  computed: {}, // computedStyleManager.js
 //  watch: {
 //  },
-//  mounted() {
-//  },
-  methods: {
-    
-    
-  } // methods
+  mounted () {
+    window.addEventListener('resize', this.onWindowResize)
+  },
+  destroyed () {
+    window.removeEventListener('resize', this.onWindowResize)
+  },
+  methods: {} // methodsStyleManager.js
 }
 
 
@@ -3226,25 +3227,32 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (StyleManager) {
-    
-  StyleManager.methods.isStackWidth = function () {
+  
+  StyleManager.methods.onWindowResize = function () {
     let StackWidth = this.config.StackWidth
-    return (window.innerWidth < StackWidth)
+    this.isStackWidth = (window.innerWidth < StackWidth)
+    this.isSmallHeight = (window.innerHeight < this.config.SmallHeight)
+    this.clientHeight = window.innerHeight
   }
   
-  StyleManager.methods.isSmallHeight = function () {
-    return (window.innerHeight < this.config.SmallHeight)
-  }
-  
-  StyleManager.methods.getClientHeight = function (unit) {
-    let height = window.innerHeight
-
-    if (typeof (unit) === 'string') {
-      height = height + unit
-    }
-
-    return height
-  } // StyleManager.methods.getClientHeight = function (unit) {
+//  StyleManager.methods.isStackWidth = function () {
+//    let StackWidth = this.config.StackWidth
+//    return (window.innerWidth < StackWidth)
+//  }
+//  
+//  StyleManager.methods.isSmallHeight = function () {
+//    return (window.innerHeight < this.config.SmallHeight)
+//  }
+//  
+//  StyleManager.methods.getClientHeight = function (unit) {
+//    let height = window.innerHeight
+//
+//    if (typeof (unit) === 'string') {
+//      height = height + unit
+//    }
+//
+//    return height
+//  } // StyleManager.methods.getClientHeight = function (unit) {
 });
 
 /***/ }),

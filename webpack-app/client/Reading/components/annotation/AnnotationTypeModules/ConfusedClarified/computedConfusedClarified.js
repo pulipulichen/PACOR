@@ -80,12 +80,14 @@ export default (Editor) => {
         }
         
         let height
+        let basePadding = `9em`
+        
         if (this.enableCollaboration === true
-                && this.lib.style.isStackWidth()) {
-          height = (this.lib.style.getClientHeight() / 2)
-          height = `calc(${height}px - 9em)`
+                && this.lib.style.isStackWidth) {
+          height = (this.lib.style.clientHeight / 2)
+          height = `calc(${height}px - ${basePadding})`
         } else {
-          height = `calc(${this.heightPX}px - 9em)`
+          height = `calc(${this.heightPX}px - ${basePadding})`
         }
         //console.log(height)
         return height
@@ -116,8 +118,8 @@ export default (Editor) => {
       }
       
       if (this.enableCollaboration === true
-              && this.lib.style.isStackWidth()) {
-        height = (this.lib.style.getClientHeight() / 2)
+              && this.lib.style.isStackWidth) {
+        height = (this.lib.style.clientHeight / 2)
         height = `calc(${height}px - ${answerHeightPadding})`
       } else if (this.heightPX > 400) {
         //console.log(this.heightPX)

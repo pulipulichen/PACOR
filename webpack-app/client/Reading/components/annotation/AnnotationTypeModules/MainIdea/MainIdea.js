@@ -29,9 +29,15 @@ let Editor = {
     }
     //console.log(note)
     
+    let noteReset = note
+    if (noteReset) {
+      noteReset = this.lib.StringHelper.htmlTrim(noteReset)
+      noteReset = this.lib.StringHelper.htmlToText(noteReset, true)
+    }
+    
     return {
       note: note,
-      noteReset: note,
+      noteReset: noteReset,
       //public: 
     }
   },
@@ -85,8 +91,8 @@ let Editor = {
       let basePadding = `5em`
       
       if (vm.enableCollaboration === true) {
-        height = (vm.lib.style.getClientHeight() / 2)
-        if (vm.lib.style.isStackWidth()) {
+        height = (vm.lib.style.clientHeight / 2)
+        if (vm.lib.style.isStackWidth) {
           height = `calc(${height}px - ${basePadding})`
         }
         else {
