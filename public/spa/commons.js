@@ -1895,11 +1895,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _methodsRandomPACORTestManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsRandomPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/methodsRandomPACORTestManager.js");
 /* harmony import */ var _methodsPuppeteerPACORTestManager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsPuppeteerPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/methodsPuppeteerPACORTestManager.js");
 /* harmony import */ var _methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methodsExceptionPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/methodsExceptionPACORTestManager.js");
-/* harmony import */ var _readerSteps_stepQuestionnairePACORTestManager_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./readerSteps/stepQuestionnairePACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepQuestionnairePACORTestManager.js");
-/* harmony import */ var _readerSteps_stepWriteAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./readerSteps/stepWriteAnnotationPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepWriteAnnotationPACORTestManager.js");
-/* harmony import */ var _readerSteps_stepSectionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./readerSteps/stepSectionPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepSectionPACORTestManager.js");
-/* harmony import */ var _readerSteps_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./readerSteps/stepStepInstructionPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepStepInstructionPACORTestManager.js");
-/* harmony import */ var _readerSteps_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./readerSteps/stepLoginPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepLoginPACORTestManager.js");
+/* harmony import */ var _stepsReader_stepQuestionnairePACORTestManager_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./stepsReader/stepQuestionnairePACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepQuestionnairePACORTestManager.js");
+/* harmony import */ var _stepsReader_stepSectionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./stepsReader/stepSectionPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepSectionPACORTestManager.js");
+/* harmony import */ var _stepsReader_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./stepsReader/stepStepInstructionPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepStepInstructionPACORTestManager.js");
+/* harmony import */ var _stepsReader_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./stepsReader/stepLoginPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepLoginPACORTestManager.js");
+/* harmony import */ var _stepsReader_stepAddAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./stepsReader/stepAddAnnotationPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepAddAnnotationPACORTestManager.js");
 let PACORTestManager = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -1991,21 +1991,29 @@ Object(_methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__["default"]
 //methodsWindowPACORTestManager(PACORTestManager)
 
 // ---------------
+// readerSteps
+// ---------------
 
 
-Object(_readerSteps_stepQuestionnairePACORTestManager_js__WEBPACK_IMPORTED_MODULE_6__["default"])(PACORTestManager)
+Object(_stepsReader_stepQuestionnairePACORTestManager_js__WEBPACK_IMPORTED_MODULE_6__["default"])(PACORTestManager)
 
 
-Object(_readerSteps_stepWriteAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_7__["default"])(PACORTestManager)
+Object(_stepsReader_stepSectionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_7__["default"])(PACORTestManager)
 
 
-Object(_readerSteps_stepSectionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_8__["default"])(PACORTestManager)
+Object(_stepsReader_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_8__["default"])(PACORTestManager)
 
 
-Object(_readerSteps_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_9__["default"])(PACORTestManager)
+Object(_stepsReader_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_9__["default"])(PACORTestManager)
 
 
-Object(_readerSteps_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__["default"])(PACORTestManager)
+
+Object(_stepsReader_stepAddAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__["default"])(PACORTestManager)
+
+
+// ---------------
+// adminSteps
+// ---------------
 
 /* harmony default export */ __webpack_exports__["default"] = (PACORTestManager);
 
@@ -2611,9 +2619,114 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepLoginPACORTestManager.js":
+/***/ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepAddAnnotationPACORTestManager.js":
+/*!**********************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/stepsReader/stepAddAnnotationPACORTestManager.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module './AnnotationTypeModules/stepAnnotationConfusedClarifiedPACORTestManager.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module './AnnotationTypeModules/stepAnnotationConfusedPACORTestManager.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module './AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  PACORTestManager.methods.writeAnnotations = async function () {
+    
+    await this.sleep(3000)
+    
+    //let min = 4
+    //let max = 10
+    
+    //let min = 4
+    //let max = 10
+    
+    let min = this.testConfig.minAnnotation
+    let max = this.testConfig.maxAnnotation
+    //let min = 3, max = 6
+    //let min = 4, max = 10
+    //let 
+    
+    
+    let writeAnnotations = min + Math.floor(Math.random() *  (max - min))
+    
+    // 改用亂數排列的形式
+    let iList = this.buildRandomIndexList(writeAnnotations)
+    
+    //for (let i = 0; i < writeAnnotations; i++) {
+    iList.forEach(async (i) => {
+      await this.retry(3, async () => {
+        await this.sleep(100)
+
+        this.log('撰寫標註：' + (i+1) + '/' + (writeAnnotations) )
+        await this.selectAnnotationType(i)
+        if (i % 3 === 0) {
+          await this.writeMainIdeaAnnotation()
+          //await this.writeConfusedAnnotation()
+        }
+        else if (i % 3 === 1) {
+          await this.writeConfusedClarifiedAnnotation()
+          //await this.writeConfusedAnnotation()
+        }
+        else {
+          await this.writeConfusedAnnotation()
+        }
+
+        await this.sleep(100)
+      })
+    })  // iList.forEach(i, () => {
+    //}
+  }
+  
+  PACORTestManager.methods.selectAnnotationType = async function (i) {
+    //this.log('selectAnnotationType', 1)
+    await this.lib.RangyManager.selectRandomRange()
+    
+    //this.log('selectAnnotationType', 2)
+    await this.sleep(100)
+      
+    let typeItemSelector = '.fab-main-container .fab-item-container .fab-cantainer'
+
+    //if (i % 2 === 0) {
+    if (i % 3 === 0) {
+      // 選擇重點
+      typeItemSelector = typeItemSelector + ':eq(0)'
+    }
+    else if (i % 3 === 1) {
+      typeItemSelector = typeItemSelector + ':eq(1)'
+    }
+    else {
+      // 選擇已澄清
+      typeItemSelector = typeItemSelector + ':eq(1)'
+    }
+    
+    await this.waitForElementVisibleClick(typeItemSelector, {
+      timeout: 10 * 1000,
+      errorMessage: '是不是太早選取了啊？'
+    })
+    //this.log('selectAnnotationType', 3)
+  }
+  
+  
+  !(function webpackMissingModule() { var e = new Error("Cannot find module './AnnotationTypeModules/stepAnnotationConfusedClarifiedPACORTestManager.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(PACORTestManager)
+  !(function webpackMissingModule() { var e = new Error("Cannot find module './AnnotationTypeModules/stepAnnotationConfusedPACORTestManager.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(PACORTestManager)
+  !(function webpackMissingModule() { var e = new Error("Cannot find module './AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(PACORTestManager)
+});
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepLoginPACORTestManager.js":
 /*!**************************************************************************************************!*\
-  !*** ./webpack-app/components/manager/PACORTestManager/readerSteps/stepLoginPACORTestManager.js ***!
+  !*** ./webpack-app/components/manager/PACORTestManager/stepsReader/stepLoginPACORTestManager.js ***!
   \**************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -2651,9 +2764,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepQuestionnairePACORTestManager.js":
+/***/ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepQuestionnairePACORTestManager.js":
 /*!**********************************************************************************************************!*\
-  !*** ./webpack-app/components/manager/PACORTestManager/readerSteps/stepQuestionnairePACORTestManager.js ***!
+  !*** ./webpack-app/components/manager/PACORTestManager/stepsReader/stepQuestionnairePACORTestManager.js ***!
   \**********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -2688,9 +2801,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepSectionPACORTestManager.js":
+/***/ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepSectionPACORTestManager.js":
 /*!****************************************************************************************************!*\
-  !*** ./webpack-app/components/manager/PACORTestManager/readerSteps/stepSectionPACORTestManager.js ***!
+  !*** ./webpack-app/components/manager/PACORTestManager/stepsReader/stepSectionPACORTestManager.js ***!
   \****************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -2814,9 +2927,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepStepInstructionPACORTestManager.js":
+/***/ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepStepInstructionPACORTestManager.js":
 /*!************************************************************************************************************!*\
-  !*** ./webpack-app/components/manager/PACORTestManager/readerSteps/stepStepInstructionPACORTestManager.js ***!
+  !*** ./webpack-app/components/manager/PACORTestManager/stepsReader/stepStepInstructionPACORTestManager.js ***!
   \************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -2835,219 +2948,6 @@ __webpack_require__.r(__webpack_exports__);
       timeout: 10 * 1000,
       errorMessage: '是不是傳送給end花太多時間了？'
     })
-    await this.sleep(100)
-  }
-});
-
-/***/ }),
-
-/***/ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepWriteAnnotationPACORTestManager.js":
-/*!************************************************************************************************************!*\
-  !*** ./webpack-app/components/manager/PACORTestManager/readerSteps/stepWriteAnnotationPACORTestManager.js ***!
-  \************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
-  PACORTestManager.methods.writeAnnotations = async function () {
-    
-    await this.sleep(3000)
-    
-    //let min = 4
-    //let max = 10
-    
-    //let min = 4
-    //let max = 10
-    
-    let min = this.testConfig.minAnnotation
-    let max = this.testConfig.maxAnnotation
-    //let min = 3, max = 6
-    //let min = 4, max = 10
-    //let 
-    
-    
-    let writeAnnotations = min + Math.floor(Math.random() *  (max - min))
-    
-    // 改用亂數排列的形式
-    let iList = this.buildRandomIndexList(writeAnnotations)
-    
-    //for (let i = 0; i < writeAnnotations; i++) {
-    iList.forEach(async (i) => {
-      await this.retry(3, async () => {
-        await this.sleep(100)
-
-        this.log('撰寫標註：' + (i+1) + '/' + (writeAnnotations) )
-        await this.selectAnnotationType(i)
-        if (i % 3 === 0) {
-          await this.writeMainIdeaAnnotation()
-          //await this.writeConfusedAnnotation()
-        }
-        else if (i % 3 === 1) {
-          await this.writeConfusedClarifiedAnnotation()
-          //await this.writeConfusedAnnotation()
-        }
-        else {
-          await this.writeConfusedAnnotation()
-        }
-
-        await this.sleep(100)
-      })
-    })  // iList.forEach(i, () => {
-    //}
-  }
-  
-  PACORTestManager.methods.selectAnnotationType = async function (i) {
-    //this.log('selectAnnotationType', 1)
-    await this.lib.RangyManager.selectRandomRange()
-    
-    //this.log('selectAnnotationType', 2)
-    await this.sleep(100)
-      
-    let typeItemSelector = '.fab-main-container .fab-item-container .fab-cantainer'
-
-    //if (i % 2 === 0) {
-    if (i % 3 === 0) {
-      // 選擇重點
-      typeItemSelector = typeItemSelector + ':eq(0)'
-    }
-    else if (i % 3 === 1) {
-      typeItemSelector = typeItemSelector + ':eq(1)'
-    }
-    else {
-      // 選擇已澄清
-      typeItemSelector = typeItemSelector + ':eq(1)'
-    }
-    
-    await this.waitForElementVisibleClick(typeItemSelector, {
-      timeout: 10 * 1000,
-      errorMessage: '是不是太早選取了啊？'
-    })
-    //this.log('selectAnnotationType', 3)
-  }
-  
-  PACORTestManager.methods.writeMainIdeaAnnotation = async function () {
-    let button = await this.waitForElementVisible('.AnnotationPanel .annotation-panel-buttons .ValidationButton', {
-      timeout: 3000
-    })
-    if (button.hasClass('disabled') === false) {
-      throw new Error('Add button should be disabled at default')
-    }
-    
-    await this.sleep(1000)
-    
-    let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', {
-      timeout: 3000
-    })
-    //editor.html(this.createRandomHtml())
-    await this.typeInput(editor, this.createRandomText())
-    await this.sleep(500)
-    await this.typeInput(editor, this.createRandomText())
-    await this.sleep(500)
-    
-    
-    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
-      timeout: 3000,
-      errorMessage: ' writeMainIdeaAnnotation 是不是資料沒有輸入？或是寫不夠長？'
-    })
-    
-    await this.waitForElementHidden('.AnnotationPanel .segment', {
-      timeout: 3000,
-      errorMessage: '是不是傳送儲存花太多時間了？ writeMainIdeaAnnotation'
-    })
-    
-    //await this.lib.RangyManager.cancelSelection()
-    
-    await this.sleep(100)
-  }
-  
-  PACORTestManager.methods.writeConfusedClarifiedAnnotation = async function () {
-    
-    await this.sleep(1000)
-    
-    let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', {
-      timeout: 3000
-    })
-    //questionEditor.html(this.createRandomHtml())
-    await this.typeInput(questionEditor, this.createRandomText())
-    await this.sleep(500)
-    await this.typeInput(questionEditor, this.createRandomText())
-    
-    
-    await this.sleep(100)
-    
-    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
-      timeout: 3000,
-      errorMessage: 'writeConfusedClarifiedAnnotation 是不是沒有寫到QuestionEditor? 或是寫不夠長？'
-    })
-    
-    await this.sleep(100)
-    
-    let answerEditor = await this.waitForElementVisible('.AnnotationPanel .AnswerEditor.html-editor-container .note-editable', {
-      timeout: 6000,
-      errorMessage: '是不是傳送儲存花太多時間了？ writeConfusedClarifiedAnnotation'
-    })
-    //answerEditor.html(this.createRandomHtml())
-    await this.typeInput(answerEditor, this.createRandomText())
-    await this.sleep(500)
-    await this.typeInput(questionEditor, this.createRandomText())
-    await this.sleep(3000)
-    
-    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled):last', {
-      timeout: 3000,
-      errorMessage: 'writeConfusedClarifiedAnnotation 是不是沒有寫到 answerEditor? 或是寫不夠長？'
-    })
-    
-    await this.waitForElementHidden('.AnnotationPanel .segment', {
-      timeout: 6000,
-      errorMessage: '是不是傳送更新花太多時間了？ writeConfusedClarifiedAnnotation'
-    })
-    
-    //await this.lib.RangyManager.cancelSelection()
-    
-    await this.sleep(100)
-  }
-  
-  
-  PACORTestManager.methods.writeConfusedAnnotation = async function () {
-    
-    await this.sleep(1000)
-    
-    let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', {
-      timeout: 3000
-    })
-    //questionEditor.html(this.createRandomHtml())
-    await this.typeInput(questionEditor, this.createRandomText())
-    await this.sleep(500)
-    await this.typeInput(questionEditor, this.createRandomText())
-    await this.sleep(100)
-    
-    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
-      timeout: 3000,
-      errorMessage: 'writeConfusedAnnotation 是不是沒有寫到QuestionEditor? '
-    })
-    
-    await this.sleep(3000)
-    
-    //await this.log('這邊我要確認一下'); await this.sleep(60 * 1000)
-    
-    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ui.button:eq(1):not(.disabled)', {
-      timeout: 3000,
-      errorMessage: 'writeConfusedAnnotation 這裡很奇怪？是不是儲存沒有存好？'
-    })
-    
-    await this.waitForElementHidden('.AnnotationPanel .segment', {
-      timeout: 3000,
-      errorMessage: 'writeConfusedAnnotation 應該只會看到前面'
-    })
-    
-    //await this.lib.RangyManager.cancelSelection()
-    
     await this.sleep(100)
   }
 });

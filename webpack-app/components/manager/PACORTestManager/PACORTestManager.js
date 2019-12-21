@@ -89,20 +89,28 @@ methodsExceptionPACORTestManager(PACORTestManager)
 //methodsWindowPACORTestManager(PACORTestManager)
 
 // ---------------
+// readerSteps
+// ---------------
 
-import stepQuestionnairePACORTestManager from './readerSteps/stepQuestionnairePACORTestManager.js'
+import stepQuestionnairePACORTestManager from './stepsReader/stepQuestionnairePACORTestManager.js'
 stepQuestionnairePACORTestManager(PACORTestManager)
 
-import stepWriteAnnotationPACORTestManager from './readerSteps/stepWriteAnnotationPACORTestManager.js'
-stepWriteAnnotationPACORTestManager(PACORTestManager)
-
-import stepSectionPACORTestManager from './readerSteps/stepSectionPACORTestManager.js'
+import stepSectionPACORTestManager from './stepsReader/stepSectionPACORTestManager.js'
 stepSectionPACORTestManager(PACORTestManager)
 
-import stepStepInstructionPACORTestManager from './readerSteps/stepStepInstructionPACORTestManager.js'
+import stepStepInstructionPACORTestManager from './stepsReader/stepStepInstructionPACORTestManager.js'
 stepStepInstructionPACORTestManager(PACORTestManager)
 
-import stepLoginPACORTestManager from './readerSteps/stepLoginPACORTestManager.js'
+import stepLoginPACORTestManager from './stepsReader/stepLoginPACORTestManager.js'
 stepLoginPACORTestManager(PACORTestManager)
+
+
+import stepAddAnnotationPACORTestManager from './stepsReader/stepAddAnnotationPACORTestManager.js'
+stepAddAnnotationPACORTestManager(PACORTestManager)
+
+
+// ---------------
+// adminSteps
+// ---------------
 
 export default PACORTestManager
