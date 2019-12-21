@@ -10,7 +10,7 @@ const rimraf = use('rimraf')
 
 const TestConfigHelper = use('App/Helpers/Test/TestBrowserHelper/TestConfigHelper.js')
 
-const exposeFunction = use('App/Helpers/Test/TestBrowserHelper/exposeFunction.js')
+const initPage = use('App/Helpers/Test/TestBrowserHelper/initPage.js')
 const excuteTest = use('App/Helpers/Test/TestBrowserHelper/excuteTest.js')
 const handleException = use('App/Helpers/Test/TestBrowserHelper/handleException.js')
 const setTraitBrowser = use('App/Helpers/Test/TestBrowserHelper/setTraitBrowser.js')
@@ -86,7 +86,7 @@ let TestBrowserHelper = function (title, url, config, options) {
     test(title, async function (args) {
       let browser = args.browser
       
-      let page = await exposeFunction({headless, browser, url, logManager, displayDevTools})
+      let page = await initPage({headless, browser, url, logManager, displayDevTools})
       
       let errors = []
       
@@ -107,7 +107,7 @@ let TestBrowserHelper = function (title, url, config, options) {
         if (forceShowIndexes.indexOf(i) > -1) {
           h = false
         }
-        let page = await exposeFunction({headless: h, browser, url, index, logManager, displayDevTools})
+        let page = await initPage({headless: h, browser, url, index, logManager, displayDevTools})
         
         let errors = []
         await excuteTest({config, args, page, errors, logManager})
@@ -145,7 +145,7 @@ let TestBrowserHelper = function (title, url, config, options) {
           sizeOptions = logManager.getSizeOptions(index, screenSize)
         }
         
-        let page = await exposeFunction({headless: h, browser, url, index, logManager, displayDevTools, sizeOptions})
+        let page = await initPage({headless: h, browser, url, index, logManager, displayDevTools, sizeOptions})
         
         let e = []
         await excuteTest({config, args, page, errors: e, index, logManager})

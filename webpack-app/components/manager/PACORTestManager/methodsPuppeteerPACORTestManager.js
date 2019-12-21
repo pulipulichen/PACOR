@@ -124,16 +124,16 @@ export default function (PACORTestManager) {
     return 0
   }
   
-  PACORTestManager.methods.getName = async function (selector) {
+  PACORTestManager.methods.getName = async function () {
     if (typeof(window.PACORTestManagerName) === 'function') {
       return await window.PACORTestManagerName()
     }
     return 0
   }
   
-  PACORTestManager.methods.getAdminName = async function (selector) {
-    if (typeof(window.PACORTestManagerAdminName) === 'function') {
-      return await window.PACORTestManagerAdminName()
+  PACORTestManager.methods.getAdminConfig = async function () {
+    if (typeof(window.PACORTestManagerAdminConfig) === 'function') {
+      return await window.PACORTestManagerAdminConfig()
     }
     return 0
   }

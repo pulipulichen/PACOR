@@ -1138,7 +1138,7 @@ var render = function() {
                 _c(
                   "a",
                   {
-                    staticClass: "item",
+                    staticClass: "item switch-mode-item",
                     attrs: { title: _vm.computedHeaderMenuIconTitle },
                     on: { click: _vm.switchMode }
                   },
