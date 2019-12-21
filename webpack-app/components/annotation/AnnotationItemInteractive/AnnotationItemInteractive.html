@@ -1,8 +1,11 @@
-<span class="AnnotationInteractive">
-  <span v-if="isNotMe">
+<span class="AnnotationInteractive"
+      v-if="lib.auth.isEnableCollaboration">
+  <span 
+    class="button-column"
+    v-if="isNotMe">
     <button 
       type="button" 
-      class="like ui button"
+      class="like ui compact button"
       v-bind:class="computedLikesButtonClass"
       v-on:click.stop="like">
       <i class="thumbs up outline icon"></i>
@@ -20,9 +23,27 @@
     </button>
   </span>
   
-  <span v-if="!enableComment && enableComment !== false">
+  <!-- ==================================== -->
+  
+  <span 
+    class="button-column"
+    v-if="!isNotMe && likes > 0">
+    <i class="thumbs up outline icon"></i>
+    <template v-if="showLabel">
+      {{ $t('{0} Likes', [likes]) }}
+    </template>
+    <template v-else>
+      {{ likes }}
+    </template>
+  </span>
+  
+  <!-- ==================================== -->
+  
+  <span 
+    class="button-column"
+    v-if="!enableComment && enableComment !== false">
     <button type="button"
-            class="comments ui button"
+            class="comments ui compact button"
             v-bind:class="computedCommentsButtonClass"
             v-on:click.stop="comment">
       <i class="comment outline icon"></i>

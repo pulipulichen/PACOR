@@ -861,7 +861,7 @@ exports.push([module.i, ".right-column[data-v-45dd49f6] {\n  border-left: 1px so
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".meta[data-v-21a9a788] {\n  float: right;\n  user-select: none;\n  line-height: 2em !important;\n}\n.user[data-v-21a9a788] {\n  display: inline-block;\n}\n.avatar[data-v-21a9a788] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-21a9a788],\n.username[data-v-21a9a788] {\n  margin-right: 0.5em;\n}\n.username[data-v-21a9a788] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-21a9a788] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.clickable[data-v-21a9a788] {\n  cursor: pointer !important;\n}\n.meta[data-v-21a9a788]  .AnnotationInteractive {\n  margin-left: 0.5em;\n}\n.annotation-item-compact[data-v-21a9a788] {\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  margin-bottom: 0.5em !important;\n}\n.annotation-item-compact .text-container[data-v-21a9a788] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-21a9a788] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-21a9a788] {\n  display: inline-block;\n  margin-left: 0.5em;\n  white-space: nowrap;\n  max-width: calc(100vw - 28em);\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n@media (max-width: 480px) {\n.AnnotationItem.annotation-item-compact[data-v-21a9a788]  .AnnotationTypeButton {\n    text-indent: -9999px;\n    padding-left: 0;\n    padding-right: 0;\n    width: 1em;\n}\n.AnnotationItem.annotation-item-compact .note[data-v-21a9a788] {\n    max-width: calc(100vw - 10em);\n}\n.AnnotationItem.annotation-item-compact .display-time[data-v-21a9a788] {\n    max-width: 0;\n    overflow-x: hidden;\n}\n}\n.annotation-item-header[data-v-21a9a788] {\n  white-space: nowrap;\n}\n@media only screen and (max-width: 480px) {\n.annotation-item-header[data-v-21a9a788]  .AnnotationTypeButton {\n    text-indent: -999em;\n    padding-left: 0 !important;\n    padding-right: 0 !important;\n    width: 1em;\n}\n.display-time[data-v-21a9a788] {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["AnnotationItem.less?vue&type=style&index=0&id=21a9a788&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,iBAAiB;EACjB,2BAA2B;AAC7B;AACA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;EACf,WAAW;AACb;AACA;;EAEE,mBAAmB;AACrB;AACA;EACE,cAAc;EACd,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;EACnB,qBAAqB;EACrB,mBAAmB;EACnB,gBAAgB;AAClB;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,0BAA0B;AAC5B;AACA;EACE,kBAAkB;AACpB;AACA;EACE,6BAA6B;EAC7B,gCAAgC;EAChC,+BAA+B;AACjC;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,kBAAkB;EAClB,mBAAmB;EACnB,6BAA6B;EAC7B,uBAAuB;EACvB,gBAAgB;AAClB;AACA;AACA;IACI,oBAAoB;IACpB,eAAe;IACf,gBAAgB;IAChB,UAAU;AACd;AACA;IACI,6BAA6B;AACjC;AACA;IACI,YAAY;IACZ,kBAAkB;AACtB;AACA;AACA;EACE,mBAAmB;AACrB;AACA;AACA;IACI,mBAAmB;IACnB,0BAA0B;IAC1B,2BAA2B;IAC3B,UAAU;AACd;AACA;IACI,aAAa;AACjB;AACA","file":"AnnotationItem.less?vue&type=style&index=0&id=21a9a788&lang=less&scoped=true&","sourcesContent":[".meta[data-v-21a9a788] {\n  float: right;\n  user-select: none;\n  line-height: 2em !important;\n}\n.user[data-v-21a9a788] {\n  display: inline-block;\n}\n.avatar[data-v-21a9a788] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-21a9a788],\n.username[data-v-21a9a788] {\n  margin-right: 0.5em;\n}\n.username[data-v-21a9a788] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-21a9a788] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.clickable[data-v-21a9a788] {\n  cursor: pointer !important;\n}\n.meta[data-v-21a9a788]  .AnnotationInteractive {\n  margin-left: 0.5em;\n}\n.annotation-item-compact[data-v-21a9a788] {\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  margin-bottom: 0.5em !important;\n}\n.annotation-item-compact .text-container[data-v-21a9a788] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-21a9a788] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-21a9a788] {\n  display: inline-block;\n  margin-left: 0.5em;\n  white-space: nowrap;\n  max-width: calc(100vw - 28em);\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n@media (max-width: 480px) {\n.AnnotationItem.annotation-item-compact[data-v-21a9a788]  .AnnotationTypeButton {\n    text-indent: -9999px;\n    padding-left: 0;\n    padding-right: 0;\n    width: 1em;\n}\n.AnnotationItem.annotation-item-compact .note[data-v-21a9a788] {\n    max-width: calc(100vw - 10em);\n}\n.AnnotationItem.annotation-item-compact .display-time[data-v-21a9a788] {\n    max-width: 0;\n    overflow-x: hidden;\n}\n}\n.annotation-item-header[data-v-21a9a788] {\n  white-space: nowrap;\n}\n@media only screen and (max-width: 480px) {\n.annotation-item-header[data-v-21a9a788]  .AnnotationTypeButton {\n    text-indent: -999em;\n    padding-left: 0 !important;\n    padding-right: 0 !important;\n    width: 1em;\n}\n.display-time[data-v-21a9a788] {\n    display: none;\n}\n}\n"]}]);
+exports.push([module.i, ".meta[data-v-21a9a788] {\n  float: right;\n  user-select: none;\n  line-height: 2em !important;\n}\n.user[data-v-21a9a788] {\n  display: inline-block;\n}\n.avatar[data-v-21a9a788] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-21a9a788],\n.username[data-v-21a9a788] {\n  margin-right: 0.5em;\n}\n.username[data-v-21a9a788] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-21a9a788] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.clickable[data-v-21a9a788] {\n  cursor: pointer !important;\n}\n.meta[data-v-21a9a788]  .AnnotationInteractive {\n  margin-left: 0.5em;\n  margin-top: -1px;\n}\n.annotation-item-compact[data-v-21a9a788] {\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  margin-bottom: 0.5em !important;\n}\n.annotation-item-compact .text-container[data-v-21a9a788] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-21a9a788] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-21a9a788] {\n  display: inline-block;\n  margin-left: 0.5em;\n  white-space: nowrap;\n  max-width: calc(100vw - 28em);\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n@media (max-width: 480px) {\n.AnnotationItem.annotation-item-compact[data-v-21a9a788]  .AnnotationTypeButton {\n    text-indent: -9999px;\n    padding-left: 0;\n    padding-right: 0;\n    width: 1em;\n}\n.AnnotationItem.annotation-item-compact .note[data-v-21a9a788] {\n    max-width: calc(100vw - 10em);\n}\n.AnnotationItem.annotation-item-compact .display-time[data-v-21a9a788] {\n    max-width: 0;\n    overflow-x: hidden;\n}\n}\n.annotation-item-header[data-v-21a9a788] {\n  white-space: nowrap;\n}\n@media only screen and (max-width: 480px) {\n.annotation-item-header[data-v-21a9a788]  .AnnotationTypeButton {\n    text-indent: -999em;\n    padding-left: 0 !important;\n    padding-right: 0 !important;\n    width: 1em;\n}\n.display-time[data-v-21a9a788] {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["AnnotationItem.less?vue&type=style&index=0&id=21a9a788&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,YAAY;EACZ,iBAAiB;EACjB,2BAA2B;AAC7B;AACA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;EACf,WAAW;AACb;AACA;;EAEE,mBAAmB;AACrB;AACA;EACE,cAAc;EACd,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;EACnB,qBAAqB;EACrB,mBAAmB;EACnB,gBAAgB;AAClB;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,0BAA0B;AAC5B;AACA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,6BAA6B;EAC7B,gCAAgC;EAChC,+BAA+B;AACjC;AACA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,gBAAgB;EAChB,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,kBAAkB;EAClB,mBAAmB;EACnB,6BAA6B;EAC7B,uBAAuB;EACvB,gBAAgB;AAClB;AACA;AACA;IACI,oBAAoB;IACpB,eAAe;IACf,gBAAgB;IAChB,UAAU;AACd;AACA;IACI,6BAA6B;AACjC;AACA;IACI,YAAY;IACZ,kBAAkB;AACtB;AACA;AACA;EACE,mBAAmB;AACrB;AACA;AACA;IACI,mBAAmB;IACnB,0BAA0B;IAC1B,2BAA2B;IAC3B,UAAU;AACd;AACA;IACI,aAAa;AACjB;AACA","file":"AnnotationItem.less?vue&type=style&index=0&id=21a9a788&lang=less&scoped=true&","sourcesContent":[".meta[data-v-21a9a788] {\n  float: right;\n  user-select: none;\n  line-height: 2em !important;\n}\n.user[data-v-21a9a788] {\n  display: inline-block;\n}\n.avatar[data-v-21a9a788] {\n  max-height: 2em;\n  width: auto;\n}\n.avatar[data-v-21a9a788],\n.username[data-v-21a9a788] {\n  margin-right: 0.5em;\n}\n.username[data-v-21a9a788] {\n  max-width: 5em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 2em;\n}\n.note[data-v-21a9a788] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.clickable[data-v-21a9a788] {\n  cursor: pointer !important;\n}\n.meta[data-v-21a9a788]  .AnnotationInteractive {\n  margin-left: 0.5em;\n  margin-top: -1px;\n}\n.annotation-item-compact[data-v-21a9a788] {\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n  margin-bottom: 0.5em !important;\n}\n.annotation-item-compact .text-container[data-v-21a9a788] {\n  line-height: 2em;\n  display: inline-block;\n  vertical-align: top;\n}\n.annotation-item-compact .left.column[data-v-21a9a788] {\n  max-width: 70vw;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.annotation-item-compact .note[data-v-21a9a788] {\n  display: inline-block;\n  margin-left: 0.5em;\n  white-space: nowrap;\n  max-width: calc(100vw - 28em);\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n@media (max-width: 480px) {\n.AnnotationItem.annotation-item-compact[data-v-21a9a788]  .AnnotationTypeButton {\n    text-indent: -9999px;\n    padding-left: 0;\n    padding-right: 0;\n    width: 1em;\n}\n.AnnotationItem.annotation-item-compact .note[data-v-21a9a788] {\n    max-width: calc(100vw - 10em);\n}\n.AnnotationItem.annotation-item-compact .display-time[data-v-21a9a788] {\n    max-width: 0;\n    overflow-x: hidden;\n}\n}\n.annotation-item-header[data-v-21a9a788] {\n  white-space: nowrap;\n}\n@media only screen and (max-width: 480px) {\n.annotation-item-header[data-v-21a9a788]  .AnnotationTypeButton {\n    text-indent: -999em;\n    padding-left: 0 !important;\n    padding-right: 0 !important;\n    width: 1em;\n}\n.display-time[data-v-21a9a788] {\n    display: none;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -2812,97 +2812,130 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("span", { staticClass: "AnnotationInteractive" }, [
-    _vm.isNotMe
-      ? _c("span", [
-          _c(
-            "button",
-            {
-              staticClass: "like ui button",
-              class: _vm.computedLikesButtonClass,
-              attrs: { type: "button" },
-              on: {
-                click: function($event) {
-                  $event.stopPropagation()
-                  return _vm.like($event)
-                }
-              }
-            },
-            [
-              _c("i", { staticClass: "thumbs up outline icon" }),
-              _vm._v(" "),
-              _vm.showLabel
-                ? [
-                    _vm.likes > 0
-                      ? [
-                          _vm._v(
-                            "\r\n          " +
-                              _vm._s(_vm.$t("{0} Likes", [_vm.likes])) +
-                              "\r\n        "
-                          )
-                        ]
-                      : [
-                          _vm._v(
-                            "\r\n          " +
-                              _vm._s(_vm.$t("Like")) +
-                              "\r\n        "
-                          )
-                        ]
-                  ]
-                : _vm.likes > 0
-                ? [_vm._v("\r\n        " + _vm._s(_vm.likes) + "\r\n      ")]
-                : _vm._e()
-            ],
-            2
-          )
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    !_vm.enableComment && _vm.enableComment !== false
-      ? _c("span", [
-          _c(
-            "button",
-            {
-              staticClass: "comments ui button",
-              class: _vm.computedCommentsButtonClass,
-              attrs: { type: "button" },
-              on: {
-                click: function($event) {
-                  $event.stopPropagation()
-                  return _vm.comment($event)
-                }
-              }
-            },
-            [
-              _c("i", { staticClass: "comment outline icon" }),
-              _vm._v(" "),
-              _vm.showLabel
-                ? [
-                    _vm.likes > 0
-                      ? [
-                          _vm._v(
-                            "\r\n          " +
-                              _vm._s(_vm.$t("{0} Comments", [_vm.comments])) +
-                              "\r\n        "
-                          )
-                        ]
-                      : [
-                          _vm._v(
-                            "\r\n          " +
-                              _vm._s(_vm.$t("Comment")) +
-                              "\r\n        "
-                          )
-                        ]
-                  ]
-                : _vm.comments > 0
-                ? [_vm._v("\r\n        " + _vm._s(_vm.comments) + "\r\n      ")]
-                : _vm._e()
-            ],
-            2
-          )
-        ])
-      : _vm._e()
-  ])
+  return _vm.lib.auth.isEnableCollaboration
+    ? _c("span", { staticClass: "AnnotationInteractive" }, [
+        _vm.isNotMe
+          ? _c("span", { staticClass: "button-column" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "like ui compact button",
+                  class: _vm.computedLikesButtonClass,
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      $event.stopPropagation()
+                      return _vm.like($event)
+                    }
+                  }
+                },
+                [
+                  _c("i", { staticClass: "thumbs up outline icon" }),
+                  _vm._v(" "),
+                  _vm.showLabel
+                    ? [
+                        _vm.likes > 0
+                          ? [
+                              _vm._v(
+                                "\r\n          " +
+                                  _vm._s(_vm.$t("{0} Likes", [_vm.likes])) +
+                                  "\r\n        "
+                              )
+                            ]
+                          : [
+                              _vm._v(
+                                "\r\n          " +
+                                  _vm._s(_vm.$t("Like")) +
+                                  "\r\n        "
+                              )
+                            ]
+                      ]
+                    : _vm.likes > 0
+                    ? [
+                        _vm._v(
+                          "\r\n        " + _vm._s(_vm.likes) + "\r\n      "
+                        )
+                      ]
+                    : _vm._e()
+                ],
+                2
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        !_vm.isNotMe && _vm.likes > 0
+          ? _c(
+              "span",
+              { staticClass: "button-column" },
+              [
+                _c("i", { staticClass: "thumbs up outline icon" }),
+                _vm._v(" "),
+                _vm.showLabel
+                  ? [
+                      _vm._v(
+                        "\r\n      " +
+                          _vm._s(_vm.$t("{0} Likes", [_vm.likes])) +
+                          "\r\n    "
+                      )
+                    ]
+                  : [_vm._v("\r\n      " + _vm._s(_vm.likes) + "\r\n    ")]
+              ],
+              2
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        !_vm.enableComment && _vm.enableComment !== false
+          ? _c("span", { staticClass: "button-column" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "comments ui compact button",
+                  class: _vm.computedCommentsButtonClass,
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      $event.stopPropagation()
+                      return _vm.comment($event)
+                    }
+                  }
+                },
+                [
+                  _c("i", { staticClass: "comment outline icon" }),
+                  _vm._v(" "),
+                  _vm.showLabel
+                    ? [
+                        _vm.likes > 0
+                          ? [
+                              _vm._v(
+                                "\r\n          " +
+                                  _vm._s(
+                                    _vm.$t("{0} Comments", [_vm.comments])
+                                  ) +
+                                  "\r\n        "
+                              )
+                            ]
+                          : [
+                              _vm._v(
+                                "\r\n          " +
+                                  _vm._s(_vm.$t("Comment")) +
+                                  "\r\n        "
+                              )
+                            ]
+                      ]
+                    : _vm.comments > 0
+                    ? [
+                        _vm._v(
+                          "\r\n        " + _vm._s(_vm.comments) + "\r\n      "
+                        )
+                      ]
+                    : _vm._e()
+                ],
+                2
+              )
+            ])
+          : _vm._e()
+      ])
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3253,7 +3286,7 @@ var render = function() {
   return _c(
     "button",
     {
-      staticClass: "ui button ValidationButton",
+      staticClass: "ui compact button ValidationButton",
       class: _vm.computedClassName,
       attrs: { type: "button" },
       on: { click: _vm.onclick }

@@ -1,21 +1,10 @@
 <div class="ui one column grid annotation-panel-buttons"
      v-if="$parent.isEditable">
-
   <block-exit
     v-if="$parent.isNoteEdited">
   </block-exit>
 
   <div v-bind:class="$parent.computedButtonsClass">
-
-    <admin-badge 
-      v-bind:status="status"
-      v-bind:config="config">
-    </admin-badge>
-
-    <span class="display-time">
-      {{ $parent.displayTime }}
-    </span>
-
 
     <!--
     <button type="button"
@@ -29,86 +18,116 @@
 
     <!-- ============================== -->
 
-    <checkbox-toggle 
-      v-if="lib.auth.isEnableControlPermission"
-      v-bind:label="$t('PUBLIC')"
-      v-model="public"
-      v-bind:enable="!$parent.awaitSubmit">
-    </checkbox-toggle>
+    <div class="buttons-row">
 
-    <template v-if="!$parent.annotation.id">
-      <!--
-      <button type="button"
-              class="ui button"
-              v-on:click="submitQuestion"
-              v-if="!isQuestionSubmitted">
-        {{ $t('SUBMIT QUESTION') }}  
-      </button>
-      -->
-      <validation-button 
-        v-bind:lib="lib"
+      <admin-badge 
+        v-bind:status="status"
+        v-bind:config="config">
+      </admin-badge>
+      
+      <checkbox-toggle 
+        v-if="lib.auth.isEnableControlPermission"
+        v-bind:label="$t('PUBLIC')"
+        v-model="public"
+        v-bind:enable="!$parent.awaitSubmit">
+      </checkbox-toggle>
 
-        v-bind:text="$parent.question"
-        v-bind:minWordCount="$parent.questionMinWords"
-        v-bind:locale="status.preference.locale"
-        v-bind:enable="$parent.isEnableSubmitQuestion"
+      <template v-if="!$parent.annotation.id">
+        <!--
+        <button type="button"
+                class="ui button"
+                v-on:click="submitQuestion"
+                v-if="!isQuestionSubmitted">
+          {{ $t('SUBMIT QUESTION') }}  
+        </button>
+        -->
+        <validation-button 
+          v-bind:lib="lib"
 
-        v-on:click="submitQuestion"
-        v-bind:class="$parent.computedSubmitButtonClassList"
-        v-bind:style="$parent.computedSubmitQuestionStyle">
-        {{ $t('SAVE QUESTION') }}  
-      </validation-button>
-    </template>
+          v-bind:text="$parent.question"
+          v-bind:minWordCount="$parent.questionMinWords"
+          v-bind:locale="status.preference.locale"
+          v-bind:enable="$parent.isEnableSubmitQuestion"
 
-    <!-- ======================================== -->
-
-    <template v-else>
-
-      <button 
-        type="button"
-        class="ui button"
-        v-on:click="$parent.deleteAnnotation"
-        v-if="$parent.isQuestionSubmitted"
-        v-bind:class="$parent.computedSubmitButtonClassList">
-        {{ $t('DELETE') }}  
-      </button>
-
-      <button 
-        type="button"
-        class="ui button"
-        v-on:click="writeLater"
-        v-if="$parent.isQuestionSubmitted && !$parent.isAnswerSubmitted"
-        v-bind:class="$parent.computedSubmitButtonClassList">
-        {{ $t('WRITE LATER') }}  
-      </button>
-
-      <!--
-      <button type="button"
-              class="ui button"
-              v-bind:class="{'disabled': (answer === '')}"
-              v-on:click="submitAnswer"
-              v-if="isQuestionSubmitted">
-        {{ $t('SAVE ANSWER') }}  
-      </button>
-      -->
-      <validation-button 
-        v-bind:lib="lib"
-
-        v-bind:text="$parent.answer"
-        v-bind:minWordCount="$parent.answerMinWords"
-        v-bind:locale="status.preference.locale"
-        v-bind:enable="$parent.isEnableSubmitAnswer"
-
-        v-on:click="submitAnswer"
-        v-bind:class="$parent.computedSubmitButtonClassList"
-        v-bind:style="computedSubmitAnswerStyle">
-        {{ $t('SAVE ANSWER') }}  
-      </validation-button>
+          v-on:click="submitQuestion"
+          v-bind:class="$parent.computedSubmitButtonClassList"
+          v-bind:style="computedSubmitQuestionStyle">
+          {{ $t('SAVE QUESTION') }}  
+        </validation-button>
+      </template>
 
       <!-- ======================================== -->
 
+      <template v-else>
 
-    </template>
 
-  </div>
+        <button 
+          type="button"
+          class="ui compact button"
+          v-on:click="writeLater"
+          v-if="$parent.isQuestionSubmitted && !$parent.isAnswerSubmitted"
+          v-bind:class="$parent.computedSubmitButtonClassList">
+          {{ $t('WRITE LATER') }}  
+        </button>
+
+        <!--
+        <button type="button"
+                class="ui button"
+                v-bind:class="{'disabled': (answer === '')}"
+                v-on:click="submitAnswer"
+                v-if="isQuestionSubmitted">
+          {{ $t('SAVE ANSWER') }}  
+        </button>
+        -->
+        <validation-button 
+          v-bind:lib="lib"
+
+          v-bind:text="$parent.answer"
+          v-bind:minWordCount="$parent.answerMinWords"
+          v-bind:locale="status.preference.locale"
+          v-bind:enable="$parent.isEnableSubmitAnswer"
+
+          v-on:click="submitAnswer"
+          v-bind:class="$parent.computedSubmitButtonClassList"
+          v-bind:style="computedSubmitAnswerStyle">
+          {{ $t('SAVE ANSWER') }}  
+        </validation-button>
+
+        <!-- ======================================== -->
+
+
+      </template>
+    </div> <!-- <div class="buttons-row"> -->
+    
+    <!-- ===================================== -->
+    
+    <div class="buttons-row second"
+         v-if="$parent.annotation.id">
+
+      <span class="display-time"
+            v-if="$parent.annotation.id">
+        {{ $parent.displayTime }}
+      </span>
+
+      <button 
+        v-if="$parent.annotation.id"
+        type="button"
+        class="ui compact button delete-button"
+        v-on:click="$parent.deleteAnnotation"
+        v-bind:class="$parent.computedSubmitButtonClassList">
+        {{ $t('DELETE') }}  
+      </button>
+      
+      <annotation-item-interactive
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+
+        v-bind:annotation="annotation">
+      </annotation-item-interactive>
+
+    </div> <!-- <div class="buttons-row"> -->
+
+    
+  </div>  <!-- <div v-bind:class="$parent.computedButtonsClass"> -->
 </div> <!-- <div class="ui one column grid annotation-panel-buttons" v-if="isEditable"> -->
