@@ -37,10 +37,6 @@ module.exports = {
     let domain = await DomainModel.findByURL(url)
     let adminsSetting = '布布:password'
     await domain.setAdmins(adminsSetting)
-    
-    let domain2 = await DomainModel.findByURL(urlTest)
-    await domain2.setAdmins(adminsSetting)
-    //console.log('aaa')
   },
   
   createGroups: async function () {

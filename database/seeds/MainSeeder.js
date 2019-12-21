@@ -18,6 +18,8 @@
 const Sleep = use('Sleep')
 const Cache = use('Cache')
 
+
+const TestDomainAdminScript = use('./scripts/TestDomainAdminScript')
 const WebpageUserGroupScript = use('./scripts/WebpageUserGroupScript')
 const AnnotationInteractScript = use('./scripts/AnnotationInteractScript')
 
@@ -28,6 +30,7 @@ class UserSeeder {
     console.log('=========================================')
     console.log(__filename + ' start...\n')
     
+    await TestDomainAdminScript.main()
     await WebpageUserGroupScript.main()
     await AnnotationInteractScript.main()
     
