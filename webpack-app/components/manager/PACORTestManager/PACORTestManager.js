@@ -104,13 +104,17 @@ stepStepInstructionPACORTestManager(PACORTestManager)
 import stepLoginPACORTestManager from './stepsReader/stepLoginPACORTestManager.js'
 stepLoginPACORTestManager(PACORTestManager)
 
-
 import stepAddAnnotationPACORTestManager from './stepsReader/stepAddAnnotationPACORTestManager.js'
 stepAddAnnotationPACORTestManager(PACORTestManager)
-
 
 // ---------------
 // adminSteps
 // ---------------
+
+import stepAdminConfigPACORTestManager from './stepsAdmin/stepAdminConfigPACORTestManager.js'
+stepAdminConfigPACORTestManager(PACORTestManager)
+
+import stepAdminLoginPACORTestManager from './stepsAdmin/stepAdminLoginPACORTestManager.js'
+stepAdminLoginPACORTestManager(PACORTestManager)
 
 export default PACORTestManager

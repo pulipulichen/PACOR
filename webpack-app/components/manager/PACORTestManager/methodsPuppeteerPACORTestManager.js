@@ -131,9 +131,15 @@ export default function (PACORTestManager) {
     return 0
   }
   
+  let adminConfig
   PACORTestManager.methods.getAdminConfig = async function () {
+    if (adminConfig) {
+      return adminConfig
+    }
+    
     if (typeof(window.PACORTestManagerAdminConfig) === 'function') {
-      return await window.PACORTestManagerAdminConfig()
+      adminConfig = await window.PACORTestManagerAdminConfig()
+      return adminConfig
     }
     return 0
   }

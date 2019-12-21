@@ -1900,6 +1900,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _stepsReader_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./stepsReader/stepStepInstructionPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepStepInstructionPACORTestManager.js");
 /* harmony import */ var _stepsReader_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./stepsReader/stepLoginPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepLoginPACORTestManager.js");
 /* harmony import */ var _stepsReader_stepAddAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./stepsReader/stepAddAnnotationPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepAddAnnotationPACORTestManager.js");
+/* harmony import */ var _stepsAdmin_stepAdminConfigPACORTestManager_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./stepsAdmin/stepAdminConfigPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsAdmin/stepAdminConfigPACORTestManager.js");
+/* harmony import */ var _stepsAdmin_stepAdminLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./stepsAdmin/stepAdminLoginPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsAdmin/stepAdminLoginPACORTestManager.js");
 let PACORTestManager = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -2007,13 +2009,17 @@ Object(_stepsReader_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MOD
 Object(_stepsReader_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_9__["default"])(PACORTestManager)
 
 
-
 Object(_stepsReader_stepAddAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__["default"])(PACORTestManager)
-
 
 // ---------------
 // adminSteps
 // ---------------
+
+
+Object(_stepsAdmin_stepAdminConfigPACORTestManager_js__WEBPACK_IMPORTED_MODULE_11__["default"])(PACORTestManager)
+
+
+Object(_stepsAdmin_stepAdminLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_12__["default"])(PACORTestManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (PACORTestManager);
 
@@ -2385,9 +2391,15 @@ __webpack_require__.r(__webpack_exports__);
     return 0
   }
   
+  let adminConfig
   PACORTestManager.methods.getAdminConfig = async function () {
+    if (adminConfig) {
+      return adminConfig
+    }
+    
     if (typeof(window.PACORTestManagerAdminConfig) === 'function') {
-      return await window.PACORTestManagerAdminConfig()
+      adminConfig = await window.PACORTestManagerAdminConfig()
+      return adminConfig
     }
     return 0
   }
@@ -2622,6 +2634,77 @@ __webpack_require__.r(__webpack_exports__);
     return $ele
   }
   
+});
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/PACORTestManager/stepsAdmin/stepAdminConfigPACORTestManager.js":
+/*!*******************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/stepsAdmin/stepAdminConfigPACORTestManager.js ***!
+  \*******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  PACORTestManager.methods.adminConfig = async function (page) {
+    throw new Error('@underconstruction')
+    
+    await this.waitForElementVisibleClick('.switch-mode-item')
+    
+    await this.interact('clear', '#loginUsername')
+    
+    let config = await this.getAdminConfig()
+    //console.log(name)
+    await this.typeInput('#loginUsername', config.username)
+    await this.typeInput('#loginPassword', config.password)
+    
+    // 接下來要加入切換管理者登入的下拉選單...
+    
+    
+    await this.waitForElementVisibleClick('div.ui.button.login-submit:not(.disabled)')
+    
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/PACORTestManager/stepsAdmin/stepAdminLoginPACORTestManager.js":
+/*!******************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/stepsAdmin/stepAdminLoginPACORTestManager.js ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  PACORTestManager.methods.adminLogin = async function (page) {
+  
+    await this.waitForElementVisibleClick('.switch-mode-item')
+    
+    await this.interact('clear', '#loginUsername')
+    
+    let config = await this.getAdminConfig()
+    //console.log(name)
+    await this.typeInput('#loginUsername', config.username)
+    await this.typeInput('#loginPassword', config.password)
+    
+    // 接下來要加入切換管理者登入的下拉選單...
+    
+    //throw new Error('@underconstruction')
+    await this.waitForElementVisibleClick('div.ui.button.login-submit:not(.disabled)')
+    
+  }
 });
 
 /***/ }),
