@@ -5,6 +5,9 @@ let AnnotationItem = {
     , 'findUser', 'findType', 'findAnnotation'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
+    this.lib.AnnotationHelper.autoComplete(this.annotation)
+    
     return {
     }
   },

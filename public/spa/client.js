@@ -9246,6 +9246,9 @@ let AnnotationItem = {
     , 'findUser', 'findType', 'findAnnotation'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
+    this.lib.AnnotationHelper.autoComplete(this.annotation)
+    
     return {
     }
   },
@@ -12356,6 +12359,19 @@ let AnnotationHelper = {
             && (typeof(pos.start_pos) !== 'number' || typeof(pos.end_pos) !== 'number') ) {
       throw new Error(`Start pos and end pos of anchor positions are required. \n` 
         + JSON.stringify(annotation, null, 2))
+    }
+  },
+  autoComplete (annotation) {
+    if (!annotation.user) {
+      annotation.user = {
+        id: this.status.userID,
+        username: this.status.username,
+        displayName: this.status.displayName,
+        avatar_url: this.status.avatar
+      }
+    }
+    if (!annotation.updated_at_unixms) {
+      annotation.updated_at_unixms = (new Date()).getTime()
     }
   }
 }
