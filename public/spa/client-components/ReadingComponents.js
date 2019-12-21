@@ -12128,12 +12128,13 @@ let Editor = {
             && this.annotation.notes.length > 0) {
       note = this.annotation.notes[0].note
     }
+    
     //console.log(note)
     
     let noteReset = note
     if (noteReset) {
       noteReset = this.lib.StringHelper.htmlTrim(noteReset)
-      noteReset = this.lib.StringHelper.htmlToText(noteReset, true)
+      noteReset = this.lib.StringHelper.htmlToText(noteReset)
     }
     
     return {
@@ -12447,12 +12448,13 @@ let Editor = {
             && this.annotation.notes.length > 0) {
       note = this.annotation.notes[0].note
     }
+    
     //console.log(note)
     
     let noteReset = note
     if (noteReset) {
       noteReset = this.lib.StringHelper.htmlTrim(noteReset)
-      noteReset = this.lib.StringHelper.htmlToText(noteReset, true)
+      noteReset = this.lib.StringHelper.htmlToText(noteReset)
     }
     
     return {
