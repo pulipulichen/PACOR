@@ -54,6 +54,22 @@ let Login = {
       }
       
       return classList.join(' ')
+    },
+    computedHeaderMenuIconClassList () {
+      if (this.adminMode) {
+        return 'chess king icon'
+      }
+      else {
+        return 'id badge icon'
+      }
+    },
+    computedHeaderMenuIconTitle () {
+      if (this.adminMode) {
+        return this.$t('Switch to reader login')
+      }
+      else {
+        return this.$t('Switch to administrator login')
+      }
     }
   },
   components: {
@@ -128,6 +144,10 @@ let Login = {
       this.username = '布丁' + (new Date()).getTime()
       this.password = ''
       this.adminMode = false
+    },
+    switchMode () {
+      this.adminMode = !this.adminMode
+      this.isContinue = false
     }
   } // methods
 }

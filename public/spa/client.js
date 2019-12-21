@@ -233,7 +233,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"agreement-link":"By clicking Sign Up, you agree to our <a href=\u0027{0}\u0027 target=\u0027_blank\u0027>Agreement Terms</a>."},"zh-TW":{"User {0} is not existed.":"使用者{0}不存在。","User {0} is registed.":"使用者{0}已經註冊。","Password is incorrect.":"密碼錯誤。","Username":"使用者名稱","Password":"密碼","Email":"電子信箱地址","Let\u0027s Go":"準備開始囉","Welcome Again":"來繼續吧","Register":"註冊","Login from Google":"從Google帳號登入","Login from GitHub":"從GitHub帳號登入","Login from Instagram":"從Instagram帳號登入","agreement-link":"如果您按下「登入」按鈕，表示您同意我們的<a href=\u0027{0}\u0027 target=\u0027_blank\u0027>知情同意書</a>。","cannot contain space":"不能包含空格"}}')
+  Component.options.__i18n.push('{"en":{"agreement-link":"By clicking Sign Up, you agree to our <a href=\u0027{0}\u0027 target=\u0027_blank\u0027>Agreement Terms</a>."},"zh-TW":{"User {0} is not existed.":"讀者{0}不存在。","User {0} is registed.":"讀者{0}已經註冊。","Password is incorrect.":"密碼錯誤。","Username":"讀者名稱","Administrator Username":"管理者名稱","Password":"密碼","Email":"電子信箱地址","Let\u0027s Go":"準備開始囉","Welcome Again":"要繼續囉","Register":"註冊","Login from Google":"從Google帳號登入","Login from GitHub":"從GitHub帳號登入","Login from Instagram":"從Instagram帳號登入","agreement-link":"如果您按下「登入」按鈕，表示您同意我們的<a href=\u0027{0}\u0027 target=\u0027_blank\u0027>知情同意書</a>。","cannot contain space":"不能包含空格","Switch to reader login":"切換成讀者登入","Switch to administrator login":"切換成管理者登入"}}')
   delete Component.options._Ctor
 }
 
@@ -1124,22 +1124,25 @@ var render = function() {
             key: "header",
             fn: function() {
               return [
+                _vm._v(
+                  "\r\n      " + _vm._s(_vm.$t("Welcome to PACOR")) + "\r\n    "
+                )
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "headerMenu",
+            fn: function() {
+              return [
                 _c(
-                  "div",
+                  "a",
                   {
-                    on: {
-                      click: function($event) {
-                        _vm.adminMode = !_vm.adminMode
-                      }
-                    }
+                    staticClass: "item",
+                    attrs: { title: _vm.computedHeaderMenuIconTitle },
+                    on: { click: _vm.switchMode }
                   },
-                  [
-                    _vm._v(
-                      "\r\n        " +
-                        _vm._s(_vm.$t("Welcome to PACOR")) +
-                        "\r\n      "
-                    )
-                  ]
+                  [_c("i", { class: _vm.computedHeaderMenuIconClassList })]
                 )
               ]
             },
@@ -1204,15 +1207,35 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("div", { staticClass: "ui field" }, [
-                          _c("label", { attrs: { for: "loginUsername" } }, [
-                            _vm._v(
-                              "\r\n              " +
-                                _vm._s(_vm.$t("Username")) +
+                          _c(
+                            "label",
+                            { attrs: { for: "loginUsername" } },
+                            [
+                              !_vm.adminMode
+                                ? [
+                                    _vm._v(
+                                      "\r\n                " +
+                                        _vm._s(_vm.$t("Username")) +
+                                        "\r\n              "
+                                    )
+                                  ]
+                                : [
+                                    _vm._v(
+                                      "\r\n                " +
+                                        _vm._s(
+                                          _vm.$t("Administrator Username")
+                                        ) +
+                                        "\r\n              "
+                                    )
+                                  ],
+                              _vm._v(
                                 "\r\n              (" +
-                                _vm._s(_vm.$t("cannot contain space")) +
-                                ")\r\n            "
-                            )
-                          ]),
+                                  _vm._s(_vm.$t("cannot contain space")) +
+                                  ")\r\n            "
+                              )
+                            ],
+                            2
+                          ),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -4990,6 +5013,22 @@ let Login = {
       }
       
       return classList.join(' ')
+    },
+    computedHeaderMenuIconClassList () {
+      if (this.adminMode) {
+        return 'chess king icon'
+      }
+      else {
+        return 'id badge icon'
+      }
+    },
+    computedHeaderMenuIconTitle () {
+      if (this.adminMode) {
+        return this.$t('Switch to reader login')
+      }
+      else {
+        return this.$t('Switch to administrator login')
+      }
     }
   },
   components: {
@@ -5064,6 +5103,10 @@ let Login = {
       this.username = '布丁' + (new Date()).getTime()
       this.password = ''
       this.adminMode = false
+    },
+    switchMode () {
+      this.adminMode = !this.adminMode
+      this.isContinue = false
     }
   } // methods
 }

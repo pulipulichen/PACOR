@@ -86,6 +86,11 @@ let exposeFunction = async function ({headless, browser, url, index, logManager,
   await page.page.exposeFunction('PACORTestManagerName', () => {
     return logManager.getBasename(index)
   })
+  
+  await page.page.exposeFunction('PACORTestManagerAdminName', () => {
+    throw new Error('@underconstruction')
+    //return logManager.getBasename(index)
+  })
 
   await page.page.exposeFunction('PACORTestManagerLog', (...args) => {
     //args.unshift(consolePrefix)

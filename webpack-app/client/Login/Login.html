@@ -10,9 +10,14 @@
     v-bind:fullContent="true">
 
     <template v-slot:header>
-      <div v-on:click="adminMode = !adminMode">
-        {{ $t('Welcome to PACOR') }}
-      </div>
+      {{ $t('Welcome to PACOR') }}
+    </template>
+    <template v-slot:headerMenu>
+      <a class="item"
+         v-bind:title="computedHeaderMenuIconTitle"
+         v-on:click="switchMode">
+        <i v-bind:class="computedHeaderMenuIconClassList"></i>
+      </a>
     </template>
     <template v-slot:content>
       <div class="ui middle aligned grid">
@@ -40,7 +45,12 @@
 
           <div class="ui field">
             <label for="loginUsername">
-              {{ $t('Username') }}
+              <template v-if="!adminMode">
+                {{ $t('Username') }}
+              </template>
+              <template v-else>
+                {{ $t('Administrator Username') }}
+              </template>
               ({{ $t('cannot contain space') }})
             </label>
             <input type="text" 

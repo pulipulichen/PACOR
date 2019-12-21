@@ -2385,6 +2385,13 @@ __webpack_require__.r(__webpack_exports__);
     return 0
   }
   
+  PACORTestManager.methods.getAdminName = async function (selector) {
+    if (typeof(window.PACORTestManagerAdminName) === 'function') {
+      return await window.PACORTestManagerAdminName()
+    }
+    return 0
+  }
+  
   PACORTestManager.methods.error = async function (message) {
     if (typeof(window.PACORTestManagerError) !== 'function') {
       return setTimeout(() => {
@@ -2619,6 +2626,180 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationConfusedClarifiedPACORTestManager.js":
+/*!**********************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationConfusedClarifiedPACORTestManager.js ***!
+  \**********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  
+  PACORTestManager.methods.writeConfusedClarifiedAnnotation = async function () {
+    
+    await this.sleep(1000)
+    
+    let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', {
+      timeout: 3000
+    })
+    //questionEditor.html(this.createRandomHtml())
+    await this.typeInput(questionEditor, this.createRandomText())
+    await this.sleep(500)
+    await this.typeInput(questionEditor, this.createRandomText())
+    
+    
+    await this.sleep(100)
+    
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
+      timeout: 3000,
+      errorMessage: 'writeConfusedClarifiedAnnotation 是不是沒有寫到QuestionEditor? 或是寫不夠長？'
+    })
+    
+    await this.sleep(100)
+    
+    let answerEditor = await this.waitForElementVisible('.AnnotationPanel .AnswerEditor.html-editor-container .note-editable', {
+      timeout: 6000,
+      errorMessage: '是不是傳送儲存花太多時間了？ writeConfusedClarifiedAnnotation'
+    })
+    //answerEditor.html(this.createRandomHtml())
+    await this.typeInput(answerEditor, this.createRandomText())
+    await this.sleep(500)
+    await this.typeInput(questionEditor, this.createRandomText())
+    await this.sleep(3000)
+    
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled):last', {
+      timeout: 3000,
+      errorMessage: 'writeConfusedClarifiedAnnotation 是不是沒有寫到 answerEditor? 或是寫不夠長？'
+    })
+    
+    await this.waitForElementHidden('.AnnotationPanel .segment', {
+      timeout: 6000,
+      errorMessage: '是不是傳送更新花太多時間了？ writeConfusedClarifiedAnnotation'
+    })
+    
+    //await this.lib.RangyManager.cancelSelection()
+    
+    await this.sleep(100)
+  }
+  
+});
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationConfusedPACORTestManager.js":
+/*!*************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationConfusedPACORTestManager.js ***!
+  \*************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  
+  PACORTestManager.methods.writeConfusedAnnotation = async function () {
+    
+    await this.sleep(1000)
+    
+    let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', {
+      timeout: 3000
+    })
+    //questionEditor.html(this.createRandomHtml())
+    await this.typeInput(questionEditor, this.createRandomText())
+    await this.sleep(500)
+    await this.typeInput(questionEditor, this.createRandomText())
+    await this.sleep(100)
+    
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
+      timeout: 3000,
+      errorMessage: 'writeConfusedAnnotation 是不是沒有寫到QuestionEditor? '
+    })
+    
+    await this.sleep(3000)
+    
+    //await this.log('這邊我要確認一下'); await this.sleep(60 * 1000)
+    
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ui.button:eq(1):not(.disabled)', {
+      timeout: 3000,
+      errorMessage: 'writeConfusedAnnotation 這裡很奇怪？是不是儲存沒有存好？'
+    })
+    
+    await this.waitForElementHidden('.AnnotationPanel .segment', {
+      timeout: 3000,
+      errorMessage: 'writeConfusedAnnotation 應該只會看到前面'
+    })
+    
+    //await this.lib.RangyManager.cancelSelection()
+    
+    await this.sleep(100)
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js":
+/*!*************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js ***!
+  \*************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  
+  PACORTestManager.methods.writeMainIdeaAnnotation = async function () {
+    let button = await this.waitForElementVisible('.AnnotationPanel .annotation-panel-buttons .ValidationButton', {
+      timeout: 3000
+    })
+    if (button.hasClass('disabled') === false) {
+      throw new Error('Add button should be disabled at default')
+    }
+    
+    await this.sleep(1000)
+    
+    let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', {
+      timeout: 3000
+    })
+    //editor.html(this.createRandomHtml())
+    await this.typeInput(editor, this.createRandomText())
+    await this.sleep(500)
+    await this.typeInput(editor, this.createRandomText())
+    await this.sleep(500)
+    
+    
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
+      timeout: 3000,
+      errorMessage: ' writeMainIdeaAnnotation 是不是資料沒有輸入？或是寫不夠長？'
+    })
+    
+    await this.waitForElementHidden('.AnnotationPanel .segment', {
+      timeout: 3000,
+      errorMessage: '是不是傳送儲存花太多時間了？ writeMainIdeaAnnotation'
+    })
+    
+    //await this.lib.RangyManager.cancelSelection()
+    
+    await this.sleep(100)
+  }
+});
+
+/***/ }),
+
 /***/ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepAddAnnotationPACORTestManager.js":
 /*!**********************************************************************************************************!*\
   !*** ./webpack-app/components/manager/PACORTestManager/stepsReader/stepAddAnnotationPACORTestManager.js ***!
@@ -2630,9 +2811,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module './AnnotationTypeModules/stepAnnotationConfusedClarifiedPACORTestManager.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module './AnnotationTypeModules/stepAnnotationConfusedPACORTestManager.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module './AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _AnnotationTypeModules_stepAnnotationConfusedClarifiedPACORTestManager_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AnnotationTypeModules/stepAnnotationConfusedClarifiedPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationConfusedClarifiedPACORTestManager.js");
+/* harmony import */ var _AnnotationTypeModules_stepAnnotationConfusedPACORTestManager_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AnnotationTypeModules/stepAnnotationConfusedPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationConfusedPACORTestManager.js");
+/* harmony import */ var _AnnotationTypeModules_stepAnnotationMainIdeaPACORTestManager_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js");
 
 
 
@@ -2717,9 +2898,9 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   
-  !(function webpackMissingModule() { var e = new Error("Cannot find module './AnnotationTypeModules/stepAnnotationConfusedClarifiedPACORTestManager.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(PACORTestManager)
-  !(function webpackMissingModule() { var e = new Error("Cannot find module './AnnotationTypeModules/stepAnnotationConfusedPACORTestManager.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(PACORTestManager)
-  !(function webpackMissingModule() { var e = new Error("Cannot find module './AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(PACORTestManager)
+  Object(_AnnotationTypeModules_stepAnnotationConfusedClarifiedPACORTestManager_js__WEBPACK_IMPORTED_MODULE_2__["default"])(PACORTestManager)
+  Object(_AnnotationTypeModules_stepAnnotationConfusedPACORTestManager_js__WEBPACK_IMPORTED_MODULE_3__["default"])(PACORTestManager)
+  Object(_AnnotationTypeModules_stepAnnotationMainIdeaPACORTestManager_js__WEBPACK_IMPORTED_MODULE_4__["default"])(PACORTestManager)
 });
 
 /***/ }),
