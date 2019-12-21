@@ -6,12 +6,8 @@ zh-TW:
   # 這是註解
   I don't know what is "{0}"?: 我不知道什麼是「{0}」？
   Why is "{0}"?: 為什麼是「{0}」？
-  WRITE LATER: 留下「疑問」，稍後再來澄清
   Question: 問題
   Answer: 解答
   "Do you want to use his comment as your answer?": 您要將這個評論作為您的解答嗎？
   "New question will overwrite your question. Are you sure?": 您要用新問題取代目前的問題嗎？
-  Write your question here...: 請在這裡寫下您的問題...
-  Write your answer here...: 請在這裡寫下您的解答...
-  SAVE QUESTION: 記下「疑問」
-  SAVE ANSWER: 改為「已澄清」
+

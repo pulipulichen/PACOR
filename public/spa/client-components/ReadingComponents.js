@@ -217,7 +217,23 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"I don\u0027t know what is \\"{0}\\"?":"I don\u0027t know what is \\"{0}\\"?","Why is \\"{0}\\"?":"Why is \\"{0}\\"?"},"zh-TW":{"I don\u0027t know what is \\"{0}\\"?":"我不知道什麼是「{0}」？","Why is \\"{0}\\"?":"為什麼是「{0}」？","WRITE LATER":"留下「疑問」，稍後再來澄清","Question":"問題","Answer":"解答","Do you want to use his comment as your answer?":"您要將這個評論作為您的解答嗎？","New question will overwrite your question. Are you sure?":"您要用新問題取代目前的問題嗎？","Write your question here...":"請在這裡寫下您的問題...","Write your answer here...":"請在這裡寫下您的解答...","SAVE QUESTION":"記下「疑問」","SAVE ANSWER":"改為「已澄清」"}}')
+  Component.options.__i18n.push('{"en":{"I don\u0027t know what is \\"{0}\\"?":"I don\u0027t know what is \\"{0}\\"?","Why is \\"{0}\\"?":"Why is \\"{0}\\"?"},"zh-TW":{"I don\u0027t know what is \\"{0}\\"?":"我不知道什麼是「{0}」？","Why is \\"{0}\\"?":"為什麼是「{0}」？","Question":"問題","Answer":"解答","Do you want to use his comment as your answer?":"您要將這個評論作為您的解答嗎？","New question will overwrite your question. Are you sure?":"您要用新問題取代目前的問題嗎？"}}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CConfusedClarified%5CFooterButtons%5CFooterButtons.vue&lang=yaml":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CConfusedClarified%5CFooterButtons%5CFooterButtons.vue&lang=yaml ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"SAVE QUESTION":"記下「疑問」","SAVE ANSWER":"改為「已澄清」","WRITE LATER":"留下「疑問」，稍後再來澄清"}}')
   delete Component.options._Ctor
 }
 
@@ -754,6 +770,20 @@ exports.push([module.i, ".annotation-panel-buttons[data-v-7a079aa8] {\n  user-se
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
 exports.push([module.i, ".display-time[data-v-3882afce] {\n  vertical-align: baseline;\n}\n", "",{"version":3,"sources":["ConfusedClarified.less?vue&type=style&index=1&id=3882afce&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;AAC1B","file":"ConfusedClarified.less?vue&type=style&index=1&id=3882afce&lang=less&scoped=true&","sourcesContent":[".display-time[data-v-3882afce] {\n  vertical-align: baseline;\n}\n"]}]);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&"}]);
 
 
 /***/ }),
@@ -2683,140 +2713,178 @@ var render = function() {
         on: { input: _vm.onAnswerChange }
       }),
       _vm._v(" "),
-      _vm.isEditable
-        ? _c(
-            "div",
-            { staticClass: "ui one column grid annotation-panel-buttons" },
-            [
-              _vm.isNoteEdited ? _c("block-exit") : _vm._e(),
-              _vm._v(" "),
-              _c(
-                "div",
-                { class: _vm.computedButtonsClass },
-                [
-                  _c("admin-badge", {
-                    attrs: { status: _vm.status, config: _vm.config }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "display-time" }, [
-                    _vm._v(
-                      "\r\n        " + _vm._s(_vm.displayTime) + "\r\n      "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm.lib.auth.isEnableControlPermission
-                    ? _c("checkbox-toggle", {
-                        attrs: {
-                          label: _vm.$t("PUBLIC"),
-                          enable: !_vm.awaitSubmit
-                        },
-                        model: {
-                          value: _vm.public,
-                          callback: function($$v) {
-                            _vm.public = $$v
-                          },
-                          expression: "public"
-                        }
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
-                  !_vm.annotation.id
-                    ? [
-                        _c(
-                          "validation-button",
-                          {
-                            class: _vm.computedSubmitButtonClassList,
-                            style: _vm.computedSubmitQuestionStyle,
-                            attrs: {
-                              lib: _vm.lib,
-                              text: _vm.question,
-                              minWordCount: _vm.questionMinWords,
-                              locale: _vm.status.preference.locale,
-                              enable: _vm.isEnableSubmitQuestion
-                            },
-                            on: { click: _vm.submitQuestion }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(_vm.$t("SAVE QUESTION")) +
-                                "  \r\n        "
-                            )
-                          ]
-                        )
-                      ]
-                    : [
-                        _vm.isQuestionSubmitted
-                          ? _c(
-                              "button",
-                              {
-                                staticClass: "ui button",
-                                class: _vm.computedSubmitButtonClassList,
-                                attrs: { type: "button" },
-                                on: { click: _vm.deleteAnnotation }
-                              },
-                              [
-                                _vm._v(
-                                  "\r\n          " +
-                                    _vm._s(_vm.$t("DELETE")) +
-                                    "  \r\n        "
-                                )
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.isQuestionSubmitted && !_vm.isAnswerSubmitted
-                          ? _c(
-                              "button",
-                              {
-                                staticClass: "ui button",
-                                class: _vm.computedSubmitButtonClassList,
-                                attrs: { type: "button" },
-                                on: { click: _vm.writeLater }
-                              },
-                              [
-                                _vm._v(
-                                  "\r\n          " +
-                                    _vm._s(_vm.$t("WRITE LATER")) +
-                                    "  \r\n        "
-                                )
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c(
-                          "validation-button",
-                          {
-                            class: _vm.computedSubmitButtonClassList,
-                            style: _vm.computedSubmitAnswerStyle,
-                            attrs: {
-                              lib: _vm.lib,
-                              text: _vm.answer,
-                              minWordCount: _vm.answerMinWords,
-                              locale: _vm.status.preference.locale,
-                              enable: _vm.isEnableSubmitAnswer
-                            },
-                            on: { click: _vm.submitAnswer }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(_vm.$t("SAVE ANSWER")) +
-                                "  \r\n        "
-                            )
-                          ]
-                        )
-                      ]
-                ],
-                2
-              )
-            ],
-            1
-          )
-        : _vm._e()
+      _c("footer-buttons", {
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          lib: _vm.lib,
+          annotation: _vm.annotation,
+          panelData: _vm.panelData
+        },
+        on: {
+          update: function($event) {
+            return _vm.$emit("update")
+          }
+        }
+      })
     ],
     1
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.html?vue&type=template&id=6fa9e8ca&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.html?vue&type=template&id=6fa9e8ca&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.$parent.isEditable
+    ? _c(
+        "div",
+        { staticClass: "ui one column grid annotation-panel-buttons" },
+        [
+          _vm.$parent.isNoteEdited ? _c("block-exit") : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "div",
+            { class: _vm.$parent.computedButtonsClass },
+            [
+              _c("admin-badge", {
+                attrs: { status: _vm.status, config: _vm.config }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "display-time" }, [
+                _vm._v(
+                  "\r\n      " + _vm._s(_vm.$parent.displayTime) + "\r\n    "
+                )
+              ]),
+              _vm._v(" "),
+              _vm.lib.auth.isEnableControlPermission
+                ? _c("checkbox-toggle", {
+                    attrs: {
+                      label: _vm.$t("PUBLIC"),
+                      enable: !_vm.$parent.awaitSubmit
+                    },
+                    model: {
+                      value: _vm.public,
+                      callback: function($$v) {
+                        _vm.public = $$v
+                      },
+                      expression: "public"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" "),
+              !_vm.$parent.annotation.id
+                ? [
+                    _c(
+                      "validation-button",
+                      {
+                        class: _vm.$parent.computedSubmitButtonClassList,
+                        style: _vm.$parent.computedSubmitQuestionStyle,
+                        attrs: {
+                          lib: _vm.lib,
+                          text: _vm.$parent.question,
+                          minWordCount: _vm.$parent.questionMinWords,
+                          locale: _vm.status.preference.locale,
+                          enable: _vm.$parent.isEnableSubmitQuestion
+                        },
+                        on: { click: _vm.submitQuestion }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n        " +
+                            _vm._s(_vm.$t("SAVE QUESTION")) +
+                            "  \r\n      "
+                        )
+                      ]
+                    )
+                  ]
+                : [
+                    _vm.$parent.isQuestionSubmitted
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "ui button",
+                            class: _vm.$parent.computedSubmitButtonClassList,
+                            attrs: { type: "button" },
+                            on: { click: _vm.$parent.deleteAnnotation }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n        " +
+                                _vm._s(_vm.$t("DELETE")) +
+                                "  \r\n      "
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.$parent.isQuestionSubmitted &&
+                    !_vm.$parent.isAnswerSubmitted
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "ui button",
+                            class: _vm.$parent.computedSubmitButtonClassList,
+                            attrs: { type: "button" },
+                            on: { click: _vm.writeLater }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n        " +
+                                _vm._s(_vm.$t("WRITE LATER")) +
+                                "  \r\n      "
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c(
+                      "validation-button",
+                      {
+                        class: _vm.$parent.computedSubmitButtonClassList,
+                        style: _vm.computedSubmitAnswerStyle,
+                        attrs: {
+                          lib: _vm.lib,
+                          text: _vm.$parent.answer,
+                          minWordCount: _vm.$parent.answerMinWords,
+                          locale: _vm.status.preference.locale,
+                          enable: _vm.$parent.isEnableSubmitAnswer
+                        },
+                        on: { click: _vm.submitAnswer }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n        " +
+                            _vm._s(_vm.$t("SAVE ANSWER")) +
+                            "  \r\n      "
+                        )
+                      ]
+                    )
+                  ]
+            ],
+            2
+          )
+        ],
+        1
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -4788,6 +4856,27 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("c408ef54", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("26903d7e", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -10368,13 +10457,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _props__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../props */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/props.js");
 /* harmony import */ var _QuestionTemplate_QuestionTemplate_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QuestionTemplate/QuestionTemplate.vue */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/QuestionTemplate/QuestionTemplate.vue");
 /* harmony import */ var _ResourceSearch_ResourceSearch_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ResourceSearch/ResourceSearch.vue */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/ResourceSearch/ResourceSearch.vue");
-/* harmony import */ var _dataConfusedClarified__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dataConfusedClarified */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/dataConfusedClarified.js");
-/* harmony import */ var _computedConfusedClarified__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./computedConfusedClarified */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/computedConfusedClarified.js");
-/* harmony import */ var _watchConfusedClarified__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./watchConfusedClarified */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/watchConfusedClarified.js");
-/* harmony import */ var _methodsConfusedClarified__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./methodsConfusedClarified */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/methodsConfusedClarified.js");
-/* harmony import */ var _computed_ComputedConfig__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../computed/ComputedConfig */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/computed/ComputedConfig.js");
-/* harmony import */ var _computed_ComputedButtons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../computed/ComputedButtons */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/computed/ComputedButtons.js");
-/* harmony import */ var _methods_MethodsAnnotation__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../methods/MethodsAnnotation */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/methods/MethodsAnnotation.js");
+/* harmony import */ var _FooterButtons_FooterButtons_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./FooterButtons/FooterButtons.vue */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.vue");
+/* harmony import */ var _dataConfusedClarified__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dataConfusedClarified */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/dataConfusedClarified.js");
+/* harmony import */ var _computedConfusedClarified__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./computedConfusedClarified */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/computedConfusedClarified.js");
+/* harmony import */ var _watchConfusedClarified__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./watchConfusedClarified */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/watchConfusedClarified.js");
+/* harmony import */ var _methodsConfusedClarified__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./methodsConfusedClarified */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/methodsConfusedClarified.js");
+/* harmony import */ var _computed_ComputedConfig__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../computed/ComputedConfig */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/computed/ComputedConfig.js");
+/* harmony import */ var _computed_ComputedButtons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../computed/ComputedButtons */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/computed/ComputedButtons.js");
+/* harmony import */ var _methods_MethodsAnnotation__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../methods/MethodsAnnotation */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/methods/MethodsAnnotation.js");
+
 
 
 
@@ -10386,6 +10477,7 @@ let Editor = {
   components: {
     'question-template': _QuestionTemplate_QuestionTemplate_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     'resource-search': _ResourceSearch_ResourceSearch_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    'footer-buttons': _FooterButtons_FooterButtons_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   //computed: ,
   //watch: ,
@@ -10395,25 +10487,25 @@ let Editor = {
 }
 
 
-Object(_dataConfusedClarified__WEBPACK_IMPORTED_MODULE_3__["default"])(Editor)
+Object(_dataConfusedClarified__WEBPACK_IMPORTED_MODULE_4__["default"])(Editor)
 
 
-Object(_computedConfusedClarified__WEBPACK_IMPORTED_MODULE_4__["default"])(Editor)
+Object(_computedConfusedClarified__WEBPACK_IMPORTED_MODULE_5__["default"])(Editor)
 
 
-Object(_watchConfusedClarified__WEBPACK_IMPORTED_MODULE_5__["default"])(Editor)
+Object(_watchConfusedClarified__WEBPACK_IMPORTED_MODULE_6__["default"])(Editor)
 
 
-Object(_methodsConfusedClarified__WEBPACK_IMPORTED_MODULE_6__["default"])(Editor)
+Object(_methodsConfusedClarified__WEBPACK_IMPORTED_MODULE_7__["default"])(Editor)
 
 
-Object(_computed_ComputedConfig__WEBPACK_IMPORTED_MODULE_7__["default"])(Editor)
+Object(_computed_ComputedConfig__WEBPACK_IMPORTED_MODULE_8__["default"])(Editor)
 
 
-Object(_computed_ComputedButtons__WEBPACK_IMPORTED_MODULE_8__["default"])(Editor)
+Object(_computed_ComputedButtons__WEBPACK_IMPORTED_MODULE_9__["default"])(Editor)
 
 
-Object(_methods_MethodsAnnotation__WEBPACK_IMPORTED_MODULE_9__["default"])(Editor)
+Object(_methods_MethodsAnnotation__WEBPACK_IMPORTED_MODULE_10__["default"])(Editor)
 
 /* harmony default export */ __webpack_exports__["default"] = (Editor);
 
@@ -10508,6 +10600,320 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_ConfusedClarified_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CConfusedClarified_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_ConfusedClarified_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CConfusedClarified_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_ConfusedClarified_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CConfusedClarified_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_ConfusedClarified_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CConfusedClarified_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_ConfusedClarified_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CConfusedClarified_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.html?vue&type=template&id=6fa9e8ca&scoped=true&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.html?vue&type=template&id=6fa9e8ca&scoped=true& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_FooterButtons_html_vue_type_template_id_6fa9e8ca_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./FooterButtons.html?vue&type=template&id=6fa9e8ca&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.html?vue&type=template&id=6fa9e8ca&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_FooterButtons_html_vue_type_template_id_6fa9e8ca_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_FooterButtons_html_vue_type_template_id_6fa9e8ca_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.js?vue&type=script&lang=js&?c82f":
+/*!**********************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.js?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FooterButtons_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./FooterButtons.js?vue&type=script&lang=js& */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.js?vue&type=script&lang=js&?e60a");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_FooterButtons_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.js?vue&type=script&lang=js&?e60a":
+/*!**********************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.js?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* global this */
+
+let FooterButtons = {
+  props: ['config', 'status', 'lib', 'annotation', 'panelData'],
+  data() {    
+    this.$i18n.locale = this.config.locale
+    return {
+      
+      public: true,
+      
+      questionMinWords: this.status.readingConfig.annotationTypeModules['ConfusedClarified'].questionMinWords,
+      answerMinWords: this.status.readingConfig.annotationTypeModules['ConfusedClarified'].answerMinWords,
+    }
+  },
+//  components: {
+//  },
+  computed: {
+    computedSubmitQuestionStyle () {
+      let type = 'Confused'
+      let buttonStyle = this.status.readingConfig.annotationTypeModules[type].style.button
+      return {
+        color: buttonStyle.color,
+        'background-color': buttonStyle.backgroundColor,
+      }
+    },
+    computedSubmitAnswerStyle () {
+      let type = 'Clarified'
+      let buttonStyle = this.status.readingConfig.annotationTypeModules[type].style.button
+      return {
+        color: buttonStyle.color,
+        'background-color': buttonStyle.backgroundColor,
+      }
+    }
+  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
+  methods: {
+    submitQuestion: async function () {
+      this.$parent.setWaitSubmit()
+      
+      this.annotation.properties = {
+        question_submitted_at: (new Date()).getTime()
+      }
+      
+      this.lib.AnnotationHelper.note(this.annotation, 'question', this.$parent.question)
+      
+      this.lib.AnnotationHelper.validate(this.annotation)
+      
+      let data = {
+        anchorPositions: this.annotation.anchorPositions,
+        type: this.annotation.type,
+        notes: {
+          'question': this.$parent.question
+        },
+        properties: this.annotation.properties
+      }
+      
+      if (this.lib.auth.isEnableControlPermission === true) {
+        data.public = this.public
+      }
+      
+      //console.log(data)
+      
+      let id = await this.lib.AxiosHelper.post('/client/AnnotationSave/create', data)
+      //let id = 1
+      this.panelData.isAnnotationEditing = false
+      
+      //console.log(id) // for test
+      
+      if (typeof(id) !== 'number') {
+        throw 'Create failed'
+        return false  // 新增失敗
+      }
+      
+      // -----------------------------------------
+      
+      this.annotation.id = id
+      this.lib.AnnotationHelper.note(this.annotation, 'question', this.$parent.question)
+      
+      //this.id = id
+      // 請在這裡建立annotationInstance，然後轉換成edit狀態
+      //this.id = id
+      //this.type = this.annotationModule,
+      //this.notes = {
+      //  'question': this.question
+      //}
+      
+      //this.lib.RangyManager.highlightPinnedSelection('my-' + this.annotation.type, this.pinSelection.anchorParagraphIds, false)
+      this.lib.RangyManager.unpinSelection()
+      this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
+      
+      // this.$emit('add')
+      //this.$forceUpdate()
+      //console.log(this.isQuestionSubmitted)
+      this.$parent.isQuestionSubmitted = true
+      this.lib.RangyManager.hoverIn(this.annotation)
+      
+      //console.log(this.answer)
+      //this.answer = ''
+      //this.answerReset = ''
+      //this.$refs.AnswerEditor.html('')
+//      setTimeout(() => {
+//        console.log(this.answer)
+//      }, 100)
+      this.$parent.awaitSubmit = false
+    },
+    
+    submitAnswer: async function () {
+      this.$parent.setWaitSubmit()
+      let type = 'Clarified'
+      this.annotation.properties.answer_submitted_at = (new Date()).getTime()
+      
+      this.lib.AnnotationHelper.note(this.annotation, 'question', this.$parent.question)
+      this.lib.AnnotationHelper.note(this.annotation, 'answer', this.$parent.answer)
+      
+      let notes = {
+          'question': this.$parent.question,
+          'answer': this.$parent.answer
+        }
+      
+      let data = {
+        id: this.annotation.id,
+        type: type,
+        notes: notes,
+        properties: this.annotation.properties
+      }
+      
+      if (this.lib.auth.isEnableControlPermission === true) {
+        data.public = this.public
+      }
+      
+      //console.log(data)
+      
+      let result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
+      //let result = 1
+      this.panelData.isAnnotationEditing = false
+      //console.log(result) // for test
+      if (result !== 1) {
+        throw 'Update failed'
+        return false  // 新增失敗
+      }
+      
+      // ------------------------------------------------
+      
+      this.lib.AnnotationHelper.note(this.annotation, notes)
+      
+      //this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
+      //this.rangy.reloadMyHighlights()
+      //this.$emit('reloadMyHighlights')
+      await this.lib.RangyManager.reloadMyHighlights()
+      
+      this.$emit('update')
+      //console.log('update')
+      this.annotation.type = type
+    },
+    
+    writeLater: async function () {
+      this.$parent.setWaitSubmit()
+      
+      this.lib.AnnotationHelper.note(this.annotation, 'question', this.$parent.question)
+      this.lib.AnnotationHelper.note(this.annotation, 'answer', this.$parent.answer)
+      
+      let data = {
+        id: this.annotation.id,
+        notes: {
+          'question': this.$parent.question,
+          'answer': this.$parent.answer
+        }
+      }
+      
+      if (this.lib.auth.isEnableControlPermission === true) {
+        data.public = this.public
+      }
+      
+      //console.log(data)
+      
+      let result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
+      //console.log(id) // for test
+      
+      this.panelData.isAnnotationEditing = false
+      
+      if (result !== 1) {
+        throw 'Update failed'
+        return false  // 新增失敗
+      }
+      
+      this.$emit('update')
+    },
+  } // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (FooterButtons);
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_FooterButtons_less_vue_type_style_index_0_id_6fa9e8ca_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-style-loader!../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_FooterButtons_less_vue_type_style_index_0_id_6fa9e8ca_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_FooterButtons_less_vue_type_style_index_0_id_6fa9e8ca_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_FooterButtons_less_vue_type_style_index_0_id_6fa9e8ca_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_FooterButtons_less_vue_type_style_index_0_id_6fa9e8ca_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_FooterButtons_less_vue_type_style_index_0_id_6fa9e8ca_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.vue":
+/*!**********************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.vue ***!
+  \**********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FooterButtons_html_vue_type_template_id_6fa9e8ca_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FooterButtons.html?vue&type=template&id=6fa9e8ca&scoped=true& */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.html?vue&type=template&id=6fa9e8ca&scoped=true&");
+/* harmony import */ var _FooterButtons_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FooterButtons.js?vue&type=script&lang=js& */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.js?vue&type=script&lang=js&?c82f");
+/* empty/unused harmony star reexport *//* harmony import */ var _FooterButtons_less_vue_type_style_index_0_id_6fa9e8ca_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true& */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FooterButtons.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CConfusedClarified%5CFooterButtons%5CFooterButtons.vue&lang=yaml */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CConfusedClarified%5CFooterButtons%5CFooterButtons.vue&lang=yaml");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _FooterButtons_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FooterButtons_html_vue_type_template_id_6fa9e8ca_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FooterButtons_html_vue_type_template_id_6fa9e8ca_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "6fa9e8ca",
+  null
+  
+)
+
+/* custom blocks */
+
+if (typeof _FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CConfusedClarified%5CFooterButtons%5CFooterButtons.vue&lang=yaml":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CConfusedClarified%5CFooterButtons%5CFooterButtons.vue&lang=yaml ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./FooterButtons.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CConfusedClarified%5CFooterButtons%5CFooterButtons.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/FooterButtons/FooterButtons.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CConfusedClarified%5CFooterButtons%5CFooterButtons.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -11085,22 +11491,7 @@ let answerHeightPadding = '8em'
       return anchorText
     },
     
-    computedSubmitQuestionStyle () {
-      let type = 'Confused'
-      let buttonStyle = this.status.readingConfig.annotationTypeModules[type].style.button
-      return {
-        color: buttonStyle.color,
-        'background-color': buttonStyle.backgroundColor,
-      }
-    },
-    computedSubmitAnswerStyle () {
-      let type = 'Clarified'
-      let buttonStyle = this.status.readingConfig.annotationTypeModules[type].style.button
-      return {
-        color: buttonStyle.color,
-        'background-color': buttonStyle.backgroundColor,
-      }
-    }
+    
 //    isEditable () {
 //      return CommonComputed.isEditable(this)
 //    },
@@ -11258,157 +11649,7 @@ __webpack_require__.r(__webpack_exports__);
     
     // ------------------
     
-    submitQuestion: async function () {
-      this.setWaitSubmit()
-      
-      this.annotation.properties = {
-        question_submitted_at: (new Date()).getTime()
-      }
-      
-      this.lib.AnnotationHelper.note(this.annotation, 'question', this.question)
-      
-      this.lib.AnnotationHelper.validate(this.annotation)
-      
-      let data = {
-        anchorPositions: this.annotation.anchorPositions,
-        type: this.annotation.type,
-        notes: {
-          'question': this.question
-        },
-        properties: this.annotation.properties
-      }
-      
-      if (this.lib.auth.isEnableControlPermission === true) {
-        data.public = this.public
-      }
-      
-      //console.log(data)
-      
-      let id = await this.lib.AxiosHelper.post('/client/AnnotationSave/create', data)
-      //let id = 1
-      this.panelData.isAnnotationEditing = false
-      
-      //console.log(id) // for test
-      
-      if (typeof(id) !== 'number') {
-        throw 'Create failed'
-        return false  // 新增失敗
-      }
-      
-      // -----------------------------------------
-      
-      this.annotation.id = id
-      this.lib.AnnotationHelper.note(this.annotation, 'question', this.question)
-      
-      //this.id = id
-      // 請在這裡建立annotationInstance，然後轉換成edit狀態
-      //this.id = id
-      //this.type = this.annotationModule,
-      //this.notes = {
-      //  'question': this.question
-      //}
-      
-      //this.lib.RangyManager.highlightPinnedSelection('my-' + this.annotation.type, this.pinSelection.anchorParagraphIds, false)
-      this.lib.RangyManager.unpinSelection()
-      this.lib.RangyManager.highlightPinnedSelectionFromAnnotation(this.annotation)
-      
-      // this.$emit('add')
-      //this.$forceUpdate()
-      //console.log(this.isQuestionSubmitted)
-      this.isQuestionSubmitted = true
-      this.lib.RangyManager.hoverIn(this.annotation)
-      
-      //console.log(this.answer)
-      //this.answer = ''
-      //this.answerReset = ''
-      //this.$refs.AnswerEditor.html('')
-//      setTimeout(() => {
-//        console.log(this.answer)
-//      }, 100)
-      this.awaitSubmit = false
-    },
     
-    submitAnswer: async function () {
-      this.setWaitSubmit()
-      let type = 'Clarified'
-      this.annotation.properties.answer_submitted_at = (new Date()).getTime()
-      
-      this.lib.AnnotationHelper.note(this.annotation, 'question', this.question)
-      this.lib.AnnotationHelper.note(this.annotation, 'answer', this.answer)
-      
-      let notes = {
-          'question': this.question,
-          'answer': this.answer
-        }
-      
-      let data = {
-        id: this.annotation.id,
-        type: type,
-        notes: notes,
-        properties: this.annotation.properties
-      }
-      
-      if (this.lib.auth.isEnableControlPermission === true) {
-        data.public = this.public
-      }
-      
-      //console.log(data)
-      
-      let result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
-      //let result = 1
-      this.panelData.isAnnotationEditing = false
-      //console.log(result) // for test
-      if (result !== 1) {
-        throw 'Update failed'
-        return false  // 新增失敗
-      }
-      
-      // ------------------------------------------------
-      
-      this.lib.AnnotationHelper.note(this.annotation, notes)
-      
-      //this.rangy.highlightPinnedSelection('my-' + this.annotationModule, this.pinSelection.anchorParagraphIds)
-      //this.rangy.reloadMyHighlights()
-      //this.$emit('reloadMyHighlights')
-      await this.lib.RangyManager.reloadMyHighlights()
-      
-      this.$emit('update')
-      //console.log('update')
-      this.annotation.type = type
-    },
-    
-    writeLater: async function () {
-      this.setWaitSubmit()
-      
-      this.lib.AnnotationHelper.note(this.annotation, 'question', this.question)
-      this.lib.AnnotationHelper.note(this.annotation, 'answer', this.answer)
-      
-      let data = {
-        id: this.annotation.id,
-        notes: {
-          'question': this.question,
-          'answer': this.answer
-        }
-      }
-      
-      if (this.lib.auth.isEnableControlPermission === true) {
-        data.public = this.public
-      }
-      
-      //console.log(data)
-      
-      let result = await this.lib.AxiosHelper.post('/client/AnnotationSave/update', data)
-      //console.log(id) // for test
-      
-      this.panelData.isAnnotationEditing = false
-      
-      if (result !== 1) {
-        throw 'Update failed'
-        return false  // 新增失敗
-      }
-      
-      this.$emit('update')
-    },
     
     onCommentLike: async function (comment) {
       

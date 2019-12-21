@@ -2,6 +2,7 @@ import props from './../props'
 
 import QuestionTemplate from './QuestionTemplate/QuestionTemplate.vue'
 import ResourceSearch from './ResourceSearch/ResourceSearch.vue'
+import FooterButtons from './FooterButtons/FooterButtons.vue'
 
 let Editor = {
   props: props,
@@ -9,6 +10,7 @@ let Editor = {
   components: {
     'question-template': QuestionTemplate,
     'resource-search': ResourceSearch,
+    'footer-buttons': FooterButtons
   },
   //computed: ,
   //watch: ,
