@@ -39,6 +39,8 @@ export default (Editor) => {
       
       let note = this.lib.StringHelper.htmlTrim(this.answer)
       note = this.lib.StringHelper.htmlToText(note)
+      
+      //console.log('isAnswerEdited', (note !== this.answerReset), note, this.answer, this.answerReset)
       return (note !== this.answerReset)
     },
 

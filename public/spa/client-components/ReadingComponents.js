@@ -11525,6 +11525,8 @@ let answerHeightPadding = '8em'
       
       let note = this.lib.StringHelper.htmlTrim(this.answer)
       note = this.lib.StringHelper.htmlToText(note)
+      
+      //console.log('isAnswerEdited', (note !== this.answerReset), note, this.answer, this.answerReset)
       return (note !== this.answerReset)
     },
 
@@ -11683,6 +11685,7 @@ __webpack_require__.r(__webpack_exports__);
     let question = ''
     let questionReset = ''
     let answer = ''
+    let answerReset = ''
 
     if (Array.isArray(this.annotation.notes)) {
       this.annotation.notes.forEach(note => {
@@ -11697,6 +11700,12 @@ __webpack_require__.r(__webpack_exports__);
     if (question === '') {
       let template = this.status.readingConfig.annotationTypeModules['ConfusedClarified'].questionTemplates[0].template
       question = this._convertQuestionTemplate(template)
+    }
+    
+    if (answer !== '') {
+      let note = this.lib.StringHelper.htmlTrim(answer)
+      note = this.lib.StringHelper.htmlToText(note)
+      answerReset = note
     }
     
     if (question !== '') {
@@ -11721,7 +11730,7 @@ __webpack_require__.r(__webpack_exports__);
       questionReset: questionReset,
 
       answer: answer,
-      answerReset: answer,
+      answerReset: answerReset,
 
       recommandResourceSearchIndex: 0,
       
@@ -11829,7 +11838,9 @@ __webpack_require__.r(__webpack_exports__);
       }
       
       this.answer = commentNote
-      this.answerReset = this.lib.StringHelper.htmlTrim(commentNote)
+      let answerReset = this.lib.StringHelper.htmlTrim(commentNote)
+      answerReset = this.lib.StringHelper.htmlToText(answerReset)
+      this.answerReset = answerReset
       
       this.panelData.isAnnotationEditing = true
       

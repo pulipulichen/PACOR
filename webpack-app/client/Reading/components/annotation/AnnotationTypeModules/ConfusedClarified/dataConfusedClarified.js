@@ -9,6 +9,7 @@ export default (Editor) => {
     let question = ''
     let questionReset = ''
     let answer = ''
+    let answerReset = ''
 
     if (Array.isArray(this.annotation.notes)) {
       this.annotation.notes.forEach(note => {
@@ -23,6 +24,12 @@ export default (Editor) => {
     if (question === '') {
       let template = this.status.readingConfig.annotationTypeModules['ConfusedClarified'].questionTemplates[0].template
       question = this._convertQuestionTemplate(template)
+    }
+    
+    if (answer !== '') {
+      let note = this.lib.StringHelper.htmlTrim(answer)
+      note = this.lib.StringHelper.htmlToText(note)
+      answerReset = note
     }
     
     if (question !== '') {
@@ -47,7 +54,7 @@ export default (Editor) => {
       questionReset: questionReset,
 
       answer: answer,
-      answerReset: answer,
+      answerReset: answerReset,
 
       recommandResourceSearchIndex: 0,
       

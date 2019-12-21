@@ -81,7 +81,9 @@ export default (Editor) => {
       }
       
       this.answer = commentNote
-      this.answerReset = this.lib.StringHelper.htmlTrim(commentNote)
+      let answerReset = this.lib.StringHelper.htmlTrim(commentNote)
+      answerReset = this.lib.StringHelper.htmlToText(answerReset)
+      this.answerReset = answerReset
       
       this.panelData.isAnnotationEditing = true
       
