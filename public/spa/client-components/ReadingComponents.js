@@ -5162,84 +5162,21 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _dataAnnotationFloatWidget_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dataAnnotationFloatWidget.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/dataAnnotationFloatWidget.js");
+/* harmony import */ var _computedAnnotationFloatWidget_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./computedAnnotationFloatWidget.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/computedAnnotationFloatWidget.js");
+/* harmony import */ var _watchAnnotationFloatWidget_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./watchAnnotationFloatWidget.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/watchAnnotationFloatWidget.js");
+/* harmony import */ var _methodsAnnotationFloatWidget_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsAnnotationFloatWidget.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/methodsAnnotationFloatWidget.js");
+/* harmony import */ var _methodsRangyAnnotationFloatWidget_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsRangyAnnotationFloatWidget.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/methodsRangyAnnotationFloatWidget.js");
+
+
 let AnnotationFloatWidget = {
   props: ['lib', 'status', 'config'
   ],
-  data() {    
-    this.$i18n.locale = this.config.locale
-    return {
-      anchorPositions: null,
-      triggerEvent: null,
-      isFixed: false,
-      isFixedMouseout: false,
-      
-      annotation: null,
-      annotationCount: 0,
-      users: [],
-      userCount: 0,
-      types: [],
-      
-      lastPosition: null,
-    }
-  },
+  data: _dataAnnotationFloatWidget_js__WEBPACK_IMPORTED_MODULE_0__["default"], // 拆開到 dataAnnotationFloatWidget
 //  components: {
 //  },
-  computed: {
-    computedContainerClassNames () {
-      if (this.anchorPositions === null) {
-        //console.log('no')
-        //return this.lastPosition + ' hide'
-        return this.lastPosition
-      }
-      
-      let classList = []
-      
-      classList.push('show')
-      
-      let windowHeight = window.innerHeight
-      let clientY = this.triggerEvent.clientY
-      if (clientY < (windowHeight / 2) ) {
-        classList.push('bottom')
-        this.lastPosition = 'bottom'
-      }
-      else {
-        this.lastPosition = 'top'
-      }
-      
-      
-      //console.log(this.lib.RangyManager.isSelecting())
-      if (this.lib.RangyManager.isSelecting()) {
-        classList.push('selecting')
-      }
-      
-      if (this.lib.style.isEnableAnimte === false) {
-        classList.push('disable-animate')
-      }
-      
-      //console.log(classList)
-      //return 'bottom'
-      if (classList.length > 0) {
-        return classList.join(' ')
-      }
-    },
-    computedButtonsClassNames () {
-      let classList = []
-      //console.log(this.status.preference.leftHanded)
-      if (this.lib.style.isLeftHanded === true) {
-        classList.push('left-handed')
-      }
-      else {
-        classList.push('right aligned')
-      }
-      
-      return classList.join(' ')
-    }
-  },
-  watch: {
-    anchorPositions () {
-      this.load()
-    },
-  },
+  computed: {}, // 拆開到 computedAnnotationFloatWidget.js
+  watch: {}, // 拆開到 watchAnnotationFloatWidget
   mounted() {
     this.initRangyEvents()
 //    
@@ -5249,157 +5186,20 @@ let AnnotationFloatWidget = {
   destroyed () {
     this.lib.RangyManager.hoverOut()
   },
-  methods: {
-    initRangyEvents () {
-      let rangy = this.lib.RangyManager
-      
-      let useMouse = false
-      
-      rangy.addEventListener('highlightClick', (data) => {
-        if (this.lib.AnnotationPanel.isHide === false) {
-          return false
-        }
-        
-        if (useMouse === true) {
-          if (this.isFixed === true && this.isFixedMouseout === true) {
-            this.triggerEvent = data.event
-            this.anchorPositions = data.anchorPositions
-            this.isFixedMouseout = false
-          }
-          else {
-            this.isFixed = !this.isFixed
-          }
-        }
-        else {
-          this.triggerEvent = data.event
-          this.anchorPositions = data.anchorPositions
-        }
-      })
-      
-      rangy.addEventListener('highlightMouseover', (data) => {
-        //console.log(data)
-        //console.log(this.lib.AnnotationPanel.isHide)
-        if (this.lib.AnnotationPanel.isHide === false) {
-          return false
-        }
-        
-        // 如果已經鎖定，那就不能切換
-        if (this.isFixed === true) {
-          return false
-        }
-        
-        this.triggerEvent = data.event
-        this.anchorPositions = data.anchorPositions
-        useMouse = true
-      })
-      
-      rangy.addEventListener('highlightMouseout', (data) => {
-        if (this.lib.AnnotationPanel.isHide === false) {
-          return false
-        }
-        if (this.isFixed === true) {
-          this.isFixedMouseout = true
-          return false
-        }
-        
-        this.anchorPositions = null
-        useMouse = false
-      })
-      
-      rangy.addEventListener('select', (data) => {
-        if (this.isFixed === true) {
-          this.isFixed = false
-          this.anchorPositions = null
-          useMouse = false
-        } 
-      })
-    },
-//    
-    load: async function () {
-      if (!this.lib.auth.stepHighlightAnnotationConfig) {
-        return false
-      }
-      
-      if (!this.anchorPositions) {
-        return false
-      }
-      
-      this.annotationCount = 0
-      this.annotation = null
-      this.users = []
-      this.userCount = 0
-      this.types = []
-      
-      let query = {
-        anchorPositions: this.anchorPositions
-      }
-      let url = 'client/Annotation/floatWidget'
-      
-      this.lib.AnnotationHelper.filter(query)
-      
-      let result = await this.lib.AxiosHelper.post(url, query)
-      if (result === null) {
-        return false
-      }
-      
-      // ----------------------------
-      
-      // 先重置本來的資料
-      
-      
-      //console.log(result)
-      
-      
-      for (let key in result) {
-        this[key] = result[key]
-      }
-      
-      if (this.annotationCount === 0) {
-        console.log('no annotation')
-      }
-      //this.$emit('list', this.highlightPos) // for test
-    },
-    
-    viewAnnotation: function (annotation) {
-      //(annotation) => {$emit('findAnnotation', annotation)}
-      
-      this.lib.AnnotationPanel.setAnnotation(annotation)
-      
-      //console.log('test this.lib.AnnotationPanel.focusCommentInput(2)')
-      //this.lib.AnnotationPanel.focusCommentInput(2)
-      
-      this.reset()
-    },
-    
-    viewAnnotationComment: function (annotation) {
-      this.lib.AnnotationPanel.setAnnotation(annotation)
-      this.lib.AnnotationPanel.focusCommentInput()
-      
-      
-      this.reset()
-    },
-    
-    findUser: function (user) {
-      this.lib.AnnotationPanel.findUser(user)
-      this.list()
-    }, 
-    
-    findType: function (type) {
-      this.lib.AnnotationPanel.findType(type)
-      this.list()
-    }, 
-    
-    list: function () {
-      this.lib.AnnotationPanel.setAnchorPositions(this.anchorPositions)
-      this.reset()
-    },
-    
-    reset () {
-      this.anchorPositions = null
-      this.isFixed = false
-    }
-  } // methods
+  methods: {} // 拆開到 methodsAnnotationFloatWidget
 }
+
+
+Object(_computedAnnotationFloatWidget_js__WEBPACK_IMPORTED_MODULE_1__["default"])(AnnotationFloatWidget)
+
+
+Object(_watchAnnotationFloatWidget_js__WEBPACK_IMPORTED_MODULE_2__["default"])(AnnotationFloatWidget)
+
+
+Object(_methodsAnnotationFloatWidget_js__WEBPACK_IMPORTED_MODULE_3__["default"])(AnnotationFloatWidget)
+
+
+Object(_methodsRangyAnnotationFloatWidget_js__WEBPACK_IMPORTED_MODULE_4__["default"])(AnnotationFloatWidget)
 
 /* harmony default export */ __webpack_exports__["default"] = (AnnotationFloatWidget);
 
@@ -5492,6 +5292,287 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationFloatWidget_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationManager_5CAnnotationFloatWidget_5CAnnotationFloatWidget_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationFloatWidget_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationManager_5CAnnotationFloatWidget_5CAnnotationFloatWidget_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationFloatWidget_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationManager_5CAnnotationFloatWidget_5CAnnotationFloatWidget_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationFloatWidget_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationManager_5CAnnotationFloatWidget_5CAnnotationFloatWidget_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationFloatWidget_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationManager_5CAnnotationFloatWidget_5CAnnotationFloatWidget_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/computedAnnotationFloatWidget.js":
+/*!***********************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/computedAnnotationFloatWidget.js ***!
+  \***********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (AnnotationFloatWidget) {
+  AnnotationFloatWidget.computed.computedContainerClassNames = function () {
+    if (this.anchorPositions === null) {
+      //console.log('no')
+      //return this.lastPosition + ' hide'
+      return this.lastPosition
+    }
+
+    let classList = []
+
+    classList.push('show')
+
+    let windowHeight = window.innerHeight
+    let clientY = this.triggerEvent.clientY
+    if (clientY < (windowHeight / 2)) {
+      classList.push('bottom')
+      this.lastPosition = 'bottom'
+    } else {
+      this.lastPosition = 'top'
+    }
+
+
+    //console.log(this.lib.RangyManager.isSelecting())
+    if (this.lib.RangyManager.isSelecting()) {
+      classList.push('selecting')
+    }
+
+    if (this.lib.style.isEnableAnimte === false) {
+      classList.push('disable-animate')
+    }
+
+    //console.log(classList)
+    //return 'bottom'
+    if (classList.length > 0) {
+      return classList.join(' ')
+    }
+  } // AnnotationFloatWidget.computed.computedContainerClassNames = function () {
+
+  AnnotationFloatWidget.computed.computedButtonsClassNames = function () {
+    let classList = []
+    //console.log(this.status.preference.leftHanded)
+    if (this.lib.style.isLeftHanded === true) {
+      classList.push('left-handed')
+    } else {
+      classList.push('right aligned')
+    }
+
+    return classList.join(' ')
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/dataAnnotationFloatWidget.js":
+/*!*******************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/dataAnnotationFloatWidget.js ***!
+  \*******************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  this.$i18n.locale = this.config.locale
+  return {
+    anchorPositions: null,
+    triggerEvent: null,
+    isFixed: false,
+    isFixedMouseout: false,
+
+    annotation: null,
+    annotationCount: 0,
+    users: [],
+    userCount: 0,
+    types: [],
+
+    lastPosition: null,
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/methodsAnnotationFloatWidget.js":
+/*!**********************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/methodsAnnotationFloatWidget.js ***!
+  \**********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (AnnotationFloatWidget) {
+  
+  AnnotationFloatWidget.methods.load = async function () {
+    if (!this.lib.auth.stepHighlightAnnotationConfig) {
+      return false
+    }
+
+    if (!this.anchorPositions) {
+      return false
+    }
+
+    this.annotationCount = 0
+    this.annotation = null
+    this.users = []
+    this.userCount = 0
+    this.types = []
+
+    let query = {
+      anchorPositions: this.anchorPositions
+    }
+    let url = 'client/Annotation/floatWidget'
+
+    this.lib.AnnotationHelper.filter(query)
+
+    let result = await this.lib.AxiosHelper.post(url, query)
+    if (result === null) {
+      return false
+    }
+
+    // ----------------------------
+
+    // 先重置本來的資料
+
+
+    //console.log(result)
+
+
+    for (let key in result) {
+      this[key] = result[key]
+    }
+
+    if (this.annotationCount === 0) {
+      console.log('no annotation')
+    }
+    //this.$emit('list', this.highlightPos) // for test
+  }
+
+  AnnotationFloatWidget.methods.viewAnnotation = function (annotation) {
+    //(annotation) => {$emit('findAnnotation', annotation)}
+
+    this.lib.AnnotationPanel.setAnnotation(annotation)
+
+    //console.log('test this.lib.AnnotationPanel.focusCommentInput(2)')
+    //this.lib.AnnotationPanel.focusCommentInput(2)
+
+    this.reset()
+  }
+
+  AnnotationFloatWidget.methods.viewAnnotationComment = function (annotation) {
+    this.lib.AnnotationPanel.setAnnotation(annotation)
+    this.lib.AnnotationPanel.focusCommentInput()
+
+    this.reset()
+  }
+
+  AnnotationFloatWidget.methods.findUser = function (user) {
+    this.lib.AnnotationPanel.findUser(user)
+    this.list()
+  }
+
+  AnnotationFloatWidget.methods.findType = function (type) {
+    this.lib.AnnotationPanel.findType(type)
+    this.list()
+  }
+
+  AnnotationFloatWidget.methods.list = function () {
+    this.lib.AnnotationPanel.setAnchorPositions(this.anchorPositions)
+    this.reset()
+  }
+
+  AnnotationFloatWidget.methods.reset = function () {
+    this.anchorPositions = null
+    this.isFixed = false
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/methodsRangyAnnotationFloatWidget.js":
+/*!***************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/methodsRangyAnnotationFloatWidget.js ***!
+  \***************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (AnnotationFloatWidget) {
+  AnnotationFloatWidget.methods.initRangyEvents = function () {
+    let rangy = this.lib.RangyManager
+
+    let useMouse = false
+
+    rangy.addEventListener('highlightClick', (data) => {
+      if (this.lib.AnnotationPanel.isHide === false) {
+        return false
+      }
+
+      if (useMouse === true) {
+        if (this.isFixed === true && this.isFixedMouseout === true) {
+          this.triggerEvent = data.event
+          this.anchorPositions = data.anchorPositions
+          this.isFixedMouseout = false
+        } else {
+          this.isFixed = !this.isFixed
+        }
+      } else {
+        this.triggerEvent = data.event
+        this.anchorPositions = data.anchorPositions
+      }
+    })
+
+    rangy.addEventListener('highlightMouseover', (data) => {
+      //console.log(data)
+      //console.log(this.lib.AnnotationPanel.isHide)
+      if (this.lib.AnnotationPanel.isHide === false) {
+        return false
+      }
+
+      // 如果已經鎖定，那就不能切換
+      if (this.isFixed === true) {
+        return false
+      }
+
+      this.triggerEvent = data.event
+      this.anchorPositions = data.anchorPositions
+      useMouse = true
+    })
+
+    rangy.addEventListener('highlightMouseout', (data) => {
+      if (this.lib.AnnotationPanel.isHide === false) {
+        return false
+      }
+      if (this.isFixed === true) {
+        this.isFixedMouseout = true
+        return false
+      }
+
+      this.anchorPositions = null
+      useMouse = false
+    })
+
+    rangy.addEventListener('select', (data) => {
+      if (this.isFixed === true) {
+        this.isFixed = false
+        this.anchorPositions = null
+        useMouse = false
+      }
+    })
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/watchAnnotationFloatWidget.js":
+/*!********************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/watchAnnotationFloatWidget.js ***!
+  \********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (AnnotationFloatWidget) {
+  AnnotationFloatWidget.watch.anchorPositions = function () {
+    this.load()
+  }
+});
 
 /***/ }),
 
@@ -13003,7 +13084,19 @@ __webpack_require__.r(__webpack_exports__);
         },
         onmouseout: function (event) {
           triggerEvent(this, event, 'highlightMouseout')
-        }
+        },
+        onmousedown: function (event) {
+          triggerEvent(this, event, 'highlightMousedown')
+        },
+        onmouseup: function (event) {
+          triggerEvent(this, event, 'highlightMouseup')
+        },
+        ontouchstart: function (event) {
+          triggerEvent(this, event, 'highlightMousedown')
+        },
+        ontouchend: function (event) {
+          triggerEvent(this, event, 'highlightMouseup')
+        },
       }
     }
 

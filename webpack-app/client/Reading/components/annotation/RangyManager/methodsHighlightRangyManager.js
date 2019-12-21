@@ -52,7 +52,19 @@ export default (RangyManager) => {
         },
         onmouseout: function (event) {
           triggerEvent(this, event, 'highlightMouseout')
-        }
+        },
+        onmousedown: function (event) {
+          triggerEvent(this, event, 'highlightMousedown')
+        },
+        onmouseup: function (event) {
+          triggerEvent(this, event, 'highlightMouseup')
+        },
+        ontouchstart: function (event) {
+          triggerEvent(this, event, 'highlightMousedown')
+        },
+        ontouchend: function (event) {
+          triggerEvent(this, event, 'highlightMouseup')
+        },
       }
     }
 
