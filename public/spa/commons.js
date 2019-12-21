@@ -1895,11 +1895,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _methodsRandomPACORTestManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsRandomPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/methodsRandomPACORTestManager.js");
 /* harmony import */ var _methodsPuppeteerPACORTestManager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsPuppeteerPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/methodsPuppeteerPACORTestManager.js");
 /* harmony import */ var _methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methodsExceptionPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/methodsExceptionPACORTestManager.js");
-/* harmony import */ var _stepQuestionnairePACORTestManager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./stepQuestionnairePACORTestManager */ "./webpack-app/components/manager/PACORTestManager/stepQuestionnairePACORTestManager.js");
-/* harmony import */ var _stepWriteAnnotationPACORTestManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./stepWriteAnnotationPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/stepWriteAnnotationPACORTestManager.js");
-/* harmony import */ var _stepSectionPACORTestManager__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./stepSectionPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/stepSectionPACORTestManager.js");
-/* harmony import */ var _stepStepInstructionPACORTestManager__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./stepStepInstructionPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/stepStepInstructionPACORTestManager.js");
-/* harmony import */ var _stepLoginPACORTestManager__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./stepLoginPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/stepLoginPACORTestManager.js");
+/* harmony import */ var _readerSteps_stepQuestionnairePACORTestManager_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./readerSteps/stepQuestionnairePACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepQuestionnairePACORTestManager.js");
+/* harmony import */ var _readerSteps_stepWriteAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./readerSteps/stepWriteAnnotationPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepWriteAnnotationPACORTestManager.js");
+/* harmony import */ var _readerSteps_stepSectionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./readerSteps/stepSectionPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepSectionPACORTestManager.js");
+/* harmony import */ var _readerSteps_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./readerSteps/stepStepInstructionPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepStepInstructionPACORTestManager.js");
+/* harmony import */ var _readerSteps_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./readerSteps/stepLoginPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepLoginPACORTestManager.js");
 let PACORTestManager = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -1923,6 +1923,9 @@ let PACORTestManager = {
         console.log('@TEST forceMaxTimeoutMinutes', forceMaxTimeoutMinutes)
       }
       return forceMaxTimeoutMinutes
+    },
+    testConfig () {
+      return this.status.readingConfig.debug.test
     }
   },
 //  watch: {
@@ -1990,19 +1993,19 @@ Object(_methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__["default"]
 // ---------------
 
 
-Object(_stepQuestionnairePACORTestManager__WEBPACK_IMPORTED_MODULE_6__["default"])(PACORTestManager)
+Object(_readerSteps_stepQuestionnairePACORTestManager_js__WEBPACK_IMPORTED_MODULE_6__["default"])(PACORTestManager)
 
 
-Object(_stepWriteAnnotationPACORTestManager__WEBPACK_IMPORTED_MODULE_7__["default"])(PACORTestManager)
+Object(_readerSteps_stepWriteAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_7__["default"])(PACORTestManager)
 
 
-Object(_stepSectionPACORTestManager__WEBPACK_IMPORTED_MODULE_8__["default"])(PACORTestManager)
+Object(_readerSteps_stepSectionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_8__["default"])(PACORTestManager)
 
 
-Object(_stepStepInstructionPACORTestManager__WEBPACK_IMPORTED_MODULE_9__["default"])(PACORTestManager)
+Object(_readerSteps_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_9__["default"])(PACORTestManager)
 
 
-Object(_stepLoginPACORTestManager__WEBPACK_IMPORTED_MODULE_10__["default"])(PACORTestManager)
+Object(_readerSteps_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__["default"])(PACORTestManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (PACORTestManager);
 
@@ -2414,6 +2417,20 @@ __webpack_require__.r(__webpack_exports__);
   PACORTestManager.methods.isRandomTrue = function (float) {
     return (Math.random() < float)
   }
+  
+  /**
+   * @return Array 亂數順序的Array
+   */
+  PACORTestManager.methods.buildRandomIndexList = function (limit) {
+    let list = []
+    for (let i = 0; i < limit; i++) {
+      list.push(i)
+    }
+    
+    list.sort(() => Math.random() - 0.5)
+    
+    return list
+  }
 });
 
 /***/ }),
@@ -2594,10 +2611,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/PACORTestManager/stepLoginPACORTestManager.js":
-/*!**************************************************************************************!*\
-  !*** ./webpack-app/components/manager/PACORTestManager/stepLoginPACORTestManager.js ***!
-  \**************************************************************************************/
+/***/ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepLoginPACORTestManager.js":
+/*!**************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/readerSteps/stepLoginPACORTestManager.js ***!
+  \**************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2634,10 +2651,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/PACORTestManager/stepQuestionnairePACORTestManager.js":
-/*!**********************************************************************************************!*\
-  !*** ./webpack-app/components/manager/PACORTestManager/stepQuestionnairePACORTestManager.js ***!
-  \**********************************************************************************************/
+/***/ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepQuestionnairePACORTestManager.js":
+/*!**********************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/readerSteps/stepQuestionnairePACORTestManager.js ***!
+  \**********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2671,10 +2688,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/PACORTestManager/stepSectionPACORTestManager.js":
-/*!****************************************************************************************!*\
-  !*** ./webpack-app/components/manager/PACORTestManager/stepSectionPACORTestManager.js ***!
-  \****************************************************************************************/
+/***/ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepSectionPACORTestManager.js":
+/*!****************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/readerSteps/stepSectionPACORTestManager.js ***!
+  \****************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2797,10 +2814,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/PACORTestManager/stepStepInstructionPACORTestManager.js":
-/*!************************************************************************************************!*\
-  !*** ./webpack-app/components/manager/PACORTestManager/stepStepInstructionPACORTestManager.js ***!
-  \************************************************************************************************/
+/***/ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepStepInstructionPACORTestManager.js":
+/*!************************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/readerSteps/stepStepInstructionPACORTestManager.js ***!
+  \************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2824,10 +2841,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/PACORTestManager/stepWriteAnnotationPACORTestManager.js":
-/*!************************************************************************************************!*\
-  !*** ./webpack-app/components/manager/PACORTestManager/stepWriteAnnotationPACORTestManager.js ***!
-  \************************************************************************************************/
+/***/ "./webpack-app/components/manager/PACORTestManager/readerSteps/stepWriteAnnotationPACORTestManager.js":
+/*!************************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/readerSteps/stepWriteAnnotationPACORTestManager.js ***!
+  \************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2848,56 +2865,20 @@ __webpack_require__.r(__webpack_exports__);
     //let min = 4
     //let max = 10
     
-    let min = 3, max = 3
+    let min = this.testConfig.minAnnotation
+    let max = this.testConfig.maxAnnotation
     //let min = 3, max = 6
     //let min = 4, max = 10
     //let 
     
     
     let writeAnnotations = min + Math.floor(Math.random() *  (max - min))
-    //writeAnnotations--
-    /*
-    let retry = 0
     
-    let writeAnnotation = async (i) => {
-      try {
-        if (i % 3 === 0) {
-          await this.writeMainIdeaAnnotation()
-          //await this.writeConfusedAnnotation()
-        }
-        else if (i % 3 === 1) {
-          await this.writeConfusedClarifiedAnnotation()
-          //await this.writeConfusedAnnotation()
-        }
-        else {
-          await this.writeConfusedAnnotation()
-        }
-      }
-      catch (e) {
-        this.log('[RETRY]' + e)
-        retry++
-        if (retry < 3) {
-          await writeAnnotation(i)
-        }
-        else {
-          throw e
-        }
-      }
-    }
-
-    for (let i = 0; i < writeAnnotations; i++) {
-      await this.sleep(100)
-     
-      this.log('撰寫標註：' + (i+1) + '/' + (writeAnnotations) )
-      await this.selectAnnotationType(i)
-      await writeAnnotation(i)
-      
-      await this.sleep(100)
-    }
-    */
-    //this.log('writeAnnotations 結束了')
+    // 改用亂數排列的形式
+    let iList = this.buildRandomIndexList(writeAnnotations)
     
-    for (let i = 0; i < writeAnnotations; i++) {
+    //for (let i = 0; i < writeAnnotations; i++) {
+    iList.forEach(async (i) => {
       await this.retry(3, async () => {
         await this.sleep(100)
 
@@ -2917,7 +2898,8 @@ __webpack_require__.r(__webpack_exports__);
 
         await this.sleep(100)
       })
-    }
+    })  // iList.forEach(i, () => {
+    //}
   }
   
   PACORTestManager.methods.selectAnnotationType = async function (i) {

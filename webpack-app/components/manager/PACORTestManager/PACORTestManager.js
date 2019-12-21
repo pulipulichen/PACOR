@@ -21,6 +21,9 @@ let PACORTestManager = {
         console.log('@TEST forceMaxTimeoutMinutes', forceMaxTimeoutMinutes)
       }
       return forceMaxTimeoutMinutes
+    },
+    testConfig () {
+      return this.status.readingConfig.debug.test
     }
   },
 //  watch: {
@@ -87,19 +90,19 @@ methodsExceptionPACORTestManager(PACORTestManager)
 
 // ---------------
 
-import stepQuestionnairePACORTestManager from './stepQuestionnairePACORTestManager'
+import stepQuestionnairePACORTestManager from './readerSteps/stepQuestionnairePACORTestManager.js'
 stepQuestionnairePACORTestManager(PACORTestManager)
 
-import stepWriteAnnotationPACORTestManager from './stepWriteAnnotationPACORTestManager'
+import stepWriteAnnotationPACORTestManager from './readerSteps/stepWriteAnnotationPACORTestManager.js'
 stepWriteAnnotationPACORTestManager(PACORTestManager)
 
-import stepSectionPACORTestManager from './stepSectionPACORTestManager'
+import stepSectionPACORTestManager from './readerSteps/stepSectionPACORTestManager.js'
 stepSectionPACORTestManager(PACORTestManager)
 
-import stepStepInstructionPACORTestManager from './stepStepInstructionPACORTestManager'
+import stepStepInstructionPACORTestManager from './readerSteps/stepStepInstructionPACORTestManager.js'
 stepStepInstructionPACORTestManager(PACORTestManager)
 
-import stepLoginPACORTestManager from './stepLoginPACORTestManager'
+import stepLoginPACORTestManager from './readerSteps/stepLoginPACORTestManager.js'
 stepLoginPACORTestManager(PACORTestManager)
 
 export default PACORTestManager

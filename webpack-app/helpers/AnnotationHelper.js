@@ -103,8 +103,11 @@ let AnnotationHelper = {
     }
   },
   autoComplete (annotation) {
-    if (!annotation.user) {
+    if (!annotation.user_id) {
       annotation.user_id = this.status.userID
+    }
+    
+    if (!annotation.user) {
       annotation.user = {
         id: this.status.userID,
         username: this.status.username,
@@ -114,6 +117,7 @@ let AnnotationHelper = {
       
       //console.log(annotation.user)
     }
+    
     if (!annotation.updated_at_unixms) {
       annotation.updated_at_unixms = (new Date()).getTime()
     }

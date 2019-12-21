@@ -11,56 +11,20 @@ export default function (PACORTestManager) {
     //let min = 4
     //let max = 10
     
-    let min = 3, max = 3
+    let min = this.testConfig.minAnnotation
+    let max = this.testConfig.maxAnnotation
     //let min = 3, max = 6
     //let min = 4, max = 10
     //let 
     
     
     let writeAnnotations = min + Math.floor(Math.random() *  (max - min))
-    //writeAnnotations--
-    /*
-    let retry = 0
     
-    let writeAnnotation = async (i) => {
-      try {
-        if (i % 3 === 0) {
-          await this.writeMainIdeaAnnotation()
-          //await this.writeConfusedAnnotation()
-        }
-        else if (i % 3 === 1) {
-          await this.writeConfusedClarifiedAnnotation()
-          //await this.writeConfusedAnnotation()
-        }
-        else {
-          await this.writeConfusedAnnotation()
-        }
-      }
-      catch (e) {
-        this.log('[RETRY]' + e)
-        retry++
-        if (retry < 3) {
-          await writeAnnotation(i)
-        }
-        else {
-          throw e
-        }
-      }
-    }
-
-    for (let i = 0; i < writeAnnotations; i++) {
-      await this.sleep(100)
-     
-      this.log('撰寫標註：' + (i+1) + '/' + (writeAnnotations) )
-      await this.selectAnnotationType(i)
-      await writeAnnotation(i)
-      
-      await this.sleep(100)
-    }
-    */
-    //this.log('writeAnnotations 結束了')
+    // 改用亂數排列的形式
+    let iList = this.buildRandomIndexList(writeAnnotations)
     
-    for (let i = 0; i < writeAnnotations; i++) {
+    //for (let i = 0; i < writeAnnotations; i++) {
+    iList.forEach(async (i) => {
       await this.retry(3, async () => {
         await this.sleep(100)
 
@@ -80,7 +44,8 @@ export default function (PACORTestManager) {
 
         await this.sleep(100)
       })
-    }
+    })  // iList.forEach(i, () => {
+    //}
   }
   
   PACORTestManager.methods.selectAnnotationType = async function (i) {

@@ -17,4 +17,18 @@ export default function (PACORTestManager) {
   PACORTestManager.methods.isRandomTrue = function (float) {
     return (Math.random() < float)
   }
+  
+  /**
+   * @return Array 亂數順序的Array
+   */
+  PACORTestManager.methods.buildRandomIndexList = function (limit) {
+    let list = []
+    for (let i = 0; i < limit; i++) {
+      list.push(i)
+    }
+    
+    list.sort(() => Math.random() - 0.5)
+    
+    return list
+  }
 }

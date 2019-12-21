@@ -159,7 +159,7 @@ let SectionManager = {
       this.setRefreshInterval()
     },
     buildDefaultSectionAnnotation (sectionSeqID) {
-      return {
+      let annotation = {
         type: 'SectionMainIdea',
         anchorPositions: [{
           type: 'section',
@@ -170,6 +170,10 @@ let SectionManager = {
           note: ''
         }]
       }
+      
+      this.lib.AnnotationHelper.autoComplete(annotation)
+      
+      return annotation
     }
   } // methods
 }
