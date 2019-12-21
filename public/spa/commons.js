@@ -3114,6 +3114,7 @@ let StyleManager = {
 //  watch: {
 //  },
   mounted () {
+    this.onWindowResize()
     window.addEventListener('resize', this.onWindowResize)
   },
   destroyed () {
@@ -3229,10 +3230,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (StyleManager) {
   
   StyleManager.methods.onWindowResize = function () {
-    let StackWidth = this.config.StackWidth
-    this.isStackWidth = (window.innerWidth < StackWidth)
-    this.isSmallHeight = (window.innerHeight < this.config.SmallHeight)
+    this.isStackWidth = (window.innerWidth < this.params.StackWidth)
+    
     this.clientHeight = window.innerHeight
+    this.isSmallHeight = (this.clientHeight < this.params.SmallHeight)
   }
   
 //  StyleManager.methods.isStackWidth = function () {

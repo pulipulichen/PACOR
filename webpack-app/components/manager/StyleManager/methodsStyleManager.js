@@ -1,10 +1,10 @@
 export default function (StyleManager) {
   
   StyleManager.methods.onWindowResize = function () {
-    let StackWidth = this.config.StackWidth
-    this.isStackWidth = (window.innerWidth < StackWidth)
-    this.isSmallHeight = (window.innerHeight < this.config.SmallHeight)
+    this.isStackWidth = (window.innerWidth < this.params.StackWidth)
+    
     this.clientHeight = window.innerHeight
+    this.isSmallHeight = (this.clientHeight < this.params.SmallHeight)
   }
   
 //  StyleManager.methods.isStackWidth = function () {

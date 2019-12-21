@@ -11,6 +11,7 @@ let StyleManager = {
 //  watch: {
 //  },
   mounted () {
+    this.onWindowResize()
     window.addEventListener('resize', this.onWindowResize)
   },
   destroyed () {

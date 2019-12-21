@@ -90,13 +90,15 @@ let Editor = {
       let height
       let basePadding = `5em`
       
-      if (vm.enableCollaboration === true) {
+      //console.log(this.lib.auth.isEnableCollaboration)
+      if (this.lib.auth.isEnableCollaboration === true) {
         height = (vm.lib.style.clientHeight / 2)
+        //console.log(vm.lib.style.isStackWidth)
         if (vm.lib.style.isStackWidth) {
-          height = `calc(${height}px - ${basePadding})`
+          height = `calc(${this.heightPX}px - ${basePadding} - 5em)`
         }
         else {
-          height = `calc(${height}px - ${basePadding} - 5em)`
+          height = `calc(${this.heightPX}px - ${basePadding})`
         }
       } else {
         height = `calc(${this.heightPX}px - ${basePadding})`
