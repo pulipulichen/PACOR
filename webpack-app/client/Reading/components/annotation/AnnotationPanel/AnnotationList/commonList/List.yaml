@@ -1,10 +1,10 @@
 en:
-  TEST_MESSAGE: Test Message
+  Find {0} Annotations: Find {0} Annotations | Find {0} Annotations
   
 zh-TW:
-  # 這是註解
   Back to list: 回到列表
   Back to full list: 回到完整列表
   Finding: 正在搜尋
   No Search Result: 沒有符合的標註
   No More: 沒有更多標註了
+  Find {0} Annotations: 總共搜尋出{0}篇標註

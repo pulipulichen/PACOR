@@ -21,6 +21,10 @@
       </button>
 
       <template v-if="annotation === null">
+        <div class="counting label">
+          {{ $t('Total {0} Annotations', [ annotationCount ]) }}:
+        </div>
+        
         <user-avatar-icons
           v-bind:config="config"
           v-bind:status="status"
@@ -44,9 +48,6 @@
           v-on:find="findType">
         </annotation-type-button>
 
-        <div class="counting label">
-          {{ $t('Total {0} Annotations', [ annotationCount ]) }}
-        </div>
       </template>
     </div>
 

@@ -176,7 +176,7 @@ class Annotation extends WebpageUserBaseController {
     //for (let i = 0; i < 3; i++) {
     //  users = users.concat(users)
     //}
-    users = users.slice(0, 3) // 最多三名
+    users = users.slice(0, Config.get('view.userAvatars')) // 最多三名
 
     // ---------------------
 

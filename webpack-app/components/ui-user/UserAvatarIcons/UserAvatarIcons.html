@@ -8,7 +8,12 @@
          class="user-avatar avatar" />
   </div>
   <div class="user-count"
-       v-if="userCount">
-    {{ $t('{0} Readers', [userCount]) }}
+       v-if="users.length < userCount">
+    {{ $t('...') }}
+    {{ $t('Total {0} readers', [userCount]) }}
+  </div>
+  <div class="user-count"
+       v-if="users.length === userCount">
+    {{ $t('Total {0} readers', [userCount]) }}
   </div>
 </div>

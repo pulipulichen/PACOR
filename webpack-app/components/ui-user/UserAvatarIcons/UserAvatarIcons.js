@@ -1,5 +1,6 @@
 let UserAvatarIcons = {
-  props: ['lib', 'status', 'config', 'users', 'userCount', 'clickable'],
+  props: ['lib', 'status', 'config'
+    , 'users', 'userCount', 'clickable'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {

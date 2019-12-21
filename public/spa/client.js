@@ -633,7 +633,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"{0} Readers":"{0} Reader | {0} Readers"},"zh-TW":{"{0} Readers":"{0}位讀者"}}')
+  Component.options.__i18n.push('{"en":{"Total {0} readers":"Total {0} reader | Total {0} readers"},"zh-TW":{"Total {0} readers":"總共{0}位讀者","...":"等"}}')
   delete Component.options._Ctor
 }
 
@@ -2732,7 +2732,10 @@ var render = function() {
                   [
                     _c("img", {
                       staticClass: "avatar",
-                      attrs: { src: _vm.annotation.user.avatar_url }
+                      attrs: {
+                        src: _vm.annotation.user.avatar_url,
+                        title: _vm.username
+                      }
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "username text-container" }, [
@@ -3414,11 +3417,23 @@ var render = function() {
       0
     ),
     _vm._v(" "),
-    _vm.userCount
+    _vm.users.length < _vm.userCount
       ? _c("div", { staticClass: "user-count" }, [
           _vm._v(
             "\r\n    " +
-              _vm._s(_vm.$t("{0} Readers", [_vm.userCount])) +
+              _vm._s(_vm.$t("...")) +
+              "\r\n    " +
+              _vm._s(_vm.$t("Total {0} readers", [_vm.userCount])) +
+              "\r\n  "
+          )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.users.length === _vm.userCount
+      ? _c("div", { staticClass: "user-count" }, [
+          _vm._v(
+            "\r\n    " +
+              _vm._s(_vm.$t("Total {0} readers", [_vm.userCount])) +
               "\r\n  "
           )
         ])
@@ -11783,7 +11798,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let UserAvatarIcons = {
-  props: ['lib', 'status', 'config', 'users', 'userCount', 'clickable'],
+  props: ['lib', 'status', 'config'
+    , 'users', 'userCount', 'clickable'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {

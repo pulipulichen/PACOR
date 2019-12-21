@@ -40,7 +40,8 @@
          v-bind:class="{'clickable': findUser}"
          class="user">
       <img v-bind:src="annotation.user.avatar_url"
-           class="avatar"/>
+           class="avatar"
+           v-bind:title="username" />
       <div class="username text-container">
         {{ username }}
       </div>

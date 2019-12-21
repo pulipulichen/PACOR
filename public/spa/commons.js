@@ -6041,6 +6041,7 @@ let i18nGlobal = {
     "RESET": "重設",
     "PUBLIC": "公開",
     "SEARCH": "搜尋",
+    "Search...": "搜尋...",
     "Path": "路徑",
     "Config": "設定",
     "Group": "分組",

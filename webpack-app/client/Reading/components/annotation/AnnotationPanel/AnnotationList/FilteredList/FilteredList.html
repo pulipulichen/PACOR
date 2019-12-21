@@ -38,8 +38,14 @@
 
     <template v-if="annotation === null">
       <div class="label">
+        {{ $t('Find {0} Annotations', [ annotationCount ]) }}:
+      </div>
+      
+      <!--
+      <div class="label">
         {{ $t('Finding') }}:
       </div>
+      -->
 
       <user-avatar-icons
         v-if="hasUserFilter"
@@ -63,9 +69,6 @@
         v-on:find="clearFindType">
       </annotation-type-button>
 
-      <div class="label">
-        {{ $t('Total {0} Annotations', [ annotationCount ]) }}
-      </div>
     </template>
       
   </div>

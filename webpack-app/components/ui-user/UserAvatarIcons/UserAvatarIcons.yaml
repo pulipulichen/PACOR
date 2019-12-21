@@ -1,6 +1,8 @@
 en:
-  "{0} Readers": "{0} Reader | {0} Readers"
+  "Total {0} readers": "Total {0} reader | Total {0} readers"
   
 zh-TW:
   # 這是註解
-  "{0} Readers": "{0}位讀者"
+  "Total {0} readers": "總共{0}位讀者"
+  "...": 等
+  
