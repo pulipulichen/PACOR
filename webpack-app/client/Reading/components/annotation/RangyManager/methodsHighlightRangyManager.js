@@ -56,6 +56,9 @@ export default (RangyManager) => {
         onmousedown: function (event) {
           triggerEvent(this, event, 'highlightMousedown')
         },
+        onmousemove: function (event) {
+          triggerEvent(this, event, 'highlightMousemove')
+        },
         onmouseup: function (event) {
           triggerEvent(this, event, 'highlightMouseup')
         },

@@ -1,64 +1,115 @@
 export default function (AnnotationFloatWidget) {
-  AnnotationFloatWidget.methods.initRangyEvents = function () {
-    let rangy = this.lib.RangyManager
+  let rangy
+  let useMouse = false
 
-    let useMouse = false
+  AnnotationFloatWidget.methods.initRangyEvents = function () {
+    rangy = this.lib.RangyManager
 
     rangy.addEventListener('highlightClick', (data) => {
-      if (this.lib.AnnotationPanel.isHide === false) {
-        return false
-      }
-
-      if (useMouse === true) {
-        if (this.isFixed === true && this.isFixedMouseout === true) {
-          this.triggerEvent = data.event
-          this.anchorPositions = data.anchorPositions
-          this.isFixedMouseout = false
-        } else {
-          this.isFixed = !this.isFixed
-        }
-      } else {
-        this.triggerEvent = data.event
-        this.anchorPositions = data.anchorPositions
-      }
+      this.rangyEventClick(data)
+    })
+    
+    rangy.addEventListener('highlightMousemove', (data) => {
+      this.rangyEventMousemove(data)
     })
 
     rangy.addEventListener('highlightMouseover', (data) => {
-      //console.log(data)
-      //console.log(this.lib.AnnotationPanel.isHide)
-      if (this.lib.AnnotationPanel.isHide === false) {
-        return false
-      }
-
-      // 如果已經鎖定，那就不能切換
-      if (this.isFixed === true) {
-        return false
-      }
-
-      this.triggerEvent = data.event
-      this.anchorPositions = data.anchorPositions
-      useMouse = true
+      this.rangyEventMouseover(data)
     })
 
     rangy.addEventListener('highlightMouseout', (data) => {
-      if (this.lib.AnnotationPanel.isHide === false) {
-        return false
-      }
-      if (this.isFixed === true) {
-        this.isFixedMouseout = true
-        return false
-      }
+      this.rangyEventMouseout(data)
+    })
 
+//    rangy.addEventListener('select', (data) => {
+//      this.rangyEventSelect(data)
+//    })
+//    
+//    rangy.addEventListener('selectcollapsed', (data) => {
+//      this.rangyEventSelectcollapsed(data)
+//    })
+  } // AnnotationFloatWidget.methods.initRangyEvents = function () {
+
+  AnnotationFloatWidget.methods.rangyEventClick = function (data) {
+    if (this.lib.AnnotationPanel.isHide === false) {
+      return false
+    }
+
+    if (useMouse === true) {
+      if (this.isFixed === true && this.isFixedMouseout === true) {
+        this.triggerEvent = data.event
+        this.anchorPositions = data.anchorPositions
+        this.isFixedMouseout = false
+      } else {
+        this.isFixed = !this.isFixed
+      }
+    } else {
+      this.triggerEvent = data.event
+      this.anchorPositions = data.anchorPositions
+    }
+  } // AnnotationFloatWidget.methods.rangyEventClick = function (data) {
+
+  AnnotationFloatWidget.methods.rangyEventMouseover = function (data) {
+    if (rangy.isSelecting() === true) {
+      return false
+    }
+
+    //console.log(data)
+    //console.log(this.lib.AnnotationPanel.isHide)
+    if (this.lib.AnnotationPanel.isHide === false) {
+      return false
+    }
+
+    // 如果已經鎖定，那就不能切換
+    if (this.isFixed === true) {
+      return false
+    }
+
+    this.triggerEvent = data.event
+    this.anchorPositions = data.anchorPositions
+    useMouse = true
+  } // AnnotationFloatWidget.methods.rangyEventMouseover = function (data) {
+
+//  AnnotationFloatWidget.methods.rangyEventMouseover = function (data) {
+//    
+//  } // AnnotationFloatWidget.methods.rangyEventMouseover = function (data) {
+
+  AnnotationFloatWidget.methods.rangyEventMouseout = function (data) {
+    if (this.lib.AnnotationPanel.isHide === false) {
+      return false
+    }
+    if (this.isFixed === true) {
+      this.isFixedMouseout = true
+      return false
+    }
+
+    this.anchorPositions = null
+    useMouse = false
+  } // AnnotationFloatWidget.methods.rangyEventMouseout = function (data) {
+  
+  AnnotationFloatWidget.methods.rangyEventMousemove = function (data) {
+    if (rangy.isSelecting() === false) {
+      return false
+    }
+
+    this.anchorPositions = null
+    useMouse = false
+    this.isFixed = false
+    this.isFixedMouseout = true
+  } // AnnotationFloatWidget.methods.rangyEventMouseout = function (data) {
+
+  AnnotationFloatWidget.methods.rangyEventSelect = function (data) {
+    if (this.isFixed === true) {
+      this.isFixed = false
       this.anchorPositions = null
       useMouse = false
-    })
+    }
+  } // AnnotationFloatWidget.methods.rangyEventSelect = function (data) {
 
-    rangy.addEventListener('select', (data) => {
-      if (this.isFixed === true) {
-        this.isFixed = false
-        this.anchorPositions = null
-        useMouse = false
-      }
-    })
-  }
-}
+  AnnotationFloatWidget.methods.rangyEventSelectcollapsed = function (data) {
+
+  } // AnnotationFloatWidget.methods.rangyEventSelectcollapsed = function (data) {
+
+
+
+} // export default function (AnnotationFloatWidget) {
