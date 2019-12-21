@@ -69,7 +69,14 @@
     <template v-slot:actions>
       <div class="ui button login-submit"
            v-bind:class="{disabled: isDisableLogin}"
-           v-on:click="login">{{ $t('LOGIN') }}</div>
+           v-on:click="login">
+        <template v-if="!isContinue">
+          {{ $t(`Let's Go`) }}
+        </template>
+        <template v-else>
+          {{ $t(`Welcome Again`) }}
+        </template>
+      </div>
     </template>
   </modal>
 </div>

@@ -92,6 +92,7 @@
         "v-bind:error": {},
         "v-bind:contentURL": {},
         "cancelable": {},
+        "v-bind:fullContent": {},
         "v-bind:status": {},
         "v-bind:config": {},
         "v-bind:cancelable": {},

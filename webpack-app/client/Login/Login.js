@@ -12,7 +12,8 @@ let Login = {
       adminMode: false,
       key: 'PACOR.client.components.Login.',
       compactWidth: 480,
-      isCompactMode: false
+      isCompactMode: false,
+      isContinue: false,
     }
   },
   computed: {
@@ -72,10 +73,12 @@ let Login = {
       let username = localStorage.getItem(this.key + 'login.username')
       if (typeof(username) === 'string') {
         this.username = username
+        this.isContinue = true
       }
       
       let password = localStorage.getItem(this.key + 'login.password')
-      if (typeof(password) === 'string' && password !== '') {
+      if (typeof(password) === 'string' 
+              && password !== '') {
         this.password = password
         this.adminMode = true
       }
