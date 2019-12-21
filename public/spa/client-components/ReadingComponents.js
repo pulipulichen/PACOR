@@ -272,6 +272,22 @@ module.exports = function (Component) {
 
 /***/ }),
 
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CMainIdea%5CFooterButtons%5CFooterButtons.vue&lang=yaml":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CMainIdea%5CFooterButtons%5CFooterButtons.vue&lang=yaml ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"ADD":"記下「重點」","UPDATE":"更新「重點」"}}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/MainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CMainIdea%5CMainIdea.vue&lang=yaml":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/MainIdea.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CMainIdea%5CMainIdea.vue&lang=yaml ***!
@@ -281,7 +297,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"ADD":"記下「重點」","UPDATE":"更新「重點」"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":null}')
   delete Component.options._Ctor
 }
 
@@ -812,6 +828,20 @@ exports.push([module.i, ".QuestionTemplate[data-v-bdafffe6] {\n  line-height: 2e
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
 exports.push([module.i, "label[data-v-c94b37e6] {\n  vertical-align: middle;\n}\n.search-keyword[data-v-c94b37e6] {\n  width: calc(100% - 15em) !important;\n  height: 40px;\n}\n.select-question[data-v-c94b37e6],\n.search-button[data-v-c94b37e6] {\n  height: 43px !important;\n}\n.label.field[data-v-c94b37e6] {\n  line-height: 40px;\n  white-space: nowrap;\n  overflow: hidden;\n}\n", "",{"version":3,"sources":["ResourceSearch.less?vue&type=style&index=0&id=c94b37e6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,sBAAsB;AACxB;AACA;EACE,mCAAmC;EACnC,YAAY;AACd;AACA;;EAEE,uBAAuB;AACzB;AACA;EACE,iBAAiB;EACjB,mBAAmB;EACnB,gBAAgB;AAClB","file":"ResourceSearch.less?vue&type=style&index=0&id=c94b37e6&lang=less&scoped=true&","sourcesContent":["label[data-v-c94b37e6] {\n  vertical-align: middle;\n}\n.search-keyword[data-v-c94b37e6] {\n  width: calc(100% - 15em) !important;\n  height: 40px;\n}\n.select-question[data-v-c94b37e6],\n.search-button[data-v-c94b37e6] {\n  height: 43px !important;\n}\n.label.field[data-v-c94b37e6] {\n  line-height: 40px;\n  white-space: nowrap;\n  overflow: hidden;\n}\n"]}]);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, ".annotation-panel-buttons[data-v-e454a39e]  .AnnotationInteractive {\n  vertical-align: top;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,mBAAmB;AACrB","file":"FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true&","sourcesContent":[".annotation-panel-buttons[data-v-e454a39e]  .AnnotationInteractive {\n  vertical-align: top;\n  margin-right: 0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -2875,7 +2905,7 @@ var render = function() {
                             ])
                           : _vm._e(),
                         _vm._v(" "),
-                        _vm.$parent.annotation.id
+                        _vm.annotation.id
                           ? _c(
                               "button",
                               {
@@ -2901,7 +2931,8 @@ var render = function() {
                             status: _vm.status,
                             lib: _vm.lib,
                             annotation: _vm.annotation
-                          }
+                          },
+                          on: { comment: _vm.onComment }
                         })
                       ],
                       1
@@ -3218,6 +3249,155 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.html?vue&type=template&id=e454a39e&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.html?vue&type=template&id=e454a39e&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.$parent.isEditable
+    ? _c(
+        "div",
+        { staticClass: "ui one column grid annotation-panel-buttons" },
+        [
+          _vm.$parent.isNoteDifferent ? _c("block-exit") : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "div",
+            { class: _vm.$parent.computedButtonsClass },
+            [
+              _c("admin-badge", {
+                attrs: { status: _vm.status, config: _vm.config }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "display-time" }, [
+                _vm._v(
+                  "\r\n        " +
+                    _vm._s(_vm.$parent.displayTime) +
+                    "\r\n      "
+                )
+              ]),
+              _vm._v(" "),
+              _vm.panelData.enableDiscussion
+                ? _c("annotation-item-interactive", {
+                    attrs: {
+                      config: _vm.config,
+                      status: _vm.status,
+                      lib: _vm.lib,
+                      annotation: _vm.annotation
+                    },
+                    on: { comment: _vm.onComment }
+                  })
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.lib.auth.isEnableControlPermission
+                ? _c("checkbox-toggle", {
+                    attrs: {
+                      label: _vm.$t("PUBLIC"),
+                      enable: !_vm.$parent.awaitSubmit
+                    },
+                    model: {
+                      value: _vm.public,
+                      callback: function($$v) {
+                        _vm.public = $$v
+                      },
+                      expression: "public"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.annotation.id
+                ? [
+                    _vm.$parent.enableDelete
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "ui compact button",
+                            class: _vm.$parent.computedSubmitButtonClassList,
+                            attrs: { type: "button" },
+                            on: { click: _vm.$parent.deleteAnnotation }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n          " +
+                                _vm._s(_vm.$t("DELETE")) +
+                                "  \r\n        "
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c(
+                      "validation-button",
+                      {
+                        class: _vm.$parent.computedSubmitButtonClassList,
+                        style: _vm.$parent.computedSubmitButtonStyle,
+                        attrs: {
+                          lib: _vm.lib,
+                          text: _vm.$parent.note,
+                          minWordCount: _vm.$parent.minWords,
+                          locale: _vm.status.preference.locale,
+                          enable: _vm.$parent.isEnableSubmitEdit
+                        },
+                        on: { click: _vm.$parent.editAnnotation }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(_vm.$t("UPDATE")) +
+                            "  \r\n        "
+                        )
+                      ]
+                    )
+                  ]
+                : [
+                    _c(
+                      "validation-button",
+                      {
+                        class: _vm.$parent.computedSubmitButtonClassList,
+                        style: _vm.$parent.computedSubmitButtonStyle,
+                        attrs: {
+                          lib: _vm.lib,
+                          minWordCount: _vm.$parent.minWords,
+                          text: _vm.$parent.note,
+                          locale: _vm.status.preference.locale,
+                          enable: _vm.$parent.isEnableSubmitAdd
+                        },
+                        on: { click: _vm.$parent.addAnnotation }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(_vm.$t("ADD")) +
+                            "  \r\n        "
+                        )
+                      ]
+                    )
+                  ]
+            ],
+            2
+          )
+        ],
+        1
+      )
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/MainIdea.html?vue&type=template&id=1e98a1d0&scoped=true&":
 /*!******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/MainIdea.html?vue&type=template&id=1e98a1d0&scoped=true& ***!
@@ -3250,118 +3430,15 @@ var render = function() {
         on: { input: _vm.onNoteChange }
       }),
       _vm._v(" "),
-      _vm.isEditable
-        ? _c(
-            "div",
-            { staticClass: "ui one column grid annotation-panel-buttons" },
-            [
-              _vm.isNoteDifferent ? _c("block-exit") : _vm._e(),
-              _vm._v(" "),
-              _c(
-                "div",
-                { class: _vm.computedButtonsClass },
-                [
-                  _c("admin-badge", {
-                    attrs: { status: _vm.status, config: _vm.config }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "display-time" }, [
-                    _vm._v(
-                      "\r\n        " + _vm._s(_vm.displayTime) + "\r\n      "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm.lib.auth.isEnableControlPermission
-                    ? _c("checkbox-toggle", {
-                        attrs: {
-                          label: _vm.$t("PUBLIC"),
-                          enable: !_vm.awaitSubmit
-                        },
-                        model: {
-                          value: _vm.public,
-                          callback: function($$v) {
-                            _vm.public = $$v
-                          },
-                          expression: "public"
-                        }
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.annotation.id
-                    ? [
-                        _vm.enableDelete
-                          ? _c(
-                              "button",
-                              {
-                                staticClass: "ui compact button",
-                                class: _vm.computedSubmitButtonClassList,
-                                attrs: { type: "button" },
-                                on: { click: _vm.deleteAnnotation }
-                              },
-                              [
-                                _vm._v(
-                                  "\r\n          " +
-                                    _vm._s(_vm.$t("DELETE")) +
-                                    "  \r\n        "
-                                )
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c(
-                          "validation-button",
-                          {
-                            class: _vm.computedSubmitButtonClassList,
-                            style: _vm.computedSubmitButtonStyle,
-                            attrs: {
-                              lib: _vm.lib,
-                              text: _vm.note,
-                              minWordCount: _vm.minWords,
-                              locale: _vm.status.preference.locale,
-                              enable: _vm.isEnableSubmitEdit
-                            },
-                            on: { click: _vm.editAnnotation }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(_vm.$t("UPDATE")) +
-                                "  \r\n        "
-                            )
-                          ]
-                        )
-                      ]
-                    : [
-                        _c(
-                          "validation-button",
-                          {
-                            class: _vm.computedSubmitButtonClassList,
-                            style: _vm.computedSubmitButtonStyle,
-                            attrs: {
-                              lib: _vm.lib,
-                              minWordCount: _vm.minWords,
-                              text: _vm.note,
-                              locale: _vm.status.preference.locale,
-                              enable: _vm.isEnableSubmitAdd
-                            },
-                            on: { click: _vm.addAnnotation }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(_vm.$t("ADD")) +
-                                "  \r\n        "
-                            )
-                          ]
-                        )
-                      ]
-                ],
-                2
-              )
-            ],
-            1
-          )
-        : _vm._e()
+      _c("footer-buttons", {
+        attrs: {
+          lib: _vm.lib,
+          config: _vm.config,
+          status: _vm.status,
+          annotation: _vm.annotation,
+          panelData: _vm.panelData
+        }
+      })
     ],
     1
   )
@@ -3405,118 +3482,15 @@ var render = function() {
         on: { input: _vm.onNoteChange }
       }),
       _vm._v(" "),
-      _vm.isEditable
-        ? _c(
-            "div",
-            { staticClass: "ui one column grid annotation-panel-buttons" },
-            [
-              _vm.isNoteDifferent ? _c("block-exit") : _vm._e(),
-              _vm._v(" "),
-              _c(
-                "div",
-                { class: _vm.computedButtonsClass },
-                [
-                  _c("admin-badge", {
-                    attrs: { status: _vm.status, config: _vm.config }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "display-time" }, [
-                    _vm._v(
-                      "\r\n        " + _vm._s(_vm.displayTime) + "\r\n      "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm.lib.auth.isEnableControlPermission
-                    ? _c("checkbox-toggle", {
-                        attrs: {
-                          label: _vm.$t("PUBLIC"),
-                          enable: !_vm.awaitSubmit
-                        },
-                        model: {
-                          value: _vm.public,
-                          callback: function($$v) {
-                            _vm.public = $$v
-                          },
-                          expression: "public"
-                        }
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.annotation.id
-                    ? [
-                        _vm.enableDelete
-                          ? _c(
-                              "button",
-                              {
-                                staticClass: "ui compact button",
-                                class: _vm.computedSubmitButtonClassList,
-                                attrs: { type: "button" },
-                                on: { click: _vm.deleteAnnotation }
-                              },
-                              [
-                                _vm._v(
-                                  "\r\n          " +
-                                    _vm._s(_vm.$t("DELETE")) +
-                                    "  \r\n        "
-                                )
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c(
-                          "validation-button",
-                          {
-                            class: _vm.computedSubmitButtonClassList,
-                            style: _vm.computedSubmitButtonStyle,
-                            attrs: {
-                              lib: _vm.lib,
-                              text: _vm.note,
-                              minWordCount: _vm.minWords,
-                              locale: _vm.status.preference.locale,
-                              enable: _vm.isEnableSubmitEdit
-                            },
-                            on: { click: _vm.editAnnotation }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(_vm.$t("UPDATE")) +
-                                "  \r\n        "
-                            )
-                          ]
-                        )
-                      ]
-                    : [
-                        _c(
-                          "validation-button",
-                          {
-                            class: _vm.computedSubmitButtonClassList,
-                            style: _vm.computedSubmitButtonStyle,
-                            attrs: {
-                              lib: _vm.lib,
-                              minWordCount: _vm.minWords,
-                              text: _vm.note,
-                              locale: _vm.status.preference.locale,
-                              enable: _vm.isEnableSubmitAdd
-                            },
-                            on: { click: _vm.addAnnotation }
-                          },
-                          [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(_vm.$t("ADD")) +
-                                "  \r\n        "
-                            )
-                          ]
-                        )
-                      ]
-                ],
-                2
-              )
-            ],
-            1
-          )
-        : _vm._e()
+      _c("footer-buttons", {
+        attrs: {
+          lib: _vm.lib,
+          config: _vm.config,
+          status: _vm.status,
+          annotation: _vm.annotation,
+          panelData: _vm.panelData
+        }
+      })
     ],
     1
   )
@@ -5070,6 +5044,27 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("c3c9a2e4", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("04a06c87", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -10209,11 +10204,16 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   AnnotationPanel.methods.focusCommentInput = function (annotation) {
-    this.setAnnotation(annotation)
-    
-    setTimeout(() => {
+    if (annotation) {
+      this.setAnnotation(annotation)
+      
+      setTimeout(() => {
+        this.$refs.AnnotationSingle.focusCommentInput()
+      }, 0)
+    }
+    else {
       this.$refs.AnnotationSingle.focusCommentInput()
-    }, 0)
+    } 
   }
   
   AnnotationPanel.methods.focusAnnotation = async function (annotationID) {
@@ -10807,7 +10807,7 @@ let FooterButtons = {
     this.$i18n.locale = this.config.locale
     return {
       
-      public: true,
+      public: (this.lib.auth.defaultPermission === 'public'),
       
       questionMinWords: this.status.readingConfig.annotationTypeModules['ConfusedClarified'].questionMinWords,
       answerMinWords: this.status.readingConfig.annotationTypeModules['ConfusedClarified'].answerMinWords,
@@ -10989,6 +10989,9 @@ let FooterButtons = {
       
       this.$emit('update')
     },
+    onComment () {
+      this.lib.AnnotationPanel.focusCommentInput()
+    }
   } // methods
 }
 
@@ -11899,6 +11902,151 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.html?vue&type=template&id=e454a39e&scoped=true&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.html?vue&type=template&id=e454a39e&scoped=true& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_FooterButtons_html_vue_type_template_id_e454a39e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./FooterButtons.html?vue&type=template&id=e454a39e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.html?vue&type=template&id=e454a39e&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_FooterButtons_html_vue_type_template_id_e454a39e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_FooterButtons_html_vue_type_template_id_e454a39e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.js?vue&type=script&lang=js&?4649":
+/*!*************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.js?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let FooterButtons = {
+  props: ['lib', 'status', 'config'
+    , 'annotation', 'panelData'],
+  data() {    
+    this.$i18n.locale = this.config.locale
+    return {
+      public: (this.lib.auth.defaultPermission === 'public')
+    }
+  },
+//  components: {
+//  },
+//  computed: {
+//  },
+//  watch: {
+//  },
+//  mounted() {
+//  },
+  methods: {
+    onComment () {
+      this.lib.AnnotationPanel.focusCommentInput()
+    }
+  } // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (FooterButtons);
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.js?vue&type=script&lang=js&?c4a5":
+/*!*************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.js?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FooterButtons_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./FooterButtons.js?vue&type=script&lang=js& */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.js?vue&type=script&lang=js&?4649");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_FooterButtons_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true&":
+/*!************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true& ***!
+  \************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_FooterButtons_less_vue_type_style_index_0_id_e454a39e_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-style-loader!../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_FooterButtons_less_vue_type_style_index_0_id_e454a39e_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_FooterButtons_less_vue_type_style_index_0_id_e454a39e_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_FooterButtons_less_vue_type_style_index_0_id_e454a39e_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_FooterButtons_less_vue_type_style_index_0_id_e454a39e_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_FooterButtons_less_vue_type_style_index_0_id_e454a39e_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.vue":
+/*!*************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.vue ***!
+  \*************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FooterButtons_html_vue_type_template_id_e454a39e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FooterButtons.html?vue&type=template&id=e454a39e&scoped=true& */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.html?vue&type=template&id=e454a39e&scoped=true&");
+/* harmony import */ var _FooterButtons_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FooterButtons.js?vue&type=script&lang=js& */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.js?vue&type=script&lang=js&?c4a5");
+/* empty/unused harmony star reexport *//* harmony import */ var _FooterButtons_less_vue_type_style_index_0_id_e454a39e_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true& */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CMainIdea_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FooterButtons.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CMainIdea%5CFooterButtons%5CFooterButtons.vue&lang=yaml */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CMainIdea%5CFooterButtons%5CFooterButtons.vue&lang=yaml");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _FooterButtons_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FooterButtons_html_vue_type_template_id_e454a39e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FooterButtons_html_vue_type_template_id_e454a39e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "e454a39e",
+  null
+  
+)
+
+/* custom blocks */
+
+if (typeof _FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CMainIdea_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CMainIdea_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CMainIdea%5CFooterButtons%5CFooterButtons.vue&lang=yaml":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CMainIdea%5CFooterButtons%5CFooterButtons.vue&lang=yaml ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CMainIdea_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./FooterButtons.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CMainIdea%5CFooterButtons%5CFooterButtons.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cannotation%5CAnnotationTypeModules%5CMainIdea%5CFooterButtons%5CFooterButtons.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CMainIdea_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CMainIdea_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CMainIdea_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CMainIdea_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_FooterButtons_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CMainIdea_5CFooterButtons_5CFooterButtons_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
 /***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/MainIdea.html?vue&type=template&id=1e98a1d0&scoped=true&":
 /*!**************************************************************************************************************************************************!*\
   !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/MainIdea.html?vue&type=template&id=1e98a1d0&scoped=true& ***!
@@ -11944,10 +12092,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _props__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../props */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/props.js");
-/* harmony import */ var _computed_ComputedConfig__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../computed/ComputedConfig */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/computed/ComputedConfig.js");
-/* harmony import */ var _computed_ComputedButtons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../computed/ComputedButtons */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/computed/ComputedButtons.js");
-/* harmony import */ var _methods_MethodsAnnotation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../methods/MethodsAnnotation */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/methods/MethodsAnnotation.js");
+/* harmony import */ var _FooterButtons_FooterButtons_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FooterButtons/FooterButtons.vue */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.vue");
+/* harmony import */ var _props__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../props */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/props.js");
+/* harmony import */ var _computed_ComputedConfig__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../computed/ComputedConfig */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/computed/ComputedConfig.js");
+/* harmony import */ var _computed_ComputedButtons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../computed/ComputedButtons */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/computed/ComputedButtons.js");
+/* harmony import */ var _methods_MethodsAnnotation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../methods/MethodsAnnotation */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/methods/MethodsAnnotation.js");
+
+
 
 //import CommonComputed from './../commons/CommonComputed'
 //import CommonWatch from './../commons/CommonWatch'
@@ -11959,7 +12110,7 @@ if (debugMockSend === true) {
 }
 
 let Editor = {
-  props: _props__WEBPACK_IMPORTED_MODULE_0__["default"],
+  props: _props__WEBPACK_IMPORTED_MODULE_1__["default"],
   data() {
     if (!this.annotation) {
       throw 'No annotation'
@@ -11980,14 +12131,12 @@ let Editor = {
     return {
       note: note,
       noteReset: note,
-      
-      public: (this.lib.auth.defaultPermission === 'public')
       //public: 
     }
   },
-//  components: {
-//    'annotation-editor-header': AnnotationEditorHeader
-//  },
+  components: {
+    'footer-buttons': _FooterButtons_FooterButtons_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   computed: {
 //    annotationConfig () {
 //      return this.lib.auth.currentStepAnnotationConfig
@@ -12032,12 +12181,18 @@ let Editor = {
       
       let vm = this
       let height
-      if (vm.enableCollaboration === true
-              && vm.lib.style.isStackWidth()) {
+      let basePadding = `5em`
+      
+      if (vm.enableCollaboration === true) {
         height = (vm.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 5em)`
+        if (vm.lib.style.isStackWidth()) {
+          height = `calc(${height}px - ${basePadding})`
+        }
+        else {
+          height = `calc(${height}px - ${basePadding} - 5em)`
+        }
       } else {
-        height = `calc(${this.heightPX}px - 5em)`
+        height = `calc(${this.heightPX}px - ${basePadding})`
       }
       
       //console.log(height, this.panelData.heightPX)
@@ -12213,13 +12368,13 @@ let Editor = {
 }
 
 
-Object(_computed_ComputedConfig__WEBPACK_IMPORTED_MODULE_1__["default"])(Editor)
+Object(_computed_ComputedConfig__WEBPACK_IMPORTED_MODULE_2__["default"])(Editor)
 
 
-Object(_computed_ComputedButtons__WEBPACK_IMPORTED_MODULE_2__["default"])(Editor)
+Object(_computed_ComputedButtons__WEBPACK_IMPORTED_MODULE_3__["default"])(Editor)
 
 
-Object(_methods_MethodsAnnotation__WEBPACK_IMPORTED_MODULE_3__["default"])(Editor)
+Object(_methods_MethodsAnnotation__WEBPACK_IMPORTED_MODULE_4__["default"])(Editor)
 
 /* harmony default export */ __webpack_exports__["default"] = (Editor);
 
@@ -12248,10 +12403,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _props__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../props */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/props.js");
-/* harmony import */ var _computed_ComputedConfig__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../computed/ComputedConfig */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/computed/ComputedConfig.js");
-/* harmony import */ var _computed_ComputedButtons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../computed/ComputedButtons */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/computed/ComputedButtons.js");
-/* harmony import */ var _methods_MethodsAnnotation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../methods/MethodsAnnotation */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/methods/MethodsAnnotation.js");
+/* harmony import */ var _FooterButtons_FooterButtons_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FooterButtons/FooterButtons.vue */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/MainIdea/FooterButtons/FooterButtons.vue");
+/* harmony import */ var _props__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../props */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/props.js");
+/* harmony import */ var _computed_ComputedConfig__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../computed/ComputedConfig */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/computed/ComputedConfig.js");
+/* harmony import */ var _computed_ComputedButtons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../computed/ComputedButtons */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/computed/ComputedButtons.js");
+/* harmony import */ var _methods_MethodsAnnotation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../methods/MethodsAnnotation */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/methods/MethodsAnnotation.js");
+
+
 
 //import CommonComputed from './../commons/CommonComputed'
 //import CommonWatch from './../commons/CommonWatch'
@@ -12263,7 +12421,7 @@ if (debugMockSend === true) {
 }
 
 let Editor = {
-  props: _props__WEBPACK_IMPORTED_MODULE_0__["default"],
+  props: _props__WEBPACK_IMPORTED_MODULE_1__["default"],
   data() {
     if (!this.annotation) {
       throw 'No annotation'
@@ -12284,14 +12442,12 @@ let Editor = {
     return {
       note: note,
       noteReset: note,
-      
-      public: (this.lib.auth.defaultPermission === 'public')
       //public: 
     }
   },
-//  components: {
-//    'annotation-editor-header': AnnotationEditorHeader
-//  },
+  components: {
+    'footer-buttons': _FooterButtons_FooterButtons_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   computed: {
 //    annotationConfig () {
 //      return this.lib.auth.currentStepAnnotationConfig
@@ -12336,12 +12492,18 @@ let Editor = {
       
       let vm = this
       let height
-      if (vm.enableCollaboration === true
-              && vm.lib.style.isStackWidth()) {
+      let basePadding = `5em`
+      
+      if (vm.enableCollaboration === true) {
         height = (vm.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 5em)`
+        if (vm.lib.style.isStackWidth()) {
+          height = `calc(${height}px - ${basePadding})`
+        }
+        else {
+          height = `calc(${height}px - ${basePadding} - 5em)`
+        }
       } else {
-        height = `calc(${this.heightPX}px - 5em)`
+        height = `calc(${this.heightPX}px - ${basePadding})`
       }
       
       //console.log(height, this.panelData.heightPX)
@@ -12517,13 +12679,13 @@ let Editor = {
 }
 
 
-Object(_computed_ComputedConfig__WEBPACK_IMPORTED_MODULE_1__["default"])(Editor)
+Object(_computed_ComputedConfig__WEBPACK_IMPORTED_MODULE_2__["default"])(Editor)
 
 
-Object(_computed_ComputedButtons__WEBPACK_IMPORTED_MODULE_2__["default"])(Editor)
+Object(_computed_ComputedButtons__WEBPACK_IMPORTED_MODULE_3__["default"])(Editor)
 
 
-Object(_methods_MethodsAnnotation__WEBPACK_IMPORTED_MODULE_3__["default"])(Editor)
+Object(_methods_MethodsAnnotation__WEBPACK_IMPORTED_MODULE_4__["default"])(Editor)
 
 /* harmony default export */ __webpack_exports__["default"] = (Editor);
 

@@ -1,3 +1,5 @@
+import FooterButtons from './FooterButtons/FooterButtons.vue'
+
 import props from './../props'
 //import CommonComputed from './../commons/CommonComputed'
 //import CommonWatch from './../commons/CommonWatch'
@@ -30,14 +32,12 @@ let Editor = {
     return {
       note: note,
       noteReset: note,
-      
-      public: (this.lib.auth.defaultPermission === 'public')
       //public: 
     }
   },
-//  components: {
-//    'annotation-editor-header': AnnotationEditorHeader
-//  },
+  components: {
+    'footer-buttons': FooterButtons
+  },
   computed: {
 //    annotationConfig () {
 //      return this.lib.auth.currentStepAnnotationConfig
@@ -82,12 +82,18 @@ let Editor = {
       
       let vm = this
       let height
-      if (vm.enableCollaboration === true
-              && vm.lib.style.isStackWidth()) {
+      let basePadding = `5em`
+      
+      if (vm.enableCollaboration === true) {
         height = (vm.lib.style.getClientHeight() / 2)
-        height = `calc(${height}px - 5em)`
+        if (vm.lib.style.isStackWidth()) {
+          height = `calc(${height}px - ${basePadding})`
+        }
+        else {
+          height = `calc(${height}px - ${basePadding} - 5em)`
+        }
       } else {
-        height = `calc(${this.heightPX}px - 5em)`
+        height = `calc(${this.heightPX}px - ${basePadding})`
       }
       
       //console.log(height, this.panelData.heightPX)

@@ -6,7 +6,7 @@ let FooterButtons = {
     this.$i18n.locale = this.config.locale
     return {
       
-      public: true,
+      public: (this.lib.auth.defaultPermission === 'public'),
       
       questionMinWords: this.status.readingConfig.annotationTypeModules['ConfusedClarified'].questionMinWords,
       answerMinWords: this.status.readingConfig.annotationTypeModules['ConfusedClarified'].answerMinWords,
@@ -188,6 +188,9 @@ let FooterButtons = {
       
       this.$emit('update')
     },
+    onComment () {
+      this.lib.AnnotationPanel.focusCommentInput()
+    }
   } // methods
 }
 

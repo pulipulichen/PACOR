@@ -92,7 +92,7 @@
       </span>
 
       <button 
-        v-if="$parent.annotation.id"
+        v-if="annotation.id"
         type="button"
         class="ui compact button delete-button"
         v-on:click="$parent.deleteAnnotation"
@@ -105,7 +105,8 @@
         v-bind:status="status"
         v-bind:lib="lib"
 
-        v-bind:annotation="annotation">
+        v-bind:annotation="annotation"
+        v-on:comment="onComment">
       </annotation-item-interactive>
 
     </div> <!-- <div class="buttons-row"> -->

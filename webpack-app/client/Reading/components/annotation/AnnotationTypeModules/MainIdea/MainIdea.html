@@ -12,74 +12,14 @@
     v-bind:height="editorHeight"
     v-bind:placeholder="editorPlaceholder">
   </HTMLEditor>
-  <div class="ui one column grid annotation-panel-buttons"
-       v-if="isEditable">
-    <block-exit
-      v-if="isNoteDifferent">
-    </block-exit>
+  
+  
+  <footer-buttons
+    v-bind:lib='lib'
+    v-bind:config='config'
+    v-bind:status='status'
     
-    <div v-bind:class="computedButtonsClass">
-      
-      <admin-badge 
-        v-bind:status="status"
-        v-bind:config="config">
-      </admin-badge>
-      
-      <span class="display-time">
-        {{ displayTime }}
-      </span>
-      
-      <checkbox-toggle 
-        v-if="lib.auth.isEnableControlPermission"
-        v-bind:label="$t('PUBLIC')"
-        v-model="public"
-        v-bind:enable="!awaitSubmit">
-      </checkbox-toggle>
-
-      <template v-if="annotation.id">
-        
-        <button 
-          v-if="enableDelete"
-          type="button"
-          class="ui compact button"
-          v-on:click="deleteAnnotation"
-          v-bind:class="computedSubmitButtonClassList">
-          {{ $t('DELETE') }}  
-        </button>
-        
-        <validation-button 
-          v-bind:lib="lib"
-          
-          v-bind:text="note"
-          v-bind:minWordCount="minWords"
-          v-bind:locale="status.preference.locale"
-          v-bind:enable="isEnableSubmitEdit"
-          
-          v-on:click="editAnnotation"
-          v-bind:class="computedSubmitButtonClassList"
-          v-bind:style="computedSubmitButtonStyle">
-          {{ $t('UPDATE') }}  
-        </validation-button>
-        
-      </template>
-      
-      <template v-else>
-        <validation-button 
-          v-bind:lib="lib"
-          
-          v-bind:minWordCount="minWords"
-          v-bind:text="note"
-          
-          v-bind:locale="status.preference.locale"
-          v-bind:enable="isEnableSubmitAdd"
-          
-          v-on:click="addAnnotation"
-          v-bind:class="computedSubmitButtonClassList"
-          v-bind:style="computedSubmitButtonStyle">
-          {{ $t('ADD') }}  
-        </validation-button>
-      </template>
-      
-    </div>
-  </div>
+    v-bind:annotation='annotation'
+    v-bind:panelData='panelData'>
+  </footer-buttons>
 </div>
