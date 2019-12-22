@@ -51,22 +51,30 @@ import jQuery from 'jquery'
       jQueryGuide.prototype.buildLayout = function() {
         var layout, layoutId;
         layoutId = Math.round(Math.random() * 10000);
-        layout = $(`<div class="jquery-guide" id="jQueryGuide` + layoutId + `">
+        layout = $(`<div class="jquery-guide non-invasive-web-style-framework" id="jQueryGuide` + layoutId + `">
             <div class="jquery-guide-bg"></div>
             <div class="jquery-guide-content"></div>
             <div class="jquery-guide-glow"></div>
+            <div class="jquery-guide-popup ui popup transition"></div>
         </div>`);
         $('html>body').append(layout);
         this.layout.container = $('#jQueryGuide' + layoutId);
+        
+//        this.layout.container.on('scroll', function (event) {
+//          event.preventDefault()
+//          event.stopPropagation()
+//        })
+        
         this.layout.bg = this.layout.container.find('>.jquery-guide-bg');
         this.layout.glow = this.layout.container.find('>.jquery-guide-glow');
+        this.layout.popup = this.layout.container.find('>.jquery-guide-popup');
         return this.layout.content = this.layout.container.find('>.jquery-guide-content');
       };
 
       jQueryGuide.prototype.addAction = function(action) {
-        if (action.content === void 0) {
-          this.action.content = "";
-        }
+        //if (!action.content === void 0) {
+        //  this.action.content = "";
+        //}
         if (action.offsetX === void 0) {
           action.offsetX = 0;
         }
@@ -81,7 +89,13 @@ import jQuery from 'jquery'
 
       jQueryGuide.prototype.execAction = function() {
         var action;
+        //$('body').addClass('jquery-guide-prevent-scroll')
         action = this.actionList[this.step.current];
+        if (this.step.current === 0) {
+          $('body').addClass('jquery-guide-prevent-scroll')
+        }
+        //console.log(this.step.current)
+        
         if (this.step.status === 0) {
           this.step.status = 1;
           if (action.beforeFunc !== void 0) {
@@ -97,6 +111,11 @@ import jQuery from 'jquery'
           this.step.status = 3;
           return action.successFunc(this);
         }
+        
+        if (this.step.current === this.actionList.length - 1) {
+          $('body').removeClass('jquery-guide-prevent-scroll')
+        }
+        //$('body').removeClass('jquery-guide-prevent-scroll')
       };
 
       jQueryGuide.prototype.back = function() {
@@ -132,6 +151,9 @@ import jQuery from 'jquery'
       jQueryGuide.prototype.animate = function() {
         var action, bgBottomWidth, bgScrollTop, bgTopWidth, scrollTop;
         action = this.actionList[this.step.current];
+        //action.element[0].scrollIntoView({
+        //  behavior: 'smooth'
+        //})
         scrollTop = $(window).scrollTop();
         bgScrollTop = action.element.offset().top - scrollTop;
         bgTopWidth = bgScrollTop > 0 ? bgScrollTop : 0;
@@ -145,22 +167,57 @@ import jQuery from 'jquery'
           borderLeftWidth: action.element.offset().left
         }, (function(_this) {
           return function() {
-            //console.log('需要新增一個div作為框架')
-            _this.layout.glow.css({
-              'width': action.element.innerWidth() + 'px',
-              'height': action.element.innerHeight() + 'px',
-              'top': action.element.offset().top,
-              'left': action.element.offset().left
-            })
-            
+            setupGlowPopup(_this, action)
+            /*
             _this.layout.content.html(action.content);
             return _this.layout.content.css({
               top: action.element.offset().top + action.offsetY,
               left: action.element.offset().left + action.offsetX
             });
+            */
           };
         })(this));
       };
+      
+      let setupGlowPopup = function (_this, action) {
+        //console.log('需要新增一個div作為框架')
+        _this.layout.glow.css({
+          'width': action.element.innerWidth() + 'px',
+          'height': action.element.innerHeight() + 'px',
+          'top': action.element.offset().top,
+          'left': action.element.offset().left
+        })
+
+        let popupOptions = {
+          //position : 'right center',
+          //target   : '.test.image',
+          //popup: _this.layout.popup,
+          exclusive: true,
+          closable: false,
+          distanceAway: 10,
+          //boundary: _this.layout.container
+          //boundary: $('.jquery-guide:first')
+          //prefer: 'opposite',
+          //title    : 'My favorite dog',
+          //content  : 'My favorite dog would like other dogs as much as themselves'
+        }
+        
+        if (action.position) {
+          popupOptions.position = action.position
+        }
+        
+        //if (action.title) {
+        //  popupOptions.title = action.title
+        //}
+        
+        if (action.content) {
+          popupOptions.title = action.content
+          //_this.layout.popup.html(action.content)
+        }
+
+        _this.layout.glow.popup(popupOptions).popup('show')
+
+      }
 
       jQueryGuide.prototype.draw = function() {
         var action, bgBottomWidth, bgScrollTop, bgTopWidth, scrollTop;

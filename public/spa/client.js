@@ -681,7 +681,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".jquery-guide {\n  -webkit-box-sizing: content-box;\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box;\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n  border-radius-inner: 10px;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  border-radius: 10px;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n}\n", "",{"version":3,"sources":["jquery.guide.less"],"names":[],"mappings":"AAAA;EACE,+BAA+B;EAC/B,4BAA4B;EAC5B,uBAAuB;AACzB;AACA;EACE,+BAA+B;EAC/B,4BAA4B;EAC5B,uBAAuB;AACzB;AACA;EACE,eAAe;EACf,MAAM;EACN,QAAQ;EACR,SAAS;EACT,OAAO;EACP,gCAAgC;EAChC,mBAAmB;EACnB,qBAAqB;EACrB,uBAAuB;EACvB,wBAAwB;EACxB,sBAAsB;EACtB,aAAa;EACb,yBAAyB;AAC3B;AACA;EACE,gCAAgC;AAClC;AACA;EACE,kBAAkB;EAClB,eAAe;EACf,WAAW;EACX,aAAa;AACf;AACA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,aAAa;EACb,wMAAwM;AAC1M","file":"jquery.guide.less","sourcesContent":[".jquery-guide {\n  -webkit-box-sizing: content-box;\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box;\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n  border-radius-inner: 10px;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  border-radius: 10px;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n}\n"]}]);
+exports.push([module.i, ".jquery-guide {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n}\nbody.jquery-guide-prevent-scroll {\n  overflow: hidden;\n}\n", "",{"version":3,"sources":["jquery.guide.less"],"names":[],"mappings":"AAAA;EACE,0CAA0C;EAC1C,uCAAuC;EACvC,kCAAkC;EAClC,eAAe;EACf,MAAM;EACN,OAAO;EACP,YAAY;EACZ,aAAa;AACf;AACA;EACE,0CAA0C;EAC1C,uCAAuC;EACvC,kCAAkC;AACpC;AACA;EACE,eAAe;EACf,MAAM;EACN,QAAQ;EACR,SAAS;EACT,OAAO;EACP,gCAAgC;EAChC,mBAAmB;EACnB,qBAAqB;EACrB,uBAAuB;EACvB,wBAAwB;EACxB,sBAAsB;EACtB,aAAa;AACf;AACA;EACE,gCAAgC;AAClC;AACA;EACE,kBAAkB;EAClB,eAAe;EACf,WAAW;EACX,aAAa;AACf;AACA;EACE,kBAAkB;EAClB,aAAa;EACb,wMAAwM;AAC1M;AACA;EACE,gBAAgB;AAClB","file":"jquery.guide.less","sourcesContent":[".jquery-guide {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n}\nbody.jquery-guide-prevent-scroll {\n  overflow: hidden;\n}\n"]}]);
 
 
 /***/ }),
@@ -10133,15 +10133,22 @@ let IntroManager = {
       //IntroJs().start();
     }, 3000)
     */
-    await this.lib.VueHelper.sleep(1500)
+    await this.lib.VueHelper.sleep(3000)
     console.log(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.DigitalCountdownTimer').length)
     jquery__WEBPACK_IMPORTED_MODULE_1___default.a.guide({
       actions: [
         {
           element: jquery__WEBPACK_IMPORTED_MODULE_1___default()('.my-MainIdea:first'),
-          content: '<p>Welcome, click on the screen at any position to enter the next step</p>',
-          offsetX: -140,
-          offsetY: -60
+          content: 'Welcome, click on the screen at any position to enter the next step',
+          //offsetX: -140,
+          //offsetY: -60
+        },
+        {
+          element: jquery__WEBPACK_IMPORTED_MODULE_1___default()('.DigitalCountdownTimer:first'),
+          content: 'Welcome, click on the screen at any position to enter the next step',
+          //position: 'top center'
+          //offsetX: -140,
+          //offsetY: -60
         },
         /*
         {
@@ -10348,22 +10355,30 @@ __webpack_require__.r(__webpack_exports__);
       jQueryGuide.prototype.buildLayout = function() {
         var layout, layoutId;
         layoutId = Math.round(Math.random() * 10000);
-        layout = $(`<div class="jquery-guide" id="jQueryGuide` + layoutId + `">
+        layout = $(`<div class="jquery-guide non-invasive-web-style-framework" id="jQueryGuide` + layoutId + `">
             <div class="jquery-guide-bg"></div>
             <div class="jquery-guide-content"></div>
             <div class="jquery-guide-glow"></div>
+            <div class="jquery-guide-popup ui popup transition"></div>
         </div>`);
         $('html>body').append(layout);
         this.layout.container = $('#jQueryGuide' + layoutId);
+        
+//        this.layout.container.on('scroll', function (event) {
+//          event.preventDefault()
+//          event.stopPropagation()
+//        })
+        
         this.layout.bg = this.layout.container.find('>.jquery-guide-bg');
         this.layout.glow = this.layout.container.find('>.jquery-guide-glow');
+        this.layout.popup = this.layout.container.find('>.jquery-guide-popup');
         return this.layout.content = this.layout.container.find('>.jquery-guide-content');
       };
 
       jQueryGuide.prototype.addAction = function(action) {
-        if (action.content === void 0) {
-          this.action.content = "";
-        }
+        //if (!action.content === void 0) {
+        //  this.action.content = "";
+        //}
         if (action.offsetX === void 0) {
           action.offsetX = 0;
         }
@@ -10378,7 +10393,13 @@ __webpack_require__.r(__webpack_exports__);
 
       jQueryGuide.prototype.execAction = function() {
         var action;
+        //$('body').addClass('jquery-guide-prevent-scroll')
         action = this.actionList[this.step.current];
+        if (this.step.current === 0) {
+          $('body').addClass('jquery-guide-prevent-scroll')
+        }
+        //console.log(this.step.current)
+        
         if (this.step.status === 0) {
           this.step.status = 1;
           if (action.beforeFunc !== void 0) {
@@ -10394,6 +10415,11 @@ __webpack_require__.r(__webpack_exports__);
           this.step.status = 3;
           return action.successFunc(this);
         }
+        
+        if (this.step.current === this.actionList.length - 1) {
+          $('body').removeClass('jquery-guide-prevent-scroll')
+        }
+        //$('body').removeClass('jquery-guide-prevent-scroll')
       };
 
       jQueryGuide.prototype.back = function() {
@@ -10429,6 +10455,9 @@ __webpack_require__.r(__webpack_exports__);
       jQueryGuide.prototype.animate = function() {
         var action, bgBottomWidth, bgScrollTop, bgTopWidth, scrollTop;
         action = this.actionList[this.step.current];
+        //action.element[0].scrollIntoView({
+        //  behavior: 'smooth'
+        //})
         scrollTop = $(window).scrollTop();
         bgScrollTop = action.element.offset().top - scrollTop;
         bgTopWidth = bgScrollTop > 0 ? bgScrollTop : 0;
@@ -10442,22 +10471,57 @@ __webpack_require__.r(__webpack_exports__);
           borderLeftWidth: action.element.offset().left
         }, (function(_this) {
           return function() {
-            //console.log('需要新增一個div作為框架')
-            _this.layout.glow.css({
-              'width': action.element.innerWidth() + 'px',
-              'height': action.element.innerHeight() + 'px',
-              'top': action.element.offset().top,
-              'left': action.element.offset().left
-            })
-            
+            setupGlowPopup(_this, action)
+            /*
             _this.layout.content.html(action.content);
             return _this.layout.content.css({
               top: action.element.offset().top + action.offsetY,
               left: action.element.offset().left + action.offsetX
             });
+            */
           };
         })(this));
       };
+      
+      let setupGlowPopup = function (_this, action) {
+        //console.log('需要新增一個div作為框架')
+        _this.layout.glow.css({
+          'width': action.element.innerWidth() + 'px',
+          'height': action.element.innerHeight() + 'px',
+          'top': action.element.offset().top,
+          'left': action.element.offset().left
+        })
+
+        let popupOptions = {
+          //position : 'right center',
+          //target   : '.test.image',
+          //popup: _this.layout.popup,
+          exclusive: true,
+          closable: false,
+          distanceAway: 10,
+          //boundary: _this.layout.container
+          //boundary: $('.jquery-guide:first')
+          //prefer: 'opposite',
+          //title    : 'My favorite dog',
+          //content  : 'My favorite dog would like other dogs as much as themselves'
+        }
+        
+        if (action.position) {
+          popupOptions.position = action.position
+        }
+        
+        //if (action.title) {
+        //  popupOptions.title = action.title
+        //}
+        
+        if (action.content) {
+          popupOptions.title = action.content
+          //_this.layout.popup.html(action.content)
+        }
+
+        _this.layout.glow.popup(popupOptions).popup('show')
+
+      }
 
       jQueryGuide.prototype.draw = function() {
         var action, bgBottomWidth, bgScrollTop, bgTopWidth, scrollTop;

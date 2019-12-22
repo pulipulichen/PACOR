@@ -24,15 +24,22 @@ let IntroManager = {
       //IntroJs().start();
     }, 3000)
     */
-    await this.lib.VueHelper.sleep(1500)
+    await this.lib.VueHelper.sleep(3000)
     console.log($('.DigitalCountdownTimer').length)
     $.guide({
       actions: [
         {
           element: $('.my-MainIdea:first'),
-          content: '<p>Welcome, click on the screen at any position to enter the next step</p>',
-          offsetX: -140,
-          offsetY: -60
+          content: 'Welcome, click on the screen at any position to enter the next step',
+          //offsetX: -140,
+          //offsetY: -60
+        },
+        {
+          element: $('.DigitalCountdownTimer:first'),
+          content: 'Welcome, click on the screen at any position to enter the next step',
+          //position: 'top center'
+          //offsetX: -140,
+          //offsetY: -60
         },
         /*
         {
