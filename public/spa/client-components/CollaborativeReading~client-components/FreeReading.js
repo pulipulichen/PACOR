@@ -189,7 +189,6 @@ var render = function() {
               fn: function() {
                 return [
                   _c("notification-icon", {
-                    ref: "NotificationManager",
                     attrs: {
                       config: _vm.config,
                       status: _vm.status,
@@ -220,7 +219,7 @@ var render = function() {
           ],
           null,
           false,
-          2194593818
+          3728633475
         )
       })
     : _vm._e()
@@ -280,9 +279,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 //import NotificationIcon from './../../components/manager/NotificationManager/NotificationIcon/NotificationIcon.vue'
 //import UserFilter from './../../components/search/UserFilter/UserFilter.vue'
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
+
+
 
 let NavigationItems = {
   props: ['lib', 'status', 'config'],
@@ -301,7 +304,8 @@ let NavigationItems = {
 
     return {
       pauseAtStart,
-      isSideMenuDisplay: false
+      isSideMenuDisplay: false,
+      menu: null
     }
   },
   components: {
@@ -361,11 +365,43 @@ let NavigationItems = {
     hideSideMenu () {
       this.$refs.nav.hideSideMenu()
     },
+    getMenu () {
+      if (!this.menu) {
+        this.menu = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.nav.$refs.Menu)
+      }
+      return this.menu
+    },
     setupTutorial () {
+      this.lib.TutorialManager.addAction(() => {
+        //console.log(this.getMenu().find('.NotificationIcon:visible:first').length)
+        return {
+          element: this.getMenu().find('.NotificationIcon:visible:first'),
+          content: this.$t('You will get notifications from other readers here.'),
+          order: 32
+        }
+      })
+      
+      this.lib.TutorialManager.addAction(() => {
+        return {
+          element: this.getMenu().find('.UserFilter:visible:first'),
+          content: this.$t('You can select a peer and watch what he/she read.'),
+          order: 33
+        }
+      })
+      
+      this.lib.TutorialManager.addAction(() => {
+        return {
+          element: this.getMenu().find('.AnnotationTypeFilter:visible:first'),
+          content: this.$t('You can choose a type of annotations to read.'),
+          order: 34
+        }
+      })
+      
       this.lib.TutorialManager.addAction(() => {
         return {
           element: this.$refs.DigitalCountdownTimer,
-          content: this.$t('Collaborative Reading will end at count to 0.')
+          content: this.$t('Collaborative Reading will end at count to 0.'),
+          order: 39
         }
       })
     }

@@ -19,41 +19,30 @@ let TutorialManager = {
       return this.lib.auth.currentStep
     }
   },
-//  watch: {
-//  },
+  watch: {
+    'status.needLogin' () {
+      this.stop()
+    }
+  },
   mounted: async function () {
     //this._test()
   },
+  destroyed () {
+    this.stop()
+  },
   methods: {
-    addAction (type, action, order) {
+    addAction (type, action) {
       if (typeof(type) !== 'string') {
-        order = action
         action = type
         type = this.defaultType
       }
       //console.log(this.defaultType)
       
-      if (typeof(order) !== 'number') {
-        order = 0
-      }
-      
       if (Array.isArray(this.actionLists[type]) === false) {
         this.actionLists[type] = []
       }
       
-      if (action && !action.element) {
-        throw new Error('Element is not found.')
-      }
-      
-      if (typeof(action.element.$el) === 'object') {
-        action.element = action.element.$el
-      }
-      action.element = $(action.element)
-      
-      this.actionLists[type].push({
-        action,
-        order
-      })
+      this.actionLists[type].push(action)
       
       //console.log(this.actionLists)
     },
@@ -62,7 +51,7 @@ let TutorialManager = {
       if (Array.isArray(actions) === false) {
         return false
       }
-      console.log(actions)
+      //console.log(actions)
       this.guide = $.guide({actions});
       //console.log(this.guide)
     },
@@ -76,12 +65,42 @@ let TutorialManager = {
         return undefined
       }
       
+      // ---------------------
+      
+      list = list.map((action) => {
+        if (typeof(action) === 'function') {
+          action = action()
+        }
+        
+        //console.log(action)
+        
+        if (action && !action.element) {
+          throw new Error('Element is not found', action)
+        }
+
+        if (typeof(action.element.$el) === 'object') {
+          action.element = action.element.$el
+        }
+        action.element = $(action.element)
+        
+        if (typeof(action.order) !== 'number') {
+          action.order = 999
+        }
+        
+        return action
+      })
+      
+      // ---------------------
+      
       list.sort(function (a, b) {
         return a.order - b.order
       })
-      return list.map(a => a.action)
+      return list
     },
     stop () {
+      if (!this.guide) {
+        return false
+      }
       //$.guide;
       this.guide.exit()
     },
@@ -94,12 +113,14 @@ let TutorialManager = {
       this.addAction({
         element: $('.my-MainIdea:first'),
         content: '1 Welcome, click on the screen at any position to enter the next step',
-      }, 2)
+        order: 2
+      })
       
       this.addAction({
         element: $('.DigitalCountdownTimer:first'),
         //content: '2 Welcome, click on the screen at any position to enter the next step',
-      }, 1)
+        order: 1
+      })
     
       this.start()
       

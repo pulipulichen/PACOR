@@ -2,6 +2,8 @@
 //import UserFilter from './../../components/search/UserFilter/UserFilter.vue'
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
 
+import $ from 'jquery'
+
 let NavigationItems = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -19,7 +21,8 @@ let NavigationItems = {
 
     return {
       pauseAtStart,
-      isSideMenuDisplay: false
+      isSideMenuDisplay: false,
+      menu: null
     }
   },
   components: {
@@ -79,11 +82,43 @@ let NavigationItems = {
     hideSideMenu () {
       this.$refs.nav.hideSideMenu()
     },
+    getMenu () {
+      if (!this.menu) {
+        this.menu = $(this.$refs.nav.$refs.Menu)
+      }
+      return this.menu
+    },
     setupTutorial () {
+      this.lib.TutorialManager.addAction(() => {
+        //console.log(this.getMenu().find('.NotificationIcon:visible:first').length)
+        return {
+          element: this.getMenu().find('.NotificationIcon:visible:first'),
+          content: this.$t('You will get notifications from other readers here.'),
+          order: 32
+        }
+      })
+      
+      this.lib.TutorialManager.addAction(() => {
+        return {
+          element: this.getMenu().find('.UserFilter:visible:first'),
+          content: this.$t('You can select a peer and watch what he/she read.'),
+          order: 33
+        }
+      })
+      
+      this.lib.TutorialManager.addAction(() => {
+        return {
+          element: this.getMenu().find('.AnnotationTypeFilter:visible:first'),
+          content: this.$t('You can choose a type of annotations to read.'),
+          order: 34
+        }
+      })
+      
       this.lib.TutorialManager.addAction(() => {
         return {
           element: this.$refs.DigitalCountdownTimer,
-          content: this.$t('Collaborative Reading will end at count to 0.')
+          content: this.$t('Collaborative Reading will end at count to 0.'),
+          order: 39
         }
       })
     }
