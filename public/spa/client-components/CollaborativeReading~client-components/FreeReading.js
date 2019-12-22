@@ -82,8 +82,6 @@ var render = function() {
                   _c("navigation-header-item", {
                     staticClass: "in-top",
                     attrs: {
-                      "data-step": "1",
-                      "data-intro": "This is a tooltip!",
                       config: _vm.config,
                       status: _vm.status,
                       lib: _vm.lib
@@ -221,7 +219,7 @@ var render = function() {
           ],
           null,
           false,
-          3551901493
+          52038225
         )
       })
     : _vm._e()
