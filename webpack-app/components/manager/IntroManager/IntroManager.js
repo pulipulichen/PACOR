@@ -31,13 +31,10 @@ let IntroManager = {
         {
           element: $('.my-MainIdea:first'),
           content: 'Welcome, click on the screen at any position to enter the next step',
-          //offsetX: -140,
-          //offsetY: -60
         },
         {
           element: $('.DigitalCountdownTimer:first'),
           content: 'Welcome, click on the screen at any position to enter the next step',
-          //position: 'top center'
           //offsetX: -140,
           //offsetY: -60
         },

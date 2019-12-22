@@ -3,11 +3,13 @@
   -moz-box-sizing: content-box !important;
   box-sizing: content-box !important;
   
-  position: fixed;
+  /*
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  */
   
   .jquery-guide-bg {
     -webkit-box-sizing: content-box !important;
@@ -16,6 +18,7 @@
   }
   
   .jquery-guide-bg {
+    //display: none;
     position: fixed;
     top: 0;
     right: 0;
@@ -51,10 +54,15 @@
       , 0 0 30px 0 rgba(255,255,255,.5)
       , 0 0 30px 0 rgba(255,255,255,.5)
       , 0 0 30px 0 rgba(255,255,255,.5)
-      , inset 0 0 5px 0 rgba(255,255,255,.5)
+      , inset 0 0 5px 0 rgba(255,255,255,.5);
+    pointer-events: none;
   }
 }
 
 body.jquery-guide-prevent-scroll {
   overflow: hidden;
+}
+
+.tippy-popper {
+  pointer-events: none;
 }
