@@ -44,8 +44,12 @@ let InstructionMessage = {
         this.show()
       }
     },
-    submit() {
+    hide() {
       this.$refs.Modal.hide()
+    },
+    startTutorial () {
+      this.hide()
+      this.lib.TutorialManager.start()
     },
     show() {
       this.$refs.Modal.show()

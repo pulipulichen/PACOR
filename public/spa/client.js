@@ -681,7 +681,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".jquery-guide {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n  /*\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  */\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n  pointer-events: none;\n}\nbody.jquery-guide-prevent-scroll {\n  overflow: hidden;\n}\n.tippy-popper {\n  pointer-events: none;\n}\n", "",{"version":3,"sources":["jquery.guide.less"],"names":[],"mappings":"AAAA;EACE,0CAA0C;EAC1C,uCAAuC;EACvC,kCAAkC;EAClC;;;;;;GAMC;AACH;AACA;EACE,0CAA0C;EAC1C,uCAAuC;EACvC,kCAAkC;AACpC;AACA;EACE,eAAe;EACf,MAAM;EACN,QAAQ;EACR,SAAS;EACT,OAAO;EACP,gCAAgC;EAChC,mBAAmB;EACnB,qBAAqB;EACrB,uBAAuB;EACvB,wBAAwB;EACxB,sBAAsB;EACtB,aAAa;AACf;AACA;EACE,gCAAgC;AAClC;AACA;EACE,kBAAkB;EAClB,eAAe;EACf,WAAW;EACX,aAAa;AACf;AACA;EACE,kBAAkB;EAClB,aAAa;EACb,wMAAwM;EACxM,oBAAoB;AACtB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,oBAAoB;AACtB","file":"jquery.guide.less","sourcesContent":[".jquery-guide {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n  /*\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  */\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n  pointer-events: none;\n}\nbody.jquery-guide-prevent-scroll {\n  overflow: hidden;\n}\n.tippy-popper {\n  pointer-events: none;\n}\n"]}]);
+exports.push([module.i, ".jquery-guide {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n  /*\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  */\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n  pointer-events: none;\n}\nbody.jquery-guide-prevent-scroll {\n  overflow: hidden;\n}\n.tippy-popper {\n  pointer-events: none;\n}\n.tippy-popper .tippy-tooltip {\n  font-size: 1.5em !important;\n  padding: 0.5em;\n}\n", "",{"version":3,"sources":["jquery.guide.less"],"names":[],"mappings":"AAAA;EACE,0CAA0C;EAC1C,uCAAuC;EACvC,kCAAkC;EAClC;;;;;;GAMC;AACH;AACA;EACE,0CAA0C;EAC1C,uCAAuC;EACvC,kCAAkC;AACpC;AACA;EACE,eAAe;EACf,MAAM;EACN,QAAQ;EACR,SAAS;EACT,OAAO;EACP,gCAAgC;EAChC,mBAAmB;EACnB,qBAAqB;EACrB,uBAAuB;EACvB,wBAAwB;EACxB,sBAAsB;EACtB,aAAa;AACf;AACA;EACE,gCAAgC;AAClC;AACA;EACE,kBAAkB;EAClB,eAAe;EACf,WAAW;EACX,aAAa;AACf;AACA;EACE,kBAAkB;EAClB,aAAa;EACb,wMAAwM;EACxM,oBAAoB;AACtB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,oBAAoB;AACtB;AACA;EACE,2BAA2B;EAC3B,cAAc;AAChB","file":"jquery.guide.less","sourcesContent":[".jquery-guide {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n  /*\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  */\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n  pointer-events: none;\n}\nbody.jquery-guide-prevent-scroll {\n  overflow: hidden;\n}\n.tippy-popper {\n  pointer-events: none;\n}\n.tippy-popper .tippy-tooltip {\n  font-size: 1.5em !important;\n  padding: 0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -10139,8 +10139,11 @@ let TutorialManager = {
   },
 //  components: {
 //  },
-//  computed: {
-//  },
+  computed: {
+    defaultType () {
+      return this.lib.auth.currentStep
+    }
+  },
 //  watch: {
 //  },
   mounted: async function () {
@@ -10151,8 +10154,9 @@ let TutorialManager = {
       if (typeof(type) !== 'string') {
         order = action
         action = type
-        type = 'default'
+        type = this.defaultType
       }
+      //console.log(this.defaultType)
       
       if (typeof(order) !== 'number') {
         order = 0
@@ -10162,22 +10166,41 @@ let TutorialManager = {
         this.actionLists[type] = []
       }
       
+      if (action && !action.element) {
+        throw new Error('Element is not found.')
+      }
+      
+      if (typeof(action.element.$el) === 'object') {
+        action.element = action.element.$el
+      }
+      action.element = jquery__WEBPACK_IMPORTED_MODULE_1___default()(action.element)
+      
       this.actionLists[type].push({
         action,
         order
       })
+      
+      //console.log(this.actionLists)
     },
     start (type) {
       let actions = this.getActions(type)
+      if (Array.isArray(actions) === false) {
+        return false
+      }
+      console.log(actions)
       this.guide = jquery__WEBPACK_IMPORTED_MODULE_1___default.a.guide({actions});
       //console.log(this.guide)
     },
     getActions (type) {
       if (typeof(type) !== 'string') {
-        type = 'default'
+        type = this.defaultType
       }
       
       let list = this.actionLists[type]
+      if (Array.isArray(list) === false) {
+        return undefined
+      }
+      
       list.sort(function (a, b) {
         return a.order - b.order
       })
@@ -10519,7 +10542,16 @@ __webpack_require__.r(__webpack_exports__);
         
         window.addEventListener('scroll', onScrollEvent)
         
-        action.element[0].scrollIntoView({
+        let element = action.element
+        if (typeof(element.$el) === 'object') {
+          element = element.$el
+        }
+        if (typeof(element.scrollIntoView) !== 'function'
+                && typeof(element[0].scrollIntoView) === 'function') {
+          element = element[0]
+        }
+        
+        element.scrollIntoView({
           behavior: "smooth", 
           block: "center", 
           inline: "nearest"

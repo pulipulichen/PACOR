@@ -19,9 +19,13 @@
         <div v-html="instruction"></div>
       </template>
       <template v-slot:actions>
+        <div class="ui positive button"
+             v-on:click="startTutorial">
+          {{ $t('Start Tutorial') }}
+        </div>
         <div class="ui button"
-             v-on:click="submit">
-          {{ $t('OK') }}
+             v-on:click="hide">
+          {{ $t('Close') }}
         </div>
       </template>
   </modal>

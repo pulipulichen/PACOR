@@ -14,8 +14,11 @@ let TutorialManager = {
   },
 //  components: {
 //  },
-//  computed: {
-//  },
+  computed: {
+    defaultType () {
+      return this.lib.auth.currentStep
+    }
+  },
 //  watch: {
 //  },
   mounted: async function () {
@@ -26,8 +29,9 @@ let TutorialManager = {
       if (typeof(type) !== 'string') {
         order = action
         action = type
-        type = 'default'
+        type = this.defaultType
       }
+      //console.log(this.defaultType)
       
       if (typeof(order) !== 'number') {
         order = 0
@@ -37,22 +41,41 @@ let TutorialManager = {
         this.actionLists[type] = []
       }
       
+      if (action && !action.element) {
+        throw new Error('Element is not found.')
+      }
+      
+      if (typeof(action.element.$el) === 'object') {
+        action.element = action.element.$el
+      }
+      action.element = $(action.element)
+      
       this.actionLists[type].push({
         action,
         order
       })
+      
+      //console.log(this.actionLists)
     },
     start (type) {
       let actions = this.getActions(type)
+      if (Array.isArray(actions) === false) {
+        return false
+      }
+      console.log(actions)
       this.guide = $.guide({actions});
       //console.log(this.guide)
     },
     getActions (type) {
       if (typeof(type) !== 'string') {
-        type = 'default'
+        type = this.defaultType
       }
       
       let list = this.actionLists[type]
+      if (Array.isArray(list) === false) {
+        return undefined
+      }
+      
       list.sort(function (a, b) {
         return a.order - b.order
       })

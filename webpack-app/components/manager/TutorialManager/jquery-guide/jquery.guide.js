@@ -192,7 +192,16 @@ import 'tippy.js/themes/light.css';
         
         window.addEventListener('scroll', onScrollEvent)
         
-        action.element[0].scrollIntoView({
+        let element = action.element
+        if (typeof(element.$el) === 'object') {
+          element = element.$el
+        }
+        if (typeof(element.scrollIntoView) !== 'function'
+                && typeof(element[0].scrollIntoView) === 'function') {
+          element = element[0]
+        }
+        
+        element.scrollIntoView({
           behavior: "smooth", 
           block: "center", 
           inline: "nearest"

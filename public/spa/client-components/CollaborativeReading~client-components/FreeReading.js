@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"In {0} step":"In {0} step"},"zh-TW":{"In {0} step":"在 {0} 階段"}}')
+  Component.options.__i18n.push('{"en":{"In {0} step":"In {0} step"},"zh-TW":{"In {0} step":"在 {0} 階段","Collaborative Reading will end at count to 0.":"倒數計時到0的時候，協助閱讀就會結束。"}}')
   delete Component.options._Ctor
 }
 
@@ -94,6 +94,7 @@ var render = function() {
                     { staticClass: "fitted item" },
                     [
                       _c("digital-countdown-timer", {
+                        ref: "DigitalCountdownTimer",
                         attrs: {
                           config: _vm.config,
                           status: _vm.status,
@@ -219,7 +220,7 @@ var render = function() {
           ],
           null,
           false,
-          52038225
+          2194593818
         )
       })
     : _vm._e()
@@ -317,6 +318,14 @@ let NavigationItems = {
     }
   },
 //  watch: {
+//    'lib.TutorialManager' () {
+//      if (!this.lib.TutorialManager) {
+//        return false
+//      }
+//      this.setupTutorial()
+//    }
+//  },
+//  watch: {
 //    '$refs.UserFilter' (UserFilter) {
 //      if (UserFilter) {
 //        this.lib.UserFilter = this.$refs.UserFilter
@@ -330,9 +339,21 @@ let NavigationItems = {
 //      }
 //    }
 //  },
-//  mounted() {
-//    this.initLibComponents()
+//  watch: {
+//    '$refs.DigitalCountdownTimer' (DigitalCountdownTimer) {
+//      if (!DigitalCountdownTimer) {
+//        return false
+//      }
+//      this.setupTutorial()
+//    }
 //  },
+  mounted() {
+    //this.initLibComponents()
+    
+    //setTimeout(() => {
+    this.setupTutorial()
+    //}, 500)
+  },
   methods: {
     showInstruction () {
       this.$emit('showInstruction')
@@ -340,6 +361,14 @@ let NavigationItems = {
     hideSideMenu () {
       this.$refs.nav.hideSideMenu()
     },
+    setupTutorial () {
+      this.lib.TutorialManager.addAction(() => {
+        return {
+          element: this.$refs.DigitalCountdownTimer,
+          content: this.$t('Collaborative Reading will end at count to 0.')
+        }
+      })
+    }
 //    nextStep () {
 //      this.lib.auth.nextStep()
 //    }

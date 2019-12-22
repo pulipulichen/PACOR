@@ -473,7 +473,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"In {0} step":"In {0} step"},"zh-TW":{"In {0} step":"在 {0} 階段"}}')
+  Component.options.__i18n.push('{"en":{"In {0} step":"In {0} step"},"zh-TW":{"In {0} step":"在 {0} 階段","Administration":"管理"}}')
   delete Component.options._Ctor
 }
 
@@ -489,7 +489,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"OK":"我知道了！"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"OK":"我知道了！","Close":"略過","Start Tutorial":"我知道了，開始操作導覽"}}')
   delete Component.options._Ctor
 }
 
@@ -4420,24 +4420,38 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "username" }, [
         _vm._v("\r\n    " + _vm._s(_vm.lib.auth.username) + "\r\n    "),
-        _vm.lib.auth.currentStep !== "FreeReading"
-          ? _c("div", { staticClass: "step" }, [
-              _vm._v(
-                "\r\n      " +
-                  _vm._s(
-                    _vm.$t("In {0} step", [
-                      _vm.$t("READING_PROGRESS." + _vm.lib.auth.currentStep)
-                    ])
-                  ) +
-                  "\r\n      "
-              ),
-              _c("i", { staticClass: "question circle icon" })
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.status.role !== "reader"
-          ? _c("i", { staticClass: "cog icon" })
-          : _vm._e()
+        _c(
+          "div",
+          { staticClass: "step" },
+          [
+            _vm.lib.auth.currentStep !== "FreeReading"
+              ? [
+                  _vm._v(
+                    "\r\n        " +
+                      _vm._s(
+                        _vm.$t("In {0} step", [
+                          _vm.$t("READING_PROGRESS." + _vm.lib.auth.currentStep)
+                        ])
+                      ) +
+                      "\r\n        "
+                  ),
+                  _c("i", { staticClass: "question circle icon" })
+                ]
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.status.role !== "reader"
+              ? [
+                  _vm._v(
+                    "\r\n        " +
+                      _vm._s(_vm.$t("Administration")) +
+                      "\r\n        "
+                  ),
+                  _c("i", { staticClass: "cog icon" })
+                ]
+              : _vm._e()
+          ],
+          2
+        )
       ])
     ]
   )
@@ -4518,10 +4532,27 @@ var render = function() {
                 return [
                   _c(
                     "div",
-                    { staticClass: "ui button", on: { click: _vm.submit } },
+                    {
+                      staticClass: "ui positive button",
+                      on: { click: _vm.startTutorial }
+                    },
                     [
                       _vm._v(
-                        "\r\n          " + _vm._s(_vm.$t("OK")) + "\r\n        "
+                        "\r\n          " +
+                          _vm._s(_vm.$t("Start Tutorial")) +
+                          "\r\n        "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ui button", on: { click: _vm.hide } },
+                    [
+                      _vm._v(
+                        "\r\n          " +
+                          _vm._s(_vm.$t("Close")) +
+                          "\r\n        "
                       )
                     ]
                   )
@@ -26020,8 +26051,12 @@ let InstructionMessage = {
         this.show()
       }
     },
-    submit() {
+    hide() {
       this.$refs.Modal.hide()
+    },
+    startTutorial () {
+      this.hide()
+      this.lib.TutorialManager.start()
     },
     show() {
       this.$refs.Modal.show()

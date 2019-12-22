@@ -4,12 +4,15 @@
        class="user-avatar">
   <div class="username">
     {{ lib.auth.username }}
-    <div class="step" 
-         v-if="lib.auth.currentStep !== 'FreeReading'">
-      {{ $t('In {0} step', [$t('READING_PROGRESS.' + lib.auth.currentStep)]) }}
-      <i class="question circle icon"></i>
+    <div class="step">
+      <template v-if="lib.auth.currentStep !== 'FreeReading'">
+        {{ $t('In {0} step', [$t('READING_PROGRESS.' + lib.auth.currentStep)]) }}
+        <i class="question circle icon"></i>
+      </template>
+      <template v-if="status.role !== 'reader'">
+        {{ $t('Administration') }}
+        <i class="cog icon"></i>
+      </template>
     </div>
-    <i class="cog icon"
-       v-if="status.role !== 'reader'" />
   </div>
 </a>

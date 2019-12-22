@@ -36,6 +36,14 @@ let NavigationItems = {
     }
   },
 //  watch: {
+//    'lib.TutorialManager' () {
+//      if (!this.lib.TutorialManager) {
+//        return false
+//      }
+//      this.setupTutorial()
+//    }
+//  },
+//  watch: {
 //    '$refs.UserFilter' (UserFilter) {
 //      if (UserFilter) {
 //        this.lib.UserFilter = this.$refs.UserFilter
@@ -49,9 +57,21 @@ let NavigationItems = {
 //      }
 //    }
 //  },
-//  mounted() {
-//    this.initLibComponents()
+//  watch: {
+//    '$refs.DigitalCountdownTimer' (DigitalCountdownTimer) {
+//      if (!DigitalCountdownTimer) {
+//        return false
+//      }
+//      this.setupTutorial()
+//    }
 //  },
+  mounted() {
+    //this.initLibComponents()
+    
+    //setTimeout(() => {
+    this.setupTutorial()
+    //}, 500)
+  },
   methods: {
     showInstruction () {
       this.$emit('showInstruction')
@@ -59,6 +79,14 @@ let NavigationItems = {
     hideSideMenu () {
       this.$refs.nav.hideSideMenu()
     },
+    setupTutorial () {
+      this.lib.TutorialManager.addAction(() => {
+        return {
+          element: this.$refs.DigitalCountdownTimer,
+          content: this.$t('Collaborative Reading will end at count to 0.')
+        }
+      })
+    }
 //    nextStep () {
 //      this.lib.auth.nextStep()
 //    }

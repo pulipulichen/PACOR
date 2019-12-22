@@ -1333,7 +1333,12 @@ let NavigationItems = {
   },
   methods: {
     showWebpageConfig () {
-      this.$refs.WebpageAdminModal.show()
+      if (this.status.role !== 'reader') {
+        this.$refs.WebpageAdminModal.show()
+      }
+      else {
+        this.lib.TutorialManager.start()
+      }
     },
     hideSideMenu () {
       this.$refs.nav.hideSideMenu()
