@@ -681,7 +681,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".jquery-guide,\n.jquery-guide-bg {\n  -webkit-box-sizing: content-box;\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n}\n.jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n}\n", "",{"version":3,"sources":["jquery.guide.less"],"names":[],"mappings":"AAAA;;EAEE,+BAA+B;EAC/B,4BAA4B;EAC5B,uBAAuB;AACzB;AACA;EACE,eAAe;EACf,MAAM;EACN,QAAQ;EACR,SAAS;EACT,OAAO;EACP,gCAAgC;EAChC,mBAAmB;EACnB,qBAAqB;EACrB,uBAAuB;EACvB,wBAAwB;EACxB,sBAAsB;AACxB;AACA;EACE,gCAAgC;AAClC;AACA;EACE,kBAAkB;EAClB,eAAe;EACf,WAAW;AACb","file":"jquery.guide.less","sourcesContent":[".jquery-guide,\n.jquery-guide-bg {\n  -webkit-box-sizing: content-box;\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n}\n.jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n}\n"]}]);
+exports.push([module.i, ".jquery-guide {\n  -webkit-box-sizing: content-box;\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box;\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n  border-radius-inner: 10px;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  border-radius: 10px;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n}\n", "",{"version":3,"sources":["jquery.guide.less"],"names":[],"mappings":"AAAA;EACE,+BAA+B;EAC/B,4BAA4B;EAC5B,uBAAuB;AACzB;AACA;EACE,+BAA+B;EAC/B,4BAA4B;EAC5B,uBAAuB;AACzB;AACA;EACE,eAAe;EACf,MAAM;EACN,QAAQ;EACR,SAAS;EACT,OAAO;EACP,gCAAgC;EAChC,mBAAmB;EACnB,qBAAqB;EACrB,uBAAuB;EACvB,wBAAwB;EACxB,sBAAsB;EACtB,aAAa;EACb,yBAAyB;AAC3B;AACA;EACE,gCAAgC;AAClC;AACA;EACE,kBAAkB;EAClB,eAAe;EACf,WAAW;EACX,aAAa;AACf;AACA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,aAAa;EACb,wMAAwM;AAC1M","file":"jquery.guide.less","sourcesContent":[".jquery-guide {\n  -webkit-box-sizing: content-box;\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box;\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n  border-radius-inner: 10px;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  border-radius: 10px;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n}\n"]}]);
 
 
 /***/ }),
@@ -10335,7 +10335,8 @@ __webpack_require__.r(__webpack_exports__);
         this.layout = {
           container: '',
           bg: '',
-          content: ''
+          content: '',
+          glow: null
         };
         this.step = {
           current: 0,
@@ -10347,10 +10348,15 @@ __webpack_require__.r(__webpack_exports__);
       jQueryGuide.prototype.buildLayout = function() {
         var layout, layoutId;
         layoutId = Math.round(Math.random() * 10000);
-        layout = $('<div class="jquery-guide" id="jQueryGuide' + layoutId + '"><div class="jquery-guide-bg"></div><div class="jquery-guide-content"></div></div>');
+        layout = $(`<div class="jquery-guide" id="jQueryGuide` + layoutId + `">
+            <div class="jquery-guide-bg"></div>
+            <div class="jquery-guide-content"></div>
+            <div class="jquery-guide-glow"></div>
+        </div>`);
         $('html>body').append(layout);
         this.layout.container = $('#jQueryGuide' + layoutId);
         this.layout.bg = this.layout.container.find('>.jquery-guide-bg');
+        this.layout.glow = this.layout.container.find('>.jquery-guide-glow');
         return this.layout.content = this.layout.container.find('>.jquery-guide-content');
       };
 
@@ -10391,7 +10397,7 @@ __webpack_require__.r(__webpack_exports__);
       };
 
       jQueryGuide.prototype.back = function() {
-        if (his.step.current === 0) {
+        if (this.step.current === 0) {
           this.exit();
           return false;
         }
@@ -10436,6 +10442,14 @@ __webpack_require__.r(__webpack_exports__);
           borderLeftWidth: action.element.offset().left
         }, (function(_this) {
           return function() {
+            //console.log('需要新增一個div作為框架')
+            _this.layout.glow.css({
+              'width': action.element.innerWidth() + 'px',
+              'height': action.element.innerHeight() + 'px',
+              'top': action.element.offset().top,
+              'left': action.element.offset().left
+            })
+            
             _this.layout.content.html(action.content);
             return _this.layout.content.css({
               top: action.element.offset().top + action.offsetY,

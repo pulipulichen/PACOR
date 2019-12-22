@@ -38,7 +38,8 @@ import jQuery from 'jquery'
         this.layout = {
           container: '',
           bg: '',
-          content: ''
+          content: '',
+          glow: null
         };
         this.step = {
           current: 0,
@@ -50,10 +51,15 @@ import jQuery from 'jquery'
       jQueryGuide.prototype.buildLayout = function() {
         var layout, layoutId;
         layoutId = Math.round(Math.random() * 10000);
-        layout = $('<div class="jquery-guide" id="jQueryGuide' + layoutId + '"><div class="jquery-guide-bg"></div><div class="jquery-guide-content"></div></div>');
+        layout = $(`<div class="jquery-guide" id="jQueryGuide` + layoutId + `">
+            <div class="jquery-guide-bg"></div>
+            <div class="jquery-guide-content"></div>
+            <div class="jquery-guide-glow"></div>
+        </div>`);
         $('html>body').append(layout);
         this.layout.container = $('#jQueryGuide' + layoutId);
         this.layout.bg = this.layout.container.find('>.jquery-guide-bg');
+        this.layout.glow = this.layout.container.find('>.jquery-guide-glow');
         return this.layout.content = this.layout.container.find('>.jquery-guide-content');
       };
 
@@ -94,7 +100,7 @@ import jQuery from 'jquery'
       };
 
       jQueryGuide.prototype.back = function() {
-        if (his.step.current === 0) {
+        if (this.step.current === 0) {
           this.exit();
           return false;
         }
@@ -139,6 +145,14 @@ import jQuery from 'jquery'
           borderLeftWidth: action.element.offset().left
         }, (function(_this) {
           return function() {
+            //console.log('需要新增一個div作為框架')
+            _this.layout.glow.css({
+              'width': action.element.innerWidth() + 'px',
+              'height': action.element.innerHeight() + 'px',
+              'top': action.element.offset().top,
+              'left': action.element.offset().left
+            })
+            
             _this.layout.content.html(action.content);
             return _this.layout.content.css({
               top: action.element.offset().top + action.offsetY,
