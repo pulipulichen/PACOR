@@ -10117,63 +10117,82 @@ let IntroManager = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      actionLists: {},
+      guide: null
     }
   },
 //  components: {
 //  },
-  computed: {
-  },
-  watch: {
-  },
+//  computed: {
+//  },
+//  watch: {
+//  },
   mounted: async function () {
-    //console.log(introJs)
-    /*
-    setTimeout(() => {
-      //let introJs = new IntroJs()
-      //IntroJs().start();
-    }, 3000)
-    */
-    await this.lib.VueHelper.sleep(3000)
-    console.log(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.DigitalCountdownTimer').length)
-    jquery__WEBPACK_IMPORTED_MODULE_1___default.a.guide({
-      actions: [
-        {
-          element: jquery__WEBPACK_IMPORTED_MODULE_1___default()('.my-MainIdea:first'),
-          content: 'Welcome, click on the screen at any position to enter the next step',
-        },
-        {
-          element: jquery__WEBPACK_IMPORTED_MODULE_1___default()('.DigitalCountdownTimer:first'),
-          content: 'Welcome, click on the screen at any position to enter the next step',
-          //offsetX: -140,
-          //offsetY: -60
-        },
-        /*
-        {
-          element: $('#domeUsingPanel'),
-          content: '<p>How to using...</p>',
-          offsetX: -140,
-          offsetY: 0,
-          beforeFunc: function(g) {
-            $('#domeUsingPanel').fadeIn();
-          }
-        },
-        {
-          element: $('#domeGithubBtn'),
-          content: '<p>Click here to access the project for Github</p>',
-          offsetX: 0,
-          offsetY: 50,
-          isBeforeFuncExec: true,
-          beforeFunc: function(g) {
-            $('#domeGithubBtn').slideDown(function() {
-              g.execAction();
-            });
-          }
-        }
-         */
-      ]
-    });
+    this._test()
   },
   methods: {
+    addAction (type, action, order) {
+      if (typeof(type) !== 'string') {
+        order = action
+        action = type
+        type = 'default'
+      }
+      
+      if (typeof(order) !== 'number') {
+        order = 0
+      }
+      
+      if (Array.isArray(this.actionLists[type]) === false) {
+        this.actionLists[type] = []
+      }
+      
+      this.actionLists[type].push({
+        action,
+        order
+      })
+    },
+    start (type) {
+      let actions = this.getActions(type)
+      this.guide = jquery__WEBPACK_IMPORTED_MODULE_1___default.a.guide({actions});
+      //console.log(this.guide)
+    },
+    getActions (type) {
+      if (typeof(type) !== 'string') {
+        type = 'default'
+      }
+      
+      let list = this.actionLists[type]
+      list.sort(function (a, b) {
+        return a.order - b.order
+      })
+      return list.map(a => a.action)
+    },
+    stop () {
+      //$.guide;
+      this.guide.exit()
+    },
+    
+    // -------------------------------------------------
+    
+    _test: async function () {
+      await this.lib.VueHelper.sleep(3000)
+    
+      this.addAction({
+        element: jquery__WEBPACK_IMPORTED_MODULE_1___default()('.my-MainIdea:first'),
+        content: '1 Welcome, click on the screen at any position to enter the next step',
+      }, 2)
+      
+      this.addAction({
+        element: jquery__WEBPACK_IMPORTED_MODULE_1___default()('.DigitalCountdownTimer:first'),
+        //content: '2 Welcome, click on the screen at any position to enter the next step',
+      }, 1)
+    
+      this.start()
+      
+      await this.lib.VueHelper.sleep(3000)
+      
+      //this.stop()
+    }
   } // methods
 }
 
@@ -10466,21 +10485,58 @@ __webpack_require__.r(__webpack_exports__);
 
       jQueryGuide.prototype.exit = function() {
         $('body').removeClass('jquery-guide-prevent-scroll')
+        if (typeof(glowTippy.hide) === 'function') {
+          glowTippy.hide()
+        }
         return this.layout.container.remove();
       };
 
+      
+      let scrollTimer
+      let onScrollEvent = function() {
+        if (scrollTimer) {
+          clearTimeout(scrollTimer)
+        }
+        scrollTimer = setTimeout(() => {
+          window.removeEventListener('scroll', onScrollEvent)
+          animateCallback()
+        }, 100)
+      }
+
       jQueryGuide.prototype.animate = function(callback) {
-        var action, bgBottomWidth, bgScrollTop, bgTopWidth, scrollTop;
-        action = this.actionList[this.step.current];
-        this.layout.glow.fadeOut()
+        let action = this.actionList[this.step.current];
+        //this.layout.glow.fadeOut('fast')
+        this.layout.glow.hide()
         //console.log(action.element[0])
         scrollIntoView = true
+        animateTemp = {
+          action, 
+          callback,
+          _this: this
+        }
+        
+        window.addEventListener('scroll', onScrollEvent)
+        
         action.element[0].scrollIntoView({
           behavior: "smooth", 
           block: "center", 
           inline: "nearest"
         })
-        setTimeout(() => {
+        
+        //this.animateCallback(action, callback)
+        scrollTimer = setTimeout(() => {
+          window.removeEventListener('scroll', this.onScrollEvent)
+          animateCallback()
+        }, 100)
+      };
+      
+      let animateTemp = {}
+      let animateCallback = function() {
+        var bgBottomWidth, bgScrollTop, bgTopWidth, scrollTop;
+        let {action, callback, _this} = animateTemp
+        
+        //setTimeout(() => {
+          
           scrollIntoView = false
           //action.element[0].scrollIntoView({
           //  behavior: 'smooth'
@@ -10488,29 +10544,31 @@ __webpack_require__.r(__webpack_exports__);
           scrollTop = $(window).scrollTop();
           bgScrollTop = action.element.offset().top - scrollTop;
           bgTopWidth = bgScrollTop > 0 ? bgScrollTop : 0;
-          bgBottomWidth = (bgScrollTop + action.element.innerHeight()) > 0 ? $(window).innerHeight() - (action.element.innerHeight() + bgScrollTop) : $(window).innerHeight();
+          bgBottomWidth = (bgScrollTop + action.element.innerHeight()) > 0 
+              ? $(window).innerHeight() - (action.element.innerHeight() + bgScrollTop) : $(window).innerHeight();
 
           //this.layout.bg.show()
-          return this.layout.bg.animate({
+          return _this.layout.bg.animate({
             width: action.element.innerWidth(),
             height: action.element.innerHeight() + (bgScrollTop < 0 ? bgScrollTop : 0),
             borderTopWidth: bgTopWidth,
             borderRightWidth: $(window).innerWidth() - action.element.offset().left - action.element.innerWidth() + 1,
             borderBottomWidth: bgBottomWidth,
             borderLeftWidth: action.element.offset().left
-          }, (function(_this) {
+          }, (function() {
             return function() {
               setupGlowPopup(_this, action)
+              
               callback()
             };
           })(this));
-        }, 500)
-      };
+        //}, 500)
+      }
       
       let glowTippy
       let setupGlowPopup = function (_this, action) {
         //console.log('需要新增一個div作為框架')
-        _this.layout.glow.show()
+        _this.layout.glow.fadeIn('fast')
         _this.layout.glow.css({
           'width': action.element.innerWidth() + 'px',
           'height': action.element.innerHeight() + 'px',
@@ -10525,7 +10583,8 @@ __webpack_require__.r(__webpack_exports__);
             tippyInited = false
           } 
           
-          glow.attr('data-tippy-content', 'Another Tooltip')
+          
+          glow.attr('data-tippy-content', action.content)
           
           if (tippyInited === false) {
             glowTippy = Object(tippy_js__WEBPACK_IMPORTED_MODULE_1__["default"])(_this.layout.glow[0], {
@@ -10534,7 +10593,9 @@ __webpack_require__.r(__webpack_exports__);
             })
           }
           
-          glowTippy.show()
+          if (action.content) {
+            glowTippy.show()
+          }
         }
       }
 

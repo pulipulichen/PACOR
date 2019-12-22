@@ -160,21 +160,58 @@ import 'tippy.js/themes/light.css';
 
       jQueryGuide.prototype.exit = function() {
         $('body').removeClass('jquery-guide-prevent-scroll')
+        if (typeof(glowTippy.hide) === 'function') {
+          glowTippy.hide()
+        }
         return this.layout.container.remove();
       };
 
+      
+      let scrollTimer
+      let onScrollEvent = function() {
+        if (scrollTimer) {
+          clearTimeout(scrollTimer)
+        }
+        scrollTimer = setTimeout(() => {
+          window.removeEventListener('scroll', onScrollEvent)
+          animateCallback()
+        }, 100)
+      }
+
       jQueryGuide.prototype.animate = function(callback) {
-        var action, bgBottomWidth, bgScrollTop, bgTopWidth, scrollTop;
-        action = this.actionList[this.step.current];
-        this.layout.glow.fadeOut()
+        let action = this.actionList[this.step.current];
+        //this.layout.glow.fadeOut('fast')
+        this.layout.glow.hide()
         //console.log(action.element[0])
         scrollIntoView = true
+        animateTemp = {
+          action, 
+          callback,
+          _this: this
+        }
+        
+        window.addEventListener('scroll', onScrollEvent)
+        
         action.element[0].scrollIntoView({
           behavior: "smooth", 
           block: "center", 
           inline: "nearest"
         })
-        setTimeout(() => {
+        
+        //this.animateCallback(action, callback)
+        scrollTimer = setTimeout(() => {
+          window.removeEventListener('scroll', this.onScrollEvent)
+          animateCallback()
+        }, 100)
+      };
+      
+      let animateTemp = {}
+      let animateCallback = function() {
+        var bgBottomWidth, bgScrollTop, bgTopWidth, scrollTop;
+        let {action, callback, _this} = animateTemp
+        
+        //setTimeout(() => {
+          
           scrollIntoView = false
           //action.element[0].scrollIntoView({
           //  behavior: 'smooth'
@@ -182,29 +219,31 @@ import 'tippy.js/themes/light.css';
           scrollTop = $(window).scrollTop();
           bgScrollTop = action.element.offset().top - scrollTop;
           bgTopWidth = bgScrollTop > 0 ? bgScrollTop : 0;
-          bgBottomWidth = (bgScrollTop + action.element.innerHeight()) > 0 ? $(window).innerHeight() - (action.element.innerHeight() + bgScrollTop) : $(window).innerHeight();
+          bgBottomWidth = (bgScrollTop + action.element.innerHeight()) > 0 
+              ? $(window).innerHeight() - (action.element.innerHeight() + bgScrollTop) : $(window).innerHeight();
 
           //this.layout.bg.show()
-          return this.layout.bg.animate({
+          return _this.layout.bg.animate({
             width: action.element.innerWidth(),
             height: action.element.innerHeight() + (bgScrollTop < 0 ? bgScrollTop : 0),
             borderTopWidth: bgTopWidth,
             borderRightWidth: $(window).innerWidth() - action.element.offset().left - action.element.innerWidth() + 1,
             borderBottomWidth: bgBottomWidth,
             borderLeftWidth: action.element.offset().left
-          }, (function(_this) {
+          }, (function() {
             return function() {
               setupGlowPopup(_this, action)
+              
               callback()
             };
           })(this));
-        }, 500)
-      };
+        //}, 500)
+      }
       
       let glowTippy
       let setupGlowPopup = function (_this, action) {
         //console.log('需要新增一個div作為框架')
-        _this.layout.glow.show()
+        _this.layout.glow.fadeIn('fast')
         _this.layout.glow.css({
           'width': action.element.innerWidth() + 'px',
           'height': action.element.innerHeight() + 'px',
@@ -219,7 +258,8 @@ import 'tippy.js/themes/light.css';
             tippyInited = false
           } 
           
-          glow.attr('data-tippy-content', 'Another Tooltip')
+          
+          glow.attr('data-tippy-content', action.content)
           
           if (tippyInited === false) {
             glowTippy = tippy(_this.layout.glow[0], {
@@ -228,7 +268,9 @@ import 'tippy.js/themes/light.css';
             })
           }
           
-          glowTippy.show()
+          if (action.content) {
+            glowTippy.show()
+          }
         }
       }
 
