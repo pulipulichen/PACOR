@@ -153,6 +153,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NavigationItems/NavigationItems.vue */ "./webpack-app/client/Reading/CollaborativeReading/NavigationItems/NavigationItems.vue");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _methodsTestCollaborativeReading_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsTestCollaborativeReading.js */ "./webpack-app/client/Reading/CollaborativeReading/methodsTestCollaborativeReading.js");
 
 //import NotificationManager from './../components/NotificationManager/NotificationManager.vue'
 
@@ -223,117 +224,11 @@ let CollaborativeReading = {
       this.lib.auth.nextStep()
     },
     
-    // --------------------------------
-    _testConfirmModal: async function () {
-      console.log('_testSearch')
-      await this.lib.VueHelper.sleep(1000)
-      
-      let r1 = await this.lib.ConfirmModal.show()
-      console.log(r1)
-      let r2 = await this.lib.ConfirmModal.show()
-      console.log(r2)
-    },
-    
-    _testSearch: async function () {
-      console.log('_testSearch')
-      await this.lib.VueHelper.sleep(1000)
-      
-      if (!this.lib.AnnotationPanel) {
-        setTimeout(() => {
-          this._testSearch()
-        }, 100)
-        return null
-      }
-      
-      this.status.search.keyword = "特別的"
-      return
-      
-      // 先設定篩選條件
-      this.lib.AnnotationPanel.findKeyword(this.status.search.keyword)
-      
-      // 再來顯示
-      this.lib.AnnotationPanel.setAnchorPositions()
-    },
-    
-    _testAnnotationSingle () {
-      console.log('_testAnnotationSingle')
-      setTimeout(() => {
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()('.others-MainIdea:first').click()
-        
-        setTimeout(() => {
-          jquery__WEBPACK_IMPORTED_MODULE_1___default()('.AnnotationFloatWidget .meta').click()
-        }, 300)
-      }, 500)
-    },
-    _testAnnotationSingleManyComments () {
-      console.log('_testAnnotationSingleManyComments')
-      setTimeout(() => {
-        if (jquery__WEBPACK_IMPORTED_MODULE_1___default()('.others-Clarified:first').length === 0) {
-          this._testAnnotationSingleManyComments()
-          return
-        }
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()('.others-Clarified:first').click()
-        setTimeout(() => {
-          jquery__WEBPACK_IMPORTED_MODULE_1___default()('.AnnotationFloatWidget .AnnotationTypeButton[title="已釐清"]:last').click()
-          
-          setTimeout(() => {
-            //console.log($('.FilteredList .list .AnnotationItem:last .meta i').length)
-            jquery__WEBPACK_IMPORTED_MODULE_1___default()('.FilteredList .list .AnnotationItem:last .meta i').click()
-            
-            // 測試搜尋
-            //this.lib.AnnotationPanel.findKeyword('co')
-            
-          }, 1000)
-        }, 300)
-      }, 500)
-    },
-    _testAnnotationSingleFocusComment () {
-      console.log('_testAnnotationSingleFocusComment')
-      setTimeout(() => {
-        this.lib.AnnotationPanel.focusComment(19)
-      }, 500)
-    },
-    _testUserFilter: async function () {
-      console.log('_testUserFilter')
-      await this.lib.VueHelper.sleep(2000)
-      
-      //this.lib.UserFilter.show()
-      jquery__WEBPACK_IMPORTED_MODULE_1___default()('.Navigation .peer-label:first').click()
-      
-      /*
-      this.status.filter.focusUser = {
-        id: 1
-      }
-      */
-    },
-    _testTypeFilter: async function () {
-      console.log('_testTypeFilter')
-      await this.lib.VueHelper.sleep(1000)
-      
-      this.lib.AnnotationTypeFilter.show()
-      
-      /*
-      this.status.filter.focusUser = {
-        id: 1
-      }
-      */
-    },
-    _testNotificationFullList: async function () {
-      console.log('_testNotificationModal')
-      await this.lib.VueHelper.sleep(1000)
-      
-      this.lib.NotificationManager.showFull()
-    },
-    _testVerticalMenu: async function () {
-      console.log('_testVerticalMenu')
-      await this.lib.VueHelper.sleep(1000)
-      
-      jquery__WEBPACK_IMPORTED_MODULE_1___default()('.Navigation .right.menu .ellipsis.icon').click()
-    }
-    
-    
    } // methods
 }
+
+
+Object(_methodsTestCollaborativeReading_js__WEBPACK_IMPORTED_MODULE_2__["default"])(CollaborativeReading)
 
 /* harmony default export */ __webpack_exports__["default"] = (CollaborativeReading);
 

@@ -438,6 +438,136 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CCollaborativeReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CCollaborativeReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CCollaborativeReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/CollaborativeReading/methodsTestCollaborativeReading.js":
+/*!********************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/CollaborativeReading/methodsTestCollaborativeReading.js ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (CollaborativeReading) {
+
+
+// --------------------------------
+  CollaborativeReading.methods._testConfirmModal = async function () {
+    console.log('_testSearch')
+    await this.lib.VueHelper.sleep(1000)
+
+    let r1 = await this.lib.ConfirmModal.show()
+    console.log(r1)
+    let r2 = await this.lib.ConfirmModal.show()
+    console.log(r2)
+  }
+
+  CollaborativeReading.methods._testSearch = async function () {
+    console.log('_testSearch')
+    await this.lib.VueHelper.sleep(1000)
+
+    if (!this.lib.AnnotationPanel) {
+      setTimeout(() => {
+        this._testSearch()
+      }, 100)
+      return null
+    }
+
+    this.status.search.keyword = "特別的"
+    return
+
+    // 先設定篩選條件
+    this.lib.AnnotationPanel.findKeyword(this.status.search.keyword)
+
+    // 再來顯示
+    this.lib.AnnotationPanel.setAnchorPositions()
+  }
+
+  CollaborativeReading.methods._testAnnotationSingle = function () {
+    console.log('_testAnnotationSingle')
+    setTimeout(() => {
+      $('.others-MainIdea:first').click()
+
+      setTimeout(() => {
+        $('.AnnotationFloatWidget .meta').click()
+      }, 300)
+    }, 500)
+  }
+
+  CollaborativeReading.methods._testAnnotationSingleManyComments = function () {
+    console.log('_testAnnotationSingleManyComments')
+    setTimeout(() => {
+      if ($('.others-Clarified:first').length === 0) {
+        this._testAnnotationSingleManyComments()
+        return undefined
+      }
+      $('.others-Clarified:first').click()
+      setTimeout(() => {
+        $('.AnnotationFloatWidget .AnnotationTypeButton[title="已釐清"]:last').click()
+
+        setTimeout(() => {
+          //console.log($('.FilteredList .list .AnnotationItem:last .meta i').length)
+          $('.FilteredList .list .AnnotationItem:last .meta i').click()
+
+          // 測試搜尋
+          //this.lib.AnnotationPanel.findKeyword('co')
+
+        }, 1000)
+      }, 300)
+    }, 500)
+  }
+  
+  CollaborativeReading.methods._testAnnotationSingleFocusComment = function () {
+    console.log('_testAnnotationSingleFocusComment')
+    setTimeout(() => {
+      this.lib.AnnotationPanel.focusComment(19)
+    }, 500)
+  }
+  
+  CollaborativeReading.methods._testUserFilter = async function () {
+    console.log('_testUserFilter')
+    await this.lib.VueHelper.sleep(2000)
+
+    //this.lib.UserFilter.show()
+    $('.Navigation .peer-label:first').click()
+
+    /*
+     this.status.filter.focusUser = {
+     id: 1
+     }
+     */
+  }
+  
+  CollaborativeReading.methods._testTypeFilter = async function () {
+    console.log('_testTypeFilter')
+    await this.lib.VueHelper.sleep(1000)
+
+    this.lib.AnnotationTypeFilter.show()
+
+    /*
+     this.status.filter.focusUser = {
+     id: 1
+     }
+     */
+  }
+  
+  CollaborativeReading.methods._testNotificationFullList = async function () {
+    console.log('_testNotificationModal')
+    await this.lib.VueHelper.sleep(1000)
+
+    this.lib.NotificationManager.showFull()
+  }
+  
+  CollaborativeReading.methods._testVerticalMenu = async function () {
+    console.log('_testVerticalMenu')
+    await this.lib.VueHelper.sleep(1000)
+
+    $('.Navigation .right.menu .ellipsis.icon').click()
+  }
+
+});
+
 /***/ })
 
 }]);

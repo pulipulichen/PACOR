@@ -93,7 +93,7 @@ let ErrorHandler = {
       }
       
       if (data === undefined) {
-        return
+        return undefined
       }
       
       if (typeof(data) === 'string') {

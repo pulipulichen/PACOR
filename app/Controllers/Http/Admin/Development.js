@@ -60,6 +60,14 @@ class Development {
     output = JSON.stringify(output, null, 2)
     return output
   }
+  
+  errorAuth () {
+    throw new HttpException('Please login', 403)
+  }
+  
+  error403 () {
+    throw new HttpException('@TEST', 403)
+  }
 }
 
 module.exports = Development
