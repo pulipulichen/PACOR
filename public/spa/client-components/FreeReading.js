@@ -210,10 +210,6 @@ var render = function() {
       _c("notification-manager", {
         ref: "NotificationManager",
         attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
-      }),
-      _vm._v(" "),
-      _c("intro-manager", {
-        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
       })
     ],
     1

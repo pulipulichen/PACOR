@@ -496,10 +496,10 @@ module.exports = function (Component) {
 
 /***/ }),
 
-/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/manager/IntroManager/IntroManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CIntroManager%5CIntroManager.vue&lang=yaml":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/components/manager/IntroManager/IntroManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CIntroManager%5CIntroManager.vue&lang=yaml ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/manager/TutorialManager/TutorialManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CTutorialManager%5CTutorialManager.vue&lang=yaml":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/components/manager/TutorialManager/TutorialManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CTutorialManager%5CTutorialManager.vue&lang=yaml ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -672,10 +672,10 @@ module.exports = function (Component) {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.less":
-/*!*************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.less ***!
-  \*************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.less":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.less ***!
+  \****************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -938,16 +938,16 @@ exports.push([module.i, ".button[data-v-75d99c9c] {\n  white-space: nowrap;\n  t
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/IntroManager/IntroManager.less?vue&type=style&index=0&id=1bcdc6d0&lang=less&scoped=true&":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/manager/IntroManager/IntroManager.less?vue&type=style&index=0&id=1bcdc6d0&lang=less&scoped=true& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"IntroManager.less?vue&type=style&index=0&id=1bcdc6d0&lang=less&scoped=true&"}]);
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&"}]);
 
 
 /***/ }),
@@ -3087,10 +3087,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/manager/IntroManager/IntroManager.html?vue&type=template&id=1bcdc6d0&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/manager/IntroManager/IntroManager.html?vue&type=template&id=1bcdc6d0&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/manager/TutorialManager/TutorialManager.html?vue&type=template&id=1bc43b50&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/manager/TutorialManager/TutorialManager.html?vue&type=template&id=1bc43b50&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4069,22 +4069,22 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/IntroManager/IntroManager.less?vue&type=style&index=0&id=1bcdc6d0&lang=less&scoped=true&":
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/manager/IntroManager/IntroManager.less?vue&type=style&index=0&id=1bcdc6d0&lang=less&scoped=true& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./IntroManager.less?vue&type=style&index=0&id=1bcdc6d0&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/IntroManager/IntroManager.less?vue&type=style&index=0&id=1bcdc6d0&lang=less&scoped=true&");
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&");
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("47eb05f0", content, false, {});
+var update = add("efc265a6", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -4462,6 +4462,7 @@ let VueController = {
       ConfirmModal: null,
       NotificationManager: null,
       TestManager: null,
+      TutorialManager: null,
       style: null,
     },
     errors: [],
@@ -4500,6 +4501,7 @@ let VueController = {
     this.lib.AnnotationHelper.setStatus(this.status)
     this.lib.ConfirmModal = this.$refs.ConfirmModal
     this.lib.TestManager = this.$refs.TestManager
+    this.lib.TutorialManager = this.$refs.TutorialManager
     //console.log(this.lib.auth.nextStep)
   },
   
@@ -9139,7 +9141,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"auth\">\r\n  </auth>\r\n  \r\n  <StyleManager \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"style\">\r\n  </StyleManager>\r\n  \r\n  <PACORTestManager \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"TestManager\">\r\n  </PACORTestManager>\r\n\r\n  <error-handler \r\n    v-bind:config=\"config\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:errors=\"errors\"\r\n    ref=\"ErrorHandler\">\r\n  </error-handler>\r\n  \r\n  <confirm-modal\r\n    v-bind:config=\"config\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:status=\"status\"\r\n    \r\n    ref=\"ConfirmModal\">\r\n  </confirm-modal>\r\n\r\n  <component \r\n    v-bind:is=\"status.view\"\r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:progress=\"progress\"\r\n    v-bind:lib=\"lib\">\r\n  </component>\r\n</div>";
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"auth\">\r\n  </auth>\r\n  \r\n  <StyleManager \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"style\">\r\n  </StyleManager>\r\n  \r\n  <PACORTestManager \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"TestManager\">\r\n  </PACORTestManager>\r\n\r\n  <error-handler \r\n    v-bind:config=\"config\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:errors=\"errors\"\r\n    ref=\"ErrorHandler\">\r\n  </error-handler>\r\n  \r\n  <confirm-modal\r\n    v-bind:config=\"config\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:status=\"status\"\r\n    \r\n    ref=\"ConfirmModal\">\r\n  </confirm-modal>\r\n\r\n  <tutorial-manager\r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"TutorialManager\">\r\n  </tutorial-manager>\r\n  \r\n  <!-- ================================ -->\r\n  \r\n  <component \r\n    v-bind:is=\"status.view\"\r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:progress=\"progress\"\r\n    v-bind:lib=\"lib\">\r\n  </component>\r\n</div>";
 
 /***/ }),
 
@@ -9173,7 +9175,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ui_user_AdminBadge_AdminBadge_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./../components/ui-user/AdminBadge/AdminBadge.vue */ "./webpack-app/components/ui-user/AdminBadge/AdminBadge.vue");
 /* harmony import */ var _components_ui_user_UserSelfBadge_UserSelfBadge_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./../components/ui-user/UserSelfBadge/UserSelfBadge.vue */ "./webpack-app/components/ui-user/UserSelfBadge/UserSelfBadge.vue");
 /* harmony import */ var _components_ui_IframeMessageSegment_IframeMessageSegment_vue__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./../components/ui/IframeMessageSegment/IframeMessageSegment.vue */ "./webpack-app/components/ui/IframeMessageSegment/IframeMessageSegment.vue");
-/* harmony import */ var _components_manager_IntroManager_IntroManager_vue__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./../components/manager/IntroManager/IntroManager.vue */ "./webpack-app/components/manager/IntroManager/IntroManager.vue");
 /* global Vue, Pagination, Modal, StepProgressBar, BlockExit, ActivityTimer */
 
 
@@ -9244,9 +9245,6 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('user-self-badge', _compon
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('iframe-message-segment', _components_ui_IframeMessageSegment_IframeMessageSegment_vue__WEBPACK_IMPORTED_MODULE_20__["default"])
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('intro-manager', _components_manager_IntroManager_IntroManager_vue__WEBPACK_IMPORTED_MODULE_21__["default"])
-
-
 /***/ }),
 
 /***/ "./webpack-app/client/local-components.js":
@@ -9264,6 +9262,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Login_Login_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Login/Login.vue */ "./webpack-app/client/Login/Login.vue");
 /* harmony import */ var _components_manager_StyleManager_StyleManager_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../components/manager/StyleManager/StyleManager.vue */ "./webpack-app/components/manager/StyleManager/StyleManager.vue");
 /* harmony import */ var _components_manager_PACORTestManager_PACORTestManager_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../components/manager/PACORTestManager/PACORTestManager.vue */ "./webpack-app/components/manager/PACORTestManager/PACORTestManager.vue");
+/* harmony import */ var _components_manager_TutorialManager_TutorialManager_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../components/manager/TutorialManager/TutorialManager.vue */ "./webpack-app/components/manager/TutorialManager/TutorialManager.vue");
 
 
 
@@ -9274,6 +9273,8 @@ __webpack_require__.r(__webpack_exports__);
 //import RangyManager from './components/RangyManager/RangyManager.vue'
 //import NoteEditorManager from './components/NoteEditorManager/NoteEditorManager.vue'
 
+
+
 let components = {
   Loading: _components_ui_modal_Loading_Loading_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
   'error-handler': _components_manager_ErrorHandler_ErrorHandler_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -9283,6 +9284,7 @@ let components = {
   Login: _Login_Login_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
   StyleManager: _components_manager_StyleManager_StyleManager_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
   PACORTestManager: _components_manager_PACORTestManager_PACORTestManager_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+  'tutorial-manager': _components_manager_TutorialManager_TutorialManager_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
   //Chat: () => import(/* webpackChunkName: "client-components/Chat" */ './components/Chat/Chat.vue'),
   'CollaborativeReading': () => Promise.all(/*! import() | client-components/CollaborativeReading */[__webpack_require__.e("client-components/CollaborativeReading~client-components/FreeReading"), __webpack_require__.e("client-components/CollaborativeReading")]).then(__webpack_require__.bind(null, /*! ./Reading/CollaborativeReading/CollaborativeReading.vue */ "./webpack-app/client/Reading/CollaborativeReading/CollaborativeReading.vue")),
   'IndividualReading': () => __webpack_require__.e(/*! import() | client-components/IndividualReading */ "client-components/IndividualReading").then(__webpack_require__.bind(null, /*! ./Reading/IndividualReading/IndividualReading.vue */ "./webpack-app/client/Reading/IndividualReading/IndividualReading.vue")),
@@ -10077,34 +10079,48 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/IntroManager/IntroManager.html?vue&type=template&id=1bcdc6d0&scoped=true&":
-/*!******************************************************************************************************************!*\
-  !*** ./webpack-app/components/manager/IntroManager/IntroManager.html?vue&type=template&id=1bcdc6d0&scoped=true& ***!
-  \******************************************************************************************************************/
+/***/ "./webpack-app/components/manager/TutorialManager/TutorialManager.html?vue&type=template&id=1bc43b50&scoped=true&":
+/*!************************************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/TutorialManager.html?vue&type=template&id=1bc43b50&scoped=true& ***!
+  \************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_IntroManager_html_vue_type_template_id_1bcdc6d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./IntroManager.html?vue&type=template&id=1bcdc6d0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/manager/IntroManager/IntroManager.html?vue&type=template&id=1bcdc6d0&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_IntroManager_html_vue_type_template_id_1bcdc6d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_TutorialManager_html_vue_type_template_id_1bc43b50_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./TutorialManager.html?vue&type=template&id=1bc43b50&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/manager/TutorialManager/TutorialManager.html?vue&type=template&id=1bc43b50&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_TutorialManager_html_vue_type_template_id_1bc43b50_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_IntroManager_html_vue_type_template_id_1bcdc6d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_TutorialManager_html_vue_type_template_id_1bc43b50_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/IntroManager/IntroManager.js?vue&type=script&lang=js&?6bf1":
-/*!**********************************************************************************************!*\
-  !*** ./webpack-app/components/manager/IntroManager/IntroManager.js?vue&type=script&lang=js& ***!
-  \**********************************************************************************************/
+/***/ "./webpack-app/components/manager/TutorialManager/TutorialManager.js?vue&type=script&lang=js&?6aa4":
+/*!****************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/TutorialManager.js?vue&type=script&lang=js& ***!
+  \****************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _jquery_guide_jquery_guide_webpack_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jquery-guide/jquery-guide.webpack.js */ "./webpack-app/components/manager/IntroManager/jquery-guide/jquery-guide.webpack.js");
+/* harmony import */ var _TutorialManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./TutorialManager.js?vue&type=script&lang=js& */ "./webpack-app/components/manager/TutorialManager/TutorialManager.js?vue&type=script&lang=js&?7c27");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_TutorialManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/TutorialManager.js?vue&type=script&lang=js&?7c27":
+/*!****************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/TutorialManager.js?vue&type=script&lang=js& ***!
+  \****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _jquery_guide_jquery_guide_webpack_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jquery-guide/jquery-guide.webpack.js */ "./webpack-app/components/manager/TutorialManager/jquery-guide/jquery-guide.webpack.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 //import IntroJs from './introjs/intro.js'
@@ -10112,7 +10128,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let IntroManager = {
+let TutorialManager = {
   props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -10128,7 +10144,7 @@ let IntroManager = {
 //  watch: {
 //  },
   mounted: async function () {
-    this._test()
+    //this._test()
   },
   methods: {
     addAction (type, action, order) {
@@ -10196,54 +10212,40 @@ let IntroManager = {
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (IntroManager);
+/* harmony default export */ __webpack_exports__["default"] = (TutorialManager);
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/IntroManager/IntroManager.js?vue&type=script&lang=js&?87dd":
-/*!**********************************************************************************************!*\
-  !*** ./webpack-app/components/manager/IntroManager/IntroManager.js?vue&type=script&lang=js& ***!
-  \**********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _IntroManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./IntroManager.js?vue&type=script&lang=js& */ "./webpack-app/components/manager/IntroManager/IntroManager.js?vue&type=script&lang=js&?6bf1");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_IntroManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./webpack-app/components/manager/IntroManager/IntroManager.less?vue&type=style&index=0&id=1bcdc6d0&lang=less&scoped=true&":
-/*!*********************************************************************************************************************************!*\
-  !*** ./webpack-app/components/manager/IntroManager/IntroManager.less?vue&type=style&index=0&id=1bcdc6d0&lang=less&scoped=true& ***!
-  \*********************************************************************************************************************************/
+/***/ "./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&":
+/*!***************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true& ***!
+  \***************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_IntroManager_less_vue_type_style_index_0_id_1bcdc6d0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-style-loader!../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./IntroManager.less?vue&type=style&index=0&id=1bcdc6d0&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/IntroManager/IntroManager.less?vue&type=style&index=0&id=1bcdc6d0&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_IntroManager_less_vue_type_style_index_0_id_1bcdc6d0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_IntroManager_less_vue_type_style_index_0_id_1bcdc6d0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_IntroManager_less_vue_type_style_index_0_id_1bcdc6d0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_IntroManager_less_vue_type_style_index_0_id_1bcdc6d0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_IntroManager_less_vue_type_style_index_0_id_1bcdc6d0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_less_vue_type_style_index_0_id_1bc43b50_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-style-loader!../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_less_vue_type_style_index_0_id_1bc43b50_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_less_vue_type_style_index_0_id_1bc43b50_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_less_vue_type_style_index_0_id_1bc43b50_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_less_vue_type_style_index_0_id_1bc43b50_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_less_vue_type_style_index_0_id_1bc43b50_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/IntroManager/IntroManager.vue":
-/*!**********************************************************************!*\
-  !*** ./webpack-app/components/manager/IntroManager/IntroManager.vue ***!
-  \**********************************************************************/
+/***/ "./webpack-app/components/manager/TutorialManager/TutorialManager.vue":
+/*!****************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/TutorialManager.vue ***!
+  \****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _IntroManager_html_vue_type_template_id_1bcdc6d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./IntroManager.html?vue&type=template&id=1bcdc6d0&scoped=true& */ "./webpack-app/components/manager/IntroManager/IntroManager.html?vue&type=template&id=1bcdc6d0&scoped=true&");
-/* harmony import */ var _IntroManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IntroManager.js?vue&type=script&lang=js& */ "./webpack-app/components/manager/IntroManager/IntroManager.js?vue&type=script&lang=js&?87dd");
-/* empty/unused harmony star reexport *//* harmony import */ var _IntroManager_less_vue_type_style_index_0_id_1bcdc6d0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./IntroManager.less?vue&type=style&index=0&id=1bcdc6d0&lang=less&scoped=true& */ "./webpack-app/components/manager/IntroManager/IntroManager.less?vue&type=style&index=0&id=1bcdc6d0&lang=less&scoped=true&");
+/* harmony import */ var _TutorialManager_html_vue_type_template_id_1bc43b50_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TutorialManager.html?vue&type=template&id=1bc43b50&scoped=true& */ "./webpack-app/components/manager/TutorialManager/TutorialManager.html?vue&type=template&id=1bc43b50&scoped=true&");
+/* harmony import */ var _TutorialManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TutorialManager.js?vue&type=script&lang=js& */ "./webpack-app/components/manager/TutorialManager/TutorialManager.js?vue&type=script&lang=js&?6aa4");
+/* empty/unused harmony star reexport *//* harmony import */ var _TutorialManager_less_vue_type_style_index_0_id_1bc43b50_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true& */ "./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-/* harmony import */ var _IntroManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CIntroManager_5CIntroManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./IntroManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CIntroManager%5CIntroManager.vue&lang=yaml */ "./webpack-app/components/manager/IntroManager/IntroManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CIntroManager%5CIntroManager.vue&lang=yaml");
+/* harmony import */ var _TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TutorialManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CTutorialManager%5CTutorialManager.vue&lang=yaml */ "./webpack-app/components/manager/TutorialManager/TutorialManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CTutorialManager%5CTutorialManager.vue&lang=yaml");
 
 
 
@@ -10253,64 +10255,64 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _IntroManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _IntroManager_html_vue_type_template_id_1bcdc6d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _IntroManager_html_vue_type_template_id_1bcdc6d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _TutorialManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TutorialManager_html_vue_type_template_id_1bc43b50_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TutorialManager_html_vue_type_template_id_1bc43b50_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "1bcdc6d0",
+  "1bc43b50",
   null
   
 )
 
 /* custom blocks */
 
-if (typeof _IntroManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CIntroManager_5CIntroManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_IntroManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CIntroManager_5CIntroManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+if (typeof _TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "webpack-app/components/manager/IntroManager/IntroManager.vue"
+component.options.__file = "webpack-app/components/manager/TutorialManager/TutorialManager.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/IntroManager/IntroManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CIntroManager%5CIntroManager.vue&lang=yaml":
-/*!**********************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/components/manager/IntroManager/IntroManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CIntroManager%5CIntroManager.vue&lang=yaml ***!
-  \**********************************************************************************************************************************************************************************************************************************************************/
+/***/ "./webpack-app/components/manager/TutorialManager/TutorialManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CTutorialManager%5CTutorialManager.vue&lang=yaml":
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/TutorialManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CTutorialManager%5CTutorialManager.vue&lang=yaml ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_IntroManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CIntroManager_5CIntroManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/@kazupon/vue-i18n-loader/lib!./IntroManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CIntroManager%5CIntroManager.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/manager/IntroManager/IntroManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CIntroManager%5CIntroManager.vue&lang=yaml");
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_IntroManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CIntroManager_5CIntroManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_IntroManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CIntroManager_5CIntroManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_IntroManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CIntroManager_5CIntroManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_IntroManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CIntroManager_5CIntroManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_IntroManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CIntroManager_5CIntroManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/@kazupon/vue-i18n-loader/lib!./TutorialManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CTutorialManager%5CTutorialManager.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/manager/TutorialManager/TutorialManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CTutorialManager%5CTutorialManager.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/IntroManager/jquery-guide/jquery-guide.webpack.js":
-/*!******************************************************************************************!*\
-  !*** ./webpack-app/components/manager/IntroManager/jquery-guide/jquery-guide.webpack.js ***!
-  \******************************************************************************************/
+/***/ "./webpack-app/components/manager/TutorialManager/jquery-guide/jquery-guide.webpack.js":
+/*!*********************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/jquery-guide/jquery-guide.webpack.js ***!
+  \*********************************************************************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _jquery_guide_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jquery.guide.js */ "./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.js");
-/* harmony import */ var _jquery_guide_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./jquery.guide.less */ "./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.less");
+/* harmony import */ var _jquery_guide_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jquery.guide.js */ "./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.js");
+/* harmony import */ var _jquery_guide_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./jquery.guide.less */ "./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.less");
 /* harmony import */ var _jquery_guide_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_jquery_guide_less__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.js":
-/*!**********************************************************************************!*\
-  !*** ./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.js ***!
-  \**********************************************************************************/
+/***/ "./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.js":
+/*!*************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.js ***!
+  \*************************************************************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -10630,22 +10632,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.less":
-/*!************************************************************************************!*\
-  !*** ./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.less ***!
-  \************************************************************************************/
+/***/ "./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.less":
+/*!***************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.less ***!
+  \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./jquery.guide.less */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.less");
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./jquery.guide.less */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.less");
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("a563daf6", content, false, {});
+var update = add("4f6becbb", content, false, {});
 // Hot Module Replacement
 if(false) {}
 

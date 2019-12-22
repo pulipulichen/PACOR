@@ -131,6 +131,7 @@ let VueController = {
       ConfirmModal: null,
       NotificationManager: null,
       TestManager: null,
+      TutorialManager: null,
       style: null,
     },
     errors: [],
@@ -169,6 +170,7 @@ let VueController = {
     this.lib.AnnotationHelper.setStatus(this.status)
     this.lib.ConfirmModal = this.$refs.ConfirmModal
     this.lib.TestManager = this.$refs.TestManager
+    this.lib.TutorialManager = this.$refs.TutorialManager
     //console.log(this.lib.auth.nextStep)
   },
   

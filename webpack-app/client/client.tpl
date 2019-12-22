@@ -36,6 +36,15 @@
     ref="ConfirmModal">
   </confirm-modal>
 
+  <tutorial-manager
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+    ref="TutorialManager">
+  </tutorial-manager>
+  
+  <!-- ================================ -->
+  
   <component 
     v-bind:is="status.view"
     v-bind:config="config"

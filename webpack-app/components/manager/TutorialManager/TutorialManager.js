@@ -3,7 +3,7 @@
 import './jquery-guide/jquery-guide.webpack.js'
 import $ from 'jquery'
 
-let IntroManager = {
+let TutorialManager = {
   props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -19,7 +19,7 @@ let IntroManager = {
 //  watch: {
 //  },
   mounted: async function () {
-    this._test()
+    //this._test()
   },
   methods: {
     addAction (type, action, order) {
@@ -87,4 +87,4 @@ let IntroManager = {
   } // methods
 }
 
-export default IntroManager
+export default TutorialManager

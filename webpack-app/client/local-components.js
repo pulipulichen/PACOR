@@ -8,6 +8,8 @@ import PACORTestManager from './../components/manager/PACORTestManager/PACORTest
 //import RangyManager from './components/RangyManager/RangyManager.vue'
 //import NoteEditorManager from './components/NoteEditorManager/NoteEditorManager.vue'
 
+import TutorialManager from './../components/manager/TutorialManager/TutorialManager.vue'
+
 let components = {
   Loading: Loading,
   'error-handler': ErrorHandler,
@@ -17,6 +19,7 @@ let components = {
   Login: Login,
   StyleManager,
   PACORTestManager,
+  'tutorial-manager': TutorialManager,
   //Chat: () => import(/* webpackChunkName: "client-components/Chat" */ './components/Chat/Chat.vue'),
   'CollaborativeReading': () => import(/* webpackChunkName: "client-components/CollaborativeReading" */ './Reading/CollaborativeReading/CollaborativeReading.vue'),
   'IndividualReading': () => import(/* webpackChunkName: "client-components/IndividualReading" */ './Reading/IndividualReading/IndividualReading.vue'),
