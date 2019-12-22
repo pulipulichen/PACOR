@@ -19,6 +19,7 @@
     "agreement-link": "如果您按下「登入」按鈕，表示您同意我們的<a href='{0}' target='_blank'>知情同意書</a>。",
     "cannot contain space": "不能包含空格",
     "Switch to reader login": "切換成讀者登入",
-    "Switch to administrator login": "切換成管理者登入"
+    "Switch to administrator login": "切換成管理者登入",
+    "Login failed.": "登入失敗"
   }
 }

@@ -70,7 +70,7 @@ let AnnotationItem = {
         classList.push('clickable')
       }
       
-      console.log(this.lib.style.isLeftHanded)
+      //console.log(this.lib.style.isLeftHanded)
       if (!this.lib.style.isLeftHanded) {
         classList.push('right')
       }

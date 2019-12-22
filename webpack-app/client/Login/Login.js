@@ -126,6 +126,10 @@ let Login = {
       }
       this.status.username = this.username
       
+      if (this.adminMode === false) {
+        this.password = ''
+      }
+      
       localStorage.setItem(this.key + 'login.username', this.username)
       localStorage.setItem(this.key + 'login.password', this.password)
       

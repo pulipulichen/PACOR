@@ -66,3 +66,6 @@ Vue.component('user-self-badge', UserSelfBadge)
 
 import IframeMessageSegment from './../components/ui/IframeMessageSegment/IframeMessageSegment.vue'
 Vue.component('iframe-message-segment', IframeMessageSegment)
+
+import IntroManager from './../components/manager/IntroManager/IntroManager.vue'
+Vue.component('intro-manager', IntroManager)

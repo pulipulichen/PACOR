@@ -154,7 +154,7 @@ let VueController = {
               && error.response.data
               && error.response.data.error
               && error.response.data.error.message === 'Please login') {
-        this.lib.auth.showLogin()
+        this.lib.auth.logout()
         return null
       }
       this.errors.push(error)

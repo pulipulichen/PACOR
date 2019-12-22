@@ -57,8 +57,8 @@ let ActivityTimer = {
             return null
           }
           
-          console.error('Get error from server, force logout: ' + error)
-          this.lib.auth.logout()
+          //console.error('Get error from server, force logout: ' + error)
+          //this.lib.auth.logout()
         })
         acted = false
         this.timer = setTimeout(() => {

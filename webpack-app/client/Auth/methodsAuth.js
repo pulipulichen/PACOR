@@ -34,6 +34,9 @@ export default function (Auth) {
       this.status[name] = result.status[name]
     }
 
+
+    //console.log(result)
+    //console.log(result.needLogin)
     if (result.needLogin === false) {
       this.status.needLogin = false
     } else {
@@ -81,9 +84,9 @@ export default function (Auth) {
     return this.showLogin()
   }
   Auth.methods.showLogin = function () {
-    if (this.status.needLogin === true) {
-      return undefined
-    }
+    //if (this.status.needLogin === true) {
+    //  return undefined
+    //}
     
     this.status.needLogin = true
     this.status.view = 'Login'
