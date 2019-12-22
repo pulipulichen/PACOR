@@ -18,5 +18,5 @@ module.exports = {
   /**
    * EInkMode底下，不啟用動畫，也儘可能減少卷軸
    */
-  EInkMode: false
+  'EInkMode': false
 }

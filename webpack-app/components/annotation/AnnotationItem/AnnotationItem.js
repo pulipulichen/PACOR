@@ -62,6 +62,25 @@ let AnnotationItem = {
         
         return result
       }).join(' ')
+    },
+    computedMetaClassList () {
+      let classList = []
+      
+      if (this.findAnnotation) {
+        classList.push('clickable')
+      }
+      
+      console.log(this.lib.style.isLeftHanded)
+      if (!this.lib.style.isLeftHanded) {
+        classList.push('right')
+      }
+      else {
+        classList.push('left')
+      }
+      
+      classList.push('labeled button')
+      
+      return classList.join(' ')
     }
   },
 //  watch: {

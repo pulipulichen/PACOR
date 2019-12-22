@@ -1,7 +1,27 @@
 .meta {
-  float: right;
   user-select: none;
   line-height: 2em !important;
+  
+  &.left {
+    float: left;
+    margin-right: 1em !important;
+    
+    ::v-deep .AnnotationInteractive {
+      //margin-right: 0.5em;
+      margin-top: -2px;
+      //margin-right: 0.5em;
+    }
+  }
+  
+  &.right {
+    float: right;
+    
+    ::v-deep .AnnotationInteractive {
+      margin-left: 0.5em;
+      margin-top: -1px;
+      //margin-right: 0.5em;
+    }
+  }
 }
 
 .user {
@@ -36,12 +56,6 @@
 
 .clickable {
   cursor: pointer !important;
-}
-
-.meta ::v-deep .AnnotationInteractive {
-  margin-left: 0.5em;
-  margin-top: -1px;
-  //margin-right: 0.5em;
 }
 
 .annotation-item-compact {

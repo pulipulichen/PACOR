@@ -6,11 +6,15 @@
      v-on:click="onClick"
      v-bind:data-annotation-id="annotation.id">
 
-  <div class="meta text-container ui basic right labeled button"
-       v-bind:class="{'clickable': findAnnotation}"
+  <div class="meta text-container ui basic "
+       v-bind:class="computedMetaClassList"
        v-on:click.stop="onFindAnnotation(annotation)">
     
-    <span class="display-time">
+    <i class="left angle icon"
+       v-if="findAnnotation && lib.style.isLeftHanded" />
+    
+    <span class="display-time"
+          v-if="!lib.style.isLeftHanded">
       {{ displayTime }}
     </span>
 
@@ -29,7 +33,14 @@
     </annotation-item-interactive>
       
     <i class="right angle icon"
-       v-if="findAnnotation" />
+       v-if="findAnnotation && !lib.style.isLeftHanded" />
+  </div>
+  
+  <div class="meta text-container ui basic right labeled button"
+       v-if="lib.style.isLeftHanded">
+    <span class="display-time">
+      {{ displayTime }}
+    </span>
   </div>
   
   <!-- ======================================================= -->
