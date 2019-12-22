@@ -5730,7 +5730,7 @@ let AxiosHelper = {
       else {
         errorHandler(error)
       }
-      return
+      return undefined
     }
   },
   post: async function (path, data, errorHandler) {
@@ -5748,14 +5748,14 @@ let AxiosHelper = {
       return result.data
     }
     catch (error) {
-      console.log(error)
+      //console.log(error)
       if (typeof(errorHandler) !== 'function') {
         this.handleError(error)
       }
       else {
         errorHandler(error)
       }
-      return
+      return undefined
     }
   },
   /**

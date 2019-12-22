@@ -565,6 +565,13 @@ __webpack_require__.r(__webpack_exports__);
 
     $('.Navigation .right.menu .ellipsis.icon').click()
   }
+  
+  CollaborativeReading.methods._testErrorAuth = async function () {
+    
+    await this.lib.VueHelper.sleep(1500)
+    
+    await this.lib.AxiosHelper.post('/admin/Development/errorAuth')
+  }
 
 });
 

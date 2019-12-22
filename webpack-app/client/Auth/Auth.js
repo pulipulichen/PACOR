@@ -3,24 +3,21 @@ let Auth = {
   data() {
     return {}
   },
-  watch: {
-  },
-  computed: {
-  },
-  methods: {
-  } // methods
+  watch: {},  // watchAuth.js
+  computed: {}, // computedAuth.js
+  methods: {} // methodsAuth.js
 }
 
-import watch from './watchAuth'
+import watch from './watchAuth.js'
 watch(Auth)
 
-import methodsAuth from './methodsAuth'
+import methodsAuth from './methodsAuth.js'
 methodsAuth(Auth)
 
-import mountedAuth from './mountedAuth'
+import mountedAuth from './mountedAuth.js'
 mountedAuth(Auth)
 
-import computedAuth from './computedAuth'
+import computedAuth from './computedAuth.js'
 computedAuth(Auth)
 
 export default Auth

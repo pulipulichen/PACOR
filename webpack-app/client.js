@@ -64,7 +64,7 @@ window.onerror = function(message, source, lineno, colno, error) {
 }
 
 Vue.config.errorHandler  = function(err, vm, info) {
-  //console.log(`Error: ${err.stack}\nInfo: ${info}`);
+  //console.log(`errorHandler Error: ${err.stack}\nInfo: ${info}`);
   VueController.data.errors.push(err)
   console.error(err)
 }
@@ -148,12 +148,13 @@ let VueController = {
   //},
   mounted: function () {
     this.lib.AxiosHelper.setErrorHandler((error) => {
-      //console.log(error)
+      //console.log('setErrorHandler', error)
       if (error 
               && error.response
               && error.response.data
               && error.response.data.error
               && error.response.data.error.message === 'Please login') {
+        this.lib.auth.showLogin()
         return null
       }
       this.errors.push(error)

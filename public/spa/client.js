@@ -4285,7 +4285,7 @@ window.onerror = function(message, source, lineno, colno, error) {
 }
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].config.errorHandler  = function(err, vm, info) {
-  //console.log(`Error: ${err.stack}\nInfo: ${info}`);
+  //console.log(`errorHandler Error: ${err.stack}\nInfo: ${info}`);
   VueController.data.errors.push(err)
   console.error(err)
 }
@@ -4369,12 +4369,13 @@ let VueController = {
   //},
   mounted: function () {
     this.lib.AxiosHelper.setErrorHandler((error) => {
-      //console.log(error)
+      //console.log('setErrorHandler', error)
       if (error 
               && error.response
               && error.response.data
               && error.response.data.error
               && error.response.data.error.message === 'Please login') {
+        this.lib.auth.showLogin()
         return null
       }
       this.errors.push(error)
@@ -4444,34 +4445,31 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _watchAuth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./watchAuth */ "./webpack-app/client/Auth/watchAuth.js");
-/* harmony import */ var _methodsAuth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsAuth */ "./webpack-app/client/Auth/methodsAuth.js");
-/* harmony import */ var _mountedAuth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mountedAuth */ "./webpack-app/client/Auth/mountedAuth.js");
-/* harmony import */ var _computedAuth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./computedAuth */ "./webpack-app/client/Auth/computedAuth.js");
+/* harmony import */ var _watchAuth_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./watchAuth.js */ "./webpack-app/client/Auth/watchAuth.js");
+/* harmony import */ var _methodsAuth_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsAuth.js */ "./webpack-app/client/Auth/methodsAuth.js");
+/* harmony import */ var _mountedAuth_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mountedAuth.js */ "./webpack-app/client/Auth/mountedAuth.js");
+/* harmony import */ var _computedAuth_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./computedAuth.js */ "./webpack-app/client/Auth/computedAuth.js");
 let Auth = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {
     return {}
   },
-  watch: {
-  },
-  computed: {
-  },
-  methods: {
-  } // methods
+  watch: {},  // watchAuth.js
+  computed: {}, // computedAuth.js
+  methods: {} // methodsAuth.js
 }
 
 
-Object(_watchAuth__WEBPACK_IMPORTED_MODULE_0__["default"])(Auth)
+Object(_watchAuth_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Auth)
 
 
-Object(_methodsAuth__WEBPACK_IMPORTED_MODULE_1__["default"])(Auth)
+Object(_methodsAuth_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Auth)
 
 
-Object(_mountedAuth__WEBPACK_IMPORTED_MODULE_2__["default"])(Auth)
+Object(_mountedAuth_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Auth)
 
 
-Object(_computedAuth__WEBPACK_IMPORTED_MODULE_3__["default"])(Auth)
+Object(_computedAuth_js__WEBPACK_IMPORTED_MODULE_3__["default"])(Auth)
 
 /* harmony default export */ __webpack_exports__["default"] = (Auth);
 
@@ -4759,6 +4757,10 @@ __webpack_require__.r(__webpack_exports__);
     return this.showLogin()
   }
   Auth.methods.showLogin = function () {
+    if (this.status.needLogin === true) {
+      return undefined
+    }
+    
     this.status.needLogin = true
     this.status.view = 'Login'
   }

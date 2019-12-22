@@ -178,6 +178,7 @@ let CollaborativeReading = {
     //this._testUserFilter()
     //await this._testVerticalMenu()
     //this._testSearch()
+    this._testErrorAuth()
   },
   destroyed () {
     //console.log('退場了')

@@ -81,6 +81,10 @@ export default function (Auth) {
     return this.showLogin()
   }
   Auth.methods.showLogin = function () {
+    if (this.status.needLogin === true) {
+      return undefined
+    }
+    
     this.status.needLogin = true
     this.status.view = 'Login'
   }
