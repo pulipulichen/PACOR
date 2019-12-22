@@ -672,6 +672,20 @@ module.exports = function (Component) {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.less":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.less ***!
+  \*************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, ".jquery-guide,\n.jquery-guide-bg {\n  -webkit-box-sizing: content-box;\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n}\n.jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n}\n", "",{"version":3,"sources":["jquery.guide.less"],"names":[],"mappings":"AAAA;;EAEE,+BAA+B;EAC/B,4BAA4B;EAC5B,uBAAuB;AACzB;AACA;EACE,eAAe;EACf,MAAM;EACN,QAAQ;EACR,SAAS;EACT,OAAO;EACP,gCAAgC;EAChC,mBAAmB;EACnB,qBAAqB;EACrB,uBAAuB;EACvB,wBAAwB;EACxB,sBAAsB;AACxB;AACA;EACE,gCAAgC;AAClC;AACA;EACE,kBAAkB;EAClB,eAAe;EACf,WAAW;AACb","file":"jquery.guide.less","sourcesContent":[".jquery-guide,\n.jquery-guide-bg {\n  -webkit-box-sizing: content-box;\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n}\n.jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n}\n"]}]);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Login/Login.less?vue&type=style&index=0&id=15c3505b&lang=less&scoped=true&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Login/Login.less?vue&type=style&index=0&id=15c3505b&lang=less&scoped=true& ***!
@@ -1091,20 +1105,6 @@ exports.push([module.i, ".IframeMessageSegment[data-v-54264361] {\n  text-align:
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
 exports.push([module.i, "/* fonts */\n\ndiv.jqcloud {\n  font-family: \"Helvetica\", \"Arial\", sans-serif;\n  font-size: 10px;\n  line-height: normal;\n}\n\ndiv.jqcloud a {\n  font-size: inherit;\n  text-decoration: none;\n}\n\ndiv.jqcloud span.w10 { font-size: 550%; }\ndiv.jqcloud span.w9 { font-size: 500%; }\ndiv.jqcloud span.w8 { font-size: 450%; }\ndiv.jqcloud span.w7 { font-size: 400%; }\ndiv.jqcloud span.w6 { font-size: 350%; }\ndiv.jqcloud span.w5 { font-size: 300%; }\ndiv.jqcloud span.w4 { font-size: 250%; }\ndiv.jqcloud span.w3 { font-size: 200%; }\ndiv.jqcloud span.w2 { font-size: 150%; }\ndiv.jqcloud span.w1 { font-size: 100%; }\n\n/* colors */\n\ndiv.jqcloud { color: #09f; }\ndiv.jqcloud a { color: inherit; }\ndiv.jqcloud a:hover { color: #0df; }\ndiv.jqcloud a:hover { color: #0cf; }\ndiv.jqcloud span.w10 { color: #0cf; }\ndiv.jqcloud span.w9 { color: #0cf; }\ndiv.jqcloud span.w8 { color: #0cf; }\ndiv.jqcloud span.w7 { color: #39d; }\ndiv.jqcloud span.w6 { color: #90c5f0; }\ndiv.jqcloud span.w5 { color: #90a0dd; }\ndiv.jqcloud span.w4 { color: #90c5f0; }\ndiv.jqcloud span.w3 { color: #a0ddff; }\ndiv.jqcloud span.w2 { color: #99ccee; }\ndiv.jqcloud span.w1 { color: #aab5f0; }\n\n/* layout */\n\ndiv.jqcloud {\n  overflow: hidden;\n  position: relative;\n}\n\ndiv.jqcloud span { padding: 0; }", "",{"version":3,"sources":["jqcloud.css"],"names":[],"mappings":"AAAA,UAAU;;AAEV;EACE,6CAA6C;EAC7C,eAAe;EACf,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,qBAAqB;AACvB;;AAEA,uBAAuB,eAAe,EAAE;AACxC,sBAAsB,eAAe,EAAE;AACvC,sBAAsB,eAAe,EAAE;AACvC,sBAAsB,eAAe,EAAE;AACvC,sBAAsB,eAAe,EAAE;AACvC,sBAAsB,eAAe,EAAE;AACvC,sBAAsB,eAAe,EAAE;AACvC,sBAAsB,eAAe,EAAE;AACvC,sBAAsB,eAAe,EAAE;AACvC,sBAAsB,eAAe,EAAE;;AAEvC,WAAW;;AAEX,cAAc,WAAW,EAAE;AAC3B,gBAAgB,cAAc,EAAE;AAChC,sBAAsB,WAAW,EAAE;AACnC,sBAAsB,WAAW,EAAE;AACnC,uBAAuB,WAAW,EAAE;AACpC,sBAAsB,WAAW,EAAE;AACnC,sBAAsB,WAAW,EAAE;AACnC,sBAAsB,WAAW,EAAE;AACnC,sBAAsB,cAAc,EAAE;AACtC,sBAAsB,cAAc,EAAE;AACtC,sBAAsB,cAAc,EAAE;AACtC,sBAAsB,cAAc,EAAE;AACtC,sBAAsB,cAAc,EAAE;AACtC,sBAAsB,cAAc,EAAE;;AAEtC,WAAW;;AAEX;EACE,gBAAgB;EAChB,kBAAkB;AACpB;;AAEA,mBAAmB,UAAU,EAAE","file":"jqcloud.css","sourcesContent":["/* fonts */\n\ndiv.jqcloud {\n  font-family: \"Helvetica\", \"Arial\", sans-serif;\n  font-size: 10px;\n  line-height: normal;\n}\n\ndiv.jqcloud a {\n  font-size: inherit;\n  text-decoration: none;\n}\n\ndiv.jqcloud span.w10 { font-size: 550%; }\ndiv.jqcloud span.w9 { font-size: 500%; }\ndiv.jqcloud span.w8 { font-size: 450%; }\ndiv.jqcloud span.w7 { font-size: 400%; }\ndiv.jqcloud span.w6 { font-size: 350%; }\ndiv.jqcloud span.w5 { font-size: 300%; }\ndiv.jqcloud span.w4 { font-size: 250%; }\ndiv.jqcloud span.w3 { font-size: 200%; }\ndiv.jqcloud span.w2 { font-size: 150%; }\ndiv.jqcloud span.w1 { font-size: 100%; }\n\n/* colors */\n\ndiv.jqcloud { color: #09f; }\ndiv.jqcloud a { color: inherit; }\ndiv.jqcloud a:hover { color: #0df; }\ndiv.jqcloud a:hover { color: #0cf; }\ndiv.jqcloud span.w10 { color: #0cf; }\ndiv.jqcloud span.w9 { color: #0cf; }\ndiv.jqcloud span.w8 { color: #0cf; }\ndiv.jqcloud span.w7 { color: #39d; }\ndiv.jqcloud span.w6 { color: #90c5f0; }\ndiv.jqcloud span.w5 { color: #90a0dd; }\ndiv.jqcloud span.w4 { color: #90c5f0; }\ndiv.jqcloud span.w3 { color: #a0ddff; }\ndiv.jqcloud span.w2 { color: #99ccee; }\ndiv.jqcloud span.w1 { color: #aab5f0; }\n\n/* layout */\n\ndiv.jqcloud {\n  overflow: hidden;\n  position: relative;\n}\n\ndiv.jqcloud span { padding: 0; }"]}]);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./webpack-app/components/manager/IntroManager/jquery-guide/default.css":
-/*!******************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./webpack-app/components/manager/IntroManager/jquery-guide/default.css ***!
-  \******************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
-// Module
-exports.push([module.i, ".jquery-guide,.jquery-guide-bg {\n\t-webkit-box-sizing: content-box;\n\t-moz-box-sizing: content-box;\n\tbox-sizing: content-box;\n}\n\n.jquery-guide-bg {\n\tposition: fixed;\n\ttop: 0;\n\tright: 0;\n\tbottom: 0;\n\tleft: 0;\n\tborder-color: rgba(0, 0, 0, 0.6);\n\tborder-style: solid;\n\tborder-top-width: 0px;\n\tborder-right-width: 0px;\n\tborder-bottom-width: 0px;\n\tborder-left-width: 0px;\n}\n\n.jquery-guide-bg.active {\n\tborder-color: rgba(0, 0, 0, 0.5);\n}\n\n.jquery-guide-content {\n\tposition: absolute;\n\tcursor: default;\n\tcolor: #FFF;\n}", "",{"version":3,"sources":["default.css"],"names":[],"mappings":"AAAA;CACC,+BAA+B;CAC/B,4BAA4B;CAC5B,uBAAuB;AACxB;;AAEA;CACC,eAAe;CACf,MAAM;CACN,QAAQ;CACR,SAAS;CACT,OAAO;CACP,gCAAgC;CAChC,mBAAmB;CACnB,qBAAqB;CACrB,uBAAuB;CACvB,wBAAwB;CACxB,sBAAsB;AACvB;;AAEA;CACC,gCAAgC;AACjC;;AAEA;CACC,kBAAkB;CAClB,eAAe;CACf,WAAW;AACZ","file":"default.css","sourcesContent":[".jquery-guide,.jquery-guide-bg {\n\t-webkit-box-sizing: content-box;\n\t-moz-box-sizing: content-box;\n\tbox-sizing: content-box;\n}\n\n.jquery-guide-bg {\n\tposition: fixed;\n\ttop: 0;\n\tright: 0;\n\tbottom: 0;\n\tleft: 0;\n\tborder-color: rgba(0, 0, 0, 0.6);\n\tborder-style: solid;\n\tborder-top-width: 0px;\n\tborder-right-width: 0px;\n\tborder-bottom-width: 0px;\n\tborder-left-width: 0px;\n}\n\n.jquery-guide-bg.active {\n\tborder-color: rgba(0, 0, 0, 0.5);\n}\n\n.jquery-guide-content {\n\tposition: absolute;\n\tcursor: default;\n\tcolor: #FFF;\n}"]}]);
 
 
 /***/ }),
@@ -10104,14 +10104,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _jquery_guide_jquery_guide_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jquery-guide/jquery.guide.js */ "./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.js");
-/* harmony import */ var _jquery_guide_default_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./jquery-guide/default.css */ "./webpack-app/components/manager/IntroManager/jquery-guide/default.css");
-/* harmony import */ var _jquery_guide_default_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_jquery_guide_default_css__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _jquery_guide_jquery_guide_webpack_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jquery-guide/jquery-guide.webpack.js */ "./webpack-app/components/manager/IntroManager/jquery-guide/jquery-guide.webpack.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 //import IntroJs from './introjs/intro.js'
 //import anno from './anno/anno.js'
-
 
 
 
@@ -10137,11 +10134,11 @@ let IntroManager = {
     }, 3000)
     */
     await this.lib.VueHelper.sleep(1500)
-    console.log(jquery__WEBPACK_IMPORTED_MODULE_2___default()('.DigitalCountdownTimer').length)
-    jquery__WEBPACK_IMPORTED_MODULE_2___default.a.guide({
+    console.log(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.DigitalCountdownTimer').length)
+    jquery__WEBPACK_IMPORTED_MODULE_1___default.a.guide({
       actions: [
         {
-          element: jquery__WEBPACK_IMPORTED_MODULE_2___default()('.my-MainIdea:first'),
+          element: jquery__WEBPACK_IMPORTED_MODULE_1___default()('.my-MainIdea:first'),
           content: '<p>Welcome, click on the screen at any position to enter the next step</p>',
           offsetX: -140,
           offsetY: -60
@@ -10270,24 +10267,20 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/components/manager/IntroManager/jquery-guide/default.css":
-/*!******************************************************************************!*\
-  !*** ./webpack-app/components/manager/IntroManager/jquery-guide/default.css ***!
-  \******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./webpack-app/components/manager/IntroManager/jquery-guide/jquery-guide.webpack.js":
+/*!******************************************************************************************!*\
+  !*** ./webpack-app/components/manager/IntroManager/jquery-guide/jquery-guide.webpack.js ***!
+  \******************************************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _jquery_guide_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jquery.guide.js */ "./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.js");
+/* harmony import */ var _jquery_guide_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./jquery.guide.less */ "./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.less");
+/* harmony import */ var _jquery_guide_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_jquery_guide_less__WEBPACK_IMPORTED_MODULE_1__);
 
-// load the styles
-var content = __webpack_require__(/*! !../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!./default.css */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./webpack-app/components/manager/IntroManager/jquery-guide/default.css");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__(/*! ../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("574bed7d", content, false, {});
-// Hot Module Replacement
-if(false) {}
+
 
 /***/ }),
 
@@ -10480,6 +10473,27 @@ __webpack_require__.r(__webpack_exports__);
 
 }).call(undefined);
 
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.less":
+/*!************************************************************************************!*\
+  !*** ./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.less ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./jquery.guide.less */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/IntroManager/jquery-guide/jquery.guide.less");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("a563daf6", content, false, {});
+// Hot Module Replacement
+if(false) {}
 
 /***/ }),
 

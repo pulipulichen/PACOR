@@ -1,7 +1,6 @@
 //import IntroJs from './introjs/intro.js'
 //import anno from './anno/anno.js'
-import './jquery-guide/jquery.guide.js'
-import './jquery-guide/default.css'
+import './jquery-guide/jquery-guide.webpack.js'
 import $ from 'jquery'
 
 let IntroManager = {
