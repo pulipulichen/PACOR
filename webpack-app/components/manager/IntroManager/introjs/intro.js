@@ -33,7 +33,7 @@
     }
 })(function () {
 */
-export default function () {
+let introJs = function () {
   //Default config/variables
   var VERSION = '2.9.3';
 
@@ -2533,3 +2533,6 @@ export default function () {
   return introJs;
 }
 //});
+
+
+export default introJs

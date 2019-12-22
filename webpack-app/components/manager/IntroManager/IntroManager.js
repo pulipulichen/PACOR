@@ -1,4 +1,5 @@
-import introJs from './introjs/intro.js'
+//import IntroJs from './introjs/intro.js'
+import anno from './anno/anno.js'
 
 let IntroManager = {
   props: ['lib', 'status', 'config'],
@@ -14,7 +15,13 @@ let IntroManager = {
   watch: {
   },
   mounted() {
-    introJs().start();
+    //console.log(introJs)
+    /*
+    setTimeout(() => {
+      //let introJs = new IntroJs()
+      //IntroJs().start();
+    }, 3000)
+    */
   },
   methods: {
   } // methods

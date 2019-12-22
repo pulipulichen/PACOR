@@ -2894,9 +2894,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _AnnotationTypeModules_stepAnnotationConfusedClarifiedPACORTestManager_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AnnotationTypeModules/stepAnnotationConfusedClarifiedPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationConfusedClarifiedPACORTestManager.js");
-/* harmony import */ var _AnnotationTypeModules_stepAnnotationConfusedPACORTestManager_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AnnotationTypeModules/stepAnnotationConfusedPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationConfusedPACORTestManager.js");
-/* harmony import */ var _AnnotationTypeModules_stepAnnotationMainIdeaPACORTestManager_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js");
+/* harmony import */ var _AnnotationTypeModules_stepAnnotationConfusedClarifiedPACORTestManager_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AnnotationTypeModules/stepAnnotationConfusedClarifiedPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationConfusedClarifiedPACORTestManager.js");
+/* harmony import */ var _AnnotationTypeModules_stepAnnotationConfusedPACORTestManager_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AnnotationTypeModules/stepAnnotationConfusedPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationConfusedPACORTestManager.js");
+/* harmony import */ var _AnnotationTypeModules_stepAnnotationMainIdeaPACORTestManager_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js");
 
 
 
@@ -2981,9 +2981,9 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   
-  Object(_AnnotationTypeModules_stepAnnotationConfusedClarifiedPACORTestManager_js__WEBPACK_IMPORTED_MODULE_2__["default"])(PACORTestManager)
-  Object(_AnnotationTypeModules_stepAnnotationConfusedPACORTestManager_js__WEBPACK_IMPORTED_MODULE_3__["default"])(PACORTestManager)
-  Object(_AnnotationTypeModules_stepAnnotationMainIdeaPACORTestManager_js__WEBPACK_IMPORTED_MODULE_4__["default"])(PACORTestManager)
+  Object(_AnnotationTypeModules_stepAnnotationConfusedClarifiedPACORTestManager_js__WEBPACK_IMPORTED_MODULE_1__["default"])(PACORTestManager)
+  Object(_AnnotationTypeModules_stepAnnotationConfusedPACORTestManager_js__WEBPACK_IMPORTED_MODULE_2__["default"])(PACORTestManager)
+  Object(_AnnotationTypeModules_stepAnnotationMainIdeaPACORTestManager_js__WEBPACK_IMPORTED_MODULE_3__["default"])(PACORTestManager)
 });
 
 /***/ }),
