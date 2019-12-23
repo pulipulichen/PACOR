@@ -637,6 +637,13 @@ __webpack_require__.r(__webpack_exports__);
     
     await this.lib.AxiosHelper.post('/admin/Development/errorAuth')
   }
+  
+  CollaborativeReading.methods._testTutorial = async function () {
+    
+    await this.lib.VueHelper.sleep(3000)
+    
+    this.lib.TutorialManager.start()
+  }
 
 });
 

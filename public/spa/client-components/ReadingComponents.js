@@ -329,7 +329,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":null}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can see others\u0027 section main ideas.":"您可以看到別人撰寫的小節重點標註"}}')
   delete Component.options._Ctor
 }
 
@@ -23653,6 +23653,8 @@ let SectionManager = {
       this.setRefreshInterval()
       
       //console.log(this.sectionsData)
+      
+      this.setupTutorial()
     },
     
     
@@ -23730,6 +23732,18 @@ let SectionManager = {
       this.lib.AnnotationHelper.autoComplete(annotation)
       
       return annotation
+    },
+    setupTutorial () {
+      this.lib.TutorialManager.addAction(() => {
+        let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:first`)
+        
+        return {
+          element: panel,
+          content: this.$t(`You can see others' section main ideas.`),
+          scroll: 'start',
+          order: 21
+        }
+      })
     }
   } // methods
 }

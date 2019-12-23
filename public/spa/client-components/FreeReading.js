@@ -1073,6 +1073,7 @@ let CollaborativeReading = {
     //await this._testVerticalMenu()
     //this._testSearch()
     //this._testErrorAuth()
+    this._testTutorial()
   },
   destroyed () {
     //console.log('退場了')

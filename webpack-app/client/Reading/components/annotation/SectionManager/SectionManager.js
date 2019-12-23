@@ -97,6 +97,8 @@ let SectionManager = {
       this.setRefreshInterval()
       
       //console.log(this.sectionsData)
+      
+      this.setupTutorial()
     },
     
     
@@ -174,6 +176,18 @@ let SectionManager = {
       this.lib.AnnotationHelper.autoComplete(annotation)
       
       return annotation
+    },
+    setupTutorial () {
+      this.lib.TutorialManager.addAction(() => {
+        let panel = $(`[data-section-id].SectionPanel:first`)
+        
+        return {
+          element: panel,
+          content: this.$t(`You can see others' section main ideas.`),
+          scroll: 'start',
+          order: 21
+        }
+      })
     }
   } // methods
 }

@@ -160,8 +160,8 @@ import 'tippy.js/themes/light.css';
 
       jQueryGuide.prototype.exit = function() {
         $('body').removeClass('jquery-guide-prevent-scroll')
-        if (typeof(glowTippy.hide) === 'function') {
-          glowTippy.hide()
+        if (typeof(glowTippy.destroy) === 'function') {
+          glowTippy.destroy()
         }
         return this.layout.container.remove();
       };
@@ -201,11 +201,29 @@ import 'tippy.js/themes/light.css';
           element = element[0]
         }
         
-        element.scrollIntoView({
-          behavior: "smooth", 
-          block: "center", 
-          inline: "nearest"
-        })
+        if (!action.scroll) {
+          element.scrollIntoView({
+            behavior: "smooth", 
+            block: "center", 
+            inline: "nearest"
+          })
+        }
+        else if (action.scroll === 'start') {
+          let elementTop = action.element.offset().top
+          let padding = 150
+          if (padding > (window.innerHeight / 3)) {
+            padding = (window.innerHeight / 3)
+          }
+          let scrollToTop = elementTop - padding
+          
+          window.scrollTo({
+            top: scrollToTop,
+            behavior: "smooth", 
+            block: "start", 
+            inline: "nearest"
+          })
+        }
+          
         
         //this.animateCallback(action, callback)
         scrollTimer = setTimeout(() => {
@@ -268,18 +286,21 @@ import 'tippy.js/themes/light.css';
           } 
           
           
-          glow.attr('data-tippy-content', action.content)
+          
           
           if (tippyInited === false) {
+            glow.attr('data-tippy-content', action.content)
+            
             glowTippy = tippy(_this.layout.glow[0], {
               theme: 'light',
               //hideOnClick: false
             })
           }
-          
-          if (action.content) {
-            glowTippy.show()
+          else {
+            glowTippy.setContent(action.content)
           }
+          
+          glowTippy.show()
         }
       }
 
@@ -298,6 +319,7 @@ import 'tippy.js/themes/light.css';
           borderBottomWidth: bgBottomWidth,
           borderLeftWidth: action.element.offset().left
         });
+        setupGlowPopup(this, action)
         return this.layout.content.css({
           top: action.element.offset().top + action.offsetY,
           left: action.element.offset().left + action.offsetX
