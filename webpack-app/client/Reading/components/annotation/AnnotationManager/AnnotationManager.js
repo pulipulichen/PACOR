@@ -165,6 +165,7 @@ let AnnotationManager = {
       
       if (this.lib.auth.isEnableCollaboration === false) {
         // 如果不是開放合作，那就不用讀取其他人的資料
+        this.setupTutorial()
         return false
       }
       

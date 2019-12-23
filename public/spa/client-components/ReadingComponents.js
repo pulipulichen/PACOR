@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can read other\u0027s annotations.":"您可以看到其他讀者的標註了。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can read other\u0027s annotations.":"您可以看到其他讀者的標註了。","Select text to highlight.":"請選擇您看不懂或是覺得是重點的文字。"}}')
   delete Component.options._Ctor
 }
 
@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"List Annotations":"列出標註"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"List Annotations":"列出標註","Select an annotation type to highlight the selected text.":"請為你要標註的文字選擇一種類型。","For example, if you choose \\"Main Idea\\" type.":"舉例來說，如果您選擇「重點」類型"}}')
   delete Component.options._Ctor
 }
 
@@ -105,7 +105,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Click \\"ADD\\" to save it.":"按下記下「重點」即可儲存標註。"}}')
   delete Component.options._Ctor
 }
 
@@ -1265,6 +1265,7 @@ var render = function() {
           _vm._l(_vm.annotationModules, function(module, i) {
             return _c("fab-item", {
               key: module.type,
+              class: module.type,
               attrs: {
                 idx: i,
                 title: _vm.$t("ANNOTATION_TYPE." + module.type),
@@ -3363,6 +3364,7 @@ var render = function() {
                     _c(
                       "validation-button",
                       {
+                        staticClass: "add-button",
                         class: _vm.$parent.computedSubmitButtonClassList,
                         style: _vm.$parent.computedSubmitButtonStyle,
                         attrs: {
@@ -6098,6 +6100,7 @@ let AnnotationManager = {
       
       if (this.lib.auth.isEnableCollaboration === false) {
         // 如果不是開放合作，那就不用讀取其他人的資料
+        this.setupTutorial()
         return false
       }
       
@@ -6259,6 +6262,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _methodTutorialAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./methodTutorialAnnotationTypeSelector.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodTutorialAnnotationTypeSelector.js");
 let debugEnableAutoList = false
 
 /**
@@ -6372,6 +6376,8 @@ let AnnotationTypeSelector = {
         //PACORTestManager.log('selectcollapsed')
         this.selection = null
       })
+      
+      this.setupTutorial()
     },
     addAnnotation: function (type) {
       //console.log('clickItem', type)
@@ -6435,6 +6441,9 @@ let AnnotationTypeSelector = {
     }
   } // methods
 }
+
+
+Object(_methodTutorialAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_0__["default"])(AnnotationTypeSelector)
 
 /* harmony default export */ __webpack_exports__["default"] = (AnnotationTypeSelector);
 
@@ -6516,6 +6525,41 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodTutorialAnnotationTypeSelector.js":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodTutorialAnnotationTypeSelector.js ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (AnnotationTypeSelector) {
+  AnnotationTypeSelector.methods.setupTutorial = function () {
+    this.lib.TutorialManager.addAction({
+      element: () => {
+        return this.$refs.fab
+      },
+      content: this.$t('Select an annotation type to highlight the selected text.'),
+      order: 21
+    })
+    
+    this.lib.TutorialManager.addAction({
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.fab.$el).find('.fab-container.MainIdea:visible:first')
+      },
+      content: this.$t(`For example, if you choose "Main Idea" type.`),
+      order: 22
+    })
+  }
+});
+
+/***/ }),
+
 /***/ "./webpack-app/client/Reading/components/annotation/AnnotationManager/methodTutorialAnnotationManager.js":
 /*!***************************************************************************************************************!*\
   !*** ./webpack-app/client/Reading/components/annotation/AnnotationManager/methodTutorialAnnotationManager.js ***!
@@ -6531,59 +6575,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (AnnotationManager) {
   AnnotationManager.methods.setupTutorial = function () {
-      if (this.tutorialInited === true) {
-        return false
-      }
-      
-      this.tutorialInited = true
-      
-      if (this.lib.auth.isEnableCollaboration) {
-        this.setupTutorialCollaborationReading()
-      }
-      else {
-        this.setupTutorialIndividualReading()
-      }
-    }
-    AnnotationManager.methods.setupTutorialCollaborationReading = function () {
-//      this.lib.TutorialManager.addAction(() => {
-//        let element = $(`[data-pacor-paragraph-seq-id] [data-pacor-highlight][class^="others-"]`)
-//        if (element.length === 0) {
-//          element = $(`[data-pacor-paragraph-seq-id] [data-pacor-highlight]`)
-//        }
-//        
-//        if (element.length === 0) {
-//          return undefined
-//        }
-//        element = element.parents('[data-pacor-paragraph-seq-id]:first')
-//        
-//        return {
-//          element,
-//          content: this.$t(`You can read other's annotations.`),
-//          scroll: 'start',
-//          order: 1
-//        }
-//      })
-      
-      this.lib.TutorialManager.addAction({
-        element: () => {
-          let element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-pacor-paragraph-seq-id] [data-pacor-highlight][class^="others-"]`)
-          if (element.length === 0) {
-            element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-pacor-paragraph-seq-id] [data-pacor-highlight]`)
-          }
+    //console.log('setupTutorial', 1)
 
-          if (element.length === 0) {
-            //console.log('沒找到')
-            return undefined
-          }
-          element = element.parents('[data-pacor-paragraph-seq-id]:first')
-          //console.log(element)
-          return element
-        },
-        content: this.$t(`You can read other's annotations.`),
-        scroll: 'start',
-        order: 1
-      })
-      
+    if (this.tutorialInited === true) {
+      return false
+    }
+
+    this.tutorialInited = true
+
+    //console.log('setupTutorial', 2)
+    if (this.lib.auth.isEnableCollaboration === true) {
+      this.setupTutorialCollaborationReading()
+    } else {
+      this.setupTutorialIndividualReading()
+    }
+  }
+  AnnotationManager.methods.setupTutorialCollaborationReading = function () {
 //      this.lib.TutorialManager.addAction(() => {
 //        let element = $(`[data-pacor-paragraph-seq-id] [data-pacor-highlight][class^="others-"]`)
 //        if (element.length === 0) {
@@ -6602,10 +6609,60 @@ __webpack_require__.r(__webpack_exports__);
 //          order: 1
 //        }
 //      })
-    }
-    AnnotationManager.methods.setupTutorialIndividualReading = function () {
-      throw new Error('@TODO')
-    }
+
+    this.lib.TutorialManager.addAction({
+      element: () => {
+        let element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-pacor-paragraph-seq-id] [data-pacor-highlight][class^="others-"]`)
+        if (element.length === 0) {
+          element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-pacor-paragraph-seq-id] [data-pacor-highlight]`)
+        }
+
+        if (element.length === 0) {
+          //console.log('沒找到')
+          return undefined
+        }
+        element = element.parents('[data-pacor-paragraph-seq-id]:first')
+        //console.log(element)
+        return element
+      },
+      content: this.$t(`You can read other's annotations.`),
+      scroll: 'start',
+      order: 1
+    })
+
+//      this.lib.TutorialManager.addAction(() => {
+//        let element = $(`[data-pacor-paragraph-seq-id] [data-pacor-highlight][class^="others-"]`)
+//        if (element.length === 0) {
+//          element = $(`[data-pacor-paragraph-seq-id] [data-pacor-highlight]`)
+//        }
+//        
+//        if (element.length === 0) {
+//          return undefined
+//        }
+//        element = element.parents('[data-pacor-paragraph-seq-id]:first')
+//        
+//        return {
+//          element,
+//          content: this.$t(`You can read other's annotations.`),
+//          scroll: 'start',
+//          order: 1
+//        }
+//      })
+  }
+  AnnotationManager.methods.setupTutorialIndividualReading = function () {
+    //console.log('有新增嗎？')
+    this.lib.TutorialManager.addAction({
+      element: async () => {
+        let paragraph = await this.lib.RangyManager.selectDemoText()
+        
+        this.lib.RangyManager.onselect()
+        return paragraph
+      },
+      content: this.$t(`Select text to highlight.`),
+      scroll: 'start',
+      order: 1
+    })
+  }
 });
 
 /***/ }),
@@ -7924,14 +7981,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _propsAnnotationPanel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./propsAnnotationPanel */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/propsAnnotationPanel.js");
 /* harmony import */ var _dataAnnotationPanel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dataAnnotationPanel */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/dataAnnotationPanel.js");
-/* harmony import */ var _computedAnnotationPanel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./computedAnnotationPanel */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/computedAnnotationPanel.js");
-/* harmony import */ var _watchAnnotationPanel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./watchAnnotationPanel */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/watchAnnotationPanel.js");
-/* harmony import */ var _methodsDisplayAnnotationPanel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./methodsDisplayAnnotationPanel */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsDisplayAnnotationPanel.js");
-/* harmony import */ var _methodsScrollAnnotationPanel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./methodsScrollAnnotationPanel */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsScrollAnnotationPanel.js");
-/* harmony import */ var _methodsPlaceholderAnnotationPanel__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./methodsPlaceholderAnnotationPanel */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsPlaceholderAnnotationPanel.js");
-/* harmony import */ var _methodsQueryAnnotationPanel__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./methodsQueryAnnotationPanel */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsQueryAnnotationPanel.js");
-/* harmony import */ var _methodsEventAnnotationPanel__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./methodsEventAnnotationPanel */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsEventAnnotationPanel.js");
-/* harmony import */ var _methodsResizeAnnotationPanel__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./methodsResizeAnnotationPanel */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsResizeAnnotationPanel.js");
+/* harmony import */ var _computedAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./computedAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/computedAnnotationPanel.js");
+/* harmony import */ var _watchAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./watchAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/watchAnnotationPanel.js");
+/* harmony import */ var _methodsDisplayAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./methodsDisplayAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsDisplayAnnotationPanel.js");
+/* harmony import */ var _methodsScrollAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./methodsScrollAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsScrollAnnotationPanel.js");
+/* harmony import */ var _methodsPlaceholderAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./methodsPlaceholderAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsPlaceholderAnnotationPanel.js");
+/* harmony import */ var _methodsQueryAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./methodsQueryAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsQueryAnnotationPanel.js");
+/* harmony import */ var _methodsEventAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./methodsEventAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsEventAnnotationPanel.js");
+/* harmony import */ var _methodsResizeAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./methodsResizeAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsResizeAnnotationPanel.js");
+/* harmony import */ var _methodTutorialAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./methodTutorialAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodTutorialAnnotationPanel.js");
 //import VueDraggableResizable from 'vue-draggable-resizable'
 //import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
 
@@ -7962,6 +8020,7 @@ let AnnotationPanel = {
     this._initHeightPX()
     
     this._initPlaceholder()
+    this.setupTutorial()
     //this._test()
     
     //$.extend(require('jquery-ui'))
@@ -7980,28 +8039,31 @@ let AnnotationPanel = {
 }
 
 
-Object(_computedAnnotationPanel__WEBPACK_IMPORTED_MODULE_5__["default"])(AnnotationPanel)
+Object(_computedAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_5__["default"])(AnnotationPanel)
 
 
-Object(_watchAnnotationPanel__WEBPACK_IMPORTED_MODULE_6__["default"])(AnnotationPanel)
+Object(_watchAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_6__["default"])(AnnotationPanel)
 
 
-Object(_methodsDisplayAnnotationPanel__WEBPACK_IMPORTED_MODULE_7__["default"])(AnnotationPanel)
+Object(_methodsDisplayAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_7__["default"])(AnnotationPanel)
 
 
-Object(_methodsScrollAnnotationPanel__WEBPACK_IMPORTED_MODULE_8__["default"])(AnnotationPanel)
+Object(_methodsScrollAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_8__["default"])(AnnotationPanel)
 
 
-Object(_methodsPlaceholderAnnotationPanel__WEBPACK_IMPORTED_MODULE_9__["default"])(AnnotationPanel)
+Object(_methodsPlaceholderAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_9__["default"])(AnnotationPanel)
 
 
-Object(_methodsQueryAnnotationPanel__WEBPACK_IMPORTED_MODULE_10__["default"])(AnnotationPanel)
+Object(_methodsQueryAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_10__["default"])(AnnotationPanel)
 
 
-Object(_methodsEventAnnotationPanel__WEBPACK_IMPORTED_MODULE_11__["default"])(AnnotationPanel)
+Object(_methodsEventAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_11__["default"])(AnnotationPanel)
 
 
-Object(_methodsResizeAnnotationPanel__WEBPACK_IMPORTED_MODULE_12__["default"])(AnnotationPanel)
+Object(_methodsResizeAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_12__["default"])(AnnotationPanel)
+
+
+Object(_methodTutorialAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_13__["default"])(AnnotationPanel)
 
 /* harmony default export */ __webpack_exports__["default"] = (AnnotationPanel);
 
@@ -10060,6 +10122,41 @@ __webpack_require__.r(__webpack_exports__);
   resizeLocker: false,
   
   events: {}
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodTutorialAnnotationPanel.js":
+/*!***********************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodTutorialAnnotationPanel.js ***!
+  \***********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (AnnotationPanel) {
+  AnnotationPanel.methods.setupTutorial = function () {
+    this.lib.TutorialManager.addAction({
+      element: () => {
+        return this.$refs.panel
+      },
+      content: this.$t('You can add note for the annotation.'),
+      order: 31
+    })
+  
+    this.lib.TutorialManager.addAction({
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .add-button.ValidationButton:visible:first')
+      },
+      content: this.$t('Click "ADD" to save it.'),
+      order: 32
+    })
+  }
 });
 
 /***/ }),
@@ -14863,6 +14960,43 @@ __webpack_require__.r(__webpack_exports__);
         //console.log('selectRandomRange', 5)
         this.onselect()
         resolve(true)
+        //console.log('selectRandomRange', 6)
+      }, 1000)
+    })
+  } // RangyManager.methods.selectRandomRange = function () {
+  
+  RangyManager.methods.selectDemoText = async function () {
+    
+    let paragraph = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-paragraph-seq-id]:eq(2)')
+    if (paragraph.length === 0) {
+      paragraph = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-paragraph-seq-id]:first')
+    }
+    let elm = paragraph[0]
+    console.log(elm)
+    
+    let maxLength = paragraph.text().trim().length
+    
+    let startPos = Math.floor(Math.random() * maxLength) - 3
+    if (startPos < 0) {
+      startPos = 0
+    }
+    let randomLength = Math.floor(Math.random() * 3) + 3
+    let endPos = startPos + randomLength
+    if (endPos > maxLength) {
+      endPos = maxLength
+    }
+    
+    // ------------------------
+    
+    let range = this.rangy.createRange()
+    range.selectCharacters(elm, startPos , endPos)
+    this.rangy.getSelection().addRange(range)
+    
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        //console.log('selectRandomRange', 5)
+        this.onselect()
+        resolve(paragraph)
         //console.log('selectRandomRange', 6)
       }, 1000)
     })
@@ -24969,62 +25103,56 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (SectionManager) {
-    SectionManager.methods.setupTutorial = function () {
-        
-      if (this.lib.auth.isEnableCollaboration) {
-        this.setupTutorialCollaborativeReading()
-      }
-      else {
-        this.setupTutorialIndividualReading()
-      }
-    }
+  SectionManager.methods.setupTutorial = function () {
 
-    SectionManager.methods.setupTutorialCollaborativeReading = function () {
-        this.lib.TutorialManager.addAction(() => {
-          let item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel .AnnotationItem[data-user-id!="${this.status.userID}"]:visible:first`) 
-          let panel
-          if (item.length > 0) {
-            panel = item.parents('.SectionPanel:first')
-          }
-          else {
-            panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
-          }
+    if (this.lib.auth.isEnableCollaboration) {
+      this.setupTutorialCollaborativeReading()
+    } else {
+      this.setupTutorialIndividualReading()
+    }
+  }
 
-          return {
-            element: panel,
-            content: this.$t(`You can see others' section main ideas.`),
-            scroll: 'start',
-            order: 21
-          }
-        })
-    }
-    
-    SectionManager.methods.setupTutorialIndividualReading = function () {
-        this.lib.TutorialManager.addAction(() => {
-          
-          let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
-          
-          return {
-            element: panel,
-            content: this.$t(`After reading a section of the article, you have to finish the section checklist.`),
-            scroll: 'start',
-            order: 21
-          }
-        })
-        
-        this.lib.TutorialManager.addAction(() => {
-          
-          let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:last`)
-          
-          return {
-            element: panel,
-            content: this.$t(`When you finish all section checklists, you will go to next step.`),
-            scroll: 'start',
-            order: 22
-          }
-        })
-        
-    }
+  SectionManager.methods.setupTutorialCollaborativeReading = function () {
+    this.lib.TutorialManager.addAction(() => {
+      let item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel .AnnotationItem[data-user-id!="${this.status.userID}"]:visible:first`)
+      let panel
+      if (item.length > 0) {
+        panel = item.parents('.SectionPanel:first')
+      } else {
+        panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
+      }
+
+      return {
+        element: panel,
+        content: this.$t(`You can see others' section main ideas.`),
+        scroll: 'start',
+        order: 21
+      }
+    })
+  }
+
+  SectionManager.methods.setupTutorialIndividualReading = function () {
+    this.lib.TutorialManager.addAction({
+      element: () => {
+        this.lib.AnnotationPanel.hide()
+        let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
+        return panel
+      },
+      content: this.$t(`After reading a section of the article, you have to finish the section checklist.`),
+      scroll: 'start',
+      order: 51
+    })
+
+    this.lib.TutorialManager.addAction({
+      element: () => {
+        let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:last`)
+        return panel
+      },
+      content: this.$t(`When you finish all section checklists, you will go to next step.`),
+      scroll: 'start',
+      order: 52
+    })
+  }
 });
 
 /***/ }),

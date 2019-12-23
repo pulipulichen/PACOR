@@ -28,6 +28,7 @@ let AnnotationPanel = {
     this._initHeightPX()
     
     this._initPlaceholder()
+    this.setupTutorial()
     //this._test()
     
     //$.extend(require('jquery-ui'))
@@ -45,28 +46,31 @@ let AnnotationPanel = {
   } // methods
 }
 
-import computed from './computedAnnotationPanel'
+import computed from './computedAnnotationPanel.js'
 computed(AnnotationPanel)
 
-import watch from './watchAnnotationPanel'
+import watch from './watchAnnotationPanel.js'
 watch(AnnotationPanel)
 
-import Display from './methodsDisplayAnnotationPanel'
+import Display from './methodsDisplayAnnotationPanel.js'
 Display(AnnotationPanel)
 
-import Scroll from './methodsScrollAnnotationPanel'
+import Scroll from './methodsScrollAnnotationPanel.js'
 Scroll(AnnotationPanel)
 
-import Placeholder from './methodsPlaceholderAnnotationPanel'
+import Placeholder from './methodsPlaceholderAnnotationPanel.js'
 Placeholder(AnnotationPanel)
 
-import Query from './methodsQueryAnnotationPanel'
+import Query from './methodsQueryAnnotationPanel.js'
 Query(AnnotationPanel)
 
-import Event from './methodsEventAnnotationPanel'
+import Event from './methodsEventAnnotationPanel.js'
 Event(AnnotationPanel)
 
-import Resize from './methodsResizeAnnotationPanel'
+import Resize from './methodsResizeAnnotationPanel.js'
 Resize(AnnotationPanel)
+
+import methodTutorialAnnotationPanel from './methodTutorialAnnotationPanel.js'
+methodTutorialAnnotationPanel(AnnotationPanel)
 
 export default AnnotationPanel

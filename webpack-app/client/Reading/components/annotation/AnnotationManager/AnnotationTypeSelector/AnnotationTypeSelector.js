@@ -111,6 +111,8 @@ let AnnotationTypeSelector = {
         //PACORTestManager.log('selectcollapsed')
         this.selection = null
       })
+      
+      this.setupTutorial()
     },
     addAnnotation: function (type) {
       //console.log('clickItem', type)
@@ -174,5 +176,8 @@ let AnnotationTypeSelector = {
     }
   } // methods
 }
+
+import methodTutorialAnnotationTypeSelector from './methodTutorialAnnotationTypeSelector.js'
+methodTutorialAnnotationTypeSelector(AnnotationTypeSelector)
 
 export default AnnotationTypeSelector

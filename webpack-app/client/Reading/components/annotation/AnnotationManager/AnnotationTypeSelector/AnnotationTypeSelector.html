@@ -26,7 +26,8 @@
       v-bind:idx="i"
       v-bind:title="$t('ANNOTATION_TYPE.' + module.type)"
       v-bind:icon="module.style.button.icon"
-      v-bind:btnColor="module.style.button.backgroundColor">
+      v-bind:btnColor="module.style.button.backgroundColor"
+      v-bind:class="module.type">
     </fab-item>
 
     <fab-item 
