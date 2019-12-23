@@ -193,7 +193,7 @@ import 'tippy.js/themes/light.css';
         }, 100)
       }
 
-      jQueryGuide.prototype.animate = function(callback) {
+      jQueryGuide.prototype.animate = async function (callback) {
         let action = this.actionList[this.step.current];
         //this.layout.glow.fadeOut('fast')
         this.layout.glow.hide()
@@ -207,6 +207,9 @@ import 'tippy.js/themes/light.css';
         
         
         let element = action.element
+        if (typeof(element) === 'function') {
+          element = await element()
+        }
         if (typeof(element.$el) === 'object') {
           element = element.$el
         }

@@ -18,6 +18,7 @@ let IndividualReading = {
     this.initComponentToLib()
     
     //this._testSearch()  // for test
+    this._testTutorial()
   },
   destroyed () {
     //console.log('退場了')
@@ -49,28 +50,13 @@ let IndividualReading = {
       this.lib.auth.nextStep()
     },
     
-    // -----------------------------------------------------
-    
-    _testSearch () {
-      if (!this.lib.AnnotationPanel) {
-        setTimeout(() => {
-          this._testSearch()
-        }, 100)
-        return
-      }
-      
-      this.status.search.keyword = "我"
-      
-      // 先設定篩選條件
-      this.lib.AnnotationPanel.findKeyword(this.status.search.keyword)
-      
-      // 再來顯示
-      this.lib.AnnotationPanel.setAnchorPositions()
-    },
     showInstruction() {
       this.$refs.InstructionMessage.show()
     }
   } // methods
 }
+
+import methodsTestIndividualReading from './methodsTestIndividualReading.js'
+methodsTestIndividualReading(IndividualReading)
 
 export default IndividualReading

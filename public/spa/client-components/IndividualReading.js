@@ -591,6 +591,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NavigationItems/NavigationItems.vue */ "./webpack-app/client/Reading/IndividualReading/NavigationItems/NavigationItems.vue");
+/* harmony import */ var _methodsTestIndividualReading_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsTestIndividualReading.js */ "./webpack-app/client/Reading/IndividualReading/methodsTestIndividualReading.js");
 
 //const NavigationItems = require('./NavigationItems/NavigationItems.vue').default
 
@@ -611,6 +612,7 @@ let IndividualReading = {
     this.initComponentToLib()
     
     //this._testSearch()  // for test
+    this._testTutorial()
   },
   destroyed () {
     //console.log('退場了')
@@ -642,29 +644,14 @@ let IndividualReading = {
       this.lib.auth.nextStep()
     },
     
-    // -----------------------------------------------------
-    
-    _testSearch () {
-      if (!this.lib.AnnotationPanel) {
-        setTimeout(() => {
-          this._testSearch()
-        }, 100)
-        return
-      }
-      
-      this.status.search.keyword = "我"
-      
-      // 先設定篩選條件
-      this.lib.AnnotationPanel.findKeyword(this.status.search.keyword)
-      
-      // 再來顯示
-      this.lib.AnnotationPanel.setAnchorPositions()
-    },
     showInstruction() {
       this.$refs.InstructionMessage.show()
     }
   } // methods
 }
+
+
+Object(_methodsTestIndividualReading_js__WEBPACK_IMPORTED_MODULE_1__["default"])(IndividualReading)
 
 /* harmony default export */ __webpack_exports__["default"] = (IndividualReading);
 
@@ -1318,6 +1305,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/IndividualReading/methodsTestIndividualReading.js":
+/*!**************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/IndividualReading/methodsTestIndividualReading.js ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (IndividualReading) {
+
+
+  // -----------------------------------------------------
+
+  IndividualReading.methods._testSearch = function () {
+    if (!this.lib.AnnotationPanel) {
+      setTimeout(() => {
+        this._testSearch()
+      }, 100)
+      return
+    }
+
+    this.status.search.keyword = "我"
+
+    // 先設定篩選條件
+    this.lib.AnnotationPanel.findKeyword(this.status.search.keyword)
+
+    // 再來顯示
+    this.lib.AnnotationPanel.setAnchorPositions()
+  }
+
+  IndividualReading.methods._testTutorial = async function () {
+
+    await this.lib.VueHelper.sleep(3000)
+
+    this.lib.TutorialManager.start()
+  }
+
+});
 
 /***/ })
 

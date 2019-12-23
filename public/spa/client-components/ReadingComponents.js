@@ -5930,14 +5930,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AnnotationTypeSelector_AnnotationTypeSelector_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AnnotationTypeSelector/AnnotationTypeSelector.vue */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/AnnotationTypeSelector.vue");
 /* harmony import */ var _AnnotationFloatWidget_AnnotationFloatWidget_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AnnotationFloatWidget/AnnotationFloatWidget.vue */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.vue");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _methodTutorialAnnotationManager_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodTutorialAnnotationManager.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/methodTutorialAnnotationManager.js");
 //import RangyManager from './RangyManager/RangyManager.vue'
 
 //import AnnotationPanel from './AnnotationPanel/AnnotationPanel.vue'
 
 //import SectionAnnotationManager from './SectionAnnotationManager/SectionAnnotationManager.vue'
-
 
 let reloadCount = 0
 
@@ -6133,45 +6131,12 @@ let AnnotationManager = {
       //console.log('哈囉？', this.afterTime)
       this.loadHighlights()
     },
-    setupTutorial () {
-      if (this.tutorialInited === true) {
-        return false
-      }
-      
-      this.tutorialInited = true
-      
-      if (this.lib.auth.isEnableCollaboration) {
-        this.setupTutorialCollaborationReading()
-      }
-      else {
-        this.setupTutorialIndividualReading()
-      }
-    },
-    setupTutorialCollaborationReading () {
-      this.lib.TutorialManager.addAction(() => {
-        let element = jquery__WEBPACK_IMPORTED_MODULE_2___default()(`[data-pacor-paragraph-seq-id] [data-pacor-highlight][class^="others-"]`)
-        if (element.length === 0) {
-          element = jquery__WEBPACK_IMPORTED_MODULE_2___default()(`[data-pacor-paragraph-seq-id] [data-pacor-highlight]`)
-        }
-        
-        if (element.length === 0) {
-          return undefined
-        }
-        element = element.parents('[data-pacor-paragraph-seq-id]:first')
-        
-        return {
-          element,
-          content: this.$t(`You can read other's annotations.`),
-          scroll: 'start',
-          order: 1
-        }
-      })
-    },
-    setupTutorialIndividualReading () {
-      throw new Error('@TODO')
-    }
+    
   } // methods
 }
+
+
+Object(_methodTutorialAnnotationManager_js__WEBPACK_IMPORTED_MODULE_2__["default"])(AnnotationManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (AnnotationManager);
 
@@ -6548,6 +6513,98 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationTypeSelector_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationManager_5CAnnotationTypeSelector_5CAnnotationTypeSelector_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationTypeSelector_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationManager_5CAnnotationTypeSelector_5CAnnotationTypeSelector_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationTypeSelector_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationManager_5CAnnotationTypeSelector_5CAnnotationTypeSelector_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationTypeSelector_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationManager_5CAnnotationTypeSelector_5CAnnotationTypeSelector_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationTypeSelector_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationManager_5CAnnotationTypeSelector_5CAnnotationTypeSelector_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationManager/methodTutorialAnnotationManager.js":
+/*!***************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationManager/methodTutorialAnnotationManager.js ***!
+  \***************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (AnnotationManager) {
+  AnnotationManager.methods.setupTutorial = function () {
+      if (this.tutorialInited === true) {
+        return false
+      }
+      
+      this.tutorialInited = true
+      
+      if (this.lib.auth.isEnableCollaboration) {
+        this.setupTutorialCollaborationReading()
+      }
+      else {
+        this.setupTutorialIndividualReading()
+      }
+    }
+    AnnotationManager.methods.setupTutorialCollaborationReading = function () {
+//      this.lib.TutorialManager.addAction(() => {
+//        let element = $(`[data-pacor-paragraph-seq-id] [data-pacor-highlight][class^="others-"]`)
+//        if (element.length === 0) {
+//          element = $(`[data-pacor-paragraph-seq-id] [data-pacor-highlight]`)
+//        }
+//        
+//        if (element.length === 0) {
+//          return undefined
+//        }
+//        element = element.parents('[data-pacor-paragraph-seq-id]:first')
+//        
+//        return {
+//          element,
+//          content: this.$t(`You can read other's annotations.`),
+//          scroll: 'start',
+//          order: 1
+//        }
+//      })
+      
+      this.lib.TutorialManager.addAction({
+        element: () => {
+          let element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-pacor-paragraph-seq-id] [data-pacor-highlight][class^="others-"]`)
+          if (element.length === 0) {
+            element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-pacor-paragraph-seq-id] [data-pacor-highlight]`)
+          }
+
+          if (element.length === 0) {
+            return undefined
+          }
+          element = element.parents('[data-pacor-paragraph-seq-id]:first')
+          return element
+        },
+        content: this.$t(`You can read other's annotations.`),
+        scroll: 'start',
+        order: 1
+      })
+      
+//      this.lib.TutorialManager.addAction(() => {
+//        let element = $(`[data-pacor-paragraph-seq-id] [data-pacor-highlight][class^="others-"]`)
+//        if (element.length === 0) {
+//          element = $(`[data-pacor-paragraph-seq-id] [data-pacor-highlight]`)
+//        }
+//        
+//        if (element.length === 0) {
+//          return undefined
+//        }
+//        element = element.parents('[data-pacor-paragraph-seq-id]:first')
+//        
+//        return {
+//          element,
+//          content: this.$t(`You can read other's annotations.`),
+//          scroll: 'start',
+//          order: 1
+//        }
+//      })
+    }
+    AnnotationManager.methods.setupTutorialIndividualReading = function () {
+      throw new Error('@TODO')
+    }
+});
 
 /***/ }),
 
