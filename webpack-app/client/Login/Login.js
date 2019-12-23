@@ -145,7 +145,7 @@ let Login = {
       this.password = ''
     },
     createMockupUsername () {
-      this.username = '布丁' + (new Date()).getTime()
+      this.username = 'Anonymous-' + (new Date()).getTime().toString(36)
       this.password = ''
       this.adminMode = false
     },

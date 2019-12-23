@@ -118,7 +118,7 @@ let AnnotationHelper = {
       //console.log(annotation.user)
     }
     
-    if (!annotation.updated_at_unixms) {
+    if (annotation.id && !annotation.updated_at_unixms) {
       annotation.updated_at_unixms = (new Date()).getTime()
     }
   }

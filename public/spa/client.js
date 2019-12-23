@@ -5222,7 +5222,7 @@ let Login = {
       this.password = ''
     },
     createMockupUsername () {
-      this.username = '布丁' + (new Date()).getTime()
+      this.username = 'Anonymous-' + (new Date()).getTime().toString(36)
       this.password = ''
       this.adminMode = false
     },
@@ -13260,7 +13260,7 @@ let AnnotationHelper = {
       //console.log(annotation.user)
     }
     
-    if (!annotation.updated_at_unixms) {
+    if (annotation.id && !annotation.updated_at_unixms) {
       annotation.updated_at_unixms = (new Date()).getTime()
     }
   }
