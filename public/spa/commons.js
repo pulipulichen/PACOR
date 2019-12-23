@@ -1090,7 +1090,12 @@ var render = function() {
         ],
         ref: "Menu",
         staticClass: "ui borderless inverted Navigation horizontal-menu",
-        class: _vm.computedTopMenuClass
+        class: _vm.computedTopMenuClass,
+        on: {
+          click: function($event) {
+            return _vm.$emit("click")
+          }
+        }
       },
       [
         _vm.lib.style.isLeftHanded
@@ -5950,6 +5955,9 @@ let DayJSHelper = {
     return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(unixMS).format('YYYY-MM-DD HH:mm:ss')
   },
   formatHHMMSS: function (seconds) {
+    if (typeof(seconds) !== 'number') {
+      return seconds
+    }
     if (seconds < 60) {
       return seconds
     }
@@ -5964,7 +5972,7 @@ let DayJSHelper = {
       let hh = Math.floor(seconds / 3600)
       let mm = Math.floor((seconds % 3600) / 60)
       let ss = seconds % 60
-      console.log(hh,mm,ss)
+      //console.log(hh,mm,ss)
       return this._prefixZero(hh) 
               + ':' 
               + this._prefixZero(mm) 

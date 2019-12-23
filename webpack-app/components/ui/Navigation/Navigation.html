@@ -2,7 +2,8 @@
   <div class="ui borderless inverted Navigation horizontal-menu"
        ref="Menu"
        v-bind:class="computedTopMenuClass"
-       v-show="isVisible !== false">
+       v-show="isVisible !== false"
+       v-on:click="$emit('click')">
     
     <media v-bind:query="{maxWidth: maxWidth}"
            v-if="lib.style.isLeftHanded">

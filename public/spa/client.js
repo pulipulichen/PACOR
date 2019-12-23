@@ -3276,17 +3276,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.dataRemainingSec > 0
-    ? _c("span", { staticClass: "CountdownTimer" }, [
-        _vm._v(
-          "\r\n  " +
-            _vm._s(_vm.$t("Remaining Time")) +
-            ":\r\n  " +
-            _vm._s(_vm.dataRemainingTime) +
-            "\r\n"
-        )
-      ])
-    : _vm._e()
+  return _c("span", { staticClass: "CountdownTimer" }, [
+    _vm._v(
+      "\r\n  " +
+        _vm._s(_vm.$t("Remaining Time")) +
+        ":\r\n  " +
+        _vm._s(_vm.dataRemainingTime) +
+        "\r\n"
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

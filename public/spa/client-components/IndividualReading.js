@@ -275,6 +275,11 @@ var render = function() {
               color: "brown",
               isVisible: _vm.normalMenuDisplay
             },
+            on: {
+              click: function($event) {
+                _vm.normalMenuDisplay = false
+              }
+            },
             scopedSlots: _vm._u(
               [
                 {
@@ -781,6 +786,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_media__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_media__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _methodsTutorialCompactNavigation_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsTutorialCompactNavigation.js */ "./webpack-app/client/Reading/IndividualReading/NavigationItems/CompactNavigation/methodsTutorialCompactNavigation.js");
 
 
 
@@ -882,6 +888,9 @@ let CompactNavigation = {
 //    }
   } // methods
 }
+
+
+Object(_methodsTutorialCompactNavigation_js__WEBPACK_IMPORTED_MODULE_3__["default"])(CompactNavigation)
 
 /* harmony default export */ __webpack_exports__["default"] = (CompactNavigation);
 
@@ -1124,6 +1133,30 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "webpack-app/client/Reading/IndividualReading/NavigationItems/CompactNavigation/ReadingProgressIndicator/ReadingProgressIndicator.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/IndividualReading/NavigationItems/CompactNavigation/methodsTutorialCompactNavigation.js":
+/*!****************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/IndividualReading/NavigationItems/CompactNavigation/methodsTutorialCompactNavigation.js ***!
+  \****************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (CompactNavigation) {
+  CompactNavigation.methods.setupTutorial = function () {
+    // 不，暫時好像還不需要啊
+    
+//    this.lib.TutorialManager.addAction({
+//      element: () => {
+//        
+//      },
+//      content: this.$t(``)
+//    })
+  }
+});
 
 /***/ }),
 

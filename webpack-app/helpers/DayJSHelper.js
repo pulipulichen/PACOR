@@ -111,6 +111,9 @@ let DayJSHelper = {
     return dayjs(unixMS).format('YYYY-MM-DD HH:mm:ss')
   },
   formatHHMMSS: function (seconds) {
+    if (typeof(seconds) !== 'number') {
+      return seconds
+    }
     if (seconds < 60) {
       return seconds
     }
@@ -125,7 +128,7 @@ let DayJSHelper = {
       let hh = Math.floor(seconds / 3600)
       let mm = Math.floor((seconds % 3600) / 60)
       let ss = seconds % 60
-      console.log(hh,mm,ss)
+      //console.log(hh,mm,ss)
       return this._prefixZero(hh) 
               + ':' 
               + this._prefixZero(mm) 

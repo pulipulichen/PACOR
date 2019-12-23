@@ -100,4 +100,7 @@ let CompactNavigation = {
   } // methods
 }
 
+import methodsTutorialCompactNavigation from './methodsTutorialCompactNavigation.js'
+methodsTutorialCompactNavigation(CompactNavigation)
+
 export default CompactNavigation

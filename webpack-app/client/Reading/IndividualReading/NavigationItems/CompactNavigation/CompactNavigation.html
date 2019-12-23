@@ -43,7 +43,8 @@
     v-bind:compactWidth="compactWidth"
     position="bottom"
     color="brown"
-    v-bind:isVisible="normalMenuDisplay">
+    v-bind:isVisible="normalMenuDisplay"
+    v-on:click="normalMenuDisplay = false">
     <template v-slot:header>
       <slot name="header"></slot>
     </template>
