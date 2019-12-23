@@ -177,42 +177,10 @@ let SectionManager = {
       
       return annotation
     },
-    setupTutorial () {
-      
-      if (this.lib.auth.isEnableCollaboration) {
-        this.lib.TutorialManager.addAction(() => {
-          let item = $(`[data-section-id].SectionPanel .AnnotationItem[data-user-id!="${this.status.userID}"]:visible:first`) 
-          let panel
-          if (item.length > 0) {
-            panel = item.parents('.SectionPanel:first')
-          }
-          else {
-            panel = $(`[data-section-id].SectionPanel:visible:first`)
-          }
-
-          return {
-            element: panel,
-            content: this.$t(`You can see others' section main ideas.`),
-            scroll: 'start',
-            order: 21
-          }
-        })
-      }
-      else {
-        this.lib.TutorialManager.addAction(() => {
-          
-          let panel = $(`[data-section-id].SectionPanel:visible:first`)
-          
-          return {
-            element: panel,
-            content: this.$t(`After reading a section of the article, you have to finish the checklist.`),
-            scroll: 'start',
-            order: 21
-          }
-        })
-      }
-    }
   } // methods
 }
+
+import methodsTutorialSectionManager from './methodsTutorialSectionManager.js'
+methodsTutorialSectionManager(SectionManager)
 
 export default SectionManager

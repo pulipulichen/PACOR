@@ -329,7 +329,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can see others\u0027 section main ideas.":"您可以看到別人撰寫的小節重點標註了。","After reading a section of the article, you have to finish the checklist.":"在讀完一個小節之後，請您完成這個小節的檢核單。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can see others\u0027 section main ideas.":"您可以看到別人撰寫的小節重點標註了。","After reading a section of the article, you have to finish the section checklist.":"在讀完一個小節之後，請您完成這個小節的檢核單。","When you finish all section checklists, you will go to next step.":"當您完成所有小節檢核單之後，您將會前往下一個閱讀階段。"}}')
   delete Component.options._Ctor
 }
 
@@ -23655,6 +23655,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _SectionPanel_SectionPanel_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SectionPanel/SectionPanel.vue */ "./webpack-app/client/Reading/components/annotation/SectionManager/SectionPanel/SectionPanel.vue");
+/* harmony import */ var _methodsTutorialSectionManager_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsTutorialSectionManager.js */ "./webpack-app/client/Reading/components/annotation/SectionManager/methodsTutorialSectionManager.js");
 
 
 
@@ -23834,43 +23835,11 @@ let SectionManager = {
       
       return annotation
     },
-    setupTutorial () {
-      
-      if (this.lib.auth.isEnableCollaboration) {
-        this.lib.TutorialManager.addAction(() => {
-          let item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel .AnnotationItem[data-user-id!="${this.status.userID}"]:visible:first`) 
-          let panel
-          if (item.length > 0) {
-            panel = item.parents('.SectionPanel:first')
-          }
-          else {
-            panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
-          }
-
-          return {
-            element: panel,
-            content: this.$t(`You can see others' section main ideas.`),
-            scroll: 'start',
-            order: 21
-          }
-        })
-      }
-      else {
-        this.lib.TutorialManager.addAction(() => {
-          
-          let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
-          
-          return {
-            element: panel,
-            content: this.$t(`After reading a section of the article, you have to finish the checklist.`),
-            scroll: 'start',
-            order: 21
-          }
-        })
-      }
-    }
   } // methods
 }
+
+
+Object(_methodsTutorialSectionManager_js__WEBPACK_IMPORTED_MODULE_2__["default"])(SectionManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (SectionManager);
 
@@ -24983,6 +24952,76 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "webpack-app/client/Reading/components/annotation/SectionManager/SectionPanel/SectionPanel.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/SectionManager/methodsTutorialSectionManager.js":
+/*!**********************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/SectionManager/methodsTutorialSectionManager.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (SectionManager) {
+    SectionManager.methods.setupTutorial = function () {
+        
+      if (this.lib.auth.isEnableCollaboration) {
+        this.setupTutorialCollaborativeReading()
+      }
+      else {
+        this.setupTutorialIndividualReading()
+      }
+    }
+
+    SectionManager.methods.setupTutorialCollaborativeReading = function () {
+        this.lib.TutorialManager.addAction(() => {
+          let item = $(`[data-section-id].SectionPanel .AnnotationItem[data-user-id!="${this.status.userID}"]:visible:first`) 
+          let panel
+          if (item.length > 0) {
+            panel = item.parents('.SectionPanel:first')
+          }
+          else {
+            panel = $(`[data-section-id].SectionPanel:visible:first`)
+          }
+
+          return {
+            element: panel,
+            content: this.$t(`You can see others' section main ideas.`),
+            scroll: 'start',
+            order: 21
+          }
+        })
+    }
+    
+    SectionManager.methods.setupTutorialIndividualReading = function () {
+        this.lib.TutorialManager.addAction(() => {
+          
+          let panel = $(`[data-section-id].SectionPanel:visible:first`)
+          
+          return {
+            element: panel,
+            content: this.$t(`After reading a section of the article, you have to finish the section checklist.`),
+            scroll: 'start',
+            order: 21
+          }
+        })
+        
+        this.lib.TutorialManager.addAction(() => {
+          
+          let panel = $(`[data-section-id].SectionPanel:visible:last`)
+          
+          return {
+            element: panel,
+            content: this.$t(`When you finish all section checklists, you will go to next step.`),
+            scroll: 'start',
+            order: 22
+          }
+        })
+        
+    }
+});
 
 /***/ }),
 
