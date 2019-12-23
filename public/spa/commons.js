@@ -1181,6 +1181,7 @@ var render = function() {
     _c(
       "div",
       {
+        ref: "SideMenu",
         staticClass: "vertical-menu ui inverted",
         class: _vm.computedVerticalMenuClass
       },
@@ -5338,11 +5339,14 @@ let Navigation = {
     removePlaceholder: function () {
       this.placeholder.remove()
     },
-    showSideMenu: function () {
+    showSideMenu: async function () {
+      console.log('showSideMenu')
       this.sideMenuDisplay = true
+      await this.lib.VueHelper.sleep(500)
     },
-    hideSideMenu: function () {
+    hideSideMenu: async function () {
       this.sideMenuDisplay = false
+      await this.lib.VueHelper.sleep(500)
     }
     
   } // methods

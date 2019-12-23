@@ -6572,9 +6572,11 @@ __webpack_require__.r(__webpack_exports__);
           }
 
           if (element.length === 0) {
+            //console.log('沒找到')
             return undefined
           }
           element = element.parents('[data-pacor-paragraph-seq-id]:first')
+          //console.log(element)
           return element
         },
         content: this.$t(`You can read other's annotations.`),

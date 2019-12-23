@@ -279,13 +279,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _methodsTutorialNavigationItems_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./methodsTutorialNavigationItems.js */ "./webpack-app/client/Reading/CollaborativeReading/NavigationItems/methodsTutorialNavigationItems.js");
 //import NotificationIcon from './../../components/manager/NotificationManager/NotificationIcon/NotificationIcon.vue'
 //import UserFilter from './../../components/search/UserFilter/UserFilter.vue'
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
-
-
 
 let NavigationItems = {
   props: ['lib', 'status', 'config'],
@@ -305,7 +302,8 @@ let NavigationItems = {
     return {
       pauseAtStart,
       isSideMenuDisplay: false,
-      menu: null
+      menu: null,
+      sideMenu: null
     }
   },
   components: {
@@ -364,53 +362,15 @@ let NavigationItems = {
     },
     hideSideMenu () {
       this.$refs.nav.hideSideMenu()
-    },
-    getMenu () {
-      if (!this.menu 
-              && this.$refs.nav) {
-        this.menu = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.nav.$refs.Menu)
-      }
-      return this.menu
-    },
-    setupTutorial () {
-      this.lib.TutorialManager.addAction(() => {
-        //console.log(this.getMenu().find('.NotificationIcon:visible:first').length)
-        return {
-          element: this.getMenu().find('.NotificationIcon:visible:first'),
-          content: this.$t(`You will get notifications from other readers here.`),
-          order: 32
-        }
-      })
-      
-      this.lib.TutorialManager.addAction(() => {
-        return {
-          element: this.getMenu().find('.UserFilter:visible:first'),
-          content: this.$t('You can select a peer and watch what he/she read.'),
-          order: 33
-        }
-      })
-      
-      this.lib.TutorialManager.addAction(() => {
-        return {
-          element: this.getMenu().find('.AnnotationTypeFilter:visible:first'),
-          content: this.$t('You can choose a type of annotations to read.'),
-          order: 34
-        }
-      })
-      
-      this.lib.TutorialManager.addAction(() => {
-        return {
-          element: this.$refs.DigitalCountdownTimer,
-          content: this.$t('Collaborative Reading will end at count to 0.'),
-          order: 39
-        }
-      })
     }
 //    nextStep () {
 //      this.lib.auth.nextStep()
 //    }
   } // methods
 }
+
+
+Object(_methodsTutorialNavigationItems_js__WEBPACK_IMPORTED_MODULE_0__["default"])(NavigationItems)
 
 /* harmony default export */ __webpack_exports__["default"] = (NavigationItems);
 
@@ -503,6 +463,90 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CCollaborativeReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CCollaborativeReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CCollaborativeReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CCollaborativeReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CCollaborativeReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/CollaborativeReading/NavigationItems/methodsTutorialNavigationItems.js":
+/*!***********************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/CollaborativeReading/NavigationItems/methodsTutorialNavigationItems.js ***!
+  \***********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (NavigationItems) {
+  NavigationItems.methods.getMenu = function () {
+    if (!this.menu
+            && this.$refs.nav) {
+      this.menu = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.nav.$refs.Menu)
+    }
+    return this.menu
+  }
+  
+  NavigationItems.methods.getSideMenu = function () {
+    if (!this.sideMenu
+            && this.$refs.nav) {
+      this.sideMenu = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.nav.$refs.SideMenu)
+    }
+    return this.sideMenu
+  }
+
+  NavigationItems.methods.setupTutorial = function () {
+    
+    this.lib.TutorialManager.addAction({
+      element: () => {
+        return this.getMenu().find('.NotificationIcon:visible:first')
+      },
+      content: this.$t(`You will get notifications from other readers here.`),
+      order: 32
+    })
+
+    this.lib.TutorialManager.addAction({
+      element: async () => {
+        let menu = this.getMenu()
+        let element = menu.find('.UserFilter:visible:first')
+        //console.log(element.length)
+        if (element.length === 0) {
+          await this.$refs.nav.showSideMenu()
+          let sideMenu = this.getSideMenu()
+          element = sideMenu.find('.UserFilter:visible:first')
+        }
+        return element
+      },
+      content: this.$t('You can select a peer and watch what he/she read.'),
+      order: 33
+    })
+
+    this.lib.TutorialManager.addAction({
+      element: () => {
+        let element = this.getMenu().find('.AnnotationTypeFilter:visible:first')
+        if (element.length === 0) {
+          let sideMenu = this.getSideMenu()
+          element = sideMenu.find('.AnnotationTypeFilter:visible:first')
+        }
+        return element
+      },
+      content: this.$t('You can choose a type of annotations to read.'),
+      order: 34
+    })
+
+    this.lib.TutorialManager.addAction({
+      element: async () => {
+        if (this.$refs.nav.sideMenuDisplay === true) {
+          await this.$refs.nav.hideSideMenu()
+        }
+        return this.$refs.DigitalCountdownTimer
+      },
+      content: this.$t('Collaborative Reading will end at count to 0.'),
+      order: 39
+    })
+  }
+});
 
 /***/ }),
 

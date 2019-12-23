@@ -10206,16 +10206,16 @@ let TutorialManager = {
         
         //console.log(action)
         
-        if (action.element) {
-//          if (action && !action.element) {
-//            //throw new Error('Element is not found', action)
+//        if (action.element) {
+////          if (action && !action.element) {
+////            //throw new Error('Element is not found', action)
+////          }
+//          
+//          if (typeof(action.element.$el) === 'object') {
+//            action.element = action.element.$el
 //          }
-
-          if (typeof(action.element.$el) === 'object') {
-            action.element = action.element.$el
-          }
-          action.element = jquery__WEBPACK_IMPORTED_MODULE_1___default()(action.element)
-        }
+//          action.element = $(action.element)
+//        }
         
         if (typeof(action.order) !== 'number') {
           action.order = 999
@@ -10585,14 +10585,16 @@ __webpack_require__.r(__webpack_exports__);
           _this: this
         }
         
+        //console.log(action.content)
+        //console.log(action.element)
+        if (typeof(action.element) === 'function') {
+          action.element = await action.element()
+        }
+        if (typeof(action.element.$el) === 'object') {
+          action.element = $(action.element.$el)
+        }
         
         let element = action.element
-        if (typeof(element) === 'function') {
-          element = await element()
-        }
-        if (typeof(element.$el) === 'object') {
-          element = element.$el
-        }
         if (typeof(element.scrollIntoView) !== 'function'
                 && element[0]
                 && typeof(element[0].scrollIntoView) === 'function') {
@@ -10616,7 +10618,7 @@ __webpack_require__.r(__webpack_exports__);
           })
         }
         else if (action.scroll === 'start') {
-          let elementTop = action.element.offset().top
+          let elementTop = $(element).offset().top
           let padding = 150
           if (padding > (window.innerHeight / 3)) {
             padding = (window.innerHeight / 3)

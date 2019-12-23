@@ -78,16 +78,16 @@ let TutorialManager = {
         
         //console.log(action)
         
-        if (action.element) {
-//          if (action && !action.element) {
-//            //throw new Error('Element is not found', action)
+//        if (action.element) {
+////          if (action && !action.element) {
+////            //throw new Error('Element is not found', action)
+////          }
+//          
+//          if (typeof(action.element.$el) === 'object') {
+//            action.element = action.element.$el
 //          }
-
-          if (typeof(action.element.$el) === 'object') {
-            action.element = action.element.$el
-          }
-          action.element = $(action.element)
-        }
+//          action.element = $(action.element)
+//        }
         
         if (typeof(action.order) !== 'number') {
           action.order = 999

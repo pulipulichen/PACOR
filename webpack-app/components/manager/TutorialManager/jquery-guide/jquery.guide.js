@@ -205,14 +205,16 @@ import 'tippy.js/themes/light.css';
           _this: this
         }
         
+        //console.log(action.content)
+        //console.log(action.element)
+        if (typeof(action.element) === 'function') {
+          action.element = await action.element()
+        }
+        if (typeof(action.element.$el) === 'object') {
+          action.element = $(action.element.$el)
+        }
         
         let element = action.element
-        if (typeof(element) === 'function') {
-          element = await element()
-        }
-        if (typeof(element.$el) === 'object') {
-          element = element.$el
-        }
         if (typeof(element.scrollIntoView) !== 'function'
                 && element[0]
                 && typeof(element[0].scrollIntoView) === 'function') {
@@ -236,7 +238,7 @@ import 'tippy.js/themes/light.css';
           })
         }
         else if (action.scroll === 'start') {
-          let elementTop = action.element.offset().top
+          let elementTop = $(element).offset().top
           let padding = 150
           if (padding > (window.innerHeight / 3)) {
             padding = (window.innerHeight / 3)
