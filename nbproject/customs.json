@@ -89,16 +89,17 @@
     "domain-edit-admin": {},
     "modal": {
       "attributes": {
-        "v-bind:error": {},
-        "v-bind:contentURL": {},
         "cancelable": {},
         "v-bind:fullContent": {},
         "v-bind:status": {},
+        "v-on:hide": {},
+        "dimmer": {},
+        "v-bind:error": {},
+        "v-bind:contentURL": {},
         "v-bind:config": {},
         "v-bind:cancelable": {},
         "v-bind:progress": {},
         "dimmerTransparent": {},
-        "v-on:hide": {},
         "v-bind:cancelButtonText": {},
         "cancelButtonText": {}
       }

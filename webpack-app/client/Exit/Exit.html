@@ -1,4 +1,4 @@
-<div>
+<div class='Exit'>
   <modal 
     class="ExitModal"
     ref="ExitModal"
@@ -6,7 +6,7 @@
     v-bind:status="status"
     v-bind:progress="progress"
     v-bind:lib="lib"
-    dimmerTransparent="false"
+    dimmer="transparent"
     cancelable="false">
     <template v-slot:header>
       {{ $t('Thank you for your reading') }}
@@ -31,4 +31,10 @@
            v-on:click="exit">{{ $t('CLOSE WINDOW') }}</div>
     </template>
   </modal>
+  
+  <div class="firework-overlay">
+    <div class="firework-container"
+         ref="FireworkOverlay">
+    </div>
+  </div>
 </div>

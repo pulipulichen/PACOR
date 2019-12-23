@@ -86,7 +86,7 @@ var render = function() {
           config: _vm.config,
           status: _vm.status,
           lib: _vm.lib,
-          dimmerTransparent: "false",
+          dimmer: "opaque",
           cancelable: "false"
         },
         scopedSlots: _vm._u([
@@ -238,7 +238,7 @@ var render = function() {
           config: _vm.config,
           status: _vm.status,
           lib: _vm.lib,
-          dimmerTransparent: "false",
+          dimmer: "opaque",
           cancelable: "false"
         },
         scopedSlots: _vm._u([

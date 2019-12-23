@@ -203,7 +203,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".non-invasive-web-style-framework.dimmable > .ui.dimmer.opaque {\n  background-color: black !important;\n}\n", "",{"version":3,"sources":["Modal.global.less?vue&type=style&index=0&lang=less&"],"names":[],"mappings":"AAAA;EACE,kCAAkC;AACpC","file":"Modal.global.less?vue&type=style&index=0&lang=less&","sourcesContent":[".non-invasive-web-style-framework.dimmable > .ui.dimmer.opaque {\n  background-color: black !important;\n}\n"]}]);
+exports.push([module.i, ".non-invasive-web-style-framework.dimmable > .ui.dimmer.opaque {\n  background-color: black !important;\n}\n.non-invasive-web-style-framework.dimmable > .ui.dimmer.transparent {\n  background-color: transparent !important;\n}\n", "",{"version":3,"sources":["Modal.global.less?vue&type=style&index=0&lang=less&"],"names":[],"mappings":"AAAA;EACE,kCAAkC;AACpC;AACA;EACE,wCAAwC;AAC1C","file":"Modal.global.less?vue&type=style&index=0&lang=less&","sourcesContent":[".non-invasive-web-style-framework.dimmable > .ui.dimmer.opaque {\n  background-color: black !important;\n}\n.non-invasive-web-style-framework.dimmable > .ui.dimmer.transparent {\n  background-color: transparent !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -4926,7 +4926,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let Modal = {
   props: ['lib', 'status', 'config'
-    , 'cancelable', 'reset', 'dimmerTransparent', 'contentURL'
+    , 'cancelable', 'reset', 'dimmer', 'contentURL'
     , 'cancelButtonText', 'fullContent', 'disableOpenWindow'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -5031,10 +5031,14 @@ let Modal = {
           options.duration = 0
         }
         
-        if (this.dimmerTransparent === 'false' 
-                || this.dimmerTransparent === false) {
+        if (this.dimmer === 'opaque') {
           options.dimmerSettings= {
             dimmerName: 'opaque'
+          }
+        }
+        else if (this.dimmer === 'transparent') {
+          options.dimmerSettings= {
+            dimmerName: 'transparent'
           }
         }
         

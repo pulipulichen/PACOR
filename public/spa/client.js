@@ -1159,7 +1159,7 @@ var render = function() {
           status: _vm.status,
           progress: _vm.progress,
           lib: _vm.lib,
-          dimmerTransparent: "false",
+          dimmer: "opaque",
           cancelable: "false",
           fullContent: true
         },

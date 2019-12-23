@@ -2,7 +2,7 @@ import $ from 'jquery'
 
 let Modal = {
   props: ['lib', 'status', 'config'
-    , 'cancelable', 'reset', 'dimmerTransparent', 'contentURL'
+    , 'cancelable', 'reset', 'dimmer', 'contentURL'
     , 'cancelButtonText', 'fullContent', 'disableOpenWindow'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -107,10 +107,14 @@ let Modal = {
           options.duration = 0
         }
         
-        if (this.dimmerTransparent === 'false' 
-                || this.dimmerTransparent === false) {
+        if (this.dimmer === 'opaque') {
           options.dimmerSettings= {
             dimmerName: 'opaque'
+          }
+        }
+        else if (this.dimmer === 'transparent') {
+          options.dimmerSettings= {
+            dimmerName: 'transparent'
           }
         }
         
