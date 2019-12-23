@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"In {0} step":"In {0} step"},"zh-TW":{"In {0} step":"在 {0} 階段","Collaborative Reading will end at count to 0.":"倒數計時到0的時候，協助閱讀就會結束。","You can select a peer and watch what he/she read.":"您可以選擇要協助的同儕。","You can choose a type of annotations to read.":"您可以選擇要顯示的標註類型。"}}')
+  Component.options.__i18n.push('{"en":{"In {0} step":"In {0} step"},"zh-TW":{"In {0} step":"在 {0} 階段","Collaborative Reading will end at count to 0.":"請注意，倒數計時到0的時候，協助閱讀階段就會結束。","You will get notifications from other readers here.":"您可以在這裡收到來自其他讀者的通知。","You can select a peer and watch what he/she read.":"您可以在這裡選擇要協助的同儕。","You can choose a type of annotations to read.":"您可以在這裡選擇要顯示的標註類型。"}}')
   delete Component.options._Ctor
 }
 
@@ -366,7 +366,8 @@ let NavigationItems = {
       this.$refs.nav.hideSideMenu()
     },
     getMenu () {
-      if (!this.menu) {
+      if (!this.menu 
+              && this.$refs.nav) {
         this.menu = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.nav.$refs.Menu)
       }
       return this.menu
@@ -376,7 +377,7 @@ let NavigationItems = {
         //console.log(this.getMenu().find('.NotificationIcon:visible:first').length)
         return {
           element: this.getMenu().find('.NotificationIcon:visible:first'),
-          content: this.$t('You will get notifications from other readers here.'),
+          content: this.$t(`You will get notifications from other readers here.`),
           order: 32
         }
       })

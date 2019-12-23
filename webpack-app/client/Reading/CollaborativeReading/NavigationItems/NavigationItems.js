@@ -83,7 +83,8 @@ let NavigationItems = {
       this.$refs.nav.hideSideMenu()
     },
     getMenu () {
-      if (!this.menu) {
+      if (!this.menu 
+              && this.$refs.nav) {
         this.menu = $(this.$refs.nav.$refs.Menu)
       }
       return this.menu
@@ -93,7 +94,7 @@ let NavigationItems = {
         //console.log(this.getMenu().find('.NotificationIcon:visible:first').length)
         return {
           element: this.getMenu().find('.NotificationIcon:visible:first'),
-          content: this.$t('You will get notifications from other readers here.'),
+          content: this.$t(`You will get notifications from other readers here.`),
           order: 32
         }
       })

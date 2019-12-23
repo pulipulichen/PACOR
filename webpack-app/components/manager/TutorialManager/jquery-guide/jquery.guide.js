@@ -9,7 +9,9 @@ import 'tippy.js/themes/light.css';
     var jQueryGuide;
     let scrollIntoView = false
     let currentScrollTop
+    let isStart = false
     $.guide = function(options) {
+      isStart = true
       var action, guide, _i, _len, _ref;
       guide = new jQueryGuide();
       if (options.actions !== void 0) {
@@ -43,7 +45,7 @@ import 'tippy.js/themes/light.css';
       
       //throw new Error('currentScrollTop')
       currentScrollTop = window.pageYOffset
-      console.log(currentScrollTop)
+      //console.log(currentScrollTop)
       
       guide.execAction();
       return guide;
@@ -167,6 +169,7 @@ import 'tippy.js/themes/light.css';
         $('body').removeClass('jquery-guide-prevent-scroll')
         if (typeof(glowTippy.destroy) === 'function') {
           glowTippy.destroy()
+          glowTippy = undefined
         }
         window.scrollTo({
           top: currentScrollTop,
@@ -174,6 +177,7 @@ import 'tippy.js/themes/light.css';
         })
         //console.log(currentScrollTop)
         currentScrollTop = undefined
+        isStart = false
         return this.layout.container.remove();
       };
 
@@ -300,9 +304,13 @@ import 'tippy.js/themes/light.css';
         let glow = _this.layout.glow
         let tippyInited = true
         if (action.content) {
+          if (isStart === false) {
+            return false
+          }
+          
           if (glow.attr('data-tippy-content') === undefined) {
             tippyInited = false
-          } 
+          }
           
           if (tippyInited === false) {
             glow.attr('data-tippy-content', action.content)
@@ -317,9 +325,7 @@ import 'tippy.js/themes/light.css';
             glowTippy.setContent(action.content)
           }
           
-          if (glowTippy.state.isDestroyed === false) {
-            glowTippy.show()
-          }
+          glowTippy.show()
         }
       }
 

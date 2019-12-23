@@ -1,6 +1,4 @@
 en:
-  TEST_MESSAGE: Test Message
   
 zh-TW:
-  # 這是註解
-  TEST_MESSAGE: 測試訊息
+  You can read other's annotations.: 您可以看到其他讀者的標註了。

@@ -10389,7 +10389,9 @@ __webpack_require__.r(__webpack_exports__);
     var jQueryGuide;
     let scrollIntoView = false
     let currentScrollTop
+    let isStart = false
     $.guide = function(options) {
+      isStart = true
       var action, guide, _i, _len, _ref;
       guide = new jQueryGuide();
       if (options.actions !== void 0) {
@@ -10423,7 +10425,7 @@ __webpack_require__.r(__webpack_exports__);
       
       //throw new Error('currentScrollTop')
       currentScrollTop = window.pageYOffset
-      console.log(currentScrollTop)
+      //console.log(currentScrollTop)
       
       guide.execAction();
       return guide;
@@ -10547,6 +10549,7 @@ __webpack_require__.r(__webpack_exports__);
         $('body').removeClass('jquery-guide-prevent-scroll')
         if (typeof(glowTippy.destroy) === 'function') {
           glowTippy.destroy()
+          glowTippy = undefined
         }
         window.scrollTo({
           top: currentScrollTop,
@@ -10554,6 +10557,7 @@ __webpack_require__.r(__webpack_exports__);
         })
         //console.log(currentScrollTop)
         currentScrollTop = undefined
+        isStart = false
         return this.layout.container.remove();
       };
 
@@ -10680,9 +10684,13 @@ __webpack_require__.r(__webpack_exports__);
         let glow = _this.layout.glow
         let tippyInited = true
         if (action.content) {
+          if (isStart === false) {
+            return false
+          }
+          
           if (glow.attr('data-tippy-content') === undefined) {
             tippyInited = false
-          } 
+          }
           
           if (tippyInited === false) {
             glow.attr('data-tippy-content', action.content)
@@ -10697,9 +10705,7 @@ __webpack_require__.r(__webpack_exports__);
             glowTippy.setContent(action.content)
           }
           
-          if (glowTippy.state.isDestroyed === false) {
-            glowTippy.show()
-          }
+          glowTippy.show()
         }
       }
 

@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can read other\u0027s annotations.":"您可以看到其他讀者的標註了。"}}')
   delete Component.options._Ctor
 }
 
@@ -329,7 +329,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can see others\u0027 section main ideas.":"您可以看到別人撰寫的小節重點標註"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can see others\u0027 section main ideas.":"您可以看到別人撰寫的小節重點標註了。"}}')
   delete Component.options._Ctor
 }
 
