@@ -13,6 +13,7 @@ let ErrorHandler = {
     error () {
       if (Array.isArray(this.errors)
               && this.errors.length > 0) {
+        console.error(this.errors[0])
         return this.errors[0]
       }
     },

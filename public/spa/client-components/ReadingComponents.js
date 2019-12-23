@@ -24964,6 +24964,10 @@ component.options.__file = "webpack-app/client/Reading/components/annotation/Sec
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 /* harmony default export */ __webpack_exports__["default"] = (function (SectionManager) {
     SectionManager.methods.setupTutorial = function () {
         
@@ -24977,13 +24981,13 @@ __webpack_require__.r(__webpack_exports__);
 
     SectionManager.methods.setupTutorialCollaborativeReading = function () {
         this.lib.TutorialManager.addAction(() => {
-          let item = $(`[data-section-id].SectionPanel .AnnotationItem[data-user-id!="${this.status.userID}"]:visible:first`) 
+          let item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel .AnnotationItem[data-user-id!="${this.status.userID}"]:visible:first`) 
           let panel
           if (item.length > 0) {
             panel = item.parents('.SectionPanel:first')
           }
           else {
-            panel = $(`[data-section-id].SectionPanel:visible:first`)
+            panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
           }
 
           return {
@@ -24998,7 +25002,7 @@ __webpack_require__.r(__webpack_exports__);
     SectionManager.methods.setupTutorialIndividualReading = function () {
         this.lib.TutorialManager.addAction(() => {
           
-          let panel = $(`[data-section-id].SectionPanel:visible:first`)
+          let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
           
           return {
             element: panel,
@@ -25010,7 +25014,7 @@ __webpack_require__.r(__webpack_exports__);
         
         this.lib.TutorialManager.addAction(() => {
           
-          let panel = $(`[data-section-id].SectionPanel:visible:last`)
+          let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:last`)
           
           return {
             element: panel,

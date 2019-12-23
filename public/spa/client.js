@@ -4392,13 +4392,14 @@ window.onerror = function(message, source, lineno, colno, error) {
   if (error === null) {
     error = message
   }
+  //console.error(error)
   VueController.data.errors.push(error)
 }
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].config.errorHandler  = function(err, vm, info) {
   //console.log(`errorHandler Error: ${err.stack}\nInfo: ${info}`);
+  //console.error(err)
   VueController.data.errors.push(err)
-  console.error(err)
 }
 
 // -----------------------
@@ -10388,6 +10389,9 @@ __webpack_require__.r(__webpack_exports__);
     let scrollIntoView = false
     let currentScrollTop
     let isStart = false
+    let $window = $(window)
+    let $body = $('body')
+    
     $.guide = function(options) {
       isStart = true
       var action, guide, _i, _len, _ref;
@@ -10405,12 +10409,12 @@ __webpack_require__.r(__webpack_exports__);
           return guide.next();
         };
       })(this));
-      $(window).resize((function(_this) {
+      $window.resize((function(_this) {
         return function() {
           return guide.draw();
         };
       })(this));
-      $(window).scroll((function(_this) {
+      $window.scroll((function(_this) {
         return function() {
           if (scrollIntoView === true) {
             return false
@@ -10419,7 +10423,7 @@ __webpack_require__.r(__webpack_exports__);
         };
       })(this));
       
-      $('body').addClass('jquery-guide-prevent-scroll')
+      $body.addClass('jquery-guide-prevent-scroll')
       
       //throw new Error('currentScrollTop')
       currentScrollTop = window.pageYOffset
@@ -10452,7 +10456,7 @@ __webpack_require__.r(__webpack_exports__);
             <div class="jquery-guide-glow"></div>
             <div class="jquery-guide-popup ui popup transition"></div>
         </div>`);
-        $('html > body').append(layout);
+        $body.append(layout);
         this.layout.container = $('#jQueryGuide' + layoutId);
         
 //        this.layout.container.on('scroll', function (event) {
@@ -10544,7 +10548,7 @@ __webpack_require__.r(__webpack_exports__);
       };
 
       jQueryGuide.prototype.exit = function() {
-        $('body').removeClass('jquery-guide-prevent-scroll')
+        $body.removeClass('jquery-guide-prevent-scroll')
         if (typeof(glowTippy.destroy) === 'function') {
           glowTippy.destroy()
           glowTippy = undefined
@@ -10571,6 +10575,7 @@ __webpack_require__.r(__webpack_exports__);
         }, 100)
       }
 
+      let actionElement
       jQueryGuide.prototype.animate = async function (callback) {
         let action = this.actionList[this.step.current];
         //this.layout.glow.fadeOut('fast')
@@ -10585,14 +10590,15 @@ __webpack_require__.r(__webpack_exports__);
         
         //console.log(action.content)
         //console.log(action.element)
-        if (typeof(action.element) === 'function') {
-          action.element = await action.element()
+        actionElement = action.element
+        if (typeof(actionElement) === 'function') {
+          actionElement = await actionElement()
         }
-        if (typeof(action.element.$el) === 'object') {
-          action.element = $(action.element.$el)
+        if (typeof(actionElement.$el) === 'object') {
+          actionElement = $(actionElement.$el)
         }
         
-        let element = action.element
+        let element = actionElement
         if (typeof(element.scrollIntoView) !== 'function'
                 && element[0]
                 && typeof(element[0].scrollIntoView) === 'function') {
@@ -10616,7 +10622,7 @@ __webpack_require__.r(__webpack_exports__);
           })
         }
         else if (action.scroll === 'start') {
-          let elementTop = $(element).offset().top
+          let elementTop = actionElement.offset().top
           let padding = 150
           if (padding > (window.innerHeight / 3)) {
             padding = (window.innerHeight / 3)
@@ -10649,24 +10655,23 @@ __webpack_require__.r(__webpack_exports__);
           //action.element[0].scrollIntoView({
           //  behavior: 'smooth'
           //})
-          scrollTop = $(window).scrollTop();
-          bgScrollTop = action.element.offset().top - scrollTop;
+          scrollTop = $window.scrollTop();
+          bgScrollTop = actionElement.offset().top - scrollTop;
           bgTopWidth = bgScrollTop > 0 ? bgScrollTop : 0;
-          bgBottomWidth = (bgScrollTop + action.element.innerHeight()) > 0 
-              ? $(window).innerHeight() - (action.element.innerHeight() + bgScrollTop) : $(window).innerHeight();
+          bgBottomWidth = (bgScrollTop + actionElement.innerHeight()) > 0 
+              ? $window.innerHeight() - (actionElement.innerHeight() + bgScrollTop) : $window.innerHeight();
 
           //this.layout.bg.show()
           return _this.layout.bg.animate({
-            width: action.element.innerWidth(),
-            height: action.element.innerHeight() + (bgScrollTop < 0 ? bgScrollTop : 0),
+            width: actionElement.innerWidth(),
+            height: actionElement.innerHeight() + (bgScrollTop < 0 ? bgScrollTop : 0),
             borderTopWidth: bgTopWidth,
-            borderRightWidth: $(window).innerWidth() - action.element.offset().left - action.element.innerWidth() + 1,
+            borderRightWidth: $window.innerWidth() - actionElement.offset().left - actionElement.innerWidth() + 1,
             borderBottomWidth: bgBottomWidth,
-            borderLeftWidth: action.element.offset().left
+            borderLeftWidth: actionElement.offset().left
           }, (function() {
             return function() {
               setupGlowPopup(_this, action)
-              
               callback()
             };
           })(this));
@@ -10678,10 +10683,10 @@ __webpack_require__.r(__webpack_exports__);
         //console.log('需要新增一個div作為框架')
         _this.layout.glow.fadeIn('fast')
         _this.layout.glow.css({
-          'width': action.element.innerWidth() + 'px',
-          'height': action.element.innerHeight() + 'px',
-          'top': action.element.offset().top,
-          'left': action.element.offset().left
+          'width': actionElement.innerWidth() + 'px',
+          'height': actionElement.innerHeight() + 'px',
+          'top': actionElement.offset().top,
+          'left': actionElement.offset().left
         })
         
         let glow = _this.layout.glow
@@ -10715,22 +10720,23 @@ __webpack_require__.r(__webpack_exports__);
       jQueryGuide.prototype.draw = function() {
         var action, bgBottomWidth, bgScrollTop, bgTopWidth, scrollTop;
         action = this.actionList[this.step.current];
-        scrollTop = $(window).scrollTop();
-        bgScrollTop = action.element.offset().top - scrollTop;
+        scrollTop = $window.scrollTop();
+        bgScrollTop = actionElement.offset().top - scrollTop;
         bgTopWidth = bgScrollTop > 0 ? bgScrollTop : 0;
-        bgBottomWidth = (bgScrollTop + action.element.innerHeight()) > 0 ? $(window).innerHeight() - (action.element.innerHeight() + bgScrollTop) : $(window).innerHeight();
+        bgBottomWidth = (bgScrollTop + actionElement.innerHeight()) > 0 
+          ? $window.innerHeight() - (actionElement.innerHeight() + bgScrollTop) : $window.innerHeight();
         this.layout.bg.css({
-          width: action.element.innerWidth(),
-          height: action.element.innerHeight() + (bgScrollTop < 0 ? bgScrollTop : 0),
+          width: actionElement.innerWidth(),
+          height: actionElement.innerHeight() + (bgScrollTop < 0 ? bgScrollTop : 0),
           borderTopWidth: bgTopWidth,
-          borderRightWidth: $(window).innerWidth() - action.element.offset().left - action.element.innerWidth(),
+          borderRightWidth: $window.innerWidth() - actionElement.offset().left - actionElement.innerWidth(),
           borderBottomWidth: bgBottomWidth,
-          borderLeftWidth: action.element.offset().left
+          borderLeftWidth: actionElement.offset().left
         });
         setupGlowPopup(this, action)
         return this.layout.content.css({
-          top: action.element.offset().top + action.offsetY,
-          left: action.element.offset().left + action.offsetX
+          top: actionElement.offset().top + action.offsetY,
+          left: actionElement.offset().left + action.offsetX
         });
       };
 

@@ -1598,6 +1598,7 @@ let ErrorHandler = {
     error () {
       if (Array.isArray(this.errors)
               && this.errors.length > 0) {
+        console.error(this.errors[0])
         return this.errors[0]
       }
     },
@@ -5351,11 +5352,11 @@ let Navigation = {
     showSideMenu: async function () {
       //console.log('showSideMenu')
       this.sideMenuDisplay = true
-      await this.lib.VueHelper.sleep(500)
+      //await this.lib.VueHelper.sleep(500)
     },
     hideSideMenu: async function () {
       this.sideMenuDisplay = false
-      await this.lib.VueHelper.sleep(500)
+      //await this.lib.VueHelper.sleep(500)
     },
     find: function (selector) {
       if (this.sideMenuDisplay === true) {

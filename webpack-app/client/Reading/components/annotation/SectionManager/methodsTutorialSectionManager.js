@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 export default function (SectionManager) {
     SectionManager.methods.setupTutorial = function () {
         

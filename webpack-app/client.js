@@ -60,13 +60,14 @@ window.onerror = function(message, source, lineno, colno, error) {
   if (error === null) {
     error = message
   }
+  //console.error(error)
   VueController.data.errors.push(error)
 }
 
 Vue.config.errorHandler  = function(err, vm, info) {
   //console.log(`errorHandler Error: ${err.stack}\nInfo: ${info}`);
+  //console.error(err)
   VueController.data.errors.push(err)
-  console.error(err)
 }
 
 // -----------------------
