@@ -558,6 +558,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 /* harmony default export */ __webpack_exports__["default"] = (function (CollaborativeReading) {
 
 
@@ -596,10 +600,10 @@ __webpack_require__.r(__webpack_exports__);
   CollaborativeReading.methods._testAnnotationSingle = function () {
     console.log('_testAnnotationSingle')
     setTimeout(() => {
-      $('.others-MainIdea:first').click()
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.others-MainIdea:first').click()
 
       setTimeout(() => {
-        $('.AnnotationFloatWidget .meta').click()
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationFloatWidget .meta').click()
       }, 300)
     }, 500)
   }
@@ -607,17 +611,17 @@ __webpack_require__.r(__webpack_exports__);
   CollaborativeReading.methods._testAnnotationSingleManyComments = function () {
     console.log('_testAnnotationSingleManyComments')
     setTimeout(() => {
-      if ($('.others-Clarified:first').length === 0) {
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.others-Clarified:first').length === 0) {
         this._testAnnotationSingleManyComments()
         return undefined
       }
-      $('.others-Clarified:first').click()
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.others-Clarified:first').click()
       setTimeout(() => {
-        $('.AnnotationFloatWidget .AnnotationTypeButton[title="已釐清"]:last').click()
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationFloatWidget .AnnotationTypeButton[title="已釐清"]:last').click()
 
         setTimeout(() => {
           //console.log($('.FilteredList .list .AnnotationItem:last .meta i').length)
-          $('.FilteredList .list .AnnotationItem:last .meta i').click()
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.FilteredList .list .AnnotationItem:last .meta i').click()
 
           // 測試搜尋
           //this.lib.AnnotationPanel.findKeyword('co')
@@ -639,7 +643,7 @@ __webpack_require__.r(__webpack_exports__);
     await this.lib.VueHelper.sleep(2000)
 
     //this.lib.UserFilter.show()
-    $('.Navigation .peer-label:first').click()
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.Navigation .peer-label:first').click()
 
     /*
      this.status.filter.focusUser = {
@@ -672,7 +676,8 @@ __webpack_require__.r(__webpack_exports__);
     console.log('_testVerticalMenu')
     await this.lib.VueHelper.sleep(1000)
 
-    $('.Navigation .right.menu .ellipsis.icon').click()
+    console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.Navigation .right.menu .ellipsis.icon').length)
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.Navigation .right.menu .ellipsis.icon').click()
   }
   
   CollaborativeReading.methods._testErrorAuth = async function () {

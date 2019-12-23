@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 export default function (CollaborativeReading) {
 
 
@@ -112,6 +114,7 @@ export default function (CollaborativeReading) {
     console.log('_testVerticalMenu')
     await this.lib.VueHelper.sleep(1000)
 
+    console.log($('.Navigation .right.menu .ellipsis.icon').length)
     $('.Navigation .right.menu .ellipsis.icon').click()
   }
   
