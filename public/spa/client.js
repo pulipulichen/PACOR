@@ -10200,16 +10200,22 @@ let TutorialManager = {
           action = action()
         }
         
+        if (!action || typeof(action) !== 'object') {
+          action = {}
+        }
+        
         //console.log(action)
         
-        if (action && !action.element) {
-          throw new Error('Element is not found', action)
-        }
+        if (action.element) {
+//          if (action && !action.element) {
+//            //throw new Error('Element is not found', action)
+//          }
 
-        if (typeof(action.element.$el) === 'object') {
-          action.element = action.element.$el
+          if (typeof(action.element.$el) === 'object') {
+            action.element = action.element.$el
+          }
+          action.element = jquery__WEBPACK_IMPORTED_MODULE_1___default()(action.element)
         }
-        action.element = jquery__WEBPACK_IMPORTED_MODULE_1___default()(action.element)
         
         if (typeof(action.order) !== 'number') {
           action.order = 999
@@ -10382,7 +10388,7 @@ __webpack_require__.r(__webpack_exports__);
   (function($) {
     var jQueryGuide;
     let scrollIntoView = false
-    
+    let currentScrollTop
     $.guide = function(options) {
       var action, guide, _i, _len, _ref;
       guide = new jQueryGuide();
@@ -10414,6 +10420,11 @@ __webpack_require__.r(__webpack_exports__);
       })(this));
       
       $('body').addClass('jquery-guide-prevent-scroll')
+      
+      //throw new Error('currentScrollTop')
+      currentScrollTop = window.pageYOffset
+      console.log(currentScrollTop)
+      
       guide.execAction();
       return guide;
     };
@@ -10537,6 +10548,12 @@ __webpack_require__.r(__webpack_exports__);
         if (typeof(glowTippy.destroy) === 'function') {
           glowTippy.destroy()
         }
+        window.scrollTo({
+          top: currentScrollTop,
+          behavior: "smooth", 
+        })
+        //console.log(currentScrollTop)
+        currentScrollTop = undefined
         return this.layout.container.remove();
       };
 
@@ -10667,9 +10684,6 @@ __webpack_require__.r(__webpack_exports__);
             tippyInited = false
           } 
           
-          
-          
-          
           if (tippyInited === false) {
             glow.attr('data-tippy-content', action.content)
             
@@ -10677,12 +10691,15 @@ __webpack_require__.r(__webpack_exports__);
               theme: 'light',
               //hideOnClick: false
             })
+            //window.gt = glowTippy
           }
           else {
             glowTippy.setContent(action.content)
           }
           
-          glowTippy.show()
+          if (glowTippy.state.isDestroyed === false) {
+            glowTippy.show()
+          }
         }
       }
 

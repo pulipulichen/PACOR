@@ -5930,11 +5930,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AnnotationTypeSelector_AnnotationTypeSelector_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AnnotationTypeSelector/AnnotationTypeSelector.vue */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/AnnotationTypeSelector.vue");
 /* harmony import */ var _AnnotationFloatWidget_AnnotationFloatWidget_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AnnotationFloatWidget/AnnotationFloatWidget.vue */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationFloatWidget/AnnotationFloatWidget.vue");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
 //import RangyManager from './RangyManager/RangyManager.vue'
 
 //import AnnotationPanel from './AnnotationPanel/AnnotationPanel.vue'
 
 //import SectionAnnotationManager from './SectionAnnotationManager/SectionAnnotationManager.vue'
+
 
 let reloadCount = 0
 
@@ -5945,6 +5948,7 @@ let AnnotationManager = {
     return {
       isLoaded: false,
       pause: false,
+      tutorialInited: false,
       
 //      selection: null,
 //      pinSelection: null,
@@ -6119,6 +6123,7 @@ let AnnotationManager = {
       }
       
       this.afterTime = (new Date()).getTime()
+      this.setupTutorial()
     },
     reloadHighlights () {
       //console.log('重新讀取')
@@ -6127,6 +6132,43 @@ let AnnotationManager = {
       
       //console.log('哈囉？', this.afterTime)
       this.loadHighlights()
+    },
+    setupTutorial () {
+      if (this.tutorialInited === true) {
+        return false
+      }
+      
+      this.tutorialInited = true
+      
+      if (this.lib.auth.isEnableCollaboration) {
+        this.setupTutorialCollaborationReading()
+      }
+      else {
+        this.setupTutorialIndividualReading()
+      }
+    },
+    setupTutorialCollaborationReading () {
+      this.lib.TutorialManager.addAction(() => {
+        let element = jquery__WEBPACK_IMPORTED_MODULE_2___default()(`[data-pacor-paragraph-seq-id] [data-pacor-highlight][class^="others-"]`)
+        if (element.length === 0) {
+          element = jquery__WEBPACK_IMPORTED_MODULE_2___default()(`[data-pacor-paragraph-seq-id] [data-pacor-highlight]`)
+        }
+        
+        if (element.length === 0) {
+          return undefined
+        }
+        element = element.parents('[data-pacor-paragraph-seq-id]:first')
+        
+        return {
+          element,
+          content: this.$t(`You can read other's annotations.`),
+          scroll: 'start',
+          order: 1
+        }
+      })
+    },
+    setupTutorialIndividualReading () {
+      throw new Error('@TODO')
     }
   } // methods
 }
@@ -23734,23 +23776,39 @@ let SectionManager = {
       return annotation
     },
     setupTutorial () {
-      this.lib.TutorialManager.addAction(() => {
-        let item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel .AnnotationItem[data-user-id!="${this.status.userID}"]:visible:first`) 
-        let panel
-        if (item.length > 0) {
-          panel = item.parents('.SectionPanel:first')
-        }
-        else {
-          panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
-        }
-        
-        return {
-          element: panel,
-          content: this.$t(`You can see others' section main ideas.`),
-          scroll: 'start',
-          order: 21
-        }
-      })
+      
+      if (this.lib.auth.isEnableCollaboration) {
+        this.lib.TutorialManager.addAction(() => {
+          let item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel .AnnotationItem[data-user-id!="${this.status.userID}"]:visible:first`) 
+          let panel
+          if (item.length > 0) {
+            panel = item.parents('.SectionPanel:first')
+          }
+          else {
+            panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
+          }
+
+          return {
+            element: panel,
+            content: this.$t(`You can see others' section main ideas.`),
+            scroll: 'start',
+            order: 21
+          }
+        })
+      }
+      else {
+        this.lib.TutorialManager.addAction(() => {
+          
+          let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
+          
+          return {
+            element: panel,
+            content: this.$t(`After reading a section of the article, you have to finish the checklist.`),
+            scroll: 'start',
+            order: 21
+          }
+        })
+      }
     }
   } // methods
 }
