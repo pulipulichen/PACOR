@@ -329,7 +329,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can see others\u0027 section main ideas.":"您可以看到別人撰寫的小節重點標註了。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can see others\u0027 section main ideas.":"您可以看到別人撰寫的小節重點標註了。","After reading a section of the article, you have to finish the checklist.":"在讀完一個小節之後，請您完成這個小節的檢核單。"}}')
   delete Component.options._Ctor
 }
 
