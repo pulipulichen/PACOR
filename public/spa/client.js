@@ -2745,7 +2745,10 @@ var render = function() {
         {
           staticClass: "ui segment AnnotationItem",
           class: _vm.computedContainerClassNames,
-          attrs: { "data-annotation-id": _vm.annotation.id },
+          attrs: {
+            "data-annotation-id": _vm.annotation.id,
+            "data-user-id": _vm.annotation.user_id
+          },
           on: {
             mouseover: _vm.onMouseover,
             mouseout: _vm.onMouseout,
@@ -10561,16 +10564,25 @@ __webpack_require__.r(__webpack_exports__);
           _this: this
         }
         
-        window.addEventListener('scroll', onScrollEvent)
         
         let element = action.element
         if (typeof(element.$el) === 'object') {
           element = element.$el
         }
         if (typeof(element.scrollIntoView) !== 'function'
+                && element[0]
                 && typeof(element[0].scrollIntoView) === 'function') {
           element = element[0]
         }
+        else if (element.length === 0) {
+          return this.next()
+        }
+        
+        if (!element) {
+          return this.next()
+        }
+        
+        window.addEventListener('scroll', onScrollEvent)
         
         if (!action.scroll) {
           element.scrollIntoView({
@@ -10586,7 +10598,7 @@ __webpack_require__.r(__webpack_exports__);
             padding = (window.innerHeight / 3)
           }
           let scrollToTop = elementTop - padding
-          
+
           window.scrollTo({
             top: scrollToTop,
             behavior: "smooth", 
@@ -10594,7 +10606,6 @@ __webpack_require__.r(__webpack_exports__);
             inline: "nearest"
           })
         }
-          
         
         //this.animateCallback(action, callback)
         scrollTimer = setTimeout(() => {

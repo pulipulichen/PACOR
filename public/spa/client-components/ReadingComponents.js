@@ -23735,7 +23735,14 @@ let SectionManager = {
     },
     setupTutorial () {
       this.lib.TutorialManager.addAction(() => {
-        let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:first`)
+        let item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel .AnnotationItem[data-user-id!="${this.status.userID}"]:visible:first`) 
+        let panel
+        if (item.length > 0) {
+          panel = item.parents('.SectionPanel:first')
+        }
+        else {
+          panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
+        }
         
         return {
           element: panel,

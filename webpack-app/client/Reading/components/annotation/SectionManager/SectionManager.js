@@ -179,7 +179,14 @@ let SectionManager = {
     },
     setupTutorial () {
       this.lib.TutorialManager.addAction(() => {
-        let panel = $(`[data-section-id].SectionPanel:first`)
+        let item = $(`[data-section-id].SectionPanel .AnnotationItem[data-user-id!="${this.status.userID}"]:visible:first`) 
+        let panel
+        if (item.length > 0) {
+          panel = item.parents('.SectionPanel:first')
+        }
+        else {
+          panel = $(`[data-section-id].SectionPanel:visible:first`)
+        }
         
         return {
           element: panel,
