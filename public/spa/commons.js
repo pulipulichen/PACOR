@@ -847,6 +847,7 @@ var render = function() {
               expression: "clickoutside"
             }
           ],
+          ref: "FabItemContainer",
           staticClass: "fab-item-container",
           class: "fab-size-" + _vm.size
         },

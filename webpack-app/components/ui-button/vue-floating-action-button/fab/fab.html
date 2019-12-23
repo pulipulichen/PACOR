@@ -44,6 +44,7 @@
   <!-- 下面這些是其他的items -->
   <div v-click-outside="clickoutside"
        class="fab-item-container"
+       ref="FabItemContainer"
        v-bind:class="'fab-size-' + size">
     <slot></slot>
   </div>

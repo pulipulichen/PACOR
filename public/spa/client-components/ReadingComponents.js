@@ -6541,8 +6541,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (AnnotationTypeSelector) {
   AnnotationTypeSelector.methods.setupTutorial = function () {
     this.lib.TutorialManager.addAction({
-      element: () => {
-        return this.$refs.fab
+      element: async () => {
+        await this.lib.RangyManager.restoreLastSelectDemoText()
+        let $el = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$el)
+        throw new Error('如果選取的是多個物件，那應該要為多個物件畫框才行')
+        return $el.find('.fab-item-container,.fab-container,.fab-item-title')
       },
       content: this.$t('Select an annotation type to highlight the selected text.'),
       order: 21
@@ -14965,14 +14968,15 @@ __webpack_require__.r(__webpack_exports__);
     })
   } // RangyManager.methods.selectRandomRange = function () {
   
+  let demoSelection
   RangyManager.methods.selectDemoText = async function () {
     
-    let paragraph = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-paragraph-seq-id]:eq(2)')
+    let paragraph = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-paragraph-seq-id]:eq(1)')
     if (paragraph.length === 0) {
       paragraph = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-paragraph-seq-id]:first')
     }
     let elm = paragraph[0]
-    console.log(elm)
+    //console.log(elm)
     
     let maxLength = paragraph.text().trim().length
     
@@ -14991,6 +14995,7 @@ __webpack_require__.r(__webpack_exports__);
     let range = this.rangy.createRange()
     range.selectCharacters(elm, startPos , endPos)
     this.rangy.getSelection().addRange(range)
+    demoSelection = this.rangy.saveSelection()
     
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -15001,6 +15006,18 @@ __webpack_require__.r(__webpack_exports__);
       }, 1000)
     })
   } // RangyManager.methods.selectRandomRange = function () {
+  
+  RangyManager.methods.restoreLastSelectDemoText = async function () {
+    this.rangy.restoreSelection(demoSelection)
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        //console.log('selectRandomRange', 5)
+        this.onselect()
+        resolve(true)
+        //console.log('selectRandomRange', 6)
+      }, 1000)
+    })
+  }
 });
 
 

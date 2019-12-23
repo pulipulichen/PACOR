@@ -71,14 +71,15 @@ export default (RangyManager) => {
     })
   } // RangyManager.methods.selectRandomRange = function () {
   
+  let demoSelection
   RangyManager.methods.selectDemoText = async function () {
     
-    let paragraph = $('[data-pacor-paragraph-seq-id]:eq(2)')
+    let paragraph = $('[data-pacor-paragraph-seq-id]:eq(1)')
     if (paragraph.length === 0) {
       paragraph = $('[data-pacor-paragraph-seq-id]:first')
     }
     let elm = paragraph[0]
-    console.log(elm)
+    //console.log(elm)
     
     let maxLength = paragraph.text().trim().length
     
@@ -97,6 +98,7 @@ export default (RangyManager) => {
     let range = this.rangy.createRange()
     range.selectCharacters(elm, startPos , endPos)
     this.rangy.getSelection().addRange(range)
+    demoSelection = this.rangy.saveSelection()
     
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -107,5 +109,17 @@ export default (RangyManager) => {
       }, 1000)
     })
   } // RangyManager.methods.selectRandomRange = function () {
+  
+  RangyManager.methods.restoreLastSelectDemoText = async function () {
+    this.rangy.restoreSelection(demoSelection)
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        //console.log('selectRandomRange', 5)
+        this.onselect()
+        resolve(true)
+        //console.log('selectRandomRange', 6)
+      }, 1000)
+    })
+  }
 }
 
