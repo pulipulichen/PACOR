@@ -9,12 +9,22 @@ img {
   width: 100vw;
   height: 100vh;
   z-index: 999;
+  background-color: rgb(0,0,0);
   
   .firework-container {
     width: 100vw;
     
-    @margin: 10em;
+    @margin: 17em;
     height: calc(100vh - @margin);
     margin-top: @margin;
+    text-align: center;
+    
+    ::v-deep #fireworksField {
+      top: auto !important;
+      bottom: 0;
+      width: 100vw !important;
+      height: auto !important;
+      position: static !important;
+    }
   }
 }
