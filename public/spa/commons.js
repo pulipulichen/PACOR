@@ -5340,13 +5340,21 @@ let Navigation = {
       this.placeholder.remove()
     },
     showSideMenu: async function () {
-      console.log('showSideMenu')
+      //console.log('showSideMenu')
       this.sideMenuDisplay = true
       await this.lib.VueHelper.sleep(500)
     },
     hideSideMenu: async function () {
       this.sideMenuDisplay = false
       await this.lib.VueHelper.sleep(500)
+    },
+    find: function (selector) {
+      if (this.sideMenuDisplay === true) {
+        return jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.SideMenu).find(selector)
+      }
+      else {
+        return jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.Menu).find(selector)
+      }
     }
     
   } // methods

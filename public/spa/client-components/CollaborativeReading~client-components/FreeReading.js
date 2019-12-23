@@ -500,7 +500,7 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction({
       element: () => {
-        return this.getMenu().find('.NotificationIcon:visible:first')
+        return this.$refs.nav.find('.NotificationIcon:visible:first')
       },
       content: this.$t(`You will get notifications from other readers here.`),
       order: 32
@@ -508,13 +508,12 @@ __webpack_require__.r(__webpack_exports__);
 
     this.lib.TutorialManager.addAction({
       element: async () => {
-        let menu = this.getMenu()
-        let element = menu.find('.UserFilter:visible:first')
+        let element = this.$refs.nav.find('.UserFilter:visible:first')
         //console.log(element.length)
         if (element.length === 0) {
           await this.$refs.nav.showSideMenu()
-          let sideMenu = this.getSideMenu()
-          element = sideMenu.find('.UserFilter:visible:first')
+//          let sideMenu = this.getSideMenu()
+          element = this.$refs.nav.find('.UserFilter:visible:first')
         }
         return element
       },
@@ -524,10 +523,10 @@ __webpack_require__.r(__webpack_exports__);
 
     this.lib.TutorialManager.addAction({
       element: () => {
-        let element = this.getMenu().find('.AnnotationTypeFilter:visible:first')
+        let element = this.$refs.nav.find('.AnnotationTypeFilter:visible:first')
         if (element.length === 0) {
-          let sideMenu = this.getSideMenu()
-          element = sideMenu.find('.AnnotationTypeFilter:visible:first')
+//          let sideMenu = this.getSideMenu()
+          element = this.$refs.nav.find('.AnnotationTypeFilter:visible:first')
         }
         return element
       },
