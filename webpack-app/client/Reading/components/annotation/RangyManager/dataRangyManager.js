@@ -29,5 +29,7 @@ export default {
   
   events: {},
   
-  rectHighlighter: null
+  rectHighlighter: null,
+  
+  selectionLock: false
 }

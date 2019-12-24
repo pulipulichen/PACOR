@@ -681,7 +681,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".jquery-guide {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n  /*\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  */\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n  pointer-events: none;\n}\nbody.jquery-guide-prevent-scroll {\n  overflow: hidden;\n}\n.tippy-popper {\n  pointer-events: none;\n}\n.tippy-popper .tippy-tooltip {\n  font-size: 1.5em !important;\n  padding: 0.5em;\n}\n", "",{"version":3,"sources":["jquery.guide.less"],"names":[],"mappings":"AAAA;EACE,0CAA0C;EAC1C,uCAAuC;EACvC,kCAAkC;EAClC;;;;;;GAMC;AACH;AACA;EACE,0CAA0C;EAC1C,uCAAuC;EACvC,kCAAkC;AACpC;AACA;EACE,eAAe;EACf,MAAM;EACN,QAAQ;EACR,SAAS;EACT,OAAO;EACP,gCAAgC;EAChC,mBAAmB;EACnB,qBAAqB;EACrB,uBAAuB;EACvB,wBAAwB;EACxB,sBAAsB;EACtB,aAAa;AACf;AACA;EACE,gCAAgC;AAClC;AACA;EACE,kBAAkB;EAClB,eAAe;EACf,WAAW;EACX,aAAa;AACf;AACA;EACE,kBAAkB;EAClB,aAAa;EACb,wMAAwM;EACxM,oBAAoB;AACtB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,oBAAoB;AACtB;AACA;EACE,2BAA2B;EAC3B,cAAc;AAChB","file":"jquery.guide.less","sourcesContent":[".jquery-guide {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n  /*\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  */\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n  pointer-events: none;\n}\nbody.jquery-guide-prevent-scroll {\n  overflow: hidden;\n}\n.tippy-popper {\n  pointer-events: none;\n}\n.tippy-popper .tippy-tooltip {\n  font-size: 1.5em !important;\n  padding: 0.5em;\n}\n"]}]);
+exports.push([module.i, ".jquery-guide {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n  /*\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  */\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n  pointer-events: none;\n}\n.jquery-guide .jquery-guide-temp-range {\n  position: absolute;\n  z-index: -1;\n  pointer-events: none;\n  display: none;\n}\nbody.jquery-guide-prevent-scroll {\n  overflow: hidden;\n}\n.tippy-popper {\n  pointer-events: none;\n}\n.tippy-popper .tippy-tooltip {\n  font-size: 1.5em !important;\n  padding: 0.5em;\n}\n", "",{"version":3,"sources":["jquery.guide.less"],"names":[],"mappings":"AAAA;EACE,0CAA0C;EAC1C,uCAAuC;EACvC,kCAAkC;EAClC;;;;;;GAMC;AACH;AACA;EACE,0CAA0C;EAC1C,uCAAuC;EACvC,kCAAkC;AACpC;AACA;EACE,eAAe;EACf,MAAM;EACN,QAAQ;EACR,SAAS;EACT,OAAO;EACP,gCAAgC;EAChC,mBAAmB;EACnB,qBAAqB;EACrB,uBAAuB;EACvB,wBAAwB;EACxB,sBAAsB;EACtB,aAAa;AACf;AACA;EACE,gCAAgC;AAClC;AACA;EACE,kBAAkB;EAClB,eAAe;EACf,WAAW;EACX,aAAa;AACf;AACA;EACE,kBAAkB;EAClB,aAAa;EACb,wMAAwM;EACxM,oBAAoB;AACtB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,oBAAoB;EACpB,aAAa;AACf;AACA;EACE,gBAAgB;AAClB;AACA;EACE,oBAAoB;AACtB;AACA;EACE,2BAA2B;EAC3B,cAAc;AAChB","file":"jquery.guide.less","sourcesContent":[".jquery-guide {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n  /*\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  */\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n  pointer-events: none;\n}\n.jquery-guide .jquery-guide-temp-range {\n  position: absolute;\n  z-index: -1;\n  pointer-events: none;\n  display: none;\n}\nbody.jquery-guide-prevent-scroll {\n  overflow: hidden;\n}\n.tippy-popper {\n  pointer-events: none;\n}\n.tippy-popper .tippy-tooltip {\n  font-size: 1.5em !important;\n  padding: 0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -10136,7 +10136,8 @@ let TutorialManager = {
     this.$i18n.locale = this.config.locale
     return {
       actionLists: {},
-      guide: null
+      guide: null,
+      isPlaying: false
     }
   },
 //  components: {
@@ -10179,7 +10180,14 @@ let TutorialManager = {
         return false
       }
       //console.log(actions)
-      this.guide = jquery__WEBPACK_IMPORTED_MODULE_1___default.a.guide({actions});
+      this.guide = jquery__WEBPACK_IMPORTED_MODULE_1___default.a.guide({
+        actions,
+        complete: () => {
+          this.isPlaying = false
+          this.lib.RangyManager.selectionLock = false
+        }
+      });
+      this.isPlaying = true
       //console.log(this.guide)
     },
     getActions (type) {
@@ -10391,6 +10399,7 @@ __webpack_require__.r(__webpack_exports__);
     let isStart = false
     let $window = $(window)
     let $body = $('body')
+    let completeCallback
     
     $.guide = function(options) {
       isStart = true
@@ -10403,6 +10412,9 @@ __webpack_require__.r(__webpack_exports__);
           guide.addAction(action);
         }
       }
+      
+      completeCallback = options.complete ? options.complete : null
+      
       guide.buildLayout();
       guide.layout.bg.click((function(_this) {
         return function() {
@@ -10438,7 +10450,8 @@ __webpack_require__.r(__webpack_exports__);
           container: '',
           bg: '',
           content: '',
-          glow: null
+          glow: null,
+          tempRange: ''
         };
         this.step = {
           current: 0,
@@ -10454,6 +10467,7 @@ __webpack_require__.r(__webpack_exports__);
             <div class="jquery-guide-bg"></div>
             <div class="jquery-guide-content"></div>
             <div class="jquery-guide-glow"></div>
+            <div class="jquery-guide-temp-range"></div>
             <div class="jquery-guide-popup ui popup transition"></div>
         </div>`);
         $body.append(layout);
@@ -10467,7 +10481,8 @@ __webpack_require__.r(__webpack_exports__);
         this.layout.bg = this.layout.container.find('>.jquery-guide-bg');
         this.layout.glow = this.layout.container.find('>.jquery-guide-glow');
         this.layout.popup = this.layout.container.find('>.jquery-guide-popup');
-        return this.layout.content = this.layout.container.find('>.jquery-guide-content');
+        this.layout.tempRange = this.layout.container.find('>.jquery-guide-temp-range');
+        this.layout.content = this.layout.container.find('>.jquery-guide-content');
       };
 
       jQueryGuide.prototype.addAction = function(action) {
@@ -10560,7 +10575,13 @@ __webpack_require__.r(__webpack_exports__);
         //console.log(currentScrollTop)
         currentScrollTop = undefined
         isStart = false
-        return this.layout.container.remove();
+        
+        this.layout.container.remove();
+        
+        if (typeof(completeCallback) === 'function') {
+          completeCallback()
+        }
+        return 
       };
 
       
@@ -10577,6 +10598,8 @@ __webpack_require__.r(__webpack_exports__);
 
       let actionElement
       jQueryGuide.prototype.animate = async function (callback) {
+        this.layout.tempRange.hide()
+        
         let action = this.actionList[this.step.current];
         //this.layout.glow.fadeOut('fast')
         this.layout.glow.hide()
@@ -10597,6 +10620,9 @@ __webpack_require__.r(__webpack_exports__);
         if (typeof(actionElement.$el) === 'object') {
           actionElement = $(actionElement.$el)
         }
+        if (actionElement.length > 1) {
+          actionElement = this.drawTempRange(actionElement)
+        }
         
         let element = actionElement
         if (typeof(element.scrollIntoView) !== 'function'
@@ -10614,7 +10640,10 @@ __webpack_require__.r(__webpack_exports__);
         
         window.addEventListener('scroll', onScrollEvent)
         
-        if (!action.scroll) {
+        if (action.scroll === false) {
+          // do nothing
+        }
+        else if (!action.scroll) {
           element.scrollIntoView({
             behavior: "smooth", 
             block: "center", 
@@ -10738,7 +10767,50 @@ __webpack_require__.r(__webpack_exports__);
           top: actionElement.offset().top + action.offsetY,
           left: actionElement.offset().left + action.offsetX
         });
-      };
+      };  // jQueryGuide.prototype.draw = function() {
+      
+      jQueryGuide.prototype.drawTempRange = function(elements) {
+        let top, left, bottom, right
+        for (let i = 0; i < elements.length; i++) {
+          let element = elements.eq(i)
+          let offset = element.offset()
+          let t = offset.top
+          let l = offset.left
+          let w = element.width()
+          let r = l + w
+          let h = element.height()
+          let b = t + h
+          
+          if (i === 0) {
+            top = t
+            left = l
+            bottom = b
+            right = r
+          }
+          else {
+            top = Math.min(top, t)
+            left = Math.min(left, l)
+            bottom = Math.max(bottom, b)
+            right = Math.max(right, right)
+          }
+          console.log(top, left, bottom, right)
+        }
+        
+        if (top === 0 && bottom === 0) {
+          console.error('Elements is not found', elements)
+          return undefined
+        }
+        
+        this.layout.tempRange.show()
+                .css({
+                  top: top + 'px',
+                  left: left + 'px',
+                  width: (right - left) + 'px',
+                  height: (bottom - top) + 'px'
+                })
+                
+        return this.layout.tempRange
+      };  //  jQueryGuide.prototype.drawTempRange = function(elements) {
 
       return jQueryGuide;
 

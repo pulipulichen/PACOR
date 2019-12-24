@@ -12,6 +12,7 @@ import 'tippy.js/themes/light.css';
     let isStart = false
     let $window = $(window)
     let $body = $('body')
+    let completeCallback
     
     $.guide = function(options) {
       isStart = true
@@ -24,6 +25,9 @@ import 'tippy.js/themes/light.css';
           guide.addAction(action);
         }
       }
+      
+      completeCallback = options.complete ? options.complete : null
+      
       guide.buildLayout();
       guide.layout.bg.click((function(_this) {
         return function() {
@@ -59,7 +63,8 @@ import 'tippy.js/themes/light.css';
           container: '',
           bg: '',
           content: '',
-          glow: null
+          glow: null,
+          tempRange: ''
         };
         this.step = {
           current: 0,
@@ -75,6 +80,7 @@ import 'tippy.js/themes/light.css';
             <div class="jquery-guide-bg"></div>
             <div class="jquery-guide-content"></div>
             <div class="jquery-guide-glow"></div>
+            <div class="jquery-guide-temp-range"></div>
             <div class="jquery-guide-popup ui popup transition"></div>
         </div>`);
         $body.append(layout);
@@ -88,7 +94,8 @@ import 'tippy.js/themes/light.css';
         this.layout.bg = this.layout.container.find('>.jquery-guide-bg');
         this.layout.glow = this.layout.container.find('>.jquery-guide-glow');
         this.layout.popup = this.layout.container.find('>.jquery-guide-popup');
-        return this.layout.content = this.layout.container.find('>.jquery-guide-content');
+        this.layout.tempRange = this.layout.container.find('>.jquery-guide-temp-range');
+        this.layout.content = this.layout.container.find('>.jquery-guide-content');
       };
 
       jQueryGuide.prototype.addAction = function(action) {
@@ -181,7 +188,13 @@ import 'tippy.js/themes/light.css';
         //console.log(currentScrollTop)
         currentScrollTop = undefined
         isStart = false
-        return this.layout.container.remove();
+        
+        this.layout.container.remove();
+        
+        if (typeof(completeCallback) === 'function') {
+          completeCallback()
+        }
+        return 
       };
 
       
@@ -198,6 +211,8 @@ import 'tippy.js/themes/light.css';
 
       let actionElement
       jQueryGuide.prototype.animate = async function (callback) {
+        this.layout.tempRange.hide()
+        
         let action = this.actionList[this.step.current];
         //this.layout.glow.fadeOut('fast')
         this.layout.glow.hide()
@@ -218,6 +233,9 @@ import 'tippy.js/themes/light.css';
         if (typeof(actionElement.$el) === 'object') {
           actionElement = $(actionElement.$el)
         }
+        if (actionElement.length > 1) {
+          actionElement = this.drawTempRange(actionElement)
+        }
         
         let element = actionElement
         if (typeof(element.scrollIntoView) !== 'function'
@@ -235,7 +253,10 @@ import 'tippy.js/themes/light.css';
         
         window.addEventListener('scroll', onScrollEvent)
         
-        if (!action.scroll) {
+        if (action.scroll === false) {
+          // do nothing
+        }
+        else if (!action.scroll) {
           element.scrollIntoView({
             behavior: "smooth", 
             block: "center", 
@@ -359,7 +380,50 @@ import 'tippy.js/themes/light.css';
           top: actionElement.offset().top + action.offsetY,
           left: actionElement.offset().left + action.offsetX
         });
-      };
+      };  // jQueryGuide.prototype.draw = function() {
+      
+      jQueryGuide.prototype.drawTempRange = function(elements) {
+        let top, left, bottom, right
+        for (let i = 0; i < elements.length; i++) {
+          let element = elements.eq(i)
+          let offset = element.offset()
+          let t = offset.top
+          let l = offset.left
+          let w = element.width()
+          let r = l + w
+          let h = element.height()
+          let b = t + h
+          
+          if (i === 0) {
+            top = t
+            left = l
+            bottom = b
+            right = r
+          }
+          else {
+            top = Math.min(top, t)
+            left = Math.min(left, l)
+            bottom = Math.max(bottom, b)
+            right = Math.max(right, right)
+          }
+          console.log(top, left, bottom, right)
+        }
+        
+        if (top === 0 && bottom === 0) {
+          console.error('Elements is not found', elements)
+          return undefined
+        }
+        
+        this.layout.tempRange.show()
+                .css({
+                  top: top + 'px',
+                  left: left + 'px',
+                  width: (right - left) + 'px',
+                  height: (bottom - top) + 'px'
+                })
+                
+        return this.layout.tempRange
+      };  //  jQueryGuide.prototype.drawTempRange = function(elements) {
 
       return jQueryGuide;
 

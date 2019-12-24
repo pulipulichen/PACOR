@@ -18,7 +18,7 @@ let IndividualReading = {
     this.initComponentToLib()
     
     //this._testSearch()  // for test
-    //this._testTutorial()
+    this._testTutorial()
   },
   destroyed () {
     //console.log('退場了')

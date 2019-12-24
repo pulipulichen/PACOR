@@ -5,6 +5,13 @@ export default (RangyManager) => {
   RangyManager.methods._initOnSelectEventListener = function () {
 
     let triggerSelect = () => {
+      //if (this.lib.TutorialManager.isPlaying === true) {
+      //  return false
+      //}
+      if (this.selectionLock === true) {
+        return false
+      }
+      
       setTimeout(() => {
         this.onselect()
       }, 0)

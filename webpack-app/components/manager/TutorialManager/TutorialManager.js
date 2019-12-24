@@ -9,7 +9,8 @@ let TutorialManager = {
     this.$i18n.locale = this.config.locale
     return {
       actionLists: {},
-      guide: null
+      guide: null,
+      isPlaying: false
     }
   },
 //  components: {
@@ -52,7 +53,14 @@ let TutorialManager = {
         return false
       }
       //console.log(actions)
-      this.guide = $.guide({actions});
+      this.guide = $.guide({
+        actions,
+        complete: () => {
+          this.isPlaying = false
+          this.lib.RangyManager.selectionLock = false
+        }
+      });
+      this.isPlaying = true
       //console.log(this.guide)
     },
     getActions (type) {
