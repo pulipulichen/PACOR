@@ -30,7 +30,7 @@ export default function (AnnotationTypeSelector) {
         await this.lib.RangyManager.restoreLastSelectDemoText()
         let element = $el.find('.MainIdea > .fabMask:first')
         //console.log(element.length, element)
-        console.log('這時候好像就沒有選取了，為什麼呢？')
+        //console.log('這時候好像就沒有選取了，為什麼呢？')
         return element
       },
       content: this.$t(`For example, if you choose "Main Idea" type.`),

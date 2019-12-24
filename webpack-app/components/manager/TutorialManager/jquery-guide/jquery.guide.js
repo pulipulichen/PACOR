@@ -226,7 +226,7 @@ import 'tippy.js/themes/light.css';
       let actionElement
       jQueryGuide.prototype.animate = async function (callback) {
         this.layout.tempRange.hide()
-        
+        this.layout.container.addClass('disabled')
         let action = this.actionList[this.step.current];
         //this.layout.glow.fadeOut('fast')
         this.layout.glow.hide()
@@ -348,6 +348,7 @@ import 'tippy.js/themes/light.css';
           }, (function() {
             return function() {
               setupGlowPopup(_this, action)
+              _this.layout.container.removeClass('disabled')
               callback()
             };
           })(this));
