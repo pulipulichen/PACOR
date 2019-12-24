@@ -9,9 +9,10 @@ export default function (AnnotationTypeSelector) {
     
     this.lib.TutorialManager.addAction({
       element: async () => {
+        this.isTutorialMode = true
         await this.lib.RangyManager.restoreLastSelectDemoText()
         
-        this.lib.RangyManager.selectionLock = true
+        //this.lib.RangyManager.selectionLock = true
         //let $el = $(this.$el)
         //throw new Error('如果選取的是多個物件，那應該要為多個物件畫框才行')
         let elements = $el.find('.fab-container,.fabMask,.fab-item-title')
@@ -26,22 +27,27 @@ export default function (AnnotationTypeSelector) {
     
     this.lib.TutorialManager.addAction({
       element: async () => {
-        //await this.lib.RangyManager.restoreLastSelectDemoText()
+        await this.lib.RangyManager.restoreLastSelectDemoText()
         let element = $el.find('.MainIdea > .fabMask:first')
         //console.log(element.length, element)
+        console.log('這時候好像就沒有選取了，為什麼呢？')
         return element
       },
       content: this.$t(`For example, if you choose "Main Idea" type.`),
       order: 22,
       afterClick: async () => {
-        console.log('有執行嗎？')
-        this.lib.RangyManager.selectionLock = false
+        //console.log('有執行嗎？')
         await this.lib.RangyManager.restoreLastSelectDemoText()
-        this.lib.RangyManager.onselect()
-        console.log('有選取嗎？')
-        await this.lib.VueHelper.sleep(1000)
+        //this.lib.RangyManager.selectionLock = false
+        //await this.lib.VueHelper.sleep(1000)
+        //this.lib.RangyManager.onselect()
+        //console.log('有選取嗎？')
+        //await this.lib.VueHelper.sleep(1000)
+        this.isTutorialMode = false
         $el.find('.MainIdea > .fabMask:first').click()  // 這個的確有點到
-        await this.lib.VueHelper.sleep(500)
+        //await this.lib.VueHelper.sleep(500)
+        
+        
       },
       scroll: false
     })

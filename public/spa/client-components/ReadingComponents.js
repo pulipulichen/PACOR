@@ -6274,7 +6274,8 @@ let AnnotationTypeSelector = {
     this.$i18n.locale = this.config.locale
     return {
       timer: null,
-      selection: null
+      selection: null,
+      isTutorialMode: false
     }
   },
   watch: {
@@ -6374,6 +6375,10 @@ let AnnotationTypeSelector = {
       
       rangy.addEventListener('selectcollapsed', (data) => {
         //PACORTestManager.log('selectcollapsed')
+        if (this.isTutorialMode === true) {
+          return false
+        }
+        
         this.selection = null
       })
       
@@ -6547,9 +6552,10 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction({
       element: async () => {
+        this.isTutorialMode = true
         await this.lib.RangyManager.restoreLastSelectDemoText()
         
-        this.lib.RangyManager.selectionLock = true
+        //this.lib.RangyManager.selectionLock = true
         //let $el = $(this.$el)
         //throw new Error('如果選取的是多個物件，那應該要為多個物件畫框才行')
         let elements = $el.find('.fab-container,.fabMask,.fab-item-title')
@@ -6564,22 +6570,27 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction({
       element: async () => {
-        //await this.lib.RangyManager.restoreLastSelectDemoText()
+        await this.lib.RangyManager.restoreLastSelectDemoText()
         let element = $el.find('.MainIdea > .fabMask:first')
         //console.log(element.length, element)
+        console.log('這時候好像就沒有選取了，為什麼呢？')
         return element
       },
       content: this.$t(`For example, if you choose "Main Idea" type.`),
       order: 22,
       afterClick: async () => {
-        console.log('有執行嗎？')
-        this.lib.RangyManager.selectionLock = false
+        //console.log('有執行嗎？')
         await this.lib.RangyManager.restoreLastSelectDemoText()
-        this.lib.RangyManager.onselect()
-        console.log('有選取嗎？')
-        await this.lib.VueHelper.sleep(1000)
+        //this.lib.RangyManager.selectionLock = false
+        //await this.lib.VueHelper.sleep(1000)
+        //this.lib.RangyManager.onselect()
+        //console.log('有選取嗎？')
+        //await this.lib.VueHelper.sleep(1000)
+        this.isTutorialMode = false
         $el.find('.MainIdea > .fabMask:first').click()  // 這個的確有點到
-        await this.lib.VueHelper.sleep(500)
+        //await this.lib.VueHelper.sleep(500)
+        
+        
       },
       scroll: false
     })
@@ -15028,12 +15039,12 @@ __webpack_require__.r(__webpack_exports__);
     let range = this.rangy.createRange()
     range.selectCharacters(elm, startPos , endPos)
     this.rangy.getSelection().addRange(range)
-    demoSelection = this.rangy.saveSelection()
     
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         //console.log('selectRandomRange', 5)
         this.onselect()
+        demoSelection = this.rangy.saveSelection()
         resolve(paragraph)
         //console.log('selectRandomRange', 6)
       }, 1000)
@@ -15041,15 +15052,17 @@ __webpack_require__.r(__webpack_exports__);
   } // RangyManager.methods.selectRandomRange = function () {
   
   RangyManager.methods.restoreLastSelectDemoText = async function () {
-    console.log('有選取嗎？')
+    //console.log('有選取嗎？', demoSelection)
     if (this.isSelecting()) {
       this.cancelSelection()
+      await this.lib.VueHelper.sleep(100)
     }
     this.rangy.restoreSelection(demoSelection)
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         //console.log('selectRandomRange', 5)
         this.onselect()
+        demoSelection = this.rangy.saveSelection()
         resolve(true)
         //console.log('selectRandomRange', 6)
       }, 1000)

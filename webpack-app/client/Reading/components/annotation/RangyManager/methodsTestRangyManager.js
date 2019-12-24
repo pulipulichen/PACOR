@@ -98,12 +98,12 @@ export default (RangyManager) => {
     let range = this.rangy.createRange()
     range.selectCharacters(elm, startPos , endPos)
     this.rangy.getSelection().addRange(range)
-    demoSelection = this.rangy.saveSelection()
     
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         //console.log('selectRandomRange', 5)
         this.onselect()
+        demoSelection = this.rangy.saveSelection()
         resolve(paragraph)
         //console.log('selectRandomRange', 6)
       }, 1000)
@@ -111,15 +111,17 @@ export default (RangyManager) => {
   } // RangyManager.methods.selectRandomRange = function () {
   
   RangyManager.methods.restoreLastSelectDemoText = async function () {
-    console.log('有選取嗎？')
+    //console.log('有選取嗎？', demoSelection)
     if (this.isSelecting()) {
       this.cancelSelection()
+      await this.lib.VueHelper.sleep(100)
     }
     this.rangy.restoreSelection(demoSelection)
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         //console.log('selectRandomRange', 5)
         this.onselect()
+        demoSelection = this.rangy.saveSelection()
         resolve(true)
         //console.log('selectRandomRange', 6)
       }, 1000)

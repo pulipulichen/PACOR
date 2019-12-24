@@ -9,7 +9,8 @@ let AnnotationTypeSelector = {
     this.$i18n.locale = this.config.locale
     return {
       timer: null,
-      selection: null
+      selection: null,
+      isTutorialMode: false
     }
   },
   watch: {
@@ -109,6 +110,10 @@ let AnnotationTypeSelector = {
       
       rangy.addEventListener('selectcollapsed', (data) => {
         //PACORTestManager.log('selectcollapsed')
+        if (this.isTutorialMode === true) {
+          return false
+        }
+        
         this.selection = null
       })
       
