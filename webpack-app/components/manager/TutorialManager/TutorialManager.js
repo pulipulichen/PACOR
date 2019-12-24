@@ -57,7 +57,9 @@ let TutorialManager = {
         actions,
         complete: () => {
           this.isPlaying = false
-          this.lib.RangyManager.selectionLock = false
+          if (this.lib.RangyManager) {
+            this.lib.RangyManager.selectionLock = false
+          }
         }
       });
       this.isPlaying = true

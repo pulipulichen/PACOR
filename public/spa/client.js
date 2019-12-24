@@ -10184,7 +10184,9 @@ let TutorialManager = {
         actions,
         complete: () => {
           this.isPlaying = false
-          this.lib.RangyManager.selectionLock = false
+          if (this.lib.RangyManager) {
+            this.lib.RangyManager.selectionLock = false
+          }
         }
       });
       this.isPlaying = true
@@ -10500,10 +10502,24 @@ __webpack_require__.r(__webpack_exports__);
         }
         return this.actionList.push(action);
       };
+      
+      jQueryGuide.prototype.execAfterClick = async function () {
+        if (this.step.current === 0) {
+          return null
+        }
+        
+        let lastAction = this.actionList[(this.step.current - 1)];
+        if (typeof(lastAction.afterClick) === 'function') {
+          await lastAction.afterClick()
+        }
+      }
 
-      jQueryGuide.prototype.execAction = function() {
+      jQueryGuide.prototype.execAction = async function() {
         var action;
         //$('body').addClass('jquery-guide-prevent-scroll')
+        
+        await this.execAfterClick()
+        
         action = this.actionList[this.step.current];
         //console.log(this.step.current)
         
@@ -10581,7 +10597,7 @@ __webpack_require__.r(__webpack_exports__);
         if (typeof(completeCallback) === 'function') {
           completeCallback()
         }
-        return 
+        return true
       };
 
       
@@ -10608,6 +10624,7 @@ __webpack_require__.r(__webpack_exports__);
         animateTemp = {
           action, 
           callback,
+          next: () => {this.next()},
           _this: this
         }
         
@@ -10623,6 +10640,10 @@ __webpack_require__.r(__webpack_exports__);
         if (actionElement.length > 1) {
           actionElement = this.drawTempRange(actionElement)
         }
+        else if (actionElement.length === 0) {
+          console.log(`Element is not found`, action)
+          return this.next()
+        }
         
         let element = actionElement
         if (typeof(element.scrollIntoView) !== 'function'
@@ -10631,6 +10652,7 @@ __webpack_require__.r(__webpack_exports__);
           element = element[0]
         }
         else if (element.length === 0) {
+          console.log(`Element is not found`, action)
           return this.next()
         }
         
@@ -10675,8 +10697,22 @@ __webpack_require__.r(__webpack_exports__);
       
       let animateTemp = {}
       let animateCallback = function() {
+        
+        let {action, callback, next, _this} = animateTemp
+        
+        if (!actionElement) {
+          return next()
+        }
+        else if (typeof(actionElement.offset) !== 'function') {
+          //console.error('no offset', actionElement)
+          actionElement = $(actionElement)
+        }
+        if (actionElement.is(':visible') === false) {
+          console.error('actionElement is not visible', actionElement)
+          return next()
+        }
+        
         var bgBottomWidth, bgScrollTop, bgTopWidth, scrollTop;
-        let {action, callback, _this} = animateTemp
         
         //setTimeout(() => {
           
@@ -10793,7 +10829,7 @@ __webpack_require__.r(__webpack_exports__);
             bottom = Math.max(bottom, b)
             right = Math.max(right, right)
           }
-          console.log(top, left, bottom, right)
+          //console.log(top, left, bottom, right)
         }
         
         if (top === 0 && bottom === 0) {

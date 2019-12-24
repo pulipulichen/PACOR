@@ -82,7 +82,6 @@ export default function (AnnotationManager) {
       element: async () => {
         let paragraph = await this.lib.RangyManager.selectDemoText()
         this.lib.RangyManager.onselect()
-        this.lib.RangyManager.selectionLock = true
         return paragraph
       },
       content: this.$t(`Select text to highlight.`),

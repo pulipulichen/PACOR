@@ -111,6 +111,10 @@ export default (RangyManager) => {
   } // RangyManager.methods.selectRandomRange = function () {
   
   RangyManager.methods.restoreLastSelectDemoText = async function () {
+    console.log('有選取嗎？')
+    if (this.isSelecting()) {
+      this.cancelSelection()
+    }
     this.rangy.restoreSelection(demoSelection)
     return new Promise((resolve, reject) => {
       setTimeout(() => {
