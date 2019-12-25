@@ -15,6 +15,10 @@ let AnnotationTypeSelector = {
   },
   watch: {
     'selection': function () {
+      if (this.isTutorialMode === true) {
+        return false
+      }
+      
       let fab = this.$refs.fab
       clearTimeout(this.timer)
       

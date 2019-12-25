@@ -10865,8 +10865,8 @@ __webpack_require__.r(__webpack_exports__);
     
     return new Promise((resolve) => {
       $clickImage.fadeIn('fast', async () => {
-        $clickImage.animate(afterStyle, 1000)
-        await this.lib.VueHelper.sleep(2000)
+        $clickImage.animate(afterStyle, 500)
+        await this.lib.VueHelper.sleep(1000)
 
         resolve(true)
         $clickImage.fadeOut()

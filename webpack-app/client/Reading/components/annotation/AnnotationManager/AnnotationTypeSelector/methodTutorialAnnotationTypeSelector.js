@@ -6,9 +6,12 @@ export default function (AnnotationTypeSelector) {
     //window.el = $(this.$el)
     
     let $el = $(this.$el)
+    let selection
     
     this.lib.TutorialManager.addAction({
       element: async () => {
+        selection = this.selection
+        
         this.isTutorialMode = true
         this.lib.RangyManager.restoreLastSelectDemoText()
         
@@ -27,7 +30,9 @@ export default function (AnnotationTypeSelector) {
     
     this.lib.TutorialManager.addAction({
       element: async () => {
-        this.lib.RangyManager.restoreLastSelectDemoText()
+        if (this.lib.RangyManager.isSelecting() === false) {
+          this.lib.RangyManager.restoreLastSelectDemoText()
+        }
         let element = $el.find('.MainIdea > .fabMask,.MainIdea > .fab-item-title')
         //console.log(element.length, element)
         //console.log('這時候好像就沒有選取了，為什麼呢？')
@@ -37,7 +42,9 @@ export default function (AnnotationTypeSelector) {
       order: 22,
       afterClick: async () => {
         //console.log('有執行嗎？')
-        
+        if (this.lib.RangyManager.isSelecting() === false) {
+          this.lib.RangyManager.restoreLastSelectDemoText()
+        }
         //this.lib.RangyManager.selectionLock = false
         //await this.lib.VueHelper.sleep(1000)
         //this.lib.RangyManager.onselect()
@@ -45,18 +52,21 @@ export default function (AnnotationTypeSelector) {
         
         
         //await this.lib.RangyManager.restoreLastSelectDemoText()
-        //let element = $el.find('.MainIdea > .fabMask:first')
-        //this.lib.TutorialManager.showClick(element)
+        let element = $el.find('.MainIdea > .fabMask:first')
+        await this.lib.TutorialManager.showClick(element)
         
-        this.isTutorialMode = false
         
-        await this.lib.RangyManager.restoreLastSelectDemoText()
+        
+        //await this.lib.RangyManager.restoreLastSelectDemoText()
         //await this.lib.VueHelper.sleep(1000)
         
-        
+        this.selection = selection
+        //console.log(this.selection)
         $el.find('.MainIdea > .fabMask:first').click()  // 這個的確有點到
         //await this.lib.VueHelper.sleep(500)
-        
+        //setTimeout(() => {
+          this.isTutorialMode = false
+        //}, 100)
       },
       scroll: false
     })
