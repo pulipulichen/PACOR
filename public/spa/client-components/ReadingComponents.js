@@ -6405,6 +6405,12 @@ let AnnotationTypeSelector = {
         type: type
       }
       
+      if (this.isTutorialMode) {
+        this.lib.AnnotationPanel.setAnnotation(annotation)
+        this.selection = null
+        return
+      }
+      
       try {
         this.lib.AnnotationHelper.validate(annotation)
       }
@@ -6552,6 +6558,11 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (AnnotationTypeSelector) {
   AnnotationTypeSelector.methods.setupTutorial = function () {
+    if (this.lib.auth.currentStep !== 'IndividualReading') {
+      return false
+    }
+    
+    
     //window.$ = $
     //window.el = $(this.$el)
     
@@ -6560,10 +6571,13 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction({
       element: async () => {
-        selection = this.selection
-        
         this.isTutorialMode = true
         this.lib.RangyManager.restoreLastSelectDemoText()
+        
+        //selection = this.selection
+        //console.log(this.selection.anchorPositions)
+        //console.log(this.lib.RangyManager.selection.anchorPositions)
+        
         
         //this.lib.RangyManager.selectionLock = true
         //let $el = $(this.$el)
@@ -6583,17 +6597,21 @@ __webpack_require__.r(__webpack_exports__);
         if (this.lib.RangyManager.isSelecting() === false) {
           this.lib.RangyManager.restoreLastSelectDemoText()
         }
-        let element = $el.find('.MainIdea > .fabMask,.MainIdea > .fab-item-title')
+        
+        let element = $el.find('.MainIdea > .fabMask:first')
+        await this.lib.TutorialManager.showClick(element)
+        
+        let elements = $el.find('.MainIdea > .fabMask,.MainIdea > .fab-item-title')
         //console.log(element.length, element)
         //console.log('這時候好像就沒有選取了，為什麼呢？')
-        return element
+        return elements
       },
       content: this.$t(`For example, if you choose "Main Idea" type.`),
       order: 22,
       afterClick: async () => {
         //console.log('有執行嗎？')
         if (this.lib.RangyManager.isSelecting() === false) {
-          this.lib.RangyManager.restoreLastSelectDemoText()
+          //this.lib.RangyManager.restoreLastSelectDemoText()
         }
         //this.lib.RangyManager.selectionLock = false
         //await this.lib.VueHelper.sleep(1000)
@@ -6602,17 +6620,15 @@ __webpack_require__.r(__webpack_exports__);
         
         
         //await this.lib.RangyManager.restoreLastSelectDemoText()
-        let element = $el.find('.MainIdea > .fabMask:first')
-        await this.lib.TutorialManager.showClick(element)
-        
-        
         
         //await this.lib.RangyManager.restoreLastSelectDemoText()
         //await this.lib.VueHelper.sleep(1000)
         
-        this.selection = selection
-        //console.log(this.selection)
-        $el.find('.MainIdea > .fabMask:first').click()  // 這個的確有點到
+        //this.selection = selection
+        //console.log(this.selection.anchorParagraphIds)
+        //$el.find('.MainIdea > .fabMask:first').click()  // 這個的確有點到
+        this.addAnnotation('MainIdea')
+        //
         //await this.lib.VueHelper.sleep(500)
         //setTimeout(() => {
           this.isTutorialMode = false
@@ -6720,6 +6736,15 @@ __webpack_require__.r(__webpack_exports__);
       element: async () => {
         let paragraph = await this.lib.RangyManager.selectDemoText()
         this.lib.RangyManager.onselect()
+        
+        var sel = await this.lib.RangyManager.rangy.getSelection();
+        var range = sel.getRangeAt(0).cloneRange();
+        var rect = range.getBoundingDocumentRect();
+        //console.log(rect)
+        
+        this.lib.TutorialManager.showClick(rect)
+        
+        //console.log(this.lib.RangyManager.selection.anchorPositions)
         return paragraph
       },
       content: this.$t(`Select text to highlight.`),
@@ -10204,7 +10229,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (AnnotationPanel) {
+    
   AnnotationPanel.methods.setupTutorial = function () {
+    
+      if (this.lib.auth.currentStep !== 'IndividualReading') {
+        return false
+      }
+    
     this.lib.TutorialManager.addAction({
       backgroundFadeOut: true,
       element: () => {
@@ -13764,6 +13795,12 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   RangyManager.methods.getRectFromAnchorPositions = function (anchorPositions) {
+    if (!anchorPositions 
+            || Array.isArray(anchorPositions) === false
+            || anchorPositions.length === 0) {
+      return
+    }
+    
     if (anchorPositions[0].type === 'section') {
       return this.getRectFromSection(anchorPositions[0].section_id)
     }
@@ -13803,15 +13840,16 @@ __webpack_require__.r(__webpack_exports__);
     let selectionSaved = this.rangy.saveSelection()
     //console.log(selectionSaved)
     
-    console.log(selection.anchorPositions)
+    //console.log(selection.anchorPositions)
     
     let highlights = this.rectHighlighter.highlightSelection('pacor-rect', {
       exclusive: false,
-      containerElementId: selection.anchorParagraphIds
+      containerElementId: this.selection.anchorParagraphIds
     })
     
     let anchorPositions = []
-    //console.log(highlights)
+    console.log(highlights)
+    
     highlights.forEach(highlight => {
       let paragraph_id = highlight.containerElementId
       
@@ -14936,6 +14974,10 @@ __webpack_require__.r(__webpack_exports__);
   RangyManager.methods.getPinSelectionAnchorText = function () {
     let highlight = this.selectionHighlighter.highlights[0]
     //console.log(highlight)
+    if (!highlight) {
+      return ''
+    }
+    
     let { anchor_text } = this._getAnchorPositionFromHighlight(highlight)
     //console.log(anchor_text)
     return anchor_text
@@ -15056,6 +15098,7 @@ __webpack_require__.r(__webpack_exports__);
     if (startPos < 0) {
       startPos = 0
     }
+    startPos = startPos + 30
     let randomLength = Math.floor(Math.random() * 3) + 3
     let endPos = startPos + randomLength
     if (endPos > maxLength) {

@@ -98,6 +98,12 @@ export default (RangyManager) => {
   }
   
   RangyManager.methods.getRectFromAnchorPositions = function (anchorPositions) {
+    if (!anchorPositions 
+            || Array.isArray(anchorPositions) === false
+            || anchorPositions.length === 0) {
+      return
+    }
+    
     if (anchorPositions[0].type === 'section') {
       return this.getRectFromSection(anchorPositions[0].section_id)
     }
@@ -137,15 +143,16 @@ export default (RangyManager) => {
     let selectionSaved = this.rangy.saveSelection()
     //console.log(selectionSaved)
     
-    console.log(selection.anchorPositions)
+    //console.log(selection.anchorPositions)
     
     let highlights = this.rectHighlighter.highlightSelection('pacor-rect', {
       exclusive: false,
-      containerElementId: selection.anchorParagraphIds
+      containerElementId: this.selection.anchorParagraphIds
     })
     
     let anchorPositions = []
-    //console.log(highlights)
+    console.log(highlights)
+    
     highlights.forEach(highlight => {
       let paragraph_id = highlight.containerElementId
       

@@ -139,6 +139,12 @@ let AnnotationTypeSelector = {
         type: type
       }
       
+      if (this.isTutorialMode) {
+        this.lib.AnnotationPanel.setAnnotation(annotation)
+        this.selection = null
+        return
+      }
+      
       try {
         this.lib.AnnotationHelper.validate(annotation)
       }

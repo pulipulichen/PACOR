@@ -32,6 +32,12 @@ export default function (NavigationItems) {
         let element = this.$refs.nav.find('.UserFilter:visible:first')
         //console.log(element.length)
         if (element.length === 0) {
+          let icon = {
+            top: window.innerHeight - 30,
+            left: window.innerWidth - 30,
+          }
+          await this.lib.TutorialManager.showClick(icon)
+          
           await this.$refs.nav.showSideMenu()
 //          let sideMenu = this.getSideMenu()
           element = this.$refs.nav.find('.UserFilter:visible:first')

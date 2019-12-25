@@ -10827,8 +10827,14 @@ __webpack_require__.r(__webpack_exports__);
       $clickImage = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.ClickImage)
     }
     
-    let {top, left} = element.offset()
+    if (typeof(element.offset) === 'function') {
+      element = element.offset()
+    }
+    let {top, left} = element
     
+    let padding = 10
+    
+    console.log(top, left)
     //let fromTop = true
     //let fromLeft = true
     
@@ -10845,7 +10851,7 @@ __webpack_require__.r(__webpack_exports__);
       beforeTop = top + 50
       beforeStyle.top = beforeTop + 'px'
     }
-    afterStyle.top = (top + 10)
+    afterStyle.top = (top + padding)
     
     if (beforeLeft > 0) {
       beforeStyle.left = beforeLeft + 'px'
@@ -10854,7 +10860,7 @@ __webpack_require__.r(__webpack_exports__);
       beforeLeft = left + 50
       beforeStyle.left = beforeLeft + 'px'
     }
-    afterStyle.left = (left + 10)
+    afterStyle.left = (left + padding)
     //afterStyle.left = (left + 10)
     
     //console.log(beforeStyle, afterStyle)

@@ -87,6 +87,7 @@ export default (RangyManager) => {
     if (startPos < 0) {
       startPos = 0
     }
+    startPos = startPos + 30
     let randomLength = Math.floor(Math.random() * 3) + 3
     let endPos = startPos + randomLength
     if (endPos > maxLength) {

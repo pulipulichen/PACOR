@@ -314,6 +314,10 @@ export default (RangyManager) => {
   RangyManager.methods.getPinSelectionAnchorText = function () {
     let highlight = this.selectionHighlighter.highlights[0]
     //console.log(highlight)
+    if (!highlight) {
+      return ''
+    }
+    
     let { anchor_text } = this._getAnchorPositionFromHighlight(highlight)
     //console.log(anchor_text)
     return anchor_text

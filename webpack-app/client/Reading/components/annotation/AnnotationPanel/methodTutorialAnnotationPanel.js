@@ -1,7 +1,13 @@
 import $ from 'jquery'
 
 export default function (AnnotationPanel) {
+    
   AnnotationPanel.methods.setupTutorial = function () {
+    
+      if (this.lib.auth.currentStep !== 'IndividualReading') {
+        return false
+      }
+    
     this.lib.TutorialManager.addAction({
       backgroundFadeOut: true,
       element: () => {

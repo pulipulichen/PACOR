@@ -72,6 +72,8 @@ let NavigationItems = {
     
     //setTimeout(() => {
     this.setupTutorial()
+    
+      
     //}, 500)
   },
   methods: {
