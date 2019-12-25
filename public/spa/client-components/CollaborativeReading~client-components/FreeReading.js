@@ -302,8 +302,8 @@ let NavigationItems = {
     return {
       pauseAtStart,
       isSideMenuDisplay: false,
-      menu: null,
-      sideMenu: null
+      //menu: null,
+      //sideMenu: null
     }
   },
   components: {
@@ -482,23 +482,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (NavigationItems) {
-  NavigationItems.methods.getMenu = function () {
-    if (!this.menu
-            && this.$refs.nav) {
-      this.menu = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.nav.$refs.Menu)
-    }
-    return this.menu
-  }
-  
-  NavigationItems.methods.getSideMenu = function () {
-    if (!this.sideMenu
-            && this.$refs.nav) {
-      this.sideMenu = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.nav.$refs.SideMenu)
-    }
-    return this.sideMenu
-  }
+//  NavigationItems.methods.getMenu = function () {
+//    if (!this.menu
+//            && this.$refs.nav) {
+//      this.menu = $(this.$refs.nav.$refs.Menu)
+//    }
+//    return this.menu
+//  }
+//  
+//  NavigationItems.methods.getSideMenu = function () {
+//    if (!this.sideMenu
+//            && this.$refs.nav) {
+//      this.sideMenu = $(this.$refs.nav.$refs.SideMenu)
+//    }
+//    return this.sideMenu
+//  }
 
   NavigationItems.methods.setupTutorial = function () {
+    //return console.log('@TEST')
     
     this.lib.TutorialManager.addAction({
       element: () => {

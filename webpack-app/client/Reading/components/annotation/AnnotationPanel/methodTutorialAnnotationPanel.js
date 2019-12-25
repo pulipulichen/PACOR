@@ -9,7 +9,7 @@ export default function (AnnotationPanel) {
       }
     
     this.lib.TutorialManager.addAction({
-      backgroundFadeOut: true,
+      //backgroundFadeOut: true,
       element: () => {
         return this.$refs.panel
       },

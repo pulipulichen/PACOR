@@ -207,12 +207,12 @@ import 'tippy.js/themes/light.css';
         currentScrollTop = undefined
         isStart = false
         
+        if (typeof(completeCallback) === 'function') {
+            completeCallback()
+        }
+          
         this.layout.container.fadeOut(() => {
           this.layout.container.remove();
-
-          if (typeof(completeCallback) === 'function') {
-            completeCallback()
-          }
         })
         return true
       };

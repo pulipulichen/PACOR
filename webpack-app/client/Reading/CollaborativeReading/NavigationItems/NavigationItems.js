@@ -20,8 +20,8 @@ let NavigationItems = {
     return {
       pauseAtStart,
       isSideMenuDisplay: false,
-      menu: null,
-      sideMenu: null
+      //menu: null,
+      //sideMenu: null
     }
   },
   components: {

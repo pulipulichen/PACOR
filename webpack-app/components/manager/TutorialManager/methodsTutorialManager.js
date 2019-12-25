@@ -30,11 +30,22 @@ export default function (TutorialManager) {
         if (this.lib.RangyManager) {
           this.lib.RangyManager.selectionLock = false
         }
+        
+        $(this.$refs.FinishModal).modal('show')
+        
+        setTimeout(() => {
+          this.hideFinishModal()
+        }, 3000)
       }
     });
     this.isPlaying = true
     //console.log(this.guide)
   }
+  
+  TutorialManager.methods.hideFinishModal = function () {
+    //$(this.$refs.FinishModal).modal('hide')
+  }
+  
   TutorialManager.methods.getActions = function (type) {
     if (typeof(type) !== 'string') {
       type = this.defaultType

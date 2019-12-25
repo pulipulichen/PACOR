@@ -2,6 +2,8 @@ import $ from 'jquery'
 
 export default function (SectionManager) {
   SectionManager.methods.setupTutorial = function () {
+    //return console.log('@TEST')
+
 
     if (this.lib.auth.isEnableCollaboration) {
       this.setupTutorialCollaborativeReading()
@@ -44,7 +46,7 @@ export default function (SectionManager) {
     })
 
     this.lib.TutorialManager.addAction({
-      backgroundFadeOut: true,
+      //backgroundFadeOut: true,
       element: () => {
         let panel = $(`[data-section-id].SectionPanel:visible:last`)
         return panel

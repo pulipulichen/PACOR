@@ -1,5 +1,17 @@
-<fragment>
+<div class="TutorialManager">
   <img class="click-image"
        ref="ClickImage"
        v-bind:src="config.baseURL + '/imgs/click.png'" />
-</fragment>
+  
+  <div class="ui basic modal" 
+       ref="FinishModal"
+       v-on:click="hideFinishModal">
+    <div class="ui icon header">
+      <i class="heart icon"></i>
+      {{ $t('Tutorial is over') }}
+    </div>
+    <div class="content">
+      <p>{{ $t(`Thanks for your patience.`) }}</p>
+    </div>
+  </div>
+</div>

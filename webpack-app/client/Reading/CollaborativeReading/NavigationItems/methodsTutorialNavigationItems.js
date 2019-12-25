@@ -1,23 +1,24 @@
 import $ from 'jquery'
 
 export default function (NavigationItems) {
-  NavigationItems.methods.getMenu = function () {
-    if (!this.menu
-            && this.$refs.nav) {
-      this.menu = $(this.$refs.nav.$refs.Menu)
-    }
-    return this.menu
-  }
-  
-  NavigationItems.methods.getSideMenu = function () {
-    if (!this.sideMenu
-            && this.$refs.nav) {
-      this.sideMenu = $(this.$refs.nav.$refs.SideMenu)
-    }
-    return this.sideMenu
-  }
+//  NavigationItems.methods.getMenu = function () {
+//    if (!this.menu
+//            && this.$refs.nav) {
+//      this.menu = $(this.$refs.nav.$refs.Menu)
+//    }
+//    return this.menu
+//  }
+//  
+//  NavigationItems.methods.getSideMenu = function () {
+//    if (!this.sideMenu
+//            && this.$refs.nav) {
+//      this.sideMenu = $(this.$refs.nav.$refs.SideMenu)
+//    }
+//    return this.sideMenu
+//  }
 
   NavigationItems.methods.setupTutorial = function () {
+    //return console.log('@TEST')
     
     this.lib.TutorialManager.addAction({
       element: () => {

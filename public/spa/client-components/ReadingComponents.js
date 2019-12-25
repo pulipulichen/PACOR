@@ -10237,7 +10237,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     
     this.lib.TutorialManager.addAction({
-      backgroundFadeOut: true,
+      //backgroundFadeOut: true,
       element: () => {
         return this.$refs.panel
       },
@@ -25242,6 +25242,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (SectionManager) {
   SectionManager.methods.setupTutorial = function () {
+    //return console.log('@TEST')
+
 
     if (this.lib.auth.isEnableCollaboration) {
       this.setupTutorialCollaborativeReading()
@@ -25284,7 +25286,7 @@ __webpack_require__.r(__webpack_exports__);
     })
 
     this.lib.TutorialManager.addAction({
-      backgroundFadeOut: true,
+      //backgroundFadeOut: true,
       element: () => {
         let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:last`)
         return panel

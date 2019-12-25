@@ -505,7 +505,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Tutorial is over":"操作說明結束了","Thanks for your patience.":"感謝您的耐心觀看。"}}')
   delete Component.options._Ctor
 }
 
@@ -947,7 +947,7 @@ exports.push([module.i, ".button[data-v-75d99c9c] {\n  white-space: nowrap;\n  t
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".click-image[data-v-1bc43b50] {\n  position: fixed;\n  display: none;\n  z-index: 1002;\n  filter: drop-shadow(10px 10px 4px rgba(255, 255, 255, 0.5));\n}\n", "",{"version":3,"sources":["TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,aAAa;EACb,aAAa;EACb,2DAA2D;AAC7D","file":"TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&","sourcesContent":[".click-image[data-v-1bc43b50] {\n  position: fixed;\n  display: none;\n  z-index: 1002;\n  filter: drop-shadow(10px 10px 4px rgba(255, 255, 255, 0.5));\n}\n"]}]);
+exports.push([module.i, ".click-image[data-v-1bc43b50] {\n  position: fixed;\n  display: none;\n  z-index: 1002;\n  filter: drop-shadow(10px 10px 4px rgba(255, 255, 255, 0.5));\n}\n.modal[data-v-1bc43b50] {\n  cursor: pointer;\n}\n.content[data-v-1bc43b50] {\n  text-align: center;\n}\n", "",{"version":3,"sources":["TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,aAAa;EACb,aAAa;EACb,2DAA2D;AAC7D;AACA;EACE,eAAe;AACjB;AACA;EACE,kBAAkB;AACpB","file":"TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&","sourcesContent":[".click-image[data-v-1bc43b50] {\n  position: fixed;\n  display: none;\n  z-index: 1002;\n  filter: drop-shadow(10px 10px 4px rgba(255, 255, 255, 0.5));\n}\n.modal[data-v-1bc43b50] {\n  cursor: pointer;\n}\n.content[data-v-1bc43b50] {\n  text-align: center;\n}\n"]}]);
 
 
 /***/ }),
@@ -3106,12 +3106,31 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("fragment", [
+  return _c("div", { staticClass: "TutorialManager" }, [
     _c("img", {
       ref: "ClickImage",
       staticClass: "click-image",
       attrs: { src: _vm.config.baseURL + "/imgs/click.png" }
-    })
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        ref: "FinishModal",
+        staticClass: "ui basic modal",
+        on: { click: _vm.hideFinishModal }
+      },
+      [
+        _c("div", { staticClass: "ui icon header" }, [
+          _c("i", { staticClass: "heart icon" }),
+          _vm._v("\r\n      " + _vm._s(_vm.$t("Tutorial is over")) + "\r\n    ")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "content" }, [
+          _c("p", [_vm._v(_vm._s(_vm.$t("Thanks for your patience.")))])
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = []
@@ -10502,12 +10521,12 @@ __webpack_require__.r(__webpack_exports__);
         currentScrollTop = undefined
         isStart = false
         
+        if (typeof(completeCallback) === 'function') {
+            completeCallback()
+        }
+          
         this.layout.container.fadeOut(() => {
           this.layout.container.remove();
-
-          if (typeof(completeCallback) === 'function') {
-            completeCallback()
-          }
         })
         return true
       };
@@ -10962,11 +10981,22 @@ __webpack_require__.r(__webpack_exports__);
         if (this.lib.RangyManager) {
           this.lib.RangyManager.selectionLock = false
         }
+        
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.FinishModal).modal('show')
+        
+        setTimeout(() => {
+          this.hideFinishModal()
+        }, 3000)
       }
     });
     this.isPlaying = true
     //console.log(this.guide)
   }
+  
+  TutorialManager.methods.hideFinishModal = function () {
+    //$(this.$refs.FinishModal).modal('hide')
+  }
+  
   TutorialManager.methods.getActions = function (type) {
     if (typeof(type) !== 'string') {
       type = this.defaultType
