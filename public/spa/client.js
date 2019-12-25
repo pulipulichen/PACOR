@@ -681,7 +681,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".jquery-guide {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n  /*\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  */\n}\n.jquery-guide.disabled {\n  pointer-events: none;\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n  pointer-events: none;\n}\n.jquery-guide .jquery-guide-temp-range {\n  position: absolute;\n  z-index: -1;\n  pointer-events: none;\n  display: none;\n}\nbody.jquery-guide-prevent-scroll {\n  overflow: hidden;\n}\n.tippy-popper {\n  pointer-events: none;\n}\n.tippy-popper .tippy-tooltip {\n  font-size: 1.5em !important;\n  padding: 0.5em;\n}\n", "",{"version":3,"sources":["jquery.guide.less"],"names":[],"mappings":"AAAA;EACE,0CAA0C;EAC1C,uCAAuC;EACvC,kCAAkC;EAClC;;;;;;GAMC;AACH;AACA;EACE,oBAAoB;AACtB;AACA;EACE,0CAA0C;EAC1C,uCAAuC;EACvC,kCAAkC;AACpC;AACA;EACE,eAAe;EACf,MAAM;EACN,QAAQ;EACR,SAAS;EACT,OAAO;EACP,gCAAgC;EAChC,mBAAmB;EACnB,qBAAqB;EACrB,uBAAuB;EACvB,wBAAwB;EACxB,sBAAsB;EACtB,aAAa;AACf;AACA;EACE,gCAAgC;AAClC;AACA;EACE,kBAAkB;EAClB,eAAe;EACf,WAAW;EACX,aAAa;AACf;AACA;EACE,kBAAkB;EAClB,aAAa;EACb,wMAAwM;EACxM,oBAAoB;AACtB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,oBAAoB;EACpB,aAAa;AACf;AACA;EACE,gBAAgB;AAClB;AACA;EACE,oBAAoB;AACtB;AACA;EACE,2BAA2B;EAC3B,cAAc;AAChB","file":"jquery.guide.less","sourcesContent":[".jquery-guide {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n  /*\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  */\n}\n.jquery-guide.disabled {\n  pointer-events: none;\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n  pointer-events: none;\n}\n.jquery-guide .jquery-guide-temp-range {\n  position: absolute;\n  z-index: -1;\n  pointer-events: none;\n  display: none;\n}\nbody.jquery-guide-prevent-scroll {\n  overflow: hidden;\n}\n.tippy-popper {\n  pointer-events: none;\n}\n.tippy-popper .tippy-tooltip {\n  font-size: 1.5em !important;\n  padding: 0.5em;\n}\n"]}]);
+exports.push([module.i, ".jquery-guide {\n  user-select: none;\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n  /*\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  */\n}\n.jquery-guide.disabled {\n  pointer-events: none;\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n  pointer-events: none;\n}\n.jquery-guide .jquery-guide-temp-range {\n  position: absolute;\n  z-index: -1;\n  pointer-events: none;\n  display: none;\n}\nbody.jquery-guide-prevent-scroll {\n  overflow: hidden;\n}\n.tippy-popper {\n  pointer-events: none;\n}\n.tippy-popper .tippy-tooltip {\n  font-size: 1.5em !important;\n  padding: 0.5em;\n}\n", "",{"version":3,"sources":["jquery.guide.less"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,0CAA0C;EAC1C,uCAAuC;EACvC,kCAAkC;EAClC;;;;;;GAMC;AACH;AACA;EACE,oBAAoB;AACtB;AACA;EACE,0CAA0C;EAC1C,uCAAuC;EACvC,kCAAkC;AACpC;AACA;EACE,eAAe;EACf,MAAM;EACN,QAAQ;EACR,SAAS;EACT,OAAO;EACP,gCAAgC;EAChC,mBAAmB;EACnB,qBAAqB;EACrB,uBAAuB;EACvB,wBAAwB;EACxB,sBAAsB;EACtB,aAAa;AACf;AACA;EACE,gCAAgC;AAClC;AACA;EACE,kBAAkB;EAClB,eAAe;EACf,WAAW;EACX,aAAa;AACf;AACA;EACE,kBAAkB;EAClB,aAAa;EACb,wMAAwM;EACxM,oBAAoB;AACtB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,oBAAoB;EACpB,aAAa;AACf;AACA;EACE,gBAAgB;AAClB;AACA;EACE,oBAAoB;AACtB;AACA;EACE,2BAA2B;EAC3B,cAAc;AAChB","file":"jquery.guide.less","sourcesContent":[".jquery-guide {\n  user-select: none;\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n  /*\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  */\n}\n.jquery-guide.disabled {\n  pointer-events: none;\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n  pointer-events: none;\n}\n.jquery-guide .jquery-guide-temp-range {\n  position: absolute;\n  z-index: -1;\n  pointer-events: none;\n  display: none;\n}\nbody.jquery-guide-prevent-scroll {\n  overflow: hidden;\n}\n.tippy-popper {\n  pointer-events: none;\n}\n.tippy-popper .tippy-tooltip {\n  font-size: 1.5em !important;\n  padding: 0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -10474,6 +10474,10 @@ __webpack_require__.r(__webpack_exports__);
         </div>`);
         $body.append(layout);
         this.layout.container = $('#jQueryGuide' + layoutId);
+        this.layout.container.click(function (event) {
+          event.preventDefault()
+          event.stopPropagation()
+        })
         
 //        this.layout.container.on('scroll', function (event) {
 //          event.preventDefault()
@@ -10592,14 +10596,17 @@ __webpack_require__.r(__webpack_exports__);
         currentScrollTop = undefined
         isStart = false
         
-        this.layout.container.remove();
-        
-        if (typeof(completeCallback) === 'function') {
-          completeCallback()
-        }
+        this.layout.container.fadeOut(() => {
+          this.layout.container.remove();
+
+          if (typeof(completeCallback) === 'function') {
+            completeCallback()
+          }
+        })
         return true
       };
 
+      // --------------------------------
       
       let scrollTimer
       let onScrollEvent = function() {
@@ -10618,7 +10625,15 @@ __webpack_require__.r(__webpack_exports__);
         this.layout.container.addClass('disabled')
         let action = this.actionList[this.step.current];
         //this.layout.glow.fadeOut('fast')
-        this.layout.glow.hide()
+        this.layout.glow.fadeOut()
+        
+        if (action.backgroundFadeOut === true) {
+          this.layout.bg.fadeOut('fast', () => {
+            this.layout.bg.css('border-width', '0px')
+                    .css('width', '100%')
+                    .css('height', '100vh')
+          })
+        }
         //console.log(action.element[0])
         scrollIntoView = true
         animateTemp = {
@@ -10699,6 +10714,11 @@ __webpack_require__.r(__webpack_exports__);
       let animateCallback = function() {
         
         let {action, callback, next, _this} = animateTemp
+        
+        if (action.backgroundFadeOut === true) {
+          _this.layout.bg.fadeIn()
+        }
+        
         
         if (!actionElement) {
           return next()

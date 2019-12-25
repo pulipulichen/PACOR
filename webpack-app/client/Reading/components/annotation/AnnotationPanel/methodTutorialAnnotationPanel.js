@@ -3,6 +3,7 @@ import $ from 'jquery'
 export default function (AnnotationPanel) {
   AnnotationPanel.methods.setupTutorial = function () {
     this.lib.TutorialManager.addAction({
+      backgroundFadeOut: true,
       element: () => {
         return this.$refs.panel
       },

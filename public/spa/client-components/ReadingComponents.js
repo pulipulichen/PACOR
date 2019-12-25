@@ -1257,6 +1257,7 @@ var render = function() {
             activeIconRotate: false,
             transitionEnable: false,
             scrollAutoShow: false,
+            scrollAutoHide: false,
             clickOutsideCloseMenu: false,
             autoOpenMenu: true
           }
@@ -6553,7 +6554,7 @@ __webpack_require__.r(__webpack_exports__);
     this.lib.TutorialManager.addAction({
       element: async () => {
         this.isTutorialMode = true
-        await this.lib.RangyManager.restoreLastSelectDemoText()
+        this.lib.RangyManager.restoreLastSelectDemoText()
         
         //this.lib.RangyManager.selectionLock = true
         //let $el = $(this.$el)
@@ -6570,8 +6571,8 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction({
       element: async () => {
-        await this.lib.RangyManager.restoreLastSelectDemoText()
-        let element = $el.find('.MainIdea > .fabMask:first')
+        this.lib.RangyManager.restoreLastSelectDemoText()
+        let element = $el.find('.MainIdea > .fabMask,.MainIdea > .fab-item-title')
         //console.log(element.length, element)
         //console.log('這時候好像就沒有選取了，為什麼呢？')
         return element
@@ -10180,6 +10181,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (AnnotationPanel) {
   AnnotationPanel.methods.setupTutorial = function () {
     this.lib.TutorialManager.addAction({
+      backgroundFadeOut: true,
       element: () => {
         return this.$refs.panel
       },
@@ -25200,6 +25202,7 @@ __webpack_require__.r(__webpack_exports__);
 
   SectionManager.methods.setupTutorialIndividualReading = function () {
     this.lib.TutorialManager.addAction({
+      backgroundFadeOut: true,
       element: () => {
         this.lib.AnnotationPanel.hide()
         let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
@@ -25211,6 +25214,7 @@ __webpack_require__.r(__webpack_exports__);
     })
 
     this.lib.TutorialManager.addAction({
+      backgroundFadeOut: true,
       element: () => {
         let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:last`)
         return panel

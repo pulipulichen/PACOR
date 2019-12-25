@@ -10,7 +10,7 @@ export default function (AnnotationTypeSelector) {
     this.lib.TutorialManager.addAction({
       element: async () => {
         this.isTutorialMode = true
-        await this.lib.RangyManager.restoreLastSelectDemoText()
+        this.lib.RangyManager.restoreLastSelectDemoText()
         
         //this.lib.RangyManager.selectionLock = true
         //let $el = $(this.$el)
@@ -27,8 +27,8 @@ export default function (AnnotationTypeSelector) {
     
     this.lib.TutorialManager.addAction({
       element: async () => {
-        await this.lib.RangyManager.restoreLastSelectDemoText()
-        let element = $el.find('.MainIdea > .fabMask:first')
+        this.lib.RangyManager.restoreLastSelectDemoText()
+        let element = $el.find('.MainIdea > .fabMask,.MainIdea > .fab-item-title')
         //console.log(element.length, element)
         //console.log('這時候好像就沒有選取了，為什麼呢？')
         return element

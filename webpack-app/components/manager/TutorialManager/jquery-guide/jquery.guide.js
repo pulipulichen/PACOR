@@ -85,6 +85,10 @@ import 'tippy.js/themes/light.css';
         </div>`);
         $body.append(layout);
         this.layout.container = $('#jQueryGuide' + layoutId);
+        this.layout.container.click(function (event) {
+          event.preventDefault()
+          event.stopPropagation()
+        })
         
 //        this.layout.container.on('scroll', function (event) {
 //          event.preventDefault()
@@ -203,14 +207,17 @@ import 'tippy.js/themes/light.css';
         currentScrollTop = undefined
         isStart = false
         
-        this.layout.container.remove();
-        
-        if (typeof(completeCallback) === 'function') {
-          completeCallback()
-        }
+        this.layout.container.fadeOut(() => {
+          this.layout.container.remove();
+
+          if (typeof(completeCallback) === 'function') {
+            completeCallback()
+          }
+        })
         return true
       };
 
+      // --------------------------------
       
       let scrollTimer
       let onScrollEvent = function() {
@@ -229,7 +236,15 @@ import 'tippy.js/themes/light.css';
         this.layout.container.addClass('disabled')
         let action = this.actionList[this.step.current];
         //this.layout.glow.fadeOut('fast')
-        this.layout.glow.hide()
+        this.layout.glow.fadeOut()
+        
+        if (action.backgroundFadeOut === true) {
+          this.layout.bg.fadeOut('fast', () => {
+            this.layout.bg.css('border-width', '0px')
+                    .css('width', '100%')
+                    .css('height', '100vh')
+          })
+        }
         //console.log(action.element[0])
         scrollIntoView = true
         animateTemp = {
@@ -310,6 +325,11 @@ import 'tippy.js/themes/light.css';
       let animateCallback = function() {
         
         let {action, callback, next, _this} = animateTemp
+        
+        if (action.backgroundFadeOut === true) {
+          _this.layout.bg.fadeIn()
+        }
+        
         
         if (!actionElement) {
           return next()

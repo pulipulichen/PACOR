@@ -31,6 +31,7 @@ export default function (SectionManager) {
 
   SectionManager.methods.setupTutorialIndividualReading = function () {
     this.lib.TutorialManager.addAction({
+      backgroundFadeOut: true,
       element: () => {
         this.lib.AnnotationPanel.hide()
         let panel = $(`[data-section-id].SectionPanel:visible:first`)
@@ -42,6 +43,7 @@ export default function (SectionManager) {
     })
 
     this.lib.TutorialManager.addAction({
+      backgroundFadeOut: true,
       element: () => {
         let panel = $(`[data-section-id].SectionPanel:visible:last`)
         return panel
