@@ -6354,6 +6354,8 @@ let AnnotationTypeSelector = {
     initRangyEvent () {
       let rangy = this.lib.RangyManager
       rangy.addEventListener('select', (data) => {
+        //console.log('取消')
+        
         // 如果AnnotationPanel已經顯示，則不動作
         
         //console.log('this.lib.AnnotationPanel.isHide', this.lib.AnnotationPanel.isHide)
@@ -6379,7 +6381,7 @@ let AnnotationTypeSelector = {
         if (this.isTutorialMode === true) {
           return false
         }
-        
+        //console.log('取消')
         this.selection = null
       })
       
@@ -6391,7 +6393,7 @@ let AnnotationTypeSelector = {
       if (!this.selection) {
         return null
       }
-      
+      console.log(this.selection)
       let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
       //console.log(anchorPositions)
       let annotation = {
@@ -6589,12 +6591,15 @@ __webpack_require__.r(__webpack_exports__);
         
         
         //await this.lib.RangyManager.restoreLastSelectDemoText()
-        let element = $el.find('.MainIdea > .fabMask:first')
+        //let element = $el.find('.MainIdea > .fabMask:first')
         //this.lib.TutorialManager.showClick(element)
         
-        await this.lib.RangyManager.restoreLastSelectDemoText()
-        
         this.isTutorialMode = false
+        
+        await this.lib.RangyManager.restoreLastSelectDemoText()
+        //await this.lib.VueHelper.sleep(1000)
+        
+        
         $el.find('.MainIdea > .fabMask:first').click()  // 這個的確有點到
         //await this.lib.VueHelper.sleep(500)
         
@@ -13784,10 +13789,11 @@ __webpack_require__.r(__webpack_exports__);
     let selectionSaved = this.rangy.saveSelection()
     //console.log(selectionSaved)
     
-    //console.log(selection.anchorPositions)
+    console.log(selection.anchorPositions)
+    
     let highlights = this.rectHighlighter.highlightSelection('pacor-rect', {
       exclusive: false,
-      containerElementId: this.selection.anchorParagraphIds
+      containerElementId: selection.anchorParagraphIds
     })
     
     let anchorPositions = []

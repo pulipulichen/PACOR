@@ -137,10 +137,11 @@ export default (RangyManager) => {
     let selectionSaved = this.rangy.saveSelection()
     //console.log(selectionSaved)
     
-    //console.log(selection.anchorPositions)
+    console.log(selection.anchorPositions)
+    
     let highlights = this.rectHighlighter.highlightSelection('pacor-rect', {
       exclusive: false,
-      containerElementId: this.selection.anchorParagraphIds
+      containerElementId: selection.anchorParagraphIds
     })
     
     let anchorPositions = []

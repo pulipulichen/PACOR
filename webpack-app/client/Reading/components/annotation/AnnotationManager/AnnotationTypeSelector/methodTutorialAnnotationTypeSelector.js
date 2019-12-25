@@ -45,12 +45,15 @@ export default function (AnnotationTypeSelector) {
         
         
         //await this.lib.RangyManager.restoreLastSelectDemoText()
-        let element = $el.find('.MainIdea > .fabMask:first')
+        //let element = $el.find('.MainIdea > .fabMask:first')
         //this.lib.TutorialManager.showClick(element)
         
-        await this.lib.RangyManager.restoreLastSelectDemoText()
-        
         this.isTutorialMode = false
+        
+        await this.lib.RangyManager.restoreLastSelectDemoText()
+        //await this.lib.VueHelper.sleep(1000)
+        
+        
         $el.find('.MainIdea > .fabMask:first').click()  // 這個的確有點到
         //await this.lib.VueHelper.sleep(500)
         

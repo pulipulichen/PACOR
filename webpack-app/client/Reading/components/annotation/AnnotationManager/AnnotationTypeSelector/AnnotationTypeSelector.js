@@ -88,6 +88,8 @@ let AnnotationTypeSelector = {
     initRangyEvent () {
       let rangy = this.lib.RangyManager
       rangy.addEventListener('select', (data) => {
+        //console.log('取消')
+        
         // 如果AnnotationPanel已經顯示，則不動作
         
         //console.log('this.lib.AnnotationPanel.isHide', this.lib.AnnotationPanel.isHide)
@@ -113,7 +115,7 @@ let AnnotationTypeSelector = {
         if (this.isTutorialMode === true) {
           return false
         }
-        
+        //console.log('取消')
         this.selection = null
       })
       
@@ -125,7 +127,7 @@ let AnnotationTypeSelector = {
       if (!this.selection) {
         return null
       }
-      
+      console.log(this.selection)
       let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
       //console.log(anchorPositions)
       let annotation = {
