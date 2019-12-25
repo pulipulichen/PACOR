@@ -56,7 +56,7 @@
             <input type="text" 
                    id="loginUsername"
                    v-model="username"
-                   v-on:keyup.enter="login"/>
+                   v-on:keyup.enter.stop="login"/>
           </div>
 
           <div class="ui field"

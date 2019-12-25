@@ -1306,6 +1306,7 @@ var render = function() {
                                 ) {
                                   return null
                                 }
+                                $event.stopPropagation()
                                 return _vm.login($event)
                               },
                               input: function($event) {
@@ -10125,6 +10126,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _jquery_guide_jquery_guide_webpack_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jquery-guide/jquery-guide.webpack.js */ "./webpack-app/components/manager/TutorialManager/jquery-guide/jquery-guide.webpack.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _methodsTutorialManager_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsTutorialManager.js */ "./webpack-app/components/manager/TutorialManager/methodsTutorialManager.js");
+/* harmony import */ var _methodsMouseTutorialManager_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methodsMouseTutorialManager.js */ "./webpack-app/components/manager/TutorialManager/methodsMouseTutorialManager.js");
+/* harmony import */ var _methodsTestTutorialManager_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsTestTutorialManager.js */ "./webpack-app/components/manager/TutorialManager/methodsTestTutorialManager.js");
 //import IntroJs from './introjs/intro.js'
 //import anno from './anno/anno.js'
 
@@ -10158,121 +10162,17 @@ let TutorialManager = {
   destroyed () {
     this.stop()
   },
-  methods: {
-    addAction (type, action) {
-      if (typeof(type) !== 'string') {
-        action = type
-        type = this.defaultType
-      }
-      //console.log(this.defaultType)
-      
-      if (Array.isArray(this.actionLists[type]) === false) {
-        this.actionLists[type] = []
-      }
-      
-      this.actionLists[type].push(action)
-      
-      //console.log(this.actionLists)
-    },
-    start (type) {
-      let actions = this.getActions(type)
-      if (Array.isArray(actions) === false) {
-        return false
-      }
-      //console.log(actions)
-      this.guide = jquery__WEBPACK_IMPORTED_MODULE_1___default.a.guide({
-        actions,
-        complete: () => {
-          this.isPlaying = false
-          if (this.lib.RangyManager) {
-            this.lib.RangyManager.selectionLock = false
-          }
-        }
-      });
-      this.isPlaying = true
-      //console.log(this.guide)
-    },
-    getActions (type) {
-      if (typeof(type) !== 'string') {
-        type = this.defaultType
-      }
-      
-      let list = this.actionLists[type]
-      if (Array.isArray(list) === false) {
-        return undefined
-      }
-      
-      // ---------------------
-      
-      list = list.map((action) => {
-        if (typeof(action) === 'function') {
-          action = action()
-        }
-        
-        if (!action || typeof(action) !== 'object') {
-          action = {}
-        }
-        
-        //console.log(action)
-        
-//        if (action.element) {
-////          if (action && !action.element) {
-////            //throw new Error('Element is not found', action)
-////          }
-//          
-//          if (typeof(action.element.$el) === 'object') {
-//            action.element = action.element.$el
-//          }
-//          action.element = $(action.element)
-//        }
-        
-        if (typeof(action.order) !== 'number') {
-          action.order = 999
-        }
-        
-        return action
-      })
-      
-      // ---------------------
-      
-      list.sort(function (a, b) {
-        return a.order - b.order
-      })
-      return list
-    },
-    stop () {
-      if (!this.guide) {
-        return false
-      }
-      //$.guide;
-      this.guide.exit()
-    },
-    
-    // -------------------------------------------------
-    
-    _test: async function () {
-      await this.lib.VueHelper.sleep(3000)
-    
-      this.addAction({
-        element: jquery__WEBPACK_IMPORTED_MODULE_1___default()('.my-MainIdea:first'),
-        content: '1 Welcome, click on the screen at any position to enter the next step',
-        order: 2
-      })
-      
-      this.addAction({
-        element: jquery__WEBPACK_IMPORTED_MODULE_1___default()('.DigitalCountdownTimer:first'),
-        //content: '2 Welcome, click on the screen at any position to enter the next step',
-        order: 1
-      })
-    
-      this.start()
-      
-      await this.lib.VueHelper.sleep(3000)
-      
-      //this.stop()
-    }
-  } // methods
+  methods: {} // methodsTutorialManager.js
 }
+
+
+Object(_methodsTutorialManager_js__WEBPACK_IMPORTED_MODULE_2__["default"])(TutorialManager)
+
+
+Object(_methodsMouseTutorialManager_js__WEBPACK_IMPORTED_MODULE_5__["default"])(TutorialManager)
+
+
+Object(_methodsTestTutorialManager_js__WEBPACK_IMPORTED_MODULE_4__["default"])(TutorialManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (TutorialManager);
 
@@ -10584,7 +10484,7 @@ __webpack_require__.r(__webpack_exports__);
 
       jQueryGuide.prototype.exit = function() {
         $body.removeClass('jquery-guide-prevent-scroll')
-        if (typeof(glowTippy.destroy) === 'function') {
+        if (glowTippy && typeof(glowTippy.destroy) === 'function') {
           glowTippy.destroy()
           glowTippy = undefined
         }
@@ -10897,6 +10797,164 @@ var add = __webpack_require__(/*! ../../../../../node_modules/vue-style-loader/l
 var update = add("4f6becbb", content, false, {});
 // Hot Module Replacement
 if(false) {}
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/methodsMouseTutorialManager.js":
+/*!***************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/methodsMouseTutorialManager.js ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (TutorialManager) {
+  TutorialManager.methods.showClick = async function (element) {
+    throw new Error('@showClick')
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/methodsTestTutorialManager.js":
+/*!**************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/methodsTestTutorialManager.js ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (TutorialManager) {
+  TutorialManager.methods._test = async function () {
+    await this.lib.VueHelper.sleep(3000)
+
+    this.addAction({
+      element: $('.my-MainIdea:first'),
+      content: '1 Welcome, click on the screen at any position to enter the next step',
+      order: 2
+    })
+
+    this.addAction({
+      element: $('.DigitalCountdownTimer:first'),
+      //content: '2 Welcome, click on the screen at any position to enter the next step',
+      order: 1
+    })
+
+    this.start()
+
+    await this.lib.VueHelper.sleep(3000)
+
+    //this.stop()
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/methodsTutorialManager.js":
+/*!**********************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/methodsTutorialManager.js ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (TutorialManager) {
+  TutorialManager.methods.addAction = function (type, action) {
+    if (typeof(type) !== 'string') {
+      action = type
+      type = this.defaultType
+    }
+    //console.log(this.defaultType)
+
+    if (Array.isArray(this.actionLists[type]) === false) {
+      this.actionLists[type] = []
+    }
+
+    this.actionLists[type].push(action)
+
+    //console.log(this.actionLists)
+  }
+  TutorialManager.methods.start = function (type) {
+    let actions = this.getActions(type)
+    if (Array.isArray(actions) === false) {
+      return false
+    }
+    //console.log(actions)
+    this.guide = $.guide({
+      actions,
+      complete: () => {
+        this.isPlaying = false
+        if (this.lib.RangyManager) {
+          this.lib.RangyManager.selectionLock = false
+        }
+      }
+    });
+    this.isPlaying = true
+    //console.log(this.guide)
+  }
+  TutorialManager.methods.getActions = function (type) {
+    if (typeof(type) !== 'string') {
+      type = this.defaultType
+    }
+
+    let list = this.actionLists[type]
+    if (Array.isArray(list) === false) {
+      return undefined
+    }
+
+    // ---------------------
+
+    list = list.map((action) => {
+      if (typeof(action) === 'function') {
+        action = action()
+      }
+
+      if (!action || typeof(action) !== 'object') {
+        action = {}
+      }
+
+      //console.log(action)
+
+//        if (action.element) {
+////          if (action && !action.element) {
+////            //throw new Error('Element is not found', action)
+////          }
+//          
+//          if (typeof(action.element.$el) === 'object') {
+//            action.element = action.element.$el
+//          }
+//          action.element = $(action.element)
+//        }
+
+      if (typeof(action.order) !== 'number') {
+        action.order = 999
+      }
+
+      return action
+    })
+
+    // ---------------------
+
+    list.sort(function (a, b) {
+      return a.order - b.order
+    })
+    return list
+  }
+  TutorialManager.methods.stop = function () {
+    if (!this.guide) {
+      return false
+    }
+    //$.guide;
+    this.guide.exit()
+  }
+
+  // -------------------------------------------------
+
+  
+});
 
 /***/ }),
 

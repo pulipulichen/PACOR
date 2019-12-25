@@ -195,7 +195,7 @@ import 'tippy.js/themes/light.css';
 
       jQueryGuide.prototype.exit = function() {
         $body.removeClass('jquery-guide-prevent-scroll')
-        if (typeof(glowTippy.destroy) === 'function') {
+        if (glowTippy && typeof(glowTippy.destroy) === 'function') {
           glowTippy.destroy()
           glowTippy = undefined
         }
