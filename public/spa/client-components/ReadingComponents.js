@@ -13848,7 +13848,7 @@ __webpack_require__.r(__webpack_exports__);
     })
     
     let anchorPositions = []
-    console.log(highlights)
+    //console.log(highlights)
     
     highlights.forEach(highlight => {
       let paragraph_id = highlight.containerElementId
@@ -14975,7 +14975,7 @@ __webpack_require__.r(__webpack_exports__);
     let highlight = this.selectionHighlighter.highlights[0]
     //console.log(highlight)
     if (!highlight) {
-      return ''
+      return this.getAnchorTextFromSelection()
     }
     
     let { anchor_text } = this._getAnchorPositionFromHighlight(highlight)
@@ -25261,6 +25261,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return {
+        backgroundFadeOut: true,
         element: panel,
         content: this.$t(`You can see others' section main ideas.`),
         scroll: 'start',

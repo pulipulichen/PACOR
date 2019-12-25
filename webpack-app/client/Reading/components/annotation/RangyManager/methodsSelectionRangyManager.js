@@ -315,7 +315,7 @@ export default (RangyManager) => {
     let highlight = this.selectionHighlighter.highlights[0]
     //console.log(highlight)
     if (!highlight) {
-      return ''
+      return this.getAnchorTextFromSelection()
     }
     
     let { anchor_text } = this._getAnchorPositionFromHighlight(highlight)

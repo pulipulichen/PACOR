@@ -21,6 +21,7 @@ export default function (SectionManager) {
       }
 
       return {
+        backgroundFadeOut: true,
         element: panel,
         content: this.$t(`You can see others' section main ideas.`),
         scroll: 'start',

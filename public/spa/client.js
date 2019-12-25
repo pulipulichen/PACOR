@@ -10834,7 +10834,7 @@ __webpack_require__.r(__webpack_exports__);
     
     let padding = 10
     
-    console.log(top, left)
+    //console.log(top, left)
     //let fromTop = true
     //let fromLeft = true
     

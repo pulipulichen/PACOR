@@ -151,7 +151,7 @@ export default (RangyManager) => {
     })
     
     let anchorPositions = []
-    console.log(highlights)
+    //console.log(highlights)
     
     highlights.forEach(highlight => {
       let paragraph_id = highlight.containerElementId
