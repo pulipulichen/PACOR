@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 export default function (IndividualReading) {
 
 
@@ -25,6 +27,13 @@ export default function (IndividualReading) {
     await this.lib.VueHelper.sleep(3000)
 
     this.lib.TutorialManager.start()
+  }
+  
+  IndividualReading.methods._testTutorialClick = async function () {
+
+    await this.lib.VueHelper.sleep(3000)
+
+    this.lib.TutorialManager.showClick($('.SectionChecklist:first'))
   }
 
 }

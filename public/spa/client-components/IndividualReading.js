@@ -1350,6 +1350,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 /* harmony default export */ __webpack_exports__["default"] = (function (IndividualReading) {
 
 
@@ -1377,6 +1381,13 @@ __webpack_require__.r(__webpack_exports__);
     await this.lib.VueHelper.sleep(3000)
 
     this.lib.TutorialManager.start()
+  }
+  
+  IndividualReading.methods._testTutorialClick = async function () {
+
+    await this.lib.VueHelper.sleep(3000)
+
+    this.lib.TutorialManager.showClick(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.SectionChecklist:first'))
   }
 
 });

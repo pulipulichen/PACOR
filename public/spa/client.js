@@ -947,7 +947,7 @@ exports.push([module.i, ".button[data-v-75d99c9c] {\n  white-space: nowrap;\n  t
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&"}]);
+exports.push([module.i, ".click-image[data-v-1bc43b50] {\n  position: fixed;\n  display: none;\n  z-index: 1002;\n  filter: drop-shadow(10px 10px 4px rgba(255, 255, 255, 0.5));\n}\n", "",{"version":3,"sources":["TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,aAAa;EACb,aAAa;EACb,2DAA2D;AAC7D","file":"TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&","sourcesContent":[".click-image[data-v-1bc43b50] {\n  position: fixed;\n  display: none;\n  z-index: 1002;\n  filter: drop-shadow(10px 10px 4px rgba(255, 255, 255, 0.5));\n}\n"]}]);
 
 
 /***/ }),
@@ -3106,7 +3106,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("fragment")
+  return _c("fragment", [
+    _c("img", {
+      ref: "ClickImage",
+      staticClass: "click-image",
+      attrs: { src: _vm.config.baseURL + "/imgs/click.png" }
+    })
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -10809,9 +10815,64 @@ if(false) {}
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 /* harmony default export */ __webpack_exports__["default"] = (function (TutorialManager) {
+  let $clickImage
+  
   TutorialManager.methods.showClick = async function (element) {
-    throw new Error('@showClick')
+    if (!$clickImage) {
+      $clickImage = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.ClickImage)
+    }
+    
+    let {top, left} = element.offset()
+    
+    //let fromTop = true
+    //let fromLeft = true
+    
+    let beforeTop = top - 50
+    let beforeLeft = left - 50
+    
+    let beforeStyle = {}
+    let afterStyle = {}
+    
+    if (beforeTop > 0) {
+      beforeStyle.top = beforeTop + 'px'
+    }
+    else {
+      beforeTop = top + 50
+      beforeStyle.top = beforeTop + 'px'
+    }
+    afterStyle.top = (top + 10)
+    
+    if (beforeLeft > 0) {
+      beforeStyle.left = beforeLeft + 'px'
+    }
+    else {
+      beforeLeft = left + 50
+      beforeStyle.left = beforeLeft + 'px'
+    }
+    afterStyle.left = (left + 10)
+    //afterStyle.left = (left + 10)
+    
+    //console.log(beforeStyle, afterStyle)
+    
+    $clickImage.css(beforeStyle)
+    
+    //$clickImage.animate(afterStyle, 1000, () => {})
+    
+    return new Promise((resolve) => {
+      $clickImage.fadeIn('fast', async () => {
+        $clickImage.animate(afterStyle, 1000)
+        await this.lib.VueHelper.sleep(2000)
+
+        resolve(true)
+        $clickImage.fadeOut()
+      })
+    })
+    //throw new Error('@showClick')
   }
 });
 
@@ -10861,6 +10922,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 /* harmony default export */ __webpack_exports__["default"] = (function (TutorialManager) {
   TutorialManager.methods.addAction = function (type, action) {
     if (typeof(type) !== 'string') {
@@ -10877,13 +10942,14 @@ __webpack_require__.r(__webpack_exports__);
 
     //console.log(this.actionLists)
   }
+  
   TutorialManager.methods.start = function (type) {
     let actions = this.getActions(type)
     if (Array.isArray(actions) === false) {
       return false
     }
     //console.log(actions)
-    this.guide = $.guide({
+    this.guide = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.guide({
       actions,
       complete: () => {
         this.isPlaying = false

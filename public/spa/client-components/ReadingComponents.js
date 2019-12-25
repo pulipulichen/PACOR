@@ -6581,16 +6581,22 @@ __webpack_require__.r(__webpack_exports__);
       order: 22,
       afterClick: async () => {
         //console.log('有執行嗎？')
-        await this.lib.RangyManager.restoreLastSelectDemoText()
+        
         //this.lib.RangyManager.selectionLock = false
         //await this.lib.VueHelper.sleep(1000)
         //this.lib.RangyManager.onselect()
         //console.log('有選取嗎？')
-        //await this.lib.VueHelper.sleep(1000)
+        
+        
+        //await this.lib.RangyManager.restoreLastSelectDemoText()
+        let element = $el.find('.MainIdea > .fabMask:first')
+        //this.lib.TutorialManager.showClick(element)
+        
+        await this.lib.RangyManager.restoreLastSelectDemoText()
+        
         this.isTutorialMode = false
         $el.find('.MainIdea > .fabMask:first').click()  // 這個的確有點到
         //await this.lib.VueHelper.sleep(500)
-        
         
       },
       scroll: false

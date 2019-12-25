@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 export default function (TutorialManager) {
   TutorialManager.methods.addAction = function (type, action) {
     if (typeof(type) !== 'string') {
@@ -14,6 +16,7 @@ export default function (TutorialManager) {
 
     //console.log(this.actionLists)
   }
+  
   TutorialManager.methods.start = function (type) {
     let actions = this.getActions(type)
     if (Array.isArray(actions) === false) {
