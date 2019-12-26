@@ -2,7 +2,11 @@ import $ from 'jquery'
 
 export default function (PACORTestManager) {
   PACORTestManager.methods.adminConfig = async function (page) {
+    
+    await this.lib.VueHelper.sleep(300 * 1000)
     throw new Error('@underconstruction')
+    
+    // ---------------------------------
     
     await this.waitForElementVisibleClick('.switch-mode-item')
     

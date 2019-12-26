@@ -24,7 +24,7 @@ let exposeFunction = async function ({page, headless, index, logManager}) {
     return logManager.getBasename(index)
   })
   
-  await page.page.exposeFunction('PACORTestManagerAdmin', () => {
+  await page.page.exposeFunction('PACORTestManagerAdminConfig', () => {
     //throw new Error('@underconstruction')
     //return logManager.getBasename(index)
     return {

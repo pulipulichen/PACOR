@@ -8,6 +8,7 @@ export default function (PACORTestManager) {
     await this.interact('clear', '#loginUsername')
     
     let config = await this.getAdminConfig()
+    console.log(config)
     //console.log(name)
     await this.typeInput('#loginUsername', config.username)
     await this.typeInput('#loginPassword', config.password)

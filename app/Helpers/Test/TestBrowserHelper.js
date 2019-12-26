@@ -29,7 +29,8 @@ let TestBrowserHelper = function (title, url, config, options) {
     mode,  // sequential, parallel
     headless,
     stopAt,
-    displayDevTools = false
+    displayDevTools = false,
+    webpageConfig
   } = options
 
   const { test, trait } = use('Test/Suite')(title)
@@ -84,6 +85,12 @@ let TestBrowserHelper = function (title, url, config, options) {
     //console.log('aaa1')
     
     test(title, async function (args) {
+      
+      if (webpageConfig) {
+        await setupWepbage({headless, args, webpageConfig, url, logManager, displayDevTools})
+        return false
+      }
+      
       let browser = args.browser
       
       let page = await initPage({headless, browser, url, logManager, displayDevTools})

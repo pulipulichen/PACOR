@@ -2661,7 +2661,11 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
   PACORTestManager.methods.adminConfig = async function (page) {
+    
+    await this.lib.VueHelper.sleep(300 * 1000)
     throw new Error('@underconstruction')
+    
+    // ---------------------------------
     
     await this.waitForElementVisibleClick('.switch-mode-item')
     
@@ -2703,6 +2707,7 @@ __webpack_require__.r(__webpack_exports__);
     await this.interact('clear', '#loginUsername')
     
     let config = await this.getAdminConfig()
+    console.log(config)
     //console.log(name)
     await this.typeInput('#loginUsername', config.username)
     await this.typeInput('#loginPassword', config.password)
