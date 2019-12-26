@@ -281,13 +281,27 @@ let logManager = {
     
     
     // 再來開始塞人
+    /*
     for (let g = 0; g < groupsSize; g++) {
-      let i = g
-      while (i < threads) {
-        let name = this.getBasename(i)
-        groups[g].push(name)
-        
-        i = i + size
+      //for (let j = 0; j < size; j++) {
+        let i = g
+        while (i < threads) {
+          //let name = this.getBasename(i)
+          let name = i
+          groups[g].push(name)
+
+          i = i + size
+        }
+      //}
+    }
+     */
+    for (let i = 0; i < size; i++) {
+      for (let g = 0; g < groupsSize; g++) {
+        let index = i + (g * size)
+        if (index < threads) {
+          let name = this.getBasename(index)
+          groups[g].push(name)
+        }
       }
     }
     

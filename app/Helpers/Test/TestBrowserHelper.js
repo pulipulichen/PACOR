@@ -77,7 +77,15 @@ let TestBrowserHelper = function (title, url, config, options) {
   }
   setTraitBrowser(trait, headless)
   logManager.init(threads)
-  let webpageGroup = logManager.buildWebpageGroup(groupSize)
+  let webpageGroup
+  if (typeof(groupSize) === 'number') {
+    webpageGroup = logManager.buildWebpageGroup(groupSize)
+    console.log('Webpage Group:')
+    console.log(webpageGroup + '\n')
+  }
+  //return
+  
+  
   //console.log(webpageGroup)
   //return
   //console.log(threads, mode)
@@ -90,7 +98,7 @@ let TestBrowserHelper = function (title, url, config, options) {
     test(title, async function (args) {
       
       if (webpageConfig || webpageGroup) {
-        await setupWepbage({headless, args, webpageConfig, url, logManager, displayDevTools, webpageGroup})
+        await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools, webpageGroup})
         //return false
       }
       
@@ -123,7 +131,7 @@ let TestBrowserHelper = function (title, url, config, options) {
         let browser = args.browser
         
         if (index === 0 && (webpageConfig || webpageGroup)) {
-          await setupWepbage({headless, args, webpageConfig, url, logManager, displayDevTools, webpageGroup})
+          await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools, webpageGroup})
           //return false
         }
         
@@ -154,7 +162,7 @@ let TestBrowserHelper = function (title, url, config, options) {
       }
       
       if (webpageConfig || webpageGroup) {
-        await setupWepbage({headless, args, webpageConfig, url, logManager, displayDevTools, webpageGroup})
+        await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools, webpageGroup})
         //return false
       }
       

@@ -16,6 +16,10 @@ class AnnotationHighlightOthers {
         }
         
         let config = await user.getStepHighlightAnnotationConfig(webpage)
+        if (!config) {
+          return false
+        }
+        
         let limit = config.otherHighlightBatchSize
         if (typeof(limit) !== 'number') {
           //console.error('config.otherHighlightBatchSize is not a number')

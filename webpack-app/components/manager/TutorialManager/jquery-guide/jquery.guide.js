@@ -227,7 +227,7 @@ import 'tippy.js/themes/light.css';
         scrollTimer = setTimeout(() => {
           window.removeEventListener('scroll', onScrollEvent)
           animateCallback()
-        }, 500)
+        }, 100)
       }
 
       let actionElement
@@ -346,7 +346,7 @@ import 'tippy.js/themes/light.css';
         scrollTimer = setTimeout(() => {
           window.removeEventListener('scroll', this.onScrollEvent)
           animateCallback()
-        }, 500)
+        }, 100)
       };
       
       let animateTemp = {}

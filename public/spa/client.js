@@ -505,7 +505,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Tutorial is over":"操作說明結束了","Thanks for your patience.":"感謝您的耐心觀看。"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Tutorial is over":"操作說明結束囉","Thanks for your patience.":"感謝您的耐心觀看。"}}')
   delete Component.options._Ctor
 }
 
@@ -10605,7 +10605,7 @@ __webpack_require__.r(__webpack_exports__);
         scrollTimer = setTimeout(() => {
           window.removeEventListener('scroll', onScrollEvent)
           animateCallback()
-        }, 500)
+        }, 100)
       }
 
       let actionElement
@@ -10724,7 +10724,7 @@ __webpack_require__.r(__webpack_exports__);
         scrollTimer = setTimeout(() => {
           window.removeEventListener('scroll', this.onScrollEvent)
           animateCallback()
-        }, 500)
+        }, 100)
       };
       
       let animateTemp = {}
