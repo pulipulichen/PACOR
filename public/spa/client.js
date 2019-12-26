@@ -10605,7 +10605,7 @@ __webpack_require__.r(__webpack_exports__);
         scrollTimer = setTimeout(() => {
           window.removeEventListener('scroll', onScrollEvent)
           animateCallback()
-        }, 100)
+        }, 500)
       }
 
       let actionElement
@@ -10724,7 +10724,7 @@ __webpack_require__.r(__webpack_exports__);
         scrollTimer = setTimeout(() => {
           window.removeEventListener('scroll', this.onScrollEvent)
           animateCallback()
-        }, 100)
+        }, 500)
       };
       
       let animateTemp = {}

@@ -1,10 +1,10 @@
 module.exports = {
   readingProgressModules: {
     'PreImaginary': {
-      limitMinutes: 3.04,
+      limitMinutes: 0.1,
     },
     'PostRecall': {
-      limitMinutes: 3.04,
+      limitMinutes: 0.1,
     },
   },
 }

@@ -2763,10 +2763,10 @@ __webpack_require__.r(__webpack_exports__);
       await this.waitForElementVisibleClick('.webpage-config-submit')
 
       //await this.pressEsc()
-      await this.sleep(500)
+      await this.sleep(3000)
 
       await this.waitForElementVisibleClick('.ConfirmModal .cancel.button')
-      await this.sleep(500)
+      await this.sleep(3000)
     }
   }
   
@@ -2794,13 +2794,13 @@ __webpack_require__.r(__webpack_exports__);
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('.webpage-group-textarea').val('')
       await this.typeInput('.webpage-group-textarea:visible:first', webpageGroup)
 
-      await this.lib.VueHelper.sleep(500)
+      await this.lib.VueHelper.sleep(3500)
       await this.waitForElementVisibleClick('.webpage-group-submit')
 
       //await this.pressEsc()
-      await this.sleep(500)
-      await this.waitForElementVisibleClick('.ConfirmModal .cancel.button')
-      await this.sleep(500)
+      await this.sleep(3000)
+      await this.waitForElementVisibleClick('.ConfirmModal:visible .cancel.button')
+      await this.sleep(3000)
     }
   }
 });
@@ -3075,7 +3075,7 @@ __webpack_require__.r(__webpack_exports__);
       await this.retry(3, async () => {
         await this.sleep(100)
 
-        this.log('撰寫標註：' + (i+1) + '/' + (writeAnnotations) )
+        this.log('撰寫標註：' + (j+1) + '/' + (writeAnnotations) )
         await this.selectAnnotationType(i)
         if (i % 3 === 0) {
           await this.writeMainIdeaAnnotation()

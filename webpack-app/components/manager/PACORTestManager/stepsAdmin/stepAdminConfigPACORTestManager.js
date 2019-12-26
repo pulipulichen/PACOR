@@ -42,10 +42,10 @@ export default function (PACORTestManager) {
       await this.waitForElementVisibleClick('.webpage-config-submit')
 
       //await this.pressEsc()
-      await this.sleep(500)
+      await this.sleep(3000)
 
       await this.waitForElementVisibleClick('.ConfirmModal .cancel.button')
-      await this.sleep(500)
+      await this.sleep(3000)
     }
   }
   
@@ -73,13 +73,13 @@ export default function (PACORTestManager) {
       $('.webpage-group-textarea').val('')
       await this.typeInput('.webpage-group-textarea:visible:first', webpageGroup)
 
-      await this.lib.VueHelper.sleep(500)
+      await this.lib.VueHelper.sleep(3500)
       await this.waitForElementVisibleClick('.webpage-group-submit')
 
       //await this.pressEsc()
-      await this.sleep(500)
-      await this.waitForElementVisibleClick('.ConfirmModal .cancel.button')
-      await this.sleep(500)
+      await this.sleep(3000)
+      await this.waitForElementVisibleClick('.ConfirmModal:visible .cancel.button')
+      await this.sleep(3000)
     }
   }
 }

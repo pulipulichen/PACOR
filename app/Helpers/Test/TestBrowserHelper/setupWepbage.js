@@ -20,6 +20,14 @@ let setupWepbage = async function ({headless, args, webpageConfig, webpageGroup,
       await PACORTestManager.adminLogin()
       await PACORTestManager.adminPanel()
     })
+    
+    if (page.page.isClosed() === false) {
+      setTimeout(() => {
+        if (page.page.isClosed() === false) {
+          page.page.close()
+        }
+      }, 3000)
+    }
   }
   catch (e) {
     console.log('[ERROR]', e)
@@ -30,7 +38,7 @@ let setupWepbage = async function ({headless, args, webpageConfig, webpageGroup,
 //  await page.type('#loginPassword', Env.get('ADMIN_PASSWORD'))
 //  await page.click('.login-submit')
   
-  await Sleep(300 * 1000)
+  //await Sleep(300 * 1000)
   
 }
 
