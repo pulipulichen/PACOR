@@ -1,9 +1,20 @@
 import $ from 'jquery'
 
 export default function (PACORTestManager) {
+  window.$ = $
+    
   PACORTestManager.methods.adminLogin = async function (page) {
-  
-    await this.waitForElementClick('.switch-mode-item:first')
+    
+    await this.waitForElementVisible('.header-menu')
+    await this.sleep(500)
+    //await this.sleep(3000 * 1000)
+    if ($('.header-menu .more.item:visible').length > 0) {
+      await this.waitForElementVisibleClick('.header-menu .more.item')
+      console.log('有點到嗎？')
+      await this.sleep(500)
+    }
+    
+    await this.waitForElementVisibleClick('.switch-mode-item')
     await this.interact('clear', '#loginUsername')
     
     let config = await this.getAdminConfig()

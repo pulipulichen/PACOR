@@ -30,7 +30,8 @@ let TestBrowserHelper = function (title, url, config, options) {
     headless,
     stopAt,
     displayDevTools = false,
-    webpageConfig
+    webpageConfig,
+    webpageGroup
   } = options
 
   const { test, trait } = use('Test/Suite')(title)
@@ -87,7 +88,7 @@ let TestBrowserHelper = function (title, url, config, options) {
     test(title, async function (args) {
       
       if (webpageConfig) {
-        await setupWepbage({headless, args, webpageConfig, url, logManager, displayDevTools})
+        await setupWepbage({headless, args, webpageConfig, url, logManager, displayDevTools, webpageGroup})
         return false
       }
       
@@ -97,6 +98,17 @@ let TestBrowserHelper = function (title, url, config, options) {
       let errors = []
       await excuteTest({config, args, page, errors, logManager})
       
+      //if (e.length === 0) {
+      if (logManager.isError() === false) {
+        if (page.page.isClosed() === false) {
+          setTimeout(() => {
+            if (page.page.isClosed() === false) {
+              page.page.close()
+            }
+          }, 3000)
+        }
+      }
+      console.log(errors)
       await handleException({errors, headless, logManager})
     }).timeout(0)
   }

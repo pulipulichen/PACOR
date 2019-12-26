@@ -7,8 +7,8 @@ export default function (PACORTestManager) {
   PACORTestManager.methods.adminPanel = async function (page) {
     await this.waitForElementVisibleClick('.NavigationHeaderItem .step')
     
-    await this.waitForElementVisible('.header-menu')
-    return
+    
+    
     // ---------------------------------
     await this.adminConfig(page)
     
@@ -16,14 +16,16 @@ export default function (PACORTestManager) {
   }
   
   PACORTestManager.methods.adminConfig = async function (page) {
-    if ($('.header-menu .more.item:visible').length > 1) {
-      await this.waitForElementVisibleClick('.NavigationHeaderItem .header-menu .more.item')
+    await this.waitForElementVisible('.header-menu')
+    console.log($('.header-menu .more.item:visible').length)
+    if ($('.header-menu .more.item:visible').length > 0) {
+      await this.waitForElementVisibleClick('.header-menu .more.item')
     }
     
-    let webpageConfig = this.getWebpageConfig()
+    let webpageConfig = await this.getWebpageConfig()
     console.log(webpageConfig)
     if (webpageConfig !== '' && webpageConfig !== '{}') {
-      await this.waitForElementVisibleClick('.NavigationHeaderItem .WebpageConfigEditor')
+      await this.waitForElementVisibleClick('.WebpageConfigEditor')
 
       await this.lib.VueHelper.sleep(1000)
       await this.waitForElementVisible('.webpage-config-textarea')
@@ -40,13 +42,14 @@ export default function (PACORTestManager) {
   }
   
   PACORTestManager.methods.adminGroup = async function (page) {
-    if ($('.header-menu .more.item:visible').length > 1) {
-      await this.waitForElementVisibleClick('.NavigationHeaderItem .header-menu .more.item')
+    await this.waitForElementVisible('.header-menu')
+    if ($('.header-menu .more.item:visible').length > 0) {
+      await this.waitForElementVisibleClick('.header-menu .more.item')
     }
     
-    let webpageGroup = this.getWebpageGroup()
+    let webpageGroup = await this.getWebpageGroup()
     if (webpageGroup !== '' && webpageGroup !== '{}') {
-      await this.waitForElementVisibleClick('.NavigationHeaderItem .WebpageGroupEditor')
+      await this.waitForElementVisibleClick('.WebpageGroupEditor')
 
       await this.lib.VueHelper.sleep(1000)
       await this.waitForElementVisible('.webpage-group-textarea')

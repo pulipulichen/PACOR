@@ -2726,8 +2726,8 @@ __webpack_require__.r(__webpack_exports__);
   PACORTestManager.methods.adminPanel = async function (page) {
     await this.waitForElementVisibleClick('.NavigationHeaderItem .step')
     
-    await this.waitForElementVisible('.header-menu')
-    return
+    
+    
     // ---------------------------------
     await this.adminConfig(page)
     
@@ -2735,14 +2735,16 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   PACORTestManager.methods.adminConfig = async function (page) {
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header-menu .more.item:visible').length > 1) {
-      await this.waitForElementVisibleClick('.NavigationHeaderItem .header-menu .more.item')
+    await this.waitForElementVisible('.header-menu')
+    console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header-menu .more.item:visible').length)
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header-menu .more.item:visible').length > 0) {
+      await this.waitForElementVisibleClick('.header-menu .more.item')
     }
     
-    let webpageConfig = this.getWebpageConfig()
+    let webpageConfig = await this.getWebpageConfig()
     console.log(webpageConfig)
     if (webpageConfig !== '' && webpageConfig !== '{}') {
-      await this.waitForElementVisibleClick('.NavigationHeaderItem .WebpageConfigEditor')
+      await this.waitForElementVisibleClick('.WebpageConfigEditor')
 
       await this.lib.VueHelper.sleep(1000)
       await this.waitForElementVisible('.webpage-config-textarea')
@@ -2759,13 +2761,14 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   PACORTestManager.methods.adminGroup = async function (page) {
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header-menu .more.item:visible').length > 1) {
-      await this.waitForElementVisibleClick('.NavigationHeaderItem .header-menu .more.item')
+    await this.waitForElementVisible('.header-menu')
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header-menu .more.item:visible').length > 0) {
+      await this.waitForElementVisibleClick('.header-menu .more.item')
     }
     
-    let webpageGroup = this.getWebpageGroup()
+    let webpageGroup = await this.getWebpageGroup()
     if (webpageGroup !== '' && webpageGroup !== '{}') {
-      await this.waitForElementVisibleClick('.NavigationHeaderItem .WebpageGroupEditor')
+      await this.waitForElementVisibleClick('.WebpageGroupEditor')
 
       await this.lib.VueHelper.sleep(1000)
       await this.waitForElementVisible('.webpage-group-textarea')
@@ -2798,9 +2801,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  window.$ = jquery__WEBPACK_IMPORTED_MODULE_0___default.a
+    
   PACORTestManager.methods.adminLogin = async function (page) {
-  
-    await this.waitForElementClick('.switch-mode-item:first')
+    
+    await this.waitForElementVisible('.header-menu')
+    await this.sleep(500)
+    //await this.sleep(3000 * 1000)
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header-menu .more.item:visible').length > 0) {
+      await this.waitForElementVisibleClick('.header-menu .more.item')
+      console.log('有點到嗎？')
+      await this.sleep(500)
+    }
+    
+    await this.waitForElementVisibleClick('.switch-mode-item')
     await this.interact('clear', '#loginUsername')
     
     let config = await this.getAdminConfig()
@@ -5104,6 +5118,7 @@ let Modal = {
           inline: true,
           hoverable: true,
           //position: 'bottom left',
+          on: 'click',
           position: 'bottom right',
           delay: {
             //show: 300,

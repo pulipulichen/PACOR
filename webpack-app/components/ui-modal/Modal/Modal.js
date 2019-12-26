@@ -72,6 +72,7 @@ let Modal = {
           inline: true,
           hoverable: true,
           //position: 'bottom left',
+          on: 'click',
           position: 'bottom right',
           delay: {
             //show: 300,

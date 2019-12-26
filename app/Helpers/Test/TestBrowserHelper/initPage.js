@@ -3,7 +3,7 @@ const closeBlankPage = use('./closeBlankPage.js')
 
 const exposeFunction = use('./exposeFunction.js')
 
-let initPage = async function ({headless, browser, url, index, logManager, displayDevTools, sizeOptions}) {
+let initPage = async function ({headless, browser, url, index, logManager, displayDevTools, sizeOptions, webpageGroup, webpageConfig}) {
   //if (headless === false) {
   let page
   
@@ -68,7 +68,7 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
   //await session.send('Page.enable');
   //await session.send('Page.setWebLifecycleState', {state: 'active'});
   
-  await exposeFunction({page, headless, index, logManager})
+  await exposeFunction({page, headless, index, logManager, webpageGroup, webpageConfig})
 
   await page.assertFn(async () => {
     let index = await PACORTestManagerIndex()

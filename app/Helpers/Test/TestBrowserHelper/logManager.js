@@ -129,6 +129,9 @@ let logManager = {
     this.gotError = true
   },
   isError: function (index) {
+    if (index === undefined) {
+      index = 0
+    }
     return this.logs[index].isError
   },
   getErrorMessage: function (index) {
