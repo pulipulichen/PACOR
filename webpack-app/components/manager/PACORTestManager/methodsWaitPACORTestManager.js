@@ -159,4 +159,23 @@ export default function (PACORTestManager) {
     return $ele
   }
   
+  PACORTestManager.methods.waitForElementClick = async function (selector, options = {}) {
+    let $ele = await this.waitForElement(selector, options)
+    
+    try {
+      await this.click($ele)
+    }
+    catch (e) {
+      if (options.errorMessage) {
+        this.log(options.errorMessage)
+      }
+      throw e
+    }
+    //if (typeof($ele.click) === 'function') {
+    //  $ele.click()
+    //}
+    
+    return $ele
+  }
+  
 }

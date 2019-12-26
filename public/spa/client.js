@@ -4438,7 +4438,7 @@ let baseScript = jquery__WEBPACK_IMPORTED_MODULE_11___default()(document.current
 if (baseScript.length === 1) {
   
   //console.log(baseScript[0].src)
-  let testBaseURL = 'http://127.0.0.1:4000/'
+  let testBaseURL = 'http://127.0.0.1:4000'
   if (baseScript[0].src.startsWith(testBaseURL)) {
     _config_js__WEBPACK_IMPORTED_MODULE_13__["default"].baseURL = testBaseURL
   }

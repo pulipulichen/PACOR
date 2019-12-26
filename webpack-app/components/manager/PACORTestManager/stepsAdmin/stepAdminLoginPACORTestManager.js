@@ -3,8 +3,7 @@ import $ from 'jquery'
 export default function (PACORTestManager) {
   PACORTestManager.methods.adminLogin = async function (page) {
   
-    await this.waitForElementVisibleClick('.switch-mode-item')
-    
+    await this.waitForElementClick('.switch-mode-item:first')
     await this.interact('clear', '#loginUsername')
     
     let config = await this.getAdminConfig()

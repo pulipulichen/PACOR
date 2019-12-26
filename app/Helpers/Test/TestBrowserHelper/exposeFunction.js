@@ -1,7 +1,7 @@
 const Sleep = use('Sleep')
 const closeBlankPage = use('./closeBlankPage.js')
 
-let exposeFunction = async function ({page, headless, index, logManager}) {
+let exposeFunction = async function ({page, headless, index, logManager, webpageConfig, webpageGroup}) {
   
   let consolePrefix
   let errorPrefix
@@ -15,6 +15,22 @@ let exposeFunction = async function ({page, headless, index, logManager}) {
   }
   
   // --------------------------------------
+
+  await page.page.exposeFunction('PACORTestManagerPressEnter', async () => {
+    await page.page.keyboard.press(String.fromCharCode(13));  
+  })
+  
+  await page.page.exposeFunction('PACORTestManagerPressEsc', async () => {
+    await page.page.keyboard.press(String.fromCharCode(27));  
+  })
+  
+  await page.page.exposeFunction('PACORTestManagerWebpageConfig', async () => {
+    return JSON.stringify(webpageConfig, null, 2)  
+  })
+  
+  await page.page.exposeFunction('PACORTestManagerWebpageGroup', async () => {
+    return webpageGroup  
+  })
 
   await page.page.exposeFunction('PACORTestManagerIndex', () => {
     return index

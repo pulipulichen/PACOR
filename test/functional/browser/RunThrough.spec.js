@@ -24,7 +24,7 @@ const TestOptions = {
   //stopAt: 'c2. 中場確認 is PACORTestManager work?',
   //stopAt: 'd1. 專注閱讀: 確認視窗',
   //stopAt: 'd2. 隨意寫標註',
-  displayDevTools: false,
+  displayDevTools: true,
   groupSize: 6,
   webpageConfig
 }

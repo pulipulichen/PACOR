@@ -63,8 +63,9 @@ let Modal = {
   },
   methods: {
     initDropdown() {
-      if (this.headerMenuInited === true) {
-        return
+      if (this.headerMenuInited === true 
+        || !this.$refs.HeaderMenuDropdown) {
+        return undefined
       }
       if (this.$refs.HeaderMenuDropdown) {
         $(this.$refs.HeaderMenuDropdown).popup({
@@ -77,7 +78,7 @@ let Modal = {
             hide: 800 
           }
         })
-        this.headerMenuInited = true
+        //this.headerMenuInited = true
       }
     },
     getModal: function () {

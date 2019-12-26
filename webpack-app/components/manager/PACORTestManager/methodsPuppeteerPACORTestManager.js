@@ -56,6 +56,11 @@ export default function (PACORTestManager) {
       if (typeof(ele) === 'string') {
         ele = $(selector)
       }
+      
+      if (ele.length === 0) {
+        throw new Error('Element is not found: ' + selector)
+      }
+      
       let tagName = ele.prop('tagName').toLowerCase()
       let value
       if (tagName === 'input'
@@ -153,12 +158,39 @@ export default function (PACORTestManager) {
     window.PACORTestManagerError(message)
   }
   
-  PACORTestManager.methods.pressEnter = async function (message) {
+  PACORTestManager.methods.pressEnter = async function () {
     if (typeof(window.PACORTestManagerPressEnter) !== 'function') {
       return setTimeout(() => {
         this.pressEnter()
       }, 500)
     }
-    await window.PACORTestManagerPressEnter(message)
+    await window.PACORTestManagerPressEnter()
+  }
+  
+  PACORTestManager.methods.pressEsc = async function () {
+    if (typeof(window.PACORTestManagerPressEsc) !== 'function') {
+      return setTimeout(() => {
+        this.pressEsc()
+      }, 500)
+    }
+    await window.PACORTestManagerPressEsc()
+  }
+  
+  PACORTestManager.methods.getWebpageConfig = async function () {
+    if (typeof(window.PACORTestManagerWebpageConfig) !== 'function') {
+      return setTimeout(() => {
+        this.getWebpageConfig()
+      }, 500)
+    }
+    await window.PACORTestManagerWebpageConfig()
+  }
+  
+  PACORTestManager.methods.getWebpageGroup = async function () {
+    if (typeof(window.PACORTestManagerWebpageGroup) !== 'function') {
+      return setTimeout(() => {
+        this.getWebpageGroup()
+      }, 500)
+    }
+    await window.PACORTestManagerWebpageGroup()
   }
 }

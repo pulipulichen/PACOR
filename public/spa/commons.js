@@ -2324,6 +2324,11 @@ __webpack_require__.r(__webpack_exports__);
       if (typeof(ele) === 'string') {
         ele = jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector)
       }
+      
+      if (ele.length === 0) {
+        throw new Error('Element is not found: ' + selector)
+      }
+      
       let tagName = ele.prop('tagName').toLowerCase()
       let value
       if (tagName === 'input'
@@ -2421,13 +2426,40 @@ __webpack_require__.r(__webpack_exports__);
     window.PACORTestManagerError(message)
   }
   
-  PACORTestManager.methods.pressEnter = async function (message) {
+  PACORTestManager.methods.pressEnter = async function () {
     if (typeof(window.PACORTestManagerPressEnter) !== 'function') {
       return setTimeout(() => {
         this.pressEnter()
       }, 500)
     }
-    await window.PACORTestManagerPressEnter(message)
+    await window.PACORTestManagerPressEnter()
+  }
+  
+  PACORTestManager.methods.pressEsc = async function () {
+    if (typeof(window.PACORTestManagerPressEsc) !== 'function') {
+      return setTimeout(() => {
+        this.pressEsc()
+      }, 500)
+    }
+    await window.PACORTestManagerPressEsc()
+  }
+  
+  PACORTestManager.methods.getWebpageConfig = async function () {
+    if (typeof(window.PACORTestManagerWebpageConfig) !== 'function') {
+      return setTimeout(() => {
+        this.getWebpageConfig()
+      }, 500)
+    }
+    await window.PACORTestManagerWebpageConfig()
+  }
+  
+  PACORTestManager.methods.getWebpageGroup = async function () {
+    if (typeof(window.PACORTestManagerWebpageGroup) !== 'function') {
+      return setTimeout(() => {
+        this.getWebpageGroup()
+      }, 500)
+    }
+    await window.PACORTestManagerWebpageGroup()
   }
 });
 
@@ -2651,6 +2683,25 @@ __webpack_require__.r(__webpack_exports__);
     return $ele
   }
   
+  PACORTestManager.methods.waitForElementClick = async function (selector, options = {}) {
+    let $ele = await this.waitForElement(selector, options)
+    
+    try {
+      await this.click($ele)
+    }
+    catch (e) {
+      if (options.errorMessage) {
+        this.log(options.errorMessage)
+      }
+      throw e
+    }
+    //if (typeof($ele.click) === 'function') {
+    //  $ele.click()
+    //}
+    
+    return $ele
+  }
+  
 });
 
 /***/ }),
@@ -2669,47 +2720,65 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
-  console.log('@TEST $ adminConfig')
-  window.$ = jquery__WEBPACK_IMPORTED_MODULE_0___default.a
+  //console.log('@TEST $ adminConfig')
+  //window.$ = $
     
-  PACORTestManager.methods.adminConfig = async function (page) {
+  PACORTestManager.methods.adminPanel = async function (page) {
     await this.waitForElementVisibleClick('.NavigationHeaderItem .step')
     
     await this.waitForElementVisible('.header-menu')
-    
+    return
     // ---------------------------------
+    await this.adminConfig(page)
     
+    await this.adminGroup(page)
+  }
+  
+  PACORTestManager.methods.adminConfig = async function (page) {
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header-menu .more.item:visible').length > 1) {
       await this.waitForElementVisibleClick('.NavigationHeaderItem .header-menu .more.item')
     }
     
-    await this.waitForElementVisibleClick('.NavigationHeaderItem .WebpageConfigEditor')
+    let webpageConfig = this.getWebpageConfig()
+    console.log(webpageConfig)
+    if (webpageConfig !== '' && webpageConfig !== '{}') {
+      await this.waitForElementVisibleClick('.NavigationHeaderItem .WebpageConfigEditor')
+
+      await this.lib.VueHelper.sleep(1000)
+      await this.waitForElementVisible('.webpage-config-textarea')
+
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.webpage-config-textarea').val(webpageConfig)
+
+      await this.lib.VueHelper.sleep(500)
+      await this.waitForElementVisibleClick('.webpage-config-submit')
+
+      //await this.pressEsc()
+
+      await this.waitForElementVisibleClick('.ConfirmModal .cancel.button')
+    }
+  }
+  
+  PACORTestManager.methods.adminGroup = async function (page) {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header-menu .more.item:visible').length > 1) {
+      await this.waitForElementVisibleClick('.NavigationHeaderItem .header-menu .more.item')
+    }
     
-    await this.lib.VueHelper.sleep(1000)
-    await this.waitForElementVisible('.webpage-config-textarea')
-    
-    
-    // ----------------
-    
-    await this.lib.VueHelper.sleep(300 * 1000)
-    throw new Error('@underconstruction')
-    
-    // ---------------------------------
-    
-    
-    
-    await this.interact('clear', '#loginUsername')
-    
-    let config = await this.getAdminConfig()
-    //console.log(name)
-    await this.typeInput('#loginUsername', config.username)
-    await this.typeInput('#loginPassword', config.password)
-    
-    // 接下來要加入切換管理者登入的下拉選單...
-    
-    
-    await this.waitForElementVisibleClick('div.ui.button.login-submit:not(.disabled)')
-    
+    let webpageGroup = this.getWebpageGroup()
+    if (webpageGroup !== '' && webpageGroup !== '{}') {
+      await this.waitForElementVisibleClick('.NavigationHeaderItem .WebpageGroupEditor')
+
+      await this.lib.VueHelper.sleep(1000)
+      await this.waitForElementVisible('.webpage-group-textarea')
+
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.webpage-group-textarea').val(webpageGroup)
+
+      await this.lib.VueHelper.sleep(500)
+      await this.waitForElementVisibleClick('.webpage-group-submit')
+
+      //await this.pressEsc()
+
+      await this.waitForElementVisibleClick('.ConfirmModal .cancel.button')
+    }
   }
 });
 
@@ -2731,8 +2800,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
   PACORTestManager.methods.adminLogin = async function (page) {
   
-    await this.waitForElementVisibleClick('.switch-mode-item')
-    
+    await this.waitForElementClick('.switch-mode-item:first')
     await this.interact('clear', '#loginUsername')
     
     let config = await this.getAdminConfig()
@@ -5027,8 +5095,9 @@ let Modal = {
   },
   methods: {
     initDropdown() {
-      if (this.headerMenuInited === true) {
-        return
+      if (this.headerMenuInited === true 
+        || !this.$refs.HeaderMenuDropdown) {
+        return undefined
       }
       if (this.$refs.HeaderMenuDropdown) {
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.HeaderMenuDropdown).popup({
@@ -5041,7 +5110,7 @@ let Modal = {
             hide: 800 
           }
         })
-        this.headerMenuInited = true
+        //this.headerMenuInited = true
       }
     },
     getModal: function () {

@@ -901,7 +901,7 @@ var render = function() {
                       _c(
                         "div",
                         {
-                          staticClass: "ui button",
+                          staticClass: "ui button webpage-config-submit",
                           class: {
                             disabled: !(_vm.editingConfig.isChanged === true)
                           },
@@ -916,7 +916,7 @@ var render = function() {
               ],
               null,
               false,
-              93352067
+              3223902718
             )
           })
         ],
@@ -1100,7 +1100,7 @@ var render = function() {
                       _c(
                         "div",
                         {
-                          staticClass: "ui button",
+                          staticClass: "ui button webpage-group-submit",
                           class: {
                             disabled: !(_vm.editingGroups.isChanged === true)
                           },
@@ -1115,7 +1115,7 @@ var render = function() {
               ],
               null,
               false,
-              4017446113
+              1238482665
             )
           })
         ],
