@@ -2420,6 +2420,15 @@ __webpack_require__.r(__webpack_exports__);
     }
     window.PACORTestManagerError(message)
   }
+  
+  PACORTestManager.methods.pressEnter = async function (message) {
+    if (typeof(window.PACORTestManagerPressEnter) !== 'function') {
+      return setTimeout(() => {
+        this.pressEnter()
+      }, 500)
+    }
+    await window.PACORTestManagerPressEnter(message)
+  }
 });
 
 /***/ }),
@@ -2660,14 +2669,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  console.log('@TEST $ adminConfig')
+  window.$ = jquery__WEBPACK_IMPORTED_MODULE_0___default.a
+    
   PACORTestManager.methods.adminConfig = async function (page) {
+    await this.waitForElementVisibleClick('.NavigationHeaderItem .step')
+    
+    await this.waitForElementVisible('.header-menu')
+    
+    // ---------------------------------
+    
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header-menu .more.item:visible').length > 1) {
+      await this.waitForElementVisibleClick('.NavigationHeaderItem .header-menu .more.item')
+    }
+    
+    await this.waitForElementVisibleClick('.NavigationHeaderItem .WebpageConfigEditor')
+    
+    await this.lib.VueHelper.sleep(1000)
+    await this.waitForElementVisible('.webpage-config-textarea')
+    
+    
+    // ----------------
     
     await this.lib.VueHelper.sleep(300 * 1000)
     throw new Error('@underconstruction')
     
     // ---------------------------------
     
-    await this.waitForElementVisibleClick('.switch-mode-item')
+    
     
     await this.interact('clear', '#loginUsername')
     

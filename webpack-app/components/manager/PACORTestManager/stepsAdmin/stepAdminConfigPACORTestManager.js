@@ -1,14 +1,34 @@
 import $ from 'jquery'
 
 export default function (PACORTestManager) {
+  console.log('@TEST $ adminConfig')
+  window.$ = $
+    
   PACORTestManager.methods.adminConfig = async function (page) {
+    await this.waitForElementVisibleClick('.NavigationHeaderItem .step')
+    
+    await this.waitForElementVisible('.header-menu')
+    
+    // ---------------------------------
+    
+    if ($('.header-menu .more.item:visible').length > 1) {
+      await this.waitForElementVisibleClick('.NavigationHeaderItem .header-menu .more.item')
+    }
+    
+    await this.waitForElementVisibleClick('.NavigationHeaderItem .WebpageConfigEditor')
+    
+    await this.lib.VueHelper.sleep(1000)
+    await this.waitForElementVisible('.webpage-config-textarea')
+    
+    
+    // ----------------
     
     await this.lib.VueHelper.sleep(300 * 1000)
     throw new Error('@underconstruction')
     
     // ---------------------------------
     
-    await this.waitForElementVisibleClick('.switch-mode-item')
+    
     
     await this.interact('clear', '#loginUsername')
     

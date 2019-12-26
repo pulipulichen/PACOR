@@ -12322,7 +12322,7 @@ $.fn.popup = function(parameters) {
 
             module.debug('Calculated popup positioning values', positioning);
 
-            console.log($popup)
+            //console.log($popup)
 
             // tentatively place on stage
             $popup

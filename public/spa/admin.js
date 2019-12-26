@@ -873,6 +873,7 @@ var render = function() {
                               expression: "configString"
                             }
                           ],
+                          staticClass: "webpage-config-textarea",
                           domProps: { value: _vm.configString },
                           on: {
                             input: [
@@ -915,7 +916,7 @@ var render = function() {
               ],
               null,
               false,
-              3603043520
+              93352067
             )
           })
         ],
@@ -1067,6 +1068,7 @@ var render = function() {
                               expression: "editingGroups.groups"
                             }
                           ],
+                          staticClass: "webpage-group-textarea",
                           domProps: { value: _vm.editingGroups.groups },
                           on: {
                             input: [
@@ -1113,7 +1115,7 @@ var render = function() {
               ],
               null,
               false,
-              2264056311
+              4017446113
             )
           })
         ],

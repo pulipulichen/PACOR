@@ -152,4 +152,13 @@ export default function (PACORTestManager) {
     }
     window.PACORTestManagerError(message)
   }
+  
+  PACORTestManager.methods.pressEnter = async function (message) {
+    if (typeof(window.PACORTestManagerPressEnter) !== 'function') {
+      return setTimeout(() => {
+        this.pressEnter()
+      }, 500)
+    }
+    await window.PACORTestManagerPressEnter(message)
+  }
 }
