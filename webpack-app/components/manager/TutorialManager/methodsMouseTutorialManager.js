@@ -10,15 +10,31 @@ export default function (TutorialManager) {
     
     let width, height
     if (typeof(element.offset) === 'function') {
+      width = element.width()
+      height = element.height()
       element = element.offset()
+    }
+    
+    //console.log(element)
+    if (typeof(element.width) === 'function') {
       width = element.width()
       height = element.height()
     }
-    else {
+    else if (typeof(element.width) === 'number') {
+      width = element.width
+      height = element.height
+    }
+    else if (typeof(element.clientWidth) === 'number') {
       width = element.clientWidth
       height = element.clientHeight
     }
+    
     let {top, left} = element
+    if (typeof(width) !== 'number') {
+      width = 2
+      height = 2
+    }
+    
     let middle = top + (height / 2)
     let center = left + (width / 2)
     

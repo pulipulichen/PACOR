@@ -131,18 +131,23 @@ let AnnotationTypeSelector = {
       if (!this.selection) {
         return null
       }
-      console.log(this.selection)
+      if (this.isTutorialMode) {
+        let demoAnnotation = {
+          anchorPositions: [],
+          type: type
+        }
+        this.lib.AnnotationPanel.setAnnotation(demoAnnotation)
+        this.selection = null
+        return false
+      }
+      
+      
+      //console.log(this.selection)
       let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
       //console.log(anchorPositions)
       let annotation = {
         anchorPositions: anchorPositions,
         type: type
-      }
-      
-      if (this.isTutorialMode) {
-        this.lib.AnnotationPanel.setAnnotation(annotation)
-        this.selection = null
-        return
       }
       
       try {

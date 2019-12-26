@@ -43,6 +43,7 @@ export default function (AnnotationTypeSelector) {
         }
         
         let element = $el.find('.MainIdea > .fabMask:first')
+        //console.log(element)
         await this.lib.TutorialManager.showClick(element)
         
         let elements = $el.find('.MainIdea > .fabMask,.MainIdea > .fab-item-title')
@@ -55,7 +56,7 @@ export default function (AnnotationTypeSelector) {
       afterClick: async () => {
         //console.log('有執行嗎？')
         if (this.lib.RangyManager.isSelecting() === false) {
-          //this.lib.RangyManager.restoreLastSelectDemoText()
+          this.lib.RangyManager.restoreLastSelectDemoText()
         }
         //this.lib.RangyManager.selectionLock = false
         //await this.lib.VueHelper.sleep(1000)

@@ -616,6 +616,9 @@ let IndividualReading = {
   mounted() {
     this.initComponentToLib()
     
+    // ----------------------
+    // 以下是測試
+    
     //this._testSearch()  // for test
     //this._testTutorial()
   },

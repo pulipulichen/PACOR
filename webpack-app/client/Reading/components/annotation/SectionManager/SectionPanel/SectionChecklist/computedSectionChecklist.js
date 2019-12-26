@@ -42,6 +42,10 @@ export default (SectionChecklist) => {
       return this.sectionsData.checklistAnnotation[this.sectionSeqID]
     }
     
+    if (!this.lib.SectionManager) {
+      return undefined
+    }
+    
     return this.lib.SectionManager.buildDefaultSectionAnnotation(this.sectionSeqID)
   }
   SectionChecklist.computed.computedSubmitButtonText = function () {

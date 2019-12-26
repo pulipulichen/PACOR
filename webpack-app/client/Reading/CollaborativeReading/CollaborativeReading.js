@@ -19,11 +19,15 @@ let CollaborativeReading = {
   mounted: async function () {
     this.initComponentToLib()
     
+    // ----------------------
+    // 以下是測試
+    
     //this._testUserFilter()
     //await this._testVerticalMenu()
     //this._testSearch()
     //this._testErrorAuth()
     //this._testTutorial()
+    //this._testTutorialShowClick()
   },
   destroyed () {
     //console.log('退場了')

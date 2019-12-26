@@ -6397,18 +6397,23 @@ let AnnotationTypeSelector = {
       if (!this.selection) {
         return null
       }
-      console.log(this.selection)
+      if (this.isTutorialMode) {
+        let demoAnnotation = {
+          anchorPositions: [],
+          type: type
+        }
+        this.lib.AnnotationPanel.setAnnotation(demoAnnotation)
+        this.selection = null
+        return false
+      }
+      
+      
+      //console.log(this.selection)
       let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
       //console.log(anchorPositions)
       let annotation = {
         anchorPositions: anchorPositions,
         type: type
-      }
-      
-      if (this.isTutorialMode) {
-        this.lib.AnnotationPanel.setAnnotation(annotation)
-        this.selection = null
-        return
       }
       
       try {
@@ -6599,6 +6604,7 @@ __webpack_require__.r(__webpack_exports__);
         }
         
         let element = $el.find('.MainIdea > .fabMask:first')
+        //console.log(element)
         await this.lib.TutorialManager.showClick(element)
         
         let elements = $el.find('.MainIdea > .fabMask,.MainIdea > .fab-item-title')
@@ -6611,7 +6617,7 @@ __webpack_require__.r(__webpack_exports__);
       afterClick: async () => {
         //console.log('有執行嗎？')
         if (this.lib.RangyManager.isSelecting() === false) {
-          //this.lib.RangyManager.restoreLastSelectDemoText()
+          this.lib.RangyManager.restoreLastSelectDemoText()
         }
         //this.lib.RangyManager.selectionLock = false
         //await this.lib.VueHelper.sleep(1000)
@@ -24819,6 +24825,10 @@ __webpack_require__.r(__webpack_exports__);
   SectionChecklist.computed.annotation = function () {
     if (this.sectionsData.checklistAnnotation[this.sectionSeqID]) {
       return this.sectionsData.checklistAnnotation[this.sectionSeqID]
+    }
+    
+    if (!this.lib.SectionManager) {
+      return undefined
     }
     
     return this.lib.SectionManager.buildDefaultSectionAnnotation(this.sectionSeqID)

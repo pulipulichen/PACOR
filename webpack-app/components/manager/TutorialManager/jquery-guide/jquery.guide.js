@@ -238,6 +238,34 @@ import 'tippy.js/themes/light.css';
         //this.layout.glow.fadeOut('fast')
         this.layout.glow.fadeOut()
         
+        // -----------------------------------
+        
+        let enable = true
+        if (typeof(action.enable) === 'function') {
+          enable = await action.enable()
+        }
+        if (enable === false) {
+          return this.next()
+        }
+        
+        // -----------------------------------
+        
+        if (action.backgroundFadeOut === true) {
+          this.layout.bg.fadeOut('fast', () => {
+            this.layout.bg.css('border-width', '0px')
+                    .css('width', '100%')
+                    .css('height', '100vh')
+          })
+        }
+        
+        if (typeof(action.beforeCallback) === 'function') {
+          let result = await action.beforeCallback()
+          if (result === false) {
+            return this.next()
+          }
+        }
+        
+        // ---------------------------------
         
         //console.log(action.element[0])
         scrollIntoView = true
@@ -285,13 +313,6 @@ import 'tippy.js/themes/light.css';
         
         // ------------------------------
         
-        if (action.backgroundFadeOut === true) {
-          this.layout.bg.fadeOut('fast', () => {
-            this.layout.bg.css('border-width', '0px')
-                    .css('width', '100%')
-                    .css('height', '100vh')
-          })
-        }
         
         window.addEventListener('scroll', onScrollEvent)
         

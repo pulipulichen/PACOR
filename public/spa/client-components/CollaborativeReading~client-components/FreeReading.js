@@ -512,6 +512,9 @@ __webpack_require__.r(__webpack_exports__);
     // ---------------------------
 
     this.lib.TutorialManager.addAction({
+      enable: () => {
+        return !this.$refs.nav.isCompactMode
+      },
       element: async () => {
         let element = this.$refs.nav.find('.UserFilter:visible:first')
         return element
@@ -521,6 +524,9 @@ __webpack_require__.r(__webpack_exports__);
     })
 
     this.lib.TutorialManager.addAction({
+      enable: () => {
+        return !this.$refs.nav.isCompactMode
+      },
       element: () => {
         let element = this.$refs.nav.find('.AnnotationTypeFilter:visible:first')
         return element
@@ -534,13 +540,17 @@ __webpack_require__.r(__webpack_exports__);
     
     
     this.lib.TutorialManager.addAction({
-      backgroundFadeOut: true,
-      element: async () => {
+      enable: () => {
+        return this.$refs.nav.isCompactMode
+      },
+      beforeCallback: async () => {
         if (this.$refs.nav.isCompactMode === false) {
-          return undefined
+          return false
         }
         await this.openSideMenu()
-        
+      },
+      backgroundFadeOut: true,
+      element: async () => {
         return this.$refs.nav.find('.UserFilter:visible:first')
       },
       content: this.$t('You can select a peer and watch what he/she read.'),
@@ -548,12 +558,17 @@ __webpack_require__.r(__webpack_exports__);
     })
 
     this.lib.TutorialManager.addAction({
-      element: async () => {
+      enable: () => {
+        return this.$refs.nav.isCompactMode
+      },
+      beforeCallback: async () => {
         if (this.$refs.nav.isCompactMode === false) {
-          return undefined
+          return false
         }
         await this.openSideMenu()
-        
+      },
+      //backgroundFadeOut: true,
+      element: async () => {
         let element = this.$refs.nav.find('.AnnotationTypeFilter:visible:first')
         return element
       },
@@ -576,15 +591,16 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   NavigationItems.methods.openSideMenu = async function () {
+    //console.log(this.$refs.nav.sideMenuDisplay)
     if (this.$refs.nav.sideMenuDisplay === true) {
       return undefined
     }
     
     let icon = {
-      top: window.innerHeight - 30,
-      left: window.innerWidth - 30,
-      width: 30,
-      height: 30
+      top: window.innerHeight - 40,
+      left: window.innerWidth - 40,
+      width: 10,
+      height: 10
     }
     await this.lib.TutorialManager.showClick(icon)
 
@@ -739,6 +755,21 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.start()
   }
+  
+  CollaborativeReading.methods._testTutorialShowClick = async function () {
+    
+    await this.lib.VueHelper.sleep(1000)
+    
+    let icon = {
+      top: window.innerHeight - 40,
+      left: window.innerWidth - 50,
+      width: 10,
+      height: 10
+    }
+    await this.lib.TutorialManager.showClick(icon)
+  }
+  
+  
 
 });
 

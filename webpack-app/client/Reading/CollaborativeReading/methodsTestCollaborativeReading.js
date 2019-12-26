@@ -131,5 +131,20 @@ export default function (CollaborativeReading) {
     
     this.lib.TutorialManager.start()
   }
+  
+  CollaborativeReading.methods._testTutorialShowClick = async function () {
+    
+    await this.lib.VueHelper.sleep(1000)
+    
+    let icon = {
+      top: window.innerHeight - 40,
+      left: window.innerWidth - 50,
+      width: 10,
+      height: 10
+    }
+    await this.lib.TutorialManager.showClick(icon)
+  }
+  
+  
 
 }
