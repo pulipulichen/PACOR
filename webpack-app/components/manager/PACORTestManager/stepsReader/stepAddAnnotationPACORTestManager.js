@@ -27,8 +27,8 @@ export default function (PACORTestManager) {
     // 改用亂數排列的形式
     let iList = this.buildRandomIndexList(writeAnnotations)
     
-    //for (let i = 0; i < writeAnnotations; i++) {
-    iList.forEach(async (i) => {
+    for (let j = 0; j < iList.length; j++) {
+      let i = iList[j]
       await this.retry(3, async () => {
         await this.sleep(100)
 
@@ -48,8 +48,8 @@ export default function (PACORTestManager) {
 
         await this.sleep(100)
       })
-    })  // iList.forEach(i, () => {
-    //}
+    }
+    
   }
   
   PACORTestManager.methods.selectAnnotationType = async function (i) {

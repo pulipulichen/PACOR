@@ -1,5 +1,5 @@
 
-let excuteTest = async function ({config, args, page, errors, index, logManager}) {
+let excuteTest = async function ({config, args, page, errors, index = 0, logManager}) {
   let stop = false
 
   for (let name in config) {

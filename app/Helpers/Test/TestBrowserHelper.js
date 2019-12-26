@@ -80,16 +80,14 @@ let TestBrowserHelper = function (title, url, config, options) {
 
   // -----------------------------
 
-  if (!threads) {
+  if (!threads || threads === 1) {
     //console.log('aaa1')
     
     test(title, async function (args) {
       let browser = args.browser
       
       let page = await initPage({headless, browser, url, logManager, displayDevTools})
-      
       let errors = []
-      
       await excuteTest({config, args, page, errors, logManager})
       
       await handleException({errors, headless, logManager})
