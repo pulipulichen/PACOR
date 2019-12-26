@@ -65,7 +65,7 @@ let logManager = {
     
     args = this.argsToString(args)
     
-    let prefix = this.buildPrefix('LOG', index)
+    let prefix = this.buildPrefix('LOG  ', index)
     args.unshift(prefix)
     
     let message = args.join(' ')

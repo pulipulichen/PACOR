@@ -2961,6 +2961,10 @@ __webpack_require__.r(__webpack_exports__);
   
   PACORTestManager.methods.selectAnnotationType = async function (i) {
     //this.log('selectAnnotationType', 1)
+    if (!this.lib.RangyManager) {
+      return false
+    }
+    
     await this.lib.RangyManager.selectRandomRange()
     
     //this.log('selectAnnotationType', 2)

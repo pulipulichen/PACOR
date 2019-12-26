@@ -10,8 +10,11 @@ let Exit = {
   },
 //  components: {
 //  },
-//  computed: {
-//  },
+  computed: {
+    username () {
+      return this.lib.auth.username
+    }
+  },
 //  watch: {
 //  },
   mounted() {

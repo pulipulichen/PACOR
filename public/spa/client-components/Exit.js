@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Thank you for your reading":"感謝您的閱讀","Congratulation! You finished reading.":"恭喜您讀完了！","CLOSE WINDOW":"關閉視窗"}}')
+  Component.options.__i18n.push('{"en":{"For {0}: Congratulation! You finished reading.":"For {0}: Congratulation! You finished reading."},"zh-TW":{"Thank you for your reading":"感謝您的閱讀","Congratulation! You finished reading.":"恭喜您讀完了！","CLOSE WINDOW":"關閉視窗","For {0}: Congratulation! You finished reading.":"{0}：恭喜您讀完了！"}}')
   delete Component.options._Ctor
 }
 
@@ -91,7 +91,10 @@ var render = function() {
                       _vm._v(
                         "\r\n            " +
                           _vm._s(
-                            _vm.$t("Congratulation! You finished reading.")
+                            _vm.$t(
+                              "For {0}: Congratulation! You finished reading.",
+                              [_vm.username]
+                            )
                           ) +
                           "\r\n          "
                       )
@@ -215,8 +218,11 @@ let Exit = {
   },
 //  components: {
 //  },
-//  computed: {
-//  },
+  computed: {
+    username () {
+      return this.lib.auth.username
+    }
+  },
 //  watch: {
 //  },
   mounted() {
