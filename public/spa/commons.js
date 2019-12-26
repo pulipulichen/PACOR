@@ -2728,12 +2728,13 @@ __webpack_require__.r(__webpack_exports__);
   PACORTestManager.methods.adminPanel = async function (page) {
     //let webpageConfig = await this.getWebpageConfig()
     //console.log(webpageConfig)
-    //return
+    //let webpageGroup = await this.getWebpageGroup()
+    //console.log(webpageGroup) return
     
     await this.waitForElementVisibleClick('.NavigationHeaderItem .step')
     
     // ---------------------------------
-    //await this.adminConfig(page)
+    await this.adminConfig(page)
     await this.adminGroup(page)
   }
   
@@ -2762,9 +2763,10 @@ __webpack_require__.r(__webpack_exports__);
       await this.waitForElementVisibleClick('.webpage-config-submit')
 
       //await this.pressEsc()
+      await this.sleep(500)
 
       await this.waitForElementVisibleClick('.ConfirmModal .cancel.button')
-      await this.sleep(3000)
+      await this.sleep(500)
     }
   }
   
@@ -2796,9 +2798,9 @@ __webpack_require__.r(__webpack_exports__);
       await this.waitForElementVisibleClick('.webpage-group-submit')
 
       //await this.pressEsc()
-
+      await this.sleep(500)
       await this.waitForElementVisibleClick('.ConfirmModal .cancel.button')
-      await this.sleep(3000)
+      await this.sleep(500)
     }
   }
 });
@@ -2819,7 +2821,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
-  window.$ = jquery__WEBPACK_IMPORTED_MODULE_0___default.a
+  //window.$ = $
     
   PACORTestManager.methods.adminLogin = async function (page) {
     
@@ -2828,7 +2830,7 @@ __webpack_require__.r(__webpack_exports__);
     //await this.sleep(3000 * 1000)
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header-menu .more.item:visible').length > 0) {
       await this.waitForElementVisibleClick('.header-menu .more.item')
-      console.log('有點到嗎？')
+      //console.log('有點到嗎？')
       await this.sleep(500)
     }
     
@@ -2836,7 +2838,7 @@ __webpack_require__.r(__webpack_exports__);
     await this.interact('clear', '#loginUsername')
     
     let config = await this.getAdminConfig()
-    console.log(config)
+    //console.log(config)
     //console.log(name)
     await this.typeInput('#loginUsername', config.username)
     await this.typeInput('#loginPassword', config.password)

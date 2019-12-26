@@ -10,7 +10,6 @@ const rimraf = use('rimraf')
 
 const TestConfigHelper = use('App/Helpers/Test/TestBrowserHelper/TestConfigHelper.js')
 
-const buildWebpageGroup = use('App/Helpers/Test/TestBrowserHelper/buildWebpageGroup.js')
 const initPage = use('App/Helpers/Test/TestBrowserHelper/initPage.js')
 const excuteTest = use('App/Helpers/Test/TestBrowserHelper/excuteTest.js')
 const handleException = use('App/Helpers/Test/TestBrowserHelper/handleException.js')
@@ -35,8 +34,6 @@ let TestBrowserHelper = function (title, url, config, options) {
     groupSize
   } = options
   
-  let webpageGroup = buildWebpageGroup(threads, groupSize)
-
   const { test, trait } = use('Test/Suite')(title)
 
   if (stopAt) {
@@ -80,7 +77,9 @@ let TestBrowserHelper = function (title, url, config, options) {
   }
   setTraitBrowser(trait, headless)
   logManager.init(threads)
-  
+  let webpageGroup = logManager.buildWebpageGroup(groupSize)
+  //console.log(webpageGroup)
+  //return
   //console.log(threads, mode)
 
   // -----------------------------
@@ -90,9 +89,9 @@ let TestBrowserHelper = function (title, url, config, options) {
     
     test(title, async function (args) {
       
-      if (webpageConfig) {
+      if (webpageConfig || webpageGroup) {
         await setupWepbage({headless, args, webpageConfig, url, logManager, displayDevTools, webpageGroup})
-        return false
+        //return false
       }
       
       let browser = args.browser
@@ -123,6 +122,11 @@ let TestBrowserHelper = function (title, url, config, options) {
         let index = i
         let browser = args.browser
         
+        if (index === 0 && (webpageConfig || webpageGroup)) {
+          await setupWepbage({headless, args, webpageConfig, url, logManager, displayDevTools, webpageGroup})
+          //return false
+        }
+        
         let h = headless
         if (forceShowIndexes.indexOf(i) > -1) {
           h = false
@@ -147,6 +151,11 @@ let TestBrowserHelper = function (title, url, config, options) {
       let browser = args.browser
       for (let i = 0; i < threads; i++) {
         ary.push(i)
+      }
+      
+      if (webpageConfig || webpageGroup) {
+        await setupWepbage({headless, args, webpageConfig, url, logManager, displayDevTools, webpageGroup})
+        //return false
       }
       
       // 偵測尺寸

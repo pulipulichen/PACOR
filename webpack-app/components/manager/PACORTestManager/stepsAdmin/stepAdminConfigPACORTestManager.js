@@ -7,12 +7,13 @@ export default function (PACORTestManager) {
   PACORTestManager.methods.adminPanel = async function (page) {
     //let webpageConfig = await this.getWebpageConfig()
     //console.log(webpageConfig)
-    //return
+    //let webpageGroup = await this.getWebpageGroup()
+    //console.log(webpageGroup) return
     
     await this.waitForElementVisibleClick('.NavigationHeaderItem .step')
     
     // ---------------------------------
-    //await this.adminConfig(page)
+    await this.adminConfig(page)
     await this.adminGroup(page)
   }
   
@@ -41,9 +42,10 @@ export default function (PACORTestManager) {
       await this.waitForElementVisibleClick('.webpage-config-submit')
 
       //await this.pressEsc()
+      await this.sleep(500)
 
       await this.waitForElementVisibleClick('.ConfirmModal .cancel.button')
-      await this.sleep(3000)
+      await this.sleep(500)
     }
   }
   
@@ -75,9 +77,9 @@ export default function (PACORTestManager) {
       await this.waitForElementVisibleClick('.webpage-group-submit')
 
       //await this.pressEsc()
-
+      await this.sleep(500)
       await this.waitForElementVisibleClick('.ConfirmModal .cancel.button')
-      await this.sleep(3000)
+      await this.sleep(500)
     }
   }
 }

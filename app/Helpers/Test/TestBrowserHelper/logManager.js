@@ -9,6 +9,7 @@ let logManager = {
   gotError: false,
   indexWidth: 1,
   displayIndexes: [],
+  threads: null,
   init (threads) {
     if (typeof(threads) !== 'number') {
       threads = 1
@@ -25,6 +26,8 @@ let logManager = {
     else if (threads > 10) {
       this.indexWidth = 2
     }
+    
+    this.threads = threads
   },
   buildDefaultLogData () {
     return {
@@ -257,13 +260,38 @@ let logManager = {
     
     let name
     if (index) {
-      name = '丁丁' + index + '_' + this.basename
+      name = '策士' + index + '_' + this.basename
     }
     else {
-      name = '丁丁' + this.basename
+      name = '策士' + this.basename
     }
     
     return name
+  },
+  buildWebpageGroup (size) {
+    // 一組要有size個人
+    let groups = []
+    let threads = this.threads
+    let groupsSize = Math.ceil(threads / size)
+    
+    // 先決定有幾組
+    for (let i = 0; i < groupsSize; i++) {
+      groups.push([])
+    }
+    
+    
+    // 再來開始塞人
+    for (let g = 0; g < groupsSize; g++) {
+      let i = g
+      while (i < threads) {
+        let name = this.getBasename(i)
+        groups[g].push(name)
+        
+        i = i + size
+      }
+    }
+    
+    return groups.map(g => g.join(' ')).join('\n')
   },
   
   // ----------------------------
