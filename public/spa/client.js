@@ -10552,13 +10552,7 @@ __webpack_require__.r(__webpack_exports__);
         //this.layout.glow.fadeOut('fast')
         this.layout.glow.fadeOut()
         
-        if (action.backgroundFadeOut === true) {
-          this.layout.bg.fadeOut('fast', () => {
-            this.layout.bg.css('border-width', '0px')
-                    .css('width', '100%')
-                    .css('height', '100vh')
-          })
-        }
+        
         //console.log(action.element[0])
         scrollIntoView = true
         animateTemp = {
@@ -10573,6 +10567,9 @@ __webpack_require__.r(__webpack_exports__);
         actionElement = action.element
         if (typeof(actionElement) === 'function') {
           actionElement = await actionElement()
+        }
+        if (!actionElement) {
+          return this.next()
         }
         if (typeof(actionElement.$el) === 'object') {
           actionElement = $(actionElement.$el)
@@ -10598,6 +10595,16 @@ __webpack_require__.r(__webpack_exports__);
         
         if (!element) {
           return this.next()
+        }
+        
+        // ------------------------------
+        
+        if (action.backgroundFadeOut === true) {
+          this.layout.bg.fadeOut('fast', () => {
+            this.layout.bg.css('border-width', '0px')
+                    .css('width', '100%')
+                    .css('height', '100vh')
+          })
         }
         
         window.addEventListener('scroll', onScrollEvent)
@@ -10846,19 +10853,29 @@ __webpack_require__.r(__webpack_exports__);
       $clickImage = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.ClickImage)
     }
     
+    let width, height
     if (typeof(element.offset) === 'function') {
       element = element.offset()
+      width = element.width()
+      height = element.height()
+    }
+    else {
+      width = element.clientWidth
+      height = element.clientHeight
     }
     let {top, left} = element
+    let middle = top + (height / 2)
+    let center = left + (width / 2)
     
-    let padding = 10
+    
+    let padding = 0
     
     //console.log(top, left)
     //let fromTop = true
     //let fromLeft = true
     
-    let beforeTop = top - 50
-    let beforeLeft = left - 50
+    let beforeTop = middle - 50
+    let beforeLeft = center - 50
     
     let beforeStyle = {}
     let afterStyle = {}
@@ -10870,7 +10887,7 @@ __webpack_require__.r(__webpack_exports__);
       beforeTop = top + 50
       beforeStyle.top = beforeTop + 'px'
     }
-    afterStyle.top = (top + padding)
+    afterStyle.top = (middle + padding)
     
     if (beforeLeft > 0) {
       beforeStyle.left = beforeLeft + 'px'
@@ -10879,7 +10896,7 @@ __webpack_require__.r(__webpack_exports__);
       beforeLeft = left + 50
       beforeStyle.left = beforeLeft + 'px'
     }
-    afterStyle.left = (left + padding)
+    afterStyle.left = (center + padding)
     //afterStyle.left = (left + 10)
     
     //console.log(beforeStyle, afterStyle)

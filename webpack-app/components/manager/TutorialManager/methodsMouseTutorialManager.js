@@ -8,19 +8,29 @@ export default function (TutorialManager) {
       $clickImage = $(this.$refs.ClickImage)
     }
     
+    let width, height
     if (typeof(element.offset) === 'function') {
       element = element.offset()
+      width = element.width()
+      height = element.height()
+    }
+    else {
+      width = element.clientWidth
+      height = element.clientHeight
     }
     let {top, left} = element
+    let middle = top + (height / 2)
+    let center = left + (width / 2)
     
-    let padding = 10
+    
+    let padding = 0
     
     //console.log(top, left)
     //let fromTop = true
     //let fromLeft = true
     
-    let beforeTop = top - 50
-    let beforeLeft = left - 50
+    let beforeTop = middle - 50
+    let beforeLeft = center - 50
     
     let beforeStyle = {}
     let afterStyle = {}
@@ -32,7 +42,7 @@ export default function (TutorialManager) {
       beforeTop = top + 50
       beforeStyle.top = beforeTop + 'px'
     }
-    afterStyle.top = (top + padding)
+    afterStyle.top = (middle + padding)
     
     if (beforeLeft > 0) {
       beforeStyle.left = beforeLeft + 'px'
@@ -41,7 +51,7 @@ export default function (TutorialManager) {
       beforeLeft = left + 50
       beforeStyle.left = beforeLeft + 'px'
     }
-    afterStyle.left = (left + padding)
+    afterStyle.left = (center + padding)
     //afterStyle.left = (left + 10)
     
     //console.log(beforeStyle, afterStyle)

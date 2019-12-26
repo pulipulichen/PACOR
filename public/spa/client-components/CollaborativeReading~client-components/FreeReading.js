@@ -532,17 +532,14 @@ __webpack_require__.r(__webpack_exports__);
     // ---------------------------
     
     
+    
     this.lib.TutorialManager.addAction({
       backgroundFadeOut: true,
       element: async () => {
-        let icon = {
-            top: window.innerHeight - 30,
-            left: window.innerWidth - 30,
+        if (this.$refs.nav.isCompactMode === false) {
+          return undefined
         }
-        await this.lib.TutorialManager.showClick(icon)
-        
-        await this.lib.VueHelper.sleep(500)
-        await this.$refs.nav.showSideMenu()
+        await this.openSideMenu()
         
         return this.$refs.nav.find('.UserFilter:visible:first')
       },
@@ -551,7 +548,12 @@ __webpack_require__.r(__webpack_exports__);
     })
 
     this.lib.TutorialManager.addAction({
-      element: () => {
+      element: async () => {
+        if (this.$refs.nav.isCompactMode === false) {
+          return undefined
+        }
+        await this.openSideMenu()
+        
         let element = this.$refs.nav.find('.AnnotationTypeFilter:visible:first')
         return element
       },
@@ -571,6 +573,23 @@ __webpack_require__.r(__webpack_exports__);
       content: this.$t('Collaborative Reading will end at count to 0.'),
       order: 39
     })
+  }
+  
+  NavigationItems.methods.openSideMenu = async function () {
+    if (this.$refs.nav.sideMenuDisplay === true) {
+      return undefined
+    }
+    
+    let icon = {
+      top: window.innerHeight - 30,
+      left: window.innerWidth - 30,
+      width: 30,
+      height: 30
+    }
+    await this.lib.TutorialManager.showClick(icon)
+
+    await this.lib.VueHelper.sleep(500)
+    await this.$refs.nav.showSideMenu()
   }
 });
 

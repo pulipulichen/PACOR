@@ -238,13 +238,7 @@ import 'tippy.js/themes/light.css';
         //this.layout.glow.fadeOut('fast')
         this.layout.glow.fadeOut()
         
-        if (action.backgroundFadeOut === true) {
-          this.layout.bg.fadeOut('fast', () => {
-            this.layout.bg.css('border-width', '0px')
-                    .css('width', '100%')
-                    .css('height', '100vh')
-          })
-        }
+        
         //console.log(action.element[0])
         scrollIntoView = true
         animateTemp = {
@@ -259,6 +253,9 @@ import 'tippy.js/themes/light.css';
         actionElement = action.element
         if (typeof(actionElement) === 'function') {
           actionElement = await actionElement()
+        }
+        if (!actionElement) {
+          return this.next()
         }
         if (typeof(actionElement.$el) === 'object') {
           actionElement = $(actionElement.$el)
@@ -284,6 +281,16 @@ import 'tippy.js/themes/light.css';
         
         if (!element) {
           return this.next()
+        }
+        
+        // ------------------------------
+        
+        if (action.backgroundFadeOut === true) {
+          this.layout.bg.fadeOut('fast', () => {
+            this.layout.bg.css('border-width', '0px')
+                    .css('width', '100%')
+                    .css('height', '100vh')
+          })
         }
         
         window.addEventListener('scroll', onScrollEvent)
