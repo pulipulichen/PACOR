@@ -68,7 +68,7 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
   //await session.send('Page.enable');
   //await session.send('Page.setWebLifecycleState', {state: 'active'});
   
-  await exposeFunctions({page, headless, index, logManager})
+  await exposeFunction({page, headless, index, logManager})
 
   let consolePrefix
   let errorPrefix
