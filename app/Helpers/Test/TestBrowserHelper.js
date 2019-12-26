@@ -10,6 +10,7 @@ const rimraf = use('rimraf')
 
 const TestConfigHelper = use('App/Helpers/Test/TestBrowserHelper/TestConfigHelper.js')
 
+const buildWebpageGroup = use('App/Helpers/Test/TestBrowserHelper/buildWebpageGroup.js')
 const initPage = use('App/Helpers/Test/TestBrowserHelper/initPage.js')
 const excuteTest = use('App/Helpers/Test/TestBrowserHelper/excuteTest.js')
 const handleException = use('App/Helpers/Test/TestBrowserHelper/handleException.js')
@@ -31,8 +32,10 @@ let TestBrowserHelper = function (title, url, config, options) {
     stopAt,
     displayDevTools = false,
     webpageConfig,
-    webpageGroup
+    groupSize
   } = options
+  
+  let webpageGroup = buildWebpageGroup(threads, groupSize)
 
   const { test, trait } = use('Test/Suite')(title)
 

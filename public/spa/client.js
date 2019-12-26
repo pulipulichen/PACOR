@@ -233,7 +233,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"agreement-link":"By clicking Sign Up, you agree to our <a href=\u0027{0}\u0027 target=\u0027_blank\u0027>Agreement Terms</a>."},"zh-TW":{"User {0} is not existed.":"讀者{0}不存在。","User {0} is registed.":"讀者{0}已經註冊。","Password is incorrect.":"密碼錯誤。","Username":"讀者名稱","Administrator Username":"管理者名稱","Password":"密碼","Email":"電子信箱地址","Let\u0027s Go":"準備開始囉","Welcome Again":"要繼續囉","Register":"註冊","Login from Google":"從Google帳號登入","Login from GitHub":"從GitHub帳號登入","Login from Instagram":"從Instagram帳號登入","agreement-link":"如果您按下「登入」按鈕，表示您同意我們的<a href=\u0027{0}\u0027 target=\u0027_blank\u0027>知情同意書</a>。","cannot contain space":"不能包含空格","Switch to reader login":"切換成讀者登入","Switch to administrator login":"切換成管理者登入","Login failed.":"登入失敗"}}')
+  Component.options.__i18n.push('{"en":{"agreement-link":"By clicking Sign Up, you agree to our <a href=\u0027{0}\u0027 target=\u0027_blank\u0027>Agreement Terms</a>."},"zh-TW":{"User {0} is not existed.":"讀者{0}不存在。","User {0} is registed.":"讀者{0}已經註冊。","Password is incorrect.":"密碼錯誤。","Username":"讀者名稱","Administrator Username":"管理者名稱","Administrator":"管理者","Reader":"讀者","Password":"密碼","Email":"電子信箱地址","Let\u0027s Go":"準備開始囉","Welcome Again":"要繼續囉","Register":"註冊","Login from Google":"從Google帳號登入","Login from GitHub":"從GitHub帳號登入","Login from Instagram":"從Instagram帳號登入","agreement-link":"如果您按下「登入」按鈕，表示您同意我們的<a href=\u0027{0}\u0027 target=\u0027_blank\u0027>知情同意書</a>。","cannot contain space":"不能包含空格","Switch to reader login":"切換成讀者登入","Switch to administrator login":"切換成管理者登入","Login failed.":"登入失敗"}}')
   delete Component.options._Ctor
 }
 
@@ -1200,7 +1200,12 @@ var render = function() {
                     attrs: { title: _vm.computedHeaderMenuIconTitle },
                     on: { click: _vm.switchMode }
                   },
-                  [_c("i", { class: _vm.computedHeaderMenuIconClassList })]
+                  [
+                    _c("i", { class: _vm.computedHeaderMenuIconClassList }),
+                    _vm._v(
+                      "\r\n        " + _vm._s(_vm.modeLabel) + "\r\n      "
+                    )
+                  ]
                 )
               ]
             },
@@ -5209,6 +5214,14 @@ let Login = {
       else {
         return this.$t('Switch to administrator login')
       }
+    },
+    modeLabel () {
+      if (this.adminMode) {
+        return this.$t('Administrator')
+      }
+      else {
+        return this.$t('Reader')
+      } 
     }
   },
   components: {

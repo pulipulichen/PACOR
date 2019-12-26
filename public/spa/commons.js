@@ -2446,20 +2446,22 @@ __webpack_require__.r(__webpack_exports__);
   
   PACORTestManager.methods.getWebpageConfig = async function () {
     if (typeof(window.PACORTestManagerWebpageConfig) !== 'function') {
-      return setTimeout(() => {
-        this.getWebpageConfig()
-      }, 500)
+      //return setTimeout(() => {
+      await this.sleep(500)
+      return this.getWebpageConfig()
+      //}, 500)
     }
-    await window.PACORTestManagerWebpageConfig()
+    return await window.PACORTestManagerWebpageConfig()
   }
   
   PACORTestManager.methods.getWebpageGroup = async function () {
     if (typeof(window.PACORTestManagerWebpageGroup) !== 'function') {
-      return setTimeout(() => {
-        this.getWebpageGroup()
-      }, 500)
+      //return setTimeout(() => {
+      await this.sleep(500)
+      return this.getWebpageGroup()
+      //}, 500)
     }
-    await window.PACORTestManagerWebpageGroup()
+    return await window.PACORTestManagerWebpageGroup()
   }
 });
 
@@ -2724,32 +2726,37 @@ __webpack_require__.r(__webpack_exports__);
   //window.$ = $
     
   PACORTestManager.methods.adminPanel = async function (page) {
+    //let webpageConfig = await this.getWebpageConfig()
+    //console.log(webpageConfig)
+    //return
+    
     await this.waitForElementVisibleClick('.NavigationHeaderItem .step')
     
-    
-    
     // ---------------------------------
-    await this.adminConfig(page)
-    
+    //await this.adminConfig(page)
     await this.adminGroup(page)
   }
   
   PACORTestManager.methods.adminConfig = async function (page) {
     await this.waitForElementVisible('.header-menu')
-    console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header-menu .more.item:visible').length)
+    //console.log($('.header-menu .more.item:visible').length)
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header-menu .more.item:visible').length > 0) {
       await this.waitForElementVisibleClick('.header-menu .more.item')
+      await this.lib.VueHelper.sleep(500)
     }
     
     let webpageConfig = await this.getWebpageConfig()
-    console.log(webpageConfig)
-    if (webpageConfig !== '' && webpageConfig !== '{}') {
+    //console.log(webpageConfig)
+    if (webpageConfig && webpageConfig !== '' && webpageConfig !== '{}') {
       await this.waitForElementVisibleClick('.WebpageConfigEditor')
 
       await this.lib.VueHelper.sleep(1000)
+     
       await this.waitForElementVisible('.webpage-config-textarea')
+      
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.webpage-config-textarea').val('')
+      await this.typeInput('.webpage-config-textarea:visible:first', webpageConfig)
 
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.webpage-config-textarea').val(webpageConfig)
 
       await this.lib.VueHelper.sleep(500)
       await this.waitForElementVisibleClick('.webpage-config-submit')
@@ -2757,6 +2764,7 @@ __webpack_require__.r(__webpack_exports__);
       //await this.pressEsc()
 
       await this.waitForElementVisibleClick('.ConfirmModal .cancel.button')
+      await this.sleep(3000)
     }
   }
   
@@ -2764,16 +2772,25 @@ __webpack_require__.r(__webpack_exports__);
     await this.waitForElementVisible('.header-menu')
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header-menu .more.item:visible').length > 0) {
       await this.waitForElementVisibleClick('.header-menu .more.item')
+      await this.lib.VueHelper.sleep(500)
     }
     
     let webpageGroup = await this.getWebpageGroup()
-    if (webpageGroup !== '' && webpageGroup !== '{}') {
+    //console.log(webpageGroup)
+    if (webpageGroup && webpageGroup !== '' && webpageGroup !== '{}') {
+      
       await this.waitForElementVisibleClick('.WebpageGroupEditor')
 
       await this.lib.VueHelper.sleep(1000)
       await this.waitForElementVisible('.webpage-group-textarea')
 
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.webpage-group-textarea').val(webpageGroup)
+      //$('.webpage-group-textarea').val(webpageGroup)
+      //$('.webpage-group-textarea').val('')
+      
+      await this.lib.VueHelper.sleep(500)
+      
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.webpage-group-textarea').val('')
+      await this.typeInput('.webpage-group-textarea:visible:first', webpageGroup)
 
       await this.lib.VueHelper.sleep(500)
       await this.waitForElementVisibleClick('.webpage-group-submit')
@@ -2781,6 +2798,7 @@ __webpack_require__.r(__webpack_exports__);
       //await this.pressEsc()
 
       await this.waitForElementVisibleClick('.ConfirmModal .cancel.button')
+      await this.sleep(3000)
     }
   }
 });

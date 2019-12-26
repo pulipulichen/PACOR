@@ -70,6 +70,14 @@ let Login = {
       else {
         return this.$t('Switch to administrator login')
       }
+    },
+    modeLabel () {
+      if (this.adminMode) {
+        return this.$t('Administrator')
+      }
+      else {
+        return this.$t('Reader')
+      } 
     }
   },
   components: {

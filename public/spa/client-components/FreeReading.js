@@ -467,9 +467,23 @@ var render = function() {
                 return [
                   _c(
                     "a",
-                    { staticClass: "item" },
+                    {
+                      staticClass: "item",
+                      on: {
+                        click: function($event) {
+                          if ($event.target !== $event.currentTarget) {
+                            return null
+                          }
+                          $event.stopPropagation()
+                          return (function() {
+                            _vm.$refs.WebpageGroupEditor.editGroupsOpen()
+                          })($event)
+                        }
+                      }
+                    },
                     [
                       _c("webpage-group-editor", {
+                        ref: "WebpageGroupEditor",
                         attrs: {
                           config: _vm.config,
                           status: _vm.status,
@@ -485,9 +499,23 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "a",
-                    { staticClass: "item" },
+                    {
+                      staticClass: "item",
+                      on: {
+                        click: function($event) {
+                          if ($event.target !== $event.currentTarget) {
+                            return null
+                          }
+                          $event.stopPropagation()
+                          return (function() {
+                            _vm.$refs.WebpageConfigEditor.editConfigOpen()
+                          })($event)
+                        }
+                      }
+                    },
                     [
                       _c("webpage-config-editor", {
+                        ref: "WebpageConfigEditor",
                         attrs: {
                           config: _vm.config,
                           status: _vm.status,
@@ -1752,10 +1780,11 @@ let WebpageConfigEditor = {
         console.log(e)
       }
       
-      console.log(data)
+      //console.log(data)
 
       if (typeof (data.config) !== 'object'
               && data.config) {
+        this.$refs.ModelEditConfig.hide()
         return false
       }
 
@@ -1929,7 +1958,7 @@ let WebpageGroupEditor = {
     },
     computedButtonClassList () {
       if (this.buttonMode === false) {
-        return
+        return undefined
       }
       else {
         return 'ui right labeled icon button'
@@ -1984,7 +2013,6 @@ let WebpageGroupEditor = {
       webpage.usersCount = usersCount
       
       await this.lib.AxiosHelper.post('/Admin/Webpage/editGroups', data)
-      
       this.$emit('change', webpage)
     },
   } // methods

@@ -17,6 +17,7 @@
          v-bind:title="computedHeaderMenuIconTitle"
          v-on:click="switchMode">
         <i v-bind:class="computedHeaderMenuIconClassList"></i>
+        {{ modeLabel }}
       </a>
     </template>
     <template v-slot:content>

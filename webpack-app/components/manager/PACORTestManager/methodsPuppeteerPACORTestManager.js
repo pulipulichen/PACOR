@@ -178,19 +178,21 @@ export default function (PACORTestManager) {
   
   PACORTestManager.methods.getWebpageConfig = async function () {
     if (typeof(window.PACORTestManagerWebpageConfig) !== 'function') {
-      return setTimeout(() => {
-        this.getWebpageConfig()
-      }, 500)
+      //return setTimeout(() => {
+      await this.sleep(500)
+      return this.getWebpageConfig()
+      //}, 500)
     }
-    await window.PACORTestManagerWebpageConfig()
+    return await window.PACORTestManagerWebpageConfig()
   }
   
   PACORTestManager.methods.getWebpageGroup = async function () {
     if (typeof(window.PACORTestManagerWebpageGroup) !== 'function') {
-      return setTimeout(() => {
-        this.getWebpageGroup()
-      }, 500)
+      //return setTimeout(() => {
+      await this.sleep(500)
+      return this.getWebpageGroup()
+      //}, 500)
     }
-    await window.PACORTestManagerWebpageGroup()
+    return await window.PACORTestManagerWebpageGroup()
   }
 }

@@ -36,7 +36,7 @@ let WebpageGroupEditor = {
     },
     computedButtonClassList () {
       if (this.buttonMode === false) {
-        return
+        return undefined
       }
       else {
         return 'ui right labeled icon button'
@@ -91,7 +91,6 @@ let WebpageGroupEditor = {
       webpage.usersCount = usersCount
       
       await this.lib.AxiosHelper.post('/Admin/Webpage/editGroups', data)
-      
       this.$emit('change', webpage)
     },
   } // methods

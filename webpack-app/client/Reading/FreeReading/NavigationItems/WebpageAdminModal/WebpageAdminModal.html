@@ -11,8 +11,10 @@
       {{ $t('Webpage Admin') }}
     </template>
     <template v-slot:headerMenu>
-      <a class="item">
+      <a class="item"
+         v-on:click.self.stop="() => {$refs.WebpageGroupEditor.editGroupsOpen()}">
         <webpage-group-editor
+          ref="WebpageGroupEditor"
           v-bind:config="config"
           v-bind:status="status"
           v-bind:lib="lib"
@@ -21,8 +23,10 @@
           v-bind:buttonMode="false">
         </webpage-group-editor>
       </a>
-      <a class="item">
+      <a class="item"
+         v-on:click.self.stop="() => {$refs.WebpageConfigEditor.editConfigOpen()}">
         <webpage-config-editor
+          ref="WebpageConfigEditor"
           v-bind:config="config"
           v-bind:status="status"
           v-bind:lib="lib"

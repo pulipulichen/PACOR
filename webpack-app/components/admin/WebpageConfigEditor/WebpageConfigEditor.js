@@ -88,10 +88,11 @@ let WebpageConfigEditor = {
         console.log(e)
       }
       
-      console.log(data)
+      //console.log(data)
 
       if (typeof (data.config) !== 'object'
               && data.config) {
+        this.$refs.ModelEditConfig.hide()
         return false
       }
 
