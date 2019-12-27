@@ -3092,10 +3092,9 @@ __webpack_require__.r(__webpack_exports__);
         await this.sleep(100)
       })
     }
-    
   }
   
-  PACORTestManager.methods.selectAnnotationType = async function (i) {
+  PACORTestManager.methods.selectAnnotationType = async function (i, errorCount = 0) {
     //this.log('selectAnnotationType', 1)
     if (!this.lib.RangyManager) {
       return false
@@ -3104,7 +3103,17 @@ __webpack_require__.r(__webpack_exports__);
     await this.lib.RangyManager.selectRandomRange()
     
     //this.log('selectAnnotationType', 2)
-    await this.sleep(100)
+    await this.sleep(1000)
+    
+    if (this.lib.RangyManager.isSelecting() === false) {
+      errorCount++
+      if (errorCount === 3) {
+        throw new Error('Selecting is failed.')
+      }
+      
+      await this.sleep(3000)
+      return this.selectAnnotationType(i, errorCount)
+    }
       
     let typeItemSelector = '.fab-main-container .fab-item-container .fab-cantainer'
 

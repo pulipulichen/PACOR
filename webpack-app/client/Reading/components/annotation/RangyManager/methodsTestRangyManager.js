@@ -38,15 +38,15 @@ export default (RangyManager) => {
       return await this.selectRandomRange()
     }
     
-    let point1 = Math.floor(Math.random() * maxLength)
-    let point2 = Math.floor(Math.random() * maxLength)
+    let wordLength = 10
+    let point1 = Math.floor(Math.random() * maxLength) - wordLength
+    let point2 = point1 + Math.floor(Math.random() * wordLength) + 1
     
     while (point1 === point2) {
       point2 = Math.floor(Math.random() * maxLength)
     }
     
     // -------------------------------
-    
     
     let start_pos = Math.min(point1, point2)
     let end_pos = Math.max(point1, point2)

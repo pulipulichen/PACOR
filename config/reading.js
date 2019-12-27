@@ -55,20 +55,20 @@ module.exports = {
     'PreImaginary': {
       instruction: '/2020exp/PostRecall.html',
       minWords: 10,
-      limitMinutes: 0.05,
+      limitMinutes: 5,
     },
     /**
      * include 'individual-reading' and 'collaborative-reading'
      */
     'reading': {
-      totalLimitMinutes: 1.5, // 54秒
+      totalLimitMinutes: 60, // 54秒
     },
     'IndividualReading': {
       instruction: '/2020exp/IndividualReading.html',
-      limitMinutes: 1,
-      notification: {
-        updateInterval: 30000
-      },
+      limitMinutes: 30,
+//      notification: {
+//        updateInterval: 30000
+//      },
       permission: {
         collaboration: false,
         control: false,
@@ -86,7 +86,7 @@ module.exports = {
           'I have already written annotations on a sentence I don\'t understand.',
           'SectionMainIdea', // 'I have already written the main ideas of this section.',
         ],
-        updateInterval: 30000
+//        updateInterval: 30000
       },
       debug: {
         countdownPause: true
@@ -128,7 +128,7 @@ module.exports = {
     'PostRecall': {
       instruction: '/2020exp/PostRecall.html',
       minWords: 10,
-      limitMinutes: 0.05
+      limitMinutes: 5
     },
     'FreeReading': {
       permission: {

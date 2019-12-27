@@ -17,6 +17,8 @@ const setTraitBrowser = use('App/Helpers/Test/TestBrowserHelper/setTraitBrowser.
 const setupWepbage = use('App/Helpers/Test/TestBrowserHelper/setupWepbage.js')
 const detectScreenSize = use('App/Helpers/Test/TestBrowserHelper/detectScreenSize.js')
 
+const setupManualReader = use('App/Helpers/Test/TestBrowserHelper/setupManualReader.js')
+
 // ---------------------------------
 
 let TestBrowserHelper = function (title, url, config, options) {
@@ -31,7 +33,8 @@ let TestBrowserHelper = function (title, url, config, options) {
     stopAt,
     displayDevTools = false,
     webpageConfig,
-    groupSize
+    groupSize,
+    manualAccount = false
   } = options
   
   const { test, trait } = use('Test/Suite')(title)
@@ -98,7 +101,7 @@ let TestBrowserHelper = function (title, url, config, options) {
     test(title, async function (args) {
       
       if (webpageConfig || webpageGroup) {
-        await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools, webpageGroup})
+        await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools: true, webpageGroup})
         //return false
       }
       
@@ -131,7 +134,7 @@ let TestBrowserHelper = function (title, url, config, options) {
         let browser = args.browser
         
         if (index === 0 && (webpageConfig || webpageGroup)) {
-          await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools, webpageGroup})
+          await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools: true, webpageGroup})
           //return false
         }
         
@@ -162,7 +165,7 @@ let TestBrowserHelper = function (title, url, config, options) {
       }
       
       if (webpageConfig || webpageGroup) {
-        await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools, webpageGroup})
+        await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools: true, webpageGroup})
         //return false
       }
       
@@ -182,10 +185,16 @@ let TestBrowserHelper = function (title, url, config, options) {
           sizeOptions = logManager.getSizeOptions(index, screenSize)
         }
         
-        let page = await initPage({headless: h, browser, url, index, logManager, displayDevTools, sizeOptions})
+        let page
         
         let e = []
-        await excuteTest({config, args, page, errors: e, index, logManager})
+        if (manualAccount === true && i === 0) {
+          page = await setupManualReader({headless: false, args, url, logManager, displayDevTools: true})
+        }
+        else {
+          page = await initPage({headless: h, browser, url, index, logManager, displayDevTools, sizeOptions})
+          await excuteTest({config, args, page, errors: e, index, logManager})
+        }
         
         //if (e.length === 0) {
         if (logManager.isError(index) === false) {
