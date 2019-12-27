@@ -21,6 +21,19 @@
     <div class="ui divider"></div>
   </template>
 
+  <annotation-item
+    v-bind:key="myAnnotation.id"
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+
+    v-bind:annotation="myAnnotation"
+    v-bind:findAnnotation="findAnnotation">
+  </annotation-item>
+  
+  <div class="ui divider"
+       v-if="sectionsData.annotation[sectionSeqID].annotations.length > 0"></div>
+  
   <div class="annotation-list"
        v-on:scroll.stop="scrollList"
        v-if="hasAnnotation">

@@ -925,7 +925,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".SectionAnnotationList .annotation-list[data-v-0339763a] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin-bottom: 1em;\n}\n.no-more[data-v-0339763a] {\n  text-align: center;\n  color: gray;\n}\n", "",{"version":3,"sources":["SectionAnnotationList.less?vue&type=style&index=0&id=0339763a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb","file":"SectionAnnotationList.less?vue&type=style&index=0&id=0339763a&lang=less&scoped=true&","sourcesContent":[".SectionAnnotationList .annotation-list[data-v-0339763a] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin-bottom: 1em;\n}\n.no-more[data-v-0339763a] {\n  text-align: center;\n  color: gray;\n}\n"]}]);
+exports.push([module.i, ".SectionAnnotationList .annotation-list[data-v-0339763a] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin-bottom: 1em;\n}\n.no-more[data-v-0339763a] {\n  text-align: center;\n  color: gray;\n}\n.summary-information[data-v-0339763a] {\n  text-align: center;\n}\n", "",{"version":3,"sources":["SectionAnnotationList.less?vue&type=style&index=0&id=0339763a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,kBAAkB;AACpB","file":"SectionAnnotationList.less?vue&type=style&index=0&id=0339763a&lang=less&scoped=true&","sourcesContent":[".SectionAnnotationList .annotation-list[data-v-0339763a] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin-bottom: 1em;\n}\n.no-more[data-v-0339763a] {\n  text-align: center;\n  color: gray;\n}\n.summary-information[data-v-0339763a] {\n  text-align: center;\n}\n"]}]);
 
 
 /***/ }),
@@ -3687,6 +3687,21 @@ var render = function() {
           ]
         : _vm._e(),
       _vm._v(" "),
+      _c("annotation-item", {
+        key: _vm.myAnnotation.id,
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          lib: _vm.lib,
+          annotation: _vm.myAnnotation,
+          findAnnotation: _vm.findAnnotation
+        }
+      }),
+      _vm._v(" "),
+      _vm.sectionsData.annotation[_vm.sectionSeqID].annotations.length > 0
+        ? _c("div", { staticClass: "ui divider" })
+        : _vm._e(),
+      _vm._v(" "),
       _vm.hasAnnotation
         ? _c(
             "div",
@@ -4309,7 +4324,7 @@ var render = function() {
           on: { click: _vm.searchAnnotation }
         },
         [
-          _vm.count > 0
+          _vm.count > 0 && _vm.status.search.keyword !== ""
             ? _c("div", { staticClass: "floating ui red label" }, [
                 _vm._v("\r\n      " + _vm._s(_vm.count) + "\r\n    ")
               ])
@@ -24454,19 +24469,24 @@ let SectionAnnotationList = {
       return this.sectionsData.annotation[this.sectionSeqID]
     },
     users () {
-      if (Array.isArray(this.instance.users) === false) {
-        this.instance.users = []
+      if (Array.isArray(this.sectionsData.annotation[this.sectionSeqID].users) === false) {
+        this.sectionsData.annotation[this.sectionSeqID].users = []
       }
-      return this.instance.users
+      //console.log(this.sectionsData.annotation[this.sectionSeqID].users)
+      return this.sectionsData.annotation[this.sectionSeqID].users
     },
     userCount () {
-      return this.instance.userCount
+      //console.log(this.sectionsData.annotation[this.sectionSeqID])
+      return this.sectionsData.annotation[this.sectionSeqID].userCount
     },
     annotations () {
       if (Array.isArray(this.sectionsData.annotation[this.sectionSeqID].annotations) === false) {
         this.sectionsData.annotation[this.sectionSeqID].annotations = []
       }
       return this.sectionsData.annotation[this.sectionSeqID].annotations
+    },
+    myAnnotation () {
+      return this.sectionsData.annotation[this.sectionSeqID].myAnnotation
     },
     hasAnnotation () {
       return (this.sectionsData 

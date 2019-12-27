@@ -112,6 +112,7 @@ class AnnotationSection {
         
         //console.log(annotations.size())
         let sectionAnnotations = {}
+        let myAnnotations = {}
         let maxSectionID = -1
         
         let sectionUsers = {}
@@ -125,7 +126,8 @@ class AnnotationSection {
         annotations.forEach(annotation => {
           //console.log(annotation.id, annotation.anchorPositions[0])
           
-          let sectionSeqID = annotation.anchorPositions[0].seq_id
+          let sectionSeqID = annotation.anchorPositions[0].section_id
+          //console.log(sectionSeqID)
           if (sectionSeqID > maxSectionID) {
             maxSectionID = sectionSeqID
           }
@@ -133,7 +135,11 @@ class AnnotationSection {
           if (Array.isArray(sectionAnnotations[sectionSeqID]) === false) {
             sectionAnnotations[sectionSeqID] = []
           }
-          if (sectionAnnotations[sectionSeqID].length <= itemsPerPage) {
+          
+          if (annotation.user.id === user.id) {
+            myAnnotations[sectionSeqID] = annotation
+          }
+          else if (sectionAnnotations[sectionSeqID].length <= itemsPerPage) {
             sectionAnnotations[sectionSeqID].push(annotation)
           }
           //console.log(sectionAnnotations[sectionSeqID].length)
@@ -142,22 +148,27 @@ class AnnotationSection {
             sectionUsers[sectionSeqID] = []
             sectionUsersID[sectionSeqID] = []
           }
-          if (sectionUsers[sectionSeqID].length <= 3) {
+          
+          if (sectionUsers[sectionSeqID].length < 5) {
             if (sectionUsersID[sectionSeqID].indexOf(annotation.user_id) === -1) {
               sectionUsersID[sectionSeqID].push(annotation.user_id)
               sectionUsers[sectionSeqID].push(annotation.user)
             }
           }
           
-          if (Array.isArray(sectionUserCount[sectionSeqID]) === false) {
+          if (Array.isArray(sectionUserCountID[sectionSeqID]) === false) {
             sectionUserCount[sectionSeqID] = 0
             sectionUserCountID[sectionSeqID] = []
           }
+          //console.log(sectionSeqID, annotation.user_id, sectionUserCount[sectionSeqID], (sectionUserCountID[sectionSeqID].indexOf(annotation.user_id) === -1))
           if (sectionUserCountID[sectionSeqID].indexOf(annotation.user_id) === -1) {
-            sectionUserCountID[sectionSeqID].push(annotation.user_id)
             sectionUserCount[sectionSeqID]++
+            sectionUserCountID[sectionSeqID].push(annotation.user_id)
+            //console.log('push', sectionUserCountID[sectionSeqID])
           }
         })
+        
+        //console.log(sectionUserCountID)
         
         profiler.mark('after annotations.forEach()')
         
@@ -182,6 +193,7 @@ class AnnotationSection {
         let seqID = maxSectionID + ''
         return {
           annotations: sectionAnnotations[seqID],
+          myAnnotation: myAnnotations[seqID],
           users: sectionUsers[seqID],
           userCount: sectionUserCount[seqID]
         }

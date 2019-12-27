@@ -27,19 +27,24 @@ let SectionAnnotationList = {
       return this.sectionsData.annotation[this.sectionSeqID]
     },
     users () {
-      if (Array.isArray(this.instance.users) === false) {
-        this.instance.users = []
+      if (Array.isArray(this.sectionsData.annotation[this.sectionSeqID].users) === false) {
+        this.sectionsData.annotation[this.sectionSeqID].users = []
       }
-      return this.instance.users
+      //console.log(this.sectionsData.annotation[this.sectionSeqID].users)
+      return this.sectionsData.annotation[this.sectionSeqID].users
     },
     userCount () {
-      return this.instance.userCount
+      //console.log(this.sectionsData.annotation[this.sectionSeqID])
+      return this.sectionsData.annotation[this.sectionSeqID].userCount
     },
     annotations () {
       if (Array.isArray(this.sectionsData.annotation[this.sectionSeqID].annotations) === false) {
         this.sectionsData.annotation[this.sectionSeqID].annotations = []
       }
       return this.sectionsData.annotation[this.sectionSeqID].annotations
+    },
+    myAnnotation () {
+      return this.sectionsData.annotation[this.sectionSeqID].myAnnotation
     },
     hasAnnotation () {
       return (this.sectionsData 
