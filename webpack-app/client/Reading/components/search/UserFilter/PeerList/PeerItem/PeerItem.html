@@ -1,6 +1,7 @@
 <div class="item PeerItem"
      v-bind:class="computedItemClassList"
-     v-on:click="onSelectPeer">
+     v-on:click="onSelectPeer"
+     v-bind:title="username">
   <div class="ui mini image">
     <img v-if="user"
          v-bind:src="avatar"
@@ -38,6 +39,11 @@
       <span v-if="!isReady"
             class="message">
         {{ $t('(Reading...)') }}
+      </span>
+      
+      <span v-if="isExited"
+            class="message">
+        {{ $t('(Finished)') }}
       </span>
       
       <template v-if="user && annotationTypes.length === 0">

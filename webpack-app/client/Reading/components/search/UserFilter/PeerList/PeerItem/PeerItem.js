@@ -47,7 +47,7 @@ let PeerItem = {
       let classList = []
       
       if (this.user && 
-              (this.user.isReady === false || this.user.annotationTypes.length === 0 )) {
+              (this.user.annotationTypes.length === 0 )) {
         classList.push('disabled')
       }
       
@@ -74,6 +74,17 @@ let PeerItem = {
         return false
       }
     },
+    isExited () {
+      if (!this.user) {
+        return false
+      }
+      else if (this.user && this.user.isExited === true) {
+        return true
+      }
+      else {
+        return false
+      }
+    },
     group () {
       if (!this.user
               || !this.user.groups
@@ -82,7 +93,7 @@ let PeerItem = {
       }
       
       return this.user.groups[0].group_seq_id + 1
-    }
+    },
   },
 //  watch: {
 //  },
@@ -90,8 +101,7 @@ let PeerItem = {
 //  },
   methods: {
     onSelectPeer () {
-      if (this.user && (this.isReady === false
-              || this.annotationTypes.length === 0)) {
+      if (this.user && (this.annotationTypes.length === 0)) {
         return null
       }
       //console.log(this.user)

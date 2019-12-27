@@ -4,6 +4,12 @@ const closeBlankPage = use('./closeBlankPage.js')
 const exposeFunction = use('./exposeFunction.js')
 
 let initPage = async function ({headless, browser, url, index, logManager, displayDevTools, sizeOptions, webpageGroup, webpageConfig}) {
+  
+  // 等待非同步工作完成
+  if (typeof(index) === 'number' && index > 0) {
+    await Sleep(index * 10)
+  }
+  
   //if (headless === false) {
   let page
   
@@ -47,10 +53,6 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
     })
   //}
   
-  // 等待非同步工作完成
-  if (!index && index > 0) {
-    await Sleep(index * 4)
-  }
   
   //if (!sizeOptions) {
     page = await browser.visit(url)

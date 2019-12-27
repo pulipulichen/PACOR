@@ -15055,9 +15055,16 @@ __webpack_require__.r(__webpack_exports__);
       return await this.selectRandomRange()
     }
     
+    let baseWordLength = 3
     let wordLength = 10
-    let point1 = Math.floor(Math.random() * maxLength) - wordLength
-    let point2 = point1 + Math.floor(Math.random() * wordLength) + 1
+    let point1 = Math.floor(Math.random() * maxLength) - wordLength - baseWordLength
+    if (point1 < 0) {
+      point1 = 0
+    }
+    let point2 = point1 + Math.floor(Math.random() * wordLength) + baseWordLength
+    if (point2 >= wordLength) {
+      point2 = wordLength - 1
+    }
     
     while (point1 === point2) {
       point2 = Math.floor(Math.random() * maxLength)

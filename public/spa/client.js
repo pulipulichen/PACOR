@@ -361,7 +361,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"View All":"觀看所有讀者","(No annotation)":"(沒有撰寫標註)","(Reading...)":"(仍在閱讀中...)"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"View All":"觀看所有讀者","(No annotation)":"(沒有撰寫標註)","(Reading...)":"(仍在閱讀中...)","(Finished)":"(已經讀完了)"}}')
   delete Component.options._Ctor
 }
 
@@ -877,7 +877,7 @@ exports.push([module.i, ".popup[data-v-360d97d0] {\n  cursor: pointer;\n  z-inde
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".right-column[data-v-45dd49f6] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-45dd49f6] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-45dd49f6] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-45dd49f6] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n.submit-button .user-avatar[data-v-45dd49f6] {\n  max-height: 1.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n  margin-top: -0.7em;\n  margin-bottom: -0.5em;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-45dd49f6] {\n    display: none;\n}\n.vertical.menu .peer-label[data-v-45dd49f6] {\n    display: inline;\n}\n}\n", "",{"version":3,"sources":["UserFilter.less?vue&type=style&index=0&id=45dd49f6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wDAAwD;AAC1D;AACA;EACE,mBAAmB;AACrB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,0BAA0B;EAC1B,sBAAsB;AACxB;AACA;EACE,4BAA4B;EAC5B,qBAAqB;EACrB,sBAAsB;EACtB,kBAAkB;EAClB,qBAAqB;AACvB;AACA;AACA;IACI,aAAa;AACjB;AACA;IACI,eAAe;AACnB;AACA","file":"UserFilter.less?vue&type=style&index=0&id=45dd49f6&lang=less&scoped=true&","sourcesContent":[".right-column[data-v-45dd49f6] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-45dd49f6] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-45dd49f6] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-45dd49f6] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n.submit-button .user-avatar[data-v-45dd49f6] {\n  max-height: 1.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n  margin-top: -0.7em;\n  margin-bottom: -0.5em;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-45dd49f6] {\n    display: none;\n}\n.vertical.menu .peer-label[data-v-45dd49f6] {\n    display: inline;\n}\n}\n"]}]);
+exports.push([module.i, ".right-column[data-v-45dd49f6] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-45dd49f6] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-45dd49f6] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-45dd49f6] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n.submit-button .user-avatar[data-v-45dd49f6] {\n  max-height: 1.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n  margin-top: -0.7em;\n  margin-bottom: -0.5em;\n  margin-left: 0.5em;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-45dd49f6] {\n    display: none;\n}\n.vertical.menu .peer-label[data-v-45dd49f6] {\n    display: inline;\n}\n}\n", "",{"version":3,"sources":["UserFilter.less?vue&type=style&index=0&id=45dd49f6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wDAAwD;AAC1D;AACA;EACE,mBAAmB;AACrB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,0BAA0B;EAC1B,sBAAsB;AACxB;AACA;EACE,4BAA4B;EAC5B,qBAAqB;EACrB,sBAAsB;EACtB,kBAAkB;EAClB,qBAAqB;EACrB,kBAAkB;AACpB;AACA;AACA;IACI,aAAa;AACjB;AACA;IACI,eAAe;AACnB;AACA","file":"UserFilter.less?vue&type=style&index=0&id=45dd49f6&lang=less&scoped=true&","sourcesContent":[".right-column[data-v-45dd49f6] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-45dd49f6] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-45dd49f6] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-45dd49f6] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n.submit-button .user-avatar[data-v-45dd49f6] {\n  max-height: 1.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n  margin-top: -0.7em;\n  margin-bottom: -0.5em;\n  margin-left: 0.5em;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-45dd49f6] {\n    display: none;\n}\n.vertical.menu .peer-label[data-v-45dd49f6] {\n    display: inline;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -2123,6 +2123,7 @@ var render = function() {
     {
       staticClass: "item PeerItem",
       class: _vm.computedItemClassList,
+      attrs: { title: _vm.username },
       on: { click: _vm.onSelectPeer }
     },
     [
@@ -2175,6 +2176,14 @@ var render = function() {
                     "\r\n        " +
                       _vm._s(_vm.$t("(Reading...)")) +
                       "\r\n      "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.isExited
+              ? _c("span", { staticClass: "message" }, [
+                  _vm._v(
+                    "\r\n        " + _vm._s(_vm.$t("(Finished)")) + "\r\n      "
                   )
                 ])
               : _vm._e(),
@@ -2673,6 +2682,7 @@ var render = function() {
                       "div",
                       {
                         staticClass: "ui button submit-button",
+                        class: _vm.computedSubmitButtonClassList,
                         on: { click: _vm.submit }
                       },
                       [
@@ -7202,7 +7212,7 @@ let PeerItem = {
       let classList = []
       
       if (this.user && 
-              (this.user.isReady === false || this.user.annotationTypes.length === 0 )) {
+              (this.user.annotationTypes.length === 0 )) {
         classList.push('disabled')
       }
       
@@ -7229,6 +7239,17 @@ let PeerItem = {
         return false
       }
     },
+    isExited () {
+      if (!this.user) {
+        return false
+      }
+      else if (this.user && this.user.isExited === true) {
+        return true
+      }
+      else {
+        return false
+      }
+    },
     group () {
       if (!this.user
               || !this.user.groups
@@ -7237,7 +7258,7 @@ let PeerItem = {
       }
       
       return this.user.groups[0].group_seq_id + 1
-    }
+    },
   },
 //  watch: {
 //  },
@@ -7245,8 +7266,7 @@ let PeerItem = {
 //  },
   methods: {
     onSelectPeer () {
-      if (this.user && (this.isReady === false
-              || this.annotationTypes.length === 0)) {
+      if (this.user && (this.annotationTypes.length === 0)) {
         return null
       }
       //console.log(this.user)
@@ -9084,6 +9104,11 @@ let UserSelector = {
           return true
         }
         return (this.filterData.selectUser.id !== this.status.filter.focusUser.id)
+      }
+    },
+    computedSubmitButtonClassList () {
+      if (!this.peerIsMe && this.filterData.selectUser) {
+        return 'green'
       }
     }
   },

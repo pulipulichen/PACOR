@@ -14,6 +14,10 @@ let setupWepbage = async function ({headless, args, webpageConfig, webpageGroup,
     webpageConfig, webpageGroup
   })
   
+  await page.assertFn(async () => {
+    document.title = '[ADMIN] ' + document.title
+  })
+  
   //await Sleep(3)
   try {
     await page.assertFn(async () => {

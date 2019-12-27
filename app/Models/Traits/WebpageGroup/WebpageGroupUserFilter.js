@@ -44,7 +44,9 @@ class WebpageGroupUserFilter {
           
           // 先看一下這個人所在的階段，如果不能合作，那就...排除掉他
           if (u.role === 'reader') {
+            //console.log(u.id, u.username)
             let isEnableCollaboration = await u.isEnableCollaboration(webpage)
+            //console.log('ok')
             if (isEnableCollaboration === false) {
               isReady = false
             }
@@ -63,12 +65,16 @@ class WebpageGroupUserFilter {
             stepDuration = currentTime - stepStartTime
           }
           
+          let isExited = await u.getCurrentReadingProgressStepName(webpage)
+          isExited = (isExited === true)
+          
           //console.log('getInit', 2, i, 2)
           
           let userJSON = u.toJSON()
           userJSON.annotationTypes = annotationTypes
           userJSON.isReady = isReady
           userJSON.stepDuration = stepDuration
+          userJSON.isExited = isExited
           userJSON.annotationsCount = parseInt(userJSON.__meta__.annotations_count, 10)
           if (user.id === userJSON.id) {
             // 排除掉自己

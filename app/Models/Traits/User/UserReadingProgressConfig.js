@@ -60,8 +60,13 @@ class UserReadingProgressConfig {
            }
            */
         }
-        return null
+        
+        //console.trace(this.id, this.username)
+        //console.log(status)
+        return true
       } // let doQuery = async () => {
+      
+      // -----------------------------------------------
       
       //profiler.before('await Cache.rememberWait()')
       //let cacheKey = Cache.key('User.getCurrentReadingProgressStepName')
@@ -238,6 +243,10 @@ class UserReadingProgressConfig {
     
     Model.prototype.getCurrentReadingProgressStepStartTime = async function (webpage) {
       let step = await this.getCurrentReadingProgressStep(webpage)
+      //console.log(step)
+      if (step === null) {
+        return null
+      }
       return step.start_timestamp
     }
     

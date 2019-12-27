@@ -14,6 +14,10 @@ let setupManualReader = async function ({headless, args, webpageConfig, webpageG
     webpageConfig, webpageGroup
   })
   
+  await page.assertFn(async () => {
+    document.title = '[!] ' + document.title
+  })
+  
   //await Sleep(3)
   try {
     await page.assertFn(async () => {

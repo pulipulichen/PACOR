@@ -48,6 +48,7 @@
     },
     "div": {
       "attributes": {
+        "v-bind:title": {},
         "v-bind:data-comment-id": {},
         "v-on:dblclick": {}
       }

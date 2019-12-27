@@ -65,6 +65,7 @@
       <template v-slot:actions>
         <div class="ui button submit-button"
              v-if="isSelectAnotherUser"
+             v-bind:class="computedSubmitButtonClassList"
              v-on:click="submit">
           
           <template v-if="peerIsMe">

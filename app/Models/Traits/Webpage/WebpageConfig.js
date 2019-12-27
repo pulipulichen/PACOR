@@ -141,6 +141,11 @@ class WebpageConfig {
     }
 
     Model.prototype.getStepConfig = async function (stepName) {
+      if (!stepName) {
+        console.trace('webpage.getStepConfig()')
+        throw new Error('Step name is null')
+      }
+      
       //let cacheKey = Cache.key('getStepConfig', stepName)
       //return await Cache.rememberWait([this, 'Webpage'], cacheKey, async () => {
         let config = await this.getConfig()

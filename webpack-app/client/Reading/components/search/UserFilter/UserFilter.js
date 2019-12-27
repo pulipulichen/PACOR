@@ -76,6 +76,11 @@ let UserSelector = {
         }
         return (this.filterData.selectUser.id !== this.status.filter.focusUser.id)
       }
+    },
+    computedSubmitButtonClassList () {
+      if (!this.peerIsMe && this.filterData.selectUser) {
+        return 'green'
+      }
     }
   },
 //  watch: {

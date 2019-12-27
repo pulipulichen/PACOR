@@ -8,8 +8,8 @@ let webpageConfig = use('./../../test-config/reading-fastLimitTime')
 const TestOptions = {
   //threads: 1,
   //threads: 3, // ok 完全運作正常
-  threads: 5,  // ?個錯誤
-  //threads: 10,  // ?個錯誤
+  //threads: 5,  // ?個錯誤
+  threads: 10,  // ?個錯誤
   //threads: 15,  // 10個錯誤
   //threads: 20,  // 10個錯誤
   //threads: 30,  // ?個錯誤
@@ -129,6 +129,8 @@ let config = {
       // Navigation
       await PACORTestManager.sleep(3000)
       await PACORTestManager.writeAnnotations()
+      
+      await PACORTestManager.sleep(1000 * 60 * 30)
     })  // await page.assertFn(async function () {
   },
   'e9. 強制進入下一個階段': async function ( { assert, client, browser }, page ) {

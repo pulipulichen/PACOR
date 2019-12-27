@@ -10,6 +10,14 @@ class UserConfig {
       let profiler = new Profiler(0, 'User/UserConfig.getCurrentReadingProgressStepConfig()')
       
       let stepName = await this.getCurrentReadingProgressStepName(webpage)
+      if (stepName === true) {
+        //console.trace('user.getCurrentReadingProgressStepConfig()')
+        //throw new Error('Step name is null')
+        //profiler.finish()
+        //return true
+        stepName = 'FreeReading'
+      }
+      
       profiler.after('stepName', stepName)
       
       //console.log(stepName)
@@ -38,7 +46,10 @@ class UserConfig {
       if (!config || !config.highlightAnnotation) {
         //throw new Error('config is undefined')
         let stepName = await this.getCurrentReadingProgressStepName(webpage)
-        if (stepName !== 'PostRecall') {
+        if (stepName === true) {
+          return undefined
+        }
+        else if (stepName !== 'PostRecall') {
           console.error('getStepHighlightAnnotationConfig config is error: ' + stepName)
         }
         return undefined
@@ -52,7 +63,9 @@ class UserConfig {
               || !config.sectionAnnotation) {
         //throw new Error('config is undefined')
         let stepName = await this.getCurrentReadingProgressStepName(webpage)
-        if (stepName !== 'PostRecall') {
+        
+        if (stepName === true 
+                || stepName !== 'PostRecall') {
           console.error('[User.getStepAnnotationTypes()] config is error: ' + stepName)
         }
         return []
@@ -68,7 +81,10 @@ class UserConfig {
       if (!config || !config.highlightAnnotation) {
         //throw new Error('config is undefined')
         let stepName = await this.getCurrentReadingProgressStepName(webpage)
-        if (stepName !== 'PostRecall') {
+        if (stepName === true) {
+          return []
+        }
+        else if (stepName !== 'PostRecall') {
           console.error('[User.getStepHighlightAnnotationTypes()] config is error: ' + stepName)
         }
         return []
@@ -82,7 +98,10 @@ class UserConfig {
       if (!config || !config.sectionAnnotation) {
         //throw new Error('config is undefined')
         let stepName = await this.getCurrentReadingProgressStepName(webpage)
-        if (stepName !== 'PostRecall') {
+        if (stepName === true) {
+          return []
+        }
+        else if (stepName !== 'PostRecall') {
           console.error('[User.getStepSectionAnnotationTypes()] config is error: ' + stepName)
         }
         return []
@@ -93,6 +112,9 @@ class UserConfig {
     
     Model.prototype.isEnableCollaboration = async function (webpage) {
       let config = await this.getCurrentReadingProgressStepConfig(webpage)
+      if (config === true) {
+        return true
+      }
       //console.log(config)
       if (!config 
               || !config.permission 
