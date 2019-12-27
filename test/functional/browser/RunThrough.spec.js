@@ -9,12 +9,12 @@ const TestOptions = {
   //threads: 1,
   //threads: 3, // ok 完全運作正常
   //threads: 5,  // ?個錯誤
-  threads: 10,  // ?個錯誤
+  //threads: 10,  // ?個錯誤
   //threads: 15,  // 10個錯誤
-  //threads: 20,  // 10個錯誤
+  threads: 20,  // 10個錯誤
   //threads: 30,  // ?個錯誤
   //threads: 40,  // 10個錯誤
-  //maxShowThreads: 5,
+  maxShowThreads: 9,
   mode: 'parallel',
   headless: false,
   //headless: false,

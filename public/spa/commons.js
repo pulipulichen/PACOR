@@ -3075,7 +3075,7 @@ __webpack_require__.r(__webpack_exports__);
       await this.retry(3, async () => {
         await this.sleep(100)
 
-        this.log('撰寫標註：' + (j+1) + '/' + (writeAnnotations) )
+        this.log('撰寫標註：' + (j+1) + '/' + (writeAnnotations) + ' (type: ' + i + ')' )
         await this.selectAnnotationType(i)
         if (i % 3 === 0) {
           await this.writeMainIdeaAnnotation()

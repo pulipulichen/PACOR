@@ -285,10 +285,10 @@ module.exports = {
   debug: {
     //forceMaxTimeoutMinutes: 0.4
     //forceMaxTimeoutMinutes: 0.2
-    forceMaxTimeoutMinutes: 1,
+    forceMaxTimeoutMinutes: 5,
     test: {
       minAnnotation: 3,
-      maxAnnotation: 3
+      maxAnnotation: 9
     }
   }
 }

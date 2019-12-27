@@ -155,6 +155,12 @@ class AnnotationHighlight {
 
       if (highlights.length > 1) {
         let configTypes = await user.getStepHighlightAnnotationTypes(webpage)
+        
+        if (!configTypes 
+                || Array.isArray(configTypes) === false 
+                || configTypes.length === 0) {
+          return undefined
+        }
 
         let typesArray = []
         configTypes.forEach(() => {
