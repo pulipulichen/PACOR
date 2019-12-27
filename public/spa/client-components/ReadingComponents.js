@@ -5946,6 +5946,9 @@ let AnnotationManager = {
   props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
+    console.log(this.lib.auth.stepHighlightAnnotationConfig.otherHighlightBatchInterval)
+    
     return {
       isLoaded: false,
       pause: false,
@@ -6067,6 +6070,11 @@ let AnnotationManager = {
       }
     },
     blurEvent () {
+      if (this.status.role !== 'reader') {
+        // 如果是管理者，那就不做自動停止
+        return false
+      }
+      
       this.pause = true
     },
     loadHighlights: async function () {
@@ -24061,6 +24069,10 @@ let SectionManager = {
       }
     },
     blurEvent () {
+      if (this.status.role !== 'reader') {
+        // 如果是管理者，那就不做自動停止
+        return false
+      }
       this.pause = true
     },
     

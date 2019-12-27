@@ -118,6 +118,10 @@ let SectionManager = {
       }
     },
     blurEvent () {
+      if (this.status.role !== 'reader') {
+        // 如果是管理者，那就不做自動停止
+        return false
+      }
       this.pause = true
     },
     

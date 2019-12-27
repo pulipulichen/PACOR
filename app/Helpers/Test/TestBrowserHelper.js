@@ -34,7 +34,8 @@ let TestBrowserHelper = function (title, url, config, options) {
     displayDevTools = false,
     webpageConfig,
     groupSize,
-    manualAccount = false
+    manualAccount = false,
+    manualAdmin = true
   } = options
   
   const { test, trait } = use('Test/Suite')(title)
@@ -101,7 +102,7 @@ let TestBrowserHelper = function (title, url, config, options) {
     test(title, async function (args) {
       
       if (webpageConfig || webpageGroup) {
-        await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools: true, webpageGroup})
+        await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools: true, webpageGroup, manualAdmin})
         //return false
       }
       
@@ -134,7 +135,7 @@ let TestBrowserHelper = function (title, url, config, options) {
         let browser = args.browser
         
         if (index === 0 && (webpageConfig || webpageGroup)) {
-          await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools: true, webpageGroup})
+          await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools: true, webpageGroup, manualAdmin})
           //return false
         }
         
@@ -165,7 +166,7 @@ let TestBrowserHelper = function (title, url, config, options) {
       }
       
       if (webpageConfig || webpageGroup) {
-        await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools: true, webpageGroup})
+        await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools: true, webpageGroup, manualAdmin})
         //return false
       }
       

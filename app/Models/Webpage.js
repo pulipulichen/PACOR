@@ -29,6 +29,9 @@ class Webpage extends Model {
     this.addHook('beforeSave', async (instance) => {
       await Cache.forgetWithTags(instance)
       
+      let cacheKey = Cache.key('Webpage.getConfig', instance)
+      console.log(cacheKey)
+      await Cache.forget(cacheKey)
       //await Cache.forget(Cache.key('Webpage', 'getReadingProgresses', instance))
       //await Cache.forget(Cache.key('Models.Webpage.getAgreement', this))
       //await Cache.forget(Cache.key('Models.Webpage.getConfig', this))

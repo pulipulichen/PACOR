@@ -3,7 +3,7 @@ const Sleep = use('Sleep')
 
 const initPage = use('./initPage.js')
 
-let setupWepbage = async function ({headless, args, webpageConfig, webpageGroup, logManager, displayDevTools, url}) {
+let setupWepbage = async function ({headless, args, webpageConfig, webpageGroup, logManager, displayDevTools, url, manualAdmin = false}) {
   //console.log('...不行，我們要改從')
   
   let page = await initPage({
@@ -25,12 +25,19 @@ let setupWepbage = async function ({headless, args, webpageConfig, webpageGroup,
       await PACORTestManager.adminPanel()
     })
     
-    if (page.page.isClosed() === false) {
+    if (manualAdmin === false && page.page.isClosed() === false) {
       setTimeout(() => {
         if (page.page.isClosed() === false) {
           page.page.close()
         }
       }, 3000)
+    }
+    
+    if (manualAdmin === true) {
+      await page.assertFn(async () => {
+        location.reload()
+        await PACORTestManager.sleep(30 * 60 * 1000)
+      })
     }
   }
   catch (e) {

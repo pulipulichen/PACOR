@@ -82,7 +82,9 @@ class WebpageConfig {
         
         if (domainConfig && 
                 typeof(domainConfig) === 'object') {
+          console.log(this.config)
           output = TypeHelper.mergeDeep(output, this.config)
+          console.log(output)
         }
         
         //profiler.before('get config from domain')
@@ -122,6 +124,7 @@ class WebpageConfig {
       //let output = await doQuery()  // 捨棄快取，反正就是給我資料就對了
       //let tags = Cache.filterTags(tags)
       let cacheKey = Cache.key('Webpage.getConfig', this)
+      console.log(cacheKey)
       let output = await Cache.rememberForever(cacheKey, doQuery)
       
       profiler.finish()
