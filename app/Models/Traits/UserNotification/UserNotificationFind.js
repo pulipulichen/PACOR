@@ -70,7 +70,7 @@ class UserNotificationFind {
         return await doQuery()
       }
       
-      return await Cache.rememberWait([webpage, user], cacheKey, async () => {
+      return await Cache.rememberWait([webpage, user], cacheKey, 0.5, async () => {
         return await doQuery()
       })
     } // Model.getInit = async function (webpage, user, options) {

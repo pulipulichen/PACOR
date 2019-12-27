@@ -146,6 +146,7 @@ let SectionManager = {
       }
       
       let updateInterval = this.lib.auth.stepSectionAnnotationConfig.updateInterval
+      //console.log(updateInterval)
       if (typeof(updateInterval) !== 'number') {
         return false
       }

@@ -25,5 +25,16 @@ module.exports = {
         countdownPause: true
       }
     },
+    'FreeReading': {
+      notification: {
+        updateInterval: 3000
+      },
+      highlightAnnotation: {
+        otherHighlightBatchInterval: 3000
+      },
+      sectionAnnotation: {
+        updateInterval: 3000
+      },
+    },
   },
 }

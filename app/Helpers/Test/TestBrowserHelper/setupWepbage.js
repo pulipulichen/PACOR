@@ -36,13 +36,17 @@ let setupWepbage = async function ({headless, args, webpageConfig, webpageGroup,
     if (manualAdmin === true) {
       await page.assertFn(async () => {
         location.reload()
-        await PACORTestManager.sleep(30 * 60 * 1000)
+        //await PACORTestManager.sleep(30 * 60 * 1000)
+      })
+      await Sleep(3)
+      await page.assertFn(async () => {
+        document.title = '[ADMIN] ' + document.title
       })
     }
   }
   catch (e) {
     console.log('[ERROR]', e)
-    await Sleep(300 * 1000)
+    await Sleep(300)
   } 
   
 //  await page.type('#loginUsername', Env.get('ADMIN_USERNAME'))

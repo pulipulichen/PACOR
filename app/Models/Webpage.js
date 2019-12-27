@@ -30,7 +30,7 @@ class Webpage extends Model {
       await Cache.forgetWithTags(instance)
       
       let cacheKey = Cache.key('Webpage.getConfig', instance)
-      console.log(cacheKey)
+      //console.log('beforeSave', cacheKey)
       await Cache.forget(cacheKey)
       //await Cache.forget(Cache.key('Webpage', 'getReadingProgresses', instance))
       //await Cache.forget(Cache.key('Models.Webpage.getAgreement', this))

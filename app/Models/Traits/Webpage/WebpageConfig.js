@@ -65,6 +65,8 @@ class WebpageConfig {
       let profiler = new Profiler(3, 'Webpage/WebpageConfig.getConfig()')
       
       let doQuery = async () => {
+        //console.log('getConfig, reloaded')
+        
         let output = ReadingConfig
         
         profiler.before('get domain')
@@ -82,9 +84,9 @@ class WebpageConfig {
         
         if (domainConfig && 
                 typeof(domainConfig) === 'object') {
-          console.log(this.config)
-          output = TypeHelper.mergeDeep(output, this.config)
-          console.log(output)
+          //console.log(this.config)
+          output = TypeHelper.mergeDeep(output, domainConfig)
+          //console.log(output)
         }
         
         //profiler.before('get config from domain')
@@ -95,14 +97,17 @@ class WebpageConfig {
         if (this.config && typeof(this.config) === 'object') {
           profiler.before('mergeDeep')
           
-          if (domainConfig) {
-            output = TypeHelper.mergeDeep(output, domainConfig)
-          }
+          //if (domainConfig) {
+          //  output = TypeHelper.mergeDeep(output, domainConfig)
+          //}
           
 //          console.log('before TypeHelper.mergeDeep()')
 //          console.log(domainConfig)
 //          console.log(this.config)
+          //console.log('a', output.readingProgressModules.CollaborativeReading)
+          //console.log('b', this.config.readingProgressModules.CollaborativeReading)
           output = TypeHelper.mergeDeep(output, this.config)
+          //console.log('c', output.readingProgressModules.CollaborativeReading)
 //          console.log(output)
           
           profiler.after('mergeDeep')
@@ -124,7 +129,7 @@ class WebpageConfig {
       //let output = await doQuery()  // 捨棄快取，反正就是給我資料就對了
       //let tags = Cache.filterTags(tags)
       let cacheKey = Cache.key('Webpage.getConfig', this)
-      console.log(cacheKey)
+      //console.log(cacheKey)
       let output = await Cache.rememberForever(cacheKey, doQuery)
       
       profiler.finish()

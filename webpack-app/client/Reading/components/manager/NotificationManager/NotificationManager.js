@@ -59,6 +59,10 @@ let NotificationManager = {
       }
     },
     blurEvent () {
+      if (this.status.role !== 'reader') {
+        return false
+      }
+      
       this.pause = true
     },
     

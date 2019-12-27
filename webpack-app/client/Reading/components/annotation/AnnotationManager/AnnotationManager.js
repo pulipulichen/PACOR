@@ -11,7 +11,7 @@ let AnnotationManager = {
   data() {    
     this.$i18n.locale = this.config.locale
     
-    console.log(this.lib.auth.stepHighlightAnnotationConfig.otherHighlightBatchInterval)
+    //console.log(this.lib.auth.stepHighlightAnnotationConfig.otherHighlightBatchInterval)
     
     return {
       isLoaded: false,
@@ -101,7 +101,7 @@ let AnnotationManager = {
     this.status.progress.highlights = false
     this.removeFocusBlurEvent()
   },
-//  mounted () {  
+  mounted () {  
 //    
 //    // 最後讀取
 //    this.loadHighlights()
@@ -112,7 +112,10 @@ let AnnotationManager = {
 //    
 //    //this.lib.rangy = this.$refs.RangyManager
 //    
-//  },
+    //setTimeout(() => {
+      //console.log(this.status.readingConfig.readingProgressModules)
+    //}, 100)
+  },
   methods: {
 //    _testPanel () {
 //      this.annotationModule = 'Confused'

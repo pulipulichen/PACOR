@@ -34,8 +34,8 @@ let TestBrowserHelper = function (title, url, config, options) {
     displayDevTools = false,
     webpageConfig,
     groupSize,
-    manualAccount = false,
-    manualAdmin = true
+    manualReader = false,
+    manualAdmin = false
   } = options
   
   const { test, trait } = use('Test/Suite')(title)
@@ -138,6 +138,9 @@ let TestBrowserHelper = function (title, url, config, options) {
           await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools: true, webpageGroup, manualAdmin})
           //return false
         }
+        if (index === 0 && manualReader === true) {
+          await setupManualReader({headless: false, args, url, logManager, displayDevTools: true})
+        }
         
         let h = headless
         if (forceShowIndexes.indexOf(i) > -1) {
@@ -189,7 +192,7 @@ let TestBrowserHelper = function (title, url, config, options) {
         let page
         
         let e = []
-        if (manualAccount === true && i === 0) {
+        if (manualReader === true && i === 0) {
           page = await setupManualReader({headless: false, args, url, logManager, displayDevTools: true})
         }
         else {

@@ -45,7 +45,7 @@ export default (RangyManager) => {
       point1 = 0
     }
     let point2 = point1 + Math.floor(Math.random() * wordLength) + baseWordLength
-    if (point2 >= wordLength) {
+    if (point2 >= maxLength) {
       point2 = wordLength - 1
     }
     

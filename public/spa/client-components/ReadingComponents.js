@@ -5947,7 +5947,7 @@ let AnnotationManager = {
   data() {    
     this.$i18n.locale = this.config.locale
     
-    console.log(this.lib.auth.stepHighlightAnnotationConfig.otherHighlightBatchInterval)
+    //console.log(this.lib.auth.stepHighlightAnnotationConfig.otherHighlightBatchInterval)
     
     return {
       isLoaded: false,
@@ -6037,7 +6037,7 @@ let AnnotationManager = {
     this.status.progress.highlights = false
     this.removeFocusBlurEvent()
   },
-//  mounted () {  
+  mounted () {  
 //    
 //    // 最後讀取
 //    this.loadHighlights()
@@ -6048,7 +6048,10 @@ let AnnotationManager = {
 //    
 //    //this.lib.rangy = this.$refs.RangyManager
 //    
-//  },
+    //setTimeout(() => {
+      //console.log(this.status.readingConfig.readingProgressModules)
+    //}, 100)
+  },
   methods: {
 //    _testPanel () {
 //      this.annotationModule = 'Confused'
@@ -15070,7 +15073,7 @@ __webpack_require__.r(__webpack_exports__);
       point1 = 0
     }
     let point2 = point1 + Math.floor(Math.random() * wordLength) + baseWordLength
-    if (point2 >= wordLength) {
+    if (point2 >= maxLength) {
       point2 = wordLength - 1
     }
     
@@ -24097,6 +24100,7 @@ let SectionManager = {
       }
       
       let updateInterval = this.lib.auth.stepSectionAnnotationConfig.updateInterval
+      //console.log(updateInterval)
       if (typeof(updateInterval) !== 'number') {
         return false
       }
