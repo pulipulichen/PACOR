@@ -86,7 +86,15 @@ let NotificationManager = {
       }
       
       for (let key in result) {
-        this.status.notificationData[key] = result[key]
+        if (key === 'unreadNotifications') {
+          if (Array.isArray(this.status.notificationData.unreadNotifications) === false) {
+            this.status.notificationData.unreadNotifications = []
+          }
+          this.status.notificationData.unreadNotifications = this.status.notificationData.unreadNotifications.concat(result[key])
+        }
+        else {
+          this.status.notificationData[key] = result[key]
+        }
       }
       //this.show() // for test 20191123
       

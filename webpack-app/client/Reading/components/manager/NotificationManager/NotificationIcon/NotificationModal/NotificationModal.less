@@ -1,11 +1,20 @@
 .notification-list {
   //max-height: calc(100vh - 26em);
-  max-height: calc(100% - 2em);
+  max-height: calc(100% - 6em);
+  
+  @media only screen and (max-height: 480px) {
+    max-height: calc(100% - 1em);
+  }
+  
   overflow-y: auto;
 }
 
 .trigger-users {
   text-align: center;
+  
+  @media only screen and (max-height: 480px) {
+    display: none;
+  }
   
   .column {
     display: inline-block;

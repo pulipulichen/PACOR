@@ -295,15 +295,35 @@ let logManager = {
       //}
     }
      */
-    for (let i = 0; i < size; i++) {
-      for (let g = 0; g < groupsSize; g++) {
-        let index = i + (g * size)
-        if (index < threads) {
-          let name = this.getBasename(index)
-          groups[g].push(name)
-        }
+    
+    //  1 4 7 9  
+    //  2 5 8 10
+    //  3 6 
+    
+    let lastGroupSize = threads % size
+    
+    for (let i = 0; i < threads; i++) {
+      let g
+      if (groups[(groupsSize - 1)].length < lastGroupSize) {
+        g = i % groupsSize
       }
+      else {
+        g = i % (groupsSize - 1)
+      }
+      
+      let name = this.getBasename(i)
+      groups[g].push(name)
     }
+//    
+//    for (let i = 0; i < size; i++) {
+//      for (let g = 0; g < groupsSize; g++) {
+//        let index = i + (g * size)
+//        if (index < threads) {
+//          let name = this.getBasename(index)
+//          groups[g].push(name)
+//        }
+//      }
+//    }
     
     return groups.map(g => g.join(' ')).join('\n')
   },
