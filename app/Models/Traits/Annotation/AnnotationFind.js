@@ -517,14 +517,25 @@ class AnnotationFind {
         throw new Error('Annotation ID is required.')
       }
       
-      let annotation = await AnnotationModel
+      let query = AnnotationModel
               .query()
               .where('id', TypeHelper.parseInt(annotationID))
               .where('deleted', false)
               .with('user', userQueryBuilder)
               .with('notes')
               .with('anchorPositions')
-              .fetch()
+      
+      query.withCount('likes')
+      query.withCount('comments')
+
+      query.withCount('i_have_liked', (queryBuilder) => {
+        queryBuilder.where('user_id', user.primaryKeyValue)
+      })
+      query.withCount('i_have_commented', (queryBuilder) => {
+        queryBuilder.where('user_id', user.primaryKeyValue)
+      })
+
+      let annotation = await query.fetch()
       
       if (annotation === null) {
         throw new Error('Annotation is not existed.')
