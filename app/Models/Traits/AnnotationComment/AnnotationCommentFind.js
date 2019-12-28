@@ -301,6 +301,16 @@ class AnnotationCommentSave {
                   .with('user', userQueryBuilder)
                   .with('notes')
                   .with('anchorPositions')
+                  
+                builder.withCount('likes')
+                builder.withCount('comments')
+
+                builder.withCount('i_have_liked', (queryBuilder) => {
+                  queryBuilder.where('user_id', user.primaryKeyValue)
+                })
+                builder.withCount('i_have_commented', (queryBuilder) => {
+                  queryBuilder.where('user_id', user.primaryKeyValue)
+                })
               })
               .fetch()
       

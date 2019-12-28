@@ -53,6 +53,15 @@ let exposeFunction = async function ({page, headless, index, logManager, webpage
     return logManager.error(index, message)
   })
   
+  await page.page.exposeFunction('PACORTestManagerTitlePrefix', (message) => {
+    if (webpageConfig) {
+      return '[ADMIN]'
+    }
+    else {
+      return index + ': '
+    }
+  })
+  
   page.page.on('console', (message) => {
     logManager.log.apply(logManager, [index, message])
   })

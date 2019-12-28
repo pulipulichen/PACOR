@@ -195,4 +195,18 @@ export default function (PACORTestManager) {
     }
     return await window.PACORTestManagerWebpageGroup()
   }
+  
+  PACORTestManager.methods.initDocumentTitle = async function () {
+    await this.sleep(1000)
+    
+    if (typeof(window.PACORTestManagerTitlePrefix) !== 'function') {
+      //return setTimeout(() => {
+      await this.sleep(500)
+      return this.initDocumentTitle()
+      //}, 500)
+    }
+    
+    let prefix = await window.PACORTestManagerTitlePrefix()
+    document.title = prefix + document.title
+  }
 }

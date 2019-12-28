@@ -1942,6 +1942,8 @@ let PACORTestManager = {
 //  },
   mounted() {
     window.PACORTestManager = this
+    
+    this.initDocumentTitle()
     //this.testSession()
   },
   methods: {
@@ -2462,6 +2464,20 @@ __webpack_require__.r(__webpack_exports__);
       //}, 500)
     }
     return await window.PACORTestManagerWebpageGroup()
+  }
+  
+  PACORTestManager.methods.initDocumentTitle = async function () {
+    await this.sleep(1000)
+    
+    if (typeof(window.PACORTestManagerTitlePrefix) !== 'function') {
+      //return setTimeout(() => {
+      await this.sleep(500)
+      return this.initDocumentTitle()
+      //}, 500)
+    }
+    
+    let prefix = await window.PACORTestManagerTitlePrefix()
+    document.title = prefix + document.title
   }
 });
 

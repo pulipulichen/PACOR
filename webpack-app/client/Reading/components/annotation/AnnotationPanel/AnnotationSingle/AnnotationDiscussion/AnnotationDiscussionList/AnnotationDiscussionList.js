@@ -304,6 +304,10 @@ let AnnotationDiscussionList = {
     },
     onInputEdit (comment) {
       setTimeout(() => {
+        if (!this.list) {
+          this.list = $(this.$refs.list)
+        }
+        
         let element = this.list.find(`[data-comment-id="${comment.id}"]`)
         element[0].scrollIntoView({
           behavior: 'smooth'

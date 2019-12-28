@@ -30,6 +30,8 @@ let PACORTestManager = {
 //  },
   mounted() {
     window.PACORTestManager = this
+    
+    this.initDocumentTitle()
     //this.testSession()
   },
   methods: {

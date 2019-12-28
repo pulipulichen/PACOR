@@ -7,8 +7,6 @@
     </span>
 
     <annotation-item-interactive
-      v-if="comment.user_id !== status.userID"
-      
       v-bind:config="config"
       v-bind:status="status"
       v-bind:lib="lib"
@@ -25,14 +23,17 @@
     <div v-if="comment.user_id === status.userID"
          class="control-buttons">
       <button type="button"
-              class="ui mini button"
+              class="ui mini icon button"
               v-on:click="$emit('edit')">
+        <!--
         {{ $t('EDIT') }}
+        -->
+        <i class="edit icon"></i>
       </button>
       <button type="button"
-              class="ui mini button"
+              class="ui mini icon button"
               v-on:click="onDelete">
-        {{ $t('DELETE') }}
+        <i class="trash alternate icon"></i>
       </button>
     </div>
   </div>

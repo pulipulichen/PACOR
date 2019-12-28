@@ -169,11 +169,11 @@ let AnnotationEditorModules = {
       let rect
       if (this.lib.AnnotationHelper.isPublicSectionAnnotation(this.annotation)) {
         rect = this.lib.RangyManager.getRectFromSectionAnnotation(this.annotation)
-        console.log('是', rect)
+        //console.log('是', rect)
       }
       else {
         rect = this.lib.RangyManager.getRectFromAnchorPositions(this.annotation.anchorPositions)
-        console.log('不是', rect)
+        //console.log('不是', rect)
       }
       
       //console.log(rect)

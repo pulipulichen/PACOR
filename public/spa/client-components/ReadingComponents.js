@@ -2125,37 +2125,35 @@ var render = function() {
             _vm._v("\r\n      " + _vm._s(_vm.displayTime) + "\r\n    ")
           ]),
           _vm._v(" "),
-          _vm.comment.user_id !== _vm.status.userID
-            ? _c("annotation-item-interactive", {
-                attrs: {
-                  config: _vm.config,
-                  status: _vm.status,
-                  lib: _vm.lib,
-                  enableComment: false,
-                  annotation: _vm.comment,
-                  size: "mini",
-                  showLabel: false
-                },
-                on: {
-                  like: function($event) {
-                    return _vm.$emit("like")
-                  },
-                  unlike: function($event) {
-                    return _vm.$emit("unlike")
-                  },
-                  comment: function($event) {
-                    return _vm.$emit("comment")
-                  }
-                }
-              })
-            : _vm._e(),
+          _c("annotation-item-interactive", {
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              enableComment: false,
+              annotation: _vm.comment,
+              size: "mini",
+              showLabel: false
+            },
+            on: {
+              like: function($event) {
+                return _vm.$emit("like")
+              },
+              unlike: function($event) {
+                return _vm.$emit("unlike")
+              },
+              comment: function($event) {
+                return _vm.$emit("comment")
+              }
+            }
+          }),
           _vm._v(" "),
           _vm.comment.user_id === _vm.status.userID
             ? _c("div", { staticClass: "control-buttons" }, [
                 _c(
                   "button",
                   {
-                    staticClass: "ui mini button",
+                    staticClass: "ui mini icon button",
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
@@ -2163,25 +2161,17 @@ var render = function() {
                       }
                     }
                   },
-                  [
-                    _vm._v(
-                      "\r\n        " + _vm._s(_vm.$t("EDIT")) + "\r\n      "
-                    )
-                  ]
+                  [_c("i", { staticClass: "edit icon" })]
                 ),
                 _vm._v(" "),
                 _c(
                   "button",
                   {
-                    staticClass: "ui mini button",
+                    staticClass: "ui mini icon button",
                     attrs: { type: "button" },
                     on: { click: _vm.onDelete }
                   },
-                  [
-                    _vm._v(
-                      "\r\n        " + _vm._s(_vm.$t("DELETE")) + "\r\n      "
-                    )
-                  ]
+                  [_c("i", { staticClass: "trash alternate icon" })]
                 )
               ])
             : _vm._e()
@@ -9226,6 +9216,10 @@ let AnnotationDiscussionList = {
     },
     onInputEdit (comment) {
       setTimeout(() => {
+        if (!this.list) {
+          this.list = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.list)
+        }
+        
         let element = this.list.find(`[data-comment-id="${comment.id}"]`)
         element[0].scrollIntoView({
           behavior: 'smooth'
@@ -10037,11 +10031,11 @@ let AnnotationEditorModules = {
       let rect
       if (this.lib.AnnotationHelper.isPublicSectionAnnotation(this.annotation)) {
         rect = this.lib.RangyManager.getRectFromSectionAnnotation(this.annotation)
-        console.log('是', rect)
+        //console.log('是', rect)
       }
       else {
         rect = this.lib.RangyManager.getRectFromAnchorPositions(this.annotation.anchorPositions)
-        console.log('不是', rect)
+        //console.log('不是', rect)
       }
       
       //console.log(rect)
