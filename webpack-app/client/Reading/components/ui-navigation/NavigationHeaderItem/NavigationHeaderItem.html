@@ -1,7 +1,16 @@
 <a class="fitted item avatar NavigationHeaderItem"
    v-on:click="$emit('click')">
+  
+  <!--
   <img v-bind:src="status.avatar"
        class="user-avatar">
+  -->
+  <user-avatar 
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib">
+  </user-avatar>
+  
   <div class="username">
     {{ lib.auth.username }}
     <div class="step">

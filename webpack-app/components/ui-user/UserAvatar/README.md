@@ -5,6 +5,6 @@
   v-bind:status="status"
   v-bind:lib="lib"
 
-  v-bind:annotation="annotation">
+  v-bind:user="user">
 </user-avatar>
 ````

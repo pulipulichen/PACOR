@@ -823,7 +823,7 @@ exports.push([module.i, ".notification-list[data-v-512a6987] {\n  max-height: ca
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-247e481a] {\n  user-select: none;\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem.selected[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem.selected[data-v-247e481a] {\n  background-color: #f8ffff !important;\n  box-shadow: 0 0 0 1px #a9d5de inset, 0 0 0 0 transparent;\n  color: #276f86;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content[data-v-247e481a] {\n  padding-left: 0.5em;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .header[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .header[data-v-247e481a] {\n  font-size: 1.1em;\n  vertical-align: middle;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .description[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .description[data-v-247e481a] {\n  margin-top: 0.1em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar img {\n  width: 3em;\n  height: auto;\n  max-height: inherit;\n}\n.PeerItem.disabled[data-v-247e481a] {\n  opacity: 0.6;\n  background-color: #DDD !important;\n  cursor: default !important;\n}\n.PeerItem.disabled .header .message[data-v-247e481a] {\n  font-size: 0.8em;\n  font-weight: normal;\n}\n.PeerItem.disabled:hover .header[data-v-247e481a] {\n  color: rgba(0, 0, 0, 0.85) !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-247e481a] {\n  text-align: right;\n  margin-left: 0.5em !important;\n}\n.ui.image .icon[data-v-247e481a] {\n  font-size: 25px;\n}\n.PeerItem[data-v-247e481a]  .AnnotationTypeButton {\n  /*  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;*/\n  padding: 0.5em !important;\n}\n@media only screen and (max-width: 767px) {\n.non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-247e481a] {\n    display: -webkit-box;\n    vertical-align: top;\n    margin: 0 !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .image[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .image[data-v-247e481a] {\n    width: 2.5em !important;\n    display: inline-block;\n    vertical-align: top;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .image > img[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .image > img[data-v-247e481a] {\n    width: 100% !important;\n    display: inline;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content[data-v-247e481a] {\n    padding-top: 0 !important;\n    width: calc(100% - 3.5em);\n    display: inline-block !important;\n    vertical-align: top;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .header[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .header[data-v-247e481a] {\n    text-overflow: ellipsis;\n    max-width: 100%;\n    white-space: nowrap;\n    overflow-x: hidden;\n    overflow-y: hidden;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .header .message[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .header .message[data-v-247e481a] {\n    margin-left: -0.7em;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .description[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .description[data-v-247e481a] {\n    padding: 0 !important;\n}\n}\n.group-label[data-v-247e481a] {\n  padding: 0.2em 0.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n}\n.group-label .icon[data-v-247e481a] {\n  margin-right: 0.2em !important;\n}\n.username[data-v-247e481a] {\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["PeerItem.less?vue&type=style&index=0&id=247e481a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;EAEE,iBAAiB;EACjB,6BAA6B;EAC7B,gCAAgC;AAClC;AACA;;EAEE,oCAAoC;EACpC,wDAAwD;EACxD,cAAc;AAChB;AACA;;EAEE,mBAAmB;AACrB;AACA;;EAEE,gBAAgB;EAChB,sBAAsB;AACxB;AACA;;EAEE,iBAAiB;AACnB;AACA;EACE,UAAU;EACV,YAAY;EACZ,mBAAmB;AACrB;AACA;EACE,YAAY;EACZ,iCAAiC;EACjC,0BAA0B;AAC5B;AACA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;AACA;EACE,qCAAqC;AACvC;AACA;;;EAGE;AACF;EACE,iBAAiB;EACjB,6BAA6B;AAC/B;AACA;EACE,eAAe;AACjB;AACA;EACE;mCACiC;EACjC,yBAAyB;AAC3B;AACA;AACA;;IAEI,oBAAoB;IACpB,mBAAmB;IACnB,oBAAoB;AACxB;AACA;;IAEI,uBAAuB;IACvB,qBAAqB;IACrB,mBAAmB;AACvB;AACA;;IAEI,sBAAsB;IACtB,eAAe;AACnB;AACA;;IAEI,yBAAyB;IACzB,yBAAyB;IACzB,gCAAgC;IAChC,mBAAmB;AACvB;AACA;;IAEI,uBAAuB;IACvB,eAAe;IACf,mBAAmB;IACnB,kBAAkB;IAClB,kBAAkB;AACtB;AACA;;IAEI,mBAAmB;AACvB;AACA;;IAEI,qBAAqB;AACzB;AACA;AACA;EACE,+BAA+B;EAC/B,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,sBAAsB;AACxB","file":"PeerItem.less?vue&type=style&index=0&id=247e481a&lang=less&scoped=true&","sourcesContent":[".non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-247e481a] {\n  user-select: none;\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem.selected[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem.selected[data-v-247e481a] {\n  background-color: #f8ffff !important;\n  box-shadow: 0 0 0 1px #a9d5de inset, 0 0 0 0 transparent;\n  color: #276f86;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content[data-v-247e481a] {\n  padding-left: 0.5em;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .header[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .header[data-v-247e481a] {\n  font-size: 1.1em;\n  vertical-align: middle;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .description[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .description[data-v-247e481a] {\n  margin-top: 0.1em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar img {\n  width: 3em;\n  height: auto;\n  max-height: inherit;\n}\n.PeerItem.disabled[data-v-247e481a] {\n  opacity: 0.6;\n  background-color: #DDD !important;\n  cursor: default !important;\n}\n.PeerItem.disabled .header .message[data-v-247e481a] {\n  font-size: 0.8em;\n  font-weight: normal;\n}\n.PeerItem.disabled:hover .header[data-v-247e481a] {\n  color: rgba(0, 0, 0, 0.85) !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-247e481a] {\n  text-align: right;\n  margin-left: 0.5em !important;\n}\n.ui.image .icon[data-v-247e481a] {\n  font-size: 25px;\n}\n.PeerItem[data-v-247e481a]  .AnnotationTypeButton {\n  /*  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;*/\n  padding: 0.5em !important;\n}\n@media only screen and (max-width: 767px) {\n.non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-247e481a] {\n    display: -webkit-box;\n    vertical-align: top;\n    margin: 0 !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .image[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .image[data-v-247e481a] {\n    width: 2.5em !important;\n    display: inline-block;\n    vertical-align: top;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .image > img[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .image > img[data-v-247e481a] {\n    width: 100% !important;\n    display: inline;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content[data-v-247e481a] {\n    padding-top: 0 !important;\n    width: calc(100% - 3.5em);\n    display: inline-block !important;\n    vertical-align: top;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .header[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .header[data-v-247e481a] {\n    text-overflow: ellipsis;\n    max-width: 100%;\n    white-space: nowrap;\n    overflow-x: hidden;\n    overflow-y: hidden;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .header .message[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .header .message[data-v-247e481a] {\n    margin-left: -0.7em;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .description[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .description[data-v-247e481a] {\n    padding: 0 !important;\n}\n}\n.group-label[data-v-247e481a] {\n  padding: 0.2em 0.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n}\n.group-label .icon[data-v-247e481a] {\n  margin-right: 0.2em !important;\n}\n.username[data-v-247e481a] {\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
+exports.push([module.i, ".non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-247e481a] {\n  user-select: none;\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem.selected[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem.selected[data-v-247e481a] {\n  background-color: #f8ffff !important;\n  box-shadow: 0 0 0 1px #a9d5de inset, 0 0 0 0 transparent;\n  color: #276f86;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content[data-v-247e481a] {\n  padding-left: 0.5em;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .header[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .header[data-v-247e481a] {\n  font-size: 1.1em;\n  vertical-align: middle;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .description[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .description[data-v-247e481a] {\n  margin-top: 0.1em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar .icon-container {\n  top: 2em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar .icon-container .icon {\n  margin-top: -0.3em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar img {\n  width: 3em;\n  height: auto;\n  max-height: inherit;\n}\n.PeerItem.disabled[data-v-247e481a] {\n  opacity: 0.6;\n  background-color: #DDD !important;\n  cursor: default !important;\n}\n.PeerItem.disabled .header .message[data-v-247e481a] {\n  font-size: 0.8em;\n  font-weight: normal;\n}\n.PeerItem.disabled:hover .header[data-v-247e481a] {\n  color: rgba(0, 0, 0, 0.85) !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-247e481a] {\n  text-align: right;\n  margin-left: 0.5em !important;\n}\n.ui.image .icon[data-v-247e481a] {\n  font-size: 25px;\n}\n.PeerItem[data-v-247e481a]  .AnnotationTypeButton {\n  /*  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;*/\n  padding: 0.5em !important;\n}\n@media only screen and (max-width: 767px) {\n.non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-247e481a] {\n    display: -webkit-box;\n    vertical-align: top;\n    margin: 0 !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .image[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .image[data-v-247e481a] {\n    width: 2.5em !important;\n    display: inline-block;\n    vertical-align: top;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .image > img[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .image > img[data-v-247e481a] {\n    width: 100% !important;\n    display: inline;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content[data-v-247e481a] {\n    padding-top: 0 !important;\n    width: calc(100% - 3.5em);\n    display: inline-block !important;\n    vertical-align: top;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .header[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .header[data-v-247e481a] {\n    text-overflow: ellipsis;\n    max-width: 100%;\n    white-space: nowrap;\n    overflow-x: hidden;\n    overflow-y: hidden;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .header .message[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .header .message[data-v-247e481a] {\n    margin-left: -0.7em;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .description[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .description[data-v-247e481a] {\n    padding: 0 !important;\n}\n}\n.group-label[data-v-247e481a] {\n  padding: 0.2em 0.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n}\n.group-label .icon[data-v-247e481a] {\n  margin-right: 0.2em !important;\n}\n.username[data-v-247e481a] {\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["PeerItem.less?vue&type=style&index=0&id=247e481a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;EAEE,iBAAiB;EACjB,6BAA6B;EAC7B,gCAAgC;AAClC;AACA;;EAEE,oCAAoC;EACpC,wDAAwD;EACxD,cAAc;AAChB;AACA;;EAEE,mBAAmB;AACrB;AACA;;EAEE,gBAAgB;EAChB,sBAAsB;AACxB;AACA;;EAEE,iBAAiB;AACnB;AACA;EACE,QAAQ;AACV;AACA;EACE,kBAAkB;AACpB;AACA;EACE,UAAU;EACV,YAAY;EACZ,mBAAmB;AACrB;AACA;EACE,YAAY;EACZ,iCAAiC;EACjC,0BAA0B;AAC5B;AACA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;AACA;EACE,qCAAqC;AACvC;AACA;;;EAGE;AACF;EACE,iBAAiB;EACjB,6BAA6B;AAC/B;AACA;EACE,eAAe;AACjB;AACA;EACE;mCACiC;EACjC,yBAAyB;AAC3B;AACA;AACA;;IAEI,oBAAoB;IACpB,mBAAmB;IACnB,oBAAoB;AACxB;AACA;;IAEI,uBAAuB;IACvB,qBAAqB;IACrB,mBAAmB;AACvB;AACA;;IAEI,sBAAsB;IACtB,eAAe;AACnB;AACA;;IAEI,yBAAyB;IACzB,yBAAyB;IACzB,gCAAgC;IAChC,mBAAmB;AACvB;AACA;;IAEI,uBAAuB;IACvB,eAAe;IACf,mBAAmB;IACnB,kBAAkB;IAClB,kBAAkB;AACtB;AACA;;IAEI,mBAAmB;AACvB;AACA;;IAEI,qBAAqB;AACzB;AACA;AACA;EACE,+BAA+B;EAC/B,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,sBAAsB;AACxB","file":"PeerItem.less?vue&type=style&index=0&id=247e481a&lang=less&scoped=true&","sourcesContent":[".non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-247e481a] {\n  user-select: none;\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem.selected[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem.selected[data-v-247e481a] {\n  background-color: #f8ffff !important;\n  box-shadow: 0 0 0 1px #a9d5de inset, 0 0 0 0 transparent;\n  color: #276f86;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content[data-v-247e481a] {\n  padding-left: 0.5em;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .header[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .header[data-v-247e481a] {\n  font-size: 1.1em;\n  vertical-align: middle;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .description[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .description[data-v-247e481a] {\n  margin-top: 0.1em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar .icon-container {\n  top: 2em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar .icon-container .icon {\n  margin-top: -0.3em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar img {\n  width: 3em;\n  height: auto;\n  max-height: inherit;\n}\n.PeerItem.disabled[data-v-247e481a] {\n  opacity: 0.6;\n  background-color: #DDD !important;\n  cursor: default !important;\n}\n.PeerItem.disabled .header .message[data-v-247e481a] {\n  font-size: 0.8em;\n  font-weight: normal;\n}\n.PeerItem.disabled:hover .header[data-v-247e481a] {\n  color: rgba(0, 0, 0, 0.85) !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-247e481a] {\n  text-align: right;\n  margin-left: 0.5em !important;\n}\n.ui.image .icon[data-v-247e481a] {\n  font-size: 25px;\n}\n.PeerItem[data-v-247e481a]  .AnnotationTypeButton {\n  /*  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;*/\n  padding: 0.5em !important;\n}\n@media only screen and (max-width: 767px) {\n.non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-247e481a] {\n    display: -webkit-box;\n    vertical-align: top;\n    margin: 0 !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .image[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .image[data-v-247e481a] {\n    width: 2.5em !important;\n    display: inline-block;\n    vertical-align: top;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .image > img[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .image > img[data-v-247e481a] {\n    width: 100% !important;\n    display: inline;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content[data-v-247e481a] {\n    padding-top: 0 !important;\n    width: calc(100% - 3.5em);\n    display: inline-block !important;\n    vertical-align: top;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .header[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .header[data-v-247e481a] {\n    text-overflow: ellipsis;\n    max-width: 100%;\n    white-space: nowrap;\n    overflow-x: hidden;\n    overflow-y: hidden;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .header .message[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .header .message[data-v-247e481a] {\n    margin-left: -0.7em;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .description[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .description[data-v-247e481a] {\n    padding: 0 !important;\n}\n}\n.group-label[data-v-247e481a] {\n  padding: 0.2em 0.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n}\n.group-label .icon[data-v-247e481a] {\n  margin-right: 0.2em !important;\n}\n.username[data-v-247e481a] {\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
 
 
 /***/ }),
@@ -1092,7 +1092,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".avatar[data-v-408fd032] {\n  max-height: 2em;\n  width: auto;\n}\nimg[data-v-408fd032] {\n  display: inline-block !important;\n  border-radius: 0 !important;\n}\n.UserAvatar[data-v-408fd032] {\n  white-space: nowrap;\n  overflow: auto;\n}\n", "",{"version":3,"sources":["UserAvatar.less?vue&type=style&index=0&id=408fd032&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,WAAW;AACb;AACA;EACE,gCAAgC;EAChC,2BAA2B;AAC7B;AACA;EACE,mBAAmB;EACnB,cAAc;AAChB","file":"UserAvatar.less?vue&type=style&index=0&id=408fd032&lang=less&scoped=true&","sourcesContent":[".avatar[data-v-408fd032] {\n  max-height: 2em;\n  width: auto;\n}\nimg[data-v-408fd032] {\n  display: inline-block !important;\n  border-radius: 0 !important;\n}\n.UserAvatar[data-v-408fd032] {\n  white-space: nowrap;\n  overflow: auto;\n}\n"]}]);
+exports.push([module.i, ".avatar[data-v-408fd032] {\n  max-height: 2em;\n  width: auto;\n}\nimg[data-v-408fd032] {\n  display: inline-block !important;\n  border-radius: 0 !important;\n}\n.UserAvatar[data-v-408fd032] {\n  white-space: nowrap;\n  overflow: hidden;\n}\n", "",{"version":3,"sources":["UserAvatar.less?vue&type=style&index=0&id=408fd032&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,WAAW;AACb;AACA;EACE,gCAAgC;EAChC,2BAA2B;AAC7B;AACA;EACE,mBAAmB;EACnB,gBAAgB;AAClB","file":"UserAvatar.less?vue&type=style&index=0&id=408fd032&lang=less&scoped=true&","sourcesContent":[".avatar[data-v-408fd032] {\n  max-height: 2em;\n  width: auto;\n}\nimg[data-v-408fd032] {\n  display: inline-block !important;\n  border-radius: 0 !important;\n}\n.UserAvatar[data-v-408fd032] {\n  white-space: nowrap;\n  overflow: hidden;\n}\n"]}]);
 
 
 /***/ }),
@@ -2418,46 +2418,53 @@ var render = function() {
           ]
         : _vm._e(),
       _vm._v(" "),
-      _c("span", { staticClass: "chart-label my" }, [
-        _c("img", { attrs: { src: _vm.myAvatar } }),
-        _vm._v(" "),
-        _c(
-          "span",
-          { staticClass: "username" },
-          [
-            _vm._v(
-              "\r\n      " +
-                _vm._s(_vm.myUsername) +
-                "\r\n      (" +
-                _vm._s(_vm.$t("You")) +
-                ")\r\n      "
-            ),
-            !_vm.otherIsMe
-              ? [
-                  _vm._v(
-                    "\r\n        " + _vm._s(_vm.$t("and")) + "\r\n        "
-                  ),
-                  _vm.otherIsAll
-                    ? [
-                        _vm._v(
-                          "\r\n          " +
-                            _vm._s(_vm.$t("All Readers")) +
-                            "\r\n        "
-                        )
-                      ]
-                    : [
-                        _vm._v(
-                          "\r\n          " +
-                            _vm._s(_vm.otherUsername) +
-                            "\r\n        "
-                        )
-                      ]
-                ]
-              : _vm._e()
-          ],
-          2
-        )
-      ])
+      _c(
+        "span",
+        { staticClass: "chart-label my" },
+        [
+          _c("user-avatar", {
+            attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+          }),
+          _vm._v(" "),
+          _c(
+            "span",
+            { staticClass: "username" },
+            [
+              _vm._v(
+                "\r\n      " +
+                  _vm._s(_vm.myUsername) +
+                  "\r\n      (" +
+                  _vm._s(_vm.$t("You")) +
+                  ")\r\n      "
+              ),
+              !_vm.otherIsMe
+                ? [
+                    _vm._v(
+                      "\r\n        " + _vm._s(_vm.$t("and")) + "\r\n        "
+                    ),
+                    _vm.otherIsAll
+                      ? [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("All Readers")) +
+                              "\r\n        "
+                          )
+                        ]
+                      : [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.otherUsername) +
+                              "\r\n        "
+                          )
+                        ]
+                  ]
+                : _vm._e()
+            ],
+            2
+          )
+        ],
+        1
+      )
     ],
     2
   )
@@ -3652,7 +3659,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.user
+  return _vm.dataUser
     ? _c("span", { staticClass: "UserAvatar" }, [
         _c("img", {
           staticClass: "avatar user-avatar",
@@ -13317,17 +13324,27 @@ let UserAvatar = {
   props: ['lib', 'status', 'config', 'user'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
+    let dataUser
+    if (this.user) {
+      dataUser = this.user
+    }
+    else {
+      dataUser = this.lib.auth.annotationUserData
+    }
+    
     return {
+      dataUser
     }
   },
 //  components: {
 //  },
   computed: {
     avatarURL () {
-      return this.user.avatar_url
+      return this.dataUser.avatar_url
     },
     username() {
-      let user = this.user
+      let user = this.dataUser
       if (typeof(user.displayName) === 'string') {
         return user.displayName
       }
@@ -13336,10 +13353,10 @@ let UserAvatar = {
       }
     },
     isYou () {
-      return (this.user.id === this.status.userID)
+      return (this.dataUser.id === this.status.userID)
     },
     isAdmin () {
-      let role = this.user.role
+      let role = this.dataUser.role
       
       return (role === 'domain_admin' 
               || role === 'global_admin')

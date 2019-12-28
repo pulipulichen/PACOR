@@ -2,17 +2,27 @@ let UserAvatar = {
   props: ['lib', 'status', 'config', 'user'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
+    let dataUser
+    if (this.user) {
+      dataUser = this.user
+    }
+    else {
+      dataUser = this.lib.auth.annotationUserData
+    }
+    
     return {
+      dataUser
     }
   },
 //  components: {
 //  },
   computed: {
     avatarURL () {
-      return this.user.avatar_url
+      return this.dataUser.avatar_url
     },
     username() {
-      let user = this.user
+      let user = this.dataUser
       if (typeof(user.displayName) === 'string') {
         return user.displayName
       }
@@ -21,10 +31,10 @@ let UserAvatar = {
       }
     },
     isYou () {
-      return (this.user.id === this.status.userID)
+      return (this.dataUser.id === this.status.userID)
     },
     isAdmin () {
-      let role = this.user.role
+      let role = this.dataUser.role
       
       return (role === 'domain_admin' 
               || role === 'global_admin')

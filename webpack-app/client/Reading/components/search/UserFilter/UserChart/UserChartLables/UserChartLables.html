@@ -17,7 +17,15 @@
   </template>
 
   <span class="chart-label my">
+    <!--
     <img v-bind:src="myAvatar" />
+    -->
+    <user-avatar 
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib">
+    </user-avatar>
+    
     <span class="username">
       {{ myUsername }}
       ({{ $t('You') }})
