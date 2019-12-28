@@ -35,15 +35,26 @@ let SectionAnnotationList = {
     },
     userCount () {
       //console.log(this.sectionsData.annotation[this.sectionSeqID])
+      if (!this.sectionsData.annotation[this.sectionSeqID]) {
+        return 0
+      }
+      
       return this.sectionsData.annotation[this.sectionSeqID].userCount
     },
     annotations () {
+      if (!this.sectionsData.annotation[this.sectionSeqID]) {
+        return []
+      }
+      
       if (Array.isArray(this.sectionsData.annotation[this.sectionSeqID].annotations) === false) {
         this.sectionsData.annotation[this.sectionSeqID].annotations = []
       }
       return this.sectionsData.annotation[this.sectionSeqID].annotations
     },
     myAnnotation () {
+      if (!this.sectionsData.annotation[this.sectionSeqID]) {
+        return undefined
+      }
       return this.sectionsData.annotation[this.sectionSeqID].myAnnotation
     },
     hasAnnotation () {
