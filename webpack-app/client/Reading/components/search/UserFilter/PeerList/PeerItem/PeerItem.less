@@ -26,7 +26,13 @@
   }
 }
 
-
+.PeerItem ::v-deep .UserAvatar {
+  img {
+    width: 3em;
+    height: auto;
+    max-height: inherit;
+  }
+}
 
 .PeerItem.disabled {
   opacity: 0.6;

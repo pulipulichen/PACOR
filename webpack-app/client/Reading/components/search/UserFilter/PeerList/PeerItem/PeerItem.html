@@ -3,9 +3,19 @@
      v-on:click="onSelectPeer"
      v-bind:title="username">
   <div class="ui mini image">
+    <!--
     <img v-if="user"
-         v-bind:src="avatar"
-         class="user-avatar">
+     v-bind:src="avatar"
+     class="user-avatar">
+    -->
+    <user-avatar 
+      v-if="user"
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+
+      v-bind:user="user">
+    </user-avatar>
     <i v-else
        class="large users icon" />
   </div>
@@ -22,7 +32,7 @@
         {{ username }}
       </span>
       
-      
+      <!--
       <admin-badge 
         v-if="!isReader"
         v-bind:status="status"
@@ -35,7 +45,7 @@
         v-bind:config="config"
         v-bind:user="user">
       </user-self-badge>
-      
+      -->
       <span v-if="!isReady"
             class="message">
         {{ $t('(Reading...)') }}

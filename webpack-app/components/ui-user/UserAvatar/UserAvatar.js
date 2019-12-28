@@ -1,5 +1,5 @@
 let UserAvatar = {
-  props: ['lib', 'status', 'config', 'annotation'],
+  props: ['lib', 'status', 'config', 'user'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -9,10 +9,10 @@ let UserAvatar = {
 //  },
   computed: {
     avatarURL () {
-      return this.annotation.user.avatar_url
+      return this.user.avatar_url
     },
     username() {
-      let user = this.annotation.user
+      let user = this.user
       if (typeof(user.displayName) === 'string') {
         return user.displayName
       }
@@ -21,10 +21,10 @@ let UserAvatar = {
       }
     },
     isYou () {
-      return (this.annotation.user_id === this.status.userID)
+      return (this.user.id === this.status.userID)
     },
     isAdmin () {
-      let role = this.annotation.user.role
+      let role = this.user.role
       
       return (role === 'domain_admin' 
               || role === 'global_admin')
