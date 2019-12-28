@@ -34,19 +34,22 @@ export default function (PACORTestManager) {
       let i = iList[j]
       await this.retry(3, async () => {
         await this.sleep(100)
-
-        this.log('撰寫標註：' + (j+1) + '/' + (writeAnnotations) + ' (type: ' + i + ')' )
+        let t = (i % 4)
+        this.log('撰寫標註：' + (j+1) + '/' + (writeAnnotations) + ' (type: ' + t + ')' )
         await this.selectAnnotationType(i)
-        if (i % 4 === 0 || i % 4 === 3) {
+        if (t === 0) {
           await this.writeMainIdeaAnnotation()
           //await this.writeConfusedAnnotation()
         }
-        else if (i % 4 === 1) {
+        else if (t === 1) {
           await this.writeConfusedClarifiedAnnotation()
           //await this.writeConfusedAnnotation()
         }
-        else {
+        else if (t === 2) {
           await this.writeConfusedAnnotation()
+        }
+        else {
+          await this.writeMainIdeaAnnotation()
         }
 
         await this.sleep(100)
@@ -81,14 +84,15 @@ export default function (PACORTestManager) {
     let typeItemSelector = '.fab-main-container .fab-item-container .fab-cantainer'
 
     //if (i % 2 === 0) {
-    if (i % 3 === 0) {
+    let t = i % 4
+    if (t === 0 || t === 3) {
       // 選擇重點
       typeItemSelector = typeItemSelector + ':eq(0)'
     }
-    else if (i % 3 === 1) {
+    else if (t === 1) {
       typeItemSelector = typeItemSelector + ':eq(1)'
     }
-    else {
+    else if (t === 2) {
       // 選擇已澄清
       typeItemSelector = typeItemSelector + ':eq(1)'
     }

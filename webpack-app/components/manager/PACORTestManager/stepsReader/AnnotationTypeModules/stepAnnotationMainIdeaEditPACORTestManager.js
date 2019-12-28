@@ -1,7 +1,7 @@
 import $ from 'jquery'
 
 export default function (PACORTestManager) {
-  window.$ = $
+  //window.$ = $
   
   PACORTestManager.methods.editMainIdeaAnnotation = async function () {
     this.log('Edit Annotation: Main Idea')
