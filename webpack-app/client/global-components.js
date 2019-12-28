@@ -64,5 +64,8 @@ Vue.component('admin-badge', AdminBadge)
 import UserSelfBadge from './../components/ui-user/UserSelfBadge/UserSelfBadge.vue'
 Vue.component('user-self-badge', UserSelfBadge)
 
+import UserAvatar from './../components/ui-user/UserAvatar/UserAvatar.vue'
+Vue.component('user-avatar', UserAvatar)
+
 import IframeMessageSegment from './../components/ui/IframeMessageSegment/IframeMessageSegment.vue'
 Vue.component('iframe-message-segment', IframeMessageSegment)

@@ -22,6 +22,7 @@
   </template>
 
   <annotation-item
+    v-if="myAnnotation"
     v-bind:key="myAnnotation.id"
     v-bind:config="config"
     v-bind:status="status"
@@ -32,7 +33,7 @@
   </annotation-item>
   
   <div class="ui divider"
-       v-if="sectionsData.annotation[sectionSeqID].annotations.length > 0"></div>
+       v-if="myAnnotation && sectionsData.annotation[sectionSeqID].annotations.length > 0"></div>
   
   <div class="annotation-list"
        v-on:scroll.stop="scrollList"

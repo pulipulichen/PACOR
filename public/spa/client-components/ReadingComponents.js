@@ -3687,17 +3687,20 @@ var render = function() {
           ]
         : _vm._e(),
       _vm._v(" "),
-      _c("annotation-item", {
-        key: _vm.myAnnotation.id,
-        attrs: {
-          config: _vm.config,
-          status: _vm.status,
-          lib: _vm.lib,
-          annotation: _vm.myAnnotation,
-          findAnnotation: _vm.findAnnotation
-        }
-      }),
+      _vm.myAnnotation
+        ? _c("annotation-item", {
+            key: _vm.myAnnotation.id,
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              annotation: _vm.myAnnotation,
+              findAnnotation: _vm.findAnnotation
+            }
+          })
+        : _vm._e(),
       _vm._v(" "),
+      _vm.myAnnotation &&
       _vm.sectionsData.annotation[_vm.sectionSeqID].annotations.length > 0
         ? _c("div", { staticClass: "ui divider" })
         : _vm._e(),
