@@ -9696,10 +9696,20 @@ let AnnotationItem = {
       return this.lib.DayJSHelper.fromNow(this.annotation.updated_at_unixms)
     },
     computedContainerClassNames () {
-      let classNames = this.mode
-      if (classNames === undefined || classNames === null) {
-        classNames = 'annotation-item-compact'
+      let classNames = []
+      
+      if (this.mode === undefined || this.mode === null) {
+        classNames.push('annotation-item-compact')
       }
+      else {
+        classNames.push(this.mode)
+      }
+      
+      if (this.annotation.user_id === this.status.userID) {
+        classNames.push('my-annotation')
+      }
+      
+      
       return classNames
     },
     note () {

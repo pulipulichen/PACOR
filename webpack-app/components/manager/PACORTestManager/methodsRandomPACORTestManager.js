@@ -31,4 +31,17 @@ export default function (PACORTestManager) {
     
     return list
   }
+  
+  PACORTestManager.methods.getRandomElement = function (elements) {
+    if (!elements) {
+      return undefined
+    }
+    else if (elements.length === 1) {
+      return elements.eq(0)
+    }
+    
+    let max = elements.length
+    let i = this.getRandomInt(max)
+    return elements.eq(i)
+  }
 }
