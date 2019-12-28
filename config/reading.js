@@ -287,7 +287,7 @@ module.exports = {
     //forceMaxTimeoutMinutes: 0.2
     forceMaxTimeoutMinutes: 5,
     test: {
-      minAnnotation: 3,
+      minAnnotation: 4,
       maxAnnotation: 9
     }
   }

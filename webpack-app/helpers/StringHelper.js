@@ -71,17 +71,21 @@ let StringHelper = {
     s = '<div>' + s + '</div>'
     //}
     
+    let output
     if (!spaceInDifferentElement || spaceInDifferentElement === false) { 
-      return $(s).text().trim()
+      output = $(s).text().trim()
     }
     else {
       let children = $(s).children()
-      let output = []
+      output = []
       children.each((i, ele) => {
         output.push(ele.innerText.trim())
       })
-      return output.join(' ').trim()
+      output = output.join(' ').trim()
     }
+    
+    output = output.split('\n').join(' ')
+    return output
   },
   isURL (s) {
     if (typeof(s) !== 'string') {

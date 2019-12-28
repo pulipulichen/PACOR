@@ -4,6 +4,9 @@ import stepAnnotationConfusedClarifiedPACORTestManager from './AnnotationTypeMod
 import stepAnnotationConfusedPACORTestManager from './AnnotationTypeModules/stepAnnotationConfusedPACORTestManager.js'
 import stepAnnotationMainIdeaPACORTestManager from './AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js'
 
+import stepAnnotationMainIdeaEditPACORTestManager from './AnnotationTypeModules/stepAnnotationMainIdeaEditPACORTestManager.js'
+import stepAnnotationMainIdeaDeletePACORTestManager from './AnnotationTypeModules/stepAnnotationMainIdeaDeletePACORTestManager.js'
+
 export default function (PACORTestManager) {
   PACORTestManager.methods.writeAnnotations = async function () {
     
@@ -34,11 +37,11 @@ export default function (PACORTestManager) {
 
         this.log('撰寫標註：' + (j+1) + '/' + (writeAnnotations) + ' (type: ' + i + ')' )
         await this.selectAnnotationType(i)
-        if (i % 3 === 0) {
+        if (i % 4 === 0 || i % 4 === 3) {
           await this.writeMainIdeaAnnotation()
           //await this.writeConfusedAnnotation()
         }
-        else if (i % 3 === 1) {
+        else if (i % 4 === 1) {
           await this.writeConfusedClarifiedAnnotation()
           //await this.writeConfusedAnnotation()
         }
@@ -48,7 +51,10 @@ export default function (PACORTestManager) {
 
         await this.sleep(100)
       })
-    }
+    } // for (let j = 0; j < iList.length; j++) {
+    
+    await this.editMainIdeaAnnotation()
+    await this.deleteMainIdeaAnnotation()
   }
   
   PACORTestManager.methods.selectAnnotationType = async function (i, errorCount = 0) {
@@ -98,4 +104,7 @@ export default function (PACORTestManager) {
   stepAnnotationConfusedClarifiedPACORTestManager(PACORTestManager)
   stepAnnotationConfusedPACORTestManager(PACORTestManager)
   stepAnnotationMainIdeaPACORTestManager(PACORTestManager)
+  
+  stepAnnotationMainIdeaDeletePACORTestManager(PACORTestManager)
+  stepAnnotationMainIdeaEditPACORTestManager(PACORTestManager)
 }

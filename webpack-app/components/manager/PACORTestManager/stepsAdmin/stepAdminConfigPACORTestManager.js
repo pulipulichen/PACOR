@@ -42,10 +42,10 @@ export default function (PACORTestManager) {
       await this.waitForElementVisibleClick('.webpage-config-submit')
 
       //await this.pressEsc()
-      await this.sleep(3000)
+      await this.sleep(1500)
 
       await this.waitForElementVisibleClick('.ConfirmModal .cancel.button')
-      await this.sleep(3000)
+      await this.sleep(1500)
     }
   }
   
@@ -77,9 +77,9 @@ export default function (PACORTestManager) {
       await this.waitForElementVisibleClick('.webpage-group-submit')
 
       //await this.pressEsc()
-      await this.sleep(3000)
+      await this.sleep(1500)
       await this.waitForElementVisibleClick('.ConfirmModal:visible .cancel.button')
-      await this.sleep(3000)
+      await this.sleep(1500)
     }
   }
 }

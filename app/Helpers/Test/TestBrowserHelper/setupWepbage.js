@@ -14,9 +14,9 @@ let setupWepbage = async function ({headless, args, webpageConfig, webpageGroup,
     webpageConfig, webpageGroup
   })
   
-  await page.assertFn(async () => {
-    document.title = '[ADMIN] ' + document.title
-  })
+  //await page.assertFn(async () => {
+  //  document.title = '[ADMIN] ' + document.title
+  //})
   
   
   //await Sleep(3)
@@ -42,9 +42,9 @@ let setupWepbage = async function ({headless, args, webpageConfig, webpageGroup,
         //await PACORTestManager.sleep(30 * 60 * 1000)
       })
       await Sleep(3)
-      await page.assertFn(async () => {
-        document.title = '[ADMIN] ' + document.title
-      })
+      //await page.assertFn(async () => {
+      //  document.title = '[ADMIN] ' + document.title
+      //})
     }
   }
   catch (e) {

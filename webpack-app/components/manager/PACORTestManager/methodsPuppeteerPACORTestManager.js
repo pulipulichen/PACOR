@@ -207,6 +207,8 @@ export default function (PACORTestManager) {
     }
     
     let prefix = await window.PACORTestManagerTitlePrefix()
-    document.title = prefix + document.title
+    if (prefix) {
+      document.title = prefix + document.title
+    }
   }
 }

@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Webpage Admin":"網頁設定管理"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Webpage Admin":"網頁設定管理","You need reload to active the change. Do you want to reload now?":"修改設定後需要重新讀取網頁才能生效。您要現在重新讀取網頁嗎？"}}')
   delete Component.options._Ctor
 }
 

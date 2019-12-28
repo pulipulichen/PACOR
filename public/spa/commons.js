@@ -2477,7 +2477,9 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     let prefix = await window.PACORTestManagerTitlePrefix()
-    document.title = prefix + document.title
+    if (prefix) {
+      document.title = prefix + document.title
+    }
   }
 });
 
@@ -2534,7 +2536,7 @@ __webpack_require__.r(__webpack_exports__);
       return elements.eq(0)
     }
     
-    let max = elements.length
+    let max = elements.length - 1
     let i = this.getRandomInt(max)
     return elements.eq(i)
   }
@@ -2792,10 +2794,10 @@ __webpack_require__.r(__webpack_exports__);
       await this.waitForElementVisibleClick('.webpage-config-submit')
 
       //await this.pressEsc()
-      await this.sleep(3000)
+      await this.sleep(1500)
 
       await this.waitForElementVisibleClick('.ConfirmModal .cancel.button')
-      await this.sleep(3000)
+      await this.sleep(1500)
     }
   }
   
@@ -2827,9 +2829,9 @@ __webpack_require__.r(__webpack_exports__);
       await this.waitForElementVisibleClick('.webpage-group-submit')
 
       //await this.pressEsc()
-      await this.sleep(3000)
+      await this.sleep(1500)
       await this.waitForElementVisibleClick('.ConfirmModal:visible .cancel.button')
-      await this.sleep(3000)
+      await this.sleep(1500)
     }
   }
 });
@@ -3003,6 +3005,125 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationMainIdeaDeletePACORTestManager.js":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationMainIdeaDeletePACORTestManager.js ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  
+  PACORTestManager.methods.deleteMainIdeaAnnotation = async function () {
+    this.log('Delete Annotation: Main Idea')
+    
+    let highlights = await this.waitForElementVisible('.my-MainIdea[data-pacor-highlight]', {
+      timeout: 3000
+    })
+    
+    let highlight = this.getRandomElement(highlights)
+    highlight.mouseover()
+    await this.sleep(500)
+    highlight.click()
+    
+    await this.waitForElementVisibleClick('.AnnotationFloatWidget .list-button', {
+      timeout: 3000
+    })
+    
+    await this.sleep(1000)
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .html-editor-container .note-editable').length === 0) {
+      await this.waitForElementVisibleClick('.MainList .AnnotationItem.my-annotation:first .meta', {
+        timeout: 3000
+      })
+    }
+    
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .delete-button', {
+      timeout: 3000,
+      errorMessage: ' writeMainIdeaAnnotation 是不是資料沒有輸入？或是寫不夠長？'
+    })
+    
+    await this.sleep(3000)
+    
+    await this.waitForElementVisibleClick('.ConfirmModal .ok.button')
+    
+    await this.waitForElementHidden('.AnnotationPanel .segment', {
+      timeout: 3000,
+      errorMessage: '是不是傳送儲存花太多時間了？ writeMainIdeaAnnotation'
+    })
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationMainIdeaEditPACORTestManager.js":
+/*!*****************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationMainIdeaEditPACORTestManager.js ***!
+  \*****************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  window.$ = jquery__WEBPACK_IMPORTED_MODULE_0___default.a
+  
+  PACORTestManager.methods.editMainIdeaAnnotation = async function () {
+    this.log('Edit Annotation: Main Idea')
+    
+    let highlights = await this.waitForElementVisible('.my-MainIdea[data-pacor-highlight]', {
+      timeout: 3000
+    })
+    
+    let highlight = this.getRandomElement(highlights)
+    highlight.mouseover()
+    await this.sleep(500)
+    highlight.click()
+    
+    
+    await this.waitForElementVisibleClick('.AnnotationFloatWidget .list-button', {
+      timeout: 3000
+    })
+    
+    await this.sleep(1000)
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .html-editor-container .note-editable').length === 0) {
+      await this.waitForElementVisibleClick('.MainList .AnnotationItem.my-annotation:first .meta', {
+        timeout: 3000
+      })
+    }
+    
+    let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', {
+      timeout: 3000
+    })
+    //editor.html(this.createRandomHtml())
+    await this.typeInput(editor, this.createRandomText())
+    await this.sleep(500)
+    await this.typeInput(editor, this.createRandomText())
+    await this.sleep(500)
+    
+    await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
+      timeout: 3000,
+      errorMessage: ' writeMainIdeaAnnotation 是不是資料沒有輸入？或是寫不夠長？'
+    })
+    
+    await this.waitForElementHidden('.AnnotationPanel .segment', {
+      timeout: 3000,
+      errorMessage: '是不是傳送儲存花太多時間了？ writeMainIdeaAnnotation'
+    })
+  }
+});
+
+/***/ }),
+
 /***/ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js":
 /*!*************************************************************************************************************************************!*\
   !*** ./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js ***!
@@ -3070,6 +3191,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AnnotationTypeModules_stepAnnotationConfusedClarifiedPACORTestManager_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AnnotationTypeModules/stepAnnotationConfusedClarifiedPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationConfusedClarifiedPACORTestManager.js");
 /* harmony import */ var _AnnotationTypeModules_stepAnnotationConfusedPACORTestManager_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AnnotationTypeModules/stepAnnotationConfusedPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationConfusedPACORTestManager.js");
 /* harmony import */ var _AnnotationTypeModules_stepAnnotationMainIdeaPACORTestManager_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationMainIdeaPACORTestManager.js");
+/* harmony import */ var _AnnotationTypeModules_stepAnnotationMainIdeaEditPACORTestManager_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AnnotationTypeModules/stepAnnotationMainIdeaEditPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationMainIdeaEditPACORTestManager.js");
+/* harmony import */ var _AnnotationTypeModules_stepAnnotationMainIdeaDeletePACORTestManager_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AnnotationTypeModules/stepAnnotationMainIdeaDeletePACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/AnnotationTypeModules/stepAnnotationMainIdeaDeletePACORTestManager.js");
+
+
+
 
 
 
@@ -3106,11 +3232,11 @@ __webpack_require__.r(__webpack_exports__);
 
         this.log('撰寫標註：' + (j+1) + '/' + (writeAnnotations) + ' (type: ' + i + ')' )
         await this.selectAnnotationType(i)
-        if (i % 3 === 0) {
+        if (i % 4 === 0 || i % 4 === 3) {
           await this.writeMainIdeaAnnotation()
           //await this.writeConfusedAnnotation()
         }
-        else if (i % 3 === 1) {
+        else if (i % 4 === 1) {
           await this.writeConfusedClarifiedAnnotation()
           //await this.writeConfusedAnnotation()
         }
@@ -3120,7 +3246,10 @@ __webpack_require__.r(__webpack_exports__);
 
         await this.sleep(100)
       })
-    }
+    } // for (let j = 0; j < iList.length; j++) {
+    
+    await this.editMainIdeaAnnotation()
+    await this.deleteMainIdeaAnnotation()
   }
   
   PACORTestManager.methods.selectAnnotationType = async function (i, errorCount = 0) {
@@ -3170,6 +3299,9 @@ __webpack_require__.r(__webpack_exports__);
   Object(_AnnotationTypeModules_stepAnnotationConfusedClarifiedPACORTestManager_js__WEBPACK_IMPORTED_MODULE_1__["default"])(PACORTestManager)
   Object(_AnnotationTypeModules_stepAnnotationConfusedPACORTestManager_js__WEBPACK_IMPORTED_MODULE_2__["default"])(PACORTestManager)
   Object(_AnnotationTypeModules_stepAnnotationMainIdeaPACORTestManager_js__WEBPACK_IMPORTED_MODULE_3__["default"])(PACORTestManager)
+  
+  Object(_AnnotationTypeModules_stepAnnotationMainIdeaDeletePACORTestManager_js__WEBPACK_IMPORTED_MODULE_5__["default"])(PACORTestManager)
+  Object(_AnnotationTypeModules_stepAnnotationMainIdeaEditPACORTestManager_js__WEBPACK_IMPORTED_MODULE_4__["default"])(PACORTestManager)
 });
 
 /***/ }),
@@ -6256,17 +6388,21 @@ let StringHelper = {
     s = '<div>' + s + '</div>'
     //}
     
+    let output
     if (!spaceInDifferentElement || spaceInDifferentElement === false) { 
-      return jquery__WEBPACK_IMPORTED_MODULE_0___default()(s).text().trim()
+      output = jquery__WEBPACK_IMPORTED_MODULE_0___default()(s).text().trim()
     }
     else {
       let children = jquery__WEBPACK_IMPORTED_MODULE_0___default()(s).children()
-      let output = []
+      output = []
       children.each((i, ele) => {
         output.push(ele.innerText.trim())
       })
-      return output.join(' ').trim()
+      output = output.join(' ').trim()
     }
+    
+    output = output.split('\n').join(' ')
+    return output
   },
   isURL (s) {
     if (typeof(s) !== 'string') {

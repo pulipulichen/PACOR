@@ -37,7 +37,7 @@
         <button 
           v-if="$parent.enableDelete"
           type="button"
-          class="ui compact button"
+          class="ui compact button delete-button"
           v-on:click="$parent.deleteAnnotation"
           v-bind:class="$parent.computedSubmitButtonClassList">
           {{ $t('DELETE') }}  

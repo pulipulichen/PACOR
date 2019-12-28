@@ -40,7 +40,7 @@ export default function (PACORTestManager) {
       return elements.eq(0)
     }
     
-    let max = elements.length
+    let max = elements.length - 1
     let i = this.getRandomInt(max)
     return elements.eq(i)
   }

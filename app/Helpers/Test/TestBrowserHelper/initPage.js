@@ -74,9 +74,9 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
 
   await page.assertFn(async () => {
     let index = await PACORTestManagerIndex()
-    if (index !== undefined) {
-      document.title = index + ': ' + document.title
-    }
+    //if (index !== undefined) {
+    //  document.title = index + ': ' + document.title
+    //}
     window.focus()
     
     setTimeout(() => {

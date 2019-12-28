@@ -3313,7 +3313,7 @@ var render = function() {
                       ? _c(
                           "button",
                           {
-                            staticClass: "ui compact button",
+                            staticClass: "ui compact button delete-button",
                             class: _vm.$parent.computedSubmitButtonClassList,
                             attrs: { type: "button" },
                             on: { click: _vm.$parent.deleteAnnotation }
@@ -12539,9 +12539,9 @@ let Editor = {
       //let note = this.lib.StringHelper.htmlToText(this.note).trim()
       //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
       let note = this.lib.StringHelper.htmlTrim(this.note)
-      note = this.lib.StringHelper.htmlToText(note, true)
+      note = this.lib.StringHelper.htmlToText(note, true).trim()
       
-      let noteReset = this.noteReset
+      let noteReset = this.noteReset.trim()
       //let noteReset = this.lib.StringHelper.htmlTrim(this.noteReset)
       //let noteReset = this.lib.StringHelper.htmlToText(this.noteReset, true)
       //console.log([note, noteReset, (note !== noteReset)])
@@ -12619,7 +12619,8 @@ let Editor = {
             && Array.isArray(annotation.notes)
             && annotation.notes.length > 0) {
         this.note = annotation.notes[0].note
-        this.noteReset = this.lib.StringHelper.htmlTrim(this.note)
+        let noteReset = this.lib.StringHelper.htmlTrim(this.note)
+        this.noteReset = this.lib.StringHelper.htmlToText(noteReset).trim()
         this.$refs.editor.html(this.note)
       }
     },
@@ -12653,7 +12654,7 @@ let Editor = {
       this.note = note
       
       let noteReset = this.lib.StringHelper.htmlTrim(note)
-      noteReset = this.lib.StringHelper.htmlToText(noteReset, true)
+      noteReset = this.lib.StringHelper.htmlToText(noteReset, true).trim()
       this.noteReset = noteReset
       
       if (this.$refs.editor) {
@@ -12859,9 +12860,9 @@ let Editor = {
       //let note = this.lib.StringHelper.htmlToText(this.note).trim()
       //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
       let note = this.lib.StringHelper.htmlTrim(this.note)
-      note = this.lib.StringHelper.htmlToText(note, true)
+      note = this.lib.StringHelper.htmlToText(note, true).trim()
       
-      let noteReset = this.noteReset
+      let noteReset = this.noteReset.trim()
       //let noteReset = this.lib.StringHelper.htmlTrim(this.noteReset)
       //let noteReset = this.lib.StringHelper.htmlToText(this.noteReset, true)
       //console.log([note, noteReset, (note !== noteReset)])
@@ -12939,7 +12940,8 @@ let Editor = {
             && Array.isArray(annotation.notes)
             && annotation.notes.length > 0) {
         this.note = annotation.notes[0].note
-        this.noteReset = this.lib.StringHelper.htmlTrim(this.note)
+        let noteReset = this.lib.StringHelper.htmlTrim(this.note)
+        this.noteReset = this.lib.StringHelper.htmlToText(noteReset).trim()
         this.$refs.editor.html(this.note)
       }
     },
@@ -12973,7 +12975,7 @@ let Editor = {
       this.note = note
       
       let noteReset = this.lib.StringHelper.htmlTrim(note)
-      noteReset = this.lib.StringHelper.htmlToText(noteReset, true)
+      noteReset = this.lib.StringHelper.htmlToText(noteReset, true).trim()
       this.noteReset = noteReset
       
       if (this.$refs.editor) {

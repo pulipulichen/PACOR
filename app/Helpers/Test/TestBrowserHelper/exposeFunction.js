@@ -57,7 +57,7 @@ let exposeFunction = async function ({page, headless, index, logManager, webpage
     if (webpageConfig) {
       return '[ADMIN]'
     }
-    else {
+    else if (typeof(index) === 'number') {
       return index + ': '
     }
   })
