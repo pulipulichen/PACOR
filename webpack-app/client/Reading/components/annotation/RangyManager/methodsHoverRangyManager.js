@@ -1,4 +1,13 @@
 export default (RangyManager) => {
+    
+  RangyManager.methods.glowSectionAnnotation = function (annotation) {
+    if (this.lib.AnnotationHelper.isPublicSectionAnnotation(annotation)) {
+      let element = this.getSectionAnnotationElement(annotation)
+      element.transition('glow')
+      return true
+    }
+  }
+    
   /**
    * 滑入
    * @param {object} annotation

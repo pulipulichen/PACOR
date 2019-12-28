@@ -143,7 +143,12 @@ let AnnotationEditorModules = {
           if (this.annotation !== null 
                   && typeof(this.annotation) === 'object') {
             setTimeout(() => {
-              this.lib.RangyManager.hoverIn(this.annotation, true)
+              if (this.lib.AnnotationHelper.isPublicSectionAnnotation(this.annotation)) {
+                this.lib.RangyManager.glowSectionAnnotation(this.annotation)
+              }
+              else {
+                this.lib.RangyManager.hoverIn(this.annotation, true)
+              }
             }, 100)
           }
           else {
@@ -161,7 +166,16 @@ let AnnotationEditorModules = {
         return null
       }
       
-      let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.annotation.anchorPositions)
+      let rect
+      if (this.lib.AnnotationHelper.isPublicSectionAnnotation(this.annotation)) {
+        rect = this.lib.RangyManager.getRectFromSectionAnnotation(this.annotation)
+        console.log('是', rect)
+      }
+      else {
+        rect = this.lib.RangyManager.getRectFromAnchorPositions(this.annotation.anchorPositions)
+        console.log('不是', rect)
+      }
+      
       //console.log(rect)
       this.lib.AnnotationPanel.scrollToRect(rect)
     },

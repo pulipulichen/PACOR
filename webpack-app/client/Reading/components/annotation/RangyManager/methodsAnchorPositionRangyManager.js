@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 export default (RangyManager) => {
 
   RangyManager.methods._getAnchorPositionFromElement = function (element, event) {
@@ -22,7 +24,7 @@ export default (RangyManager) => {
     })
     
     if (!highlight) {
-      return
+      return undefined
     }
     
     //window.hl = highlight
@@ -101,7 +103,7 @@ export default (RangyManager) => {
     if (!anchorPositions 
             || Array.isArray(anchorPositions) === false
             || anchorPositions.length === 0) {
-      return
+      return undefined
     }
     
     if (anchorPositions[0].type === 'section') {
@@ -132,6 +134,45 @@ export default (RangyManager) => {
     
     this.rectHighlighter.removeAllHighlights()
     this.rangy.restoreSelection(selectionSaved)
+    return rect
+  }
+  
+  RangyManager.methods.getSectionAnnotationElement = function (annotation) {
+    if (!annotation) {
+      return undefined
+    }
+    
+    let id = annotation.id
+    let element = $(`.SectionPanel > .SectionAnnotationList .AnnotationItem[data-annotation-id="${id}"]:first`)
+    if (element.length === 0) {
+      return undefined
+    }
+    
+    return element
+  }
+  
+  RangyManager.methods.getRectFromSectionAnnotation = function (annotation) {
+    let element = this.getSectionAnnotationElement(annotation)
+    if (!element) {
+      return undefined
+    }
+    
+    let offset = element.offset()
+    let width = element.width()
+    let height = element.height()
+    let rect = {
+      bottom: (offset.top + height),
+      height,
+      left: offset.left,
+      right: (offset.left + width),
+      top: offset.top,
+      width
+    }
+    
+    rect.middle = rect.top + (rect.height / 2)
+    rect.center = rect.left + (rect.width / 2)
+    //console.log(rect)
+    //rect.top = rect.top - 50
     return rect
   }
   

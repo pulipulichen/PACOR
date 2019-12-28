@@ -14018,6 +14018,12 @@ let AnnotationHelper = {
     if (annotation.id && !annotation.updated_at_unixms) {
       annotation.updated_at_unixms = (new Date()).getTime()
     }
+  },
+  isPublicSectionAnnotation (annotation) {
+    return (annotation.id 
+              && annotation.anchorPositions
+              && annotation.anchorPositions[0]
+              && annotation.anchorPositions[0].type === 'section')
   }
 }
 

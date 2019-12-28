@@ -10011,7 +10011,12 @@ let AnnotationEditorModules = {
           if (this.annotation !== null 
                   && typeof(this.annotation) === 'object') {
             setTimeout(() => {
-              this.lib.RangyManager.hoverIn(this.annotation, true)
+              if (this.lib.AnnotationHelper.isPublicSectionAnnotation(this.annotation)) {
+                this.lib.RangyManager.glowSectionAnnotation(this.annotation)
+              }
+              else {
+                this.lib.RangyManager.hoverIn(this.annotation, true)
+              }
             }, 100)
           }
           else {
@@ -10029,7 +10034,16 @@ let AnnotationEditorModules = {
         return null
       }
       
-      let rect = this.lib.RangyManager.getRectFromAnchorPositions(this.annotation.anchorPositions)
+      let rect
+      if (this.lib.AnnotationHelper.isPublicSectionAnnotation(this.annotation)) {
+        rect = this.lib.RangyManager.getRectFromSectionAnnotation(this.annotation)
+        console.log('是', rect)
+      }
+      else {
+        rect = this.lib.RangyManager.getRectFromAnchorPositions(this.annotation.anchorPositions)
+        console.log('不是', rect)
+      }
+      
       //console.log(rect)
       this.lib.AnnotationPanel.scrollToRect(rect)
     },
@@ -13730,6 +13744,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 /* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
 
   RangyManager.methods._getAnchorPositionFromElement = function (element, event) {
@@ -13754,7 +13772,7 @@ __webpack_require__.r(__webpack_exports__);
     })
     
     if (!highlight) {
-      return
+      return undefined
     }
     
     //window.hl = highlight
@@ -13833,7 +13851,7 @@ __webpack_require__.r(__webpack_exports__);
     if (!anchorPositions 
             || Array.isArray(anchorPositions) === false
             || anchorPositions.length === 0) {
-      return
+      return undefined
     }
     
     if (anchorPositions[0].type === 'section') {
@@ -13864,6 +13882,45 @@ __webpack_require__.r(__webpack_exports__);
     
     this.rectHighlighter.removeAllHighlights()
     this.rangy.restoreSelection(selectionSaved)
+    return rect
+  }
+  
+  RangyManager.methods.getSectionAnnotationElement = function (annotation) {
+    if (!annotation) {
+      return undefined
+    }
+    
+    let id = annotation.id
+    let element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`.SectionPanel > .SectionAnnotationList .AnnotationItem[data-annotation-id="${id}"]:first`)
+    if (element.length === 0) {
+      return undefined
+    }
+    
+    return element
+  }
+  
+  RangyManager.methods.getRectFromSectionAnnotation = function (annotation) {
+    let element = this.getSectionAnnotationElement(annotation)
+    if (!element) {
+      return undefined
+    }
+    
+    let offset = element.offset()
+    let width = element.width()
+    let height = element.height()
+    let rect = {
+      bottom: (offset.top + height),
+      height,
+      left: offset.left,
+      right: (offset.left + width),
+      top: offset.top,
+      width
+    }
+    
+    rect.middle = rect.top + (rect.height / 2)
+    rect.center = rect.left + (rect.width / 2)
+    //console.log(rect)
+    //rect.top = rect.top - 50
     return rect
   }
   
@@ -14385,6 +14442,15 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((RangyManager) => {
+    
+  RangyManager.methods.glowSectionAnnotation = function (annotation) {
+    if (this.lib.AnnotationHelper.isPublicSectionAnnotation(annotation)) {
+      let element = this.getSectionAnnotationElement(annotation)
+      element.transition('glow')
+      return true
+    }
+  }
+    
   /**
    * 滑入
    * @param {object} annotation
