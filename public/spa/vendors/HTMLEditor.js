@@ -689,7 +689,7 @@ __webpack_require__.r(__webpack_exports__);
       //airMode: true,
       toolbar: [
         // [groupName, [list of button]]
-        ['toolbar', ['link', 'picture', 'video', 'color', 'bold', 'underline']]
+        ['toolbar', ['link', 'picture', 'video']]
         
         /*
         ['style', ['bold', 'italic', 'underline', 'clear']],
