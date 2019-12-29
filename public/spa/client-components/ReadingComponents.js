@@ -11502,6 +11502,7 @@ __webpack_require__.r(__webpack_exports__);
     document.addEventListener('keyup', triggerSelect)
     document.addEventListener('mouseup', triggerSelect)
     document.addEventListener('mousedown', triggerSelect)
+    document.addEventListener('contextmenu', triggerSelect)
 
     this._initSelectionApplier()
   }

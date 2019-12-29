@@ -647,6 +647,12 @@ __webpack_require__.r(__webpack_exports__);
         ['insert', ['link', 'picture', 'video']],
          */
       ],
+      popover: {
+        text: [
+          ['color', ['color']],
+          ['font', ['bold', 'underline', 'clear']]
+        ]
+      },
       enableStatusbar: false,
       toolbarAlign: 'center',
       toolbarCompact: true,

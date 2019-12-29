@@ -96,6 +96,20 @@ module.exports = function (Component) {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js?!./webpack-app/styles/global-article.less":
+/*!*************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/styles/global-article.less ***!
+  \*************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, "[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] img {\n  max-width: 100%;\n  height: auto;\n}\n", "",{"version":3,"sources":["global-article.less"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,YAAY;AACd","file":"global-article.less","sourcesContent":["[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] img {\n  max-width: 100%;\n  height: auto;\n}\n"]}]);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js?!./webpack-app/styles/global.less":
 /*!*****************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/styles/global.less ***!
@@ -7223,6 +7237,25 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].directive('resize', {
 
 /***/ }),
 
+/***/ "./webpack-app/styles/global-article.less":
+/*!************************************************!*\
+  !*** ./webpack-app/styles/global-article.less ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js?sourceMap!../../node_modules/less-loader/dist/cjs.js??ref--1-2!./global-article.less */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js?!./webpack-app/styles/global-article.less");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("f98c08d2", content, true, {});
+
+/***/ }),
+
 /***/ "./webpack-app/styles/global.less":
 /*!****************************************!*\
   !*** ./webpack-app/styles/global.less ***!
@@ -7304,6 +7337,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _semantic_ui__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./semantic-ui */ "./webpack-app/styles/semantic-ui.js");
 /* harmony import */ var _global_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./global.less */ "./webpack-app/styles/global.less");
 /* harmony import */ var _global_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_global_less__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _global_article_less__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./global-article.less */ "./webpack-app/styles/global-article.less");
+/* harmony import */ var _global_article_less__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_global_article_less__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
