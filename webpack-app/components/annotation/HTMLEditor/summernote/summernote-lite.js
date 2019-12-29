@@ -570,6 +570,8 @@ import $ from 'jquery'
                           $recentColor.css('background-color', '#FFFF00');
                           $button.attr('data-backColor', '#FFFF00');
                       }
+                      
+                      //console.log('ok')
                   }
               }),
               button({
@@ -666,7 +668,10 @@ import $ from 'jquery'
                           else {
                               opt.itemClick(eventName, value);
                           }
+                          
                       }
+                      //console.log($button.parents('.note-btn-group.open:first').length)
+                      //$button.parents('.note-btn-group.open:first').removeClass('open')
                   }
               })
           ]
@@ -7930,6 +7935,10 @@ sel.addRange(range);
                           else {
                             //console.log('其他')
                           }
+                          
+                          //$button.parents('.note-dropdown-menu:first').hide()
+                          //console.log($button.parents('.note-btn-group.open:first').length)
+                          $button.parents('.note-btn-group.open:first').removeClass('open')
                       }
                   })
               ]
@@ -10303,7 +10312,7 @@ sel.addRange(range);
           this.$popover.remove();
       };
       AirPopover.prototype.update = function () {
-        console.trace('AirPopover.update')
+        //console.trace('AirPopover.update')
           var styleInfo = this.context.invoke('editor.currentStyle');
           if (styleInfo.range && !styleInfo.range.isCollapsed()) {
               var rect = lists.last(styleInfo.range.getClientRects());
