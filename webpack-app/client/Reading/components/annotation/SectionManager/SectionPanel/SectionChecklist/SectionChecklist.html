@@ -37,7 +37,7 @@
         <div class="ui checkbox">
           <input type="checkbox"
                  v-bind:checked="checked[i]"
-                 v-on:click.prevent.stop="(e)=>{onChecklistItemChange(i)}" />
+                 v-on:click.self.stop="(e)=>{onChecklistItemChange(i)}" />
           <label>
             {{ $t(item) }}
           </label>

@@ -78,6 +78,13 @@ let Login = {
       else {
         return this.$t('Reader')
       } 
+    },
+    loginMessage () {
+      if (this.status.readingConfig 
+            && this.status.readingConfig.login
+            && this.status.readingConfig.login.message ) {
+        return this.status.readingConfig.login.message
+      }
     }
   },
   components: {

@@ -39,20 +39,34 @@ import components from './client/local-components'
 
 let baseURL = __webpack_public_path__
 baseURL = baseURL.split('/').slice(0, 3).join('/')
-config.baseURL = baseURL
 
 let baseScript = $(document.currentScript)
 if (baseScript.length === 1) {
   
   //console.log(baseScript[0].src)
   let testBaseURL = 'http://127.0.0.1:4000'
-  if (false && baseScript[0].src.startsWith(testBaseURL)) {
-    baseURL = testBaseURL
-    config.baseURL = testBaseURL
+  let enableBrowserTest = false
+  if (enableBrowserTest === false) {
+    console.log('@TEST enableBrowserTest', enableBrowserTest)
   }
+  if (enableBrowserTest && baseScript[0].src.startsWith(testBaseURL)) {
+    baseURL = testBaseURL
+  }
+  
+  
+  let src = baseScript[0].src
+  console.log(src)
+  if (src.startsWith('/')) {
+    src = window.location.href
+    console.log(src)
+  }
+  
+  
+  baseURL = src.split('/').slice(0, 3).join('/')
   
   baseScript.before(`<div id="app"></div>`)
 }
+config.baseURL = baseURL
 
 // ---------------
 // 錯誤訊息的設置

@@ -26,15 +26,28 @@ let PACORTestManager = {
       return this.status.readingConfig.debug.test
     }
   },
-//  watch: {
-//  },
-  mounted() {
-    window.PACORTestManager = this
-    
-    this.initDocumentTitle()
-    //this.testSession()
+  watch: {
+    'status.readingConfig' () {
+      if (this.status.readingConfig
+              && this.status.readingConfig.debug
+              && this.status.readingConfig.debug.enable) {
+        window.PACORTestManager = this
+        //console.log('aaa')
+        this.initDocumentTitle()
+        this.checkBaseURL()
+      }
+    }
   },
+//  mounted() {
+//    //this.testSession()
+//  },
   methods: {
+    checkBaseURL () {
+      //console.log(this.config.baseURL.indexOf(':4000'))
+      if (this.config.baseURL.indexOf(':4000') === -1) {
+        console.log('Current base URL is not for test: ' + this.config.baseURL)
+      }
+    },
     /**
     * 測試用
     * @returns {token}

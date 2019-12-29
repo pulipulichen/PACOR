@@ -22822,9 +22822,7 @@ if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("73848ee7", content, false, {});
-// Hot Module Replacement
-if(false) {}
+var update = add("73848ee7", content, true, {});
 
 /***/ }),
 
@@ -22835,7 +22833,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/brand-icons.eot";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/brand-icons.eot";
 
 /***/ }),
 
@@ -22846,7 +22844,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/brand-icons.eot";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/brand-icons.svg";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/brand-icons.svg";
 
 /***/ }),
 
@@ -22857,7 +22855,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/brand-icons.svg";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/brand-icons.ttf";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/brand-icons.ttf";
 
 /***/ }),
 
@@ -22868,7 +22866,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/brand-icons.ttf";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/brand-icons.woff";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/brand-icons.woff";
 
 /***/ }),
 
@@ -22879,7 +22877,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/brand-icons.woff";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/brand-icons.woff2";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/brand-icons.woff2";
 
 /***/ }),
 
@@ -22890,7 +22888,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/brand-icons.woff2";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/icons.eot";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/icons.eot";
 
 /***/ }),
 
@@ -22901,7 +22899,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/icons.eot";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/icons.svg";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/icons.svg";
 
 /***/ }),
 
@@ -22912,7 +22910,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/icons.svg";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/icons.ttf";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/icons.ttf";
 
 /***/ }),
 
@@ -22923,7 +22921,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/icons.ttf";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/icons.woff";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/icons.woff";
 
 /***/ }),
 
@@ -22934,7 +22932,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/icons.woff";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/icons.woff2";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/icons.woff2";
 
 /***/ }),
 
@@ -22945,7 +22943,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/icons.woff2";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/outline-icons.eot";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/outline-icons.eot";
 
 /***/ }),
 
@@ -22956,7 +22954,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/outline-icons.eot";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/outline-icons.svg";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/outline-icons.svg";
 
 /***/ }),
 
@@ -22967,7 +22965,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/outline-icons.svg";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/outline-icons.ttf";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/outline-icons.ttf";
 
 /***/ }),
 
@@ -22978,7 +22976,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/outline-icons.ttf";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/outline-icons.woff";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/outline-icons.woff";
 
 /***/ }),
 
@@ -22989,7 +22987,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/outline-icons.woff";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/outline-icons.woff2";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/outline-icons.woff2";
 
 /***/ }),
 
@@ -23000,7 +22998,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/outline-icons.woff2";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/flags.png";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/flags.png";
 
 /***/ })
 

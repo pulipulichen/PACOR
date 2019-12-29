@@ -2,7 +2,7 @@
 
 const dotenv = require('dotenv');
 dotenv.config();
-const baseURL = process.env.PROTOCOL + '//' + process.env.HOST + ':' + process.env.PORT
+const baseURL = process.env.PROTOCOL + '//' + process.env.PUBLIC_HOST + ':' + process.env.PORT
 
 const path = require('path')
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin")

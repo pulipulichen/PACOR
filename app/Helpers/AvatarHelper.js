@@ -4,7 +4,7 @@ const Config = use('Config')
 const {admin, guest, users} = Config.get('avatar')
 
 const Env = use('Env')
-const baseURL = `${Env.get('PROTOCOL')}//${Env.get('HOST')}:${Env.get('PORT')}/avatars/`
+const baseURL = `${Env.get('PROTOCOL')}//${Env.get('PUBLIC_HOST')}:${Env.get('PORT')}/avatars/`
 
 let AvatarHelper = {
   /*

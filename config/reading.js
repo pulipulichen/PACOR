@@ -55,7 +55,8 @@ module.exports = {
     'PreImaginary': {
       instruction: '/2020exp/PostRecall.html',
       minWords: 10,
-      limitMinutes: 5,
+      //limitMinutes: 5,
+      limitMinutes: 0.2,
     },
     /**
      * include 'individual-reading' and 'collaborative-reading'
@@ -283,9 +284,10 @@ module.exports = {
     }
   }, // annotationTypeModules: {
   debug: {
+    enable: true,
     //forceMaxTimeoutMinutes: 0.4
     //forceMaxTimeoutMinutes: 0.2
-    forceMaxTimeoutMinutes: 5,
+    forceMaxTimeoutMinutes: 1,
     test: {
       minAnnotation: 4,
       maxAnnotation: 9
