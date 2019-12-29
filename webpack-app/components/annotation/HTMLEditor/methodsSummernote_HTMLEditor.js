@@ -34,11 +34,12 @@ export default function (HTMLEditor) {
          */
       ],
       popover: {
-        text: [
-          ['color', ['color']],
-          ['font', ['bold', 'underline', 'clear']]
+        air: [
+          //['font', ['color', 'bold', 'underline']]
+          ['font', ['bold', 'underline']]
         ]
       },
+      enableAirPopover: true,
       enableStatusbar: false,
       toolbarAlign: 'center',
       toolbarCompact: true,

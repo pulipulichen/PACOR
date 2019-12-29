@@ -5974,6 +5974,13 @@ ${links}`
                 _this.saveBlurRange()
               }, 0)
               _this.context.triggerEvent('mouseup', event);
+          }).on('touchend', function (event) {
+              setTimeout(() => {
+                _this.saveBlurRange()
+              }, 0)
+              _this.context.triggerEvent('touchend', event);
+          }).on('contextmenu', function (event) {
+              _this.context.triggerEvent('contextmenu', event);
           }).on('scroll', function (event) {
               _this.context.triggerEvent('scroll', event);
           })
@@ -10263,7 +10270,7 @@ sel.addRange(range);
           this.ui = $$1.summernote.ui;
           this.options = context.options;
           this.events = {
-              'summernote.keyup summernote.mouseup summernote.scroll': function () {
+              'summernote.keyup summernote.mouseup summernote.scroll summernote.touchend summernote.contextmenu': function () {
                   _this.update();
               },
               'summernote.disable summernote.change summernote.dialog.shown': function () {
@@ -10282,7 +10289,8 @@ sel.addRange(range);
           };
       }
       AirPopover.prototype.shouldInitialize = function () {
-          return this.options.airMode && !lists.isEmpty(this.options.popover.air);
+        //console.log(this.options.airMode, !lists.isEmpty(this.options.popover.air))
+        return (this.options.enableAirPopover === true || (this.options.airMode && !lists.isEmpty(this.options.popover.air)))
       };
       AirPopover.prototype.initialize = function () {
           this.$popover = this.ui.popover({
@@ -10295,6 +10303,7 @@ sel.addRange(range);
           this.$popover.remove();
       };
       AirPopover.prototype.update = function () {
+        console.trace('AirPopover.update')
           var styleInfo = this.context.invoke('editor.currentStyle');
           if (styleInfo.range && !styleInfo.range.isCollapsed()) {
               var rect = lists.last(styleInfo.range.getClientRects());
@@ -10877,6 +10886,7 @@ sel.addRange(range);
           },
           // air mode: inline editor
           airMode: false,
+          enableAirPopover: false,
           width: null,
           height: null,
           linkTargetBlank: true,

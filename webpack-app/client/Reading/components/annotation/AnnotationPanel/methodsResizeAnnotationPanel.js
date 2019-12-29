@@ -5,6 +5,10 @@ let resizeLocker = false
 import $ from 'jquery'
 
 let body = null
+let preventScroll = function (event) {
+  event.preventDefault()
+  event.stopPropagation()
+}
 
 export default (AnnotationPanel) => {
 
@@ -18,31 +22,41 @@ export default (AnnotationPanel) => {
     if (!body) {
       body = $('body')
     }
+    body.bind('scroll', preventScroll)
+    
     body.addClass(disableSelectClass)
     //console.log(event)
     //console.log(event)
     let currentY = event.clientY
+    if (!currentY) {
+      currentY = event.touches[0].clientY
+    }
+    //alert(currentY)
     
     let maxTopGap = this.lib.style.params.AnnotationPanelMaxTopGap
     let minPanelHeight = this.lib.style.params.AnnotationPanelMinPanelHeight
 
     let moveEvent = (event) => {
+      let cY = event.clientY
+      if (!cY) {
+        cY = event.touches[0].clientY
+      }
       if (this.lib.style.isSmallHeight === false) {
-        if (event.clientY < maxTopGap
-                || (window.innerHeight - event.clientY) < minPanelHeight) {
+        if (cY < maxTopGap
+                || (window.innerHeight - cY) < minPanelHeight) {
           return false
         }
       } else {
-        if (event.clientY < (maxTopGap / 2)
-                || (window.innerHeight - event.clientY) < (minPanelHeight / 2)) {
+        if (cY < (maxTopGap / 2)
+                || (window.innerHeight - cY) < (minPanelHeight / 2)) {
           return false
         }
       }
 
 
-      let interval = currentY - event.clientY
+      let interval = currentY - cY
       this.panelData.heightPX = this.panelData.heightPX + interval
-      currentY = event.clientY
+      currentY = cY
       //console.log(this.heightPX)
       //console.log(event)
       //event.preventDefault()
@@ -62,6 +76,8 @@ export default (AnnotationPanel) => {
       let sizeRatio = ((window.innerHeight - currentY) / window.innerHeight)
       //console.log(sizeRatio)
       localStorage.setItem(localStorageKeyPrefix + 'sizeRatio', sizeRatio)
+      
+      body.unbind('scroll', preventScroll)
     }
 
     document.addEventListener('mousemove', moveEvent)
