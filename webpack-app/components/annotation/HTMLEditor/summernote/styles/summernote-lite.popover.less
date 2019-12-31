@@ -168,7 +168,8 @@
 }
 
 &.note-popover .note-popover-content .note-color .note-dropdown-menu .note-palette,
-.note-toolbar .note-color .note-dropdown-menu .note-palette {
+.note-toolbar .note-color .note-dropdown-menu .note-palette,
+&.note-popover .popover-content .note-color .note-dropdown-menu .note-palette {
   display: inline-block;
   width: 160px;
   margin: 0;
@@ -180,6 +181,9 @@
   //margin-right: 15px
   
   margin-right: 30px;
+  &:last-child {
+    margin-right: 5px;
+  }
 }
 
 &.note-popover .note-popover-content .note-color .note-dropdown-menu .note-palette .note-palette-title,

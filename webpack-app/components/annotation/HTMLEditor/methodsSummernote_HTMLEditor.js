@@ -24,7 +24,7 @@ export default function (HTMLEditor) {
       //airMode: true,
       toolbar: [
         // [groupName, [list of button]]
-        ['toolbar', ['link', 'picture', 'video']]
+        ['toolbar', ['color', 'link', 'picture', 'video']]
         
         /*
         ['style', ['bold', 'italic', 'underline', 'clear']],

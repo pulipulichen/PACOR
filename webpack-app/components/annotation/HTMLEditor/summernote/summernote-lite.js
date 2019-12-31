@@ -772,7 +772,7 @@ import $ from 'jquery'
   var popover = renderer.create([
       '<div class="summernote note-popover bottom">',
       '  <div class="note-popover-arrow"/>',
-      '  <div class="popover-content note-children-container"/>',
+      '  <div class="popover-content note-popover-content note-children-container"/>',
       '</div>'
   ].join(''), function ($node, options) {
       var direction = typeof options.direction !== 'undefined' ? options.direction : 'bottom';
@@ -5967,11 +5967,15 @@ ${links}`
               //console.log('isFocus false')
               _this.context.triggerEvent('blur', event);
               
-              // hide popover
+                // hide popover
               setTimeout(() => {
-                //console.log('aaa')
-                $$1('.note-popover').fadeOut()
+                if ($$1('.note-btn-group.open').length === 0) {
+                  //console.log($$1('.note-btn-group.open').length)
+                  $$1('.note-popover').fadeOut()
+                }
               }, 1000)
+              
+                
           }).on('mousedown', function (event) {
               _this.context.triggerEvent('mousedown', event);
           }).on('mouseup', function (event) {
@@ -10338,14 +10342,11 @@ sel.addRange(range);
           }
       };
       AirPopover.prototype.hide = function () {
-        setTimeout(() => {
-          console.trace('hide', $('.note-btn-group.note-color.open').length)
-          if ($('.note-btn-grup.note-color.open').length > 0) {
-            return false
-          }
-          this.$popover.hide();
-        }, 100)
-          
+        //return false
+        if ($('.note-btn-grup.note-color.open').length > 0) {
+          return false
+        }
+        this.$popover.hide();
       };
       return AirPopover;
   }());
