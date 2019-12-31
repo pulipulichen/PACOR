@@ -50,7 +50,25 @@ export default function (HTMLEditor) {
           this._onImageUpload(files)
         },
         onChange: this._callbacksOnChange
-      }
+      },
+      // https://flatuicolors.com/palette/defo
+      foreColors: [
+        ["#2c3e50", "#7f8c8d", "#bdc3c7", "#8e44ad", "#2980b9"], 
+        ["#c0392b", "#d35400", "#27ae60", "#16a085", "#f39c12"], 
+      ],
+      foreColorsName: [
+        ["MIDNIGHT BLUE", "ASBESTOS", "SILVER", "WISTERIA", "POMERANATE"], 
+        ["BELIZE HOLE", "PUMPKIN", "NEPHRITIS", "ORANGE", "GREEN SEA"], 
+      ],
+      backColors: [
+        ["#34495e", "#95a5a6", "#ecf0f1", "#9b59b6", "#e74c3c"], 
+        ["#3498db", "#e67e22", "#2ecc71", "#f1c40f", "#1abc9c"], 
+      ],
+      backColorsName: [
+        ["WET ASPHALT", "CONCRETE", "CLOUDS", "AMETHYST", "ALIZARIN"], 
+        ["PETER RIVER", "CARROT", "EMERALD", "SUN FLOWER", "TURQUOISE"], 
+      ],
+      enableCustomColors: false
     }
     
     if (typeof (this.placeholder) === 'string') {

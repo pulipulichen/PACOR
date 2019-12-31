@@ -143,7 +143,7 @@ exports.push([module.i, ".non-invasive-web-style-framework .html-editor-containe
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".summernote.note-air-popover {\n  z-index: 102 !important;\n}\n", "",{"version":3,"sources":["HTMLEditor.summernote.global.less?vue&type=style&index=2&lang=less&"],"names":[],"mappings":"AAAA;EACE,uBAAuB;AACzB","file":"HTMLEditor.summernote.global.less?vue&type=style&index=2&lang=less&","sourcesContent":[".summernote.note-air-popover {\n  z-index: 102 !important;\n}\n"]}]);
+exports.push([module.i, ".summernote.note-air-popover {\n  z-index: 102 !important;\n}\n.summernote.note-air-popover .note-color-row,\n.summernote.note-air-popover .note-btn.note-color-btn {\n  height: 30px !important;\n}\n", "",{"version":3,"sources":["HTMLEditor.summernote.global.less?vue&type=style&index=2&lang=less&"],"names":[],"mappings":"AAAA;EACE,uBAAuB;AACzB;AACA;;EAEE,uBAAuB;AACzB","file":"HTMLEditor.summernote.global.less?vue&type=style&index=2&lang=less&","sourcesContent":[".summernote.note-air-popover {\n  z-index: 102 !important;\n}\n.summernote.note-air-popover .note-color-row,\n.summernote.note-air-popover .note-btn.note-color-btn {\n  height: 30px !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -715,7 +715,25 @@ __webpack_require__.r(__webpack_exports__);
           this._onImageUpload(files)
         },
         onChange: this._callbacksOnChange
-      }
+      },
+      // https://flatuicolors.com/palette/defo
+      foreColors: [
+        ["#2c3e50", "#7f8c8d", "#bdc3c7", "#8e44ad", "#2980b9"], 
+        ["#c0392b", "#d35400", "#27ae60", "#16a085", "#f39c12"], 
+      ],
+      foreColorsName: [
+        ["MIDNIGHT BLUE", "ASBESTOS", "SILVER", "WISTERIA", "POMERANATE"], 
+        ["BELIZE HOLE", "PUMPKIN", "NEPHRITIS", "ORANGE", "GREEN SEA"], 
+      ],
+      backColors: [
+        ["#34495e", "#95a5a6", "#ecf0f1", "#9b59b6", "#e74c3c"], 
+        ["#3498db", "#e67e22", "#2ecc71", "#f1c40f", "#1abc9c"], 
+      ],
+      backColorsName: [
+        ["WET ASPHALT", "CONCRETE", "CLOUDS", "AMETHYST", "ALIZARIN"], 
+        ["PETER RIVER", "CARROT", "EMERALD", "SUN FLOWER", "TURQUOISE"], 
+      ],
+      enableCustomColors: false
     }
     
     if (typeof (this.placeholder) === 'string') {
@@ -1655,17 +1673,23 @@ __webpack_require__.r(__webpack_exports__);
   };
   var palette = renderer.create('<div class="note-color-palette"/>', function ($node, options) {
       var contents = [];
-      for (var row = 0, rowSize = options.colors.length; row < rowSize; row++) {
-          var eventName = options.eventName;
-          var colors = options.colors[row];
-          var colorsName = options.colorsName[row];
+      var eventName = options.eventName
+      let baseColors
+      let baseColorsName
+      baseColors = options.colors
+      baseColorsName = options.colorsName
+      //console.log(eventName)
+      for (var row = 0, rowSize = baseColors.length; row < rowSize; row++) {
+          var colors = baseColors[row];
+          var colorsName = baseColorsName[row];
+          let width = 100 / colors.length
           var buttons = [];
           for (var col = 0, colSize = colors.length; col < colSize; col++) {
               var color = colors[col];
               var colorName = colorsName[col];
               buttons.push([
                   '<button type="button" class="note-btn note-color-btn"',
-                  'style="background-color:', color, '" ',
+                  'style="background-color:', color, '; width: ' + width + '%" ',
                   'data-event="', eventName, '" ',
                   'data-value="', color, '" ',
                   'title="', colorName, '" ',
@@ -8960,9 +8984,27 @@ sel.addRange(range);
                       callback: function ($dropdown) {
                           $dropdown.find('.note-holder').each(function (idx, item) {
                               var $holder = $$1(item);
+                              
+                              let eventName = $holder.data('event')
+                              let baseColors
+                              let baseColorsName
+                              //console.log(options)
+                              if (eventName === 'foreColor' && Array.isArray(_this.options.foreColors)) {
+                                baseColors = _this.options.foreColors
+                                baseColorsName = _this.options.foreColorsName
+                              }
+                              else if (eventName === 'backColor' && Array.isArray(_this.options.backColors)) {
+                                baseColors = _this.options.backColors
+                                baseColorsName = _this.options.backColorsName
+                              }
+                              else {
+                                baseColors = _this.options.colors
+                                baseColorsName = _this.options.colorsName
+                              }
+                              
                               $holder.append(_this.ui.palette({
-                                  colors: _this.options.colors,
-                                  colorsName: _this.options.colorsName,
+                                  colors: baseColors,
+                                  colorsName: baseColorsName,
                                   eventName: $holder.data('event'),
                                   container: _this.options.container,
                                   tooltip: _this.options.tooltip
@@ -8972,16 +9014,22 @@ sel.addRange(range);
                           var customColors = [
                               ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF']
                           ];
-                          $dropdown.find('.note-holder-custom').each(function (idx, item) {
-                              var $holder = $$1(item);
-                              $holder.append(_this.ui.palette({
-                                  colors: customColors,
-                                  colorsName: customColors,
-                                  eventName: $holder.data('event'),
-                                  container: _this.options.container,
-                                  tooltip: _this.options.tooltip
-                              }).render());
-                          });
+                          if (_this.options.enableCustomColors === true) {
+                            $dropdown.find('.note-holder-custom').each(function (idx, item) {
+                                var $holder = $$1(item);
+                                $holder.append(_this.ui.palette({
+                                    colors: customColors,
+                                    colorsName: customColors,
+                                    eventName: $holder.data('event'),
+                                    container: _this.options.container,
+                                    tooltip: _this.options.tooltip
+                                }).render());
+                            });
+                          }
+                          else {
+                            $dropdown.find('.note-color-select.btn').hide()
+                            
+                          }
                           $dropdown.find('input[type=color]').each(function (idx, item) {
                               $$1(item).change(function () {
                                   var $chip = $dropdown.find('#' + $$1(this).data('event')).find('.note-color-btn').first();
@@ -12083,6 +12131,11 @@ sel.addRange(range);
               ['Sangria', 'Mai Tai', 'Buddha Gold', 'Forest Green', 'Eden', 'Venice Blue', 'Meteorite', 'Claret'],
               ['Rosewood', 'Cinnamon', 'Olive', 'Parsley', 'Tiber', 'Midnight Blue', 'Valentino', 'Loulou']
           ],
+          foreColors: [],
+          foreColorsName: [],
+          backColors: [],
+          backColorsName: [],
+          enableCustomColors: true,
           lineHeights: ['1.0', '1.2', '1.4', '1.5', '1.6', '1.8', '2.0', '3.0'],
           tableClassName: 'table table-bordered',
           insertTableMaxSize: {
