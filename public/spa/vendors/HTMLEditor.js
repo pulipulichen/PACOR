@@ -689,7 +689,7 @@ __webpack_require__.r(__webpack_exports__);
       //airMode: true,
       toolbar: [
         // [groupName, [list of button]]
-        ['toolbar', ['color', 'link', 'picture', 'video']]
+        ['toolbar', ['link', 'picture', 'video']]
         
         /*
         ['style', ['bold', 'italic', 'underline', 'clear']],
@@ -700,7 +700,7 @@ __webpack_require__.r(__webpack_exports__);
       ],
       popover: {
         air: [
-          ['font', ['forecolor', 'backcolor', 'bold', 'underline']]
+          ['font', ['forecolor', 'backcolor', 'bold', 'underline', 'clear']]
           //['font', ['bold', 'underline']]
         ]
       },
@@ -1464,7 +1464,8 @@ __webpack_require__.r(__webpack_exports__);
           }
         
           $node.attr({
-              'aria-label': options.tooltip
+              'aria-label': options.tooltip,
+              'title': options.tooltip,
           });
           $node.data('_lite_tooltip', new TooltipUI($node, {
               title: options.tooltip,
@@ -1499,7 +1500,7 @@ __webpack_require__.r(__webpack_exports__);
           if (typeof(areaLabel) === 'object' && typeof(areaLabel.title) === 'string') {
             areaLabel = areaLabel.title
           } 
-          var $temp = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a class="note-dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + areaLabel + '"></a>');
+          var $temp = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a class="note-dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + areaLabel + '" title="' + areaLabel + '"></a>');
           $temp.html(content).data('item', item);
           return $temp;
       }) : options.items;

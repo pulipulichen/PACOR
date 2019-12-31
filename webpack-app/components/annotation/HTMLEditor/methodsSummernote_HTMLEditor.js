@@ -24,7 +24,7 @@ export default function (HTMLEditor) {
       //airMode: true,
       toolbar: [
         // [groupName, [list of button]]
-        ['toolbar', ['color', 'link', 'picture', 'video']]
+        ['toolbar', ['link', 'picture', 'video']]
         
         /*
         ['style', ['bold', 'italic', 'underline', 'clear']],
@@ -35,7 +35,7 @@ export default function (HTMLEditor) {
       ],
       popover: {
         air: [
-          ['font', ['forecolor', 'backcolor', 'bold', 'underline']]
+          ['font', ['forecolor', 'backcolor', 'bold', 'underline', 'clear']]
           //['font', ['bold', 'underline']]
         ]
       },

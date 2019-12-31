@@ -319,7 +319,8 @@ import $ from 'jquery'
           }
         
           $node.attr({
-              'aria-label': options.tooltip
+              'aria-label': options.tooltip,
+              'title': options.tooltip,
           });
           $node.data('_lite_tooltip', new TooltipUI($node, {
               title: options.tooltip,
@@ -354,7 +355,7 @@ import $ from 'jquery'
           if (typeof(areaLabel) === 'object' && typeof(areaLabel.title) === 'string') {
             areaLabel = areaLabel.title
           } 
-          var $temp = $('<a class="note-dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + areaLabel + '"></a>');
+          var $temp = $('<a class="note-dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + areaLabel + '" title="' + areaLabel + '"></a>');
           $temp.html(content).data('item', item);
           return $temp;
       }) : options.items;
