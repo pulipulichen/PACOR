@@ -2,6 +2,15 @@
      v-bind:data-section-id="sectionSeqID"
      ref="panel">
 
+  <HTMLEditor 
+    v-bind:lib="lib"
+    v-bind:status="status"
+    v-bind:config="config"
+    v-bind:editable="true"
+
+    contents="測試測試測試測試測試測試測試測試測試測試測試測試測試測試測試測試測試測試測試測試">
+  </HTMLEditor>
+  
   <section-checklist
     v-if="!isChecklistSubmitted"
     v-bind:config="config"

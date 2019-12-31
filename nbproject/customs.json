@@ -50,6 +50,7 @@
       "attributes": {
         "v-bind:title": {},
         "v-bind:data-user-id": {},
+        "v-bind:data-section-id": {},
         "v-bind:data-annotation-id": {},
         "v-bind:data-comment-id": {},
         "v-on:dblclick": {}
