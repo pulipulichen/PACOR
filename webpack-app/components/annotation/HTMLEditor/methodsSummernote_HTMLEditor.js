@@ -35,8 +35,8 @@ export default function (HTMLEditor) {
       ],
       popover: {
         air: [
-          //['font', ['color', 'bold', 'underline']]
-          ['font', ['bold', 'underline']]
+          ['font', ['forecolor', 'backcolor', 'bold', 'underline']]
+          //['font', ['bold', 'underline']]
         ]
       },
       enableAirPopover: true,

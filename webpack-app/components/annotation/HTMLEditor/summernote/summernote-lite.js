@@ -7897,7 +7897,7 @@ sel.addRange(range);
                           else if (eventName === 'removeFormat') {
                             if (hasSelectedRange() === false) {
                               event.preventDefault()
-                              return
+                              return false
                             }
                               
                             let color = 'inherit'
@@ -7917,7 +7917,7 @@ sel.addRange(range);
                           else if (lists.contains(['backColor', 'foreColor'], eventName)) {
                               if (hasSelectedRange() === false) {
                                 event.preventDefault()
-                                return
+                                return false
                               }
                             
                               let key = eventName === 'backColor' ? 'background-color' : 'color';
@@ -9659,7 +9659,7 @@ sel.addRange(range);
               }
               
               if (displayHref === undefined) {
-                return
+                return false
               }
               if (displayHref.length > 100) {
                 let parts = displayHref.split("/")
@@ -9694,15 +9694,15 @@ sel.addRange(range);
 			  width = width + 40
 			  //console.log(width)
 			  this.$popover.css({
-				  'max-width': width + 'px'
-              });
-          }
-          else {
-              this.hide();
-          }
+        'max-width': width + 'px'
+            });
+        }
+        else {
+          this.hide();
+        }
       };
       LinkPopover.prototype.hide = function () {
-		  //console.log('LinkPopover.prototype.hide')
+          //console.log('LinkPopover.prototype.hide')
           this.$popover.hide();
       };
       LinkPopover.prototype.openNotePopoverLink = function (aTag, event) {
@@ -10283,7 +10283,11 @@ sel.addRange(range);
                   _this.update();
               },
               'summernote.disable summernote.change summernote.dialog.shown': function () {
-                  _this.hide();
+                //console.trace('hide', $$1('.note-btn-grup.note-color.open').length)
+                if ($('.note-btn-group.note-color.open').length > 0) {
+                  return false
+                }
+                _this.hide();
               },
               'summernote.focusout': function (we, e) {
                   // [workaround] Firefox doesn't support relatedTarget on focusout
@@ -10291,8 +10295,11 @@ sel.addRange(range);
                   if (env.isFF) {
                       return;
                   }
+                  if ($('.note-btn-group.note-color.open').length > 0) {
+                    return false
+                  }
                   if (!e.relatedTarget || !dom.ancestor(e.relatedTarget, func.eq(_this.$popover[0]))) {
-                      _this.hide();
+                    _this.hide();
                   }
               }
           };
@@ -10331,7 +10338,14 @@ sel.addRange(range);
           }
       };
       AirPopover.prototype.hide = function () {
+        setTimeout(() => {
+          console.trace('hide', $('.note-btn-group.note-color.open').length)
+          if ($('.note-btn-grup.note-color.open').length > 0) {
+            return false
+          }
           this.$popover.hide();
+        }, 100)
+          
       };
       return AirPopover;
   }());
