@@ -2550,16 +2550,7 @@ let VueController = {
   //},
   mounted: function () {
     this.lib.AxiosHelper.setErrorHandler((error) => {
-      //console.log('setErrorHandler', error)
-      if (error 
-              && error.response
-              && error.response.data
-              && error.response.data.error
-              && error.response.data.error.message === 'Please login') {
-        this.lib.auth.logout()
-        return null
-      }
-      this.errors.push(error)
+      this.$refs.ErrorHandler.addErorr(error)
     })
     
     this.lib.DayJSHelper.setI18N((name, data) => {

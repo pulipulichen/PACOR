@@ -148,6 +148,23 @@ let ErrorHandler = {
     },
   },
   methods: {
+    addError (error) {
+      //console.log('setErrorHandler', error)
+      if (error 
+              && error.response
+              && error.response.data
+              && error.response.data.error) {
+        let message = error.response.data.error.message
+        if (message === 'Please login') {
+          this.lib.auth.logout()
+          return null
+        }
+        else if (message === 'Network Error') {
+          return null
+        }
+      }
+      this.errors.push(error)
+    },
     close () {
       if (Array.isArray(this.errors) === true) {
         if (this.errors.length > 0) {

@@ -1,6 +1,7 @@
 //import NotificationIcon from './../../components/manager/NotificationManager/NotificationIcon/NotificationIcon.vue'
 //import UserFilter from './../../components/search/UserFilter/UserFilter.vue'
-import WebpageAdminModal from './WebpageAdminModal/WebpageAdminModal.vue'
+import WebpageAdmin from './WebpageAdmin/WebpageAdmin.vue'
+import ArticleInformation from './ArticleInformation/ArticleInformation.vue'
 
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
 
@@ -17,7 +18,8 @@ let NavigationItems = {
     //'annotation-type-filter': AnnotationTypeFilter,
     //'notification-icon': NotificationIcon,
     //'user-filter': UserFilter,
-    WebpageAdminModal
+    WebpageAdmin,
+    ArticleInformation
   },
 //  
   computed: {

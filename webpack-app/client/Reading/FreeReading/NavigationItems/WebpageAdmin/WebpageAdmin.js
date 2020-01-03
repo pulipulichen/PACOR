@@ -1,7 +1,7 @@
 import WebpageConfigEditor from './../../../../../components/admin/WebpageConfigEditor/WebpageConfigEditor.vue'
 import WebpageGroupEditor from './../../../../../components/admin/WebpageGroupEditor/WebpageGroupEditor.vue'
 
-let WebpageAdminModal = {
+let WebpageAdmin = {
   props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -53,4 +53,4 @@ let WebpageAdminModal = {
   } // methods
 }
 
-export default WebpageAdminModal
+export default WebpageAdmin

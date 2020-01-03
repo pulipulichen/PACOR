@@ -1,0 +1,45 @@
+<div class="WebpageAdminModal">
+  <modal 
+    ref="Modal"
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+    v-bind:contentURL="contentURL"
+    v-bind:cancelable="true"
+    v-bind:cancelButtonText="$t('CLOSE')">
+    <template v-slot:header>
+      {{ $t('Webpage Admin') }}
+    </template>
+    <template v-slot:headerMenu>
+      <a class="item"
+         v-on:click.self.stop="() => {$refs.WebpageGroupEditor.editGroupsOpen()}">
+        <webpage-group-editor
+          ref="WebpageGroupEditor"
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib"
+          v-bind:webpage="webpage"
+          v-on:change="reload"
+          v-bind:buttonMode="false">
+        </webpage-group-editor>
+      </a>
+      <a class="item"
+         v-on:click.self.stop="() => {$refs.WebpageConfigEditor.editConfigOpen()}">
+        <webpage-config-editor
+          ref="WebpageConfigEditor"
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib"
+          v-bind:webpage="webpage"
+          v-on:change="reload"
+          v-bind:buttonMode="false"
+          v-bind:showLabel="true">
+        </webpage-config-editor>
+      </a>
+    </template>
+    <template 
+      v-slot:content
+      v-if="!contentURL">
+    </template>
+  </modal>
+</div>
