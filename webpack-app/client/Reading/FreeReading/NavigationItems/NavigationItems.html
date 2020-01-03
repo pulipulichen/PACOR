@@ -73,6 +73,12 @@
         </search-input>
       </div>
       
+      <a class="item in-vertical"
+         v-on:click="$refs.ArticleInformation.show()">
+         <i class="file alternate icon"></i>
+         {{ $t('Article Information') }}
+      </a>
+      
       <about-item 
         v-bind:config="config"
         v-bind:status="status"
@@ -109,10 +115,17 @@
     
   </navigation>
 
-  <WebpageAdminModal 
-    ref="WebpageAdminModal"
+  <WebpageAdmin 
+    ref="WebpageAdmin"
     v-bind:config="config"
     v-bind:status="status"
     v-bind:lib="lib">
-  </WebpageAdminModal>
+  </WebpageAdmin>
+  
+  <ArticleInformation 
+    ref="ArticleInformation"
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib">
+  </ArticleInformation>
 </div>

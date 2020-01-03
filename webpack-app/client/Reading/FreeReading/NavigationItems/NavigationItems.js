@@ -49,7 +49,7 @@ let NavigationItems = {
   methods: {
     showWebpageConfig () {
       if (this.status.role !== 'reader') {
-        this.$refs.WebpageAdminModal.show()
+        this.$refs.WebpageAdmin.show()
       }
       else {
         this.lib.TutorialManager.start()

@@ -209,7 +209,7 @@ var staticRenderFns = []
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"WebpageAdminModal"},[_c('modal',{ref:"Modal",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib,"contentURL":_vm.contentURL,"cancelable":true,"cancelButtonText":_vm.$t('CLOSE')},scopedSlots:_vm._u([{key:"header",fn:function(){return [_vm._v("\r\n      "+_vm._s(_vm.$t('Webpage Admin'))+"\r\n    ")]},proxy:true},{key:"headerMenu",fn:function(){return [_c('a',{staticClass:"item",on:{"click":function($event){if($event.target !== $event.currentTarget){ return null; }$event.stopPropagation();return (function () {_vm.$refs.WebpageGroupEditor.editGroupsOpen()})($event)}}},[_c('webpage-group-editor',{ref:"WebpageGroupEditor",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib,"webpage":_vm.webpage,"buttonMode":false},on:{"change":_vm.reload}})],1),_vm._v(" "),_c('a',{staticClass:"item",on:{"click":function($event){if($event.target !== $event.currentTarget){ return null; }$event.stopPropagation();return (function () {_vm.$refs.WebpageConfigEditor.editConfigOpen()})($event)}}},[_c('webpage-config-editor',{ref:"WebpageConfigEditor",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib,"webpage":_vm.webpage,"buttonMode":false,"showLabel":true},on:{"change":_vm.reload}})],1)]},proxy:true},(!_vm.contentURL)?{key:"content",fn:function(){return undefined},proxy:true}:null],null,true)})],1)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"ArticleInformation"},[_c('modal',{ref:"Modal",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib,"cancelable":true,"cancelButtonText":_vm.$t('CLOSE')},scopedSlots:_vm._u([{key:"header",fn:function(){return [_vm._v("\r\n      "+_vm._s(_vm.$t('Article Information'))+"\r\n    ")]},proxy:true},{key:"content",fn:function(){return [_vm._v("\r\n      AAAA\r\n    ")]},proxy:true}])})],1)}
 var staticRenderFns = []
 
 
@@ -227,7 +227,7 @@ var staticRenderFns = []
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"NavigationItems"},[(_vm.status.progress.highlights)?_c('navigation',{ref:"nav",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib,"compactWidth":"767","position":"bottom","color":"blue","showMoreButton":true},on:{"onSideMenuChange":function (m) {_vm.isSideMenuDisplay = m}},scopedSlots:_vm._u([{key:"header",fn:function(){return [(_vm.lib.style.isLeftHanded)?_c('notification-icon',{attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib}}):_vm._e(),_vm._v(" "),_c('navigation-header-item',{attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib},on:{"click":_vm.showWebpageConfig}})]},proxy:true},{key:"items",fn:function(){return [_c('div',{staticClass:"item in-vertical"},[_c('search-input',{attrs:{"status":_vm.status,"lib":_vm.lib,"size":_vm.searchManagerSize},on:{"search":_vm.hideSideMenu}})],1),_vm._v(" "),_c('user-filter',{ref:"UserFilter",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib},on:{"show":_vm.hideSideMenu}}),_vm._v(" "),_c('annotation-type-filter',{ref:"AnnotationTypeFilter",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib}}),_vm._v(" "),_c('div',{staticClass:"item in-top"},[_c('search-input',{attrs:{"status":_vm.status,"lib":_vm.lib,"size":_vm.searchManagerSize},on:{"search":_vm.hideSideMenu}})],1),_vm._v(" "),_c('about-item',{attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib}}),_vm._v(" "),(!_vm.lib.style.isLeftHanded)?_c('notification-icon',{staticClass:"in-top",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib,"position":"left"}}):_vm._e()]},proxy:true},{key:"compactItems",fn:function(){return [_c('notification-icon',{ref:"NotificationManager",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib}})]},proxy:true},{key:"verticalHeaderItem",fn:function(){return [_c('navigation-header-item',{attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib},on:{"click":_vm.showWebpageConfig}})]},proxy:true}],null,false,367997934)}):_vm._e(),_vm._v(" "),_c('WebpageAdminModal',{ref:"WebpageAdminModal",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib}})],1)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"NavigationItems"},[(_vm.status.progress.highlights)?_c('navigation',{ref:"nav",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib,"compactWidth":"767","position":"bottom","color":"blue","showMoreButton":true},on:{"onSideMenuChange":function (m) {_vm.isSideMenuDisplay = m}},scopedSlots:_vm._u([{key:"header",fn:function(){return [(_vm.lib.style.isLeftHanded)?_c('notification-icon',{attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib}}):_vm._e(),_vm._v(" "),_c('navigation-header-item',{attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib},on:{"click":_vm.showWebpageConfig}})]},proxy:true},{key:"items",fn:function(){return [_c('div',{staticClass:"item in-vertical"},[_c('search-input',{attrs:{"status":_vm.status,"lib":_vm.lib,"size":_vm.searchManagerSize},on:{"search":_vm.hideSideMenu}})],1),_vm._v(" "),_c('user-filter',{ref:"UserFilter",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib},on:{"show":_vm.hideSideMenu}}),_vm._v(" "),_c('annotation-type-filter',{ref:"AnnotationTypeFilter",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib}}),_vm._v(" "),_c('div',{staticClass:"item in-top"},[_c('search-input',{attrs:{"status":_vm.status,"lib":_vm.lib,"size":_vm.searchManagerSize},on:{"search":_vm.hideSideMenu}})],1),_vm._v(" "),_c('a',{staticClass:"item in-vertical",on:{"click":function($event){return _vm.$refs.ArticleInformation.show()}}},[_c('i',{staticClass:"file alternate icon"}),_vm._v("\r\n         "+_vm._s(_vm.$t('Article Information'))+"\r\n      ")]),_vm._v(" "),_c('about-item',{attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib}}),_vm._v(" "),(!_vm.lib.style.isLeftHanded)?_c('notification-icon',{staticClass:"in-top",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib,"position":"left"}}):_vm._e()]},proxy:true},{key:"compactItems",fn:function(){return [_c('notification-icon',{ref:"NotificationManager",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib}})]},proxy:true},{key:"verticalHeaderItem",fn:function(){return [_c('navigation-header-item',{attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib},on:{"click":_vm.showWebpageConfig}})]},proxy:true}],null,false,2398938282)}):_vm._e(),_vm._v(" "),_c('WebpageAdmin',{ref:"WebpageAdmin",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib}}),_vm._v(" "),_c('ArticleInformation',{ref:"ArticleInformation",attrs:{"config":_vm.config,"status":_vm.status,"lib":_vm.lib}})],1)}
 var staticRenderFns = []
 
 
@@ -661,19 +661,11 @@ let ArticleInformation = {
   props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
-    
-    let contentURL = this.config.baseURL + '/admin#/referer/?url=' + location.href
-    //console.log(contentURL)
-    return {
-      contentURL,
-      webpage: null
-    }
   },
 //  components: {
 //  },
   methods: {
     show () {
-      this.initWebpageDashboard()
       this.$refs.Modal.show()
     },
   } // methods
@@ -812,7 +804,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _WebpageAdmin_WebpageAdmin_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WebpageAdmin/WebpageAdmin.vue */ "./webpack-app/client/Reading/FreeReading/NavigationItems/WebpageAdmin/WebpageAdmin.vue");
-/* harmony import */ var _ArticleInformation_ArticleInformation_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ArticleInformation/ArticleInformation.vue */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/ArticleInformation.vue");
+/* harmony import */ var _ArticleInformation_ArticleInformation_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ArticleInformation/ArticleInformation.vue */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/ArticleInformation.vue");
 //import NotificationIcon from './../../components/manager/NotificationManager/NotificationIcon/NotificationIcon.vue'
 //import UserFilter from './../../components/search/UserFilter/UserFilter.vue'
 
@@ -834,7 +826,7 @@ let NavigationItems = {
     //'notification-icon': NotificationIcon,
     //'user-filter': UserFilter,
     WebpageAdmin: _WebpageAdmin_WebpageAdmin_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    ArticleInformation: _ArticleInformation_ArticleInformation_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    ArticleInformation: _ArticleInformation_ArticleInformation_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
 //  
   computed: {
@@ -864,7 +856,7 @@ let NavigationItems = {
   methods: {
     showWebpageConfig () {
       if (this.status.role !== 'reader') {
-        this.$refs.WebpageAdminModal.show()
+        this.$refs.WebpageAdmin.show()
       }
       else {
         this.lib.TutorialManager.start()
