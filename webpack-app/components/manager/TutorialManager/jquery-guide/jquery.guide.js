@@ -14,9 +14,21 @@ import 'tippy.js/themes/light.css';
     let $body = $('body')
     let completeCallback
     
+    let guide
+    
+    let onWindowResize = () => {
+      return guide.draw();
+    }
+    let onWindowScroll = () => {
+      if (scrollIntoView === true) {
+        return false
+      }
+      return guide.draw();
+    }
+    
     $.guide = function(options) {
       isStart = true
-      var action, guide, _i, _len, _ref;
+      var action, _i, _len, _ref;
       guide = new jQueryGuide();
       if (options.actions !== void 0) {
         _ref = options.actions;
@@ -34,19 +46,21 @@ import 'tippy.js/themes/light.css';
           return guide.next();
         };
       })(this));
-      $window.resize((function(_this) {
-        return function() {
-          return guide.draw();
-        };
-      })(this));
-      $window.scroll((function(_this) {
-        return function() {
-          if (scrollIntoView === true) {
-            return false
-          }
-          return guide.draw();
-        };
-      })(this));
+//      $window.resize((function(_this) {
+//        return function() {
+//          return guide.draw();
+//        };
+//      })(this));
+      $window.bind('resize', onWindowResize)
+//      $window.scroll((function(_this) {
+//        return function() {
+//          if (scrollIntoView === true) {
+//            return false
+//          }
+//          return guide.draw();
+//        };
+//      })(this));
+      $window.bind('scroll', onWindowScroll)
       
       $body.addClass('jquery-guide-prevent-scroll')
       
@@ -214,6 +228,10 @@ import 'tippy.js/themes/light.css';
         this.layout.container.fadeOut(() => {
           this.layout.container.remove();
         })
+        
+        $window.unbind('resize', onWindowResize)
+        $window.unbind('scroll', onWindowScroll)
+        
         return true
       };
 
@@ -375,7 +393,7 @@ import 'tippy.js/themes/light.css';
         
         //setTimeout(() => {
           
-          scrollIntoView = false
+          
           //action.element[0].scrollIntoView({
           //  behavior: 'smooth'
           //})
@@ -397,6 +415,7 @@ import 'tippy.js/themes/light.css';
             return function() {
               setupGlowPopup(_this, action)
               _this.layout.container.removeClass('disabled')
+              scrollIntoView = false
               callback()
             };
           })(this));
@@ -446,6 +465,10 @@ import 'tippy.js/themes/light.css';
         var action, bgBottomWidth, bgScrollTop, bgTopWidth, scrollTop;
         action = this.actionList[this.step.current];
         scrollTop = $window.scrollTop();
+        if (!actionElement) {
+          return false
+        }
+        
         bgScrollTop = actionElement.offset().top - scrollTop;
         bgTopWidth = bgScrollTop > 0 ? bgScrollTop : 0;
         bgBottomWidth = (bgScrollTop + actionElement.innerHeight()) > 0 

@@ -977,7 +977,7 @@ exports.push([module.i, ".non-invasive-web-style-framework .tutorial-modal {\n  
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".click-image[data-v-1bc43b50] {\n  position: fixed;\n  display: none;\n  z-index: 1002;\n  filter: drop-shadow(10px 10px 4px rgba(255, 255, 255, 0.5));\n}\n.modal[data-v-1bc43b50] {\n  cursor: pointer;\n}\n.content[data-v-1bc43b50] {\n  text-align: center;\n}\n", "",{"version":3,"sources":["TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,aAAa;EACb,aAAa;EACb,2DAA2D;AAC7D;AACA;EACE,eAAe;AACjB;AACA;EACE,kBAAkB;AACpB","file":"TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&","sourcesContent":[".click-image[data-v-1bc43b50] {\n  position: fixed;\n  display: none;\n  z-index: 1002;\n  filter: drop-shadow(10px 10px 4px rgba(255, 255, 255, 0.5));\n}\n.modal[data-v-1bc43b50] {\n  cursor: pointer;\n}\n.content[data-v-1bc43b50] {\n  text-align: center;\n}\n"]}]);
+exports.push([module.i, ".click-image[data-v-1bc43b50] {\n  position: fixed;\n  display: none;\n  z-index: 1002;\n  filter: drop-shadow(10px 10px 4px rgba(255, 255, 255, 0.5));\n}\n.modal[data-v-1bc43b50] {\n  cursor: pointer;\n  user-select: none;\n}\n.content[data-v-1bc43b50] {\n  text-align: center;\n}\n", "",{"version":3,"sources":["TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,aAAa;EACb,aAAa;EACb,2DAA2D;AAC7D;AACA;EACE,eAAe;EACf,iBAAiB;AACnB;AACA;EACE,kBAAkB;AACpB","file":"TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&","sourcesContent":[".click-image[data-v-1bc43b50] {\n  position: fixed;\n  display: none;\n  z-index: 1002;\n  filter: drop-shadow(10px 10px 4px rgba(255, 255, 255, 0.5));\n}\n.modal[data-v-1bc43b50] {\n  cursor: pointer;\n  user-select: none;\n}\n.content[data-v-1bc43b50] {\n  text-align: center;\n}\n"]}]);
 
 
 /***/ }),
@@ -4585,7 +4585,7 @@ if (baseScript.length === 1) {
   }
   else {
     let src = baseScript[0].src
-    console.log(src)
+    //console.log(src)
     if (src.startsWith('/')) {
       src = window.location.href
       console.log(src)
@@ -4593,7 +4593,7 @@ if (baseScript.length === 1) {
 
     baseURL = src.split('/').slice(0, 3).join('/')
   }
-  console.log(baseURL)
+  //console.log(baseURL)
   //if (enableBrowserTest && baseScript[0].src.startsWith(testBaseURL)) {
   //if (enableBrowserTest) {
   //}
@@ -10423,7 +10423,8 @@ let TutorialManager = {
     return {
       actionLists: {},
       guide: null,
-      isPlaying: false
+      isPlaying: false,
+      finishModal: null
     }
   },
 //  components: {
@@ -10587,9 +10588,21 @@ __webpack_require__.r(__webpack_exports__);
     let $body = $('body')
     let completeCallback
     
+    let guide
+    
+    let onWindowResize = () => {
+      return guide.draw();
+    }
+    let onWindowScroll = () => {
+      if (scrollIntoView === true) {
+        return false
+      }
+      return guide.draw();
+    }
+    
     $.guide = function(options) {
       isStart = true
-      var action, guide, _i, _len, _ref;
+      var action, _i, _len, _ref;
       guide = new jQueryGuide();
       if (options.actions !== void 0) {
         _ref = options.actions;
@@ -10607,19 +10620,21 @@ __webpack_require__.r(__webpack_exports__);
           return guide.next();
         };
       })(this));
-      $window.resize((function(_this) {
-        return function() {
-          return guide.draw();
-        };
-      })(this));
-      $window.scroll((function(_this) {
-        return function() {
-          if (scrollIntoView === true) {
-            return false
-          }
-          return guide.draw();
-        };
-      })(this));
+//      $window.resize((function(_this) {
+//        return function() {
+//          return guide.draw();
+//        };
+//      })(this));
+      $window.bind('resize', onWindowResize)
+//      $window.scroll((function(_this) {
+//        return function() {
+//          if (scrollIntoView === true) {
+//            return false
+//          }
+//          return guide.draw();
+//        };
+//      })(this));
+      $window.bind('scroll', onWindowScroll)
       
       $body.addClass('jquery-guide-prevent-scroll')
       
@@ -10787,6 +10802,10 @@ __webpack_require__.r(__webpack_exports__);
         this.layout.container.fadeOut(() => {
           this.layout.container.remove();
         })
+        
+        $window.unbind('resize', onWindowResize)
+        $window.unbind('scroll', onWindowScroll)
+        
         return true
       };
 
@@ -10948,7 +10967,7 @@ __webpack_require__.r(__webpack_exports__);
         
         //setTimeout(() => {
           
-          scrollIntoView = false
+          
           //action.element[0].scrollIntoView({
           //  behavior: 'smooth'
           //})
@@ -10970,6 +10989,7 @@ __webpack_require__.r(__webpack_exports__);
             return function() {
               setupGlowPopup(_this, action)
               _this.layout.container.removeClass('disabled')
+              scrollIntoView = false
               callback()
             };
           })(this));
@@ -11019,6 +11039,10 @@ __webpack_require__.r(__webpack_exports__);
         var action, bgBottomWidth, bgScrollTop, bgTopWidth, scrollTop;
         action = this.actionList[this.step.current];
         scrollTop = $window.scrollTop();
+        if (!actionElement) {
+          return false
+        }
+        
         bgScrollTop = actionElement.offset().top - scrollTop;
         bgTopWidth = bgScrollTop > 0 ? bgScrollTop : 0;
         bgBottomWidth = (bgScrollTop + actionElement.innerHeight()) > 0 
@@ -11295,7 +11319,11 @@ __webpack_require__.r(__webpack_exports__);
           this.lib.RangyManager.selectionLock = false
         }
         
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.FinishModal).modal({
+        if (!this.finishModal) {
+          this.finishModal = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.FinishModal)
+        }
+        
+        this.finishModal.modal({
           dimmerSettings: {
             dimmerName: 'tutorial-modal'
           }
@@ -11311,7 +11339,7 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   TutorialManager.methods.hideFinishModal = function () {
-    //$(this.$refs.FinishModal).modal('hide')
+    this.finishModal.modal('hide')
   }
   
   TutorialManager.methods.getActions = function (type) {

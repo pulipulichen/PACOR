@@ -10,7 +10,8 @@ let TutorialManager = {
     return {
       actionLists: {},
       guide: null,
-      isPlaying: false
+      isPlaying: false,
+      finishModal: null
     }
   },
 //  components: {

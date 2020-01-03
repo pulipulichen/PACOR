@@ -52,7 +52,7 @@ if (baseScript.length === 1) {
   }
   else {
     let src = baseScript[0].src
-    console.log(src)
+    //console.log(src)
     if (src.startsWith('/')) {
       src = window.location.href
       console.log(src)
@@ -60,7 +60,7 @@ if (baseScript.length === 1) {
 
     baseURL = src.split('/').slice(0, 3).join('/')
   }
-  console.log(baseURL)
+  //console.log(baseURL)
   //if (enableBrowserTest && baseScript[0].src.startsWith(testBaseURL)) {
   //if (enableBrowserTest) {
   //}

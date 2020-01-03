@@ -35,7 +35,7 @@ let ArticleInformation = {
       this.sectionCount = this.sections.length
 
       let headings = []
-      console.log(this.sections.find('h1,h2,h3,h4,h5,h6').length)
+      //console.log(this.sections.find('h1,h2,h3,h4,h5,h6').length)
       this.sections.find('h1,h2,h3,h4,h5,h6').each((i, heading) => {
         headings.push(heading.innerText.trim())
       })

@@ -31,7 +31,11 @@ export default function (TutorialManager) {
           this.lib.RangyManager.selectionLock = false
         }
         
-        $(this.$refs.FinishModal).modal({
+        if (!this.finishModal) {
+          this.finishModal = $(this.$refs.FinishModal)
+        }
+        
+        this.finishModal.modal({
           dimmerSettings: {
             dimmerName: 'tutorial-modal'
           }
@@ -47,7 +51,7 @@ export default function (TutorialManager) {
   }
   
   TutorialManager.methods.hideFinishModal = function () {
-    //$(this.$refs.FinishModal).modal('hide')
+    this.finishModal.modal('hide')
   }
   
   TutorialManager.methods.getActions = function (type) {

@@ -45,6 +45,7 @@ let NavigationItems = {
 //  },
   mounted() {
     //this.testShowWebpageConfig()
+    this.setupTutorial()
   },
   methods: {
     showWebpageConfig () {
@@ -70,5 +71,8 @@ let NavigationItems = {
 //    }
   } // methods
 }
+
+import methodsTutorialNavigationItems from './../../CollaborativeReading/NavigationItems/methodsTutorialNavigationItems.js'
+methodsTutorialNavigationItems(NavigationItems)
 
 export default NavigationItems
