@@ -1252,7 +1252,6 @@ var render = function() {
             clickAutoCloseType: "fab",
             position: _vm.computedFABPosition,
             verticalMargin: "10em",
-            horizontalMargin: "5em",
             hideOnStart: true,
             activeIconRotate: false,
             transitionEnable: false,

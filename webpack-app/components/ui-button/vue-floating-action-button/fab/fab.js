@@ -107,9 +107,17 @@ export default {
     },
     globalOptions: {
       type: Object,
-      default: () => {
+      default: function () {
+        let spacing = 1
+        if (this.size === 'big') {
+          spacing = 2
+        }
+        else if (this.size === 'normal') {
+          spacing = 1.5
+        }
+          
         return {
-          spacing: 40,
+          spacing,
           delay: 0
         }
       }
@@ -124,7 +132,18 @@ export default {
     },
     horizontalMargin: {
       type: String,
-      default: '20%'
+      default: function () {
+        let baseMargin = '1em'
+        if (this.size === 'big') {
+          return `calc(5em + ${baseMargin})`
+        }
+        else if (this.size === 'normal') {
+          return `calc(4em + ${baseMargin})`
+        }
+        else if (this.size === 'small') {
+          return `calc(3em + ${baseMargin})`
+        }
+      }
     },
   },
   data () {
@@ -198,7 +217,7 @@ export default {
     computedTransitionName: function () {
       if (this.transitionEnable === false
               || this.activeIconRotate === false) {
-        return
+        return undefined
       }
       
       if (this.activeIcon === this.icon) {

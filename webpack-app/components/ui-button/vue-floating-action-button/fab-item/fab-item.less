@@ -1,11 +1,13 @@
 @import './../styles/index.less';
+@import './../styles/vars.less';
 
 .fab-item {
   .flex-center();
   .transition();
   position: absolute;
   cursor: pointer;
-  top: -50px;
+  //top: -50px;
+  
   width: 80%;
   height: 80%;
   margin-left: 10%;
@@ -18,7 +20,7 @@
   //right: 4em;
   //box-shadow: 0 1px .5px #CCC;
   box-shadow: 0px 2px 8px #666;
-  padding: 2px 5px;
+  padding: 10% 10%;
   font-size: .8em;
   min-width: 3em;
   white-space:nowrap;
@@ -30,4 +32,46 @@
   margin-right: 0 !important;
   height: auto !important;
   font-size: 1em !important;
+}
+
+.fab-size-big {
+  .fab-item {
+    top: calc(@big * -1);
+  }
+  
+  .semantic-ui i {
+    font-size: calc(@big / 3) !important;
+  }
+  
+  .fab-item-title {
+    font-size: calc(@big / 4) !important;
+  }
+}
+
+.fab-size-normal {
+  .fab-item {
+    top: calc(@normal * -1);
+  } 
+  
+  .semantic-ui i {
+    font-size: calc(@normal / 3) !important;
+  }
+  
+  .fab-item-title {
+    font-size: calc(@normal / 4) !important;
+  }
+}
+
+.fab-size-small {
+  .fab-item {
+    top: calc(@small * -1);
+  }
+  
+  .semantic-ui i {
+    font-size: calc(@small / 3) !important;
+  }
+  
+  .fab-item-title {
+    font-size: calc(@small / 4) !important;
+  }
 }

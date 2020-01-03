@@ -44,10 +44,10 @@ export default {
     fabItemStyle: function () {
       let sizePadding = 0
       if (this.$parent.size === 'big') {
-        sizePadding = 10
+        sizePadding = 3
       }
       else if (this.$parent.size === 'small') {
-        sizePadding = -10
+        sizePadding = -3
       }
       
       let backgroundColor = '#FFF'
@@ -55,9 +55,17 @@ export default {
         backgroundColor = this.btnColor
       }
       
+      let baseSize = -4
+      if (this.$parent.size === 'big') {
+        baseSize = -2
+      }
+      else if (this.$parent.size === 'normal') {
+        baseSize = -3
+      }
+      
       let animateModel = {
         default: {
-          top: ((-40 - sizePadding) - this.idx * (this.$parent.globalOptions.spacing + sizePadding) ) + 'px',
+          top: ((baseSize - sizePadding) - this.idx * (this.$parent.globalOptions.spacing + sizePadding) ) + 'em',
           transitionDelay: this.$parent.active ? (this.idx * this.$parent.globalOptions.delay) + 's' : '0s',
           background: backgroundColor
         },
@@ -80,11 +88,19 @@ export default {
         background: this.titleBgColor
       }
       
+      let baseMargin = 1
+      if (this.$parent.size === 'big') {
+        baseMargin = 3
+      }
+      else if (this.$parent.size === 'margin') {
+        baseMargin = 2
+      }
+      
       if (this.$parent.position.endsWith('-right')) {
-        style.right = '4em'
+        style.right = baseMargin + `em`
       }
       else {
-        style.left = '4em'
+        style.left = baseMargin + `em`
       }
       
       return style
