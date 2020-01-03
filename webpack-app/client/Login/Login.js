@@ -11,7 +11,7 @@ let Login = {
       waiting: false,
       adminMode: false,
       key: 'PACOR.client.components.Login.',
-      compactWidth: 480,
+      compactWidth: 767,
       isCompactMode: false,
       isContinue: false,
     }

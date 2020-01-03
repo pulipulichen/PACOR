@@ -40,6 +40,13 @@ let Modal = {
       if (this.$slots.headerMenu) {
         return 'has-header-menu'
       }
+    },
+    computedModalClassList () {
+      let classList = []
+      if (this.cancelable === false) {
+        classList.push('non-cancellable')
+      }
+      return classList.join(' ')
     }
   },
   destroyed: function () {

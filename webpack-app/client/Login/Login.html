@@ -6,11 +6,16 @@
     v-bind:progress="progress"
     v-bind:lib="lib"
     dimmer="opaque"
-    cancelable="false"
+    v-bind:cancelable="false"
     v-bind:fullContent="true">
 
     <template v-slot:header>
-      {{ $t('Welcome to PACOR') }}
+      <template v-if="!isContinue">
+        {{ $t('Welcome to PACOR') }}
+      </template>
+      <template v-else>
+        {{ $t('Welcome back to PACOR') }}
+      </template>
     </template>
     <template v-slot:headerMenu>
       <a class="item switch-mode-item"
@@ -25,8 +30,6 @@
         <media v-bind:query="{minWidth: compactWidth}"
                v-on:media-enter="isCompactMode = false"
                v-on:media-leave="isCompactMode = true">
-
-
           <div class="content-full-height logo-column six wide column"
                v-if="!isCompactMode">
             <img v-bind:src="config.baseURL + '/imgs/pacor.svg'"
@@ -36,7 +39,7 @@
 
         </media>
         <form v-bind:class="computedFormClassList"
-             class="content-full-height">
+             class="content-full-height form-column">
 
           <iframe-message-segment 
             class="login-message"

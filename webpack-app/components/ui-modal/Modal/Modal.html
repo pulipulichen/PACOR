@@ -1,4 +1,5 @@
 <div class="ui large modal" 
+     v-bind:class="computedModalClassList"
      ref="modal">
   <i class="close icon"
      v-if="cancelable !== 'false' && cancelable !== false"></i>

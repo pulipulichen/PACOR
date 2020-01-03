@@ -1,3 +1,4 @@
+@import './variables.less';
 
 .non-invasive-web-style-framework .ui.modal {
   /* position: absolute; */
@@ -92,11 +93,11 @@
   // content padding 1.5rem
   // actions 1rem padding + 0.78em + font-size 1rem
   //max-height: calc(100vh - 12vh - 2.5rem - 1.6em - 2rem - 1.5em - 1rem);  
-  max-height: calc(88vh - 8.5rem - 3.1em);
+  max-height: calc(100vh - @modalTop - @modalBottom - @mobileNavigationBarHeight - 8.5rem - 3.1em);
   overflow-y: auto;
   
   &> .full, .content-full-height {
-    height: calc(88vh - 12rem - 3.1em);
+    height: calc(100vh - @modalTop - @modalBottom - @mobileNavigationBarHeight - 12rem - 3.1em);
     overflow-x: hidden;
     overflow-y: auto;
   }
@@ -104,7 +105,7 @@
 
 @media (max-height: 700px) {
   .non-invasive-web-style-framework .ui.modal > .content {
-    max-height: calc(100vh - 13rem);
+    max-height: calc(100vh - @mobileNavigationBarHeight - 13rem);
   }
 }
 
@@ -181,7 +182,7 @@
     width: 95%;
     margin: 0em 0em 0em 0em;
     left: 2.5%;
-    top:6%;
+    top: @modalTop;
     
     /*
     &> .actions > .message {
@@ -197,7 +198,7 @@
     width: 88%;
     margin: 0em 0em 0em 0em;
     left: 6%;
-    top:6%;
+    top: @modalTop;
   }
 }
 @media only screen and (min-width: 992px) {
@@ -205,7 +206,7 @@
     width: 850px;
     margin: 0em 0em 0em 0em;
     left: calc((100vw - 850px) / 2);
-    top: 6%;
+    top: @modalTop;
     
   }
 }
@@ -214,7 +215,7 @@
     width: 900px;
     margin: 0em 0em 0em 0em;
     left: calc((100vw - 900px) / 2);
-    top: 6%;
+    top: @modalTop;
   }
 }
 @media only screen and (min-width: 1920px) {
@@ -222,7 +223,7 @@
     width: 950px;
     margin: 0em 0em 0em 0em;
     left: calc((100vw - 950px) / 2);
-    top: 6%;
+    top: @modalTop;
   }
 }
 @media only screen and (max-width: 991px) {
@@ -258,9 +259,9 @@
     // content: padding: 1.5rem
     // actions: padding: 1rem + button padding: 0.78em + font-size: 1rem
     //max-height: calc(100vh - 12vh - 2.5rem - 1.6em - 2rem - 1.5em - 1rem);  
-    max-height: calc(88vh - 6.5rem - 3.1em);
+    max-height: calc(100vh - @modalTop - @modalBottom - @mobileNavigationBarHeight - 6.5rem - 3.1em);
     &> .full, .content-full-height {
-      height: calc(88vh - 10rem - 3.1em);
+      height: calc(100vh - @modalTop - @modalBottom - @mobileNavigationBarHeight - 10rem - 3.1em);
     }
   }
   .non-invasive-web-style-framework .ui.modal > .close {
@@ -596,7 +597,7 @@
   }
   
   .non-invasive-web-style-framework .ui.modal > .content {
-    max-height: calc(100vh - 10rem);
+    max-height: calc(100vh - @mobileNavigationBarHeight - 10rem);
     //max-height: calc(100vh - 9rem);
     padding-top: 1.5rem !important;
     padding-bottom: 1.5rem !important;
@@ -606,10 +607,10 @@
     // content: padding: 1.5rem
     // actions: padding: 1rem + button padding: 0.78em + font-size: 1rem
     //max-height: calc(100vh - 10px - 2.5rem - 1.6rem - 3rem - 2rem - 1.5em - 1rem);
-    max-height: calc(100vh - 10px - 11.6rem);
+    max-height: calc(100vh - @mobileNavigationBarHeight - 10px - 11.6rem);
     &> .full, .content-full-height {
       //height: calc(100vh - 10px - 15rem);
-      height: calc(100vh - 10px - 17rem);
+      height: calc(100vh - @mobileNavigationBarHeight - 10px - 17rem);
     }
   }
   
@@ -625,16 +626,17 @@
     // content: padding: 1.5rem
     // actions: padding: 1rem + button padding: 0.78em + font-size: 1rem
     //max-height: calc(100vh - 10px - 2.5rem - 1.6rem - 3rem - 2rem - 1.5em - 1rem);
-    max-height: calc(100vh - 10px - 8.6rem);
-    &> .full, .content-full-height {
-      height: calc(100vh - 10px - 14rem);
+    max-height: calc(100vh - @mobileNavigationBarHeight - 10px - 8.6rem);
+    &> .full, 
+    .content-full-height {
+      height: calc(100vh - @mobileNavigationBarHeight - 10px - 14rem);
     }
   }
 }
 
 @media only screen and (max-width: 767px) {
   .non-invasive-web-style-framework .ui.modal > .content {
-    max-height: calc(100vh - 13rem);
+    max-height: calc(100vh - @mobileNavigationBarHeight - 13rem);
     
     //padding-top: 0 !important;  // 20191016 Pulipuli Chen 為什麼會需要這個？
     //padding-bottom: 0 !important;  // 20191016 Pulipuli Chen 為什麼會需要這個？
@@ -643,6 +645,6 @@
 
 @media only screen and (max-height: 700px) and (max-width: 767px) {
   .non-invasive-web-style-framework .ui.modal > .content {
-    max-height: calc(100vh - 11rem) !important;
+    max-height: calc(100vh - @mobileNavigationBarHeight - 11rem) !important;
   }
 }

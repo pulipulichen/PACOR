@@ -231,7 +231,7 @@ exports.push([module.i, ".non-invasive-web-style-framework.dimmable > .ui.dimmer
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "iframe[data-v-64f3eac6] {\n  width: 100%;\n  height: calc(100vh - 14.5em);\n}\n.actions[data-v-64f3eac6] {\n  user-select: none;\n}\n.actions.left-handed[data-v-64f3eac6] {\n  text-align: left !important;\n}\n.header.has-header-menu .header-slot[data-v-64f3eac6] {\n  max-width: calc(100% - 3em);\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.header-menu[data-v-64f3eac6] {\n  float: right;\n  margin-right: 3em !important;\n  cursor: pointer;\n  /*\n  ::v-deep .item:hover {\n    background: rgba(0, 0, 0, 0.05);\n    color: rgba(0, 0, 0, 0.95);\n    font-weight: normal;\n    -webkit-box-shadow: none;\n    box-shadow: none;\n  }\n  */\n}\n.header-menu > .item.more[data-v-64f3eac6] {\n  display: none !important;\n}\n@media only screen and (max-width: 767px) {\n.header-menu > .item[data-v-64f3eac6] {\n    display: none !important;\n}\n.header-menu > .item.more[data-v-64f3eac6] {\n    display: block !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.header-menu > .more-menu.visible[data-v-64f3eac6] {\n    display: none !important;\n}\n}\n", "",{"version":3,"sources":["Modal.local.less?vue&type=style&index=1&id=64f3eac6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,4BAA4B;AAC9B;AACA;EACE,iBAAiB;AACnB;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,2BAA2B;EAC3B,gBAAgB;EAChB,uBAAuB;AACzB;AACA;EACE,YAAY;EACZ,4BAA4B;EAC5B,eAAe;EACf;;;;;;;;GAQC;AACH;AACA;EACE,wBAAwB;AAC1B;AACA;AACA;IACI,wBAAwB;AAC5B;AACA;IACI,yBAAyB;AAC7B;AACA;AACA;AACA;IACI,wBAAwB;AAC5B;AACA","file":"Modal.local.less?vue&type=style&index=1&id=64f3eac6&lang=less&scoped=true&","sourcesContent":["iframe[data-v-64f3eac6] {\n  width: 100%;\n  height: calc(100vh - 14.5em);\n}\n.actions[data-v-64f3eac6] {\n  user-select: none;\n}\n.actions.left-handed[data-v-64f3eac6] {\n  text-align: left !important;\n}\n.header.has-header-menu .header-slot[data-v-64f3eac6] {\n  max-width: calc(100% - 3em);\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.header-menu[data-v-64f3eac6] {\n  float: right;\n  margin-right: 3em !important;\n  cursor: pointer;\n  /*\n  ::v-deep .item:hover {\n    background: rgba(0, 0, 0, 0.05);\n    color: rgba(0, 0, 0, 0.95);\n    font-weight: normal;\n    -webkit-box-shadow: none;\n    box-shadow: none;\n  }\n  */\n}\n.header-menu > .item.more[data-v-64f3eac6] {\n  display: none !important;\n}\n@media only screen and (max-width: 767px) {\n.header-menu > .item[data-v-64f3eac6] {\n    display: none !important;\n}\n.header-menu > .item.more[data-v-64f3eac6] {\n    display: block !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.header-menu > .more-menu.visible[data-v-64f3eac6] {\n    display: none !important;\n}\n}\n"]}]);
+exports.push([module.i, "iframe[data-v-64f3eac6] {\n  width: 100%;\n  height: calc(100vh - 14.5em);\n}\n.actions[data-v-64f3eac6] {\n  user-select: none;\n}\n.actions.left-handed[data-v-64f3eac6] {\n  text-align: left !important;\n}\n.header.has-header-menu .header-slot[data-v-64f3eac6] {\n  max-width: calc(100% - 3em);\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.header-menu[data-v-64f3eac6] {\n  float: right;\n  margin-right: 3em !important;\n  cursor: pointer;\n  /*\n  ::v-deep .item:hover {\n    background: rgba(0, 0, 0, 0.05);\n    color: rgba(0, 0, 0, 0.95);\n    font-weight: normal;\n    -webkit-box-shadow: none;\n    box-shadow: none;\n  }\n  */\n}\n.header-menu > .item.more[data-v-64f3eac6] {\n  display: none !important;\n}\n@media only screen and (max-width: 767px) {\n.header-menu > .item[data-v-64f3eac6] {\n    display: none !important;\n}\n.header-menu > .item.more[data-v-64f3eac6] {\n    display: block !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.header-menu > .more-menu.visible[data-v-64f3eac6] {\n    display: none !important;\n}\n}\n.non-cancellable .header-menu[data-v-64f3eac6] {\n  margin-right: -1em !important;\n}\n", "",{"version":3,"sources":["Modal.local.less?vue&type=style&index=1&id=64f3eac6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,4BAA4B;AAC9B;AACA;EACE,iBAAiB;AACnB;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,2BAA2B;EAC3B,gBAAgB;EAChB,uBAAuB;AACzB;AACA;EACE,YAAY;EACZ,4BAA4B;EAC5B,eAAe;EACf;;;;;;;;GAQC;AACH;AACA;EACE,wBAAwB;AAC1B;AACA;AACA;IACI,wBAAwB;AAC5B;AACA;IACI,yBAAyB;AAC7B;AACA;AACA;AACA;IACI,wBAAwB;AAC5B;AACA;AACA;EACE,6BAA6B;AAC/B","file":"Modal.local.less?vue&type=style&index=1&id=64f3eac6&lang=less&scoped=true&","sourcesContent":["iframe[data-v-64f3eac6] {\n  width: 100%;\n  height: calc(100vh - 14.5em);\n}\n.actions[data-v-64f3eac6] {\n  user-select: none;\n}\n.actions.left-handed[data-v-64f3eac6] {\n  text-align: left !important;\n}\n.header.has-header-menu .header-slot[data-v-64f3eac6] {\n  max-width: calc(100% - 3em);\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.header-menu[data-v-64f3eac6] {\n  float: right;\n  margin-right: 3em !important;\n  cursor: pointer;\n  /*\n  ::v-deep .item:hover {\n    background: rgba(0, 0, 0, 0.05);\n    color: rgba(0, 0, 0, 0.95);\n    font-weight: normal;\n    -webkit-box-shadow: none;\n    box-shadow: none;\n  }\n  */\n}\n.header-menu > .item.more[data-v-64f3eac6] {\n  display: none !important;\n}\n@media only screen and (max-width: 767px) {\n.header-menu > .item[data-v-64f3eac6] {\n    display: none !important;\n}\n.header-menu > .item.more[data-v-64f3eac6] {\n    display: block !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.header-menu > .more-menu.visible[data-v-64f3eac6] {\n    display: none !important;\n}\n}\n.non-cancellable .header-menu[data-v-64f3eac6] {\n  margin-right: -1em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -927,147 +927,159 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { ref: "modal", staticClass: "ui large modal" }, [
-    _vm.cancelable !== "false" && _vm.cancelable !== false
-      ? _c("i", { staticClass: "close icon" })
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.$slots.header
-      ? _c(
-          "div",
-          { staticClass: "header", class: _vm.computedHeaderClassList },
-          [
-            _vm.$slots.headerMenu
-              ? _c(
-                  "div",
-                  { staticClass: "header-menu ui mini compact menu" },
-                  [
-                    _vm._t("headerMenu"),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        ref: "HeaderMenuDropdown",
-                        staticClass: "more ui dropdown icon item"
-                      },
-                      [_c("i", { staticClass: "ellipsis vertical icon" })]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "ui flowing popup transition hidden vertical menu more-menu"
-                      },
-                      [_vm._t("headerMenu")],
-                      2
-                    )
-                  ],
-                  2
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _c("div", { staticClass: "header-slot" }, [_vm._t("header")], 2)
-          ]
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.$slots.content
-      ? _c("div", { staticClass: "scrolling content" }, [
-          _c(
+  return _c(
+    "div",
+    {
+      ref: "modal",
+      staticClass: "ui large modal",
+      class: _vm.computedModalClassList
+    },
+    [
+      _vm.cancelable !== "false" && _vm.cancelable !== false
+        ? _c("i", { staticClass: "close icon" })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.$slots.header
+        ? _c(
             "div",
-            { staticClass: "ui form", class: { full: _vm.fullContent } },
-            [_vm._t("content")],
+            { staticClass: "header", class: _vm.computedHeaderClassList },
+            [
+              _vm.$slots.headerMenu
+                ? _c(
+                    "div",
+                    { staticClass: "header-menu ui mini compact menu" },
+                    [
+                      _vm._t("headerMenu"),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          ref: "HeaderMenuDropdown",
+                          staticClass: "more ui dropdown icon item"
+                        },
+                        [_c("i", { staticClass: "ellipsis vertical icon" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "ui flowing popup transition hidden vertical menu more-menu"
+                        },
+                        [_vm._t("headerMenu")],
+                        2
+                      )
+                    ],
+                    2
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", { staticClass: "header-slot" }, [_vm._t("header")], 2)
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.$slots.content
+        ? _c("div", { staticClass: "scrolling content" }, [
+            _c(
+              "div",
+              { staticClass: "ui form", class: { full: _vm.fullContent } },
+              [_vm._t("content")],
+              2
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.contentURL
+        ? _c(
+            "div",
+            { staticClass: "content" },
+            [
+              _vm.isShow
+                ? _c("iframe-message-segment", {
+                    staticClass: "content-full-height",
+                    attrs: {
+                      config: _vm.config,
+                      message: _vm.computedContentURL,
+                      showBorder: false
+                    }
+                  })
+                : _vm._e()
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.$slots.actions ||
+      _vm.cancelable === "true" ||
+      _vm.cancelable === true ||
+      _vm.reset ||
+      _vm.cancelButtonText
+        ? _c(
+            "div",
+            { staticClass: "actions", class: _vm.computedActionsClassList },
+            [
+              _vm.contentURL && !_vm.disableOpenWindow
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "ui button",
+                      on: { click: _vm.openContentURLWindow }
+                    },
+                    [
+                      _vm._v(
+                        "\r\n      " +
+                          _vm._s(_vm.$t("Open in Another Window")) +
+                          "\r\n    "
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.cancelable !== "false" && _vm.cancelable !== false
+                ? _c(
+                    "div",
+                    { staticClass: "ui button", on: { click: _vm.hide } },
+                    [
+                      _vm.cancelButtonText
+                        ? [
+                            _vm._v(
+                              "\r\n        " +
+                                _vm._s(_vm.$t(_vm.cancelButtonText)) +
+                                "\r\n      "
+                            )
+                          ]
+                        : [
+                            _vm._v(
+                              "\r\n        " +
+                                _vm._s(_vm.$t("CANCEL")) +
+                                "\r\n      "
+                            )
+                          ]
+                    ],
+                    2
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.reset
+                ? _c(
+                    "div",
+                    { staticClass: "ui button", on: { click: _vm.doReset } },
+                    [
+                      _vm._v(
+                        "\r\n      " + _vm._s(_vm.$t("RESET")) + "\r\n    "
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm._t("actions")
+            ],
             2
           )
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.contentURL
-      ? _c(
-          "div",
-          { staticClass: "content" },
-          [
-            _vm.isShow
-              ? _c("iframe-message-segment", {
-                  staticClass: "content-full-height",
-                  attrs: {
-                    config: _vm.config,
-                    message: _vm.computedContentURL,
-                    showBorder: false
-                  }
-                })
-              : _vm._e()
-          ],
-          1
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.$slots.actions ||
-    _vm.cancelable === "true" ||
-    _vm.cancelable === true ||
-    _vm.reset ||
-    _vm.cancelButtonText
-      ? _c(
-          "div",
-          { staticClass: "actions", class: _vm.computedActionsClassList },
-          [
-            _vm.contentURL && !_vm.disableOpenWindow
-              ? _c(
-                  "div",
-                  {
-                    staticClass: "ui button",
-                    on: { click: _vm.openContentURLWindow }
-                  },
-                  [
-                    _vm._v(
-                      "\r\n      " +
-                        _vm._s(_vm.$t("Open in Another Window")) +
-                        "\r\n    "
-                    )
-                  ]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.cancelable !== "false" && _vm.cancelable !== false
-              ? _c(
-                  "div",
-                  { staticClass: "ui button", on: { click: _vm.hide } },
-                  [
-                    _vm.cancelButtonText
-                      ? [
-                          _vm._v(
-                            "\r\n        " +
-                              _vm._s(_vm.$t(_vm.cancelButtonText)) +
-                              "\r\n      "
-                          )
-                        ]
-                      : [
-                          _vm._v(
-                            "\r\n        " +
-                              _vm._s(_vm.$t("CANCEL")) +
-                              "\r\n      "
-                          )
-                        ]
-                  ],
-                  2
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.reset
-              ? _c(
-                  "div",
-                  { staticClass: "ui button", on: { click: _vm.doReset } },
-                  [_vm._v("\r\n      " + _vm._s(_vm.$t("RESET")) + "\r\n    ")]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm._t("actions")
-          ],
-          2
-        )
-      : _vm._e()
-  ])
+        : _vm._e()
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -5324,6 +5336,13 @@ let Modal = {
       if (this.$slots.headerMenu) {
         return 'has-header-menu'
       }
+    },
+    computedModalClassList () {
+      let classList = []
+      if (this.cancelable === false) {
+        classList.push('non-cancellable')
+      }
+      return classList.join(' ')
     }
   },
   destroyed: function () {
