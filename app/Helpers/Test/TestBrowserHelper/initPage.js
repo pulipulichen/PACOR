@@ -3,6 +3,9 @@ const closeBlankPage = use('./closeBlankPage.js')
 
 const exposeFunction = use('./exposeFunction.js')
 
+const puppeteer = use('puppeteer');
+const iPhone = puppeteer.devices['iPhone 6'];
+
 let initPage = async function ({headless, browser, url, index, logManager, displayDevTools, sizeOptions, webpageGroup, webpageConfig}) {
   
   // 等待非同步工作完成
@@ -71,6 +74,8 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
   //await session.send('Page.setWebLifecycleState', {state: 'active'});
   
   await exposeFunction({page, headless, index, logManager, webpageGroup, webpageConfig})
+
+  //await page.page.emulate(iPhone);
 
   await page.assertFn(async () => {
     let index = await PACORTestManagerIndex()

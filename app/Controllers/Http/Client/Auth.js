@@ -7,6 +7,8 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
 const Cache = use('Cache')
 
+const DatabaseHelper = use('App/Helpers/DatabaseHelper')
+
 let flushCache = true // for test
 
 /**
@@ -39,6 +41,8 @@ class Auth {
     let user = await query.pick(1)
     //console.log(user.size())
     
+    //console.log(DatabaseHelper.toSQL(query))
+    
     if (user.size() > 0) {
       //user = user.toJSON()[0]
       user = user.first()
@@ -57,6 +61,7 @@ class Auth {
       return data
     }
     else if (role === 'domain_admin') {
+      //console.log(DatabaseHelper.toSQL(query))
       throw new HttpException('Login fail')
     }
     

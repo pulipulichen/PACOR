@@ -44,26 +44,29 @@ let baseScript = $(document.currentScript)
 if (baseScript.length === 1) {
   
   //console.log(baseScript[0].src)
-  let testBaseURL = 'http://127.0.0.1:4000'
-  let enableBrowserTest = false
-  if (enableBrowserTest === false) {
+  let testBaseURL = 'http://pc.pulipuli.info:3333'
+  let enableBrowserTest = true
+  if (enableBrowserTest === true) {
     console.log('@TEST enableBrowserTest', enableBrowserTest)
-  }
-  if (enableBrowserTest && baseScript[0].src.startsWith(testBaseURL)) {
     baseURL = testBaseURL
   }
-  
-  
-  let src = baseScript[0].src
-  console.log(src)
-  if (src.startsWith('/')) {
-    src = window.location.href
+  else {
+    let src = baseScript[0].src
     console.log(src)
+    if (src.startsWith('/')) {
+      src = window.location.href
+      console.log(src)
+    }
+
+    baseURL = src.split('/').slice(0, 3).join('/')
   }
+  console.log(baseURL)
+  //if (enableBrowserTest && baseScript[0].src.startsWith(testBaseURL)) {
+  //if (enableBrowserTest) {
+  //}
   
   
-  baseURL = src.split('/').slice(0, 3).join('/')
-  
+    
   baseScript.before(`<div id="app"></div>`)
 }
 config.baseURL = baseURL

@@ -6,12 +6,12 @@ let webpageConfig = use('./../../test-config/reading-fastLimitTime')
 //console.log(webpageConfig)
 
 const TestOptions = {
-  //threads: 1,
+  threads: 1,
   //threads: 3, // ok 完全運作正常
   //threads: 5,  // ?個錯誤
   //threads: 10,  // ?個錯誤
   //threads: 15,  // 10個錯誤
-  threads: 20,  // 10個錯誤
+  //threads: 20,  // 10個錯誤
   //threads: 30,  // ?個錯誤
   //threads: 40,  // 10個錯誤
   maxShowThreads: 9,
@@ -58,15 +58,17 @@ const RandomTextHelper = use('App/Helpers/RandomTextHelper')
 //const url = 'http://blog.pulipuli.info/'
 //const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
 
-const url = '/test-lorem-ipsum?r=' + (new Date()).getTime().toString(36)
+const Env = use('Env')
+
+const uri = '/test-lorem-ipsum?r=' + (new Date()).getTime().toString(36)
+const url = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT') + uri
+//console.log(url)
 
 let webpage
 let user
 let userID
 let annotation
 let annotationID
-
-const Env = use('Env')
 
 //let page
 
