@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Article Information":"文章資訊"}}')
+  Component.options.__i18n.push('{"en":{"Total {0} images":"Total {0} image | Total {0} images","Total {0} headings":"Total {0} heading | Total {0} headings"},"zh-TW":{"Article Information":"文章資訊","Total {0} images":"總共{0}張圖片","Total {0} headings":"總共{0}個標題","Headings":"標題","Images":"圖片","Article Counting":"文章統計"}}')
   delete Component.options._Ctor
 }
 
@@ -298,7 +298,7 @@ var render = function() {
             key: "content",
             fn: function() {
               return [
-                _c("h2", [
+                _c("h3", [
                   _vm._v(
                     "\r\n        " +
                       _vm._s(_vm.$t("Article Counting")) +
@@ -334,7 +334,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "ui divider" }),
                 _vm._v(" "),
-                _c("h2", [
+                _c("h3", [
                   _vm._v(
                     "\r\n        " + _vm._s(_vm.$t("Headings")) + "\r\n      "
                   )
@@ -347,16 +347,19 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c(
-                  "ul",
+                  "div",
+                  { staticClass: "ui ordered list" },
                   _vm._l(_vm.headings, function(heading) {
-                    return _c("ol", [_vm._v(_vm._s(heading))])
+                    return _c("span", { staticClass: "item" }, [
+                      _vm._v(_vm._s(heading))
+                    ])
                   }),
                   0
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "ui divider" }),
                 _vm._v(" "),
-                _c("h2", [
+                _c("h3", [
                   _vm._v(
                     "\r\n        " + _vm._s(_vm.$t("Images")) + "\r\n      "
                   )
@@ -369,7 +372,10 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _vm._l(_vm.images, function(image) {
-                  return _c("img", { staticClass: "article-image" })
+                  return _c("img", {
+                    staticClass: "article-image",
+                    attrs: { src: image.src, title: image.title }
+                  })
                 })
               ]
             },
@@ -1517,17 +1523,60 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 let ArticleInformation = {
   props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
+    return {
+      sections: null,
+      paragraphies: null,
+      wordCount: 0,
+      paragraphyCount: 0,
+      sectionCount: 0,
+      headings: [],
+      images: []
+    }
   },
 //  components: {
 //  },
+//  computed: {
+//  },
   methods: {
     show () {
+      this.calculating()
       this.$refs.Modal.show()
     },
+    calculating () {
+      this.sections = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-section-seq-id]')
+      this.paragraphies = this.sections.children()
+
+      let text = this.lib.StringHelper.htmlToTextTrim(this.sections.html(), true)
+      this.wordCount = this.lib.StringHelper.countWords(text)
+
+      this.paragraphyCount = this.paragraphies.length
+
+      this.sectionCount = this.sections.length
+
+      let headings = []
+      console.log(this.sections.find('h1,h2,h3,h4,h5,h6').length)
+      this.sections.find('h1,h2,h3,h4,h5,h6').each((i, heading) => {
+        headings.push(heading.innerText.trim())
+      })
+      this.headings = headings
+
+      let images = []
+      this.sections.find('img').each((i, image) => {
+        images.push({
+          src: image.src,
+          title: (image.title ? image.title : image.alt)
+        })
+      })
+      this.images = images
+    }
   } // methods
 }
 

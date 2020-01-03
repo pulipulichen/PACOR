@@ -1,3 +1,11 @@
 en:
+  Total {0} images: Total {0} image | Total {0} images
+  Total {0} headings: Total {0} heading | Total {0} headings
+  
 zh-TW:
   Article Information: 文章資訊
+  Total {0} images: 總共{0}張圖片
+  Total {0} headings: 總共{0}個標題
+  Headings: 標題
+  Images: 圖片
+  Article Counting: 文章統計

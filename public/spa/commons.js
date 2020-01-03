@@ -6474,6 +6474,10 @@ let StringHelper = {
     }
     
     return html
+  },
+  htmlToTextTrim(html, spaceInDifferentElement) {
+    let text = this.htmlToText(html, spaceInDifferentElement)
+    return this.htmlTrim(text)
   }
 }
 
