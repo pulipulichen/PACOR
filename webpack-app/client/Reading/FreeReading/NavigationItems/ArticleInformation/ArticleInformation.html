@@ -11,7 +11,29 @@
     </template>
     <template 
       v-slot:content>
-      AAAA
+      <h2>
+        {{ $t('Article Counting') }}
+      </h2>
+      <ul>
+        <li>{{ $t('Word Count') }}: {{ wordCount }}</li>
+        <li>{{ $t('Paragraphy Count') }}: {{ paragraphyCount }}</li>
+        <li>{{ $t('Section Count') }}: {{ sectionCount }}</li>
+      </ul>
+      <div class="ui divider"></div>
+      <h2>
+        {{ $t('Headings') }}
+      </h2>
+      <p>{{ $t('Total {0} headings', [headings.length]) }}</p>
+      <ul>
+        <ol v-for="heading in headings">{{ heading }}</ol>
+      </ul>
+      <div class="ui divider"></div>
+      <h2>
+        {{ $t('Images') }}
+      </h2>
+      <p>{{ $t('Total {0} images', [images.length]) }}</p>
+      <img v-for="image in images"
+           class="article-image" />
     </template>
   </modal>
 </div>

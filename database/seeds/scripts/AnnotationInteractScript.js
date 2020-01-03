@@ -9,8 +9,14 @@ const AnnotationCommentRateModel = use('App/Models/AnnotationCommentRate')
 
 const Sleep = use('Sleep')
 
-//const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
-const url = '/test-lorem-ipsum'
+const Env = use('Env')
+
+const uri = '/test-lorem-ipsum'
+const url = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT') + uri
+const testPort = 4000
+//const urlTest = 'http://localhost:4000/test-lorem-ipsum'
+const urlTest = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + testPort + uri
+
 let webpage
 let annotation
 let annotation2
