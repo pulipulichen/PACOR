@@ -36,4 +36,33 @@ export default function (IndividualReading) {
     this.lib.TutorialManager.showClick($('.SectionChecklist:first'))
   }
 
+  IndividualReading.methods._testTutorialShowClick = async function () {
+    
+    await this.lib.VueHelper.sleep(1000)
+    
+    let paragraph = await this.lib.RangyManager.selectDemoText()
+    this.lib.RangyManager.onselect()
+        
+    var sel = await this.lib.RangyManager.rangy.getSelection();
+    var range = sel.getRangeAt(0).cloneRange();
+    var rect = range.getBoundingDocumentRect();
+    
+    rect.windowHeight = window.innerHeight
+    rect.pageYOffset = window.pageYOffset
+    alert(JSON.stringify(rect, null, 2))
+
+    this.lib.TutorialManager.showClick(rect)
+    
+    return
+    
+    let icon = {
+      top: window.innerHeight - 40,
+      left: window.innerWidth - 50,
+      //top: 50,
+      //left: 50,
+      width: 10,
+      height: 10
+    }
+    await this.lib.TutorialManager.showClick(icon)
+  }
 }

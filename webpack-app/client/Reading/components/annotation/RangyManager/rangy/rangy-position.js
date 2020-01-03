@@ -62,14 +62,19 @@ rangy.createModule("Position", ["WrappedSelection"], function(api, module) {
     }
 
     function Rect(top, right, bottom, left) {
-        this.top = top;
-        this.right = right;
-        this.bottom = bottom;
-        this.left = left;
-        this.width = right - left;
-        this.height = bottom - top;
-        this.middle = top + (this.height / 2)
-        this.center = left + (this.width / 2)
+      this.top = top;
+      this.right = right;
+      this.bottom = bottom;
+      this.left = left;
+      this.width = right - left;
+      this.height = bottom - top;
+      this.middle = top + (this.height / 2)
+      this.center = left + (this.width / 2)
+      
+      if (this.top + this.bottom > window.innerHeight) {
+        //this.top = this.top - window.pageYOffset
+        //this.bottom = this.bottom - window.pageYOffset
+      }
     }
 
     function createRelativeRect(rect, dx, dy) {

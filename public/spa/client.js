@@ -11164,7 +11164,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (TutorialManager) {
   let $clickImage
   
+  let isScrolling = false
+  window.addEventListener('scroll', () => {
+    isScrolling = true
+    setTimeout(() => {
+      isScrolling = false
+    }, 100)
+  })
+  
   TutorialManager.methods.showClick = async function (element) {
+    if (isScrolling === true) {
+      setTimeout(() => {
+        this.showClick(element)
+      }, 50)
+      return false
+    }
+    
     if (!$clickImage) {
       $clickImage = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.ClickImage)
     }

@@ -3,7 +3,22 @@ import $ from 'jquery'
 export default function (TutorialManager) {
   let $clickImage
   
+  let isScrolling = false
+  window.addEventListener('scroll', () => {
+    isScrolling = true
+    setTimeout(() => {
+      isScrolling = false
+    }, 100)
+  })
+  
   TutorialManager.methods.showClick = async function (element) {
+    if (isScrolling === true) {
+      setTimeout(() => {
+        this.showClick(element)
+      }, 50)
+      return false
+    }
+    
     if (!$clickImage) {
       $clickImage = $(this.$refs.ClickImage)
     }
