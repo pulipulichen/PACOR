@@ -2546,7 +2546,14 @@ __webpack_require__.r(__webpack_exports__);
         //console.warn(JSON.stringify(arguments[0], null, 2))
         
         for (let i = 0; i < arguments.length; i++) {
-          message.push(arguments[i])
+          let arg = arguments[i]
+          if (Array.isArray(arg)) {
+            arg = arg.join('\n')
+          }
+          else if (typeof(arg) === 'object') {
+            arg = JSON.stringify(arg, null, 2)
+          }
+          message.push(arg)
         }
         //console.warn(typeof(arguments.length))
         
@@ -3691,6 +3698,9 @@ component.options.__file = "webpack-app/components/manager/StyleManager/StyleMan
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_TempScrollBox_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/TempScrollBox.js */ "./webpack-app/components/manager/StyleManager/lib/TempScrollBox.js");
+/* harmony import */ var mobile_device_detect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! mobile-device-detect */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\mobile-device-detect\\dist\\index.js");
+/* harmony import */ var mobile_device_detect__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(mobile_device_detect__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (StyleManager) {
@@ -3717,6 +3727,13 @@ __webpack_require__.r(__webpack_exports__);
   
   StyleManager.computed.scrollBarWidth = function () {
     return (new _lib_TempScrollBox_js__WEBPACK_IMPORTED_MODULE_0__["default"]()).width
+  }
+  
+  // ---------------
+  
+  StyleManager.computed.detectOS = function () {
+    //return this.mobileDetect.os()
+    return mobile_device_detect__WEBPACK_IMPORTED_MODULE_1___default.a.osName
   }
 });
 

@@ -11,7 +11,7 @@ const RemoteConsoleLog = use('App/Models/RemoteConsoleLog')
 
 class Log {
   async create({request, response}) {
-    const {message, type} = request.all()
+    let {message, type} = request.all()
     
     const log = new RemoteConsoleLog()
     

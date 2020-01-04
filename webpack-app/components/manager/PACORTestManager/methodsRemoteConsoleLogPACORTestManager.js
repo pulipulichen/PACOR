@@ -14,7 +14,14 @@ export default function (PACORTestManager) {
         //console.warn(JSON.stringify(arguments[0], null, 2))
         
         for (let i = 0; i < arguments.length; i++) {
-          message.push(arguments[i])
+          let arg = arguments[i]
+          if (Array.isArray(arg)) {
+            arg = arg.join('\n')
+          }
+          else if (typeof(arg) === 'object') {
+            arg = JSON.stringify(arg, null, 2)
+          }
+          message.push(arg)
         }
         //console.warn(typeof(arguments.length))
         

@@ -16,6 +16,7 @@ let RemoteConsoleLog = {
 //  },
   mounted() {
     this.load()
+    this.status.title = this.$t('Console')
   },
   methods: {
     load: async function () {
