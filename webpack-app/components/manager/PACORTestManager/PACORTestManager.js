@@ -38,9 +38,10 @@ let PACORTestManager = {
       }
     }
   },
-//  mounted() {
+  mounted() {
+    this.initRemoteConsole()
 //    //this.testSession()
-//  },
+  },
   methods: {
     checkBaseURL () {
       //console.log(this.config.baseURL.indexOf(':4000'))
@@ -99,6 +100,9 @@ methodsPuppeteerPACORTestManager(PACORTestManager)
 
 import methodsExceptionPACORTestManager from './methodsExceptionPACORTestManager'
 methodsExceptionPACORTestManager(PACORTestManager)
+
+import methodsRemoteConsoleLogPACORTestManager from './methodsRemoteConsoleLogPACORTestManager'
+methodsRemoteConsoleLogPACORTestManager(PACORTestManager)
 
 //import methodsWindowPACORTestManager from './methodsWindowPACORTestManager'
 //methodsWindowPACORTestManager(PACORTestManager)

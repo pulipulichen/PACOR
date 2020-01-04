@@ -11,10 +11,10 @@ const RemoteConsoleLog = use('App/Models/RemoteConsoleLog')
 
 class Log {
   async create({request, response}) {
-    const message = request.all()
+    const {arguments} = request.all()
     
     const log = new RemoteConsoleLog()
-    log.message = message
+    log.message = JSON.stringify(arguments, null, 2)
     log.user = request.connection.remoteAddress
     
     let headers = request.headers()

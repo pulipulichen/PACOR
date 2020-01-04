@@ -1946,13 +1946,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _methodsRandomPACORTestManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsRandomPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/methodsRandomPACORTestManager.js");
 /* harmony import */ var _methodsPuppeteerPACORTestManager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsPuppeteerPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/methodsPuppeteerPACORTestManager.js");
 /* harmony import */ var _methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methodsExceptionPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/methodsExceptionPACORTestManager.js");
-/* harmony import */ var _stepsReader_stepQuestionnairePACORTestManager_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./stepsReader/stepQuestionnairePACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepQuestionnairePACORTestManager.js");
-/* harmony import */ var _stepsReader_stepSectionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./stepsReader/stepSectionPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepSectionPACORTestManager.js");
-/* harmony import */ var _stepsReader_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./stepsReader/stepStepInstructionPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepStepInstructionPACORTestManager.js");
-/* harmony import */ var _stepsReader_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./stepsReader/stepLoginPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepLoginPACORTestManager.js");
-/* harmony import */ var _stepsReader_stepAddAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./stepsReader/stepAddAnnotationPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepAddAnnotationPACORTestManager.js");
-/* harmony import */ var _stepsAdmin_stepAdminConfigPACORTestManager_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./stepsAdmin/stepAdminConfigPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsAdmin/stepAdminConfigPACORTestManager.js");
-/* harmony import */ var _stepsAdmin_stepAdminLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./stepsAdmin/stepAdminLoginPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsAdmin/stepAdminLoginPACORTestManager.js");
+/* harmony import */ var _methodsRemoteConsoleLogPACORTestManager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./methodsRemoteConsoleLogPACORTestManager */ "./webpack-app/components/manager/PACORTestManager/methodsRemoteConsoleLogPACORTestManager.js");
+/* harmony import */ var _stepsReader_stepQuestionnairePACORTestManager_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./stepsReader/stepQuestionnairePACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepQuestionnairePACORTestManager.js");
+/* harmony import */ var _stepsReader_stepSectionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./stepsReader/stepSectionPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepSectionPACORTestManager.js");
+/* harmony import */ var _stepsReader_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./stepsReader/stepStepInstructionPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepStepInstructionPACORTestManager.js");
+/* harmony import */ var _stepsReader_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./stepsReader/stepLoginPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepLoginPACORTestManager.js");
+/* harmony import */ var _stepsReader_stepAddAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./stepsReader/stepAddAnnotationPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsReader/stepAddAnnotationPACORTestManager.js");
+/* harmony import */ var _stepsAdmin_stepAdminConfigPACORTestManager_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./stepsAdmin/stepAdminConfigPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsAdmin/stepAdminConfigPACORTestManager.js");
+/* harmony import */ var _stepsAdmin_stepAdminLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./stepsAdmin/stepAdminLoginPACORTestManager.js */ "./webpack-app/components/manager/PACORTestManager/stepsAdmin/stepAdminLoginPACORTestManager.js");
 let PACORTestManager = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -1993,9 +1994,10 @@ let PACORTestManager = {
       }
     }
   },
-//  mounted() {
+  mounted() {
+    this.initRemoteConsole()
 //    //this.testSession()
-//  },
+  },
   methods: {
     checkBaseURL () {
       //console.log(this.config.baseURL.indexOf(':4000'))
@@ -2055,6 +2057,9 @@ Object(_methodsPuppeteerPACORTestManager__WEBPACK_IMPORTED_MODULE_4__["default"]
 
 Object(_methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__["default"])(PACORTestManager)
 
+
+Object(_methodsRemoteConsoleLogPACORTestManager__WEBPACK_IMPORTED_MODULE_6__["default"])(PACORTestManager)
+
 //import methodsWindowPACORTestManager from './methodsWindowPACORTestManager'
 //methodsWindowPACORTestManager(PACORTestManager)
 
@@ -2063,29 +2068,29 @@ Object(_methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__["default"]
 // ---------------
 
 
-Object(_stepsReader_stepQuestionnairePACORTestManager_js__WEBPACK_IMPORTED_MODULE_6__["default"])(PACORTestManager)
+Object(_stepsReader_stepQuestionnairePACORTestManager_js__WEBPACK_IMPORTED_MODULE_7__["default"])(PACORTestManager)
 
 
-Object(_stepsReader_stepSectionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_7__["default"])(PACORTestManager)
+Object(_stepsReader_stepSectionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_8__["default"])(PACORTestManager)
 
 
-Object(_stepsReader_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_8__["default"])(PACORTestManager)
+Object(_stepsReader_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_9__["default"])(PACORTestManager)
 
 
-Object(_stepsReader_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_9__["default"])(PACORTestManager)
+Object(_stepsReader_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__["default"])(PACORTestManager)
 
 
-Object(_stepsReader_stepAddAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__["default"])(PACORTestManager)
+Object(_stepsReader_stepAddAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_11__["default"])(PACORTestManager)
 
 // ---------------
 // adminSteps
 // ---------------
 
 
-Object(_stepsAdmin_stepAdminConfigPACORTestManager_js__WEBPACK_IMPORTED_MODULE_11__["default"])(PACORTestManager)
+Object(_stepsAdmin_stepAdminConfigPACORTestManager_js__WEBPACK_IMPORTED_MODULE_12__["default"])(PACORTestManager)
 
 
-Object(_stepsAdmin_stepAdminLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_12__["default"])(PACORTestManager)
+Object(_stepsAdmin_stepAdminLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_13__["default"])(PACORTestManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (PACORTestManager);
 
@@ -2595,6 +2600,37 @@ __webpack_require__.r(__webpack_exports__);
     let max = elements.length - 1
     let i = this.getRandomInt(max)
     return elements.eq(i)
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/PACORTestManager/methodsRemoteConsoleLogPACORTestManager.js":
+/*!****************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/methodsRemoteConsoleLogPACORTestManager.js ***!
+  \****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  /**
+   * https://stackoverflow.com/a/41343061/6645399
+   */
+  PACORTestManager.methods.initRemoteConsole = function () {
+    let AxiosHelper = this.lib.AxiosHelper
+    let proxy = function (context, method) { 
+      return function() {
+        AxiosHelper.post('/admin/Log/create', {arguments})
+        method.apply(context, Array.prototype.slice.apply(arguments))
+      }
+    }
+
+    // let's do the actual proxying over originals
+    //window.console.log = proxy(window.console, window.console.log)
+    //window.console.error = proxy(window.console, window.console.error)
+    //window.console.warn = proxy(window.console, window.console.warn)
   }
 });
 

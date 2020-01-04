@@ -10,6 +10,7 @@ class RemoteConsoleLogSchema extends Schema {
       table.string('referer', 255).notNullable()
       table.string('user', 255).notNullable()
       table.text('message').notNullable()
+      table.string('type', 10).notNullable()
       
       table.bigInteger('created_at_unixms')
       table.bigInteger('updated_at_unixms')
@@ -18,8 +19,8 @@ class RemoteConsoleLogSchema extends Schema {
   }
 
   down () {
-    this.drop('reading_activity_with_users')
+    this.drop('remote_console_logs')
   }
 }
 
-module.exports = ReadingActivityWithUserSchema
+module.exports = RemoteConsoleLogSchema
