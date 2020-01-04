@@ -6297,6 +6297,8 @@ let AnnotationTypeSelector = {
     return {
       timer: null,
       selection: null,
+      anchorPositions: null,
+      anchorParagraphIds: null,
       isTutorialMode: false
     }
   },
@@ -6305,7 +6307,6 @@ let AnnotationTypeSelector = {
       if (this.isTutorialMode === true) {
         return false
       }
-      
       let fab = this.$refs.fab
       clearTimeout(this.timer)
       
@@ -6313,6 +6314,7 @@ let AnnotationTypeSelector = {
       if (this.selection !== null) {
         //console.log('open')
         this.timer = setTimeout(() => {
+          //console.log(this.selection.anchorPositions)
           fab.onOffFab(true)
         }, 100)
       }
@@ -6392,6 +6394,10 @@ let AnnotationTypeSelector = {
         //console.log(data.anchorPositions)
         //PACORTestManager.log('initRangyEvent', (this.selection === null))
         this.selection = data
+        this.anchorPositions = data.anchorPositions
+        this.anchorParagraphIds = data.anchorParagraphIds
+        
+        //console.log(this.selection.anchorPositions)
         
         // For test
         if (debugEnableAutoList) {
@@ -6407,15 +6413,24 @@ let AnnotationTypeSelector = {
           return false
         }
         //console.log('取消')
-        this.selection = null
+        //setTimeout(() => {
+          this.selection = null
+        //}, 50)
       })
       
       this.setupTutorial()
     },
     addAnnotation: function (event, type) {
-      
-      event.stopPropagation()
-      event.preventDefault()
+      //console.log(this.anchorPositions)
+      //console.log(this.selection.anchorPositions)
+      if (this.selection.anchorPositions.length === 0) {
+        this.selection.anchorPositions = this.anchorPositions
+      }
+      if (this.selection.anchorParagraphIds.length === 0) {
+        this.selection.anchorParagraphIds = this.anchorParagraphIds
+      }
+//      event.stopPropagation()
+//      event.preventDefault()
       //return
       
       
@@ -6435,8 +6450,8 @@ let AnnotationTypeSelector = {
       }
       
       
-      //console.log(this.selection)
-      let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection()
+      console.log(this.selection.anchorPositions)
+      let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
       console.log(anchorPositions)
       let annotation = {
         anchorPositions: anchorPositions,
@@ -13957,14 +13972,13 @@ __webpack_require__.r(__webpack_exports__);
       //selection = this.selection
     }
     
-    let selectionSaved = this.rangy.saveSelection()
     //console.log(selectionSaved)
     
     //console.log(selection.anchorPositions)
     
     let highlights = this.rectHighlighter.highlightSelection('pacor-rect', {
       exclusive: false,
-      containerElementId: this.selection.anchorParagraphIds
+      containerElementId: selection.anchorParagraphIds
     })
     
     let anchorPositions = []
@@ -13995,6 +14009,7 @@ __webpack_require__.r(__webpack_exports__);
     selection.anchorPositions = anchorPositions
     //console.log(anchorPositions)
     
+    let selectionSaved = this.rangy.saveSelection()
     this.rectHighlighter.removeAllHighlights()
     //throw '有嗎'
     this.rangy.restoreSelection(selectionSaved)
@@ -15213,7 +15228,7 @@ __webpack_require__.r(__webpack_exports__);
       setTimeout(async () => {
         //console.log('selectRandomRange', 5)
         
-        console.log({isSelecting: this.isSelecting()})
+        //console.log({isSelecting: this.isSelecting()})
         if (this.isSelecting() === false) {
           await this.selectRandomRange()
           resolve(true)

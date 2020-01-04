@@ -10,6 +10,8 @@ let AnnotationTypeSelector = {
     return {
       timer: null,
       selection: null,
+      anchorPositions: null,
+      anchorParagraphIds: null,
       isTutorialMode: false
     }
   },
@@ -18,7 +20,6 @@ let AnnotationTypeSelector = {
       if (this.isTutorialMode === true) {
         return false
       }
-      
       let fab = this.$refs.fab
       clearTimeout(this.timer)
       
@@ -26,6 +27,7 @@ let AnnotationTypeSelector = {
       if (this.selection !== null) {
         //console.log('open')
         this.timer = setTimeout(() => {
+          //console.log(this.selection.anchorPositions)
           fab.onOffFab(true)
         }, 100)
       }
@@ -105,6 +107,10 @@ let AnnotationTypeSelector = {
         //console.log(data.anchorPositions)
         //PACORTestManager.log('initRangyEvent', (this.selection === null))
         this.selection = data
+        this.anchorPositions = data.anchorPositions
+        this.anchorParagraphIds = data.anchorParagraphIds
+        
+        //console.log(this.selection.anchorPositions)
         
         // For test
         if (debugEnableAutoList) {
@@ -120,15 +126,24 @@ let AnnotationTypeSelector = {
           return false
         }
         //console.log('取消')
-        this.selection = null
+        //setTimeout(() => {
+          this.selection = null
+        //}, 50)
       })
       
       this.setupTutorial()
     },
     addAnnotation: function (event, type) {
-      
-      event.stopPropagation()
-      event.preventDefault()
+      //console.log(this.anchorPositions)
+      //console.log(this.selection.anchorPositions)
+      if (this.selection.anchorPositions.length === 0) {
+        this.selection.anchorPositions = this.anchorPositions
+      }
+      if (this.selection.anchorParagraphIds.length === 0) {
+        this.selection.anchorParagraphIds = this.anchorParagraphIds
+      }
+//      event.stopPropagation()
+//      event.preventDefault()
       //return
       
       
@@ -148,8 +163,8 @@ let AnnotationTypeSelector = {
       }
       
       
-      //console.log(this.selection)
-      let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection()
+      console.log(this.selection.anchorPositions)
+      let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
       console.log(anchorPositions)
       let annotation = {
         anchorPositions: anchorPositions,

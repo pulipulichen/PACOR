@@ -72,7 +72,7 @@ export default (RangyManager) => {
       setTimeout(async () => {
         //console.log('selectRandomRange', 5)
         
-        console.log({isSelecting: this.isSelecting()})
+        //console.log({isSelecting: this.isSelecting()})
         if (this.isSelecting() === false) {
           await this.selectRandomRange()
           resolve(true)
