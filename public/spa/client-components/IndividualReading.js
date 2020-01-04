@@ -623,7 +623,10 @@ let IndividualReading = {
     //this._testTutorial()
     //this._testTutorialShowClick()
     //console.log(this.lib.style.scrollBarWidth)
-    console.log({os: this.lib.style.detectOS})
+    console.log({
+      os: this.lib.style.detectOS,
+      browser: this.lib.style.detectBrowser,
+    })
   },
   destroyed () {
     //console.log('退場了')
