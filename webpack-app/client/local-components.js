@@ -1,4 +1,4 @@
-import Loading from './../components/ui-modal/Loading/Loading.vue'
+import Loading from './../components/ui-modal/HiddenLoading/HiddenLoading.vue'
 import ErrorHandler from './../components/manager/ErrorHandler/ErrorHandler.vue'
 
 import Auth from './Auth/Auth.vue'
