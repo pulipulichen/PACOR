@@ -7,6 +7,8 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 const Helpers = use('Helpers')
 const fs = use('fs')
 
+const RemoteConsoleLog = use('App/Models/RemoteConsoleLog')
+
 class Development {
   async avatars ({request, response}) {
     let basedir = Helpers.appRoot() + '/public/avatars/'
@@ -61,13 +63,14 @@ class Development {
     return output
   }
   
-  errorAuth () {
+  async errorAuth () {
     throw new HttpException('Please login', 403)
   }
   
-  error403 () {
+  async error403 () {
     throw new HttpException('@TEST', 403)
   }
+  
 }
 
 module.exports = Development
