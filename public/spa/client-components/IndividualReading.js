@@ -624,6 +624,7 @@ let IndividualReading = {
     //this._testTutorialShowClick()
     //console.log(this.lib.style.scrollBarWidth)
     //this._testDetect()
+    this._testSelectRandom()
   },
   destroyed () {
     //console.log('退場了')
@@ -1436,6 +1437,13 @@ __webpack_require__.r(__webpack_exports__);
       os: this.lib.style.detectOS,
       browser: this.lib.style.detectBrowser,
     })
+  }
+  
+  IndividualReading.methods._testSelectRandom = async function () {
+    await this.lib.VueHelper.sleep(1000)
+    
+    await this.lib.RangyManager.selectDemoText()
+    //await this.lib.RangyManager.onselect()
   }
 });
 

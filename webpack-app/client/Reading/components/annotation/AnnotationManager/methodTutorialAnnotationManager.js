@@ -83,7 +83,7 @@ export default function (AnnotationManager) {
         let paragraph
         while (true) {
           paragraph = await this.lib.RangyManager.selectDemoText()
-          this.lib.RangyManager.onselect()
+          //this.lib.RangyManager.onselect()
           
           if (this.lib.RangyManager.isSelecting()) {
             break

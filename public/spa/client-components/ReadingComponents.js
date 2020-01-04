@@ -6763,7 +6763,7 @@ __webpack_require__.r(__webpack_exports__);
         let paragraph
         while (true) {
           paragraph = await this.lib.RangyManager.selectDemoText()
-          this.lib.RangyManager.onselect()
+          //this.lib.RangyManager.onselect()
           
           if (this.lib.RangyManager.isSelecting()) {
             break
@@ -15204,8 +15204,8 @@ __webpack_require__.r(__webpack_exports__);
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         //console.log('selectRandomRange', 5)
-        this.onselect()
         resolve(true)
+        this.onselect()
         //console.log('selectRandomRange', 6)
       }, 1000)
     })

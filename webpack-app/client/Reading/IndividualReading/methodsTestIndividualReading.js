@@ -77,4 +77,11 @@ export default function (IndividualReading) {
       browser: this.lib.style.detectBrowser,
     })
   }
+  
+  IndividualReading.methods._testSelectRandom = async function () {
+    await this.lib.VueHelper.sleep(1000)
+    
+    await this.lib.RangyManager.selectDemoText()
+    //await this.lib.RangyManager.onselect()
+  }
 }

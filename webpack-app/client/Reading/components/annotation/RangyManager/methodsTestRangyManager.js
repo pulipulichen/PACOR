@@ -71,8 +71,8 @@ export default (RangyManager) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         //console.log('selectRandomRange', 5)
-        this.onselect()
         resolve(true)
+        this.onselect()
         //console.log('selectRandomRange', 6)
       }, 1000)
     })
