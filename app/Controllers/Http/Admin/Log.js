@@ -11,11 +11,26 @@ const RemoteConsoleLog = use('App/Models/RemoteConsoleLog')
 
 class Log {
   async create({request, response}) {
-    const {arguments} = request.all()
+    const {message, type} = request.all()
     
     const log = new RemoteConsoleLog()
-    log.message = JSON.stringify(arguments, null, 2)
-    log.user = request.connection.remoteAddress
+    
+    if (Array.isArray(message)) {
+      message = message.join('\n')
+    }
+    if (typeof(message) === 'object') {
+      message = JSON.stringify(message, null, 2)
+    }
+    
+    log.message = message
+    log.type = type
+    
+//    let ip = request.headers['x-forwarded-for'] || 
+//     (request.connection && request.connection.remoteAddress) || 
+//     (request.socket && request.socket.remoteAddress) ||
+//     ((request.connection && request.connection.socket) ? request.connection.socket.remoteAddress : null);
+    let ip = request.ip()
+    log.user = ip
     
     let headers = request.headers()
     let referer = headers.referer

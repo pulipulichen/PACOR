@@ -8,9 +8,9 @@ class RemoteConsoleLogSchema extends Schema {
     this.create('remote_console_logs', (table) => {
       table.increments()
       table.string('referer', 255).notNullable()
-      table.string('user', 255).notNullable()
-      table.text('message').notNullable()
+      table.string('user', 255)
       table.string('type', 10).notNullable()
+      table.text('message').notNullable()
       
       table.bigInteger('created_at_unixms')
       table.bigInteger('updated_at_unixms')
