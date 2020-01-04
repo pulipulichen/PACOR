@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"RemoteConsoleLog.less?vue&type=style&index=0&id=0d0c60e3&lang=less&scoped=true&"}]);
+exports.push([module.i, ".log-referer[data-v-0d0c60e3] {\n  max-width: 4em;\n  overflow: hidden;\n  text-overflow: clip;\n  white-space: nowrap;\n  word-break: break-all;\n}\n", "",{"version":3,"sources":["RemoteConsoleLog.less?vue&type=style&index=0&id=0d0c60e3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,gBAAgB;EAChB,mBAAmB;EACnB,mBAAmB;EACnB,qBAAqB;AACvB","file":"RemoteConsoleLog.less?vue&type=style&index=0&id=0d0c60e3&lang=less&scoped=true&","sourcesContent":[".log-referer[data-v-0d0c60e3] {\n  max-width: 4em;\n  overflow: hidden;\n  text-overflow: clip;\n  white-space: nowrap;\n  word-break: break-all;\n}\n"]}]);
 
 
 /***/ }),
@@ -49,85 +49,100 @@ var render = function() {
     _c("h1", [_vm._v(_vm._s(_vm.$t("Remote Console Log")))]),
     _vm._v(" "),
     _c("div", { staticClass: "ui segment log-list" }, [
-      _c("table", { staticClass: "ui unstackable celled table" }, [
-        _c("thead", [
-          _c("tr", [
-            _c("th", [_vm._v(_vm._s(_vm.$t("Webpage")))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(_vm.$t("User")))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(_vm.$t("Message")))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(_vm.$t("Time")))])
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.logs, function(log) {
-            return _c("tr", { key: log.id, class: log.type }, [
-              _c(
-                "td",
-                {
-                  staticClass: "log-referer",
-                  attrs: { "data-label": _vm.$t("Webpage"), title: log.referer }
-                },
-                [
-                  _vm._v(
-                    "\r\n            " +
-                      _vm._s(_vm.parseURI(log.referer)) +
-                      "\r\n          "
-                  )
-                ]
-              ),
+      _c(
+        "table",
+        { staticClass: "ui unstackable compact small striped celled table" },
+        [
+          _c("thead", [
+            _c("tr", [
+              _c("th", [_vm._v(_vm._s(_vm.$t("Webpage")))]),
               _vm._v(" "),
-              _c(
-                "td",
-                {
-                  staticClass: "log-user",
-                  attrs: { "data-label": _vm.$t("User"), title: log.user }
-                },
-                [
-                  _vm._v(
-                    "\r\n            " +
-                      _vm._s(_vm.parseIP(log.user)) +
-                      "\r\n          "
-                  )
-                ]
-              ),
+              _c("th", [_vm._v(_vm._s(_vm.$t("User")))]),
               _vm._v(" "),
-              _c(
-                "td",
-                {
-                  staticClass: "log-message",
-                  attrs: { "data-label": _vm.$t("Message"), title: log.message }
-                },
-                [
-                  _vm._v(
-                    "\r\n            " + _vm._s(log.message) + "\r\n          "
-                  )
-                ]
-              ),
+              _c("th", [_vm._v(_vm._s(_vm.$t("Message")))]),
               _vm._v(" "),
-              _c(
-                "td",
-                {
-                  staticClass: "log-time",
-                  attrs: { "data-label": _vm.$t("Time"), title: log.created_at }
-                },
-                [
-                  _vm._v(
-                    "\r\n            " +
-                      _vm._s(_vm.parseCompactDate(log.created_at)) +
-                      "\r\n          "
-                  )
-                ]
-              )
+              _c("th", [_vm._v(_vm._s(_vm.$t("Time")))])
             ])
-          }),
-          0
-        )
-      ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.logs, function(log) {
+              return _c("tr", { key: log.id, class: log.type }, [
+                _c(
+                  "td",
+                  {
+                    staticClass: "log-referer",
+                    attrs: {
+                      "data-label": _vm.$t("Webpage"),
+                      title: log.referer
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n            " +
+                        _vm._s(_vm.parseURI(log.referer)) +
+                        "\r\n          "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  {
+                    staticClass: "log-user",
+                    attrs: { "data-label": _vm.$t("User"), title: log.user }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n            " +
+                        _vm._s(_vm.parseIP(log.user)) +
+                        "\r\n          "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  {
+                    staticClass: "log-message",
+                    attrs: {
+                      "data-label": _vm.$t("Message"),
+                      title: log.message
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n            " +
+                        _vm._s(log.message) +
+                        "\r\n          "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  {
+                    staticClass: "log-time",
+                    attrs: {
+                      "data-label": _vm.$t("Time"),
+                      title: log.created_at
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n            " +
+                        _vm._s(_vm.parseCompactDate(log.created_at)) +
+                        "\r\n          "
+                    )
+                  ]
+                )
+              ])
+            }),
+            0
+          )
+        ]
+      )
     ])
   ])
 }
