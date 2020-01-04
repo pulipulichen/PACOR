@@ -624,7 +624,7 @@ let IndividualReading = {
     //this._testTutorialShowClick()
     //console.log(this.lib.style.scrollBarWidth)
     //this._testDetect()
-    this._testSelectRandom()
+    //this._testSelectRandom()
   },
   destroyed () {
     //console.log('退場了')
