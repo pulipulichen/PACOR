@@ -49,7 +49,7 @@ var render = function() {
     _c("h1", [_vm._v(_vm._s(_vm.$t("Remote Console Log")))]),
     _vm._v(" "),
     _c("div", { staticClass: "ui segment log-list" }, [
-      _vm._v("\r\n    logs....\r\n  ")
+      _vm._v("\r\n    logs....sss\r\n  ")
     ])
   ])
 }
@@ -122,26 +122,44 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let Template = {
+let RemoteConsoleLog = {
   props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      logs: [],
+      afterTime: null,
+      intervalSeconds: 5000
     }
   },
 //  components: {
 //  },
-  computed: {
-  },
-  watch: {
-  },
+//  computed: {
+//  },
+//  watch: {
+//  },
   mounted() {
+    this.load()
   },
   methods: {
+    load: async function () {
+      let logs = await this.lib.AxiosHelper.get('/admin/Log/get', {
+        afterTime: this.afterTime
+      })
+      
+      console.log(logs)
+      logs.reverse()
+      this.logs = this.logs.concat(logs)
+      
+      this.afterTime = (new Date()).getTime()
+      
+      await this.lib.VueHelper.sleep(this.intervalSeconds * 1000)
+      this.load()
+    }
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Template);
+/* harmony default export */ __webpack_exports__["default"] = (RemoteConsoleLog);
 
 /***/ }),
 

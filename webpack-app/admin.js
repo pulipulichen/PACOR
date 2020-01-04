@@ -21,6 +21,7 @@ import AxiosHelper from './helpers/AxiosHelper'
 import DayJSHelper from './helpers/DayJSHelper'
 import StringHelper from './helpers/StringHelper'
 import ValidateHelper from './helpers/ValidateHelper'
+import VueHelper from './helpers/VueHelper'
 
 // --------------------
 // Components
@@ -83,6 +84,7 @@ let VueController = {
       DayJSHelper: DayJSHelper,
       StringHelper: StringHelper,
       ValidateHelper: ValidateHelper,
+      VueHelper: VueHelper,
       //toc: TOCHelper,
     },
     //view: 'Loading',

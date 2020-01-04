@@ -11,6 +11,10 @@ class RemoteConsoleLog extends Model {
   }
   
   static async list (afterTime) {
+    if (typeof(afterTime) === 'string' 
+            && isNaN(afterTime) === false) {
+      afterTime = parseInt(afterTime, 10)
+    }
     if (typeof(afterTime) === 'number') {
       return await this.query()
               .orderBy('created_at_unixms', 'desc')

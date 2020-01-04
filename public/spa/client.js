@@ -14209,29 +14209,6 @@ const NumberHelper = {
 
 /* harmony default export */ __webpack_exports__["default"] = (NumberHelper);
 
-/***/ }),
-
-/***/ "./webpack-app/helpers/VueHelper.js":
-/*!******************************************!*\
-  !*** ./webpack-app/helpers/VueHelper.js ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-let VueHelper = {
-  sleep: function (ms) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(true)
-      }, ms)
-    })
-  } 
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (VueHelper);
-
 /***/ })
 
 /******/ });
