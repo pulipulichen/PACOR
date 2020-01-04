@@ -181,18 +181,25 @@ export default (RangyManager) => {
       return null
       //selection = this.selection
     }
-    
+    //window.sl = selection
     //console.log(selectionSaved)
     
     //console.log(selection.anchorPositions)
     
+//    if (this.isSelecting() === false) {
+//      //this.r(selection._ranges)
+//      console.log({last: this.lastSelectionSaved})
+//      this.restoreLastSelection()
+//    }
+    
     let highlights = this.rectHighlighter.highlightSelection('pacor-rect', {
       exclusive: false,
-      containerElementId: selection.anchorParagraphIds
+      containerElementId: selection.anchorParagraphIds,
+      selection: selection
     })
     
     let anchorPositions = []
-    //console.log(highlights)
+    //console.log({highlights})
     
     highlights.forEach(highlight => {
       let paragraph_id = highlight.containerElementId

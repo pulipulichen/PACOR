@@ -48,6 +48,20 @@ var render = function() {
   return _c("div", { staticClass: "RemoteConsoleLog" }, [
     _c("h1", [_vm._v(_vm._s(_vm.$t("Remote Console Log")))]),
     _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "ui button",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            _vm.logs = []
+          }
+        }
+      },
+      [_vm._v("\r\n            " + _vm._s(_vm.$t("Clear")) + "\r\n  ")]
+    ),
+    _vm._v(" "),
     _c("div", { staticClass: "ui segment log-list" }, [
       _c(
         "table",

@@ -16,6 +16,7 @@ export default {
   selectionHighlighter: null,
   selection: null,
   selectionSaved: null,
+  lastSelectionSaved: null,
 
   highlighter: null,
   highlightClasses: [],

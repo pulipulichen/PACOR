@@ -134,6 +134,11 @@ let AnnotationTypeSelector = {
       this.setupTutorial()
     },
     addAnnotation: function (event, type) {
+      //this.lib.RangyManager.restoreLastSelection()
+      //console.log({isSelecting: this.lib.RangyManager.isSelecting()})
+      //if (this.lib.RangyManager.isSelecting() === false) {
+      //  throw new Error('Selection lost')
+      //}
       //console.log(this.anchorPositions)
       //console.log(this.selection.anchorPositions)
       if (this.selection.anchorPositions.length === 0) {
@@ -163,9 +168,9 @@ let AnnotationTypeSelector = {
       }
       
       
-      console.log(this.selection.anchorPositions)
+      console.log({sa: this.selection.anchorPositions})
       let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
-      console.log(anchorPositions)
+      console.log({ap: anchorPositions})
       let annotation = {
         anchorPositions: anchorPositions,
         type: type

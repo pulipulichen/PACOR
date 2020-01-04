@@ -1446,7 +1446,7 @@ __webpack_require__.r(__webpack_exports__);
     
     await this.lib.VueHelper.sleep(1000)
     
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.fab-cantainer.MainIdea .fabMask').click()
+    //$('.fab-cantainer.MainIdea .fabMask').click()
     
     //$('.fab-cantainer.MainIdea').click()
     //await this.lib.RangyManager.onselect()

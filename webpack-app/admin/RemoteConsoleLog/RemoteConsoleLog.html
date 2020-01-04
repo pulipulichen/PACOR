@@ -1,5 +1,10 @@
 <div class="RemoteConsoleLog">
   <h1>{{ $t('Remote Console Log') }}</h1>
+  <button type="button"
+          class="ui button"
+    v-on:click="logs = []">
+            {{ $t('Clear') }}
+  </button>
   <div class="ui segment log-list">
     <table class="ui unstackable compact small striped celled table">
       <thead>

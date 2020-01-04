@@ -6421,6 +6421,11 @@ let AnnotationTypeSelector = {
       this.setupTutorial()
     },
     addAnnotation: function (event, type) {
+      //this.lib.RangyManager.restoreLastSelection()
+      //console.log({isSelecting: this.lib.RangyManager.isSelecting()})
+      //if (this.lib.RangyManager.isSelecting() === false) {
+      //  throw new Error('Selection lost')
+      //}
       //console.log(this.anchorPositions)
       //console.log(this.selection.anchorPositions)
       if (this.selection.anchorPositions.length === 0) {
@@ -6450,9 +6455,9 @@ let AnnotationTypeSelector = {
       }
       
       
-      console.log(this.selection.anchorPositions)
+      console.log({sa: this.selection.anchorPositions})
       let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
-      console.log(anchorPositions)
+      console.log({ap: anchorPositions})
       let annotation = {
         anchorPositions: anchorPositions,
         type: type
@@ -13757,6 +13762,7 @@ __webpack_require__.r(__webpack_exports__);
   selectionHighlighter: null,
   selection: null,
   selectionSaved: null,
+  lastSelectionSaved: null,
 
   highlighter: null,
   highlightClasses: [],
@@ -13971,18 +13977,25 @@ __webpack_require__.r(__webpack_exports__);
       return null
       //selection = this.selection
     }
-    
+    //window.sl = selection
     //console.log(selectionSaved)
     
     //console.log(selection.anchorPositions)
     
+//    if (this.isSelecting() === false) {
+//      //this.r(selection._ranges)
+//      console.log({last: this.lastSelectionSaved})
+//      this.restoreLastSelection()
+//    }
+    
     let highlights = this.rectHighlighter.highlightSelection('pacor-rect', {
       exclusive: false,
-      containerElementId: selection.anchorParagraphIds
+      containerElementId: selection.anchorParagraphIds,
+      selection: selection
     })
     
     let anchorPositions = []
-    //console.log(highlights)
+    //console.log({highlights})
     
     highlights.forEach(highlight => {
       let paragraph_id = highlight.containerElementId
@@ -14810,6 +14823,9 @@ __webpack_require__.r(__webpack_exports__);
   RangyManager.methods.onselect = function () {
     let selection = this.rangy.getSelection()
     
+    this.lastSelectionSaved = this.rangy.saveSelection()
+    this.rangy.restoreSelection(this.lastSelectionSaved)
+    
     //PACORTestManager.log(selection.toString().length, selection.isCollapsed)
     
     if (selection.toString().length > 0 && selection.isCollapsed === false) {
@@ -14960,6 +14976,8 @@ __webpack_require__.r(__webpack_exports__);
       //console.log(highlightClassList)
       //console.log('onselect', this.highlighter.getHighlightsForElement(selection.getRangeAt(0)))
       this.selection = selection
+      
+      
     } else {
       if (this.selection !== null) {
         this.selection = null
@@ -14980,6 +14998,13 @@ __webpack_require__.r(__webpack_exports__);
       node = node.parentNode;
     }
   }
+  
+  RangyManager.methods.restoreLastSelection = function () {
+    if (this.isSelecting() === false) {
+      this.rangy.restoreSelection(this.lastSelectionSaved)
+    }
+  }
+  
   RangyManager.methods._getNodesInRange = function (ranges) {
     let nodes = []
 

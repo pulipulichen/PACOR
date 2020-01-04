@@ -5,6 +5,9 @@ export default (RangyManager) => {
   RangyManager.methods.onselect = function () {
     let selection = this.rangy.getSelection()
     
+    this.lastSelectionSaved = this.rangy.saveSelection()
+    this.rangy.restoreSelection(this.lastSelectionSaved)
+    
     //PACORTestManager.log(selection.toString().length, selection.isCollapsed)
     
     if (selection.toString().length > 0 && selection.isCollapsed === false) {
@@ -155,6 +158,8 @@ export default (RangyManager) => {
       //console.log(highlightClassList)
       //console.log('onselect', this.highlighter.getHighlightsForElement(selection.getRangeAt(0)))
       this.selection = selection
+      
+      
     } else {
       if (this.selection !== null) {
         this.selection = null
@@ -175,6 +180,13 @@ export default (RangyManager) => {
       node = node.parentNode;
     }
   }
+  
+  RangyManager.methods.restoreLastSelection = function () {
+    if (this.isSelecting() === false) {
+      this.rangy.restoreSelection(this.lastSelectionSaved)
+    }
+  }
+  
   RangyManager.methods._getNodesInRange = function (ranges) {
     let nodes = []
 
