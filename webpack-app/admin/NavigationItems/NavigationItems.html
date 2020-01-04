@@ -38,6 +38,12 @@
       </a>
 
       <a class="item"
+         href="#/remote-console-log/"
+         v-if="status.role === 'global_admin'">
+        {{ $t('Console') }}
+      </a>
+      
+      <a class="item"
          href="/admin/Database/admin?table=webpages"
          target="_blank"
          v-if="status.role === 'global_admin'">

@@ -12,6 +12,7 @@ const routes = [
   { path: '/webpage/:domainID?/:action?/:page?', component: () => import(/* webpackChunkName: "admin-components/webpage" */ './Webpage/Webpage.vue') },
   { path: '/webpage-dashboard/:webpageID/:action?/:page?', component: () => import(/* webpackChunkName: "admin-components/webpage-dashboard" */ './WebpageDashboard/WebpageDashboard.vue') },
   { path: '/user-dashboard/:webpageID/:userID/:action?/:page?', component: () => import(/* webpackChunkName: "admin-components/user-dashboard" */ './UserDashboard/UserDashboard.vue') },
+  { path: '/remote-console-log/', component: () => import(/* webpackChunkName: "admin-components/remote-console-log" */ './RemoteConsoleLog/RemoteConsoleLog.vue') },
 ]
 
 export default new VueRouter({
