@@ -1,5 +1,4 @@
 import TempScrollBox from './lib/TempScrollBox.js'
-import MobileDeviceDetect from 'mobile-device-detect'
 
 export default function (StyleManager) {
   
@@ -27,10 +26,4 @@ export default function (StyleManager) {
     return (new TempScrollBox()).width
   }
   
-  // ---------------
-  
-  StyleManager.computed.detectOS = function () {
-    //return this.mobileDetect.os()
-    return MobileDeviceDetect.osName
-  }
 }

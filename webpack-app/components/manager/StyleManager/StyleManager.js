@@ -23,6 +23,9 @@ let StyleManager = {
 import computedStyleManager from './computedStyleManager.js'
 computedStyleManager(StyleManager)
 
+import computedDeviceStyleManager from './computedDeviceStyleManager.js'
+computedDeviceStyleManager(StyleManager)
+
 import methodsStyleManager from './methodsStyleManager.js'
 methodsStyleManager(StyleManager)
 

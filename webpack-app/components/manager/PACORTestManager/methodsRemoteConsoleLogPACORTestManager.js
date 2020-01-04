@@ -19,7 +19,12 @@ export default function (PACORTestManager) {
             arg = arg.join('\n')
           }
           else if (typeof(arg) === 'object') {
-            arg = JSON.stringify(arg, null, 2)
+            if (typeof(arg.message) === 'string') {
+              arg = arg.message
+            }
+            else {
+              arg = JSON.stringify(arg, null, 2)
+            }
           }
           message.push(arg)
         }

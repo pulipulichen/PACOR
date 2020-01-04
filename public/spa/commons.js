@@ -2551,7 +2551,12 @@ __webpack_require__.r(__webpack_exports__);
             arg = arg.join('\n')
           }
           else if (typeof(arg) === 'object') {
-            arg = JSON.stringify(arg, null, 2)
+            if (typeof(arg.message) === 'string') {
+              arg = arg.message
+            }
+            else {
+              arg = JSON.stringify(arg, null, 2)
+            }
           }
           message.push(arg)
         }
@@ -3604,7 +3609,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _computedStyleManager_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./computedStyleManager.js */ "./webpack-app/components/manager/StyleManager/computedStyleManager.js");
-/* harmony import */ var _methodsStyleManager_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsStyleManager.js */ "./webpack-app/components/manager/StyleManager/methodsStyleManager.js");
+/* harmony import */ var _computedDeviceStyleManager_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./computedDeviceStyleManager.js */ "./webpack-app/components/manager/StyleManager/computedDeviceStyleManager.js");
+/* harmony import */ var _methodsStyleManager_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsStyleManager.js */ "./webpack-app/components/manager/StyleManager/methodsStyleManager.js");
 let StyleManager = {
   props: ['lib', 'status', 'config'],
   data() {
@@ -3631,7 +3637,10 @@ let StyleManager = {
 Object(_computedStyleManager_js__WEBPACK_IMPORTED_MODULE_0__["default"])(StyleManager)
 
 
-Object(_methodsStyleManager_js__WEBPACK_IMPORTED_MODULE_1__["default"])(StyleManager)
+Object(_computedDeviceStyleManager_js__WEBPACK_IMPORTED_MODULE_1__["default"])(StyleManager)
+
+
+Object(_methodsStyleManager_js__WEBPACK_IMPORTED_MODULE_2__["default"])(StyleManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (StyleManager);
 
@@ -3688,6 +3697,34 @@ component.options.__file = "webpack-app/components/manager/StyleManager/StyleMan
 
 /***/ }),
 
+/***/ "./webpack-app/components/manager/StyleManager/computedDeviceStyleManager.js":
+/*!***********************************************************************************!*\
+  !*** ./webpack-app/components/manager/StyleManager/computedDeviceStyleManager.js ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (StyleManager) {
+  
+  const osMapping = {
+    'MacIntel': 'iOS',
+    'Linux armv8l': 'Android',
+    'Win32': 'Windows'
+  }
+  
+  StyleManager.computed.detectOS = function () {
+    let platform = window.navigation.platform
+    if (typeof(osMapping[platform]) === 'string') {
+      platform = osMapping[platform]
+    }
+    return platform
+  }
+});
+
+/***/ }),
+
 /***/ "./webpack-app/components/manager/StyleManager/computedStyleManager.js":
 /*!*****************************************************************************!*\
   !*** ./webpack-app/components/manager/StyleManager/computedStyleManager.js ***!
@@ -3698,9 +3735,6 @@ component.options.__file = "webpack-app/components/manager/StyleManager/StyleMan
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_TempScrollBox_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/TempScrollBox.js */ "./webpack-app/components/manager/StyleManager/lib/TempScrollBox.js");
-/* harmony import */ var mobile_device_detect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! mobile-device-detect */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\mobile-device-detect\\dist\\index.js");
-/* harmony import */ var mobile_device_detect__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(mobile_device_detect__WEBPACK_IMPORTED_MODULE_1__);
-
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (StyleManager) {
@@ -3729,12 +3763,6 @@ __webpack_require__.r(__webpack_exports__);
     return (new _lib_TempScrollBox_js__WEBPACK_IMPORTED_MODULE_0__["default"]()).width
   }
   
-  // ---------------
-  
-  StyleManager.computed.detectOS = function () {
-    //return this.mobileDetect.os()
-    return mobile_device_detect__WEBPACK_IMPORTED_MODULE_1___default.a.osName
-  }
 });
 
 /***/ }),
