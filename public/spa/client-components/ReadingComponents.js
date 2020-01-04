@@ -1273,8 +1273,9 @@ var render = function() {
                 btnColor: module.style.button.backgroundColor
               },
               on: {
-                clickItem: function($event) {
-                  return _vm.addAnnotation(module.type)
+                clickItem: function(ref) {
+                  var event = ref.event
+                  _vm.addAnnotation(event, module.type)
                 }
               }
             })
@@ -6411,7 +6412,13 @@ let AnnotationTypeSelector = {
       
       this.setupTutorial()
     },
-    addAnnotation: function (type) {
+    addAnnotation: function (event, type) {
+      
+      event.stopPropagation()
+      event.preventDefault()
+      //return
+      
+      
       //console.log('clickItem', type)
       //this.$emit('selectAnnotation', type)
       if (!this.selection) {
@@ -6429,8 +6436,8 @@ let AnnotationTypeSelector = {
       
       
       //console.log(this.selection)
-      let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
-      //console.log(anchorPositions)
+      let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection()
+      console.log(anchorPositions)
       let annotation = {
         anchorPositions: anchorPositions,
         type: type
@@ -13947,6 +13954,7 @@ __webpack_require__.r(__webpack_exports__);
   RangyManager.methods.getAnchorPositionsFromSelection = function (selection) {
     if (!selection) {
       return null
+      //selection = this.selection
     }
     
     let selectionSaved = this.rangy.saveSelection()
@@ -15202,10 +15210,18 @@ __webpack_require__.r(__webpack_exports__);
     this.rangy.getSelection().addRange(range)
     
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
+      setTimeout(async () => {
         //console.log('selectRandomRange', 5)
-        resolve(true)
-        this.onselect()
+        
+        console.log({isSelecting: this.isSelecting()})
+        if (this.isSelecting() === false) {
+          await this.selectRandomRange()
+          resolve(true)
+        }
+        else {
+          resolve(true)
+          this.onselect()
+        }
         //console.log('selectRandomRange', 6)
       }, 1000)
     })

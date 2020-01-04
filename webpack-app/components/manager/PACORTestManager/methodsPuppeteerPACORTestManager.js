@@ -2,13 +2,13 @@ import $ from 'jquery'
 
 export default function (PACORTestManager) {
 
-  PACORTestManager.methods.log = function (...args) {
-    console.log.apply(this, args)
-    
-    //if (typeof(window.PACORTestManagerLog) === 'function') {
-    //  window.PACORTestManagerLog.apply(this, args)
-    //}
-  }
+//  PACORTestManager.methods.log = function (...args) {
+//    console.log.apply(this, args)
+//    
+//    //if (typeof(window.PACORTestManagerLog) === 'function') {
+//    //  window.PACORTestManagerLog.apply(this, args)
+//    //}
+//  }
   
   PACORTestManager.methods.interact = async function (method, selector, ...args) {
     if (typeof(window.PACORTestManagerInteractions) !== 'function') {

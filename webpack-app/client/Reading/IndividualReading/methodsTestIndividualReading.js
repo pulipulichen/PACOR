@@ -82,6 +82,11 @@ export default function (IndividualReading) {
     await this.lib.VueHelper.sleep(1000)
     
     await this.lib.RangyManager.selectDemoText()
+    
+    await this.lib.VueHelper.sleep(1000)
+    
+    //$('.fab-cantainer.MainIdea .fabMask').click()
+    //$('.fab-cantainer.MainIdea').click()
     //await this.lib.RangyManager.onselect()
   }
 }

@@ -125,7 +125,13 @@ let AnnotationTypeSelector = {
       
       this.setupTutorial()
     },
-    addAnnotation: function (type) {
+    addAnnotation: function (event, type) {
+      
+      event.stopPropagation()
+      event.preventDefault()
+      //return
+      
+      
       //console.log('clickItem', type)
       //this.$emit('selectAnnotation', type)
       if (!this.selection) {
@@ -143,8 +149,8 @@ let AnnotationTypeSelector = {
       
       
       //console.log(this.selection)
-      let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
-      //console.log(anchorPositions)
+      let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection()
+      console.log(anchorPositions)
       let annotation = {
         anchorPositions: anchorPositions,
         type: type

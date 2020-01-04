@@ -2,7 +2,15 @@ export default function (PACORTestManager) {
   /**
    * https://stackoverflow.com/a/41343061/6645399
    */
-  PACORTestManager.methods.initRemoteConsole = function () {
+  PACORTestManager.methods.initRemoteConsole = async function () {
+    while (!this.status.readingConfig.debug) {
+      await this.lib.VueHelper.sleep(100)
+    }
+    //console.log(this.status.readingConfig.debug)
+    if (this.status.readingConfig.debug.enableRemoteConosleLog !== true) {
+      return false
+    }
+    
     let AxiosHelper = this.lib.AxiosHelper
     let proxy = function (context, method, type) { 
       return function() {

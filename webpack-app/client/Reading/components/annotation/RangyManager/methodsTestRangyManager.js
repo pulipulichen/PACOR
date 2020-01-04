@@ -69,10 +69,18 @@ export default (RangyManager) => {
     this.rangy.getSelection().addRange(range)
     
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
+      setTimeout(async () => {
         //console.log('selectRandomRange', 5)
-        resolve(true)
-        this.onselect()
+        
+        console.log({isSelecting: this.isSelecting()})
+        if (this.isSelecting() === false) {
+          await this.selectRandomRange()
+          resolve(true)
+        }
+        else {
+          resolve(true)
+          this.onselect()
+        }
         //console.log('selectRandomRange', 6)
       }, 1000)
     })

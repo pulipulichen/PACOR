@@ -131,8 +131,8 @@ export default {
     }
   },
   methods: {
-    clickItem: function () {
-      this.$emit('clickItem', {idx: this.idx})
+    clickItem: function (event) {
+      this.$emit('clickItem', {idx: this.idx, event})
       this.handleAutoClose()
     },
     handleAutoClose: async function () {

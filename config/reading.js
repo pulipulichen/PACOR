@@ -285,6 +285,7 @@ module.exports = {
   }, // annotationTypeModules: {
   debug: {
     enable: true,
+    enableRemoteConosleLog: false,
     //forceMaxTimeoutMinutes: 0.4
     //forceMaxTimeoutMinutes: 0.2
     forceMaxTimeoutMinutes: 1,
