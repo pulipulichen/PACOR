@@ -80,8 +80,15 @@ export default function (AnnotationManager) {
     //console.log('有新增嗎？')
     this.lib.TutorialManager.addAction({
       element: async () => {
-        let paragraph = await this.lib.RangyManager.selectDemoText()
-        this.lib.RangyManager.onselect()
+        let paragraph
+        while (true) {
+          paragraph = await this.lib.RangyManager.selectDemoText()
+          this.lib.RangyManager.onselect()
+          
+          if (this.lib.RangyManager.isSelecting()) {
+            break
+          }
+        }
         
         var sel = await this.lib.RangyManager.rangy.getSelection();
         var range = sel.getRangeAt(0).cloneRange();

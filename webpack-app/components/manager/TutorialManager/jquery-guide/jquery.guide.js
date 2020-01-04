@@ -60,7 +60,7 @@ import 'tippy.js/themes/light.css';
 //          return guide.draw();
 //        };
 //      })(this));
-      $window.bind('scroll', onWindowScroll)
+      //$window.bind('scroll', onWindowScroll)
       
       $body.addClass('jquery-guide-prevent-scroll')
       
@@ -238,14 +238,24 @@ import 'tippy.js/themes/light.css';
       // --------------------------------
       
       let scrollTimer
+      let scrollDetectDelay = 100
+      let lastPageYOffset
       let onScrollEvent = function() {
         if (scrollTimer) {
           clearTimeout(scrollTimer)
         }
+        //console.log('暫停')
         scrollTimer = setTimeout(() => {
+          if (lastPageYOffset !== window.pageYOffset) {
+            lastPageYOffset = window.pageYOffset
+            onScrollEvent()
+            return false
+          }
+          
           window.removeEventListener('scroll', onScrollEvent)
+          //console.log('後續')
           animateCallback()
-        }, 100)
+        }, scrollDetectDelay * 2)
       }
 
       let actionElement
@@ -287,6 +297,7 @@ import 'tippy.js/themes/light.css';
         
         //console.log(action.element[0])
         scrollIntoView = true
+        lastPageYOffset = window.pageYOffset
         animateTemp = {
           action, 
           callback,
@@ -343,6 +354,7 @@ import 'tippy.js/themes/light.css';
             block: "center", 
             inline: "nearest"
           })
+          //console.log('scrollIntoView smooth')
         }
         else if (action.scroll === 'start') {
           let elementTop = actionElement.offset().top
@@ -358,18 +370,27 @@ import 'tippy.js/themes/light.css';
             block: "start", 
             inline: "nearest"
           })
+          
+          //console.log('scrollIntoView start')
         }
         
         //this.animateCallback(action, callback)
         scrollTimer = setTimeout(() => {
-          window.removeEventListener('scroll', this.onScrollEvent)
+          if (lastPageYOffset !== window.pageYOffset) {
+            lastPageYOffset = window.pageYOffset
+            onScrollEvent()
+            return false
+          }
+          
+          window.removeEventListener('scroll', onScrollEvent)
+          //console.log('first')
           animateCallback()
-        }, 100)
+        }, scrollDetectDelay)
       };
       
       let animateTemp = {}
       let animateCallback = function() {
-        
+        //console.log('animateCallback')
         let {action, callback, next, _this} = animateTemp
         
         if (action.backgroundFadeOut === true) {
@@ -415,7 +436,7 @@ import 'tippy.js/themes/light.css';
             return function() {
               setupGlowPopup(_this, action)
               _this.layout.container.removeClass('disabled')
-              scrollIntoView = false
+              //scrollIntoView = false
               callback()
             };
           })(this));

@@ -4,21 +4,47 @@ export default function (TutorialManager) {
   let $clickImage
   
   let isScrolling = false
-  window.addEventListener('scroll', () => {
-    isScrolling = true
-    setTimeout(() => {
-      isScrolling = false
-    }, 100)
-  })
+  let lastPageYOffset
+  let _this, element
+  let timer
   
-  TutorialManager.methods.showClick = async function (element) {
-    if (isScrolling === true) {
-      setTimeout(() => {
-        this.showClick(element)
-      }, 50)
-      return false
+  let onWindowScrollEvent = () => {
+    isScrolling = true
+    if (timer) {
+      clearTimeout(timer)
     }
     
+    timer = setTimeout(() => {
+      if (lastPageYOffset !== window.pageYOffset) {
+        lastPageYOffset = window.pageYOffset
+        onWindowScrollEvent()
+        return false
+      }
+      
+      isScrolling = false
+      //console.log(isScrolling)
+      if (_this) {
+        //console.log('continue')
+        _this.showClickExecute(element)
+      }
+    }, 200)
+  }
+  
+  TutorialManager.methods.showClick = async function (e) {
+    lastPageYOffset = window.pageYOffset
+    element = e
+    _this = this
+    window.addEventListener('scroll', onWindowScrollEvent)
+    
+    await this.lib.VueHelper.sleep(200)
+    if (isScrolling === false) {
+      //console.log('first')
+      this.showClickExecute(element)
+    }
+  }
+   
+  TutorialManager.methods.showClickExecute = async function (element) {
+    window.removeEventListener('scroll', onWindowScrollEvent)
     if (!$clickImage) {
       $clickImage = $(this.$refs.ClickImage)
     }
@@ -44,7 +70,14 @@ export default function (TutorialManager) {
       height = element.clientHeight
     }
     
-    let {top, left} = element
+    let {top, left, bottom} = element
+    
+    if (typeof(top) === 'number' 
+            && typeof(bottom) === 'number'
+            && top + bottom > window.innerHeight) {
+      top = top - window.pageYOffset
+    }
+    
     if (typeof(width) !== 'number') {
       width = 2
       height = 2
@@ -86,7 +119,10 @@ export default function (TutorialManager) {
     //afterStyle.left = (left + 10)
     
     //console.log(beforeStyle, afterStyle)
-    
+//    alert(JSON.stringify({
+//      ...afterStyle,
+//      pageYOffset: window.pageYOffset
+//    }, null , 2))
     $clickImage.css(beforeStyle)
     
     //$clickImage.animate(afterStyle, 1000, () => {})

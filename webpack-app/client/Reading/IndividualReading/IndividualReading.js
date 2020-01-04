@@ -21,8 +21,8 @@ let IndividualReading = {
     // 以下是測試
     
     //this._testSearch()  // for test
-    //this._testTutorial()
-    this._testTutorialShowClick()
+    this._testTutorial()
+    //this._testTutorialShowClick()
   },
   destroyed () {
     //console.log('退場了')

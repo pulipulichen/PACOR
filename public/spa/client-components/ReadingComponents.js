@@ -6760,8 +6760,15 @@ __webpack_require__.r(__webpack_exports__);
     //console.log('有新增嗎？')
     this.lib.TutorialManager.addAction({
       element: async () => {
-        let paragraph = await this.lib.RangyManager.selectDemoText()
-        this.lib.RangyManager.onselect()
+        let paragraph
+        while (true) {
+          paragraph = await this.lib.RangyManager.selectDemoText()
+          this.lib.RangyManager.onselect()
+          
+          if (this.lib.RangyManager.isSelecting()) {
+            break
+          }
+        }
         
         var sel = await this.lib.RangyManager.rangy.getSelection();
         var range = sel.getRangeAt(0).cloneRange();
@@ -21244,10 +21251,10 @@ rangy.createModule("Position", ["WrappedSelection"], function(api, module) {
       this.middle = top + (this.height / 2)
       this.center = left + (this.width / 2)
       
-      if (this.top + this.bottom > window.innerHeight) {
-        //this.top = this.top - window.pageYOffset
-        //this.bottom = this.bottom - window.pageYOffset
-      }
+//      if (this.top + this.bottom > window.innerHeight) {
+//        this.top = this.top - window.pageYOffset
+//        this.bottom = this.bottom - window.pageYOffset
+//      }
     }
 
     function createRelativeRect(rect, dx, dy) {

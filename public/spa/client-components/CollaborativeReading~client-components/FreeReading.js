@@ -752,6 +752,11 @@ __webpack_require__.r(__webpack_exports__);
   CollaborativeReading.methods._testTutorial = async function () {
     
     await this.lib.VueHelper.sleep(3000)
+    window.scrollTo({
+      top: 1500
+    })
+    
+    await this.lib.VueHelper.sleep(1000)
     
     this.lib.TutorialManager.start()
   }

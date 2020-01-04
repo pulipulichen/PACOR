@@ -25,7 +25,12 @@ export default function (IndividualReading) {
   IndividualReading.methods._testTutorial = async function () {
 
     await this.lib.VueHelper.sleep(3000)
-
+    
+    window.scrollTo({
+      top: 1500
+    })
+    
+    await this.lib.VueHelper.sleep(1000)
     this.lib.TutorialManager.start()
   }
   
@@ -49,7 +54,7 @@ export default function (IndividualReading) {
     
     rect.windowHeight = window.innerHeight
     rect.pageYOffset = window.pageYOffset
-    alert(JSON.stringify(rect, null, 2))
+    //alert(JSON.stringify(rect, null, 2))
 
     this.lib.TutorialManager.showClick(rect)
     

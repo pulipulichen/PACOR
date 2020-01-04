@@ -4713,7 +4713,9 @@ let VueController = {
   //},
   mounted: function () {
     this.lib.AxiosHelper.setErrorHandler((error) => {
-      this.$refs.ErrorHandler.addErorr(error)
+      if (this.$refs.ErrorHandler) {
+        this.$refs.ErrorHandler.addError(error)
+      }
     })
     
     this.lib.DayJSHelper.setI18N((name, data) => {
@@ -10646,7 +10648,7 @@ __webpack_require__.r(__webpack_exports__);
 //          return guide.draw();
 //        };
 //      })(this));
-      $window.bind('scroll', onWindowScroll)
+      //$window.bind('scroll', onWindowScroll)
       
       $body.addClass('jquery-guide-prevent-scroll')
       
@@ -10824,14 +10826,24 @@ __webpack_require__.r(__webpack_exports__);
       // --------------------------------
       
       let scrollTimer
+      let scrollDetectDelay = 100
+      let lastPageYOffset
       let onScrollEvent = function() {
         if (scrollTimer) {
           clearTimeout(scrollTimer)
         }
+        //console.log('暫停')
         scrollTimer = setTimeout(() => {
+          if (lastPageYOffset !== window.pageYOffset) {
+            lastPageYOffset = window.pageYOffset
+            onScrollEvent()
+            return false
+          }
+          
           window.removeEventListener('scroll', onScrollEvent)
+          //console.log('後續')
           animateCallback()
-        }, 100)
+        }, scrollDetectDelay * 2)
       }
 
       let actionElement
@@ -10873,6 +10885,7 @@ __webpack_require__.r(__webpack_exports__);
         
         //console.log(action.element[0])
         scrollIntoView = true
+        lastPageYOffset = window.pageYOffset
         animateTemp = {
           action, 
           callback,
@@ -10929,6 +10942,7 @@ __webpack_require__.r(__webpack_exports__);
             block: "center", 
             inline: "nearest"
           })
+          //console.log('scrollIntoView smooth')
         }
         else if (action.scroll === 'start') {
           let elementTop = actionElement.offset().top
@@ -10944,18 +10958,27 @@ __webpack_require__.r(__webpack_exports__);
             block: "start", 
             inline: "nearest"
           })
+          
+          //console.log('scrollIntoView start')
         }
         
         //this.animateCallback(action, callback)
         scrollTimer = setTimeout(() => {
-          window.removeEventListener('scroll', this.onScrollEvent)
+          if (lastPageYOffset !== window.pageYOffset) {
+            lastPageYOffset = window.pageYOffset
+            onScrollEvent()
+            return false
+          }
+          
+          window.removeEventListener('scroll', onScrollEvent)
+          //console.log('first')
           animateCallback()
-        }, 100)
+        }, scrollDetectDelay)
       };
       
       let animateTemp = {}
       let animateCallback = function() {
-        
+        //console.log('animateCallback')
         let {action, callback, next, _this} = animateTemp
         
         if (action.backgroundFadeOut === true) {
@@ -11001,7 +11024,7 @@ __webpack_require__.r(__webpack_exports__);
             return function() {
               setupGlowPopup(_this, action)
               _this.layout.container.removeClass('disabled')
-              scrollIntoView = false
+              //scrollIntoView = false
               callback()
             };
           })(this));
@@ -11165,21 +11188,47 @@ __webpack_require__.r(__webpack_exports__);
   let $clickImage
   
   let isScrolling = false
-  window.addEventListener('scroll', () => {
-    isScrolling = true
-    setTimeout(() => {
-      isScrolling = false
-    }, 100)
-  })
+  let lastPageYOffset
+  let _this, element
+  let timer
   
-  TutorialManager.methods.showClick = async function (element) {
-    if (isScrolling === true) {
-      setTimeout(() => {
-        this.showClick(element)
-      }, 50)
-      return false
+  let onWindowScrollEvent = () => {
+    isScrolling = true
+    if (timer) {
+      clearTimeout(timer)
     }
     
+    timer = setTimeout(() => {
+      if (lastPageYOffset !== window.pageYOffset) {
+        lastPageYOffset = window.pageYOffset
+        onWindowScrollEvent()
+        return false
+      }
+      
+      isScrolling = false
+      //console.log(isScrolling)
+      if (_this) {
+        //console.log('continue')
+        _this.showClickExecute(element)
+      }
+    }, 200)
+  }
+  
+  TutorialManager.methods.showClick = async function (e) {
+    lastPageYOffset = window.pageYOffset
+    element = e
+    _this = this
+    window.addEventListener('scroll', onWindowScrollEvent)
+    
+    await this.lib.VueHelper.sleep(200)
+    if (isScrolling === false) {
+      //console.log('first')
+      this.showClickExecute(element)
+    }
+  }
+   
+  TutorialManager.methods.showClickExecute = async function (element) {
+    window.removeEventListener('scroll', onWindowScrollEvent)
     if (!$clickImage) {
       $clickImage = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.ClickImage)
     }
@@ -11205,7 +11254,14 @@ __webpack_require__.r(__webpack_exports__);
       height = element.clientHeight
     }
     
-    let {top, left} = element
+    let {top, left, bottom} = element
+    
+    if (typeof(top) === 'number' 
+            && typeof(bottom) === 'number'
+            && top + bottom > window.innerHeight) {
+      top = top - window.pageYOffset
+    }
+    
     if (typeof(width) !== 'number') {
       width = 2
       height = 2
@@ -11247,7 +11303,10 @@ __webpack_require__.r(__webpack_exports__);
     //afterStyle.left = (left + 10)
     
     //console.log(beforeStyle, afterStyle)
-    
+//    alert(JSON.stringify({
+//      ...afterStyle,
+//      pageYOffset: window.pageYOffset
+//    }, null , 2))
     $clickImage.css(beforeStyle)
     
     //$clickImage.animate(afterStyle, 1000, () => {})

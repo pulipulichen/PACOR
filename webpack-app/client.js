@@ -168,7 +168,9 @@ let VueController = {
   //},
   mounted: function () {
     this.lib.AxiosHelper.setErrorHandler((error) => {
-      this.$refs.ErrorHandler.addErorr(error)
+      if (this.$refs.ErrorHandler) {
+        this.$refs.ErrorHandler.addError(error)
+      }
     })
     
     this.lib.DayJSHelper.setI18N((name, data) => {
