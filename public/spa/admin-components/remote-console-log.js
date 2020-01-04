@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".log-referer[data-v-0d0c60e3] {\n  max-width: 4em;\n  overflow: hidden;\n  text-overflow: clip;\n  white-space: nowrap;\n  word-break: break-all;\n}\n", "",{"version":3,"sources":["RemoteConsoleLog.less?vue&type=style&index=0&id=0d0c60e3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,gBAAgB;EAChB,mBAAmB;EACnB,mBAAmB;EACnB,qBAAqB;AACvB","file":"RemoteConsoleLog.less?vue&type=style&index=0&id=0d0c60e3&lang=less&scoped=true&","sourcesContent":[".log-referer[data-v-0d0c60e3] {\n  max-width: 4em;\n  overflow: hidden;\n  text-overflow: clip;\n  white-space: nowrap;\n  word-break: break-all;\n}\n"]}]);
+exports.push([module.i, ".log-referer[data-v-0d0c60e3] {\n  max-width: 4em;\n  overflow: hidden;\n  text-overflow: clip;\n  white-space: nowrap;\n  word-break: break-all;\n}\n.log-message .log-message-pre[data-v-0d0c60e3] {\n  white-space: pre;\n  margin: 0;\n  max-width: 60vw;\n  overflow-x: auto;\n  overflow-y: hidden;\n}\n", "",{"version":3,"sources":["RemoteConsoleLog.less?vue&type=style&index=0&id=0d0c60e3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,gBAAgB;EAChB,mBAAmB;EACnB,mBAAmB;EACnB,qBAAqB;AACvB;AACA;EACE,gBAAgB;EAChB,SAAS;EACT,eAAe;EACf,gBAAgB;EAChB,kBAAkB;AACpB","file":"RemoteConsoleLog.less?vue&type=style&index=0&id=0d0c60e3&lang=less&scoped=true&","sourcesContent":[".log-referer[data-v-0d0c60e3] {\n  max-width: 4em;\n  overflow: hidden;\n  text-overflow: clip;\n  white-space: nowrap;\n  word-break: break-all;\n}\n.log-message .log-message-pre[data-v-0d0c60e3] {\n  white-space: pre;\n  margin: 0;\n  max-width: 60vw;\n  overflow-x: auto;\n  overflow-y: hidden;\n}\n"]}]);
 
 
 /***/ }),
@@ -112,11 +112,9 @@ var render = function() {
                     }
                   },
                   [
-                    _vm._v(
-                      "\r\n            " +
-                        _vm._s(log.message) +
-                        "\r\n          "
-                    )
+                    _c("pre", { staticClass: "log-message-pre" }, [
+                      _vm._v(_vm._s(log.message))
+                    ])
                   ]
                 ),
                 _vm._v(" "),

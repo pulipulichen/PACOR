@@ -28,7 +28,7 @@
           <td v-bind:data-label="$t('Message')"
               v-bind:title="log.message"
               class="log-message">
-            {{ log.message }}
+            <pre class="log-message-pre">{{ log.message }}</pre>
           </td>
           <td v-bind:data-label="$t('Time')"
               v-bind:title="log.created_at"

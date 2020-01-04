@@ -19,11 +19,18 @@ export default function (PACORTestManager) {
             arg = arg.join('\n')
           }
           else if (typeof(arg) === 'object') {
-            if (typeof(arg.message) === 'string') {
-              arg = arg.message
+            if (typeof(arg.stack) === 'string') {
+              arg = arg.stack.trim()
             }
             else {
               arg = JSON.stringify(arg, null, 2)
+              if (arg.startsWith('{')) {
+                arg = arg.slice(1)
+              }
+              if (arg.endsWith('}')) {
+                arg = arg.slice(0, -1)
+              }
+              arg = arg.trim()
             }
           }
           message.push(arg)

@@ -7,7 +7,7 @@ export default function (StyleManager) {
   }
   
   StyleManager.computed.detectOS = function () {
-    let platform = window.navigation.platform
+    let platform = window.navigator.platform
     if (typeof(osMapping[platform]) === 'string') {
       platform = osMapping[platform]
     }
