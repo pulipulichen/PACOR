@@ -23,6 +23,7 @@ let IndividualReading = {
     //this._testSearch()  // for test
     //this._testTutorial()
     //this._testTutorialShowClick()
+    //console.log(this.lib.style.scrollBarWidth)
   },
   destroyed () {
     //console.log('退場了')

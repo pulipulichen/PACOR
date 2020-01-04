@@ -1,3 +1,5 @@
+import TempScrollBox from './lib/TempScrollBox.js'
+
 export default function (StyleManager) {
   
   StyleManager.computed.isLeftHanded = function () {
@@ -18,5 +20,9 @@ export default function (StyleManager) {
   
   StyleManager.computed.params = function () {
     return this.config.styleConfig
+  }
+  
+  StyleManager.computed.scrollBarWidth = function () {
+    return (new TempScrollBox()).width
   }
 }
