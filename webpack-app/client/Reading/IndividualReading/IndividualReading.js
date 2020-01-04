@@ -24,10 +24,7 @@ let IndividualReading = {
     //this._testTutorial()
     //this._testTutorialShowClick()
     //console.log(this.lib.style.scrollBarWidth)
-    console.log({
-      os: this.lib.style.detectOS,
-      browser: this.lib.style.detectBrowser,
-    })
+    //this._testDetect()
   },
   destroyed () {
     //console.log('退場了')

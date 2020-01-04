@@ -70,4 +70,11 @@ export default function (IndividualReading) {
     }
     await this.lib.TutorialManager.showClick(icon)
   }
+  
+  IndividualReading.methods._testDetect = async function () {
+    console.log({
+      os: this.lib.style.detectOS,
+      browser: this.lib.style.detectBrowser,
+    })
+  }
 }

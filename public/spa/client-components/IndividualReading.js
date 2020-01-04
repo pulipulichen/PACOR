@@ -623,10 +623,7 @@ let IndividualReading = {
     //this._testTutorial()
     //this._testTutorialShowClick()
     //console.log(this.lib.style.scrollBarWidth)
-    console.log({
-      os: this.lib.style.detectOS,
-      browser: this.lib.style.detectBrowser,
-    })
+    //this._testDetect()
   },
   destroyed () {
     //console.log('退場了')
@@ -1432,6 +1429,13 @@ __webpack_require__.r(__webpack_exports__);
       height: 10
     }
     await this.lib.TutorialManager.showClick(icon)
+  }
+  
+  IndividualReading.methods._testDetect = async function () {
+    console.log({
+      os: this.lib.style.detectOS,
+      browser: this.lib.style.detectBrowser,
+    })
   }
 });
 
