@@ -6431,6 +6431,9 @@ let DayJSHelper = {
   format: function (unixMS) {
     return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(unixMS).format('YYYY-MM-DD HH:mm:ss')
   },
+  formatMMSS: function (unixMS) {
+    return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(unixMS).format('mm:ss')
+  },
   formatHHMMSS: function (seconds) {
     if (typeof(seconds) !== 'number') {
       return seconds

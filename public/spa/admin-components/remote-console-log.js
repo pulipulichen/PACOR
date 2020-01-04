@@ -49,7 +49,85 @@ var render = function() {
     _c("h1", [_vm._v(_vm._s(_vm.$t("Remote Console Log")))]),
     _vm._v(" "),
     _c("div", { staticClass: "ui segment log-list" }, [
-      _vm._v("\r\n    logs....sss\r\n  ")
+      _c("table", { staticClass: "ui unstackable celled table" }, [
+        _c("thead", [
+          _c("tr", [
+            _c("th", [_vm._v(_vm._s(_vm.$t("Webpage")))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.$t("User")))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.$t("Message")))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.$t("Time")))])
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.logs, function(log) {
+            return _c("tr", { key: log.id, class: log.type }, [
+              _c(
+                "td",
+                {
+                  staticClass: "log-referer",
+                  attrs: { "data-label": _vm.$t("Webpage"), title: log.referer }
+                },
+                [
+                  _vm._v(
+                    "\r\n            " +
+                      _vm._s(_vm.parseURI(log.referer)) +
+                      "\r\n          "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "log-user",
+                  attrs: { "data-label": _vm.$t("User"), title: log.user }
+                },
+                [
+                  _vm._v(
+                    "\r\n            " +
+                      _vm._s(_vm.parseIP(log.user)) +
+                      "\r\n          "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "log-message",
+                  attrs: { "data-label": _vm.$t("Message"), title: log.message }
+                },
+                [
+                  _vm._v(
+                    "\r\n            " + _vm._s(log.message) + "\r\n          "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "log-time",
+                  attrs: { "data-label": _vm.$t("Time"), title: log.created_at }
+                },
+                [
+                  _vm._v(
+                    "\r\n            " +
+                      _vm._s(_vm.parseCompactDate(log.created_at)) +
+                      "\r\n          "
+                  )
+                ]
+              )
+            ])
+          }),
+          0
+        )
+      ])
     ])
   ])
 }
@@ -129,7 +207,7 @@ let RemoteConsoleLog = {
     return {
       logs: [],
       afterTime: null,
-      intervalSeconds: 5000
+      intervalSeconds: 5
     }
   },
 //  components: {
@@ -147,14 +225,53 @@ let RemoteConsoleLog = {
         afterTime: this.afterTime
       })
       
-      console.log(logs)
-      logs.reverse()
-      this.logs = this.logs.concat(logs)
+      //console.log(logs)
+      //logs.reverse()
+      if (Array.isArray(logs) && logs.length > 0) {
+        this.logs = logs.concat(this.logs)
+      }
       
       this.afterTime = (new Date()).getTime()
       
       await this.lib.VueHelper.sleep(this.intervalSeconds * 1000)
       this.load()
+    },
+    parseURI (url) {
+      if (!url) {
+        return undefined
+      }
+      
+      if (url.endsWith('/')) {
+        url = url.slice(0, -1)
+      }
+      
+      return '...' + url.slice(url.lastIndexOf('/'))
+    },
+    parseIP (ip) {
+      if (!ip) {
+        return undefined
+      }
+      return '..' + ip.slice(ip.lastIndexOf('.'))
+    },
+//    parseFullDate (unix) {
+//      return this.lib.DayJSHelper.format(unix * 1000)
+//    },
+    parseCompactDate (time) {
+      if (!time) {
+        return undefined
+      }
+      // 只有給分鐘跟秒
+      // "2020-01-04T12:21:17.000Z"
+      
+      return time.split(':')
+              .slice(1)
+              .join(':')
+      
+//      "2020-01-04T12:21:17.000Z".slice(time.indexOf('T') + 1, time.lastIndexOf('.'))
+//              .split(':')
+//              .slice(1)
+//              .join(':')
+      
     }
   } // methods
 }

@@ -110,6 +110,9 @@ let DayJSHelper = {
   format: function (unixMS) {
     return dayjs(unixMS).format('YYYY-MM-DD HH:mm:ss')
   },
+  formatMMSS: function (unixMS) {
+    return dayjs(unixMS).format('mm:ss')
+  },
   formatHHMMSS: function (seconds) {
     if (typeof(seconds) !== 'number') {
       return seconds

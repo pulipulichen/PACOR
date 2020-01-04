@@ -1,6 +1,42 @@
 <div class="RemoteConsoleLog">
   <h1>{{ $t('Remote Console Log') }}</h1>
   <div class="ui segment log-list">
-    logs....sss
+    <table class="ui unstackable celled table">
+      <thead>
+        <tr>
+          <th>{{ $t('Webpage') }}</th>
+          <th>{{ $t('User') }}</th>
+          <!-- <th>{{ $t('Type') }}</th> -->
+          <th>{{ $t('Message') }}</th>
+          <th>{{ $t('Time') }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="log in logs"
+            v-bind:key="log.id"
+            v-bind:class="log.type">
+          <td v-bind:data-label="$t('Webpage')"
+              v-bind:title="log.referer"
+              class="log-referer">
+            {{ parseURI(log.referer) }}
+          </td>
+          <td v-bind:data-label="$t('User')"
+              v-bind:title="log.user"
+              class="log-user">
+            {{ parseIP(log.user) }}
+          </td>
+          <td v-bind:data-label="$t('Message')"
+              v-bind:title="log.message"
+              class="log-message">
+            {{ log.message }}
+          </td>
+          <td v-bind:data-label="$t('Time')"
+              v-bind:title="log.created_at"
+              class="log-time">
+            {{ parseCompactDate(log.created_at) }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
