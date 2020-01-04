@@ -2555,7 +2555,7 @@ __webpack_require__.r(__webpack_exports__);
         
         for (let i = 0; i < arguments.length; i++) {
           let arg = arguments[i]
-          if (Array.isArray(arg)) {
+          if (Array.isArray(arg) && typeof(arg[0]) !== 'object') {
             arg = arg.join('\n')
           }
           else if (typeof(arg) === 'object') {
