@@ -69,6 +69,13 @@ class Annotation extends WebpageUserBaseController {
     let cacheKey = Cache.key('Controllers.Client.Annotation.list', query)
     return await Cache.rememberWait([webpage, user, this.modelName], cacheKey, 3, async () => {
       query.withCount = true
+      
+      let isEnableCollaboration = await user.isEnableCollaboration(webpage)
+      // console.log({isEnableCollaboration})
+      if (isEnableCollaboration === false) {
+        query.findUserID = user.primaryKeyValue
+      }
+      
       let annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
 
       // 來做計算

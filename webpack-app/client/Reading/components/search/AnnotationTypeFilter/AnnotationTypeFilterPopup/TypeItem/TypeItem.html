@@ -21,7 +21,9 @@
              v-bind:title="othersUsername" />
       </span>
       <span class="column username">
-        {{ othersUsername }}
+        <span class="username-container">
+          {{ othersUsername }}
+        </span>
       </span>
       <span class="column">
         :
@@ -47,7 +49,9 @@
          v-bind:title="username"  />
   </span>
   <span class="column username">
+    <span class="username-container">
     {{ username }}
+    </span>
   </span>
   <span class="column">
     :

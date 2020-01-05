@@ -12,7 +12,9 @@
   </user-avatar>
   
   <div class="username">
-    {{ lib.auth.username }}
+    <span class="username-container">
+      {{ lib.auth.username }}
+    </span>
     <div class="step">
       <template v-if="lib.auth.currentStep !== 'FreeReading'">
         {{ $t('In {0} step', [$t('READING_PROGRESS.' + lib.auth.currentStep)]) }}

@@ -4167,9 +4167,13 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("span", { staticClass: "column username" }, [
-                    _vm._v(
-                      "\r\n        " + _vm._s(_vm.othersUsername) + "\r\n      "
-                    )
+                    _c("span", { staticClass: "username-container" }, [
+                      _vm._v(
+                        "\r\n          " +
+                          _vm._s(_vm.othersUsername) +
+                          "\r\n        "
+                      )
+                    ])
                   ]),
                   _vm._v(" "),
                   _c("span", { staticClass: "column" }, [
@@ -4208,7 +4212,9 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("span", { staticClass: "column username" }, [
-        _vm._v("\r\n    " + _vm._s(_vm.username) + "\r\n  ")
+        _c("span", { staticClass: "username-container" }, [
+          _vm._v("\r\n    " + _vm._s(_vm.username) + "\r\n    ")
+        ])
       ]),
       _vm._v(" "),
       _c("span", { staticClass: "column" }, [
@@ -4411,7 +4417,10 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("div", { staticClass: "username" }, [
-        _vm._v("\r\n    " + _vm._s(_vm.lib.auth.username) + "\r\n    "),
+        _c("span", { staticClass: "username-container" }, [
+          _vm._v("\r\n      " + _vm._s(_vm.lib.auth.username) + "\r\n    ")
+        ]),
+        _vm._v(" "),
         _c(
           "div",
           { staticClass: "step" },

@@ -645,6 +645,18 @@ let IndividualReading = {
       this.lib.AnnotationPanel = this.$refs.AnnotationPanel
       this.lib.SectionManager = this.$refs.SectionManager
       //console.log(this.lib.AnnotationPanel)
+      
+      this.initNavComponentToLib()
+    },
+    initNavComponentToLib () {
+       if (!this.$refs.nav.$refs.AnnotationTypeFilter) {
+        setTimeout(() => {
+          this.initNavComponentToLib()
+        }, 100)
+        return false
+      }
+      
+      this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
     },
     onChecklistComplete () {
       //throw 'onChecklistComplete'
