@@ -66,8 +66,9 @@ let SectionManager = {
         throw new Error('this.query is incorrect.')
       }
       
-      this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init', this.query)
-      //console.log(this.sectionsData)
+      let result = await this.lib.AxiosHelper.get('/client/Section/init', this.query)
+      console.log(result)
+      this.sectionsData = result
       
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = $('[data-pacor-section-seq-id]').toArray()

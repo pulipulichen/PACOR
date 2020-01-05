@@ -57,10 +57,14 @@ let SectionPanel = {
         return null
       }
       
-      this.isChecklistSubmitted = (this.sectionsData
-              && this.sectionsData.checklistAnnotation
-              && typeof(this.sectionsData.checklistAnnotation[this.sectionSeqID]) !== 'undefined' )
+      //this.isChecklistSubmitted = (this.sectionsData
+      //        && this.sectionsData.checklistAnnotation
+      //        && typeof(this.sectionsData.checklistAnnotation[this.sectionSeqID]) !== 'undefined' )
       //console.log(this.sectionsData, this.isChecklistSubmitted)
+      
+      this.isChecklistSubmitted = (this.sectionsData
+              && Array.isArray(this.sectionsData.checklistSubmitted)
+              && this.sectionsData.checklistSubmitted[this.sectionSeqID] === true )
     }
   } // methods
 }

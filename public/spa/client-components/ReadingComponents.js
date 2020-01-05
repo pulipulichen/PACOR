@@ -24204,8 +24204,9 @@ let SectionManager = {
         throw new Error('this.query is incorrect.')
       }
       
-      this.sectionsData = await this.lib.AxiosHelper.get('/client/Section/init', this.query)
-      //console.log(this.sectionsData)
+      let result = await this.lib.AxiosHelper.get('/client/Section/init', this.query)
+      console.log(result)
+      this.sectionsData = result
       
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
       let sectionNodes = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-section-seq-id]').toArray()
@@ -24475,6 +24476,14 @@ let SectionAnnotationEditorButton = {
       })
     },
     onAnnotationAdd (annotation) {
+      if (Array.isArray(this.sectionsData.annotation) === false) {
+        this.sectionsData.annotation = []
+      }
+      while (typeof(this.sectionsData.annotation[this.sectionSeqID]) !== 'object') {
+        this.sectionsData.annotation.push({
+          annotations: []
+        })
+      }
       this.sectionsData.annotation[this.sectionSeqID].annotations.unshift(annotation)
     },
     onAnnotationUpdate (annotation) {
@@ -25411,10 +25420,14 @@ let SectionPanel = {
         return null
       }
       
-      this.isChecklistSubmitted = (this.sectionsData
-              && this.sectionsData.checklistAnnotation
-              && typeof(this.sectionsData.checklistAnnotation[this.sectionSeqID]) !== 'undefined' )
+      //this.isChecklistSubmitted = (this.sectionsData
+      //        && this.sectionsData.checklistAnnotation
+      //        && typeof(this.sectionsData.checklistAnnotation[this.sectionSeqID]) !== 'undefined' )
       //console.log(this.sectionsData, this.isChecklistSubmitted)
+      
+      this.isChecklistSubmitted = (this.sectionsData
+              && Array.isArray(this.sectionsData.checklistSubmitted)
+              && this.sectionsData.checklistSubmitted[this.sectionSeqID] === true )
     }
   } // methods
 }

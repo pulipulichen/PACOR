@@ -40,6 +40,14 @@ let SectionAnnotationEditorButton = {
       })
     },
     onAnnotationAdd (annotation) {
+      if (Array.isArray(this.sectionsData.annotation) === false) {
+        this.sectionsData.annotation = []
+      }
+      while (typeof(this.sectionsData.annotation[this.sectionSeqID]) !== 'object') {
+        this.sectionsData.annotation.push({
+          annotations: []
+        })
+      }
       this.sectionsData.annotation[this.sectionSeqID].annotations.unshift(annotation)
     },
     onAnnotationUpdate (annotation) {

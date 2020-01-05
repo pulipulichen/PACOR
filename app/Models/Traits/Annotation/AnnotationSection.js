@@ -26,10 +26,10 @@ class AnnotationSection {
       
       profiler.before('await user.isEnableCollaboration(webpage)')
       let isEnableCollaboration = await user.isEnableCollaboration(webpage)
-      if (isEnableCollaboration === false) {
-        profiler.finish()
-        return []
-      }
+//      if (isEnableCollaboration === false) {
+//        profiler.finish()
+//        return []
+//      }
       
       let cacheKey = Cache.key(`Annotation.buildSectionsAnnotationSummary`, query)
 
@@ -41,20 +41,24 @@ class AnnotationSection {
       
       let output = await Cache.rememberWait([webpage, user, 'Annotation'], cacheKey, cacheMinute, async () => {
         let section_id = 0
-        let output = []
+        //console.log(section_id)
+        let o = []
         while (true) {
           query.section_id = section_id
+          if (isEnableCollaboration === false) {
+            query.findUserID = user.primaryKeyValue
+          }
           let result = await this.buildSeqSectionAnnotation(webpage, user, query)
-          
-          //console.log(result)
+          //console.log('AAA')
+          console.log(result)
           if (Array.isArray(result.annotations) === false) {
             break
           }
-          output.push(result)
+          o.push(result)
           section_id++
           //break
         }
-        return output
+        return o
       })
       
       profiler.finish()
@@ -70,10 +74,10 @@ class AnnotationSection {
       
       profiler.before('await user.isEnableCollaboration(webpage)')
       let isEnableCollaboration = await user.isEnableCollaboration(webpage)
-      if (isEnableCollaboration === false) {
-        profiler.finish()
-        return []
-      }
+//      if (isEnableCollaboration === false) {
+//        profiler.finish()
+//        return []
+//      }
       
       let cacheKey = Cache.key(`Annotation.buildSeqSectionAnnotation`, query)
 
