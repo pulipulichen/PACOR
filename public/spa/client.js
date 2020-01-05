@@ -3709,7 +3709,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.isAdmin
     ? _c("i", {
-        staticClass: "yellow chess king icon",
+        staticClass: "yellow chess king icon AdminBadge",
         attrs: { title: _vm.$t("Administrator") }
       })
     : _vm._e()
@@ -3873,7 +3873,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.isYou
     ? _c("i", {
-        staticClass: "green id badge icon",
+        staticClass: "green id badge icon UserSelfBadge",
         attrs: { title: _vm.$t("You") }
       })
     : _vm._e()
@@ -14205,6 +14205,9 @@ let IframeMessageSegment = {
 //  },
   computed: {
     url () {
+      if (!this.message) {
+        return undefined
+      }
       if (this.message.startsWith('/')) {
         return this.config.baseURL + this.message
       }

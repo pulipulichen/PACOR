@@ -8,6 +8,9 @@ let IframeMessageSegment = {
 //  },
   computed: {
     url () {
+      if (!this.message) {
+        return undefined
+      }
       if (this.message.startsWith('/')) {
         return this.config.baseURL + this.message
       }

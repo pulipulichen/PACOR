@@ -59,6 +59,7 @@ let AnnotationDiscussionInput = {
   //},
   methods: {
     focus () {
+      //console.trace('force')
       let input = this.$refs.input
       input.focus()
       $(input).transition('glow')
