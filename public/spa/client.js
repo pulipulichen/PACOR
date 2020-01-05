@@ -3021,138 +3021,158 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.lib.auth.isEnableCollaboration
-    ? _c("span", { staticClass: "AnnotationInteractive" }, [
-        _vm.isNotMe
-          ? _c("span", { staticClass: "button-column" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "like ui compact button",
-                  class: _vm.computedLikesButtonClass,
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      $event.stopPropagation()
-                      return _vm.like($event)
+    ? _c(
+        "span",
+        {
+          staticClass: "AnnotationInteractive",
+          on: {
+            click: function($event) {
+              $event.stopPropagation()
+              return (function() {})($event)
+            },
+            touch: function($event) {
+              $event.stopPropagation()
+              return (function() {})($event)
+            }
+          }
+        },
+        [
+          _vm.isNotMe
+            ? _c("span", { staticClass: "button-column" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "like ui compact button",
+                    class: _vm.computedLikesButtonClass,
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        $event.stopPropagation()
+                        return _vm.like($event)
+                      },
+                      touch: function($event) {
+                        $event.stopPropagation()
+                        return (function() {})($event)
+                      }
                     }
-                  }
-                },
-                [
-                  _c("i", { staticClass: "thumbs up outline icon" }),
-                  _vm._v(" "),
-                  _vm.showLabel
-                    ? [
-                        _vm.likes > 0
-                          ? [
-                              _vm._v(
-                                "\r\n          " +
-                                  _vm._s(_vm.$t("{0} Likes", [_vm.likes])) +
-                                  "\r\n        "
-                              )
-                            ]
-                          : [
-                              _vm._v(
-                                "\r\n          " +
-                                  _vm._s(_vm.$t("Like")) +
-                                  "\r\n        "
-                              )
-                            ]
-                      ]
-                    : _vm.likes > 0
-                    ? [
-                        _vm._v(
-                          "\r\n        " + _vm._s(_vm.likes) + "\r\n      "
-                        )
-                      ]
-                    : _vm._e()
-                ],
-                2
-              )
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        !_vm.isNotMe && _vm.likes > 0
-          ? _c("span", { staticClass: "button-column" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "basic like ui compact button display-like",
-                  class: _vm.computedLikesButtonClass,
-                  attrs: { type: "button" }
-                },
-                [
-                  _c("i", { staticClass: "thumbs up outline icon" }),
-                  _vm._v(" "),
-                  _vm.showLabel
-                    ? [
-                        _vm._v(
-                          "\r\n        " +
-                            _vm._s(_vm.$t("{0} Likes", [_vm.likes])) +
-                            "\r\n      "
-                        )
-                      ]
-                    : [
-                        _vm._v(
-                          "\r\n        " + _vm._s(_vm.likes) + "\r\n      "
-                        )
-                      ]
-                ],
-                2
-              )
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        !_vm.enableComment && _vm.enableComment !== false
-          ? _c("span", { staticClass: "button-column" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "comments ui compact button",
-                  class: _vm.computedCommentsButtonClass,
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      $event.stopPropagation()
-                      return _vm.comment($event)
+                  },
+                  [
+                    _c("i", { staticClass: "thumbs up outline icon" }),
+                    _vm._v(" "),
+                    _vm.showLabel
+                      ? [
+                          _vm.likes > 0
+                            ? [
+                                _vm._v(
+                                  "\r\n          " +
+                                    _vm._s(_vm.$t("{0} Likes", [_vm.likes])) +
+                                    "\r\n        "
+                                )
+                              ]
+                            : [
+                                _vm._v(
+                                  "\r\n          " +
+                                    _vm._s(_vm.$t("Like")) +
+                                    "\r\n        "
+                                )
+                              ]
+                        ]
+                      : _vm.likes > 0
+                      ? [
+                          _vm._v(
+                            "\r\n        " + _vm._s(_vm.likes) + "\r\n      "
+                          )
+                        ]
+                      : _vm._e()
+                  ],
+                  2
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.isNotMe && _vm.likes > 0
+            ? _c("span", { staticClass: "button-column" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "basic like ui compact button display-like",
+                    class: _vm.computedLikesButtonClass,
+                    attrs: { type: "button" }
+                  },
+                  [
+                    _c("i", { staticClass: "thumbs up outline icon" }),
+                    _vm._v(" "),
+                    _vm.showLabel
+                      ? [
+                          _vm._v(
+                            "\r\n        " +
+                              _vm._s(_vm.$t("{0} Likes", [_vm.likes])) +
+                              "\r\n      "
+                          )
+                        ]
+                      : [
+                          _vm._v(
+                            "\r\n        " + _vm._s(_vm.likes) + "\r\n      "
+                          )
+                        ]
+                  ],
+                  2
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.enableComment && _vm.enableComment !== false
+            ? _c("span", { staticClass: "button-column" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "comments ui compact button",
+                    class: _vm.computedCommentsButtonClass,
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        $event.stopPropagation()
+                        return _vm.comment($event)
+                      }
                     }
-                  }
-                },
-                [
-                  _c("i", { staticClass: "comment outline icon" }),
-                  _vm._v(" "),
-                  _vm.showLabel
-                    ? [
-                        _vm.likes > 0
-                          ? [
-                              _vm._v(
-                                "\r\n          " +
-                                  _vm._s(
-                                    _vm.$t("{0} Comments", [_vm.comments])
-                                  ) +
-                                  "\r\n        "
-                              )
-                            ]
-                          : [
-                              _vm._v(
-                                "\r\n          " +
-                                  _vm._s(_vm.$t("Comment")) +
-                                  "\r\n        "
-                              )
-                            ]
-                      ]
-                    : _vm.comments > 0
-                    ? [
-                        _vm._v(
-                          "\r\n        " + _vm._s(_vm.comments) + "\r\n      "
-                        )
-                      ]
-                    : _vm._e()
-                ],
-                2
-              )
-            ])
-          : _vm._e()
-      ])
+                  },
+                  [
+                    _c("i", { staticClass: "comment outline icon" }),
+                    _vm._v(" "),
+                    _vm.showLabel
+                      ? [
+                          _vm.likes > 0
+                            ? [
+                                _vm._v(
+                                  "\r\n          " +
+                                    _vm._s(
+                                      _vm.$t("{0} Comments", [_vm.comments])
+                                    ) +
+                                    "\r\n        "
+                                )
+                              ]
+                            : [
+                                _vm._v(
+                                  "\r\n          " +
+                                    _vm._s(_vm.$t("Comment")) +
+                                    "\r\n        "
+                                )
+                              ]
+                        ]
+                      : _vm.comments > 0
+                      ? [
+                          _vm._v(
+                            "\r\n        " + _vm._s(_vm.comments) + "\r\n      "
+                          )
+                        ]
+                      : _vm._e()
+                  ],
+                  2
+                )
+              ])
+            : _vm._e()
+        ]
+      )
     : _vm._e()
 }
 var staticRenderFns = []

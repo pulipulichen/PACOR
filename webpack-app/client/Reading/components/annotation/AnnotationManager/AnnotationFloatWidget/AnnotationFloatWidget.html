@@ -11,16 +11,16 @@
        v-if="annotationCount > 0">
     
     <annotation-item
-        v-bind:config="config"
-        v-bind:status="status"
-        v-bind:lib="lib"
-        mode="full"
-        v-bind:annotation="annotation"
-        v-bind:findAnnotation="viewAnnotation"
-        v-bind:findUser="findUser"
-        v-bind:findType="findType"
-        
-        v-on:comment="viewAnnotationComment"></annotation-item>
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+      mode="full"
+      v-bind:annotation="annotation"
+      v-bind:findAnnotation="viewAnnotation"
+      v-bind:findUser="findUser"
+      v-bind:findType="findType"
+      v-on:comment="viewAnnotationComment">
+    </annotation-item>
     
     <div class="ui column grid footer-row">
       <div class="column"
