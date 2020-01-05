@@ -26,7 +26,7 @@ export default function (HTMLEditor) {
   } // HTMLEditor.computed.computedClass = function () {
 
   HTMLEditor.computed.isNoToolbar = function () {
-    return (this.lib.style.detectOS === 'iOS')
+    return (this.lib.style.detectOS === 'Mac OS')
   }
 
   HTMLEditor.computed.showContainer = function () {

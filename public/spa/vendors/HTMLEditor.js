@@ -521,7 +521,7 @@ __webpack_require__.r(__webpack_exports__);
   } // HTMLEditor.computed.computedClass = function () {
 
   HTMLEditor.computed.isNoToolbar = function () {
-    return (this.lib.style.detectOS === 'iOS')
+    return (this.lib.style.detectOS === 'Mac OS')
   }
 
   HTMLEditor.computed.showContainer = function () {

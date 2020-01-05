@@ -25,7 +25,8 @@ export default function (StyleManager) {
    * Mac OS
    */
   StyleManager.computed.detectOS = function () {
-    //return 'iOS'  // for test
+    //console.log('@TEST Detect OS: Mac OS')
+    //return 'Mac OS'  // for test
     
     
     return this.deviceDetect.osName
