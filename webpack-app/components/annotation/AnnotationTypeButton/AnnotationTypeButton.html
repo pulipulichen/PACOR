@@ -3,6 +3,7 @@
   v-bind:style="computedStyle"
   v-bind:class="computedClass"
   v-on:click.stop="$emit('find', type)"
+  v-on:touch.stop="$emit('find', type)"
   v-bind:title="typeName">
   {{ typeName }}
   <template v-if="count">
