@@ -1528,7 +1528,9 @@ let VueController = {
     })
     
     this.lib.AxiosHelper.setErrorHandler((error) => {
-      this.errors.push(error)
+      if (this.$refs.ErrorHandler) {
+        this.$refs.ErrorHandler.addError(error)
+      }
     })
     
     this.lib.style = this.$refs.style

@@ -9,7 +9,7 @@ let AnnotationDiscussionInput = {
   props: ['lib', 'status', 'config', 'annotation'],
   data() {    
     this.$i18n.locale = this.config.locale
-    
+    //console.log('建置了AnnotationDiscussionInput')
     let note = ''
     if (this.comment
             && typeof(this.comment.note) === 'string') {
@@ -82,7 +82,6 @@ let AnnotationDiscussionInput = {
       }
     },
     create: async function () {
-        
       //throw new Error('@TODO AnnotationDiscussionInput.comment()')
       let data = {
         annotationID: this.annotation.id,

@@ -741,7 +741,7 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   HTMLEditor.methods._summernoteOptionsToolbar = function () {
-    console.log({os: this.lib.style.detectOS})
+    //console.log({os: this.lib.style.detectOS})
     if (this.lib.style.detectOS === 'Mac OS') {
       return []
     }
