@@ -65,4 +65,11 @@ export default (AnnotationPanel) => {
     /*顯示出捲動後的高度值*/
     return bodyTop
   }
+  
+//  AnnotationPanel.methods.stopScrollPropagation = function (event) {
+//    event.stopPropagation(true)
+//    //event.preventDefault(true)
+//    //console.log('滾動了')
+//    return false
+//  }
 }
