@@ -41,7 +41,7 @@ export default (AnnotationPanel) => {
     
     //console.log(scrollTop, rect.middle, middle)
 
-    window.scrollTo({
+    this.lib.style.scrollTo({
       top: top, // 等於是往上捲半個可顯示的畫面
       behavior: 'smooth'
     })
