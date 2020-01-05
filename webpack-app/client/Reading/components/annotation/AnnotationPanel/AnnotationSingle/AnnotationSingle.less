@@ -13,16 +13,28 @@
       padding: 0.5em 0 !important;
     }
     
+    .ValidationButton {
+      vertical-align: top;
+    }
+    
     .display-time {
       display: inline-block;
       vertical-align: baseline;
       line-height: 2.3em;
       margin-right: 0.5em;
+      //padding-right: 0.5em;
     }
   } // ::v-deep .annotation-panel-buttons {
   
-  &.display-mode ::v-deep .annotation-panel-buttons {
-    margin-top: 0.5rem !important
+  &.display-mode {
+    ::v-deep .annotation-panel-buttons {
+      margin-top: 0.5rem !important;
+        
+      .display-time {
+        vertical-align: middle;
+        //padding-right: 0.5em;
+      }
+    }
   }
   
   .annotation-discussion {
