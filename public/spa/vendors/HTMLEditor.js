@@ -741,7 +741,8 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   HTMLEditor.methods._summernoteOptionsToolbar = function () {
-    if (this.lib.style.detectOS === 'iOS') {
+    console.log({os: this.lib.style.detectOS})
+    if (this.lib.style.detectOS === 'Mac OS') {
       return []
     }
     else {
@@ -760,7 +761,7 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   HTMLEditor.methods._summernoteOptionsEnableAirPopover = function () {
-    if (this.lib.style.detectOS === 'iOS') {
+    if (this.lib.style.detectOS === 'Mac OS') {
       return false
     }
     else {

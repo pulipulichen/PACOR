@@ -3750,8 +3750,12 @@ __webpack_require__.r(__webpack_exports__);
 //    return platform
 //  }
 
+  /**
+   * Mac OS
+   */
   StyleManager.computed.detectOS = function () {
     //return 'iOS'  // for test
+    
     
     return this.deviceDetect.osName
   }

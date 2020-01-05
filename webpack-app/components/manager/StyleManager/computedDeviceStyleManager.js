@@ -21,8 +21,12 @@ export default function (StyleManager) {
 //    return platform
 //  }
 
+  /**
+   * Mac OS
+   */
   StyleManager.computed.detectOS = function () {
     //return 'iOS'  // for test
+    
     
     return this.deviceDetect.osName
   }
