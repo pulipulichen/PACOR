@@ -192,9 +192,14 @@ let AnnotationEditorModules = {
       await this.lib.RangyManager.reloadMyHighlights()
     },
     onAdd: function () {
+      // 能不能...scrollIntoView呢？
+      this.scrollToAnnotation()
+      
       this.lib.AnnotationPanel.triggerEvent('add')
     },
     onUpdate: function () {
+      this.scrollToAnnotation()
+      
       //console.log('update')
       this.lib.AnnotationPanel.triggerEvent('update')
       this.$emit('update')
@@ -203,7 +208,7 @@ let AnnotationEditorModules = {
     onDelete: async function () {
       if (this.annotation 
               && typeof(this.annotation.id) !== 'number') {
-        throw 'Annotation ID is not existed.'
+        throw new Error('Annotation ID is not existed.')
       }
       
       let title = this.$t('Are you sure to delete this annotation?')
@@ -219,6 +224,8 @@ let AnnotationEditorModules = {
       await this.lib.AxiosHelper.get('/client/AnnotationSave/destroy', data)
 
       await this.reloadMyHighlights()
+
+      this.scrollToAnnotation()
 
       this.lib.AnnotationPanel.triggerEvent('delete')
       this.$emit('delete')
