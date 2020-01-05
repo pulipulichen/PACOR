@@ -58,6 +58,7 @@ let NotificationManager = {
         this.pause = false
         this.loadNotificationData()
       }
+      //console.log('focus')
     },
     blurEvent () {
       if (this.status.role !== 'reader') {
@@ -65,9 +66,11 @@ let NotificationManager = {
       }
       
       this.pause = true
+      //console.log('blur')
     },
     
     loadNotificationData: async function () {
+      //console.log({isLoading: this.isLoading, pause: this.pause})
       if (this.isLoading === true || this.pause === true) {
         return null
       }
@@ -78,13 +81,13 @@ let NotificationManager = {
       }
       //console.log(this.isLoading)
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/getNotification', data)
-      //console.log(result)
-      this.afterTime = (new Date()).getTime()
+      console.log({result})
       this.startReloadData()
       this.isLoading = false
       if (result === 0) {
         return null
       }
+      
       
       for (let key in result) {
         if (key === 'unreadNotifications') {
@@ -92,6 +95,8 @@ let NotificationManager = {
             this.status.notificationData.unreadNotifications = []
           }
           this.status.notificationData.unreadNotifications = this.status.notificationData.unreadNotifications.concat(result[key])
+          
+          this.afterTime = result[key].slice(-1).created_at_unixms
         }
         else {
           this.status.notificationData[key] = result[key]
@@ -110,6 +115,7 @@ let NotificationManager = {
       this.timer = setTimeout(() => {
         //console.log('重新讀取')
         if (this.timer === null) {
+          console.log('暫停了')
           return null
         }
         clearTimeout(this.timer)

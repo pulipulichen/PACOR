@@ -1,4 +1,16 @@
 module.exports = {
+  debug: {
+    enable: true,
+    enableRemoteConosleLog: true,
+    //forceMaxTimeoutMinutes: 0.4
+    //forceMaxTimeoutMinutes: 0.2
+    forceMaxTimeoutMinutes: 1,
+    test: {
+      minAnnotation: 4,
+      maxAnnotation: 9
+    }
+  },
+  
   /**
    * 選擇文字選擇器
    * @Array|String
@@ -101,7 +113,7 @@ module.exports = {
         defaultPermission: 'public',
       },
       notification: {
-        updateInterval: 30000
+        updateInterval: 10000
       },
       highlightAnnotation: {
         types: ['Clarified', 'Confused', 'MainIdea'],
@@ -283,15 +295,5 @@ module.exports = {
       }
     }
   }, // annotationTypeModules: {
-  debug: {
-    enable: true,
-    enableRemoteConosleLog: false,
-    //forceMaxTimeoutMinutes: 0.4
-    //forceMaxTimeoutMinutes: 0.2
-    forceMaxTimeoutMinutes: 1,
-    test: {
-      minAnnotation: 4,
-      maxAnnotation: 9
-    }
-  }
+  
 }

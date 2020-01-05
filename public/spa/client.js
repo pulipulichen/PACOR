@@ -345,7 +345,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Notifications":"通知","No Notifications":"沒有通知","Readers interacted with you":"跟您互動的讀者們"}}')
+  Component.options.__i18n.push('{"en":{"Readers interacted with you":"Reader interacted with you | Readers interacted with you"},"zh-TW":{"Notifications":"通知","No Notifications":"沒有通知","Readers interacted with you":"跟您互動的讀者 | 跟您互動的讀者們"}}')
   delete Component.options._Ctor
 }
 
@@ -2045,7 +2045,11 @@ var render = function() {
                       _c("span", { staticClass: "column" }, [
                         _vm._v(
                           "\r\n        " +
-                            _vm._s(_vm.$t("Readers interacted with you")) +
+                            _vm._s(
+                              _vm.$t("Readers interacted with you", [
+                                _vm.triggerUsers.length
+                              ])
+                            ) +
                             ":\r\n        "
                         )
                       ]),
@@ -7267,6 +7271,7 @@ let NotificationManager = {
         this.pause = false
         this.loadNotificationData()
       }
+      //console.log('focus')
     },
     blurEvent () {
       if (this.status.role !== 'reader') {
@@ -7274,9 +7279,11 @@ let NotificationManager = {
       }
       
       this.pause = true
+      //console.log('blur')
     },
     
     loadNotificationData: async function () {
+      //console.log({isLoading: this.isLoading, pause: this.pause})
       if (this.isLoading === true || this.pause === true) {
         return null
       }
@@ -7287,13 +7294,13 @@ let NotificationManager = {
       }
       //console.log(this.isLoading)
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/getNotification', data)
-      //console.log(result)
-      this.afterTime = (new Date()).getTime()
+      console.log({result})
       this.startReloadData()
       this.isLoading = false
       if (result === 0) {
         return null
       }
+      
       
       for (let key in result) {
         if (key === 'unreadNotifications') {
@@ -7301,6 +7308,8 @@ let NotificationManager = {
             this.status.notificationData.unreadNotifications = []
           }
           this.status.notificationData.unreadNotifications = this.status.notificationData.unreadNotifications.concat(result[key])
+          
+          this.afterTime = result[key].slice(-1).created_at_unixms
         }
         else {
           this.status.notificationData[key] = result[key]
@@ -7319,6 +7328,7 @@ let NotificationManager = {
       this.timer = setTimeout(() => {
         //console.log('重新讀取')
         if (this.timer === null) {
+          console.log('暫停了')
           return null
         }
         clearTimeout(this.timer)

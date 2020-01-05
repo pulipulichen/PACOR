@@ -48,6 +48,7 @@ class UserNotificationFind {
         }
         
         let unreadNotifications = await query.fetch()
+        //console.log(unreadNotifications.size())
         if (afterTime 
                 && (unreadNotifications === null || unreadNotifications.size() === 0)) {
           return 0
@@ -66,6 +67,7 @@ class UserNotificationFind {
       }
       
       // ----------------------------
+      //console.log({afterTime})
       if (afterTime) {
         return await doQuery()
       }

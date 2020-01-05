@@ -13,7 +13,7 @@
       <div class="ui segment trigger-users"
            v-if="triggerUsers.length > 0">
         <span class="column">
-        {{ $t('Readers interacted with you') }}:
+        {{ $t('Readers interacted with you', [triggerUsers.length]) }}:
         </span>
         <span class="column">
           <user-avatar-icons 
