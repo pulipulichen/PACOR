@@ -32,8 +32,8 @@ let Editor = {
     
     let noteReset = note
     if (noteReset) {
-      noteReset = this.lib.StringHelper.htmlTrim(noteReset)
-      noteReset = this.lib.StringHelper.htmlToText(noteReset)
+      //noteReset = this.lib.StringHelper.htmlTrim(noteReset)
+      noteReset = this.lib.StringHelper.htmlToTextTrim(noteReset, true)
     }
     
     return {
@@ -55,10 +55,10 @@ let Editor = {
     isNoteDifferent () {
       //let note = this.lib.StringHelper.htmlToText(this.note).trim()
       //console.log([this.note, this.noteReset, (this.note !== this.noteReset)])
-      let note = this.lib.StringHelper.htmlTrim(this.note)
-      note = this.lib.StringHelper.htmlToText(note, true).trim()
+      //let note = this.lib.StringHelper.htmlTrim(this.note)
+      let note = this.lib.StringHelper.htmlToTextTrim(this.note, true).trim()
       
-      let noteReset = this.noteReset.trim()
+      let noteReset = this.noteReset
       //let noteReset = this.lib.StringHelper.htmlTrim(this.noteReset)
       //let noteReset = this.lib.StringHelper.htmlToText(this.noteReset, true)
       //console.log([note, noteReset, (note !== noteReset)])
@@ -136,8 +136,8 @@ let Editor = {
             && Array.isArray(annotation.notes)
             && annotation.notes.length > 0) {
         this.note = annotation.notes[0].note
-        let noteReset = this.lib.StringHelper.htmlTrim(this.note)
-        this.noteReset = this.lib.StringHelper.htmlToText(noteReset).trim()
+        //let noteReset = this.lib.StringHelper.htmlTrim(this.note)
+        this.noteReset = this.lib.StringHelper.htmlToTextTrim(this.note, true)
         this.$refs.editor.html(this.note)
       }
     },
@@ -170,9 +170,8 @@ let Editor = {
       note = `<p>${note}</p>`
       this.note = note
       
-      let noteReset = this.lib.StringHelper.htmlTrim(note)
-      noteReset = this.lib.StringHelper.htmlToText(noteReset, true).trim()
-      this.noteReset = noteReset
+      //let noteReset = this.lib.StringHelper.htmlTrim(note)
+      this.noteReset = this.lib.StringHelper.htmlToTextTrim(note, true)
       
       if (this.$refs.editor) {
         this.$refs.editor.html(this.note)
