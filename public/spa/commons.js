@@ -3626,6 +3626,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _computedStyleManager_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./computedStyleManager.js */ "./webpack-app/components/manager/StyleManager/computedStyleManager.js");
 /* harmony import */ var _computedDeviceStyleManager_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./computedDeviceStyleManager.js */ "./webpack-app/components/manager/StyleManager/computedDeviceStyleManager.js");
 /* harmony import */ var _methodsStyleManager_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsStyleManager.js */ "./webpack-app/components/manager/StyleManager/methodsStyleManager.js");
+/* harmony import */ var _methodsScrollStyleManager_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsScrollStyleManager.js */ "./webpack-app/components/manager/StyleManager/methodsScrollStyleManager.js");
 let StyleManager = {
   props: ['lib', 'status', 'config'],
   data() {
@@ -3656,6 +3657,9 @@ Object(_computedDeviceStyleManager_js__WEBPACK_IMPORTED_MODULE_1__["default"])(S
 
 
 Object(_methodsStyleManager_js__WEBPACK_IMPORTED_MODULE_2__["default"])(StyleManager)
+
+
+Object(_methodsScrollStyleManager_js__WEBPACK_IMPORTED_MODULE_3__["default"])(StyleManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (StyleManager);
 
@@ -5081,6 +5085,28 @@ module.exports = { BROWSER_TYPES: BROWSER_TYPES, DEVICE_TYPES: DEVICE_TYPES, OS_
 
 /***/ })
 /******/ ]);
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/StyleManager/methodsScrollStyleManager.js":
+/*!**********************************************************************************!*\
+  !*** ./webpack-app/components/manager/StyleManager/methodsScrollStyleManager.js ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (StyleManager) {
+  
+  StyleManager.methods.scrollTo = function (options) {
+    window.scrollTo(options)
+  }
+  
+  StyleManager.methods.scrollIntoView = function (elemenet, options) {
+    element.scrollIntoView(options)
+  }
+});
 
 /***/ }),
 

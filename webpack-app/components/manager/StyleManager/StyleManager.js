@@ -29,4 +29,7 @@ computedDeviceStyleManager(StyleManager)
 import methodsStyleManager from './methodsStyleManager.js'
 methodsStyleManager(StyleManager)
 
+import methodsScrollStyleManager from './methodsScrollStyleManager.js'
+methodsScrollStyleManager(StyleManager)
+
 export default StyleManager
