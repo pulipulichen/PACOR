@@ -32,6 +32,10 @@ export default function (StyleManager) {
     return this.deviceDetect.osName
   }
   
+  StyleManager.computed.detectIsMacOS = function () {
+    return (this.detectOS === 'Mac OS')
+  }
+  
   StyleManager.computed.detectBrowser = function () {
     return this.deviceDetect.browserName
   }

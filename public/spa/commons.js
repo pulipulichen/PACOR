@@ -3761,6 +3761,10 @@ __webpack_require__.r(__webpack_exports__);
     return this.deviceDetect.osName
   }
   
+  StyleManager.computed.detectIsMacOS = function () {
+    return (this.detectOS === 'Mac OS')
+  }
+  
   StyleManager.computed.detectBrowser = function () {
     return this.deviceDetect.browserName
   }

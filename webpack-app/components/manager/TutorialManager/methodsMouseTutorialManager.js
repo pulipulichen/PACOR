@@ -78,6 +78,10 @@ export default function (TutorialManager) {
       top = top - window.pageYOffset
     }
     
+    if (this.lib.style.detectIsMacOS) {
+      top = top - 50
+    }
+    
     if (typeof(width) !== 'number') {
       width = 2
       height = 2

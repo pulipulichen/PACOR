@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".username[data-v-97ee9ca8] {\n  margin-left: 0.5em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-97ee9ca8] {\n  font-size: 1rem;\n  font-weight: normal;\n  line-height: 1.5em;\n}\n.avatar img[data-v-97ee9ca8] {\n  margin-left: 0.5em !important;\n}\n/*@media (max-width: 400px) {\n  .username .step {\n    display: none;\n  }\n}*/\n", "",{"version":3,"sources":["NavigationItems.less?vue&type=style&index=0&id=97ee9ca8&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,iBAAiB;AACnB;AACA;EACE,eAAe;EACf,mBAAmB;EACnB,kBAAkB;AACpB;AACA;EACE,6BAA6B;AAC/B;AACA;;;;EAIE","file":"NavigationItems.less?vue&type=style&index=0&id=97ee9ca8&lang=less&scoped=true&","sourcesContent":[".username[data-v-97ee9ca8] {\n  margin-left: 0.5em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-97ee9ca8] {\n  font-size: 1rem;\n  font-weight: normal;\n  line-height: 1.5em;\n}\n.avatar img[data-v-97ee9ca8] {\n  margin-left: 0.5em !important;\n}\n/*@media (max-width: 400px) {\n  .username .step {\n    display: none;\n  }\n}*/\n"]}]);
+exports.push([module.i, ".username[data-v-97ee9ca8] {\n  margin-left: 0.5em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-97ee9ca8] {\n  font-size: 1rem;\n  font-weight: normal;\n  line-height: 1.5em;\n}\n.avatar img[data-v-97ee9ca8] {\n  margin-left: 0.5em !important;\n}\n/*@media (max-width: 400px) {\n  .username .step {\n    display: none;\n  }\n}*/\n.search-input[data-v-97ee9ca8] {\n  padding-left: 0.5rem !important;\n  padding-right: 0 !important;\n}\n", "",{"version":3,"sources":["NavigationItems.less?vue&type=style&index=0&id=97ee9ca8&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,iBAAiB;AACnB;AACA;EACE,eAAe;EACf,mBAAmB;EACnB,kBAAkB;AACpB;AACA;EACE,6BAA6B;AAC/B;AACA;;;;EAIE;AACF;EACE,+BAA+B;EAC/B,2BAA2B;AAC7B","file":"NavigationItems.less?vue&type=style&index=0&id=97ee9ca8&lang=less&scoped=true&","sourcesContent":[".username[data-v-97ee9ca8] {\n  margin-left: 0.5em;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.username .step[data-v-97ee9ca8] {\n  font-size: 1rem;\n  font-weight: normal;\n  line-height: 1.5em;\n}\n.avatar img[data-v-97ee9ca8] {\n  margin-left: 0.5em !important;\n}\n/*@media (max-width: 400px) {\n  .username .step {\n    display: none;\n  }\n}*/\n.search-input[data-v-97ee9ca8] {\n  padding-left: 0.5rem !important;\n  padding-right: 0 !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -155,7 +155,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "item in-top" },
+                    { staticClass: "item in-top search-input" },
                     [
                       _c("search-input", {
                         attrs: {
@@ -219,7 +219,7 @@ var render = function() {
           ],
           null,
           false,
-          3728633475
+          3055790326
         )
       })
     : _vm._e()
