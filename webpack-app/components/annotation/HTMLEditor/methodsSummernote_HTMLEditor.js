@@ -18,11 +18,12 @@ export default function (HTMLEditor) {
     //})
   }
   
-  HTMLEditor.methods._summernoteOptions = function () {
-    let options = {
-      lang: this.config.locale,
-      //airMode: true,
-      toolbar: [
+  HTMLEditor.methods._summernoteOptionsToolbar = function () {
+    if (this.lib.style.detectOS === 'iOS') {
+      return []
+    }
+    else {
+      return [
         // [groupName, [list of button]]
         ['toolbar', ['link', 'picture', 'video']]
         
@@ -32,14 +33,31 @@ export default function (HTMLEditor) {
         ['para', ['ul', 'ol']],
         ['insert', ['link', 'picture', 'video']],
          */
-      ],
+      ]
+    }
+  }
+  
+  HTMLEditor.methods._summernoteOptionsEnableAirPopover = function () {
+    if (this.lib.style.detectOS === 'iOS') {
+      return false
+    }
+    else {
+      return true
+    }
+  }
+  
+  HTMLEditor.methods._summernoteOptions = function () {
+    let options = {
+      lang: this.config.locale,
+      //airMode: true,
+      toolbar: this._summernoteOptionsToolbar(),
       popover: {
         air: [
           ['font', ['forecolor', 'backcolor', 'bold', 'underline', 'clear']]
           //['font', ['bold', 'underline']]
         ]
       },
-      enableAirPopover: true,
+      enableAirPopover: this._summernoteOptionsEnableAirPopover(),
       enableStatusbar: false,
       toolbarAlign: 'center',
       toolbarCompact: true,

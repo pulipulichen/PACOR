@@ -1,13 +1,25 @@
-.html-editor-container ::v-deep .note-editor {
-  .note-editable {
-    overflow-y: auto;
-    //margin-top: 10px !important;
-    padding-top: 0.5em !important;
+.html-editor-container {
+  ::v-deep .note-editor {
+    .note-editable {
+      overflow-y: auto;
+      //margin-top: 10px !important;
+      padding-top: 0.5em !important;
+    }
+
+    .note-toolbar .note-dropdown-menu {
+      position: fixed;
+    }
   }
   
-  .note-toolbar .note-dropdown-menu {
-    position: fixed;
+  &.labeled.no-toolbar {
+    .ui.top.left.attached.large.label {
+      width: 100% !important;
+    }
+    
+    ::v-deep .note-editor {
+      .note-editable {
+        margin-top: 2.5em !important;
+      }
+    }
   }
-  
-  
 }

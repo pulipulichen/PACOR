@@ -139,12 +139,14 @@ export default (RangyManager) => {
   
   RangyManager.methods.getSectionAnnotationElement = function (annotation) {
     if (!annotation) {
-      return undefined
+      //return undefined
+      throw new Error('Annotation is undefined')
     }
     
     let id = annotation.id
     let element = $(`.SectionPanel > .SectionAnnotationList .AnnotationItem[data-annotation-id="${id}"]:first`)
     if (element.length === 0) {
+      //throw new Error('Annotation is not found. ID: ' + id)
       return undefined
     }
     

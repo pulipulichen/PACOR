@@ -17,9 +17,17 @@ export default function (HTMLEditor) {
     if (this.lib.style.isLeftHanded) {
       classList.push('editor-left-handed')
     }
+    
+    if (this.isNoToolbar === true) {
+      classList.push('no-toolbar')
+    }
 
     return classList
   } // HTMLEditor.computed.computedClass = function () {
+
+  HTMLEditor.computed.isNoToolbar = function () {
+    return (this.lib.style.detectOS === 'iOS')
+  }
 
   HTMLEditor.computed.showContainer = function () {
 //    console.log(this.editable, this.contents, (this.editable === false 
@@ -43,6 +51,10 @@ export default function (HTMLEditor) {
       }
 
       let padding = 46
+//      if (this.isNoToolbar === true) {
+//        padding = 3
+//      }
+      
       //if (this.label) {
       //  padding = padding + 30
       //}
@@ -50,7 +62,9 @@ export default function (HTMLEditor) {
       calc = `calc(${calc} - ${padding}px)`
       //console.log(calc)
       setTimeout(() => {
-        $(this.$refs.editorContainer).find('.note-editable:visible').css('max-height', calc)
+        $(this.$refs.editorContainer)
+                .find('.note-editable:visible')
+                .css('max-height', calc)
         //console.log($(this.$refs.editorContainer).find('.note-editable:visible').length)
       }, 100)
 

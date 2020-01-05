@@ -13935,12 +13935,14 @@ __webpack_require__.r(__webpack_exports__);
   
   RangyManager.methods.getSectionAnnotationElement = function (annotation) {
     if (!annotation) {
-      return undefined
+      //return undefined
+      throw new Error('Annotation is undefined')
     }
     
     let id = annotation.id
     let element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`.SectionPanel > .SectionAnnotationList .AnnotationItem[data-annotation-id="${id}"]:first`)
     if (element.length === 0) {
+      //throw new Error('Annotation is not found. ID: ' + id)
       return undefined
     }
     
@@ -14502,7 +14504,9 @@ __webpack_require__.r(__webpack_exports__);
   RangyManager.methods.glowSectionAnnotation = function (annotation) {
     if (this.lib.AnnotationHelper.isPublicSectionAnnotation(annotation)) {
       let element = this.getSectionAnnotationElement(annotation)
-      element.transition('glow')
+      if (element) {
+        element.transition('glow')
+      }
       return true
     }
   }

@@ -157,7 +157,7 @@ exports.push([module.i, ".summernote.note-air-popover {\n  z-index: 102 !importa
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".html-editor-container[data-v-2b488c08]  .note-editor .note-editable {\n  overflow-y: auto;\n  padding-top: 0.5em !important;\n}\n.html-editor-container[data-v-2b488c08]  .note-editor .note-toolbar .note-dropdown-menu {\n  position: fixed;\n}\n", "",{"version":3,"sources":["HTMLEditor.summernote.local.less?vue&type=style&index=1&id=2b488c08&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,6BAA6B;AAC/B;AACA;EACE,eAAe;AACjB","file":"HTMLEditor.summernote.local.less?vue&type=style&index=1&id=2b488c08&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-2b488c08]  .note-editor .note-editable {\n  overflow-y: auto;\n  padding-top: 0.5em !important;\n}\n.html-editor-container[data-v-2b488c08]  .note-editor .note-toolbar .note-dropdown-menu {\n  position: fixed;\n}\n"]}]);
+exports.push([module.i, ".html-editor-container[data-v-2b488c08]  .note-editor .note-editable {\n  overflow-y: auto;\n  padding-top: 0.5em !important;\n}\n.html-editor-container[data-v-2b488c08]  .note-editor .note-toolbar .note-dropdown-menu {\n  position: fixed;\n}\n.html-editor-container.labeled.no-toolbar .ui.top.left.attached.large.label[data-v-2b488c08] {\n  width: 100% !important;\n}\n.html-editor-container.labeled.no-toolbar[data-v-2b488c08]  .note-editor .note-editable {\n  margin-top: 2.5em !important;\n}\n", "",{"version":3,"sources":["HTMLEditor.summernote.local.less?vue&type=style&index=1&id=2b488c08&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,6BAA6B;AAC/B;AACA;EACE,eAAe;AACjB;AACA;EACE,sBAAsB;AACxB;AACA;EACE,4BAA4B;AAC9B","file":"HTMLEditor.summernote.local.less?vue&type=style&index=1&id=2b488c08&lang=less&scoped=true&","sourcesContent":[".html-editor-container[data-v-2b488c08]  .note-editor .note-editable {\n  overflow-y: auto;\n  padding-top: 0.5em !important;\n}\n.html-editor-container[data-v-2b488c08]  .note-editor .note-toolbar .note-dropdown-menu {\n  position: fixed;\n}\n.html-editor-container.labeled.no-toolbar .ui.top.left.attached.large.label[data-v-2b488c08] {\n  width: 100% !important;\n}\n.html-editor-container.labeled.no-toolbar[data-v-2b488c08]  .note-editor .note-editable {\n  margin-top: 2.5em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -512,9 +512,17 @@ __webpack_require__.r(__webpack_exports__);
     if (this.lib.style.isLeftHanded) {
       classList.push('editor-left-handed')
     }
+    
+    if (this.isNoToolbar === true) {
+      classList.push('no-toolbar')
+    }
 
     return classList
   } // HTMLEditor.computed.computedClass = function () {
+
+  HTMLEditor.computed.isNoToolbar = function () {
+    return (this.lib.style.detectOS === 'iOS')
+  }
 
   HTMLEditor.computed.showContainer = function () {
 //    console.log(this.editable, this.contents, (this.editable === false 
@@ -538,6 +546,10 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       let padding = 46
+//      if (this.isNoToolbar === true) {
+//        padding = 3
+//      }
+      
       //if (this.label) {
       //  padding = padding + 30
       //}
@@ -545,7 +557,9 @@ __webpack_require__.r(__webpack_exports__);
       calc = `calc(${calc} - ${padding}px)`
       //console.log(calc)
       setTimeout(() => {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.editorContainer).find('.note-editable:visible').css('max-height', calc)
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.editorContainer)
+                .find('.note-editable:visible')
+                .css('max-height', calc)
         //console.log($(this.$refs.editorContainer).find('.note-editable:visible').length)
       }, 100)
 
@@ -726,11 +740,12 @@ __webpack_require__.r(__webpack_exports__);
     //})
   }
   
-  HTMLEditor.methods._summernoteOptions = function () {
-    let options = {
-      lang: this.config.locale,
-      //airMode: true,
-      toolbar: [
+  HTMLEditor.methods._summernoteOptionsToolbar = function () {
+    if (this.lib.style.detectOS === 'iOS') {
+      return []
+    }
+    else {
+      return [
         // [groupName, [list of button]]
         ['toolbar', ['link', 'picture', 'video']]
         
@@ -740,14 +755,31 @@ __webpack_require__.r(__webpack_exports__);
         ['para', ['ul', 'ol']],
         ['insert', ['link', 'picture', 'video']],
          */
-      ],
+      ]
+    }
+  }
+  
+  HTMLEditor.methods._summernoteOptionsEnableAirPopover = function () {
+    if (this.lib.style.detectOS === 'iOS') {
+      return false
+    }
+    else {
+      return true
+    }
+  }
+  
+  HTMLEditor.methods._summernoteOptions = function () {
+    let options = {
+      lang: this.config.locale,
+      //airMode: true,
+      toolbar: this._summernoteOptionsToolbar(),
       popover: {
         air: [
           ['font', ['forecolor', 'backcolor', 'bold', 'underline', 'clear']]
           //['font', ['bold', 'underline']]
         ]
       },
-      enableAirPopover: true,
+      enableAirPopover: this._summernoteOptionsEnableAirPopover(),
       enableStatusbar: false,
       toolbarAlign: 'center',
       toolbarCompact: true,
