@@ -1,10 +1,10 @@
 export default (List) => {
   List.computed.computedListStyle = function () {
     if (!this.panelData) {
-      return
+      return undefined
     }
     
-    let padding = 20
+    let padding = 40
     if (this.annotations.length < 2) {
       padding = 0
     }

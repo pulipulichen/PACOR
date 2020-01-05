@@ -650,7 +650,7 @@ __webpack_require__.r(__webpack_exports__);
     }
 
     this.status.search.keyword = "特別的"
-    return
+    //return
 
     // 先設定篩選條件
     this.lib.AnnotationPanel.findKeyword(this.status.search.keyword)

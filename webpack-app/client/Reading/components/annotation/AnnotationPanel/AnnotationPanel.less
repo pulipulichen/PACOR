@@ -56,6 +56,11 @@
     border: 2px solid white !important;
     border-radius: 2em !important;
     position: absolute !important;
+    
+    @media (max-width: 480px) {
+      position: fixed !important;
+      top: -1em !important;
+    }
 
     .close.icon {
       opacity: 1 !important;
@@ -94,7 +99,7 @@
     } 
 
     .close-container.floating.ui.label {
-      top: -1.2em !important;
+      top: -1.2em;
       left: calc(100% + 0.3em) !important;
 
       .close.icon {

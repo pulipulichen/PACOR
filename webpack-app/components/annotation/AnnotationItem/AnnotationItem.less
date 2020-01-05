@@ -46,6 +46,10 @@
   display: inline-block;
   vertical-align: top;
   line-height: 2em;
+  
+  @media (max-width: 480px) {
+    display: none !important;
+  }
 }
 
 .note {
@@ -85,6 +89,7 @@
     max-width: calc(100vw - 28em);
     text-overflow: ellipsis;
     overflow: hidden;
+    
     
   }
 }

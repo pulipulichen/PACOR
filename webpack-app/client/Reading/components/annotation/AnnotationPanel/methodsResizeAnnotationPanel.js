@@ -17,7 +17,7 @@ export default (AnnotationPanel) => {
       return false
     }
     resizeLocker = true
-
+    //console.log('start')
     //let body = $('body')
     if (!body) {
       body = $('body')
@@ -34,6 +34,8 @@ export default (AnnotationPanel) => {
     //alert(currentY)
     
     let maxTopGap = this.lib.style.params.AnnotationPanelMaxTopGap
+    //console.log(maxTopGap)
+    //maxTopGap = 0
     let minPanelHeight = this.lib.style.params.AnnotationPanelMinPanelHeight
 
     let moveEvent = (event) => {
@@ -41,23 +43,29 @@ export default (AnnotationPanel) => {
       if (!cY) {
         cY = event.touches[0].clientY
       }
+      
       if (this.lib.style.isSmallHeight === false) {
         if (cY < maxTopGap
                 || (window.innerHeight - cY) < minPanelHeight) {
+          //console.log('被限制1', window.innerHeight, cY, minPanelHeight, maxTopGap)
           return false
         }
       } else {
         if (cY < (maxTopGap / 2)
                 || (window.innerHeight - cY) < (minPanelHeight / 2)) {
+          //console.log('被限制2', window.innerHeight, cY, minPanelHeight, maxTopGap)
           return false
         }
       }
 
 
       let interval = currentY - cY
+      //console.log({interval, cY})
+      
       this.panelData.heightPX = this.panelData.heightPX + interval
       currentY = cY
       //console.log(this.heightPX)
+      //console.log(this.panelData.heightPX)
       //console.log(event)
       //event.preventDefault()
       //event.stopPropagation()

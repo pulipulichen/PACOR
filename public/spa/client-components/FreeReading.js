@@ -1322,7 +1322,7 @@ let CollaborativeReading = {
     
     //this._testUserFilter()
     //await this._testVerticalMenu()
-    //this._testSearch()
+    this._testSearch()
     //this._testErrorAuth()
     //this._testTutorial()
     //this._testTutorialShowClick()
