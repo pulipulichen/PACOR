@@ -71,6 +71,22 @@ let RemoteConsoleLog = {
 //              .slice(1)
 //              .join(':')
       
+    },
+    logTrClassList (log, i) {
+      let classList = [log.type]
+      
+      if (i < this.logs.length - 1) {
+        let nextLog = this.logs[(i + 1)]
+        
+        //console.log(nextLog.created_at_unixms, log.created_at_unixms)
+        if (nextLog.user !== log.user
+                || nextLog.referer !== log.referer
+                || (log.created_at_unixms - nextLog.created_at_unixms) > 3*60*1000) {
+          classList.push('bottom-gap')
+        }
+      }
+      
+      return classList.join(' ')
     }
   } // methods
 }

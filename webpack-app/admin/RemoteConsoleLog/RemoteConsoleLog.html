@@ -17,9 +17,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="log in logs"
+        <tr v-for="(log, i) in logs"
             v-bind:key="log.id"
-            v-bind:class="log.type">
+            v-bind:class="logTrClassList(log, i)">
           <td v-bind:data-label="$t('Webpage')"
               v-bind:title="log.referer"
               class="log-referer">
