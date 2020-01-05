@@ -659,7 +659,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationDiscussionInput[data-v-55f1394b] {\n  white-space: nowrap;\n  overflow: hidden;\n  padding-top: 0.5em;\n  border-top: 1px solid #ccc;\n}\nimg[data-v-55f1394b] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-55f1394b] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-55f1394b] {\n  width: calc(100% - 16em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-55f1394b] {\n  float: right;\n}\n.right-column > span[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-55f1394b] {\n  height: 42px;\n}\n.left-column[data-v-55f1394b] {\n  width: 8em;\n}\n.left-column[data-v-55f1394b],\n.center-column[data-v-55f1394b],\n.right-column[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["AnnotationDiscussionInput.less?vue&type=style&index=0&id=55f1394b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,0BAA0B;AAC5B;AACA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,cAAc;EACd,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,mCAAmC;EACnC,gCAAgC;AAClC;AACA;EACE,YAAY;AACd;AACA;EACE,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,YAAY;AACd;AACA;EACE,UAAU;AACZ;AACA;;;EAGE,qBAAqB;EACrB,sBAAsB;AACxB","file":"AnnotationDiscussionInput.less?vue&type=style&index=0&id=55f1394b&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionInput[data-v-55f1394b] {\n  white-space: nowrap;\n  overflow: hidden;\n  padding-top: 0.5em;\n  border-top: 1px solid #ccc;\n}\nimg[data-v-55f1394b] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-55f1394b] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-55f1394b] {\n  width: calc(100% - 16em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-55f1394b] {\n  float: right;\n}\n.right-column > span[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-55f1394b] {\n  height: 42px;\n}\n.left-column[data-v-55f1394b] {\n  width: 8em;\n}\n.left-column[data-v-55f1394b],\n.center-column[data-v-55f1394b],\n.right-column[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
+exports.push([module.i, ".AnnotationDiscussionInput[data-v-55f1394b] {\n  white-space: nowrap;\n  overflow: hidden;\n  padding-top: 0.5em;\n  border-top: 1px solid #ccc;\n}\nimg[data-v-55f1394b] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-55f1394b] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-55f1394b] {\n  width: calc(100% - 3em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-55f1394b] {\n  float: right;\n}\n.right-column > span[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-55f1394b] {\n  height: 42px;\n}\n.left-column[data-v-55f1394b] {\n  width: 8em;\n}\n.left-column[data-v-55f1394b],\n.center-column[data-v-55f1394b],\n.right-column[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["AnnotationDiscussionInput.less?vue&type=style&index=0&id=55f1394b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,0BAA0B;AAC5B;AACA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,cAAc;EACd,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,kCAAkC;EAClC,gCAAgC;AAClC;AACA;EACE,YAAY;AACd;AACA;EACE,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,YAAY;AACd;AACA;EACE,UAAU;AACZ;AACA;;;EAGE,qBAAqB;EACrB,sBAAsB;AACxB","file":"AnnotationDiscussionInput.less?vue&type=style&index=0&id=55f1394b&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionInput[data-v-55f1394b] {\n  white-space: nowrap;\n  overflow: hidden;\n  padding-top: 0.5em;\n  border-top: 1px solid #ccc;\n}\nimg[data-v-55f1394b] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-55f1394b] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-55f1394b] {\n  width: calc(100% - 3em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-55f1394b] {\n  float: right;\n}\n.right-column > span[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-55f1394b] {\n  height: 42px;\n}\n.left-column[data-v-55f1394b] {\n  width: 8em;\n}\n.left-column[data-v-55f1394b],\n.center-column[data-v-55f1394b],\n.right-column[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
 
 
 /***/ }),
@@ -1998,16 +1998,12 @@ var render = function() {
               _c(
                 "button",
                 {
-                  staticClass: "ui mini button",
+                  staticClass: "ui mini icon button",
                   class: { disabled: !_vm.isEnableSubmit },
                   attrs: { type: "button" },
                   on: { click: _vm.submit }
                 },
-                [
-                  _vm._v(
-                    "\r\n        " + _vm._s(_vm.$t("COMMENT")) + " \r\n      "
-                  )
-                ]
+                [_c("i", { staticClass: "edit icon" })]
               )
             ]
           : [
@@ -2015,18 +2011,12 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "ui mini button",
+                    staticClass: "ui mini icon button",
                     class: { disabled: !_vm.isEnableSubmit },
                     attrs: { type: "button" },
                     on: { click: _vm.submit }
                   },
-                  [
-                    _vm._v(
-                      "\r\n          " +
-                        _vm._s(_vm.$t("EDIT")) +
-                        " \r\n        "
-                    )
-                  ]
+                  [_c("i", { staticClass: "edit icon" })]
                 )
               ]),
               _vm._v(" "),
@@ -2045,14 +2035,6 @@ var render = function() {
       ],
       2
     ),
-    _vm._v(" "),
-    _c("div", { staticClass: "left-column" }, [
-      _c("img", { staticClass: "avatar", attrs: { src: _vm.status.avatar } }),
-      _vm._v(" "),
-      _c("div", { staticClass: "username" }, [
-        _vm._v("\r\n      " + _vm._s(_vm.username) + "\r\n    ")
-      ])
-    ]),
     _vm._v(" "),
     _c("div", { staticClass: "center-column ui field input-field" }, [
       _c("input", {
