@@ -128,7 +128,7 @@ export default function (CollaborativeReading) {
   CollaborativeReading.methods._testTutorial = async function () {
     
     await this.lib.VueHelper.sleep(3000)
-    window.scrollTo({
+    this.lib.style.scrollTo({
       top: 1500
     })
     

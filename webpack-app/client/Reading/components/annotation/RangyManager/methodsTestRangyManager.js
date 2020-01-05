@@ -21,7 +21,10 @@ export default (RangyManager) => {
     
     let elm = paragraph[0]
     
-    elm.scrollIntoView({
+//    elm.scrollIntoView({
+//      behavior: 'smooth'
+//    })
+    this.lib.style.scrollIntoView(elm, {
       behavior: 'smooth'
     })
     

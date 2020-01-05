@@ -119,7 +119,7 @@ export default function (Auth) {
       //console.log([this.currentStep, this.getCurrentStep()])
       //console.log(this.status.readingProgresses)
       
-      window.scrollTo({
+      this.lib.style.scrollTo({
         top: 0,
         behavior: 'smooth'
       })

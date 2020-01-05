@@ -5208,7 +5208,7 @@ __webpack_require__.r(__webpack_exports__);
       //console.log([this.currentStep, this.getCurrentStep()])
       //console.log(this.status.readingProgresses)
       
-      window.scrollTo({
+      this.lib.style.scrollTo({
         top: 0,
         behavior: 'smooth'
       })

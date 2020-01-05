@@ -15217,7 +15217,10 @@ __webpack_require__.r(__webpack_exports__);
     
     let elm = paragraph[0]
     
-    elm.scrollIntoView({
+//    elm.scrollIntoView({
+//      behavior: 'smooth'
+//    })
+    this.lib.style.scrollIntoView(elm, {
       behavior: 'smooth'
     })
     
