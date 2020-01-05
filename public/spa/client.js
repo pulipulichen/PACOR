@@ -10676,6 +10676,7 @@ __webpack_require__.r(__webpack_exports__);
     let $window = $(window)
     let $body = $('body')
     let completeCallback
+    let vm
     
     let guide
     
@@ -10699,6 +10700,10 @@ __webpack_require__.r(__webpack_exports__);
           action = _ref[_i];
           guide.addAction(action);
         }
+      }
+      
+      if (options.vm) {
+        vm = options.vm
       }
       
       completeCallback = options.complete ? options.complete : null
@@ -10876,7 +10881,8 @@ __webpack_require__.r(__webpack_exports__);
           glowTippy.destroy()
           glowTippy = undefined
         }
-        window.scrollTo({
+        //window.scrollTo({
+        vm.lib.style.scrollTo({
           top: currentScrollTop,
           behavior: "smooth", 
         })
@@ -11012,7 +11018,13 @@ __webpack_require__.r(__webpack_exports__);
           // do nothing
         }
         else if (!action.scroll) {
-          element.scrollIntoView({
+//          element.scrollIntoView({
+//            behavior: "smooth", 
+//            block: "center", 
+//            inline: "nearest"
+//          })
+          
+          vm.lib.style.scrollIntoView(element, {
             behavior: "smooth", 
             block: "center", 
             inline: "nearest"
@@ -11027,7 +11039,13 @@ __webpack_require__.r(__webpack_exports__);
           }
           let scrollToTop = elementTop - padding
 
-          window.scrollTo({
+//          window.scrollTo({
+//            top: scrollToTop,
+//            behavior: "smooth", 
+//            block: "start", 
+//            inline: "nearest"
+//          })
+          vm.lib.style.scrollTo({
             top: scrollToTop,
             behavior: "smooth", 
             block: "start", 
@@ -11477,6 +11495,7 @@ __webpack_require__.r(__webpack_exports__);
     }
     //console.log(actions)
     this.guide = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.guide({
+      vm: this,
       actions,
       complete: () => {
         this.isPlaying = false

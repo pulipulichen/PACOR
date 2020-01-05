@@ -133,7 +133,7 @@ let AnnotationTypeSelector = {
       
       this.setupTutorial()
     },
-    addAnnotation: function (event, type) {
+    addAnnotation: function (type) {
       //this.lib.RangyManager.restoreLastSelection()
       //console.log({isSelecting: this.lib.RangyManager.isSelecting()})
       //if (this.lib.RangyManager.isSelecting() === false) {

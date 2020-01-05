@@ -5122,7 +5122,16 @@ __webpack_require__.r(__webpack_exports__);
           nextTop = options.top
         }
         else {
-          nextTop = pageYOffset + (interval / 10)
+          let step = (interval / 20)
+          if (Math.abs(step) < 50) {
+            if (step > 0) {
+              step = 50
+            }
+            else {
+              step = -50
+            }
+          }
+          nextTop = pageYOffset + step
         }
         
         window.scrollTo({
@@ -5141,6 +5150,12 @@ __webpack_require__.r(__webpack_exports__);
     }
     else {
       let top = element.offsetTop
+      
+      if (options.block === 'center') {
+        let height = element.clientHeight
+        top = top + (height / 2)
+      }
+      
       this.scrollTo({
         top
       })

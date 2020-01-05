@@ -24,6 +24,7 @@ export default function (TutorialManager) {
     }
     //console.log(actions)
     this.guide = $.guide({
+      vm: this,
       actions,
       complete: () => {
         this.isPlaying = false

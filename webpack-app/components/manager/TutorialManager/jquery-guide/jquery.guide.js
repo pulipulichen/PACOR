@@ -13,6 +13,7 @@ import 'tippy.js/themes/light.css';
     let $window = $(window)
     let $body = $('body')
     let completeCallback
+    let vm
     
     let guide
     
@@ -36,6 +37,10 @@ import 'tippy.js/themes/light.css';
           action = _ref[_i];
           guide.addAction(action);
         }
+      }
+      
+      if (options.vm) {
+        vm = options.vm
       }
       
       completeCallback = options.complete ? options.complete : null
@@ -213,7 +218,8 @@ import 'tippy.js/themes/light.css';
           glowTippy.destroy()
           glowTippy = undefined
         }
-        window.scrollTo({
+        //window.scrollTo({
+        vm.lib.style.scrollTo({
           top: currentScrollTop,
           behavior: "smooth", 
         })
@@ -349,7 +355,13 @@ import 'tippy.js/themes/light.css';
           // do nothing
         }
         else if (!action.scroll) {
-          element.scrollIntoView({
+//          element.scrollIntoView({
+//            behavior: "smooth", 
+//            block: "center", 
+//            inline: "nearest"
+//          })
+          
+          vm.lib.style.scrollIntoView(element, {
             behavior: "smooth", 
             block: "center", 
             inline: "nearest"
@@ -364,7 +376,13 @@ import 'tippy.js/themes/light.css';
           }
           let scrollToTop = elementTop - padding
 
-          window.scrollTo({
+//          window.scrollTo({
+//            top: scrollToTop,
+//            behavior: "smooth", 
+//            block: "start", 
+//            inline: "nearest"
+//          })
+          vm.lib.style.scrollTo({
             top: scrollToTop,
             behavior: "smooth", 
             block: "start", 

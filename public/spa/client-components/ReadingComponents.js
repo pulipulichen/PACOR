@@ -1273,9 +1273,8 @@ var render = function() {
                 btnColor: module.style.button.backgroundColor
               },
               on: {
-                clickItem: function(ref) {
-                  var event = ref.event
-                  _vm.addAnnotation(event, module.type)
+                clickItem: function($event) {
+                  return _vm.addAnnotation(module.type)
                 }
               }
             })
@@ -6401,7 +6400,7 @@ let AnnotationTypeSelector = {
       
       this.setupTutorial()
     },
-    addAnnotation: function (event, type) {
+    addAnnotation: function (type) {
       //this.lib.RangyManager.restoreLastSelection()
       //console.log({isSelecting: this.lib.RangyManager.isSelecting()})
       //if (this.lib.RangyManager.isSelecting() === false) {
