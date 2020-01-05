@@ -25242,7 +25242,7 @@ if (debugMockUpdate === true) {
         if (!this.sectionsData.annotation[this.sectionSeqID].annotations) {
           this.sectionsData.annotation[this.sectionSeqID].annotations = []
         }
-        this.sectionsData.annotation[this.sectionSeqID].annotations.push(annotation)
+        this.sectionsData.annotation[this.sectionSeqID].annotations = [annotation]
         
         this.checkIsChecklistCompleted()
         //console.log(this.checked)
