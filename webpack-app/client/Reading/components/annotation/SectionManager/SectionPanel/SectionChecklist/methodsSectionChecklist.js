@@ -44,7 +44,7 @@ export default (SectionChecklist) => {
         if (!this.sectionsData.annotation[this.sectionSeqID].annotations) {
           this.sectionsData.annotation[this.sectionSeqID].annotations = []
         }
-        this.sectionsData.annotation[this.sectionSeqID].annotations = [annotation]
+        this.sectionsData.annotation[this.sectionSeqID].myAnnotation = annotation
         
         this.checkIsChecklistCompleted()
         //console.log(this.checked)

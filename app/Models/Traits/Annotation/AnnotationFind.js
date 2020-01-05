@@ -188,12 +188,16 @@ class AnnotationFind {
         }
         else if (onlySectionAnnotation === true) {
           let types = await user.getStepSectionAnnotationTypes(webpage)
-          //console.log(types)
+          //console.log({onlySectionAnnotation: types})
           query.whereIn('type', types)
                 .whereHas('anchorPositions', (builder) => {
                   builder.where('webpage_id', webpage.primaryKeyValue)
                          .where('type', 'section')
 
+                  if (typeof(seq_id) === 'string' 
+                          && isNaN(seq_id) === false) {
+                    seq_id = parseInt(seq_id, 10)
+                  }
                   if (typeof(seq_id) === 'number') {
                     builder.where('seq_id', seq_id)
                   }
@@ -203,15 +207,15 @@ class AnnotationFind {
         
         // -------------------------
         
-        if (typeof(seq_id) === 'string' 
-                && isNaN(seq_id) === false) {
-          seq_id = parseInt(seq_id, 10)
-        }
-        if (typeof(seq_id) === 'number') {
-          query.whereHas('anchorPositions', (builder) => {
-            builder.where('seq_id', seq_id)
-          })
-        }
+//        if (typeof(seq_id) === 'string' 
+//                && isNaN(seq_id) === false) {
+//          seq_id = parseInt(seq_id, 10)
+//        }
+//        if (typeof(seq_id) === 'number') {
+//          query.whereHas('anchorPositions', (builder) => {
+//            builder.where('seq_id', seq_id)
+//          })
+//        }
         profiler.mark('seq_id', seq_id)
         
         // ------------------------

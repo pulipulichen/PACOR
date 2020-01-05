@@ -3671,9 +3671,7 @@ var render = function() {
                 })
               ],
               1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "ui divider" })
+            )
           ]
         : _vm._e(),
       _vm._v(" "),
@@ -3762,7 +3760,7 @@ var render = function() {
           lib: _vm.lib,
           sectionSeqID: _vm.sectionSeqID,
           sectionsData: _vm.sectionsData,
-          annotations: _vm.annotations
+          myAnnotation: _vm.myAnnotation
         }
       })
     ],
@@ -24205,7 +24203,7 @@ let SectionManager = {
       }
       
       let result = await this.lib.AxiosHelper.get('/client/Section/init', this.query)
-      console.log(result)
+      //console.log(result.checklistAnnotation)
       this.sectionsData = result
       
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
@@ -24436,22 +24434,22 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 let SectionAnnotationEditorButton = {
   props: ['lib', 'status', 'config'
-    , 'sectionSeqID', 'sectionsData', 'annotations'],
+    , 'sectionSeqID', 'sectionsData', 'myAnnotation'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
     }
   },
   computed: {
-    myAnnotation () {
-      //window.PACORTestManager.log(this.annotations.length)
-      for (let i = 0; i < this.annotations.length; i++) {
-        if (this.annotations[i].user_id === this.status.userID) {
-          return this.annotations[i]
-        }
-      }
-      return null
-    },
+//    myAnnotation () {
+//      //window.PACORTestManager.log(this.annotations.length)
+//      for (let i = 0; i < this.annotations.length; i++) {
+//        if (this.annotations[i].user_id === this.status.userID) {
+//          return this.annotations[i]
+//        }
+//      }
+//      return null
+//    },
     annotation () {
       if (this.myAnnotation) {
         return this.myAnnotation
@@ -25242,7 +25240,7 @@ if (debugMockUpdate === true) {
         if (!this.sectionsData.annotation[this.sectionSeqID].annotations) {
           this.sectionsData.annotation[this.sectionSeqID].annotations = []
         }
-        this.sectionsData.annotation[this.sectionSeqID].annotations = [annotation]
+        this.sectionsData.annotation[this.sectionSeqID].myAnnotation = annotation
         
         this.checkIsChecklistCompleted()
         //console.log(this.checked)

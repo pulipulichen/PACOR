@@ -67,7 +67,7 @@ let SectionManager = {
       }
       
       let result = await this.lib.AxiosHelper.get('/client/Section/init', this.query)
-      console.log(result)
+      //console.log(result.checklistAnnotation)
       this.sectionsData = result
       
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')

@@ -48,9 +48,7 @@ class Section extends Annotation {
     profiler.mark('sectionsChecklist sectionsChecklistSubmitted')
     
     //let cacheKeyChecklistAnnotation = Cache.key('Section', 'init', enableCollaborative, 'checklistAnnotation')
-    let checklistAnnotation = await AnnotationModel.getSectionsChecklistAnnotation(webpage, user, {
-      page: 1
-    })
+    let checklistAnnotation = await AnnotationModel.getSectionsChecklistAnnotation(webpage, user)
     profiler.mark('checklistAnnotation')
     
     //let cacheKeySectionsAnnotation = Cache.key('Section', 'init', enableCollaborative, 'sectionsAnnotation')

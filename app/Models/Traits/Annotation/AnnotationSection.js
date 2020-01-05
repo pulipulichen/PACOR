@@ -50,7 +50,7 @@ class AnnotationSection {
           }
           let result = await this.buildSeqSectionAnnotation(webpage, user, query)
           //console.log('AAA')
-          console.log(result)
+          //console.log(result)
           if (Array.isArray(result.annotations) === false) {
             break
           }
@@ -235,6 +235,7 @@ class AnnotationSection {
         options.onlySectionAnnotation = true
         options.findUserID = user.primaryKeyValue
         options.withCount = true
+        options.page = 0
         //options.page = options.page
         
         //console.log('getSectionsChecklistAnnotation', options)
@@ -242,7 +243,7 @@ class AnnotationSection {
         profiler.mark('before findByWebpageGroupPosition()', options)
         //console.log({options})
         let annotations = await this.findByWebpageGroupPosition(webpage, user, options)
-        
+        //console.log(annotations.size())
         profiler.mark('findByWebpageGroupPosition()')
         
         if (typeof(annotations.toJSON) === 'function') {
@@ -260,24 +261,25 @@ class AnnotationSection {
         let maxSectionSeqID = -1
         
         annotations.forEach(annotation => {
-          let seq_id = annotation.anchorPositions[0].seq_id
-          if (seq_id > maxSectionSeqID) {
-            maxSectionSeqID = seq_id
+          let section_id = annotation.anchorPositions[0].section_id
+          //console.log(seq_id)
+          if (section_id > maxSectionSeqID) {
+            maxSectionSeqID = section_id
           }
-          map[seq_id] = annotation
+          map[section_id] = annotation
         })
         
         profiler.mark('annotations.forEach()')
         
-        let output = new Array(maxSectionSeqID + 1)
-        Object.keys(map).forEach(seq_id => {
-          let i = parseInt(seq_id, 10)
-          output[i] = map[seq_id]
+        let o = new Array(maxSectionSeqID + 1)
+        Object.keys(map).forEach(section_id => {
+          let i = parseInt(section_id, 10)
+          o[i] = map[section_id]
         })
         
         profiler.before('return output')
-        
-        return output
+        //console.log(o)
+        return o
       } // let doQuery = async () => {
       
       //let output = await Cache.rememberWait([webpage, user, 'Annotation'], cacheKey, doQuery)
