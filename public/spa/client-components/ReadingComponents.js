@@ -1948,7 +1948,7 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("annotation-discussion-input", {
-        ref: "AnnotationDiscussionInput11",
+        ref: "AnnotationDiscussionInput",
         attrs: {
           config: _vm.config,
           status: _vm.status,
@@ -6066,6 +6066,7 @@ let AnnotationManager = {
       this.pause = true
     },
     focusEvent () {
+      //return false
       if (this.pause === true) {
         this.pause = false
         this.loadHighlights()
@@ -14615,11 +14616,12 @@ __webpack_require__.r(__webpack_exports__);
       }, 0)
     }
 
-    document.addEventListener('touchend', triggerSelect)
-    document.addEventListener('keyup', triggerSelect)
-    document.addEventListener('mouseup', triggerSelect)
-    document.addEventListener('mousedown', triggerSelect)
-    document.addEventListener('contextmenu', triggerSelect)
+    
+    document.body.addEventListener('keyup', triggerSelect)
+    document.body.addEventListener('mouseup', triggerSelect)
+    document.body.addEventListener('mousedown', triggerSelect)
+    document.body.addEventListener('contextmenu', triggerSelect)
+    document.body.addEventListener('touchend', triggerSelect)
 
     this._initSelectionApplier()
   }
@@ -14836,8 +14838,8 @@ __webpack_require__.r(__webpack_exports__);
   RangyManager.methods.onselect = function () {
     let selection = this.rangy.getSelection()
     
-    this.lastSelectionSaved = this.rangy.saveSelection()
-    this.rangy.restoreSelection(this.lastSelectionSaved)
+    //this.lastSelectionSaved = this.rangy.saveSelection()
+    //this.rangy.restoreSelection(this.lastSelectionSaved)
     
     //PACORTestManager.log(selection.toString().length, selection.isCollapsed)
     
@@ -15012,11 +15014,11 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
   
-  RangyManager.methods.restoreLastSelection = function () {
-    if (this.isSelecting() === false) {
-      this.rangy.restoreSelection(this.lastSelectionSaved)
-    }
-  }
+//  RangyManager.methods.restoreLastSelection = function () {
+//    if (this.isSelecting() === false) {
+//      this.rangy.restoreSelection(this.lastSelectionSaved)
+//    }
+//  }
   
   RangyManager.methods._getNodesInRange = function (ranges) {
     let nodes = []
@@ -24249,6 +24251,7 @@ let SectionManager = {
       this.pause = true
     },
     focusEvent () {
+      //return false
       if (this.pause === true) {
         this.pause = false
         this.loadAnnotation()

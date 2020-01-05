@@ -131,6 +131,7 @@ let AnnotationManager = {
       this.pause = true
     },
     focusEvent () {
+      //return false
       if (this.pause === true) {
         this.pause = false
         this.loadHighlights()

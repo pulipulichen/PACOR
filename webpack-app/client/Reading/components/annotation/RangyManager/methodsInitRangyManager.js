@@ -17,11 +17,12 @@ export default (RangyManager) => {
       }, 0)
     }
 
-    document.addEventListener('touchend', triggerSelect)
-    document.addEventListener('keyup', triggerSelect)
-    document.addEventListener('mouseup', triggerSelect)
-    document.addEventListener('mousedown', triggerSelect)
-    document.addEventListener('contextmenu', triggerSelect)
+    
+    document.body.addEventListener('keyup', triggerSelect)
+    document.body.addEventListener('mouseup', triggerSelect)
+    document.body.addEventListener('mousedown', triggerSelect)
+    document.body.addEventListener('contextmenu', triggerSelect)
+    document.body.addEventListener('touchend', triggerSelect)
 
     this._initSelectionApplier()
   }

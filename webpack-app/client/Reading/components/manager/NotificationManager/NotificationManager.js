@@ -53,6 +53,7 @@ let NotificationManager = {
       this.pause = true
     },
     focusEvent () {
+      //return false
       if (this.pause === true) {
         this.pause = false
         this.loadNotificationData()
