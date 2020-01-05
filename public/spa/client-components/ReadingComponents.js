@@ -925,7 +925,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".SectionAnnotationList .annotation-list[data-v-0339763a] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin-bottom: 1em;\n}\n.no-more[data-v-0339763a] {\n  text-align: center;\n  color: gray;\n}\n.summary-information[data-v-0339763a] {\n  text-align: center;\n}\n", "",{"version":3,"sources":["SectionAnnotationList.less?vue&type=style&index=0&id=0339763a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,kBAAkB;AACpB","file":"SectionAnnotationList.less?vue&type=style&index=0&id=0339763a&lang=less&scoped=true&","sourcesContent":[".SectionAnnotationList .annotation-list[data-v-0339763a] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin-bottom: 1em;\n}\n.no-more[data-v-0339763a] {\n  text-align: center;\n  color: gray;\n}\n.summary-information[data-v-0339763a] {\n  text-align: center;\n}\n"]}]);
+exports.push([module.i, ".SectionAnnotationList .annotation-list[data-v-0339763a] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin-bottom: 1em;\n}\n.no-more[data-v-0339763a] {\n  text-align: center;\n  color: gray;\n}\n.summary-information[data-v-0339763a] {\n  text-align: center;\n}\n.my-annotation[data-v-0339763a] {\n  margin-top: 0.5rem !important;\n}\n", "",{"version":3,"sources":["SectionAnnotationList.less?vue&type=style&index=0&id=0339763a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,kBAAkB;AACpB;AACA;EACE,6BAA6B;AAC/B","file":"SectionAnnotationList.less?vue&type=style&index=0&id=0339763a&lang=less&scoped=true&","sourcesContent":[".SectionAnnotationList .annotation-list[data-v-0339763a] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin-bottom: 1em;\n}\n.no-more[data-v-0339763a] {\n  text-align: center;\n  color: gray;\n}\n.summary-information[data-v-0339763a] {\n  text-align: center;\n}\n.my-annotation[data-v-0339763a] {\n  margin-top: 0.5rem !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -3678,6 +3678,7 @@ var render = function() {
       _vm.myAnnotation
         ? _c("annotation-item", {
             key: _vm.myAnnotation.id,
+            staticClass: "my-annotation",
             attrs: {
               config: _vm.config,
               status: _vm.status,
