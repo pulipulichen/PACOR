@@ -45,6 +45,7 @@ export default function (TutorialManager) {
    
   TutorialManager.methods.showClickExecute = async function (element) {
     window.removeEventListener('scroll', onWindowScrollEvent)
+    //console.log('showClickExecute')
     if (!$clickImage) {
       $clickImage = $(this.$refs.ClickImage)
     }
@@ -75,6 +76,11 @@ export default function (TutorialManager) {
     if (typeof(top) === 'number' 
             && typeof(bottom) === 'number'
             && top + bottom > window.innerHeight) {
+      top = top - window.pageYOffset
+    }
+    else if (typeof(top) === 'number' 
+            && typeof(bottom) !== 'number'
+            && top > window.innerHeight) {
       top = top - window.pageYOffset
     }
     
@@ -121,6 +127,8 @@ export default function (TutorialManager) {
     }
     afterStyle.left = (center + padding)
     //afterStyle.left = (left + 10)
+    
+    //console.log({beforeStyle, afterStyle, vh: window.innerHeight, vw: window.innerWidth})
     
     //console.log(beforeStyle, afterStyle)
 //    alert(JSON.stringify({

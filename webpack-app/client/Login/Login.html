@@ -10,12 +10,14 @@
     v-bind:fullContent="true">
 
     <template v-slot:header>
-      <template v-if="!isContinue">
-        {{ $t('Welcome to PACOR') }}
-      </template>
-      <template v-else>
-        {{ $t('Welcome back to PACOR') }}
-      </template>
+      <span v-on:dblclick="createMockupUsername">
+        <template v-if="!isContinue">
+          {{ $t('Welcome to PACOR') }}
+        </template>
+        <template v-else>
+          {{ $t('Welcome back to PACOR') }}
+        </template>
+      </span>
     </template>
     <template v-slot:headerMenu>
       <a class="item switch-mode-item"

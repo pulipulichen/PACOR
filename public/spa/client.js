@@ -1242,21 +1242,28 @@ var render = function() {
             key: "header",
             fn: function() {
               return [
-                !_vm.isContinue
-                  ? [
-                      _vm._v(
-                        "\r\n        " +
-                          _vm._s(_vm.$t("Welcome to PACOR")) +
-                          "\r\n      "
-                      )
-                    ]
-                  : [
-                      _vm._v(
-                        "\r\n        " +
-                          _vm._s(_vm.$t("Welcome back to PACOR")) +
-                          "\r\n      "
-                      )
-                    ]
+                _c(
+                  "span",
+                  { on: { dblclick: _vm.createMockupUsername } },
+                  [
+                    !_vm.isContinue
+                      ? [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("Welcome to PACOR")) +
+                              "\r\n        "
+                          )
+                        ]
+                      : [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("Welcome back to PACOR")) +
+                              "\r\n        "
+                          )
+                        ]
+                  ],
+                  2
+                )
               ]
             },
             proxy: true
@@ -11322,6 +11329,7 @@ __webpack_require__.r(__webpack_exports__);
    
   TutorialManager.methods.showClickExecute = async function (element) {
     window.removeEventListener('scroll', onWindowScrollEvent)
+    //console.log('showClickExecute')
     if (!$clickImage) {
       $clickImage = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.ClickImage)
     }
@@ -11352,6 +11360,11 @@ __webpack_require__.r(__webpack_exports__);
     if (typeof(top) === 'number' 
             && typeof(bottom) === 'number'
             && top + bottom > window.innerHeight) {
+      top = top - window.pageYOffset
+    }
+    else if (typeof(top) === 'number' 
+            && typeof(bottom) !== 'number'
+            && top > window.innerHeight) {
       top = top - window.pageYOffset
     }
     
@@ -11398,6 +11411,8 @@ __webpack_require__.r(__webpack_exports__);
     }
     afterStyle.left = (center + padding)
     //afterStyle.left = (left + 10)
+    
+    //console.log({beforeStyle, afterStyle, vh: window.innerHeight, vw: window.innerWidth})
     
     //console.log(beforeStyle, afterStyle)
 //    alert(JSON.stringify({

@@ -43,7 +43,7 @@ export default function (AnnotationTypeSelector) {
         }
         
         let element = $el.find('.MainIdea > .fabMask:first')
-        //console.log(element)
+        //console.log({'MainIdea fabMask': element.length})
         await this.lib.TutorialManager.showClick(element)
         
         let elements = $el.find('.MainIdea > .fabMask,.MainIdea > .fab-item-title')
