@@ -28,12 +28,14 @@ export default function (StyleManager) {
     //console.log('@TEST Detect OS: Mac OS')
     //return 'Mac OS'  // for test
     
-    
-    return this.deviceDetect.osName
+    let osName = this.deviceDetect.osName
+    console.log({osName})
+    return osName
   }
   
-  StyleManager.computed.detectIsMacOS = function () {
-    return (this.detectOS === 'Mac OS')
+  StyleManager.computed.detectIsIOS = function () {
+    return (this.detectOS === 'Mac OS'
+            || this.detectOS === 'iOS')
   }
   
   StyleManager.computed.detectBrowser = function () {

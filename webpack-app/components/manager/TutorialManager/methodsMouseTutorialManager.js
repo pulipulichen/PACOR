@@ -84,7 +84,7 @@ export default function (TutorialManager) {
       top = top - window.pageYOffset
     }
     
-    if (this.lib.style.detectIsMacOS) {
+    if (this.lib.style.detectIsIOS) {
       top = top - 50
     }
     

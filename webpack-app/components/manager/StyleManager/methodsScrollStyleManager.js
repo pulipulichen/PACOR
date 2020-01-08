@@ -1,7 +1,7 @@
 export default function (StyleManager) {
   
   StyleManager.methods.scrollTo = async function (options) {
-    if (this.detectOS !== 'Mac OS') {
+    if (!this.detectIsIOS) {
       window.scrollTo(options)
     }
     else {

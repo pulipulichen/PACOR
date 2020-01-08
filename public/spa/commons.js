@@ -3757,12 +3757,14 @@ __webpack_require__.r(__webpack_exports__);
     //console.log('@TEST Detect OS: Mac OS')
     //return 'Mac OS'  // for test
     
-    
-    return this.deviceDetect.osName
+    let osName = this.deviceDetect.osName
+    console.log({osName})
+    return osName
   }
   
-  StyleManager.computed.detectIsMacOS = function () {
-    return (this.detectOS === 'Mac OS')
+  StyleManager.computed.detectIsIOS = function () {
+    return (this.detectOS === 'Mac OS'
+            || this.detectOS === 'iOS')
   }
   
   StyleManager.computed.detectBrowser = function () {
@@ -5109,7 +5111,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (StyleManager) {
   
   StyleManager.methods.scrollTo = async function (options) {
-    if (this.detectOS !== 'Mac OS') {
+    if (!this.detectIsIOS) {
       window.scrollTo(options)
     }
     else {

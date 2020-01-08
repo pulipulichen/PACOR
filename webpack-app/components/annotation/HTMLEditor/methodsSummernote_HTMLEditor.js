@@ -20,7 +20,7 @@ export default function (HTMLEditor) {
   
   HTMLEditor.methods._summernoteOptionsToolbar = function () {
     //console.log({os: this.lib.style.detectOS})
-    if (this.lib.style.detectOS === 'Mac OS') {
+    if (this.lib.style.detectIsIOS) {
       return []
     }
     else {
@@ -39,7 +39,7 @@ export default function (HTMLEditor) {
   }
   
   HTMLEditor.methods._summernoteOptionsEnableAirPopover = function () {
-    if (this.lib.style.detectOS === 'Mac OS') {
+    if (this.lib.style.detectIsIOS) {
       return false
     }
     else {

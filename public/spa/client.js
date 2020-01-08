@@ -7314,7 +7314,7 @@ let NotificationManager = {
       }
       //console.log(this.isLoading)
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/getNotification', data)
-      console.log({result})
+      //console.log({result})
       this.startReloadData()
       this.isLoading = false
       if (result === 0) {
@@ -7329,7 +7329,8 @@ let NotificationManager = {
           }
           this.status.notificationData.unreadNotifications = this.status.notificationData.unreadNotifications.concat(result[key])
           
-          this.afterTime = result[key].slice(-1).created_at_unixms
+          this.afterTime = result[key].slice(-1)[0].created_at_unixms
+          //console.log(this.afterTime)
         }
         else {
           this.status.notificationData[key] = result[key]
@@ -7348,7 +7349,7 @@ let NotificationManager = {
       this.timer = setTimeout(() => {
         //console.log('重新讀取')
         if (this.timer === null) {
-          console.log('暫停了')
+          //console.log('暫停了')
           return null
         }
         clearTimeout(this.timer)
@@ -11403,7 +11404,7 @@ __webpack_require__.r(__webpack_exports__);
       top = top - window.pageYOffset
     }
     
-    if (this.lib.style.detectIsMacOS) {
+    if (this.lib.style.detectIsIOS) {
       top = top - 50
     }
     

@@ -574,7 +574,7 @@ __webpack_require__.r(__webpack_exports__);
   } // HTMLEditor.computed.computedClass = function () {
 
   HTMLEditor.computed.isNoToolbar = function () {
-    return (this.lib.style.detectOS === 'Mac OS')
+    return this.lib.style.detectIsIOS
   }
 
   HTMLEditor.computed.showContainer = function () {
@@ -795,7 +795,7 @@ __webpack_require__.r(__webpack_exports__);
   
   HTMLEditor.methods._summernoteOptionsToolbar = function () {
     //console.log({os: this.lib.style.detectOS})
-    if (this.lib.style.detectOS === 'Mac OS') {
+    if (this.lib.style.detectIsIOS) {
       return []
     }
     else {
@@ -814,7 +814,7 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   HTMLEditor.methods._summernoteOptionsEnableAirPopover = function () {
-    if (this.lib.style.detectOS === 'Mac OS') {
+    if (this.lib.style.detectIsIOS) {
       return false
     }
     else {

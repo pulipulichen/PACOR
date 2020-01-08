@@ -113,7 +113,7 @@ module.exports = {
         defaultPermission: 'public',
       },
       notification: {
-        updateInterval: 10000
+        updateInterval: 3000
       },
       highlightAnnotation: {
         types: ['Clarified', 'Confused', 'MainIdea'],
