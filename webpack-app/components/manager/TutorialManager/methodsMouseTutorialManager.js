@@ -31,6 +31,11 @@ export default function (TutorialManager) {
   }
   
   TutorialManager.methods.showClick = async function (e) {
+    if (this.lib.style.detectIsIOS && window.innerWidth < 768) {
+      // 太小了，不使用指標
+      return false
+    }
+    
     lastPageYOffset = window.pageYOffset
     element = e
     _this = this
