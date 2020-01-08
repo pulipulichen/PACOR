@@ -1,6 +1,4 @@
 en:
-  TEST_MESSAGE: Test Message
   
 zh-TW:
-  # 這是註解
-  TEST_MESSAGE: 測試訊息
+  Are you sure to delete this comment?: 您確定要刪除這則留言嗎？
