@@ -6,7 +6,7 @@
     v-bind:placeholder="$t('Search...')"
     v-on:keyup.enter="searchAnnotation"
     ref="input"
-    onclick="this.select()">
+    onfocus="this.select()">
   <button 
     type="button"
     class="ui icon button"
