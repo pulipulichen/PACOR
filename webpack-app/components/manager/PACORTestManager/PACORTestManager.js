@@ -46,7 +46,7 @@ let PACORTestManager = {
     checkBaseURL () {
       //console.log(this.config.baseURL.indexOf(':4000'))
       if (this.config.baseURL.indexOf(':4000') === -1) {
-        console.log('Current base URL is not for test: ' + this.config.baseURL)
+        //console.log('Current base URL is not for test: ' + this.config.baseURL)
       }
     },
     /**

@@ -29,7 +29,7 @@ export default function (StyleManager) {
     //return 'Mac OS'  // for test
     
     let osName = this.deviceDetect.osName
-    console.log({osName})
+    //console.log({osName})
     return osName
   }
   
