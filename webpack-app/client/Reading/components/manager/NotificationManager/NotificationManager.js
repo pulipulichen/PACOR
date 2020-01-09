@@ -96,7 +96,9 @@ let NotificationManager = {
           }
           this.status.notificationData.unreadNotifications = this.status.notificationData.unreadNotifications.concat(result[key])
           
-          this.afterTime = result[key].slice(-1)[0].created_at_unixms
+          if (result[key].length > 0) {
+            this.afterTime = result[key].slice(-1)[0].created_at_unixms
+          }
           //console.log(this.afterTime)
         }
         else {

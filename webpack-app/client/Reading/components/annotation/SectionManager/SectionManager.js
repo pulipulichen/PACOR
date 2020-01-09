@@ -67,7 +67,7 @@ let SectionManager = {
       }
       
       let result = await this.lib.AxiosHelper.get('/client/Section/init', this.query)
-      //console.log(result.checklistAnnotation)
+      console.log(result)
       this.sectionsData = result
       
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
@@ -87,7 +87,6 @@ let SectionManager = {
       // 根據數量來初始化資料
       let nodeCount = sectionNodes.length
       
-      
       this.sectionNodes = sectionNodes
       Object.keys(this.sectionsData).forEach(key => {
         if (Array.isArray(this.sectionsData[key]) === false) {
@@ -98,6 +97,8 @@ let SectionManager = {
       this.setRefreshInterval()
       
       //console.log(this.sectionsData)
+      
+      this.checkAllCheckListIsCompleted()
       
       this.setupTutorial()
     },
@@ -184,6 +185,16 @@ let SectionManager = {
       
       return annotation
     },
+    
+    checkAllCheckListIsCompleted () {
+      if (this.sectionsData.checklistSubmitted.length === 0) {
+        return false
+      }
+      
+      if (this.sectionsData.checklistSubmitted.filter((s => (s === false))).length === 0) {
+        this.$emit('complete')
+      }
+    }
   } // methods
 }
 
