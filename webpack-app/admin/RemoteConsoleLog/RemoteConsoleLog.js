@@ -30,7 +30,8 @@ let RemoteConsoleLog = {
         this.logs = logs.concat(this.logs)
       }
       
-      this.afterTime = (new Date()).getTime()
+      //this.afterTime = (new Date()).getTime()
+      this.afterTime = this.lib.DayJSHelepr.time()
       
       await this.lib.VueHelper.sleep(this.intervalSeconds * 1000)
       this.load()

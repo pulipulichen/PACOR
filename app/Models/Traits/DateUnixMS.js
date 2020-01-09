@@ -17,7 +17,8 @@ class DateUnixMS {
     // --------------------------
     
     let getTime = () => {
-      return (new Date()).getTime()
+      let d = (new Date())
+      return d.getTime() + (d.getTimezoneOffset() * 1000)
     }
     
     Model.addHook('beforeCreate', async (instance) => {

@@ -200,7 +200,8 @@ let AnnotationManager = {
         }, this.loadHighlightInterval)
       }
       
-      this.afterTime = (new Date()).getTime()
+      //this.afterTime = (new Date()).getTime()
+      this.afterTime = this.lib.DayJSHelper.time()
       this.setupTutorial()
     },
     reloadHighlights () {

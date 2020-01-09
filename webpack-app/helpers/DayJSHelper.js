@@ -15,7 +15,16 @@ let DayJSHelper = {
     this.$t = $t
   },
   time: function () {
-    return (new Date()).getTime()
+    let d = (new Date())
+    return d.getTime() + this.offset()
+  },
+  _offset: null,
+  offset () {
+    if (typeof(this._offset) !== 'number') {
+      let d = (new Date())
+      this._offset = d.getTimezoneOffset() * 1000
+    }
+    return this._offset
   },
   setLocale: function (dayjsLocale) {
     if (typeof(dayjsLocale) !== 'string') {
@@ -41,6 +50,7 @@ let DayJSHelper = {
     else if (typeof(timestamp) === 'string') {
       timestamp = parseInt(timestamp, 10)
     }
+    timestamp = timestamp - this.offset()
     return dayjs(timestamp).fromNow()
   },
   toNow: function (timestamp) {
@@ -51,6 +61,7 @@ let DayJSHelper = {
     else if (typeof(timestamp) === 'string') {
       timestamp = parseInt(timestamp, 10)
     }
+    timestamp = timestamp - this.offset()
     return dayjs(timestamp).toNow()
   },
   _prefixZero: function (n) {
@@ -63,6 +74,7 @@ let DayJSHelper = {
   },
   shortTime: function (millisecond) {
     //let intervalTimestamp = (new Date()).getTime() - timestamp
+    millisecond = millisecond - this.offset()
     
     let year = 0
     let month = 0
@@ -108,9 +120,11 @@ let DayJSHelper = {
     return dayjs(baseTimestamp).to(dayjs(toTimestamp))
   },
   format: function (unixMS) {
+    unixMS = unixMS - this.offset()
     return dayjs(unixMS).format('YYYY-MM-DD HH:mm:ss')
   },
   formatMMSS: function (unixMS) {
+    unixMS = unixMS - this.offset()
     return dayjs(unixMS).format('mm:ss')
   },
   formatHHMMSS: function (seconds) {
