@@ -13,10 +13,9 @@
 // 
 let iFrameResize = (function(undefined) {
 
-  if (typeof window === 'undefined') {
-    return // don't run for server side render
-  }
-
+  //if (typeof window === 'undefined') {
+  //  return // don't run for server side render
+  //}
   var count = 0,
     logEnabled = false,
     hiddenCheckEnabled = false,
@@ -397,7 +396,7 @@ let iFrameResize = (function(undefined) {
     }
 
     function scrollRequestFromChild(addOffset) {
-      /* istanbul ignore next */ // Not testable in Karma
+      // istanbul ignore next  // Not testable in Karma
       function reposition() {
         pagePosition = newPosition
         scrollTo()
@@ -741,7 +740,7 @@ let iFrameResize = (function(undefined) {
       // So if we detect that set up an event to check for
       // when iFrame becomes visible.
 
-      /* istanbul ignore next */ // Not testable in PhantomJS
+      // istanbul ignore next // Not testable in PhantomJS
       if (!hiddenCheckEnabled && '0' === messageData[dimension]) {
         hiddenCheckEnabled = true
         log(iframeId, 'Hidden iFrame detected, creating visibility listener')
@@ -767,7 +766,7 @@ let iFrameResize = (function(undefined) {
   }
 
   function syncResize(func, messageData, doNotSync) {
-    /* istanbul ignore if */ // Not testable in PhantomJS
+    // istanbul ignore if // Not testable in PhantomJS
     if (doNotSync !== messageData.type && requestAnimationFrame &&
         // including check for jasmine because had trouble getting spy to work in unit test using requestAnimationFrame
         !window.jasmine) {
@@ -1187,7 +1186,7 @@ let iFrameResize = (function(undefined) {
   }
 
   // Not testable in PhantomJS
-  /* istanbul ignore next */
+  // istanbul ignore next 
 
   function fixHiddenIFrames() {
     function checkIFrames() {
@@ -1261,7 +1260,7 @@ let iFrameResize = (function(undefined) {
   }
 
   // Not testable in PhantomJS
-  /* istanbul ignore next */
+  // istanbul ignore next 
   function tabVisible() {
     function resize() {
       sendTriggerMsg('Tab Visable', 'resize')

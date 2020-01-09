@@ -155,7 +155,7 @@ export default function (CollaborativeReading) {
     console.log('@TEST _testInstruction')
     await this.lib.VueHelper.sleep(3000)
     
-    console.log($('.NavigationHeaderItem:first').length)
+    //console.log($('.NavigationHeaderItem:first').length)
     $('.NavigationHeaderItem:first .username').click()
   }
 
