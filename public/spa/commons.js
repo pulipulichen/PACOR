@@ -7672,11 +7672,13 @@ let DayJSHelper = {
       return seconds
     }
     if (seconds < 60) {
+      seconds = parseInt(seconds * 100) / 100
       return seconds
     }
     else if (seconds < 3600) {
       let mm = Math.floor(seconds / 60)
       let ss = seconds % 60
+      ss = parseInt(ss * 100) / 100
       return this._prefixZero(mm) 
               + ':' 
               + this._prefixZero(ss) 
@@ -7685,6 +7687,7 @@ let DayJSHelper = {
       let hh = Math.floor(seconds / 3600)
       let mm = Math.floor((seconds % 3600) / 60)
       let ss = seconds % 60
+      ss = parseInt(ss * 100) / 100
       //console.log(hh,mm,ss)
       return this._prefixZero(hh) 
               + ':' 

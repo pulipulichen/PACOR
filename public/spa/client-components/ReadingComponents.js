@@ -24210,7 +24210,7 @@ let SectionManager = {
       }
       
       let result = await this.lib.AxiosHelper.get('/client/Section/init', this.query)
-      console.log(result)
+      //console.log(result)
       this.sectionsData = result
       
 //      this.sectionData = this.lib.AxiosHelper.get('/client/ReadingProgress/SectionsData')
@@ -24334,7 +24334,9 @@ let SectionManager = {
         return false
       }
       
-      if (this.sectionsData.checklistSubmitted.filter((s => (s === false))).length === 0) {
+      //console.log(this.sectionsData.checklistSubmitted)
+      //console.log(this.sectionsData.checklistSubmitted.filter((s => (s === true))).length)
+      if (this.sectionsData.checklistSubmitted.filter((s => (s === true))).length === this.sectionsData.checklistSubmitted.length) {
         this.$emit('complete')
       }
     }
@@ -25242,14 +25244,15 @@ if (debugMockUpdate === true) {
   }
   
   SectionChecklist.methods.openSectionAnnotationEditor = function () {
-    console.log(this.annotation)
+    //console.log(this.annotation)
     this.lib.AnnotationPanel.setAnnotation(this.annotation, {
       'add': (annotation) => {
         //console.log('Add annotation 有嗎？')
         
         annotation.user_id = this.status.userID
         annotation.user = this.lib.auth.annotationUserData
-        this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
+        //this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
+        this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
         this.sectionsData.checklist[this.sectionSeqID][this.checklistAnnotationIndex] = true
         this.isChecklistAnnotationSubmitted = true
 

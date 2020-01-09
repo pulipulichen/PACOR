@@ -160,7 +160,7 @@ let Login = {
       this.password = ''
     },
     createMockupUsername () {
-      this.username = 'Anonymous-' + (new Date()).getTime().toString(36)
+      this.username = 'Anon.' + (new Date()).getTime().toString(36)
       this.password = ''
       this.adminMode = false
     },

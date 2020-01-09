@@ -60,11 +60,11 @@ let CountdownButton = {
         return false
       }
       else if (this.ignoreWordCount === true) {
-        return (this.remainingSeconds === 0)
+        return (this.remainingSeconds <= 0)
       }
       else {
         //console.log(this.remainingSeconds, this.validWordCount, this.wordCount)
-        return (this.remainingSeconds === 0 && this.validWordCount === true)
+        return (this.remainingSeconds <= 0 && this.validWordCount === true)
       }
     },
     disabledMessage () {

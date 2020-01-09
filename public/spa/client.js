@@ -5572,7 +5572,7 @@ let Login = {
       this.password = ''
     },
     createMockupUsername () {
-      this.username = 'Anonymous-' + (new Date()).getTime().toString(36)
+      this.username = 'Anon.' + (new Date()).getTime().toString(36)
       this.password = ''
       this.adminMode = false
     },
@@ -12751,11 +12751,11 @@ let CountdownButton = {
         return false
       }
       else if (this.ignoreWordCount === true) {
-        return (this.remainingSeconds === 0)
+        return (this.remainingSeconds <= 0)
       }
       else {
         //console.log(this.remainingSeconds, this.validWordCount, this.wordCount)
-        return (this.remainingSeconds === 0 && this.validWordCount === true)
+        return (this.remainingSeconds <= 0 && this.validWordCount === true)
       }
     },
     disabledMessage () {

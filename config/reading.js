@@ -1,7 +1,7 @@
 module.exports = {
   debug: {
     enable: true,
-    enableRemoteConosleLog: true,
+    enableRemoteConosleLog: false,
     //forceMaxTimeoutMinutes: 0.4
     //forceMaxTimeoutMinutes: 0.2
     forceMaxTimeoutMinutes: 1,
@@ -68,7 +68,7 @@ module.exports = {
       instruction: '/2020exp/PostRecall.html',
       minWords: 10,
       //limitMinutes: 5,
-      limitMinutes: 0.2,
+      limitMinutes: 0.03,
     },
     /**
      * include 'individual-reading' and 'collaborative-reading'

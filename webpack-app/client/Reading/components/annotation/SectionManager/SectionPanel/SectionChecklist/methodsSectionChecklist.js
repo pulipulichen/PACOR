@@ -27,14 +27,15 @@ export default (SectionChecklist) => {
   }
   
   SectionChecklist.methods.openSectionAnnotationEditor = function () {
-    console.log(this.annotation)
+    //console.log(this.annotation)
     this.lib.AnnotationPanel.setAnnotation(this.annotation, {
       'add': (annotation) => {
         //console.log('Add annotation 有嗎？')
         
         annotation.user_id = this.status.userID
         annotation.user = this.lib.auth.annotationUserData
-        this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
+        //this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
+        this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
         this.sectionsData.checklist[this.sectionSeqID][this.checklistAnnotationIndex] = true
         this.isChecklistAnnotationSubmitted = true
 
