@@ -1,3 +1,6 @@
+/* global Infinity */
+
+// eslint-disable-next-line sonarjs/cognitive-complexity, no-shadow-restricted-names
 /*
  * File: iframeResizer.js
  * Desc: Force iframes to size to content.
@@ -7,10 +10,12 @@
  * Contributor: Jure Mav - jure.mav@gmail.com
  * Contributor: Reed Dadoune - reed@dadoune.com
  */
+// 
+let iFrameResize = (function(undefined) {
 
-// eslint-disable-next-line sonarjs/cognitive-complexity, no-shadow-restricted-names
-;(function(undefined) {
-  if (typeof window === 'undefined') return // don't run for server side render
+  if (typeof window === 'undefined') {
+    return // don't run for server side render
+  }
 
   var count = 0,
     logEnabled = false,
@@ -66,6 +71,8 @@
         return true
       }
     }
+  
+  let iFrameLoaded
 
   function getMutationObserver() {
     return (
@@ -643,7 +650,7 @@
     var iframeId = iframe.id
     if (chkEvent(iframeId, 'onClose', iframeId) === false) {
       log(iframeId, 'Close iframe cancelled by onClose event')
-      return
+      return undefined
     }
     log(iframeId, 'Removing iFrame: ' + iframeId)
 
@@ -714,7 +721,7 @@
     function setDimension(dimension) {
       if (!messageData.id) {
         log('undefined', 'messageData id not set')
-        return
+        return undefined
       }
       messageData.iframe.style[dimension] = messageData[dimension] + 'px'
       log(
@@ -1039,14 +1046,14 @@
     // iframes have completed loading when this code runs. The
     // event listener also catches the page changing in the iFrame.
     function init(msg) {
-      function iFrameLoaded() {
+      iFrameLoaded = function () {
         trigger('iFrame.onload', msg, iframe, undefined, true)
         checkReset()
       }
 
       function createDestroyObserver(MutationObserver) {
         if (!iframe.parentNode) {
-          return
+          return undefined
         }
 
         var destroyObserver = new MutationObserver(function(mutations) {
@@ -1069,7 +1076,8 @@
         createDestroyObserver(MutationObserver)
       }
 
-      addEventListener(iframe, 'load', iFrameLoaded)
+      //addEventListener(iframe, 'load', iFrameLoaded)
+      
       trigger('init', msg, iframe, undefined, true)
     }
 
@@ -1368,15 +1376,18 @@
     }
   }
 
-  if (window.jQuery) {
-    createJQueryPublicMethod(window.jQuery)
-  }
-
-  if (typeof define === 'function' && define.amd) {
-    define([], factory)
-  } else if (typeof module === 'object' && typeof module.exports === 'object') {
-    // Node for browserfy
-    module.exports = factory()
-  }
-  window.iFrameResize = window.iFrameResize || factory()
+//  if (window.jQuery) {
+//    createJQueryPublicMethod(window.jQuery)
+//  }
+//
+//  if (typeof define === 'function' && define.amd) {
+//    define([], factory)
+//  } else if (typeof module === 'object' && typeof module.exports === 'object') {
+//    // Node for browserfy
+//    module.exports = factory()
+//  }
+//  window.iFrameResize = window.iFrameResize || factory()
+//  
 })()
+
+export default iFrameResize

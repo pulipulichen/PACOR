@@ -168,9 +168,9 @@ let AnnotationTypeSelector = {
       }
       
       
-      console.log({sa: this.selection.anchorPositions})
+      //console.log({sa: this.selection.anchorPositions})
       let anchorPositions = this.lib.RangyManager.getAnchorPositionsFromSelection(this.selection)
-      console.log({ap: anchorPositions})
+      //console.log({ap: anchorPositions})
       let annotation = {
         anchorPositions: anchorPositions,
         type: type

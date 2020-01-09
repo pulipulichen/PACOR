@@ -28,6 +28,7 @@ let CollaborativeReading = {
     //this._testErrorAuth()
     //this._testTutorial()
     //this._testTutorialShowClick()
+    this._testInstruction()
   },
   destroyed () {
     //console.log('退場了')
