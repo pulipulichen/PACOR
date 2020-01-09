@@ -1,6 +1,6 @@
 export default function (AnnotationFloatWidget) {
   let rangy
-  let useMouse = false
+  let interactiveMode = null
 
   AnnotationFloatWidget.methods.initRangyEvents = function () {
     rangy = this.lib.RangyManager
@@ -32,10 +32,12 @@ export default function (AnnotationFloatWidget) {
 
   AnnotationFloatWidget.methods.rangyEventClick = function (data) {
     if (this.lib.AnnotationPanel.isHide === false) {
+      // 如果是顯示的狀況
+      interactiveMode = null
       return false
     }
 
-    if (useMouse === true) {
+    if (interactiveMode === 'mouse') {
       if (this.isFixed === true && this.isFixedMouseout === true) {
         this.triggerEvent = data.event
         this.anchorPositions = data.anchorPositions
@@ -46,6 +48,7 @@ export default function (AnnotationFloatWidget) {
     } else {
       this.triggerEvent = data.event
       this.anchorPositions = data.anchorPositions
+      this.isFixed = true
     }
   } // AnnotationFloatWidget.methods.rangyEventClick = function (data) {
 
@@ -67,7 +70,8 @@ export default function (AnnotationFloatWidget) {
 
     this.triggerEvent = data.event
     this.anchorPositions = data.anchorPositions
-    useMouse = true
+    //useMouse = true
+    interactiveMode = 'mouse'
   } // AnnotationFloatWidget.methods.rangyEventMouseover = function (data) {
 
 //  AnnotationFloatWidget.methods.rangyEventMouseover = function (data) {
@@ -84,7 +88,8 @@ export default function (AnnotationFloatWidget) {
     }
 
     this.anchorPositions = null
-    useMouse = false
+    //useMouse = false
+    interactiveMode = null
   } // AnnotationFloatWidget.methods.rangyEventMouseout = function (data) {
   
   AnnotationFloatWidget.methods.rangyEventMousemove = function (data) {

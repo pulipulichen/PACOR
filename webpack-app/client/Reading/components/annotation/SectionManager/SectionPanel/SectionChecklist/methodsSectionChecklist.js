@@ -57,7 +57,8 @@ export default (SectionChecklist) => {
       'update': (annotation) => {
         //console.log(annotation)
         //this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
-        this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
+        //this.sectionsData.checklistAnnotation.splice(this.sectionSeqID, 1, annotation)
+        this.sectionsData.checklistAnnotation[this.sectionSeqID] = annotation
       },
     })
   }

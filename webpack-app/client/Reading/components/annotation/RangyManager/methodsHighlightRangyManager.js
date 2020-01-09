@@ -3,9 +3,11 @@ import $ from 'jquery'
 export default (RangyManager) => {
     
   RangyManager.methods._initHighlighter = function () {
+    
     if (typeof (this.rangyConfig.annotationTypeModules) !== 'object') {
       return false
     }
+    
     let rules = []
 
     this.highlighter = this.rangy.createHighlighter()
@@ -69,7 +71,7 @@ export default (RangyManager) => {
           triggerEvent(this, event, 'highlightMouseup')
         },
       }
-    }
+    } // let options = {
 
     let ownerClasses = ['my', 'others']
     ownerClasses.forEach(ownerClass => {
@@ -94,6 +96,10 @@ export default (RangyManager) => {
       } // for (let className in this.rangyConfig.annotationTypeModules) {
     })
 
+    this._setupHighlightSheetRule(rules)
+  } // RangyManager.methods._initHighlighter = function () {
+  
+  RangyManager.methods._setupHighlightSheetRule = function (rules) {
     if (rules.length > 0) {
       let sheet
       if (window.document.styleSheets.length > 0) {
