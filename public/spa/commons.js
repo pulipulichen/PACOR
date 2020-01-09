@@ -2563,7 +2563,12 @@ __webpack_require__.r(__webpack_exports__);
               arg = arg.stack.trim()
             }
             else {
-              arg = JSON.stringify(arg, null, 2)
+              try {
+                arg = JSON.stringify(arg, null, 2)
+              }
+              catch (e) {
+                arg = arg.toString()
+              } 
               if (arg.startsWith('{')) {
                 arg = arg.slice(1)
               }
@@ -2577,11 +2582,15 @@ __webpack_require__.r(__webpack_exports__);
         }
         //console.warn(typeof(arguments.length))
         
+        // --------------------
+        
+        method.apply(context, Array.prototype.slice.apply(arguments))
+        
         AxiosHelper.post('/admin/Log/create', {
           message: message.join('\n'), 
           type
         })
-        method.apply(context, Array.prototype.slice.apply(arguments))
+        
       }
     }
 
