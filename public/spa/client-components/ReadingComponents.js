@@ -153,7 +153,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Are you sure to delete this comment?":"您確定要刪除這則留言嗎？"}}')
   delete Component.options._Ctor
 }
 
@@ -1398,7 +1398,11 @@ var render = function() {
                       expression: "panelData.keyword"
                     }
                   ],
-                  attrs: { type: "text", placeholder: _vm.$t("Search...") },
+                  attrs: {
+                    type: "text",
+                    placeholder: _vm.$t("Search..."),
+                    onfocus: "this.select()"
+                  },
                   domProps: { value: _vm.panelData.keyword },
                   on: {
                     input: function($event) {
@@ -1630,7 +1634,8 @@ var render = function() {
                         ],
                         attrs: {
                           type: "text",
-                          placeholder: _vm.$t("Search...")
+                          placeholder: _vm.$t("Search..."),
+                          onfocus: "this.select()"
                         },
                         domProps: { value: _vm.panelData.keyword },
                         on: {
@@ -4275,7 +4280,7 @@ var render = function() {
         attrs: {
           type: "text",
           placeholder: _vm.$t("Search..."),
-          onclick: "this.select()"
+          onfocus: "this.select()"
         },
         domProps: { value: _vm.status.search.keyword },
         on: {

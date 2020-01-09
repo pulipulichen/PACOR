@@ -1,10 +1,11 @@
-let bundleName = 'admin.js'
+(function () {
+var bundleName = 'admin.js'
 
-let baseURL = document.currentScript.src
+var baseURL = document.currentScript.src
 baseURL = baseURL.slice(0, baseURL.lastIndexOf('/') + 1)
 
-let loadScript = (name) => {
-  let script = document.createElement("script")
+var loadScript = function (name) {
+  var script = document.createElement("script")
   script.type = "text/javascript"
   script.src = baseURL + name
   document.currentScript.parentNode.insertBefore(script, document.currentScript.nextSibling)
@@ -13,3 +14,4 @@ let loadScript = (name) => {
 loadScript('vendors.js')
 loadScript('commons.js')
 loadScript(bundleName)
+})()

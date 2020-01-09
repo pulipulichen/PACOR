@@ -1,15 +1,19 @@
-let bundleName = 'client.js'
+(function () {
+  var bundleName = 'client.js'
 
-let baseURL = document.currentScript.src
-baseURL = baseURL.slice(0, baseURL.lastIndexOf('/') + 1)
+  var baseURL = document.currentScript.src
+  console.log(baseURL)
+  baseURL = baseURL.slice(0, baseURL.lastIndexOf('/') + 1)
 
-let loadScript = (name) => {
-  let script = document.createElement("script")
-  script.type = "text/javascript"
-  script.src = baseURL + name
-  document.currentScript.parentNode.insertBefore(script, document.currentScript.nextSibling)
-}
+  var loadScript = function (name) {
+    var script = document.createElement("script")
+    script.type = "text/javascript"
+    script.src = baseURL + name
+    console.log(baseURL + name)
+    document.currentScript.parentNode.insertBefore(script, document.currentScript.nextSibling)
+  }
 
-loadScript('vendors.js')
-loadScript('commons.js')
-loadScript(bundleName)
+  loadScript('vendors.js')
+  loadScript('commons.js')
+  loadScript(bundleName)
+})()
