@@ -4,7 +4,7 @@ export default function (PACORTestManager) {
   //window.$ = $
   
   PACORTestManager.methods.editMainIdeaAnnotation = async function () {
-    this.log('Edit Annotation: Main Idea')
+    console.log('Edit Annotation: Main Idea')
     
     let highlights = await this.waitForElementVisible('.my-MainIdea[data-pacor-highlight]', {
       timeout: 3000

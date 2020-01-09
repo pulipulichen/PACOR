@@ -16,6 +16,7 @@ let iFrameResize = (function(undefined) {
   //if (typeof window === 'undefined') {
   //  return // don't run for server side render
   //}
+  
   var count = 0,
     logEnabled = false,
     hiddenCheckEnabled = false,
@@ -1387,6 +1388,7 @@ let iFrameResize = (function(undefined) {
 //  }
 //  window.iFrameResize = window.iFrameResize || factory()
 //  
+    return factory()
 })()
 
 export default iFrameResize

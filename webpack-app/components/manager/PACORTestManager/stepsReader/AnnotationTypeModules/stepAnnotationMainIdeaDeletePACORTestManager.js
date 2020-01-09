@@ -3,7 +3,7 @@ import $ from 'jquery'
 export default function (PACORTestManager) {
   
   PACORTestManager.methods.deleteMainIdeaAnnotation = async function () {
-    this.log('Delete Annotation: Main Idea')
+    console.log('Delete Annotation: Main Idea')
     
     let highlights = await this.waitForElementVisible('.my-MainIdea[data-pacor-highlight]', {
       timeout: 3000

@@ -35,7 +35,7 @@ export default function (PACORTestManager) {
       await this.retry(3, async () => {
         await this.sleep(100)
         let t = (i % 4)
-        this.log('撰寫標註：' + (j+1) + '/' + (writeAnnotations) + ' (type: ' + t + ')' )
+        console.log('撰寫標註：' + (j+1) + '/' + (writeAnnotations) + ' (type: ' + t + ')' )
         await this.selectAnnotationType(i)
         if (t === 0) {
           await this.writeMainIdeaAnnotation()

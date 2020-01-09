@@ -148,7 +148,7 @@ export default function (PACORTestManager) {
     }
     catch (e) {
       if (options.errorMessage) {
-        this.log(options.errorMessage)
+        console.log(options.errorMessage)
       }
       throw e
     }
@@ -167,7 +167,7 @@ export default function (PACORTestManager) {
     }
     catch (e) {
       if (options.errorMessage) {
-        this.log(options.errorMessage)
+        console.log(options.errorMessage)
       }
       throw e
     }

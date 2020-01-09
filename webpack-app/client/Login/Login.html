@@ -10,7 +10,8 @@
     v-bind:fullContent="true">
 
     <template v-slot:header>
-      <span v-on:dblclick="createMockupUsername">
+      <span v-on:dblclick="createMockupUsername"
+            v-on:touch="createMockupUsername">
         <template v-if="!isContinue">
           {{ $t('Welcome to PACOR') }}
         </template>
