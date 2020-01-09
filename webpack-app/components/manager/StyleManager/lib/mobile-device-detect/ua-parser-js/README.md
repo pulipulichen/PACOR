@@ -1,0 +1,1 @@
+https://github.com/faisalman/ua-parser-js/blob/master/src/ua-parser.js
