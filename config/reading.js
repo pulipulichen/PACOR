@@ -1,7 +1,7 @@
 module.exports = {
   debug: {
     enable: true,
-    enableRemoteConosleLog: true,
+    enableRemoteConosleLog: false,
     //forceMaxTimeoutMinutes: 0.4
     //forceMaxTimeoutMinutes: 0.2
     forceMaxTimeoutMinutes: 1,

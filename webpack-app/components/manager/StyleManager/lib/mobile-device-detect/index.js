@@ -1,6 +1,6 @@
 const $ = require('jquery')
 
-module.exports =
+export default 
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
