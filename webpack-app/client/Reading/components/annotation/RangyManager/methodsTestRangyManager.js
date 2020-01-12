@@ -92,10 +92,21 @@ export default (RangyManager) => {
   let demoSelection
   RangyManager.methods.selectDemoText = async function () {
     
-    let paragraph = $('[data-pacor-paragraph-seq-id]:eq(1)')
+    let paragraph
+    
+    paragraph = $('[data-pacor-paragraph-seq-id]:eq(1)')
     if (paragraph.length === 0) {
       paragraph = $('[data-pacor-paragraph-seq-id]:first')
     }
+    
+    if (paragraph.text().trim() === '') {
+      let pIndex = 1
+      do {
+        pIndex++
+        paragraph = $(`[data-pacor-paragraph-seq-id]:eq(${pIndex})`)
+      } while (paragraph.text().trim() === '')
+    }
+    
     let elm = paragraph[0]
     //console.log(elm)
     

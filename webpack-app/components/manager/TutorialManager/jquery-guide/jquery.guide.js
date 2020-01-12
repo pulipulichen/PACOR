@@ -332,6 +332,11 @@ import 'tippy.js/themes/light.css';
         }
         
         let element = actionElement
+        
+        if (!element) {
+          return this.next()
+        }
+        
         if (typeof(element.scrollIntoView) !== 'function'
                 && element[0]
                 && typeof(element[0].scrollIntoView) === 'function') {
