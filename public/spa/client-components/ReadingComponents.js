@@ -12628,8 +12628,11 @@ let Editor = {
     
     isEnableSubmitAdd () {
       //console.log(this.isNoteDifferent )
-      if (this.isNoteDifferent === true
-              && typeof(this.note) === 'string'
+      
+      //if (this.isNoteDifferent === true
+      //        && typeof(this.note) === 'string'
+      //        && this.note !== '') {
+      if (typeof(this.note) === 'string'
               && this.note !== '') {
         return true
       }
@@ -12948,8 +12951,11 @@ let Editor = {
     
     isEnableSubmitAdd () {
       //console.log(this.isNoteDifferent )
-      if (this.isNoteDifferent === true
-              && typeof(this.note) === 'string'
+      
+      //if (this.isNoteDifferent === true
+      //        && typeof(this.note) === 'string'
+      //        && this.note !== '') {
+      if (typeof(this.note) === 'string'
               && this.note !== '') {
         return true
       }

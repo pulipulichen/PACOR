@@ -1,5 +1,5 @@
 import jQuery from 'jquery'
-import tippy from 'tippy.js';
+import tippy from './tippy.js/dist/tippy.cjs.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/light.css';
 
