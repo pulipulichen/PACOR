@@ -235,6 +235,11 @@ var render = function() {
         attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
       }),
       _vm._v(" "),
+      _c("tutorial-manager", {
+        ref: "TutorialManager",
+        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+      }),
+      _vm._v(" "),
       _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
       _vm._v(" "),
       _c("notification-manager", {
@@ -1336,6 +1341,7 @@ let CollaborativeReading = {
     this.lib.UserFilter = null
     this.lib.AnnotationTypeFilter = null
     this.lib.NotificationManager = null
+    this.lib.TutorialManager = null
   },
   methods: {
     initComponentToLib () {
@@ -1350,6 +1356,7 @@ let CollaborativeReading = {
       this.lib.AnnotationPanel = this.$refs.AnnotationPanel
       this.lib.SectionManager = this.$refs.SectionManager
       this.lib.NotificationManager = this.$refs.NotificationManager
+      this.lib.TutorialManager = this.$refs.TutorialManager
       
       //console.log(this.lib.AnnotationPanel)
       this.initNavComponentToLib()

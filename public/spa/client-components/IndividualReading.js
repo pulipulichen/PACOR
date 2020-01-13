@@ -160,7 +160,12 @@ var render = function() {
         on: { complete: _vm.onChecklistComplete }
       }),
       _vm._v(" "),
-      _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
+      _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
+      _vm._v(" "),
+      _c("tutorial-manager", {
+        ref: "TutorialManager",
+        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+      })
     ],
     1
   )
@@ -631,6 +636,7 @@ let IndividualReading = {
     this.lib.RangyManager = null
     this.lib.AnnotationPanel = null
     this.lib.SectionManager = null
+    this.lib.TutorialManager = null
   },
   methods: {
     initComponentToLib () {
@@ -644,6 +650,7 @@ let IndividualReading = {
       this.lib.RangyManager = this.$refs.RangyManager
       this.lib.AnnotationPanel = this.$refs.AnnotationPanel
       this.lib.SectionManager = this.$refs.SectionManager
+      this.lib.TutorialManager = this.$refs.TutorialManager
       //console.log(this.lib.AnnotationPanel)
       
       this.initNavComponentToLib()
