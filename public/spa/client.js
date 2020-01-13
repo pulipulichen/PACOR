@@ -224,6 +224,22 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Loading/Loading.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CLoading%5CLoading.vue&lang=yaml":
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Loading/Loading.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CLoading%5CLoading.vue&lang=yaml ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":null,"zh-TW":null}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Login/Login.json?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CLogin%5CLogin.vue":
 /*!**************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Login/Login.json?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CLogin%5CLogin.vue ***!
@@ -496,6 +512,22 @@ module.exports = function (Component) {
 
 /***/ }),
 
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/manager/TutorialManager/TutorialManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CTutorialManager%5CTutorialManager.vue&lang=yaml":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/components/manager/TutorialManager/TutorialManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CTutorialManager%5CTutorialManager.vue&lang=yaml ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Tutorial is over":"操作說明結束囉","Thanks for your patience.":"感謝您的耐心觀看。"}}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/reading-progress/BlockExit/BlockExit.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CBlockExit%5CBlockExit.vue&lang=yaml":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/components/reading-progress/BlockExit/BlockExit.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CBlockExit%5CBlockExit.vue&lang=yaml ***!
@@ -684,6 +716,34 @@ module.exports = function (Component) {
   Component.options.__i18n.push('{"en":null,"zh-TW":{"You":"就是您本人"}}')
   delete Component.options._Ctor
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.less":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.less ***!
+  \****************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, ".jquery-guide {\n  user-select: none;\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n  /*\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  */\n}\n.jquery-guide.disabled {\n  pointer-events: none;\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n  pointer-events: none;\n}\n.jquery-guide .jquery-guide-temp-range {\n  position: absolute;\n  z-index: -1;\n  pointer-events: none;\n  display: none;\n}\nbody.jquery-guide-prevent-scroll {\n  overflow: hidden;\n}\n.tippy-popper {\n  pointer-events: none;\n}\n.tippy-popper .tippy-tooltip {\n  font-size: 1.5em !important;\n  padding: 0.5em;\n}\n", "",{"version":3,"sources":["jquery.guide.less"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,0CAA0C;EAC1C,uCAAuC;EACvC,kCAAkC;EAClC;;;;;;GAMC;AACH;AACA;EACE,oBAAoB;AACtB;AACA;EACE,0CAA0C;EAC1C,uCAAuC;EACvC,kCAAkC;AACpC;AACA;EACE,eAAe;EACf,MAAM;EACN,QAAQ;EACR,SAAS;EACT,OAAO;EACP,gCAAgC;EAChC,mBAAmB;EACnB,qBAAqB;EACrB,uBAAuB;EACvB,wBAAwB;EACxB,sBAAsB;EACtB,aAAa;AACf;AACA;EACE,gCAAgC;AAClC;AACA;EACE,kBAAkB;EAClB,eAAe;EACf,WAAW;EACX,aAAa;AACf;AACA;EACE,kBAAkB;EAClB,aAAa;EACb,wMAAwM;EACxM,oBAAoB;AACtB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,oBAAoB;EACpB,aAAa;AACf;AACA;EACE,gBAAgB;AAClB;AACA;EACE,oBAAoB;AACtB;AACA;EACE,2BAA2B;EAC3B,cAAc;AAChB","file":"jquery.guide.less","sourcesContent":[".jquery-guide {\n  user-select: none;\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n  /*\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  */\n}\n.jquery-guide.disabled {\n  pointer-events: none;\n}\n.jquery-guide .jquery-guide-bg {\n  -webkit-box-sizing: content-box !important;\n  -moz-box-sizing: content-box !important;\n  box-sizing: content-box !important;\n}\n.jquery-guide .jquery-guide-bg {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-color: rgba(0, 0, 0, 0.6);\n  border-style: solid;\n  border-top-width: 0px;\n  border-right-width: 0px;\n  border-bottom-width: 0px;\n  border-left-width: 0px;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-bg.active {\n  border-color: rgba(0, 0, 0, 0.5);\n}\n.jquery-guide .jquery-guide-content {\n  position: absolute;\n  cursor: default;\n  color: #FFF;\n  z-index: 1000;\n}\n.jquery-guide .jquery-guide-glow {\n  position: absolute;\n  z-index: 1001;\n  box-shadow: 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), 0 0 30px 0 rgba(255, 255, 255, 0.5), inset 0 0 5px 0 rgba(255, 255, 255, 0.5);\n  pointer-events: none;\n}\n.jquery-guide .jquery-guide-temp-range {\n  position: absolute;\n  z-index: -1;\n  pointer-events: none;\n  display: none;\n}\nbody.jquery-guide-prevent-scroll {\n  overflow: hidden;\n}\n.tippy-popper {\n  pointer-events: none;\n}\n.tippy-popper .tippy-tooltip {\n  font-size: 1.5em !important;\n  padding: 0.5em;\n}\n"]}]);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Loading/Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Loading/Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true&"}]);
 
 
 /***/ }),
@@ -940,6 +1000,34 @@ exports.push([module.i, ".button[data-v-75d99c9c] {\n  white-space: nowrap;\n  t
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/TutorialManager/TutorialManager.global.less?vue&type=style&index=1&lang=less&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/manager/TutorialManager/TutorialManager.global.less?vue&type=style&index=1&lang=less& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, ".non-invasive-web-style-framework .tutorial-modal {\n  background-color: rgba(0, 0, 0, 0.6) !important;\n}\n", "",{"version":3,"sources":["TutorialManager.global.less?vue&type=style&index=1&lang=less&"],"names":[],"mappings":"AAAA;EACE,+CAA+C;AACjD","file":"TutorialManager.global.less?vue&type=style&index=1&lang=less&","sourcesContent":[".non-invasive-web-style-framework .tutorial-modal {\n  background-color: rgba(0, 0, 0, 0.6) !important;\n}\n"]}]);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, ".click-image[data-v-1bc43b50] {\n  position: fixed;\n  display: none;\n  z-index: 1002;\n  filter: drop-shadow(10px 10px 4px rgba(255, 255, 255, 0.5));\n}\n.modal[data-v-1bc43b50] {\n  cursor: pointer;\n  user-select: none;\n}\n.content[data-v-1bc43b50] {\n  text-align: center;\n}\n", "",{"version":3,"sources":["TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,aAAa;EACb,aAAa;EACb,2DAA2D;AAC7D;AACA;EACE,eAAe;EACf,iBAAiB;AACnB;AACA;EACE,kBAAkB;AACpB","file":"TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&","sourcesContent":[".click-image[data-v-1bc43b50] {\n  position: fixed;\n  display: none;\n  z-index: 1002;\n  filter: drop-shadow(10px 10px 4px rgba(255, 255, 255, 0.5));\n}\n.modal[data-v-1bc43b50] {\n  cursor: pointer;\n  user-select: none;\n}\n.content[data-v-1bc43b50] {\n  text-align: center;\n}\n"]}]);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.less?vue&type=style&index=0&id=2b3215b5&lang=less&scoped=true&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.less?vue&type=style&index=0&id=2b3215b5&lang=less&scoped=true& ***!
@@ -1141,6 +1229,83 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("fragment")
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Loading/Loading.html?vue&type=template&id=58ac9781&scoped=true&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/Loading/Loading.html?vue&type=template&id=58ac9781&scoped=true& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "Loading" },
+    [
+      _vm.status.view === "Loading"
+        ? _c("div", { staticClass: "ui segment" }, [
+            _c("div", { staticClass: "ui active centered inline loader" })
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c("auth", {
+        ref: "auth",
+        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+      }),
+      _vm._v(" "),
+      _c("StyleManager", {
+        ref: "style",
+        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+      }),
+      _vm._v(" "),
+      _c("PACORTestManager", {
+        ref: "TestManager",
+        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+      }),
+      _vm._v(" "),
+      _c("error-handler", {
+        ref: "ErrorHandler",
+        attrs: { config: _vm.config, lib: _vm.lib, errors: _vm.errors }
+      }),
+      _vm._v(" "),
+      _c("confirm-modal", {
+        ref: "ConfirmModal",
+        attrs: { config: _vm.config, lib: _vm.lib, status: _vm.status }
+      }),
+      _vm._v(" "),
+      _c("tutorial-manager", {
+        ref: "TutorialManager",
+        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+      }),
+      _vm._v(" "),
+      _vm.status.view !== "Loading"
+        ? _c(_vm.status.view, {
+            tag: "component",
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              progress: _vm.progress,
+              lib: _vm.lib
+            }
+          })
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3178,6 +3343,55 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/manager/TutorialManager/TutorialManager.html?vue&type=template&id=1bc43b50&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/manager/TutorialManager/TutorialManager.html?vue&type=template&id=1bc43b50&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "TutorialManager" }, [
+    _c("img", {
+      ref: "ClickImage",
+      staticClass: "click-image",
+      attrs: { src: _vm.config.baseURL + "/imgs/click.png" }
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        ref: "FinishModal",
+        staticClass: "ui basic modal",
+        on: { click: _vm.hideFinishModal }
+      },
+      [
+        _c("div", { staticClass: "ui icon header" }, [
+          _c("i", { staticClass: "heart icon" }),
+          _vm._v("\r\n      " + _vm._s(_vm.$t("Tutorial is over")) + "\r\n    ")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "content" }, [
+          _c("p", [_vm._v(_vm._s(_vm.$t("Thanks for your patience.")))])
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/reading-progress/ActivityTimer/ActivityTimer.html?vue&type=template&id=25440a89&":
 /*!*********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/reading-progress/ActivityTimer/ActivityTimer.html?vue&type=template&id=25440a89& ***!
@@ -3850,6 +4064,27 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Loading/Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Loading/Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Loading/Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("094cc382", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Login/Login.less?vue&type=style&index=0&id=15c3505b&lang=less&scoped=true&":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Login/Login.less?vue&type=style&index=0&id=15c3505b&lang=less&scoped=true& ***!
@@ -4223,6 +4458,48 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("2fd6bd3a", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/TutorialManager/TutorialManager.global.less?vue&type=style&index=1&lang=less&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/manager/TutorialManager/TutorialManager.global.less?vue&type=style&index=1&lang=less& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./TutorialManager.global.less?vue&type=style&index=1&lang=less& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/TutorialManager/TutorialManager.global.less?vue&type=style&index=1&lang=less&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("406e02b5", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("efc265a6", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -4668,8 +4945,7 @@ let VueController = {
     persistAttrs: [
     ]
   },
-  computed: {
-  },
+//  computed: { },
   watch: {
     'config.locale': function () {
       this.lib.DayJSHelper.setLocale(this.config.locale)
@@ -4677,28 +4953,12 @@ let VueController = {
   },
   //created: function () {
   //},
-  mounted: function () {
-    this.lib.AxiosHelper.setErrorHandler((error) => {
-      if (this.$refs.ErrorHandler) {
-        this.$refs.ErrorHandler.addError(error)
-      }
-    })
-    
-    this.lib.DayJSHelper.setI18N((name, data) => {
-      return this.$t(name, data)
-    })
-    
-    this.lib.auth = this.$refs.auth
-    this.lib.style = this.$refs.style
-    this.lib.AnnotationHelper.setStatus(this.status)
-    this.lib.ConfirmModal = this.$refs.ConfirmModal
-    this.lib.TestManager = this.$refs.TestManager
-    //this.lib.TutorialManager = this.$refs.TutorialManager
-    //console.log(this.lib.auth.nextStep)
-  },
+//  mounted: function () {
+//    
+//    //console.log(this.lib.auth.nextStep)
+//  },
   
-  methods: {
-  }, // methods: {
+  //methods: { }, // methods: {
   
   
   // --------------------------
@@ -5234,6 +5494,200 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
+
+/***/ }),
+
+/***/ "./webpack-app/client/Loading/Loading.html?vue&type=template&id=58ac9781&scoped=true&":
+/*!********************************************************************************************!*\
+  !*** ./webpack-app/client/Loading/Loading.html?vue&type=template&id=58ac9781&scoped=true& ***!
+  \********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Loading_html_vue_type_template_id_58ac9781_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./Loading.html?vue&type=template&id=58ac9781&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Loading/Loading.html?vue&type=template&id=58ac9781&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Loading_html_vue_type_template_id_58ac9781_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Loading_html_vue_type_template_id_58ac9781_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/client/Loading/Loading.js?vue&type=script&lang=js&?dd9c":
+/*!************************************************************************!*\
+  !*** ./webpack-app/client/Loading/Loading.js?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_ui_modal_HiddenLoading_HiddenLoading_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../components/ui-modal/HiddenLoading/HiddenLoading.vue */ "./webpack-app/components/ui-modal/HiddenLoading/HiddenLoading.vue");
+/* harmony import */ var _components_manager_ErrorHandler_ErrorHandler_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../components/manager/ErrorHandler/ErrorHandler.vue */ "./webpack-app/components/manager/ErrorHandler/ErrorHandler.vue");
+/* harmony import */ var _Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Auth/Auth.vue */ "./webpack-app/client/Auth/Auth.vue");
+/* harmony import */ var _Login_Login_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Login/Login.vue */ "./webpack-app/client/Login/Login.vue");
+/* harmony import */ var _components_manager_StyleManager_StyleManager_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../components/manager/StyleManager/StyleManager.vue */ "./webpack-app/components/manager/StyleManager/StyleManager.vue");
+/* harmony import */ var _components_manager_PACORTestManager_PACORTestManager_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../components/manager/PACORTestManager/PACORTestManager.vue */ "./webpack-app/components/manager/PACORTestManager/PACORTestManager.vue");
+/* harmony import */ var _components_manager_TutorialManager_TutorialManager_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../components/manager/TutorialManager/TutorialManager.vue */ "./webpack-app/components/manager/TutorialManager/TutorialManager.vue");
+
+
+
+
+
+
+
+//import RangyManager from './components/RangyManager/RangyManager.vue'
+//import NoteEditorManager from './components/NoteEditorManager/NoteEditorManager.vue'
+
+
+
+let Loading = {
+  props: ['lib', 'status', 'config', 'progress', 'errors'],
+  data() {    
+    this.$i18n.locale = this.config.locale
+    return {
+    }
+  },
+  components: {
+    HiddenLoading: _components_ui_modal_HiddenLoading_HiddenLoading_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    'error-handler': _components_manager_ErrorHandler_ErrorHandler_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Auth: _Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    //'rangy-manager': RangyManager,
+    //'note-editor-manager': NoteEditorManager,
+    Login: _Login_Login_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    StyleManager: _components_manager_StyleManager_StyleManager_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    PACORTestManager: _components_manager_PACORTestManager_PACORTestManager_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    'tutorial-manager': _components_manager_TutorialManager_TutorialManager_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    
+    //Chat: () => import(/* webpackChunkName: "client-components/Chat" */ './components/Chat/Chat.vue'),
+    'CollaborativeReading': () => Promise.all(/*! import() | client-components/CollaborativeReading */[__webpack_require__.e("client-components/CollaborativeReading~client-components/FreeReading"), __webpack_require__.e("client-components/CollaborativeReading")]).then(__webpack_require__.bind(null, /*! ./../Reading/CollaborativeReading/CollaborativeReading.vue */ "./webpack-app/client/Reading/CollaborativeReading/CollaborativeReading.vue")),
+    'IndividualReading': () => __webpack_require__.e(/*! import() | client-components/IndividualReading */ "client-components/IndividualReading").then(__webpack_require__.bind(null, /*! ./../Reading/IndividualReading/IndividualReading.vue */ "./webpack-app/client/Reading/IndividualReading/IndividualReading.vue")),
+    'PostRecall': () => __webpack_require__.e(/*! import() | client-components/Questionnaire */ "client-components/Questionnaire").then(__webpack_require__.bind(null, /*! ./../Questionnaire/PostRecall/PostRecall.vue */ "./webpack-app/client/Questionnaire/PostRecall/PostRecall.vue")),
+    'PreImaginary': () => __webpack_require__.e(/*! import() | client-components/Questionnaire */ "client-components/Questionnaire").then(__webpack_require__.bind(null, /*! ./../Questionnaire/PreImaginary/PreImaginary.vue */ "./webpack-app/client/Questionnaire/PreImaginary/PreImaginary.vue")),
+    'Exit': () => __webpack_require__.e(/*! import() | client-components/Exit */ "client-components/Exit").then(__webpack_require__.bind(null, /*! ./../Exit/Exit.vue */ "./webpack-app/client/Exit/Exit.vue")),
+    'FreeReading': () => Promise.all(/*! import() | client-components/FreeReading */[__webpack_require__.e("client-components/CollaborativeReading~client-components/FreeReading"), __webpack_require__.e("client-components/FreeReading")]).then(__webpack_require__.bind(null, /*! ./../Reading/FreeReading/FreeReading.vue */ "./webpack-app/client/Reading/FreeReading/FreeReading.vue")),
+  },
+//  computed: {
+//    
+//  },
+  watch: {
+    
+  },
+  mounted() {
+    this.lib.AxiosHelper.setErrorHandler((error) => {
+      if (this.$refs.ErrorHandler) {
+        this.$refs.ErrorHandler.addError(error)
+      }
+    })
+    
+    this.lib.DayJSHelper.setI18N((name, data) => {
+      return this.$t(name, data)
+    })
+    
+    this.lib.auth = this.$refs.auth
+    this.lib.style = this.$refs.style
+    this.lib.AnnotationHelper.setStatus(this.status)
+    this.lib.ConfirmModal = this.$refs.ConfirmModal
+    this.lib.TestManager = this.$refs.TestManager
+    this.lib.TutorialManager = this.$refs.TutorialManager
+  },
+//  methods: {} // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Loading);
+
+/***/ }),
+
+/***/ "./webpack-app/client/Loading/Loading.js?vue&type=script&lang=js&?ecb5":
+/*!************************************************************************!*\
+  !*** ./webpack-app/client/Loading/Loading.js?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Loading_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./Loading.js?vue&type=script&lang=js& */ "./webpack-app/client/Loading/Loading.js?vue&type=script&lang=js&?dd9c");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_Loading_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Loading/Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true&":
+/*!***********************************************************************************************************!*\
+  !*** ./webpack-app/client/Loading/Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true& ***!
+  \***********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Loading_less_vue_type_style_index_0_id_58ac9781_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-style-loader!../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Loading/Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Loading_less_vue_type_style_index_0_id_58ac9781_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Loading_less_vue_type_style_index_0_id_58ac9781_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Loading_less_vue_type_style_index_0_id_58ac9781_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Loading_less_vue_type_style_index_0_id_58ac9781_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Loading_less_vue_type_style_index_0_id_58ac9781_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Loading/Loading.vue":
+/*!************************************************!*\
+  !*** ./webpack-app/client/Loading/Loading.vue ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Loading_html_vue_type_template_id_58ac9781_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Loading.html?vue&type=template&id=58ac9781&scoped=true& */ "./webpack-app/client/Loading/Loading.html?vue&type=template&id=58ac9781&scoped=true&");
+/* harmony import */ var _Loading_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Loading.js?vue&type=script&lang=js& */ "./webpack-app/client/Loading/Loading.js?vue&type=script&lang=js&?ecb5");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Loading_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Loading_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _Loading_less_vue_type_style_index_0_id_58ac9781_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true& */ "./webpack-app/client/Loading/Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Loading_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CLoading_5CLoading_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Loading.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CLoading%5CLoading.vue&lang=yaml */ "./webpack-app/client/Loading/Loading.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CLoading%5CLoading.vue&lang=yaml");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Loading_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Loading_html_vue_type_template_id_58ac9781_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Loading_html_vue_type_template_id_58ac9781_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "58ac9781",
+  null
+  
+)
+
+/* custom blocks */
+
+if (typeof _Loading_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CLoading_5CLoading_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_Loading_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CLoading_5CLoading_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/client/Loading/Loading.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/Loading/Loading.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CLoading%5CLoading.vue&lang=yaml":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Loading/Loading.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CLoading%5CLoading.vue&lang=yaml ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_Loading_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CLoading_5CLoading_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/@kazupon/vue-i18n-loader/lib!./Loading.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CLoading%5CLoading.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Loading/Loading.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CLoading%5CLoading.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_Loading_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CLoading_5CLoading_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_Loading_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CLoading_5CLoading_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_Loading_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CLoading_5CLoading_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_Loading_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CLoading_5CLoading_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_Loading_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CLoading_5CLoading_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -9386,7 +9840,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n\r\n  <auth \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"auth\">\r\n  </auth>\r\n  \r\n  <StyleManager \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"style\">\r\n  </StyleManager>\r\n  \r\n  <PACORTestManager \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"TestManager\">\r\n  </PACORTestManager>\r\n\r\n  <error-handler \r\n    v-bind:config=\"config\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:errors=\"errors\"\r\n    ref=\"ErrorHandler\">\r\n  </error-handler>\r\n  \r\n  <confirm-modal\r\n    v-bind:config=\"config\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:status=\"status\"\r\n    \r\n    ref=\"ConfirmModal\">\r\n  </confirm-modal>\r\n\r\n  <!-- ================================ -->\r\n  \r\n  <component \r\n    v-bind:is=\"status.view\"\r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:progress=\"progress\"\r\n    v-bind:lib=\"lib\">\r\n  </component>\r\n</div>";
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n  <Loading \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:errors=\"errors\">\r\n  </Loading>\r\n</div>";
 
 /***/ }),
 
@@ -9505,41 +9959,11 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('iframe-message-segment', 
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_ui_modal_HiddenLoading_HiddenLoading_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../components/ui-modal/HiddenLoading/HiddenLoading.vue */ "./webpack-app/components/ui-modal/HiddenLoading/HiddenLoading.vue");
-/* harmony import */ var _components_manager_ErrorHandler_ErrorHandler_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../components/manager/ErrorHandler/ErrorHandler.vue */ "./webpack-app/components/manager/ErrorHandler/ErrorHandler.vue");
-/* harmony import */ var _Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Auth/Auth.vue */ "./webpack-app/client/Auth/Auth.vue");
-/* harmony import */ var _Login_Login_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Login/Login.vue */ "./webpack-app/client/Login/Login.vue");
-/* harmony import */ var _components_manager_StyleManager_StyleManager_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../components/manager/StyleManager/StyleManager.vue */ "./webpack-app/components/manager/StyleManager/StyleManager.vue");
-/* harmony import */ var _components_manager_PACORTestManager_PACORTestManager_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../components/manager/PACORTestManager/PACORTestManager.vue */ "./webpack-app/components/manager/PACORTestManager/PACORTestManager.vue");
+/* harmony import */ var _Loading_Loading_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Loading/Loading.vue */ "./webpack-app/client/Loading/Loading.vue");
 
-
-
-
-
-
-
-//import RangyManager from './components/RangyManager/RangyManager.vue'
-//import NoteEditorManager from './components/NoteEditorManager/NoteEditorManager.vue'
-
-//import TutorialManager from './../components/manager/TutorialManager/TutorialManager.vue'
 
 let components = {
-  Loading: _components_ui_modal_HiddenLoading_HiddenLoading_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-  'error-handler': _components_manager_ErrorHandler_ErrorHandler_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-  Auth: _Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-  //'rangy-manager': RangyManager,
-  //'note-editor-manager': NoteEditorManager,
-  Login: _Login_Login_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-  StyleManager: _components_manager_StyleManager_StyleManager_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-  PACORTestManager: _components_manager_PACORTestManager_PACORTestManager_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-  //'tutorial-manager': TutorialManager,
-  //Chat: () => import(/* webpackChunkName: "client-components/Chat" */ './components/Chat/Chat.vue'),
-  'CollaborativeReading': () => Promise.all(/*! import() | client-components/CollaborativeReading */[__webpack_require__.e("client-components/CollaborativeReading~client-components/FreeReading"), __webpack_require__.e("client-components/CollaborativeReading")]).then(__webpack_require__.bind(null, /*! ./Reading/CollaborativeReading/CollaborativeReading.vue */ "./webpack-app/client/Reading/CollaborativeReading/CollaborativeReading.vue")),
-  'IndividualReading': () => __webpack_require__.e(/*! import() | client-components/IndividualReading */ "client-components/IndividualReading").then(__webpack_require__.bind(null, /*! ./Reading/IndividualReading/IndividualReading.vue */ "./webpack-app/client/Reading/IndividualReading/IndividualReading.vue")),
-  'PostRecall': () => __webpack_require__.e(/*! import() | client-components/Questionnaire */ "client-components/Questionnaire").then(__webpack_require__.bind(null, /*! ./Questionnaire/PostRecall/PostRecall.vue */ "./webpack-app/client/Questionnaire/PostRecall/PostRecall.vue")),
-  'PreImaginary': () => __webpack_require__.e(/*! import() | client-components/Questionnaire */ "client-components/Questionnaire").then(__webpack_require__.bind(null, /*! ./Questionnaire/PreImaginary/PreImaginary.vue */ "./webpack-app/client/Questionnaire/PreImaginary/PreImaginary.vue")),
-  'Exit': () => __webpack_require__.e(/*! import() | client-components/Exit */ "client-components/Exit").then(__webpack_require__.bind(null, /*! ./Exit/Exit.vue */ "./webpack-app/client/Exit/Exit.vue")),
-  'FreeReading': () => Promise.all(/*! import() | client-components/FreeReading */[__webpack_require__.e("client-components/CollaborativeReading~client-components/FreeReading"), __webpack_require__.e("client-components/FreeReading")]).then(__webpack_require__.bind(null, /*! ./Reading/FreeReading/FreeReading.vue */ "./webpack-app/client/Reading/FreeReading/FreeReading.vue")),
+  Loading: _Loading_Loading_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
 }
 /* harmony default export */ __webpack_exports__["default"] = (components);
 
@@ -10334,6 +10758,3800 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationTypeButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cannotation_5CAnnotationTypeButton_5CAnnotationTypeButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationTypeButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cannotation_5CAnnotationTypeButton_5CAnnotationTypeButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationTypeButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cannotation_5CAnnotationTypeButton_5CAnnotationTypeButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationTypeButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cannotation_5CAnnotationTypeButton_5CAnnotationTypeButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationTypeButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cannotation_5CAnnotationTypeButton_5CAnnotationTypeButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/TutorialManager.global.less?vue&type=style&index=1&lang=less&":
+/*!**********************************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/TutorialManager.global.less?vue&type=style&index=1&lang=less& ***!
+  \**********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_global_less_vue_type_style_index_1_lang_less___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-style-loader!../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./TutorialManager.global.less?vue&type=style&index=1&lang=less& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/TutorialManager/TutorialManager.global.less?vue&type=style&index=1&lang=less&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_global_less_vue_type_style_index_1_lang_less___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_global_less_vue_type_style_index_1_lang_less___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_global_less_vue_type_style_index_1_lang_less___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_global_less_vue_type_style_index_1_lang_less___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_global_less_vue_type_style_index_1_lang_less___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/TutorialManager.html?vue&type=template&id=1bc43b50&scoped=true&":
+/*!************************************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/TutorialManager.html?vue&type=template&id=1bc43b50&scoped=true& ***!
+  \************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_TutorialManager_html_vue_type_template_id_1bc43b50_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./TutorialManager.html?vue&type=template&id=1bc43b50&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/manager/TutorialManager/TutorialManager.html?vue&type=template&id=1bc43b50&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_TutorialManager_html_vue_type_template_id_1bc43b50_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_TutorialManager_html_vue_type_template_id_1bc43b50_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/TutorialManager.js?vue&type=script&lang=js&?6aa4":
+/*!****************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/TutorialManager.js?vue&type=script&lang=js& ***!
+  \****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TutorialManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./TutorialManager.js?vue&type=script&lang=js& */ "./webpack-app/components/manager/TutorialManager/TutorialManager.js?vue&type=script&lang=js&?7c27");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_TutorialManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/TutorialManager.js?vue&type=script&lang=js&?7c27":
+/*!****************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/TutorialManager.js?vue&type=script&lang=js& ***!
+  \****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _jquery_guide_jquery_guide_webpack_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jquery-guide/jquery-guide.webpack.js */ "./webpack-app/components/manager/TutorialManager/jquery-guide/jquery-guide.webpack.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _methodsTutorialManager_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsTutorialManager.js */ "./webpack-app/components/manager/TutorialManager/methodsTutorialManager.js");
+/* harmony import */ var _methodsMouseTutorialManager_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsMouseTutorialManager.js */ "./webpack-app/components/manager/TutorialManager/methodsMouseTutorialManager.js");
+/* harmony import */ var _methodsTestTutorialManager_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsTestTutorialManager.js */ "./webpack-app/components/manager/TutorialManager/methodsTestTutorialManager.js");
+//import IntroJs from './introjs/intro.js'
+//import anno from './anno/anno.js'
+
+
+
+let TutorialManager = {
+  props: ['lib', 'status', 'config'],
+  data() {    
+    this.$i18n.locale = this.config.locale
+    return {
+      actionLists: {},
+      guide: null,
+      isPlaying: false,
+      finishModal: null
+    }
+  },
+//  components: {
+//  },
+  computed: {
+    defaultType () {
+      return this.lib.auth.currentStep
+    }
+  },
+  watch: {
+    'status.needLogin' () {
+      this.stop()
+    }
+  },
+  mounted: async function () {
+    //this._test()
+  },
+  destroyed () {
+    this.stop()
+  },
+  methods: {} // methodsTutorialManager.js
+}
+
+
+Object(_methodsTutorialManager_js__WEBPACK_IMPORTED_MODULE_2__["default"])(TutorialManager)
+
+
+Object(_methodsMouseTutorialManager_js__WEBPACK_IMPORTED_MODULE_3__["default"])(TutorialManager)
+
+
+Object(_methodsTestTutorialManager_js__WEBPACK_IMPORTED_MODULE_4__["default"])(TutorialManager)
+
+/* harmony default export */ __webpack_exports__["default"] = (TutorialManager);
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&":
+/*!***************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true& ***!
+  \***************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_less_vue_type_style_index_0_id_1bc43b50_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-style-loader!../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_less_vue_type_style_index_0_id_1bc43b50_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_less_vue_type_style_index_0_id_1bc43b50_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_less_vue_type_style_index_0_id_1bc43b50_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_less_vue_type_style_index_0_id_1bc43b50_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_TutorialManager_less_vue_type_style_index_0_id_1bc43b50_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/TutorialManager.vue":
+/*!****************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/TutorialManager.vue ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TutorialManager_html_vue_type_template_id_1bc43b50_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TutorialManager.html?vue&type=template&id=1bc43b50&scoped=true& */ "./webpack-app/components/manager/TutorialManager/TutorialManager.html?vue&type=template&id=1bc43b50&scoped=true&");
+/* harmony import */ var _TutorialManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TutorialManager.js?vue&type=script&lang=js& */ "./webpack-app/components/manager/TutorialManager/TutorialManager.js?vue&type=script&lang=js&?6aa4");
+/* empty/unused harmony star reexport *//* harmony import */ var _TutorialManager_less_vue_type_style_index_0_id_1bc43b50_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true& */ "./webpack-app/components/manager/TutorialManager/TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&");
+/* harmony import */ var _TutorialManager_global_less_vue_type_style_index_1_lang_less___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TutorialManager.global.less?vue&type=style&index=1&lang=less& */ "./webpack-app/components/manager/TutorialManager/TutorialManager.global.less?vue&type=style&index=1&lang=less&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./TutorialManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CTutorialManager%5CTutorialManager.vue&lang=yaml */ "./webpack-app/components/manager/TutorialManager/TutorialManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CTutorialManager%5CTutorialManager.vue&lang=yaml");
+
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__["default"])(
+  _TutorialManager_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TutorialManager_html_vue_type_template_id_1bc43b50_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TutorialManager_html_vue_type_template_id_1bc43b50_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "1bc43b50",
+  null
+  
+)
+
+/* custom blocks */
+
+if (typeof _TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__["default"] === 'function') Object(_TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__["default"])(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/components/manager/TutorialManager/TutorialManager.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/TutorialManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CTutorialManager%5CTutorialManager.vue&lang=yaml":
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/TutorialManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CTutorialManager%5CTutorialManager.vue&lang=yaml ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/@kazupon/vue-i18n-loader/lib!./TutorialManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CTutorialManager%5CTutorialManager.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/manager/TutorialManager/TutorialManager.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cmanager%5CTutorialManager%5CTutorialManager.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_TutorialManager_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cmanager_5CTutorialManager_5CTutorialManager_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/jquery-guide/jquery-guide.webpack.js":
+/*!*********************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/jquery-guide/jquery-guide.webpack.js ***!
+  \*********************************************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _jquery_guide_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jquery.guide.js */ "./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.js");
+/* harmony import */ var _jquery_guide_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./jquery.guide.less */ "./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.less");
+/* harmony import */ var _jquery_guide_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_jquery_guide_less__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.js":
+/*!*************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.js ***!
+  \*************************************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _tippy_js_dist_tippy_cjs_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tippy.js/dist/tippy.cjs.js */ "./webpack-app/components/manager/TutorialManager/jquery-guide/tippy.js/dist/tippy.cjs.js");
+/* harmony import */ var _tippy_js_dist_tippy_cjs_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tippy_js_dist_tippy_cjs_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var tippy_js_dist_tippy_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tippy.js/dist/tippy.css */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\tippy.js\\dist\\tippy.css");
+/* harmony import */ var tippy_js_dist_tippy_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(tippy_js_dist_tippy_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var tippy_js_themes_light_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tippy.js/themes/light.css */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\tippy.js\\themes\\light.css");
+/* harmony import */ var tippy_js_themes_light_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(tippy_js_themes_light_css__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+// Generated by CoffeeScript 1.8.0
+(function() {
+  (function($) {
+    var jQueryGuide;
+    let scrollIntoView = false
+    let currentScrollTop
+    let isStart = false
+    let $window = $(window)
+    let $body = $('body')
+    let completeCallback
+    let vm
+    
+    let guide
+    
+    let onWindowResize = () => {
+      return guide.draw();
+    }
+    let onWindowScroll = () => {
+      if (scrollIntoView === true) {
+        return false
+      }
+      return guide.draw();
+    }
+    
+    $.guide = function(options) {
+      isStart = true
+      var action, _i, _len, _ref;
+      guide = new jQueryGuide();
+      if (options.actions !== void 0) {
+        _ref = options.actions;
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          action = _ref[_i];
+          guide.addAction(action);
+        }
+      }
+      
+      if (options.vm) {
+        vm = options.vm
+      }
+      
+      completeCallback = options.complete ? options.complete : null
+      
+      guide.buildLayout();
+      guide.layout.bg.click((function(_this) {
+        return function() {
+          return guide.next();
+        };
+      })(this));
+//      $window.resize((function(_this) {
+//        return function() {
+//          return guide.draw();
+//        };
+//      })(this));
+      $window.bind('resize', onWindowResize)
+//      $window.scroll((function(_this) {
+//        return function() {
+//          if (scrollIntoView === true) {
+//            return false
+//          }
+//          return guide.draw();
+//        };
+//      })(this));
+      //$window.bind('scroll', onWindowScroll)
+      
+      $body.addClass('jquery-guide-prevent-scroll')
+      
+      //throw new Error('currentScrollTop')
+      currentScrollTop = window.pageYOffset
+      //console.log(currentScrollTop)
+      
+      guide.execAction();
+      return guide;
+    };
+    return jQueryGuide = (function() {
+      function jQueryGuide() {
+        this.layout = {
+          container: '',
+          bg: '',
+          content: '',
+          glow: null,
+          tempRange: ''
+        };
+        this.step = {
+          current: 0,
+          status: 0
+        };
+        this.actionList = [];
+      }
+
+      jQueryGuide.prototype.buildLayout = function() {
+        var layout, layoutId;
+        layoutId = Math.round(Math.random() * 10000);
+        layout = $(`<div class="jquery-guide" id="jQueryGuide` + layoutId + `">
+            <div class="jquery-guide-bg"></div>
+            <div class="jquery-guide-content"></div>
+            <div class="jquery-guide-glow"></div>
+            <div class="jquery-guide-temp-range"></div>
+            <div class="jquery-guide-popup ui popup transition"></div>
+        </div>`);
+        $body.append(layout);
+        this.layout.container = $('#jQueryGuide' + layoutId);
+        this.layout.container.click(function (event) {
+          event.preventDefault()
+          event.stopPropagation()
+        })
+        
+//        this.layout.container.on('scroll', function (event) {
+//          event.preventDefault()
+//          event.stopPropagation()
+//        })
+        
+        this.layout.bg = this.layout.container.find('>.jquery-guide-bg');
+        this.layout.glow = this.layout.container.find('>.jquery-guide-glow');
+        this.layout.popup = this.layout.container.find('>.jquery-guide-popup');
+        this.layout.tempRange = this.layout.container.find('>.jquery-guide-temp-range');
+        this.layout.content = this.layout.container.find('>.jquery-guide-content');
+      };
+
+      jQueryGuide.prototype.addAction = function(action) {
+        //if (!action.content === void 0) {
+        //  this.action.content = "";
+        //}
+        if (action.offsetX === void 0) {
+          action.offsetX = 0;
+        }
+        if (action.offsetY === void 0) {
+          action.offsetY = 0;
+        }
+        if (action.isBeforeFuncExec === void 0) {
+          action.isBeforeFuncExec = false;
+        }
+        return this.actionList.push(action);
+      };
+      
+      jQueryGuide.prototype.execAfterClick = async function () {
+        if (this.step.current === 0) {
+          return null
+        }
+        
+        let lastAction = this.actionList[(this.step.current - 1)];
+        if (typeof(lastAction.afterClick) === 'function') {
+          await lastAction.afterClick()
+        }
+      }
+
+      jQueryGuide.prototype.execAction = async function() {
+        var action;
+        //$('body').addClass('jquery-guide-prevent-scroll')
+        
+        await this.execAfterClick()
+        
+        action = this.actionList[this.step.current];
+        //console.log(this.step.current)
+        
+        if (this.step.status === 0) {
+          this.step.status = 1;
+          if (action.beforeFunc !== void 0) {
+            action.beforeFunc(this);
+          }
+          if (action.isBeforeFuncExec) {
+            return;
+          }
+        }
+        this.step.status = 2;
+        
+        /*
+        action.element[0].scrollIntoView({
+          behavior: "smooth", 
+          block: "center", 
+          inline: "nearest"
+        })
+        */
+          this.animate(() => {
+            
+            if (action.successFunc !== void 0) {
+              this.step.status = 3;
+              return action.successFunc(this);
+            }
+            //$('body').removeClass('jquery-guide-prevent-scroll')
+          });
+        
+      };
+
+      jQueryGuide.prototype.back = function() {
+        if (this.step.current === 0) {
+          this.exit();
+          return false;
+        }
+        this.step = {
+          current: --this.step.current,
+          status: 0
+        };
+        this.execAction();
+        return true;
+      };
+
+      jQueryGuide.prototype.next = function() {
+        if (this.step.current + 1 === this.actionList.length) {
+          this.exit();
+          return false;
+        }
+        this.step = {
+          current: ++this.step.current,
+          status: 0
+        };
+        this.execAction();
+        return true;
+      };
+
+      jQueryGuide.prototype.exit = function() {
+        $body.removeClass('jquery-guide-prevent-scroll')
+        if (glowTippy && typeof(glowTippy.destroy) === 'function') {
+          glowTippy.destroy()
+          glowTippy = undefined
+        }
+        //window.scrollTo({
+        vm.lib.style.scrollTo({
+          top: currentScrollTop,
+          behavior: "smooth", 
+        })
+        //console.log(currentScrollTop)
+        currentScrollTop = undefined
+        isStart = false
+        
+        if (typeof(completeCallback) === 'function') {
+            completeCallback()
+        }
+          
+        this.layout.container.fadeOut(() => {
+          this.layout.container.remove();
+        })
+        
+        $window.unbind('resize', onWindowResize)
+        $window.unbind('scroll', onWindowScroll)
+        
+        return true
+      };
+
+      // --------------------------------
+      
+      let scrollTimer
+      let scrollDetectDelay = 100
+      let lastPageYOffset
+      let onScrollEvent = function() {
+        if (scrollTimer) {
+          clearTimeout(scrollTimer)
+        }
+        //console.log('暫停')
+        scrollTimer = setTimeout(() => {
+          if (lastPageYOffset !== window.pageYOffset) {
+            lastPageYOffset = window.pageYOffset
+            onScrollEvent()
+            return false
+          }
+          
+          window.removeEventListener('scroll', onScrollEvent)
+          //console.log('後續')
+          animateCallback()
+        }, scrollDetectDelay * 2)
+      }
+
+      let actionElement
+      jQueryGuide.prototype.animate = async function (callback) {
+        this.layout.tempRange.hide()
+        this.layout.container.addClass('disabled')
+        let action = this.actionList[this.step.current];
+        //this.layout.glow.fadeOut('fast')
+        this.layout.glow.fadeOut()
+        
+        // -----------------------------------
+        
+        let enable = true
+        if (typeof(action.enable) === 'function') {
+          enable = await action.enable()
+        }
+        if (enable === false) {
+          return this.next()
+        }
+        
+        // -----------------------------------
+        
+        if (action.backgroundFadeOut === true) {
+          this.layout.bg.fadeOut('fast', () => {
+            this.layout.bg.css('border-width', '0px')
+                    .css('width', '100%')
+                    .css('height', '100vh')
+          })
+        }
+        
+        if (typeof(action.beforeCallback) === 'function') {
+          let result = await action.beforeCallback()
+          if (result === false) {
+            return this.next()
+          }
+        }
+        
+        // ---------------------------------
+        
+        //console.log(action.element[0])
+        scrollIntoView = true
+        lastPageYOffset = window.pageYOffset
+        animateTemp = {
+          action, 
+          callback,
+          next: () => {this.next()},
+          _this: this
+        }
+        
+        //console.log(action.content)
+        //console.log(action.element)
+        actionElement = action.element
+        if (typeof(actionElement) === 'function') {
+          actionElement = await actionElement()
+        }
+        if (!actionElement) {
+          return this.next()
+        }
+        if (typeof(actionElement.$el) === 'object') {
+          actionElement = $(actionElement.$el)
+        }
+        if (actionElement.length > 1) {
+          actionElement = this.drawTempRange(actionElement)
+        }
+        else if (actionElement.length === 0) {
+          console.log(`Element is not found`, action)
+          return this.next()
+        }
+        
+        let element = actionElement
+        
+        if (!element) {
+          return this.next()
+        }
+        
+        if (typeof(element.scrollIntoView) !== 'function'
+                && element[0]
+                && typeof(element[0].scrollIntoView) === 'function') {
+          element = element[0]
+        }
+        else if (element.length === 0) {
+          console.log(`Element is not found`, action)
+          return this.next()
+        }
+        
+        if (!element) {
+          return this.next()
+        }
+        
+        // ------------------------------
+        
+        
+        window.addEventListener('scroll', onScrollEvent)
+        
+        if (action.scroll === false) {
+          // do nothing
+        }
+        else if (!action.scroll) {
+//          element.scrollIntoView({
+//            behavior: "smooth", 
+//            block: "center", 
+//            inline: "nearest"
+//          })
+          
+          vm.lib.style.scrollIntoView(element, {
+            behavior: "smooth", 
+            block: "center", 
+            inline: "nearest"
+          })
+          //console.log('scrollIntoView smooth')
+        }
+        else if (action.scroll === 'start') {
+          let elementTop = actionElement.offset().top
+          let padding = 150
+          if (padding > (window.innerHeight / 3)) {
+            padding = (window.innerHeight / 3)
+          }
+          let scrollToTop = elementTop - padding
+
+//          window.scrollTo({
+//            top: scrollToTop,
+//            behavior: "smooth", 
+//            block: "start", 
+//            inline: "nearest"
+//          })
+          vm.lib.style.scrollTo({
+            top: scrollToTop,
+            behavior: "smooth", 
+            block: "start", 
+            inline: "nearest"
+          })
+          
+          //console.log('scrollIntoView start')
+        }
+        
+        //this.animateCallback(action, callback)
+        scrollTimer = setTimeout(() => {
+          if (lastPageYOffset !== window.pageYOffset) {
+            lastPageYOffset = window.pageYOffset
+            onScrollEvent()
+            return false
+          }
+          
+          window.removeEventListener('scroll', onScrollEvent)
+          //console.log('first')
+          animateCallback()
+        }, scrollDetectDelay)
+      };
+      
+      let animateTemp = {}
+      let animateCallback = function() {
+        //console.log('animateCallback')
+        let {action, callback, next, _this} = animateTemp
+        
+        if (action.backgroundFadeOut === true) {
+          _this.layout.bg.fadeIn()
+        }
+        
+        
+        if (!actionElement) {
+          return next()
+        }
+        else if (typeof(actionElement.offset) !== 'function') {
+          //console.error('no offset', actionElement)
+          actionElement = $(actionElement)
+        }
+        if (actionElement.is(':visible') === false) {
+          console.error('actionElement is not visible', actionElement)
+          return next()
+        }
+        
+        var bgBottomWidth, bgScrollTop, bgTopWidth, scrollTop;
+        
+        //setTimeout(() => {
+          
+          
+          //action.element[0].scrollIntoView({
+          //  behavior: 'smooth'
+          //})
+          scrollTop = $window.scrollTop();
+          bgScrollTop = actionElement.offset().top - scrollTop;
+          bgTopWidth = bgScrollTop > 0 ? bgScrollTop : 0;
+          bgBottomWidth = (bgScrollTop + actionElement.innerHeight()) > 0 
+              ? $window.innerHeight() - (actionElement.innerHeight() + bgScrollTop) : $window.innerHeight();
+
+          //this.layout.bg.show()
+          return _this.layout.bg.animate({
+            width: actionElement.innerWidth(),
+            height: actionElement.innerHeight() + (bgScrollTop < 0 ? bgScrollTop : 0),
+            borderTopWidth: bgTopWidth,
+            borderRightWidth: $window.innerWidth() - actionElement.offset().left - actionElement.innerWidth() + 1,
+            borderBottomWidth: bgBottomWidth,
+            borderLeftWidth: actionElement.offset().left
+          }, (function() {
+            return function() {
+              setupGlowPopup(_this, action)
+              _this.layout.container.removeClass('disabled')
+              //scrollIntoView = false
+              callback()
+            };
+          })(this));
+        //}, 500)
+      }
+      
+      let glowTippy
+      let setupGlowPopup = function (_this, action) {
+        //console.log('需要新增一個div作為框架')
+        _this.layout.glow.fadeIn('fast')
+        _this.layout.glow.css({
+          'width': actionElement.innerWidth() + 'px',
+          'height': actionElement.innerHeight() + 'px',
+          'top': actionElement.offset().top,
+          'left': actionElement.offset().left
+        })
+        
+        let glow = _this.layout.glow
+        let tippyInited = true
+        if (action.content) {
+          if (isStart === false) {
+            return false
+          }
+          
+          if (glow.attr('data-tippy-content') === undefined) {
+            tippyInited = false
+          }
+          
+          if (tippyInited === false) {
+            glow.attr('data-tippy-content', action.content)
+            
+            glowTippy = _tippy_js_dist_tippy_cjs_js__WEBPACK_IMPORTED_MODULE_1___default()(_this.layout.glow[0], {
+              theme: 'light',
+              //hideOnClick: false
+            })
+            //window.gt = glowTippy
+          }
+          else {
+            glowTippy.setContent(action.content)
+          }
+          
+          glowTippy.show()
+        }
+      }
+
+      jQueryGuide.prototype.draw = function() {
+        var action, bgBottomWidth, bgScrollTop, bgTopWidth, scrollTop;
+        action = this.actionList[this.step.current];
+        scrollTop = $window.scrollTop();
+        if (!actionElement) {
+          return false
+        }
+        
+        bgScrollTop = actionElement.offset().top - scrollTop;
+        bgTopWidth = bgScrollTop > 0 ? bgScrollTop : 0;
+        bgBottomWidth = (bgScrollTop + actionElement.innerHeight()) > 0 
+          ? $window.innerHeight() - (actionElement.innerHeight() + bgScrollTop) : $window.innerHeight();
+        this.layout.bg.css({
+          width: actionElement.innerWidth(),
+          height: actionElement.innerHeight() + (bgScrollTop < 0 ? bgScrollTop : 0),
+          borderTopWidth: bgTopWidth,
+          borderRightWidth: $window.innerWidth() - actionElement.offset().left - actionElement.innerWidth(),
+          borderBottomWidth: bgBottomWidth,
+          borderLeftWidth: actionElement.offset().left
+        });
+        setupGlowPopup(this, action)
+        return this.layout.content.css({
+          top: actionElement.offset().top + action.offsetY,
+          left: actionElement.offset().left + action.offsetX
+        });
+      };  // jQueryGuide.prototype.draw = function() {
+      
+      jQueryGuide.prototype.drawTempRange = function(elements) {
+        let top, left, bottom, right
+        for (let i = 0; i < elements.length; i++) {
+          let element = elements.eq(i)
+          let offset = element.offset()
+          let t = offset.top
+          let l = offset.left
+          let w = element.width()
+          let r = l + w
+          let h = element.height()
+          let b = t + h
+          
+          if (i === 0) {
+            top = t
+            left = l
+            bottom = b
+            right = r
+          }
+          else {
+            top = Math.min(top, t)
+            left = Math.min(left, l)
+            bottom = Math.max(bottom, b)
+            right = Math.max(right, right)
+          }
+          //console.log(top, left, bottom, right)
+        }
+        
+        if (top === 0 && bottom === 0) {
+          console.error('Elements is not found', elements)
+          return undefined
+        }
+        
+        this.layout.tempRange.show()
+                .css({
+                  top: top + 'px',
+                  left: left + 'px',
+                  width: (right - left) + 'px',
+                  height: (bottom - top) + 'px'
+                })
+                
+        return this.layout.tempRange
+      };  //  jQueryGuide.prototype.drawTempRange = function(elements) {
+
+      return jQueryGuide;
+
+    })();
+  })(jquery__WEBPACK_IMPORTED_MODULE_0___default.a);
+
+}).call(undefined);
+
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.less":
+/*!***************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.less ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./jquery.guide.less */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/manager/TutorialManager/jquery-guide/jquery.guide.less");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("4f6becbb", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/jquery-guide/tippy.js/dist/tippy.chunk.cjs.js":
+/*!******************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/jquery-guide/tippy.js/dist/tippy.chunk.cjs.js ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**!
+* tippy.js v5.1.2
+* (c) 2017-2019 atomiks
+* MIT License
+*/
+
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var Popper = _interopDefault(__webpack_require__(/*! popper.js */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\popper.js\\dist\\esm\\popper.js"));
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+var version = "5.1.2";
+
+/**
+ * Triggers reflow
+ */
+function reflow(element) {
+  void element.offsetHeight;
+}
+/**
+ * Sets the innerHTML of an element
+ */
+
+function setInnerHTML(element, html) {
+  element[innerHTML()] = html;
+}
+/**
+ * Determines if the value is a reference element
+ */
+
+function isReferenceElement(value) {
+  return !!(value && value._tippy && value._tippy.reference === value);
+}
+/**
+ * Safe .hasOwnProperty check, for prototype-less objects
+ */
+
+function hasOwnProperty(obj, key) {
+  return {}.hasOwnProperty.call(obj, key);
+}
+/**
+ * Returns an array of elements based on the value
+ */
+
+function getArrayOfElements(value) {
+  if (isElement(value)) {
+    return [value];
+  }
+
+  if (isNodeList(value)) {
+    return arrayFrom(value);
+  }
+
+  if (Array.isArray(value)) {
+    return value;
+  }
+
+  return arrayFrom(document.querySelectorAll(value));
+}
+/**
+ * Returns a value at a given index depending on if it's an array or number
+ */
+
+function getValueAtIndexOrReturn(value, index, defaultValue) {
+  if (Array.isArray(value)) {
+    var v = value[index];
+    return v == null ? Array.isArray(defaultValue) ? defaultValue[index] : defaultValue : v;
+  }
+
+  return value;
+}
+/**
+ * Prevents errors from being thrown while accessing nested modifier objects
+ * in `popperOptions`
+ */
+
+function getModifier(obj, key) {
+  return obj && obj.modifiers && obj.modifiers[key];
+}
+/**
+ * Determines if the value is of type
+ */
+
+function isType(value, type) {
+  var str = {}.toString.call(value);
+  return str.indexOf('[object') === 0 && str.indexOf(type + "]") > -1;
+}
+/**
+ * Determines if the value is of type Element
+ */
+
+function isElement(value) {
+  return isType(value, 'Element');
+}
+/**
+ * Determines if the value is of type NodeList
+ */
+
+function isNodeList(value) {
+  return isType(value, 'NodeList');
+}
+/**
+ * Determines if the value is of type MouseEvent
+ */
+
+function isMouseEvent(value) {
+  return isType(value, 'MouseEvent');
+}
+/**
+ * Firefox extensions don't allow setting .innerHTML directly, this will trick
+ * it
+ */
+
+function innerHTML() {
+  return 'innerHTML';
+}
+/**
+ * Evaluates a function if one, or returns the value
+ */
+
+function invokeWithArgsOrReturn(value, args) {
+  return typeof value === 'function' ? value.apply(void 0, args) : value;
+}
+/**
+ * Sets a popperInstance modifier's property to a value
+ */
+
+function setModifierValue(modifiers, name, property, value) {
+  modifiers.filter(function (m) {
+    return m.name === name;
+  })[0][property] = value;
+}
+/**
+ * Returns a new `div` element
+ */
+
+function div() {
+  return document.createElement('div');
+}
+/**
+ * Applies a transition duration to a list of elements
+ */
+
+function setTransitionDuration(els, value) {
+  els.forEach(function (el) {
+    if (el) {
+      el.style.transitionDuration = value + "ms";
+    }
+  });
+}
+/**
+ * Sets the visibility state to elements so they can begin to transition
+ */
+
+function setVisibilityState(els, state) {
+  els.forEach(function (el) {
+    if (el) {
+      el.setAttribute('data-state', state);
+    }
+  });
+}
+/**
+ * Debounce utility. To avoid bloating bundle size, we're only passing 1
+ * argument here, a more generic function would pass all arguments. Only
+ * `onMouseMove` uses this which takes the event object for now.
+ */
+
+function debounce(fn, ms) {
+  // Avoid wrapping in `setTimeout` if ms is 0 anyway
+  if (ms === 0) {
+    return fn;
+  }
+
+  var timeout;
+  return function (arg) {
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+      fn(arg);
+    }, ms);
+  };
+}
+/**
+ * Preserves the original function invocation when another function replaces it
+ */
+
+function preserveInvocation(originalFn, currentFn, args) {
+  if (originalFn && originalFn !== currentFn) {
+    originalFn.apply(void 0, args);
+  }
+}
+/**
+ * Deletes properties from an object (pure)
+ */
+
+function removeProperties(obj, keys) {
+  var clone = _extends({}, obj);
+
+  keys.forEach(function (key) {
+    delete clone[key];
+  });
+  return clone;
+}
+/**
+ * Ponyfill for Array.from - converts iterable values to an array
+ */
+
+function arrayFrom(value) {
+  return [].slice.call(value);
+}
+/**
+ * Works like Element.prototype.closest, but uses a callback instead
+ */
+
+function closestCallback(element, callback) {
+  while (element) {
+    if (callback(element)) {
+      return element;
+    }
+
+    element = element.parentElement;
+  }
+
+  return null;
+}
+/**
+ * Determines if an array or string includes a string
+ */
+
+function includes(a, b) {
+  return a.indexOf(b) > -1;
+}
+/**
+ * Creates an array from string of values separated by whitespace
+ */
+
+function splitBySpaces(value) {
+  return value.split(/\s+/).filter(Boolean);
+}
+/**
+ * Returns the `nextValue` if `nextValue` is not `undefined`, otherwise returns
+ * `currentValue`
+ */
+
+function useIfDefined(nextValue, currentValue) {
+  return nextValue !== undefined ? nextValue : currentValue;
+}
+/**
+ * Converts a value that's an array or single value to an array
+ */
+
+function normalizeToArray(value) {
+  return [].concat(value);
+}
+/**
+ * Returns the ownerDocument of the first available element, otherwise global
+ * document
+ */
+
+function getOwnerDocument(elementOrElements) {
+  var _normalizeToArray = normalizeToArray(elementOrElements),
+      element = _normalizeToArray[0];
+
+  return element ? element.ownerDocument || document : document;
+}
+/**
+ * Adds item to array if array does not contain it
+ */
+
+function pushIfUnique(arr, value) {
+  if (arr.indexOf(value) === -1) {
+    arr.push(value);
+  }
+}
+/**
+ * Adds `px` if value is a number, or returns it directly
+ */
+
+function appendPxIfNumber(value) {
+  return typeof value === 'number' ? value + "px" : value;
+}
+/**
+ * Filters out duplicate elements in an array
+ */
+
+function unique(arr) {
+  return arr.filter(function (item, index) {
+    return arr.indexOf(item) === index;
+  });
+}
+/**
+ * Returns number from number or CSS units string
+ */
+
+function getNumber(value) {
+  return typeof value === 'number' ? value : parseFloat(value);
+}
+/**
+ * Gets number or CSS string units in pixels (e.g. `1rem` -> 16)
+ */
+
+function getUnitsInPx(doc, value) {
+  var isRem = typeof value === 'string' && includes(value, 'rem');
+  var html = doc.documentElement;
+  var rootFontSize = 16;
+
+  if (html && isRem) {
+    return parseFloat(getComputedStyle(html).fontSize || String(rootFontSize)) * getNumber(value);
+  }
+
+  return getNumber(value);
+}
+/**
+ * Adds the `distancePx` value to the placement of a Popper.Padding object
+ */
+
+function getComputedPadding(basePlacement, padding, distancePx) {
+  if (padding === void 0) {
+    padding = 5;
+  }
+
+  var freshPaddingObject = {
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0
+  };
+  var keys = Object.keys(freshPaddingObject);
+  return keys.reduce(function (obj, key) {
+    obj[key] = typeof padding === 'number' ? padding : padding[key];
+
+    if (basePlacement === key) {
+      obj[key] = typeof padding === 'number' ? padding + distancePx : padding[basePlacement] + distancePx;
+    }
+
+    return obj;
+  }, freshPaddingObject);
+}
+
+function createMemoryLeakWarning(method) {
+  var txt = method === 'destroy' ? 'n already-' : ' ';
+  return "\n    " + method + "() was called on a" + txt + "destroyed instance. This is a no-op but\n    indicates a potential memory leak.\n  ";
+}
+function clean(value) {
+  var spacesAndTabs = /[ \t]{2,}/g;
+  var lineStartWithSpaces = /^[ \t]*/gm;
+  return value.replace(spacesAndTabs, ' ').replace(lineStartWithSpaces, '').trim();
+}
+
+function getDevMessage(message) {
+  return clean("\n  %ctippy.js\n\n  %c" + clean(message) + "\n\n  %c\uD83D\uDC77\u200D This is a development-only message. It will be removed in production.\n  ");
+}
+
+function getFormattedMessage(message) {
+  return [getDevMessage(message), // title
+  'color: #00C584; font-size: 1.3em; font-weight: bold;', // message
+  'line-height: 1.5', // footer
+  'color: #a6a095;'];
+}
+/**
+ * Helpful wrapper around `console.warn()`.
+ * TODO: Should we use a cache so it only warns a single time and not spam the
+ * console? (Need to consider hot reloading and invalidation though). Chrome
+ * already batches warnings as well.
+ */
+
+function warnWhen(condition, message) {
+  if (condition) {
+    var _console;
+
+    (_console = console).warn.apply(_console, getFormattedMessage(message));
+  }
+}
+/**
+ * Helpful wrapper around thrown errors
+ */
+
+function throwErrorWhen(condition, message) {
+  if (condition) {
+    throw new Error(clean(message));
+  }
+}
+/**
+ * Validates the `targets` value passed to `tippy()`
+ */
+
+function validateTargets(targets) {
+  var didPassFalsyValue = !targets;
+  var didPassPlainObject = Object.prototype.toString.call(targets) === '[object Object]' && !targets.addEventListener;
+  throwErrorWhen(didPassFalsyValue, "tippy() was passed `" + targets + "` as its targets (first) argument.\n\n    Valid types are: String, Element, Element[], or NodeList.");
+  throwErrorWhen(didPassPlainObject, "tippy() was passed a plain object which is no longer supported as an\n    argument.\n    \n    See https://atomiks.github.io/tippyjs/misc/#custom-position");
+}
+
+var defaultProps = {
+  allowHTML: true,
+  animateFill: false,
+  animation: 'fade',
+  appendTo: function appendTo() {
+    return document.body;
+  },
+  aria: 'describedby',
+  arrow: true,
+  boundary: 'scrollParent',
+  content: '',
+  delay: 0,
+  distance: 10,
+  duration: [300, 250],
+  flip: true,
+  flipBehavior: 'flip',
+  flipOnUpdate: false,
+  followCursor: false,
+  hideOnClick: true,
+  ignoreAttributes: false,
+  inlinePositioning: false,
+  inertia: false,
+  interactive: false,
+  interactiveBorder: 2,
+  interactiveDebounce: 0,
+  lazy: true,
+  maxWidth: 350,
+  multiple: false,
+  offset: 0,
+  onAfterUpdate: function onAfterUpdate() {},
+  onBeforeUpdate: function onBeforeUpdate() {},
+  onCreate: function onCreate() {},
+  onDestroy: function onDestroy() {},
+  onHidden: function onHidden() {},
+  onHide: function onHide() {},
+  onMount: function onMount() {},
+  onShow: function onShow() {},
+  onShown: function onShown() {},
+  onTrigger: function onTrigger() {},
+  onUntrigger: function onUntrigger() {},
+  placement: 'top',
+  plugins: [],
+  popperOptions: {},
+  role: 'tooltip',
+  showOnCreate: false,
+  sticky: false,
+  theme: '',
+  touch: true,
+  trigger: 'mouseenter focus',
+  triggerTarget: null,
+  updateDuration: 0,
+  zIndex: 9999
+};
+var defaultKeys = Object.keys(defaultProps);
+/**
+ * If the setProps() method encounters one of these, the popperInstance must be
+ * recreated
+ */
+
+var POPPER_INSTANCE_DEPENDENCIES = ['arrow', 'boundary', 'distance', 'flip', 'flipBehavior', 'flipOnUpdate', 'offset', 'placement', 'popperOptions'];
+/**
+ * Mutates the defaultProps object by setting the props specified
+ */
+
+var setDefaultProps = function setDefaultProps(partialProps) {
+  if (true) {
+    validateProps(partialProps, []);
+  }
+
+  var keys = Object.keys(partialProps);
+  keys.forEach(function (key) {
+    defaultProps[key] = partialProps[key];
+  });
+};
+/**
+ * Returns an extended props object including plugin props
+ */
+
+function getExtendedProps(props) {
+  return _extends({}, props, {}, props.plugins.reduce(function (acc, plugin) {
+    var name = plugin.name,
+        defaultValue = plugin.defaultValue;
+
+    if (name) {
+      acc[name] = props[name] !== undefined ? props[name] : defaultValue;
+    }
+
+    return acc;
+  }, {}));
+}
+/**
+ * Returns an object of optional props from data-tippy-* attributes
+ */
+
+function getDataAttributeProps(reference, plugins) {
+  var propKeys = plugins ? Object.keys(getExtendedProps(_extends({}, defaultProps, {
+    plugins: plugins
+  }))) : defaultKeys;
+  var props = propKeys.reduce(function (acc, key) {
+    var valueAsString = (reference.getAttribute("data-tippy-" + key) || '').trim();
+
+    if (!valueAsString) {
+      return acc;
+    }
+
+    if (key === 'content') {
+      acc[key] = valueAsString;
+    } else {
+      try {
+        acc[key] = JSON.parse(valueAsString);
+      } catch (e) {
+        acc[key] = valueAsString;
+      }
+    }
+
+    return acc;
+  }, {});
+  return props;
+}
+/**
+ * Evaluates the props object by merging data attributes and disabling
+ * conflicting props where necessary
+ */
+
+function evaluateProps(reference, props) {
+  var out = _extends({}, props, {
+    content: invokeWithArgsOrReturn(props.content, [reference])
+  }, props.ignoreAttributes ? {} : getDataAttributeProps(reference, props.plugins));
+
+  if (out.interactive) {
+    out.aria = null;
+  }
+
+  return out;
+}
+/**
+ * Validates props with the valid `defaultProps` object
+ */
+
+function validateProps(partialProps, plugins) {
+  if (partialProps === void 0) {
+    partialProps = {};
+  }
+
+  if (plugins === void 0) {
+    plugins = [];
+  }
+
+  var keys = Object.keys(partialProps);
+  keys.forEach(function (prop) {
+    var value = partialProps[prop];
+    var didSpecifyPlacementInPopperOptions = prop === 'popperOptions' && value !== null && typeof value === 'object' && hasOwnProperty(value, 'placement');
+    var nonPluginProps = removeProperties(defaultProps, ['animateFill', 'followCursor', 'inlinePositioning', 'sticky']); // These props have custom warnings
+
+    var customWarningProps = ['a11y', 'arrowType', 'showOnInit', 'size', 'target', 'touchHold'];
+    var didPassUnknownProp = !hasOwnProperty(nonPluginProps, prop) && !includes(customWarningProps, prop); // Check if the prop exists in `plugins`
+
+    if (didPassUnknownProp) {
+      didPassUnknownProp = plugins.filter(function (plugin) {
+        return plugin.name === prop;
+      }).length === 0;
+    }
+
+    warnWhen(prop === 'target', "The `target` prop was removed in v5 and replaced with the delegate()\n      addon in order to conserve bundle size.\n      \n      See: https://atomiks.github.io/tippyjs/addons/#event-delegation");
+    warnWhen(prop === 'a11y', "The `a11y` prop was removed in v5. Make sure the element you are giving\n      a tippy to is natively focusable, such as <button> or <input>, not <div>\n      or <span>.");
+    warnWhen(prop === 'showOnInit', "The `showOnInit` prop was renamed to `showOnCreate` in v5.");
+    warnWhen(prop === 'arrowType', "The `arrowType` prop was removed in v5 in favor of overloading the\n      `arrow` prop.\n\n      \"round\" string was replaced with importing the string from the package.\n\n      * import {roundArrow} from 'tippy.js'; (ESM version)\n      * const {roundArrow} = tippy; (IIFE CDN version)\n\n      Before: {arrow: true, arrowType: \"round\"}\n      After: {arrow: roundArrow}");
+    warnWhen(prop === 'touchHold', "The `touchHold` prop was removed in v5 in favor of overloading the\n      `touch` prop.\n      \n      Before: {touchHold: true}\n      After: {touch: \"hold\"}");
+    warnWhen(prop === 'size', "The `size` prop was removed in v5. Instead, use a theme that specifies\n      CSS padding and font-size properties.");
+    warnWhen(prop === 'theme' && value === 'google', "The included theme \"google\" was renamed to \"material\" in v5.");
+    warnWhen(didSpecifyPlacementInPopperOptions, "Specifying placement in `popperOptions` is not supported. Use the\n      base-level `placement` prop instead.\n      \n      Before: {popperOptions: {placement: \"bottom\"}}\n      After: {placement: \"bottom\"}");
+    warnWhen(didPassUnknownProp, "`" + prop + "` is not a valid prop. You may have spelled it incorrectly,\n      or if it's a plugin, forgot to pass it in an array as props.plugins.\n\n      In v5, the following props were turned into plugins:\n\n      * animateFill\n      * followCursor\n      * sticky\n\n      All props: https://atomiks.github.io/tippyjs/all-props/\n      Plugins: https://atomiks.github.io/tippyjs/plugins/");
+  });
+}
+
+var PASSIVE = {
+  passive: true
+};
+var ROUND_ARROW = '<svg viewBox="0 0 18 7" xmlns="http://www.w3.org/2000/svg"><path d="M0 7s2.021-.015 5.253-4.218C6.584 1.051 7.797.007 9 0c1.203-.007 2.416 1.035 3.761 2.782C16.012 7.005 18 7 18 7H0z"/></svg>';
+var IOS_CLASS = "tippy-iOS";
+var POPPER_CLASS = "tippy-popper";
+var TOOLTIP_CLASS = "tippy-tooltip";
+var CONTENT_CLASS = "tippy-content";
+var BACKDROP_CLASS = "tippy-backdrop";
+var ARROW_CLASS = "tippy-arrow";
+var SVG_ARROW_CLASS = "tippy-svg-arrow";
+var POPPER_SELECTOR = "." + POPPER_CLASS;
+var TOOLTIP_SELECTOR = "." + TOOLTIP_CLASS;
+var CONTENT_SELECTOR = "." + CONTENT_CLASS;
+var ARROW_SELECTOR = "." + ARROW_CLASS;
+var SVG_ARROW_SELECTOR = "." + SVG_ARROW_CLASS;
+
+var currentInput = {
+  isTouch: false
+};
+var lastMouseMoveTime = 0;
+/**
+ * When a `touchstart` event is fired, it's assumed the user is using touch
+ * input. We'll bind a `mousemove` event listener to listen for mouse input in
+ * the future. This way, the `isTouch` property is fully dynamic and will handle
+ * hybrid devices that use a mix of touch + mouse input.
+ */
+
+function onDocumentTouchStart() {
+  if (currentInput.isTouch) {
+    return;
+  }
+
+  currentInput.isTouch = true;
+
+  if (window.performance) {
+    document.addEventListener('mousemove', onDocumentMouseMove);
+  }
+}
+/**
+ * When two `mousemove` event are fired consecutively within 20ms, it's assumed
+ * the user is using mouse input again. `mousemove` can fire on touch devices as
+ * well, but very rarely that quickly.
+ */
+
+function onDocumentMouseMove() {
+  var now = performance.now();
+
+  if (now - lastMouseMoveTime < 20) {
+    currentInput.isTouch = false;
+    document.removeEventListener('mousemove', onDocumentMouseMove);
+  }
+
+  lastMouseMoveTime = now;
+}
+/**
+ * When an element is in focus and has a tippy, leaving the tab/window and
+ * returning causes it to show again. For mouse users this is unexpected, but
+ * for keyboard use it makes sense.
+ * TODO: find a better technique to solve this problem
+ */
+
+function onWindowBlur() {
+  var activeElement = document.activeElement;
+
+  if (isReferenceElement(activeElement)) {
+    var instance = activeElement._tippy;
+
+    if (activeElement.blur && !instance.state.isVisible) {
+      activeElement.blur();
+    }
+  }
+}
+/**
+ * Adds the needed global event listeners
+ */
+
+function bindGlobalEventListeners() {
+  document.addEventListener('touchstart', onDocumentTouchStart, _extends({}, PASSIVE, {
+    capture: true
+  }));
+  window.addEventListener('blur', onWindowBlur);
+}
+
+var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
+var ua = isBrowser ? navigator.userAgent : '';
+var isIE = /MSIE |Trident\//.test(ua);
+var isUCBrowser = /UCBrowser\//.test(ua);
+var isIOS = isBrowser && /iPhone|iPad|iPod/.test(navigator.platform);
+function updateIOSClass(isAdd) {
+  var shouldAdd = isAdd && isIOS && currentInput.isTouch;
+  document.body.classList[shouldAdd ? 'add' : 'remove'](IOS_CLASS);
+}
+
+/**
+ * Returns the popper's placement, ignoring shifting (top-start, etc)
+ */
+
+function getBasePlacement(placement) {
+  return placement.split('-')[0];
+}
+/**
+ * Adds `data-inertia` attribute
+ */
+
+function addInertia(tooltip) {
+  tooltip.setAttribute('data-inertia', '');
+}
+/**
+ * Removes `data-inertia` attribute
+ */
+
+function removeInertia(tooltip) {
+  tooltip.removeAttribute('data-inertia');
+}
+/**
+ * Adds interactive-related attributes
+ */
+
+function addInteractive(tooltip) {
+  tooltip.setAttribute('data-interactive', '');
+}
+/**
+ * Removes interactive-related attributes
+ */
+
+function removeInteractive(tooltip) {
+  tooltip.removeAttribute('data-interactive');
+}
+/**
+ * Sets the content of a tooltip
+ */
+
+function setContent(contentEl, props) {
+  if (isElement(props.content)) {
+    setInnerHTML(contentEl, '');
+    contentEl.appendChild(props.content);
+  } else if (typeof props.content !== 'function') {
+    var key = props.allowHTML ? 'innerHTML' : 'textContent';
+    contentEl[key] = props.content;
+  }
+}
+/**
+ * Returns the child elements of a popper element
+ */
+
+function getChildren(popper) {
+  return {
+    tooltip: popper.querySelector(TOOLTIP_SELECTOR),
+    content: popper.querySelector(CONTENT_SELECTOR),
+    arrow: popper.querySelector(ARROW_SELECTOR) || popper.querySelector(SVG_ARROW_SELECTOR)
+  };
+}
+/**
+ * Creates an arrow element and returns it
+ */
+
+function createArrowElement(arrow) {
+  var arrowElement = div();
+
+  if (arrow === true) {
+    arrowElement.className = ARROW_CLASS;
+  } else {
+    arrowElement.className = SVG_ARROW_CLASS;
+
+    if (isElement(arrow)) {
+      arrowElement.appendChild(arrow);
+    } else {
+      setInnerHTML(arrowElement, arrow);
+    }
+  }
+
+  return arrowElement;
+}
+/**
+ * Constructs the popper element and returns it
+ */
+
+function createPopperElement(id, props) {
+  var popper = div();
+  popper.className = POPPER_CLASS;
+  popper.style.position = 'absolute';
+  popper.style.top = '0';
+  popper.style.left = '0';
+  var tooltip = div();
+  tooltip.className = TOOLTIP_CLASS;
+  tooltip.id = "tippy-" + id;
+  tooltip.setAttribute('data-state', 'hidden');
+  tooltip.setAttribute('tabindex', '-1');
+  updateTheme(tooltip, 'add', props.theme);
+  var content = div();
+  content.className = CONTENT_CLASS;
+  content.setAttribute('data-state', 'hidden');
+
+  if (props.interactive) {
+    addInteractive(tooltip);
+  }
+
+  if (props.arrow) {
+    tooltip.setAttribute('data-arrow', '');
+    tooltip.appendChild(createArrowElement(props.arrow));
+  }
+
+  if (props.inertia) {
+    addInertia(tooltip);
+  }
+
+  setContent(content, props);
+  tooltip.appendChild(content);
+  popper.appendChild(tooltip);
+  updatePopperElement(popper, props, props);
+  return popper;
+}
+/**
+ * Updates the popper element based on the new props
+ */
+
+function updatePopperElement(popper, prevProps, nextProps) {
+  var _getChildren = getChildren(popper),
+      tooltip = _getChildren.tooltip,
+      content = _getChildren.content,
+      arrow = _getChildren.arrow;
+
+  popper.style.zIndex = '' + nextProps.zIndex;
+  tooltip.setAttribute('data-animation', nextProps.animation);
+  tooltip.style.maxWidth = appendPxIfNumber(nextProps.maxWidth);
+
+  if (nextProps.role) {
+    tooltip.setAttribute('role', nextProps.role);
+  } else {
+    tooltip.removeAttribute('role');
+  }
+
+  if (prevProps.content !== nextProps.content) {
+    setContent(content, nextProps);
+  } // arrow
+
+
+  if (!prevProps.arrow && nextProps.arrow) {
+    // false to true
+    tooltip.appendChild(createArrowElement(nextProps.arrow));
+    tooltip.setAttribute('data-arrow', '');
+  } else if (prevProps.arrow && !nextProps.arrow) {
+    // true to false
+    tooltip.removeChild(arrow);
+    tooltip.removeAttribute('data-arrow');
+  } else if (prevProps.arrow !== nextProps.arrow) {
+    // true to 'round' or vice-versa
+    tooltip.removeChild(arrow);
+    tooltip.appendChild(createArrowElement(nextProps.arrow));
+  } // interactive
+
+
+  if (!prevProps.interactive && nextProps.interactive) {
+    addInteractive(tooltip);
+  } else if (prevProps.interactive && !nextProps.interactive) {
+    removeInteractive(tooltip);
+  } // inertia
+
+
+  if (!prevProps.inertia && nextProps.inertia) {
+    addInertia(tooltip);
+  } else if (prevProps.inertia && !nextProps.inertia) {
+    removeInertia(tooltip);
+  } // theme
+
+
+  if (prevProps.theme !== nextProps.theme) {
+    updateTheme(tooltip, 'remove', prevProps.theme);
+    updateTheme(tooltip, 'add', nextProps.theme);
+  }
+}
+/**
+ * Add/remove transitionend listener from tooltip
+ */
+
+function updateTransitionEndListener(tooltip, action, listener) {
+  var eventName = isUCBrowser && document.body.style.webkitTransition !== undefined ? 'webkitTransitionEnd' : 'transitionend';
+  tooltip[action + 'EventListener'](eventName, listener);
+}
+/**
+ * Adds/removes theme from tooltip's classList
+ */
+
+function updateTheme(tooltip, action, theme) {
+  splitBySpaces(theme).forEach(function (name) {
+    tooltip.classList[action](name + "-theme");
+  });
+}
+/**
+ * Determines if the mouse cursor is outside of the popper's interactive border
+ * region
+ */
+
+function isCursorOutsideInteractiveBorder(popperTreeData, event) {
+  var clientX = event.clientX,
+      clientY = event.clientY;
+  return popperTreeData.every(function (_ref) {
+    var popperRect = _ref.popperRect,
+        tooltipRect = _ref.tooltipRect,
+        interactiveBorder = _ref.interactiveBorder;
+    // Get min/max bounds of both the popper and tooltip rects due to
+    // `distance` offset
+    var mergedRect = {
+      top: Math.min(popperRect.top, tooltipRect.top),
+      right: Math.max(popperRect.right, tooltipRect.right),
+      bottom: Math.max(popperRect.bottom, tooltipRect.bottom),
+      left: Math.min(popperRect.left, tooltipRect.left)
+    };
+    var exceedsTop = mergedRect.top - clientY > interactiveBorder;
+    var exceedsBottom = clientY - mergedRect.bottom > interactiveBorder;
+    var exceedsLeft = mergedRect.left - clientX > interactiveBorder;
+    var exceedsRight = clientX - mergedRect.right > interactiveBorder;
+    return exceedsTop || exceedsBottom || exceedsLeft || exceedsRight;
+  });
+}
+
+var idCounter = 1;
+var mouseMoveListeners = [];
+/**
+ * Used by `hideAll()`
+ */
+
+var mountedInstances = [];
+/**
+ * Creates and returns a Tippy object. We're using a closure pattern instead of
+ * a class so that the exposed object API is clean without private members
+ * prefixed with `_`.
+ */
+
+function createTippy(reference, collectionProps) {
+  var props = getExtendedProps(evaluateProps(reference, collectionProps)); // If the reference shouldn't have multiple tippys, return null early
+
+  if (!props.multiple && reference._tippy) {
+    return null;
+  }
+  /* ======================= 🔒 Private members 🔒 ======================= */
+
+
+  var showTimeout;
+  var hideTimeout;
+  var scheduleHideAnimationFrame;
+  var isBeingDestroyed = false;
+  var didHideDueToDocumentMouseDown = false;
+  var popperUpdates = 0;
+  var lastTriggerEvent;
+  var currentMountCallback;
+  var currentTransitionEndListener;
+  var listeners = [];
+  var debouncedOnMouseMove = debounce(onMouseMove, props.interactiveDebounce);
+  var currentTarget; // Support iframe contexts
+  // Static check that assumes any of the `triggerTarget` or `reference`
+  // nodes will never change documents, even when they are updated
+
+  var doc = getOwnerDocument(props.triggerTarget || reference);
+  /* ======================= 🔑 Public members 🔑 ======================= */
+
+  var id = idCounter++;
+  var popper = createPopperElement(id, props);
+  var popperChildren = getChildren(popper);
+  var popperInstance = null;
+  var plugins = unique(props.plugins); // These two elements are static
+
+  var tooltip = popperChildren.tooltip,
+      content = popperChildren.content;
+  var transitionableElements = [tooltip, content];
+  var state = {
+    // The current real placement (`data-placement` attribute)
+    currentPlacement: null,
+    // Is the instance currently enabled?
+    isEnabled: true,
+    // Is the tippy currently showing and not transitioning out?
+    isVisible: false,
+    // Has the instance been destroyed?
+    isDestroyed: false,
+    // Is the tippy currently mounted to the DOM?
+    isMounted: false,
+    // Has the tippy finished transitioning in?
+    isShown: false
+  };
+  var instance = {
+    // properties
+    id: id,
+    reference: reference,
+    popper: popper,
+    popperChildren: popperChildren,
+    popperInstance: popperInstance,
+    props: props,
+    state: state,
+    plugins: plugins,
+    // methods
+    clearDelayTimeouts: clearDelayTimeouts,
+    setProps: setProps,
+    setContent: setContent,
+    show: show,
+    hide: hide,
+    enable: enable,
+    disable: disable,
+    destroy: destroy
+  };
+  /* ==================== Initial instance mutations =================== */
+
+  reference._tippy = instance;
+  popper._tippy = instance;
+  var pluginsHooks = plugins.map(function (plugin) {
+    return plugin.fn(instance);
+  });
+  addListenersToTriggerTarget();
+  handleAriaExpandedAttribute();
+
+  if (!props.lazy) {
+    createPopperInstance();
+  }
+
+  invokeHook('onCreate', [instance]);
+
+  if (props.showOnCreate) {
+    scheduleShow();
+  } // Prevent a tippy with a delay from hiding if the cursor left then returned
+  // before it started hiding
+
+
+  popper.addEventListener('mouseenter', function () {
+    if (instance.props.interactive && instance.state.isVisible) {
+      instance.clearDelayTimeouts();
+    }
+  });
+  popper.addEventListener('mouseleave', function () {
+    if (instance.props.interactive && includes(instance.props.trigger, 'mouseenter')) {
+      doc.addEventListener('mousemove', debouncedOnMouseMove);
+    }
+  });
+  return instance;
+  /* ======================= 🔒 Private methods 🔒 ======================= */
+
+  function getNormalizedTouchSettings() {
+    var touch = instance.props.touch;
+    return Array.isArray(touch) ? touch : [touch, 0];
+  }
+
+  function getIsCustomTouchBehavior() {
+    return getNormalizedTouchSettings()[0] === 'hold';
+  }
+
+  function getCurrentTarget() {
+    return currentTarget || reference;
+  }
+
+  function getDelay(isShow) {
+    // For touch or keyboard input, force `0` delay for UX reasons
+    // Also if the instance is mounted but not visible (transitioning out),
+    // ignore delay
+    if (instance.state.isMounted && !instance.state.isVisible || currentInput.isTouch || lastTriggerEvent && lastTriggerEvent.type === 'focus') {
+      return 0;
+    }
+
+    return getValueAtIndexOrReturn(instance.props.delay, isShow ? 0 : 1, defaultProps.delay);
+  }
+
+  function invokeHook(hook, args, shouldInvokePropsHook) {
+    if (shouldInvokePropsHook === void 0) {
+      shouldInvokePropsHook = true;
+    }
+
+    pluginsHooks.forEach(function (pluginHooks) {
+      if (hasOwnProperty(pluginHooks, hook)) {
+        // @ts-ignore
+        pluginHooks[hook].apply(pluginHooks, args);
+      }
+    });
+
+    if (shouldInvokePropsHook) {
+      var _instance$props;
+
+      // @ts-ignore
+      (_instance$props = instance.props)[hook].apply(_instance$props, args);
+    }
+  }
+
+  function handleAriaDescribedByAttribute() {
+    var aria = instance.props.aria;
+
+    if (!aria) {
+      return;
+    }
+
+    var attr = "aria-" + aria;
+    var id = tooltip.id;
+    var nodes = normalizeToArray(instance.props.triggerTarget || reference);
+    nodes.forEach(function (node) {
+      var currentValue = node.getAttribute(attr);
+
+      if (instance.state.isVisible) {
+        node.setAttribute(attr, currentValue ? currentValue + " " + id : id);
+      } else {
+        var nextValue = currentValue && currentValue.replace(id, '').trim();
+
+        if (nextValue) {
+          node.setAttribute(attr, nextValue);
+        } else {
+          node.removeAttribute(attr);
+        }
+      }
+    });
+  }
+
+  function handleAriaExpandedAttribute() {
+    var nodes = normalizeToArray(instance.props.triggerTarget || reference);
+    nodes.forEach(function (node) {
+      if (instance.props.interactive) {
+        node.setAttribute('aria-expanded', instance.state.isVisible && node === getCurrentTarget() ? 'true' : 'false');
+      } else {
+        node.removeAttribute('aria-expanded');
+      }
+    });
+  }
+
+  function cleanupInteractiveMouseListeners() {
+    doc.body.removeEventListener('mouseleave', scheduleHide);
+    doc.removeEventListener('mousemove', debouncedOnMouseMove);
+    mouseMoveListeners = mouseMoveListeners.filter(function (listener) {
+      return listener !== debouncedOnMouseMove;
+    });
+  }
+
+  function onDocumentMouseDown(event) {
+    // Clicked on interactive popper
+    if (instance.props.interactive && popper.contains(event.target)) {
+      return;
+    } // Clicked on the event listeners target
+
+
+    if (getCurrentTarget().contains(event.target)) {
+      if (currentInput.isTouch) {
+        return;
+      }
+
+      if (instance.state.isVisible && includes(instance.props.trigger, 'click')) {
+        return;
+      }
+    }
+
+    if (instance.props.hideOnClick === true) {
+      instance.clearDelayTimeouts();
+      instance.hide(); // `mousedown` event is fired right before `focus` if pressing the
+      // currentTarget. This lets a tippy with `focus` trigger know that it
+      // should not show
+
+      didHideDueToDocumentMouseDown = true;
+      setTimeout(function () {
+        didHideDueToDocumentMouseDown = false;
+      }); // The listener gets added in `scheduleShow()`, but this may be hiding it
+      // before it shows, and hide()'s early bail-out behavior can prevent it
+      // from being cleaned up
+
+      if (!instance.state.isMounted) {
+        removeDocumentMouseDownListener();
+      }
+    }
+  }
+
+  function addDocumentMouseDownListener() {
+    doc.addEventListener('mousedown', onDocumentMouseDown, true);
+  }
+
+  function removeDocumentMouseDownListener() {
+    doc.removeEventListener('mousedown', onDocumentMouseDown, true);
+  }
+
+  function onTransitionedOut(duration, callback) {
+    onTransitionEnd(duration, function () {
+      if (!instance.state.isVisible && popper.parentNode && popper.parentNode.contains(popper)) {
+        callback();
+      }
+    });
+  }
+
+  function onTransitionedIn(duration, callback) {
+    onTransitionEnd(duration, callback);
+  }
+
+  function onTransitionEnd(duration, callback) {
+    function listener(event) {
+      if (event.target === tooltip) {
+        updateTransitionEndListener(tooltip, 'remove', listener);
+        callback();
+      }
+    } // Make callback synchronous if duration is 0
+    // `transitionend` won't fire otherwise
+
+
+    if (duration === 0) {
+      return callback();
+    }
+
+    updateTransitionEndListener(tooltip, 'remove', currentTransitionEndListener);
+    updateTransitionEndListener(tooltip, 'add', listener);
+    currentTransitionEndListener = listener;
+  }
+
+  function on(eventType, handler, options) {
+    if (options === void 0) {
+      options = false;
+    }
+
+    var nodes = normalizeToArray(instance.props.triggerTarget || reference);
+    nodes.forEach(function (node) {
+      node.addEventListener(eventType, handler, options);
+      listeners.push({
+        node: node,
+        eventType: eventType,
+        handler: handler,
+        options: options
+      });
+    });
+  }
+
+  function addListenersToTriggerTarget() {
+    if (getIsCustomTouchBehavior()) {
+      on('touchstart', onTrigger, PASSIVE);
+      on('touchend', onMouseLeave, PASSIVE);
+    }
+
+    splitBySpaces(instance.props.trigger).forEach(function (eventType) {
+      if (eventType === 'manual') {
+        return;
+      }
+
+      on(eventType, onTrigger);
+
+      switch (eventType) {
+        case 'mouseenter':
+          on('mouseleave', onMouseLeave);
+          break;
+
+        case 'focus':
+          on(isIE ? 'focusout' : 'blur', onBlur);
+          break;
+      }
+    });
+  }
+
+  function removeListenersFromTriggerTarget() {
+    listeners.forEach(function (_ref) {
+      var node = _ref.node,
+          eventType = _ref.eventType,
+          handler = _ref.handler,
+          options = _ref.options;
+      node.removeEventListener(eventType, handler, options);
+    });
+    listeners = [];
+  }
+
+  function onTrigger(event) {
+    if (!instance.state.isEnabled || isEventListenerStopped(event) || didHideDueToDocumentMouseDown) {
+      return;
+    }
+
+    lastTriggerEvent = event;
+    currentTarget = event.currentTarget;
+    handleAriaExpandedAttribute();
+
+    if (!instance.state.isVisible && isMouseEvent(event)) {
+      // If scrolling, `mouseenter` events can be fired if the cursor lands
+      // over a new target, but `mousemove` events don't get fired. This
+      // causes interactive tooltips to get stuck open until the cursor is
+      // moved
+      mouseMoveListeners.forEach(function (listener) {
+        return listener(event);
+      });
+    } // Toggle show/hide when clicking click-triggered tooltips
+
+
+    if (event.type === 'click' && instance.props.hideOnClick !== false && instance.state.isVisible) {
+      scheduleHide(event);
+    } else {
+      var _getNormalizedTouchSe = getNormalizedTouchSettings(),
+          value = _getNormalizedTouchSe[0],
+          duration = _getNormalizedTouchSe[1];
+
+      if (currentInput.isTouch && value === 'hold' && duration) {
+        // We can hijack the show timeout here, it will be cleared by
+        // `scheduleHide()` when necessary
+        showTimeout = setTimeout(function () {
+          scheduleShow(event);
+        }, duration);
+      } else {
+        scheduleShow(event);
+      }
+    }
+  }
+
+  function onMouseMove(event) {
+    var isCursorOverReferenceOrPopper = closestCallback(event.target, function (el) {
+      return el === reference || el === popper;
+    });
+
+    if (isCursorOverReferenceOrPopper) {
+      return;
+    }
+
+    var popperTreeData = arrayFrom(popper.querySelectorAll(POPPER_SELECTOR)).concat(popper).map(function (popper) {
+      var instance = popper._tippy;
+      var tooltip = instance.popperChildren.tooltip;
+      var interactiveBorder = instance.props.interactiveBorder;
+      return {
+        popperRect: popper.getBoundingClientRect(),
+        tooltipRect: tooltip.getBoundingClientRect(),
+        interactiveBorder: interactiveBorder
+      };
+    });
+
+    if (isCursorOutsideInteractiveBorder(popperTreeData, event)) {
+      cleanupInteractiveMouseListeners();
+      scheduleHide(event);
+    }
+  }
+
+  function onMouseLeave(event) {
+    if (isEventListenerStopped(event)) {
+      return;
+    }
+
+    if (instance.props.interactive) {
+      doc.body.addEventListener('mouseleave', scheduleHide);
+      doc.addEventListener('mousemove', debouncedOnMouseMove);
+      pushIfUnique(mouseMoveListeners, debouncedOnMouseMove);
+      return;
+    }
+
+    scheduleHide(event);
+  }
+
+  function onBlur(event) {
+    if (event.target !== getCurrentTarget()) {
+      return;
+    } // If focus was moved to within the popper
+
+
+    if (instance.props.interactive && event.relatedTarget && popper.contains(event.relatedTarget)) {
+      return;
+    }
+
+    scheduleHide(event);
+  }
+
+  function isEventListenerStopped(event) {
+    var supportsTouch = 'ontouchstart' in window;
+    var isTouchEvent = includes(event.type, 'touch');
+    var isCustomTouch = getIsCustomTouchBehavior();
+    return supportsTouch && currentInput.isTouch && isCustomTouch && !isTouchEvent || currentInput.isTouch && !isCustomTouch && isTouchEvent;
+  }
+
+  function createPopperInstance() {
+    var popperOptions = instance.props.popperOptions;
+    var arrow = instance.popperChildren.arrow;
+    var flipModifier = getModifier(popperOptions, 'flip');
+    var preventOverflowModifier = getModifier(popperOptions, 'preventOverflow');
+    var distancePx;
+
+    function applyMutations(data) {
+      var prevPlacement = instance.state.currentPlacement;
+      instance.state.currentPlacement = data.placement;
+
+      if (instance.props.flip && !instance.props.flipOnUpdate) {
+        if (data.flipped) {
+          instance.popperInstance.options.placement = data.placement;
+        }
+
+        setModifierValue(instance.popperInstance.modifiers, 'flip', 'enabled', false);
+      }
+
+      tooltip.setAttribute('data-placement', data.placement);
+
+      if (data.attributes['x-out-of-boundaries'] !== false) {
+        tooltip.setAttribute('data-out-of-boundaries', '');
+      } else {
+        tooltip.removeAttribute('data-out-of-boundaries');
+      }
+
+      var basePlacement = getBasePlacement(data.placement);
+      var isVerticalPlacement = includes(['top', 'bottom'], basePlacement);
+      var isSecondaryPlacement = includes(['bottom', 'right'], basePlacement); // Apply `distance` prop
+
+      tooltip.style.top = '0';
+      tooltip.style.left = '0';
+      tooltip.style[isVerticalPlacement ? 'top' : 'left'] = (isSecondaryPlacement ? 1 : -1) * distancePx + 'px'; // Careful not to cause an infinite loop here
+      // Fixes https://github.com/FezVrasta/popper.js/issues/784
+
+      if (prevPlacement && prevPlacement !== data.placement) {
+        instance.popperInstance.update();
+      }
+    }
+
+    var config = _extends({
+      eventsEnabled: false,
+      placement: instance.props.placement
+    }, popperOptions, {
+      modifiers: _extends({}, popperOptions && popperOptions.modifiers, {
+        // We can't use `padding` on the popper el because of these bugs when
+        // flipping from a vertical to horizontal placement or vice-versa,
+        // there is severe flickering.
+        // https://github.com/FezVrasta/popper.js/issues/720
+        // This workaround increases bundle size by 250B minzip unfortunately,
+        // due to need to custom compute the distance (since Popper rect does
+        // not get affected by the inner tooltip's distance offset)
+        tippyDistance: {
+          enabled: true,
+          order: 0,
+          fn: function fn(data) {
+            // `html` fontSize may change while `popperInstance` is alive
+            // e.g. on resize in media queries
+            distancePx = getUnitsInPx(doc, instance.props.distance);
+            var basePlacement = getBasePlacement(data.placement);
+            var computedPreventOverflowPadding = getComputedPadding(basePlacement, preventOverflowModifier && preventOverflowModifier.padding, distancePx);
+            var computedFlipPadding = getComputedPadding(basePlacement, flipModifier && flipModifier.padding, distancePx);
+            var instanceModifiers = instance.popperInstance.modifiers;
+            setModifierValue(instanceModifiers, 'preventOverflow', 'padding', computedPreventOverflowPadding);
+            setModifierValue(instanceModifiers, 'flip', 'padding', computedFlipPadding);
+            return data;
+          }
+        },
+        preventOverflow: _extends({
+          boundariesElement: instance.props.boundary
+        }, preventOverflowModifier),
+        flip: _extends({
+          enabled: instance.props.flip,
+          behavior: instance.props.flipBehavior
+        }, flipModifier),
+        arrow: _extends({
+          element: arrow,
+          enabled: !!arrow
+        }, getModifier(popperOptions, 'arrow')),
+        offset: _extends({
+          offset: instance.props.offset
+        }, getModifier(popperOptions, 'offset'))
+      }),
+      onCreate: function onCreate(data) {
+        applyMutations(data);
+        preserveInvocation(popperOptions && popperOptions.onCreate, config.onCreate, [data]);
+        runMountCallback();
+      },
+      onUpdate: function onUpdate(data) {
+        applyMutations(data);
+        preserveInvocation(popperOptions && popperOptions.onUpdate, config.onUpdate, [data]);
+        runMountCallback();
+      }
+    });
+
+    instance.popperInstance = new Popper(reference, popper, config);
+  }
+
+  function runMountCallback() {
+    // Only invoke currentMountCallback after 2 updates
+    // This fixes some bugs in Popper.js (TODO: aim for only 1 update)
+    if (popperUpdates === 0) {
+      popperUpdates++; // 1
+
+      instance.popperInstance.update();
+    } else if (currentMountCallback && popperUpdates === 1) {
+      popperUpdates++; // 2
+
+      reflow(popper);
+      currentMountCallback();
+    }
+  }
+
+  function mount() {
+    // The mounting callback (`currentMountCallback`) is only run due to a
+    // popperInstance update/create
+    popperUpdates = 0;
+    var appendTo = instance.props.appendTo;
+    var parentNode; // By default, we'll append the popper to the triggerTargets's parentNode so
+    // it's directly after the reference element so the elements inside the
+    // tippy can be tabbed to
+    // If there are clipping issues, the user can specify a different appendTo
+    // and ensure focus management is handled correctly manually
+
+    var node = getCurrentTarget();
+
+    if (instance.props.interactive && appendTo === defaultProps.appendTo || appendTo === 'parent') {
+      parentNode = node.parentNode;
+    } else {
+      parentNode = invokeWithArgsOrReturn(appendTo, [node]);
+    } // The popper element needs to exist on the DOM before its position can be
+    // updated as Popper.js needs to read its dimensions
+
+
+    if (!parentNode.contains(popper)) {
+      parentNode.appendChild(popper);
+    }
+
+    if (true) {
+      // Accessibility check
+      warnWhen(instance.props.interactive && appendTo === defaultProps.appendTo && node.nextElementSibling !== popper, "Interactive tippy element may not be accessible via keyboard\n        navigation because it is not directly after the reference element in\n        the DOM source order.\n\n        Using a wrapper <div> or <span> tag around the reference element solves\n        this by creating a new parentNode context.\n        \n        Specifying `appendTo: document.body` silences this warning, but it\n        assumes you are using a focus management solution to handle keyboard\n        navigation.\n        \n        See: https://atomiks.github.io/tippyjs/accessibility/#interactivity");
+    }
+
+    setModifierValue(instance.popperInstance.modifiers, 'flip', 'enabled', instance.props.flip);
+    instance.popperInstance.enableEventListeners(); // Mounting callback invoked in `onUpdate`
+
+    instance.popperInstance.update();
+  }
+
+  function scheduleShow(event) {
+    instance.clearDelayTimeouts();
+
+    if (!instance.popperInstance) {
+      createPopperInstance();
+    }
+
+    if (event) {
+      invokeHook('onTrigger', [instance, event]);
+    }
+
+    addDocumentMouseDownListener();
+    var delay = getDelay(true);
+
+    if (delay) {
+      showTimeout = setTimeout(function () {
+        instance.show();
+      }, delay);
+    } else {
+      instance.show();
+    }
+  }
+
+  function scheduleHide(event) {
+    instance.clearDelayTimeouts();
+    invokeHook('onUntrigger', [instance, event]);
+
+    if (!instance.state.isVisible) {
+      removeDocumentMouseDownListener();
+      return;
+    }
+
+    var delay = getDelay(false);
+
+    if (delay) {
+      hideTimeout = setTimeout(function () {
+        if (instance.state.isVisible) {
+          instance.hide();
+        }
+      }, delay);
+    } else {
+      // Fixes a `transitionend` problem when it fires 1 frame too
+      // late sometimes, we don't want hide() to be called.
+      scheduleHideAnimationFrame = requestAnimationFrame(function () {
+        instance.hide();
+      });
+    }
+  }
+  /* ======================= 🔑 Public methods 🔑 ======================= */
+
+
+  function enable() {
+    instance.state.isEnabled = true;
+  }
+
+  function disable() {
+    // Disabling the instance should also hide it
+    // https://github.com/atomiks/tippy.js-react/issues/106
+    instance.hide();
+    instance.state.isEnabled = false;
+  }
+
+  function clearDelayTimeouts() {
+    clearTimeout(showTimeout);
+    clearTimeout(hideTimeout);
+    cancelAnimationFrame(scheduleHideAnimationFrame);
+  }
+
+  function setProps(partialProps) {
+    if (true) {
+      warnWhen(instance.state.isDestroyed, createMemoryLeakWarning('setProps'));
+    }
+
+    if (instance.state.isDestroyed) {
+      return;
+    }
+
+    if (true) {
+      validateProps(partialProps, plugins);
+      warnWhen(partialProps.plugins ? partialProps.plugins.length !== plugins.length || plugins.some(function (p, i) {
+        if (partialProps.plugins && partialProps.plugins[i]) {
+          return p !== partialProps.plugins[i];
+        } else {
+          return true;
+        }
+      }) : false, "Cannot update plugins");
+    }
+
+    invokeHook('onBeforeUpdate', [instance, partialProps]);
+    removeListenersFromTriggerTarget();
+    var prevProps = instance.props;
+    var nextProps = evaluateProps(reference, _extends({}, instance.props, {}, partialProps, {
+      ignoreAttributes: true
+    }));
+    nextProps.ignoreAttributes = useIfDefined(partialProps.ignoreAttributes, prevProps.ignoreAttributes);
+    instance.props = nextProps;
+    addListenersToTriggerTarget();
+
+    if (prevProps.interactiveDebounce !== nextProps.interactiveDebounce) {
+      cleanupInteractiveMouseListeners();
+      debouncedOnMouseMove = debounce(onMouseMove, nextProps.interactiveDebounce);
+    }
+
+    updatePopperElement(popper, prevProps, nextProps);
+    instance.popperChildren = getChildren(popper); // Ensure stale aria-expanded attributes are removed
+
+    if (prevProps.triggerTarget && !nextProps.triggerTarget) {
+      normalizeToArray(prevProps.triggerTarget).forEach(function (node) {
+        node.removeAttribute('aria-expanded');
+      });
+    } else if (nextProps.triggerTarget) {
+      reference.removeAttribute('aria-expanded');
+    }
+
+    handleAriaExpandedAttribute();
+
+    if (instance.popperInstance) {
+      if (POPPER_INSTANCE_DEPENDENCIES.some(function (prop) {
+        return hasOwnProperty(partialProps, prop) && partialProps[prop] !== prevProps[prop];
+      })) {
+        var currentReference = instance.popperInstance.reference;
+        instance.popperInstance.destroy();
+        createPopperInstance();
+        instance.popperInstance.reference = currentReference;
+
+        if (instance.state.isVisible) {
+          instance.popperInstance.enableEventListeners();
+        }
+      } else {
+        instance.popperInstance.update();
+      }
+    }
+
+    invokeHook('onAfterUpdate', [instance, partialProps]);
+  }
+
+  function setContent(content) {
+    instance.setProps({
+      content: content
+    });
+  }
+
+  function show(duration) {
+    if (duration === void 0) {
+      duration = getValueAtIndexOrReturn(instance.props.duration, 0, defaultProps.duration);
+    }
+
+    if (true) {
+      warnWhen(instance.state.isDestroyed, createMemoryLeakWarning('show'));
+    } // Early bail-out
+
+
+    var isAlreadyVisible = instance.state.isVisible;
+    var isDestroyed = instance.state.isDestroyed;
+    var isDisabled = !instance.state.isEnabled;
+    var isTouchAndTouchDisabled = currentInput.isTouch && !instance.props.touch;
+
+    if (isAlreadyVisible || isDestroyed || isDisabled || isTouchAndTouchDisabled) {
+      return;
+    } // Normalize `disabled` behavior across browsers.
+    // Firefox allows events on disabled elements, but Chrome doesn't.
+    // Using a wrapper element (i.e. <span>) is recommended.
+
+
+    if (getCurrentTarget().hasAttribute('disabled')) {
+      return;
+    }
+
+    if (!instance.popperInstance) {
+      createPopperInstance();
+    }
+
+    invokeHook('onShow', [instance], false);
+
+    if (instance.props.onShow(instance) === false) {
+      return;
+    }
+
+    addDocumentMouseDownListener();
+    popper.style.visibility = 'visible';
+    instance.state.isVisible = true; // Prevent a transition of the popper from its previous position and of the
+    // elements at a different placement
+    // Check if the tippy was fully unmounted before `show()` was called, to
+    // allow for smooth transition for `createSingleton()`
+
+    if (!instance.state.isMounted) {
+      setTransitionDuration(transitionableElements.concat(popper), 0);
+    }
+
+    currentMountCallback = function currentMountCallback() {
+      if (!instance.state.isVisible) {
+        return;
+      }
+
+      setTransitionDuration([popper], instance.props.updateDuration);
+      setTransitionDuration(transitionableElements, duration);
+      setVisibilityState(transitionableElements, 'visible');
+      handleAriaDescribedByAttribute();
+      handleAriaExpandedAttribute();
+      pushIfUnique(mountedInstances, instance);
+      updateIOSClass(true);
+      instance.state.isMounted = true;
+      invokeHook('onMount', [instance]);
+      onTransitionedIn(duration, function () {
+        instance.state.isShown = true;
+        invokeHook('onShown', [instance]);
+      });
+    };
+
+    mount();
+  }
+
+  function hide(duration) {
+    if (duration === void 0) {
+      duration = getValueAtIndexOrReturn(instance.props.duration, 1, defaultProps.duration);
+    }
+
+    if (true) {
+      warnWhen(instance.state.isDestroyed, createMemoryLeakWarning('hide'));
+    } // Early bail-out
+
+
+    var isAlreadyHidden = !instance.state.isVisible && !isBeingDestroyed;
+    var isDestroyed = instance.state.isDestroyed;
+    var isDisabled = !instance.state.isEnabled && !isBeingDestroyed;
+
+    if (isAlreadyHidden || isDestroyed || isDisabled) {
+      return;
+    }
+
+    invokeHook('onHide', [instance], false);
+
+    if (instance.props.onHide(instance) === false && !isBeingDestroyed) {
+      return;
+    }
+
+    removeDocumentMouseDownListener();
+    popper.style.visibility = 'hidden';
+    instance.state.isVisible = false;
+    instance.state.isShown = false;
+    setTransitionDuration(transitionableElements, duration);
+    setVisibilityState(transitionableElements, 'hidden');
+    handleAriaDescribedByAttribute();
+    handleAriaExpandedAttribute();
+    onTransitionedOut(duration, function () {
+      instance.popperInstance.disableEventListeners();
+      instance.popperInstance.options.placement = instance.props.placement;
+      popper.parentNode.removeChild(popper);
+      mountedInstances = mountedInstances.filter(function (i) {
+        return i !== instance;
+      });
+
+      if (mountedInstances.length === 0) {
+        updateIOSClass(false);
+      }
+
+      instance.state.isMounted = false;
+      invokeHook('onHidden', [instance]);
+    });
+  }
+
+  function destroy() {
+    if (true) {
+      warnWhen(instance.state.isDestroyed, createMemoryLeakWarning('destroy'));
+    }
+
+    if (instance.state.isDestroyed) {
+      return;
+    }
+
+    isBeingDestroyed = true;
+    instance.clearDelayTimeouts();
+    instance.hide(0);
+    removeListenersFromTriggerTarget();
+    delete reference._tippy;
+
+    if (instance.popperInstance) {
+      instance.popperInstance.destroy();
+    }
+
+    isBeingDestroyed = false;
+    instance.state.isDestroyed = true;
+    invokeHook('onDestroy', [instance]);
+  }
+}
+
+function tippy(targets, optionalProps,
+/** @deprecated use Props.plugins */
+plugins) {
+  if (optionalProps === void 0) {
+    optionalProps = {};
+  }
+
+  if (plugins === void 0) {
+    plugins = [];
+  }
+
+  plugins = defaultProps.plugins.concat(optionalProps.plugins || plugins);
+
+  if (true) {
+    validateTargets(targets);
+    validateProps(optionalProps, plugins);
+  }
+
+  bindGlobalEventListeners();
+
+  var props = _extends({}, defaultProps, {}, optionalProps, {
+    plugins: plugins
+  });
+
+  var elements = getArrayOfElements(targets);
+
+  if (true) {
+    var isSingleContentElement = isElement(props.content);
+    var isMoreThanOneReferenceElement = elements.length > 1;
+    warnWhen(isSingleContentElement && isMoreThanOneReferenceElement, "tippy() was passed an Element as the `content` prop, but more than one\n      tippy instance was created by this invocation. This means the content\n      element will only be appended to the last tippy instance.\n      \n      Instead, pass the .innerHTML of the element, or use a function that\n      returns a cloned version of the element instead.\n      \n      1) content: () => element.cloneNode(true)\n      2) content: element.innerHTML");
+  }
+
+  var instances = elements.reduce(function (acc, reference) {
+    var instance = reference && createTippy(reference, props);
+
+    if (instance) {
+      acc.push(instance);
+    }
+
+    return acc;
+  }, []);
+  return isElement(targets) ? instances[0] : instances;
+}
+
+tippy.version = version;
+tippy.defaultProps = defaultProps;
+tippy.setDefaultProps = setDefaultProps;
+tippy.currentInput = currentInput;
+/**
+ * Hides all visible poppers on the document
+ */
+
+var hideAll = function hideAll(_temp) {
+  var _ref = _temp === void 0 ? {} : _temp,
+      excludedReferenceOrInstance = _ref.exclude,
+      duration = _ref.duration;
+
+  mountedInstances.forEach(function (instance) {
+    var isExcluded = false;
+
+    if (excludedReferenceOrInstance) {
+      isExcluded = isReferenceElement(excludedReferenceOrInstance) ? instance.reference === excludedReferenceOrInstance : instance.popper === excludedReferenceOrInstance.popper;
+    }
+
+    if (!isExcluded) {
+      instance.hide(duration);
+    }
+  });
+};
+/**
+ * Returns a proxy wrapper function that passes the plugins
+ * @deprecated use tippy.setDefaultProps({plugins: [...]});
+ */
+
+function createTippyWithPlugins(outerPlugins) {
+  if (true) {
+    warnWhen(true, "createTippyWithPlugins([...]) has been deprecated.\n\n      Use tippy.setDefaultProps({plugins: [...]}) instead.");
+  }
+
+  var tippyPluginsWrapper = function tippyPluginsWrapper(targets, optionalProps, innerPlugins) {
+    if (optionalProps === void 0) {
+      optionalProps = {};
+    }
+
+    if (innerPlugins === void 0) {
+      innerPlugins = [];
+    }
+
+    innerPlugins = optionalProps.plugins || innerPlugins;
+    return tippy(targets, _extends({}, optionalProps, {
+      plugins: [].concat(outerPlugins, innerPlugins)
+    }));
+  };
+
+  tippyPluginsWrapper.version = version;
+  tippyPluginsWrapper.defaultProps = defaultProps;
+  tippyPluginsWrapper.setDefaultProps = setDefaultProps;
+  tippyPluginsWrapper.currentInput = currentInput; // @ts-ignore
+
+  return tippyPluginsWrapper;
+}
+
+exports.BACKDROP_CLASS = BACKDROP_CLASS;
+exports.ROUND_ARROW = ROUND_ARROW;
+exports._extends = _extends;
+exports.arrayFrom = arrayFrom;
+exports.closestCallback = closestCallback;
+exports.createTippyWithPlugins = createTippyWithPlugins;
+exports.currentInput = currentInput;
+exports.defaultProps = defaultProps;
+exports.div = div;
+exports.getBasePlacement = getBasePlacement;
+exports.getOwnerDocument = getOwnerDocument;
+exports.hideAll = hideAll;
+exports.includes = includes;
+exports.isBrowser = isBrowser;
+exports.isMouseEvent = isMouseEvent;
+exports.isUCBrowser = isUCBrowser;
+exports.normalizeToArray = normalizeToArray;
+exports.removeProperties = removeProperties;
+exports.setVisibilityState = setVisibilityState;
+exports.throwErrorWhen = throwErrorWhen;
+exports.tippy = tippy;
+exports.useIfDefined = useIfDefined;
+exports.warnWhen = warnWhen;
+//# sourceMappingURL=tippy.chunk.cjs.js.map
+
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/jquery-guide/tippy.js/dist/tippy.cjs.js":
+/*!************************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/jquery-guide/tippy.js/dist/tippy.cjs.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**!
+* tippy.js v5.1.2
+* (c) 2017-2019 atomiks
+* MIT License
+*/
+
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var index = __webpack_require__(/*! ./tippy.chunk.cjs.js */ "./webpack-app/components/manager/TutorialManager/jquery-guide/tippy.js/dist/tippy.chunk.cjs.js");
+__webpack_require__(/*! popper.js */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\popper.js\\dist\\esm\\popper.js");
+
+/**
+ * Re-uses a single tippy element for many different tippy instances.
+ * Replaces v4's `tippy.group()`.
+ */
+
+var createSingleton = function createSingleton(tippyInstances, optionalProps,
+/** @deprecated use Props.plugins */
+plugins) {
+  if (optionalProps === void 0) {
+    optionalProps = {};
+  }
+
+  if (plugins === void 0) {
+    plugins = [];
+  }
+
+  if (true) {
+    index.throwErrorWhen(!Array.isArray(tippyInstances), "The first argument passed to createSingleton() must be an array of tippy\n      instances.\n  \n      The passed value was: " + tippyInstances);
+  }
+
+  plugins = optionalProps.plugins || plugins;
+  tippyInstances.forEach(function (instance) {
+    instance.disable();
+  });
+
+  var userAria = index._extends({}, index.defaultProps, {}, optionalProps).aria;
+
+  var currentAria;
+  var currentTarget;
+  var shouldSkipUpdate = false;
+  var references = tippyInstances.map(function (instance) {
+    return instance.reference;
+  });
+  var singleton = {
+    fn: function fn(instance) {
+      function handleAriaDescribedByAttribute(isShow) {
+        if (!currentAria) {
+          return;
+        }
+
+        var attr = "aria-" + currentAria;
+
+        if (isShow && !instance.props.interactive) {
+          currentTarget.setAttribute(attr, instance.popperChildren.tooltip.id);
+        } else {
+          currentTarget.removeAttribute(attr);
+        }
+      }
+
+      return {
+        onAfterUpdate: function onAfterUpdate(_, _ref) {
+          var aria = _ref.aria;
+
+          // Ensure `aria` for the singleton instance stays `null`, while
+          // changing the `userAria` value
+          if (aria !== undefined && aria !== userAria) {
+            if (!shouldSkipUpdate) {
+              userAria = aria;
+            } else {
+              shouldSkipUpdate = true;
+              instance.setProps({
+                aria: null
+              });
+              shouldSkipUpdate = false;
+            }
+          }
+        },
+        onDestroy: function onDestroy() {
+          tippyInstances.forEach(function (instance) {
+            instance.enable();
+          });
+        },
+        onMount: function onMount() {
+          handleAriaDescribedByAttribute(true);
+        },
+        onUntrigger: function onUntrigger() {
+          handleAriaDescribedByAttribute(false);
+        },
+        onTrigger: function onTrigger(_, event) {
+          var target = event.currentTarget;
+          var index = references.indexOf(target);
+          currentTarget = target;
+          currentAria = userAria;
+
+          if (instance.state.isVisible) {
+            handleAriaDescribedByAttribute(true);
+          }
+
+          instance.popperInstance.reference = target;
+          instance.setContent(tippyInstances[index].props.content);
+        }
+      };
+    }
+  };
+  return index.tippy(index.div(), index._extends({}, optionalProps, {
+    plugins: [singleton].concat(plugins),
+    aria: null,
+    triggerTarget: references
+  }));
+};
+
+var BUBBLING_EVENTS_MAP = {
+  mouseover: 'mouseenter',
+  focusin: 'focus',
+  click: 'click'
+};
+/**
+ * Creates a delegate instance that controls the creation of tippy instances
+ * for child elements (`target` CSS selector).
+ */
+
+function delegate(targets, props,
+/** @deprecated use Props.plugins */
+plugins) {
+  if (plugins === void 0) {
+    plugins = [];
+  }
+
+  if (true) {
+    index.throwErrorWhen(!props || !props.target, "You must specify a `target` prop indicating the CSS selector string\n      matching the target elements that should receive a tippy.");
+  }
+
+  plugins = props.plugins || plugins;
+  var listeners = [];
+  var childTippyInstances = [];
+  var target = props.target;
+  var nativeProps = index.removeProperties(props, ['target']);
+
+  var parentProps = index._extends({}, nativeProps, {
+    plugins: plugins,
+    trigger: 'manual'
+  });
+
+  var childProps = index._extends({}, nativeProps, {
+    plugins: plugins,
+    showOnCreate: true
+  });
+
+  var returnValue = index.tippy(targets, parentProps);
+  var normalizedReturnValue = index.normalizeToArray(returnValue);
+
+  function onTrigger(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var targetNode = event.target.closest(target);
+
+    if (!targetNode) {
+      return;
+    } // Get relevant trigger with fallbacks:
+    // 1. Check `data-tippy-trigger` attribute on target node
+    // 2. Fallback to `trigger` passed to `delegate()`
+    // 3. Fallback to `defaultProps.trigger`
+
+
+    var trigger = targetNode.getAttribute('data-tippy-trigger') || props.trigger || index.defaultProps.trigger; // Only create the instance if the bubbling event matches the trigger type
+
+    if (!index.includes(trigger, BUBBLING_EVENTS_MAP[event.type])) {
+      return;
+    }
+
+    var instance = index.tippy(targetNode, childProps);
+
+    if (instance) {
+      childTippyInstances = childTippyInstances.concat(instance);
+    }
+  }
+
+  function on(node, eventType, handler, options) {
+    if (options === void 0) {
+      options = false;
+    }
+
+    node.addEventListener(eventType, handler, options);
+    listeners.push({
+      node: node,
+      eventType: eventType,
+      handler: handler,
+      options: options
+    });
+  }
+
+  function addEventListeners(instance) {
+    var reference = instance.reference;
+    on(reference, 'mouseover', onTrigger);
+    on(reference, 'focusin', onTrigger);
+    on(reference, 'click', onTrigger);
+  }
+
+  function removeEventListeners() {
+    listeners.forEach(function (_ref) {
+      var node = _ref.node,
+          eventType = _ref.eventType,
+          handler = _ref.handler,
+          options = _ref.options;
+      node.removeEventListener(eventType, handler, options);
+    });
+    listeners = [];
+  }
+
+  function applyMutations(instance) {
+    var originalDestroy = instance.destroy;
+
+    instance.destroy = function (shouldDestroyChildInstances) {
+      if (shouldDestroyChildInstances === void 0) {
+        shouldDestroyChildInstances = true;
+      }
+
+      if (shouldDestroyChildInstances) {
+        childTippyInstances.forEach(function (instance) {
+          instance.destroy();
+        });
+      }
+
+      childTippyInstances = [];
+      removeEventListeners();
+      originalDestroy();
+    };
+
+    addEventListeners(instance);
+  }
+
+  normalizedReturnValue.forEach(applyMutations);
+  return returnValue;
+}
+
+var animateFill = {
+  name: 'animateFill',
+  defaultValue: false,
+  fn: function fn(instance) {
+    var _instance$popperChild = instance.popperChildren,
+        tooltip = _instance$popperChild.tooltip,
+        content = _instance$popperChild.content;
+    var backdrop = instance.props.animateFill && !index.isUCBrowser ? createBackdropElement() : null;
+
+    function addBackdropToPopperChildren() {
+      instance.popperChildren.backdrop = backdrop;
+    }
+
+    return {
+      onCreate: function onCreate() {
+        if (backdrop) {
+          addBackdropToPopperChildren();
+          tooltip.insertBefore(backdrop, tooltip.firstElementChild);
+          tooltip.setAttribute('data-animatefill', '');
+          tooltip.style.overflow = 'hidden';
+          instance.setProps({
+            animation: 'shift-away',
+            arrow: false
+          });
+        }
+      },
+      onMount: function onMount() {
+        if (backdrop) {
+          var transitionDuration = tooltip.style.transitionDuration;
+          var duration = Number(transitionDuration.replace('ms', '')); // The content should fade in after the backdrop has mostly filled the
+          // tooltip element. `clip-path` is the other alternative but is not
+          // well-supported and is buggy on some devices.
+
+          content.style.transitionDelay = Math.round(duration / 10) + "ms";
+          backdrop.style.transitionDuration = transitionDuration;
+          index.setVisibilityState([backdrop], 'visible'); // Warn if the stylesheets are not loaded
+
+          if (true) {
+            index.warnWhen(getComputedStyle(backdrop).position !== 'absolute', "The `tippy.js/dist/backdrop.css` stylesheet has not been\n              imported!\n              \n              The `animateFill` plugin requires this stylesheet to work.");
+            index.warnWhen(getComputedStyle(tooltip).transform === 'none', "The `tippy.js/animations/shift-away.css` stylesheet has not\n              been imported!\n              \n              The `animateFill` plugin requires this stylesheet to work.");
+          }
+        }
+      },
+      onShow: function onShow() {
+        if (backdrop) {
+          backdrop.style.transitionDuration = '0ms';
+        }
+      },
+      onHide: function onHide() {
+        if (backdrop) {
+          index.setVisibilityState([backdrop], 'hidden');
+        }
+      },
+      onAfterUpdate: function onAfterUpdate() {
+        // With this type of prop, it's highly unlikely it will be changed
+        // dynamically. We'll leave out the diff/update logic it to save bytes.
+        // `popperChildren` is assigned a new object onAfterUpdate
+        addBackdropToPopperChildren();
+      }
+    };
+  }
+};
+
+function createBackdropElement() {
+  var backdrop = index.div();
+  backdrop.className = index.BACKDROP_CLASS;
+  index.setVisibilityState([backdrop], 'hidden');
+  return backdrop;
+}
+
+var followCursor = {
+  name: 'followCursor',
+  defaultValue: false,
+  fn: function fn(instance) {
+    var reference = instance.reference,
+        popper = instance.popper; // Support iframe contexts
+    // Static check that assumes any of the `triggerTarget` or `reference`
+    // nodes will never change documents, even when they are updated
+
+    var doc = index.getOwnerDocument(instance.props.triggerTarget || reference); // Internal state
+
+    var lastMouseMoveEvent;
+    var mouseCoords = null;
+    var isInternallySettingControlledProp = false; // These are controlled by this plugin, so we need to store the user's
+    // original prop value
+
+    var userProps = instance.props;
+
+    function setUserProps(props) {
+      var keys = Object.keys(props);
+      keys.forEach(function (prop) {
+        userProps[prop] = index.useIfDefined(props[prop], userProps[prop]);
+      });
+    }
+
+    function getIsManual() {
+      return instance.props.trigger.trim() === 'manual';
+    }
+
+    function getIsEnabled() {
+      // #597
+      var isValidMouseEvent = getIsManual() ? true : // Check if a keyboard "click"
+      mouseCoords !== null && !(mouseCoords.clientX === 0 && mouseCoords.clientY === 0);
+      return instance.props.followCursor && isValidMouseEvent;
+    }
+
+    function getIsInitialBehavior() {
+      return index.currentInput.isTouch || instance.props.followCursor === 'initial' && instance.state.isVisible;
+    }
+
+    function resetReference() {
+      if (instance.popperInstance) {
+        instance.popperInstance.reference = reference;
+      }
+    }
+
+    function handlePlacement() {
+      // Due to `getVirtualOffsets()`, we need to reverse the placement if it's
+      // shifted (start -> end, and vice-versa)
+      // Early bail-out
+      if (!getIsEnabled() && instance.props.placement === userProps.placement) {
+        return;
+      }
+
+      var placement = userProps.placement;
+      var shift = placement.split('-')[1];
+      isInternallySettingControlledProp = true;
+      instance.setProps({
+        placement: getIsEnabled() && shift ? placement.replace(shift, shift === 'start' ? 'end' : 'start') : placement
+      });
+      isInternallySettingControlledProp = false;
+    }
+
+    function handlePopperListeners() {
+      if (!instance.popperInstance) {
+        return;
+      } // Popper's scroll listeners make sense for `true` only. TODO: work out
+      // how to only listen horizontal scroll for "horizontal" and vertical
+      // scroll for "vertical"
+
+
+      if (getIsEnabled() && (getIsInitialBehavior() || instance.props.followCursor !== true)) {
+        instance.popperInstance.disableEventListeners();
+      }
+    }
+
+    function handleMouseMoveListener() {
+      if (getIsEnabled()) {
+        addListener();
+      } else {
+        resetReference();
+      }
+    }
+
+    function triggerLastMouseMove() {
+      if (getIsEnabled()) {
+        onMouseMove(lastMouseMoveEvent);
+      }
+    }
+
+    function addListener() {
+      doc.addEventListener('mousemove', onMouseMove);
+    }
+
+    function removeListener() {
+      doc.removeEventListener('mousemove', onMouseMove);
+    }
+
+    function onMouseMove(event) {
+      var _lastMouseMoveEvent = lastMouseMoveEvent = event,
+          clientX = _lastMouseMoveEvent.clientX,
+          clientY = _lastMouseMoveEvent.clientY;
+
+      if (!instance.popperInstance || !instance.state.currentPlacement) {
+        return;
+      } // If the instance is interactive, avoid updating the position unless it's
+      // over the reference element
+
+
+      var isCursorOverReference = index.closestCallback(event.target, function (el) {
+        return el === reference;
+      });
+      var rect = reference.getBoundingClientRect();
+      var followCursor = instance.props.followCursor;
+      var isHorizontal = followCursor === 'horizontal';
+      var isVertical = followCursor === 'vertical';
+      var isVerticalPlacement = index.includes(['top', 'bottom'], index.getBasePlacement(instance.state.currentPlacement)); // The virtual reference needs some size to prevent itself from overflowing
+
+      var _getVirtualOffsets = getVirtualOffsets(popper, isVerticalPlacement),
+          size = _getVirtualOffsets.size,
+          x = _getVirtualOffsets.x,
+          y = _getVirtualOffsets.y;
+
+      if (isCursorOverReference || !instance.props.interactive) {
+        instance.popperInstance.reference = {
+          referenceNode: reference,
+          // These `client` values don't get used by Popper.js if they are 0
+          clientWidth: 0,
+          clientHeight: 0,
+          getBoundingClientRect: function getBoundingClientRect() {
+            return {
+              width: isVerticalPlacement ? size : 0,
+              height: isVerticalPlacement ? 0 : size,
+              top: (isHorizontal ? rect.top : clientY) - y,
+              bottom: (isHorizontal ? rect.bottom : clientY) + y,
+              left: (isVertical ? rect.left : clientX) - x,
+              right: (isVertical ? rect.right : clientX) + x
+            };
+          }
+        };
+        instance.popperInstance.update();
+      }
+
+      if (getIsInitialBehavior()) {
+        removeListener();
+      }
+    }
+
+    return {
+      onAfterUpdate: function onAfterUpdate(_, partialProps) {
+        if (!isInternallySettingControlledProp) {
+          setUserProps(partialProps);
+
+          if (partialProps.placement) {
+            handlePlacement();
+          }
+        } // A new placement causes the popperInstance to be recreated
+
+
+        if (partialProps.placement) {
+          handlePopperListeners();
+        } // Wait for `.update()` to set `instance.state.currentPlacement` to
+        // the new placement
+
+
+        requestAnimationFrame(triggerLastMouseMove);
+      },
+      onMount: function onMount() {
+        triggerLastMouseMove();
+        handlePopperListeners();
+      },
+      onShow: function onShow() {
+        if (getIsManual()) {
+          // Since there's no trigger event to use, we have to use these as
+          // baseline coords
+          mouseCoords = {
+            clientX: 0,
+            clientY: 0
+          }; // Ensure `lastMouseMoveEvent` doesn't access any other properties
+          // of a MouseEvent here
+
+          lastMouseMoveEvent = mouseCoords;
+          handlePlacement();
+          handleMouseMoveListener();
+        }
+      },
+      onTrigger: function onTrigger(_, event) {
+        // Tapping on touch devices can trigger `mouseenter` then `focus`
+        if (mouseCoords) {
+          return;
+        }
+
+        if (index.isMouseEvent(event)) {
+          mouseCoords = {
+            clientX: event.clientX,
+            clientY: event.clientY
+          };
+          lastMouseMoveEvent = event;
+        }
+
+        handlePlacement();
+        handleMouseMoveListener();
+      },
+      onUntrigger: function onUntrigger() {
+        // If untriggered before showing (`onHidden` will never be invoked)
+        if (!instance.state.isVisible) {
+          removeListener();
+          mouseCoords = null;
+        }
+      },
+      onHidden: function onHidden() {
+        removeListener();
+        resetReference();
+        mouseCoords = null;
+      }
+    };
+  }
+};
+function getVirtualOffsets(popper, isVerticalPlacement) {
+  var size = isVerticalPlacement ? popper.offsetWidth : popper.offsetHeight;
+  return {
+    size: size,
+    x: isVerticalPlacement ? size : 0,
+    y: isVerticalPlacement ? 0 : size
+  };
+}
+
+// position. This will require the `followCursor` plugin's fixes for overflow
+// due to using event.clientX/Y values. (normalizedPlacement, getVirtualOffsets)
+
+var inlinePositioning = {
+  name: 'inlinePositioning',
+  defaultValue: false,
+  fn: function fn(instance) {
+    var reference = instance.reference;
+
+    function getIsEnabled() {
+      return !!instance.props.inlinePositioning;
+    }
+
+    return {
+      onHidden: function onHidden() {
+        if (getIsEnabled()) {
+          instance.popperInstance.reference = reference;
+        }
+      },
+      onShow: function onShow() {
+        if (!getIsEnabled()) {
+          return;
+        }
+
+        instance.popperInstance.reference = {
+          referenceNode: reference,
+          // These `client` values don't get used by Popper.js if they are 0
+          clientWidth: 0,
+          clientHeight: 0,
+          getBoundingClientRect: function getBoundingClientRect() {
+            return getInlineBoundingClientRect(instance.state.currentPlacement && index.getBasePlacement(instance.state.currentPlacement), reference.getBoundingClientRect(), index.arrayFrom(reference.getClientRects()));
+          }
+        };
+      }
+    };
+  }
+};
+function getInlineBoundingClientRect(currentBasePlacement, boundingRect, clientRects) {
+  // Not an inline element, or placement is not yet known
+  if (clientRects.length < 2 || currentBasePlacement === null) {
+    return boundingRect;
+  }
+
+  switch (currentBasePlacement) {
+    case 'top':
+    case 'bottom':
+      {
+        var firstRect = clientRects[0];
+        var lastRect = clientRects[clientRects.length - 1];
+        var isTop = currentBasePlacement === 'top';
+        var top = firstRect.top;
+        var bottom = lastRect.bottom;
+        var left = isTop ? firstRect.left : lastRect.left;
+        var right = isTop ? firstRect.right : lastRect.right;
+        var width = right - left;
+        var height = bottom - top;
+        return {
+          top: top,
+          bottom: bottom,
+          left: left,
+          right: right,
+          width: width,
+          height: height
+        };
+      }
+
+    case 'left':
+    case 'right':
+      {
+        var minLeft = Math.min.apply(Math, clientRects.map(function (rects) {
+          return rects.left;
+        }));
+        var maxRight = Math.max.apply(Math, clientRects.map(function (rects) {
+          return rects.right;
+        }));
+        var measureRects = clientRects.filter(function (rect) {
+          return currentBasePlacement === 'left' ? rect.left === minLeft : rect.right === maxRight;
+        });
+        var _top = measureRects[0].top;
+        var _bottom = measureRects[measureRects.length - 1].bottom;
+        var _left = minLeft;
+        var _right = maxRight;
+
+        var _width = _right - _left;
+
+        var _height = _bottom - _top;
+
+        return {
+          top: _top,
+          bottom: _bottom,
+          left: _left,
+          right: _right,
+          width: _width,
+          height: _height
+        };
+      }
+
+    default:
+      {
+        return boundingRect;
+      }
+  }
+}
+
+var sticky = {
+  name: 'sticky',
+  defaultValue: false,
+  fn: function fn(instance) {
+    var reference = instance.reference,
+        popper = instance.popper;
+
+    function shouldCheck(value) {
+      return instance.props.sticky === true || instance.props.sticky === value;
+    }
+
+    var prevRefRect = null;
+    var prevPopRect = null;
+
+    function updatePosition() {
+      var currentRefRect = shouldCheck('reference') ? reference.getBoundingClientRect() : null;
+      var currentPopRect = shouldCheck('popper') ? popper.getBoundingClientRect() : null;
+
+      if (currentRefRect && areRectsDifferent(prevRefRect, currentRefRect) || currentPopRect && areRectsDifferent(prevPopRect, currentPopRect)) {
+        instance.popperInstance.update();
+      }
+
+      prevRefRect = currentRefRect;
+      prevPopRect = currentPopRect;
+
+      if (instance.state.isMounted) {
+        requestAnimationFrame(updatePosition);
+      }
+    }
+
+    return {
+      onMount: function onMount() {
+        if (instance.props.sticky) {
+          updatePosition();
+        }
+      }
+    };
+  }
+};
+
+function areRectsDifferent(rectA, rectB) {
+  if (rectA && rectB) {
+    return rectA.top !== rectB.top || rectA.right !== rectB.right || rectA.bottom !== rectB.bottom || rectA.left !== rectB.left;
+  }
+
+  return true;
+}
+
+exports.createTippyWithPlugins = index.createTippyWithPlugins;
+exports.default = index.tippy;
+exports.hideAll = index.hideAll;
+exports.roundArrow = index.ROUND_ARROW;
+exports.animateFill = animateFill;
+exports.createSingleton = createSingleton;
+exports.delegate = delegate;
+exports.followCursor = followCursor;
+exports.inlinePositioning = inlinePositioning;
+exports.sticky = sticky;
+//# sourceMappingURL=tippy.cjs.js.map
+
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/methodsMouseTutorialManager.js":
+/*!***************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/methodsMouseTutorialManager.js ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (TutorialManager) {
+  let $clickImage
+  
+  let isScrolling = false
+  let lastPageYOffset
+  let _this, element
+  let timer
+  
+  let onWindowScrollEvent = () => {
+    isScrolling = true
+    if (timer) {
+      clearTimeout(timer)
+    }
+    
+    timer = setTimeout(() => {
+      if (lastPageYOffset !== window.pageYOffset) {
+        lastPageYOffset = window.pageYOffset
+        onWindowScrollEvent()
+        return false
+      }
+      
+      isScrolling = false
+      //console.log(isScrolling)
+      if (_this) {
+        //console.log('continue')
+        _this.showClickExecute(element)
+      }
+    }, 200)
+  }
+  
+  TutorialManager.methods.showClick = async function (e) {
+    if (this.lib.style.detectIsIOS && window.innerWidth < 768) {
+      // 太小了，不使用指標
+      return false
+    }
+    
+    lastPageYOffset = window.pageYOffset
+    element = e
+    _this = this
+    window.addEventListener('scroll', onWindowScrollEvent)
+    
+    await this.lib.VueHelper.sleep(200)
+    if (isScrolling === false) {
+      //console.log('first')
+      this.showClickExecute(element)
+    }
+  }
+   
+  TutorialManager.methods.showClickExecute = async function (element) {
+    window.removeEventListener('scroll', onWindowScrollEvent)
+    //console.log('showClickExecute')
+    if (!$clickImage) {
+      $clickImage = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.ClickImage)
+    }
+    
+    let width, height
+    if (typeof(element.offset) === 'function') {
+      width = element.width()
+      height = element.height()
+      element = element.offset()
+    }
+    
+    //console.log(element)
+    if (typeof(element.width) === 'function') {
+      width = element.width()
+      height = element.height()
+    }
+    else if (typeof(element.width) === 'number') {
+      width = element.width
+      height = element.height
+    }
+    else if (typeof(element.clientWidth) === 'number') {
+      width = element.clientWidth
+      height = element.clientHeight
+    }
+    
+    let {top, left, bottom} = element
+    
+    if (typeof(top) === 'number' 
+            && typeof(bottom) === 'number'
+            && top + bottom > window.innerHeight) {
+      top = top - window.pageYOffset
+    }
+    else if (typeof(top) === 'number' 
+            && typeof(bottom) !== 'number'
+            && top > window.innerHeight) {
+      top = top - window.pageYOffset
+    }
+    
+    if (this.lib.style.detectIsIOS) {
+      top = top - 50
+    }
+    
+    if (typeof(width) !== 'number') {
+      width = 2
+      height = 2
+    }
+    
+    let middle = top + (height / 2)
+    let center = left + (width / 2)
+    
+    
+    let padding = 0
+    
+    //console.log(top, left)
+    //let fromTop = true
+    //let fromLeft = true
+    
+    let beforeTop = middle - 50
+    let beforeLeft = center - 50
+    
+    let beforeStyle = {}
+    let afterStyle = {}
+    
+    if (beforeTop > 0) {
+      beforeStyle.top = beforeTop + 'px'
+    }
+    else {
+      beforeTop = top + 50
+      beforeStyle.top = beforeTop + 'px'
+    }
+    afterStyle.top = (middle + padding)
+    
+    if (beforeLeft > 0) {
+      beforeStyle.left = beforeLeft + 'px'
+    }
+    else {
+      beforeLeft = left + 50
+      beforeStyle.left = beforeLeft + 'px'
+    }
+    afterStyle.left = (center + padding)
+    //afterStyle.left = (left + 10)
+    
+    //console.log({beforeStyle, afterStyle, vh: window.innerHeight, vw: window.innerWidth})
+    
+    //console.log(beforeStyle, afterStyle)
+//    alert(JSON.stringify({
+//      ...afterStyle,
+//      pageYOffset: window.pageYOffset
+//    }, null , 2))
+    $clickImage.css(beforeStyle)
+    
+    //$clickImage.animate(afterStyle, 1000, () => {})
+    
+    return new Promise((resolve) => {
+      $clickImage.fadeIn('fast', async () => {
+        $clickImage.animate(afterStyle, 500)
+        await this.lib.VueHelper.sleep(1000)
+
+        resolve(true)
+        $clickImage.fadeOut()
+      })
+    })
+    //throw new Error('@showClick')
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/methodsTestTutorialManager.js":
+/*!**************************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/methodsTestTutorialManager.js ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (TutorialManager) {
+  TutorialManager.methods._test = async function () {
+    await this.lib.VueHelper.sleep(3000)
+
+    this.addAction({
+      element: $('.my-MainIdea:first'),
+      content: '1 Welcome, click on the screen at any position to enter the next step',
+      order: 2
+    })
+
+    this.addAction({
+      element: $('.DigitalCountdownTimer:first'),
+      //content: '2 Welcome, click on the screen at any position to enter the next step',
+      order: 1
+    })
+
+    this.start()
+
+    await this.lib.VueHelper.sleep(3000)
+
+    //this.stop()
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/TutorialManager/methodsTutorialManager.js":
+/*!**********************************************************************************!*\
+  !*** ./webpack-app/components/manager/TutorialManager/methodsTutorialManager.js ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (TutorialManager) {
+  TutorialManager.methods.addAction = function (type, action) {
+    if (typeof(type) !== 'string') {
+      action = type
+      type = this.defaultType
+    }
+    //console.log(this.defaultType)
+
+    if (Array.isArray(this.actionLists[type]) === false) {
+      this.actionLists[type] = []
+    }
+
+    this.actionLists[type].push(action)
+
+    //console.log(this.actionLists)
+  }
+  
+  TutorialManager.methods.start = function (type) {
+    let actions = this.getActions(type)
+    if (Array.isArray(actions) === false) {
+      return false
+    }
+    //console.log(actions)
+    this.guide = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.guide({
+      vm: this,
+      actions,
+      complete: () => {
+        this.isPlaying = false
+        if (this.lib.RangyManager) {
+          this.lib.RangyManager.selectionLock = false
+        }
+        
+        if (!this.finishModal) {
+          this.finishModal = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.FinishModal)
+        }
+        
+        this.finishModal.modal({
+          dimmerSettings: {
+            dimmerName: 'tutorial-modal'
+          }
+        }).modal('show')
+        
+        setTimeout(() => {
+          this.hideFinishModal()
+        }, 3000)
+      }
+    });
+    this.isPlaying = true
+    //console.log(this.guide)
+  }
+  
+  TutorialManager.methods.hideFinishModal = function () {
+    this.finishModal.modal('hide')
+  }
+  
+  TutorialManager.methods.getActions = function (type) {
+    if (typeof(type) !== 'string') {
+      type = this.defaultType
+    }
+
+    let list = this.actionLists[type]
+    if (Array.isArray(list) === false) {
+      return undefined
+    }
+
+    // ---------------------
+
+    list = list.map((action) => {
+      if (typeof(action) === 'function') {
+        action = action()
+      }
+
+      if (!action || typeof(action) !== 'object') {
+        action = {}
+      }
+
+      //console.log(action)
+
+//        if (action.element) {
+////          if (action && !action.element) {
+////            //throw new Error('Element is not found', action)
+////          }
+//          
+//          if (typeof(action.element.$el) === 'object') {
+//            action.element = action.element.$el
+//          }
+//          action.element = $(action.element)
+//        }
+
+      if (typeof(action.order) !== 'number') {
+        action.order = 999
+      }
+
+      return action
+    })
+
+    // ---------------------
+
+    list.sort(function (a, b) {
+      return a.order - b.order
+    })
+    return list
+  }
+  TutorialManager.methods.stop = function () {
+    if (!this.guide) {
+      return false
+    }
+    //$.guide;
+    this.guide.exit()
+  }
+
+  // -------------------------------------------------
+
+  
+});
 
 /***/ }),
 

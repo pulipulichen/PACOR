@@ -157,8 +157,7 @@ let VueController = {
     persistAttrs: [
     ]
   },
-  computed: {
-  },
+//  computed: { },
   watch: {
     'config.locale': function () {
       this.lib.DayJSHelper.setLocale(this.config.locale)
@@ -166,28 +165,12 @@ let VueController = {
   },
   //created: function () {
   //},
-  mounted: function () {
-    this.lib.AxiosHelper.setErrorHandler((error) => {
-      if (this.$refs.ErrorHandler) {
-        this.$refs.ErrorHandler.addError(error)
-      }
-    })
-    
-    this.lib.DayJSHelper.setI18N((name, data) => {
-      return this.$t(name, data)
-    })
-    
-    this.lib.auth = this.$refs.auth
-    this.lib.style = this.$refs.style
-    this.lib.AnnotationHelper.setStatus(this.status)
-    this.lib.ConfirmModal = this.$refs.ConfirmModal
-    this.lib.TestManager = this.$refs.TestManager
-    //this.lib.TutorialManager = this.$refs.TutorialManager
-    //console.log(this.lib.auth.nextStep)
-  },
+//  mounted: function () {
+//    
+//    //console.log(this.lib.auth.nextStep)
+//  },
   
-  methods: {
-  }, // methods: {
+  //methods: { }, // methods: {
   
   
   // --------------------------

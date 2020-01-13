@@ -2,7 +2,7 @@ import ErrorHandler from './../components/manager/ErrorHandler/ErrorHandler.vue'
 import Auth from './Auth/Auth.vue'
 import Login from './Login/Login.vue'
 import NavigationItems from './NavigationItems/NavigationItems.vue'
-import Loading from './../components/startup/Loading/Loading.vue'
+import Loading from './Login/Login.vue'
 import StyleManager from './../components/manager/StyleManager/StyleManager.vue'
 import PACORTestManager from './../components/manager/PACORTestManager/PACORTestManager.vue'
 
