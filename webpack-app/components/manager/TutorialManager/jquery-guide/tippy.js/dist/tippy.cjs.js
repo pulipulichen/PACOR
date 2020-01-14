@@ -10,6 +10,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var index = require('./tippy.chunk.cjs.js');
 require('popper.js');
 //(() => import(/* webpackChunkName: "client-components/ReadingComponents" */ 'popper.js'))()
+import(/* webpackChunkName: "client-components/ReadingComponents" */ 'popper.js')
 
 /**
  * Re-uses a single tippy element for many different tippy instances.

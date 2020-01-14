@@ -1,3 +1,5 @@
+import './VueFab.js'
+
 let debugEnableAutoList = false
 
 /**

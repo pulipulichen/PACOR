@@ -8206,6 +8206,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var index = __webpack_require__(/*! ./tippy.chunk.cjs.js */ "./webpack-app/components/manager/TutorialManager/jquery-guide/tippy.js/dist/tippy.chunk.cjs.js");
 __webpack_require__(/*! popper.js */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\popper.js\\dist\\esm\\popper.js");
 //(() => import(/* webpackChunkName: "client-components/ReadingComponents" */ 'popper.js'))()
+Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! popper.js */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\popper.js\\dist\\esm\\popper.js"))
 
 /**
  * Re-uses a single tippy element for many different tippy instances.

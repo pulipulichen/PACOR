@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"client-components/CollaborativeReading~client-components/FreeReading":"client-components/CollaborativeReading~client-components/FreeReading","client-components/CollaborativeReading":"client-components/CollaborativeReading","client-components/FreeReading":"client-components/FreeReading","client-components/Exit":"client-components/Exit","client-components/Questionnaire":"client-components/Questionnaire","client-components/ReadingComponents":"client-components/ReadingComponents","client-components/GlobalComponents":"client-components/GlobalComponents","client-components/IndividualReading":"client-components/IndividualReading","client-components/Loading":"client-components/Loading","vendors/HTMLEditor":"vendors/HTMLEditor","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"client-components/CollaborativeReading~client-components/FreeReading":"client-components/CollaborativeReading~client-components/FreeReading","client-components/CollaborativeReading":"client-components/CollaborativeReading","client-components/FreeReading":"client-components/FreeReading","client-components/Exit":"client-components/Exit","client-components/Questionnaire":"client-components/Questionnaire","client-components/GlobalComponents":"client-components/GlobalComponents","client-components/IndividualReading":"client-components/IndividualReading","client-components/Loading":"client-components/Loading","client-components/ReadingComponents":"client-components/ReadingComponents","vendors/HTMLEditor":"vendors/HTMLEditor","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -975,36 +975,36 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('rangy', () => {
-  return __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./Reading/components/annotation/RangyManager/RangyManager.vue */ "./webpack-app/client/Reading/components/annotation/RangyManager/RangyManager.vue"))
+  return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/annotation/RangyManager/RangyManager.vue */ "./webpack-app/client/Reading/components/annotation/RangyManager/RangyManager.vue"))
 })
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('annotation-panel', () => {
-  return __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./Reading/components/annotation/AnnotationPanel/AnnotationPanel.vue */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/AnnotationPanel.vue"))
+  return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/annotation/AnnotationPanel/AnnotationPanel.vue */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/AnnotationPanel.vue"))
 })
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('annotation-manager', () => {
-  return __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./Reading/components/annotation/AnnotationManager/AnnotationManager.vue */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationManager.vue"))
+  return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/annotation/AnnotationManager/AnnotationManager.vue */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationManager.vue"))
 })
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('section-manager', () => {
-  return __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./Reading/components/annotation/SectionManager/SectionManager.vue */ "./webpack-app/client/Reading/components/annotation/SectionManager/SectionManager.vue"))
+  return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/annotation/SectionManager/SectionManager.vue */ "./webpack-app/client/Reading/components/annotation/SectionManager/SectionManager.vue"))
 })
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('search-manager', () => {
-  return __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./Reading/components/search/SearchManager/SearchManager.vue */ "./webpack-app/client/Reading/components/search/SearchManager/SearchManager.vue"))
+  return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/search/SearchManager/SearchManager.vue */ "./webpack-app/client/Reading/components/search/SearchManager/SearchManager.vue"))
 })
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('search-input', () => {
-  return __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./Reading/components/search/SearchManager/SearchInput/SearchInput.vue */ "./webpack-app/client/Reading/components/search/SearchManager/SearchInput/SearchInput.vue"))
+  return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/search/SearchManager/SearchInput/SearchInput.vue */ "./webpack-app/client/Reading/components/search/SearchManager/SearchInput/SearchInput.vue"))
 })
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('instruction-message', () => {
-  return __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./Reading/components/ui/InstructionMessage/InstructionMessage.vue */ "./webpack-app/client/Reading/components/ui/InstructionMessage/InstructionMessage.vue"))
+  return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/ui/InstructionMessage/InstructionMessage.vue */ "./webpack-app/client/Reading/components/ui/InstructionMessage/InstructionMessage.vue"))
 })
 //Vue.component('compact-navigation', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './Reading/components/ui-navigation/CompactNavigation/CompactNavigation.vue'))
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('navigation-header-item', () => {
-  return __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./Reading/components/ui-navigation/NavigationHeaderItem/NavigationHeaderItem.vue */ "./webpack-app/client/Reading/components/ui-navigation/NavigationHeaderItem/NavigationHeaderItem.vue"))
+  return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/ui-navigation/NavigationHeaderItem/NavigationHeaderItem.vue */ "./webpack-app/client/Reading/components/ui-navigation/NavigationHeaderItem/NavigationHeaderItem.vue"))
 })
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('about-item', () => {
-  return __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./Reading/components/ui-navigation/AboutItem/AboutItem.vue */ "./webpack-app/client/Reading/components/ui-navigation/AboutItem/AboutItem.vue"))
+  return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/ui-navigation/AboutItem/AboutItem.vue */ "./webpack-app/client/Reading/components/ui-navigation/AboutItem/AboutItem.vue"))
 })
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('annotation-type-filter', () => {
-  return __webpack_require__.e(/*! import() | client-components/ReadingComponents */ "client-components/ReadingComponents").then(__webpack_require__.bind(null, /*! ./Reading/components/search/AnnotationTypeFilter/AnnotationTypeFilter.vue */ "./webpack-app/client/Reading/components/search/AnnotationTypeFilter/AnnotationTypeFilter.vue"))
+  return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/search/AnnotationTypeFilter/AnnotationTypeFilter.vue */ "./webpack-app/client/Reading/components/search/AnnotationTypeFilter/AnnotationTypeFilter.vue"))
 })
 
 
