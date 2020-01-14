@@ -257,6 +257,15 @@ var render = function() {
             staticClass: "overlay normal-menu-overlay",
             on: {
               click: function($event) {
+                if ($event.target !== $event.currentTarget) {
+                  return null
+                }
+                _vm.normalMenuDisplay = false
+              },
+              touch: function($event) {
+                if ($event.target !== $event.currentTarget) {
+                  return null
+                }
                 _vm.normalMenuDisplay = false
               }
             }
@@ -426,7 +435,15 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "item" },
+                    {
+                      staticClass: "item",
+                      on: {
+                        click: function($event) {
+                          $event.stopPropagation()
+                          return (function() {})($event)
+                        }
+                      }
+                    },
                     [
                       _c("search-input", {
                         attrs: { status: _vm.status, lib: _vm.lib },
@@ -458,7 +475,7 @@ var render = function() {
           ],
           null,
           false,
-          1709460920
+          1542386900
         )
       })
     : _vm._e()

@@ -31,7 +31,8 @@
   <!-- ==================================== -->
   
   <div class="overlay normal-menu-overlay"
-         v-on:click="normalMenuDisplay = false"
+         v-on:click.self="normalMenuDisplay = false"
+         v-on:touch.self="normalMenuDisplay = false"
          v-if="normalMenuDisplay"></div>
   
   <navigation 
