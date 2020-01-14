@@ -9970,7 +9970,8 @@ __webpack_require__.r(__webpack_exports__);
       timeout: 3000
     })
     if (button.hasClass('disabled') === false) {
-      throw new Error('Add button should be disabled at default')
+      // 現在改成可以直接新增
+      //throw new Error('Add button should be disabled at default')
     }
     
     await this.sleep(1000)
