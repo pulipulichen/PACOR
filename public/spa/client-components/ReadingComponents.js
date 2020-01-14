@@ -15367,7 +15367,7 @@ __webpack_require__.r(__webpack_exports__);
     if (highlights === null) {
       return null
     }
-    
+    //console.log(highlights)
     // --------------------
     
     // 只取最短的那一個highlights

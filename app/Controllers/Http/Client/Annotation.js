@@ -28,6 +28,7 @@ class Annotation extends WebpageUserBaseController {
    */
   async floatWidget({request, webpage, user}) {
     let query = request.all()
+    query.anchorMode = 'include'
     webpage.log(user, 'Annotation.floatWidget', query)
     
     let cacheKey = Cache.key('Controllers.Client.Annotation.floatWidget', query)

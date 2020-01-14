@@ -7,7 +7,7 @@ export default (RangyManager) => {
     if (highlights === null) {
       return null
     }
-    
+    //console.log(highlights)
     // --------------------
     
     // 只取最短的那一個highlights
