@@ -1442,6 +1442,9 @@ var render = function() {
           nativeOn: {
             click: function($event) {
               return _vm.clickItem($event)
+            },
+            touch: function($event) {
+              return _vm.clickItem($event)
             }
           }
         },
