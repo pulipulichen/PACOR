@@ -107,9 +107,11 @@ let Login = {
         return false
       }
       
-      this.$refs.LoginModal.show()
+      this.$refs.LoginModal.show(() => {
+        //console.log('this.status.progress.initComponents = true')
+        this.status.progress.initComponents = true
+      })
       this._loadFromLocalStorage()
-      this.status.progress.initComponents = true
     },
     _loadFromLocalStorage () {
       let username = localStorage.getItem(this.key + 'login.username')

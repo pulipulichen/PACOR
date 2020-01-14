@@ -942,8 +942,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _watchAuth_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./watchAuth.js */ "./webpack-app/client/Auth/watchAuth.js");
 /* harmony import */ var _methodsAuth_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsAuth.js */ "./webpack-app/client/Auth/methodsAuth.js");
-/* harmony import */ var _mountedAuth_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mountedAuth.js */ "./webpack-app/client/Auth/mountedAuth.js");
-/* harmony import */ var _computedAuth_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./computedAuth.js */ "./webpack-app/client/Auth/computedAuth.js");
+/* harmony import */ var _computedAuth_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./computedAuth.js */ "./webpack-app/client/Auth/computedAuth.js");
 let Auth = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {
@@ -960,11 +959,11 @@ Object(_watchAuth_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Auth)
 
 Object(_methodsAuth_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Auth)
 
+//import mountedAuth from './mountedAuth.js'
+//mountedAuth(Auth)
 
-Object(_mountedAuth_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Auth)
 
-
-Object(_computedAuth_js__WEBPACK_IMPORTED_MODULE_3__["default"])(Auth)
+Object(_computedAuth_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Auth)
 
 /* harmony default export */ __webpack_exports__["default"] = (Auth);
 
@@ -1170,6 +1169,22 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (Auth) {
+  Auth.methods.init = async function () {
+    if (typeof (this.config.username) !== 'string'
+            && typeof (this.config.usernameQueryURL) === 'string') {
+      this.config.username = await this.loadUsernameFromURL()
+    }
+
+    let result = false
+    if (typeof (this.config.username) === 'string') {
+      result = await this.attemptLoginViaUsername(this.config.username)
+    }
+
+    if (result === false) {
+      await this.checkLogin()
+    }
+  }
+    
   Auth.methods.loadUsernameFromURL = async function () {
     let result = await this.lib.AxiosHelper.getOther(this.config.usernameQueryURL)
     if (typeof (result) === 'string') {
@@ -1189,28 +1204,20 @@ __webpack_require__.r(__webpack_exports__);
   }
   Auth.methods.checkLogin = async function () {
     var result = await this.lib.AxiosHelper.get(`/client/auth/checkLogin`)
-    //console.log(result.preferenceAAA)
-//      if (typeof(result) === 'object') {
-//        for (let name in result) {
-//          this.status[name] = result[name]
-//        }
-//        this.status.needLogin = false
-//      }
-//      else {
-//        this.showLogin()
-//      }
     //console.log(result)
+    
     for (let name in result.status) {
-//console.log(name)
+      //console.log(name)
       this.status[name] = result.status[name]
     }
-
+    //return
 
     //console.log(result)
     //console.log(result.needLogin)
     if (result.needLogin === false) {
       this.status.needLogin = false
     } else {
+      //console.log('Prepare this.showLogin()')
       this.showLogin()
     }
 //this.status.username = result
@@ -1259,8 +1266,11 @@ __webpack_require__.r(__webpack_exports__);
     //  return undefined
     //}
     
-    this.status.needLogin = true
+    //console.log('@LOG showLogin')
+    //return
     this.status.view = 'Login'
+//    return
+//    this.status.needLogin = true
   }
   Auth.methods.nextStep = async function (sendEnd) {
     //throw 'nextStep'
@@ -1370,35 +1380,6 @@ __webpack_require__.r(__webpack_exports__);
       return 0
     }
     return Math.ceil(remaining_ms / 1000)
-  }
-});
-
-/***/ }),
-
-/***/ "./webpack-app/client/Auth/mountedAuth.js":
-/*!************************************************!*\
-  !*** ./webpack-app/client/Auth/mountedAuth.js ***!
-  \************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function (Auth) {
-  Auth.mounted = async function () {
-    if (typeof (this.config.username) !== 'string'
-            && typeof (this.config.usernameQueryURL) === 'string') {
-      this.config.username = await this.loadUsernameFromURL()
-    }
-
-    let result = false
-    if (typeof (this.config.username) === 'string') {
-      result = await this.attemptLoginViaUsername(this.config.username)
-    }
-
-    if (result === false) {
-      await this.checkLogin()
-    }
   }
 });
 
@@ -1566,9 +1547,11 @@ let Login = {
         return false
       }
       
-      this.$refs.LoginModal.show()
+      this.$refs.LoginModal.show(() => {
+        //console.log('this.status.progress.initComponents = true')
+        this.status.progress.initComponents = true
+      })
       this._loadFromLocalStorage()
-      this.status.progress.initComponents = true
     },
     _loadFromLocalStorage () {
       let username = localStorage.getItem(this.key + 'login.username')

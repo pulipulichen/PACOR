@@ -1,1 +1,172 @@
-{"elements":{"pagination":{"attributes":{"v-bind:pageConfig":{}}},"rangy":{"attributes":{"v-bind:rangyConfig":{},"v-bind:status":{},"v-on:select":{},"v-on:selectcollapsed":{},"v-on:highlightMouseover":{},"v-on:highlightClick":{}}},"toc":{},"slot":{"attributes":{"v-bind:autoClickRemainingSeconds":{},"name":{}}},"media":{"attributes":{"v-on:media-enter":{},"v-on:media-leave":{},"v-bind:query":{}}},"clock":{},"i18n":{"attributes":{"src":{},"lang":{}}},"transition":{"attributes":{"v-bind:name":{}}},"user-information":{"attributes":{"v-on:showInstruction":{}}},"div":{"attributes":{"v-bind:title":{},"v-bind:data-user-id":{},"v-bind:data-section-id":{},"v-bind:data-annotation-id":{},"v-bind:data-comment-id":{},"v-on:dblclick":{}}},"p":{},"annotation-module-button":{"attributes":{"v-bind:annotationModule":{},"v-bind:count":{}}},"component":{"attributes":{"v-on:read":{},"v-bind:heightPX":{},"v-bind:hook":{},"v-bind:notification":{}}},"fragment":{},"materials":{},"block-exit":{},"HTMLEditor":{"attributes":{"v-bind:title":{},"v-bind:label":{},"v-bind:height":{},"v-bind:editable":{},"v-bind:contents":{}}},"style":{"attributes":{"scoped":{},"src":{},"lang":{}}},"domain-edit-admin":{},"modal":{"attributes":{"cancelable":{},"v-bind:fullContent":{},"v-bind:status":{},"v-on:hide":{},"dimmer":{},"v-bind:error":{},"v-bind:contentURL":{},"v-bind:config":{},"v-bind:cancelable":{},"v-bind:progress":{},"dimmerTransparent":{},"v-bind:cancelButtonText":{},"cancelButtonText":{}}}},"attributes":{"inline-template":{"context":"template"},"v-on:input":{},"v-on:update":{},"v-slot:headermenu":{"context":"template"},"v-bind:src":{"context":"img"},"v-modal":{},"v-bind:key":{},"v-bind:id":{},"v-bind:annotation":{},"v-model":{},"v-on:mousedown":{},"ref":{},"v-slot:actions":{"context":"template"},"v-bind:style":{},"v-slot:content":{},"v-bind:panelData":{},"v-bind:config":{},"v-else-if":{},"v-on:touchstart":{},"v-on:mouseout":{},"v-slot:header":{},"v-bind:is":{},"class":{},"#header":{},"v-on:highlightMouseout":{},"v-on:click.stop":{},"v-on:touchend":{},"v-on:delete":{},"v-bind:class":{},"v-if":{},"v-bind:href":{},"v-on:mouseover":{},"v-html":{},"v-bind:stepData":{},"v-for":{},"v-bind:status":{},"v-bind:lib":{},"v-on:add":{},"v-bind:disableOpenWindow":{},"v-bind:reset":{},"v-bind:error":{},"v-on:scroll.stop":{},"v-on:click":{"context":"button"},"v-else":{},"v-show":{},"v-bind:checked":{},"v-bind:placeholder":{}}}
+{
+  "elements": {
+    "pagination": {
+      "attributes": {
+        "v-bind:pageConfig": {}
+      }
+    },
+    "rangy": {
+      "attributes": {
+        "v-bind:rangyConfig": {},
+        "v-bind:status": {},
+        "v-on:select": {},
+        "v-on:selectcollapsed": {},
+        "v-on:highlightMouseover": {},
+        "v-on:highlightClick": {}
+      }
+    },
+    "toc": {},
+    "slot": {
+      "attributes": {
+        "v-bind:autoClickRemainingSeconds": {},
+        "name": {}
+      }
+    },
+    "media": {
+      "attributes": {
+        "v-on:media-enter": {},
+        "v-on:media-leave": {},
+        "v-bind:query": {}
+      }
+    },
+    "clock": {},
+    "i18n": {
+      "attributes": {
+        "src": {},
+        "lang": {}
+      }
+    },
+    "transition": {
+      "attributes": {
+        "v-bind:name": {}
+      }
+    },
+    "user-information": {
+      "attributes": {
+        "v-on:showInstruction": {}
+      }
+    },
+    "div": {
+      "attributes": {
+        "v-bind:title": {},
+        "v-bind:data-user-id": {},
+        "v-bind:data-section-id": {},
+        "v-bind:data-annotation-id": {},
+        "v-bind:data-comment-id": {},
+        "v-on:dblclick": {}
+      }
+    },
+    "p": {},
+    "annotation-module-button": {
+      "attributes": {
+        "v-bind:annotationModule": {},
+        "v-bind:count": {}
+      }
+    },
+    "component": {
+      "attributes": {
+        "v-on:read": {},
+        "v-bind:heightPX": {},
+        "v-bind:hook": {},
+        "v-bind:notification": {},
+        "v-bind:progress": {}
+      }
+    },
+    "fragment": {},
+    "materials": {},
+    "block-exit": {},
+    "HTMLEditor": {
+      "attributes": {
+        "v-bind:title": {},
+        "v-bind:label": {},
+        "v-bind:height": {},
+        "v-bind:editable": {},
+        "v-bind:contents": {}
+      }
+    },
+    "style": {
+      "attributes": {
+        "scoped": {},
+        "src": {},
+        "lang": {}
+      }
+    },
+    "domain-edit-admin": {},
+    "modal": {
+      "attributes": {
+        "cancelable": {},
+        "v-bind:fullContent": {},
+        "v-bind:status": {},
+        "v-on:hide": {},
+        "dimmer": {},
+        "v-bind:error": {},
+        "v-bind:contentURL": {},
+        "v-bind:config": {},
+        "v-bind:cancelable": {},
+        "v-bind:progress": {},
+        "dimmerTransparent": {},
+        "v-bind:cancelButtonText": {},
+        "cancelButtonText": {}
+      }
+    }
+  },
+  "attributes": {
+    "inline-template": {
+      "context": "template"
+    },
+    "v-on:input": {},
+    "v-on:update": {},
+    "v-slot:headermenu": {
+      "context": "template"
+    },
+    "v-bind:src": {
+      "context": "img"
+    },
+    "v-modal": {},
+    "v-bind:key": {},
+    "v-bind:id": {},
+    "v-bind:annotation": {},
+    "v-model": {},
+    "v-on:mousedown": {},
+    "ref": {},
+    "v-slot:actions": {
+      "context": "template"
+    },
+    "v-bind:style": {},
+    "v-slot:content": {},
+    "v-bind:panelData": {},
+    "v-bind:config": {},
+    "v-else-if": {},
+    "v-on:touchstart": {},
+    "v-on:mouseout": {},
+    "v-slot:header": {},
+    "v-bind:is": {},
+    "class": {},
+    "#header": {},
+    "v-on:highlightMouseout": {},
+    "v-on:click.stop": {},
+    "v-on:touchend": {},
+    "v-on:delete": {},
+    "v-bind:class": {},
+    "v-if": {},
+    "v-bind:href": {},
+    "v-on:mouseover": {},
+    "v-html": {},
+    "v-bind:stepData": {},
+    "v-for": {},
+    "v-bind:status": {},
+    "v-bind:lib": {},
+    "v-on:add": {},
+    "v-bind:disableOpenWindow": {},
+    "v-bind:reset": {},
+    "v-bind:error": {},
+    "v-on:scroll.stop": {},
+    "v-on:click": {
+      "context": "button"
+    },
+    "v-else": {},
+    "v-show": {},
+    "v-bind:checked": {},
+    "v-bind:placeholder": {}
+  }
+}

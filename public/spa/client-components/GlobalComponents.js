@@ -11304,7 +11304,7 @@ let Modal = {
       }
       loop()
     },
-    show: function () {
+    show: function (callback) {
       this._awaitInit((modal) => {
         let options = {}
         if (this.cancelable === 'false' 
@@ -11328,6 +11328,10 @@ let Modal = {
           
           this.initDropdown()
           this.isShow = true
+          
+          if (typeof(callback) === 'function') {
+            callback()
+          }
         }
         
         options.onHidden = () => {

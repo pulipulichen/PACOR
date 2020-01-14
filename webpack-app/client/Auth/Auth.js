@@ -14,8 +14,8 @@ watch(Auth)
 import methodsAuth from './methodsAuth.js'
 methodsAuth(Auth)
 
-import mountedAuth from './mountedAuth.js'
-mountedAuth(Auth)
+//import mountedAuth from './mountedAuth.js'
+//mountedAuth(Auth)
 
 import computedAuth from './computedAuth.js'
 computedAuth(Auth)

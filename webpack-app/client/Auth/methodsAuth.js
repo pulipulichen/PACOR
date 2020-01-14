@@ -1,4 +1,20 @@
 export default function (Auth) {
+  Auth.methods.init = async function () {
+    if (typeof (this.config.username) !== 'string'
+            && typeof (this.config.usernameQueryURL) === 'string') {
+      this.config.username = await this.loadUsernameFromURL()
+    }
+
+    let result = false
+    if (typeof (this.config.username) === 'string') {
+      result = await this.attemptLoginViaUsername(this.config.username)
+    }
+
+    if (result === false) {
+      await this.checkLogin()
+    }
+  }
+    
   Auth.methods.loadUsernameFromURL = async function () {
     let result = await this.lib.AxiosHelper.getOther(this.config.usernameQueryURL)
     if (typeof (result) === 'string') {
@@ -18,28 +34,20 @@ export default function (Auth) {
   }
   Auth.methods.checkLogin = async function () {
     var result = await this.lib.AxiosHelper.get(`/client/auth/checkLogin`)
-    //console.log(result.preferenceAAA)
-//      if (typeof(result) === 'object') {
-//        for (let name in result) {
-//          this.status[name] = result[name]
-//        }
-//        this.status.needLogin = false
-//      }
-//      else {
-//        this.showLogin()
-//      }
     //console.log(result)
+    
     for (let name in result.status) {
-//console.log(name)
+      //console.log(name)
       this.status[name] = result.status[name]
     }
-
+    //return
 
     //console.log(result)
     //console.log(result.needLogin)
     if (result.needLogin === false) {
       this.status.needLogin = false
     } else {
+      //console.log('Prepare this.showLogin()')
       this.showLogin()
     }
 //this.status.username = result
@@ -88,8 +96,11 @@ export default function (Auth) {
     //  return undefined
     //}
     
-    this.status.needLogin = true
+    //console.log('@LOG showLogin')
+    //return
     this.status.view = 'Login'
+//    return
+//    this.status.needLogin = true
   }
   Auth.methods.nextStep = async function (sendEnd) {
     //throw 'nextStep'

@@ -49,7 +49,7 @@ let Loading = {
 //      console.log('改變了', view)
 //    }
   },
-  created: async function () {
+  mounted: async function () {
     
     let AxiosHelper = await (function () {return import(/* webpackChunkName: "client-components/Loading" */ './../../helpers/AxiosHelper.js')})()
     AxiosHelper = AxiosHelper.default
@@ -93,6 +93,8 @@ let Loading = {
     this.lib.ConfirmModal = this.$refs.ConfirmModal
     this.lib.TestManager = this.$refs.TestManager
     this.lib.TutorialManager = this.$refs.TutorialManager
+    
+    this.lib.auth.init()
   },
   methods: {
     initDayJSHelper () {
