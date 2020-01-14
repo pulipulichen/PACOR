@@ -1,81 +1,81 @@
 <div class="ui one column grid annotation-panel-buttons"
-       v-if="$parent.isEditable">
-    <block-exit
-      v-if="$parent.isNoteDifferent">
-    </block-exit>
-    
-    <div v-bind:class="$parent.computedButtonsClass">
-      
-      <admin-badge 
-        v-bind:status="status"
-        v-bind:config="config">
-      </admin-badge>
-      
-      <span class="display-time">
-        {{ $parent.displayTime }}
-      </span>
-      
-      <annotation-item-interactive
-        v-bind:config="config"
-        v-bind:status="status"
+     v-if="$parent.isEditable">
+  <block-exit
+    v-if="$parent.isNoteDifferent">
+  </block-exit>
+
+  <div v-bind:class="$parent.computedButtonsClass">
+
+    <admin-badge 
+      v-bind:status="status"
+      v-bind:config="config">
+    </admin-badge>
+
+    <span class="display-time">
+      {{ $parent.displayTime }}
+    </span>
+
+    <annotation-item-interactive
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+
+      v-bind:annotation="annotation"
+      v-if="panelData.enableDiscussion"
+      v-on:comment="onComment">
+    </annotation-item-interactive>
+
+    <checkbox-toggle 
+      v-if="lib.auth.isEnableControlPermission"
+      v-bind:label="$t('PUBLIC')"
+      v-model="public"
+      v-bind:enable="!$parent.awaitSubmit">
+    </checkbox-toggle>
+
+    <template v-if="annotation.id">
+
+      <button 
+        v-if="$parent.enableDelete"
+        type="button"
+        class="ui compact button delete-button"
+        v-on:click="$parent.deleteAnnotation"
+        v-bind:class="$parent.computedSubmitButtonClassList">
+        {{ $t('DELETE') }}  
+      </button>
+
+      <validation-button 
         v-bind:lib="lib"
 
-        v-bind:annotation="annotation"
-        v-if="panelData.enableDiscussion"
-        v-on:comment="onComment">
-      </annotation-item-interactive>
-      
-      <checkbox-toggle 
-        v-if="lib.auth.isEnableControlPermission"
-        v-bind:label="$t('PUBLIC')"
-        v-model="public"
-        v-bind:enable="!$parent.awaitSubmit">
-      </checkbox-toggle>
+        v-bind:text="$parent.note"
+        v-bind:minWordCount="$parent.minWords"
+        v-bind:locale="status.preference.locale"
+        v-bind:enable="$parent.isEnableSubmitEdit"
 
-      <template v-if="annotation.id">
-        
-        <button 
-          v-if="$parent.enableDelete"
-          type="button"
-          class="ui compact button delete-button"
-          v-on:click="$parent.deleteAnnotation"
-          v-bind:class="$parent.computedSubmitButtonClassList">
-          {{ $t('DELETE') }}  
-        </button>
-        
-        <validation-button 
-          v-bind:lib="lib"
-          
-          v-bind:text="$parent.note"
-          v-bind:minWordCount="$parent.minWords"
-          v-bind:locale="status.preference.locale"
-          v-bind:enable="$parent.isEnableSubmitEdit"
-          
-          v-on:click="$parent.editAnnotation"
-          v-bind:class="$parent.computedSubmitButtonClassList"
-          v-bind:style="$parent.computedSubmitButtonStyle">
-          {{ $t('UPDATE') }}  
-        </validation-button>
-        
-      </template>
-      
-      <template v-else>
-        <validation-button 
-          class="add-button"
-          v-bind:lib="lib"
-          
-          v-bind:minWordCount="$parent.minWords"
-          v-bind:text="$parent.note"
-          
-          v-bind:locale="status.preference.locale"
-          v-bind:enable="$parent.isEnableSubmitAdd"
-          
-          v-on:click="$parent.addAnnotation"
-          v-bind:class="$parent.computedSubmitButtonClassList"
-          v-bind:style="$parent.computedSubmitButtonStyle">
-          {{ $t('ADD') }}  
-        </validation-button>
-      </template>
-      
-    </div>
+        v-on:click="$parent.editAnnotation"
+        v-bind:class="$parent.computedSubmitButtonClassList"
+        v-bind:style="$parent.computedSubmitButtonStyle">
+        {{ $t('UPDATE') }}  
+      </validation-button>
+
+    </template>
+
+    <template v-else>
+      <validation-button 
+        class="add-button"
+        v-bind:lib="lib"
+
+        v-bind:minWordCount="$parent.minWords"
+        v-bind:text="$parent.note"
+
+        v-bind:locale="status.preference.locale"
+        v-bind:enable="$parent.isEnableSubmitAdd"
+
+        v-on:click="$parent.addAnnotation"
+        v-bind:class="$parent.computedSubmitButtonClassList"
+        v-bind:style="$parent.computedSubmitButtonStyle">
+        {{ $t('ADD') }}  
+      </validation-button>
+    </template>
+
   </div>
+</div>

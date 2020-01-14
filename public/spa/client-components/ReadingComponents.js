@@ -897,7 +897,7 @@ exports.push([module.i, "label[data-v-c94b37e6] {\n  vertical-align: middle;\n}\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-panel-buttons[data-v-e454a39e]  .AnnotationInteractive {\n  vertical-align: top;\n  margin-right: 0.5em;\n}\n.delete-button[data-v-e454a39e] {\n  vertical-align: top;\n}\n", "",{"version":3,"sources":["FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,mBAAmB;AACrB;AACA;EACE,mBAAmB;AACrB","file":"FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true&","sourcesContent":[".annotation-panel-buttons[data-v-e454a39e]  .AnnotationInteractive {\n  vertical-align: top;\n  margin-right: 0.5em;\n}\n.delete-button[data-v-e454a39e] {\n  vertical-align: top;\n}\n"]}]);
+exports.push([module.i, ".annotation-panel-buttons[data-v-e454a39e]  .AnnotationInteractive {\n  vertical-align: top;\n  margin-right: 0.5em;\n}\n.delete-button[data-v-e454a39e] {\n  vertical-align: top !important;\n}\n", "",{"version":3,"sources":["FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,mBAAmB;AACrB;AACA;EACE,8BAA8B;AAChC","file":"FooterButtons.less?vue&type=style&index=0&id=e454a39e&lang=less&scoped=true&","sourcesContent":[".annotation-panel-buttons[data-v-e454a39e]  .AnnotationInteractive {\n  vertical-align: top;\n  margin-right: 0.5em;\n}\n.delete-button[data-v-e454a39e] {\n  vertical-align: top !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -3594,9 +3594,7 @@ var render = function() {
               _vm._v(" "),
               _c("span", { staticClass: "display-time" }, [
                 _vm._v(
-                  "\r\n        " +
-                    _vm._s(_vm.$parent.displayTime) +
-                    "\r\n      "
+                  "\r\n      " + _vm._s(_vm.$parent.displayTime) + "\r\n    "
                 )
               ]),
               _vm._v(" "),
@@ -3641,9 +3639,9 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\r\n          " +
+                              "\r\n        " +
                                 _vm._s(_vm.$t("DELETE")) +
-                                "  \r\n        "
+                                "  \r\n      "
                             )
                           ]
                         )
@@ -3665,9 +3663,9 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\r\n          " +
+                          "\r\n        " +
                             _vm._s(_vm.$t("UPDATE")) +
-                            "  \r\n        "
+                            "  \r\n      "
                         )
                       ]
                     )
@@ -3690,9 +3688,9 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\r\n          " +
+                          "\r\n        " +
                             _vm._s(_vm.$t("ADD")) +
-                            "  \r\n        "
+                            "  \r\n      "
                         )
                       ]
                     )
