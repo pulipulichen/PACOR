@@ -50,6 +50,7 @@ let Loading = {
 //    }
   },
   created: async function () {
+    
     let AxiosHelper = await (function () {return import(/* webpackChunkName: "client-components/Loading" */ './../../helpers/AxiosHelper.js')})()
     AxiosHelper = AxiosHelper.default
     //console.log(AxiosHelper)

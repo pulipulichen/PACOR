@@ -8942,6 +8942,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
   PACORTestManager.methods.sleep = async function (ms) {
+    if (!this.lib.VueHelper) {
+      return false
+    }
+    
     let min = -500
     let max = 500
     let adjusted = min + Math.floor(Math.random() *  (max - min - 1))

@@ -1,7 +1,7 @@
 <div class="Loading">
   <div v-if="!status.progress.initComponents"
        class="loading-modal">
-    LOADING
+    <img v-bind:src="config.baseURL + '/imgs/loading.svg'" />
   </div>
   
   <auth 

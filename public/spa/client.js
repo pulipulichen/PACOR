@@ -249,7 +249,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".loading-modal[data-v-58ac9781] {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: black;\n  color: white;\n}\n", "",{"version":3,"sources":["Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,OAAO;EACP,MAAM;EACN,YAAY;EACZ,aAAa;EACb,uBAAuB;EACvB,YAAY;AACd","file":"Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true&","sourcesContent":[".loading-modal[data-v-58ac9781] {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: black;\n  color: white;\n}\n"]}]);
+exports.push([module.i, ".loading-modal[data-v-58ac9781] {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: black;\n  color: white;\n  text-align: center;\n  padding-top: calc(50vh - 97px);\n}\n", "",{"version":3,"sources":["Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,OAAO;EACP,MAAM;EACN,YAAY;EACZ,aAAa;EACb,uBAAuB;EACvB,YAAY;EACZ,kBAAkB;EAClB,8BAA8B;AAChC","file":"Loading.less?vue&type=style&index=0&id=58ac9781&lang=less&scoped=true&","sourcesContent":[".loading-modal[data-v-58ac9781] {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: black;\n  color: white;\n  text-align: center;\n  padding-top: calc(50vh - 97px);\n}\n"]}]);
 
 
 /***/ }),
@@ -275,7 +275,9 @@ var render = function() {
     [
       !_vm.status.progress.initComponents
         ? _c("div", { staticClass: "loading-modal" }, [
-            _vm._v("\r\n    LOADING\r\n  ")
+            _c("img", {
+              attrs: { src: _vm.config.baseURL + "/imgs/loading.svg" }
+            })
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -636,6 +638,7 @@ let Loading = {
 //    }
   },
   created: async function () {
+    
     let AxiosHelper = await (function () {return Promise.all(/*! import() | client-components/Loading */[__webpack_require__.e("vendors~client-components/Loading"), __webpack_require__.e("client-components/Loading")]).then(__webpack_require__.bind(null, /*! ./../../helpers/AxiosHelper.js */ "./webpack-app/helpers/AxiosHelper.js"))})()
     AxiosHelper = AxiosHelper.default
     //console.log(AxiosHelper)
