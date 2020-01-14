@@ -127,11 +127,11 @@ module.exports = (env, argv) => {
       splitChunks: {
         cacheGroups: {
           // Split vendor code to its own chunk(s)
-          vendors: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: "all"
-          },
+//          vendors: {
+//            test: /[\\/]node_modules[\\/]/,
+//            name: 'vendors',
+//            chunks: "all"
+//          },
           // Split code common to all chunks to its own chunk
           commons: {
             name: "commons",    // The name of the chunk containing all common code

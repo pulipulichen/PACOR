@@ -8,7 +8,9 @@ export default function (PACORTestManager) {
     
     ms = ms + adjusted
     
-    return await this.lib.VueHelper.sleep(ms)
+    if (this.lib.VueHelper) {
+      return await this.lib.VueHelper.sleep(ms)
+    }
   }
   
   PACORTestManager.methods.nextStep = async function () {

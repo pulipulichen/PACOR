@@ -11,7 +11,7 @@
     document.currentScript.parentNode.insertBefore(script, document.currentScript.nextSibling)
   }
 
-  loadScript('vendors.js')
+  //loadScript('vendors.js')
   loadScript('commons.js')
   loadScript(bundleName)
 })()

@@ -1,6 +1,6 @@
 //import IntroJs from './introjs/intro.js'
 //import anno from './anno/anno.js'
-import './jquery-guide/jquery-guide.webpack.js'
+
 import $ from 'jquery'
 
 let TutorialManager = {
@@ -13,6 +13,10 @@ let TutorialManager = {
       isPlaying: false,
       finishModal: null
     }
+  },
+  created: async function () {
+    // import './jquery-guide/jquery-guide.webpack.js'
+    await import (/* webpackChunkName: "client-components/ReadingComponents" */ './jquery-guide/jquery-guide.webpack.js')
   },
 //  components: {
 //  },
