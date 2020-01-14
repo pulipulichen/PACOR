@@ -53,6 +53,7 @@
     "serve-favicon": "^2.5.0",
     "type-of-is": "^3.5.1",
     "vue-media": "^1.1.1",
+    "webpack-bundle-analyzer": "^3.6.0",
     "wordcloud": "^1.1.0"
   },
   "devDependencies": {

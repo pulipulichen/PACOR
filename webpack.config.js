@@ -7,6 +7,7 @@ const baseURL = process.env.PROTOCOL + '//' + process.env.PUBLIC_HOST + ':' + pr
 const path = require('path')
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 let compileCount = 0
 
@@ -118,6 +119,9 @@ module.exports = (env, argv) => {
           });
         } // apply: (compiler) => {
       },
+      new BundleAnalyzerPlugin({
+        analyzerPort: 5001
+      })
     ],  // plugins: [
     optimization: {
       splitChunks: {

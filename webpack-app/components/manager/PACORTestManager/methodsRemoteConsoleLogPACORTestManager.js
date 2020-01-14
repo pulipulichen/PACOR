@@ -3,6 +3,13 @@ export default function (PACORTestManager) {
    * https://stackoverflow.com/a/41343061/6645399
    */
   PACORTestManager.methods.initRemoteConsole = async function () {
+    if (!this.lib.VueHelper) {
+      setTimeout(() => {
+        this.initRemoteConsole()
+      }, 100)
+      return false
+    }
+    
     while (!this.status.readingConfig.debug) {
       await this.lib.VueHelper.sleep(100)
     }

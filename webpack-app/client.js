@@ -5,33 +5,20 @@ import Vue from 'vue'
 // ----------------------------------
 // plugins
 
-import './plugins/plugins'
-import './styles/styles'
 import i18n from './plugins/i18n'
-
-// ----------------------------------
-// Helpers
-import AxiosHelper from './helpers/AxiosHelper'
-import DayJSHelper from './helpers/DayJSHelper'
-import StringHelper from './helpers/StringHelper'
-import ValidateHelper from './helpers/ValidateHelper'
-//import StyleHelper from './helpers/StyleHelper'
-import AnnotationHelper from './helpers/AnnotationHelper'
-import VueHelper from './helpers/VueHelper'
-import NumberHelper from './helpers/NumberHelper'
 
 // ----------------------
 
-import $ from 'jquery'
+
 import template from './client/client.tpl'
 import config from './config.js'
 
 // --------------------
 // Components or routes
 
-import './client/global-components'
-import './client/local-global-dynamic-components'
-import './client/local-global-static-components'
+//import './client/global-components'
+//import './client/local-global-dynamic-components'
+//import './client/local-global-static-components'
 import components from './client/local-components'
 
 // -----------------------
@@ -40,8 +27,8 @@ import components from './client/local-components'
 let baseURL = __webpack_public_path__
 baseURL = baseURL.split('/').slice(0, 3).join('/')
 
-let baseScript = $(document.currentScript)
-if (baseScript.length === 1) {
+let baseScript = document.currentScript
+if (baseScript) {
   
   //console.log(baseScript[0].src)
   let testBaseURL = 'http://pc.pulipuli.info:3333'
@@ -51,7 +38,7 @@ if (baseScript.length === 1) {
     baseURL = testBaseURL
   }
   else {
-    let src = baseScript[0].src
+    let src = baseScript.src
     //console.log(src)
     if (src.startsWith('/')) {
       src = window.location.href
@@ -66,8 +53,10 @@ if (baseScript.length === 1) {
   //}
   
   
-    
-  baseScript.before(`<div id="app"></div>`)
+  var appNode = document.createElement("div");
+  appNode.id = 'app'
+  baseScript.parentNode.insertBefore(appNode, baseScript);
+  //baseScript.before(`<div id="app"></div>`)
 }
 config.baseURL = baseURL
 
@@ -122,6 +111,7 @@ let VueController = {
         hasNotification: true,
       },
       progress: {
+        initComponents: false,
         highlights: false
       },
       sessionToken: null
@@ -132,14 +122,14 @@ let VueController = {
       display: false
     },
     lib: {
-      AxiosHelper: AxiosHelper.setBaseURL(baseURL),
-      DayJSHelper: DayJSHelper,
-      StringHelper: StringHelper,
-      ValidateHelper: ValidateHelper,
+      AxiosHelper: null,
+      DayJSHelper: null,
+      StringHelper: null,
+      ValidateHelper: null,
       //style: StyleHelper.setConfig(config),
-      AnnotationHelper: AnnotationHelper,
-      VueHelper: VueHelper,
-      NumberHelper,
+      AnnotationHelper: null,
+      VueHelper: null,
+      NumberHelper: null,
       
       auth: null,
       RangyManager: null,
@@ -158,11 +148,7 @@ let VueController = {
     ]
   },
 //  computed: { },
-  watch: {
-    'config.locale': function () {
-      this.lib.DayJSHelper.setLocale(this.config.locale)
-    },
-  },
+//  watch: {},
   //created: function () {
   //},
 //  mounted: function () {
@@ -183,10 +169,11 @@ let VueController = {
 }
 
 if (typeof(baseURL) === 'string') {
-  $(() => {
+  setTimeout(() => {
     new Vue(VueController)
-    $('body > #TestMessage').remove()
-  })
+    //$('body > #TestMessage').remove()
+  }, 0)
 }
 
-window.VueController = VueController
+// @Test
+//window.VueController = VueController

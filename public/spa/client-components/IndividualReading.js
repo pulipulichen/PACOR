@@ -657,6 +657,8 @@ let IndividualReading = {
       }
       
       this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
+      
+      this.status.progress.initComponents = true
     },
     onChecklistComplete () {
       //throw 'onChecklistComplete'

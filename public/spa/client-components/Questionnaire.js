@@ -682,6 +682,7 @@ let PreImaginary = {
     
     this.initLog()
     this.$refs.Modal.show()
+    this.status.progress.initComponents = true
   },
   methods: {
     initLog: function () {
@@ -877,6 +878,7 @@ let PreImaginary = {
     
     this.initLog()
     this.$refs.Modal.show()
+    this.status.progress.initComponents = true
   },
   methods: {
     initLog: function () {

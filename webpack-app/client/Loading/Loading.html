@@ -1,7 +1,7 @@
 <div class="Loading">
-  <div v-if="status.view === 'Loading'"
-       class="ui segment">
-    <div class="ui active centered inline loader"></div>
+  <div v-if="!status.progress.initComponents"
+       class="loading-modal">
+    LOADING
   </div>
   
   <auth 

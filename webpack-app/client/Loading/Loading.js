@@ -1,14 +1,19 @@
-import HiddenLoading from './../../components/ui-modal/HiddenLoading/HiddenLoading.vue'
-import ErrorHandler from './../../components/manager/ErrorHandler/ErrorHandler.vue'
+// --------------------
+// Components or routes
 
-import Auth from './../Auth/Auth.vue'
-import Login from './../Login/Login.vue'
-import StyleManager from './../../components/manager/StyleManager/StyleManager.vue'
-import PACORTestManager from './../../components/manager/PACORTestManager/PACORTestManager.vue'
-//import RangyManager from './components/RangyManager/RangyManager.vue'
-//import NoteEditorManager from './components/NoteEditorManager/NoteEditorManager.vue'
+import './../global-components'
+import './../local-global-dynamic-components'
+import './../local-global-static-components'
 
-import TutorialManager from './../../components/manager/TutorialManager/TutorialManager.vue'
+// -----------------------------
+// Plugin and styles
+
+import './../../plugins/plugins'
+import './../../styles/styles'
+
+import $ from 'jquery'
+
+// -------------------
 
 let Loading = {
   props: ['lib', 'status', 'config', 'progress', 'errors'],
@@ -18,17 +23,14 @@ let Loading = {
     }
   },
   components: {
-    HiddenLoading: HiddenLoading,
-    'error-handler': ErrorHandler,
-    Auth: Auth,
-    //'rangy-manager': RangyManager,
-    //'note-editor-manager': NoteEditorManager,
-    Login: Login,
-    StyleManager,
-    PACORTestManager,
-    'tutorial-manager': TutorialManager,
+    HiddenLoading: () => import(/* webpackChunkName: "client-components/Loading" */ './../../components/ui-modal/HiddenLoading/HiddenLoading.vue'),
+    'error-handler': () => import(/* webpackChunkName: "client-components/Loading" */ './../../components/manager/ErrorHandler/ErrorHandler.vue'),
+    Auth: () => import(/* webpackChunkName: "client-components/Loading" */ './../Auth/Auth.vue'),
+    Login: () => import(/* webpackChunkName: "client-components/Loading" */ './../Login/Login.vue'),
+    StyleManager: () => import(/* webpackChunkName: "client-components/Loading" */ './../../components/manager/StyleManager/StyleManager.vue'),
+    PACORTestManager: () => import(/* webpackChunkName: "client-components/Loading" */ './../../components/manager/PACORTestManager/PACORTestManager.vue'),
+    'tutorial-manager': () => import(/* webpackChunkName: "client-components/Loading" */ './../../components/manager/TutorialManager/TutorialManager.vue'),
     
-    //Chat: () => import(/* webpackChunkName: "client-components/Chat" */ './components/Chat/Chat.vue'),
     'CollaborativeReading': () => import(/* webpackChunkName: "client-components/CollaborativeReading" */ './../Reading/CollaborativeReading/CollaborativeReading.vue'),
     'IndividualReading': () => import(/* webpackChunkName: "client-components/IndividualReading" */ './../Reading/IndividualReading/IndividualReading.vue'),
     'PostRecall': () => import(/* webpackChunkName: "client-components/Questionnaire" */ './../Questionnaire/PostRecall/PostRecall.vue'),
@@ -40,9 +42,39 @@ let Loading = {
 //    
 //  },
   watch: {
-    
+    'config.locale': function () {
+      this.lib.DayJSHelper.setLocale(this.config.locale)
+    },
+//    "status.view" (view) {
+//      console.log('改變了', view)
+//    }
   },
-  mounted() {
+  created: async function () {
+    let AxiosHelper = await (function () {return import(/* webpackChunkName: "client-components/Loading" */ './../../helpers/AxiosHelper.js')})()
+    AxiosHelper = AxiosHelper.default
+    //console.log(AxiosHelper)
+    this.lib.AxiosHelper = AxiosHelper.setBaseURL(this.config.baseURL)
+    
+    let DayJSHelper = await (() =>import(/* webpackChunkName: "client-components/Loading" */ './../../helpers/DayJSHelper.js'))()
+    this.lib.DayJSHelper = DayJSHelper.default
+    
+    let StringHelper = await (() =>import(/* webpackChunkName: "client-components/Loading" */ './../../helpers/StringHelper.js'))()
+    this.lib.StringHelper = StringHelper.default
+    
+    let ValidateHelper = await (() =>import(/* webpackChunkName: "client-components/Loading" */ './../../helpers/ValidateHelper.js'))()
+    this.lib.ValidateHelper = ValidateHelper.default
+    
+    let AnnotationHelper = await (() =>import(/* webpackChunkName: "client-components/Loading" */ './../../helpers/AnnotationHelper.js'))()
+    this.lib.AnnotationHelper = AnnotationHelper.default
+    
+    let VueHelper = await (() =>import(/* webpackChunkName: "client-components/Loading" */ './../../helpers/VueHelper.js'))()
+    this.lib.VueHelper = VueHelper.default
+    
+    let NumberHelper = await (() =>import(/* webpackChunkName: "client-components/Loading" */ './../../helpers/NumberHelper.js'))()
+    this.lib.NumberHelper = NumberHelper.default
+    
+    // ----------------------
+    
     this.lib.AxiosHelper.setErrorHandler((error) => {
       if (this.$refs.ErrorHandler) {
         this.$refs.ErrorHandler.addError(error)
@@ -52,6 +84,9 @@ let Loading = {
     this.lib.DayJSHelper.setI18N((name, data) => {
       return this.$t(name, data)
     })
+    
+    
+    // ----------------------
     
     this.lib.auth = this.$refs.auth
     this.lib.style = this.$refs.style

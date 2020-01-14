@@ -55,6 +55,8 @@ let CollaborativeReading = {
       
       //console.log(this.lib.AnnotationPanel)
       this.initNavComponentToLib()
+      
+      this.status.progress.initComponents = true
     },
     initNavComponentToLib () {
        if (!this.$refs.nav.$refs.UserFilter) {

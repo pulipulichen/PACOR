@@ -94,12 +94,23 @@ let Login = {
 //  },
   mounted() {
     //console.log('掛載！')
-    this.$refs.LoginModal.show()
-    this._loadFromLocalStorage()
+    this.init()
     
     //this.ttttt()  // for test
   },
   methods: {
+    init () {
+      if (!this.$refs.LoginModal) {
+        setTimeout(() => {
+          return this.init()
+        }, 100)
+        return false
+      }
+      
+      this.$refs.LoginModal.show()
+      this._loadFromLocalStorage()
+      this.status.progress.initComponents = true
+    },
     _loadFromLocalStorage () {
       let username = localStorage.getItem(this.key + 'login.username')
       if (typeof(username) === 'string') {

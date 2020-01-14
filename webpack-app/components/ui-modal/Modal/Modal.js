@@ -30,7 +30,7 @@ let Modal = {
     computedActionsClassList () {
       let classList = []
       
-      if (this.lib.style.isLeftHanded === true) {
+      if (this.lib.style && this.lib.style.isLeftHanded === true) {
         classList.push('left-handed')
       }
       
