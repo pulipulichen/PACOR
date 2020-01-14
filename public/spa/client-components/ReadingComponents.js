@@ -6255,7 +6255,8 @@ __webpack_require__.r(__webpack_exports__);
     }
 
     this.anchorPositions = null
-    useMouse = false
+    //useMouse = false
+    interactiveMode = null
     this.isFixed = false
     this.isFixedMouseout = true
   } // AnnotationFloatWidget.methods.rangyEventMouseout = function (data) {
@@ -6264,7 +6265,9 @@ __webpack_require__.r(__webpack_exports__);
     if (this.isFixed === true) {
       this.isFixed = false
       this.anchorPositions = null
-      useMouse = false
+      
+      //useMouse = false
+      interactiveMode = null
     }
   } // AnnotationFloatWidget.methods.rangyEventSelect = function (data) {
 
