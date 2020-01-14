@@ -15173,6 +15173,8 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].config.productionTip = false
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_fragment__WEBPACK_IMPORTED_MODULE_1__["default"].Plugin)
 
+//import './iframeResizer/iframeResizer-vue.js'
+
 
 /***/ }),
 

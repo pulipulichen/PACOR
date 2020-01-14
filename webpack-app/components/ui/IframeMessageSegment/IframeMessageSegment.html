@@ -5,9 +5,10 @@
     v-html="message">
   </template>
   <iframe 
-    v-else
+    v-if="url && show"
     v-resize="{ log: false }"
     v-bind:src="url"
-    frameborder="0">
+    frameborder="0"
+    ref="iframe">
   </iframe>
 </div>

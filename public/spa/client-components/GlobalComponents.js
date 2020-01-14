@@ -3563,9 +3563,10 @@ var render = function() {
     "div",
     { staticClass: "IframeMessageSegment", class: _vm.computedClassList },
     [
-      !_vm.url
-        ? void 0
-        : _c("iframe", {
+      !_vm.url ? void 0 : _vm._e(),
+      _vm._v(" "),
+      _vm.url && _vm.show
+        ? _c("iframe", {
             directives: [
               {
                 name: "resize",
@@ -3574,8 +3575,10 @@ var render = function() {
                 expression: "{ log: false }"
               }
             ],
+            ref: "iframe",
             attrs: { src: _vm.url, frameborder: "0" }
           })
+        : _vm._e()
     ],
     2
   )
@@ -12120,13 +12123,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _iframeResizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./iframeResizer.js */ "./webpack-app/components/ui/IframeMessageSegment/iframeResizer.js");
+/* harmony import */ var _iframeResizer_iframeResizer_vue_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./iframeResizer/iframeResizer-vue.js */ "./webpack-app/components/ui/IframeMessageSegment/iframeResizer/iframeResizer-vue.js");
 
 
 let IframeMessageSegment = {
   props: ['config', 'message', 'showBorder'],
   data() {
     return {
+      show: false
     }
   },
 //  components: {
@@ -12155,8 +12159,11 @@ let IframeMessageSegment = {
   },
 //  watch: {
 //  },
-//  mounted() {
-//  },
+  mounted() {
+    setTimeout(() => {
+      this.show = true
+    }, 100)
+  },
 //  methods: {
 //  } // methods
 }
@@ -12220,17 +12227,17 @@ component.options.__file = "webpack-app/components/ui/IframeMessageSegment/Ifram
 
 /***/ }),
 
-/***/ "./webpack-app/components/ui/IframeMessageSegment/iframeResizer.js":
-/*!*************************************************************************!*\
-  !*** ./webpack-app/components/ui/IframeMessageSegment/iframeResizer.js ***!
-  \*************************************************************************/
+/***/ "./webpack-app/components/ui/IframeMessageSegment/iframeResizer/iframeResizer-vue.js":
+/*!*******************************************************************************************!*\
+  !*** ./webpack-app/components/ui/IframeMessageSegment/iframeResizer/iframeResizer-vue.js ***!
+  \*******************************************************************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var _iframeResizer_iframeResizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./iframeResizer/iframeResizer.js */ "./webpack-app/components/ui/IframeMessageSegment/iframeResizer/iframeResizer.js");
+/* harmony import */ var _iframeResizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./iframeResizer.js */ "./webpack-app/components/ui/IframeMessageSegment/iframeResizer/iframeResizer.js");
 
 
 /**
@@ -12241,7 +12248,8 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].directive('resize', {
   bind: function(el, { value = {} }) {
-    el.addEventListener('load', () => Object(_iframeResizer_iframeResizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(value, el))
+    //console.log('iFrameResize')
+    el.addEventListener('load', () => Object(_iframeResizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(value, el))
   }
 })
 

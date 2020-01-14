@@ -141,7 +141,8 @@ module.exports = {
     'PostRecall': {
       instruction: '/2020exp/PostRecall.html',
       minWords: 10,
-      limitMinutes: 5
+      //limitMinutes: 5
+      limitMinutes: 0.03,
     },
     'FreeReading': {
       permission: {

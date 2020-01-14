@@ -4,3 +4,5 @@ Vue.config.productionTip = false
 
 import Fragment from 'vue-fragment'
 Vue.use(Fragment.Plugin)
+
+//import './iframeResizer/iframeResizer-vue.js'

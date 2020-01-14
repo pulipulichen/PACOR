@@ -677,12 +677,18 @@ let PreImaginary = {
       }
     }
   },
-  mounted() {
+  mounted: async function () {
     //throw new Error('test 45454545454545454')
     
     this.initLog()
-    this.$refs.Modal.show()
-    this.status.progress.initComponents = true
+    
+    while (!this.$refs.Modal) {
+      await this.lib.VueHelper.sleep(100)
+    }
+    
+    this.$refs.Modal.show(() => {
+      this.status.progress.initComponents = true
+    })
   },
   methods: {
     initLog: function () {
@@ -873,12 +879,18 @@ let PreImaginary = {
       }
     }
   },
-  mounted() {
+  mounted: async function () {
     //throw new Error('test 45454545454545454')
     
     this.initLog()
-    this.$refs.Modal.show()
-    this.status.progress.initComponents = true
+    
+    while (!this.$refs.Modal) {
+      await this.lib.VueHelper.sleep(100)
+    }
+    
+    this.$refs.Modal.show(() => {
+      this.status.progress.initComponents = true
+    })
   },
   methods: {
     initLog: function () {

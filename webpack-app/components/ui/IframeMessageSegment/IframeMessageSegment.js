@@ -1,9 +1,10 @@
-import './iframeResizer.js'
+import './iframeResizer/iframeResizer-vue.js'
 
 let IframeMessageSegment = {
   props: ['config', 'message', 'showBorder'],
   data() {
     return {
+      show: false
     }
   },
 //  components: {
@@ -32,8 +33,11 @@ let IframeMessageSegment = {
   },
 //  watch: {
 //  },
-//  mounted() {
-//  },
+  mounted() {
+    setTimeout(() => {
+      this.show = true
+    }, 100)
+  },
 //  methods: {
 //  } // methods
 }
