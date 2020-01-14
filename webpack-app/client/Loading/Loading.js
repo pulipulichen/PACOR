@@ -56,7 +56,7 @@ let Loading = {
     this.lib.AxiosHelper = AxiosHelper.setBaseURL(this.config.baseURL)
     
     let DayJSHelper = await (() =>import(/* webpackChunkName: "client-components/Loading" */ './../../helpers/DayJSHelper.js'))()
-    this.lib.DayJSHelper = DayJSHelper.default
+    this.lib.DayJSHelper = await DayJSHelper.default()
     
     let StringHelper = await (() =>import(/* webpackChunkName: "client-components/Loading" */ './../../helpers/StringHelper.js'))()
     this.lib.StringHelper = StringHelper.default
@@ -81,9 +81,7 @@ let Loading = {
       }
     })
     
-    this.lib.DayJSHelper.setI18N((name, data) => {
-      return this.$t(name, data)
-    })
+    this.initDayJSHelper()
     
     
     // ----------------------
@@ -95,6 +93,21 @@ let Loading = {
     this.lib.TestManager = this.$refs.TestManager
     this.lib.TutorialManager = this.$refs.TutorialManager
   },
+  methods: {
+    initDayJSHelper () {
+      if (!this.lib.DayJSHelper) {
+        setTimeout(() => {
+          this.initDayJSHelper()
+        }, 100)
+        return false
+      }
+      
+      //console.log(this.lib.DayJSHelper)
+      this.lib.DayJSHelper.setI18N((name, data) => {
+        return this.$t(name, data)
+      })
+    }
+  }
 //  methods: {} // methods
 }
 

@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"admin-components/domain":"admin-components/domain","admin-components/material":"admin-components/material","admin-components/referer":"admin-components/referer","admin-components/remote-console-log":"admin-components/remote-console-log","admin-components/user-dashboard":"admin-components/user-dashboard","admin-components/webpage":"admin-components/webpage","admin-components/webpage-dashboard":"admin-components/webpage-dashboard","vendors/HTMLEditor":"vendors/HTMLEditor","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"admin-components/domain":"admin-components/domain","admin-components/material":"admin-components/material","admin-components/referer":"admin-components/referer","admin-components/remote-console-log":"admin-components/remote-console-log","admin-components/user-dashboard":"admin-components/user-dashboard","admin-components/webpage":"admin-components/webpage","admin-components/webpage-dashboard":"admin-components/webpage-dashboard","client-components/GlobalComponents":"client-components/GlobalComponents","vendors/HTMLEditor":"vendors/HTMLEditor","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -8705,173 +8705,180 @@ let AxiosHelper = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dayjs */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\dayjs\\dayjs.min.js");
-/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var dayjs_plugin_relativeTime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dayjs/plugin/relativeTime */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\dayjs\\plugin\\relativeTime.js");
-/* harmony import */ var dayjs_plugin_relativeTime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dayjs_plugin_relativeTime__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var dayjs_locale_zh_tw__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dayjs/locale/zh-tw */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\dayjs\\locale\\zh-tw.js");
-/* harmony import */ var dayjs_locale_zh_tw__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(dayjs_locale_zh_tw__WEBPACK_IMPORTED_MODULE_2__);
 
 
-//import 'dayjs/locale/zh-tw' // load on demand
-dayjs__WEBPACK_IMPORTED_MODULE_0___default.a.extend(dayjs_plugin_relativeTime__WEBPACK_IMPORTED_MODULE_1___default.a)
+/* harmony default export */ __webpack_exports__["default"] = (async () => {
+  //import dayjs from 'dayjs'
+  let dayjs = await Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.t.bind(null, /*! dayjs */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\dayjs\\dayjs.min.js", 7))
+  dayjs = dayjs.default
+  
+  //import relativeTime from 'dayjs/plugin/relativeTime'
+  let relativeTime = await Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.t.bind(null, /*! dayjs/plugin/relativeTime */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\dayjs\\plugin\\relativeTime.js", 7))
+  relativeTime = relativeTime.default
+  
+  //import 'dayjs/locale/zh-tw' // load on demand
+  dayjs.extend(relativeTime)
 
-// preload locales
-//require(`dayjs/locale/zh-tw`).default
-//import 'dayjs/locale/zh-tw'
+  // preload locales
+  //require(`dayjs/locale/zh-tw`).default
+  //import 'dayjs/locale/zh-tw'
+  //import zhTWConf from 'dayjs/locale/zh-tw';
+  let zhTWConf = await Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.t.bind(null, /*! dayjs/locale/zh-tw */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\dayjs\\locale\\zh-tw.js", 7))
+  zhTWConf = zhTWConf.default
+  
+  dayjs.locale(zhTWConf)
 
-dayjs__WEBPACK_IMPORTED_MODULE_0___default.a.locale(dayjs_locale_zh_tw__WEBPACK_IMPORTED_MODULE_2___default.a)
-
-let DayJSHelper = {
-  $t: null,
-  setI18N: function ($t) {
-    this.$t = $t
-  },
-  time: function () {
-    let d = (new Date())
-    return d.getTime() + this.offset()
-  },
-  _offset: null,
-  offset () {
-    if (typeof(this._offset) !== 'number') {
+  let DayJSHelper = {
+    $t: null,
+    setI18N: function ($t) {
+      this.$t = $t
+    },
+    time: function () {
       let d = (new Date())
-      this._offset = d.getTimezoneOffset() * 1000
-    }
-    return this._offset
-  },
-  setLocale: function (dayjsLocale) {
-    if (typeof(dayjsLocale) !== 'string') {
+      return d.getTime() + this.offset()
+    },
+    _offset: null,
+    offset () {
+      if (typeof(this._offset) !== 'number') {
+        let d = (new Date())
+        this._offset = d.getTimezoneOffset() * 1000
+      }
+      return this._offset
+    },
+    setLocale: function (dayjsLocale) {
+      if (typeof(dayjsLocale) !== 'string') {
+        return this
+      }
+
+      dayjsLocale = dayjsLocale.toLowerCase()
+
+      try {
+        //require(`dayjs/locale/${dayjsLocale}`).default // load on demand
+        dayjs.locale(dayjsLocale)
+      }
+      catch (e) {
+        console.error(`dayjs locale is error: ${dayjsLocale}`)
+      }
       return this
-    }
-    
-    dayjsLocale = dayjsLocale.toLowerCase()
-    
-    try {
-      //require(`dayjs/locale/${dayjsLocale}`).default // load on demand
-      dayjs__WEBPACK_IMPORTED_MODULE_0___default.a.locale(dayjsLocale)
-    }
-    catch (e) {
-      console.error(`dayjs locale is error: ${dayjsLocale}`)
-    }
-    return this
-  },
-  fromNow: function (timestamp) {
-    if (timestamp === null 
-            || isNaN(timestamp) === true) {
-      return ''
-    }
-    else if (typeof(timestamp) === 'string') {
-      timestamp = parseInt(timestamp, 10)
-    }
-    timestamp = timestamp - this.offset()
-    return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).fromNow()
-  },
-  toNow: function (timestamp) {
-    if (timestamp === null 
-            || isNaN(timestamp) === true) {
-      return ''
-    }
-    else if (typeof(timestamp) === 'string') {
-      timestamp = parseInt(timestamp, 10)
-    }
-    timestamp = timestamp - this.offset()
-    return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).toNow()
-  },
-  _prefixZero: function (n) {
-    if (n < 10) {
-      return '0' + n
-    }
-    else {
-      return n
-    }
-  },
-  shortTime: function (millisecond) {
-    //let intervalTimestamp = (new Date()).getTime() - timestamp
-    millisecond = millisecond - this.offset()
-    
-    let year = 0
-    let month = 0
-    let day = 0
-    let hour = 0
-    let minute = 0
-    
-    if (millisecond < 60000) {
-      // 如果是在距離現在12小時內，那就顯示 n分鐘前
-      return this.$t('in a minute')
-    }
-    else if (millisecond < 86400000) {
-      // 如果是距離現在1天內，那就顯示 hh:mm
-      hour = Math.floor(millisecond / 3600000)
-      minute = Math.floor((millisecond % 3600000) / 60000)
-      return this._prefixZero(hour) + ':' + this._prefixZero(minute)
-      
-      //return dayjs().millisecond(timestamp).format('HH:mm')
-      //return this.$t('in a day')
-    }
-    else if (millisecond < 2592000000) {
-      // 如果距離30天內，那就顯示 in {0} day
-      day = Math.ceil(millisecond / 86400000)
-      return this.$t('in {0} day', [day])
-    }
-    else if (millisecond < 31536000000) {
-      // 如果距離現在1年內，那就顯示 in {0} month
-      //return dayjs().millisecond(millisecond).format('MM-DD')
-      month = Math.ceil(millisecond / 2592000000)
-      return this.$t('in {0} month', [month])
-    }
-    else {
-      // 如果超過1年，那就顯示 in {0} year
-      
-      year = Math.ceil(millisecond / 31536000000)
-      return this.$t('in {0} year', [year])
-    }
-  },
-  from: function (baseTimestamp, toTimestamp) {
-    return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(baseTimestamp).from(dayjs__WEBPACK_IMPORTED_MODULE_0___default()(toTimestamp))
-  },
-  to: function (baseTimestamp, toTimestamp) {
-    return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(baseTimestamp).to(dayjs__WEBPACK_IMPORTED_MODULE_0___default()(toTimestamp))
-  },
-  format: function (unixMS) {
-    unixMS = unixMS - this.offset()
-    return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(unixMS).format('YYYY-MM-DD HH:mm:ss')
-  },
-  formatMMSS: function (unixMS) {
-    unixMS = unixMS - this.offset()
-    return dayjs__WEBPACK_IMPORTED_MODULE_0___default()(unixMS).format('mm:ss')
-  },
-  formatHHMMSS: function (seconds) {
-    if (typeof(seconds) !== 'number') {
-      return seconds
-    }
-    if (seconds < 60) {
-      seconds = parseInt(seconds * 100) / 100
-      return seconds
-    }
-    else if (seconds < 3600) {
-      let mm = Math.floor(seconds / 60)
-      let ss = seconds % 60
-      ss = parseInt(ss * 100) / 100
-      return this._prefixZero(mm) 
-              + ':' 
-              + this._prefixZero(ss) 
-    }
-    else {
-      let hh = Math.floor(seconds / 3600)
-      let mm = Math.floor((seconds % 3600) / 60)
-      let ss = seconds % 60
-      ss = parseInt(ss * 100) / 100
-      //console.log(hh,mm,ss)
-      return this._prefixZero(hh) 
-              + ':' 
-              + this._prefixZero(mm) 
-              + ':' 
-              + this._prefixZero(ss) 
+    },
+    fromNow: function (timestamp) {
+      if (timestamp === null 
+              || isNaN(timestamp) === true) {
+        return ''
+      }
+      else if (typeof(timestamp) === 'string') {
+        timestamp = parseInt(timestamp, 10)
+      }
+      timestamp = timestamp - this.offset()
+      return dayjs(timestamp).fromNow()
+    },
+    toNow: function (timestamp) {
+      if (timestamp === null 
+              || isNaN(timestamp) === true) {
+        return ''
+      }
+      else if (typeof(timestamp) === 'string') {
+        timestamp = parseInt(timestamp, 10)
+      }
+      timestamp = timestamp - this.offset()
+      return dayjs(timestamp).toNow()
+    },
+    _prefixZero: function (n) {
+      if (n < 10) {
+        return '0' + n
+      }
+      else {
+        return n
+      }
+    },
+    shortTime: function (millisecond) {
+      //let intervalTimestamp = (new Date()).getTime() - timestamp
+      millisecond = millisecond - this.offset()
+
+      let year = 0
+      let month = 0
+      let day = 0
+      let hour = 0
+      let minute = 0
+
+      if (millisecond < 60000) {
+        // 如果是在距離現在12小時內，那就顯示 n分鐘前
+        return this.$t('in a minute')
+      }
+      else if (millisecond < 86400000) {
+        // 如果是距離現在1天內，那就顯示 hh:mm
+        hour = Math.floor(millisecond / 3600000)
+        minute = Math.floor((millisecond % 3600000) / 60000)
+        return this._prefixZero(hour) + ':' + this._prefixZero(minute)
+
+        //return dayjs().millisecond(timestamp).format('HH:mm')
+        //return this.$t('in a day')
+      }
+      else if (millisecond < 2592000000) {
+        // 如果距離30天內，那就顯示 in {0} day
+        day = Math.ceil(millisecond / 86400000)
+        return this.$t('in {0} day', [day])
+      }
+      else if (millisecond < 31536000000) {
+        // 如果距離現在1年內，那就顯示 in {0} month
+        //return dayjs().millisecond(millisecond).format('MM-DD')
+        month = Math.ceil(millisecond / 2592000000)
+        return this.$t('in {0} month', [month])
+      }
+      else {
+        // 如果超過1年，那就顯示 in {0} year
+
+        year = Math.ceil(millisecond / 31536000000)
+        return this.$t('in {0} year', [year])
+      }
+    },
+    from: function (baseTimestamp, toTimestamp) {
+      return dayjs(baseTimestamp).from(dayjs(toTimestamp))
+    },
+    to: function (baseTimestamp, toTimestamp) {
+      return dayjs(baseTimestamp).to(dayjs(toTimestamp))
+    },
+    format: function (unixMS) {
+      unixMS = unixMS - this.offset()
+      return dayjs(unixMS).format('YYYY-MM-DD HH:mm:ss')
+    },
+    formatMMSS: function (unixMS) {
+      unixMS = unixMS - this.offset()
+      return dayjs(unixMS).format('mm:ss')
+    },
+    formatHHMMSS: function (seconds) {
+      if (typeof(seconds) !== 'number') {
+        return seconds
+      }
+      if (seconds < 60) {
+        seconds = parseInt(seconds * 100) / 100
+        return seconds
+      }
+      else if (seconds < 3600) {
+        let mm = Math.floor(seconds / 60)
+        let ss = seconds % 60
+        ss = parseInt(ss * 100) / 100
+        return this._prefixZero(mm) 
+                + ':' 
+                + this._prefixZero(ss) 
+      }
+      else {
+        let hh = Math.floor(seconds / 3600)
+        let mm = Math.floor((seconds % 3600) / 60)
+        let ss = seconds % 60
+        ss = parseInt(ss * 100) / 100
+        //console.log(hh,mm,ss)
+        return this._prefixZero(hh) 
+                + ':' 
+                + this._prefixZero(mm) 
+                + ':' 
+                + this._prefixZero(ss) 
+      }
     }
   }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (DayJSHelper);
+  
+  return DayJSHelper
+});
 
 /***/ }),
 

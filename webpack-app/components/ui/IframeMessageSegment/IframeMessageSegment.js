@@ -1,3 +1,5 @@
+import './iframeResizer.js'
+
 let IframeMessageSegment = {
   props: ['config', 'message', 'showBorder'],
   data() {

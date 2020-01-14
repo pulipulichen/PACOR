@@ -642,7 +642,7 @@ let Loading = {
     this.lib.AxiosHelper = AxiosHelper.setBaseURL(this.config.baseURL)
     
     let DayJSHelper = await (() =>Promise.all(/*! import() | client-components/Loading */[__webpack_require__.e("vendors"), __webpack_require__.e("client-components/Loading")]).then(__webpack_require__.bind(null, /*! ./../../helpers/DayJSHelper.js */ "./webpack-app/helpers/DayJSHelper.js")))()
-    this.lib.DayJSHelper = DayJSHelper.default
+    this.lib.DayJSHelper = await DayJSHelper.default()
     
     let StringHelper = await (() =>Promise.all(/*! import() | client-components/Loading */[__webpack_require__.e("vendors"), __webpack_require__.e("client-components/Loading")]).then(__webpack_require__.bind(null, /*! ./../../helpers/StringHelper.js */ "./webpack-app/helpers/StringHelper.js")))()
     this.lib.StringHelper = StringHelper.default
@@ -667,9 +667,7 @@ let Loading = {
       }
     })
     
-    this.lib.DayJSHelper.setI18N((name, data) => {
-      return this.$t(name, data)
-    })
+    this.initDayJSHelper()
     
     
     // ----------------------
@@ -681,6 +679,21 @@ let Loading = {
     this.lib.TestManager = this.$refs.TestManager
     this.lib.TutorialManager = this.$refs.TutorialManager
   },
+  methods: {
+    initDayJSHelper () {
+      if (!this.lib.DayJSHelper) {
+        setTimeout(() => {
+          this.initDayJSHelper()
+        }, 100)
+        return false
+      }
+      
+      //console.log(this.lib.DayJSHelper)
+      this.lib.DayJSHelper.setI18N((name, data) => {
+        return this.$t(name, data)
+      })
+    }
+  }
 //  methods: {} // methods
 }
 
