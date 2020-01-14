@@ -28,12 +28,12 @@ class Annotation extends WebpageUserBaseController {
    */
   async floatWidget({request, webpage, user}) {
     let query = request.all()
-    query.anchorMode = 'include'
+    
     webpage.log(user, 'Annotation.floatWidget', query)
     
     let cacheKey = Cache.key('Controllers.Client.Annotation.floatWidget', query)
     return await Cache.rememberWait([webpage, user, this.modelName], cacheKey, 3, async () => {
-      
+      query.anchorMode = 'overlap'
       let annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
 
       // 來做計算
@@ -45,6 +45,7 @@ class Annotation extends WebpageUserBaseController {
 
       query.pick = 1
       query.withCount = true
+      query.anchorMode = 'exact'
       let annotation = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
       annotation = annotation.toJSON()
       //console.log('annotation', annotation)
