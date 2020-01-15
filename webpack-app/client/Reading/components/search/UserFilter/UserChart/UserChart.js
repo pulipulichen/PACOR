@@ -109,6 +109,10 @@ let UserChart = {
     },
     load: async function () {
       
+      if (this.inited === false) {
+        await this.loadInit()
+      }
+      
       // 這邊要先偵測快取
       if (this.otherIsMe === true) {
         //console.log('是我')

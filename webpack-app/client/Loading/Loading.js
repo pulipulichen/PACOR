@@ -74,7 +74,7 @@ let Loading = {
     let NumberHelper = await (() =>import(/* webpackChunkName: "client-components/Loading" */ './../../helpers/NumberHelper.js'))()
     this.lib.NumberHelper = NumberHelper.default
     
-    let tippy = await (() =>import(/* webpackChunkName: "client-components/Loading" */ './../../components/ui/tippy.js/tippy.webpack.js'))()
+    let tippy = await (() =>import(/* webpackChunkName: "client-components/Loading" */ './../../components/ui-button/tippy.js/tippy.webpack.js'))()
     this.lib.tippy = tippy.default
     
     // ----------------------

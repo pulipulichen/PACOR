@@ -2,5 +2,4 @@
 <script src="./AnnotationItem.js"></script>
 <style src="./AnnotationItem.less" lang="less" scoped></style>
 <style src="./AnnotationItem.note.less" lang="less" scoped></style>
-<style src="./AnnotationItem.popup.less" lang="less" scoped></style>
 <i18n src="./AnnotationItem.yaml" lang="yaml"></i18n>

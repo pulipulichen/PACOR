@@ -27,6 +27,7 @@ export default function (AnnotationItem) {
      */
     
     this.popup = this.lib.tippy(element[0], {
+      theme: 'tippy-semantic-ui-popup',
       content: this._buildPopupContent(user),
       //content: this.$refs.popup,
       boundary: element.parents('.annotation-list:first')[0],
