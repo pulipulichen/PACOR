@@ -3983,7 +3983,8 @@ var render = function() {
                     status: _vm.status,
                     lib: _vm.lib,
                     users: _vm.users,
-                    userCount: _vm.userCount
+                    userCount: _vm.userCount,
+                    assistUser: true
                   },
                   on: {
                     find: function(user) {
@@ -4006,7 +4007,8 @@ var render = function() {
               status: _vm.status,
               lib: _vm.lib,
               annotation: _vm.myAnnotation,
-              findAnnotation: _vm.findAnnotation
+              findAnnotation: _vm.findAnnotation,
+              assistUser: true
             }
           })
         : _vm._e(),

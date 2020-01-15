@@ -4,7 +4,7 @@
          v-bind:title="username(user)"
          v-bind:src="user.avatar_url"
          v-bind:style="computedAvatarStyle(i)"
-         v-on:click.stop="$emit('find', user)"
+         v-on:click.stop="(event) => {clickUser(user, event)}"
          class="user-avatar avatar" />
   </div>
   <div class="user-count"

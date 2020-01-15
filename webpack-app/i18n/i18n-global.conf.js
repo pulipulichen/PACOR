@@ -95,7 +95,8 @@ let i18nGlobal = {
     "You are still editing. Are you sure to discard changes?": "您依然在編輯中，您確定要離開嗎？",
     '{0}0K': '{0}萬',
     '{0}K': '{0}千',
-    '.{0}K': '{0}百'
+    '.{0}K': '{0}百',
+    'Assist': '協助'
   }
 }
 

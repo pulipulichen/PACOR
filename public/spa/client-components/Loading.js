@@ -5969,7 +5969,8 @@ let tippyUtils = {}
 tippyUtils.popupUser = function (_this, user, event) {
 
   let element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.target)
-  if (element.hasClass('user-container') === false) {
+  if (element.hasClass('user-container') === false
+          && element.parents('.user-container:first').legnth > 0) {
     element = element.parents('.user-container:first')
   }
 
@@ -5980,14 +5981,21 @@ tippyUtils.popupUser = function (_this, user, event) {
     return false
   }
 
-  _this.popup = Object(_tippy_webpack_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element[0], {
+  let options = {
     theme: 'tippy-semantic-ui-popup',
     content: this._buildPopupContent(_this, user),
     //content: this.$refs.popup,
-    boundary: element.parents('.annotation-list:first')[0],
+    //boundary: element.parents('.annotation-list:first')[0],
     trigger: 'click',
     interactive: true
-  })
+  }
+  
+  let boundary = element.parents('.annotation-list:first')
+  if (boundary.length > 0) {
+    options.boundary = boundary[0]
+  }
+
+  _this.popup = Object(_tippy_webpack_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element[0], options)
   _this.popup.show()
   element.addClass('popup-user-inited')
 }

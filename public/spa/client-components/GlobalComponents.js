@@ -3479,7 +3479,9 @@ var render = function() {
           on: {
             click: function($event) {
               $event.stopPropagation()
-              return _vm.$emit("find", user)
+              return (function(event) {
+                _vm.clickUser(user, event)
+              })($event)
             }
           }
         })
@@ -11852,10 +11854,11 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 let UserAvatarIcons = {
   props: ['lib', 'status', 'config'
-    , 'users', 'userCount', 'clickable'],
+    , 'users', 'userCount', 'clickable', 'assistUser'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      popup: null
     }
   },
 //  components: {
@@ -11889,6 +11892,17 @@ let UserAvatarIcons = {
       }
       
       return style
+    },
+    clickUser (user, event) {
+      if (this.assistUser !== true) {
+        this.$emit('find', user)
+      }
+      else {
+        this.popupUser(user, event)
+      }
+    },
+    popupUser (user, event) {
+      this.lib.tippy.popupUser(this, user, event)
     }
   } // methods
 }

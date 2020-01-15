@@ -14,7 +14,8 @@
         v-bind:lib="lib"
         v-bind:users="users"
         v-bind:userCount="userCount"
-        v-on:find="(user) => {findUser = user}">
+        v-on:find="(user) => {findUser = user}"
+        v-bind:assistUser="true">
       </user-avatar-icons >
     </div>
 
@@ -29,7 +30,8 @@
     v-bind:lib="lib"
 
     v-bind:annotation="myAnnotation"
-    v-bind:findAnnotation="findAnnotation">
+    v-bind:findAnnotation="findAnnotation"
+    v-bind:assistUser="true">
   </annotation-item>
   
   <div class="ui divider"
