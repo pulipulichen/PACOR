@@ -4,7 +4,7 @@
 import $ from 'jquery'
 import './jQCloud/jqcloud.webpack.js'
 
-//import UserChartPopup from './UserChartPopup/UserChartPopup.vue'
+import UserChartPopup from './UserChartPopup/UserChartPopup.vue'
 import UserChartLabels from './UserChartLabels/UserChartLabels.vue'
 
 let UserChart = {
@@ -34,7 +34,7 @@ let UserChart = {
     }
   },
   components: {
-    //'user-chart-popup': UserChartPopup,
+    'user-chart-popup': UserChartPopup,
     'user-chart-labels': UserChartLabels
   },
   computed: {
@@ -191,8 +191,8 @@ let UserChart = {
 //          mouseover: function () {
 //            initPopup(this)
 //          },
-          click: function (event) {
-            this.initPopup(event)
+          click: (event) => {
+            this.$refs.UserChartPopup.initPopup(event.target)
           }
         }
         return item
@@ -295,5 +295,8 @@ let UserChart = {
 //    }
   } // methods
 }
+
+import methodsPopupUserChart from './methodsPopupUserChart.js'
+methodsPopupUserChart(UserChart)
 
 export default UserChart

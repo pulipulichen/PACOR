@@ -77,12 +77,14 @@ export default function (CollaborativeReading) {
     }, 500)
   }
   
+  //window.$ = $
+  
   CollaborativeReading.methods._testUserFilter = async function () {
     console.log('@TEST _testUserFilter')
     await this.lib.VueHelper.sleep(2000)
 
     //this.lib.UserFilter.show()
-    $('.Navigation .peer-label:first').click()
+    $('.peer-label:first').click()
 
     /*
      this.status.filter.focusUser = {

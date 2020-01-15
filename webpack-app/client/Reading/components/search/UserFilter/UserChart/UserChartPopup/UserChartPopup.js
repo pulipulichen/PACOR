@@ -107,21 +107,36 @@ let UserChartPopup = {
 //  mounted() {
 //  },
   methods: {
-    initPopup: function (ele) {
+    initPopup: async function (ele) {
       this.popupFocusText = ele.innerText.trim()
       
       let $ele = $(ele)
-      if (!this.boundary) {
-        this.boundary = $ele.parents('.jqcloud-container.jqcloud:first')
-      }
-      
       if ($ele.attr('data-popup-inited') !== undefined) {
         return null
       }
       
-      $ele.popup(this.popupOptions)
+      if (!this.boundary) {
+        this.boundary = $ele.parents('.jqcloud-container.jqcloud:first')
+      }
+      
+      await this.lib.VueHelper.sleep(10)
+      //$ele.popup(this.popupOptions)
       $ele.attr('data-popup-inited', true)
-      $ele.click()
+      //$ele.click()
+      let popup = $(this.$refs.popup).clone(true)
+      popup.css('display', 'block')
+      let _this = this
+      popup.find('.focus-word').click(() => {
+        _this.onPopupClick()
+      })
+      
+      this.lib.tippy.tippy(ele, {
+        theme: 'tippy-semantic-ui-popup',
+        content: popup[0],
+        trigger: 'click',
+        interactive: true,
+        boundary: this.boundary
+      }).show()
     },
     onPopupClick () {
       this.$parent.$parent.hide()

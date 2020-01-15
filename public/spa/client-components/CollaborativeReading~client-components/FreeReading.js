@@ -701,12 +701,14 @@ __webpack_require__.r(__webpack_exports__);
     }, 500)
   }
   
+  //window.$ = $
+  
   CollaborativeReading.methods._testUserFilter = async function () {
     console.log('@TEST _testUserFilter')
     await this.lib.VueHelper.sleep(2000)
 
     //this.lib.UserFilter.show()
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.Navigation .peer-label:first').click()
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.peer-label:first').click()
 
     /*
      this.status.filter.focusUser = {
