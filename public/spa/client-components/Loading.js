@@ -5964,7 +5964,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let tippyUtils = {}
+let tippyUtils = {
+  tippy: _tippy_webpack_js__WEBPACK_IMPORTED_MODULE_1__["default"]
+}
 
 tippyUtils.popupUser = function (_this, user, event) {
 

@@ -1,7 +1,9 @@
 import $ from 'jquery'
 import tippy from './tippy.webpack.js'
 
-let tippyUtils = {}
+let tippyUtils = {
+  tippy
+}
 
 tippyUtils.popupUser = function (_this, user, event) {
 

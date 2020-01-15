@@ -160,9 +160,9 @@ module.exports = function (Component) {
 
 /***/ }),
 
-/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartLables%5CUserChartLables.vue&lang=yaml":
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartLabels%5CUserChartLabels.vue&lang=yaml":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartLables%5CUserChartLables.vue&lang=yaml ***!
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartLabels%5CUserChartLabels.vue&lang=yaml ***!
   \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
@@ -170,22 +170,6 @@ module.exports = function (Component) {
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
   Component.options.__i18n.push('{"en":null,"zh-TW":{"and":"以及"}}')
-  delete Component.options._Ctor
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartPopup%5CUserChartPopup.vue&lang=yaml":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartPopup%5CUserChartPopup.vue&lang=yaml ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function (Component) {
-  Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
   delete Component.options._Ctor
 }
 
@@ -636,30 +620,16 @@ exports.push([module.i, ".jqcloud-wrapper[data-v-c1504398] {\n  height: calc(100
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true&":
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.less?vue&type=style&index=0&id=bc787254&lang=less&scoped=true&":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true& ***!
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.less?vue&type=style&index=0&id=bc787254&lang=less&scoped=true& ***!
   \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".UserChartLables[data-v-61d08fb2] {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.chart-labels[data-v-61d08fb2] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-61d08fb2] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-61d08fb2]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-61d08fb2] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-61d08fb2] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-61d08fb2] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-61d08fb2] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,uBAAuB;AACzB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,iBAAiB;EACjB,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;EACE,WAAW;AACb;AACA;EACE,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,WAAW;EACX,mBAAmB;EACnB,qBAAqB;EACrB,sBAAsB;AACxB","file":"UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true&","sourcesContent":[".UserChartLables[data-v-61d08fb2] {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.chart-labels[data-v-61d08fb2] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-61d08fb2] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-61d08fb2]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-61d08fb2] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-61d08fb2] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-61d08fb2] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-61d08fb2] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=360d97d0&lang=less&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=360d97d0&lang=less&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
-// Module
-exports.push([module.i, ".popup[data-v-360d97d0] {\n  cursor: pointer;\n  z-index: 999;\n}\nimg[data-v-360d97d0] {\n  max-width: 1.5em !important;\n  height: auto !important;\n}\n.label-column[data-v-360d97d0] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.label-column.icon[data-v-360d97d0] {\n  margin-right: 0.5;\n  text-align: right;\n  width: 2em;\n}\n.word-label[data-v-360d97d0] {\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  white-space: nowrap;\n}\n.word-label.my[data-v-360d97d0] {\n  margin-bottom: 0;\n}\n.focus-word[data-v-360d97d0] {\n  text-align: center;\n  font-size: 1.5em;\n  font-weight: bold;\n  padding-left: 1em;\n  white-space: nowrap;\n}\n.focus-word .icon[data-v-360d97d0] {\n  float: right;\n  margin-left: 0.25em;\n  margin-top: 0.1em;\n}\n", "",{"version":3,"sources":["UserChartPopup.less?vue&type=style&index=0&id=360d97d0&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,YAAY;AACd;AACA;EACE,2BAA2B;EAC3B,uBAAuB;AACzB;AACA;EACE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,iBAAiB;EACjB,iBAAiB;EACjB,UAAU;AACZ;AACA;EACE,iBAAiB;EACjB,oBAAoB;EACpB,mBAAmB;AACrB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,iBAAiB;EACjB,iBAAiB;EACjB,mBAAmB;AACrB;AACA;EACE,YAAY;EACZ,mBAAmB;EACnB,iBAAiB;AACnB","file":"UserChartPopup.less?vue&type=style&index=0&id=360d97d0&lang=less&scoped=true&","sourcesContent":[".popup[data-v-360d97d0] {\n  cursor: pointer;\n  z-index: 999;\n}\nimg[data-v-360d97d0] {\n  max-width: 1.5em !important;\n  height: auto !important;\n}\n.label-column[data-v-360d97d0] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.label-column.icon[data-v-360d97d0] {\n  margin-right: 0.5;\n  text-align: right;\n  width: 2em;\n}\n.word-label[data-v-360d97d0] {\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  white-space: nowrap;\n}\n.word-label.my[data-v-360d97d0] {\n  margin-bottom: 0;\n}\n.focus-word[data-v-360d97d0] {\n  text-align: center;\n  font-size: 1.5em;\n  font-weight: bold;\n  padding-left: 1em;\n  white-space: nowrap;\n}\n.focus-word .icon[data-v-360d97d0] {\n  float: right;\n  margin-left: 0.25em;\n  margin-top: 0.1em;\n}\n"]}]);
+exports.push([module.i, ".UserChartLabels[data-v-bc787254] {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.chart-labels[data-v-bc787254] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-bc787254] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-bc787254]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-bc787254] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-bc787254] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-bc787254] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-bc787254] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["UserChartLabels.less?vue&type=style&index=0&id=bc787254&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,uBAAuB;AACzB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,iBAAiB;EACjB,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;EACE,WAAW;AACb;AACA;EACE,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,eAAe;EACf,WAAW;EACX,mBAAmB;EACnB,qBAAqB;EACrB,sBAAsB;AACxB","file":"UserChartLabels.less?vue&type=style&index=0&id=bc787254&lang=less&scoped=true&","sourcesContent":[".UserChartLabels[data-v-bc787254] {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.chart-labels[data-v-bc787254] {\n  text-align: center;\n}\n.chart-labels .chart-label[data-v-bc787254] {\n  margin-right: 1em;\n  display: inline-block;\n  vertical-align: middle;\n}\n.chart-labels .chart-label[data-v-bc787254]:last-of-type {\n  margin-right: 0;\n}\n.chart-labels .chart-label.my[data-v-bc787254] {\n  color: #690;\n}\n.chart-labels .chart-label .username[data-v-bc787254] {\n  font-weight: bold;\n}\n.chart-labels .chart-label i[data-v-bc787254] {\n  margin-right: 0.3em;\n}\n.chart-labels .chart-label img[data-v-bc787254] {\n  max-height: 2em;\n  width: auto;\n  margin-right: 0.5em;\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
 
 
 /***/ }),
@@ -1879,16 +1849,6 @@ var render = function() {
         _c("div", { ref: "jQCloudContainer", staticClass: "jqcloud-container" })
       ]),
       _vm._v(" "),
-      _c("user-chart-popup", {
-        ref: "UserChartPopup",
-        attrs: {
-          config: _vm.config,
-          status: _vm.status,
-          lib: _vm.lib,
-          filterData: _vm.filterData
-        }
-      }),
-      _vm._v(" "),
       _c("user-chart-labels", {
         ref: "UserChartLabels",
         attrs: {
@@ -1909,9 +1869,9 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.html?vue&type=template&id=61d08fb2&scoped=true&":
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.html?vue&type=template&id=bc787254&scoped=true&":
 /*!***************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.html?vue&type=template&id=61d08fb2&scoped=true& ***!
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.html?vue&type=template&id=bc787254&scoped=true& ***!
   \***************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -1926,7 +1886,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "ui segment chart-labels UserChartLables" },
+    { staticClass: "ui segment chart-labels UserChartLabels" },
     [
       !_vm.otherIsMe
         ? [
@@ -2006,120 +1966,6 @@ var render = function() {
   )
 }
 var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.html?vue&type=template&id=360d97d0&scoped=true&":
-/*!*************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.html?vue&type=template&id=360d97d0&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      ref: "popup",
-      staticClass: "ui popup UserChartPopup",
-      on: { click: _vm.onPopupClick }
-    },
-    [
-      _c("div", { staticClass: "focus-word" }, [
-        _c("i", { staticClass: "small search icon" }),
-        _vm._v("\r\n    " + _vm._s(_vm.popupFocusText) + "\r\n  ")
-      ]),
-      _vm._v(" "),
-      !_vm.otherIsMe
-        ? [
-            _vm.otherIsAll
-              ? _c("div", { staticClass: "word-label all" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "label-column" }, [
-                    _c("span", { staticClass: "username" }, [
-                      _vm._v(
-                        "\r\n            " +
-                          _vm._s(_vm.$t("All Readers")) +
-                          "\r\n          "
-                      )
-                    ]),
-                    _vm._v(
-                      "\r\n          :\r\n          " +
-                        _vm._s(_vm.popupOtherCount) +
-                        "\r\n        "
-                    )
-                  ])
-                ])
-              : _c("div", { staticClass: "word-label other" }, [
-                  _c("span", { staticClass: "label-column icon" }, [
-                    _c("img", { attrs: { src: _vm.otherAvatar } })
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "label-column" }, [
-                    _c("span", { staticClass: "username" }, [
-                      _vm._v(
-                        "\r\n            " +
-                          _vm._s(_vm.otherUsername) +
-                          "\r\n          "
-                      )
-                    ]),
-                    _vm._v(
-                      "\r\n          :\r\n          " +
-                        _vm._s(_vm.popupOtherCount) +
-                        "\r\n        "
-                    )
-                  ])
-                ])
-          ]
-        : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "word-label my" }, [
-        _c("span", { staticClass: "label-column icon" }, [
-          _c("img", { attrs: { src: _vm.myAvatar } })
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "label-column" }, [
-          _c("span", { staticClass: "username" }, [
-            _vm._v(
-              "\r\n          " +
-                _vm._s(_vm.myUsername) +
-                "\r\n          (" +
-                _vm._s(_vm.$t("You")) +
-                ")\r\n        "
-            )
-          ]),
-          _vm._v(
-            "\r\n        :\r\n        " +
-              _vm._s(_vm.popupMyCount) +
-              "\r\n      "
-          )
-        ])
-      ])
-    ],
-    2
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "label-column icon" }, [
-      _c("i", { staticClass: "large users icon" })
-    ])
-  }
-]
 render._withStripped = true
 
 
@@ -4026,9 +3872,9 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true&":
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.less?vue&type=style&index=0&id=bc787254&lang=less&scoped=true&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true& ***!
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.less?vue&type=style&index=0&id=bc787254&lang=less&scoped=true& ***!
   \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -4036,33 +3882,12 @@ if(false) {}
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true&");
+var content = __webpack_require__(/*! !../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./UserChartLabels.less?vue&type=style&index=0&id=bc787254&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.less?vue&type=style&index=0&id=bc787254&lang=less&scoped=true&");
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("37721ed9", content, false, {});
-// Hot Module Replacement
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=360d97d0&lang=less&scoped=true&":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=360d97d0&lang=less&scoped=true& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(/*! !../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./UserChartPopup.less?vue&type=style&index=0&id=360d97d0&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=360d97d0&lang=less&scoped=true&");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__(/*! ../../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("f7921e04", content, false, {});
+var update = add("7b7a3f44", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -6761,15 +6586,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _jQCloud_jqcloud_webpack_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./jQCloud/jqcloud.webpack.js */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/jQCloud/jqcloud.webpack.js");
-/* harmony import */ var _UserChartPopup_UserChartPopup_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserChartPopup/UserChartPopup.vue */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.vue");
-/* harmony import */ var _UserChartLables_UserChartLables_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UserChartLables/UserChartLables.vue */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.vue");
+/* harmony import */ var _UserChartLabels_UserChartLabels_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserChartLabels/UserChartLabels.vue */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.vue");
 /* global this */
 
 //import WordCloud from 'wordcloud'
 
 
 
-
+//import UserChartPopup from './UserChartPopup/UserChartPopup.vue'
 
 
 let UserChart = {
@@ -6799,8 +6623,8 @@ let UserChart = {
     }
   },
   components: {
-    'user-chart-popup': _UserChartPopup_UserChartPopup_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    'user-chart-labels': _UserChartLables_UserChartLables_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    //'user-chart-popup': UserChartPopup,
+    'user-chart-labels': _UserChartLabels_UserChartLabels_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   computed: {
     otherIsAll () {
@@ -6836,7 +6660,7 @@ let UserChart = {
 //  },
   methods: {
     loadInit: async function () {
-      if (!this.$refs.UserChartPopup) {
+      if (!this.$refs.UserChartLabels) {
         setTimeout(() => {
           this.loadInit()
         }, 100)
@@ -6940,7 +6764,6 @@ let UserChart = {
         return []
       }
       
-      let initPopup = this.$refs.UserChartPopup.initPopup
       //let _this = this
       //console.log(typeof(initPopup))
       //console.log(words)
@@ -6957,8 +6780,8 @@ let UserChart = {
 //          mouseover: function () {
 //            initPopup(this)
 //          },
-          click: function () {
-            initPopup(this)
+          click: function (event) {
+            this.initPopup(event)
           }
         }
         return item
@@ -7156,48 +6979,34 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.html?vue&type=template&id=61d08fb2&scoped=true&":
+/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.html?vue&type=template&id=bc787254&scoped=true&":
 /*!***********************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.html?vue&type=template&id=61d08fb2&scoped=true& ***!
+  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.html?vue&type=template&id=bc787254&scoped=true& ***!
   \***********************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_UserChartLables_html_vue_type_template_id_61d08fb2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./UserChartLables.html?vue&type=template&id=61d08fb2&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.html?vue&type=template&id=61d08fb2&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_UserChartLables_html_vue_type_template_id_61d08fb2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_UserChartLabels_html_vue_type_template_id_bc787254_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./UserChartLabels.html?vue&type=template&id=bc787254&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.html?vue&type=template&id=bc787254&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_UserChartLabels_html_vue_type_template_id_bc787254_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_UserChartLables_html_vue_type_template_id_61d08fb2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_UserChartLabels_html_vue_type_template_id_bc787254_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.js?vue&type=script&lang=js&?4b5a":
+/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.js?vue&type=script&lang=js&?3850":
 /*!***************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.js?vue&type=script&lang=js& ***!
+  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.js?vue&type=script&lang=js& ***!
   \***************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _UserChartLables_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./UserChartLables.js?vue&type=script&lang=js& */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.js?vue&type=script&lang=js&?8ee3");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_UserChartLables_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.js?vue&type=script&lang=js&?8ee3":
-/*!***************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.js?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-let UserChartLables = {
+let UserChartLabels = {
   props: ['lib', 'status', 'config'
     , 'filterData'],
   data() {    
@@ -7248,40 +7057,54 @@ let UserChartLables = {
 //  } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (UserChartLables);
+/* harmony default export */ __webpack_exports__["default"] = (UserChartLabels);
 
 /***/ }),
 
-/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true&":
+/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.js?vue&type=script&lang=js&?ccbf":
+/*!***************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.js?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _UserChartLabels_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./UserChartLabels.js?vue&type=script&lang=js& */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.js?vue&type=script&lang=js&?3850");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_UserChartLabels_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.less?vue&type=style&index=0&id=bc787254&lang=less&scoped=true&":
 /*!**************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true& ***!
+  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.less?vue&type=style&index=0&id=bc787254&lang=less&scoped=true& ***!
   \**************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLables_less_vue_type_style_index_0_id_61d08fb2_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-style-loader!../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLables_less_vue_type_style_index_0_id_61d08fb2_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLables_less_vue_type_style_index_0_id_61d08fb2_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLables_less_vue_type_style_index_0_id_61d08fb2_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLables_less_vue_type_style_index_0_id_61d08fb2_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLables_less_vue_type_style_index_0_id_61d08fb2_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLabels_less_vue_type_style_index_0_id_bc787254_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-style-loader!../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./UserChartLabels.less?vue&type=style&index=0&id=bc787254&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.less?vue&type=style&index=0&id=bc787254&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLabels_less_vue_type_style_index_0_id_bc787254_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLabels_less_vue_type_style_index_0_id_bc787254_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLabels_less_vue_type_style_index_0_id_bc787254_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLabels_less_vue_type_style_index_0_id_bc787254_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartLabels_less_vue_type_style_index_0_id_bc787254_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.vue":
+/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.vue":
 /*!***************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.vue ***!
+  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.vue ***!
   \***************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _UserChartLables_html_vue_type_template_id_61d08fb2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserChartLables.html?vue&type=template&id=61d08fb2&scoped=true& */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.html?vue&type=template&id=61d08fb2&scoped=true&");
-/* harmony import */ var _UserChartLables_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserChartLables.js?vue&type=script&lang=js& */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.js?vue&type=script&lang=js&?4b5a");
-/* empty/unused harmony star reexport *//* harmony import */ var _UserChartLables_less_vue_type_style_index_0_id_61d08fb2_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true& */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.less?vue&type=style&index=0&id=61d08fb2&lang=less&scoped=true&");
+/* harmony import */ var _UserChartLabels_html_vue_type_template_id_bc787254_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserChartLabels.html?vue&type=template&id=bc787254&scoped=true& */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.html?vue&type=template&id=bc787254&scoped=true&");
+/* harmony import */ var _UserChartLabels_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserChartLabels.js?vue&type=script&lang=js& */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.js?vue&type=script&lang=js&?ccbf");
+/* empty/unused harmony star reexport *//* harmony import */ var _UserChartLabels_less_vue_type_style_index_0_id_bc787254_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserChartLabels.less?vue&type=style&index=0&id=bc787254&lang=less&scoped=true& */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.less?vue&type=style&index=0&id=bc787254&lang=less&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-/* harmony import */ var _UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UserChartLables.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartLables%5CUserChartLables.vue&lang=yaml */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartLables%5CUserChartLables.vue&lang=yaml");
+/* harmony import */ var _UserChartLabels_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLabels_5CUserChartLabels_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UserChartLabels.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartLabels%5CUserChartLabels.vue&lang=yaml */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartLabels%5CUserChartLabels.vue&lang=yaml");
 
 
 
@@ -7291,304 +7114,40 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _UserChartLables_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _UserChartLables_html_vue_type_template_id_61d08fb2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _UserChartLables_html_vue_type_template_id_61d08fb2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _UserChartLabels_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UserChartLabels_html_vue_type_template_id_bc787254_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UserChartLabels_html_vue_type_template_id_bc787254_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "61d08fb2",
+  "bc787254",
   null
   
 )
 
 /* custom blocks */
 
-if (typeof _UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+if (typeof _UserChartLabels_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLabels_5CUserChartLabels_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_UserChartLabels_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLabels_5CUserChartLabels_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.vue"
+component.options.__file = "webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartLables%5CUserChartLables.vue&lang=yaml":
+/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartLabels%5CUserChartLabels.vue&lang=yaml":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartLables%5CUserChartLables.vue&lang=yaml ***!
+  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartLabels%5CUserChartLabels.vue&lang=yaml ***!
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./UserChartLables.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartLables%5CUserChartLables.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLables/UserChartLables.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartLables%5CUserChartLables.vue&lang=yaml");
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLables_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLables_5CUserChartLables_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.html?vue&type=template&id=360d97d0&scoped=true&":
-/*!*********************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.html?vue&type=template&id=360d97d0&scoped=true& ***!
-  \*********************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_UserChartPopup_html_vue_type_template_id_360d97d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./UserChartPopup.html?vue&type=template&id=360d97d0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.html?vue&type=template&id=360d97d0&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_UserChartPopup_html_vue_type_template_id_360d97d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_UserChartPopup_html_vue_type_template_id_360d97d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.js?vue&type=script&lang=js&?952a":
-/*!*************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.js?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-
-
-let UserChartPopup = {
-  props: ['lib', 'status', 'config'
-    , 'filterData'],
-  data() {    
-    this.$i18n.locale = this.config.locale
-    return {
-      popupFocusText: null,
-      boundary: null
-    }
-  },
-//  components: {
-//  },
-  computed: {
-    otherIsAll () {
-      return (!this.filterData.selectUser)
-    },
-    otherIsMe () {
-      return (this.filterData.selectUser
-              && this.filterData.selectUser.id === this.status.userID)
-    },
-    popupOptions () {
-      let popup = this.$refs.popup
-      let isOpened = false
-      return {
-        popup: popup,
-        hoverable: true,
-        distanceAway: -10,
-        //position: 'top center',
-        //duration: 0,
-        exclusive: true,
-        on: "click",
-        onShow: function (...args) {
-          //console.log($(popup).popup('is hidden'))
-          if (isOpened === true) {
-            isOpened = false
-            return false
-          }
-          isOpened = true
-        },
-        boundary: this.boundary
-      }
-      // jqcloud-wrapper
-    },
-    myAvatar () {
-      return this.status.avatar
-    },
-    myUsername () {
-      let user = this.status
-      if (typeof(user.displayName) === 'string') {
-        return user.displayName
-      }
-      else {
-        return user.username
-      }
-    },
-    otherAvatar () {
-      return this.filterData.selectUser.avatar_url
-    },
-    otherUsername () {
-      let user = this.filterData.selectUser
-      if (typeof(user.display_name) === 'string') {
-        return user.display_name
-      }
-      else {
-        return user.username
-      }
-    },
-    popupMyCount () {
-      if (!this.filterData.chart.userJSON) {
-        return 0
-      }
-      
-      let count = this.filterData.chart.userJSON[this.popupFocusText]
-      if (!count) {
-        count = 0
-      }
-      return count
-    },
-    popupOtherCount () {
-      let count
-      let text = this.popupFocusText
-      //console.log(this.otherIsAll, this.filterData.chart.allJSON)
-      if (this.otherIsAll) {
-        if (this.filterData.chart.allJSON) {
-          count = this.filterData.chart.allJSON[text]
-        }
-      }
-      else if (!this.otherIsMe) {
-        if (this.filterData.chart.othersJSONMap) {
-          let userID = this.filterData.selectUser.id
-          if (this.filterData.chart.othersJSONMap[userID]) {
-            count = this.filterData.chart.othersJSONMap[userID][text]
-          }
-        }
-      }
-      
-      if (!count) {
-        count = 0
-      }
-      return count
-    }
-  },
-//  watch: {
-//  },
-//  mounted() {
-//  },
-  methods: {
-    initPopup: function (ele) {
-      this.popupFocusText = ele.innerText.trim()
-      
-      let $ele = jquery__WEBPACK_IMPORTED_MODULE_0___default()(ele)
-      if (!this.boundary) {
-        this.boundary = $ele.parents('.jqcloud-container.jqcloud:first')
-      }
-      
-      if ($ele.attr('data-popup-inited') !== undefined) {
-        return null
-      }
-      
-      $ele.popup(this.popupOptions)
-      $ele.attr('data-popup-inited', true)
-      $ele.click()
-    },
-    onPopupClick () {
-      this.$parent.$parent.hide()
-      
-      //throw new Error('Search: ' + this.popupFocusText)
-      this.status.search.keyword = this.popupFocusText
-      
-      
-      // 先設定篩選條件
-      this.lib.AnnotationPanel.findKeyword(this.status.search.keyword)
-      
-      // 再來顯示
-      this.lib.AnnotationPanel.setAnchorPositions()
-    }
-  } // methods
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (UserChartPopup);
-
-/***/ }),
-
-/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.js?vue&type=script&lang=js&?a27e":
-/*!*************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.js?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _UserChartPopup_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./UserChartPopup.js?vue&type=script&lang=js& */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.js?vue&type=script&lang=js&?952a");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_UserChartPopup_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=360d97d0&lang=less&scoped=true&":
-/*!************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=360d97d0&lang=less&scoped=true& ***!
-  \************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartPopup_less_vue_type_style_index_0_id_360d97d0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-style-loader!../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./UserChartPopup.less?vue&type=style&index=0&id=360d97d0&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=360d97d0&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartPopup_less_vue_type_style_index_0_id_360d97d0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartPopup_less_vue_type_style_index_0_id_360d97d0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartPopup_less_vue_type_style_index_0_id_360d97d0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartPopup_less_vue_type_style_index_0_id_360d97d0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_UserChartPopup_less_vue_type_style_index_0_id_360d97d0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.vue":
-/*!*************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.vue ***!
-  \*************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _UserChartPopup_html_vue_type_template_id_360d97d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserChartPopup.html?vue&type=template&id=360d97d0&scoped=true& */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.html?vue&type=template&id=360d97d0&scoped=true&");
-/* harmony import */ var _UserChartPopup_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserChartPopup.js?vue&type=script&lang=js& */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.js?vue&type=script&lang=js&?a27e");
-/* empty/unused harmony star reexport *//* harmony import */ var _UserChartPopup_less_vue_type_style_index_0_id_360d97d0_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserChartPopup.less?vue&type=style&index=0&id=360d97d0&lang=less&scoped=true& */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.less?vue&type=style&index=0&id=360d97d0&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-/* harmony import */ var _UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UserChartPopup.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartPopup%5CUserChartPopup.vue&lang=yaml */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartPopup%5CUserChartPopup.vue&lang=yaml");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _UserChartPopup_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _UserChartPopup_html_vue_type_template_id_360d97d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _UserChartPopup_html_vue_type_template_id_360d97d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "360d97d0",
-  null
-  
-)
-
-/* custom blocks */
-
-if (typeof _UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartPopup%5CUserChartPopup.vue&lang=yaml":
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartPopup%5CUserChartPopup.vue&lang=yaml ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./UserChartPopup.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartPopup%5CUserChartPopup.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartPopup%5CUserChartPopup.vue&lang=yaml");
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartPopup_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartPopup_5CUserChartPopup_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLabels_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLabels_5CUserChartLabels_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./UserChartLabels.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartLabels%5CUserChartLabels.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Csearch%5CUserFilter%5CUserChart%5CUserChartLabels%5CUserChartLabels.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLabels_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLabels_5CUserChartLabels_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLabels_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLabels_5CUserChartLabels_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLabels_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLabels_5CUserChartLabels_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLabels_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLabels_5CUserChartLabels_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_UserChartLabels_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserChart_5CUserChartLabels_5CUserChartLabels_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

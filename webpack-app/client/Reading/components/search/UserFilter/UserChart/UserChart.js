@@ -4,8 +4,8 @@
 import $ from 'jquery'
 import './jQCloud/jqcloud.webpack.js'
 
-import UserChartPopup from './UserChartPopup/UserChartPopup.vue'
-import UserChartLables from './UserChartLables/UserChartLables.vue'
+//import UserChartPopup from './UserChartPopup/UserChartPopup.vue'
+import UserChartLabels from './UserChartLabels/UserChartLabels.vue'
 
 let UserChart = {
   props: ['lib', 'status', 'config'
@@ -34,8 +34,8 @@ let UserChart = {
     }
   },
   components: {
-    'user-chart-popup': UserChartPopup,
-    'user-chart-labels': UserChartLables
+    //'user-chart-popup': UserChartPopup,
+    'user-chart-labels': UserChartLabels
   },
   computed: {
     otherIsAll () {
@@ -71,7 +71,7 @@ let UserChart = {
 //  },
   methods: {
     loadInit: async function () {
-      if (!this.$refs.UserChartPopup) {
+      if (!this.$refs.UserChartLabels) {
         setTimeout(() => {
           this.loadInit()
         }, 100)
@@ -175,7 +175,6 @@ let UserChart = {
         return []
       }
       
-      let initPopup = this.$refs.UserChartPopup.initPopup
       //let _this = this
       //console.log(typeof(initPopup))
       //console.log(words)
@@ -192,8 +191,8 @@ let UserChart = {
 //          mouseover: function () {
 //            initPopup(this)
 //          },
-          click: function () {
-            initPopup(this)
+          click: function (event) {
+            this.initPopup(event)
           }
         }
         return item

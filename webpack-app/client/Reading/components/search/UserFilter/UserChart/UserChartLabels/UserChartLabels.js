@@ -1,4 +1,4 @@
-let UserChartLables = {
+let UserChartLabels = {
   props: ['lib', 'status', 'config'
     , 'filterData'],
   data() {    
@@ -49,4 +49,4 @@ let UserChartLables = {
 //  } // methods
 }
 
-export default UserChartLables
+export default UserChartLabels
