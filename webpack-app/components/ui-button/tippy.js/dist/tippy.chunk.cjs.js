@@ -385,7 +385,7 @@ function warnWhen(condition, message) {
   if (condition) {
     var _console;
 
-    (_console = console).warn.apply(_console, getFormattedMessage(message));
+    //(_console = console).warn.apply(_console, getFormattedMessage(message));
   }
 }
 /**

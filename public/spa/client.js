@@ -513,7 +513,8 @@ let VueController = {
       TestManager: null,
       TutorialManager: null,
       style: null,
-      tippy: null
+      tippy: null,
+      //tippyUtils: null,
     },
     errors: [],
     persistAttrs: [
@@ -663,8 +664,11 @@ let Loading = {
     let NumberHelper = await (() =>Promise.all(/*! import() | client-components/Loading */[__webpack_require__.e("vendors~client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("vendors~client-components/Loading"), __webpack_require__.e("client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/Loading")]).then(__webpack_require__.bind(null, /*! ./../../helpers/NumberHelper.js */ "./webpack-app/helpers/NumberHelper.js")))()
     this.lib.NumberHelper = NumberHelper.default
     
-    let tippy = await (() =>Promise.all(/*! import() | client-components/Loading */[__webpack_require__.e("vendors~client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("vendors~client-components/Loading"), __webpack_require__.e("client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/Loading")]).then(__webpack_require__.bind(null, /*! ./../../components/ui-button/tippy.js/tippy.webpack.js */ "./webpack-app/components/ui-button/tippy.js/tippy.webpack.js")))()
+    let tippy = await (() =>Promise.all(/*! import() | client-components/Loading */[__webpack_require__.e("vendors~client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("vendors~client-components/Loading"), __webpack_require__.e("client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/Loading")]).then(__webpack_require__.bind(null, /*! ./../../components/ui-button/tippy.js/tippy.utils.js */ "./webpack-app/components/ui-button/tippy.js/tippy.utils.js")))()
     this.lib.tippy = tippy.default
+    
+//    let tippyUtils = await (() =>import(/* webpackChunkName: "client-components/Loading" */ './../../components/ui-button/tippy.js/tippy.utils.js'))()
+//    this.lib.tippyUtils = tippyUtils.default
     
     // ----------------------
     

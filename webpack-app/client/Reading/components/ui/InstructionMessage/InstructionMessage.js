@@ -52,6 +52,11 @@ let InstructionMessage = {
       this.lib.TutorialManager.start()
     },
     show() {
+      if (!this.$refs.Modal) {
+        return setTimeout(() => {
+          this.show()
+        }, 100)
+      }
       this.$refs.Modal.show()
     },
     onHide() {

@@ -142,7 +142,8 @@ let VueController = {
       TestManager: null,
       TutorialManager: null,
       style: null,
-      tippy: null
+      tippy: null,
+      //tippyUtils: null,
     },
     errors: [],
     persistAttrs: [

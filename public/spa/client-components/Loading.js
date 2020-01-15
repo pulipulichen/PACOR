@@ -5949,6 +5949,72 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./webpack-app/components/ui-button/tippy.js/tippy.utils.js":
+/*!******************************************************************!*\
+  !*** ./webpack-app/components/ui-button/tippy.js/tippy.utils.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _tippy_webpack_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tippy.webpack.js */ "./webpack-app/components/ui-button/tippy.js/tippy.webpack.js");
+
+
+
+let tippyUtils = {}
+
+tippyUtils.popupUser = function (_this, user, event) {
+
+  let element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.target)
+  if (element.hasClass('user-container') === false) {
+    element = element.parents('.user-container:first')
+  }
+
+  let className = element.prop('className')
+  //console.log(element.classList.value.indexOf('username'))
+
+  if (className.indexOf('popup-user-inited') > -1) {
+    return false
+  }
+
+  _this.popup = Object(_tippy_webpack_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element[0], {
+    theme: 'tippy-semantic-ui-popup',
+    content: this._buildPopupContent(_this, user),
+    //content: this.$refs.popup,
+    boundary: element.parents('.annotation-list:first')[0],
+    trigger: 'click',
+    interactive: true
+  })
+  _this.popup.show()
+  element.addClass('popup-user-inited')
+}
+
+tippyUtils._buildPopupContent = function (_this, user) {
+  let username = _this.lib.auth.getUsername(user)
+  let avatarURL = user.avatar_url
+
+  let element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<div class="user-popup">
+    <img src="${avatarURL}" class="user-avatar" />
+    ${username}
+    <button type="button" class="ui compact mini positive button">${_this.$t('Assist')}</button>
+</div>`)
+
+  element.find('button').click(() => {
+    //console.log(user)
+    _this.status.filter.focusUser = user
+    _this.popup.hide()
+  })
+
+  return element[0]
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (tippyUtils);
+
+/***/ }),
+
 /***/ "./webpack-app/components/ui-modal/HiddenLoading/HiddenLoading.html?vue&type=template&id=00dedc32&scoped=true&":
 /*!*********************************************************************************************************************!*\
   !*** ./webpack-app/components/ui-modal/HiddenLoading/HiddenLoading.html?vue&type=template&id=00dedc32&scoped=true& ***!

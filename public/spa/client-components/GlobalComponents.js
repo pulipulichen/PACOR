@@ -8454,7 +8454,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _methodsAnnotationItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./methodsAnnotationItem.js */ "./webpack-app/components/annotation/AnnotationItem/methodsAnnotationItem.js");
+/* harmony import */ var _methodsPopupAnnotationItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./methodsPopupAnnotationItem.js */ "./webpack-app/components/annotation/AnnotationItem/methodsPopupAnnotationItem.js");
 let AnnotationItem = {
   props: ['lib', 'status', 'config'
     , 'annotation', 'mode'
@@ -8605,7 +8605,7 @@ let AnnotationItem = {
 }
 
 
-Object(_methodsAnnotationItem_js__WEBPACK_IMPORTED_MODULE_0__["default"])(AnnotationItem)
+Object(_methodsPopupAnnotationItem_js__WEBPACK_IMPORTED_MODULE_0__["default"])(AnnotationItem)
 
 /* harmony default export */ __webpack_exports__["default"] = (AnnotationItem);
 
@@ -8705,10 +8705,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/components/annotation/AnnotationItem/methodsAnnotationItem.js":
-/*!***********************************************************************************!*\
-  !*** ./webpack-app/components/annotation/AnnotationItem/methodsAnnotationItem.js ***!
-  \***********************************************************************************/
+/***/ "./webpack-app/components/annotation/AnnotationItem/methodsPopupAnnotationItem.js":
+/*!****************************************************************************************!*\
+  !*** ./webpack-app/components/annotation/AnnotationItem/methodsPopupAnnotationItem.js ***!
+  \****************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -8720,60 +8720,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (AnnotationItem) {
   AnnotationItem.methods.popupUser = function (user, event) {
-
-    let element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.target)
-    if (element.hasClass('user-container') === false) {
-      element = element.parents('.user-container:first')
-    }
-
-    let className = element.prop('className')
-    //console.log(element.classList.value.indexOf('username'))
-
-    if (className.indexOf('popup-user-inited') > -1) {
-      return false
-    }
-
-    /*
-     element
-     .popup({
-     popup : $(this.$refs.popup),
-     on    : 'click',
-     inline: true,
-     boundary: this.$refs.AnnotationList
-     })
-     .popup('show')
-     */
-    
-    this.popup = this.lib.tippy(element[0], {
-      theme: 'tippy-semantic-ui-popup',
-      content: this._buildPopupContent(user),
-      //content: this.$refs.popup,
-      boundary: element.parents('.annotation-list:first')[0],
-      trigger: 'click',
-      interactive: true
-    })
-    this.popup.show()
-    element.addClass('popup-user-inited')
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.popup).show()
-  }
-  
-  AnnotationItem.methods._buildPopupContent = function (user) {
-    let username = this.lib.auth.getUsername(user)
-    let avatarURL = user.avatar_url
-    
-    let element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<div class="user-popup">
-    <img src="${avatarURL}" class="user-avatar" />
-    ${username}
-    <button type="button" class="ui compact mini positive button">${this.$t('Assist')}</button>
-</div>`)
-    
-    element.find('button').click(() => {
-      //console.log(user)
-      this.status.filter.focusUser = user
-      this.popup.hide()
-    })
-    
-    return element[0]
+    this.lib.tippy.popupUser(this, user, event)
   }
 });
 

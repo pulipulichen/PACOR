@@ -147,7 +147,7 @@ let AnnotationItem = {
   } // methods
 }
 
-import  methodsAnnotationItem from './methodsAnnotationItem.js'
-methodsAnnotationItem(AnnotationItem)
+import  methodsPopupAnnotationItem from './methodsPopupAnnotationItem.js'
+methodsPopupAnnotationItem(AnnotationItem)
 
 export default AnnotationItem
