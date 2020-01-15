@@ -1,0 +1,38 @@
+.AnnotationItem ::v-deep .tippy-popper {
+  cursor: pointer;
+  
+  .tippy-tooltip {
+    background-color: white !important;
+    color: rgba(0, 0, 0, 0.87) !important;
+    border: 1px solid #D4D4D5 !important;
+    line-height: 1.4285em !important;
+    box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15) !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    font-size: 1.5rem !important;
+  }
+  
+  [data-placement="top"] .tippy-arrow {
+    border-top-color: #FFF !important;
+    filter: drop-shadow(1px 1px 0 #CCC);
+    //box-shadow: 1px 1px 0px 0px #bababc !important;
+  }
+  
+  [data-placement="bottom"] .tippy-arrow {
+    border-bottom-color: #FFF !important;
+    //border-bottom: 7px solid #fff;
+    filter: drop-shadow(1px -1px 0 #CCC);
+    //box-shadow: 1px 1px 0px 0px #bababc !important;
+  }
+  
+  img {
+    max-height: 1.5em;
+    width: auto;
+    vertical-align: middle;
+    margin-right: 0.5em;
+  }
+  
+  button {
+    margin-left: 0.5em;
+  }
+}

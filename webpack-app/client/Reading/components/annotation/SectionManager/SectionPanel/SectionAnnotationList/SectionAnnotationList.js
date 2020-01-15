@@ -140,7 +140,44 @@ let SectionAnnotationList = {
         this.page++
       }
     },
+    popupUser (user, event) {
+      
+      let element = $(event.target)
+      if (element.hasClass('user-container') === false) {
+        element = element.parents('.user-container:first')
+      }
+      
+      let className = element.prop('className')
+      //console.log(element.classList.value.indexOf('username'))
+      
+      if (className.indexOf('popup-user-inited') > -1) {
+        return false
+      }
+      
+      /*
+      element
+        .popup({
+          popup : $(this.$refs.popup),
+          on    : 'click',
+          inline: true,
+          boundary: this.$refs.AnnotationList
+        })
+        .popup('show')
+       */
+      this.lib.tippy(element[0], {
+        content: 'Hello 1234',
+        //content: this.$refs.popup,
+        boundary: this.$refs.AnnotationList,
+        trigger: 'click',
+        interactive: true
+      }).show()
+      element.addClass('popup-user-inited')
+      $(this.$refs.popup).show()
+    }
   } // methods
 }
+
+//import methodsSectionAnnotationList from './methodsSectionAnnotationList.js'
+//methodsSectionAnnotationList(SectionAnnotationList)
 
 export default SectionAnnotationList

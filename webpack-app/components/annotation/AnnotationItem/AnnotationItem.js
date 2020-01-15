@@ -2,13 +2,14 @@ let AnnotationItem = {
   props: ['lib', 'status', 'config'
     , 'annotation', 'mode'
     , 'searchKeyword'
-    , 'findUser', 'findType', 'findAnnotation'],
+    , 'findUser', 'findType', 'findAnnotation', 'assistUser'],
   data() {    
     this.$i18n.locale = this.config.locale
     
     this.lib.AnnotationHelper.autoComplete(this.annotation)
     
     return {
+      popup: null
     }
   },
 //  components: {
@@ -103,9 +104,12 @@ let AnnotationItem = {
         this.findAnnotation(data)
       }
     },
-    onFindUser (data) {
+    onFindUser (data, event) {
       if (typeof(this.findUser) === 'function') {
-        this.findUser(data)
+        this.findUser(data, event)
+      }
+      if (this.assistUser === true) {
+        this.popupUser(data, event)
       }
     },
     onFindType (data) {
@@ -142,5 +146,8 @@ let AnnotationItem = {
     }
   } // methods
 }
+
+import  methodsAnnotationItem from './methodsAnnotationItem.js'
+methodsAnnotationItem(AnnotationItem)
 
 export default AnnotationItem

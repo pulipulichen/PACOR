@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~client-components/ReadingComponents"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~client-components/Loading~client-components/ReadingComponents"],{
 
 /***/ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\popper.js\\dist\\esm\\popper.js":
 /*!**************************************************************************************!*\

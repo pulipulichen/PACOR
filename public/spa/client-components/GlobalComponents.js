@@ -217,7 +217,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"{0} Comments":"{0} Comment | {0} Comments","{0} Likes":"{0} Likes | {0} Likes"},"zh-TW":{"{0} Comments":" {0}篇留言","{0} Likes":" {0}讚"}}')
+  Component.options.__i18n.push('{"en":{"{0} Comments":"{0} Comment | {0} Comments","{0} Likes":"{0} Likes | {0} Likes"},"zh-TW":{"{0} Comments":" {0}篇留言","{0} Likes":" {0}讚","Assist":"協助"}}')
   delete Component.options._Ctor
 }
 
@@ -673,7 +673,7 @@ exports.push([module.i, ".popup[data-v-360d97d0] {\n  cursor: pointer;\n  z-inde
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".UserFilter[data-v-45dd49f6] {\n  padding-left: 0 !important;\n  padding-right: 0 !important;\n}\n.vertical.menu > .UserFilter[data-v-45dd49f6] {\n  padding-left: 1.14286em !important;\n  padding-right: 1.14286em !important;\n}\n.right-column[data-v-45dd49f6] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-45dd49f6] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-45dd49f6] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-45dd49f6] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n.submit-button .user-avatar[data-v-45dd49f6] {\n  max-height: 1.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n  margin-top: -0.7em;\n  margin-bottom: -0.5em;\n  margin-left: 0.5em;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-45dd49f6] {\n    display: none;\n}\n.vertical.menu .peer-label[data-v-45dd49f6] {\n    display: inline;\n}\n}\n", "",{"version":3,"sources":["UserFilter.less?vue&type=style&index=0&id=45dd49f6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,2BAA2B;AAC7B;AACA;EACE,kCAAkC;EAClC,mCAAmC;AACrC;AACA;EACE,wDAAwD;AAC1D;AACA;EACE,mBAAmB;AACrB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,0BAA0B;EAC1B,sBAAsB;AACxB;AACA;EACE,4BAA4B;EAC5B,qBAAqB;EACrB,sBAAsB;EACtB,kBAAkB;EAClB,qBAAqB;EACrB,kBAAkB;AACpB;AACA;AACA;IACI,aAAa;AACjB;AACA;IACI,eAAe;AACnB;AACA","file":"UserFilter.less?vue&type=style&index=0&id=45dd49f6&lang=less&scoped=true&","sourcesContent":[".UserFilter[data-v-45dd49f6] {\n  padding-left: 0 !important;\n  padding-right: 0 !important;\n}\n.vertical.menu > .UserFilter[data-v-45dd49f6] {\n  padding-left: 1.14286em !important;\n  padding-right: 1.14286em !important;\n}\n.right-column[data-v-45dd49f6] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-45dd49f6] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-45dd49f6] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-45dd49f6] {\n  max-height: 2em !important;\n  width: auto !important;\n}\n.submit-button .user-avatar[data-v-45dd49f6] {\n  max-height: 1.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n  margin-top: -0.7em;\n  margin-bottom: -0.5em;\n  margin-left: 0.5em;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-45dd49f6] {\n    display: none;\n}\n.vertical.menu .peer-label[data-v-45dd49f6] {\n    display: inline;\n}\n}\n"]}]);
+exports.push([module.i, ".UserFilter[data-v-45dd49f6] {\n  padding-left: 0 !important;\n  padding-right: 0 !important;\n}\n.vertical.menu > .UserFilter[data-v-45dd49f6] {\n  padding-left: 1.14286em !important;\n  padding-right: 1.14286em !important;\n}\n.right-column[data-v-45dd49f6] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-45dd49f6] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-45dd49f6] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-45dd49f6] {\n  max-height: 2em !important;\n  width: auto !important;\n  margin-right: 0.5em !important;\n}\n.submit-button .user-avatar[data-v-45dd49f6] {\n  max-height: 1.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n  margin-top: -0.7em;\n  margin-bottom: -0.5em;\n  margin-left: 0.5em;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-45dd49f6] {\n    display: none;\n}\n.vertical.menu .peer-label[data-v-45dd49f6] {\n    display: inline;\n}\n}\n", "",{"version":3,"sources":["UserFilter.less?vue&type=style&index=0&id=45dd49f6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,2BAA2B;AAC7B;AACA;EACE,kCAAkC;EAClC,mCAAmC;AACrC;AACA;EACE,wDAAwD;AAC1D;AACA;EACE,mBAAmB;AACrB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,0BAA0B;EAC1B,sBAAsB;EACtB,8BAA8B;AAChC;AACA;EACE,4BAA4B;EAC5B,qBAAqB;EACrB,sBAAsB;EACtB,kBAAkB;EAClB,qBAAqB;EACrB,kBAAkB;AACpB;AACA;AACA;IACI,aAAa;AACjB;AACA;IACI,eAAe;AACnB;AACA","file":"UserFilter.less?vue&type=style&index=0&id=45dd49f6&lang=less&scoped=true&","sourcesContent":[".UserFilter[data-v-45dd49f6] {\n  padding-left: 0 !important;\n  padding-right: 0 !important;\n}\n.vertical.menu > .UserFilter[data-v-45dd49f6] {\n  padding-left: 1.14286em !important;\n  padding-right: 1.14286em !important;\n}\n.right-column[data-v-45dd49f6] {\n  border-left: 1px solid rgba(34, 36, 38, 0.15) !important;\n}\n.peer-all-label[data-v-45dd49f6] {\n  margin-right: 0.5em;\n}\n.peer-label[data-v-45dd49f6] {\n  margin-right: 0.3em;\n}\n.user-avatar[data-v-45dd49f6] {\n  max-height: 2em !important;\n  width: auto !important;\n  margin-right: 0.5em !important;\n}\n.submit-button .user-avatar[data-v-45dd49f6] {\n  max-height: 1.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n  margin-top: -0.7em;\n  margin-bottom: -0.5em;\n  margin-left: 0.5em;\n}\n@media (max-width: 767px) {\n.peer-label[data-v-45dd49f6] {\n    display: none;\n}\n.vertical.menu .peer-label[data-v-45dd49f6] {\n    display: inline;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -702,6 +702,20 @@ exports.push([module.i, ".AnnotationItem[data-v-21a9a788]  .AnnotationTypeButton
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
 exports.push([module.i, ".note[data-v-21a9a788] {\n  max-height: 4rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.note[data-v-21a9a788]  p {\n  line-height: 2em !important;\n  display: inline !important;\n  vertical-align: top;\n}\n.note[data-v-21a9a788]  img {\n  max-width: 4em;\n  max-height: 4em;\n  width: auto;\n  height: auto;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.annotation-item-compact .note[data-v-21a9a788]  [data-pacor-search-result] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n.annotation-item-compact .note[data-v-21a9a788]  p {\n  display: inline !important;\n  line-height: 2em !important;\n}\n.annotation-item-compact .note[data-v-21a9a788]  img[src] {\n  max-width: 1em !important;\n  max-height: 1em !important;\n}\n", "",{"version":3,"sources":["AnnotationItem.note.less?vue&type=style&index=1&id=21a9a788&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,2BAA2B;EAC3B,0BAA0B;EAC1B,mBAAmB;AACrB;AACA;EACE,cAAc;EACd,eAAe;EACf,WAAW;EACX,YAAY;EACZ,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;EACE,0BAA0B;EAC1B,2BAA2B;AAC7B;AACA;EACE,yBAAyB;EACzB,0BAA0B;AAC5B","file":"AnnotationItem.note.less?vue&type=style&index=1&id=21a9a788&lang=less&scoped=true&","sourcesContent":[".note[data-v-21a9a788] {\n  max-height: 4rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.note[data-v-21a9a788]  p {\n  line-height: 2em !important;\n  display: inline !important;\n  vertical-align: top;\n}\n.note[data-v-21a9a788]  img {\n  max-width: 4em;\n  max-height: 4em;\n  width: auto;\n  height: auto;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.annotation-item-compact .note[data-v-21a9a788]  [data-pacor-search-result] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n.annotation-item-compact .note[data-v-21a9a788]  p {\n  display: inline !important;\n  line-height: 2em !important;\n}\n.annotation-item-compact .note[data-v-21a9a788]  img[src] {\n  max-width: 1em !important;\n  max-height: 1em !important;\n}\n"]}]);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/annotation/AnnotationItem/AnnotationItem.popup.less?vue&type=style&index=2&id=21a9a788&lang=less&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/annotation/AnnotationItem/AnnotationItem.popup.less?vue&type=style&index=2&id=21a9a788&lang=less&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, ".AnnotationItem[data-v-21a9a788]  .tippy-popper {\n  cursor: pointer;\n}\n.AnnotationItem[data-v-21a9a788]  .tippy-popper .tippy-tooltip {\n  background-color: white !important;\n  color: rgba(0, 0, 0, 0.87) !important;\n  border: 1px solid #D4D4D5 !important;\n  line-height: 1.4285em !important;\n  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15) !important;\n  font-weight: normal !important;\n  font-style: normal !important;\n  font-size: 1.5rem !important;\n}\n.AnnotationItem[data-v-21a9a788]  .tippy-popper [data-placement=\"top\"] .tippy-arrow {\n  border-top-color: #FFF !important;\n  filter: drop-shadow(1px 1px 0 #CCC);\n}\n.AnnotationItem[data-v-21a9a788]  .tippy-popper [data-placement=\"bottom\"] .tippy-arrow {\n  border-bottom-color: #FFF !important;\n  filter: drop-shadow(1px -1px 0 #CCC);\n}\n.AnnotationItem[data-v-21a9a788]  .tippy-popper img {\n  max-height: 1.5em;\n  width: auto;\n  vertical-align: middle;\n  margin-right: 0.5em;\n}\n.AnnotationItem[data-v-21a9a788]  .tippy-popper button {\n  margin-left: 0.5em;\n}\n", "",{"version":3,"sources":["AnnotationItem.popup.less?vue&type=style&index=2&id=21a9a788&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;AACjB;AACA;EACE,kCAAkC;EAClC,qCAAqC;EACrC,oCAAoC;EACpC,gCAAgC;EAChC,sGAAsG;EACtG,8BAA8B;EAC9B,6BAA6B;EAC7B,4BAA4B;AAC9B;AACA;EACE,iCAAiC;EACjC,mCAAmC;AACrC;AACA;EACE,oCAAoC;EACpC,oCAAoC;AACtC;AACA;EACE,iBAAiB;EACjB,WAAW;EACX,sBAAsB;EACtB,mBAAmB;AACrB;AACA;EACE,kBAAkB;AACpB","file":"AnnotationItem.popup.less?vue&type=style&index=2&id=21a9a788&lang=less&scoped=true&","sourcesContent":[".AnnotationItem[data-v-21a9a788]  .tippy-popper {\n  cursor: pointer;\n}\n.AnnotationItem[data-v-21a9a788]  .tippy-popper .tippy-tooltip {\n  background-color: white !important;\n  color: rgba(0, 0, 0, 0.87) !important;\n  border: 1px solid #D4D4D5 !important;\n  line-height: 1.4285em !important;\n  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15) !important;\n  font-weight: normal !important;\n  font-style: normal !important;\n  font-size: 1.5rem !important;\n}\n.AnnotationItem[data-v-21a9a788]  .tippy-popper [data-placement=\"top\"] .tippy-arrow {\n  border-top-color: #FFF !important;\n  filter: drop-shadow(1px 1px 0 #CCC);\n}\n.AnnotationItem[data-v-21a9a788]  .tippy-popper [data-placement=\"bottom\"] .tippy-arrow {\n  border-bottom-color: #FFF !important;\n  filter: drop-shadow(1px -1px 0 #CCC);\n}\n.AnnotationItem[data-v-21a9a788]  .tippy-popper img {\n  max-height: 1.5em;\n  width: auto;\n  vertical-align: middle;\n  margin-right: 0.5em;\n}\n.AnnotationItem[data-v-21a9a788]  .tippy-popper button {\n  margin-left: 0.5em;\n}\n"]}]);
 
 
 /***/ }),
@@ -2426,12 +2440,14 @@ var render = function() {
                 _c(
                   "div",
                   {
-                    staticClass: "user",
+                    staticClass: "user user-container",
                     class: { clickable: _vm.findUser },
                     on: {
                       click: function($event) {
                         $event.stopPropagation()
-                        return _vm.onFindUser(_vm.annotation.user)
+                        return (function(event) {
+                          _vm.onFindUser(_vm.annotation.user, event)
+                        })($event)
                       }
                     }
                   },
@@ -2447,7 +2463,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "username text-container" }, [
                       _vm._v(
-                        "\r\n        " + _vm._s(_vm.username) + "\r\n      "
+                        "\r\n          " + _vm._s(_vm.username) + "\r\n        "
                       )
                     ])
                   ],
@@ -4122,6 +4138,27 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("38b03a10", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/annotation/AnnotationItem/AnnotationItem.popup.less?vue&type=style&index=2&id=21a9a788&lang=less&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/annotation/AnnotationItem/AnnotationItem.popup.less?vue&type=style&index=2&id=21a9a788&lang=less&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./AnnotationItem.popup.less?vue&type=style&index=2&id=21a9a788&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/annotation/AnnotationItem/AnnotationItem.popup.less?vue&type=style&index=2&id=21a9a788&lang=less&scoped=true&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("2f0490ee", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -7618,459 +7655,454 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 
-/*
- * Plugin class
- */
-var jQCloud = function(element, word_array, options) {
-    this.$element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element);
+        /*
+         * Plugin class
+         */
+        var jQCloud = function (element, word_array, options) {
+          this.$element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element);
 
-    this.word_array = word_array || [];
-    this.options = options;
+          this.word_array = word_array || [];
+          this.options = options;
 
-    this.sizeGenerator = null;
-    this.colorGenerator = null;
+          this.sizeGenerator = null;
+          this.colorGenerator = null;
 
-    // Data used internally
-    this.data = {
-        placed_words: [],
-        timeouts: {},
-        namespace: null,
-        step: null,
-        angle: null,
-        aspect_ratio: null,
-        max_weight: null,
-        min_weight: null,
-        sizes: [],
-        colors: []
-    };
+          // Data used internally
+          this.data = {
+            placed_words: [],
+            timeouts: {},
+            namespace: null,
+            step: null,
+            angle: null,
+            aspect_ratio: null,
+            max_weight: null,
+            min_weight: null,
+            sizes: [],
+            colors: []
+          };
 
-    this.initialize();
-};
+          this.initialize();
+        };
 
 jQCloud.DEFAULTS = {
-    width: 100,
-    height: 100,
-    center: { x: 0.5, y: 0.5 },
-    steps: 10,
-    delay: null,
-    shape: 'elliptic',
-    classPattern: 'w{n}',
-    encodeURI: true,
-    removeOverflowing: true,
-    afterCloudRender: null,
-    autoResize: false,
-    colors: null,
-    fontSize: null,
-    template: null
+  width: 100,
+  height: 100,
+  center: {x: 0.5, y: 0.5},
+  steps: 10,
+  delay: null,
+  shape: 'elliptic',
+  classPattern: 'w{n}',
+  encodeURI: true,
+  removeOverflowing: true,
+  afterCloudRender: null,
+  autoResize: false,
+  colors: null,
+  fontSize: null,
+  template: null
 };
 
 jQCloud.prototype = {
-    initialize: function() {
-        // Set/Get dimensions
-        if (this.options.width) {
-            this.$element.width(this.options.width);
-        }
-        else {
-            this.options.width = this.$element.width();
-        }
-        if (this.options.height) {
-            this.$element.height(this.options.height);
-        }
-        else {
-            this.options.height = this.$element.height();
-        }
+  initialize: function () {
+    // Set/Get dimensions
+    if (this.options.width) {
+      this.$element.width(this.options.width);
+    } else {
+      this.options.width = this.$element.width();
+    }
+    if (this.options.height) {
+      this.$element.height(this.options.height);
+    } else {
+      this.options.height = this.$element.height();
+    }
 
-        // Default options value
-        this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(true, {}, jQCloud.DEFAULTS, this.options);
+    // Default options value
+    this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(true, {}, jQCloud.DEFAULTS, this.options);
 
-        // Ensure delay
-        if (this.options.delay === null) {
-            this.options.delay = this.word_array.length > 50 ? 10 : 0;
-        }
+    // Ensure delay
+    if (this.options.delay === null) {
+      this.options.delay = this.word_array.length > 50 ? 10 : 0;
+    }
 
-        // Backward compatibility
-        if (this.options.center.x > 1) {
-            this.options.center.x = this.options.center.x / this.options.width;
-            this.options.center.y = this.options.center.y / this.options.height;
-        }
+    // Backward compatibility
+    if (this.options.center.x > 1) {
+      this.options.center.x = this.options.center.x / this.options.width;
+      this.options.center.y = this.options.center.y / this.options.height;
+    }
 
-        // Create colorGenerator function from options
-        // Direct function
-        if (typeof this.options.colors === 'function') {
-            this.colorGenerator = this.options.colors;
-        }
-        // Array of sizes
-        else if (jquery__WEBPACK_IMPORTED_MODULE_0___default.a.isArray(this.options.colors)) {
-            var cl = this.options.colors.length;
-            if (cl > 0) {
-                // Fill the sizes array to X items
-                if (cl < this.options.steps) {
-                    for (var i = cl; i < this.options.steps; i++) {
-                        this.options.colors[i] = this.options.colors[cl - 1];
-                    }
-                }
-
-                this.colorGenerator = function(weight) {
-                    return this.options.colors[this.options.steps - weight];
-                };
-            }
+    // Create colorGenerator function from options
+    // Direct function
+    if (typeof this.options.colors === 'function') {
+      this.colorGenerator = this.options.colors;
+    }
+    // Array of sizes
+    else if (jquery__WEBPACK_IMPORTED_MODULE_0___default.a.isArray(this.options.colors)) {
+      var cl = this.options.colors.length;
+      if (cl > 0) {
+        // Fill the sizes array to X items
+        if (cl < this.options.steps) {
+          for (var i = cl; i < this.options.steps; i++) {
+            this.options.colors[i] = this.options.colors[cl - 1];
+          }
         }
 
-        // Create sizeGenerator function from options
-        // Direct function
-        if (typeof this.options.fontSize === 'function') {
-            this.sizeGenerator = this.options.fontSize;
-        }
-        // Object with 'from' and 'to'
-        else if (jquery__WEBPACK_IMPORTED_MODULE_0___default.a.isPlainObject(this.options.fontSize)) {
-            this.sizeGenerator = function(width, height, weight) {
-                var max = width * this.options.fontSize.from,
-                    min = width * this.options.fontSize.to;
-                return Math.round(min + (max - min) * 1.0 / (this.options.steps - 1) * (weight - 1)) + 'px';
-            };
-        }
-        // Array of sizes
-        else if (jquery__WEBPACK_IMPORTED_MODULE_0___default.a.isArray(this.options.fontSize)) {
-            var sl = this.options.fontSize.length;
-            if (sl > 0) {
-                // Fill the sizes array to X items
-                if (sl < this.options.steps) {
-                    for (var j = sl; j < this.options.steps; j++) {
-                        this.options.fontSize[j] = this.options.fontSize[sl - 1];
-                    }
-                }
+        this.colorGenerator = function (weight) {
+          return this.options.colors[this.options.steps - weight];
+        };
+      }
+    }
 
-                this.sizeGenerator = function(width, height, weight) {
-                    return this.options.fontSize[this.options.steps - weight];
-                };
-            }
-        }
-
-        this.data.angle = Math.random() * 6.28;
-        this.data.step = (this.options.shape === 'rectangular') ? 18.0 : 2.0;
-        this.data.aspect_ratio = this.options.width / this.options.height;
-        this.clearTimeouts();
-
-        // Namespace word ids to avoid collisions between multiple clouds
-        this.data.namespace = (this.$element.attr('id') || Math.floor((Math.random() * 1000000)).toString(36)) + '_word_';
-
-        this.$element.addClass('jqcloud');
-
-        // Container's CSS position cannot be 'static'
-        if (this.$element.css('position') === 'static') {
-            this.$element.css('position', 'relative');
+    // Create sizeGenerator function from options
+    // Direct function
+    if (typeof this.options.fontSize === 'function') {
+      this.sizeGenerator = this.options.fontSize;
+    }
+    // Object with 'from' and 'to'
+    else if (jquery__WEBPACK_IMPORTED_MODULE_0___default.a.isPlainObject(this.options.fontSize)) {
+      this.sizeGenerator = function (width, height, weight) {
+        var max = width * this.options.fontSize.from,
+                min = width * this.options.fontSize.to;
+        return Math.round(min + (max - min) * 1.0 / (this.options.steps - 1) * (weight - 1)) + 'px';
+      };
+    }
+    // Array of sizes
+    else if (jquery__WEBPACK_IMPORTED_MODULE_0___default.a.isArray(this.options.fontSize)) {
+      var sl = this.options.fontSize.length;
+      if (sl > 0) {
+        // Fill the sizes array to X items
+        if (sl < this.options.steps) {
+          for (var j = sl; j < this.options.steps; j++) {
+            this.options.fontSize[j] = this.options.fontSize[sl - 1];
+          }
         }
 
-        // Delay execution so that the browser can render the page before the computatively intensive word cloud drawing
-        this.createTimeout(jquery__WEBPACK_IMPORTED_MODULE_0___default.a.proxy(this.drawWordCloud, this), 10);
+        this.sizeGenerator = function (width, height, weight) {
+          return this.options.fontSize[this.options.steps - weight];
+        };
+      }
+    }
 
-        // Attach window resize event
-        if (this.options.autoResize) {
-            jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('resize.' + this.data.namespace, throttle(this.resize, 50, this));
-        }
-    },
+    this.data.angle = Math.random() * 6.28;
+    this.data.step = (this.options.shape === 'rectangular') ? 18.0 : 2.0;
+    this.data.aspect_ratio = this.options.width / this.options.height;
+    this.clearTimeouts();
 
-    // Helper function to keep track of timeouts so they can be destroyed
-    createTimeout: function(callback, time) {
-        var timeout = setTimeout(jquery__WEBPACK_IMPORTED_MODULE_0___default.a.proxy(function() {
-            delete this.data.timeouts[timeout];
-            callback();
-        }, this), time);
-        this.data.timeouts[timeout] = true;
-    },
+    // Namespace word ids to avoid collisions between multiple clouds
+    this.data.namespace = (this.$element.attr('id') || Math.floor((Math.random() * 1000000)).toString(36)) + '_word_';
 
-    // Destroy all timeouts
-    clearTimeouts: function() {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default.a.each(this.data.timeouts, function(key) {
-            clearTimeout(key);
-        });
-        this.data.timeouts = {};
-    },
+    this.$element.addClass('jqcloud');
 
-    // Pairwise overlap detection
-    overlapping: function(a, b) {
-        if (Math.abs(2.0 * a.left + a.width - 2.0 * b.left - b.width) < a.width + b.width) {
-            if (Math.abs(2.0 * a.top + a.height - 2.0 * b.top - b.height) < a.height + b.height) {
-                return true;
-            }
-        }
-        return false;
-    },
+    // Container's CSS position cannot be 'static'
+    if (this.$element.css('position') === 'static') {
+      this.$element.css('position', 'relative');
+    }
 
-    // Helper function to test if an element overlaps others
-    hitTest: function(elem) {
-        // Check elements for overlap one by one, stop and return false as soon as an overlap is found
-        for (var i = 0, l = this.data.placed_words.length; i < l; i++) {
-            if (this.overlapping(elem, this.data.placed_words[i])) {
-                return true;
-            }
-        }
-        return false;
-    },
+    // Delay execution so that the browser can render the page before the computatively intensive word cloud drawing
+    this.createTimeout(jquery__WEBPACK_IMPORTED_MODULE_0___default.a.proxy(this.drawWordCloud, this), 10);
 
-    // Initialize the drawing of the whole cloud
-    drawWordCloud: function() {
-        var i, l;
+    // Attach window resize event
+    if (this.options.autoResize) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('resize.' + this.data.namespace, throttle(this.resize, 50, this));
+    }
+  },
 
-        this.$element.children('[id^="' + this.data.namespace + '"]').remove();
+  // Helper function to keep track of timeouts so they can be destroyed
+  createTimeout: function (callback, time) {
+    var timeout = setTimeout(jquery__WEBPACK_IMPORTED_MODULE_0___default.a.proxy(function () {
+      delete this.data.timeouts[timeout];
+      callback();
+    }, this), time);
+    this.data.timeouts[timeout] = true;
+  },
 
-        if (this.word_array.length === 0) {
-            return;
-        }
+  // Destroy all timeouts
+  clearTimeouts: function () {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.each(this.data.timeouts, function (key) {
+      clearTimeout(key);
+    });
+    this.data.timeouts = {};
+  },
 
-        // Make sure every weight is a number before sorting
-        for (i = 0, l = this.word_array.length; i < l; i++) {
-            this.word_array[i].weight = parseFloat(this.word_array[i].weight, 10);
-        }
+  // Pairwise overlap detection
+  overlapping: function (a, b) {
+    if (Math.abs(2.0 * a.left + a.width - 2.0 * b.left - b.width) < a.width + b.width) {
+      if (Math.abs(2.0 * a.top + a.height - 2.0 * b.top - b.height) < a.height + b.height) {
+        return true;
+      }
+    }
+    return false;
+  },
 
-        // Sort word_array from the word with the highest weight to the one with the lowest
-        this.word_array.sort(function(a, b) {
-            return b.weight - a.weight;
-        });
+  // Helper function to test if an element overlaps others
+  hitTest: function (elem) {
+    // Check elements for overlap one by one, stop and return false as soon as an overlap is found
+    for (var i = 0, l = this.data.placed_words.length; i < l; i++) {
+      if (this.overlapping(elem, this.data.placed_words[i])) {
+        return true;
+      }
+    }
+    return false;
+  },
 
-        // Kepp trace of bounds
-        this.data.max_weight = this.word_array[0].weight;
-        this.data.min_weight = this.word_array[this.word_array.length - 1].weight;
+  // Initialize the drawing of the whole cloud
+  drawWordCloud: function () {
+    var i, l;
 
-        // Generate colors
-        this.data.colors = [];
-        if (this.colorGenerator) {
-            for (i = 0; i < this.options.steps; i++) {
-                this.data.colors.push(this.colorGenerator(i + 1));
-            }
-        }
+    this.$element.children('[id^="' + this.data.namespace + '"]').remove();
 
-        // Generate font sizes
-        this.data.sizes = [];
-        if (this.sizeGenerator) {
-            for (i = 0; i < this.options.steps; i++) {
-                this.data.sizes.push(this.sizeGenerator(this.options.width, this.options.height, i + 1));
-            }
-        }
+    if (Array.isArray(this.word_array) === false) {
+      return false
+    }
+    if (this.word_array.length === 0) {
+      return false
+    }
 
-        // Iterate drawOneWord on every word, immediately or with delay
-        if (this.options.delay > 0) {
-            this.drawOneWordDelayed();
-        }
-        else {
-            for (i = 0, l = this.word_array.length; i < l; i++) {
-                this.drawOneWord(i, this.word_array[i]);
-            }
+    // Make sure every weight is a number before sorting
+    for (i = 0, l = this.word_array.length; i < l; i++) {
+      this.word_array[i].weight = parseFloat(this.word_array[i].weight, 10);
+    }
 
-            if (typeof this.options.afterCloudRender === 'function') {
-                this.options.afterCloudRender.call(this.$element);
-            }
-        }
-    },
+    // Sort word_array from the word with the highest weight to the one with the lowest
+    this.word_array.sort(function (a, b) {
+      return b.weight - a.weight;
+    });
 
-    // Function to draw a word, by moving it in spiral until it finds a suitable empty place
-    drawOneWord: function(index, word) {
-        var word_id = this.data.namespace + index,
+    // Kepp trace of bounds
+    this.data.max_weight = this.word_array[0].weight;
+    this.data.min_weight = this.word_array[this.word_array.length - 1].weight;
+
+    // Generate colors
+    this.data.colors = [];
+    if (this.colorGenerator) {
+      for (i = 0; i < this.options.steps; i++) {
+        this.data.colors.push(this.colorGenerator(i + 1));
+      }
+    }
+
+    // Generate font sizes
+    this.data.sizes = [];
+    if (this.sizeGenerator) {
+      for (i = 0; i < this.options.steps; i++) {
+        this.data.sizes.push(this.sizeGenerator(this.options.width, this.options.height, i + 1));
+      }
+    }
+
+    // Iterate drawOneWord on every word, immediately or with delay
+    if (this.options.delay > 0) {
+      this.drawOneWordDelayed();
+    } else {
+      for (i = 0, l = this.word_array.length; i < l; i++) {
+        this.drawOneWord(i, this.word_array[i]);
+      }
+
+      if (typeof this.options.afterCloudRender === 'function') {
+        this.options.afterCloudRender.call(this.$element);
+      }
+    }
+  },
+
+  // Function to draw a word, by moving it in spiral until it finds a suitable empty place
+  drawOneWord: function (index, word) {
+    var word_id = this.data.namespace + index,
             word_selector = '#' + word_id,
-
-        // option.shape == 'elliptic'
+            // option.shape == 'elliptic'
             angle = this.data.angle,
             radius = 0.0,
-
-        // option.shape == 'rectangular'
+            // option.shape == 'rectangular'
             steps_in_direction = 0.0,
             quarter_turns = 0.0,
-
             weight = Math.floor(this.options.steps / 2),
             word_span,
             word_size,
             word_style;
 
-        // Create word attr object
-        word.attr = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, word.html, { id: word_id });
+    // Create word attr object
+    word.attr = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, word.html, {id: word_id});
 
-        // Linearly map the original weight to a discrete scale from 1 to 10
-        // Only if weights are different
-        if (this.data.max_weight != this.data.min_weight) {
-            weight = Math.round((word.weight - this.data.min_weight) * 1.0 * (this.options.steps - 1) / (this.data.max_weight - this.data.min_weight)) + 1;
-        }
-        word_span = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<span>').attr(word.attr);
+    // Linearly map the original weight to a discrete scale from 1 to 10
+    // Only if weights are different
+    if (this.data.max_weight != this.data.min_weight) {
+      weight = Math.round((word.weight - this.data.min_weight) * 1.0 * (this.options.steps - 1) / (this.data.max_weight - this.data.min_weight)) + 1;
+    }
+    word_span = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<span>').attr(word.attr);
 
-        word_span.addClass('jqcloud-word');
+    word_span.addClass('jqcloud-word');
 
-        // Apply class
-        if (this.options.classPattern) {
-            word_span.addClass(this.options.classPattern.replace('{n}', weight));
-        }
+    // Apply class
+    if (this.options.classPattern) {
+      word_span.addClass(this.options.classPattern.replace('{n}', weight));
+    }
 
-        // Apply color
-        if (this.data.colors.length) {
-            word_span.css('color', this.data.colors[weight - 1]);
-        }
+    // Apply color
+    if (this.data.colors.length) {
+      word_span.css('color', this.data.colors[weight - 1]);
+    }
 
-        // Apply color from word property
-        if (word.color) {
-            word_span.css('color', word.color);
-        }
+    // Apply color from word property
+    if (word.color) {
+      word_span.css('color', word.color);
+    }
 
-        // Apply size
-        if (this.data.sizes.length) {
-            word_span.css('font-size', this.data.sizes[weight - 1]);
-        }
+    // Apply size
+    if (this.data.sizes.length) {
+      word_span.css('font-size', this.data.sizes[weight - 1]);
+    }
 
-        //Render using template function if provided.
-        if (this.options.template) {
-            word_span.html(this.options.template(word));
-        } else if (word.link) {
-            // Append link if word.link attribute was set
-            // If link is a string, then use it as the link href
-            if (typeof word.link === 'string') {
-                word.link = { href: word.link };
-            }
+    //Render using template function if provided.
+    if (this.options.template) {
+      word_span.html(this.options.template(word));
+    } else if (word.link) {
+      // Append link if word.link attribute was set
+      // If link is a string, then use it as the link href
+      if (typeof word.link === 'string') {
+        word.link = {href: word.link};
+      }
 
-            if (this.options.encodeURI) {
-                word.link.href = encodeURI(word.link.href).replace(/'/g, '%27');
-            }
+      if (this.options.encodeURI) {
+        word.link.href = encodeURI(word.link.href).replace(/'/g, '%27');
+      }
 
-            word_span.append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a>').attr(word.link).text(word.text));
-        }
-        else {
-            word_span.text(word.text);
-        }
+      word_span.append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a>').attr(word.link).text(word.text));
+    } else {
+      word_span.text(word.text);
+    }
 
-        // Bind handlers to words
-        if (word.handlers) {
-            word_span.on(word.handlers);
-        }
+    // Bind handlers to words
+    if (word.handlers) {
+      word_span.on(word.handlers);
+    }
 
-        this.$element.append(word_span);
+    this.$element.append(word_span);
 
-        word_size = {
-            width: word_span.outerWidth(),
-            height: word_span.outerHeight()
-        };
-        word_size.left = this.options.center.x * this.options.width - word_size.width / 2.0;
-        word_size.top = this.options.center.y * this.options.height - word_size.height / 2.0;
+    word_size = {
+      width: word_span.outerWidth(),
+      height: word_span.outerHeight()
+    };
+    word_size.left = this.options.center.x * this.options.width - word_size.width / 2.0;
+    word_size.top = this.options.center.y * this.options.height - word_size.height / 2.0;
 
-        // Save a reference to the style property, for better performance
-        word_style = word_span[0].style;
-        word_style.position = 'absolute';
-        word_style.left = word_size.left + 'px';
-        word_style.top = word_size.top + 'px';
+    // Save a reference to the style property, for better performance
+    word_style = word_span[0].style;
+    word_style.position = 'absolute';
+    word_style.left = word_size.left + 'px';
+    word_style.top = word_size.top + 'px';
 
-        while (this.hitTest(word_size)) {
-            // option shape is 'rectangular' so move the word in a rectangular spiral
-            if (this.options.shape === 'rectangular') {
-                steps_in_direction++;
+    while (this.hitTest(word_size)) {
+      // option shape is 'rectangular' so move the word in a rectangular spiral
+      if (this.options.shape === 'rectangular') {
+        steps_in_direction++;
 
-                if (steps_in_direction * this.data.step > (1 + Math.floor(quarter_turns / 2.0)) * this.data.step * ((quarter_turns % 4 % 2) === 0 ? 1 : this.data.aspect_ratio)) {
-                    steps_in_direction = 0.0;
-                    quarter_turns++;
-                }
-
-                switch (quarter_turns % 4) {
-                    case 1:
-                        word_size.left += this.data.step * this.data.aspect_ratio + Math.random() * 2.0;
-                        break;
-                    case 2:
-                        word_size.top -= this.data.step + Math.random() * 2.0;
-                        break;
-                    case 3:
-                        word_size.left -= this.data.step * this.data.aspect_ratio + Math.random() * 2.0;
-                        break;
-                    case 0:
-                        word_size.top += this.data.step + Math.random() * 2.0;
-                        break;
-                }
-            }
-            // Default settings: elliptic spiral shape
-            else {
-                radius += this.data.step;
-                angle += (index % 2 === 0 ? 1 : -1) * this.data.step;
-
-                word_size.left = this.options.center.x * this.options.width - (word_size.width / 2.0) + (radius * Math.cos(angle)) * this.data.aspect_ratio;
-                word_size.top = this.options.center.y * this.options.height + radius * Math.sin(angle) - (word_size.height / 2.0);
-            }
-            word_style.left = word_size.left + 'px';
-            word_style.top = word_size.top + 'px';
+        if (steps_in_direction * this.data.step > (1 + Math.floor(quarter_turns / 2.0)) * this.data.step * ((quarter_turns % 4 % 2) === 0 ? 1 : this.data.aspect_ratio)) {
+          steps_in_direction = 0.0;
+          quarter_turns++;
         }
 
-        // Don't render word if part of it would be outside the container
-        if (this.options.removeOverflowing && (
-                word_size.left < 0 || word_size.top < 0 ||
-                (word_size.left + word_size.width) > this.options.width ||
-                (word_size.top + word_size.height) > this.options.height
+        switch (quarter_turns % 4) {
+          case 1:
+            word_size.left += this.data.step * this.data.aspect_ratio + Math.random() * 2.0;
+            break;
+          case 2:
+            word_size.top -= this.data.step + Math.random() * 2.0;
+            break;
+          case 3:
+            word_size.left -= this.data.step * this.data.aspect_ratio + Math.random() * 2.0;
+            break;
+          case 0:
+            word_size.top += this.data.step + Math.random() * 2.0;
+            break;
+        }
+      }
+      // Default settings: elliptic spiral shape
+      else {
+        radius += this.data.step;
+        angle += (index % 2 === 0 ? 1 : -1) * this.data.step;
+
+        word_size.left = this.options.center.x * this.options.width - (word_size.width / 2.0) + (radius * Math.cos(angle)) * this.data.aspect_ratio;
+        word_size.top = this.options.center.y * this.options.height + radius * Math.sin(angle) - (word_size.height / 2.0);
+      }
+      word_style.left = word_size.left + 'px';
+      word_style.top = word_size.top + 'px';
+    }
+
+    // Don't render word if part of it would be outside the container
+    if (this.options.removeOverflowing && (
+            word_size.left < 0 || word_size.top < 0 ||
+            (word_size.left + word_size.width) > this.options.width ||
+            (word_size.top + word_size.height) > this.options.height
             )
-        ) {
-            word_span.remove();
-            return;
-        }
+            ) {
+      word_span.remove();
+      return;
+    }
 
-        // Save position for further usage
-        this.data.placed_words.push(word_size);
+    // Save position for further usage
+    this.data.placed_words.push(word_size);
 
-        if (typeof word.afterWordRender === 'function') {
-            word.afterWordRender.call(word_span);
-        }
-    },
+    if (typeof word.afterWordRender === 'function') {
+      word.afterWordRender.call(word_span);
+    }
+  },
 
-    // Draw one word then recall the function after a delay
-    drawOneWordDelayed: function(index) {
-        index = index || 0;
+  // Draw one word then recall the function after a delay
+  drawOneWordDelayed: function (index) {
+    index = index || 0;
 
-        // if not visible then do not attempt to draw
-        if (!this.$element.is(':visible')) {
-            this.createTimeout(jquery__WEBPACK_IMPORTED_MODULE_0___default.a.proxy(function() {
-                this.drawOneWordDelayed(index);
-            }, this), 10);
+    // if not visible then do not attempt to draw
+    if (!this.$element.is(':visible')) {
+      this.createTimeout(jquery__WEBPACK_IMPORTED_MODULE_0___default.a.proxy(function () {
+        this.drawOneWordDelayed(index);
+      }, this), 10);
 
-            return;
-        }
+      return;
+    }
 
-        if (index < this.word_array.length) {
-            this.drawOneWord(index, this.word_array[index]);
+    if (index < this.word_array.length) {
+      this.drawOneWord(index, this.word_array[index]);
 
-            this.createTimeout(jquery__WEBPACK_IMPORTED_MODULE_0___default.a.proxy(function() {
-                this.drawOneWordDelayed(index + 1);
-            }, this), this.options.delay);
-        }
-        else {
-            if (typeof this.options.afterCloudRender == 'function') {
-                this.options.afterCloudRender.call(this.$element);
-            }
-        }
-    },
+      this.createTimeout(jquery__WEBPACK_IMPORTED_MODULE_0___default.a.proxy(function () {
+        this.drawOneWordDelayed(index + 1);
+      }, this), this.options.delay);
+    } else {
+      if (typeof (this.options.afterCloudRender) === 'function') {
+        this.options.afterCloudRender.call(this.$element);
+      }
+    }
+  },
 
-    // Destroy any data and objects added by the plugin
-    destroy: function() {
-        if (this.options.autoResize) {
-            jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off('resize.' + this.data.namespace);
-        }
+  // Destroy any data and objects added by the plugin
+  destroy: function () {
+    if (this.options.autoResize) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off('resize.' + this.data.namespace);
+    }
 
-        this.clearTimeouts();
-        this.$element.removeClass('jqcloud');
-        this.$element.removeData('jqcloud');
-        this.$element.children('[id^="' + this.data.namespace + '"]').remove();
-    },
+    this.clearTimeouts();
+    this.$element.removeClass('jqcloud');
+    this.$element.removeData('jqcloud');
+    this.$element.children('[id^="' + this.data.namespace + '"]').remove();
+  },
 
-    // Update the list of words
-    update: function(word_array) {
-        this.word_array = word_array;
-        this.data.placed_words = [];
+  // Update the list of words
+  update: function (word_array) {
+    this.word_array = word_array;
+    this.data.placed_words = [];
 
-        this.clearTimeouts();
-        this.drawWordCloud();
-    },
+    this.clearTimeouts();
+    this.drawWordCloud();
+  },
 
-    resize: function() {
-        var new_size = {
-            width: this.$element.width(),
-            height: this.$element.height()
-        };
+  resize: function () {
+    var new_size = {
+      width: this.$element.width(),
+      height: this.$element.height()
+    };
 
-        if (new_size.width != this.options.width || new_size.height != this.options.height) {
-            this.options.width = new_size.width;
-            this.options.height = new_size.height;
-            this.data.aspect_ratio = this.options.width / this.options.height;
+    if (new_size.width != this.options.width || new_size.height != this.options.height) {
+      this.options.width = new_size.width;
+      this.options.height = new_size.height;
+      this.data.aspect_ratio = this.options.width / this.options.height;
 
-            this.update(this.word_array);
-        }
-    },
+      this.update(this.word_array);
+    }
+  },
 };
 
 /*
@@ -8081,66 +8113,64 @@ jQCloud.prototype = {
  * @return {function}
  */
 function throttle(callback, delay, context) {
-    var state = {
-        pid: null,
-        last: 0
-    };
+  var state = {
+    pid: null,
+    last: 0
+  };
 
-    return function() {
-        var elapsed = new Date().getTime() - state.last,
+  return function () {
+    var elapsed = new Date().getTime() - state.last,
             args = arguments,
             that = this;
 
-        function exec() {
-            state.last = new Date().getTime();
-            return callback.apply(context || that, Array.prototype.slice.call(args));
-        }
+    function exec() {
+      state.last = new Date().getTime();
+      return callback.apply(context || that, Array.prototype.slice.call(args));
+    }
 
-        if (elapsed > delay) {
-            return exec();
-        }
-        else {
-            clearTimeout(state.pid);
-            state.pid = setTimeout(exec, delay - elapsed);
-        }
-    };
+    if (elapsed > delay) {
+      return exec();
+    } else {
+      clearTimeout(state.pid);
+      state.pid = setTimeout(exec, delay - elapsed);
+    }
+  };
 }
 
 /*
  * jQuery plugin
  */
-jquery__WEBPACK_IMPORTED_MODULE_0___default.a.fn.jQCloud = function(word_array, option) {
-    var args = arguments;
+jquery__WEBPACK_IMPORTED_MODULE_0___default.a.fn.jQCloud = function (word_array, option) {
+  var args = arguments;
 
-    return this.each(function() {
-        var $this = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),
+  return this.each(function () {
+    var $this = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),
             data = $this.data('jqcloud');
 
-        if (!data && word_array === 'destroy') {
-            // Don't even try to initialize when called with 'destroy'
-            return;
-        }
-        if (!data) {
-            var options = typeof option === 'object' ? option : {};
-            $this.data('jqcloud', (data = new jQCloud(this, word_array, options)));
-        }
-        else if (typeof word_array === 'string') {
-            data[word_array].apply(data, Array.prototype.slice.call(args, 1));
-        }
-    });
+    if (!data && word_array === 'destroy') {
+      // Don't even try to initialize when called with 'destroy'
+      return;
+    }
+    if (!data) {
+      var options = typeof option === 'object' ? option : {};
+      $this.data('jqcloud', (data = new jQCloud(this, word_array, options)));
+    } else if (typeof word_array === 'string') {
+      data[word_array].apply(data, Array.prototype.slice.call(args, 1));
+    }
+  });
 };
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default.a.fn.jQCloud.defaults = {
-    set: function(options) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(true, jQCloud.DEFAULTS, options);
-    },
-    get: function(key) {
-        var options = jQCloud.DEFAULTS;
-        if (key) {
-            options = options[key];
-        }
-        return jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(true, {}, options);
+  set: function (options) {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(true, jQCloud.DEFAULTS, options);
+  },
+  get: function (key) {
+    var options = jQCloud.DEFAULTS;
+    if (key) {
+      options = options[key];
     }
+    return jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(true, {}, options);
+  }
 };
 
 
@@ -8455,17 +8485,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _methodsAnnotationItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./methodsAnnotationItem.js */ "./webpack-app/components/annotation/AnnotationItem/methodsAnnotationItem.js");
 let AnnotationItem = {
   props: ['lib', 'status', 'config'
     , 'annotation', 'mode'
     , 'searchKeyword'
-    , 'findUser', 'findType', 'findAnnotation'],
+    , 'findUser', 'findType', 'findAnnotation', 'assistUser'],
   data() {    
     this.$i18n.locale = this.config.locale
     
     this.lib.AnnotationHelper.autoComplete(this.annotation)
     
     return {
+      popup: null
     }
   },
 //  components: {
@@ -8560,9 +8592,12 @@ let AnnotationItem = {
         this.findAnnotation(data)
       }
     },
-    onFindUser (data) {
+    onFindUser (data, event) {
       if (typeof(this.findUser) === 'function') {
-        this.findUser(data)
+        this.findUser(data, event)
+      }
+      if (this.assistUser === true) {
+        this.popupUser(data, event)
       }
     },
     onFindType (data) {
@@ -8600,6 +8635,9 @@ let AnnotationItem = {
   } // methods
 }
 
+
+Object(_methodsAnnotationItem_js__WEBPACK_IMPORTED_MODULE_0__["default"])(AnnotationItem)
+
 /* harmony default export */ __webpack_exports__["default"] = (AnnotationItem);
 
 /***/ }),
@@ -8636,6 +8674,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./webpack-app/components/annotation/AnnotationItem/AnnotationItem.popup.less?vue&type=style&index=2&id=21a9a788&lang=less&scoped=true&":
+/*!**********************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/annotation/AnnotationItem/AnnotationItem.popup.less?vue&type=style&index=2&id=21a9a788&lang=less&scoped=true& ***!
+  \**********************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationItem_popup_less_vue_type_style_index_2_id_21a9a788_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-style-loader!../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./AnnotationItem.popup.less?vue&type=style&index=2&id=21a9a788&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/annotation/AnnotationItem/AnnotationItem.popup.less?vue&type=style&index=2&id=21a9a788&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationItem_popup_less_vue_type_style_index_2_id_21a9a788_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationItem_popup_less_vue_type_style_index_2_id_21a9a788_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationItem_popup_less_vue_type_style_index_2_id_21a9a788_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationItem_popup_less_vue_type_style_index_2_id_21a9a788_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_AnnotationItem_popup_less_vue_type_style_index_2_id_21a9a788_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
 /***/ "./webpack-app/components/annotation/AnnotationItem/AnnotationItem.vue":
 /*!*****************************************************************************!*\
   !*** ./webpack-app/components/annotation/AnnotationItem/AnnotationItem.vue ***!
@@ -8649,8 +8703,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AnnotationItem_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AnnotationItem.js?vue&type=script&lang=js& */ "./webpack-app/components/annotation/AnnotationItem/AnnotationItem.js?vue&type=script&lang=js&?15b5");
 /* empty/unused harmony star reexport *//* harmony import */ var _AnnotationItem_less_vue_type_style_index_0_id_21a9a788_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AnnotationItem.less?vue&type=style&index=0&id=21a9a788&lang=less&scoped=true& */ "./webpack-app/components/annotation/AnnotationItem/AnnotationItem.less?vue&type=style&index=0&id=21a9a788&lang=less&scoped=true&");
 /* harmony import */ var _AnnotationItem_note_less_vue_type_style_index_1_id_21a9a788_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AnnotationItem.note.less?vue&type=style&index=1&id=21a9a788&lang=less&scoped=true& */ "./webpack-app/components/annotation/AnnotationItem/AnnotationItem.note.less?vue&type=style&index=1&id=21a9a788&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-/* harmony import */ var _AnnotationItem_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cannotation_5CAnnotationItem_5CAnnotationItem_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AnnotationItem.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cannotation%5CAnnotationItem%5CAnnotationItem.vue&lang=yaml */ "./webpack-app/components/annotation/AnnotationItem/AnnotationItem.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cannotation%5CAnnotationItem%5CAnnotationItem.vue&lang=yaml");
+/* harmony import */ var _AnnotationItem_popup_less_vue_type_style_index_2_id_21a9a788_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AnnotationItem.popup.less?vue&type=style&index=2&id=21a9a788&lang=less&scoped=true& */ "./webpack-app/components/annotation/AnnotationItem/AnnotationItem.popup.less?vue&type=style&index=2&id=21a9a788&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _AnnotationItem_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cannotation_5CAnnotationItem_5CAnnotationItem_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AnnotationItem.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cannotation%5CAnnotationItem%5CAnnotationItem.vue&lang=yaml */ "./webpack-app/components/annotation/AnnotationItem/AnnotationItem.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Cannotation%5CAnnotationItem%5CAnnotationItem.vue&lang=yaml");
+
 
 
 
@@ -8660,7 +8716,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_5__["default"])(
   _AnnotationItem_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _AnnotationItem_html_vue_type_template_id_21a9a788_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _AnnotationItem_html_vue_type_template_id_21a9a788_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -8673,7 +8729,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* custom blocks */
 
-if (typeof _AnnotationItem_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cannotation_5CAnnotationItem_5CAnnotationItem_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__["default"] === 'function') Object(_AnnotationItem_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cannotation_5CAnnotationItem_5CAnnotationItem_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__["default"])(component)
+if (typeof _AnnotationItem_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cannotation_5CAnnotationItem_5CAnnotationItem_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_6__["default"] === 'function') Object(_AnnotationItem_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cannotation_5CAnnotationItem_5CAnnotationItem_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_6__["default"])(component)
 
 /* hot reload */
 if (false) { var api; }
@@ -8695,6 +8751,79 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationItem_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cannotation_5CAnnotationItem_5CAnnotationItem_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationItem_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cannotation_5CAnnotationItem_5CAnnotationItem_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationItem_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cannotation_5CAnnotationItem_5CAnnotationItem_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationItem_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cannotation_5CAnnotationItem_5CAnnotationItem_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_AnnotationItem_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Cannotation_5CAnnotationItem_5CAnnotationItem_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/annotation/AnnotationItem/methodsAnnotationItem.js":
+/*!***********************************************************************************!*\
+  !*** ./webpack-app/components/annotation/AnnotationItem/methodsAnnotationItem.js ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (AnnotationItem) {
+  AnnotationItem.methods.popupUser = function (user, event) {
+
+    let element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.target)
+    if (element.hasClass('user-container') === false) {
+      element = element.parents('.user-container:first')
+    }
+
+    let className = element.prop('className')
+    //console.log(element.classList.value.indexOf('username'))
+
+    if (className.indexOf('popup-user-inited') > -1) {
+      return false
+    }
+
+    /*
+     element
+     .popup({
+     popup : $(this.$refs.popup),
+     on    : 'click',
+     inline: true,
+     boundary: this.$refs.AnnotationList
+     })
+     .popup('show')
+     */
+    
+    this.popup = this.lib.tippy(element[0], {
+      content: this._buildPopupContent(user),
+      //content: this.$refs.popup,
+      boundary: element.parents('.annotation-list:first')[0],
+      trigger: 'click',
+      interactive: true
+    })
+    this.popup.show()
+    element.addClass('popup-user-inited')
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.popup).show()
+  }
+  
+  AnnotationItem.methods._buildPopupContent = function (user) {
+    let username = this.lib.auth.getUsername(user)
+    let avatarURL = user.avatar_url
+    
+    let element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<div class="user-popup">
+    <img src="${avatarURL}" class="user-avatar" />
+    ${username}
+    <button type="button" class="ui compact mini positive button">${this.$t('Assist')}</button>
+</div>`)
+    
+    element.find('button').click(() => {
+      //console.log(user)
+      this.status.filter.focusUser = user
+      this.popup.hide()
+    })
+    
+    return element[0]
+  }
+});
 
 /***/ }),
 

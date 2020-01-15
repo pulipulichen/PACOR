@@ -5497,7 +5497,7 @@ let TutorialManager = {
   },
   created: async function () {
     // import './jquery-guide/jquery-guide.webpack.js'
-    await Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors~client-components/ReadingComponents"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./jquery-guide/jquery-guide.webpack.js */ "./webpack-app/components/manager/TutorialManager/jquery-guide/jquery-guide.webpack.js"))
+    await Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors~client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./jquery-guide/jquery-guide.webpack.js */ "./webpack-app/components/manager/TutorialManager/jquery-guide/jquery-guide.webpack.js"))
   },
 //  components: {
 //  },

@@ -36,6 +36,7 @@
        v-if="myAnnotation && sectionsData.annotation[sectionSeqID].annotations.length > 0"></div>
   
   <div class="annotation-list"
+       ref="AnnotationList"
        v-on:scroll.stop="scrollList"
        v-if="hasAnnotation">
     <annotation-item
@@ -46,7 +47,8 @@
       v-bind:lib="lib"
 
       v-bind:annotation="annotation"
-      v-bind:findAnnotation="findAnnotation">
+      v-bind:findAnnotation="findAnnotation"
+      v-bind:assistUser="true">
     </annotation-item>
 
     <div class="ui secondary segment no-more"
@@ -70,4 +72,11 @@
     v-bind:myAnnotation="myAnnotation"
     v-bind:style="computedSectionMainIdeaButtonStyle">
   </editor-button>
+  
+  <!--
+  <div ref="popup"
+       style="display: none;">
+    Hello 121212
+  </div>
+  -->
 </div>

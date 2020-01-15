@@ -48,31 +48,31 @@
 
   <div class="left column">
     <span class="annotation-item-header">
-    <div v-on:click.stop="onFindUser(annotation.user)"
-         v-bind:class="{'clickable': findUser}"
-         class="user">
-      
-      <user-avatar 
-        v-bind:config="config"
-        v-bind:status="status"
-        v-bind:lib="lib"
+      <div v-on:click.stop="(event) => {onFindUser(annotation.user, event)}"
+           v-bind:class="{'clickable': findUser}"
+           class="user user-container">
 
-        v-bind:user="annotation.user">
-      </user-avatar>
-      
-      <div class="username text-container">
-        {{ username }}
+        <user-avatar 
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib"
+
+          v-bind:user="annotation.user">
+        </user-avatar>
+
+        <div class="username text-container">
+          {{ username }}
+        </div>
       </div>
-    </div>
 
-    <annotation-type-button 
-      v-bind:status="status"
-      v-bind:type="annotation.type"
-      v-bind:clickable="(typeof(findType) === 'function')"
-      v-on:find="(type) => {onFindType(type)}">
-    </annotation-type-button>
-    
-  </span>
+      <annotation-type-button 
+        v-bind:status="status"
+        v-bind:type="annotation.type"
+        v-bind:clickable="(typeof(findType) === 'function')"
+        v-on:find="(type) => {onFindType(type)}">
+      </annotation-type-button>
+
+    </span>
 
     <div class="note text-container" v-if="note" v-html="note"></div>
   </div>
