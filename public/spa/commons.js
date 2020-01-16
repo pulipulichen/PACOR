@@ -15120,7 +15120,9 @@ let i18nGlobal = {
     '{0}0K': '{0}萬',
     '{0}K': '{0}千',
     '.{0}K': '{0}百',
-    'Assist': '協助'
+    'Assist': '協助',
+    'Cancel Assist': '取消協助',
+    'Focus yourself': '只看您本人'
   }
 }
 

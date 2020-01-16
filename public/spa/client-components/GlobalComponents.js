@@ -201,7 +201,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Viewing All":"觀看所有讀者","Asist":"協助","View":"觀看","Please select a peer":"選擇一位您想要協助的讀者吧","Only Show Me":"只顯示您","Show All":"顯示所有讀者","Cancel":"待會再選"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Viewing All":"觀看所有讀者","Asist":"協助","View":"觀看","Please select a peer":"選擇一位您想要協助的讀者吧","Only Show You":"只顯示您","Show All":"顯示所有讀者","Cancel":"待會再選"}}')
   delete Component.options._Ctor
 }
 

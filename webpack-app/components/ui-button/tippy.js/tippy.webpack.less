@@ -32,4 +32,30 @@
     filter: drop-shadow(1px -1px 0 #CCC);
     //box-shadow: 1px 1px 0px 0px #bababc !important;
   }
+  
+  .user-popup {
+    .cancel-assist-submit, .only-you-submit {
+      display: none;
+    }
+    
+    &.has-focus-user {
+      .assist-submit {
+        display: none;
+      }
+      
+      .cancel-assist-submit {
+        display: inline-block;
+      }
+    }
+    
+    &.is-you {
+      .assist-submit {
+        display: none;
+      }
+      
+      .only-you-submit {
+        display: inline-block;
+      }
+    }
+  }
 }

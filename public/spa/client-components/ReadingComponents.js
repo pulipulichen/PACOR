@@ -981,7 +981,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".SectionAnnotationList .annotation-list[data-v-0339763a] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin-bottom: 1em;\n}\n.no-more[data-v-0339763a] {\n  text-align: center;\n  color: gray;\n}\n.summary-information[data-v-0339763a] {\n  text-align: center;\n}\n.my-annotation[data-v-0339763a] {\n  margin-top: 0.5rem !important;\n}\n", "",{"version":3,"sources":["SectionAnnotationList.less?vue&type=style&index=0&id=0339763a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,kBAAkB;AACpB;AACA;EACE,6BAA6B;AAC/B","file":"SectionAnnotationList.less?vue&type=style&index=0&id=0339763a&lang=less&scoped=true&","sourcesContent":[".SectionAnnotationList .annotation-list[data-v-0339763a] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin-bottom: 1em;\n}\n.no-more[data-v-0339763a] {\n  text-align: center;\n  color: gray;\n}\n.summary-information[data-v-0339763a] {\n  text-align: center;\n}\n.my-annotation[data-v-0339763a] {\n  margin-top: 0.5rem !important;\n}\n"]}]);
+exports.push([module.i, ".SectionAnnotationList .annotation-list[data-v-0339763a] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin-bottom: 1em;\n}\n.no-more[data-v-0339763a] {\n  text-align: center;\n  color: gray;\n}\n.summary-information[data-v-0339763a] {\n  text-align: center;\n}\n.summary-information .message[data-v-0339763a],\n.summary-information[data-v-0339763a]  .UserAvatarIcons {\n  display: inline-block;\n  vertical-align: middle;\n}\n.summary-information .username[data-v-0339763a] {\n  font-weight: bold;\n}\n.my-annotation[data-v-0339763a] {\n  margin-top: 0.5rem !important;\n}\n", "",{"version":3,"sources":["SectionAnnotationList.less?vue&type=style&index=0&id=0339763a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;AACb;AACA;EACE,kBAAkB;AACpB;AACA;;EAEE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,iBAAiB;AACnB;AACA;EACE,6BAA6B;AAC/B","file":"SectionAnnotationList.less?vue&type=style&index=0&id=0339763a&lang=less&scoped=true&","sourcesContent":[".SectionAnnotationList .annotation-list[data-v-0339763a] {\n  max-height: 20em;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin-bottom: 1em;\n}\n.no-more[data-v-0339763a] {\n  text-align: center;\n  color: gray;\n}\n.summary-information[data-v-0339763a] {\n  text-align: center;\n}\n.summary-information .message[data-v-0339763a],\n.summary-information[data-v-0339763a]  .UserAvatarIcons {\n  display: inline-block;\n  vertical-align: middle;\n}\n.summary-information .username[data-v-0339763a] {\n  font-weight: bold;\n}\n.my-annotation[data-v-0339763a] {\n  margin-top: 0.5rem !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -3970,7 +3970,43 @@ var render = function() {
       }
     },
     [
-      _vm.userCount > 1
+      _vm.status.filter.focusUser
+        ? [
+            _c(
+              "div",
+              { staticClass: "summary-information" },
+              [
+                _c("span", { staticClass: "message" }, [
+                  _vm._v(
+                    "\r\n        " + _vm._s(_vm.$t("Assist")) + ": \r\n      "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("user-avatar-icons", {
+                  staticStyle: { "margin-left": "0.5em" },
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib,
+                    users: [_vm.status.filter.focusUser],
+                    assistUser: true
+                  }
+                }),
+                _vm._v(" "),
+                _c("span", { staticClass: "message username" }, [
+                  _vm._v(
+                    "\r\n        " +
+                      _vm._s(
+                        _vm.lib.auth.getUsername(_vm.status.filter.focusUser)
+                      ) +
+                      "\r\n      "
+                  )
+                ])
+              ],
+              1
+            )
+          ]
+        : _vm.userCount > 1
         ? [
             _c(
               "div",

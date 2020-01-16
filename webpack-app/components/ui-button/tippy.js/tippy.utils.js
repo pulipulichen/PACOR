@@ -19,10 +19,19 @@ tippyUtils.popupUser = function (_this, user, event) {
   if (className.indexOf('popup-user-inited') > -1) {
     return false
   }
+  
+  let contentElement = this._buildPopupContent(_this, user)
+  //console.log(_this.status)
+  if (user.id === _this.status.userID) {
+    contentElement.addClass('is-you')
+  }
+  else if (_this.status.filter.focusUser) {
+      contentElement.addClass('has-focus-user')
+  }
 
   let options = {
     theme: 'tippy-semantic-ui-popup',
-    content: this._buildPopupContent(_this, user),
+    content: contentElement[0],
     //content: this.$refs.popup,
     //boundary: element.parents('.annotation-list:first')[0],
     trigger: 'click',
@@ -46,16 +55,24 @@ tippyUtils._buildPopupContent = function (_this, user) {
   let element = $(`<div class="user-popup">
     <img src="${avatarURL}" class="user-avatar" />
     ${username}
-    <button type="button" class="ui compact mini positive button">${_this.$t('Assist')}</button>
+    <button type="button" class="assist-submit ui compact mini positive button">${_this.$t('Assist')}</button>
+    <button type="button" class="cancel-assist-submit ui compact mini negative button">${_this.$t('Cancel Assist')}</button>
+    <button type="button" class="only-you-submit ui compact mini positive button">${_this.$t('Focus yourself')}</button>
 </div>`)
 
-  element.find('button').click(() => {
+  element.find('.assist-submit,.only-you-submit').click(() => {
     //console.log(user)
     _this.status.filter.focusUser = user
     _this.popup.hide()
   })
+  
+  element.find('.cancel-assist-submit').click(() => {
+    //console.log(user)
+    _this.status.filter.focusUser = null
+    _this.popup.hide()
+  })
 
-  return element[0]
+  return element
 }
 
 export default tippyUtils

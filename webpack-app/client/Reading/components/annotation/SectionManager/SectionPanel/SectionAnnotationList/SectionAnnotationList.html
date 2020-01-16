@@ -4,7 +4,27 @@
      v-on:touchstart="sectionsData.enableRefresh = false"
      v-on:touchend="sectionsData.enableRefresh = true">
 
-  <template v-if="userCount > 1">
+  <template v-if="status.filter.focusUser">
+    <div class="summary-information">
+      <span class="message">
+        {{ $t('Assist') }}: 
+      </span>
+      
+      <user-avatar-icons 
+        style="margin-left: 0.5em;"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:users="[status.filter.focusUser]"
+        v-bind:assistUser="true">
+      </user-avatar-icons >
+      
+      <span class="message username">
+        {{ lib.auth.getUsername(status.filter.focusUser) }}
+      </span>
+    </div>
+  </template>
+  <template v-else-if="userCount > 1">
     <div class="summary-information">
 
       <user-avatar-icons 
@@ -18,7 +38,6 @@
         v-bind:assistUser="true">
       </user-avatar-icons >
     </div>
-
   </template>
 
   <annotation-item
@@ -74,11 +93,4 @@
     v-bind:myAnnotation="myAnnotation"
     v-bind:style="computedSectionMainIdeaButtonStyle">
   </editor-button>
-  
-  <!--
-  <div ref="popup"
-       style="display: none;">
-    Hello 121212
-  </div>
-  -->
 </div>

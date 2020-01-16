@@ -178,7 +178,7 @@ let CollaborativeReading = {
     // ----------------------
     // 以下是測試
     
-    this._testUserFilter()
+    //this._testUserFilter()
     //await this._testVerticalMenu()
     //this._testSearch()
     //this._testErrorAuth()
