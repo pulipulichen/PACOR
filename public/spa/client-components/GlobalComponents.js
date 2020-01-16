@@ -8289,11 +8289,14 @@ let UserSelector = {
   },
   computed: {
     peer () {
-      return this.status.filter.focusUser
+      //return this.status.filter.focusUser
+      return this.filterData.selectUser
     },
     peerIsMe () {
-      return (this.status.filter.focusUser 
-              && this.status.filter.focusUser.id === this.status.userID)
+//      return (this.status.filter.focusUser 
+//              && this.status.filter.focusUser.id === this.status.userID)
+      return (this.filterData.selectUser
+              && this.filterData.selectUser.id === this.status.userID)
     },
     username () {
       if (this.peer) {
@@ -8345,7 +8348,8 @@ let UserSelector = {
       return (this.status.filter.focusUser)
     },
     computedSubmitButtonClassList () {
-      if (!this.peerIsMe && this.filterData.selectUser) {
+      //if (!this.peerIsMe && this.filterData.selectUser) {
+      if (this.filterData.selectUser) {
         return 'green'
       }
     }

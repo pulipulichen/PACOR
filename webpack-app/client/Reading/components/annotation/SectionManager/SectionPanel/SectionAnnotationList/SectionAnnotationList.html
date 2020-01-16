@@ -6,8 +6,13 @@
 
   <template v-if="status.filter.focusUser">
     <div class="summary-information">
-      <span class="message">
+      <span class="message"
+            v-if="status.filter.focusUser.id !== status.userID">
         {{ $t('Assist') }}: 
+      </span>
+      <span class="message"
+            v-else>
+        {{ $t('Focus') }}: 
       </span>
       
       <user-avatar-icons 
@@ -21,6 +26,11 @@
       
       <span class="message username">
         {{ lib.auth.getUsername(status.filter.focusUser) }}
+      </span>
+      
+      <span class="message"
+            v-if="status.filter.focusUser.id === status.userID">
+        ({{ $t('You') }})
       </span>
     </div>
   </template>

@@ -361,7 +361,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Focus":"專注閱讀"}}')
   delete Component.options._Ctor
 }
 
@@ -3976,11 +3976,21 @@ var render = function() {
               "div",
               { staticClass: "summary-information" },
               [
-                _c("span", { staticClass: "message" }, [
-                  _vm._v(
-                    "\r\n        " + _vm._s(_vm.$t("Assist")) + ": \r\n      "
-                  )
-                ]),
+                _vm.status.filter.focusUser.id !== _vm.status.userID
+                  ? _c("span", { staticClass: "message" }, [
+                      _vm._v(
+                        "\r\n        " +
+                          _vm._s(_vm.$t("Assist")) +
+                          ": \r\n      "
+                      )
+                    ])
+                  : _c("span", { staticClass: "message" }, [
+                      _vm._v(
+                        "\r\n        " +
+                          _vm._s(_vm.$t("Focus")) +
+                          ": \r\n      "
+                      )
+                    ]),
                 _vm._v(" "),
                 _c("user-avatar-icons", {
                   staticStyle: { "margin-left": "0.5em" },
@@ -4001,7 +4011,15 @@ var render = function() {
                       ) +
                       "\r\n      "
                   )
-                ])
+                ]),
+                _vm._v(" "),
+                _vm.status.filter.focusUser.id === _vm.status.userID
+                  ? _c("span", { staticClass: "message" }, [
+                      _vm._v(
+                        "\r\n        (" + _vm._s(_vm.$t("You")) + ")\r\n      "
+                      )
+                    ])
+                  : _vm._e()
               ],
               1
             )
@@ -26319,7 +26337,7 @@ let SectionAnnotationList = {
         color: buttonStyle.color,
         'background-color': buttonStyle.backgroundColor,
       }
-    }
+    },
   },
   watch: {
     'page' (page) {

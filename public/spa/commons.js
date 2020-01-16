@@ -15122,7 +15122,8 @@ let i18nGlobal = {
     '.{0}K': '{0}百',
     'Assist': '協助',
     'Cancel Assist': '取消協助',
-    'Focus yourself': '只看您本人'
+    'Focus Yourself': '只看您本人',
+    'Cancel Focus': '取消專注閱讀'
   }
 }
 

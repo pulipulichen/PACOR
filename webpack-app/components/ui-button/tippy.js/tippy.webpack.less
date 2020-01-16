@@ -34,7 +34,7 @@
   }
   
   .user-popup {
-    .cancel-assist-submit, .only-you-submit {
+    .cancel-assist-submit, .only-you-submit, .cancel-focus-submit {
       display: none;
     }
     
@@ -55,6 +55,16 @@
       
       .only-you-submit {
         display: inline-block;
+      }
+      
+      &.has-focus-user {
+        .assist-submit,.cancel-assist-submit,.only-you-submit {
+          display: none;
+        }
+        
+        .cancel-focus-submit {
+          display: inline-block;
+        }
       }
     }
   }

@@ -22,11 +22,11 @@ tippyUtils.popupUser = function (_this, user, event) {
   
   let contentElement = this._buildPopupContent(_this, user)
   //console.log(_this.status)
+  if (_this.status.filter.focusUser) {
+      contentElement.addClass('has-focus-user')
+  }
   if (user.id === _this.status.userID) {
     contentElement.addClass('is-you')
-  }
-  else if (_this.status.filter.focusUser) {
-      contentElement.addClass('has-focus-user')
   }
 
   let options = {
@@ -57,7 +57,8 @@ tippyUtils._buildPopupContent = function (_this, user) {
     ${username}
     <button type="button" class="assist-submit ui compact mini positive button">${_this.$t('Assist')}</button>
     <button type="button" class="cancel-assist-submit ui compact mini negative button">${_this.$t('Cancel Assist')}</button>
-    <button type="button" class="only-you-submit ui compact mini positive button">${_this.$t('Focus yourself')}</button>
+    <button type="button" class="cancel-focus-submit ui compact mini negative button">${_this.$t('Cancel Focus')}</button>
+    <button type="button" class="only-you-submit ui compact mini positive button">${_this.$t('Focus Yourself')}</button>
 </div>`)
 
   element.find('.assist-submit,.only-you-submit').click(() => {
@@ -66,7 +67,7 @@ tippyUtils._buildPopupContent = function (_this, user) {
     _this.popup.hide()
   })
   
-  element.find('.cancel-assist-submit').click(() => {
+  element.find('.cancel-assist-submit,.cancel-focus-submit').click(() => {
     //console.log(user)
     _this.status.filter.focusUser = null
     _this.popup.hide()

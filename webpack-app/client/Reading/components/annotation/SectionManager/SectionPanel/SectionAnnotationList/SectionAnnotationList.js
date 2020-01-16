@@ -71,7 +71,7 @@ let SectionAnnotationList = {
         color: buttonStyle.color,
         'background-color': buttonStyle.backgroundColor,
       }
-    }
+    },
   },
   watch: {
     'page' (page) {
