@@ -50,6 +50,11 @@ class AnnotationFind {
       
       const doQuery = async () => {
         
+        if (focusUserID === user.primaryKeyValue) {
+          findUserID = user.primaryKeyValue
+          focusUserID = null
+        }
+        
         profiler.mark('doQuery')
         
         pick = TypeHelper.parseInt(pick)
@@ -219,7 +224,7 @@ class AnnotationFind {
         profiler.mark('seq_id', seq_id)
         
         // ------------------------
-        
+        //console.log({section_id})
         section_id = TypeHelper.parseInt(section_id)
         if (typeof(section_id) === 'number') {
           query.whereHas('anchorPositions', (builder) => {

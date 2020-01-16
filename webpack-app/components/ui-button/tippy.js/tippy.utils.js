@@ -12,6 +12,9 @@ tippyUtils.popupUser = function (_this, user, event) {
           && element.parents('.user-container:first').legnth > 0) {
     element = element.parents('.user-container:first')
   }
+  else if (element.parents('.tippy-popper:first').length > 0) {
+    return false
+  }
 
   let className = element.prop('className')
   //console.log(element.classList.value.indexOf('username'))
@@ -53,8 +56,10 @@ tippyUtils._buildPopupContent = function (_this, user) {
   let avatarURL = user.avatar_url
 
   let element = $(`<div class="user-popup">
-    <img src="${avatarURL}" class="user-avatar" />
-    ${username}
+    <span class="user-container">
+      <img src="${avatarURL}" class="user-avatar" />
+      ${username}
+    </span>
     <button type="button" class="assist-submit ui compact mini positive button">${_this.$t('Assist')}</button>
     <button type="button" class="cancel-assist-submit ui compact mini negative button">${_this.$t('Cancel Assist')}</button>
     <button type="button" class="cancel-focus-submit ui compact mini negative button">${_this.$t('Cancel Focus')}</button>
@@ -65,12 +70,24 @@ tippyUtils._buildPopupContent = function (_this, user) {
     //console.log(user)
     _this.status.filter.focusUser = user
     _this.popup.hide()
+    setTimeout(() => {
+      if (user.id === _this.status.userID) {
+        element.addClass('is-you')
+      }
+      element.addClass('has-focus-user')
+    }, 100)
   })
   
   element.find('.cancel-assist-submit,.cancel-focus-submit').click(() => {
     //console.log(user)
     _this.status.filter.focusUser = null
     _this.popup.hide()
+    
+    setTimeout(() => {
+      element.removeClass('has-focus-user')
+        .removeClass('is-you')
+    }, 100)
+      
   })
 
   return element

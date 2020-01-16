@@ -3,6 +3,7 @@
 //const HttpException = use('HttpException')
 const {HttpException} = use('@adonisjs/generic-exceptions') 
 const AnnotationModel = use('App/Models/Annotation')
+const AnchorPositionModel = use('App/Models/AnchorPosition')
 
 const Cache = use('Cache')
 const Config = use('Config')
@@ -43,7 +44,10 @@ class AnnotationSection {
         let section_id = 0
         //console.log(section_id)
         let o = []
-        while (true) {
+        
+        let  maxSectionID = await this._getMaxSectionID(webpage)
+        
+        while (section_id <= maxSectionID) {
           query.section_id = section_id
           if (isEnableCollaboration === false) {
             query.findUserID = user.primaryKeyValue
@@ -51,11 +55,12 @@ class AnnotationSection {
           let result = await this.buildSeqSectionAnnotation(webpage, user, query)
           //console.log('AAA')
           //console.log(result)
-          if (Array.isArray(result.annotations) === false) {
-            break
-          }
-          o.push(result)
+          
           section_id++
+          //if (Array.isArray(result.annotations) === false) {
+          //  break
+          //}
+          o.push(result)
           //break
         }
         return o
@@ -64,6 +69,13 @@ class AnnotationSection {
       profiler.finish()
       
       return output
+    }
+    
+    Model._getMaxSectionID = async function (webpage) {
+      return AnchorPositionModel
+              .query()
+              .where('webpage_id', webpage.primaryKeyValue)
+              .getMax('section_id')
     }
     
     Model.buildSeqSectionAnnotation = async function (webpage, user, query = {}) {
