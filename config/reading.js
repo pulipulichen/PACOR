@@ -43,7 +43,7 @@ module.exports = {
     allowLoginWithoutGrop: true,
   },
   
-  readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
+  readingProgresses: ['PreImaginary', 'IndividualReading', 'PostRecall'],
   
   /**
    * @argument {String}
@@ -78,7 +78,8 @@ module.exports = {
     },
     'IndividualReading': {
       instruction: '/2020exp/IndividualReading.html',
-      limitMinutes: 30,
+      limitMinutes: 3,
+      goToNextStepOnChecklistComplete: false,
 //      notification: {
 //        updateInterval: 30000
 //      },
@@ -88,7 +89,7 @@ module.exports = {
         defaultPermission: 'public',
       },
       highlightAnnotation: {
-        types: ['Clarified', 'Confused', 'MainIdea'],
+        types: ['MainIdea'],
       },
       sectionAnnotation: {
         types: ['SectionMainIdea'],
@@ -102,7 +103,7 @@ module.exports = {
 //        updateInterval: 30000
       },
       debug: {
-        countdownPause: true
+        countdownPause: false
       }
     },
     'CollaborativeReading': {
@@ -135,7 +136,7 @@ module.exports = {
         updateInterval: 30000
       },
       debug: {
-        countdownPause: true
+        countdownPause: false
       }
     },
     'PostRecall': {
