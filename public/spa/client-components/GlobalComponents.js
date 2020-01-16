@@ -201,7 +201,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Viewing All":"觀看所有讀者","Asist":"協助","View":"觀看","Please select a peer":"選擇一位您想要協助的同儕吧","Only Show Me":"只顯示您","Show All":"顯示所有同儕","Cancel":"待會再選"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Viewing All":"觀看所有讀者","Asist":"協助","View":"觀看","Please select a peer":"選擇一位您想要協助的讀者吧","Only Show Me":"只顯示您","Show All":"顯示所有讀者","Cancel":"待會再選"}}')
   delete Component.options._Ctor
 }
 
@@ -886,7 +886,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".avatar[data-v-408fd032] {\n  max-height: 2em;\n  width: auto;\n}\nimg[data-v-408fd032] {\n  display: inline-block !important;\n  border-radius: 0 !important;\n}\n.UserAvatar[data-v-408fd032] {\n  white-space: nowrap;\n  overflow: hidden;\n}\n", "",{"version":3,"sources":["UserAvatar.less?vue&type=style&index=0&id=408fd032&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,WAAW;AACb;AACA;EACE,gCAAgC;EAChC,2BAA2B;AAC7B;AACA;EACE,mBAAmB;EACnB,gBAAgB;AAClB","file":"UserAvatar.less?vue&type=style&index=0&id=408fd032&lang=less&scoped=true&","sourcesContent":[".avatar[data-v-408fd032] {\n  max-height: 2em;\n  width: auto;\n}\nimg[data-v-408fd032] {\n  display: inline-block !important;\n  border-radius: 0 !important;\n}\n.UserAvatar[data-v-408fd032] {\n  white-space: nowrap;\n  overflow: hidden;\n}\n"]}]);
+exports.push([module.i, ".avatar[data-v-408fd032] {\n  max-height: 2em;\n  width: auto;\n}\nimg[data-v-408fd032] {\n  display: inline-block !important;\n  border-radius: 0 !important;\n}\n.UserAvatar[data-v-408fd032] {\n  white-space: nowrap;\n  overflow: hidden;\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["UserAvatar.less?vue&type=style&index=0&id=408fd032&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,WAAW;AACb;AACA;EACE,gCAAgC;EAChC,2BAA2B;AAC7B;AACA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,qBAAqB;EACrB,sBAAsB;AACxB","file":"UserAvatar.less?vue&type=style&index=0&id=408fd032&lang=less&scoped=true&","sourcesContent":[".avatar[data-v-408fd032] {\n  max-height: 2em;\n  width: auto;\n}\nimg[data-v-408fd032] {\n  display: inline-block !important;\n  border-radius: 0 !important;\n}\n.UserAvatar[data-v-408fd032] {\n  white-space: nowrap;\n  overflow: hidden;\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
 
 
 /***/ }),
@@ -2245,6 +2245,24 @@ var render = function() {
             key: "actions",
             fn: function() {
               return [
+                _vm.isNotSelectAllUser
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "ui button submit-button",
+                        class: _vm.computedSubmitButtonClassList,
+                        on: { click: _vm.submitShowAll }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n            " +
+                            _vm._s(_vm.$t("Show All")) +
+                            "\r\n        "
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
                 _vm.isSelectAnotherUser
                   ? _c(
                       "div",
@@ -2294,13 +2312,7 @@ var render = function() {
                                 }
                               })
                             ]
-                          : [
-                              _vm._v(
-                                "\r\n            " +
-                                  _vm._s(_vm.$t("Show All")) +
-                                  "\r\n          "
-                              )
-                            ]
+                          : _vm._e()
                       ],
                       2
                     )
@@ -7497,7 +7509,7 @@ let UserChartPopup = {
         content: popup[0],
         trigger: 'click',
         interactive: true,
-        boundary: this.boundary
+        boundary: this.boundary[0]
       }).show()
     },
     onPopupClick () {
@@ -8325,6 +8337,12 @@ let UserSelector = {
         }
         return (this.filterData.selectUser.id !== this.status.filter.focusUser.id)
       }
+      else if (!this.filterData.selectUser) {
+        return false
+      }
+    },
+    isNotSelectAllUser () {
+      return (this.status.filter.focusUser)
     },
     computedSubmitButtonClassList () {
       if (!this.peerIsMe && this.filterData.selectUser) {
@@ -8368,6 +8386,11 @@ let UserSelector = {
       }
       //console.log(this.filterData.selectUser)
       
+      this.$refs.Modal.hide()
+    },
+    submitShowAll () {
+      this.filterData.selectUser = null
+      this.status.filter.focusUser = null
       this.$refs.Modal.hide()
     }
   } // methods

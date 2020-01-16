@@ -28961,22 +28961,30 @@ __webpack_require__.r(__webpack_exports__);
           bgBottomWidth = (bgScrollTop + actionElement.innerHeight()) > 0 
               ? $window.innerHeight() - (actionElement.innerHeight() + bgScrollTop) : $window.innerHeight();
 
-          //this.layout.bg.show()
-          return _this.layout.bg.animate({
-            width: actionElement.innerWidth(),
-            height: actionElement.innerHeight() + (bgScrollTop < 0 ? bgScrollTop : 0),
+          let element = actionElement[0]
+          let animateOption = {
+            width: element.clientWidth,
+            height: element.clientHeight + (bgScrollTop < 0 ? bgScrollTop : 0),
             borderTopWidth: bgTopWidth,
-            borderRightWidth: $window.innerWidth() - actionElement.offset().left - actionElement.innerWidth() + 1,
+            borderRightWidth: $window.innerWidth() - actionElement.offset().left - element.clientWidth + 1,
             borderBottomWidth: bgBottomWidth,
             borderLeftWidth: actionElement.offset().left
-          }, (function() {
-            return function() {
-              setupGlowPopup(_this, action)
-              _this.layout.container.removeClass('disabled')
-              //scrollIntoView = false
-              callback()
-            };
-          })(this));
+          }
+          
+          //console.log(animateOption, actionElement[0].clientHeight, scrollIntoView)
+
+          //this.layout.bg.show()
+          //setTimeout(() => {
+            return _this.layout.bg.animate(animateOption, (function() {
+              return function() {
+                setupGlowPopup(_this, action)
+                _this.layout.container.removeClass('disabled')
+                //scrollIntoView = false
+                callback()
+              };
+            })(this));
+          //}, 0)
+            
         //}, 500)
       }
       

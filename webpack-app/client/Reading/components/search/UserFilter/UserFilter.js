@@ -76,6 +76,12 @@ let UserSelector = {
         }
         return (this.filterData.selectUser.id !== this.status.filter.focusUser.id)
       }
+      else if (!this.filterData.selectUser) {
+        return false
+      }
+    },
+    isNotSelectAllUser () {
+      return (this.status.filter.focusUser)
     },
     computedSubmitButtonClassList () {
       if (!this.peerIsMe && this.filterData.selectUser) {
@@ -119,6 +125,11 @@ let UserSelector = {
       }
       //console.log(this.filterData.selectUser)
       
+      this.$refs.Modal.hide()
+    },
+    submitShowAll () {
+      this.filterData.selectUser = null
+      this.status.filter.focusUser = null
       this.$refs.Modal.hide()
     }
   } // methods

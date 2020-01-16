@@ -64,6 +64,13 @@
       </template>
       <template v-slot:actions>
         <div class="ui button submit-button"
+             v-if="isNotSelectAllUser"
+             v-bind:class="computedSubmitButtonClassList"
+             v-on:click="submitShowAll">
+            {{ $t('Show All') }}
+        </div>
+        
+        <div class="ui button submit-button"
              v-if="isSelectAnotherUser"
              v-bind:class="computedSubmitButtonClassList"
              v-on:click="submit">
@@ -86,10 +93,6 @@
                  v-bind:title="selectUsername"
                  class="user-avatar" />
           </template>
-          <template v-else>
-            {{ $t('Show All') }}
-          </template>
-          
         </div>
       </template>
   </modal>

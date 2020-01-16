@@ -135,7 +135,7 @@ let UserChartPopup = {
         content: popup[0],
         trigger: 'click',
         interactive: true,
-        boundary: this.boundary
+        boundary: this.boundary[0]
       }).show()
     },
     onPopupClick () {
