@@ -68,7 +68,8 @@ module.exports = {
       instruction: '/2020exp/PostRecall.html',
       minWords: 10,
       //limitMinutes: 5,
-      limitMinutes: 0.03,
+      limitMinutes: 0.5,
+      countdownAtStart: true,
     },
     /**
      * include 'individual-reading' and 'collaborative-reading'
@@ -78,7 +79,7 @@ module.exports = {
     },
     'IndividualReading': {
       instruction: '/2020exp/IndividualReading.html',
-      limitMinutes: 3,
+      limitMinutes: 30,
       goToNextStepOnChecklistComplete: false,
 //      notification: {
 //        updateInterval: 30000
@@ -89,7 +90,7 @@ module.exports = {
         defaultPermission: 'public',
       },
       highlightAnnotation: {
-        types: ['MainIdea'],
+        types: ['Clarified', 'Confused', 'MainIdea'],
       },
       sectionAnnotation: {
         types: ['SectionMainIdea'],
@@ -144,6 +145,7 @@ module.exports = {
       minWords: 10,
       //limitMinutes: 5
       limitMinutes: 0.03,
+      countdownAtStart: true,
     },
     'FreeReading': {
       permission: {

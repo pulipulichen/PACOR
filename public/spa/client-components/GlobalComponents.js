@@ -10515,7 +10515,6 @@ if (debugDisable === true) {
   console.log('@test debugDisable')
 }
 
-
 let CountdownButton = {
   props: ['locale', 'lib', 'countdownSec'
     , 'minWordCount', 'maxWordCount', 'text', 'ignoreWordCount'

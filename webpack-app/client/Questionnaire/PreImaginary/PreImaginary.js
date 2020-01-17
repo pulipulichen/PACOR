@@ -104,6 +104,8 @@ let PreImaginary = {
   mounted: async function () {
     //throw new Error('test 45454545454545454')
     
+    //console.log(this.lib.auth.currentStepConfig.countdownAtStart)
+
     this.initLog()
     
     while (!this.$refs.Modal) {
@@ -112,6 +114,12 @@ let PreImaginary = {
     
     this.$refs.Modal.show(() => {
       this.status.progress.initComponents = true
+      
+      if (this.lib.auth.currentStepConfig.countdownAtStart === true) {
+        setTimeout(() => {
+          this.persist()
+        }, 1000)
+      }
     })
   },
   methods: {
@@ -123,7 +131,9 @@ let PreImaginary = {
           this.log = JSON.parse(cache)
           this.answer = this.log.answer
           
-          this.remainingSeconds = this.limitMinutes * 60 - Math.round((this.lib.DayJSHelper.time() - this.log.start_timestamp) / 1000)
+          let start_timestamp = this.log.start_timestamp
+          start_timestamp = parseInt(start_timestamp, 10)
+          this.remainingSeconds = this.limitMinutes * 60 - Math.round((this.lib.DayJSHelper.time() - start_timestamp) / 1000)
           if (this.remainingSeconds <= 0) {
             this.isTimeUp = true
           }
@@ -134,6 +144,7 @@ let PreImaginary = {
     },
     persist: function () {
       if (typeof(this.log) === 'object') {
+        //console.log(this.log)
         if (typeof(this.log.start_timestamp) !== 'number') {
           this.log.start_timestamp = this.lib.DayJSHelper.time()
           this.remainingSeconds = this.limitMinutes * 60
