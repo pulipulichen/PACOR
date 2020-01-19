@@ -19,9 +19,10 @@ const Sleep = use('Sleep')
 const Cache = use('Cache')
 
 
-const TestDomainAdminScript = use('./scripts/TestDomainAdminScript')
-const WebpageUserGroupScript = use('./scripts/WebpageUserGroupScript')
-const AnnotationInteractScript = use('./scripts/AnnotationInteractScript')
+const TestDomainAdminScript = use('./scripts/TestDomainAdminScript.js')
+const WebpageUserGroupScript = use('./scripts/WebpageUserGroupScript.js')
+const AnnotationInteractScript = use('./scripts/AnnotationInteractScript.js')
+const Exp2020Script = use('./2020exp/Exp2020Script.js')
 
 class UserSeeder {
   async run () {
@@ -33,6 +34,8 @@ class UserSeeder {
     await TestDomainAdminScript.main()
     await WebpageUserGroupScript.main()
     await AnnotationInteractScript.main()
+    
+    await Exp2020Script.main()
     
     console.log('\n' + __filename + ' is finished.')
     console.log('=========================================')
