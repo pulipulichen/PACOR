@@ -1,4 +1,5 @@
 import ReadingProgressIndicator from './ReadingProgressIndicator/ReadingProgressIndicator.vue'
+import SimpleCountdownTimer from './SimpleCountdownTimer/SimpleCountdownTimer.vue'
 import Media from 'vue-media'
 import $ from 'jquery'
 
@@ -17,7 +18,8 @@ let CompactNavigation = {
   },
   components: {
     'media': Media,
-    'reading-progress-indicator': ReadingProgressIndicator
+    'reading-progress-indicator': ReadingProgressIndicator,
+    'simple-countdown-timer': SimpleCountdownTimer
   },
   computed: {
     maxWidth: function () {
@@ -52,6 +54,7 @@ let CompactNavigation = {
   mounted() {
     this.initCompactMode()
     this.initPlaceholder()
+    this.setupTutorial()
     
     /*
     setTimeout(() => {

@@ -68,7 +68,7 @@ module.exports = {
       instruction: '/2020exp/PostRecall.html',
       minWords: 10,
       //limitMinutes: 5,
-      limitMinutes: 0.5,
+      limitMinutes: 0.03,
       countdownAtStart: true,
     },
     /**

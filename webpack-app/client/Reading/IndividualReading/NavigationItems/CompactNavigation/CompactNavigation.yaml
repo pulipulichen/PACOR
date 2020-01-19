@@ -1,6 +1,4 @@
 en:
-  TEST_MESSAGE: Test Message
   
 zh-TW:
-  # 這是註解
-  TEST_MESSAGE: 測試訊息
+  When countdown to 0, you will go to next step.: 當剩餘時間倒數到0的時候，您將會前往下一個閱讀階段。

@@ -27217,16 +27217,18 @@ __webpack_require__.r(__webpack_exports__);
       order: 51
     })
 
-    this.lib.TutorialManager.addAction({
-      //backgroundFadeOut: true,
-      element: () => {
-        let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:last`)
-        return panel
-      },
-      content: this.$t(`When you finish all section checklists, you will go to next step.`),
-      scroll: 'start',
-      order: 52
-    })
+    if (this.lib.auth.currentStepConfig.goToNextStepOnChecklistComplete === true) {
+      this.lib.TutorialManager.addAction({
+        //backgroundFadeOut: true,
+        element: () => {
+          let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:last`)
+          return panel
+        },
+        content: this.$t(`When you finish all section checklists, you will go to next step.`),
+        scroll: 'start',
+        order: 52
+      })
+    }
   }
 });
 

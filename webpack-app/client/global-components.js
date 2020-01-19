@@ -65,15 +65,15 @@ Vue.component('checkbox-toggle', () => {
 
 //import CountdownButton from './../components/ui-button/CountdownButton/CountdownButton.vue'
 //Vue.component('countdown-button', CountdownButton)
-Vue.component('countdown-button', () => {
-  return import(/* webpackChunkName: "client-components/GlobalComponents" */ './../components/ui-button/CountdownButton/CountdownButton.vue')
-})
+//Vue.component('countdown-button', () => {
+//  return import(/* webpackChunkName: "client-components/GlobalComponents" */ './../components/ui-button/CountdownButton/CountdownButton.vue')
+//})
 
 //import SimpleCountdownTimer from './../components/reading-progress/SimpleCountdownTimer/SimpleCountdownTimer.vue'
 //Vue.component('simple-countdown-timer', SimpleCountdownTimer)
-Vue.component('simple-countdown-timer', () => {
-  return import(/* webpackChunkName: "client-components/GlobalComponents" */ './../components/reading-progress/SimpleCountdownTimer/SimpleCountdownTimer.vue')
-})
+//Vue.component('simple-countdown-timer', () => {
+//  return import(/* webpackChunkName: "client-components/GlobalComponents" */ './../components/reading-progress/SimpleCountdownTimer/SimpleCountdownTimer.vue')
+//})
 
 //import DigitalCountdownTimer from './../components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.vue'
 //Vue.component('digital-countdown-timer', DigitalCountdownTimer)

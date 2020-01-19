@@ -1,3 +1,5 @@
+import CountdownButton from './../components/CountdownButton/CountdownButton.vue'
+
 let PreImaginary = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -29,8 +31,9 @@ let PreImaginary = {
     
     return data
   },
-  //components: {
-  //},
+  components: {
+    'countdown-button': CountdownButton
+  },
   computed: {
     buttonText: function () {
       //return this.$t('OK')

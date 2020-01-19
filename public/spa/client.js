@@ -892,15 +892,15 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('checkbox-toggle', () => {
 
 //import CountdownButton from './../components/ui-button/CountdownButton/CountdownButton.vue'
 //Vue.component('countdown-button', CountdownButton)
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('countdown-button', () => {
-  return Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors~client-components/GlobalComponents"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.bind(null, /*! ./../components/ui-button/CountdownButton/CountdownButton.vue */ "./webpack-app/components/ui-button/CountdownButton/CountdownButton.vue"))
-})
+//Vue.component('countdown-button', () => {
+//  return import(/* webpackChunkName: "client-components/GlobalComponents" */ './../components/ui-button/CountdownButton/CountdownButton.vue')
+//})
 
 //import SimpleCountdownTimer from './../components/reading-progress/SimpleCountdownTimer/SimpleCountdownTimer.vue'
 //Vue.component('simple-countdown-timer', SimpleCountdownTimer)
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('simple-countdown-timer', () => {
-  return Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors~client-components/GlobalComponents"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.bind(null, /*! ./../components/reading-progress/SimpleCountdownTimer/SimpleCountdownTimer.vue */ "./webpack-app/components/reading-progress/SimpleCountdownTimer/SimpleCountdownTimer.vue"))
-})
+//Vue.component('simple-countdown-timer', () => {
+//  return import(/* webpackChunkName: "client-components/GlobalComponents" */ './../components/reading-progress/SimpleCountdownTimer/SimpleCountdownTimer.vue')
+//})
 
 //import DigitalCountdownTimer from './../components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.vue'
 //Vue.component('digital-countdown-timer', DigitalCountdownTimer)

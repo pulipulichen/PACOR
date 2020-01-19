@@ -45,15 +45,17 @@ export default function (SectionManager) {
       order: 51
     })
 
-    this.lib.TutorialManager.addAction({
-      //backgroundFadeOut: true,
-      element: () => {
-        let panel = $(`[data-section-id].SectionPanel:visible:last`)
-        return panel
-      },
-      content: this.$t(`When you finish all section checklists, you will go to next step.`),
-      scroll: 'start',
-      order: 52
-    })
+    if (this.lib.auth.currentStepConfig.goToNextStepOnChecklistComplete === true) {
+      this.lib.TutorialManager.addAction({
+        //backgroundFadeOut: true,
+        element: () => {
+          let panel = $(`[data-section-id].SectionPanel:visible:last`)
+          return panel
+        },
+        content: this.$t(`When you finish all section checklists, you will go to next step.`),
+        scroll: 'start',
+        order: 52
+      })
+    }
   }
 }

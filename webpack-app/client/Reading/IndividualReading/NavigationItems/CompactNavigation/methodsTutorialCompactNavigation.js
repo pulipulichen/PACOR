@@ -1,12 +1,15 @@
 export default function (CompactNavigation) {
   CompactNavigation.methods.setupTutorial = function () {
-    // 不，暫時好像還不需要啊
-    
-//    this.lib.TutorialManager.addAction({
-//      element: () => {
-//        
-//      },
-//      content: this.$t(``)
-//    })
+    if (this.lib.auth.currentStepConfig.goToNextStepOnChecklistComplete === false) {
+      this.lib.TutorialManager.addAction({
+        //backgroundFadeOut: true,
+        element: () => {
+          return this.$refs.SimpleCountdownTimer
+        },
+        content: this.$t(`When countdown to 0, you will go to next step.`),
+        //scroll: 'start',
+        order: 53
+      })
+    }
   }
 }
