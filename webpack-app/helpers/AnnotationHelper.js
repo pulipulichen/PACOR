@@ -119,7 +119,7 @@ let AnnotationHelper = {
     }
     
     if (annotation.id && !annotation.updated_at_unixms) {
-      annotation.updated_at_unixms = (new Date()).getTime()
+      annotation.updated_at_unixms = this.lib.DayJSHelper.time()
     }
   },
   isPublicSectionAnnotation (annotation) {

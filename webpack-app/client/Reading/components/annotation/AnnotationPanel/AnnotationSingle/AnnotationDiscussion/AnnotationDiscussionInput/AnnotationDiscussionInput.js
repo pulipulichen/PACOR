@@ -100,7 +100,7 @@ let AnnotationDiscussionInput = {
       }
       else {
         result = {
-          id: (new Date()).getTime()
+          id: this.lib.DayJSHelper.time()
         }
       }
       

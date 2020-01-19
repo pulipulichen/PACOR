@@ -15,7 +15,8 @@ class UserReadingProgressAction {
     Model.prototype.startReadingProgress = async function (webpage, stepName) {
       let profiler = new Profiler(1, 'User/UserReadingProgressAction.startReadingProgress()', this, stepName)
       
-      let time = (new Date()).getTime()
+      let d = (new Date())
+      let time = d.getTime() + (d.getTimezoneOffset() * 1000)
       //console.log('startReadingProgress', 1, dayjs().format('mm:ss'), ExceptionHelper.getStackTraceString())
       if (typeof (stepName) !== 'string') {
         //console.log('startReadingProgress', 2, dayjs().format('mm:ss'))
@@ -98,7 +99,8 @@ class UserReadingProgressAction {
     Model.prototype.endReadingProgress = async function (webpage, stepName) {
       let profiler = new Profiler(0, 'User/UserReadingProgressAction.endReadingProgress()', this, stepName)
       
-      let time = (new Date()).getTime()
+      let d = (new Date())
+      let time = d.getTime() + (d.getTimezoneOffset() * 1000)
 
       let step
       if (typeof (stepName) === 'string') {

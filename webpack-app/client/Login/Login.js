@@ -173,7 +173,10 @@ let Login = {
       this.password = ''
     },
     createMockupUsername () {
-      this.username = 'Anon.' + (new Date()).getTime().toString(36)
+      let d = (new Date())
+      let currentMS = d.getTime() + (d.getTimezoneOffset() * 1000)
+      
+      this.username = 'Anon.' + currentMS.toString(36)
       this.password = ''
       this.adminMode = false
     },

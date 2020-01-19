@@ -31,7 +31,8 @@ class UserInteract {
         //console.log(logs)
         
         let logsMap = {}
-        let currentTime = (new Date()).getTime()
+        let d = (new Date())
+        let currentTime = d.getTime() + (d.getTimezoneOffset() * 1000)
         logs.forEach(row => {
           logsMap[row.user_id] = currentTime - row.last_unixms
         })

@@ -9268,7 +9268,8 @@ let lastTime
 let checkActed = function () {
   if (acted === false) {
     acted = true
-    lastTime = (new Date()).getTime()
+    let d = (new Date())
+    lastTime = d.getTime() + (d.getTimezoneOffset() * 1000)
   }
 }
 
@@ -9302,7 +9303,9 @@ let ActivityTimer = {
   },
   methods: {
     toNow: function () {
-      return Math.round(((new Date()).getTime() - lastTime) / 1000)
+      let d = (new Date())
+      let currentMS = d.getTime() + (d.getTimezoneOffset() * 1000)
+      return Math.round((currentMS - lastTime) / 1000)
     },
     send: async function () {
       if (this.enable === false) {

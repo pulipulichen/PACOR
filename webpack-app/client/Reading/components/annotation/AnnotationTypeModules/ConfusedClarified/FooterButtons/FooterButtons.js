@@ -41,7 +41,7 @@ let FooterButtons = {
       this.$parent.setWaitSubmit()
       
       this.annotation.properties = {
-        question_submitted_at: (new Date()).getTime()
+        question_submitted_at: this.lib.DayJSHelper.time()
       }
       
       this.lib.AnnotationHelper.note(this.annotation, 'question', this.$parent.question)
@@ -110,7 +110,7 @@ let FooterButtons = {
     submitAnswer: async function () {
       this.$parent.setWaitSubmit()
       let type = 'Clarified'
-      this.annotation.properties.answer_submitted_at = (new Date()).getTime()
+      this.annotation.properties.answer_submitted_at = this.lib.DayJSHelper.time()
       
       this.lib.AnnotationHelper.note(this.annotation, 'question', this.$parent.question)
       this.lib.AnnotationHelper.note(this.annotation, 'answer', this.$parent.answer)

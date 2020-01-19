@@ -283,7 +283,8 @@ class UserReadingProgressConfig {
         limitMunites = config.readingProgressModules['reading'].totalLimitMinutes
       }
       
-      let nowMS = (new Date()).getTime()
+      let d = (new Date())
+      let nowMS = d.getTime() + (d.getTimezoneOffset() * 1000)
       let limitMS = limitMunites * 60 * 1000
       let remainingMS = limitMS - (nowMS - start_time)
       //console.log(limitMS, start_time, nowMS)

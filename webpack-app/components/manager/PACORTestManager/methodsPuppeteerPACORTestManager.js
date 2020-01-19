@@ -16,7 +16,7 @@ export default function (PACORTestManager) {
     }
     
     let exec = async (ele) => {
-      let tmpClassName = 'PACORTestManagerInteractions-' + (new Date()).getTime()
+      let tmpClassName = 'PACORTestManagerInteractions-' + this.lib.DayJSHelper.time()
       ele.addClass(tmpClassName)
       
       await this.sleep(100)

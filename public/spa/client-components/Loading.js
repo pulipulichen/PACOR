@@ -1375,7 +1375,11 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     let limit_ms = limit_minutes * 60 * 1000
-    let remaining_ms = limit_ms - ( (new Date()).getTime() -  start_timestamp)
+    
+    let d = (new Date())
+    let currentMS = d.getTime() + (d.getTimezoneOffset() * 1000)
+    
+    let remaining_ms = limit_ms - ( currentMS -  start_timestamp)
     if (remaining_ms < 0) {
       return 0
     }
@@ -1613,7 +1617,10 @@ let Login = {
       this.password = ''
     },
     createMockupUsername () {
-      this.username = 'Anon.' + (new Date()).getTime().toString(36)
+      let d = (new Date())
+      let currentMS = d.getTime() + (d.getTimezoneOffset() * 1000)
+      
+      this.username = 'Anon.' + currentMS.toString(36)
       this.password = ''
       this.adminMode = false
     },
@@ -2488,7 +2495,7 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     let exec = async (ele) => {
-      let tmpClassName = 'PACORTestManagerInteractions-' + (new Date()).getTime()
+      let tmpClassName = 'PACORTestManagerInteractions-' + this.lib.DayJSHelper.time()
       ele.addClass(tmpClassName)
       
       await this.sleep(100)
@@ -6334,7 +6341,7 @@ let AnnotationHelper = {
     }
     
     if (annotation.id && !annotation.updated_at_unixms) {
-      annotation.updated_at_unixms = (new Date()).getTime()
+      annotation.updated_at_unixms = this.lib.DayJSHelper.time()
     }
   },
   isPublicSectionAnnotation (annotation) {

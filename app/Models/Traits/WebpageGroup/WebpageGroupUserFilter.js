@@ -35,7 +35,8 @@ class WebpageGroupUserFilter {
         let admins = []
 
         // -----------------
-        let currentTime = (new Date()).getTime()
+        let d = (new Date())
+        let currentTime = d.getTime() + (d.getTimezoneOffset() * 1000)
 
         for (let i = 0; i < users.size(); i++) {
           let u = users.nth(i)

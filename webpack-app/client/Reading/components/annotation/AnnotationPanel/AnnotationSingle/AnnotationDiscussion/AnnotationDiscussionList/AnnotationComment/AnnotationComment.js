@@ -21,7 +21,7 @@ let AnnotationComment = {
     },
     displayTime () {
       if (typeof(this.comment.updated_at_unixms) !== 'number') {
-        this.comment.updated_at_unixms = (new Date()).getTime()
+        this.comment.updated_at_unixms = this.lib.DayJSHelper.time()
       }
       return this.lib.DayJSHelper.fromNow(this.comment.updated_at_unixms)
     },

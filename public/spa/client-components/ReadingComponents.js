@@ -10197,7 +10197,7 @@ let AnnotationDiscussionInput = {
       }
       else {
         result = {
-          id: (new Date()).getTime()
+          id: this.lib.DayJSHelper.time()
         }
       }
       
@@ -10403,7 +10403,7 @@ let AnnotationComment = {
     },
     displayTime () {
       if (typeof(this.comment.updated_at_unixms) !== 'number') {
-        this.comment.updated_at_unixms = (new Date()).getTime()
+        this.comment.updated_at_unixms = this.lib.DayJSHelper.time()
       }
       return this.lib.DayJSHelper.fromNow(this.comment.updated_at_unixms)
     },
@@ -12896,7 +12896,7 @@ let FooterButtons = {
       this.$parent.setWaitSubmit()
       
       this.annotation.properties = {
-        question_submitted_at: (new Date()).getTime()
+        question_submitted_at: this.lib.DayJSHelper.time()
       }
       
       this.lib.AnnotationHelper.note(this.annotation, 'question', this.$parent.question)
@@ -12965,7 +12965,7 @@ let FooterButtons = {
     submitAnswer: async function () {
       this.$parent.setWaitSubmit()
       let type = 'Clarified'
-      this.annotation.properties.answer_submitted_at = (new Date()).getTime()
+      this.annotation.properties.answer_submitted_at = this.lib.DayJSHelper.time()
       
       this.lib.AnnotationHelper.note(this.annotation, 'question', this.$parent.question)
       this.lib.AnnotationHelper.note(this.annotation, 'answer', this.$parent.answer)
