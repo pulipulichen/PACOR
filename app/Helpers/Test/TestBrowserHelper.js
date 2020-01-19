@@ -79,6 +79,12 @@ let TestBrowserHelper = function (title, url, config, options) {
       headless = true
     }
   }
+  
+  if (threads === 1) {
+    displayDevTools = true
+    console.log('Force enable dev tools in 1 thread test')
+  }
+  
   setTraitBrowser(trait, headless)
   logManager.init(threads)
   let webpageGroup
