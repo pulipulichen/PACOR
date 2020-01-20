@@ -13,7 +13,7 @@ zh-TW:
   Images: 圖片
   Article Counting: 文章統計
   
-  PreImaginary Instruction: 自由預測說明
+  PreImaginary Instruction: 「閱讀前的預測」說明
   Please try to predict what this article might write.: 請預測這篇文章可能會寫什麼。
   'This article is titled "{0}".': '這篇文章的標題是「{0}」。'
   "This article includes {0} headings:": "這篇文章包含了以下子標題："
@@ -22,8 +22,8 @@ zh-TW:
   The time limit is {0} minutes and the countdown starts when you start typing.: 限時{0}分鐘，開始輸入文字時就會開始倒數。
   The time limit is {0} minutes and the countdown starts now.: 限時{0}分鐘，現在開始倒數即時。
   
-  PostRecall Instruction: 自由回憶說明
-  Please recall the content of this article.: 請回憶這篇文章的內容。
+  PostRecall Instruction: 「閱讀後的回想」說明
+  Please recall the content of this article.: 請回想這篇文章的內容。
   Don't worry about punctuation or typos, just write down what you read.: 請不用考慮標點符號或錯字，把您讀到的內容寫下來即可。
   
   Copy HTML: 複製HTML

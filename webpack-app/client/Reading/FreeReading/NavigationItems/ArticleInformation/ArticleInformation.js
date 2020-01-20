@@ -26,7 +26,7 @@ let ArticleInformation = {
     },
     preImaginaryConfig () {
       return this.readingProgressModules.PreImaginary
-    }
+    },
   },
   methods: {
     show () {

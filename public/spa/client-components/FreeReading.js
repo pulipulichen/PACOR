@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Total {0} images":"Total {0} image | Total {0} images","Total {0} headings":"Total {0} heading | Total {0} headings","This article is titled \\"{0}\\".":"This article is titled \\"{0}\\".","This article includes {0} headings:":"This article includes {0} heading: | This article includes {0} headings:","This article includes {0} images:":"This article includes {0} image: | This article includes {0} images:"},"zh-TW":{"Article Information":"文章資訊","Total {0} images":"總共{0}張圖片","Total {0} headings":"總共{0}個標題","Headings":"標題","Images":"圖片","Article Counting":"文章統計","PreImaginary Instruction":"自由預測說明","Please try to predict what this article might write.":"請預測這篇文章可能會寫什麼。","This article is titled \\"{0}\\".":"這篇文章的標題是「{0}」。","This article includes {0} headings:":"這篇文章包含了以下子標題：","This article includes {0} images:":"這篇文章包含了以下圖片：","Don\u0027t worry about punctuation or typos, just write down what you predict of.":"請不用考慮標點符號或錯字，把您想到的事情寫下來即可。","The time limit is {0} minutes and the countdown starts when you start typing.":"限時{0}分鐘，開始輸入文字時就會開始倒數。","The time limit is {0} minutes and the countdown starts now.":"限時{0}分鐘，現在開始倒數即時。","PostRecall Instruction":"自由回憶說明","Please recall the content of this article.":"請回憶這篇文章的內容。","Don\u0027t worry about punctuation or typos, just write down what you read.":"請不用考慮標點符號或錯字，把您讀到的內容寫下來即可。","Copy HTML":"複製HTML"}}')
+  Component.options.__i18n.push('{"en":{"Total {0} images":"Total {0} image | Total {0} images","Total {0} headings":"Total {0} heading | Total {0} headings","This article is titled \\"{0}\\".":"This article is titled \\"{0}\\".","This article includes {0} headings:":"This article includes {0} heading: | This article includes {0} headings:","This article includes {0} images:":"This article includes {0} image: | This article includes {0} images:"},"zh-TW":{"Article Information":"文章資訊","Total {0} images":"總共{0}張圖片","Total {0} headings":"總共{0}個標題","Headings":"標題","Images":"圖片","Article Counting":"文章統計","PreImaginary Instruction":"「閱讀前的預測」說明","Please try to predict what this article might write.":"請預測這篇文章可能會寫什麼。","This article is titled \\"{0}\\".":"這篇文章的標題是「{0}」。","This article includes {0} headings:":"這篇文章包含了以下子標題：","This article includes {0} images:":"這篇文章包含了以下圖片：","Don\u0027t worry about punctuation or typos, just write down what you predict of.":"請不用考慮標點符號或錯字，把您想到的事情寫下來即可。","The time limit is {0} minutes and the countdown starts when you start typing.":"限時{0}分鐘，開始輸入文字時就會開始倒數。","The time limit is {0} minutes and the countdown starts now.":"限時{0}分鐘，現在開始倒數即時。","PostRecall Instruction":"「閱讀後的回想」說明","Please recall the content of this article.":"請回想這篇文章的內容。","Don\u0027t worry about punctuation or typos, just write down what you read.":"請不用考慮標點符號或錯字，把您讀到的內容寫下來即可。","Copy HTML":"複製HTML"}}')
   delete Component.options._Ctor
 }
 
@@ -1838,7 +1838,7 @@ let ArticleInformation = {
     },
     preImaginaryConfig () {
       return this.readingProgressModules.PreImaginary
-    }
+    },
   },
   methods: {
     show () {

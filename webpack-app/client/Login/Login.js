@@ -85,6 +85,9 @@ let Login = {
             && this.status.readingConfig.login.message ) {
         return this.status.readingConfig.login.message
       }
+    },
+    logoURL () {
+      return this.config.baseURL + this.status.readingConfig.login.logo
     }
   },
   components: {

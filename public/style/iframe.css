@@ -23,7 +23,7 @@ ul,ol {
   padding-bottom: 1rem;
 }
 
-.image-description-table td.image img {
+img {
   width: 100%;
   max-width: 400px;
   height: auto;

@@ -185,7 +185,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Hint":"顯示說明"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Hint":"顯示說明","Highlight text you don\u0027t understand":"標註您不懂的文字","Write the answer to \\"questions\\"":"記錄「問題」的解答","Highlight key keywords or concepts":"標亮重點關鍵字或概念","Highlight keywords or concepts in this section":"標亮小節中的關鍵字或概念"}}')
   delete Component.options._Ctor
 }
 
@@ -2688,7 +2688,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "summary" }, [
-        _vm._v("\r\n    " + _vm._s(_vm.instruction.summary) + "\r\n  ")
+        _vm._v("\r\n    " + _vm._s(_vm.$t(_vm.instruction.summary)) + "\r\n  ")
       ]),
       _vm._v(" "),
       _c("modal", {

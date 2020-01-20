@@ -29,6 +29,7 @@ module.exports = {
   },
   
   login: {
+    logo: '/imgs/pacor.svg',
     /**
      * @argument {String} 
      * 
@@ -213,7 +214,7 @@ module.exports = {
     'Confused': {
       'addable': true,
       'instruction': {
-        'summary': '你有什麼不懂的地方？',
+        'summary': "Highlight text you don't understand",
         'url': '/annotation-instruction/ConfusedClarified.html'
       },
       "style": {
@@ -233,7 +234,7 @@ module.exports = {
     'Clarified': {
       'addable': false,
       'instruction': {
-        'summary': '你有什麼不懂的地方？',
+        'summary': 'Write the answer to "questions"',
         'url': '/annotation-instruction/ConfusedClarified.html'
       },
       "style": {
@@ -257,7 +258,7 @@ module.exports = {
       'minWords': 3,
       'placeholder': 'Why do you think it is a main idea?',
       'instruction': {
-        'summary': '您覺得哪裡是重點？',
+        'summary': 'Highlight key keywords or concepts',
         'url': '/annotation-instruction/MainIdea.html'
       },
       "style": {
@@ -280,7 +281,7 @@ module.exports = {
       'minWords': 3,
       'placeholder': 'Why do you think it is a main idea?',
       'instruction': {
-        'summary': '您覺得哪裡是重點？',
+        'summary': 'Highlight keywords or concepts in this section',
         'url': '/annotation-instruction/SectionMainIdea.html'
       },
       "style": {

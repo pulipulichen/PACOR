@@ -2,7 +2,5 @@
 
 請用iPad尺寸截圖
 
-Confused.png
-<img src="ClarifiedQuestionTemplate.png" /> [已釐清，問題範本的圖片]
-Clarified.png
-<img src="ClarifiedResourceSearch.png" /> [已釐清工具的圖片，畫框]
+我不知道什麼是「最怕空氣突然安靜」？
+用於吐槽朋友間、朋友圈的尷尬情況。

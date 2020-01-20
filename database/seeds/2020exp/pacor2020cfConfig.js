@@ -26,5 +26,13 @@ module.exports = {
       instruction: '/2020exp/PostRecall-rice.html',
       limitMinutes: 5,
     }
+  },
+  annotationTypeModules: {
+    Confused: {
+      url: '/annotation-instruction/ConfusedClarified-IndividualReading.html'
+    },
+    Clarified: {
+      url: '/annotation-instruction/ConfusedClarified-IndividualReading.html'
+    }
   }
 }

@@ -278,9 +278,7 @@ var render = function() {
                               [
                                 _c("img", {
                                   staticClass: "ui image",
-                                  attrs: {
-                                    src: _vm.config.baseURL + "/imgs/pacor.svg"
-                                  },
+                                  attrs: { src: _vm.logoURL },
                                   on: { dblclick: _vm.createMockupUsername }
                                 })
                               ]
@@ -1529,6 +1527,9 @@ let Login = {
             && this.status.readingConfig.login.message ) {
         return this.status.readingConfig.login.message
       }
+    },
+    logoURL () {
+      return this.config.baseURL + this.status.readingConfig.login.logo
     }
   },
   components: {
