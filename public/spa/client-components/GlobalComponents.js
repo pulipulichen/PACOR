@@ -3518,7 +3518,7 @@ var render = function() {
                   _c(
                     "a",
                     {
-                      staticClass: "icon item",
+                      staticClass: "icon item show-side-menu-item",
                       on: { click: _vm.showSideMenu }
                     },
                     [_c("i", { staticClass: "ellipsis vertical icon" })]
@@ -3557,7 +3557,7 @@ var render = function() {
                   ? _c(
                       "a",
                       {
-                        staticClass: "icon item",
+                        staticClass: "icon item show-side-menu-item",
                         on: { click: _vm.showSideMenu }
                       },
                       [_c("i", { staticClass: "ellipsis vertical icon" })]
@@ -3580,7 +3580,7 @@ var render = function() {
                   _c(
                     "a",
                     {
-                      staticClass: "icon item",
+                      staticClass: "icon item show-side-menu-item",
                       on: { click: _vm.showSideMenu }
                     },
                     [_c("i", { staticClass: "ellipsis vertical icon" })]

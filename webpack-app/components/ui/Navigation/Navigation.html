@@ -8,7 +8,7 @@
     <media v-bind:query="{maxWidth: maxWidth}"
            v-if="lib.style.isLeftHanded">
       <div class="menu-compact left menu">
-        <a class="icon item"
+        <a class="icon item show-side-menu-item"
            v-on:click="showSideMenu">
           <i class="ellipsis vertical icon"></i>
         </a>
@@ -24,7 +24,7 @@
       <div class="menu-full right menu">
         <slot name="items"></slot>
         
-        <a class="icon item"
+        <a class="icon item show-side-menu-item"
            v-if="showMoreButton"
            v-on:click="showSideMenu">
           <i class="ellipsis vertical icon"></i>
@@ -36,7 +36,7 @@
            v-if="!lib.style.isLeftHanded">
       <div class="menu-compact right menu">
         <slot name="compactItems"></slot>
-        <a class="icon item"
+        <a class="icon item show-side-menu-item"
            v-on:click="showSideMenu">
           <i class="ellipsis vertical icon"></i>
         </a>

@@ -11,6 +11,40 @@
     </template>
     <template 
       v-slot:content>
+      
+      <h3>
+        {{ $t('PreImaginary Instruction') }}
+      </h3>
+      
+      <p>{{ $t('Please try to predict what this article might write.') }}</p>
+      <ul>
+        <li>{{ $t(`This article is titled "{0}".`, [articleTitle] ) }}</li>
+        <li v-if="headings.length > 0">
+          {{ $t(`This article includes {0} headings:`, [headings.length]) }}
+          <ol>
+            <li v-for="heading in headings">{{ heading }}</li>
+          </ol>
+        </li>
+        <li v-if="images.length > 0">
+          {{ $t(`This article includes {0} images:`, [headings.length]) }} <br />
+          <span v-for="image in images"
+                class="image-container">
+            <img v-bind:src="image.src" 
+              v-bind:title="image.title" />
+          </span>
+        </li>
+        <li>{{ $t(`Don't worry about punctuation or typos, just write down what you predict of.`) }}</li>
+        <li v-if="preImaginaryConfig.countdownAtStart === false">
+          {{ $t(`The time limit is {0} minutes and the countdown starts when you start typing.`, [preImaginaryConfig.limitMinutes]) }}
+        </li>
+        <li v-else>
+          {{ $t(`The time limit is {0} minutes and the countdown starts now.`, [preImaginaryConfig.limitMinutes]) }}
+        </li>
+      </ul>
+      
+      <!-- ===================================== -->
+      <div class="ui divider"></div>
+      
       <h3>
         {{ $t('Article Counting') }}
       </h3>
@@ -19,24 +53,7 @@
         <li>{{ $t('Paragraphy Count') }}: {{ paragraphyCount }}</li>
         <li>{{ $t('Section Count') }}: {{ sectionCount }}</li>
       </ul>
-      <div class="ui divider"></div>
-      <h3>
-        {{ $t('Headings') }}
-      </h3>
-      <p>{{ $t('Total {0} headings', [headings.length]) }}</p>
-      <div class="ui ordered list">
-        <span class="item"
-              v-for="heading in headings">{{ heading }}</span>
-      </div>
-      <div class="ui divider"></div>
-      <h3>
-        {{ $t('Images') }}
-      </h3>
-      <p>{{ $t('Total {0} images', [images.length]) }}</p>
-      <img v-for="image in images"
-           v-bind:src="image.src"
-           v-bind:title="image.title"
-           class="article-image" />
+      
     </template>
   </modal>
 </div>

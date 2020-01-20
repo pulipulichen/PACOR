@@ -16,8 +16,17 @@ let ArticleInformation = {
   },
 //  components: {
 //  },
-//  computed: {
-//  },
+  computed: {
+    articleTitle () {
+      return document.title
+    },
+    readingProgressModules () {
+      return this.status.readingConfig.readingProgressModules
+    },
+    preImaginaryConfig () {
+      return this.readingProgressModules.PreImaginary
+    }
+  },
   methods: {
     show () {
       this.calculating()
@@ -43,12 +52,43 @@ let ArticleInformation = {
 
       let images = []
       this.sections.find('img').each((i, image) => {
+        
+        // 這邊要做動態縮圖
+        
         images.push({
-          src: image.src,
+          src: this.resizeImage(image),
           title: (image.title ? image.title : image.alt)
         })
       })
       this.images = images
+    },
+    resizeImage (image) {
+      let oCanvas = document.createElement("canvas")
+      let oCtx = oCanvas.getContext("2d")
+      
+      let oColorImg = image
+      let nWidth = oColorImg.offsetWidth
+      let nHeight = oColorImg.offsetHeight
+      
+      let maxSize = 200
+      if (nWidth > nHeight) {
+        if (nWidth > 200) {
+          nHeight = 200 * (nHeight / nWidth)
+          nWidth = 200
+        }
+      }
+      else {
+        if (nHeight > 200) {
+          nWidth = 200 * (nWidth / nHeight)
+          nHeight = 200
+        }
+      }
+      
+      oCanvas.width = nWidth
+      oCanvas.height = nHeight
+      oCtx.drawImage(oColorImg, 0, 0, oColorImg.offsetWidth, oColorImg.offsetHeight, 0,0,nWidth,nHeight);
+      
+      return oCanvas.toDataURL()
     }
   } // methods
 }

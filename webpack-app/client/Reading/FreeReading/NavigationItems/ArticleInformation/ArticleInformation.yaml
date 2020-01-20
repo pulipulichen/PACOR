@@ -1,6 +1,9 @@
 en:
   Total {0} images: Total {0} image | Total {0} images
   Total {0} headings: Total {0} heading | Total {0} headings
+  'This article is titled "{0}".': 'This article is titled "{0}".'
+  "This article includes {0} headings:": "This article includes {0} heading: | This article includes {0} headings:"
+  "This article includes {0} images:": "This article includes {0} image: | This article includes {0} images:"
   
 zh-TW:
   Article Information: 文章資訊
@@ -9,3 +12,11 @@ zh-TW:
   Headings: 標題
   Images: 圖片
   Article Counting: 文章統計
+  
+  Please try to predict what this article might write.: 請預測這篇文章可能會寫什麼。
+  'This article is titled "{0}"': '這篇文章的標題是「{0}」。'
+  "This article includes {0} headings:": "這篇文章包含了以下子標題："
+  "This article includes {0} images:": "這篇文章包含了以下圖片："
+  Don't worry about punctuation or typos, just write down what you predict of.: 請不用考慮標點符號或錯字，把您想到的事情寫下來即可。
+  The time limit is {0} minutes and the countdown starts when you start typing.: 限時{0}分鐘，開始輸入文字時就會開始倒數。
+  The time limit is {0} minutes and the countdown starts now.: 限時{0}分鐘，現在開始倒數即時。
