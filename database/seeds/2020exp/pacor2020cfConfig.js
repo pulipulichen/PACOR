@@ -14,6 +14,7 @@ module.exports = {
       totalLimitMinutes: 60,
     },
     IndividualReading: {
+      instruction: '/instruction/reading/IndividualReading-IndividualReading.html',
       limitMinutes: 60,
       highlightAnnotation: {
         types: ['MainIdea'],
