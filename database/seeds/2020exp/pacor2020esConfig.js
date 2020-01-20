@@ -1,10 +1,12 @@
 module.exports = {
   login: {
+    message: '/2020exp/Login-e.html',
     allowLoginWithoutGrop: false
   },
   readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
   readingProgressModules: {
     PreImaginary: {
+      instruction: '/2020exp/PostRecall-microscope.html',
       limitMinutes: 5,
       countdownAtStart: true
     },
@@ -29,6 +31,7 @@ module.exports = {
       }
     },
     PostRecall: {
+      instruction: '/2020exp/PostRecall-microscope.html',
       limitMinutes: 5,
     }
   }
