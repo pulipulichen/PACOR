@@ -8,7 +8,7 @@ module.exports = {
   readingProgressModules: {
     PreImaginary: {
       limitMinutes: quesLimitMins,
-      countdownAtStart: true
+      countdownAtStart: false
     },
     reading: {
       totalLimitMinutes: 60,
@@ -32,6 +32,7 @@ module.exports = {
     },
     PostRecall: {
       limitMinutes: quesLimitMins,
+      countdownAtStart: false
     }
   }
 }

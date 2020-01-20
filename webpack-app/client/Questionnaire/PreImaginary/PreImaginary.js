@@ -118,6 +118,7 @@ let PreImaginary = {
     this.$refs.Modal.show(() => {
       this.status.progress.initComponents = true
       
+      //console.log(this.lib.auth.currentStepConfig.countdownAtStart)
       if (this.lib.auth.currentStepConfig.countdownAtStart === true) {
         setTimeout(() => {
           this.persist()

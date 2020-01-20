@@ -71,7 +71,7 @@ exports.push([module.i, ".hint[data-v-359e549b] {\n  max-height: 7rem;\n  overfl
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".hint[data-v-71c8473b] {\n  max-height: 7rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-71c8473b] {\n  height: calc(100vh - 25em) !important;\n}\n", "",{"version":3,"sources":["PreImaginary.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,qCAAqC;AACvC","file":"PreImaginary.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-71c8473b] {\n  max-height: 7rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-71c8473b] {\n  height: calc(100vh - 25em) !important;\n}\n"]}]);
+exports.push([module.i, ".hint[data-v-71c8473b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-71c8473b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n", "",{"version":3,"sources":["PreImaginary.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,mDAAmD;AACrD","file":"PreImaginary.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-71c8473b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-71c8473b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -788,6 +788,7 @@ let PreImaginary = {
     this.$refs.Modal.show(() => {
       this.status.progress.initComponents = true
       
+      //console.log(this.lib.auth.currentStepConfig.countdownAtStart)
       if (this.lib.auth.currentStepConfig.countdownAtStart === true) {
         setTimeout(() => {
           this.persist()
@@ -1005,6 +1006,7 @@ let PreImaginary = {
     this.$refs.Modal.show(() => {
       this.status.progress.initComponents = true
       
+      //console.log(this.lib.auth.currentStepConfig.countdownAtStart)
       if (this.lib.auth.currentStepConfig.countdownAtStart === true) {
         setTimeout(() => {
           this.persist()

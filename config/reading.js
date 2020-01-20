@@ -65,7 +65,7 @@ module.exports = {
   
   readingProgressModules: {
     'PreImaginary': {
-      instruction: '/2020exp/PostRecall.html',
+      instruction: '/2020exp/PreImaginary.html',
       minWords: 10,
       //limitMinutes: 5,
       limitMinutes: 0.03,

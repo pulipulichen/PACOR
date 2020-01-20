@@ -1,9 +1,11 @@
+@hintHeight: 15rem;
+
 .hint {
-  max-height: 7rem;
+  max-height: @hintHeight;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
 textarea.answer {
-  height: calc(100vh - 25em) !important;
+  height: calc(100vh - 6vh - @hintHeight - 19em) !important;
 }
