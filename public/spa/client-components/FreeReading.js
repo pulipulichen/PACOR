@@ -1720,7 +1720,7 @@ FreeReading.components['navigation-items'] = _NavigationItems_NavigationItems_vu
 FreeReading.mounted = async function () {
   this.initComponentToLib()
   
-  this._testArticleInformation()
+  //this._testArticleInformation()
 }
 
 
