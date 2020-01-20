@@ -43,7 +43,7 @@ module.exports = {
     allowLoginWithoutGrop: true,
   },
   
-  readingProgresses: ['PreImaginary', 'IndividualReading', 'PostRecall'],
+  readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
   
   /**
    * @argument {String}
@@ -75,7 +75,7 @@ module.exports = {
      * include 'individual-reading' and 'collaborative-reading'
      */
     'reading': {
-      totalLimitMinutes: 60, // 54秒
+      totalLimitMinutes: 60,
     },
     'IndividualReading': {
       instruction: '/2020exp/IndividualReading.html',
@@ -115,7 +115,7 @@ module.exports = {
         defaultPermission: 'public',
       },
       notification: {
-        updateInterval: 3000
+        updateInterval: 30000
       },
       highlightAnnotation: {
         types: ['Clarified', 'Confused', 'MainIdea'],

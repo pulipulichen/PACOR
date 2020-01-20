@@ -9,31 +9,34 @@ const Sleep = use('Sleep')
 //const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
 const Env = use('Env')
 
-const uri = '/2020exp/articles/'
+const uri = '/2020exp/articles/e-rice'
 const url = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT') + uri
 const testPort = 4000
 //const urlTest = 'http://localhost:4000/test-lorem-ipsum'
 const urlTest = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + testPort + uri
 
-let webpage
+let webpageConfig = use('./pacor2020efConfig.js')
+let webpageGroup = use('./pacor2020eGroup.js')
 
-const pacor2020ef = use('./pacor2020ef.js')
+let webpage
 
 module.exports = {
   main: async function () {
     //console.log(__filename + ' start...')
     
-    await this.createAdmin()
-    await pacor2020ef.main()
+    webpage = await WebpageModel.findByURL(url)
+    await this.setupConfig()
+    await this.setupGroup()
     
     await Sleep(5) // 統統給我等待10秒鐘
     
     console.log(__filename + ' is finished.\n')
   },
-  createAdmin: async function () {
-    let domain = await DomainModel.findByURL(url)
-    let adminsSetting = 'teacher:password'
-    await domain.setAdmins(adminsSetting)
+  setupConfig: async function () {
+    webpage.config = webpageConfig
+    await webpage.save()
   },
-  
+  setupGroup: async function () {
+    await webpage.setGroupsList(webpageGroup)
+  }
 }
