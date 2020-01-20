@@ -69,7 +69,7 @@ module.exports = {
       minWords: 10,
       //limitMinutes: 5,
       limitMinutes: 0.03,
-      countdownAtStart: true,
+      countdownAtStart: false,
     },
     /**
      * include 'individual-reading' and 'collaborative-reading'
@@ -145,7 +145,7 @@ module.exports = {
       minWords: 10,
       //limitMinutes: 5
       limitMinutes: 0.03,
-      countdownAtStart: true,
+      countdownAtStart: false,
     },
     'FreeReading': {
       permission: {

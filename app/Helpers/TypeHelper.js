@@ -21,7 +21,8 @@ let TypeHelper = {
           const oVal = obj[key];
 
           if (Array.isArray(pVal) && Array.isArray(oVal)) {
-            prev[key] = pVal.concat(...oVal);
+            //prev[key] = pVal.concat(...oVal);
+            prev[key] = oVal  // Array 直接取代
           } else if (isObject(pVal) && isObject(oVal)) {
             prev[key] = this.mergeDeep(pVal, oVal);
           } else {

@@ -16,7 +16,7 @@ module.exports = {
     IndividualReading: {
       limitMinutes: 60,
       highlightAnnotation: {
-        types: ['MainIdea'],
+        types: ['Clarified', 'Confused', 'MainIdea'],
       },
       debug: {
         countdownPause: true

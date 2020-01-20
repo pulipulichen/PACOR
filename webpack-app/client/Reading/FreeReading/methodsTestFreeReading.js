@@ -15,7 +15,7 @@ export default function (FreeReading) {
     $('.article-information-item:first i').click()
     
     await this.lib.VueHelper.sleep(1000)
-    $('section.preImaginary-instruction:first').click()
+    $('section.instruction:first').click()
   }
 
 }

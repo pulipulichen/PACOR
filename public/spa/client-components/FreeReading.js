@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Total {0} images":"Total {0} image | Total {0} images","Total {0} headings":"Total {0} heading | Total {0} headings","This article is titled \\"{0}\\".":"This article is titled \\"{0}\\".","This article includes {0} headings:":"This article includes {0} heading: | This article includes {0} headings:","This article includes {0} images:":"This article includes {0} image: | This article includes {0} images:"},"zh-TW":{"Article Information":"文章資訊","Total {0} images":"總共{0}張圖片","Total {0} headings":"總共{0}個標題","Headings":"標題","Images":"圖片","Article Counting":"文章統計","Please try to predict what this article might write.":"請預測這篇文章可能會寫什麼。","This article is titled \\"{0}\\".":"這篇文章的標題是「{0}」。","This article includes {0} headings:":"這篇文章包含了以下子標題：","This article includes {0} images:":"這篇文章包含了以下圖片：","Don\u0027t worry about punctuation or typos, just write down what you predict of.":"請不用考慮標點符號或錯字，把您想到的事情寫下來即可。","The time limit is {0} minutes and the countdown starts when you start typing.":"限時{0}分鐘，開始輸入文字時就會開始倒數。","The time limit is {0} minutes and the countdown starts now.":"限時{0}分鐘，現在開始倒數即時。"}}')
+  Component.options.__i18n.push('{"en":{"Total {0} images":"Total {0} image | Total {0} images","Total {0} headings":"Total {0} heading | Total {0} headings","This article is titled \\"{0}\\".":"This article is titled \\"{0}\\".","This article includes {0} headings:":"This article includes {0} heading: | This article includes {0} headings:","This article includes {0} images:":"This article includes {0} image: | This article includes {0} images:"},"zh-TW":{"Article Information":"文章資訊","Total {0} images":"總共{0}張圖片","Total {0} headings":"總共{0}個標題","Headings":"標題","Images":"圖片","Article Counting":"文章統計","PreImaginary Instruction":"自由預測說明","Please try to predict what this article might write.":"請預測這篇文章可能會寫什麼。","This article is titled \\"{0}\\".":"這篇文章的標題是「{0}」。","This article includes {0} headings:":"這篇文章包含了以下子標題：","This article includes {0} images:":"這篇文章包含了以下圖片：","Don\u0027t worry about punctuation or typos, just write down what you predict of.":"請不用考慮標點符號或錯字，把您想到的事情寫下來即可。","The time limit is {0} minutes and the countdown starts when you start typing.":"限時{0}分鐘，開始輸入文字時就會開始倒數。","The time limit is {0} minutes and the countdown starts now.":"限時{0}分鐘，現在開始倒數即時。","PostRecall Instruction":"自由回憶說明","Please recall the content of this article.":"請回憶這篇文章的內容。","Don\u0027t worry about punctuation or typos, just write down what you read.":"請不用考慮標點符號或錯字，把您讀到的內容寫下來即可。","Copy HTML":"複製HTML"}}')
   delete Component.options._Ctor
 }
 
@@ -119,7 +119,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".image-container[data-v-76ad1f52] {\n  margin-right: 0.5rem;\n}\n", "",{"version":3,"sources":["ArticleInformation.less?vue&type=style&index=0&id=76ad1f52&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,oBAAoB;AACtB","file":"ArticleInformation.less?vue&type=style&index=0&id=76ad1f52&lang=less&scoped=true&","sourcesContent":[".image-container[data-v-76ad1f52] {\n  margin-right: 0.5rem;\n}\n"]}]);
+exports.push([module.i, ".image-container[data-v-76ad1f52] {\n  margin-right: 0.5rem;\n}\nsection.instruction[data-v-76ad1f52] {\n  cursor: pointer;\n  border-width: 0 !important;\n  margin: 0 !important;\n  padding: 0 !important;\n}\n", "",{"version":3,"sources":["ArticleInformation.less?vue&type=style&index=0&id=76ad1f52&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,oBAAoB;AACtB;AACA;EACE,eAAe;EACf,0BAA0B;EAC1B,oBAAoB;EACpB,qBAAqB;AACvB","file":"ArticleInformation.less?vue&type=style&index=0&id=76ad1f52&lang=less&scoped=true&","sourcesContent":[".image-container[data-v-76ad1f52] {\n  margin-right: 0.5rem;\n}\nsection.instruction[data-v-76ad1f52] {\n  cursor: pointer;\n  border-width: 0 !important;\n  margin: 0 !important;\n  padding: 0 !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -310,7 +310,7 @@ var render = function() {
                   "section",
                   {
                     ref: "SectionPreImaginary",
-                    staticClass: "preImaginary-instruction",
+                    staticClass: "instruction SectionPreImaginary",
                     on: {
                       click: function($event) {
                         return _vm.copyPreImaginaryInstructionHtml()
@@ -342,14 +342,11 @@ var render = function() {
                       _vm.headings.length > 0
                         ? _c("li", [
                             _vm._v(
-                              "\r\n            " +
-                                _vm._s(
-                                  _vm.$t(
-                                    "This article includes {0} headings:",
-                                    [_vm.headings.length]
-                                  )
-                                ) +
-                                "\r\n            "
+                              _vm._s(
+                                _vm.$t("This article includes {0} headings:", [
+                                  _vm.headings.length
+                                ])
+                              )
                             ),
                             _c(
                               "ol",
@@ -366,17 +363,13 @@ var render = function() {
                             "li",
                             [
                               _vm._v(
-                                "\r\n            " +
-                                  _vm._s(
-                                    _vm.$t(
-                                      "This article includes {0} images:",
-                                      [_vm.headings.length]
-                                    )
-                                  ) +
-                                  " "
+                                _vm._s(
+                                  _vm.$t("This article includes {0} images:", [
+                                    _vm.headings.length
+                                  ])
+                                ) + " "
                               ),
                               _c("br"),
-                              _vm._v(" "),
                               _vm._l(_vm.images, function(image) {
                                 return _c(
                                   "span",
@@ -439,6 +432,152 @@ var render = function() {
                     on: {
                       click: function($event) {
                         return _vm.copyPreImaginaryInstructionHtml()
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n        " +
+                        _vm._s(_vm.$t("Copy HTML")) +
+                        "\r\n      "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "ui divider" }),
+                _vm._v(" "),
+                _c("h3", [
+                  _vm._v(
+                    "\r\n        " +
+                      _vm._s(_vm.$t("PostRecall Instruction")) +
+                      "\r\n      "
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "section",
+                  {
+                    ref: "SectionPostRecall",
+                    staticClass: "instruction SectionPostRecall",
+                    on: {
+                      click: function($event) {
+                        return _vm.copyPostRecallHtml()
+                      }
+                    }
+                  },
+                  [
+                    _c("p", [
+                      _vm._v(
+                        _vm._s(
+                          _vm.$t("Please recall the content of this article.")
+                        )
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("ul", [
+                      _c("li", [
+                        _vm._v(
+                          _vm._s(
+                            _vm.$t('This article is titled "{0}".', [
+                              _vm.articleTitle
+                            ])
+                          )
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm.headings.length > 0
+                        ? _c("li", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.$t("This article includes {0} headings:", [
+                                  _vm.headings.length
+                                ])
+                              )
+                            ),
+                            _c(
+                              "ol",
+                              _vm._l(_vm.headings, function(heading) {
+                                return _c("li", [_vm._v(_vm._s(heading))])
+                              }),
+                              0
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.images.length > 0
+                        ? _c(
+                            "li",
+                            [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.$t("This article includes {0} images:", [
+                                    _vm.headings.length
+                                  ])
+                                ) + " "
+                              ),
+                              _c("br"),
+                              _vm._l(_vm.images, function(image) {
+                                return _c(
+                                  "span",
+                                  { staticClass: "image-container" },
+                                  [
+                                    _c("img", {
+                                      attrs: {
+                                        src: image.src,
+                                        title: image.title
+                                      }
+                                    })
+                                  ]
+                                )
+                              })
+                            ],
+                            2
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          _vm._s(
+                            _vm.$t(
+                              "Don't worry about punctuation or typos, just write down what you read."
+                            )
+                          )
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm.preImaginaryConfig.countdownAtStart === false
+                        ? _c("li", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.$t(
+                                  "The time limit is {0} minutes and the countdown starts when you start typing.",
+                                  [_vm.preImaginaryConfig.limitMinutes]
+                                )
+                              )
+                            )
+                          ])
+                        : _c("li", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.$t(
+                                  "The time limit is {0} minutes and the countdown starts now.",
+                                  [_vm.preImaginaryConfig.limitMinutes]
+                                )
+                              )
+                            )
+                          ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "ui button fluid",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.copyPostRecallHtml()
                       }
                     }
                   },
@@ -1758,30 +1897,75 @@ let ArticleInformation = {
       
       return oCanvas.toDataURL()
     },
-    copyPreImaginaryInstructionHtml() {
-      let section = this.$refs.SectionPreImaginary
-      let $section = jquery__WEBPACK_IMPORTED_MODULE_0___default()(section).clone()
+    removeDataAttr: async function (ele) {
+      //console.log(ele.attributes)
+      //$.each(ele.attributes, function(j, attr) {
+      let i = 0
+      //console.log(ele.attributes[''])
+      //console.log(typeof(ele.attributes[(1 + '')]), ele.attributes[(1 + '')])
+      while (typeof(ele.attributes[(i + '')]) === 'object') {
+        let attr = ele.attributes[(i + '')]
+        
+//        while (attr === undefined) {
+//          console.log(attr, i)
+//          //continue
+//          await this.lib.VueHelper.sleep(100)
+//        }
+        if (attr === undefined) {
+          return false
+        }
+        
+        //console.log(j, attr)
+        // this.attributes is not a plain object, but an array
+        // of attribute nodes, which contain both the name and value
+        let name = attr
+        if (typeof(attr) === 'object' && typeof(attr.name) === 'string') { 
+          name = attr.name
+        }
+        
+        //console.log(name)
+        
+        if (name.startsWith('data-v-')) {
+          //console.log(name)
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(ele).removeAttr(name)
+        }
+        i++
+      }
+      //});
+    },
+    copyHTML: async function ($section) {
       //console.log(section)
-      $section.find('*').each((i, ele) => {
-        console.log(ele.attributes)
-        jquery__WEBPACK_IMPORTED_MODULE_0___default.a.each(ele.attributes, function(j, attr) {
-          if (!attr) {
-            return false
-          }
-          //console.log(j, attr)
-          // this.attributes is not a plain object, but an array
-          // of attribute nodes, which contain both the name and value
-          let name = attr.name
-          if (name.startsWith('data-v-')) {
-            jquery__WEBPACK_IMPORTED_MODULE_0___default()(ele).removeAttr(name)
-          }
-        });
-      })
       
-      section = $section[0]
-      console.log(section)
+      let elements = $section.find('*')
+      for (let i = 0; i < elements.length; i++) {
+        let ele = elements.eq(i)[0]
+        //console.log(ele.attributes)
+        await this.removeDataAttr(ele)
+      }
       
-      _libs_CopyPasteHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"].copyPlainText(section.innerHTML)
+      let section = $section[0]
+      //console.log(section.innerHTML)
+      let html = section.innerHTML
+      
+      //console.log(html)
+      let id = html.slice(html.indexOf(" data-v-"), html.indexOf('="">'))
+      html = html.split(id + '=""').join('')
+      
+      html = html.split('</li>').join('</li>\n')
+      html = html.split('img src=').join('img \nsrc=')
+      html = html.split('</span>').join('</span>\n')
+      
+      _libs_CopyPasteHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"].copyPlainText(html)
+    },
+    copyPreImaginaryInstructionHtml: async function () {
+      //let section = this.$refs.SectionPreImaginary
+      let $section = jquery__WEBPACK_IMPORTED_MODULE_0___default()('section.SectionPreImaginary.instruction').clone()
+      this.copyHTML($section)
+    },
+    copyPostRecallHtml: async function () {
+      //let section = this.$refs.SectionPreImaginary
+      let $section = jquery__WEBPACK_IMPORTED_MODULE_0___default()('section.SectionPostRecall.instruction').clone()
+      this.copyHTML($section)
     }
   } // methods
 }
@@ -2321,7 +2505,7 @@ __webpack_require__.r(__webpack_exports__);
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.article-information-item:first i').click()
     
     await this.lib.VueHelper.sleep(1000)
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('section.preImaginary-instruction:first').click()
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('section.instruction:first').click()
   }
 
 });
