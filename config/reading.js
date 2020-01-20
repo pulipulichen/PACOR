@@ -36,7 +36,7 @@ module.exports = {
      * 純文字
      * 網址
      */
-    message: '/demo/Login.html',
+    message: '/instruction/login/Login.html',
     
     /**
      * @argument {Boolean} name 
@@ -81,7 +81,7 @@ module.exports = {
     'IndividualReading': {
       instruction: '/instruction/reading/IndividualReading.html',
       limitMinutes: 30,
-      goToNextStepOnChecklistComplete: false,
+      goToNextStepOnChecklistComplete: true,
 //      notification: {
 //        updateInterval: 30000
 //      },

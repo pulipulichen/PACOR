@@ -16,6 +16,10 @@ ul,ol {
   vertical-align: top;
 }
 
+.image-description-table td p {
+  margin-top: 0;
+}
+
 .image-description-table td.image {
   width: 50%;
   min-width: 200px;

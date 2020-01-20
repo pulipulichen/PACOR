@@ -16,6 +16,7 @@ module.exports = {
     IndividualReading: {
       instruction: '/instruction/reading/IndividualReading-IndividualReading.html',
       limitMinutes: 60,
+      goToNextStepOnChecklistComplete: false,
       highlightAnnotation: {
         types: ['MainIdea'],
       },

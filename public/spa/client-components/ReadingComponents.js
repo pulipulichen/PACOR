@@ -489,7 +489,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"OK":"我知道了！","Close":"略過","Start Tutorial":"我知道了，開始操作導覽"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"OK":"我知道了！","Close":"我知道了","Start Tutorial":"顯示操作導覽"}}')
   delete Component.options._Ctor
 }
 
