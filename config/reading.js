@@ -79,7 +79,7 @@ module.exports = {
       totalLimitMinutes: 60,
     },
     'IndividualReading': {
-      instruction: '/demo/IndividualReading.html',
+      instruction: '/instruction/reading/IndividualReading.html',
       limitMinutes: 30,
       goToNextStepOnChecklistComplete: false,
 //      notification: {
@@ -109,7 +109,7 @@ module.exports = {
       }
     },
     'CollaborativeReading': {
-      instruction: '/demo/CollaborativeReading.html',
+      instruction: '/instruction/reading/CollaborativeReading.html',
       permission: {
         collaboration: true,
         control: false,
@@ -215,7 +215,7 @@ module.exports = {
       'addable': true,
       'instruction': {
         'summary': "Highlight text you don't understand",
-        'url': '/annotation-instruction/ConfusedClarified.html'
+        'url': '/instruction/annotation/ConfusedClarified.html'
       },
       "style": {
         //'highlight': 'border-bottom: 1px solid green',
@@ -235,7 +235,7 @@ module.exports = {
       'addable': false,
       'instruction': {
         'summary': 'Write the answer to "questions"',
-        'url': '/annotation-instruction/ConfusedClarified.html'
+        'url': '/instruction/annotation/ConfusedClarified.html'
       },
       "style": {
         // https://www.colorhexa.com/15792d
@@ -259,7 +259,7 @@ module.exports = {
       'placeholder': 'Why do you think it is a main idea?',
       'instruction': {
         'summary': 'Highlight key keywords or concepts',
-        'url': '/annotation-instruction/MainIdea.html'
+        'url': '/instruction/annotation/MainIdea.html'
       },
       "style": {
         //'highlight': 'border-bottom: 1px solid red',
@@ -282,7 +282,7 @@ module.exports = {
       'placeholder': 'Why do you think it is a main idea?',
       'instruction': {
         'summary': 'Highlight keywords or concepts in this section',
-        'url': '/annotation-instruction/SectionMainIdea.html'
+        'url': '/instruction/annotation/SectionMainIdea.html'
       },
       "style": {
         //'highlight': 'border-bottom: 1px solid red',
