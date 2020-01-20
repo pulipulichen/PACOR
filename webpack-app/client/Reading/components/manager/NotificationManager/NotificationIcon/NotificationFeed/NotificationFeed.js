@@ -110,6 +110,7 @@ let NotificationFeed = {
       //return
       
       let notifications = await this.lib.AxiosHelper.get('/client/UserNotification/unreadOlder', data)
+      console.log(notifications)
       
       if (notifications.length === 0) {
         this.noOlder = true

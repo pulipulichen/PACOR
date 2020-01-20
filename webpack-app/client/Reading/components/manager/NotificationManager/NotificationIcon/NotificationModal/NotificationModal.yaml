@@ -1,8 +1,9 @@
 en:
-  Readers interacted with you: Reader interacted with you | Readers interacted with you
+  Readers interacted with you: "Reader interacted with you | Readers interacted with you"
   
 zh-TW:
   # 這是註解
   Notifications: 通知
   No Notifications: 沒有通知
-  Readers interacted with you: 跟您互動的讀者 | 跟您互動的讀者們
+  Readers interacted with you: 跟您互動的讀者們
+  Reader interacted with you: 跟您互動的讀者

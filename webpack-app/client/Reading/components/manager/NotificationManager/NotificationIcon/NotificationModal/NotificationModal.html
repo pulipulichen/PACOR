@@ -12,7 +12,10 @@
     <template v-slot:content>
       <div class="ui segment trigger-users"
            v-if="triggerUsers.length > 0">
-        <span class="column">
+        <span class="column" v-if="triggerUsers.length === 1">
+        {{ $t('Reader interacted with you', [triggerUsers.length]) }}:
+        </span>
+        <span class="column" v-else>
         {{ $t('Readers interacted with you', [triggerUsers.length]) }}:
         </span>
         <span class="column">

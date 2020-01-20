@@ -81,7 +81,10 @@ let NotificationManager = {
       }
       //console.log(this.isLoading)
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/getNotification', data)
-      //console.log({result})
+      //if (this.afterTime) {
+        console.log({result})
+        console.log({data})
+      //}
       this.startReloadData()
       this.isLoading = false
       if (result === 0) {
@@ -97,6 +100,7 @@ let NotificationManager = {
           this.status.notificationData.unreadNotifications = this.status.notificationData.unreadNotifications.concat(result[key])
           
           if (result[key].length > 0) {
+            console.log(parseInt(result[key][0].created_at_unixms, 10), parseInt(result[key].slice(-1)[0].created_at_unixms, 10))
             this.afterTime = parseInt(result[key].slice(-1)[0].created_at_unixms, 10)
             //console.log(this.afterTime, typeof(this.afterTime))
           }

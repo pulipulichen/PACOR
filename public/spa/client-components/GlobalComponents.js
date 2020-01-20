@@ -105,7 +105,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Readers interacted with you":"Reader interacted with you | Readers interacted with you"},"zh-TW":{"Notifications":"通知","No Notifications":"沒有通知","Readers interacted with you":"跟您互動的讀者 | 跟您互動的讀者們"}}')
+  Component.options.__i18n.push('{"en":{"Readers interacted with you":"Reader interacted with you | Readers interacted with you"},"zh-TW":{"Notifications":"通知","No Notifications":"沒有通知","Readers interacted with you":"跟您互動的讀者們","Reader interacted with you":"跟您互動的讀者"}}')
   delete Component.options._Ctor
 }
 
@@ -1465,17 +1465,29 @@ var render = function() {
               return [
                 _vm.triggerUsers.length > 0
                   ? _c("div", { staticClass: "ui segment trigger-users" }, [
-                      _c("span", { staticClass: "column" }, [
-                        _vm._v(
-                          "\r\n        " +
-                            _vm._s(
-                              _vm.$t("Readers interacted with you", [
-                                _vm.triggerUsers.length
-                              ])
-                            ) +
-                            ":\r\n        "
-                        )
-                      ]),
+                      _vm.triggerUsers.length === 1
+                        ? _c("span", { staticClass: "column" }, [
+                            _vm._v(
+                              "\r\n        " +
+                                _vm._s(
+                                  _vm.$t("Reader interacted with you", [
+                                    _vm.triggerUsers.length
+                                  ])
+                                ) +
+                                ":\r\n        "
+                            )
+                          ])
+                        : _c("span", { staticClass: "column" }, [
+                            _vm._v(
+                              "\r\n        " +
+                                _vm._s(
+                                  _vm.$t("Readers interacted with you", [
+                                    _vm.triggerUsers.length
+                                  ])
+                                ) +
+                                ":\r\n        "
+                            )
+                          ]),
                       _vm._v(" "),
                       _c(
                         "span",
@@ -5359,6 +5371,7 @@ let NotificationFeed = {
       //return
       
       let notifications = await this.lib.AxiosHelper.get('/client/UserNotification/unreadOlder', data)
+      console.log(notifications)
       
       if (notifications.length === 0) {
         this.noOlder = true
@@ -6045,7 +6058,10 @@ let NotificationManager = {
       }
       //console.log(this.isLoading)
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/getNotification', data)
-      //console.log({result})
+      //if (this.afterTime) {
+        console.log({result})
+        console.log({data})
+      //}
       this.startReloadData()
       this.isLoading = false
       if (result === 0) {
@@ -6061,6 +6077,7 @@ let NotificationManager = {
           this.status.notificationData.unreadNotifications = this.status.notificationData.unreadNotifications.concat(result[key])
           
           if (result[key].length > 0) {
+            console.log(parseInt(result[key][0].created_at_unixms, 10), parseInt(result[key].slice(-1)[0].created_at_unixms, 10))
             this.afterTime = parseInt(result[key].slice(-1)[0].created_at_unixms, 10)
             //console.log(this.afterTime, typeof(this.afterTime))
           }
