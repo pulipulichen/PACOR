@@ -11,3 +11,20 @@ ul,ol {
   margin-inline-end: 0px;
   padding-inline-start: 20px;
 }
+
+.image-description-table td {
+  vertical-align: top;
+}
+
+.image-description-table td.image {
+  width: 50%;
+  min-width: 200px;
+  text-align: right;
+  padding-bottom: 1rem;
+}
+
+.image-description-table td.image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}

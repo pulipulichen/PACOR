@@ -33,6 +33,10 @@ export default function (HTMLEditor) {
     // upload image to server and create imgNode...
     //$summernote.summernote('insertNode', imgNode);
     //console.log('_onImageUpload', files)
+    if (files.length === 0) {
+      return false
+    }
+    
     let imageURL = await this.lib.AxiosHelper.upload('/client/File/upload', {
       file: files[0]
     })

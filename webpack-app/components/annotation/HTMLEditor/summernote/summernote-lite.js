@@ -5938,7 +5938,8 @@ ${links}`
                       && typeof(event) === 'object' 
                       && typeof(event.originalEvent) === 'object'
                       && typeof(event.originalEvent.clipboardData) === 'object'
-                      && typeof(event.originalEvent.clipboardData.files) === 'object') {
+                      && typeof(event.originalEvent.clipboardData.files) === 'object'
+                      && event.originalEvent.clipboardData.files.length > 0) {
                 event.stopPropagation()
                 event.preventDefault()
                 let files = event.originalEvent.clipboardData.files

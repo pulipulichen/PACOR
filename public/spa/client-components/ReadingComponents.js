@@ -233,7 +233,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"SAVE QUESTION":"記下「疑問」","SAVE ANSWER":"改為「已澄清」","WRITE LATER":"暫存「疑問」"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"SAVE QUESTION":"記下「疑問」","SAVE ANSWER":"改為「已澄清」","WRITE LATER":"保持「疑問」"}}')
   delete Component.options._Ctor
 }
 
@@ -757,7 +757,7 @@ exports.push([module.i, ".AnnotationDiscussionList[data-v-e134047a] {\n  overflo
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotaionInstruction[data-v-a3af9796] {\n  vertical-align: top;\n  padding-top: 0.6em;\n  padding-bottom: 0.6em;\n  margin-top: -0.1em;\n}\n.show-instruction[data-v-a3af9796],\n.summary[data-v-a3af9796] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n  vertical-align: top;\n}\n.show-instruction[data-v-a3af9796] {\n  float: right;\n  margin-left: 0.5em;\n  margin-top: -0.4em;\n}\n.column[data-v-a3af9796]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-a3af9796] {\n  padding-left: 0 !important;\n}\n@media (max-width: 480px) {\n.summary[data-v-a3af9796] {\n    text-indent: -9999px;\n}\n.AnnotaionInstruction[data-v-a3af9796] {\n    padding-left: 0;\n    padding-right: 0.5em;\n}\n}\n@media (max-width: 360px) {\n.AnnotaionInstruction[data-v-a3af9796] {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["AnnotaionInstruction.less?vue&type=style&index=0&id=a3af9796&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,kBAAkB;EAClB,qBAAqB;EACrB,kBAAkB;AACpB;AACA;;EAEE,mBAAmB;EACnB,uBAAuB;EACvB,gBAAgB;EAChB,eAAe;EACf,mBAAmB;AACrB;AACA;EACE,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;AACpB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,0BAA0B;AAC5B;AACA;AACA;IACI,oBAAoB;AACxB;AACA;IACI,eAAe;IACf,oBAAoB;AACxB;AACA;AACA;AACA;IACI,aAAa;AACjB;AACA","file":"AnnotaionInstruction.less?vue&type=style&index=0&id=a3af9796&lang=less&scoped=true&","sourcesContent":[".AnnotaionInstruction[data-v-a3af9796] {\n  vertical-align: top;\n  padding-top: 0.6em;\n  padding-bottom: 0.6em;\n  margin-top: -0.1em;\n}\n.show-instruction[data-v-a3af9796],\n.summary[data-v-a3af9796] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n  vertical-align: top;\n}\n.show-instruction[data-v-a3af9796] {\n  float: right;\n  margin-left: 0.5em;\n  margin-top: -0.4em;\n}\n.column[data-v-a3af9796]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-a3af9796] {\n  padding-left: 0 !important;\n}\n@media (max-width: 480px) {\n.summary[data-v-a3af9796] {\n    text-indent: -9999px;\n}\n.AnnotaionInstruction[data-v-a3af9796] {\n    padding-left: 0;\n    padding-right: 0.5em;\n}\n}\n@media (max-width: 360px) {\n.AnnotaionInstruction[data-v-a3af9796] {\n    display: none;\n}\n}\n"]}]);
+exports.push([module.i, ".AnnotaionInstruction[data-v-a3af9796] {\n  vertical-align: top;\n  padding-top: 0.6em;\n  padding-bottom: 0.6em;\n  margin-top: -0.1em;\n  cursor: pointer;\n}\n.show-instruction[data-v-a3af9796],\n.summary[data-v-a3af9796] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n  vertical-align: top;\n}\n.show-instruction[data-v-a3af9796] {\n  float: right;\n  margin-left: 0.5em;\n  margin-top: -0.4em;\n}\n.column[data-v-a3af9796]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-a3af9796] {\n  padding-left: 0 !important;\n}\n@media (max-width: 480px) {\n.summary[data-v-a3af9796] {\n    text-indent: -9999px;\n}\n.AnnotaionInstruction[data-v-a3af9796] {\n    padding-left: 0;\n    padding-right: 0.5em;\n}\n}\n@media (max-width: 360px) {\n.AnnotaionInstruction[data-v-a3af9796] {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["AnnotaionInstruction.less?vue&type=style&index=0&id=a3af9796&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,kBAAkB;EAClB,qBAAqB;EACrB,kBAAkB;EAClB,eAAe;AACjB;AACA;;EAEE,mBAAmB;EACnB,uBAAuB;EACvB,gBAAgB;EAChB,eAAe;EACf,mBAAmB;AACrB;AACA;EACE,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;AACpB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,0BAA0B;AAC5B;AACA;AACA;IACI,oBAAoB;AACxB;AACA;IACI,eAAe;IACf,oBAAoB;AACxB;AACA;AACA;AACA;IACI,aAAa;AACjB;AACA","file":"AnnotaionInstruction.less?vue&type=style&index=0&id=a3af9796&lang=less&scoped=true&","sourcesContent":[".AnnotaionInstruction[data-v-a3af9796] {\n  vertical-align: top;\n  padding-top: 0.6em;\n  padding-bottom: 0.6em;\n  margin-top: -0.1em;\n  cursor: pointer;\n}\n.show-instruction[data-v-a3af9796],\n.summary[data-v-a3af9796] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n  vertical-align: top;\n}\n.show-instruction[data-v-a3af9796] {\n  float: right;\n  margin-left: 0.5em;\n  margin-top: -0.4em;\n}\n.column[data-v-a3af9796]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-a3af9796] {\n  padding-left: 0 !important;\n}\n@media (max-width: 480px) {\n.summary[data-v-a3af9796] {\n    text-indent: -9999px;\n}\n.AnnotaionInstruction[data-v-a3af9796] {\n    padding-left: 0;\n    padding-right: 0.5em;\n}\n}\n@media (max-width: 360px) {\n.AnnotaionInstruction[data-v-a3af9796] {\n    display: none;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -2674,16 +2674,15 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "ui segment AnnotaionInstruction" },
+    {
+      staticClass: "ui segment AnnotaionInstruction",
+      on: { click: _vm.showInstruction }
+    },
     [
       _c("div", { staticClass: "show-instruction" }, [
         _c(
           "button",
-          {
-            staticClass: "ui mini button",
-            attrs: { type: "button" },
-            on: { click: _vm.showInstruction }
-          },
+          { staticClass: "ui mini button", attrs: { type: "button" } },
           [_vm._v("\r\n      " + _vm._s(_vm.$t("Hint")) + "\r\n    ")]
         )
       ]),

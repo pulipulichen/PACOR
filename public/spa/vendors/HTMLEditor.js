@@ -797,6 +797,10 @@ __webpack_require__.r(__webpack_exports__);
     // upload image to server and create imgNode...
     //$summernote.summernote('insertNode', imgNode);
     //console.log('_onImageUpload', files)
+    if (files.length === 0) {
+      return false
+    }
+    
     let imageURL = await this.lib.AxiosHelper.upload('/client/File/upload', {
       file: files[0]
     })
@@ -7275,7 +7279,8 @@ ${links}`
                       && typeof(event) === 'object' 
                       && typeof(event.originalEvent) === 'object'
                       && typeof(event.originalEvent.clipboardData) === 'object'
-                      && typeof(event.originalEvent.clipboardData.files) === 'object') {
+                      && typeof(event.originalEvent.clipboardData.files) === 'object'
+                      && event.originalEvent.clipboardData.files.length > 0) {
                 event.stopPropagation()
                 event.preventDefault()
                 let files = event.originalEvent.clipboardData.files
