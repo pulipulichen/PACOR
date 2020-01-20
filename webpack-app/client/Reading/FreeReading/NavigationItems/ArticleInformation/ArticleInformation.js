@@ -137,6 +137,11 @@ let ArticleInformation = {
         await this.removeDataAttr(ele)
       }
       
+      $section.find('img[src]').each(function (i, img) {
+        let filename = 'Questionnaire-img' + i + '.png'
+        img.src = filename
+      })
+      
       let section = $section[0]
       //console.log(section.innerHTML)
       let html = section.innerHTML
@@ -160,6 +165,20 @@ let ArticleInformation = {
       //let section = this.$refs.SectionPreImaginary
       let $section = $('section.SectionPostRecall.instruction').clone()
       this.copyHTML($section)
+    },
+    downloadImage: function (i, base64) {
+      let filename = 'Questionnaire-img' + i + '.png'
+      this.downloadBase64File(base64, filename)
+    },
+    downloadBase64File (contentBase64, fileName) {
+        const linkSource = contentBase64
+        const downloadLink = document.createElement('a');
+        document.body.appendChild(downloadLink);
+
+        downloadLink.href = linkSource;
+        downloadLink.target = '_self';
+        downloadLink.download = fileName;
+        downloadLink.click(); 
     }
   } // methods
 }

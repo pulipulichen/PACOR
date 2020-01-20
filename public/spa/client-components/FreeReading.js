@@ -370,7 +370,7 @@ var render = function() {
                                 ) + " "
                               ),
                               _c("br"),
-                              _vm._l(_vm.images, function(image) {
+                              _vm._l(_vm.images, function(image, i) {
                                 return _c(
                                   "span",
                                   { staticClass: "image-container" },
@@ -379,6 +379,12 @@ var render = function() {
                                       attrs: {
                                         src: image.src,
                                         title: image.title
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          $event.stopPropagation()
+                                          return _vm.downloadImage(i, image.src)
+                                        }
                                       }
                                     })
                                   ]
@@ -1720,7 +1726,7 @@ FreeReading.components['navigation-items'] = _NavigationItems_NavigationItems_vu
 FreeReading.mounted = async function () {
   this.initComponentToLib()
   
-  //this._testArticleInformation()
+  this._testArticleInformation()
 }
 
 
@@ -1943,6 +1949,11 @@ let ArticleInformation = {
         await this.removeDataAttr(ele)
       }
       
+      $section.find('img[src]').each(function (i, img) {
+        let filename = 'Questionnaire-img' + i + '.png'
+        img.src = filename
+      })
+      
       let section = $section[0]
       //console.log(section.innerHTML)
       let html = section.innerHTML
@@ -1966,6 +1977,20 @@ let ArticleInformation = {
       //let section = this.$refs.SectionPreImaginary
       let $section = jquery__WEBPACK_IMPORTED_MODULE_0___default()('section.SectionPostRecall.instruction').clone()
       this.copyHTML($section)
+    },
+    downloadImage: function (i, base64) {
+      let filename = 'Questionnaire-img' + i + '.png'
+      this.downloadBase64File(base64, filename)
+    },
+    downloadBase64File (contentBase64, fileName) {
+        const linkSource = contentBase64
+        const downloadLink = document.createElement('a');
+        document.body.appendChild(downloadLink);
+
+        downloadLink.href = linkSource;
+        downloadLink.target = '_self';
+        downloadLink.download = fileName;
+        downloadLink.click(); 
     }
   } // methods
 }

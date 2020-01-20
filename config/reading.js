@@ -35,7 +35,7 @@ module.exports = {
      * 純文字
      * 網址
      */
-    message: '/2020exp/Login.html',
+    message: '/demo/Login.html',
     
     /**
      * @argument {Boolean} name 
@@ -65,7 +65,7 @@ module.exports = {
   
   readingProgressModules: {
     'PreImaginary': {
-      instruction: '/2020exp/PreImaginary.html',
+      instruction: '/demo/PreImaginary.html',
       minWords: 10,
       //limitMinutes: 5,
       limitMinutes: 0.03,
@@ -78,7 +78,7 @@ module.exports = {
       totalLimitMinutes: 60,
     },
     'IndividualReading': {
-      instruction: '/2020exp/IndividualReading.html',
+      instruction: '/demo/IndividualReading.html',
       limitMinutes: 30,
       goToNextStepOnChecklistComplete: false,
 //      notification: {
@@ -108,7 +108,7 @@ module.exports = {
       }
     },
     'CollaborativeReading': {
-      instruction: '/2020exp/CollaborativeReading.html',
+      instruction: '/demo/CollaborativeReading.html',
       permission: {
         collaboration: true,
         control: false,
@@ -141,7 +141,7 @@ module.exports = {
       }
     },
     'PostRecall': {
-      instruction: '/2020exp/PostRecall.html',
+      instruction: '/demo/PostRecall.html',
       minWords: 10,
       //limitMinutes: 5
       limitMinutes: 0.03,
