@@ -10,21 +10,33 @@ const Sleep = use('Sleep')
 const Env = use('Env')
 
 const uri = '/2020exp/articles/'
-const url = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT') + uri
+const urlHeader = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT')
+const url = urlHeader + uri
 const testPort = 4000
 //const urlTest = 'http://localhost:4000/test-lorem-ipsum'
 const urlTest = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + testPort + uri
 
 let webpage
 
-const pacor2020ef = use('./pacor2020ef.js')
+const pacor2020 = use('./pacor2020.js')
 
 module.exports = {
   main: async function () {
     //console.log(__filename + ' start...')
     
     await this.createAdmin()
-    await pacor2020ef.main()
+    
+    await this.pacor2020ef()
+    await this.pacor2020es()
+    await this.pacor2020et()
+    
+    await this.pacor2020cf()
+    await this.pacor2020cs()
+    await this.pacor2020ct()
+    
+    await this.pacor2020tf()
+    await this.pacor2020ts()
+    await this.pacor2020tt()
     
     await Sleep(5) // 統統給我等待10秒鐘
     
@@ -36,4 +48,66 @@ module.exports = {
     await domain.setAdmins(adminsSetting)
   },
   
+  // -----------------------
+  
+  pacor2020ef: async function () {
+    let u = urlHeader + '/2020exp/articles/e-rice'
+    let webpageGroup = use('./pacor2020eGroup.js')
+    let webpageConfig = use('./pacor2020efConfig.js')
+    await pacor2020.main(u, webpageConfig, webpageGroup)
+  },
+  pacor2020es: async function () {
+    let u = urlHeader + '/2020exp/articles/e-microscope'
+    let webpageGroup = use('./pacor2020eGroup.js')
+    let webpageConfig = use('./pacor2020esConfig.js')
+    await pacor2020.main(u, webpageConfig, webpageGroup)
+  },
+  pacor2020et: async function () {
+    let u = urlHeader + '/2020exp/articles/e-colorectal-cancer'
+    let webpageGroup = use('./pacor2020eGroup.js')
+    let webpageConfig = use('./pacor2020esConfig.js')
+    await pacor2020.main(u, webpageConfig, webpageGroup)
+  },
+  
+  // -----------------------
+  
+  pacor2020cf: async function () {
+    let u = urlHeader + '/2020exp/articles/c-rice'
+    let webpageGroup = use('./pacor2020cGroup.js')
+    let webpageConfig = use('./pacor2020cfConfig.js')
+    await pacor2020.main(u, webpageConfig, webpageGroup)
+  },
+  pacor2020cs: async function () {
+    let u = urlHeader + '/2020exp/articles/c-microscope'
+    let webpageGroup = use('./pacor2020cGroup.js')
+    let webpageConfig = use('./pacor2020csConfig.js')
+    await pacor2020.main(u, webpageConfig, webpageGroup)
+  },
+  pacor2020ct: async function () {
+    let u = urlHeader + '/2020exp/articles/c-colorectal-cancer'
+    let webpageGroup = use('./pacor2020cGroup.js')
+    let webpageConfig = use('./pacor2020csConfig.js')
+    await pacor2020.main(u, webpageConfig, webpageGroup)
+  },
+  
+  // -----------------------
+  
+  pacor2020tf: async function () {
+    let u = urlHeader + '/2020exp/articles/t-rice'
+    let webpageGroup = use('./pacor2020tGroup.js')
+    let webpageConfig = use('./pacor2020tsConfig.js')
+    await pacor2020.main(u, webpageConfig, webpageGroup)
+  },
+  pacor2020ts: async function () {
+    let u = urlHeader + '/2020exp/articles/t-microscope'
+    let webpageGroup = use('./pacor2020tGroup.js')
+    let webpageConfig = use('./pacor2020tsConfig.js')
+    await pacor2020.main(u, webpageConfig, webpageGroup)
+  },
+  pacor2020tt: async function () {
+    let u = urlHeader + '/2020exp/articles/t-colorectal-cancer'
+    let webpageGroup = use('./pacor2020tGroup.js')
+    let webpageConfig = use('./pacor2020tsConfig.js')
+    await pacor2020.main(u, webpageConfig, webpageGroup)
+  }
 }

@@ -12,7 +12,7 @@ module.exports = {
       totalLimitMinutes: 60,
     },
     IndividualReading: {
-      limitMinutes: 30,
+      limitMinutes: 60,
       highlightAnnotation: {
         types: ['MainIdea'],
       },
@@ -22,7 +22,7 @@ module.exports = {
     },
     CollaborativeReading: {
       highlightAnnotation: {
-        types: ['MainIdea'],
+        types: ['Clarified', 'Confused', 'MainIdea'],
       },
       debug: {
         countdownPause: false

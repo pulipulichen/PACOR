@@ -2,7 +2,7 @@ module.exports = {
   login: {
     allowLoginWithoutGrop: false
   },
-  readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
+  readingProgresses: ['PreImaginary', 'IndividualReading', 'PostRecall'],
   readingProgressModules: {
     PreImaginary: {
       limitMinutes: 5,
@@ -12,15 +12,7 @@ module.exports = {
       totalLimitMinutes: 60,
     },
     IndividualReading: {
-      limitMinutes: 30,
-      highlightAnnotation: {
-        types: ['MainIdea'],
-      },
-      debug: {
-        countdownPause: false
-      }
-    },
-    CollaborativeReading: {
+      limitMinutes: 60,
       highlightAnnotation: {
         types: ['MainIdea'],
       },
