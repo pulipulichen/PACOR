@@ -81,7 +81,10 @@ class AnnotationHighlight {
             highlightTypes[highlightType][paragraph_id] = {}
           }
           
-          for (let i = start_pos; i <= end_pos; i++) {
+//          if (paragraph_id === 'pacor-paragraph-id-6') {
+//            console.log({start_pos, end_pos})
+//          }
+          for (let i = start_pos; i < end_pos; i++) {
             highlightTypes[highlightType][paragraph_id][i] = true
           }
         })
@@ -106,6 +109,9 @@ class AnnotationHighlight {
           }
           let lastI = null
           for (let i in highlightTypes[highlightType][paragraph_id]) {
+//            if (paragraph_id === 'pacor-paragraph-id-6') {
+//              console.log({paragraph_id, i})
+//            }
             i = TypeHelper.parseInt(i)
             if (lastI === null) {
               highlight.start_pos = i
@@ -116,7 +122,7 @@ class AnnotationHighlight {
             }
             else {
               // 跳下一個開始了
-              highlight.end_pos = lastI
+              highlight.end_pos = lastI + 1
               highlights.push(highlight)
               
               highlight = {

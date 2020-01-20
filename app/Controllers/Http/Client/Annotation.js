@@ -47,6 +47,10 @@ class Annotation extends WebpageUserBaseController {
       query.withCount = true
       query.anchorMode = 'exact'
       let annotation = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
+      if (!annotation) {
+        query.anchorMode = 'overlap'
+        annotation = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
+      }
       annotation = annotation.toJSON()
       //console.log('annotation', annotation)
 
