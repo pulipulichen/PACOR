@@ -122,6 +122,9 @@ class AnnotationHighlight {
             }
             else {
               // 跳下一個開始了
+//              if (lastI === highlight.start_pos) {
+//                lastI = lastI + 1
+//              }
               highlight.end_pos = lastI + 1
               highlights.push(highlight)
               
@@ -138,7 +141,7 @@ class AnnotationHighlight {
           
           if (typeof(highlight.start_pos) === 'number'
                   && typeof(lastI) === 'number' ) {
-            highlight.end_pos = lastI
+            highlight.end_pos = lastI + 1
             highlights.push(highlight)
           }
         }
