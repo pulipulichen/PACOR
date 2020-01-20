@@ -1,0 +1,29 @@
+<div class="NotificationFeed"
+     v-on:scroll.stop="onScrollList">
+  
+  <div class="ui secondary segment no-more"
+       v-if="noOlder">
+    <template v-if="notificationData.unreadNotifications.length > 0">
+      {{ $t('No More') }}
+    </template>
+    <template v-else>
+      {{ $t('No Notifications') }}
+    </template>
+  </div>
+
+  <div class="ui divided feed"
+       ref="feed">
+    <component 
+      v-for="notification in notificationData.unreadNotifications"
+      v-bind:key="notification.id"
+      v-bind:is="eventType(notification)"
+
+      v-bind:lib="lib"
+      v-bind:status="status"
+      v-bind:config="config"
+
+      v-bind:notification="notification"
+      v-on:read="onRead(notification)">
+    </component>
+  </div>
+</div>

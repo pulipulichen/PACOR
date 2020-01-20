@@ -23,14 +23,14 @@
   <div class="list ui fluid popup"
        v-bind:class="computedPopupClassList"
        ref="popup">
-    <notification-feed 
+    <notification-unread-feed 
       ref="feed"
       v-bind:config="config"
       v-bind:status="status"
       v-bind:lib="lib"
       
       v-bind:notificationData="notificationData">
-    </notification-feed>
+    </notification-unread-feed>
     
     <div class="ui segment view-all"
          v-if="notificationData.hasNotification"

@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import NotificationFeed from './NotificationFeed/NotificationFeed.vue'
+import NotificationUnreadFeed from './NotificationUnreadFeed/NotificationUnreadFeed.vue'
 
 let NotificationIcon = {
   props: ['lib', 'status', 'config'
@@ -11,7 +11,7 @@ let NotificationIcon = {
     }
   },
   components: {
-    "notification-feed": NotificationFeed,
+    "notification-unread-feed": NotificationUnreadFeed,
   },
   computed: {
     notificationData () {
@@ -60,13 +60,13 @@ let NotificationIcon = {
       
       let anchor = $(this.$refs.anchor)
       
-      anchor.popup({
+      let popupOptions = {
           popup: this.$refs.popup,
           inline     : true,
           hoverable  : true,
           on    : 'click',
           distanceAway: 20,
-          //position: "top center",
+          position: "top right",
           onShow: () => {
             if (this.notificationData.unreadNotifications.length === 0
                     || window.innerHeight < 400) {
@@ -81,7 +81,13 @@ let NotificationIcon = {
           onHidden: () => {
             this.lib.NotificationManager.startReloadData()
           }
-      })
+      }
+      
+      if (this.lib.style.isLeftHanded) {
+        popupOptions.position = 'top left'
+      }
+      
+      anchor.popup(popupOptions)
 //      console.log('initPopup')
       anchor.click()
     },

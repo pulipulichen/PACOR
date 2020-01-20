@@ -64,22 +64,6 @@ module.exports = function (Component) {
 
 /***/ }),
 
-/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationFeed%5CNotificationFeed.vue&lang=yaml":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationFeed%5CNotificationFeed.vue&lang=yaml ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function (Component) {
-  Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"No More":"沒有更早之前的通知了","No Notifications":"沒有通知，請稍候再回來看吧"}}')
-  delete Component.options._Ctor
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationIcon.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationIcon.vue&lang=yaml":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationIcon.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationIcon.vue&lang=yaml ***!
@@ -106,6 +90,22 @@ module.exports = function (Component) {
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
   Component.options.__i18n.push('{"en":{"Readers interacted with you":"Reader interacted with you | Readers interacted with you"},"zh-TW":{"Notifications":"通知","No Notifications":"沒有通知","Readers interacted with you":"跟您互動的讀者們","Reader interacted with you":"跟您互動的讀者"}}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationUnreadFeed%5CNotificationUnreadFeed.vue&lang=yaml":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationUnreadFeed%5CNotificationUnreadFeed.vue&lang=yaml ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"No More":"沒有更早之前的通知了","No Notifications":"沒有通知，請稍候再回來看吧"}}')
   delete Component.options._Ctor
 }
 
@@ -520,20 +520,6 @@ exports.push([module.i, ".has-read[data-v-d04b0456] {\n  background-color: #DDD 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.less?vue&type=style&index=0&id=21e07861&lang=less&scoped=true&":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.less?vue&type=style&index=0&id=21e07861&lang=less&scoped=true& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
-// Module
-exports.push([module.i, ".NotificationFeed[data-v-21e07861] {\n  overflow-y: auto;\n  max-height: 300px;\n  padding-right: 0.5em;\n}\n@media (max-height: 320px) {\n.NotificationFeed[data-v-21e07861] {\n    max-height: calc(100vh - 50px);\n}\n}\n.no-more[data-v-21e07861] {\n  cursor: default;\n  user-select: none;\n  text-align: center;\n}\n", "",{"version":3,"sources":["NotificationFeed.less?vue&type=style&index=0&id=21e07861&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,oBAAoB;AACtB;AACA;AACA;IACI,8BAA8B;AAClC;AACA;AACA;EACE,eAAe;EACf,iBAAiB;EACjB,kBAAkB;AACpB","file":"NotificationFeed.less?vue&type=style&index=0&id=21e07861&lang=less&scoped=true&","sourcesContent":[".NotificationFeed[data-v-21e07861] {\n  overflow-y: auto;\n  max-height: 300px;\n  padding-right: 0.5em;\n}\n@media (max-height: 320px) {\n.NotificationFeed[data-v-21e07861] {\n    max-height: calc(100vh - 50px);\n}\n}\n.no-more[data-v-21e07861] {\n  cursor: default;\n  user-select: none;\n  text-align: center;\n}\n"]}]);
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationIcon.less?vue&type=style&index=0&id=1a46cd82&lang=less&scoped=true&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationIcon.less?vue&type=style&index=0&id=1a46cd82&lang=less&scoped=true& ***!
@@ -558,6 +544,20 @@ exports.push([module.i, ".non-invasive-web-style-framework .ui.menu.horizontal-m
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
 exports.push([module.i, ".notification-list[data-v-512a6987] {\n  max-height: calc(100% - 6em);\n  overflow-y: auto;\n}\n@media only screen and (max-height: 480px) {\n.notification-list[data-v-512a6987] {\n    max-height: calc(100% - 1em);\n}\n}\n.trigger-users[data-v-512a6987] {\n  text-align: center;\n}\n@media only screen and (max-height: 480px) {\n.trigger-users[data-v-512a6987] {\n    display: none;\n}\n}\n.trigger-users .column[data-v-512a6987] {\n  display: inline-block;\n  vertical-align: middle;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n", "",{"version":3,"sources":["NotificationModal.less?vue&type=style&index=0&id=512a6987&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,4BAA4B;EAC5B,gBAAgB;AAClB;AACA;AACA;IACI,4BAA4B;AAChC;AACA;AACA;EACE,kBAAkB;AACpB;AACA;AACA;IACI,aAAa;AACjB;AACA;AACA;EACE,qBAAqB;EACrB,sBAAsB;EACtB,kBAAkB;EAClB,mBAAmB;AACrB","file":"NotificationModal.less?vue&type=style&index=0&id=512a6987&lang=less&scoped=true&","sourcesContent":[".notification-list[data-v-512a6987] {\n  max-height: calc(100% - 6em);\n  overflow-y: auto;\n}\n@media only screen and (max-height: 480px) {\n.notification-list[data-v-512a6987] {\n    max-height: calc(100% - 1em);\n}\n}\n.trigger-users[data-v-512a6987] {\n  text-align: center;\n}\n@media only screen and (max-height: 480px) {\n.trigger-users[data-v-512a6987] {\n    display: none;\n}\n}\n.trigger-users .column[data-v-512a6987] {\n  display: inline-block;\n  vertical-align: middle;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n"]}]);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.less?vue&type=style&index=0&id=b34777fe&lang=less&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.less?vue&type=style&index=0&id=b34777fe&lang=less&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, ".NotificationFeed[data-v-b34777fe] {\n  overflow-y: auto;\n  max-height: 300px;\n  padding-right: 0.5em;\n}\n@media (max-height: 320px) {\n.NotificationFeed[data-v-b34777fe] {\n    max-height: calc(100vh - 50px);\n}\n}\n.no-more[data-v-b34777fe] {\n  cursor: default;\n  user-select: none;\n  text-align: center;\n}\n", "",{"version":3,"sources":["NotificationUnreadFeed.less?vue&type=style&index=0&id=b34777fe&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,oBAAoB;AACtB;AACA;AACA;IACI,8BAA8B;AAClC;AACA;AACA;EACE,eAAe;EACf,iBAAiB;EACjB,kBAAkB;AACpB","file":"NotificationUnreadFeed.less?vue&type=style&index=0&id=b34777fe&lang=less&scoped=true&","sourcesContent":[".NotificationFeed[data-v-b34777fe] {\n  overflow-y: auto;\n  max-height: 300px;\n  padding-right: 0.5em;\n}\n@media (max-height: 320px) {\n.NotificationFeed[data-v-b34777fe] {\n    max-height: calc(100vh - 50px);\n}\n}\n.no-more[data-v-b34777fe] {\n  cursor: default;\n  user-select: none;\n  text-align: center;\n}\n"]}]);
 
 
 /***/ }),
@@ -1197,90 +1197,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.html?vue&type=template&id=21e07861&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.html?vue&type=template&id=21e07861&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "NotificationFeed",
-      on: {
-        scroll: function($event) {
-          $event.stopPropagation()
-          return _vm.onScrollList($event)
-        }
-      }
-    },
-    [
-      _vm.noOlder
-        ? _c(
-            "div",
-            { staticClass: "ui secondary segment no-more" },
-            [
-              _vm.notificationData.unreadNotifications.length > 0
-                ? [
-                    _vm._v(
-                      "\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    "
-                    )
-                  ]
-                : [
-                    _vm._v(
-                      "\r\n      " +
-                        _vm._s(_vm.$t("No Notifications")) +
-                        "\r\n    "
-                    )
-                  ]
-            ],
-            2
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "div",
-        { ref: "feed", staticClass: "ui divided feed" },
-        _vm._l(_vm.notificationData.unreadNotifications, function(
-          notification
-        ) {
-          return _c(_vm.eventType(notification), {
-            key: notification.id,
-            tag: "component",
-            attrs: {
-              lib: _vm.lib,
-              status: _vm.status,
-              config: _vm.config,
-              notification: notification
-            },
-            on: {
-              read: function($event) {
-                return _vm.onRead(notification)
-              }
-            }
-          })
-        }),
-        1
-      )
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationIcon.html?vue&type=template&id=1a46cd82&scoped=true&":
 /*!*****************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationIcon.html?vue&type=template&id=1a46cd82&scoped=true& ***!
@@ -1376,7 +1292,7 @@ var render = function() {
           class: _vm.computedPopupClassList
         },
         [
-          _c("notification-feed", {
+          _c("notification-unread-feed", {
             ref: "feed",
             attrs: {
               config: _vm.config,
@@ -1573,6 +1489,90 @@ var render = function() {
       })
     ],
     1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.html?vue&type=template&id=b34777fe&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.html?vue&type=template&id=b34777fe&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "NotificationFeed",
+      on: {
+        scroll: function($event) {
+          $event.stopPropagation()
+          return _vm.onScrollList($event)
+        }
+      }
+    },
+    [
+      _vm.noOlder
+        ? _c(
+            "div",
+            { staticClass: "ui secondary segment no-more" },
+            [
+              _vm.notificationData.unreadNotifications.length > 0
+                ? [
+                    _vm._v(
+                      "\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    "
+                    )
+                  ]
+                : [
+                    _vm._v(
+                      "\r\n      " +
+                        _vm._s(_vm.$t("No Notifications")) +
+                        "\r\n    "
+                    )
+                  ]
+            ],
+            2
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "div",
+        { ref: "feed", staticClass: "ui divided feed" },
+        _vm._l(_vm.notificationData.unreadNotifications, function(
+          notification
+        ) {
+          return _c(_vm.eventType(notification), {
+            key: notification.id,
+            tag: "component",
+            attrs: {
+              lib: _vm.lib,
+              status: _vm.status,
+              config: _vm.config,
+              notification: notification
+            },
+            on: {
+              read: function($event) {
+                return _vm.onRead(notification)
+              }
+            }
+          })
+        }),
+        1
+      )
+    ]
   )
 }
 var staticRenderFns = []
@@ -3790,27 +3790,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.less?vue&type=style&index=0&id=21e07861&lang=less&scoped=true&":
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.less?vue&type=style&index=0&id=21e07861&lang=less&scoped=true& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(/*! !../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./NotificationFeed.less?vue&type=style&index=0&id=21e07861&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.less?vue&type=style&index=0&id=21e07861&lang=less&scoped=true&");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__(/*! ../../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("f336eecc", content, false, {});
-// Hot Module Replacement
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationIcon.less?vue&type=style&index=0&id=1a46cd82&lang=less&scoped=true&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationIcon.less?vue&type=style&index=0&id=1a46cd82&lang=less&scoped=true& ***!
@@ -3848,6 +3827,27 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("289de762", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.less?vue&type=style&index=0&id=b34777fe&lang=less&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.less?vue&type=style&index=0&id=b34777fe&lang=less&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./NotificationUnreadFeed.less?vue&type=style&index=0&id=b34777fe&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.less?vue&type=style&index=0&id=b34777fe&lang=less&scoped=true&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("90eede04", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -5214,282 +5214,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.html?vue&type=template&id=21e07861&scoped=true&":
-/*!******************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.html?vue&type=template&id=21e07861&scoped=true& ***!
-  \******************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_NotificationFeed_html_vue_type_template_id_21e07861_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./NotificationFeed.html?vue&type=template&id=21e07861&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.html?vue&type=template&id=21e07861&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_NotificationFeed_html_vue_type_template_id_21e07861_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_NotificationFeed_html_vue_type_template_id_21e07861_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.js?vue&type=script&lang=js&?4268":
-/*!**********************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.js?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _NotificationFeed_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./NotificationFeed.js?vue&type=script&lang=js& */ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.js?vue&type=script&lang=js&?6854");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_NotificationFeed_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.js?vue&type=script&lang=js&?6854":
-/*!**********************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.js?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _EventComponents_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../EventComponents.js */ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/EventComponents.js");
-/* harmony import */ var _EventMethods_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../EventMethods.js */ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/EventMethods.js");
-
-
-let NotificationFeed = {
-  props: ['lib', 'status', 'config'
-    , 'notificationData'],
-  data() {    
-    //this.$i18n.locale = this.config.locale
-    
-    let noOlder = false
-    //if (this.notificationData.unreadNotifications.length === 0) {
-    //  noOlder = true
-    //}
-    
-    return {
-      noOlder: noOlder,
-      loadLock: false,
-      
-      feed: null,
-      basetime: null
-    }
-  },
-//  mounted () {
-//    setTimeout(() => {
-//      this.scrollToBottom()
-//    }, 1000)
-//  },
-//  components: {
-//  },
-//  computed: {
-//    basetime () {
-//      this.notificationData.notifications[0].created_at_unixms
-//    }
-//  },
-  watch: {
-    'notificationData.unreadNotifications' () {
-      //console.log(this.notificationData)
-      if (this.notificationData.unreadNotifications.length < 3) {
-        return null
-      }
-      
-      //console.log(this.basetime)
-      if (!this.basetime) {
-        this.scrollToBottom()
-      }
-      
-      this.noOlder = (this.notificationData.unreadNotifications.length === 0)
-      
-      if (Array.isArray(this.notificationData.unreadNotifications)
-              && this.notificationData.unreadNotifications.length > 0) {
-        this.basetime = parseInt(this.notificationData.unreadNotifications[0].created_at_unixms, 10)
-      }
-    }
-  },
-  components: {}, // 必須要有
-//  mounted() {
-//  },
-  methods: {
-    onScrollList (event) {
-      if (this.loadLock === true) {
-        event.preventDefault()
-        event.stopPropagation()
-        //console.log('prevent default')
-        return null
-      }
-      
-      let element = event.target
-      //console.log(element.scrollTop, this.noMoreOlder, this.noMoreNewer, this.loadLock)
-      if (element.scrollTop === 0) {
-        if (this.noOlder === true) {
-          return false
-        }
-        //console.log('scrolled');
-        this.loadOlderNotifications()
-      }
-    },
-    scrollToBottom: async function () {
-      if (this.notificationData.unreadNotifications.length < 3) {
-        return null
-      }
-      
-      await this.lib.VueHelper.sleep(100)
-      //console.log('有捲動嗎？')
-      if (!this.feed) {
-        this.feed = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.feed)
-      }
-      
-      let event = this.feed.children('.event:last')
-      event[0].scrollIntoView()
-    },
-    loadOlderNotifications: async function () {
-      if (this.loadLock === true) {
-        return null
-      }
-      this.loadLock = true
-      
-      if (!this.feed) {
-        this.feed = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.feed)
-      }
-      let focusComment = this.feed.children('.event:first')
-      
-      if (!this.basetime) {
-        this.basetime = parseInt(this.notificationData.unreadNotifications[0].created_at_unixms, 10)
-      }
-      
-      let data = {
-        basetime: this.basetime
-      }
-      //console.log(this.notificationData.notifications)
-      //console.log(data.basetime)
-      //return
-      
-      let notifications = await this.lib.AxiosHelper.get('/client/UserNotification/unreadOlder', data)
-      console.log(notifications)
-      
-      if (notifications.length === 0) {
-        this.noOlder = true
-        this.loadLock = false
-        return null
-      }
-      
-      //this.basetime = parseInt(notifications[(notifications.length - 1)].created_at_unixms, 10)
-      this.basetime = parseInt(notifications[0].created_at_unixms, 10)
-      
-      //console.log(this.basetime)
-      //console.log(notifications)
-      
-      this.notificationData.unreadNotifications = notifications.concat(this.notificationData.unreadNotifications)
-      
-      
-      await this.lib.VueHelper.sleep(100)
-      focusComment[0].scrollIntoView()
-      
-      await this.lib.VueHelper.sleep(100)
-      this.loadLock = false
-    },
-    afterOnRead: async function (notification) {
-      await this.lib.VueHelper.sleep(1000)
-      
-      this.notificationData.unreadNotifications = this.notificationData.unreadNotifications.filter(n => {
-        return (n !== notification)
-      })
-    } 
-  } // methods
-}
-
-
-Object(_EventComponents_js__WEBPACK_IMPORTED_MODULE_1__["default"])(NotificationFeed)
-
-
-Object(_EventMethods_js__WEBPACK_IMPORTED_MODULE_2__["default"])(NotificationFeed)
-
-/* harmony default export */ __webpack_exports__["default"] = (NotificationFeed);
-
-/***/ }),
-
-/***/ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.less?vue&type=style&index=0&id=21e07861&lang=less&scoped=true&":
-/*!*********************************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.less?vue&type=style&index=0&id=21e07861&lang=less&scoped=true& ***!
-  \*********************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_NotificationFeed_less_vue_type_style_index_0_id_21e07861_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-style-loader!../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./NotificationFeed.less?vue&type=style&index=0&id=21e07861&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.less?vue&type=style&index=0&id=21e07861&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_NotificationFeed_less_vue_type_style_index_0_id_21e07861_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_NotificationFeed_less_vue_type_style_index_0_id_21e07861_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_NotificationFeed_less_vue_type_style_index_0_id_21e07861_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_NotificationFeed_less_vue_type_style_index_0_id_21e07861_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_NotificationFeed_less_vue_type_style_index_0_id_21e07861_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.vue":
-/*!**********************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.vue ***!
-  \**********************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _NotificationFeed_html_vue_type_template_id_21e07861_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NotificationFeed.html?vue&type=template&id=21e07861&scoped=true& */ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.html?vue&type=template&id=21e07861&scoped=true&");
-/* harmony import */ var _NotificationFeed_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NotificationFeed.js?vue&type=script&lang=js& */ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.js?vue&type=script&lang=js&?4268");
-/* empty/unused harmony star reexport *//* harmony import */ var _NotificationFeed_less_vue_type_style_index_0_id_21e07861_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NotificationFeed.less?vue&type=style&index=0&id=21e07861&lang=less&scoped=true& */ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.less?vue&type=style&index=0&id=21e07861&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-/* harmony import */ var _NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NotificationFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationFeed%5CNotificationFeed.vue&lang=yaml */ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationFeed%5CNotificationFeed.vue&lang=yaml");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _NotificationFeed_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _NotificationFeed_html_vue_type_template_id_21e07861_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _NotificationFeed_html_vue_type_template_id_21e07861_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "21e07861",
-  null
-  
-)
-
-/* custom blocks */
-
-if (typeof _NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationFeed%5CNotificationFeed.vue&lang=yaml":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationFeed%5CNotificationFeed.vue&lang=yaml ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./NotificationFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationFeed%5CNotificationFeed.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationFeed%5CNotificationFeed.vue&lang=yaml");
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationFeed_5CNotificationFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
 /***/ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationIcon.html?vue&type=template&id=1a46cd82&scoped=true&":
 /*!*************************************************************************************************************************************************************!*\
   !*** ./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationIcon.html?vue&type=template&id=1a46cd82&scoped=true& ***!
@@ -5519,7 +5243,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _NotificationFeed_NotificationFeed_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NotificationFeed/NotificationFeed.vue */ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationFeed/NotificationFeed.vue");
+/* harmony import */ var _NotificationUnreadFeed_NotificationUnreadFeed_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NotificationUnreadFeed/NotificationUnreadFeed.vue */ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.vue");
 
 
 
@@ -5533,7 +5257,7 @@ let NotificationIcon = {
     }
   },
   components: {
-    "notification-feed": _NotificationFeed_NotificationFeed_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    "notification-unread-feed": _NotificationUnreadFeed_NotificationUnreadFeed_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
   },
   computed: {
     notificationData () {
@@ -5582,13 +5306,13 @@ let NotificationIcon = {
       
       let anchor = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.anchor)
       
-      anchor.popup({
+      let popupOptions = {
           popup: this.$refs.popup,
           inline     : true,
           hoverable  : true,
           on    : 'click',
           distanceAway: 20,
-          //position: "top center",
+          position: "top right",
           onShow: () => {
             if (this.notificationData.unreadNotifications.length === 0
                     || window.innerHeight < 400) {
@@ -5603,7 +5327,13 @@ let NotificationIcon = {
           onHidden: () => {
             this.lib.NotificationManager.startReloadData()
           }
-      })
+      }
+      
+      if (this.lib.style.isLeftHanded) {
+        popupOptions.position = 'top left'
+      }
+      
+      anchor.popup(popupOptions)
 //      console.log('initPopup')
       anchor.click()
     },
@@ -5947,6 +5677,286 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.html?vue&type=template&id=b34777fe&scoped=true&":
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.html?vue&type=template&id=b34777fe&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_NotificationUnreadFeed_html_vue_type_template_id_b34777fe_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./NotificationUnreadFeed.html?vue&type=template&id=b34777fe&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.html?vue&type=template&id=b34777fe&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_NotificationUnreadFeed_html_vue_type_template_id_b34777fe_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_NotificationUnreadFeed_html_vue_type_template_id_b34777fe_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.js?vue&type=script&lang=js&?69c6":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.js?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _EventComponents_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../EventComponents.js */ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/EventComponents.js");
+/* harmony import */ var _EventMethods_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../EventMethods.js */ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/EventMethods.js");
+
+
+let NotificationFeed = {
+  props: ['lib', 'status', 'config'
+    , 'notificationData'],
+  data() {    
+    //this.$i18n.locale = this.config.locale
+    
+    let noOlder = false
+    //if (this.notificationData.unreadNotifications.length === 0) {
+    //  noOlder = true
+    //}
+    
+    return {
+      noOlder: noOlder,
+      loadLock: false,
+      
+      feed: null,
+      basetime: null
+    }
+  },
+//  mounted () {
+//    setTimeout(() => {
+//      this.scrollToBottom()
+//    }, 1000)
+//  },
+//  components: {
+//  },
+//  computed: {
+//    basetime () {
+//      this.notificationData.notifications[0].created_at_unixms
+//    }
+//  },
+  watch: {
+    'notificationData.unreadNotifications' () {
+      //console.log(this.notificationData)
+      if (this.notificationData.unreadNotifications.length < 3) {
+        return null
+      }
+      
+      //console.log(this.basetime)
+      if (!this.basetime) {
+        this.scrollToBottom()
+      }
+      
+      this.noOlder = (this.notificationData.unreadNotifications.length === 0)
+      
+      if (Array.isArray(this.notificationData.unreadNotifications)
+              && this.notificationData.unreadNotifications.length > 0) {
+        this.basetime = parseInt(this.notificationData.unreadNotifications[0].created_at_unixms, 10)
+      }
+    }
+  },
+  components: {}, // 必須要有
+//  mounted() {
+//  },
+  methods: {
+    onScrollList (event) {
+      if (this.loadLock === true) {
+        event.preventDefault()
+        event.stopPropagation()
+        //console.log('prevent default')
+        return null
+      }
+      
+      let element = event.target
+      //console.log(element.scrollTop, this.noMoreOlder, this.noMoreNewer, this.loadLock)
+      if (element.scrollTop === 0) {
+        if (this.noOlder === true) {
+          return false
+        }
+        //console.log('scrolled');
+        this.loadOlderNotifications()
+      }
+    },
+    scrollToBottom: async function () {
+      if (this.notificationData.unreadNotifications.length < 3) {
+        return null
+      }
+      
+      await this.lib.VueHelper.sleep(100)
+      //console.log('有捲動嗎？')
+      if (!this.feed) {
+        this.feed = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.feed)
+      }
+      
+      let event = this.feed.children('.event:last')
+      event[0].scrollIntoView()
+    },
+    loadOlderNotifications: async function () {
+      if (this.loadLock === true) {
+        return null
+      }
+      this.loadLock = true
+      
+      if (!this.feed) {
+        this.feed = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.feed)
+      }
+      let focusComment = this.feed.children('.event:first')
+      
+      //if (!this.basetime) {
+      //  this.basetime = parseInt(this.notificationData.unreadNotifications[0].created_at_unixms, 10)
+      //}
+      
+      if (this.notificationData.unreadNotifications.length > 0) {
+        this.basetime = parseInt(this.notificationData.unreadNotifications[0].created_at_unixms, 10)
+      }
+      
+      let data = {
+        basetime: this.basetime
+      }
+      //console.log(this.notificationData.notifications)
+      //console.log(data.basetime)
+      //return
+      
+      let notifications = await this.lib.AxiosHelper.get('/client/UserNotification/unreadOlder', data)
+      //console.log(notifications)
+      
+      if (notifications.length === 0) {
+        this.noOlder = true
+        this.loadLock = false
+        return null
+      }
+      
+      //this.basetime = parseInt(notifications[(notifications.length - 1)].created_at_unixms, 10)
+      //this.basetime = parseInt(notifications[0].created_at_unixms, 10)
+      
+      //console.log(this.basetime)
+      //console.log(notifications)
+      
+      this.notificationData.unreadNotifications = notifications.concat(this.notificationData.unreadNotifications)
+      
+      
+      await this.lib.VueHelper.sleep(100)
+      focusComment[0].scrollIntoView()
+      
+      await this.lib.VueHelper.sleep(100)
+      this.loadLock = false
+    },
+    afterOnRead: async function (notification) {
+      await this.lib.VueHelper.sleep(1000)
+      
+      this.notificationData.unreadNotifications = this.notificationData.unreadNotifications.filter(n => {
+        return (n !== notification)
+      })
+    } 
+  } // methods
+}
+
+
+Object(_EventComponents_js__WEBPACK_IMPORTED_MODULE_1__["default"])(NotificationFeed)
+
+
+Object(_EventMethods_js__WEBPACK_IMPORTED_MODULE_2__["default"])(NotificationFeed)
+
+/* harmony default export */ __webpack_exports__["default"] = (NotificationFeed);
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.js?vue&type=script&lang=js&?f10c":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.js?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _NotificationUnreadFeed_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./NotificationUnreadFeed.js?vue&type=script&lang=js& */ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.js?vue&type=script&lang=js&?69c6");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_NotificationUnreadFeed_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.less?vue&type=style&index=0&id=b34777fe&lang=less&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.less?vue&type=style&index=0&id=b34777fe&lang=less&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_NotificationUnreadFeed_less_vue_type_style_index_0_id_b34777fe_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-style-loader!../../../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./NotificationUnreadFeed.less?vue&type=style&index=0&id=b34777fe&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.less?vue&type=style&index=0&id=b34777fe&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_NotificationUnreadFeed_less_vue_type_style_index_0_id_b34777fe_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_NotificationUnreadFeed_less_vue_type_style_index_0_id_b34777fe_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_NotificationUnreadFeed_less_vue_type_style_index_0_id_b34777fe_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_NotificationUnreadFeed_less_vue_type_style_index_0_id_b34777fe_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_NotificationUnreadFeed_less_vue_type_style_index_0_id_b34777fe_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.vue":
+/*!**********************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.vue ***!
+  \**********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _NotificationUnreadFeed_html_vue_type_template_id_b34777fe_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NotificationUnreadFeed.html?vue&type=template&id=b34777fe&scoped=true& */ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.html?vue&type=template&id=b34777fe&scoped=true&");
+/* harmony import */ var _NotificationUnreadFeed_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NotificationUnreadFeed.js?vue&type=script&lang=js& */ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.js?vue&type=script&lang=js&?f10c");
+/* empty/unused harmony star reexport *//* harmony import */ var _NotificationUnreadFeed_less_vue_type_style_index_0_id_b34777fe_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NotificationUnreadFeed.less?vue&type=style&index=0&id=b34777fe&lang=less&scoped=true& */ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.less?vue&type=style&index=0&id=b34777fe&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _NotificationUnreadFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationUnreadFeed_5CNotificationUnreadFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NotificationUnreadFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationUnreadFeed%5CNotificationUnreadFeed.vue&lang=yaml */ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationUnreadFeed%5CNotificationUnreadFeed.vue&lang=yaml");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _NotificationUnreadFeed_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NotificationUnreadFeed_html_vue_type_template_id_b34777fe_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _NotificationUnreadFeed_html_vue_type_template_id_b34777fe_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "b34777fe",
+  null
+  
+)
+
+/* custom blocks */
+
+if (typeof _NotificationUnreadFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationUnreadFeed_5CNotificationUnreadFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_NotificationUnreadFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationUnreadFeed_5CNotificationUnreadFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationUnreadFeed%5CNotificationUnreadFeed.vue&lang=yaml":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationUnreadFeed%5CNotificationUnreadFeed.vue&lang=yaml ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationUnreadFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationUnreadFeed_5CNotificationUnreadFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./NotificationUnreadFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationUnreadFeed%5CNotificationUnreadFeed.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/components/manager/NotificationManager/NotificationIcon/NotificationUnreadFeed/NotificationUnreadFeed.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5Ccomponents%5Cmanager%5CNotificationManager%5CNotificationIcon%5CNotificationUnreadFeed%5CNotificationUnreadFeed.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationUnreadFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationUnreadFeed_5CNotificationUnreadFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationUnreadFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationUnreadFeed_5CNotificationUnreadFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationUnreadFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationUnreadFeed_5CNotificationUnreadFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationUnreadFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationUnreadFeed_5CNotificationUnreadFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_NotificationUnreadFeed_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cmanager_5CNotificationManager_5CNotificationIcon_5CNotificationUnreadFeed_5CNotificationUnreadFeed_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
 /***/ "./webpack-app/client/Reading/components/manager/NotificationManager/NotificationManager.html?vue&type=template&id=071eb8b5&":
 /*!***********************************************************************************************************************************!*\
   !*** ./webpack-app/client/Reading/components/manager/NotificationManager/NotificationManager.html?vue&type=template&id=071eb8b5& ***!
@@ -6053,6 +6063,10 @@ let NotificationManager = {
       }
       this.isLoading = true
       
+      if (this.status.notificationData.unreadNotifications.length > 0) {
+        this.afterTime = parseInt(this.status.notificationData[0].created_at_unixms, 10)
+      }
+      
       let data = {
         afterTime: this.afterTime
       }
@@ -6076,11 +6090,11 @@ let NotificationManager = {
           }
           this.status.notificationData.unreadNotifications = this.status.notificationData.unreadNotifications.concat(result[key])
           
-          if (result[key].length > 0) {
-            console.log(parseInt(result[key][0].created_at_unixms, 10), parseInt(result[key].slice(-1)[0].created_at_unixms, 10))
-            this.afterTime = parseInt(result[key].slice(-1)[0].created_at_unixms, 10)
-            //console.log(this.afterTime, typeof(this.afterTime))
-          }
+//          if (result[key].length > 0) {
+//            //console.log(parseInt(result[key][0].created_at_unixms, 10), parseInt(result[key].slice(-1)[0].created_at_unixms, 10))
+//            this.afterTime = parseInt(result[key].slice(-1)[0].created_at_unixms, 10)
+//            //console.log(this.afterTime, typeof(this.afterTime))
+//          }
           //console.log(this.afterTime)
         }
         else {

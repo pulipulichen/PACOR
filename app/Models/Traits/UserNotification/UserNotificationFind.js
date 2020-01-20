@@ -132,8 +132,8 @@ class UserNotificationFind {
     
     Model.getUnreadOlderNotifications = async function (webpage, user, options = {}) {
       options.unread = true
-      //options.reverse = true
-      options.reverse = false
+      options.reverse = true
+      //options.reverse = false
       return await this.getOlderNotifications(webpage, user, options)
     } // Model.getUnreadOlderNotifications = async function (webpage, user, options) {
     

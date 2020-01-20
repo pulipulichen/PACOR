@@ -1,0 +1,17 @@
+.NotificationFeed {
+  overflow-y: auto;
+  max-height: 300px;
+  padding-right: 0.5em;
+}
+
+@media (max-height: 320px) {
+  .NotificationFeed {
+    max-height: calc(100vh - 50px);
+  }
+}
+
+.no-more {
+  cursor: default;
+  user-select: none;
+  text-align: center;
+}
