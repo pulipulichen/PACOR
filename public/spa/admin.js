@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"admin-components/domain":"admin-components/domain","admin-components/material":"admin-components/material","admin-components/referer":"admin-components/referer","admin-components/remote-console-log":"admin-components/remote-console-log","admin-components/user-dashboard":"admin-components/user-dashboard","admin-components/webpage":"admin-components/webpage","admin-components/webpage-dashboard":"admin-components/webpage-dashboard","vendors/HTMLEditor":"vendors/HTMLEditor","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf","vendors~client-components/GlobalComponents":"vendors~client-components/GlobalComponents","client-components/GlobalComponents":"client-components/GlobalComponents"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"admin-components/Loading":"admin-components/Loading","admin-components/domain":"admin-components/domain","admin-components/material":"admin-components/material","admin-components/referer":"admin-components/referer","admin-components/remote-console-log":"admin-components/remote-console-log","admin-components/user-dashboard":"admin-components/user-dashboard","admin-components/webpage":"admin-components/webpage","admin-components/webpage-dashboard":"admin-components/webpage-dashboard","vendors/HTMLEditor":"vendors/HTMLEditor","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf","vendors~client-components/GlobalComponents":"vendors~client-components/GlobalComponents","client-components/GlobalComponents":"client-components/GlobalComponents"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -2398,7 +2398,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui form segment" }, [
+  return _c("form", { staticClass: "ui form segment" }, [
     _c("div", { staticClass: "ui field" }, [
       _c("label", { attrs: { for: "loginDomain" } }, [
         _vm._v("\r\n      " + _vm._s(_vm.$t("Domain")) + "\r\n    ")
@@ -2449,7 +2449,11 @@ var render = function() {
             expression: "username"
           }
         ],
-        attrs: { type: "text", id: "loginUsername" },
+        attrs: {
+          type: "text",
+          id: "loginUsername",
+          autocomplete: "current-password"
+        },
         domProps: { value: _vm.username },
         on: {
           keyup: function($event) {
@@ -2485,7 +2489,11 @@ var render = function() {
             expression: "password"
           }
         ],
-        attrs: { type: "password", id: "loginPassword" },
+        attrs: {
+          type: "password",
+          id: "loginPassword",
+          autocomplete: "current-password"
+        },
         domProps: { value: _vm.password },
         on: {
           keyup: function($event) {
@@ -7045,16 +7053,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_local_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./admin/local-components */ "./webpack-app/admin/local-components.js");
 /* harmony import */ var _admin_routes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./admin/routes */ "./webpack-app/admin/routes.js");
 /* harmony import */ var _helpers_AxiosHelper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers/AxiosHelper */ "./webpack-app/helpers/AxiosHelper.js");
-/* harmony import */ var _helpers_DayJSHelper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers/DayJSHelper */ "./webpack-app/helpers/DayJSHelper.js");
-/* harmony import */ var _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./helpers/StringHelper */ "./webpack-app/helpers/StringHelper.js");
-/* harmony import */ var _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./helpers/ValidateHelper */ "./webpack-app/helpers/ValidateHelper.js");
-/* harmony import */ var _helpers_VueHelper__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./helpers/VueHelper */ "./webpack-app/helpers/VueHelper.js");
-/* harmony import */ var _admin_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin/Auth/Auth.vue */ "./webpack-app/admin/Auth/Auth.vue");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./admin/admin.tpl */ "./webpack-app/admin/admin.tpl");
-/* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_admin_admin_tpl__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
+/* harmony import */ var _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers/StringHelper */ "./webpack-app/helpers/StringHelper.js");
+/* harmony import */ var _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./helpers/ValidateHelper */ "./webpack-app/helpers/ValidateHelper.js");
+/* harmony import */ var _helpers_VueHelper__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./helpers/VueHelper */ "./webpack-app/helpers/VueHelper.js");
+/* harmony import */ var _admin_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./admin/Auth/Auth.vue */ "./webpack-app/admin/Auth/Auth.vue");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./admin/admin.tpl */ "./webpack-app/admin/admin.tpl");
+/* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_admin_admin_tpl__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
 
 
 // ----------------------------------
@@ -7075,7 +7082,7 @@ __webpack_require__.r(__webpack_exports__);
 // ----------------------------------
 // Helpers
 
-
+//import DayJSHelper from './helpers/DayJSHelper'
 
 
 
@@ -7095,8 +7102,8 @@ __webpack_require__.r(__webpack_exports__);
 // 確認 baseURL
 
 let baseURL = ''
-let baseScript = jquery__WEBPACK_IMPORTED_MODULE_13___default()(document.currentScript)
-_config_js__WEBPACK_IMPORTED_MODULE_15__["default"].baseURL = baseURL
+let baseScript = jquery__WEBPACK_IMPORTED_MODULE_12___default()(document.currentScript)
+_config_js__WEBPACK_IMPORTED_MODULE_14__["default"].baseURL = baseURL
 baseScript.before(`<div id="app"></div>`)
 
 // ---------------
@@ -7117,9 +7124,9 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].config.errorHandler  = function(err,
 
 let VueController = {
   data: {
-    message: 'Hello, world.', // for test
+//    message: 'Hello, world.', // for test
     users: [],
-    config: _config_js__WEBPACK_IMPORTED_MODULE_15__["default"],
+    config: _config_js__WEBPACK_IMPORTED_MODULE_14__["default"],
     status: {
       role: '',
       username: '',
@@ -7138,10 +7145,10 @@ let VueController = {
     },
     lib: {
       AxiosHelper: _helpers_AxiosHelper__WEBPACK_IMPORTED_MODULE_7__["default"].setBaseURL(baseURL),
-      DayJSHelper: _helpers_DayJSHelper__WEBPACK_IMPORTED_MODULE_8__["default"],
-      StringHelper: _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_9__["default"],
-      ValidateHelper: _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_10__["default"],
-      VueHelper: _helpers_VueHelper__WEBPACK_IMPORTED_MODULE_11__["default"],
+      DayJSHelper: null,
+      StringHelper: _helpers_StringHelper__WEBPACK_IMPORTED_MODULE_8__["default"],
+      ValidateHelper: _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_9__["default"],
+      VueHelper: _helpers_VueHelper__WEBPACK_IMPORTED_MODULE_10__["default"],
       //toc: TOCHelper,
     },
     //view: 'Loading',
@@ -7171,7 +7178,7 @@ let VueController = {
       this.lib.DayJSHelper.setLocale(this.config.locale)
     },
     '$route.query.origin': function () {
-      console.log(this.$route.query.origin)
+      //console.log(this.$route.query.origin)
       if (typeof(this.$route.query.origin) === 'string' 
               && this.$route.query.origin !== '') {
         this.loadUsers(this.$route.query.origin)
@@ -7180,7 +7187,12 @@ let VueController = {
   },
 //  created: function () {
 //  },
-  mounted: function () {
+  mounted: async function () {
+    let DayJSHelper = await (() =>__webpack_require__.e(/*! import() | admin-components/Loading */ "admin-components/Loading").then(__webpack_require__.bind(null, /*! ./helpers/DayJSHelper.js */ "./webpack-app/helpers/DayJSHelper.js")))()
+    this.lib.DayJSHelper = await DayJSHelper.default()
+    
+    //console.log(this.config)
+    
     if (typeof(this.$route.query.origin) === 'string' 
             && this.$route.query.origin !== '') {
       this.loadUsers(this.$route.query.origin)
@@ -7197,6 +7209,7 @@ let VueController = {
     })
     
     this.lib.style = this.$refs.style
+    
   },
   methods: {
     loadUsers: async function (origin) {
@@ -7215,13 +7228,13 @@ let VueController = {
   el: '#app',
   i18n: _plugins_i18n__WEBPACK_IMPORTED_MODULE_3__["default"],
   
-  template: _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_14___default.a,
+  template: _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_13___default.a,
   router: _admin_routes__WEBPACK_IMPORTED_MODULE_6__["default"],
   components: _admin_local_components__WEBPACK_IMPORTED_MODULE_5__["default"],
 }
 
 if (typeof(baseURL) === 'string') {
-  jquery__WEBPACK_IMPORTED_MODULE_13___default()(() => {
+  jquery__WEBPACK_IMPORTED_MODULE_12___default()(() => {
     new vue__WEBPACK_IMPORTED_MODULE_0__["default"](VueController)
   })
 }
@@ -7384,14 +7397,16 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 let Login = {
   props: ['lib', 'status', 'config'],
-  data() {    
-    this.$i18n.locale = this.config.locale
+  data: function () {
+    if (this.config) {
+      this.$i18n.locale = this.config.locale
+    }
     return {
-      /*
-      domain: '',
-      username: '',
-      password: '',
-      */
+      
+//      domain: '',
+//      username: '',
+//      password: '',
+      
       domain: '',
       username: 'admin',
       password: 'password',
@@ -7404,9 +7419,14 @@ let Login = {
     }
   },
   watch: {
+    config () {
+      if (this.config) {
+        this.$i18n.locale = this.config.locale
+      }
+    }
   },
-  mounted() {
-  },
+//  mounted() {
+//  },
   methods: {
     login: async function() {
       
@@ -7674,7 +7694,7 @@ component.options.__file = "webpack-app/admin/NavigationItems/NavigationItems.vu
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n  <auth v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:progress=\"progress\"\r\n        v-bind:lib=\"lib\"\r\n        ref=\"auth\"></auth>\r\n\r\n  <template v-if=\"progress.display === true && status.needLogin === false\">\r\n    <navigation-items v-bind:config=\"config\"\r\n                v-bind:status=\"status\"\r\n                v-bind:progress=\"progress\"\r\n                v-bind:lib=\"lib\"></navigation-items>\r\n  </template>\r\n\r\n  <error-handler v-bind:config=\"config\"\r\n                 v-bind:lib=\"lib\"\r\n                 v-bind:errors=\"errors\"\r\n                 ref=\"ErrorHandler\"></error-handler>\r\n\r\n  <StyleManager \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"style\">\r\n  </StyleManager>\r\n  \r\n  <!-- ========================================== -->\r\n\r\n  <template v-if=\"progress.display === false\">\r\n    <loading></loading>\r\n  </template>\r\n  <template v-else>\r\n    <template v-if=\"status.needLogin === true\">\r\n      <login v-bind:config=\"config\"\r\n             v-bind:status=\"status\"\r\n             v-bind:progress=\"progress\"\r\n             v-bind:lib=\"lib\"></login>\r\n    </template>\r\n    <template v-else>\r\n\r\n      <router-view v-bind:config=\"config\"\r\n                   v-bind:status=\"status\"\r\n                   v-bind:progress=\"progress\"\r\n                   v-bind:lib=\"lib\"></router-view>\r\n    </template>\r\n  </template>\r\n  \r\n  \r\n</div>";
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n  <auth \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:progress=\"progress\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"auth\">\r\n  </auth>\r\n\r\n  <template v-if=\"progress.display === true && status.needLogin === false\">\r\n    <navigation-items \r\n      v-bind:config=\"config\"\r\n      v-bind:status=\"status\"\r\n      v-bind:progress=\"progress\"\r\n      v-bind:lib=\"lib\">\r\n    </navigation-items>\r\n  </template>\r\n\r\n  <error-handler \r\n    v-bind:config=\"config\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:errors=\"errors\"\r\n    ref=\"ErrorHandler\">\r\n  </error-handler>\r\n\r\n  <StyleManager \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    ref=\"style\">\r\n  </StyleManager>\r\n\r\n  <!-- ========================================== -->\r\n\r\n  <template v-if=\"progress.display === false || config === undefined\">\r\n    <loading></loading>\r\n  </template>\r\n  <template v-else>\r\n    <template v-if=\"status.needLogin === true\">\r\n      <login \r\n        v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:lib=\"lib\">\r\n      </login>\r\n    </template>\r\n    <template v-else>\r\n      <router-view \r\n        v-bind:config=\"config\"\r\n        v-bind:status=\"status\"\r\n        v-bind:lib=\"lib\">\r\n      </router-view>\r\n    </template>\r\n  </template>\r\n</div>";
 
 /***/ }),
 
@@ -13358,198 +13378,12 @@ let AxiosHelper = {
       else {
         errorHandler(error)
       }
-      return
+      return undefined
     }
   }
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (AxiosHelper);
-
-/***/ }),
-
-/***/ "./webpack-app/helpers/DayJSHelper.js":
-/*!********************************************!*\
-  !*** ./webpack-app/helpers/DayJSHelper.js ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-
-
-/* harmony default export */ __webpack_exports__["default"] = (async () => {
-  //import dayjs from 'dayjs'
-  let dayjs = await Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors~client-components/GlobalComponents"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.t.bind(null, /*! dayjs */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\dayjs\\dayjs.min.js", 7))
-  dayjs = dayjs.default
-  
-  //import relativeTime from 'dayjs/plugin/relativeTime'
-  let relativeTime = await Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors~client-components/GlobalComponents"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.t.bind(null, /*! dayjs/plugin/relativeTime */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\dayjs\\plugin\\relativeTime.js", 7))
-  relativeTime = relativeTime.default
-  
-  //import 'dayjs/locale/zh-tw' // load on demand
-  dayjs.extend(relativeTime)
-
-  // preload locales
-  //require(`dayjs/locale/zh-tw`).default
-  //import 'dayjs/locale/zh-tw'
-  //import zhTWConf from 'dayjs/locale/zh-tw';
-  let zhTWConf = await Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors~client-components/GlobalComponents"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.t.bind(null, /*! dayjs/locale/zh-tw */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\dayjs\\locale\\zh-tw.js", 7))
-  zhTWConf = zhTWConf.default
-  
-  dayjs.locale(zhTWConf)
-
-  let DayJSHelper = {
-    $t: null,
-    setI18N: function ($t) {
-      this.$t = $t
-    },
-    time: function () {
-      let d = (new Date())
-      return d.getTime() + this.offset()
-    },
-    _offset: null,
-    offset () {
-      if (typeof(this._offset) !== 'number') {
-        let d = (new Date())
-        this._offset = d.getTimezoneOffset() * 1000
-      }
-      return this._offset
-    },
-    setLocale: function (dayjsLocale) {
-      if (typeof(dayjsLocale) !== 'string') {
-        return this
-      }
-
-      dayjsLocale = dayjsLocale.toLowerCase()
-
-      try {
-        //require(`dayjs/locale/${dayjsLocale}`).default // load on demand
-        dayjs.locale(dayjsLocale)
-      }
-      catch (e) {
-        console.error(`dayjs locale is error: ${dayjsLocale}`)
-      }
-      return this
-    },
-    fromNow: function (timestamp) {
-      if (timestamp === null 
-              || isNaN(timestamp) === true) {
-        return ''
-      }
-      else if (typeof(timestamp) === 'string') {
-        timestamp = parseInt(timestamp, 10)
-      }
-      timestamp = timestamp - this.offset()
-      return dayjs(timestamp).fromNow()
-    },
-    toNow: function (timestamp) {
-      if (timestamp === null 
-              || isNaN(timestamp) === true) {
-        return ''
-      }
-      else if (typeof(timestamp) === 'string') {
-        timestamp = parseInt(timestamp, 10)
-      }
-      timestamp = timestamp - this.offset()
-      return dayjs(timestamp).toNow()
-    },
-    _prefixZero: function (n) {
-      if (n < 10) {
-        return '0' + n
-      }
-      else {
-        return n
-      }
-    },
-    shortTime: function (millisecond) {
-      //let intervalTimestamp = (new Date()).getTime() - timestamp
-      millisecond = millisecond - this.offset()
-
-      let year = 0
-      let month = 0
-      let day = 0
-      let hour = 0
-      let minute = 0
-
-      if (millisecond < 60000) {
-        // 如果是在距離現在12小時內，那就顯示 n分鐘前
-        return this.$t('in a minute')
-      }
-      else if (millisecond < 86400000) {
-        // 如果是距離現在1天內，那就顯示 hh:mm
-        hour = Math.floor(millisecond / 3600000)
-        minute = Math.floor((millisecond % 3600000) / 60000)
-        return this._prefixZero(hour) + ':' + this._prefixZero(minute)
-
-        //return dayjs().millisecond(timestamp).format('HH:mm')
-        //return this.$t('in a day')
-      }
-      else if (millisecond < 2592000000) {
-        // 如果距離30天內，那就顯示 in {0} day
-        day = Math.ceil(millisecond / 86400000)
-        return this.$t('in {0} day', [day])
-      }
-      else if (millisecond < 31536000000) {
-        // 如果距離現在1年內，那就顯示 in {0} month
-        //return dayjs().millisecond(millisecond).format('MM-DD')
-        month = Math.ceil(millisecond / 2592000000)
-        return this.$t('in {0} month', [month])
-      }
-      else {
-        // 如果超過1年，那就顯示 in {0} year
-
-        year = Math.ceil(millisecond / 31536000000)
-        return this.$t('in {0} year', [year])
-      }
-    },
-    from: function (baseTimestamp, toTimestamp) {
-      return dayjs(baseTimestamp).from(dayjs(toTimestamp))
-    },
-    to: function (baseTimestamp, toTimestamp) {
-      return dayjs(baseTimestamp).to(dayjs(toTimestamp))
-    },
-    format: function (unixMS) {
-      unixMS = unixMS - this.offset()
-      return dayjs(unixMS).format('YYYY-MM-DD HH:mm:ss')
-    },
-    formatMMSS: function (unixMS) {
-      unixMS = unixMS - this.offset()
-      return dayjs(unixMS).format('mm:ss')
-    },
-    formatHHMMSS: function (seconds) {
-      if (typeof(seconds) !== 'number') {
-        return seconds
-      }
-      if (seconds < 60) {
-        seconds = parseInt(seconds * 100) / 100
-        return seconds
-      }
-      else if (seconds < 3600) {
-        let mm = Math.floor(seconds / 60)
-        let ss = seconds % 60
-        ss = parseInt(ss * 100) / 100
-        return this._prefixZero(mm) 
-                + ':' 
-                + this._prefixZero(ss) 
-      }
-      else {
-        let hh = Math.floor(seconds / 3600)
-        let mm = Math.floor((seconds % 3600) / 60)
-        let ss = seconds % 60
-        ss = parseInt(ss * 100) / 100
-        //console.log(hh,mm,ss)
-        return this._prefixZero(hh) 
-                + ':' 
-                + this._prefixZero(mm) 
-                + ':' 
-                + this._prefixZero(ss) 
-      }
-    }
-  }
-  
-  return DayJSHelper
-});
 
 /***/ }),
 

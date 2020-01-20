@@ -18,7 +18,7 @@ import routes from './admin/routes'
 // ----------------------------------
 // Helpers
 import AxiosHelper from './helpers/AxiosHelper'
-import DayJSHelper from './helpers/DayJSHelper'
+//import DayJSHelper from './helpers/DayJSHelper'
 import StringHelper from './helpers/StringHelper'
 import ValidateHelper from './helpers/ValidateHelper'
 import VueHelper from './helpers/VueHelper'
@@ -60,7 +60,7 @@ Vue.config.errorHandler  = function(err, vm, info) {
 
 let VueController = {
   data: {
-    message: 'Hello, world.', // for test
+//    message: 'Hello, world.', // for test
     users: [],
     config: config,
     status: {
@@ -81,7 +81,7 @@ let VueController = {
     },
     lib: {
       AxiosHelper: AxiosHelper.setBaseURL(baseURL),
-      DayJSHelper: DayJSHelper,
+      DayJSHelper: null,
       StringHelper: StringHelper,
       ValidateHelper: ValidateHelper,
       VueHelper: VueHelper,
@@ -114,7 +114,7 @@ let VueController = {
       this.lib.DayJSHelper.setLocale(this.config.locale)
     },
     '$route.query.origin': function () {
-      console.log(this.$route.query.origin)
+      //console.log(this.$route.query.origin)
       if (typeof(this.$route.query.origin) === 'string' 
               && this.$route.query.origin !== '') {
         this.loadUsers(this.$route.query.origin)
@@ -123,7 +123,12 @@ let VueController = {
   },
 //  created: function () {
 //  },
-  mounted: function () {
+  mounted: async function () {
+    let DayJSHelper = await (() =>import(/* webpackChunkName: "admin-components/Loading" */ './helpers/DayJSHelper.js'))()
+    this.lib.DayJSHelper = await DayJSHelper.default()
+    
+    //console.log(this.config)
+    
     if (typeof(this.$route.query.origin) === 'string' 
             && this.$route.query.origin !== '') {
       this.loadUsers(this.$route.query.origin)
@@ -140,6 +145,7 @@ let VueController = {
     })
     
     this.lib.style = this.$refs.style
+    
   },
   methods: {
     loadUsers: async function (origin) {

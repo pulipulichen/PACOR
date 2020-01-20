@@ -6497,7 +6497,7 @@ let AxiosHelper = {
       else {
         errorHandler(error)
       }
-      return
+      return undefined
     }
   }
 }

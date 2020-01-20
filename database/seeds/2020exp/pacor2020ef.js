@@ -1,4 +1,3 @@
-
 const DomainModel = use('App/Models/Domain')
 const WebpageModel = use('App/Models/Webpage')
 const UserModel = use('App/Models/User')

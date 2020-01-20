@@ -1,13 +1,15 @@
 let Login = {
   props: ['lib', 'status', 'config'],
-  data() {    
-    this.$i18n.locale = this.config.locale
+  data: function () {
+    if (this.config) {
+      this.$i18n.locale = this.config.locale
+    }
     return {
-      /*
-      domain: '',
-      username: '',
-      password: '',
-      */
+      
+//      domain: '',
+//      username: '',
+//      password: '',
+      
       domain: '',
       username: 'admin',
       password: 'password',
@@ -20,9 +22,14 @@ let Login = {
     }
   },
   watch: {
+    config () {
+      if (this.config) {
+        this.$i18n.locale = this.config.locale
+      }
+    }
   },
-  mounted() {
-  },
+//  mounted() {
+//  },
   methods: {
     login: async function() {
       

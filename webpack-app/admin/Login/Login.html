@@ -1,41 +1,47 @@
-<div class="ui form segment">
-    
+<form class="ui form segment">
+
   <div class="ui field">
     <label for="loginDomain">
       {{ $t('Domain') }}
     </label>
-    <input type="text" 
-           id="loginDomain"
-           v-model="domain"
-           v-on:keyup.enter="login" />
+    <input 
+      type="text" 
+      id="loginDomain"
+      v-model="domain"
+      v-on:keyup.enter="login" />
   </div>
-  
+
   <div class="ui field">
     <label for="loginUsername">
       {{ $t('Username') }}
     </label>
-    <input type="text" 
-           id="loginUsername"
-           v-model="username"
-           v-on:keyup.enter="login" />
+    <input 
+      type="text" 
+      id="loginUsername"
+      v-model="username"
+      autocomplete="current-password"
+      v-on:keyup.enter="login" />
   </div>
-    
+
   <div class="ui field">
     <label for="loginPassword">
       {{ $t('Password') }}
     </label>
-    <input type="password" 
-           id="loginPassword"
-           v-model="password"
-           v-on:keyup.enter="login" />
+    <input 
+      type="password" 
+      id="loginPassword"
+      v-model="password"
+      autocomplete="current-password"
+      v-on:keyup.enter="login" />
   </div>
-  
+
   <div class="ui six buttons">
-    <button type="button" 
-            class="ui button login-submit"
-            v-on:click="login"
-            v-bind:class="{disabled: !isLoginEnable}">
+    <button 
+      type="button" 
+      class="ui button login-submit"
+      v-on:click="login"
+      v-bind:class="{disabled: !isLoginEnable}">
       {{ $t('Login') }}
     </button>
   </div>
-</div>
+</form>
