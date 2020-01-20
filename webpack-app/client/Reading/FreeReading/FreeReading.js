@@ -10,7 +10,7 @@ FreeReading.components['navigation-items'] = NavigationItems
 FreeReading.mounted = async function () {
   this.initComponentToLib()
   
-  this._testArticleInformation()
+  //this._testArticleInformation()
 }
 
 import methodsTestFreeReading from './methodsTestFreeReading.js'

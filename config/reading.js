@@ -66,7 +66,7 @@ module.exports = {
   
   readingProgressModules: {
     'PreImaginary': {
-      instruction: '/demo/PreImaginary.html',
+      instruction: '/instruction/questionnaire/PreImaginary.html',
       minWords: 10,
       //limitMinutes: 5,
       limitMinutes: 0.03,
@@ -142,7 +142,7 @@ module.exports = {
       }
     },
     'PostRecall': {
-      instruction: '/demo/PostRecall.html',
+      instruction: '/instruction/questionnaire/PostRecall.html',
       minWords: 10,
       //limitMinutes: 5
       limitMinutes: 0.03,

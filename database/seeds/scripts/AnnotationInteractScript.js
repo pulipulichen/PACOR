@@ -21,6 +21,8 @@ let webpage
 let annotation
 let annotation2
 
+const RandomTextHelper = use('App/Helpers/RandomTextHelper.js')
+
 module.exports = {
   main: async function () {
     console.log(__filename + ' start...')
@@ -63,7 +65,7 @@ module.exports = {
       //console.log('Add comment', i)
       let commentData = {
         annotationID: annotation.id,
-        note: '#' + i + ' 回應評論回應評論回應評論'
+        note: '#' + i + ' ' + RandomTextHelper()
       }
       
       await Sleep(0.01)
@@ -73,7 +75,7 @@ module.exports = {
       
       let commentData2 = {
         annotationID: annotation2.id,
-        note: '#' + i + ' 回應評論回應評論回應評論'
+        note: '#' + i + ' ' + RandomTextHelper()
       }
       
       await Sleep(0.01)
