@@ -13,6 +13,9 @@ export default function (FreeReading) {
     await this.lib.VueHelper.sleep(1000)
     //this.lib.UserFilter.show()
     $('.article-information-item:first i').click()
+    
+    await this.lib.VueHelper.sleep(1000)
+    $('section.preImaginary-instruction:first').click()
   }
 
 }

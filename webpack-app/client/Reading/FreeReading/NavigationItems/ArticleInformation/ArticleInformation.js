@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import CopyPasteHelper from './libs/CopyPasteHelper.js'
 
 let ArticleInformation = {
   props: ['lib', 'status', 'config'],
@@ -89,6 +90,31 @@ let ArticleInformation = {
       oCtx.drawImage(oColorImg, 0, 0, oColorImg.offsetWidth, oColorImg.offsetHeight, 0,0,nWidth,nHeight);
       
       return oCanvas.toDataURL()
+    },
+    copyPreImaginaryInstructionHtml() {
+      let section = this.$refs.SectionPreImaginary
+      let $section = $(section).clone()
+      //console.log(section)
+      $section.find('*').each((i, ele) => {
+        console.log(ele.attributes)
+        $.each(ele.attributes, function(j, attr) {
+          if (!attr) {
+            return false
+          }
+          //console.log(j, attr)
+          // this.attributes is not a plain object, but an array
+          // of attribute nodes, which contain both the name and value
+          let name = attr.name
+          if (name.startsWith('data-v-')) {
+            $(ele).removeAttr(name)
+          }
+        });
+      })
+      
+      section = $section[0]
+      console.log(section)
+      
+      CopyPasteHelper.copyPlainText(section.innerHTML)
     }
   } // methods
 }

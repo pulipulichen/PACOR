@@ -14,7 +14,7 @@ zh-TW:
   Article Counting: 文章統計
   
   Please try to predict what this article might write.: 請預測這篇文章可能會寫什麼。
-  'This article is titled "{0}"': '這篇文章的標題是「{0}」。'
+  'This article is titled "{0}".': '這篇文章的標題是「{0}」。'
   "This article includes {0} headings:": "這篇文章包含了以下子標題："
   "This article includes {0} images:": "這篇文章包含了以下圖片："
   Don't worry about punctuation or typos, just write down what you predict of.: 請不用考慮標點符號或錯字，把您想到的事情寫下來即可。

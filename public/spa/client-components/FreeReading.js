@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Total {0} images":"Total {0} image | Total {0} images","Total {0} headings":"Total {0} heading | Total {0} headings","This article is titled \\"{0}\\".":"This article is titled \\"{0}\\".","This article includes {0} headings:":"This article includes {0} heading: | This article includes {0} headings:","This article includes {0} images:":"This article includes {0} image: | This article includes {0} images:"},"zh-TW":{"Article Information":"文章資訊","Total {0} images":"總共{0}張圖片","Total {0} headings":"總共{0}個標題","Headings":"標題","Images":"圖片","Article Counting":"文章統計","Please try to predict what this article might write.":"請預測這篇文章可能會寫什麼。","This article is titled \\"{0}\\"":"這篇文章的標題是「{0}」。","This article includes {0} headings:":"這篇文章包含了以下子標題：","This article includes {0} images:":"這篇文章包含了以下圖片：","Don\u0027t worry about punctuation or typos, just write down what you predict of.":"請不用考慮標點符號或錯字，把您想到的事情寫下來即可。","The time limit is {0} minutes and the countdown starts when you start typing.":"限時{0}分鐘，開始輸入文字時就會開始倒數。","The time limit is {0} minutes and the countdown starts now.":"限時{0}分鐘，現在開始倒數即時。"}}')
+  Component.options.__i18n.push('{"en":{"Total {0} images":"Total {0} image | Total {0} images","Total {0} headings":"Total {0} heading | Total {0} headings","This article is titled \\"{0}\\".":"This article is titled \\"{0}\\".","This article includes {0} headings:":"This article includes {0} heading: | This article includes {0} headings:","This article includes {0} images:":"This article includes {0} image: | This article includes {0} images:"},"zh-TW":{"Article Information":"文章資訊","Total {0} images":"總共{0}張圖片","Total {0} headings":"總共{0}個標題","Headings":"標題","Images":"圖片","Article Counting":"文章統計","Please try to predict what this article might write.":"請預測這篇文章可能會寫什麼。","This article is titled \\"{0}\\".":"這篇文章的標題是「{0}」。","This article includes {0} headings:":"這篇文章包含了以下子標題：","This article includes {0} images:":"這篇文章包含了以下圖片：","Don\u0027t worry about punctuation or typos, just write down what you predict of.":"請不用考慮標點符號或錯字，把您想到的事情寫下來即可。","The time limit is {0} minutes and the countdown starts when you start typing.":"限時{0}分鐘，開始輸入文字時就會開始倒數。","The time limit is {0} minutes and the countdown starts now.":"限時{0}分鐘，現在開始倒數即時。"}}')
   delete Component.options._Ctor
 }
 
@@ -306,115 +306,150 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    _vm._s(
-                      _vm.$t(
-                        "Please try to predict what this article might write."
-                      )
-                    )
-                  )
-                ]),
-                _vm._v(" "),
-                _c("ul", [
-                  _c("li", [
-                    _vm._v(
-                      _vm._s(
-                        _vm.$t('This article is titled "{0}".', [
-                          _vm.articleTitle
-                        ])
-                      )
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm.headings.length > 0
-                    ? _c("li", [
-                        _vm._v(
-                          "\r\n          " +
-                            _vm._s(
-                              _vm.$t("This article includes {0} headings:", [
-                                _vm.headings.length
-                              ])
-                            ) +
-                            "\r\n          "
-                        ),
-                        _c(
-                          "ol",
-                          _vm._l(_vm.headings, function(heading) {
-                            return _c("li", [_vm._v(_vm._s(heading))])
-                          }),
-                          0
+                _c(
+                  "section",
+                  {
+                    ref: "SectionPreImaginary",
+                    staticClass: "preImaginary-instruction",
+                    on: {
+                      click: function($event) {
+                        return _vm.copyPreImaginaryInstructionHtml()
+                      }
+                    }
+                  },
+                  [
+                    _c("p", [
+                      _vm._v(
+                        _vm._s(
+                          _vm.$t(
+                            "Please try to predict what this article might write."
+                          )
                         )
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.images.length > 0
-                    ? _c(
-                        "li",
-                        [
-                          _vm._v(
-                            "\r\n          " +
-                              _vm._s(
-                                _vm.$t("This article includes {0} images:", [
-                                  _vm.headings.length
-                                ])
-                              ) +
-                              " "
-                          ),
-                          _c("br"),
-                          _vm._v(" "),
-                          _vm._l(_vm.images, function(image) {
-                            return _c(
-                              "span",
-                              { staticClass: "image-container" },
-                              [
-                                _c("img", {
-                                  attrs: { src: image.src, title: image.title }
-                                })
-                              ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("ul", [
+                      _c("li", [
+                        _vm._v(
+                          _vm._s(
+                            _vm.$t('This article is titled "{0}".', [
+                              _vm.articleTitle
+                            ])
+                          )
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm.headings.length > 0
+                        ? _c("li", [
+                            _vm._v(
+                              "\r\n            " +
+                                _vm._s(
+                                  _vm.$t(
+                                    "This article includes {0} headings:",
+                                    [_vm.headings.length]
+                                  )
+                                ) +
+                                "\r\n            "
+                            ),
+                            _c(
+                              "ol",
+                              _vm._l(_vm.headings, function(heading) {
+                                return _c("li", [_vm._v(_vm._s(heading))])
+                              }),
+                              0
                             )
-                          })
-                        ],
-                        2
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("li", [
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.images.length > 0
+                        ? _c(
+                            "li",
+                            [
+                              _vm._v(
+                                "\r\n            " +
+                                  _vm._s(
+                                    _vm.$t(
+                                      "This article includes {0} images:",
+                                      [_vm.headings.length]
+                                    )
+                                  ) +
+                                  " "
+                              ),
+                              _c("br"),
+                              _vm._v(" "),
+                              _vm._l(_vm.images, function(image) {
+                                return _c(
+                                  "span",
+                                  { staticClass: "image-container" },
+                                  [
+                                    _c("img", {
+                                      attrs: {
+                                        src: image.src,
+                                        title: image.title
+                                      }
+                                    })
+                                  ]
+                                )
+                              })
+                            ],
+                            2
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          _vm._s(
+                            _vm.$t(
+                              "Don't worry about punctuation or typos, just write down what you predict of."
+                            )
+                          )
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm.preImaginaryConfig.countdownAtStart === false
+                        ? _c("li", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.$t(
+                                  "The time limit is {0} minutes and the countdown starts when you start typing.",
+                                  [_vm.preImaginaryConfig.limitMinutes]
+                                )
+                              )
+                            )
+                          ])
+                        : _c("li", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.$t(
+                                  "The time limit is {0} minutes and the countdown starts now.",
+                                  [_vm.preImaginaryConfig.limitMinutes]
+                                )
+                              )
+                            )
+                          ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "ui button fluid",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.copyPreImaginaryInstructionHtml()
+                      }
+                    }
+                  },
+                  [
                     _vm._v(
-                      _vm._s(
-                        _vm.$t(
-                          "Don't worry about punctuation or typos, just write down what you predict of."
-                        )
-                      )
+                      "\r\n        " +
+                        _vm._s(_vm.$t("Copy HTML")) +
+                        "\r\n      "
                     )
-                  ]),
-                  _vm._v(" "),
-                  _vm.preImaginaryConfig.countdownAtStart === false
-                    ? _c("li", [
-                        _vm._v(
-                          "\r\n          " +
-                            _vm._s(
-                              _vm.$t(
-                                "The time limit is {0} minutes and the countdown starts when you start typing.",
-                                [_vm.preImaginaryConfig.limitMinutes]
-                              )
-                            ) +
-                            "\r\n        "
-                        )
-                      ])
-                    : _c("li", [
-                        _vm._v(
-                          "\r\n          " +
-                            _vm._s(
-                              _vm.$t(
-                                "The time limit is {0} minutes and the countdown starts now.",
-                                [_vm.preImaginaryConfig.limitMinutes]
-                              )
-                            ) +
-                            "\r\n        "
-                        )
-                      ])
-                ]),
+                  ]
+                ),
                 _vm._v(" "),
                 _c("div", { staticClass: "ui divider" }),
                 _vm._v(" "),
@@ -1629,6 +1664,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _libs_CopyPasteHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./libs/CopyPasteHelper.js */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/libs/CopyPasteHelper.js");
+
 
 
 let ArticleInformation = {
@@ -1720,6 +1757,31 @@ let ArticleInformation = {
       oCtx.drawImage(oColorImg, 0, 0, oColorImg.offsetWidth, oColorImg.offsetHeight, 0,0,nWidth,nHeight);
       
       return oCanvas.toDataURL()
+    },
+    copyPreImaginaryInstructionHtml() {
+      let section = this.$refs.SectionPreImaginary
+      let $section = jquery__WEBPACK_IMPORTED_MODULE_0___default()(section).clone()
+      //console.log(section)
+      $section.find('*').each((i, ele) => {
+        console.log(ele.attributes)
+        jquery__WEBPACK_IMPORTED_MODULE_0___default.a.each(ele.attributes, function(j, attr) {
+          if (!attr) {
+            return false
+          }
+          //console.log(j, attr)
+          // this.attributes is not a plain object, but an array
+          // of attribute nodes, which contain both the name and value
+          let name = attr.name
+          if (name.startsWith('data-v-')) {
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()(ele).removeAttr(name)
+          }
+        });
+      })
+      
+      section = $section[0]
+      console.log(section)
+      
+      _libs_CopyPasteHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"].copyPlainText(section.innerHTML)
     }
   } // methods
 }
@@ -1815,6 +1877,56 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_ArticleInformation_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CFreeReading_5CNavigationItems_5CArticleInformation_5CArticleInformation_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_ArticleInformation_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CFreeReading_5CNavigationItems_5CArticleInformation_5CArticleInformation_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_ArticleInformation_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CFreeReading_5CNavigationItems_5CArticleInformation_5CArticleInformation_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_ArticleInformation_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CFreeReading_5CNavigationItems_5CArticleInformation_5CArticleInformation_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_ArticleInformation_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CFreeReading_5CNavigationItems_5CArticleInformation_5CArticleInformation_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/libs/CopyPasteHelper.js":
+/*!***********************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/libs/CopyPasteHelper.js ***!
+  \***********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let CopyPasteHelper = {
+  copyPlainText: function (text) {
+    var copyTextInput = document.getElementById("puliClipboardInput")
+    if (copyTextInput === null) {
+      var copyTextInput = document.createElement("textarea");
+      copyTextInput.id = "puliClipboardInput"
+      //copyTextInput.type = "text"
+      document.body.appendChild(copyTextInput);
+    }
+
+    copyTextInput.value = text
+
+    copyTextInput.style = "display: block; position: absolute; top: -1000px; left: -1000px;"
+    /* Select the text field */
+    copyTextInput.select();
+
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+
+    copyTextInput.style = "display: none"
+  },
+  copyRichFormatListener: function (e, str) {
+    e.clipboardData.setData("text/html", str);
+    e.clipboardData.setData("text/plain", str);
+    e.preventDefault();
+  },
+  copyRichFormat: function (str) {
+    document.addEventListener("copy", (e) => {
+      this.copyRichFormatListener(e, str)
+    });
+    document.execCommand("copy");
+    document.removeEventListener("copy", (e) => {
+      this.copyRichFormatListener(e, str)
+    });
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (CopyPasteHelper);
 
 /***/ }),
 
@@ -2207,6 +2319,9 @@ __webpack_require__.r(__webpack_exports__);
     await this.lib.VueHelper.sleep(1000)
     //this.lib.UserFilter.show()
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.article-information-item:first i').click()
+    
+    await this.lib.VueHelper.sleep(1000)
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('section.preImaginary-instruction:first').click()
   }
 
 });
