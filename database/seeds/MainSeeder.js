@@ -19,7 +19,7 @@ const Sleep = use('Sleep')
 const Cache = use('Cache')
 
 
-const TestDomainAdminScript = use('./scripts/TestDomainAdminScript.js')
+const TestSetupScript = use('./scripts/TestSetupScript.js')
 const WebpageUserGroupScript = use('./scripts/WebpageUserGroupScript.js')
 const AnnotationInteractScript = use('./scripts/AnnotationInteractScript.js')
 const Exp2020Script = use('./2020exp/Exp2020Script.js')
@@ -31,7 +31,7 @@ class UserSeeder {
     console.log('=========================================')
     console.log(__filename + ' start...\n')
     
-    await TestDomainAdminScript.main()
+    await TestSetupScript.main()
     await WebpageUserGroupScript.main()
     await AnnotationInteractScript.main()
     

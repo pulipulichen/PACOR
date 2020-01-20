@@ -18,9 +18,14 @@ const urlTest = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + test
 
 let webpage
 
+const SeedHelper = use('App/Helpers/SeedHelper')
+
 module.exports = {
   main: async function () {
     await this.createAdmin()
+    await this.setupConfig()
+    
+    console.log(__filename + ' is finished.\n')
   },
   createAdmin: async function () {
     let adminsSetting = '布布:password'
@@ -28,4 +33,8 @@ module.exports = {
     await domain2.setAdmins(adminsSetting)
     //console.log('aaa')
   },
+  setupConfig: async function () {
+    let webpageConfig = use('./parameters/test-lorem-ipsum.js')
+    await SeedHelper(url, webpageConfig)
+  }
 }
