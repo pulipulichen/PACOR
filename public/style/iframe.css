@@ -24,13 +24,15 @@ ul,ol {
   width: 50%;
   min-width: 200px;
   text-align: right;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
+  padding-right: 1rem;
 }
 
 img {
   width: 100%;
   max-width: 400px;
   height: auto;
+  box-shadow: 0 0 15px #ccc;
 }
 
 .highlight {
