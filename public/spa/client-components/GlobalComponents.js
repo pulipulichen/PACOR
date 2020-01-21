@@ -6064,7 +6064,7 @@ let NotificationManager = {
       this.isLoading = true
       
       if (this.status.notificationData.unreadNotifications.length > 0) {
-        this.afterTime = parseInt(this.status.notificationData[0].created_at_unixms, 10)
+        this.afterTime = parseInt(this.status.notificationData.unreadNotifications[0].created_at_unixms, 10)
       }
       
       let data = {
@@ -6073,8 +6073,8 @@ let NotificationManager = {
       //console.log(this.isLoading)
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/getNotification', data)
       //if (this.afterTime) {
-        console.log({result})
-        console.log({data})
+        //console.log({result})
+        //console.log({data})
       //}
       this.startReloadData()
       this.isLoading = false
@@ -6084,22 +6084,25 @@ let NotificationManager = {
       
       
       for (let key in result) {
-        if (key === 'unreadNotifications') {
-          if (Array.isArray(this.status.notificationData.unreadNotifications) === false) {
-            this.status.notificationData.unreadNotifications = []
-          }
-          this.status.notificationData.unreadNotifications = this.status.notificationData.unreadNotifications.concat(result[key])
-          
-//          if (result[key].length > 0) {
-//            //console.log(parseInt(result[key][0].created_at_unixms, 10), parseInt(result[key].slice(-1)[0].created_at_unixms, 10))
-//            this.afterTime = parseInt(result[key].slice(-1)[0].created_at_unixms, 10)
-//            //console.log(this.afterTime, typeof(this.afterTime))
+        this.status.notificationData[key] = result[key]
+        
+//        if (key === 'unreadNotifications') {
+//          if (Array.isArray(this.status.notificationData.unreadNotifications) === false) {
+//            this.status.notificationData.unreadNotifications = []
 //          }
-          //console.log(this.afterTime)
-        }
-        else {
-          this.status.notificationData[key] = result[key]
-        }
+//          //this.status.notificationData.unreadNotifications = this.status.notificationData.unreadNotifications.concat(result[key])
+//          this.status.notificationData.unreadNotifications = result[key]
+//          
+////          if (result[key].length > 0) {
+////            //console.log(parseInt(result[key][0].created_at_unixms, 10), parseInt(result[key].slice(-1)[0].created_at_unixms, 10))
+////            this.afterTime = parseInt(result[key].slice(-1)[0].created_at_unixms, 10)
+////            //console.log(this.afterTime, typeof(this.afterTime))
+////          }
+//          //console.log(this.afterTime)
+//        }
+//        else {
+//          this.status.notificationData[key] = result[key]
+//        }
       }
       //this.show() // for test 20191123
       

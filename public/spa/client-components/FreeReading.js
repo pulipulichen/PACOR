@@ -1582,6 +1582,7 @@ let CollaborativeReading = {
     //this._testTutorial()
     //this._testTutorialShowClick()
     //this._testInstruction()
+    this._testNotificationFullList()
   },
   destroyed () {
     //console.log('退場了')
