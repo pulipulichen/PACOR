@@ -182,8 +182,8 @@ module.exports = {
     'ConfusedClarified': {
       'questionPlaceholder': 'Write your question here...',
       'answerPlaceholder': 'Write your answer here...',
-      'questionMinWords': 5,
-      'answerMinWords': 10,
+      'questionMinWords': 3,
+      'answerMinWords': 5,
       /**
        * {anchorText}
        * {questionText}
@@ -255,7 +255,7 @@ module.exports = {
     },
     'MainIdea': {
       'addable': true,
-      'minWords': 3,
+      'minWords': 1,
       'placeholder': 'Why do you think it is a main idea?',
       'instruction': {
         'summary': 'Highlight key keywords or concepts',
@@ -278,7 +278,7 @@ module.exports = {
     },
     'SectionMainIdea': {
       'addable': false,
-      'minWords': 3,
+      'minWords': 1,
       'placeholder': 'Why do you think it is a main idea?',
       'instruction': {
         'summary': 'Highlight keywords or concepts in this section',
