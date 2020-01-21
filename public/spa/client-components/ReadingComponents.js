@@ -6833,6 +6833,10 @@ let AnnotationTypeSelector = {
       }
     },
     enableList () {
+      if (this.selection) {
+        console.log(this.selection)
+        console.log(this.selection.highlights.length)
+      }
       return (this.selection !== null 
             && this.selection.highlights.length > 0)
     }
