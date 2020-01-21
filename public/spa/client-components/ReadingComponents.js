@@ -26150,22 +26150,44 @@ let SectionAnnotationEditorButton = {
       })
     },
     onAnnotationAdd (annotation) {
+      this._initSectionsDataAnnotation()
+      //this.sectionsData.annotation[this.sectionSeqID].annotations.unshift(annotation)
+      this.sectionsData.annotation[this.sectionSeqID].myAnnotation = annotation
+      this.sectionsData.annotation[this.sectionSeqID].users.push(annotation.user)
+      
+      console.log(this.sectionsData.annotation[this.sectionSeqID])
+    },
+    _initSectionsDataAnnotation () {
       if (Array.isArray(this.sectionsData.annotation) === false) {
         this.sectionsData.annotation = []
       }
       while (typeof(this.sectionsData.annotation[this.sectionSeqID]) !== 'object') {
         this.sectionsData.annotation.push({
-          annotations: []
+          annotations: [],
+          myAnnotation: null,
+          users: []
         })
       }
-      this.sectionsData.annotation[this.sectionSeqID].annotations.unshift(annotation)
+      
+      if (Array.isArray(this.sectionsData.annotation[this.sectionSeqID].users) === false) {
+        this.sectionsData.annotation[this.sectionSeqID].users = []
+      }
+      
+      if (Array.isArray(this.sectionsData.annotation[this.sectionSeqID].annotations) === false) {
+        this.sectionsData.annotation[this.sectionSeqID].annotations = []
+      }
     },
     onAnnotationUpdate (annotation) {
+      this._initSectionsDataAnnotation()
+      //this.sectionsData.annotation[this.sectionSeqID].annotations.unshift(annotation)
+      this.sectionsData.annotation[this.sectionSeqID].myAnnotation = annotation
+      /*
       for (let i = 0; i < this.annotations.length; i++) {
         if (this.annotations[i].user_id === this.status.userID) {
           this.sectionsData.annotation[this.sectionSeqID].annotations[i] = annotation
         }
       }
+       */
     }
   } // methods
 }
