@@ -60,7 +60,8 @@
 
     v-bind:annotation="myAnnotation"
     v-bind:findAnnotation="findAnnotation"
-    v-bind:assistUser="true">
+    v-bind:assistUser="true"
+    v-on:comment="findAnnotation">
   </annotation-item>
   
   <div class="ui divider"
@@ -79,7 +80,8 @@
 
       v-bind:annotation="annotation"
       v-bind:findAnnotation="findAnnotation"
-      v-bind:assistUser="true">
+      v-bind:assistUser="true"
+      v-on:comment="findAnnotation">
     </annotation-item>
 
     <div class="ui secondary segment no-more"

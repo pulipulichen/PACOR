@@ -30,6 +30,7 @@ let SectionAnnotationEditorButton = {
 //  },
   methods: {
     openSectionAnnotationEditor () {
+      //console.log(this.sectionSeqID, this.annotation)
       this.lib.AnnotationPanel.setAnnotation(this.annotation, {
         'add': (annotation) => {
           this.onAnnotationAdd(annotation)
@@ -38,14 +39,6 @@ let SectionAnnotationEditorButton = {
           this.onAnnotationUpdate(annotation)
         }
       })
-    },
-    onAnnotationAdd (annotation) {
-      this._initSectionsDataAnnotation()
-      //this.sectionsData.annotation[this.sectionSeqID].annotations.unshift(annotation)
-      this.sectionsData.annotation[this.sectionSeqID].myAnnotation = annotation
-      this.sectionsData.annotation[this.sectionSeqID].users.push(annotation.user)
-      
-      console.log(this.sectionsData.annotation[this.sectionSeqID])
     },
     _initSectionsDataAnnotation () {
       if (Array.isArray(this.sectionsData.annotation) === false) {
@@ -67,10 +60,30 @@ let SectionAnnotationEditorButton = {
         this.sectionsData.annotation[this.sectionSeqID].annotations = []
       }
     },
+    onAnnotationAdd (annotation) {
+      this._initSectionsDataAnnotation()
+      //this.sectionsData.annotation[this.sectionSeqID].annotations.unshift(annotation)
+      
+      //this.sectionsData.annotation[this.sectionSeqID].myAnnotation = annotation
+      this.$set(this.sectionsData.annotation[this.sectionSeqID], 'myAnnotation', annotation)
+      
+      this.sectionsData.annotation[this.sectionSeqID].users.push(annotation.user)
+      //this.sectionsData.annotation[this.sectionSeqID].annotations.push(annotation)
+      
+      //console.log(this.sectionsData.annotation)
+      //console.log(this.sectionsData.annotation[this.sectionSeqID])
+      //console.log(this.myAnnotation)
+//      this.$forceUpdate()
+//      
+//      this.$emit('update')
+    },
     onAnnotationUpdate (annotation) {
       this._initSectionsDataAnnotation()
       //this.sectionsData.annotation[this.sectionSeqID].annotations.unshift(annotation)
-      this.sectionsData.annotation[this.sectionSeqID].myAnnotation = annotation
+      //this.sectionsData.annotation[this.sectionSeqID].myAnnotation = annotation
+      this.$set(this.sectionsData.annotation[this.sectionSeqID], 'myAnnotation', annotation)
+      
+      //this.$forceUpdate()
       /*
       for (let i = 0; i < this.annotations.length; i++) {
         if (this.annotations[i].user_id === this.status.userID) {

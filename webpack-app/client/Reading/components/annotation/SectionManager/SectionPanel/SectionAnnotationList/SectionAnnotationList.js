@@ -52,6 +52,7 @@ let SectionAnnotationList = {
       return this.sectionsData.annotation[this.sectionSeqID].annotations
     },
     myAnnotation () {
+      //console.log(this.sectionsData.annotation[this.sectionSeqID])
       if (!this.sectionsData.annotation[this.sectionSeqID]) {
         return undefined
       }
@@ -91,7 +92,7 @@ let SectionAnnotationList = {
       
       //this.sectionsData.sectionAnnotation.instance = annotation
       
-      this.lib.AnnotationPanel.setAnnotation(annotation, {
+      this.lib.AnnotationPanel.focusCommentInput(annotation, {
         'update': () => {
           this.reloadList()
         }
@@ -165,7 +166,7 @@ let SectionAnnotationList = {
         .popup('show')
        */
       this.lib.tippy(element[0], {
-        content: 'Hello 1234',
+        content: '',
         //content: this.$refs.popup,
         boundary: this.$refs.AnnotationList,
         trigger: 'click',
@@ -173,7 +174,7 @@ let SectionAnnotationList = {
       }).show()
       element.addClass('popup-user-inited')
       $(this.$refs.popup).show()
-    }
+    },
   } // methods
 }
 
