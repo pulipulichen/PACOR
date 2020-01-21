@@ -296,7 +296,7 @@ let UserChart = {
   } // methods
 }
 
-import methodsPopupUserChart from './methodsPopupUserChart.js'
-methodsPopupUserChart(UserChart)
+//import methodsPopupUserChart from './methodsPopupUserChart.js'
+//methodsPopupUserChart(UserChart)
 
 export default UserChart

@@ -1,15 +1,15 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["client-components/Loading~client-components/ReadingComponents"],{
 
-/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui-button/tippy.js/tippy.webpack.less":
-/*!***********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/ui-button/tippy.js/tippy.webpack.less ***!
-  \***********************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui-button/tippy.js/tippy-semantic-ui-popup-theme.less":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/ui-button/tippy.js/tippy-semantic-ui-popup-theme.less ***!
+  \***************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".tippy-semantic-ui-popup-theme.tippy-tooltip {\n  cursor: pointer;\n  background-color: white !important;\n  color: rgba(0, 0, 0, 0.87) !important;\n  border: 1px solid #D4D4D5 !important;\n  line-height: 1.4285em !important;\n  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15) !important;\n  font-weight: normal !important;\n  font-style: normal !important;\n  font-size: 1.5rem !important;\n  pointer-events: none !important;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip img {\n  max-height: 1.5em;\n  width: auto;\n  vertical-align: middle;\n  margin-right: 0.5em;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip button {\n  margin-left: 0.5em;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip[data-placement=\"top\"] .tippy-arrow {\n  border-top-color: #FFF !important;\n  filter: drop-shadow(1px 1px 0 #CCC);\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip[data-placement=\"bottom\"] .tippy-arrow {\n  border-bottom-color: #FFF !important;\n  filter: drop-shadow(1px -1px 0 #CCC);\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup .user-container {\n  pointer-events: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup button {\n  pointer-events: all;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup .cancel-assist-submit,\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup .only-you-submit,\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup .cancel-focus-submit {\n  display: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.has-focus-user .assist-submit {\n  display: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.has-focus-user .cancel-assist-submit {\n  display: inline-block;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you .assist-submit {\n  display: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you .only-you-submit {\n  display: inline-block;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you.has-focus-user .assist-submit,\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you.has-focus-user .cancel-assist-submit,\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you.has-focus-user .only-you-submit {\n  display: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you.has-focus-user .cancel-focus-submit {\n  display: inline-block;\n}\n", "",{"version":3,"sources":["tippy.webpack.less"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,kCAAkC;EAClC,qCAAqC;EACrC,oCAAoC;EACpC,gCAAgC;EAChC,sGAAsG;EACtG,8BAA8B;EAC9B,6BAA6B;EAC7B,4BAA4B;EAC5B,+BAA+B;AACjC;AACA;EACE,iBAAiB;EACjB,WAAW;EACX,sBAAsB;EACtB,mBAAmB;AACrB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,iCAAiC;EACjC,mCAAmC;AACrC;AACA;EACE,oCAAoC;EACpC,oCAAoC;AACtC;AACA;EACE,oBAAoB;AACtB;AACA;EACE,mBAAmB;AACrB;AACA;;;EAGE,aAAa;AACf;AACA;EACE,aAAa;AACf;AACA;EACE,qBAAqB;AACvB;AACA;EACE,aAAa;AACf;AACA;EACE,qBAAqB;AACvB;AACA;;;EAGE,aAAa;AACf;AACA;EACE,qBAAqB;AACvB","file":"tippy.webpack.less","sourcesContent":[".tippy-semantic-ui-popup-theme.tippy-tooltip {\n  cursor: pointer;\n  background-color: white !important;\n  color: rgba(0, 0, 0, 0.87) !important;\n  border: 1px solid #D4D4D5 !important;\n  line-height: 1.4285em !important;\n  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15) !important;\n  font-weight: normal !important;\n  font-style: normal !important;\n  font-size: 1.5rem !important;\n  pointer-events: none !important;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip img {\n  max-height: 1.5em;\n  width: auto;\n  vertical-align: middle;\n  margin-right: 0.5em;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip button {\n  margin-left: 0.5em;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip[data-placement=\"top\"] .tippy-arrow {\n  border-top-color: #FFF !important;\n  filter: drop-shadow(1px 1px 0 #CCC);\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip[data-placement=\"bottom\"] .tippy-arrow {\n  border-bottom-color: #FFF !important;\n  filter: drop-shadow(1px -1px 0 #CCC);\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup .user-container {\n  pointer-events: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup button {\n  pointer-events: all;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup .cancel-assist-submit,\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup .only-you-submit,\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup .cancel-focus-submit {\n  display: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.has-focus-user .assist-submit {\n  display: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.has-focus-user .cancel-assist-submit {\n  display: inline-block;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you .assist-submit {\n  display: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you .only-you-submit {\n  display: inline-block;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you.has-focus-user .assist-submit,\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you.has-focus-user .cancel-assist-submit,\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you.has-focus-user .only-you-submit {\n  display: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you.has-focus-user .cancel-focus-submit {\n  display: inline-block;\n}\n"]}]);
+exports.push([module.i, ".tippy-semantic-ui-popup-theme.tippy-tooltip {\n  cursor: pointer;\n  background-color: white !important;\n  color: rgba(0, 0, 0, 0.87) !important;\n  border: 1px solid #D4D4D5 !important;\n  line-height: 1.4285em !important;\n  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15) !important;\n  font-weight: normal !important;\n  font-style: normal !important;\n  font-size: 1.5rem !important;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip img {\n  max-height: 1.5em;\n  width: auto;\n  vertical-align: middle;\n  margin-right: 0.5em;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip button {\n  margin-left: 0.5em;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip[data-placement=\"top\"] .tippy-arrow {\n  border-top-color: #FFF !important;\n  filter: drop-shadow(1px 1px 0 #CCC);\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip[data-placement=\"bottom\"] .tippy-arrow {\n  border-bottom-color: #FFF !important;\n  filter: drop-shadow(1px -1px 0 #CCC);\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup button {\n  pointer-events: all;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup .cancel-assist-submit,\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup .only-you-submit,\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup .cancel-focus-submit {\n  display: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.has-focus-user .assist-submit {\n  display: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.has-focus-user .cancel-assist-submit {\n  display: inline-block;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you .assist-submit {\n  display: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you .only-you-submit {\n  display: inline-block;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you.has-focus-user .assist-submit,\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you.has-focus-user .cancel-assist-submit,\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you.has-focus-user .only-you-submit {\n  display: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you.has-focus-user .cancel-focus-submit {\n  display: inline-block;\n}\n", "",{"version":3,"sources":["tippy-semantic-ui-popup-theme.less"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,kCAAkC;EAClC,qCAAqC;EACrC,oCAAoC;EACpC,gCAAgC;EAChC,sGAAsG;EACtG,8BAA8B;EAC9B,6BAA6B;EAC7B,4BAA4B;AAC9B;AACA;EACE,iBAAiB;EACjB,WAAW;EACX,sBAAsB;EACtB,mBAAmB;AACrB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,iCAAiC;EACjC,mCAAmC;AACrC;AACA;EACE,oCAAoC;EACpC,oCAAoC;AACtC;AACA;EACE,mBAAmB;AACrB;AACA;;;EAGE,aAAa;AACf;AACA;EACE,aAAa;AACf;AACA;EACE,qBAAqB;AACvB;AACA;EACE,aAAa;AACf;AACA;EACE,qBAAqB;AACvB;AACA;;;EAGE,aAAa;AACf;AACA;EACE,qBAAqB;AACvB","file":"tippy-semantic-ui-popup-theme.less","sourcesContent":[".tippy-semantic-ui-popup-theme.tippy-tooltip {\n  cursor: pointer;\n  background-color: white !important;\n  color: rgba(0, 0, 0, 0.87) !important;\n  border: 1px solid #D4D4D5 !important;\n  line-height: 1.4285em !important;\n  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15) !important;\n  font-weight: normal !important;\n  font-style: normal !important;\n  font-size: 1.5rem !important;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip img {\n  max-height: 1.5em;\n  width: auto;\n  vertical-align: middle;\n  margin-right: 0.5em;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip button {\n  margin-left: 0.5em;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip[data-placement=\"top\"] .tippy-arrow {\n  border-top-color: #FFF !important;\n  filter: drop-shadow(1px 1px 0 #CCC);\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip[data-placement=\"bottom\"] .tippy-arrow {\n  border-bottom-color: #FFF !important;\n  filter: drop-shadow(1px -1px 0 #CCC);\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup button {\n  pointer-events: all;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup .cancel-assist-submit,\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup .only-you-submit,\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup .cancel-focus-submit {\n  display: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.has-focus-user .assist-submit {\n  display: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.has-focus-user .cancel-assist-submit {\n  display: inline-block;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you .assist-submit {\n  display: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you .only-you-submit {\n  display: inline-block;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you.has-focus-user .assist-submit,\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you.has-focus-user .cancel-assist-submit,\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you.has-focus-user .only-you-submit {\n  display: none;\n}\n.tippy-semantic-ui-popup-theme.tippy-tooltip .user-popup.is-you.has-focus-user .cancel-focus-submit {\n  display: inline-block;\n}\n"]}]);
 
 
 /***/ }),
@@ -2709,6 +2709,27 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./webpack-app/components/ui-button/tippy.js/tippy-semantic-ui-popup-theme.less":
+/*!**************************************************************************************!*\
+  !*** ./webpack-app/components/ui-button/tippy.js/tippy-semantic-ui-popup-theme.less ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./tippy-semantic-ui-popup-theme.less */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui-button/tippy.js/tippy-semantic-ui-popup-theme.less");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("ee596a0a", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
 /***/ "./webpack-app/components/ui-button/tippy.js/tippy.webpack.js":
 /*!********************************************************************!*\
   !*** ./webpack-app/components/ui-button/tippy.js/tippy.webpack.js ***!
@@ -2724,8 +2745,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dist_tippy_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_dist_tippy_css__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _themes_light_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./themes/light.css */ "./webpack-app/components/ui-button/tippy.js/themes/light.css");
 /* harmony import */ var _themes_light_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_themes_light_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _tippy_webpack_less__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tippy.webpack.less */ "./webpack-app/components/ui-button/tippy.js/tippy.webpack.less");
-/* harmony import */ var _tippy_webpack_less__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_tippy_webpack_less__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _tippy_semantic_ui_popup_theme_less__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tippy-semantic-ui-popup-theme.less */ "./webpack-app/components/ui-button/tippy.js/tippy-semantic-ui-popup-theme.less");
+/* harmony import */ var _tippy_semantic_ui_popup_theme_less__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_tippy_semantic_ui_popup_theme_less__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
@@ -2733,27 +2754,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (_dist_tippy_cjs_js__WEBPACK_IMPORTED_MODULE_0___default.a);
-
-/***/ }),
-
-/***/ "./webpack-app/components/ui-button/tippy.js/tippy.webpack.less":
-/*!**********************************************************************!*\
-  !*** ./webpack-app/components/ui-button/tippy.js/tippy.webpack.less ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./tippy.webpack.less */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/ui-button/tippy.js/tippy.webpack.less");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("6ac060bb", content, false, {});
-// Hot Module Replacement
-if(false) {}
 
 /***/ })
 

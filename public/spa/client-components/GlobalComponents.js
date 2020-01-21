@@ -6634,7 +6634,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _jQCloud_jqcloud_webpack_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./jQCloud/jqcloud.webpack.js */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/jQCloud/jqcloud.webpack.js");
 /* harmony import */ var _UserChartPopup_UserChartPopup_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserChartPopup/UserChartPopup.vue */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartPopup/UserChartPopup.vue");
 /* harmony import */ var _UserChartLabels_UserChartLabels_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UserChartLabels/UserChartLabels.vue */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChartLabels/UserChartLabels.vue");
-/* harmony import */ var _methodsPopupUserChart_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsPopupUserChart.js */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/methodsPopupUserChart.js");
 /* global this */
 
 //import WordCloud from 'wordcloud'
@@ -6933,8 +6932,8 @@ let UserChart = {
   } // methods
 }
 
-
-Object(_methodsPopupUserChart_js__WEBPACK_IMPORTED_MODULE_4__["default"])(UserChart)
+//import methodsPopupUserChart from './methodsPopupUserChart.js'
+//methodsPopupUserChart(UserChart)
 
 /* harmony default export */ __webpack_exports__["default"] = (UserChart);
 
@@ -8052,26 +8051,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-/***/ }),
-
-/***/ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/methodsPopupUserChart.js":
-/*!****************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/search/UserFilter/UserChart/methodsPopupUserChart.js ***!
-  \****************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function (UserChart) {
-   UserChart.methods.initPopup = function (event) {
-     let element = event.target
-     console.log(element)
-   }
-   
-   
-});
 
 /***/ }),
 
