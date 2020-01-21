@@ -33,7 +33,9 @@ let Editor = {
     let noteReset = note
     if (noteReset) {
       //noteReset = this.lib.StringHelper.htmlTrim(noteReset)
+      //console.log(1, noteReset)
       noteReset = this.lib.StringHelper.htmlToTextTrim(noteReset, true)
+      //console.log(2, noteReset)
     }
     
     return {
@@ -63,7 +65,7 @@ let Editor = {
       //let noteReset = this.lib.StringHelper.htmlToText(this.noteReset, true)
       
       // 要檢查確認事項時，就是用這個檢查
-      console.log([note, noteReset, (note !== noteReset)])
+      //console.log([note, noteReset, (note !== noteReset)])
       
       //return (note !== this.noteReset)
       let isNoteDifferent = (note !== noteReset)

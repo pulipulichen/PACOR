@@ -6825,6 +6825,11 @@ let StringHelper = {
       return ''
     }
     s = s.trim()
+    
+    if (!s.startsWith('<') && !s.endsWith('>')) {
+      return s
+    }
+    
     //if (!s.startsWith('<') && !s.endsWith('>')) {
     s = '<div>' + s + '</div>'
     //}
