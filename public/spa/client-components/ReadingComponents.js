@@ -137,7 +137,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":null}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Give a comment...":"留個言吧..."}}')
   delete Component.options._Ctor
 }
 
@@ -757,7 +757,7 @@ exports.push([module.i, ".AnnotationDiscussionList[data-v-e134047a] {\n  overflo
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotaionInstruction[data-v-a3af9796] {\n  vertical-align: top;\n  padding-top: 0.6em;\n  padding-bottom: 0.6em;\n  margin-top: -0.1em;\n  cursor: pointer;\n}\n.show-instruction[data-v-a3af9796],\n.summary[data-v-a3af9796] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n  vertical-align: top;\n}\n.show-instruction[data-v-a3af9796] {\n  float: right;\n  margin-left: 0.5em;\n  margin-top: -0.4em;\n}\n.column[data-v-a3af9796]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-a3af9796] {\n  padding-left: 0 !important;\n}\n@media (max-width: 480px) {\n.summary[data-v-a3af9796] {\n    text-indent: -9999px;\n}\n.AnnotaionInstruction[data-v-a3af9796] {\n    padding-left: 0;\n    padding-right: 0.5em;\n}\n}\n@media (max-width: 360px) {\n.AnnotaionInstruction[data-v-a3af9796] {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["AnnotaionInstruction.less?vue&type=style&index=0&id=a3af9796&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,kBAAkB;EAClB,qBAAqB;EACrB,kBAAkB;EAClB,eAAe;AACjB;AACA;;EAEE,mBAAmB;EACnB,uBAAuB;EACvB,gBAAgB;EAChB,eAAe;EACf,mBAAmB;AACrB;AACA;EACE,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;AACpB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,0BAA0B;AAC5B;AACA;AACA;IACI,oBAAoB;AACxB;AACA;IACI,eAAe;IACf,oBAAoB;AACxB;AACA;AACA;AACA;IACI,aAAa;AACjB;AACA","file":"AnnotaionInstruction.less?vue&type=style&index=0&id=a3af9796&lang=less&scoped=true&","sourcesContent":[".AnnotaionInstruction[data-v-a3af9796] {\n  vertical-align: top;\n  padding-top: 0.6em;\n  padding-bottom: 0.6em;\n  margin-top: -0.1em;\n  cursor: pointer;\n}\n.show-instruction[data-v-a3af9796],\n.summary[data-v-a3af9796] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n  vertical-align: top;\n}\n.show-instruction[data-v-a3af9796] {\n  float: right;\n  margin-left: 0.5em;\n  margin-top: -0.4em;\n}\n.column[data-v-a3af9796]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-a3af9796] {\n  padding-left: 0 !important;\n}\n@media (max-width: 480px) {\n.summary[data-v-a3af9796] {\n    text-indent: -9999px;\n}\n.AnnotaionInstruction[data-v-a3af9796] {\n    padding-left: 0;\n    padding-right: 0.5em;\n}\n}\n@media (max-width: 360px) {\n.AnnotaionInstruction[data-v-a3af9796] {\n    display: none;\n}\n}\n"]}]);
+exports.push([module.i, ".AnnotaionInstruction[data-v-a3af9796] {\n  vertical-align: top;\n  padding-top: 0.6em;\n  padding-bottom: 0.6em;\n  margin-top: -0.1em;\n  cursor: pointer;\n}\n.AnnotaionInstruction.uneditable[data-v-a3af9796] {\n  height: 3.3rem;\n  padding-left: 0.5rem;\n  padding-right: 0.5rem;\n}\n.show-instruction[data-v-a3af9796],\n.summary[data-v-a3af9796] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n  vertical-align: top;\n}\n.show-instruction[data-v-a3af9796] {\n  float: right;\n  margin-left: 0.5em;\n  margin-top: -0.4em;\n}\n.column[data-v-a3af9796]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-a3af9796] {\n  padding-left: 0 !important;\n}\n@media (max-width: 480px) {\n.summary[data-v-a3af9796] {\n    text-indent: -9999px;\n}\n.AnnotaionInstruction[data-v-a3af9796] {\n    padding-left: 0;\n    padding-right: 0.5em;\n}\n}\n@media (max-width: 360px) {\n.AnnotaionInstruction[data-v-a3af9796] {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["AnnotaionInstruction.less?vue&type=style&index=0&id=a3af9796&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,kBAAkB;EAClB,qBAAqB;EACrB,kBAAkB;EAClB,eAAe;AACjB;AACA;EACE,cAAc;EACd,oBAAoB;EACpB,qBAAqB;AACvB;AACA;;EAEE,mBAAmB;EACnB,uBAAuB;EACvB,gBAAgB;EAChB,eAAe;EACf,mBAAmB;AACrB;AACA;EACE,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;AACpB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,0BAA0B;AAC5B;AACA;AACA;IACI,oBAAoB;AACxB;AACA;IACI,eAAe;IACf,oBAAoB;AACxB;AACA;AACA;AACA;IACI,aAAa;AACjB;AACA","file":"AnnotaionInstruction.less?vue&type=style&index=0&id=a3af9796&lang=less&scoped=true&","sourcesContent":[".AnnotaionInstruction[data-v-a3af9796] {\n  vertical-align: top;\n  padding-top: 0.6em;\n  padding-bottom: 0.6em;\n  margin-top: -0.1em;\n  cursor: pointer;\n}\n.AnnotaionInstruction.uneditable[data-v-a3af9796] {\n  height: 3.3rem;\n  padding-left: 0.5rem;\n  padding-right: 0.5rem;\n}\n.show-instruction[data-v-a3af9796],\n.summary[data-v-a3af9796] {\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  max-width: 100%;\n  vertical-align: top;\n}\n.show-instruction[data-v-a3af9796] {\n  float: right;\n  margin-left: 0.5em;\n  margin-top: -0.4em;\n}\n.column[data-v-a3af9796]:not(.grid) {\n  padding: 0.5em !important;\n}\n.column:not(.grid).right[data-v-a3af9796] {\n  padding-left: 0 !important;\n}\n@media (max-width: 480px) {\n.summary[data-v-a3af9796] {\n    text-indent: -9999px;\n}\n.AnnotaionInstruction[data-v-a3af9796] {\n    padding-left: 0;\n    padding-right: 0.5em;\n}\n}\n@media (max-width: 360px) {\n.AnnotaionInstruction[data-v-a3af9796] {\n    display: none;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -2389,7 +2389,7 @@ var render = function() {
           }
         ],
         ref: "input",
-        attrs: { type: "text" },
+        attrs: { type: "text", placeholder: _vm.$t("Give a comment...") },
         domProps: { value: _vm.note },
         on: {
           keyup: function($event) {
@@ -2676,6 +2676,7 @@ var render = function() {
     "div",
     {
       staticClass: "ui segment AnnotaionInstruction",
+      class: _vm.computedContainerClassList,
       on: { click: _vm.showInstruction }
     },
     [
@@ -2687,9 +2688,13 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "summary" }, [
-        _vm._v("\r\n    " + _vm._s(_vm.$t(_vm.instruction.summary)) + "\r\n  ")
-      ]),
+      _vm.editable
+        ? _c("div", { staticClass: "summary" }, [
+            _vm._v(
+              "\r\n    " + _vm._s(_vm.$t(_vm.instruction.summary)) + "\r\n  "
+            )
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("modal", {
         ref: "Modal",
@@ -2754,25 +2759,23 @@ var render = function() {
       class: _vm.computedContainerClassList
     },
     [
-      _vm.editable
-        ? _c(
-            "div",
-            { staticClass: "right column" },
-            [
-              _c("annotaion-instruction", {
-                ref: "AnnotationInstruction",
-                attrs: {
-                  config: _vm.config,
-                  status: _vm.status,
-                  lib: _vm.lib,
-                  type: _vm.annotation.type,
-                  editable: _vm.editable
-                }
-              })
-            ],
-            1
-          )
-        : _vm._e(),
+      _c(
+        "div",
+        { staticClass: "right column" },
+        [
+          _c("annotaion-instruction", {
+            ref: "AnnotationInstruction",
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              type: _vm.annotation.type,
+              editable: _vm.editable
+            }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
       _c(
         "div",
@@ -11037,7 +11040,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let AnnotaionInstruction = {
-  props: ['config', 'status', 'type', 'lib'],
+  props: ['config', 'status', 'type', 'lib', 'editable'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -11048,6 +11051,15 @@ let AnnotaionInstruction = {
   computed: {
     instruction () {
       return this.status.readingConfig.annotationTypeModules[this.type].instruction
+    },
+    computedContainerClassList () {
+      let classList = []
+      
+      if (this.editable === false) {
+        classList.push('uneditable')
+      }
+      
+      return classList.join(' ')
     }
   },
 //  watch: {

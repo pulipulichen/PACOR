@@ -46,6 +46,7 @@
       type="text"
       ref="input"
       v-model="note"
+      v-bind:placeholder="$t('Give a comment...')"
       v-on:keyup.enter="submit" />
   </div>
 </div>

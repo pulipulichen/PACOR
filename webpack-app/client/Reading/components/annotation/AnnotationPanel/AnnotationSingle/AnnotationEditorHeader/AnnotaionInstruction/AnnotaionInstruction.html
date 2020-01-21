@@ -1,12 +1,14 @@
 <div class="ui segment AnnotaionInstruction"
-     v-on:click="showInstruction">
+     v-on:click="showInstruction"
+     v-bind:class="computedContainerClassList">
   <div class="show-instruction">
     <button type="button"
             class="ui mini button">
       {{ $t('Hint') }}
     </button>
   </div>
-  <div class="summary">
+  <div class="summary"
+       v-if="editable">
     {{ $t(instruction.summary) }}
   </div>
         

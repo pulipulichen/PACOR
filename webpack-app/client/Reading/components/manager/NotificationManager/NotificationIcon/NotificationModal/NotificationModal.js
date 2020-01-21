@@ -7,21 +7,17 @@ let NotificationModal = {
       notifications: [],
       triggerUsers: [],
       
-      noOlder: true,
+      noOlder: false,
       loadLock: false,
       
       feed: null,
       basetime: null
     }
   },
-  components: {
-  },
-  computed: {
-  },
-  watch: {
-  },
-  mounted() {
-  },
+  components: {}, // EventComponents 會用到
+//  computed: {},
+//  watch: {},
+//  mounted() {},
   methods: {
     show: async function () {
       let result = await this.lib.AxiosHelper.get('/client/UserNotification/fullInit')
@@ -66,7 +62,10 @@ let NotificationModal = {
       }
       this.loadLock = true
       
-      let focusComment = this.feed.children('.event:first')
+//      let focusComment = this.feed.children('.event:first')
+      if (this.notifications.length > 0) {
+        this.basetime = parseInt(this.notifications.slice(-1)[0].created_at_unixms, 10)
+      }
       
       let data = {
         basetime: this.basetime
@@ -74,6 +73,7 @@ let NotificationModal = {
       //console.log(this.notificationData.notifications)
       //console.log(data.basetime)
       //return
+      //console.log(data)
       
       let notifications = await this.lib.AxiosHelper.get('/client/UserNotification/older', data)
       //console.log(notifications)
