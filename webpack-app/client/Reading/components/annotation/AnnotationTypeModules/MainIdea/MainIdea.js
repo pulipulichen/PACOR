@@ -5,7 +5,7 @@ import props from './../props'
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = false
+let debugMockSend = true
 if (debugMockSend === true) {
   console.log('@test debugMockSend')
 }

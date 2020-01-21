@@ -14177,7 +14177,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = false
+let debugMockSend = true
 if (debugMockSend === true) {
   console.log('@test debugMockSend')
 }
@@ -14504,7 +14504,7 @@ __webpack_require__.r(__webpack_exports__);
 //import CommonWatch from './../commons/CommonWatch'
 //import CommonMethods from './../commons/CommonMethods'
 
-let debugMockSend = false
+let debugMockSend = true
 if (debugMockSend === true) {
   console.log('@test debugMockSend')
 }
