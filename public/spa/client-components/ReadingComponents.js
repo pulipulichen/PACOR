@@ -715,7 +715,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationDiscussionInput[data-v-55f1394b] {\n  white-space: nowrap;\n  overflow: hidden;\n  padding-top: 0.5em;\n  border-top: 1px solid #ccc;\n}\nimg[data-v-55f1394b] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-55f1394b] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-55f1394b] {\n  width: calc(100% - 3em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-55f1394b] {\n  float: right;\n}\n.right-column > span[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-55f1394b] {\n  height: 42px;\n}\n.left-column[data-v-55f1394b] {\n  width: 8em;\n}\n.left-column[data-v-55f1394b],\n.center-column[data-v-55f1394b],\n.right-column[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["AnnotationDiscussionInput.less?vue&type=style&index=0&id=55f1394b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,0BAA0B;AAC5B;AACA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,cAAc;EACd,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,kCAAkC;EAClC,gCAAgC;AAClC;AACA;EACE,YAAY;AACd;AACA;EACE,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,YAAY;AACd;AACA;EACE,UAAU;AACZ;AACA;;;EAGE,qBAAqB;EACrB,sBAAsB;AACxB","file":"AnnotationDiscussionInput.less?vue&type=style&index=0&id=55f1394b&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionInput[data-v-55f1394b] {\n  white-space: nowrap;\n  overflow: hidden;\n  padding-top: 0.5em;\n  border-top: 1px solid #ccc;\n}\nimg[data-v-55f1394b] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-55f1394b] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-55f1394b] {\n  width: calc(100% - 3em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-55f1394b] {\n  float: right;\n}\n.right-column > span[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-55f1394b] {\n  height: 42px;\n}\n.left-column[data-v-55f1394b] {\n  width: 8em;\n}\n.left-column[data-v-55f1394b],\n.center-column[data-v-55f1394b],\n.right-column[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
+exports.push([module.i, ".AnnotationDiscussionInput[data-v-55f1394b] {\n  white-space: nowrap;\n  overflow: hidden;\n  padding-top: 0.5em;\n  border-top: 1px solid #ccc;\n}\n.AnnotationDiscussionInput.edit-mode .input-field[data-v-55f1394b] {\n  width: calc(100% - 6em) !important;\n}\nimg[data-v-55f1394b] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-55f1394b] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-55f1394b] {\n  width: calc(100% - 3em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-55f1394b] {\n  float: right;\n}\n.right-column > span[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-55f1394b] {\n  height: 42px;\n}\n.left-column[data-v-55f1394b] {\n  width: 8em;\n}\n.left-column[data-v-55f1394b],\n.center-column[data-v-55f1394b],\n.right-column[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["AnnotationDiscussionInput.less?vue&type=style&index=0&id=55f1394b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,0BAA0B;AAC5B;AACA;EACE,kCAAkC;AACpC;AACA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,cAAc;EACd,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,kCAAkC;EAClC,gCAAgC;AAClC;AACA;EACE,YAAY;AACd;AACA;EACE,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,YAAY;AACd;AACA;EACE,UAAU;AACZ;AACA;;;EAGE,qBAAqB;EACrB,sBAAsB;AACxB","file":"AnnotationDiscussionInput.less?vue&type=style&index=0&id=55f1394b&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionInput[data-v-55f1394b] {\n  white-space: nowrap;\n  overflow: hidden;\n  padding-top: 0.5em;\n  border-top: 1px solid #ccc;\n}\n.AnnotationDiscussionInput.edit-mode .input-field[data-v-55f1394b] {\n  width: calc(100% - 6em) !important;\n}\nimg[data-v-55f1394b] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-55f1394b] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-55f1394b] {\n  width: calc(100% - 3em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-55f1394b] {\n  float: right;\n}\n.right-column > span[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-55f1394b] {\n  height: 42px;\n}\n.left-column[data-v-55f1394b] {\n  width: 8em;\n}\n.left-column[data-v-55f1394b],\n.center-column[data-v-55f1394b],\n.right-column[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
 
 
 /***/ }),
@@ -2330,26 +2330,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "AnnotationDiscussionInput ui form" }, [
-    _c(
-      "div",
-      { staticClass: "right-column" },
-      [
-        !_vm.isEditMode
-          ? [
-              _c(
-                "button",
-                {
-                  staticClass: "ui mini icon button",
-                  class: { disabled: !_vm.isEnableSubmit },
-                  attrs: { type: "button" },
-                  on: { click: _vm.submit }
-                },
-                [_c("i", { staticClass: "edit icon" })]
-              )
-            ]
-          : [
-              _c("span", [
+  return _c(
+    "div",
+    {
+      staticClass: "AnnotationDiscussionInput ui form",
+      class: _vm.computedContainerClassList
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "right-column" },
+        [
+          !_vm.isEditMode
+            ? [
                 _c(
                   "button",
                   {
@@ -2360,57 +2353,71 @@ var render = function() {
                   },
                   [_c("i", { staticClass: "edit icon" })]
                 )
-              ]),
-              _vm._v(" "),
-              _c("span", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "ui icon mini button",
-                    attrs: { type: "button" },
-                    on: { click: _vm.reset }
-                  },
-                  [_c("i", { staticClass: "close icon" })]
-                )
-              ])
-            ]
-      ],
-      2
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "center-column ui input field input-field" }, [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.note,
-            expression: "note"
-          }
+              ]
+            : [
+                _c("span", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "ui mini icon button",
+                      class: { disabled: !_vm.isEnableSubmit },
+                      attrs: { type: "button" },
+                      on: { click: _vm.submit }
+                    },
+                    [_c("i", { staticClass: "edit icon" })]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("span", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "ui icon mini button",
+                      attrs: { type: "button" },
+                      on: { click: _vm.reset }
+                    },
+                    [_c("i", { staticClass: "close icon" })]
+                  )
+                ])
+              ]
         ],
-        ref: "input",
-        attrs: { type: "text", placeholder: _vm.$t("Give a comment...") },
-        domProps: { value: _vm.note },
-        on: {
-          keyup: function($event) {
-            if (
-              !$event.type.indexOf("key") &&
-              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-            ) {
-              return null
+        2
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "center-column ui input field input-field" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.note,
+              expression: "note"
             }
-            return _vm.submit($event)
-          },
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          ],
+          ref: "input",
+          attrs: { type: "text", placeholder: _vm.$t("Give a comment...") },
+          domProps: { value: _vm.note },
+          on: {
+            keyup: function($event) {
+              if (
+                !$event.type.indexOf("key") &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              return _vm.submit($event)
+            },
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.note = $event.target.value
             }
-            _vm.note = $event.target.value
           }
-        }
-      })
-    ])
-  ])
+        })
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -10149,6 +10156,15 @@ let AnnotationDiscussionInput = {
     isEnableSubmit () {
       return (this.submitLock === false 
               && this.note.trim() !== '')
+    },
+    computedContainerClassList () {
+      let classList = []
+      
+      if (this.isEditMode === true) {
+        classList.push('edit-mode')
+      }
+      
+      return classList.join(' ')
     }
   },
   watch: {
@@ -10857,6 +10873,8 @@ let AnnotationDiscussionList = {
       this.noMoreOlder = false
       this.scrollToBottom()
       this.annotation.__meta__.comments_count++
+      
+      this.onInputEdit(comment)
     },
     onInputEdit (comment) {
       setTimeout(() => {

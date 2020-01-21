@@ -1,4 +1,5 @@
-<div class="AnnotationDiscussionInput ui form">
+<div class="AnnotationDiscussionInput ui form"
+     v-bind:class="computedContainerClassList">
   <div class="right-column">
     <template v-if="!isEditMode">
       <button 

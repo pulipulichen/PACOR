@@ -301,6 +301,8 @@ let AnnotationDiscussionList = {
       this.noMoreOlder = false
       this.scrollToBottom()
       this.annotation.__meta__.comments_count++
+      
+      this.onInputEdit(comment)
     },
     onInputEdit (comment) {
       setTimeout(() => {

@@ -42,6 +42,15 @@ let AnnotationDiscussionInput = {
     isEnableSubmit () {
       return (this.submitLock === false 
               && this.note.trim() !== '')
+    },
+    computedContainerClassList () {
+      let classList = []
+      
+      if (this.isEditMode === true) {
+        classList.push('edit-mode')
+      }
+      
+      return classList.join(' ')
     }
   },
   watch: {
