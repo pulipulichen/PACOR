@@ -279,7 +279,7 @@ module.exports = {
     'SectionMainIdea': {
       'addable': false,
       'minWords': 1,
-      'placeholder': 'Why do you think it is a main idea?',
+      'placeholder': 'What do you think are the main ideas of this section?',
       'instruction': {
         'summary': 'Highlight keywords or concepts in this section',
         'url': '/instruction/annotation/SectionMainIdea.html'

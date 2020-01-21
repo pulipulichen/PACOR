@@ -217,7 +217,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"I don\u0027t know what is \\"{0}\\"?":"I don\u0027t know what is \\"{0}\\"?","Why is \\"{0}\\"?":"Why is \\"{0}\\"?"},"zh-TW":{"I don\u0027t know what is \\"{0}\\"?":"我不知道什麼是「{0}」？","Why is \\"{0}\\"?":"為什麼是「{0}」？","Question":"問題","Answer":"解答","Do you want to use his comment as your answer?":"您要將這個評論作為您的解答嗎？","New question will overwrite your question. Are you sure?":"您要用新問題取代目前的問題嗎？"}}')
+  Component.options.__i18n.push('{"en":{"I don\u0027t know what is \\"{0}\\"?":"I don\u0027t know what is \\"{0}\\"?","Why is \\"{0}\\"?":"Why is \\"{0}\\"?"},"zh-TW":{"I don\u0027t know what is \\"{0}\\"?":"我不知道什麼是「{0}」？","Why is \\"{0}\\"?":"為什麼是「{0}」？","Question":"問題","Answer":"解答","Do you want to use his comment as your answer?":"您要將這個評論作為您的解答嗎？","New question will overwrite your question. Are you sure?":"您要用新問題取代目前的問題嗎？","Write your question here...":"您對著段文字有所疑問的理由是...","Write your answer here...":"對於這個問題，您的解答是..."}}')
   delete Component.options._Ctor
 }
 
@@ -297,7 +297,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":null}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Why do you think it is a main idea?":"您為何覺得這裡是重點？"}}')
   delete Component.options._Ctor
 }
 
@@ -313,7 +313,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"ADD":"記下「小節重點」","UPDATE":"更新「小節重點」"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"ADD":"記下「小節重點」","UPDATE":"更新「小節重點」","What do you think are the main ideas of this section?":"您認為這個小節的重點有那些？"}}')
   delete Component.options._Ctor
 }
 
