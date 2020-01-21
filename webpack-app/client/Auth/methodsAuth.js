@@ -91,6 +91,13 @@ export default function (Auth) {
     localStorage.removeItem('PACOR.client.components.Login.login.username')
     return this.showLogin()
   }
+  Auth.methods.logoutAndReload = async function () {
+    await this.lib.AxiosHelper.get('/client/auth/logout')
+    localStorage.removeItem('PACOR.client.components.Login.login.username')
+    location.reload()
+    return false
+  }
+  
   Auth.methods.showLogin = function () {
     //if (this.status.needLogin === true) {
     //  return undefined

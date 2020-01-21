@@ -175,8 +175,6 @@ let Login = {
       this.waiting = false
       //alert('成功登入了，然後呢？')
       
-      this.detectComponentIsLoaded()
-      
       return false
     },
     reset: function () {
@@ -195,9 +193,6 @@ let Login = {
       this.adminMode = !this.adminMode
       this.isContinue = false
     },
-    detectComponentIsLoaded () {
-      
-    }
   } // methods
 }
 

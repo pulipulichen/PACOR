@@ -156,7 +156,7 @@ let ErrorHandler = {
               && error.response.data.error) {
         let message = error.response.data.error.message
         if (message === 'Please login') {
-          this.lib.auth.logout()
+          this.lib.auth.logoutAndReload()
           return null
         }
         else if (message === 'Network Error') {
