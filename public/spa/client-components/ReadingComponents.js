@@ -2717,7 +2717,7 @@ var render = function() {
                 }),
                 _vm._v(
                   "\r\n        \r\n        " +
-                    _vm._s(_vm.instruction.summary) +
+                    _vm._s(_vm.$t(_vm.instruction.summary)) +
                     "\r\n      "
                 )
               ]
