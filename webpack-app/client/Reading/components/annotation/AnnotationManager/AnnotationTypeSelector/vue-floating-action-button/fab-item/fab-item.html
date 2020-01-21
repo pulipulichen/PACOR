@@ -1,8 +1,9 @@
 <transition
   v-bind:name="transitionName">
   <fab-cantainer
-    v-on:click.native="clickItem"
-    v-on:touch.native="clickItem"
+    v-on:mousedown.native.stop="clickItem"
+    v-on:click.native.stop="clickItem"
+    v-on:touch.native.stop="clickItem"
     class="fab-item fab-shadow"
     v-show="showItem"
     v-bind:style="fabItemStyle"

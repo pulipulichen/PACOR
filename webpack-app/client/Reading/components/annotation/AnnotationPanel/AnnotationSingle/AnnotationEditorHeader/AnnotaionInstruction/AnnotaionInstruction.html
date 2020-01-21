@@ -12,25 +12,27 @@
     {{ $t(instruction.summary) }}
   </div>
         
-  
   <!-- ================================= -->
   
     <modal 
       ref="Modal"
-         v-bind:config="config"
-         v-bind:status="status"
-         v-bind:lib="lib"
-         v-bind:contentURL="instruction.url"
-         cancelButtonText="CLOSE"
-         cancelable="true">
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:lib="lib"
+      v-bind:contentURL="instruction.url"
+      cancelButtonText="CLOSE"
+      cancelable="true">
       <template v-slot:header>
-        
-        <annotation-type-button 
-          v-bind:status="status"
-          v-bind:style="{float: 'left', 'margin-right': '1em'}"
-          v-bind:type="type"></annotation-type-button>
-        
-        {{ $t(instruction.summary) }}
+        <span class="summary-title-container">
+          <annotation-type-button 
+            v-bind:status="status"
+            v-bind:style="{'margin-right': '1em', 'vertical-align': 'middle'}"
+            v-bind:type="type">
+          </annotation-type-button>
+          <span class="summary">
+            {{ $t(instruction.summary) }}
+          </span>
+        </span>
       </template>
   </modal>
 </div>

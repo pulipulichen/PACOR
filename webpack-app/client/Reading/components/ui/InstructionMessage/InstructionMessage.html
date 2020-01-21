@@ -10,7 +10,8 @@
     v-bind:disableOpenWindow="true"
     v-on:hide="onHide">
       <template v-slot:header>
-        <div v-on:dblclick="nextStep">
+        <div v-on:dblclick="nextStep"
+             class="step-title">
           {{ $t('READING_PROGRESS.' + lib.auth.currentStep) }}
         </div>
       </template>
