@@ -1,12 +1,12 @@
 module.exports = {
   login: {
-    message: '/2020exp/Login-e.html',
+    //message: '/2020exp/Login-e.html',
     allowLoginWithoutGrop: false
   },
   readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
   readingProgressModules: {
     PreImaginary: {
-      instruction: '/2020exp/PreImaginary-rice.html',
+      instruction: '/2020exp/rice/PreImaginary.html',
       limitMinutes: 3,
       countdownAtStart: true
     },
@@ -31,7 +31,7 @@ module.exports = {
       }
     },
     PostRecall: {
-      instruction: '/2020exp/PostRecall-rice.html',
+      instruction: '/2020exp/rice/PostRecall.html',
       limitMinutes: 3,
     }
   }

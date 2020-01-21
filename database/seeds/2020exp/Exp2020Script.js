@@ -51,19 +51,19 @@ module.exports = {
   // -----------------------
   
   pacor2020ef: async function () {
-    let u = urlHeader + '/2020exp/articles/e-rice'
+    let u = urlHeader + '/2020exp/articles/e-rice/'
     let webpageGroup = use('./pacor2020eGroup.js')
     let webpageConfig = use('./pacor2020efConfig.js')
     await SeedHelper(u, webpageConfig, webpageGroup)
   },
   pacor2020es: async function () {
-    let u = urlHeader + '/2020exp/articles/e-microscope'
+    let u = urlHeader + '/2020exp/articles/e-microscope/'
     let webpageGroup = use('./pacor2020eGroup.js')
     let webpageConfig = use('./pacor2020esConfig.js')
     await SeedHelper(u, webpageConfig, webpageGroup)
   },
   pacor2020et: async function () {
-    let u = urlHeader + '/2020exp/articles/e-colorectal-cancer'
+    let u = urlHeader + '/2020exp/articles/e-colorectal-cancer/'
     let webpageGroup = use('./pacor2020eGroup.js')
     let webpageConfig = use('./pacor2020esConfig.js')
     await SeedHelper(u, webpageConfig, webpageGroup)
@@ -72,19 +72,19 @@ module.exports = {
   // -----------------------
   
   pacor2020cf: async function () {
-    let u = urlHeader + '/2020exp/articles/c-rice'
+    let u = urlHeader + '/2020exp/articles/c-rice/'
     let webpageGroup = use('./pacor2020cGroup.js')
     let webpageConfig = use('./pacor2020cfConfig.js')
     await SeedHelper(u, webpageConfig, webpageGroup)
   },
   pacor2020cs: async function () {
-    let u = urlHeader + '/2020exp/articles/c-microscope'
+    let u = urlHeader + '/2020exp/articles/c-microscope/'
     let webpageGroup = use('./pacor2020cGroup.js')
     let webpageConfig = use('./pacor2020csConfig.js')
     await SeedHelper(u, webpageConfig, webpageGroup)
   },
   pacor2020ct: async function () {
-    let u = urlHeader + '/2020exp/articles/c-colorectal-cancer'
+    let u = urlHeader + '/2020exp/articles/c-colorectal-cancer/'
     let webpageGroup = use('./pacor2020cGroup.js')
     let webpageConfig = use('./pacor2020csConfig.js')
     await SeedHelper(u, webpageConfig, webpageGroup)
@@ -93,19 +93,19 @@ module.exports = {
   // -----------------------
   
   pacor2020tf: async function () {
-    let u = urlHeader + '/2020exp/articles/t-rice'
+    let u = urlHeader + '/2020exp/articles/t-rice/'
     let webpageGroup = use('./pacor2020tGroup.js')
     let webpageConfig = use('./pacor2020tsConfig.js')
     await SeedHelper(u, webpageConfig, webpageGroup)
   },
   pacor2020ts: async function () {
-    let u = urlHeader + '/2020exp/articles/t-microscope'
+    let u = urlHeader + '/2020exp/articles/t-microscope/'
     let webpageGroup = use('./pacor2020tGroup.js')
     let webpageConfig = use('./pacor2020tsConfig.js')
     await SeedHelper(u, webpageConfig, webpageGroup)
   },
   pacor2020tt: async function () {
-    let u = urlHeader + '/2020exp/articles/t-colorectal-cancer'
+    let u = urlHeader + '/2020exp/articles/t-colorectal-cancer/'
     let webpageGroup = use('./pacor2020tGroup.js')
     let webpageConfig = use('./pacor2020tsConfig.js')
     await SeedHelper(u, webpageConfig, webpageGroup)
