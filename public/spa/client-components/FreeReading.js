@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Total {0} images":"Total {0} image | Total {0} images","Total {0} headings":"Total {0} heading | Total {0} headings","This article is titled \\"{0}\\".":"This article is titled \\"{0}\\".","This article includes {0} headings:":"This article includes {0} heading: | This article includes {0} headings:","This article includes {0} images:":"This article includes {0} image: | This article includes {0} images:"},"zh-TW":{"Article Information":"文章資訊","Total {0} images":"總共{0}張圖片","Total {0} headings":"總共{0}個標題","Headings":"標題","Images":"圖片","Article Counting":"文章統計","PreImaginary Instruction":"「閱讀前的預測」說明","Please try to predict what this article might write.":"請預測這篇文章可能會寫什麼。","This article is titled \\"{0}\\".":"這篇文章的標題是「{0}」。","This article includes {0} headings:":"這篇文章包含了以下子標題：","This article includes {0} images:":"這篇文章包含了以下圖片：","Don\u0027t worry about punctuation or typos, just write down what you predict of.":"請不用考慮標點符號或錯字，把您想到的事情寫下來即可。","The time limit is {0} minutes and the countdown starts when you start typing.":"限時{0}分鐘，開始輸入文字時就會開始倒數。","The time limit is {0} minutes and the countdown starts now.":"限時{0}分鐘，現在開始倒數即時。","PostRecall Instruction":"「閱讀後的回想」說明","Please recall the content of this article.":"請回想這篇文章的內容。","Don\u0027t worry about punctuation or typos, just write down what you read.":"請不用考慮標點符號或錯字，把您讀到的內容寫下來即可。","Copy HTML":"複製HTML"}}')
+  Component.options.__i18n.push('{"en":{"Total {0} images":"Total {0} image | Total {0} images","Total {0} headings":"Total {0} heading | Total {0} headings","This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.":"This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.","This article includes {0} headings:":"This article includes {0} heading: | This article includes {0} headings:","This article includes {0} images:":"This article includes {0} image: | This article includes {0} images:"},"zh-TW":{"Article Information":"文章資訊","Total {0} images":"總共{0}張圖片","Total {0} headings":"總共{0}個標題","Headings":"標題","Images":"圖片","Article Counting":"文章統計","PreImaginary Instruction":"「閱讀前的預測」說明","Please try to predict what this article might write.":"請預測這篇文章可能會寫什麼。","This article is titled \\"{0}\\".":"這篇文章的標題是「{0}」。","This article includes {0} headings:":"這篇文章包含了以下子標題：","This article includes {0} images:":"這篇文章包含了以下圖片：","This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.":"這篇文章的標題是<span class=\u0027highlight\u0027>「{0}」</span>。","Don\u0027t worry about punctuation or typos, just write down what you predict of.":"請不用考慮標點符號或錯字，把您想到的事情寫下來即可。","The time limit is <span class=\u0027highlight\u0027>{0} minutes</span> and the countdown starts when you start typing.":"<span class=\u0027highlight\u0027>限時{0}分鐘</span>，開始輸入文字時就會開始倒數。","The time limit is <span class=\u0027highlight\u0027>{0} minutes</span> and the countdown starts now.":"<span class=\u0027highlight\u0027>限時{0}分鐘</span>，現在開始倒數即時。","PostRecall Instruction":"「閱讀後的回想」說明","Please recall the content of this article.":"請回想這篇文章的內容。","Don\u0027t worry about punctuation or typos, just write down what you read.":"請不用考慮標點符號或錯字，把您讀到的內容寫下來即可。","Copy HTML":"複製HTML"}}')
   delete Component.options._Ctor
 }
 
@@ -119,7 +119,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".image-container[data-v-76ad1f52] {\n  margin-right: 0.5rem;\n}\nsection.instruction[data-v-76ad1f52] {\n  cursor: pointer;\n  border-width: 0 !important;\n  margin: 0 !important;\n  padding: 0 !important;\n}\n", "",{"version":3,"sources":["ArticleInformation.less?vue&type=style&index=0&id=76ad1f52&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,oBAAoB;AACtB;AACA;EACE,eAAe;EACf,0BAA0B;EAC1B,oBAAoB;EACpB,qBAAqB;AACvB","file":"ArticleInformation.less?vue&type=style&index=0&id=76ad1f52&lang=less&scoped=true&","sourcesContent":[".image-container[data-v-76ad1f52] {\n  margin-right: 0.5rem;\n}\nsection.instruction[data-v-76ad1f52] {\n  cursor: pointer;\n  border-width: 0 !important;\n  margin: 0 !important;\n  padding: 0 !important;\n}\n"]}]);
+exports.push([module.i, ".image-container[data-v-76ad1f52] {\n  margin-right: 0.5rem;\n}\nsection.instruction[data-v-76ad1f52] {\n  cursor: pointer;\n  border-width: 0 !important;\n  margin: 0 !important;\n  padding: 0 !important;\n}\nsection.instruction[data-v-76ad1f52]  .highlight {\n  background-color: yellow;\n}\n", "",{"version":3,"sources":["ArticleInformation.less?vue&type=style&index=0&id=76ad1f52&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,oBAAoB;AACtB;AACA;EACE,eAAe;EACf,0BAA0B;EAC1B,oBAAoB;EACpB,qBAAqB;AACvB;AACA;EACE,wBAAwB;AAC1B","file":"ArticleInformation.less?vue&type=style&index=0&id=76ad1f52&lang=less&scoped=true&","sourcesContent":[".image-container[data-v-76ad1f52] {\n  margin-right: 0.5rem;\n}\nsection.instruction[data-v-76ad1f52] {\n  cursor: pointer;\n  border-width: 0 !important;\n  margin: 0 !important;\n  padding: 0 !important;\n}\nsection.instruction[data-v-76ad1f52]  .highlight {\n  background-color: yellow;\n}\n"]}]);
 
 
 /***/ }),
@@ -329,15 +329,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("ul", [
-                      _c("li", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.$t('This article is titled "{0}".', [
-                              _vm.articleTitle
-                            ])
-                          )
-                        )
-                      ]),
+                      _c("li", {
+                        domProps: { innerHTML: _vm._s(_vm.titleHTML) }
+                      }),
                       _vm._v(" "),
                       _vm.headings.length > 0
                         ? _c("li", [
@@ -406,26 +400,16 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _vm.preImaginaryConfig.countdownAtStart === false
-                        ? _c("li", [
-                            _vm._v(
-                              _vm._s(
-                                _vm.$t(
-                                  "The time limit is {0} minutes and the countdown starts when you start typing.",
-                                  [_vm.preImaginaryConfig.limitMinutes]
-                                )
-                              )
-                            )
-                          ])
-                        : _c("li", [
-                            _vm._v(
-                              _vm._s(
-                                _vm.$t(
-                                  "The time limit is {0} minutes and the countdown starts now.",
-                                  [_vm.preImaginaryConfig.limitMinutes]
-                                )
-                              )
-                            )
-                          ])
+                        ? _c("li", {
+                            domProps: {
+                              innerHTML: _vm._s(_vm.timeLimitTypeStart)
+                            }
+                          })
+                        : _c("li", {
+                            domProps: {
+                              innerHTML: _vm._s(_vm.timeLimitAutoStart)
+                            }
+                          })
                     ])
                   ]
                 ),
@@ -481,15 +465,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("ul", [
-                      _c("li", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.$t('This article is titled "{0}".', [
-                              _vm.articleTitle
-                            ])
-                          )
-                        )
-                      ]),
+                      _c("li", {
+                        domProps: { innerHTML: _vm._s(_vm.titleHTML) }
+                      }),
                       _vm._v(" "),
                       _vm.headings.length > 0
                         ? _c("li", [
@@ -552,26 +530,16 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _vm.preImaginaryConfig.countdownAtStart === false
-                        ? _c("li", [
-                            _vm._v(
-                              _vm._s(
-                                _vm.$t(
-                                  "The time limit is {0} minutes and the countdown starts when you start typing.",
-                                  [_vm.preImaginaryConfig.limitMinutes]
-                                )
-                              )
-                            )
-                          ])
-                        : _c("li", [
-                            _vm._v(
-                              _vm._s(
-                                _vm.$t(
-                                  "The time limit is {0} minutes and the countdown starts now.",
-                                  [_vm.preImaginaryConfig.limitMinutes]
-                                )
-                              )
-                            )
-                          ])
+                        ? _c("li", {
+                            domProps: {
+                              innerHTML: _vm._s(_vm.timeLimitTypeStart)
+                            }
+                          })
+                        : _c("li", {
+                            domProps: {
+                              innerHTML: _vm._s(_vm.timeLimitAutoStart)
+                            }
+                          })
                     ])
                   ]
                 ),
@@ -1840,6 +1808,15 @@ let ArticleInformation = {
     preImaginaryConfig () {
       return this.readingProgressModules.PreImaginary
     },
+    titleHTML () {
+      return this.$t(`This article is titled <span class='highlight'>&quot;{0}&quot;</span>.`, [this.articleTitle])
+    },
+    timeLimitTypeStart () {
+      return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts when you start typing.`, [this.preImaginaryConfig.limitMinutes])
+    },
+    timeLimitAutoStart () {
+      return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts now.`, [this.preImaginaryConfig.limitMinutes])
+    }
   },
   methods: {
     show () {
@@ -1950,6 +1927,8 @@ let ArticleInformation = {
         await this.removeDataAttr(ele)
       }
       
+      $section.find('.highlight').css('background-color', 'yellow')
+      
       $section.find('img[src]').each(function (i, img) {
         let filename = 'Questionnaire-img' + i + '.png'
         img.src = filename
@@ -1964,8 +1943,9 @@ let ArticleInformation = {
       html = html.split(id + '=""').join('')
       
       html = html.split('</li>').join('</li>\n')
+      html = html.split('</p>').join('</p>\n')
       html = html.split('img src=').join('img \nsrc=')
-      html = html.split('</span>').join('</span>\n')
+      html = html.split('<span class="image-container">').join('\n<span class="image-container">')
       
       _libs_CopyPasteHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"].copyPlainText(html)
     },

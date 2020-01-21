@@ -3662,7 +3662,7 @@ var render = function() {
         }
       },
       [
-        _vm.lib.style.isLeftHanded
+        _vm.lib.style && _vm.lib.style.isLeftHanded
           ? _c("media", { attrs: { query: { maxWidth: _vm.maxWidth } } }, [
               _c(
                 "div",
@@ -3722,7 +3722,7 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        !_vm.lib.style.isLeftHanded
+        _vm.lib.style && !_vm.lib.style.isLeftHanded
           ? _c("media", { attrs: { query: { maxWidth: _vm.maxWidth } } }, [
               _c(
                 "div",
@@ -12270,7 +12270,6 @@ let StepProgressBar = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      
     }
   },
   /*
@@ -12352,6 +12351,10 @@ let StepProgressBar = {
       return title
     },
     displayTime: function (step) {
+      if (!this.lib.DayJSHelper) {
+        return undefined
+      }
+      
       if (step.isCompleted === false) {
         return this.lib.DayJSHelper.toNow(step.start_timestamp)
       }
@@ -12930,7 +12933,7 @@ let Navigation = {
         classList.push(this.color)
       }
       
-      if (this.lib.style.isLeftHanded) {
+      if (this.lib.style && this.lib.style.isLeftHanded) {
         classList.push('left')
       }
       else {

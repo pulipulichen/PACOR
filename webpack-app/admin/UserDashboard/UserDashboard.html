@@ -67,17 +67,19 @@
     <div class="ui list">
       <div class="item" v-if="step.start_timestamp">
         {{ $t('Duration') }}: 
-        <b v-if="step.start_timestamp">
+        <b v-if="step.start_timestamp && lib.DayJSHelper">
           {{ lib.DayJSHelper.format(step.start_timestamp) }}
         </b>
 
         <template v-if="step.end_timestamp">
           ~
-          <b>
+          <b v-if="lib.DayJSHelper">
             {{ lib.DayJSHelper.format(step.end_timestamp) }}
           </b>
-
-          ({{ lib.DayJSHelper.shortTime(step.duration) }})
+          
+          <template v-if="lib.DayJSHelper">
+            ({{ lib.DayJSHelper.shortTime(step.duration) }})
+          </template>
         </template>
       </div>
 
@@ -90,12 +92,13 @@
       </div>
     </div>
     
-    <component v-bind:is="step.step_name"
-                v-bind:config="config"
-                v-bind:status="status"
-                v-bind:progress="progress"
-                v-bind:lib="lib"
-                v-bind:log="step.log"
-                v-bind:toc="toc"></component>
+    <component 
+      v-bind:is="step.step_name"
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:progress="progress"
+      v-bind:lib="lib"
+      v-bind:log="step.log"
+      v-bind:toc="toc"></component>
   </div>
 </div>

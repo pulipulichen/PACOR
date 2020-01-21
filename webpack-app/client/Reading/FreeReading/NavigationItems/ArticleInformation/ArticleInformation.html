@@ -21,7 +21,7 @@
                ref="SectionPreImaginary">
         <p>{{ $t('Please try to predict what this article might write.') }}</p>
         <ul>
-          <li>{{ $t(`This article is titled "{0}".`, [articleTitle] ) }}</li>
+          <li v-html="titleHTML"></li>
           <li v-if="headings.length > 0"
               >{{ $t(`This article includes {0} headings:`, [headings.length]) }}<ol>
               <li v-for="heading in headings">{{ heading }}</li>
@@ -36,9 +36,9 @@
           </li>
           <li>{{ $t(`Don't worry about punctuation or typos, just write down what you predict of.`) }}</li>
           <li v-if="preImaginaryConfig.countdownAtStart === false"
-              >{{ $t(`The time limit is {0} minutes and the countdown starts when you start typing.`, [preImaginaryConfig.limitMinutes]) }}</li>
+              v-html="timeLimitTypeStart"></li>
           <li v-else
-              >{{ $t(`The time limit is {0} minutes and the countdown starts now.`, [preImaginaryConfig.limitMinutes]) }}</li>
+              v-html="timeLimitAutoStart"></li>
         </ul>
       </section>
       <button type="button" class="ui button fluid"
@@ -58,7 +58,7 @@
                ref="SectionPostRecall">
         <p>{{ $t('Please recall the content of this article.') }}</p>
         <ul>
-          <li>{{ $t(`This article is titled "{0}".`, [articleTitle] ) }}</li>
+          <li v-html="titleHTML"></li>
           <li v-if="headings.length > 0"
               >{{ $t(`This article includes {0} headings:`, [headings.length]) }}<ol>
               <li v-for="heading in headings">{{ heading }}</li>
@@ -72,9 +72,9 @@
           </li>
           <li>{{ $t(`Don't worry about punctuation or typos, just write down what you read.`) }}</li>
           <li v-if="preImaginaryConfig.countdownAtStart === false"
-              >{{ $t(`The time limit is {0} minutes and the countdown starts when you start typing.`, [preImaginaryConfig.limitMinutes]) }}</li>
+              v-html="timeLimitTypeStart"></li>
           <li v-else
-              >{{ $t(`The time limit is {0} minutes and the countdown starts now.`, [preImaginaryConfig.limitMinutes]) }}</li>
+              v-html="timeLimitAutoStart"></li>
         </ul>
       </section>
       <button type="button" class="ui button fluid"

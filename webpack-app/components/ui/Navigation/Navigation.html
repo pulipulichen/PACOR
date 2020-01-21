@@ -6,7 +6,7 @@
        v-on:click="$emit('click')">
     
     <media v-bind:query="{maxWidth: maxWidth}"
-           v-if="lib.style.isLeftHanded">
+           v-if="lib.style && lib.style.isLeftHanded">
       <div class="menu-compact left menu">
         <a class="icon item show-side-menu-item"
            v-on:click="showSideMenu">
@@ -33,7 +33,7 @@
     </media>
     
     <media v-bind:query="{maxWidth: maxWidth}"
-           v-if="!lib.style.isLeftHanded">
+           v-if="lib.style && !lib.style.isLeftHanded">
       <div class="menu-compact right menu">
         <slot name="compactItems"></slot>
         <a class="icon item show-side-menu-item"

@@ -5,7 +5,6 @@ let StepProgressBar = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      
     }
   },
   /*
@@ -87,6 +86,10 @@ let StepProgressBar = {
       return title
     },
     displayTime: function (step) {
+      if (!this.lib.DayJSHelper) {
+        return undefined
+      }
+      
       if (step.isCompleted === false) {
         return this.lib.DayJSHelper.toNow(step.start_timestamp)
       }

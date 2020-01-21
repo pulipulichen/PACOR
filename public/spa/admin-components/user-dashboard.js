@@ -453,7 +453,7 @@ var render = function() {
                           _vm._s(_vm.$t("Duration")) +
                           ": \r\n        "
                       ),
-                      step.start_timestamp
+                      step.start_timestamp && _vm.lib.DayJSHelper
                         ? _c("b", [
                             _vm._v(
                               "\r\n          " +
@@ -470,24 +470,33 @@ var render = function() {
                       step.end_timestamp
                         ? [
                             _vm._v("\r\n          ~\r\n          "),
-                            _c("b", [
-                              _vm._v(
-                                "\r\n            " +
-                                  _vm._s(
-                                    _vm.lib.DayJSHelper.format(
-                                      step.end_timestamp
-                                    )
-                                  ) +
-                                  "\r\n          "
-                              )
-                            ]),
-                            _vm._v(
-                              "\r\n\r\n          (" +
-                                _vm._s(
-                                  _vm.lib.DayJSHelper.shortTime(step.duration)
-                                ) +
-                                ")\r\n        "
-                            )
+                            _vm.lib.DayJSHelper
+                              ? _c("b", [
+                                  _vm._v(
+                                    "\r\n            " +
+                                      _vm._s(
+                                        _vm.lib.DayJSHelper.format(
+                                          step.end_timestamp
+                                        )
+                                      ) +
+                                      "\r\n          "
+                                  )
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.lib.DayJSHelper
+                              ? [
+                                  _vm._v(
+                                    "\r\n            (" +
+                                      _vm._s(
+                                        _vm.lib.DayJSHelper.shortTime(
+                                          step.duration
+                                        )
+                                      ) +
+                                      ")\r\n          "
+                                  )
+                                ]
+                              : _vm._e()
                           ]
                         : _vm._e()
                     ],

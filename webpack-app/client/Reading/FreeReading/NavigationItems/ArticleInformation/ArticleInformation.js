@@ -27,6 +27,15 @@ let ArticleInformation = {
     preImaginaryConfig () {
       return this.readingProgressModules.PreImaginary
     },
+    titleHTML () {
+      return this.$t(`This article is titled <span class='highlight'>&quot;{0}&quot;</span>.`, [this.articleTitle])
+    },
+    timeLimitTypeStart () {
+      return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts when you start typing.`, [this.preImaginaryConfig.limitMinutes])
+    },
+    timeLimitAutoStart () {
+      return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts now.`, [this.preImaginaryConfig.limitMinutes])
+    }
   },
   methods: {
     show () {
@@ -137,6 +146,8 @@ let ArticleInformation = {
         await this.removeDataAttr(ele)
       }
       
+      $section.find('.highlight').css('background-color', 'yellow')
+      
       $section.find('img[src]').each(function (i, img) {
         let filename = 'Questionnaire-img' + i + '.png'
         img.src = filename
@@ -151,8 +162,9 @@ let ArticleInformation = {
       html = html.split(id + '=""').join('')
       
       html = html.split('</li>').join('</li>\n')
+      html = html.split('</p>').join('</p>\n')
       html = html.split('img src=').join('img \nsrc=')
-      html = html.split('</span>').join('</span>\n')
+      html = html.split('<span class="image-container">').join('\n<span class="image-container">')
       
       CopyPasteHelper.copyPlainText(html)
     },

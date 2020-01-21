@@ -5,12 +5,13 @@
 
   <div class="ui mini fluid buttons"
        ref="buttons">
-    <span v-for="(step, index) in progresses"
-          class="ui button"
-          v-bind:class="displayClass(step)"
-          v-bind:title="displayTitle(step)"
-          v-bind:data-content="displayTitle(step)"
-          data-position="bottom center">  
+    <span 
+      v-for="(step, index) in progresses"
+      class="ui button"
+      v-bind:class="displayClass(step)"
+      v-bind:title="displayTitle(step)"
+      v-bind:data-content="displayTitle(step)"
+      data-position="bottom center">  
     </span>
   </div>
 </div>

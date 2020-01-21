@@ -76,7 +76,7 @@ let Navigation = {
         classList.push(this.color)
       }
       
-      if (this.lib.style.isLeftHanded) {
+      if (this.lib.style && this.lib.style.isLeftHanded) {
         classList.push('left')
       }
       else {
