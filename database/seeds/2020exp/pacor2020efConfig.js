@@ -7,14 +7,14 @@ module.exports = {
   readingProgressModules: {
     PreImaginary: {
       instruction: '/2020exp/PreImaginary-rice.html',
-      limitMinutes: 5,
+      limitMinutes: 3,
       countdownAtStart: true
     },
     reading: {
-      totalLimitMinutes: 60,
+      totalLimitMinutes: 10,
     },
     IndividualReading: {
-      limitMinutes: 30,
+      limitMinutes: 5,
       highlightAnnotation: {
         types: ['MainIdea'],
       },
@@ -32,7 +32,7 @@ module.exports = {
     },
     PostRecall: {
       instruction: '/2020exp/PostRecall-rice.html',
-      limitMinutes: 5,
+      limitMinutes: 3,
     }
   }
 }
