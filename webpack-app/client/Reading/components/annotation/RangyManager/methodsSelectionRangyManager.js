@@ -31,12 +31,14 @@ export default (RangyManager) => {
       //let paragraph_seq_id = []
       //let paragraph_id = []
 
+      //console.log({nodes})
       nodes.forEach(anchorNode => {
         
         if (typeof (anchorNode.getAttribute) === 'function'
                 && anchorNode.getAttribute('data-pacor-highlight') !== 'undefined') {
+          //console.log({anchorNode})
           anchorNode.classList.forEach(c => {
-            if ((c.startsWith('my-') || c.endsWith('others-'))
+            if ((c.startsWith('my-') || c.startsWith('others-'))
                     && highlightClassList.indexOf(c) === -1) {
               highlightClassList.push(c)
             }
@@ -153,6 +155,7 @@ export default (RangyManager) => {
       //  throw new Error('selection.anchorPositions.length > 1', selection.anchorPositions)
       //}
       
+      //console.log(selection, selection.highlights.length)
       this.triggerEvent('select', selection)
 
       //console.log(highlightClassList)

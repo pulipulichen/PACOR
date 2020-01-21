@@ -6833,10 +6833,10 @@ let AnnotationTypeSelector = {
       }
     },
     enableList () {
-      if (this.selection) {
-        console.log(this.selection)
-        console.log(this.selection.highlights.length)
-      }
+//      if (this.selection) {
+//        console.log(this.selection)
+//        console.log(this.selection.highlights.length)
+//      }
       return (this.selection !== null 
             && this.selection.highlights.length > 0)
     }
@@ -6851,6 +6851,8 @@ let AnnotationTypeSelector = {
     initRangyEvent () {
       let rangy = this.lib.RangyManager
       rangy.addEventListener('select', (data) => {
+        //console.log(data, data.highlights.length)
+        
         //console.log('取消')
         
         // 如果AnnotationPanel已經顯示，則不動作
@@ -16508,12 +16510,14 @@ __webpack_require__.r(__webpack_exports__);
       //let paragraph_seq_id = []
       //let paragraph_id = []
 
+      //console.log({nodes})
       nodes.forEach(anchorNode => {
         
         if (typeof (anchorNode.getAttribute) === 'function'
                 && anchorNode.getAttribute('data-pacor-highlight') !== 'undefined') {
+          //console.log({anchorNode})
           anchorNode.classList.forEach(c => {
-            if ((c.startsWith('my-') || c.endsWith('others-'))
+            if ((c.startsWith('my-') || c.startsWith('others-'))
                     && highlightClassList.indexOf(c) === -1) {
               highlightClassList.push(c)
             }
@@ -16630,6 +16634,7 @@ __webpack_require__.r(__webpack_exports__);
       //  throw new Error('selection.anchorPositions.length > 1', selection.anchorPositions)
       //}
       
+      //console.log(selection, selection.highlights.length)
       this.triggerEvent('select', selection)
 
       //console.log(highlightClassList)

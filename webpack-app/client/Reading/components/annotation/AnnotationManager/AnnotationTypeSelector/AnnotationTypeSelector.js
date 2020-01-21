@@ -82,10 +82,10 @@ let AnnotationTypeSelector = {
       }
     },
     enableList () {
-      if (this.selection) {
-        console.log(this.selection)
-        console.log(this.selection.highlights.length)
-      }
+//      if (this.selection) {
+//        console.log(this.selection)
+//        console.log(this.selection.highlights.length)
+//      }
       return (this.selection !== null 
             && this.selection.highlights.length > 0)
     }
@@ -100,6 +100,8 @@ let AnnotationTypeSelector = {
     initRangyEvent () {
       let rangy = this.lib.RangyManager
       rangy.addEventListener('select', (data) => {
+        //console.log(data, data.highlights.length)
+        
         //console.log('取消')
         
         // 如果AnnotationPanel已經顯示，則不動作
