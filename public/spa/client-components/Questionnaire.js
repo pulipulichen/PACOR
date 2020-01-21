@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":null}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單"}}')
   delete Component.options._Ctor
 }
 
@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":null}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單"}}')
   delete Component.options._Ctor
 }
 
@@ -57,7 +57,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".hint[data-v-359e549b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-359e549b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n", "",{"version":3,"sources":["Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,mDAAmD;AACrD","file":"Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-359e549b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-359e549b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n"]}]);
+exports.push([module.i, ".hint[data-v-359e549b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-359e549b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n.user-avatar[data-v-359e549b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-359e549b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-359e549b]  .icon-container .icon {\n  margin-top: -1em !important;\n  font-size: 0.3em !important;\n}\n", "",{"version":3,"sources":["Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,mDAAmD;AACrD;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,2BAA2B;EAC3B,2BAA2B;AAC7B","file":"Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-359e549b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-359e549b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n.user-avatar[data-v-359e549b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-359e549b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-359e549b]  .icon-container .icon {\n  margin-top: -1em !important;\n  font-size: 0.3em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -71,7 +71,7 @@ exports.push([module.i, ".hint[data-v-359e549b] {\n  max-height: 15rem;\n  overf
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".hint[data-v-71c8473b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-71c8473b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n", "",{"version":3,"sources":["Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,mDAAmD;AACrD","file":"Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-71c8473b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-71c8473b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n"]}]);
+exports.push([module.i, ".hint[data-v-71c8473b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-71c8473b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n.user-avatar[data-v-71c8473b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-71c8473b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-71c8473b]  .icon-container .icon {\n  margin-top: -1em !important;\n  font-size: 0.3em !important;\n}\n", "",{"version":3,"sources":["Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,mDAAmD;AACrD;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,2BAA2B;EAC3B,2BAA2B;AAC7B","file":"Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-71c8473b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-71c8473b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n.user-avatar[data-v-71c8473b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-71c8473b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-71c8473b]  .icon-container .icon {\n  margin-top: -1em !important;\n  font-size: 0.3em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -119,118 +119,168 @@ var render = function() {
           dimmer: "opaque",
           cancelable: "false"
         },
-        scopedSlots: _vm._u([
-          {
-            key: "header",
-            fn: function() {
-              return [_vm._v("\r\n      " + _vm._s(_vm.header) + "\r\n    ")]
+        scopedSlots: _vm._u(
+          [
+            {
+              key: "header",
+              fn: function() {
+                return [
+                  _c("user-avatar", {
+                    staticClass: "user-avatar",
+                    attrs: {
+                      config: _vm.config,
+                      status: _vm.status,
+                      lib: _vm.lib
+                    }
+                  }),
+                  _vm._v(
+                    "\r\n      " +
+                      _vm._s(_vm.lib.auth.username) +
+                      "\r\n      :\r\n      " +
+                      _vm._s(_vm.header) +
+                      "\r\n    "
+                  )
+                ]
+              },
+              proxy: true
             },
-            proxy: true
-          },
-          {
-            key: "content",
-            fn: function() {
-              return [
-                _c("iframe-message-segment", {
-                  staticClass: "field hint",
-                  attrs: { config: _vm.config, message: _vm.instruction }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "field" }, [
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.answer,
-                        expression: "answer"
-                      }
-                    ],
-                    staticClass: "answer",
-                    attrs: { disabled: _vm.isTimeUp },
-                    domProps: { value: _vm.answer },
-                    on: {
-                      input: [
-                        function($event) {
-                          if ($event.target.composing) {
-                            return
+            _vm.lib.auth.currentStep === "PreImaginary"
+              ? {
+                  key: "headerMenu",
+                  fn: function() {
+                    return [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "item",
+                          attrs: { title: _vm.$t("Logout") },
+                          on: {
+                            click: function() {
+                              _vm.lib.auth.logoutWithoutForget()
+                            }
                           }
-                          _vm.answer = $event.target.value
                         },
-                        _vm.persist
-                      ],
-                      paste: function($event) {
-                        if ($event.target !== $event.currentTarget) {
-                          return null
-                        }
-                        return (function(e) {
-                          e.preventDefault()
-                        })($event)
-                      }
-                    }
-                  })
-                ])
-              ]
-            },
-            proxy: true
-          },
-          {
-            key: "actions",
-            fn: function() {
-              return [
-                _c("countdown-button", {
-                  staticClass: "questionnaire-submit",
-                  attrs: {
-                    minWordCount: _vm.minWords,
-                    enableClassNames: "ui green right labeled icon button",
-                    text: _vm.answer,
-                    lib: _vm.lib,
-                    locale: _vm.status.preference.locale,
-                    countdownSec: _vm.remainingSeconds,
-                    enable: _vm.isTimeUp,
-                    isWaitingLoading: _vm.isWaitingLoading,
-                    ignoreWordCount: true,
-                    autoClickSeconds: 5
-                  },
-                  on: { click: _vm.nextStep, timeup: _vm.onTimeup },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "default",
-                      fn: function(ref) {
-                        var autoClickRemainingSeconds =
-                          ref.autoClickRemainingSeconds
-                        return [
+                        [
+                          _c("i", { staticClass: "undo icon" }),
                           _vm._v(
-                            "\r\n          " +
-                              _vm._s(_vm.$t("NEXT")) +
-                              "\r\n\r\n          "
-                          ),
-                          autoClickRemainingSeconds
-                            ? [
-                                _vm._v(
-                                  "\r\n            (" +
-                                    _vm._s(autoClickRemainingSeconds) +
-                                    ")\r\n          "
-                                )
-                              ]
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "angle right icon" })
+                            "\r\n        " +
+                              _vm._s(_vm.$t("Return to login")) +
+                              "\r\n      "
+                          )
                         ]
+                      )
+                    ]
+                  },
+                  proxy: true
+                }
+              : null,
+            {
+              key: "content",
+              fn: function() {
+                return [
+                  _c("iframe-message-segment", {
+                    staticClass: "field hint",
+                    attrs: { config: _vm.config, message: _vm.instruction }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "field" }, [
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.answer,
+                          expression: "answer"
+                        }
+                      ],
+                      staticClass: "answer",
+                      attrs: { disabled: _vm.isTimeUp },
+                      domProps: { value: _vm.answer },
+                      on: {
+                        input: [
+                          function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.answer = $event.target.value
+                          },
+                          _vm.persist
+                        ],
+                        paste: function($event) {
+                          if ($event.target !== $event.currentTarget) {
+                            return null
+                          }
+                          return (function(e) {
+                            e.preventDefault()
+                          })($event)
+                        }
                       }
-                    }
+                    })
                   ])
-                })
-              ]
+                ]
+              },
+              proxy: true
             },
-            proxy: true
-          }
-        ])
+            {
+              key: "actions",
+              fn: function() {
+                return [
+                  _c("countdown-button", {
+                    staticClass: "questionnaire-submit",
+                    attrs: {
+                      minWordCount: _vm.minWords,
+                      enableClassNames: "ui green right labeled icon button",
+                      text: _vm.answer,
+                      lib: _vm.lib,
+                      locale: _vm.status.preference.locale,
+                      countdownSec: _vm.remainingSeconds,
+                      enable: _vm.isTimeUp,
+                      isWaitingLoading: _vm.isWaitingLoading,
+                      ignoreWordCount: true,
+                      autoClickSeconds: 5
+                    },
+                    on: { click: _vm.nextStep, timeup: _vm.onTimeup },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(ref) {
+                          var autoClickRemainingSeconds =
+                            ref.autoClickRemainingSeconds
+                          return [
+                            _vm._v(
+                              "\r\n          " +
+                                _vm._s(_vm.$t("NEXT")) +
+                                "\r\n\r\n          "
+                            ),
+                            autoClickRemainingSeconds
+                              ? [
+                                  _vm._v(
+                                    "\r\n            (" +
+                                      _vm._s(autoClickRemainingSeconds) +
+                                      ")\r\n          "
+                                  )
+                                ]
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "angle right icon" })
+                          ]
+                        }
+                      }
+                    ])
+                  })
+                ]
+              },
+              proxy: true
+            }
+          ],
+          null,
+          true
+        )
       }),
       _vm._v(" "),
       _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
       _vm._v(" "),
-      _c("block-exit")
+      _vm.answer !== "" ? _c("block-exit") : _vm._e()
     ],
     1
   )
@@ -271,118 +321,168 @@ var render = function() {
           dimmer: "opaque",
           cancelable: "false"
         },
-        scopedSlots: _vm._u([
-          {
-            key: "header",
-            fn: function() {
-              return [_vm._v("\r\n      " + _vm._s(_vm.header) + "\r\n    ")]
+        scopedSlots: _vm._u(
+          [
+            {
+              key: "header",
+              fn: function() {
+                return [
+                  _c("user-avatar", {
+                    staticClass: "user-avatar",
+                    attrs: {
+                      config: _vm.config,
+                      status: _vm.status,
+                      lib: _vm.lib
+                    }
+                  }),
+                  _vm._v(
+                    "\r\n      " +
+                      _vm._s(_vm.lib.auth.username) +
+                      "\r\n      :\r\n      " +
+                      _vm._s(_vm.header) +
+                      "\r\n    "
+                  )
+                ]
+              },
+              proxy: true
             },
-            proxy: true
-          },
-          {
-            key: "content",
-            fn: function() {
-              return [
-                _c("iframe-message-segment", {
-                  staticClass: "field hint",
-                  attrs: { config: _vm.config, message: _vm.instruction }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "field" }, [
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.answer,
-                        expression: "answer"
-                      }
-                    ],
-                    staticClass: "answer",
-                    attrs: { disabled: _vm.isTimeUp },
-                    domProps: { value: _vm.answer },
-                    on: {
-                      input: [
-                        function($event) {
-                          if ($event.target.composing) {
-                            return
+            _vm.lib.auth.currentStep === "PreImaginary"
+              ? {
+                  key: "headerMenu",
+                  fn: function() {
+                    return [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "item",
+                          attrs: { title: _vm.$t("Logout") },
+                          on: {
+                            click: function() {
+                              _vm.lib.auth.logoutWithoutForget()
+                            }
                           }
-                          _vm.answer = $event.target.value
                         },
-                        _vm.persist
-                      ],
-                      paste: function($event) {
-                        if ($event.target !== $event.currentTarget) {
-                          return null
-                        }
-                        return (function(e) {
-                          e.preventDefault()
-                        })($event)
-                      }
-                    }
-                  })
-                ])
-              ]
-            },
-            proxy: true
-          },
-          {
-            key: "actions",
-            fn: function() {
-              return [
-                _c("countdown-button", {
-                  staticClass: "questionnaire-submit",
-                  attrs: {
-                    minWordCount: _vm.minWords,
-                    enableClassNames: "ui green right labeled icon button",
-                    text: _vm.answer,
-                    lib: _vm.lib,
-                    locale: _vm.status.preference.locale,
-                    countdownSec: _vm.remainingSeconds,
-                    enable: _vm.isTimeUp,
-                    isWaitingLoading: _vm.isWaitingLoading,
-                    ignoreWordCount: true,
-                    autoClickSeconds: 5
-                  },
-                  on: { click: _vm.nextStep, timeup: _vm.onTimeup },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "default",
-                      fn: function(ref) {
-                        var autoClickRemainingSeconds =
-                          ref.autoClickRemainingSeconds
-                        return [
+                        [
+                          _c("i", { staticClass: "undo icon" }),
                           _vm._v(
-                            "\r\n          " +
-                              _vm._s(_vm.$t("NEXT")) +
-                              "\r\n\r\n          "
-                          ),
-                          autoClickRemainingSeconds
-                            ? [
-                                _vm._v(
-                                  "\r\n            (" +
-                                    _vm._s(autoClickRemainingSeconds) +
-                                    ")\r\n          "
-                                )
-                              ]
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "angle right icon" })
+                            "\r\n        " +
+                              _vm._s(_vm.$t("Return to login")) +
+                              "\r\n      "
+                          )
                         ]
+                      )
+                    ]
+                  },
+                  proxy: true
+                }
+              : null,
+            {
+              key: "content",
+              fn: function() {
+                return [
+                  _c("iframe-message-segment", {
+                    staticClass: "field hint",
+                    attrs: { config: _vm.config, message: _vm.instruction }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "field" }, [
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.answer,
+                          expression: "answer"
+                        }
+                      ],
+                      staticClass: "answer",
+                      attrs: { disabled: _vm.isTimeUp },
+                      domProps: { value: _vm.answer },
+                      on: {
+                        input: [
+                          function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.answer = $event.target.value
+                          },
+                          _vm.persist
+                        ],
+                        paste: function($event) {
+                          if ($event.target !== $event.currentTarget) {
+                            return null
+                          }
+                          return (function(e) {
+                            e.preventDefault()
+                          })($event)
+                        }
                       }
-                    }
+                    })
                   ])
-                })
-              ]
+                ]
+              },
+              proxy: true
             },
-            proxy: true
-          }
-        ])
+            {
+              key: "actions",
+              fn: function() {
+                return [
+                  _c("countdown-button", {
+                    staticClass: "questionnaire-submit",
+                    attrs: {
+                      minWordCount: _vm.minWords,
+                      enableClassNames: "ui green right labeled icon button",
+                      text: _vm.answer,
+                      lib: _vm.lib,
+                      locale: _vm.status.preference.locale,
+                      countdownSec: _vm.remainingSeconds,
+                      enable: _vm.isTimeUp,
+                      isWaitingLoading: _vm.isWaitingLoading,
+                      ignoreWordCount: true,
+                      autoClickSeconds: 5
+                    },
+                    on: { click: _vm.nextStep, timeup: _vm.onTimeup },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(ref) {
+                          var autoClickRemainingSeconds =
+                            ref.autoClickRemainingSeconds
+                          return [
+                            _vm._v(
+                              "\r\n          " +
+                                _vm._s(_vm.$t("NEXT")) +
+                                "\r\n\r\n          "
+                            ),
+                            autoClickRemainingSeconds
+                              ? [
+                                  _vm._v(
+                                    "\r\n            (" +
+                                      _vm._s(autoClickRemainingSeconds) +
+                                      ")\r\n          "
+                                  )
+                                ]
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "angle right icon" })
+                          ]
+                        }
+                      }
+                    ])
+                  })
+                ]
+              },
+              proxy: true
+            }
+          ],
+          null,
+          true
+        )
       }),
       _vm._v(" "),
       _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
       _vm._v(" "),
-      _c("block-exit")
+      _vm.answer !== "" ? _c("block-exit") : _vm._e()
     ],
     1
   )

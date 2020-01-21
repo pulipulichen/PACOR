@@ -8,7 +8,24 @@
     dimmer="opaque"
     cancelable="false">
     <template v-slot:header>
+      <user-avatar 
+        class="user-avatar"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib">
+      </user-avatar>
+      {{ lib.auth.username }}
+      :
       {{ header }}
+    </template>
+    <template v-slot:headerMenu
+              v-if="lib.auth.currentStep === 'PreImaginary'">
+      <a class="item"
+         v-bind:title="$t('Logout')"
+         v-on:click="() => {lib.auth.logoutWithoutForget()}">
+        <i class="undo icon"></i>
+        {{ $t(`Return to login`) }}
+      </a>
     </template>
     <template v-slot:content inline-template>
 
@@ -81,5 +98,6 @@
     v-bind:config="config"
     v-bind:lib="lib">
   </activity-timer>
-  <block-exit></block-exit>
+  <block-exit
+    v-if="answer !== ''"></block-exit>
 </div>
