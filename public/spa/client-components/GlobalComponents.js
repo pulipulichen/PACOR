@@ -10688,7 +10688,7 @@ __webpack_require__.r(__webpack_exports__);
 let Modal = {
   props: ['lib', 'status', 'config'
     , 'cancelable', 'reset', 'dimmer', 'contentURL'
-    , 'cancelButtonText', 'fullContent', 'disableOpenWindow'],
+    , 'cancelButtonText', 'fullContent', 'disableOpenWindow', 'keyboardShortcuts'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -10825,6 +10825,10 @@ let Modal = {
         options.onHidden = () => {
           this.isShow = false
           this.$emit('hide')
+        }
+        
+        if (this.keyboardShortcuts === false) {
+          options.keyboardShortcuts = false
         }
         
         modal.modal(options).modal('show')

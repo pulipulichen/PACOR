@@ -7,7 +7,8 @@
     v-bind:lib="lib"
     dimmer="opaque"
     v-bind:cancelable="false"
-    v-bind:fullContent="true">
+    v-bind:fullContent="true"
+    v-bind:keyboardShortcuts="false">
 
     <template v-slot:header>
       <span v-on:dblclick="createMockupUsername"
@@ -42,7 +43,8 @@
 
         </media>
         <form v-bind:class="computedFormClassList"
-             class="content-full-height form-column">
+             class="content-full-height form-column"
+             v-on:submit.stop="login">
 
           <iframe-message-segment 
             class="login-message"
@@ -60,10 +62,11 @@
               </template>
               ({{ $t('cannot contain space') }})
             </label>
-            <input type="text" 
-                   id="loginUsername"
-                   v-model="username"
-                   v-on:keyup.enter.stop="login"/>
+            <input 
+              type="text" 
+              id="loginUsername"
+              v-model="username"
+              v-on:keyup.enter.stop="login" />
           </div>
 
           <div class="ui field"
@@ -71,11 +74,12 @@
             <label for="loginPassword">
               {{ $t('Password') }}
             </label>
-            <input type="password" 
-                   autocomplete="false"
-                   id="loginPassword"
-                   v-model="password"
-                   v-on:keyup.enter="login" />
+            <input 
+              type="password" 
+              autocomplete="false"
+              id="loginPassword"
+              v-model="password"
+              v-on:keyup.enter.stop="login"/>
           </div>
 
           <div class="ui field" v-html="$t('agreement-link', [agreementLink])"></div>

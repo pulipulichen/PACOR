@@ -186,7 +186,8 @@ var render = function() {
           lib: _vm.lib,
           dimmer: "opaque",
           cancelable: false,
-          fullContent: true
+          fullContent: true,
+          keyboardShortcuts: false
         },
         scopedSlots: _vm._u([
           {
@@ -291,7 +292,13 @@ var render = function() {
                       "form",
                       {
                         staticClass: "content-full-height form-column",
-                        class: _vm.computedFormClassList
+                        class: _vm.computedFormClassList,
+                        on: {
+                          submit: function($event) {
+                            $event.stopPropagation()
+                            return _vm.login($event)
+                          }
+                        }
                       },
                       [
                         _c("iframe-message-segment", {
@@ -410,6 +417,7 @@ var render = function() {
                                     ) {
                                       return null
                                     }
+                                    $event.stopPropagation()
                                     return _vm.login($event)
                                   },
                                   input: function($event) {
@@ -1572,7 +1580,11 @@ let Login = {
         this.adminMode = true
       }
     },
-    login: async function() {
+    login: async function(event) {
+      event.preventDefault()
+      event.stopPropagation()
+      
+      //console.log('login 1')
       this.waiting = true
       let data = {
         username: this.username,
@@ -1612,6 +1624,8 @@ let Login = {
       this.status.needLogin = false
       this.waiting = false
       //alert('成功登入了，然後呢？')
+      
+      return false
     },
     reset: function () {
       this.username = ''

@@ -130,7 +130,11 @@ let Login = {
         this.adminMode = true
       }
     },
-    login: async function() {
+    login: async function(event) {
+      event.preventDefault()
+      event.stopPropagation()
+      
+      //console.log('login 1')
       this.waiting = true
       let data = {
         username: this.username,
@@ -170,6 +174,8 @@ let Login = {
       this.status.needLogin = false
       this.waiting = false
       //alert('成功登入了，然後呢？')
+      
+      return false
     },
     reset: function () {
       this.username = ''
