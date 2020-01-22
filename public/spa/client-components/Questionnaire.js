@@ -154,11 +154,7 @@ var render = function() {
                         {
                           staticClass: "item",
                           attrs: { title: _vm.$t("Logout") },
-                          on: {
-                            click: function() {
-                              _vm.lib.auth.logoutWithoutForget()
-                            }
-                          }
+                          on: { click: _vm.logout }
                         },
                         [
                           _c("i", { staticClass: "undo icon" }),
@@ -356,11 +352,7 @@ var render = function() {
                         {
                           staticClass: "item",
                           attrs: { title: _vm.$t("Logout") },
-                          on: {
-                            click: function() {
-                              _vm.lib.auth.logoutWithoutForget()
-                            }
-                          }
+                          on: { click: _vm.logout }
                         },
                         [
                           _c("i", { staticClass: "undo icon" }),
@@ -922,6 +914,10 @@ let PreImaginary = {
         this.$refs.Modal.hide()
       }
       return await this.lib.auth.nextStep(false)
+    },
+    logout () {
+      localStorage.removeItem(this.persistKey)
+      this.lib.auth.logoutWithoutForget()
     }
   } // methods
 }
@@ -1140,6 +1136,10 @@ let PreImaginary = {
         this.$refs.Modal.hide()
       }
       return await this.lib.auth.nextStep(false)
+    },
+    logout () {
+      localStorage.removeItem(this.persistKey)
+      this.lib.auth.logoutWithoutForget()
     }
   } // methods
 }

@@ -13589,7 +13589,18 @@ let VueHelper = {
         resolve(true)
       }, ms)
     })
-  } 
+  },
+//  waitReady: async function (component, callback) {
+//    if (typeof(callback) !== 'function') {
+//      return undefined
+//    }
+//    
+//    while (!component) {
+//      await this.sleep(100)
+//    }
+//    
+//    callback()
+//  }
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (VueHelper);

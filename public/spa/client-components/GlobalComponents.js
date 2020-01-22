@@ -1232,11 +1232,7 @@ var render = function() {
       _c("i", {
         ref: "anchor",
         staticClass: "bell icon",
-        on: {
-          "~click": function($event) {
-            return _vm.initPopup($event)
-          }
-        }
+        on: { click: _vm.initPopup }
       }),
       _vm._v(" "),
       _c(
@@ -5254,6 +5250,7 @@ let NotificationIcon = {
     this.$i18n.locale = this.config.locale
     
     return {
+      inited: false
     }
   },
   components: {
@@ -5300,6 +5297,10 @@ let NotificationIcon = {
   },
   methods: {
     initPopup () {
+      if (this.inited === true || !this.lib.NotificationManager) {
+        return false
+      }
+      
       if (this.status.notificationData.hasNotification === false) {
         return false
       }
@@ -5335,7 +5336,9 @@ let NotificationIcon = {
       
       anchor.popup(popupOptions)
 //      console.log('initPopup')
-      anchor.click()
+      anchor.click
+      
+      this.inited = true
     },
     show () {
       if (this.status.notificationData.hasNotification === false) {

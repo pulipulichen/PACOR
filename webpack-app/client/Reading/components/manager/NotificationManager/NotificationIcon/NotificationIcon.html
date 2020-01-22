@@ -3,7 +3,7 @@
    v-bind:class="computedContainerClassList">
   <i class="bell icon"
      ref="anchor"
-     v-on:click.once="initPopup"></i>
+     v-on:click="initPopup"></i>
 
   <span class="item-label in-vertical">
     <template v-if="notificationData.unreadCount > 0">

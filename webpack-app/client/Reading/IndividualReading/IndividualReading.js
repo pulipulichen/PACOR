@@ -34,29 +34,38 @@ let IndividualReading = {
     this.lib.SectionManager = null
   },
   methods: {
-    initComponentToLib () {
-      if (!this.$refs.RangyManager) {
-        setTimeout(() => {
-          this.initComponentToLib()
-        }, 100)
-        return false
+    initComponentToLib: async function () {
+//      if (!this.$refs.RangyManager) {
+//        setTimeout(() => {
+//          this.initComponentToLib()
+//        }, 100)
+//        return false
+//      }
+//      
+      while (!this.$refs.RangyManager) {
+        await this.lib.VueHelper.sleep(100)
       }
-      
       this.lib.RangyManager = this.$refs.RangyManager
+      
+      while (!this.$refs.AnnotationPanel) {
+        await this.lib.VueHelper.sleep(100)
+      }
       this.lib.AnnotationPanel = this.$refs.AnnotationPanel
+      
+      while (!this.$refs.SectionManager) {
+        await this.lib.VueHelper.sleep(100)
+      }
       this.lib.SectionManager = this.$refs.SectionManager
       //console.log(this.lib.AnnotationPanel)
       
-      this.initNavComponentToLib()
-    },
-    initNavComponentToLib () {
-       if (!this.$refs.nav.$refs.AnnotationTypeFilter) {
-        setTimeout(() => {
-          this.initNavComponentToLib()
-        }, 100)
-        return false
-      }
+      await this.initNavComponentToLib()
       
+      this.status.progress.initComponents = true
+    },
+    initNavComponentToLib: async function () {
+      while (!this.$refs.nav.$refs.AnnotationTypeFilter) {
+        await this.lib.VueHelper.sleep(100)
+      }
       this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
       
       this.status.progress.initComponents = true

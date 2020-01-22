@@ -22,7 +22,7 @@
               v-if="lib.auth.currentStep === 'PreImaginary'">
       <a class="item"
          v-bind:title="$t('Logout')"
-         v-on:click="() => {lib.auth.logoutWithoutForget()}">
+         v-on:click="logout">
         <i class="undo icon"></i>
         {{ $t(`Return to login`) }}
       </a>

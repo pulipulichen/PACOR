@@ -1562,7 +1562,7 @@ let CollaborativeReading = {
     this.lib.NotificationManager = null
   },
   methods: {
-    initComponentToLib () {
+    initComponentToLib: async function () {
       if (!this.$refs.RangyManager) {
         setTimeout(() => {
           this.initComponentToLib()
@@ -1570,25 +1570,43 @@ let CollaborativeReading = {
         return false
       }
       
+      while (!this.$refs.RangyManager) {
+        await this.lib.VueHelper.sleep(100)
+      }
       this.lib.RangyManager = this.$refs.RangyManager
+      
+      while (!this.$refs.AnnotationPanel) {
+        await this.lib.VueHelper.sleep(100)
+      }
       this.lib.AnnotationPanel = this.$refs.AnnotationPanel
+      
+      while (!this.$refs.SectionManager) {
+        await this.lib.VueHelper.sleep(100)
+      }
       this.lib.SectionManager = this.$refs.SectionManager
+      
+      while (!this.$refs.NotificationManager) {
+        await this.lib.VueHelper.sleep(100)
+      }
       this.lib.NotificationManager = this.$refs.NotificationManager
       
+      //console.log(this.lib.NotificationManager)
+      
       //console.log(this.lib.AnnotationPanel)
-      this.initNavComponentToLib()
+      await this.initNavComponentToLib()
       
       this.status.progress.initComponents = true
     },
-    initNavComponentToLib () {
-       if (!this.$refs.nav.$refs.UserFilter) {
-        setTimeout(() => {
-          this.initNavComponentToLib()
-        }, 100)
-        return false
-      }
+    initNavComponentToLib: async function () {
       
+      while (!this.$refs.$refs.UserFilter) {
+        await this.lib.VueHelper.sleep(100)
+      }
       this.lib.UserFilter = this.$refs.nav.$refs.UserFilter
+      
+      while (!this.$refs.$refs.AnnotationTypeFilter) {
+        await this.lib.VueHelper.sleep(100)
+      }
       this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
     },
     showInstruction() {

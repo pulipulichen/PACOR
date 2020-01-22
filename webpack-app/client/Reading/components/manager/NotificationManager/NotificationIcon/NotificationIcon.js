@@ -8,6 +8,7 @@ let NotificationIcon = {
     this.$i18n.locale = this.config.locale
     
     return {
+      inited: false
     }
   },
   components: {
@@ -54,6 +55,10 @@ let NotificationIcon = {
   },
   methods: {
     initPopup () {
+      if (this.inited === true || !this.lib.NotificationManager) {
+        return false
+      }
+      
       if (this.status.notificationData.hasNotification === false) {
         return false
       }
@@ -89,7 +94,9 @@ let NotificationIcon = {
       
       anchor.popup(popupOptions)
 //      console.log('initPopup')
-      anchor.click()
+      anchor.click
+      
+      this.inited = true
     },
     show () {
       if (this.status.notificationData.hasNotification === false) {
