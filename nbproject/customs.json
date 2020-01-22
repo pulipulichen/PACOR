@@ -123,6 +123,9 @@
     "v-model": {},
     "ref": {},
     "v-bind:style": {},
+    "integrity": {
+      "context": "script"
+    },
     "v-else-if": {},
     "v-on:touchstart": {},
     "v-bind:is": {},
