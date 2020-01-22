@@ -1,14 +1,16 @@
-<div ref="fab" 
-     class="fab-main-container"
-     v-bind:style="computedStyle"
-     v-bind:class="{hidden: isInitHidden, 'semantic-ui': (iconType === 'SemanticUI')}">
+<div 
+  ref="fab" 
+  class="fab-main-container"
+  v-bind:style="computedStyle"
+  v-bind:class="computedFabMainContainerClassList">
   
   <!-- 這個是主要的item -->
-  <transition v-bind:name="transitionName">
+  <transition v-bind:name="transitionName"
+              v-if="disablePrimaryActionButton === false">
     <fab-cantainer
       v-on:click.native="openMenu" 
       v-if="visible"
-      class="fab"
+      class="fab primary-action-button"
       data-outside="true"
       v-bind:class="'fab-size-' + size"
       v-bind:style="fabClass">

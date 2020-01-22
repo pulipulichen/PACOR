@@ -3,6 +3,7 @@
 * {
   user-select: none
 }
+
 .fab-main-container {
   position: fixed;
   z-index: 1;
@@ -14,6 +15,12 @@
   
   &.hidden {
     top: -100vh;
+  }
+  
+  .disable-primary-action-button {
+    .primary-action-button {
+      display: none !important; 
+    }
   }
 }
 

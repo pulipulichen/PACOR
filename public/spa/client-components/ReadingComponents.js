@@ -589,7 +589,7 @@ exports.push([module.i, ".fab-size-normal[data-v-6d2fd68d] {\n  height: 4em;\n  
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".fab-size-normal[data-v-5e02c0bd] {\n  height: 4em;\n  width: 4em;\n}\n.fab-size-big[data-v-5e02c0bd] {\n  height: 5em;\n  width: 5em;\n}\n.fab-size-small[data-v-5e02c0bd] {\n  height: 3em;\n  width: 3em;\n}\n.vue-fab-material-icons[data-v-5e02c0bd] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons[data-v-5e02c0bd] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons *[data-v-5e02c0bd] {\n  color: white;\n}\n.flex-center[data-v-5e02c0bd] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.fab-shadow[data-v-5e02c0bd] {\n  box-shadow: 0px 2px 8px #666;\n}\n.absolute[data-v-5e02c0bd] {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.fab-default-leave-to[data-v-5e02c0bd] {\n  transform: scale(0);\n}\n.fab-default-enter[data-v-5e02c0bd] {\n  transform: scale(0) rotate(-45deg);\n}\n.fab-item-default-enter[data-v-5e02c0bd] {\n  opacity: 0;\n  transform: translate3D(0, 5px, 0) scale(0);\n}\n.fab-item-default-leave-to[data-v-5e02c0bd] {\n  opacity: 0;\n}\n.fab-active-icon-leave[data-v-5e02c0bd] {\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-leave-to[data-v-5e02c0bd] {\n  transform: rotate(45deg) !important;\n  opacity: 0 !important;\n}\n.fab-active-icon-enter[data-v-5e02c0bd] {\n  opacity: 0;\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-enter-to[data-v-5e02c0bd] {\n  transform: rotate(45deg) !important;\n  opacity: 1;\n}\n.fab-icon-enter[data-v-5e02c0bd] {\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.fab-icon-enter-to[data-v-5e02c0bd] {\n  transform: rotate(0deg);\n}\n.fab-icon-leave[data-v-5e02c0bd] {\n  transform: rotate(45deg);\n  opacity: 1;\n}\n.fab-icon-leave-to[data-v-5e02c0bd] {\n  transform: rotate(0deg) !important;\n  opacity: 0;\n}\n.fab-icon-enter[data-v-5e02c0bd],\n.fab-icon-leave-to[data-v-5e02c0bd] {\n  opacity: 0;\n}\n.fab-icon-to[data-v-5e02c0bd],\n.fab-icon-leave[data-v-5e02c0bd] {\n  opacity: 1;\n}\n.fab-alive-leave-to[data-v-5e02c0bd] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-alive-leave-active[data-v-5e02c0bd],\n.fab-alive-enter-active[data-v-5e02c0bd] {\n  transition: all 0.3s linear;\n}\n.fab-alive-enter[data-v-5e02c0bd] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-item-alive-leave-to[data-v-5e02c0bd] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item-alive-enter-active[data-v-5e02c0bd] {\n  transition: all 0s linear;\n  opacity: 0;\n}\n.fab-item-alive-enter[data-v-5e02c0bd] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n*[data-v-5e02c0bd] {\n  user-select: none;\n}\n.fab-main-container[data-v-5e02c0bd] {\n  position: fixed;\n  z-index: 1;\n  overflow: initial;\n  box-sizing: border-box;\n}\n.fab-main-container.hidden[data-v-5e02c0bd] {\n  top: -100vh;\n}\n.fab[data-v-5e02c0bd] {\n  box-sizing: border-box;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 50%;\n  color: white;\n  cursor: pointer;\n  padding: 8px;\n  transition: all 0s linear;\n}\n.fab i[data-v-5e02c0bd] {\n  font-size: 1.5em;\n}\n.fab-active[data-v-5e02c0bd]:not(.disable-rotate) {\n  transform: rotate(45deg);\n}\n.fab-item-container[data-v-5e02c0bd] {\n  box-sizing: border-box;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.semantic-ui i[data-v-5e02c0bd] {\n  margin-right: 0 !important;\n  height: auto !important;\n  line-height: 4em !important;\n  display: inline-block !important;\n  width: 100% !important;\n  font-size: 1.5em !important;\n  border-radius: calc(4em / 2);\n}\n.semantic-ui.fab-size-big i[data-v-5e02c0bd] {\n  line-height: 5em !important;\n  border-radius: calc(5em / 2);\n}\n.semantic-ui.fab-size-small i[data-v-5e02c0bd] {\n  line-height: 3em !important;\n  border-radius: calc(3em / 2);\n}\n", "",{"version":3,"sources":["fab.less?vue&type=style&index=0&id=5e02c0bd&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,UAAU;AACZ;AACA;EACE,WAAW;EACX,UAAU;AACZ;AACA;EACE,WAAW;EACX,UAAU;AACZ;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,cAAc;AAChB;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,cAAc;AAChB;AACA;EACE,YAAY;AACd;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,4BAA4B;AAC9B;AACA;EACE,kBAAkB;EAClB,OAAO;EACP,MAAM;AACR;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kCAAkC;AACpC;AACA;EACE,UAAU;EACV,0CAA0C;AAC5C;AACA;EACE,UAAU;AACZ;AACA;EACE,kCAAkC;AACpC;AACA;EACE,mCAAmC;EACnC,qBAAqB;AACvB;AACA;EACE,UAAU;EACV,kCAAkC;AACpC;AACA;EACE,mCAAmC;EACnC,UAAU;AACZ;AACA;EACE,wBAAwB;EACxB,UAAU;AACZ;AACA;EACE,uBAAuB;AACzB;AACA;EACE,wBAAwB;EACxB,UAAU;AACZ;AACA;EACE,kCAAkC;EAClC,UAAU;AACZ;AACA;;EAEE,UAAU;AACZ;AACA;;EAEE,UAAU;AACZ;AACA;EACE,sCAAsC;EACtC,UAAU;AACZ;AACA;;EAEE,2BAA2B;AAC7B;AACA;EACE,sCAAsC;EACtC,UAAU;AACZ;AACA;EACE,qCAAqC;EACrC,UAAU;AACZ;AACA;EACE,yBAAyB;EACzB,UAAU;AACZ;AACA;EACE,qCAAqC;EACrC,UAAU;AACZ;AACA;EACE,iBAAiB;AACnB;AACA;EACE,eAAe;EACf,UAAU;EACV,iBAAiB;EACjB,sBAAsB;AACxB;AACA;EACE,WAAW;AACb;AACA;EACE,sBAAsB;EACtB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,kBAAkB;EAClB,OAAO;EACP,MAAM;EACN,kBAAkB;EAClB,YAAY;EACZ,eAAe;EACf,YAAY;EACZ,yBAAyB;AAC3B;AACA;EACE,gBAAgB;AAClB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,sBAAsB;EACtB,kBAAkB;EAClB,OAAO;EACP,MAAM;AACR;AACA;EACE,0BAA0B;EAC1B,uBAAuB;EACvB,2BAA2B;EAC3B,gCAAgC;EAChC,sBAAsB;EACtB,2BAA2B;EAC3B,4BAA4B;AAC9B;AACA;EACE,2BAA2B;EAC3B,4BAA4B;AAC9B;AACA;EACE,2BAA2B;EAC3B,4BAA4B;AAC9B","file":"fab.less?vue&type=style&index=0&id=5e02c0bd&lang=less&scoped=true&","sourcesContent":[".fab-size-normal[data-v-5e02c0bd] {\n  height: 4em;\n  width: 4em;\n}\n.fab-size-big[data-v-5e02c0bd] {\n  height: 5em;\n  width: 5em;\n}\n.fab-size-small[data-v-5e02c0bd] {\n  height: 3em;\n  width: 3em;\n}\n.vue-fab-material-icons[data-v-5e02c0bd] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons[data-v-5e02c0bd] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons *[data-v-5e02c0bd] {\n  color: white;\n}\n.flex-center[data-v-5e02c0bd] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.fab-shadow[data-v-5e02c0bd] {\n  box-shadow: 0px 2px 8px #666;\n}\n.absolute[data-v-5e02c0bd] {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.fab-default-leave-to[data-v-5e02c0bd] {\n  transform: scale(0);\n}\n.fab-default-enter[data-v-5e02c0bd] {\n  transform: scale(0) rotate(-45deg);\n}\n.fab-item-default-enter[data-v-5e02c0bd] {\n  opacity: 0;\n  transform: translate3D(0, 5px, 0) scale(0);\n}\n.fab-item-default-leave-to[data-v-5e02c0bd] {\n  opacity: 0;\n}\n.fab-active-icon-leave[data-v-5e02c0bd] {\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-leave-to[data-v-5e02c0bd] {\n  transform: rotate(45deg) !important;\n  opacity: 0 !important;\n}\n.fab-active-icon-enter[data-v-5e02c0bd] {\n  opacity: 0;\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-enter-to[data-v-5e02c0bd] {\n  transform: rotate(45deg) !important;\n  opacity: 1;\n}\n.fab-icon-enter[data-v-5e02c0bd] {\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.fab-icon-enter-to[data-v-5e02c0bd] {\n  transform: rotate(0deg);\n}\n.fab-icon-leave[data-v-5e02c0bd] {\n  transform: rotate(45deg);\n  opacity: 1;\n}\n.fab-icon-leave-to[data-v-5e02c0bd] {\n  transform: rotate(0deg) !important;\n  opacity: 0;\n}\n.fab-icon-enter[data-v-5e02c0bd],\n.fab-icon-leave-to[data-v-5e02c0bd] {\n  opacity: 0;\n}\n.fab-icon-to[data-v-5e02c0bd],\n.fab-icon-leave[data-v-5e02c0bd] {\n  opacity: 1;\n}\n.fab-alive-leave-to[data-v-5e02c0bd] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-alive-leave-active[data-v-5e02c0bd],\n.fab-alive-enter-active[data-v-5e02c0bd] {\n  transition: all 0.3s linear;\n}\n.fab-alive-enter[data-v-5e02c0bd] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-item-alive-leave-to[data-v-5e02c0bd] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item-alive-enter-active[data-v-5e02c0bd] {\n  transition: all 0s linear;\n  opacity: 0;\n}\n.fab-item-alive-enter[data-v-5e02c0bd] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n*[data-v-5e02c0bd] {\n  user-select: none;\n}\n.fab-main-container[data-v-5e02c0bd] {\n  position: fixed;\n  z-index: 1;\n  overflow: initial;\n  box-sizing: border-box;\n}\n.fab-main-container.hidden[data-v-5e02c0bd] {\n  top: -100vh;\n}\n.fab[data-v-5e02c0bd] {\n  box-sizing: border-box;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 50%;\n  color: white;\n  cursor: pointer;\n  padding: 8px;\n  transition: all 0s linear;\n}\n.fab i[data-v-5e02c0bd] {\n  font-size: 1.5em;\n}\n.fab-active[data-v-5e02c0bd]:not(.disable-rotate) {\n  transform: rotate(45deg);\n}\n.fab-item-container[data-v-5e02c0bd] {\n  box-sizing: border-box;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.semantic-ui i[data-v-5e02c0bd] {\n  margin-right: 0 !important;\n  height: auto !important;\n  line-height: 4em !important;\n  display: inline-block !important;\n  width: 100% !important;\n  font-size: 1.5em !important;\n  border-radius: calc(4em / 2);\n}\n.semantic-ui.fab-size-big i[data-v-5e02c0bd] {\n  line-height: 5em !important;\n  border-radius: calc(5em / 2);\n}\n.semantic-ui.fab-size-small i[data-v-5e02c0bd] {\n  line-height: 3em !important;\n  border-radius: calc(3em / 2);\n}\n"]}]);
+exports.push([module.i, ".fab-size-normal[data-v-5e02c0bd] {\n  height: 4em;\n  width: 4em;\n}\n.fab-size-big[data-v-5e02c0bd] {\n  height: 5em;\n  width: 5em;\n}\n.fab-size-small[data-v-5e02c0bd] {\n  height: 3em;\n  width: 3em;\n}\n.vue-fab-material-icons[data-v-5e02c0bd] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons[data-v-5e02c0bd] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons *[data-v-5e02c0bd] {\n  color: white;\n}\n.flex-center[data-v-5e02c0bd] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.fab-shadow[data-v-5e02c0bd] {\n  box-shadow: 0px 2px 8px #666;\n}\n.absolute[data-v-5e02c0bd] {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.fab-default-leave-to[data-v-5e02c0bd] {\n  transform: scale(0);\n}\n.fab-default-enter[data-v-5e02c0bd] {\n  transform: scale(0) rotate(-45deg);\n}\n.fab-item-default-enter[data-v-5e02c0bd] {\n  opacity: 0;\n  transform: translate3D(0, 5px, 0) scale(0);\n}\n.fab-item-default-leave-to[data-v-5e02c0bd] {\n  opacity: 0;\n}\n.fab-active-icon-leave[data-v-5e02c0bd] {\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-leave-to[data-v-5e02c0bd] {\n  transform: rotate(45deg) !important;\n  opacity: 0 !important;\n}\n.fab-active-icon-enter[data-v-5e02c0bd] {\n  opacity: 0;\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-enter-to[data-v-5e02c0bd] {\n  transform: rotate(45deg) !important;\n  opacity: 1;\n}\n.fab-icon-enter[data-v-5e02c0bd] {\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.fab-icon-enter-to[data-v-5e02c0bd] {\n  transform: rotate(0deg);\n}\n.fab-icon-leave[data-v-5e02c0bd] {\n  transform: rotate(45deg);\n  opacity: 1;\n}\n.fab-icon-leave-to[data-v-5e02c0bd] {\n  transform: rotate(0deg) !important;\n  opacity: 0;\n}\n.fab-icon-enter[data-v-5e02c0bd],\n.fab-icon-leave-to[data-v-5e02c0bd] {\n  opacity: 0;\n}\n.fab-icon-to[data-v-5e02c0bd],\n.fab-icon-leave[data-v-5e02c0bd] {\n  opacity: 1;\n}\n.fab-alive-leave-to[data-v-5e02c0bd] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-alive-leave-active[data-v-5e02c0bd],\n.fab-alive-enter-active[data-v-5e02c0bd] {\n  transition: all 0.3s linear;\n}\n.fab-alive-enter[data-v-5e02c0bd] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-item-alive-leave-to[data-v-5e02c0bd] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item-alive-enter-active[data-v-5e02c0bd] {\n  transition: all 0s linear;\n  opacity: 0;\n}\n.fab-item-alive-enter[data-v-5e02c0bd] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n*[data-v-5e02c0bd] {\n  user-select: none;\n}\n.fab-main-container[data-v-5e02c0bd] {\n  position: fixed;\n  z-index: 1;\n  overflow: initial;\n  box-sizing: border-box;\n}\n.fab-main-container.hidden[data-v-5e02c0bd] {\n  top: -100vh;\n}\n.fab-main-container .disable-primary-action-button .primary-action-button[data-v-5e02c0bd] {\n  display: none !important;\n}\n.fab[data-v-5e02c0bd] {\n  box-sizing: border-box;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 50%;\n  color: white;\n  cursor: pointer;\n  padding: 8px;\n  transition: all 0s linear;\n}\n.fab i[data-v-5e02c0bd] {\n  font-size: 1.5em;\n}\n.fab-active[data-v-5e02c0bd]:not(.disable-rotate) {\n  transform: rotate(45deg);\n}\n.fab-item-container[data-v-5e02c0bd] {\n  box-sizing: border-box;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.semantic-ui i[data-v-5e02c0bd] {\n  margin-right: 0 !important;\n  height: auto !important;\n  line-height: 4em !important;\n  display: inline-block !important;\n  width: 100% !important;\n  font-size: 1.5em !important;\n  border-radius: calc(4em / 2);\n}\n.semantic-ui.fab-size-big i[data-v-5e02c0bd] {\n  line-height: 5em !important;\n  border-radius: calc(5em / 2);\n}\n.semantic-ui.fab-size-small i[data-v-5e02c0bd] {\n  line-height: 3em !important;\n  border-radius: calc(3em / 2);\n}\n", "",{"version":3,"sources":["fab.less?vue&type=style&index=0&id=5e02c0bd&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,UAAU;AACZ;AACA;EACE,WAAW;EACX,UAAU;AACZ;AACA;EACE,WAAW;EACX,UAAU;AACZ;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,cAAc;AAChB;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,cAAc;AAChB;AACA;EACE,YAAY;AACd;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;AACA;EACE,4BAA4B;AAC9B;AACA;EACE,kBAAkB;EAClB,OAAO;EACP,MAAM;AACR;AACA;EACE,mBAAmB;AACrB;AACA;EACE,kCAAkC;AACpC;AACA;EACE,UAAU;EACV,0CAA0C;AAC5C;AACA;EACE,UAAU;AACZ;AACA;EACE,kCAAkC;AACpC;AACA;EACE,mCAAmC;EACnC,qBAAqB;AACvB;AACA;EACE,UAAU;EACV,kCAAkC;AACpC;AACA;EACE,mCAAmC;EACnC,UAAU;AACZ;AACA;EACE,wBAAwB;EACxB,UAAU;AACZ;AACA;EACE,uBAAuB;AACzB;AACA;EACE,wBAAwB;EACxB,UAAU;AACZ;AACA;EACE,kCAAkC;EAClC,UAAU;AACZ;AACA;;EAEE,UAAU;AACZ;AACA;;EAEE,UAAU;AACZ;AACA;EACE,sCAAsC;EACtC,UAAU;AACZ;AACA;;EAEE,2BAA2B;AAC7B;AACA;EACE,sCAAsC;EACtC,UAAU;AACZ;AACA;EACE,qCAAqC;EACrC,UAAU;AACZ;AACA;EACE,yBAAyB;EACzB,UAAU;AACZ;AACA;EACE,qCAAqC;EACrC,UAAU;AACZ;AACA;EACE,iBAAiB;AACnB;AACA;EACE,eAAe;EACf,UAAU;EACV,iBAAiB;EACjB,sBAAsB;AACxB;AACA;EACE,WAAW;AACb;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,sBAAsB;EACtB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,kBAAkB;EAClB,OAAO;EACP,MAAM;EACN,kBAAkB;EAClB,YAAY;EACZ,eAAe;EACf,YAAY;EACZ,yBAAyB;AAC3B;AACA;EACE,gBAAgB;AAClB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,sBAAsB;EACtB,kBAAkB;EAClB,OAAO;EACP,MAAM;AACR;AACA;EACE,0BAA0B;EAC1B,uBAAuB;EACvB,2BAA2B;EAC3B,gCAAgC;EAChC,sBAAsB;EACtB,2BAA2B;EAC3B,4BAA4B;AAC9B;AACA;EACE,2BAA2B;EAC3B,4BAA4B;AAC9B;AACA;EACE,2BAA2B;EAC3B,4BAA4B;AAC9B","file":"fab.less?vue&type=style&index=0&id=5e02c0bd&lang=less&scoped=true&","sourcesContent":[".fab-size-normal[data-v-5e02c0bd] {\n  height: 4em;\n  width: 4em;\n}\n.fab-size-big[data-v-5e02c0bd] {\n  height: 5em;\n  width: 5em;\n}\n.fab-size-small[data-v-5e02c0bd] {\n  height: 3em;\n  width: 3em;\n}\n.vue-fab-material-icons[data-v-5e02c0bd] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons[data-v-5e02c0bd] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  font-size: 1em;\n}\n.vue-fab-icons *[data-v-5e02c0bd] {\n  color: white;\n}\n.flex-center[data-v-5e02c0bd] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.fab-shadow[data-v-5e02c0bd] {\n  box-shadow: 0px 2px 8px #666;\n}\n.absolute[data-v-5e02c0bd] {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.fab-default-leave-to[data-v-5e02c0bd] {\n  transform: scale(0);\n}\n.fab-default-enter[data-v-5e02c0bd] {\n  transform: scale(0) rotate(-45deg);\n}\n.fab-item-default-enter[data-v-5e02c0bd] {\n  opacity: 0;\n  transform: translate3D(0, 5px, 0) scale(0);\n}\n.fab-item-default-leave-to[data-v-5e02c0bd] {\n  opacity: 0;\n}\n.fab-active-icon-leave[data-v-5e02c0bd] {\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-leave-to[data-v-5e02c0bd] {\n  transform: rotate(45deg) !important;\n  opacity: 0 !important;\n}\n.fab-active-icon-enter[data-v-5e02c0bd] {\n  opacity: 0;\n  transform: rotate(0deg) !important;\n}\n.fab-active-icon-enter-to[data-v-5e02c0bd] {\n  transform: rotate(45deg) !important;\n  opacity: 1;\n}\n.fab-icon-enter[data-v-5e02c0bd] {\n  transform: rotate(45deg);\n  opacity: 0;\n}\n.fab-icon-enter-to[data-v-5e02c0bd] {\n  transform: rotate(0deg);\n}\n.fab-icon-leave[data-v-5e02c0bd] {\n  transform: rotate(45deg);\n  opacity: 1;\n}\n.fab-icon-leave-to[data-v-5e02c0bd] {\n  transform: rotate(0deg) !important;\n  opacity: 0;\n}\n.fab-icon-enter[data-v-5e02c0bd],\n.fab-icon-leave-to[data-v-5e02c0bd] {\n  opacity: 0;\n}\n.fab-icon-to[data-v-5e02c0bd],\n.fab-icon-leave[data-v-5e02c0bd] {\n  opacity: 1;\n}\n.fab-alive-leave-to[data-v-5e02c0bd] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-alive-leave-active[data-v-5e02c0bd],\n.fab-alive-enter-active[data-v-5e02c0bd] {\n  transition: all 0.3s linear;\n}\n.fab-alive-enter[data-v-5e02c0bd] {\n  transform: translateY(60px) !important;\n  opacity: 0;\n}\n.fab-item-alive-leave-to[data-v-5e02c0bd] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n.fab-item-alive-enter-active[data-v-5e02c0bd] {\n  transition: all 0s linear;\n  opacity: 0;\n}\n.fab-item-alive-enter[data-v-5e02c0bd] {\n  transform: translateY(0px) !important;\n  opacity: 0;\n}\n*[data-v-5e02c0bd] {\n  user-select: none;\n}\n.fab-main-container[data-v-5e02c0bd] {\n  position: fixed;\n  z-index: 1;\n  overflow: initial;\n  box-sizing: border-box;\n}\n.fab-main-container.hidden[data-v-5e02c0bd] {\n  top: -100vh;\n}\n.fab-main-container .disable-primary-action-button .primary-action-button[data-v-5e02c0bd] {\n  display: none !important;\n}\n.fab[data-v-5e02c0bd] {\n  box-sizing: border-box;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 50%;\n  color: white;\n  cursor: pointer;\n  padding: 8px;\n  transition: all 0s linear;\n}\n.fab i[data-v-5e02c0bd] {\n  font-size: 1.5em;\n}\n.fab-active[data-v-5e02c0bd]:not(.disable-rotate) {\n  transform: rotate(45deg);\n}\n.fab-item-container[data-v-5e02c0bd] {\n  box-sizing: border-box;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.semantic-ui i[data-v-5e02c0bd] {\n  margin-right: 0 !important;\n  height: auto !important;\n  line-height: 4em !important;\n  display: inline-block !important;\n  width: 100% !important;\n  font-size: 1.5em !important;\n  border-radius: calc(4em / 2);\n}\n.semantic-ui.fab-size-big i[data-v-5e02c0bd] {\n  line-height: 5em !important;\n  border-radius: calc(5em / 2);\n}\n.semantic-ui.fab-size-small i[data-v-5e02c0bd] {\n  line-height: 3em !important;\n  border-radius: calc(3em / 2);\n}\n"]}]);
 
 
 /***/ }),
@@ -1308,6 +1308,7 @@ var render = function() {
             clickAutoCloseType: "fab",
             position: _vm.computedFABPosition,
             verticalMargin: "10em",
+            disablePrimaryActionButton: true,
             hideOnStart: true,
             activeIconRotate: false,
             transitionEnable: false,
@@ -1522,102 +1523,101 @@ var render = function() {
     {
       ref: "fab",
       staticClass: "fab-main-container",
-      class: {
-        hidden: _vm.isInitHidden,
-        "semantic-ui": _vm.iconType === "SemanticUI"
-      },
+      class: _vm.computedFabMainContainerClassList,
       style: _vm.computedStyle
     },
     [
-      _c(
-        "transition",
-        { attrs: { name: _vm.transitionName } },
-        [
-          _vm.visible
-            ? _c(
-                "fab-cantainer",
-                {
-                  staticClass: "fab",
-                  class: "fab-size-" + _vm.size,
-                  style: _vm.fabClass,
-                  attrs: { "data-outside": "true" },
-                  nativeOn: {
-                    click: function($event) {
-                      return _vm.openMenu($event)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "transition",
-                    { attrs: { name: _vm.computedTransitionName } },
+      _vm.disablePrimaryActionButton === false
+        ? _c(
+            "transition",
+            { attrs: { name: _vm.transitionName } },
+            [
+              _vm.visible
+                ? _c(
+                    "fab-cantainer",
+                    {
+                      staticClass: "fab primary-action-button",
+                      class: "fab-size-" + _vm.size,
+                      style: _vm.fabClass,
+                      attrs: { "data-outside": "true" },
+                      nativeOn: {
+                        click: function($event) {
+                          return _vm.openMenu($event)
+                        }
+                      }
+                    },
                     [
-                      _vm.iconType === "MaterialDesign"
-                        ? _c(
-                            "i",
-                            {
-                              key:
-                                _vm.activeIcon === _vm.icon
-                                  ? _vm.icon
-                                  : _vm.active,
-                              staticClass:
-                                "vue-fab-material-icons material-icons",
-                              class: { "fab-active": _vm.active },
-                              attrs: { "data-outside": "true" }
-                            },
-                            [
-                              _vm._v(
-                                " \n          " +
-                                  _vm._s(
+                      _c(
+                        "transition",
+                        { attrs: { name: _vm.computedTransitionName } },
+                        [
+                          _vm.iconType === "MaterialDesign"
+                            ? _c(
+                                "i",
+                                {
+                                  key:
                                     _vm.activeIcon === _vm.icon
                                       ? _vm.icon
-                                      : _vm.active
-                                      ? _vm.activeIcon
-                                      : _vm.icon
-                                  ) +
-                                  "\n        "
+                                      : _vm.active,
+                                  staticClass:
+                                    "vue-fab-material-icons material-icons",
+                                  class: { "fab-active": _vm.active },
+                                  attrs: { "data-outside": "true" }
+                                },
+                                [
+                                  _vm._v(
+                                    " \n          " +
+                                      _vm._s(
+                                        _vm.activeIcon === _vm.icon
+                                          ? _vm.icon
+                                          : _vm.active
+                                          ? _vm.activeIcon
+                                          : _vm.icon
+                                      ) +
+                                      "\n        "
+                                  )
+                                ]
                               )
-                            ]
-                          )
-                        : _vm._e(),
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.iconType === "SemanticUI"
+                            ? _c("i", {
+                                key:
+                                  _vm.activeIcon === _vm.icon
+                                    ? _vm.icon
+                                    : _vm.active,
+                                staticClass:
+                                  "vue-fab-material-icons material-icons",
+                                class: _vm.computedSemanticUIIconClass,
+                                attrs: { "data-outside": "true" }
+                              })
+                            : _vm._e()
+                        ]
+                      ),
                       _vm._v(" "),
-                      _vm.iconType === "SemanticUI"
+                      _vm.iconType === "iconfont"
                         ? _c("i", {
-                            key:
-                              _vm.activeIcon === _vm.icon
-                                ? _vm.icon
-                                : _vm.active,
                             staticClass:
-                              "vue-fab-material-icons material-icons",
-                            class: _vm.computedSemanticUIIconClass,
-                            attrs: { "data-outside": "true" }
+                              "icons iconfont vue-fab-material-icons vue-fab-iconfont-icons",
+                            class: [_vm.active ? "fab-active" : "", _vm.icon],
+                            staticStyle: { "font-size": "15px" },
+                            attrs: { "data-outside": "true" },
+                            on: {
+                              click: function($event) {
+                                $event.stopPropagation()
+                                return _vm.openMenu($event)
+                              }
+                            }
                           })
                         : _vm._e()
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _vm.iconType === "iconfont"
-                    ? _c("i", {
-                        staticClass:
-                          "icons iconfont vue-fab-material-icons vue-fab-iconfont-icons",
-                        class: [_vm.active ? "fab-active" : "", _vm.icon],
-                        staticStyle: { "font-size": "15px" },
-                        attrs: { "data-outside": "true" },
-                        on: {
-                          click: function($event) {
-                            $event.stopPropagation()
-                            return _vm.openMenu($event)
-                          }
-                        }
-                      })
-                    : _vm._e()
-                ],
-                1
-              )
-            : _vm._e()
-        ],
-        1
-      ),
+                    ],
+                    1
+                  )
+                : _vm._e()
+            ],
+            1
+          )
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "div",
@@ -7470,6 +7470,10 @@ const Timeout = _util__WEBPACK_IMPORTED_MODULE_0__["default"].Timeout
         baseSize = -3
       }
       
+      if (this.$parent.disablePrimaryActionButton === true) {
+        baseSize = Math.abs(baseSize * 2)
+      }
+      
       let animateModel = {
         default: {
           top: ((baseSize - sizePadding) - this.idx * (this.$parent.globalOptions.spacing + sizePadding) ) + 'em',
@@ -7804,6 +7808,10 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
       type: String,
       default: 'all'
     },
+    disablePrimaryActionButton: {
+      type: Boolean,
+      default: false
+    },
     verticalMargin: {
       type: String,
       default: '10%'
@@ -7966,9 +7974,27 @@ const handleClass = _util__WEBPACK_IMPORTED_MODULE_0__["default"].handleClass
     },
     transitionName: function () {
       if (this.transitionEnable === false) {
-        return
+        return undefined
       }
       return 'fab-' + this.fabAutoHideAnimateModel
+    },
+    computedFabMainContainerClassList () {
+      // {hidden: isInitHidden, 'semantic-ui': (iconType === 'SemanticUI')}
+      let classList = []
+      
+      if (this.isInitHidden) {
+        classList.push('hidden')
+      }
+      
+      if (this.iconType === 'SemanticUI') {
+        classList.push('semantic-ui')
+      }
+      
+      if (this.disablePrimaryActionButton) {
+        classList.push('disable-primary-action-button')
+      }
+      
+      return classList.join(' ')
     }
   },
   methods: {

@@ -63,6 +63,10 @@ export default {
         baseSize = -3
       }
       
+      if (this.$parent.disablePrimaryActionButton === true) {
+        baseSize = Math.abs(baseSize * 2)
+      }
+      
       let animateModel = {
         default: {
           top: ((baseSize - sizePadding) - this.idx * (this.$parent.globalOptions.spacing + sizePadding) ) + 'em',

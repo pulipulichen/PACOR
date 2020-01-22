@@ -51,8 +51,10 @@
         "v-bind:title": {},
         "v-bind:data-user-id": {},
         "v-bind:data-section-id": {},
+        "v-click-outside": {},
         "v-bind:data-annotation-id": {},
         "v-bind:data-comment-id": {},
+        "v-on:mouseup": {},
         "v-on:dblclick": {}
       }
     },
@@ -111,51 +113,56 @@
     }
   },
   "attributes": {
-    "inline-template": {
-      "context": "template"
-    },
     "v-on:input": {},
-    "v-on:update": {},
     "v-slot:headermenu": {
       "context": "template"
     },
-    "v-bind:src": {
-      "context": "img"
-    },
     "v-modal": {},
-    "v-bind:key": {},
     "v-bind:id": {},
     "v-bind:annotation": {},
     "v-model": {},
-    "v-on:mousedown": {},
     "ref": {},
-    "v-slot:actions": {
-      "context": "template"
-    },
     "v-bind:style": {},
-    "v-slot:content": {},
-    "v-bind:panelData": {},
-    "v-bind:config": {},
     "v-else-if": {},
     "v-on:touchstart": {},
-    "v-on:mouseout": {},
-    "v-slot:header": {},
     "v-bind:is": {},
-    "class": {},
-    "#header": {},
     "v-on:highlightMouseout": {},
     "v-on:click.stop": {},
-    "v-on:touchend": {},
-    "v-on:delete": {},
     "v-on:dblclick": {
       "context": "span"
     },
     "v-bind:class": {},
-    "v-if": {},
-    "v-bind:href": {},
     "v-on:mouseover": {},
     "v-html": {},
     "v-bind:stepData": {},
+    "v-on:click": {
+      "context": "button"
+    },
+    "v-else": {},
+    "v-on:mouseleave": {},
+    "inline-template": {
+      "context": "template"
+    },
+    "v-on:update": {},
+    "v-bind:src": {
+      "context": "img"
+    },
+    "v-bind:key": {},
+    "v-on:mousedown": {},
+    "v-slot:actions": {
+      "context": "template"
+    },
+    "v-slot:content": {},
+    "v-bind:panelData": {},
+    "v-bind:config": {},
+    "v-on:mouseout": {},
+    "v-slot:header": {},
+    "class": {},
+    "#header": {},
+    "v-on:touchend": {},
+    "v-on:delete": {},
+    "v-if": {},
+    "v-bind:href": {},
     "v-for": {},
     "v-bind:status": {},
     "v-bind:lib": {},
@@ -164,10 +171,6 @@
     "v-bind:reset": {},
     "v-bind:error": {},
     "v-on:scroll.stop": {},
-    "v-on:click": {
-      "context": "button"
-    },
-    "v-else": {},
     "v-show": {},
     "v-bind:checked": {},
     "v-bind:placeholder": {}

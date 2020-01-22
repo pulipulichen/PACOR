@@ -126,6 +126,10 @@ export default {
       type: String,
       default: 'all'
     },
+    disablePrimaryActionButton: {
+      type: Boolean,
+      default: false
+    },
     verticalMargin: {
       type: String,
       default: '10%'
@@ -288,9 +292,27 @@ export default {
     },
     transitionName: function () {
       if (this.transitionEnable === false) {
-        return
+        return undefined
       }
       return 'fab-' + this.fabAutoHideAnimateModel
+    },
+    computedFabMainContainerClassList () {
+      // {hidden: isInitHidden, 'semantic-ui': (iconType === 'SemanticUI')}
+      let classList = []
+      
+      if (this.isInitHidden) {
+        classList.push('hidden')
+      }
+      
+      if (this.iconType === 'SemanticUI') {
+        classList.push('semantic-ui')
+      }
+      
+      if (this.disablePrimaryActionButton) {
+        classList.push('disable-primary-action-button')
+      }
+      
+      return classList.join(' ')
     }
   },
   methods: {
