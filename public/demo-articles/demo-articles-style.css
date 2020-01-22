@@ -1,4 +1,4 @@
-body article {
+body article, section {
   margin-top: 3rem;
   margin-bottom: 3rem;
   
@@ -6,7 +6,20 @@ body article {
   line-height: 1.58;
   
   font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
+  
+  max-width: 680px;
+  /*width: 100%;*/
+  margin-left: 64px;
+  margin-right: 64px;
 }
+
+@media only screen and (max-width: 991px) {
+  body article, section {
+  margin-left: 28px;
+  margin-right: 28px;
+  }
+}
+
 
 body article p {
   margin-top: 1.56em;
