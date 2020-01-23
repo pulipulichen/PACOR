@@ -16,13 +16,13 @@
         {{ $t('PreImaginary Instruction') }}
       </h3>
       
-      <pre-imaginary-message
+      <pre-imaginary-instruction
         ref="PreImaginaryMessage"
         v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib"
         v-on:click="copyPreImaginaryInstructionHtml()">
-      </pre-imaginary-message>
+      </pre-imaginary-instruction>
       
       <button type="button" class="ui button fluid"
               v-on:click="copyPreImaginaryInstructionHtml()">
@@ -36,13 +36,13 @@
         {{ $t('PostRecall Instruction') }}
       </h3>
       
-      <post-recall-message
+      <post-recall-instruction
         ref="PostRecallMessage"
         v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib"
         v-on:click="copyPostRecallInstructionHtml()">
-      </post-recall-message>
+      </post-recall-instruction>
       
       <button type="button" class="ui button fluid"
               v-on:click="copyPostRecallInstructionHtml()">

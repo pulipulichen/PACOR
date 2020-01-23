@@ -958,13 +958,13 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('iframe-message-segment', 
 
 // --------------------
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('pre-imaginary-message', () => {
-  return Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors~client-components/GlobalComponents"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.bind(null, /*! ./../components/reading-progress/PreImaginaryMessage/PreImaginaryMessage.vue */ "./webpack-app/components/reading-progress/PreImaginaryMessage/PreImaginaryMessage.vue"))
-})
-
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('post-recall-message', () => {
-  return Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors~client-components/GlobalComponents"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.bind(null, /*! ./../components/reading-progress/PostRecallMessage/PostRecallMessage.vue */ "./webpack-app/components/reading-progress/PostRecallMessage/PostRecallMessage.vue"))
-})
+//Vue.component('pre-imaginary-message', () => {
+//  return import(/* webpackChunkName: "client-components/GlobalComponents" */ './../components/reading-progress/PreImaginaryMessage/PreImaginaryMessage.vue')
+//})
+//
+//Vue.component('post-recall-message', () => {
+//  return import(/* webpackChunkName: "client-components/GlobalComponents" */ './../components/reading-progress/PostRecallMessage/PostRecallMessage.vue')
+//})
 
 // --------------------
 
