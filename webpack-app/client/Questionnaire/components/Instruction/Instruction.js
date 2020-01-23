@@ -1,6 +1,6 @@
 import $ from 'jquery'
 
-let PostRecallMessage = {
+let Instruction = {
   props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -102,8 +102,8 @@ let PostRecallMessage = {
       oCtx.drawImage(oColorImg, 0, 0, oColorImg.offsetWidth, oColorImg.offsetHeight, 0,0,nWidth,nHeight);
       
       return oCanvas.toDataURL()
-    }, 
+    },
   } // methods
 }
 
-export default PostRecallMessage
+export default Instruction

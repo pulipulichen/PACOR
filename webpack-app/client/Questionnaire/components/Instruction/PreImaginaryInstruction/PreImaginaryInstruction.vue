@@ -1,4 +1,4 @@
 <template src="./PreImaginaryInstruction.html"></template>
-<script src="./PreImaginaryInstruction.js"></script>
-<style src="./PreImaginaryInstruction.less" lang="less" scoped></style>
-<i18n src="./PreImaginaryInstruction.yaml" lang="yaml"></i18n>
+<script src="./../Instruction.js"></script>
+<style src="./../Instruction.less" lang="less" scoped></style>
+<i18n src="./../Instruction.yaml" lang="yaml"></i18n>
