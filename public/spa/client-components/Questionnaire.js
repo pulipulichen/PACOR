@@ -591,89 +591,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./webpack-app/client/Questionnaire/PostRecall/PostRecall.js?vue&type=script&lang=js&?14c9":
-/*!********************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/PostRecall/PostRecall.js?vue&type=script&lang=js& ***!
-  \********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _PreImaginary_PreImaginary_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../PreImaginary/PreImaginary.js */ "./webpack-app/client/Questionnaire/PreImaginary/PreImaginary.js");
-
-
-_PreImaginary_PreImaginary_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = function () {
-  /*
-   this.$i18n.locale = this.config.locale
-   let key = 'PostRecall'
-   let data = {}
-   if (typeof (this.status) === 'object'
-   && typeof (this.status.readingConfig) === 'object') {
-   if (typeof (this.status.readingConfig.readingProgressModules) === 'object'
-   && typeof (this.status.readingConfig.readingProgressModules[key]) === 'object') {
-   for (let name in this.status.readingConfig.readingProgressModules[key]) {
-   data[name] = this.status.readingConfig.readingProgressModules[key][name]
-   }
-   }
-   data.readingConfig = this.status.readingConfig
-   }
-   data.log = {
-   answer: '',
-   start_timestamp: null
-   }
-   data.persistKey = key + '.log'
-   data.remainingSeconds = null
-   return data
-   */
-
-  this.$i18n.locale = this.config.locale
-
-  let key = 'PostRecall'
-  let data = {}
-  if (typeof (this.status) === 'object'
-          && typeof (this.status.readingConfig) === 'object') {
-    if (typeof (this.status.readingConfig.readingProgressModules) === 'object'
-            && typeof (this.status.readingConfig.readingProgressModules[key]) === 'object') {
-      for (let name in this.status.readingConfig.readingProgressModules[key]) {
-        data[name] = this.status.readingConfig.readingProgressModules[key][name]
-      }
-    }
-    data.readingConfig = this.status.readingConfig
-  }
-  data.log = {
-    answer: '',
-    start_timestamp: null
-  }
-  data.persistKey = key + '.log'
-  data.remainingSeconds = null
-  data.answer = ''
-  data.header = this.$t(key)
-  data.isTimeUp = false
-  data.header = this.$t('READING_PROGRESS.' + key)
-
-  data.isWaitingLoading = false
-  return data
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (_PreImaginary_PreImaginary_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
-
-/***/ }),
-
-/***/ "./webpack-app/client/Questionnaire/PostRecall/PostRecall.js?vue&type=script&lang=js&?d73a":
-/*!********************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/PostRecall/PostRecall.js?vue&type=script&lang=js& ***!
-  \********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _PostRecall_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./PostRecall.js?vue&type=script&lang=js& */ "./webpack-app/client/Questionnaire/PostRecall/PostRecall.js?vue&type=script&lang=js&?14c9");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_PostRecall_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
 /***/ "./webpack-app/client/Questionnaire/PostRecall/PostRecall.vue":
 /*!********************************************************************!*\
   !*** ./webpack-app/client/Questionnaire/PostRecall/PostRecall.vue ***!
@@ -684,7 +601,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Questionnaire_html_vue_type_template_id_359e549b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Questionnaire.html?vue&type=template&id=359e549b&scoped=true& */ "./webpack-app/client/Questionnaire/Questionnaire.html?vue&type=template&id=359e549b&scoped=true&");
-/* harmony import */ var _PostRecall_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PostRecall.js?vue&type=script&lang=js& */ "./webpack-app/client/Questionnaire/PostRecall/PostRecall.js?vue&type=script&lang=js&?d73a");
+/* harmony import */ var _Questionnaire_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Questionnaire.js?vue&type=script&lang=js& */ "./webpack-app/client/Questionnaire/Questionnaire.js?vue&type=script&lang=js&?f8ca");
 /* empty/unused harmony star reexport *//* harmony import */ var _Questionnaire_less_vue_type_style_index_0_id_359e549b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true& */ "./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 /* harmony import */ var _Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5CPostRecall_5CPostRecall_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Questionnaire.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5CPostRecall%5CPostRecall.vue&lang=yaml */ "./webpack-app/client/Questionnaire/Questionnaire.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5CPostRecall%5CPostRecall.vue&lang=yaml");
@@ -697,7 +614,7 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _PostRecall_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Questionnaire_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Questionnaire_html_vue_type_template_id_359e549b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Questionnaire_html_vue_type_template_id_359e549b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -718,436 +635,6 @@ component.options.__file = "webpack-app/client/Questionnaire/PostRecall/PostReca
 
 /***/ }),
 
-/***/ "./webpack-app/client/Questionnaire/PreImaginary/PreImaginary.js":
-/*!***********************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/PreImaginary/PreImaginary.js ***!
-  \***********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../components/CountdownButton/CountdownButton.vue */ "./webpack-app/client/Questionnaire/components/CountdownButton/CountdownButton.vue");
-
-
-let PreImaginary = {
-  props: ['lib', 'status', 'config'],
-  data() {    
-    this.$i18n.locale = this.config.locale
-    
-    let key = 'PreImaginary'
-    let data = {}
-    if (typeof(this.status) === 'object' 
-            && typeof(this.status.readingConfig) === 'object') {
-      if (typeof(this.status.readingConfig.readingProgressModules) === 'object'
-              && typeof(this.status.readingConfig.readingProgressModules[key]) === 'object') {
-        for (let name in this.status.readingConfig.readingProgressModules[key]) {
-          data[name] = this.status.readingConfig.readingProgressModules[key][name]
-        }
-      }
-      data.readingConfig = this.status.readingConfig
-    }
-    data.log = {
-      answer: '',
-      start_timestamp: null
-    }
-    data.persistKey = key + '.log'
-    data.remainingSeconds = null
-    data.answer = ''
-    data.header = this.$t('READING_PROGRESS.' + key)
-    data.isTimeUp = false
-    
-    data.isWaitingLoading = false
-    
-    return data
-  },
-  components: {
-    'countdown-button': _components_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  computed: {
-    buttonText: function () {
-      //return this.$t('OK')
-      if (typeof(this.log.start_timestamp) !== 'number') {
-        return '(' + this.$t('Waiting') + ')'
-      }
-      else if (this.remainingSeconds > 0) {
-        let remainingTime = this.lib.DayJSHelper.formatHHMMSS(this.remainingSeconds)
-        return '(' + this.$t('Remaining Time: {0}', [remainingTime]) + ')'
-      }
-      else {
-        return ''
-      }
-    },
-    buttonClass: function () {
-      //return 'disabled'
-      return ''
-    },
-    wordCount: function () {
-      if (typeof(this.log) !== 'object'
-              || typeof(this.log.answer) !== 'string') {
-        return 0
-      }
-      //console.log(this.log.answer)
-      return this.lib.StringHelper.countWords(this.log.answer)
-    },
-    displayCharacterCounter: function () {
-      if (typeof(this.log) !== 'object'
-              || typeof(this.log.answer) !== 'string') {
-        //console.log('err')
-        return ''
-      }
-      
-      let output = this.$t('{0} word', [this.wordCount])
-      
-      if (this.wordCount < this.minWords) {
-        let needWordsCount = this.minWords - this.wordCount
-        output = output + ' (' + this.$t('You still need to write {0} words more.', [needWordsCount]) + ')'
-      }
-      //console.log(output)
-      return output
-    },
-    classWordCounter: function () {
-      if (this.wordCount < this.minWords) {
-        return 'red'
-      }
-      else {
-        return 'green'
-      }
-    },
-//    isTimeUp: function () {
-//      console.log(this.remainingSeconds)
-//      return (typeof(this.remainingSeconds) === 'number'
-//              && this.remainingSeconds <= 0)
-//    }
-  },
-  watch: {
-//    'remainingSeconds': function () {
-//      if (typeof(this.remainingSeconds) === 'number'
-//              && this.remainingSeconds > 0) {
-//        this.startCountdown()
-//      }
-//    },
-    'answer' (answer) {
-      //console.log(answer)
-      if (answer !== this.log.answer) {
-        this.log.answer = answer
-      }
-    }
-  },
-  mounted: async function () {
-    //throw new Error('test 45454545454545454')
-    
-    //console.log(this.lib.auth.currentStepConfig.countdownAtStart)
-
-    this.initLog()
-    
-    while (!this.$refs.Modal) {
-      await this.lib.VueHelper.sleep(100)
-    }
-    
-    this.$refs.Modal.show(() => {
-      this.status.progress.initComponents = true
-      
-      //console.log(this.lib.auth.currentStepConfig.countdownAtStart)
-      if (this.lib.auth.currentStepConfig.countdownAtStart === true) {
-        setTimeout(() => {
-          this.persist()
-        }, 1000)
-      }
-    })
-  },
-  methods: {
-    initLog: function () {
-      let cache = localStorage.getItem(this.persistKey)
-      //console.log(cache)
-      if (cache !== null) {
-        try {
-          this.log = JSON.parse(cache)
-          this.answer = this.log.answer
-          
-          let start_timestamp = this.log.start_timestamp
-          start_timestamp = parseInt(start_timestamp, 10)
-          this.remainingSeconds = this.limitMinutes * 60 - Math.round((this.lib.DayJSHelper.time() - start_timestamp) / 1000)
-          if (this.remainingSeconds <= 0) {
-            this.isTimeUp = true
-          }
-          //console.log(this.remainingSeconds)
-        }
-        catch (e) {}
-      }
-    },
-    persist: function () {
-      if (typeof(this.log) === 'object') {
-        //console.log(this.log)
-        if (typeof(this.log.start_timestamp) !== 'number') {
-          this.log.start_timestamp = this.lib.DayJSHelper.time()
-          this.remainingSeconds = this.limitMinutes * 60
-        }
-        
-        localStorage.setItem(this.persistKey, JSON.stringify(this.log))
-      }
-    },
-//    startCountdown: function () {
-//      //return  // for test
-//      setTimeout(() => {
-//        if (this.remainingSeconds > 0) {
-//          this.remainingSeconds--
-//        }
-//      }, 1000)
-//    },
-    onTimeup() {
-      this.isTimeUp = true
-    },
-    nextStep: async function () {
-      /*
-      let data = {
-        log: this.log,
-        nextStep: true
-      }
-      */
-      //console.log(data)
-      this.isWaitingLoading = true
-      
-      await this.lib.AxiosHelper.post('/client/ReadingProgress/end', this.log)
-      localStorage.removeItem(this.persistKey)
-      if (this.$refs.Modal) {
-        this.$refs.Modal.hide()
-      }
-      return await this.lib.auth.nextStep(false)
-    },
-    logout () {
-      localStorage.removeItem(this.persistKey)
-      this.lib.auth.logoutWithoutForget()
-    }
-  } // methods
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (PreImaginary);
-
-/***/ }),
-
-/***/ "./webpack-app/client/Questionnaire/PreImaginary/PreImaginary.js?vue&type=script&lang=js&?5a9f":
-/*!************************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/PreImaginary/PreImaginary.js?vue&type=script&lang=js& ***!
-  \************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _PreImaginary_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./PreImaginary.js?vue&type=script&lang=js& */ "./webpack-app/client/Questionnaire/PreImaginary/PreImaginary.js?vue&type=script&lang=js&?d55c");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_PreImaginary_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./webpack-app/client/Questionnaire/PreImaginary/PreImaginary.js?vue&type=script&lang=js&?d55c":
-/*!************************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/PreImaginary/PreImaginary.js?vue&type=script&lang=js& ***!
-  \************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../components/CountdownButton/CountdownButton.vue */ "./webpack-app/client/Questionnaire/components/CountdownButton/CountdownButton.vue");
-
-
-let PreImaginary = {
-  props: ['lib', 'status', 'config'],
-  data() {    
-    this.$i18n.locale = this.config.locale
-    
-    let key = 'PreImaginary'
-    let data = {}
-    if (typeof(this.status) === 'object' 
-            && typeof(this.status.readingConfig) === 'object') {
-      if (typeof(this.status.readingConfig.readingProgressModules) === 'object'
-              && typeof(this.status.readingConfig.readingProgressModules[key]) === 'object') {
-        for (let name in this.status.readingConfig.readingProgressModules[key]) {
-          data[name] = this.status.readingConfig.readingProgressModules[key][name]
-        }
-      }
-      data.readingConfig = this.status.readingConfig
-    }
-    data.log = {
-      answer: '',
-      start_timestamp: null
-    }
-    data.persistKey = key + '.log'
-    data.remainingSeconds = null
-    data.answer = ''
-    data.header = this.$t('READING_PROGRESS.' + key)
-    data.isTimeUp = false
-    
-    data.isWaitingLoading = false
-    
-    return data
-  },
-  components: {
-    'countdown-button': _components_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  computed: {
-    buttonText: function () {
-      //return this.$t('OK')
-      if (typeof(this.log.start_timestamp) !== 'number') {
-        return '(' + this.$t('Waiting') + ')'
-      }
-      else if (this.remainingSeconds > 0) {
-        let remainingTime = this.lib.DayJSHelper.formatHHMMSS(this.remainingSeconds)
-        return '(' + this.$t('Remaining Time: {0}', [remainingTime]) + ')'
-      }
-      else {
-        return ''
-      }
-    },
-    buttonClass: function () {
-      //return 'disabled'
-      return ''
-    },
-    wordCount: function () {
-      if (typeof(this.log) !== 'object'
-              || typeof(this.log.answer) !== 'string') {
-        return 0
-      }
-      //console.log(this.log.answer)
-      return this.lib.StringHelper.countWords(this.log.answer)
-    },
-    displayCharacterCounter: function () {
-      if (typeof(this.log) !== 'object'
-              || typeof(this.log.answer) !== 'string') {
-        //console.log('err')
-        return ''
-      }
-      
-      let output = this.$t('{0} word', [this.wordCount])
-      
-      if (this.wordCount < this.minWords) {
-        let needWordsCount = this.minWords - this.wordCount
-        output = output + ' (' + this.$t('You still need to write {0} words more.', [needWordsCount]) + ')'
-      }
-      //console.log(output)
-      return output
-    },
-    classWordCounter: function () {
-      if (this.wordCount < this.minWords) {
-        return 'red'
-      }
-      else {
-        return 'green'
-      }
-    },
-//    isTimeUp: function () {
-//      console.log(this.remainingSeconds)
-//      return (typeof(this.remainingSeconds) === 'number'
-//              && this.remainingSeconds <= 0)
-//    }
-  },
-  watch: {
-//    'remainingSeconds': function () {
-//      if (typeof(this.remainingSeconds) === 'number'
-//              && this.remainingSeconds > 0) {
-//        this.startCountdown()
-//      }
-//    },
-    'answer' (answer) {
-      //console.log(answer)
-      if (answer !== this.log.answer) {
-        this.log.answer = answer
-      }
-    }
-  },
-  mounted: async function () {
-    //throw new Error('test 45454545454545454')
-    
-    //console.log(this.lib.auth.currentStepConfig.countdownAtStart)
-
-    this.initLog()
-    
-    while (!this.$refs.Modal) {
-      await this.lib.VueHelper.sleep(100)
-    }
-    
-    this.$refs.Modal.show(() => {
-      this.status.progress.initComponents = true
-      
-      //console.log(this.lib.auth.currentStepConfig.countdownAtStart)
-      if (this.lib.auth.currentStepConfig.countdownAtStart === true) {
-        setTimeout(() => {
-          this.persist()
-        }, 1000)
-      }
-    })
-  },
-  methods: {
-    initLog: function () {
-      let cache = localStorage.getItem(this.persistKey)
-      //console.log(cache)
-      if (cache !== null) {
-        try {
-          this.log = JSON.parse(cache)
-          this.answer = this.log.answer
-          
-          let start_timestamp = this.log.start_timestamp
-          start_timestamp = parseInt(start_timestamp, 10)
-          this.remainingSeconds = this.limitMinutes * 60 - Math.round((this.lib.DayJSHelper.time() - start_timestamp) / 1000)
-          if (this.remainingSeconds <= 0) {
-            this.isTimeUp = true
-          }
-          //console.log(this.remainingSeconds)
-        }
-        catch (e) {}
-      }
-    },
-    persist: function () {
-      if (typeof(this.log) === 'object') {
-        //console.log(this.log)
-        if (typeof(this.log.start_timestamp) !== 'number') {
-          this.log.start_timestamp = this.lib.DayJSHelper.time()
-          this.remainingSeconds = this.limitMinutes * 60
-        }
-        
-        localStorage.setItem(this.persistKey, JSON.stringify(this.log))
-      }
-    },
-//    startCountdown: function () {
-//      //return  // for test
-//      setTimeout(() => {
-//        if (this.remainingSeconds > 0) {
-//          this.remainingSeconds--
-//        }
-//      }, 1000)
-//    },
-    onTimeup() {
-      this.isTimeUp = true
-    },
-    nextStep: async function () {
-      /*
-      let data = {
-        log: this.log,
-        nextStep: true
-      }
-      */
-      //console.log(data)
-      this.isWaitingLoading = true
-      
-      await this.lib.AxiosHelper.post('/client/ReadingProgress/end', this.log)
-      localStorage.removeItem(this.persistKey)
-      if (this.$refs.Modal) {
-        this.$refs.Modal.hide()
-      }
-      return await this.lib.auth.nextStep(false)
-    },
-    logout () {
-      localStorage.removeItem(this.persistKey)
-      this.lib.auth.logoutWithoutForget()
-    }
-  } // methods
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (PreImaginary);
-
-/***/ }),
-
 /***/ "./webpack-app/client/Questionnaire/PreImaginary/PreImaginary.vue":
 /*!************************************************************************!*\
   !*** ./webpack-app/client/Questionnaire/PreImaginary/PreImaginary.vue ***!
@@ -1158,7 +645,7 @@ let PreImaginary = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Questionnaire_html_vue_type_template_id_71c8473b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Questionnaire.html?vue&type=template&id=71c8473b&scoped=true& */ "./webpack-app/client/Questionnaire/Questionnaire.html?vue&type=template&id=71c8473b&scoped=true&");
-/* harmony import */ var _PreImaginary_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PreImaginary.js?vue&type=script&lang=js& */ "./webpack-app/client/Questionnaire/PreImaginary/PreImaginary.js?vue&type=script&lang=js&?5a9f");
+/* harmony import */ var _Questionnaire_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Questionnaire.js?vue&type=script&lang=js& */ "./webpack-app/client/Questionnaire/Questionnaire.js?vue&type=script&lang=js&?f8ca");
 /* empty/unused harmony star reexport *//* harmony import */ var _Questionnaire_less_vue_type_style_index_0_id_71c8473b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true& */ "./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 /* harmony import */ var _Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5CPreImaginary_5CPreImaginary_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Questionnaire.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5CPreImaginary%5CPreImaginary.vue&lang=yaml */ "./webpack-app/client/Questionnaire/Questionnaire.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5CPreImaginary%5CPreImaginary.vue&lang=yaml");
@@ -1171,7 +658,7 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _PreImaginary_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Questionnaire_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Questionnaire_html_vue_type_template_id_71c8473b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Questionnaire_html_vue_type_template_id_71c8473b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -1225,6 +712,229 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Questionnaire_html_vue_type_template_id_71c8473b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Questionnaire/Questionnaire.js?vue&type=script&lang=js&?ea46":
+/*!************************************************************************************!*\
+  !*** ./webpack-app/client/Questionnaire/Questionnaire.js?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/CountdownButton/CountdownButton.vue */ "./webpack-app/client/Questionnaire/components/CountdownButton/CountdownButton.vue");
+
+
+let Questionnaire = {
+  props: ['lib', 'status', 'config'],
+  data() {    
+    this.$i18n.locale = this.config.locale
+    
+    let key = this.lib.auth.currentStep
+    
+    let data = {}
+    if (typeof(this.status) === 'object' 
+            && typeof(this.status.readingConfig) === 'object') {
+      if (typeof(this.status.readingConfig.readingProgressModules) === 'object'
+              && typeof(this.status.readingConfig.readingProgressModules[key]) === 'object') {
+        for (let name in this.status.readingConfig.readingProgressModules[key]) {
+          data[name] = this.status.readingConfig.readingProgressModules[key][name]
+        }
+      }
+      data.readingConfig = this.status.readingConfig
+    }
+    data.log = {
+      answer: '',
+      start_timestamp: null
+    }
+    data.persistKey = key + '.log'
+    data.remainingSeconds = null
+    data.answer = ''
+    data.header = this.$t('READING_PROGRESS.' + key)
+    data.isTimeUp = false
+    
+    data.isWaitingLoading = false
+    
+    return data
+  },
+  components: {
+    'countdown-button': _components_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  computed: {
+    buttonText: function () {
+      //return this.$t('OK')
+      if (typeof(this.log.start_timestamp) !== 'number') {
+        return '(' + this.$t('Waiting') + ')'
+      }
+      else if (this.remainingSeconds > 0) {
+        let remainingTime = this.lib.DayJSHelper.formatHHMMSS(this.remainingSeconds)
+        return '(' + this.$t('Remaining Time: {0}', [remainingTime]) + ')'
+      }
+      else {
+        return ''
+      }
+    },
+    buttonClass: function () {
+      //return 'disabled'
+      return ''
+    },
+    wordCount: function () {
+      if (typeof(this.log) !== 'object'
+              || typeof(this.log.answer) !== 'string') {
+        return 0
+      }
+      //console.log(this.log.answer)
+      return this.lib.StringHelper.countWords(this.log.answer)
+    },
+    displayCharacterCounter: function () {
+      if (typeof(this.log) !== 'object'
+              || typeof(this.log.answer) !== 'string') {
+        //console.log('err')
+        return ''
+      }
+      
+      let output = this.$t('{0} word', [this.wordCount])
+      
+      if (this.wordCount < this.minWords) {
+        let needWordsCount = this.minWords - this.wordCount
+        output = output + ' (' + this.$t('You still need to write {0} words more.', [needWordsCount]) + ')'
+      }
+      //console.log(output)
+      return output
+    },
+    classWordCounter: function () {
+      if (this.wordCount < this.minWords) {
+        return 'red'
+      }
+      else {
+        return 'green'
+      }
+    },
+//    isTimeUp: function () {
+//      console.log(this.remainingSeconds)
+//      return (typeof(this.remainingSeconds) === 'number'
+//              && this.remainingSeconds <= 0)
+//    }
+  },
+  watch: {
+//    'remainingSeconds': function () {
+//      if (typeof(this.remainingSeconds) === 'number'
+//              && this.remainingSeconds > 0) {
+//        this.startCountdown()
+//      }
+//    },
+    'answer' (answer) {
+      //console.log(answer)
+      if (answer !== this.log.answer) {
+        this.log.answer = answer
+      }
+    }
+  },
+  mounted: async function () {
+    //throw new Error('test 45454545454545454')
+    
+    //console.log(this.lib.auth.currentStepConfig.countdownAtStart)
+
+    this.initLog()
+    
+    while (!this.$refs.Modal) {
+      await this.lib.VueHelper.sleep(100)
+    }
+    
+    this.$refs.Modal.show(() => {
+      this.status.progress.initComponents = true
+      
+      //console.log(this.lib.auth.currentStepConfig.countdownAtStart)
+      if (this.lib.auth.currentStepConfig.countdownAtStart === true) {
+        setTimeout(() => {
+          this.persist()
+        }, 1000)
+      }
+    })
+  },
+  methods: {
+    initLog: function () {
+      let cache = localStorage.getItem(this.persistKey)
+      //console.log(cache)
+      if (cache !== null) {
+        try {
+          this.log = JSON.parse(cache)
+          this.answer = this.log.answer
+          
+          let start_timestamp = this.log.start_timestamp
+          start_timestamp = parseInt(start_timestamp, 10)
+          this.remainingSeconds = this.limitMinutes * 60 - Math.round((this.lib.DayJSHelper.time() - start_timestamp) / 1000)
+          if (this.remainingSeconds <= 0) {
+            this.isTimeUp = true
+          }
+          //console.log(this.remainingSeconds)
+        }
+        catch (e) {}
+      }
+    },
+    persist: function () {
+      if (typeof(this.log) === 'object') {
+        //console.log(this.log)
+        if (typeof(this.log.start_timestamp) !== 'number') {
+          this.log.start_timestamp = this.lib.DayJSHelper.time()
+          this.remainingSeconds = this.limitMinutes * 60
+        }
+        
+        localStorage.setItem(this.persistKey, JSON.stringify(this.log))
+      }
+    },
+//    startCountdown: function () {
+//      //return  // for test
+//      setTimeout(() => {
+//        if (this.remainingSeconds > 0) {
+//          this.remainingSeconds--
+//        }
+//      }, 1000)
+//    },
+    onTimeup() {
+      this.isTimeUp = true
+    },
+    nextStep: async function () {
+      /*
+      let data = {
+        log: this.log,
+        nextStep: true
+      }
+      */
+      //console.log(data)
+      this.isWaitingLoading = true
+      
+      await this.lib.AxiosHelper.post('/client/ReadingProgress/end', this.log)
+      localStorage.removeItem(this.persistKey)
+      if (this.$refs.Modal) {
+        this.$refs.Modal.hide()
+      }
+      return await this.lib.auth.nextStep(false)
+    },
+    logout () {
+      localStorage.removeItem(this.persistKey)
+      this.lib.auth.logoutWithoutForget()
+    }
+  } // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Questionnaire);
+
+/***/ }),
+
+/***/ "./webpack-app/client/Questionnaire/Questionnaire.js?vue&type=script&lang=js&?f8ca":
+/*!************************************************************************************!*\
+  !*** ./webpack-app/client/Questionnaire/Questionnaire.js?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Questionnaire_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./Questionnaire.js?vue&type=script&lang=js& */ "./webpack-app/client/Questionnaire/Questionnaire.js?vue&type=script&lang=js&?ea46");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_Questionnaire_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
