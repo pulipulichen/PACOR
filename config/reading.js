@@ -254,7 +254,7 @@ module.exports = {
       }
     },
     'MainIdea': {
-      'quickAdd': true,
+      'enableQuickAdd': true,
       'addable': true,
       'minWords': 1,
       'placeholder': 'Why do you think it is a main idea?',
