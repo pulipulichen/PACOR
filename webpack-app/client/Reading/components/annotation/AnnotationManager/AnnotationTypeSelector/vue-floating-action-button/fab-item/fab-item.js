@@ -34,6 +34,11 @@ export default {
       default: 'white'
     }
   },
+  data () {
+    return {
+      clickLock: false
+    }
+  },
   computed: {
     showItem: function () {
       return (this.$parent.fabMenuAnimate === 'alive' || this.$parent.active) && this.$parent.visible
@@ -136,6 +141,16 @@ export default {
   },
   methods: {
     clickItem: function (event) {
+      if (this.clickLock === true) {
+        return undefined
+      }
+      else {
+        this.clickLock = true
+        setTimeout(() => {
+          this.clickLock = false
+        }, 100)
+      }
+      
       this.$emit('clickItem', {idx: this.idx, event})
       this.handleAutoClose()
     },

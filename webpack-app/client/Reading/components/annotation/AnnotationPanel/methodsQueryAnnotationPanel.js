@@ -29,6 +29,19 @@ export default (AnnotationPanel) => {
     this.show()
   }
   
+  AnnotationPanel.methods.setAnnotationQuickAdd = async function (annotation) {
+    this.enableScrollToAnnotation = false
+    
+    this.panelData.annotation = annotation
+    
+    while (!this.$refs.AnnotationSingle) {
+      await this.lib.VueHelper.sleep(100)
+    }
+    await this.$refs.AnnotationSingle.quickAdd()
+    
+    this.enableScrollToAnnotation = true
+  }
+  
   AnnotationPanel.methods.focusCommentInput = function (annotation) {
     if (annotation) {
       this.setAnnotation(annotation)

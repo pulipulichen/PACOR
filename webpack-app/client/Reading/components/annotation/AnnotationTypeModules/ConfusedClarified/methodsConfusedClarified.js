@@ -90,6 +90,16 @@ export default (Editor) => {
       this.$refs.AnswerEditor.html(this.answer)
       
       this.$refs.AnswerEditor.focus(true)
+    },
+    
+    quickAdd: async function () {
+      let buttons = this.$refs.FooterButtons
+      if (this.isQuestionSubmitted === false) {
+        await buttons.submitQuestion()
+      }
+      else {
+        await buttons.submitAnswer()
+      }
     }
   } // methods
 }

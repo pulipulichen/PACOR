@@ -18,7 +18,8 @@ let AnnotationEditorModules = {
     return {
       hook: {
         commentLike: null
-      }
+      },
+      enableScrollToAnnotation: true
     }
   },
   components: {
@@ -162,6 +163,10 @@ let AnnotationEditorModules = {
       }
     },
     scrollToAnnotation () {
+      if (this.enableScrollToAnnotation === false) {
+        return false
+      }
+      
       if (!this.lib.RangyManager) {
         return null
       }
@@ -190,6 +195,15 @@ let AnnotationEditorModules = {
       }
       
       await this.lib.RangyManager.reloadMyHighlights()
+    },
+    quickAdd: async function () {
+      while (!this.$refs.AnnotationTypeModule) {
+        await this.lib.VueHelper.sleep(100)
+      }
+      
+      this.enableScrollToAnnotation = false
+      await this.$refs.AnnotationTypeModule.quickAdd()
+      this.enableScrollToAnnotation = true
     },
     onAdd: function () {
       // 能不能...scrollIntoView呢？

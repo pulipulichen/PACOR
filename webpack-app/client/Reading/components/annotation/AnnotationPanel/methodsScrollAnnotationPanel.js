@@ -1,6 +1,10 @@
 export default (AnnotationPanel) => {
 
   AnnotationPanel.methods.scrollToRect = function (rect) {
+    if (this.enableScrollToAnnotation === false) {
+      return false
+    }
+    
     if (!rect) {
       return false
     }

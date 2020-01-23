@@ -237,6 +237,9 @@ let Editor = {
       
       this.$emit('add')
     },
+    quickAdd: async function () {
+      return this.addAnnotation()
+    },
     
     /**
      * 編輯標註

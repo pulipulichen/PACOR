@@ -2917,6 +2917,7 @@ var render = function() {
           }),
           _vm._v(" "),
           _c(_vm.type, {
+            ref: "AnnotationTypeModule",
             tag: "component",
             attrs: {
               config: _vm.config,
@@ -7542,6 +7543,11 @@ const Timeout = _util__WEBPACK_IMPORTED_MODULE_0__["default"].Timeout
       default: 'white'
     }
   },
+  data () {
+    return {
+      clickLock: false
+    }
+  },
   computed: {
     showItem: function () {
       return (this.$parent.fabMenuAnimate === 'alive' || this.$parent.active) && this.$parent.visible
@@ -7644,6 +7650,16 @@ const Timeout = _util__WEBPACK_IMPORTED_MODULE_0__["default"].Timeout
   },
   methods: {
     clickItem: function (event) {
+      if (this.clickLock === true) {
+        return undefined
+      }
+      else {
+        this.clickLock = true
+        setTimeout(() => {
+          this.clickLock = false
+        }, 100)
+      }
+      
       this.$emit('clickItem', {idx: this.idx, event})
       this.handleAutoClose()
     },
@@ -11706,7 +11722,8 @@ let AnnotationEditorModules = {
     return {
       hook: {
         commentLike: null
-      }
+      },
+      enableScrollToAnnotation: true
     }
   },
   components: {
@@ -11850,6 +11867,10 @@ let AnnotationEditorModules = {
       }
     },
     scrollToAnnotation () {
+      if (this.enableScrollToAnnotation === false) {
+        return false
+      }
+      
       if (!this.lib.RangyManager) {
         return null
       }
@@ -11878,6 +11899,15 @@ let AnnotationEditorModules = {
       }
       
       await this.lib.RangyManager.reloadMyHighlights()
+    },
+    quickAdd: async function () {
+      while (!this.$refs.AnnotationTypeModule) {
+        await this.lib.VueHelper.sleep(100)
+      }
+      
+      this.enableScrollToAnnotation = false
+      await this.$refs.AnnotationTypeModule.quickAdd()
+      this.enableScrollToAnnotation = true
     },
     onAdd: function () {
       // 能不能...scrollIntoView呢？
@@ -12085,6 +12115,7 @@ __webpack_require__.r(__webpack_exports__);
   isHide: true, // 好像跟動畫捲動有關係，目前不能省略
   placeholder: null,
   resizeLocker: false,
+  enableScrollToAnnotation: true,
   
   events: {}
 });
@@ -12417,6 +12448,19 @@ __webpack_require__.r(__webpack_exports__);
     this.show()
   }
   
+  AnnotationPanel.methods.setAnnotationQuickAdd = async function (annotation) {
+    this.enableScrollToAnnotation = false
+    
+    this.panelData.annotation = annotation
+    
+    while (!this.$refs.AnnotationSingle) {
+      await this.lib.VueHelper.sleep(100)
+    }
+    await this.$refs.AnnotationSingle.quickAdd()
+    
+    this.enableScrollToAnnotation = true
+  }
+  
   AnnotationPanel.methods.focusCommentInput = function (annotation) {
     if (annotation) {
       this.setAnnotation(annotation)
@@ -12645,6 +12689,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((AnnotationPanel) => {
 
   AnnotationPanel.methods.scrollToRect = function (rect) {
+    if (this.enableScrollToAnnotation === false) {
+      return false
+    }
+    
     if (!rect) {
       return false
     }
@@ -14098,6 +14146,16 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.AnswerEditor.html(this.answer)
       
       this.$refs.AnswerEditor.focus(true)
+    },
+    
+    quickAdd: async function () {
+      let buttons = this.$refs.FooterButtons
+      if (this.isQuestionSubmitted === false) {
+        await buttons.submitQuestion()
+      }
+      else {
+        await buttons.submitAnswer()
+      }
     }
   } // methods
 });
@@ -14584,6 +14642,9 @@ let Editor = {
       
       this.$emit('add')
     },
+    quickAdd: async function () {
+      return this.addAnnotation()
+    },
     
     /**
      * 編輯標註
@@ -14910,6 +14971,9 @@ let Editor = {
       }
       
       this.$emit('add')
+    },
+    quickAdd: async function () {
+      return this.addAnnotation()
     },
     
     /**
