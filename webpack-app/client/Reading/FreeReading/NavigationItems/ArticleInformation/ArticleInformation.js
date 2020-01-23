@@ -1,8 +1,8 @@
 import $ from 'jquery'
 import CopyPasteHelper from './libs/CopyPasteHelper.js'
 
-import PreImaginaryInstruction from './../../../../Questionnaire/Instruction/PreImaginaryInstruction/PreImaginaryInstruction.vue'
-import PostRecallInstruction from './../../../../Questionnaire/Instruction/PostRecallInstruction/PostRecallInstruction.vue'
+import PreImaginaryInstruction from './../../../../Questionnaire/components/Instruction/PreImaginaryInstruction/PreImaginaryInstruction.vue'
+import PostRecallInstruction from './../../../../Questionnaire/components/Instruction/PostRecallInstruction/PostRecallInstruction.vue'
 
 let ArticleInformation = {
   props: ['lib', 'status', 'config'],
