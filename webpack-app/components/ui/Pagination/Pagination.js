@@ -6,6 +6,7 @@ let Pagination = {
   },
   methods: {
     changePage: function (i) {
+      //console.log(i, this.pageConfig.page)
       if (i === this.pageConfig.page) {
         return false
       }

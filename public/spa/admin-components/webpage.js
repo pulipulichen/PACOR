@@ -1087,8 +1087,8 @@ let WebpageList = {
       }
     }
   },
-  components: {
-  },
+//  components: {
+//  },
   computed: {
     'pageConfig.page': function () {
       if (isNaN(this.pageConfig.page) === false) {

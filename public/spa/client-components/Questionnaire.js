@@ -57,7 +57,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".hint[data-v-359e549b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-359e549b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n.user-avatar[data-v-359e549b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-359e549b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-359e549b]  .icon-container .icon {\n  margin-top: -1em !important;\n  font-size: 0.3em !important;\n}\n", "",{"version":3,"sources":["Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,mDAAmD;AACrD;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,2BAA2B;EAC3B,2BAA2B;AAC7B","file":"Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-359e549b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-359e549b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n.user-avatar[data-v-359e549b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-359e549b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-359e549b]  .icon-container .icon {\n  margin-top: -1em !important;\n  font-size: 0.3em !important;\n}\n"]}]);
+exports.push([module.i, ".hint[data-v-359e549b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-359e549b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n.user-avatar[data-v-359e549b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-359e549b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-359e549b]  .icon-container .icon {\n  margin-top: -1em !important;\n  font-size: 0.3em !important;\n}\n.instruction-component[data-v-359e549b] {\n  max-height: calc(15rem - 1rem) !important;\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n", "",{"version":3,"sources":["Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,mDAAmD;AACrD;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,2BAA2B;EAC3B,2BAA2B;AAC7B;AACA;EACE,yCAAyC;EACzC,yBAAyB;EACzB,4BAA4B;EAC5B,iBAAiB;AACnB","file":"Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-359e549b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-359e549b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n.user-avatar[data-v-359e549b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-359e549b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-359e549b]  .icon-container .icon {\n  margin-top: -1em !important;\n  font-size: 0.3em !important;\n}\n.instruction-component[data-v-359e549b] {\n  max-height: calc(15rem - 1rem) !important;\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n"]}]);
 
 
 /***/ }),
@@ -71,7 +71,7 @@ exports.push([module.i, ".hint[data-v-359e549b] {\n  max-height: 15rem;\n  overf
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".hint[data-v-71c8473b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-71c8473b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n.user-avatar[data-v-71c8473b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-71c8473b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-71c8473b]  .icon-container .icon {\n  margin-top: -1em !important;\n  font-size: 0.3em !important;\n}\n", "",{"version":3,"sources":["Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,mDAAmD;AACrD;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,2BAA2B;EAC3B,2BAA2B;AAC7B","file":"Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-71c8473b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-71c8473b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n.user-avatar[data-v-71c8473b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-71c8473b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-71c8473b]  .icon-container .icon {\n  margin-top: -1em !important;\n  font-size: 0.3em !important;\n}\n"]}]);
+exports.push([module.i, ".hint[data-v-71c8473b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-71c8473b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n.user-avatar[data-v-71c8473b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-71c8473b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-71c8473b]  .icon-container .icon {\n  margin-top: -1em !important;\n  font-size: 0.3em !important;\n}\n.instruction-component[data-v-71c8473b] {\n  max-height: calc(15rem - 1rem) !important;\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n", "",{"version":3,"sources":["Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,mDAAmD;AACrD;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,2BAA2B;EAC3B,2BAA2B;AAC7B;AACA;EACE,yCAAyC;EACzC,yBAAyB;EACzB,4BAA4B;EAC5B,iBAAiB;AACnB","file":"Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-71c8473b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-71c8473b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n.user-avatar[data-v-71c8473b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-71c8473b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-71c8473b]  .icon-container .icon {\n  margin-top: -1em !important;\n  font-size: 0.3em !important;\n}\n.instruction-component[data-v-71c8473b] {\n  max-height: calc(15rem - 1rem) !important;\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n"]}]);
 
 
 /***/ }),
@@ -179,14 +179,25 @@ var render = function() {
                         staticClass: "field hint",
                         attrs: { config: _vm.config, message: _vm.instruction }
                       })
-                    : _c(_vm.instuctionComponent, {
-                        tag: "component",
-                        attrs: {
-                          config: _vm.config,
-                          status: _vm.status,
-                          lib: _vm.lib
-                        }
-                      }),
+                    : _c(
+                        "div",
+                        {
+                          staticClass:
+                            "ui segment field hint instruction-component"
+                        },
+                        [
+                          _c(_vm.instuctionComponent, {
+                            tag: "component",
+                            attrs: {
+                              "instuction-component": "",
+                              config: _vm.config,
+                              status: _vm.status,
+                              lib: _vm.lib
+                            }
+                          })
+                        ],
+                        1
+                      ),
                   _vm._v(" "),
                   _c("div", { staticClass: "field" }, [
                     _c("textarea", {
@@ -386,14 +397,25 @@ var render = function() {
                         staticClass: "field hint",
                         attrs: { config: _vm.config, message: _vm.instruction }
                       })
-                    : _c(_vm.instuctionComponent, {
-                        tag: "component",
-                        attrs: {
-                          config: _vm.config,
-                          status: _vm.status,
-                          lib: _vm.lib
-                        }
-                      }),
+                    : _c(
+                        "div",
+                        {
+                          staticClass:
+                            "ui segment field hint instruction-component"
+                        },
+                        [
+                          _c(_vm.instuctionComponent, {
+                            tag: "component",
+                            attrs: {
+                              "instuction-component": "",
+                              config: _vm.config,
+                              status: _vm.status,
+                              lib: _vm.lib
+                            }
+                          })
+                        ],
+                        1
+                      ),
                   _vm._v(" "),
                   _c("div", { staticClass: "field" }, [
                     _c("textarea", {

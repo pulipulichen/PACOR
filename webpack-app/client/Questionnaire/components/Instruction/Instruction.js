@@ -46,7 +46,7 @@ let Instruction = {
   },
   methods: {
     calculating () {
-      this.sections = $('[data-pacor-section-seq-id]')
+      this.sections = $('section')
       this.paragraphies = this.sections.children()
 
       let text = this.lib.StringHelper.htmlToTextTrim(this.sections.html(), true)

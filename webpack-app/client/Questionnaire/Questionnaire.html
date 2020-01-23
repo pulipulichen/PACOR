@@ -35,13 +35,15 @@
         v-bind:config="config"
         v-bind:message="instruction">
       </iframe-message-segment>
-      <component 
-        v-else
-        v-bind:is="instuctionComponent"
-        v-bind:config="config"
-        v-bind:status="status"
-        v-bind:lib="lib">
-      </component>
+      <div v-else 
+           class="ui segment field hint instruction-component">
+        <component instuction-component
+          v-bind:is="instuctionComponent"
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib">
+        </component>
+      </div>
       
       <!-- ====================== -->
 

@@ -15,7 +15,8 @@
       <span v-for="(image, i) in images"
             class="image-container"
             ><img v-bind:src="image.src" 
-            v-bind:title="image.title"/></span>
+            v-bind:title="image.title"
+            v-on:click.stop="downloadImage(i, image.src)"/></span>
     </li>
     <li>{{ $t(`Don't worry about punctuation or typos, just write down what you predict of.`) }}</li>
     <li v-if="preImaginaryConfig.countdownAtStart === false"

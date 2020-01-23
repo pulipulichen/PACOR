@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "/*\nTo change this license header, choose License Headers in Project Properties.\nTo change this template file, choose Tools | Templates\nand open the template in the editor.\n*/\n/*\n    Created on : Jan 23, 2020, 11:04:57 PM\n    Author     : pudding\n*/\n", "",{"version":3,"sources":["Instruction.less?vue&type=style&index=0&id=0f844e6b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;;;CAIC;AACD;;;CAGC","file":"Instruction.less?vue&type=style&index=0&id=0f844e6b&lang=less&scoped=true&","sourcesContent":["/*\nTo change this license header, choose License Headers in Project Properties.\nTo change this template file, choose Tools | Templates\nand open the template in the editor.\n*/\n/*\n    Created on : Jan 23, 2020, 11:04:57 PM\n    Author     : pudding\n*/\n"]}]);
+exports.push([module.i, ".image-container[data-v-0f844e6b] {\n  margin-right: 0.5rem;\n}\nsection.instruction[data-v-0f844e6b] {\n  border-width: 0 !important;\n  margin: 0 !important;\n  padding: 0 !important;\n}\nsection.instruction[data-v-0f844e6b]  .highlight {\n  background-color: yellow;\n}\n", "",{"version":3,"sources":["Instruction.less?vue&type=style&index=0&id=0f844e6b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,oBAAoB;AACtB;AACA;EACE,0BAA0B;EAC1B,oBAAoB;EACpB,qBAAqB;AACvB;AACA;EACE,wBAAwB;AAC1B","file":"Instruction.less?vue&type=style&index=0&id=0f844e6b&lang=less&scoped=true&","sourcesContent":[".image-container[data-v-0f844e6b] {\n  margin-right: 0.5rem;\n}\nsection.instruction[data-v-0f844e6b] {\n  border-width: 0 !important;\n  margin: 0 !important;\n  padding: 0 !important;\n}\nsection.instruction[data-v-0f844e6b]  .highlight {\n  background-color: yellow;\n}\n"]}]);
 
 
 /***/ }),
@@ -55,7 +55,7 @@ exports.push([module.i, "/*\nTo change this license header, choose License Heade
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "/*\nTo change this license header, choose License Headers in Project Properties.\nTo change this template file, choose Tools | Templates\nand open the template in the editor.\n*/\n/*\n    Created on : Jan 23, 2020, 11:04:57 PM\n    Author     : pudding\n*/\n", "",{"version":3,"sources":["Instruction.less?vue&type=style&index=0&id=bd24a616&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;;;CAIC;AACD;;;CAGC","file":"Instruction.less?vue&type=style&index=0&id=bd24a616&lang=less&scoped=true&","sourcesContent":["/*\nTo change this license header, choose License Headers in Project Properties.\nTo change this template file, choose Tools | Templates\nand open the template in the editor.\n*/\n/*\n    Created on : Jan 23, 2020, 11:04:57 PM\n    Author     : pudding\n*/\n"]}]);
+exports.push([module.i, ".image-container[data-v-bd24a616] {\n  margin-right: 0.5rem;\n}\nsection.instruction[data-v-bd24a616] {\n  border-width: 0 !important;\n  margin: 0 !important;\n  padding: 0 !important;\n}\nsection.instruction[data-v-bd24a616]  .highlight {\n  background-color: yellow;\n}\n", "",{"version":3,"sources":["Instruction.less?vue&type=style&index=0&id=bd24a616&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,oBAAoB;AACtB;AACA;EACE,0BAA0B;EAC1B,oBAAoB;EACpB,qBAAqB;AACvB;AACA;EACE,wBAAwB;AAC1B","file":"Instruction.less?vue&type=style&index=0&id=bd24a616&lang=less&scoped=true&","sourcesContent":[".image-container[data-v-bd24a616] {\n  margin-right: 0.5rem;\n}\nsection.instruction[data-v-bd24a616] {\n  border-width: 0 !important;\n  margin: 0 !important;\n  padding: 0 !important;\n}\nsection.instruction[data-v-bd24a616]  .highlight {\n  background-color: yellow;\n}\n"]}]);
 
 
 /***/ }),
@@ -221,15 +221,7 @@ var render = function() {
                 _vm._v(" "),
                 _vm._l(_vm.images, function(image, i) {
                   return _c("span", { staticClass: "image-container" }, [
-                    _c("img", {
-                      attrs: { src: image.src, title: image.title },
-                      on: {
-                        click: function($event) {
-                          $event.stopPropagation()
-                          return _vm.downloadImage(i, image.src)
-                        }
-                      }
-                    })
+                    _c("img", { attrs: { src: image.src, title: image.title } })
                   ])
                 })
               ],
@@ -380,7 +372,7 @@ let Instruction = {
   },
   methods: {
     calculating () {
-      this.sections = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-section-seq-id]')
+      this.sections = jquery__WEBPACK_IMPORTED_MODULE_0___default()('section')
       this.paragraphies = this.sections.children()
 
       let text = this.lib.StringHelper.htmlToTextTrim(this.sections.html(), true)
