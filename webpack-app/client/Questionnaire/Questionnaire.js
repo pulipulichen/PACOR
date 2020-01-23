@@ -1,5 +1,8 @@
 import CountdownButton from './components/CountdownButton/CountdownButton.vue'
 
+import PostRecallInstruction from './components/Instruction/PostRecallInstruction/PostRecallInstruction.vue'
+import PreImaginaryInstruction from './components/Instruction/PreImaginaryInstruction/PreImaginaryInstruction.vue'
+
 let Questionnaire = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -30,10 +33,17 @@ let Questionnaire = {
     
     data.isWaitingLoading = false
     
+    data.instuctionComponent = null
+    if (!data.instuction) {
+      data.instuctionComponent = key + 'Instruction'
+    }
+    
     return data
   },
   components: {
-    'countdown-button': CountdownButton
+    'countdown-button': CountdownButton,
+    PreImaginaryInstruction,
+    PostRecallInstruction
   },
   computed: {
     buttonText: function () {

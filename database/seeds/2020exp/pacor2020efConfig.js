@@ -6,7 +6,7 @@ module.exports = {
   readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
   readingProgressModules: {
     PreImaginary: {
-      instruction: '/2020exp/rice/PreImaginary.html',
+      //instruction: '/2020exp/rice/PreImaginary.html',
       limitMinutes: 3,
       countdownAtStart: true
     },
@@ -31,7 +31,7 @@ module.exports = {
       }
     },
     PostRecall: {
-      instruction: '/2020exp/rice/PostRecall.html',
+      //instruction: '/2020exp/rice/PostRecall.html',
       limitMinutes: 3,
     }
   }

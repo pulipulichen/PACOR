@@ -174,10 +174,19 @@ var render = function() {
               key: "content",
               fn: function() {
                 return [
-                  _c("iframe-message-segment", {
-                    staticClass: "field hint",
-                    attrs: { config: _vm.config, message: _vm.instruction }
-                  }),
+                  !_vm.instuctionComponent
+                    ? _c("iframe-message-segment", {
+                        staticClass: "field hint",
+                        attrs: { config: _vm.config, message: _vm.instruction }
+                      })
+                    : _c(_vm.instuctionComponent, {
+                        tag: "component",
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib
+                        }
+                      }),
                   _vm._v(" "),
                   _c("div", { staticClass: "field" }, [
                     _c("textarea", {
@@ -372,10 +381,19 @@ var render = function() {
               key: "content",
               fn: function() {
                 return [
-                  _c("iframe-message-segment", {
-                    staticClass: "field hint",
-                    attrs: { config: _vm.config, message: _vm.instruction }
-                  }),
+                  !_vm.instuctionComponent
+                    ? _c("iframe-message-segment", {
+                        staticClass: "field hint",
+                        attrs: { config: _vm.config, message: _vm.instruction }
+                      })
+                    : _c(_vm.instuctionComponent, {
+                        tag: "component",
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib
+                        }
+                      }),
                   _vm._v(" "),
                   _c("div", { staticClass: "field" }, [
                     _c("textarea", {
@@ -725,6 +743,11 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/CountdownButton/CountdownButton.vue */ "./webpack-app/client/Questionnaire/components/CountdownButton/CountdownButton.vue");
+/* harmony import */ var _components_Instruction_PostRecallInstruction_PostRecallInstruction_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Instruction/PostRecallInstruction/PostRecallInstruction.vue */ "./webpack-app/client/Questionnaire/components/Instruction/PostRecallInstruction/PostRecallInstruction.vue");
+/* harmony import */ var _components_Instruction_PreImaginaryInstruction_PreImaginaryInstruction_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Instruction/PreImaginaryInstruction/PreImaginaryInstruction.vue */ "./webpack-app/client/Questionnaire/components/Instruction/PreImaginaryInstruction/PreImaginaryInstruction.vue");
+
+
+
 
 
 let Questionnaire = {
@@ -757,10 +780,17 @@ let Questionnaire = {
     
     data.isWaitingLoading = false
     
+    data.instuctionComponent = null
+    if (!data.instuction) {
+      data.instuctionComponent = key + 'Instruction'
+    }
+    
     return data
   },
   components: {
-    'countdown-button': _components_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    'countdown-button': _components_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    PreImaginaryInstruction: _components_Instruction_PreImaginaryInstruction_PreImaginaryInstruction_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    PostRecallInstruction: _components_Instruction_PostRecallInstruction_PostRecallInstruction_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   computed: {
     buttonText: function () {
