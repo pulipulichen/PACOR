@@ -25,10 +25,10 @@
       v-bind:key="getModuleKey(module)"
       v-on:clickItem="addAnnotation(module.type)" 
       v-bind:idx="i"
-      v-bind:title="$t('ANNOTATION_TYPE.' + module.type)"
+      v-bind:title="getModuleTitle(module)"
       v-bind:icon="module.style.button.icon"
       v-bind:btnColor="module.style.button.backgroundColor"
-      v-bind:class="module.type">
+      v-bind:class="getModuleClassList(module)">
     </fab-item>
 
     <fab-item 

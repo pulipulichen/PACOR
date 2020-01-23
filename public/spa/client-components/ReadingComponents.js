@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"List Annotations":"列出標註","Select an annotation type to highlight the selected text.":"請為你要標註的文字選擇一種類型。","For example, if you choose \\"Main Idea\\" type.":"舉例來說，如果您選擇「重點」類型"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"List Annotations":"列出標註","Quick Add":"快速新增","Select an annotation type to highlight the selected text.":"請為你要標註的文字選擇一種類型。","For example, if you choose \\"Main Idea\\" type.":"舉例來說，如果您選擇「重點」類型"}}')
   delete Component.options._Ctor
 }
 
@@ -547,7 +547,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-type-selector[data-v-4249dfa8] {\n  /*\n  position: fixed !important;\n  //top: -100vh;\n  top: 100px;\n  left: 0;\n  user-select: none;\n  */\n}\n/*\n.fab-main-container {\n  right: 5rem !important;\n  bottom: 5rem !important;\n  \n  &.hidden {\n    display: none;\n  }\n  \n}\n*/\n", "",{"version":3,"sources":["AnnotationTypeSelector.less?vue&type=style&index=0&id=4249dfa8&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE;;;;;;GAMC;AACH;AACA;;;;;;;;;;CAUC","file":"AnnotationTypeSelector.less?vue&type=style&index=0&id=4249dfa8&lang=less&scoped=true&","sourcesContent":[".annotation-type-selector[data-v-4249dfa8] {\n  /*\n  position: fixed !important;\n  //top: -100vh;\n  top: 100px;\n  left: 0;\n  user-select: none;\n  */\n}\n/*\n.fab-main-container {\n  right: 5rem !important;\n  bottom: 5rem !important;\n  \n  &.hidden {\n    display: none;\n  }\n  \n}\n*/\n"]}]);
+exports.push([module.i, ".annotation-type-selector[data-v-4249dfa8] {\n  /*\n  position: fixed !important;\n  //top: -100vh;\n  top: 100px;\n  left: 0;\n  user-select: none;\n  */\n}\n/*\n.fab-main-container {\n  right: 5rem !important;\n  bottom: 5rem !important;\n  \n  &.hidden {\n    display: none;\n  }\n  \n}\n*/\n/*.fab-item.quick-add::before {\n  content: \"+\";\n  position: absolute;\n  margin-left: 1rem;\n  margin-top: 1rem;\n  background-color: yellow;\n}*/\n.fab-item.quick-add[data-v-4249dfa8]  i {\n  /*  color: yellow !important;\n  filter: drop-shadow(1px 1px 1px rgba(255,255,255,0.5)) \n    drop-shadow(-1px 1px 1px rgba(255,255,255,0.5)) \n    drop-shadow(1px -1px 1px rgba(255,255,255,0.5)) \n    drop-shadow(-1px -1px 1px rgba(255,255,255,0.5));*/\n  filter: drop-shadow(1px 1px 3px rgba(255, 255, 0, 0.5)) drop-shadow(-1px 1px 3px rgba(255, 255, 0, 0.5)) drop-shadow(1px -1px 3px rgba(255, 255, 0, 0.5)) drop-shadow(-1px -1px 3px rgba(255, 255, 0, 0.5));\n}\n", "",{"version":3,"sources":["AnnotationTypeSelector.less?vue&type=style&index=0&id=4249dfa8&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE;;;;;;GAMC;AACH;AACA;;;;;;;;;;CAUC;AACD;;;;;;EAME;AACF;EACE;;;;sDAIoD;EACpD,2MAA2M;AAC7M","file":"AnnotationTypeSelector.less?vue&type=style&index=0&id=4249dfa8&lang=less&scoped=true&","sourcesContent":[".annotation-type-selector[data-v-4249dfa8] {\n  /*\n  position: fixed !important;\n  //top: -100vh;\n  top: 100px;\n  left: 0;\n  user-select: none;\n  */\n}\n/*\n.fab-main-container {\n  right: 5rem !important;\n  bottom: 5rem !important;\n  \n  &.hidden {\n    display: none;\n  }\n  \n}\n*/\n/*.fab-item.quick-add::before {\n  content: \"+\";\n  position: absolute;\n  margin-left: 1rem;\n  margin-top: 1rem;\n  background-color: yellow;\n}*/\n.fab-item.quick-add[data-v-4249dfa8]  i {\n  /*  color: yellow !important;\n  filter: drop-shadow(1px 1px 1px rgba(255,255,255,0.5)) \n    drop-shadow(-1px 1px 1px rgba(255,255,255,0.5)) \n    drop-shadow(1px -1px 1px rgba(255,255,255,0.5)) \n    drop-shadow(-1px -1px 1px rgba(255,255,255,0.5));*/\n  filter: drop-shadow(1px 1px 3px rgba(255, 255, 0, 0.5)) drop-shadow(-1px 1px 3px rgba(255, 255, 0, 0.5)) drop-shadow(1px -1px 3px rgba(255, 255, 0, 0.5)) drop-shadow(-1px -1px 3px rgba(255, 255, 0, 0.5));\n}\n"]}]);
 
 
 /***/ }),
@@ -1322,10 +1322,10 @@ var render = function() {
           _vm._l(_vm.annotationModules, function(module, i) {
             return _c("fab-item", {
               key: _vm.getModuleKey(module),
-              class: module.type,
+              class: _vm.getModuleClassList(module),
               attrs: {
                 idx: i,
-                title: _vm.$t("ANNOTATION_TYPE." + module.type),
+                title: _vm.getModuleTitle(module),
                 icon: module.style.button.icon,
                 btnColor: module.style.button.backgroundColor
               },
@@ -6984,10 +6984,7 @@ __webpack_require__.r(__webpack_exports__);
               modules.push(module)
 
               if (module.enableQuickAdd === true) {
-                let quickModule = {
-                  ...module
-                }
-                quickModule.quickAdd = true
+                let quickModule = this.buildQuickModule(module)
                 modules.push(quickModule)
               }
             }
@@ -7263,6 +7260,7 @@ let debugEnableAutoList = false
 
     this.lib.AnnotationPanel.setAnnotation(annotation)
   }
+  
   AnnotationTypeSelector.methods.getModuleKey = function (module) {
     let key = module.type
 
@@ -7271,6 +7269,35 @@ let debugEnableAutoList = false
     }
 
     return key
+  }
+  
+  AnnotationTypeSelector.methods.getModuleTitle = function (module) {
+    let title = this.$t('ANNOTATION_TYPE.' + module.type)
+    
+    if (module.quickAdd === true) {
+      title = title + ' (' + this.$t('Quick Add') + ')'
+    }
+    
+    return title
+  }
+  
+  AnnotationTypeSelector.methods.getModuleClassList = function (module) {
+    let classList = [module.type]
+    
+    if (module.quickAdd === true) {
+      classList.push('quick-add')
+    }
+    
+    return classList
+  }
+  
+  AnnotationTypeSelector.methods.buildQuickModule = function (module) {
+    let quickModule = {
+      ...module
+    }
+    quickModule.quickAdd = true
+
+    return quickModule
   }
 });
 

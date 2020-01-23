@@ -19,10 +19,7 @@ export default function (AnnotationTypeSelector) {
               modules.push(module)
 
               if (module.enableQuickAdd === true) {
-                let quickModule = {
-                  ...module
-                }
-                quickModule.quickAdd = true
+                let quickModule = this.buildQuickModule(module)
                 modules.push(quickModule)
               }
             }
