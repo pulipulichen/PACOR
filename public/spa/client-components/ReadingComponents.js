@@ -1331,7 +1331,7 @@ var render = function() {
               },
               on: {
                 clickItem: function($event) {
-                  return _vm.addAnnotation(module.type)
+                  return _vm.addAnnotation(module.type, module.quickAdd)
                 }
               }
             })
@@ -6787,7 +6787,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _VueFab_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VueFab.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/VueFab.js");
 /* harmony import */ var _computedAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./computedAnnotationTypeSelector.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/computedAnnotationTypeSelector.js");
 /* harmony import */ var _methodsAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsAnnotationTypeSelector.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodsAnnotationTypeSelector.js");
-/* harmony import */ var _methodTutorialAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodTutorialAnnotationTypeSelector.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodTutorialAnnotationTypeSelector.js");
+/* harmony import */ var _methodsVueFABAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsVueFABAnnotationTypeSelector.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodsVueFABAnnotationTypeSelector.js");
+/* harmony import */ var _methodTutorialAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodTutorialAnnotationTypeSelector.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodTutorialAnnotationTypeSelector.js");
 
 
 /**
@@ -6849,7 +6850,10 @@ Object(_computedAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_1__["default"
 Object(_methodsAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_2__["default"])(AnnotationTypeSelector)
 
 
-Object(_methodTutorialAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_3__["default"])(AnnotationTypeSelector)
+Object(_methodsVueFABAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_3__["default"])(AnnotationTypeSelector)
+
+
+Object(_methodTutorialAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_4__["default"])(AnnotationTypeSelector)
 
 /* harmony default export */ __webpack_exports__["default"] = (AnnotationTypeSelector);
 
@@ -7172,7 +7176,7 @@ let debugEnableAutoList = false
 
     this.setupTutorial()
   }
-  AnnotationTypeSelector.methods.addAnnotation = function (type) {
+  AnnotationTypeSelector.methods.addAnnotation = function (type, isQuickAdd) {
     //this.lib.RangyManager.restoreLastSelection()
     //console.log({isSelecting: this.lib.RangyManager.isSelecting()})
     //if (this.lib.RangyManager.isSelecting() === false) {
@@ -7225,13 +7229,18 @@ let debugEnableAutoList = false
 
     this.lib.RangyManager.pinSelection(this.selection)
 
-    this.lib.AnnotationPanel.setAnnotation(annotation, {
-      'cancel': () => {
-        // 如果取消的話，那就恢復選取
-        //console.log('有嗎？')
-        this.lib.RangyManager.unpinSelection(true)
-      }
-    })
+    if (isQuickAdd !== true) {
+      this.lib.AnnotationPanel.setAnnotation(annotation, {
+        'cancel': () => {
+          // 如果取消的話，那就恢復選取
+          //console.log('有嗎？')
+          this.lib.RangyManager.unpinSelection(true)
+        }
+      })
+    }
+    else {
+      this.lib.AnnotationPanel.setAnnotationQuickAdd(annotation)
+    }
 
     this.selection = null
   }
@@ -7260,6 +7269,21 @@ let debugEnableAutoList = false
 
     this.lib.AnnotationPanel.setAnnotation(annotation)
   }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodsVueFABAnnotationTypeSelector.js":
+/*!******************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodsVueFABAnnotationTypeSelector.js ***!
+  \******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+/* harmony default export */ __webpack_exports__["default"] = (function (AnnotationTypeSelector) {
   
   AnnotationTypeSelector.methods.getModuleKey = function (module) {
     let key = module.type

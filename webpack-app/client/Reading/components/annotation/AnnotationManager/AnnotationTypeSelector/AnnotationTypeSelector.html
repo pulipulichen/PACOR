@@ -23,7 +23,7 @@
     <fab-item 
       v-for="(module, i) in annotationModules"
       v-bind:key="getModuleKey(module)"
-      v-on:clickItem="addAnnotation(module.type)" 
+      v-on:clickItem="addAnnotation(module.type, module.quickAdd)" 
       v-bind:idx="i"
       v-bind:title="getModuleTitle(module)"
       v-bind:icon="module.style.button.icon"

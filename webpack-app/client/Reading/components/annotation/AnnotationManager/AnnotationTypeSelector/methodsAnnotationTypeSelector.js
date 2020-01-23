@@ -46,7 +46,7 @@ export default function (AnnotationTypeSelector) {
 
     this.setupTutorial()
   }
-  AnnotationTypeSelector.methods.addAnnotation = function (type) {
+  AnnotationTypeSelector.methods.addAnnotation = function (type, isQuickAdd) {
     //this.lib.RangyManager.restoreLastSelection()
     //console.log({isSelecting: this.lib.RangyManager.isSelecting()})
     //if (this.lib.RangyManager.isSelecting() === false) {
@@ -99,13 +99,18 @@ export default function (AnnotationTypeSelector) {
 
     this.lib.RangyManager.pinSelection(this.selection)
 
-    this.lib.AnnotationPanel.setAnnotation(annotation, {
-      'cancel': () => {
-        // 如果取消的話，那就恢復選取
-        //console.log('有嗎？')
-        this.lib.RangyManager.unpinSelection(true)
-      }
-    })
+    if (isQuickAdd !== true) {
+      this.lib.AnnotationPanel.setAnnotation(annotation, {
+        'cancel': () => {
+          // 如果取消的話，那就恢復選取
+          //console.log('有嗎？')
+          this.lib.RangyManager.unpinSelection(true)
+        }
+      })
+    }
+    else {
+      this.lib.AnnotationPanel.setAnnotationQuickAdd(annotation)
+    }
 
     this.selection = null
   }
@@ -133,44 +138,5 @@ export default function (AnnotationTypeSelector) {
     }
 
     this.lib.AnnotationPanel.setAnnotation(annotation)
-  }
-  
-  AnnotationTypeSelector.methods.getModuleKey = function (module) {
-    let key = module.type
-
-    if (module.quickAdd) {
-      key = key + '-quick-add'
-    }
-
-    return key
-  }
-  
-  AnnotationTypeSelector.methods.getModuleTitle = function (module) {
-    let title = this.$t('ANNOTATION_TYPE.' + module.type)
-    
-    if (module.quickAdd === true) {
-      title = title + ' (' + this.$t('Quick Add') + ')'
-    }
-    
-    return title
-  }
-  
-  AnnotationTypeSelector.methods.getModuleClassList = function (module) {
-    let classList = [module.type]
-    
-    if (module.quickAdd === true) {
-      classList.push('quick-add')
-    }
-    
-    return classList
-  }
-  
-  AnnotationTypeSelector.methods.buildQuickModule = function (module) {
-    let quickModule = {
-      ...module
-    }
-    quickModule.quickAdd = true
-
-    return quickModule
   }
 }
