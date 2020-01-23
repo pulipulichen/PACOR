@@ -16,31 +16,14 @@
         {{ $t('PreImaginary Instruction') }}
       </h3>
       
-      <section class="instruction SectionPreImaginary"
-               v-on:click="copyPreImaginaryInstructionHtml()"
-               ref="SectionPreImaginary">
-        <p>{{ $t('Please try to predict what this article might write.') }}</p>
-        <ul>
-          <li v-html="titleHTML"></li>
-          <li v-if="headings.length > 0"
-              >{{ $t(`This article includes {0} headings:`, [headings.length]) }}<ol>
-              <li v-for="heading in headings">{{ heading }}</li>
-            </ol>
-          </li>
-          <li v-if="images.length > 0"
-              >{{ $t(`This article includes {0} images:`, [headings.length]) }} <br /><span v-for="(image, i) in images"
-                  class="image-container"
-                  ><img v-bind:src="image.src" 
-                v-bind:title="image.title"
-                v-on:click.stop="downloadImage(i, image.src)"/></span>
-          </li>
-          <li>{{ $t(`Don't worry about punctuation or typos, just write down what you predict of.`) }}</li>
-          <li v-if="preImaginaryConfig.countdownAtStart === false"
-              v-html="timeLimitTypeStart"></li>
-          <li v-else
-              v-html="timeLimitAutoStart"></li>
-        </ul>
-      </section>
+      <pre-imaginary-message
+        ref="PreImaginaryMessage"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-on:click="copyPreImaginaryInstructionHtml()">
+      </pre-imaginary-message>
+      
       <button type="button" class="ui button fluid"
               v-on:click="copyPreImaginaryInstructionHtml()">
         {{ $t('Copy HTML') }}
@@ -53,32 +36,16 @@
         {{ $t('PostRecall Instruction') }}
       </h3>
       
-      <section class="instruction SectionPostRecall"
-               v-on:click="copyPostRecallHtml()"
-               ref="SectionPostRecall">
-        <p>{{ $t('Please recall the content of this article.') }}</p>
-        <ul>
-          <li v-html="titleHTML"></li>
-          <li v-if="headings.length > 0"
-              >{{ $t(`This article includes {0} headings:`, [headings.length]) }}<ol>
-              <li v-for="heading in headings">{{ heading }}</li>
-            </ol>
-          </li>
-          <li v-if="images.length > 0"
-              >{{ $t(`This article includes {0} images:`, [headings.length]) }} <br /><span v-for="image in images"
-                  class="image-container"
-                  ><img v-bind:src="image.src" 
-                v-bind:title="image.title" /></span>
-          </li>
-          <li>{{ $t(`Don't worry about punctuation or typos, just write down what you read.`) }}</li>
-          <li v-if="preImaginaryConfig.countdownAtStart === false"
-              v-html="timeLimitTypeStart"></li>
-          <li v-else
-              v-html="timeLimitAutoStart"></li>
-        </ul>
-      </section>
+      <post-recall-message
+        ref="PostRecallMessage"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-on:click="copyPostRecallInstructionHtml()">
+      </post-recall-message>
+      
       <button type="button" class="ui button fluid"
-              v-on:click="copyPostRecallHtml()">
+              v-on:click="copyPostRecallInstructionHtml()">
         {{ $t('Copy HTML') }}
       </button>
       

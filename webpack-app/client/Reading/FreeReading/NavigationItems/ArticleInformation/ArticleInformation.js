@@ -173,7 +173,7 @@ let ArticleInformation = {
       let $section = $('section.SectionPreImaginary.instruction').clone()
       this.copyHTML($section)
     },
-    copyPostRecallHtml: async function () {
+    copyPostRecallInstructionHtml: async function () {
       //let section = this.$refs.SectionPreImaginary
       let $section = $('section.SectionPostRecall.instruction').clone()
       this.copyHTML($section)

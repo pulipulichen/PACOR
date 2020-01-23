@@ -958,6 +958,16 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('iframe-message-segment', 
 
 // --------------------
 
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('pre-imaginary-message', () => {
+  return Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors~client-components/GlobalComponents"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.bind(null, /*! ./../components/reading-progress/PreImaginaryMessage/PreImaginaryMessage.vue */ "./webpack-app/components/reading-progress/PreImaginaryMessage/PreImaginaryMessage.vue"))
+})
+
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('post-recall-message', () => {
+  return Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors~client-components/GlobalComponents"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.bind(null, /*! ./../components/reading-progress/PostRecallMessage/PostRecallMessage.vue */ "./webpack-app/components/reading-progress/PostRecallMessage/PostRecallMessage.vue"))
+})
+
+// --------------------
+
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('HTMLEditor', () => {
   return __webpack_require__.e(/*! import() | vendors/HTMLEditor */ "vendors/HTMLEditor").then(__webpack_require__.bind(null, /*! ./../components/annotation/HTMLEditor/HTMLEditor.vue */ "./webpack-app/components/annotation/HTMLEditor/HTMLEditor.vue"))
 })
@@ -1003,28 +1013,36 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('rangy', () => {
   return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors~client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/annotation/RangyManager/RangyManager.vue */ "./webpack-app/client/Reading/components/annotation/RangyManager/RangyManager.vue"))
 })
+
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('annotation-panel', () => {
   return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors~client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/annotation/AnnotationPanel/AnnotationPanel.vue */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/AnnotationPanel.vue"))
 })
+
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('annotation-manager', () => {
   return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors~client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/annotation/AnnotationManager/AnnotationManager.vue */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationManager.vue"))
 })
+
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('section-manager', () => {
   return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors~client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/annotation/SectionManager/SectionManager.vue */ "./webpack-app/client/Reading/components/annotation/SectionManager/SectionManager.vue"))
 })
+
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('search-manager', () => {
   return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors~client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/search/SearchManager/SearchManager.vue */ "./webpack-app/client/Reading/components/search/SearchManager/SearchManager.vue"))
 })
+
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('search-input', () => {
   return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors~client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/search/SearchManager/SearchInput/SearchInput.vue */ "./webpack-app/client/Reading/components/search/SearchManager/SearchInput/SearchInput.vue"))
 })
+
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('instruction-message', () => {
   return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors~client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/ui/InstructionMessage/InstructionMessage.vue */ "./webpack-app/client/Reading/components/ui/InstructionMessage/InstructionMessage.vue"))
 })
+
 //Vue.component('compact-navigation', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './Reading/components/ui-navigation/CompactNavigation/CompactNavigation.vue'))
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('navigation-header-item', () => {
   return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors~client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/ui-navigation/NavigationHeaderItem/NavigationHeaderItem.vue */ "./webpack-app/client/Reading/components/ui-navigation/NavigationHeaderItem/NavigationHeaderItem.vue"))
 })
+
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('about-item', () => {
   return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors~client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/ui-navigation/AboutItem/AboutItem.vue */ "./webpack-app/client/Reading/components/ui-navigation/AboutItem/AboutItem.vue"))
 })
@@ -1064,6 +1082,10 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('notification-icon', () =>
 
 //import UserFilter from './Reading/components/search/UserFilter/UserFilter.vue'
 //Vue.component('user-filter', UserFilter)
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('user-filter', () => {
+  return Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors~client-components/GlobalComponents"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/search/UserFilter/UserFilter.vue */ "./webpack-app/client/Reading/components/search/UserFilter/UserFilter.vue"))
+})
+
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('user-filter', () => {
   return Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors~client-components/GlobalComponents"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/search/UserFilter/UserFilter.vue */ "./webpack-app/client/Reading/components/search/UserFilter/UserFilter.vue"))
 })

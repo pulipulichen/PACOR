@@ -306,113 +306,19 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c(
-                  "section",
-                  {
-                    ref: "SectionPreImaginary",
-                    staticClass: "instruction SectionPreImaginary",
-                    on: {
-                      click: function($event) {
-                        return _vm.copyPreImaginaryInstructionHtml()
-                      }
-                    }
+                _c("pre-imaginary-message", {
+                  ref: "PreImaginaryMessage",
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib
                   },
-                  [
-                    _c("p", [
-                      _vm._v(
-                        _vm._s(
-                          _vm.$t(
-                            "Please try to predict what this article might write."
-                          )
-                        )
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("ul", [
-                      _c("li", {
-                        domProps: { innerHTML: _vm._s(_vm.titleHTML) }
-                      }),
-                      _vm._v(" "),
-                      _vm.headings.length > 0
-                        ? _c("li", [
-                            _vm._v(
-                              _vm._s(
-                                _vm.$t("This article includes {0} headings:", [
-                                  _vm.headings.length
-                                ])
-                              )
-                            ),
-                            _c(
-                              "ol",
-                              _vm._l(_vm.headings, function(heading) {
-                                return _c("li", [_vm._v(_vm._s(heading))])
-                              }),
-                              0
-                            )
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.images.length > 0
-                        ? _c(
-                            "li",
-                            [
-                              _vm._v(
-                                _vm._s(
-                                  _vm.$t("This article includes {0} images:", [
-                                    _vm.headings.length
-                                  ])
-                                ) + " "
-                              ),
-                              _c("br"),
-                              _vm._l(_vm.images, function(image, i) {
-                                return _c(
-                                  "span",
-                                  { staticClass: "image-container" },
-                                  [
-                                    _c("img", {
-                                      attrs: {
-                                        src: image.src,
-                                        title: image.title
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          $event.stopPropagation()
-                                          return _vm.downloadImage(i, image.src)
-                                        }
-                                      }
-                                    })
-                                  ]
-                                )
-                              })
-                            ],
-                            2
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("li", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.$t(
-                              "Don't worry about punctuation or typos, just write down what you predict of."
-                            )
-                          )
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _vm.preImaginaryConfig.countdownAtStart === false
-                        ? _c("li", {
-                            domProps: {
-                              innerHTML: _vm._s(_vm.timeLimitTypeStart)
-                            }
-                          })
-                        : _c("li", {
-                            domProps: {
-                              innerHTML: _vm._s(_vm.timeLimitAutoStart)
-                            }
-                          })
-                    ])
-                  ]
-                ),
+                  on: {
+                    click: function($event) {
+                      return _vm.copyPreImaginaryInstructionHtml()
+                    }
+                  }
+                }),
                 _vm._v(" "),
                 _c(
                   "button",
@@ -444,105 +350,19 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c(
-                  "section",
-                  {
-                    ref: "SectionPostRecall",
-                    staticClass: "instruction SectionPostRecall",
-                    on: {
-                      click: function($event) {
-                        return _vm.copyPostRecallHtml()
-                      }
-                    }
+                _c("post-recall-message", {
+                  ref: "PostRecallMessage",
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib
                   },
-                  [
-                    _c("p", [
-                      _vm._v(
-                        _vm._s(
-                          _vm.$t("Please recall the content of this article.")
-                        )
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("ul", [
-                      _c("li", {
-                        domProps: { innerHTML: _vm._s(_vm.titleHTML) }
-                      }),
-                      _vm._v(" "),
-                      _vm.headings.length > 0
-                        ? _c("li", [
-                            _vm._v(
-                              _vm._s(
-                                _vm.$t("This article includes {0} headings:", [
-                                  _vm.headings.length
-                                ])
-                              )
-                            ),
-                            _c(
-                              "ol",
-                              _vm._l(_vm.headings, function(heading) {
-                                return _c("li", [_vm._v(_vm._s(heading))])
-                              }),
-                              0
-                            )
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.images.length > 0
-                        ? _c(
-                            "li",
-                            [
-                              _vm._v(
-                                _vm._s(
-                                  _vm.$t("This article includes {0} images:", [
-                                    _vm.headings.length
-                                  ])
-                                ) + " "
-                              ),
-                              _c("br"),
-                              _vm._l(_vm.images, function(image) {
-                                return _c(
-                                  "span",
-                                  { staticClass: "image-container" },
-                                  [
-                                    _c("img", {
-                                      attrs: {
-                                        src: image.src,
-                                        title: image.title
-                                      }
-                                    })
-                                  ]
-                                )
-                              })
-                            ],
-                            2
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("li", [
-                        _vm._v(
-                          _vm._s(
-                            _vm.$t(
-                              "Don't worry about punctuation or typos, just write down what you read."
-                            )
-                          )
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _vm.preImaginaryConfig.countdownAtStart === false
-                        ? _c("li", {
-                            domProps: {
-                              innerHTML: _vm._s(_vm.timeLimitTypeStart)
-                            }
-                          })
-                        : _c("li", {
-                            domProps: {
-                              innerHTML: _vm._s(_vm.timeLimitAutoStart)
-                            }
-                          })
-                    ])
-                  ]
-                ),
+                  on: {
+                    click: function($event) {
+                      return _vm.copyPostRecallInstructionHtml()
+                    }
+                  }
+                }),
                 _vm._v(" "),
                 _c(
                   "button",
@@ -551,7 +371,7 @@ var render = function() {
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
-                        return _vm.copyPostRecallHtml()
+                        return _vm.copyPostRecallInstructionHtml()
                       }
                     }
                   },
@@ -1974,7 +1794,7 @@ let ArticleInformation = {
       let $section = jquery__WEBPACK_IMPORTED_MODULE_0___default()('section.SectionPreImaginary.instruction').clone()
       this.copyHTML($section)
     },
-    copyPostRecallHtml: async function () {
+    copyPostRecallInstructionHtml: async function () {
       //let section = this.$refs.SectionPreImaginary
       let $section = jquery__WEBPACK_IMPORTED_MODULE_0___default()('section.SectionPostRecall.instruction').clone()
       this.copyHTML($section)

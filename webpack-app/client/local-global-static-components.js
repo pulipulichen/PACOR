@@ -19,3 +19,7 @@ Vue.component('notification-icon', () => {
 Vue.component('user-filter', () => {
   return import(/* webpackChunkName: "client-components/GlobalComponents" */ './Reading/components/search/UserFilter/UserFilter.vue')
 })
+
+Vue.component('user-filter', () => {
+  return import(/* webpackChunkName: "client-components/GlobalComponents" */ './Reading/components/search/UserFilter/UserFilter.vue')
+})

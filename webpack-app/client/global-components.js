@@ -131,6 +131,16 @@ Vue.component('iframe-message-segment', () => {
 
 // --------------------
 
+Vue.component('pre-imaginary-message', () => {
+  return import(/* webpackChunkName: "client-components/GlobalComponents" */ './../components/reading-progress/PreImaginaryMessage/PreImaginaryMessage.vue')
+})
+
+Vue.component('post-recall-message', () => {
+  return import(/* webpackChunkName: "client-components/GlobalComponents" */ './../components/reading-progress/PostRecallMessage/PostRecallMessage.vue')
+})
+
+// --------------------
+
 Vue.component('HTMLEditor', () => {
   return import(/* webpackChunkName: "vendors/HTMLEditor" */ './../components/annotation/HTMLEditor/HTMLEditor.vue')
 })
