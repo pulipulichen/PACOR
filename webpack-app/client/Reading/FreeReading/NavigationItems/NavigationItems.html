@@ -74,6 +74,7 @@
       </div>
       
       <a class="item in-vertical article-information-item"
+         v-if="lib.auth.isAdmin"
          v-on:click="$refs.ArticleInformation.show()">
          <i class="file alternate icon"></i>
          {{ $t('Article Information') }}

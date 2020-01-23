@@ -735,26 +735,28 @@ var render = function() {
                         1
                       ),
                       _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass:
-                            "item in-vertical article-information-item",
-                          on: {
-                            click: function($event) {
-                              return _vm.$refs.ArticleInformation.show()
-                            }
-                          }
-                        },
-                        [
-                          _c("i", { staticClass: "file alternate icon" }),
-                          _vm._v(
-                            "\r\n         " +
-                              _vm._s(_vm.$t("Article Information")) +
-                              "\r\n      "
+                      _vm.lib.auth.isAdmin
+                        ? _c(
+                            "a",
+                            {
+                              staticClass:
+                                "item in-vertical article-information-item",
+                              on: {
+                                click: function($event) {
+                                  return _vm.$refs.ArticleInformation.show()
+                                }
+                              }
+                            },
+                            [
+                              _c("i", { staticClass: "file alternate icon" }),
+                              _vm._v(
+                                "\r\n         " +
+                                  _vm._s(_vm.$t("Article Information")) +
+                                  "\r\n      "
+                              )
+                            ]
                           )
-                        ]
-                      ),
+                        : _vm._e(),
                       _vm._v(" "),
                       _c("about-item", {
                         attrs: {
@@ -814,7 +816,7 @@ var render = function() {
               ],
               null,
               false,
-              3764139298
+              217849511
             )
           })
         : _vm._e(),
