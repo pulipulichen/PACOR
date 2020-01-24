@@ -3678,13 +3678,14 @@ var render = function() {
       { staticClass: "ui basic icon buttons" },
       _vm._l(_vm.pageConfig.maxPage, function(i) {
         return _c(
-          "button",
+          "a",
           {
             staticClass: "ui button",
             class: { active: i === _vm.pageConfig.page },
+            attrs: { href: _vm.pageLink(i) },
             on: {
-              click: function($event) {
-                return _vm.changePage(i)
+              click: function(event) {
+                _vm.changePage(i, event)
               }
             }
           },
@@ -13492,19 +13493,30 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let Pagination = {
-  props: ['pageConfig'],
+  props: ['pageConfig', 'buildPageLink'],
   data() {
     return {
     }
   },
   methods: {
-    changePage: function (i) {
+    changePage: function (i, event) {
+      event.stopPropagation()
+      event.preventDefault()
+      
       //console.log(i, this.pageConfig.page)
       if (i === this.pageConfig.page) {
         return false
       }
       this.pageConfig.page = i
     },
+    pageLink(i) {
+      if (typeof(this.buildPageLink) === 'function') {
+        return this.buildPageLink(i)
+      }
+      else {
+        return undefined
+      }
+    }
   } // methods
 }
 

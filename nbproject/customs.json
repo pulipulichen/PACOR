@@ -2,6 +2,7 @@
   "elements": {
     "pagination": {
       "attributes": {
+        "v-bind:buildPageLink": {},
         "v-bind:pageConfig": {}
       }
     },

@@ -427,7 +427,9 @@ var render = function() {
     "div",
     { staticClass: "ui form" },
     [
-      _c("pagination", { attrs: { pageConfig: _vm.pageConfig } }),
+      _c("pagination", {
+        attrs: { pageConfig: _vm.pageConfig, buildPageLink: _vm.buildPageLink }
+      }),
       _vm._v(" "),
       _c("table", { staticClass: "ui unstackable table" }, [
         _c("thead", [
@@ -590,7 +592,9 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("pagination", { attrs: { pageConfig: _vm.pageConfig } })
+      _c("pagination", {
+        attrs: { pageConfig: _vm.pageConfig, buildPageLink: _vm.buildPageLink }
+      })
     ],
     1
   )
@@ -1089,8 +1093,11 @@ let WebpageList = {
   },
 //  components: {
 //  },
-//  computed: {
-//  },
+  computed: {
+    domainID () {
+      return this.$route.params.domainID
+    }
+  },
   watch: {
     'status.domain': function () {
       let title = this.$t('Webpage Management')
@@ -1104,7 +1111,7 @@ let WebpageList = {
         let currentPage = this.$route.params.page
         if (isNaN(currentPage) === true
                 || parseInt(currentPage, 10) !== this.pageConfig.page) {
-          this.$router.push('/webpage/list/' + this.pageConfig.page)
+          this.$router.push(`/webpage/${this.$route.params.domainID}/list/` + this.pageConfig.page)
           localStorage.setItem('WebpageList.pageConfig.page', this.pageConfig.page)
           this.list()
         }
@@ -1186,7 +1193,9 @@ let WebpageList = {
       this.webpages[index].isChanged = false
       this.$forceUpdate()
     },
-
+    buildPageLink(i) {
+      return `/webpage/${this.$route.params.domainID}/list/` + i
+    }
     
   } // methods
 }
