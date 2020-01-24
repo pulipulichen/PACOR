@@ -10,10 +10,10 @@ let Webpage = {
       componentView: null
     }
   },
-  components: {
-  },
-  computed: {
-  },
+//  components: {
+//  },
+//  computed: {
+//  },
   watch: {
     '$route.params.action': function () {
       this.switchCompnent(this.$route.params.action)

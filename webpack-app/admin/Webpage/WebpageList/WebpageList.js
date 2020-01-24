@@ -15,7 +15,16 @@ let WebpageList = {
   },
 //  components: {
 //  },
-  computed: {
+//  computed: {
+//  },
+  watch: {
+    'status.domain': function () {
+      let title = this.$t('Webpage Management')
+      if (this.status.domain !== '') {
+        title = title + '(' + this.status.domain + ')'
+      }
+      this.status.title = title
+    },
     'pageConfig.page': function () {
       if (isNaN(this.pageConfig.page) === false) {
         let currentPage = this.$route.params.page
@@ -26,15 +35,6 @@ let WebpageList = {
           this.list()
         }
       }
-    }
-  },
-  watch: {
-    'status.domain': function () {
-      let title = this.$t('Webpage Management')
-      if (this.status.domain !== '') {
-        title = title + '(' + this.status.domain + ')'
-      }
-      this.status.title = title
     }
   },
   mounted() {
@@ -61,6 +61,8 @@ let WebpageList = {
         else {
           this.pageConfig.page = 1
         }
+        
+        console.log(this.$route.params, this.$route.params.page, this.pageConfig.page)
       }
       else {
         this.pageConfig.page = parseInt(this.$route.params.page, 10)
