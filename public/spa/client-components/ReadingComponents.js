@@ -7650,6 +7650,7 @@ const Timeout = _util__WEBPACK_IMPORTED_MODULE_0__["default"].Timeout
   },
   methods: {
     clickItem: function (event) {
+      //console.log(event)
       if (this.clickLock === true) {
         return undefined
       }

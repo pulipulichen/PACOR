@@ -141,6 +141,7 @@ export default {
   },
   methods: {
     clickItem: function (event) {
+      //console.log(event)
       if (this.clickLock === true) {
         return undefined
       }
