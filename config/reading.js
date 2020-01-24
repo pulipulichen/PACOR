@@ -257,6 +257,7 @@ module.exports = {
       'enableQuickAdd': true,
       'addable': true,
       'minWords': 1,
+      'noteMustBeEdited': true,
       'placeholder': 'Why do you think it is a main idea?',
       'instruction': {
         'summary': 'Highlight key keywords or concepts',
@@ -280,6 +281,7 @@ module.exports = {
     'SectionMainIdea': {
       'addable': false,
       'minWords': 1,
+      'noteMustBeEdited': true,
       'placeholder': 'What do you think are the main ideas of this section?',
       'instruction': {
         'summary': 'Highlight keywords or concepts in this section',

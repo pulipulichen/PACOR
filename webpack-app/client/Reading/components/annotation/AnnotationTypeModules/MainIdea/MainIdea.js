@@ -79,7 +79,13 @@ let Editor = {
       //if (this.isNoteDifferent === true
       //        && typeof(this.note) === 'string'
       //        && this.note !== '') {
-      if (typeof(this.note) === 'string'
+      let isNoteDifferent = this.isNoteDifferent
+      if (this.annotationModuleConfig.noteMustBeEdited !== true) {
+        isNoteDifferent = true
+      }
+      
+      if (isNoteDifferent === true 
+              && typeof(this.note) === 'string'
               && this.note !== '') {
         return true
       }
