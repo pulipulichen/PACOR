@@ -17,7 +17,7 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
+const ioc = require('@adonisjs/fold').ioc
+const { HttpException } = use('@adonisjs/generic-exceptions') 
 
-use('./routes/admin.js')
-use('./routes/client.js')
-use('./routes/2020exp.js')
+// --------------------
