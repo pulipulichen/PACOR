@@ -32,6 +32,9 @@ let SectionManager = {
       else {
         return {}
       }
+    },
+    isArticleNote () {
+      return (this.sectionNodes.length === 1)
     }
   },
   watch: {

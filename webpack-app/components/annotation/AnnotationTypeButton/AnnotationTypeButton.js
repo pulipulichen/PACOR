@@ -1,5 +1,5 @@
 let AnnotationTypeButton = {
-  props: ['status', 'type', 'count', 'clickable'],
+  props: ['status', 'lib', 'type', 'count', 'clickable'],
   data() {
     return {
     }
@@ -9,7 +9,16 @@ let AnnotationTypeButton = {
       if (!this.type) {
         return this.$t('All')
       }
-      return this.$t('ANNOTATION_TYPE.' + this.type)
+      
+      let name = this.$t('ANNOTATION_TYPE.' + this.type)
+      
+      if (this.type === 'SectionMainIdea' 
+              && this.lib.SectionManager
+              && this.lib.SectionManager.isArticleNode) {
+        name = this.$t('ANNOTATION_TYPE.ArticleMainIdea')
+      }
+      
+      return name
     },
     computedStyle () {
       if (!this.type) {

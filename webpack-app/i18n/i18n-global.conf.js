@@ -27,6 +27,7 @@ let i18nGlobal = {
     "ANNOTATION_TYPE.Confused": "Confused",
     "ANNOTATION_TYPE.Clarified": "Clearified",
     "ANNOTATION_TYPE.SectionMainIdea": "Section Main Idea",
+    "ANNOTATION_TYPE.ArticleMainIdea": "Article Main Idea",
     '{0}0K': '{0}0K',
     '{0}K': '{0}K',
     '.{0}K': '.{0}K'
@@ -82,6 +83,7 @@ let i18nGlobal = {
     "ANNOTATION_TYPE.Confused": "疑問",
     "ANNOTATION_TYPE.Clarified": "已釐清",
     "ANNOTATION_TYPE.SectionMainIdea": "小節重點",
+    "ANNOTATION_TYPE.ArticleMainIdea": "文章重點",
     "{0} sec": "{0}秒",
     "{0} Annotations": "{0}篇標註",
     "Total {0} Annotations": "總共{0}篇標註",

@@ -18,10 +18,20 @@
     v-on:click="openSectionAnnotationEditor"
     v-bind:style="computedSectionMainIdeaButtonStyle">
     <template v-if="isChecklistAnnotationSubmitted">
-      {{ $t('Edit section main ideas') }}
+      <template v-if="lib.SectionManager.isArticleNote">
+        {{ $t('Edit article main ideas') }}
+      </template>
+      <template v-else>
+        {{ $t('Edit section main ideas') }}
+      </template>
     </template>
     <template v-else>
-      {{ $t('Write section main ideas') }}
+      <template v-if="lib.SectionManager.isArticleNote">
+        {{ $t('Write article main ideas') }}
+      </template>
+      <template v-else>
+        {{ $t('Write section main ideas') }}
+      </template>
     </template>
   </button>
 
@@ -53,7 +63,10 @@
             type="checkbox"
             v-bind:checked="isChecklistAnnotationSubmitted"
             v-on:click.prevent.stop="()=>{openSectionAnnotationEditor()}" />
-          <label>
+          <label v-if="lib.SectionManager.isArticleNote">
+            {{ $t('I have already written the main ideas of this article.') }}
+          </label>
+          <label v-else>
             {{ $t('I have already written the main ideas of this section.') }}
           </label>
         </div>

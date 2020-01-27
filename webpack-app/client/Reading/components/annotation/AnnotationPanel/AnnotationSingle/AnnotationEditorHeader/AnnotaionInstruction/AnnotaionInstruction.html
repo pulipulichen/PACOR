@@ -25,6 +25,7 @@
       <template v-slot:header>
         <span class="summary-title-container">
           <annotation-type-button 
+            v-bind:lib="lib"
             v-bind:status="status"
             v-bind:style="{'margin-right': '1em', 'vertical-align': 'middle'}"
             v-bind:type="type">

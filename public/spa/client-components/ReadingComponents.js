@@ -377,7 +377,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Check list":"檢核單","Write section main ideas":"撰寫小節重點","Edit section main ideas":"編輯小節重點","I have already read this section.":"我已經讀完了這一節的內容。","I have already written annotations on a sentence I don\u0027t understand.":"我看不懂的地方，已經用「疑問」標示了。","I have already written the main ideas of this section.":"我已經寫完小節重點了。","Please finish checklist.":"請完成這份檢核單","I have read this section!":"我已經讀完這一節了！"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Check list":"檢核單","Write section main ideas":"撰寫小節重點","Edit section main ideas":"編輯小節重點","I have already read this section.":"我已經讀完了這一節的內容。","I have already written annotations on a sentence I don\u0027t understand.":"我看不懂的地方，已經用「疑問」標示了。","I have already written the main ideas of this section.":"我已經寫完小節重點了。","Please finish checklist.":"請完成這份檢核單","I have read this section!":"我已經讀完這一節了！","Write article main ideas":"撰寫文章重點","Edit article main ideas":"編輯文章重點","I have already read this article.":"我已經讀完了這篇文章的內容。","I have already written the main ideas of this article.":"我已經寫完文章重點了。","I have read this article!":"我已經讀完這篇文章了！"}}')
   delete Component.options._Ctor
 }
 
@@ -2733,7 +2733,11 @@ var render = function() {
                         "margin-right": "1em",
                         "vertical-align": "middle"
                       },
-                      attrs: { status: _vm.status, type: _vm.type }
+                      attrs: {
+                        lib: _vm.lib,
+                        status: _vm.status,
+                        type: _vm.type
+                      }
                     }),
                     _vm._v(" "),
                     _c("span", { staticClass: "summary" }, [
@@ -2858,7 +2862,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("annotation-type-button", {
-        attrs: { status: _vm.status, type: _vm.annotation.type },
+        attrs: { lib: _vm.lib, status: _vm.status, type: _vm.annotation.type },
         on: {
           find: function() {
             _vm.$emit("showInstruction")
@@ -4229,18 +4233,38 @@ var render = function() {
       [
         _vm.isChecklistAnnotationSubmitted
           ? [
-              _vm._v(
-                "\r\n      " +
-                  _vm._s(_vm.$t("Edit section main ideas")) +
-                  "\r\n    "
-              )
+              _vm.lib.SectionManager.isArticleNote
+                ? [
+                    _vm._v(
+                      "\r\n        " +
+                        _vm._s(_vm.$t("Edit article main ideas")) +
+                        "\r\n      "
+                    )
+                  ]
+                : [
+                    _vm._v(
+                      "\r\n        " +
+                        _vm._s(_vm.$t("Edit section main ideas")) +
+                        "\r\n      "
+                    )
+                  ]
             ]
           : [
-              _vm._v(
-                "\r\n      " +
-                  _vm._s(_vm.$t("Write section main ideas")) +
-                  "\r\n    "
-              )
+              _vm.lib.SectionManager.isArticleNote
+                ? [
+                    _vm._v(
+                      "\r\n        " +
+                        _vm._s(_vm.$t("Write article main ideas")) +
+                        "\r\n      "
+                    )
+                  ]
+                : [
+                    _vm._v(
+                      "\r\n        " +
+                        _vm._s(_vm.$t("Write section main ideas")) +
+                        "\r\n      "
+                    )
+                  ]
             ]
       ],
       2
@@ -4319,17 +4343,29 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _c("label", [
-                        _vm._v(
-                          "\r\n            " +
-                            _vm._s(
-                              _vm.$t(
-                                "I have already written the main ideas of this section."
-                              )
-                            ) +
-                            "\r\n          "
-                        )
-                      ])
+                      _vm.lib.SectionManager.isArticleNote
+                        ? _c("label", [
+                            _vm._v(
+                              "\r\n            " +
+                                _vm._s(
+                                  _vm.$t(
+                                    "I have already written the main ideas of this article."
+                                  )
+                                ) +
+                                "\r\n          "
+                            )
+                          ])
+                        : _c("label", [
+                            _vm._v(
+                              "\r\n            " +
+                                _vm._s(
+                                  _vm.$t(
+                                    "I have already written the main ideas of this section."
+                                  )
+                                ) +
+                                "\r\n          "
+                            )
+                          ])
                     ])
                   ]
                 )
@@ -26082,6 +26118,9 @@ let SectionManager = {
       else {
         return {}
       }
+    },
+    isArticleNote () {
+      return (this.sectionNodes.length === 1)
     }
   },
   watch: {
@@ -27066,7 +27105,12 @@ __webpack_require__.r(__webpack_exports__);
   }
   SectionChecklist.computed.computedSubmitButtonText = function () {
     if (this.isChecklistCompleted) {
-      return this.$t('I have read this section!')
+      if (this.lib.SectionManager.isArticleNode) {
+        return this.$t('I have read this section!')
+      }
+      else {
+        return this.$t('I have read this article!')
+      }
     } else {
       return this.$t('Please finish checklist.')
     }

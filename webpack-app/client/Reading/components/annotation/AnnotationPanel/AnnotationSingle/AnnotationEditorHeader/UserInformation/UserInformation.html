@@ -8,6 +8,7 @@
   </div>
   
   <annotation-type-button 
+    v-bind:lib="lib"
     v-bind:status="status"
     v-bind:type="annotation.type"
     v-on:find="() => {$emit('showInstruction')}">
