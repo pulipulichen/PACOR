@@ -2815,7 +2815,8 @@ var render = function() {
             attrs: {
               annotation: _vm.annotation,
               config: _vm.config,
-              status: _vm.status
+              status: _vm.status,
+              lib: _vm.lib
             },
             on: {
               showInstruction: function() {
@@ -11566,7 +11567,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let UserInformation = {
-  props: ['config', 'status', 'annotation'],
+  props: ['config', 'status', 'lib',  'annotation'],
   data() {    
     //this.$i18n.locale = this.config.locale
     return {
@@ -27105,7 +27106,7 @@ __webpack_require__.r(__webpack_exports__);
   }
   SectionChecklist.computed.computedSubmitButtonText = function () {
     if (this.isChecklistCompleted) {
-      if (this.lib.SectionManager.isArticleNode) {
+      if (this.lib.SectionManager.isArticleNote) {
         return this.$t('I have read this section!')
       }
       else {

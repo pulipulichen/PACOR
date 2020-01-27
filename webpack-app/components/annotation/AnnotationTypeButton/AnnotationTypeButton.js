@@ -12,9 +12,10 @@ let AnnotationTypeButton = {
       
       let name = this.$t('ANNOTATION_TYPE.' + this.type)
       
+      //console.log(this.lib.SectionManager.isArticleNode)
       if (this.type === 'SectionMainIdea' 
               && this.lib.SectionManager
-              && this.lib.SectionManager.isArticleNode) {
+              && this.lib.SectionManager.isArticleNote) {
         name = this.$t('ANNOTATION_TYPE.ArticleMainIdea')
       }
       
