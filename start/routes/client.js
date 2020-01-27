@@ -17,8 +17,7 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
-const ioc = require('@adonisjs/fold').ioc
-const { HttpException } = use('@adonisjs/generic-exceptions') 
+const controllerMapping = use('./lib/controllerMapping.js')
 
 // --------------------
 
