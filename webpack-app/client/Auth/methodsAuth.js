@@ -150,7 +150,8 @@ export default function (Auth) {
     //}, 0)
     
   }
-  Auth.methodsgetHighlightAnnotationType = function (annotation) {
+  
+  Auth.methods.getHighlightAnnotationType = function (annotation) {
     let type = annotation.type
     if (annotation.user_id === this.status.userID) {
       type = 'my-' + type
@@ -159,6 +160,11 @@ export default function (Auth) {
     }
     return type
   }
+  
+  Auth.methods.getAnnotationTypeModulesConfig = function (type) {
+    return this.status.readingConfig.annotationTypeModules[type]
+  }
+  
   Auth.methods.isEditable = function (instance) {
     if (!instance || typeof (instance.id) !== 'number') {
       return true

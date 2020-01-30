@@ -1326,7 +1326,8 @@ __webpack_require__.r(__webpack_exports__);
     //}, 0)
     
   }
-  Auth.methodsgetHighlightAnnotationType = function (annotation) {
+  
+  Auth.methods.getHighlightAnnotationType = function (annotation) {
     let type = annotation.type
     if (annotation.user_id === this.status.userID) {
       type = 'my-' + type
@@ -1335,6 +1336,11 @@ __webpack_require__.r(__webpack_exports__);
     }
     return type
   }
+  
+  Auth.methods.getAnnotationTypeModulesConfig = function (type) {
+    return this.status.readingConfig.annotationTypeModules[type]
+  }
+  
   Auth.methods.isEditable = function (instance) {
     if (!instance || typeof (instance.id) !== 'number') {
       return true
@@ -3611,16 +3617,22 @@ __webpack_require__.r(__webpack_exports__);
 
     //if (i % 2 === 0) {
     let t = i % 4
+    let baseMargin = 0
+    
+    if (this.status.readingConfig.annotationTypeModules.MainIdea.enableQuickAdd === true) {
+      baseMargin = 1
+    }
+    
     if (t === 0 || t === 3) {
       // 選擇重點
-      typeItemSelector = typeItemSelector + ':eq(0)'
+      typeItemSelector = typeItemSelector + `:eq(${0 + baseMargin})`
     }
     else if (t === 1) {
-      typeItemSelector = typeItemSelector + ':eq(1)'
+      typeItemSelector = typeItemSelector + `:eq(${1 + baseMargin})`
     }
     else if (t === 2) {
       // 選擇已澄清
-      typeItemSelector = typeItemSelector + ':eq(1)'
+      typeItemSelector = typeItemSelector + `:eq(${1 + baseMargin})`
     }
     
     await this.waitForElementVisibleClick(typeItemSelector, {

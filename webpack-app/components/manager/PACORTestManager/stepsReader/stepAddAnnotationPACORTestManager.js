@@ -85,16 +85,22 @@ export default function (PACORTestManager) {
 
     //if (i % 2 === 0) {
     let t = i % 4
+    let baseMargin = 0
+    
+    if (this.status.readingConfig.annotationTypeModules.MainIdea.enableQuickAdd === true) {
+      baseMargin = 1
+    }
+    
     if (t === 0 || t === 3) {
       // 選擇重點
-      typeItemSelector = typeItemSelector + ':eq(0)'
+      typeItemSelector = typeItemSelector + `:eq(${0 + baseMargin})`
     }
     else if (t === 1) {
-      typeItemSelector = typeItemSelector + ':eq(1)'
+      typeItemSelector = typeItemSelector + `:eq(${1 + baseMargin})`
     }
     else if (t === 2) {
       // 選擇已澄清
-      typeItemSelector = typeItemSelector + ':eq(1)'
+      typeItemSelector = typeItemSelector + `:eq(${1 + baseMargin})`
     }
     
     await this.waitForElementVisibleClick(typeItemSelector, {

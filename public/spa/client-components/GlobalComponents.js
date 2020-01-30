@@ -8927,8 +8927,13 @@ let AnnotationTypeButton = {
       
       let name = this.$t('ANNOTATION_TYPE.' + this.type)
       
+      if (!this.lib) {
+        console.trace('this.lib is not defined.')
+      }
+      
       //console.log(this.lib.SectionManager.isArticleNode)
       if (this.type === 'SectionMainIdea' 
+              && this.lib
               && this.lib.SectionManager
               && this.lib.SectionManager.isArticleNote) {
         name = this.$t('ANNOTATION_TYPE.ArticleMainIdea')
