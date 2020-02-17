@@ -113,7 +113,7 @@ export default function (CollaborativeReading) {
     this.lib.NotificationManager.showFull()
   }
   
-  CollaborativeReading.methods._testVerticalMenu = async function () {
+  CollaborativeReading.methods._testShowVerticalMenu = async function () {
     console.log('@TEST _testVerticalMenu')
     await this.lib.VueHelper.sleep(1000)
 

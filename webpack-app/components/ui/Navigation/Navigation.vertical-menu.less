@@ -56,7 +56,21 @@
   .close.item {
     cursor: pointer;
     line-height: inherit;
+    
+    // for bootstrap
+    float: none;
+    opacity: 1;
+    text-shadow: none;
+    font-size: inherit;
     //border-bottom: 1px solid #ccc;
+    
+    ::v-deep a.item:hover {
+      background: transparent !important;
+    }
+    
+    .close.icon {
+      color: inherit;
+    }
 
     img {
       width: 1.5em;

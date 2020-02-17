@@ -23,7 +23,7 @@ let CollaborativeReading = {
     // 以下是測試
     
     //this._testUserFilter()
-    //await this._testVerticalMenu()
+    //await this._testShowVerticalMenu()
     //this._testSearch()
     //this._testErrorAuth()
     //this._testTutorial()
