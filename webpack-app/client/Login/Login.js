@@ -87,7 +87,12 @@ let Login = {
       }
     },
     logoURL () {
-      return this.config.baseURL + this.status.readingConfig.login.logo
+      //console.log(this.status.readingConfig)
+      if (this.status.readingConfig 
+              && this.status.readingConfig.login
+              && this.status.readingConfig.login.logo) {
+        return this.config.baseURL + this.status.readingConfig.login.logo
+      }
     }
   },
   components: {
