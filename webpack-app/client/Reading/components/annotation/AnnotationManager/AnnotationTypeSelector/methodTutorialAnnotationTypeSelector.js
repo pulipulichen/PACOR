@@ -42,14 +42,14 @@ export default function (AnnotationTypeSelector) {
           this.lib.RangyManager.restoreLastSelectDemoText()
         }
         
-        let element = $el.find('.MainIdea > .fabMask:first')
+        let element = $el.find('.MainIdea:not(.quick-add) > .fabMask')
         //console.log({'MainIdea fabMask': element.length})
         await this.lib.TutorialManager.showClick(element)
         
-        let elements = $el.find('.MainIdea > .fabMask,.MainIdea > .fab-item-title')
+        let elements = $el.find(`.MainIdea:not(.quick-add) > .fabMask,.MainIdea:not(.quick-add) > .fab-item-title`)
         //console.log(element.length, element)
         //console.log('這時候好像就沒有選取了，為什麼呢？')
-        return elements
+        return elements/
       },
       content: this.$t(`For example, if you choose "Main Idea" type.`),
       order: 22,
