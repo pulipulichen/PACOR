@@ -49,7 +49,7 @@ export default function (AnnotationTypeSelector) {
         let elements = $el.find(`.MainIdea:not(.quick-add) > .fabMask,.MainIdea:not(.quick-add) > .fab-item-title`)
         //console.log(element.length, element)
         //console.log('這時候好像就沒有選取了，為什麼呢？')
-        return elements/
+        return elements
       },
       content: this.$t(`For example, if you choose "Main Idea" type.`),
       order: 22,
