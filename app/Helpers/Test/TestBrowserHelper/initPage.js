@@ -26,12 +26,14 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
     if (!sizeOptions) {
       chromeArgs = [
         '--start-maximized',
+        '--no-sandbox'
         //'--app',
         //'--kiosk'
       ]
     }
     else {
       chromeArgs = [
+        '--no-sandbox',
         `--window-size=${sizeOptions.width},${sizeOptions.height}`,
         `--window-position=${sizeOptions.left},${sizeOptions.top}`,
       ]
@@ -42,13 +44,50 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
     //  chromeArgs.push('--user-data-dir=test/profiles/TestProfile_' + index + '_' + (new Date()).getTime())
     //}
     
+    
+    
+    let defaultViewport = null
+    if (headless === true) {
+      chromeArgs = chromeArgs.concat([
+      '--no-sandbox',
+      '--allow-http-background-page',
+      '--disable-background-timer-throttling',
+      '--headless',
+      '--no-zygote',
+      //'--crash-test', // Causes the browser process to crash on startup, useful to see if we catch that correctly
+      // not idea if those 2 aa options are usefull with disable gl thingy
+      '--disable-canvas-aa', // Disable antialiasing on 2d canvas
+      '--disable-2d-canvas-clip-aa', // Disable antialiasing on 2d canvas clips
+      '--disable-gl-drawing-for-tests', // BEST OPTION EVER! Disables GL drawing operations which produce pixel output. With this the GL output will not be correct but tests will run faster.
+      '--disable-dev-shm-usage', // ???
+      '--no-zygote', // wtf does that mean ?
+      '--use-gl=swiftshader', // better cpu usage with --use-gl=desktop rather than --use-gl=swiftshader, still needs more testing.
+      '--enable-webgl',
+      '--hide-scrollbars',
+      '--mute-audio',
+      '--no-first-run',
+      '--disable-infobars',
+      '--disable-breakpad',
+      //'--ignore-gpu-blacklist',
+      '--window-size=1280,1024', // see defaultViewport
+      '--user-data-dir=./chromeData', // created in index.js, guess cache folder ends up inside too.
+      '--no-sandbox', // meh but better resource comsuption
+      '--disable-setuid-sandbox',
+      "--proxy-server='direct://'", 
+      '--proxy-bypass-list=*'
+    ])
+      
+      displayDevTools = false
+      defaultViewport = {width: 1280, height: 882}
+    }
+    
     // 畫面大小是800 x 600
     await browser.launch({
-      headless,
+      headless: false,
       //dumpio: true,  // Log all browser console messages to the terminal.
       devtools: displayDevTools,
       //pipe: true,
-      defaultViewport: null,  // 這樣就不會限定視窗大小了
+      defaultViewport: defaultViewport,  // 這樣就不會限定視窗大小了
 
       // https://peter.sh/experiments/chromium-command-line-switches/
       args: chromeArgs,
@@ -62,7 +101,14 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
   let visitRetryLimit = 10
   for (let i = 0; i < visitRetryLimit; i++) {
     try {
-      page = await browser.visit(url)
+      page = await browser.visit(url, () => {}, {
+        timeout: 0
+      })
+      
+//      page = await browser.visit(url, {
+//        waitUntil: 'load'
+//      })
+      
       if (headless === false) {
         await closeBlankPage(page)
       }
@@ -73,6 +119,7 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
       
       if (i < visitRetryLimit - 1) {
         console.log(`[${index}] browser.visit() failed (${i}): ${url}`)
+        console.error(e)
       }
       else {
         let name = 'browser.visit(): ' + headless

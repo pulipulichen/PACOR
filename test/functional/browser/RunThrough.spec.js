@@ -16,7 +16,7 @@ const TestOptions = {
   //threads: 40,  // 10個錯誤
   maxShowThreads: 9,
   mode: 'parallel',
-  headless: false,
+  headless: true,
   //headless: false,
   //stopAt: 'c1. pre image',
   //stopAt: 'e2. 隨意寫標註',
@@ -32,6 +32,18 @@ const TestOptions = {
   //manualReader: true,
   //manualAdmin: true
 }
+
+// 每次大型功能開發完都要做這個確認
+/*
+TestOptions = {
+  threads: 15,  // 10個錯誤
+  mode: 'parallel',
+  headless: false,
+  displayDevTools: false,
+  groupSize: 6,
+  webpageConfig,
+}
+*/
 
 // ------------------------
 
@@ -64,9 +76,11 @@ const Env = use('Env')
 
 //const uri = '/test-lorem-ipsum?r=' + (new Date()).getTime().toString(36)
 const uri = '/demo-articles/test-lorem-ipsum-2sections.html?r=' + (new Date()).getTime().toString(36)
+//const uri = '/admin'
 
 //const url = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT') + uri
-const url = Env.get('PROTOCOL') + '//' + Env.get('HOST') + ':' + 3333 + uri
+const url = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + 3333 + uri
+//const url = Env.get('PROTOCOL') + '//' + Env.get('HOST') + ':' + 3333 + uri
 //const url = 'http://blog.pulipuli.info'
 
 //console.log(url)
@@ -91,6 +105,9 @@ let config = {
 //            .click('div.ui.button.login-submit:not(.disabled)')
 
     await page.assertFn(async function () {
+      // 要先等到PACORTestManager讀取完成
+      console.log({PACORTestManager: typeof(PACORTestManager)})
+      
       await PACORTestManager.login()
     })
     
