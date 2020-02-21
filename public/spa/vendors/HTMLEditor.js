@@ -935,7 +935,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/summernote.eot";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/summernote.eot";
 
 /***/ }),
 
@@ -946,7 +946,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/summernote.eot";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/summernote.ttf";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/summernote.ttf";
 
 /***/ }),
 
@@ -957,7 +957,7 @@ module.exports = "http://127.0.0.1:3333/spa/asset/summernote.ttf";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/summernote.woff";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/summernote.woff";
 
 /***/ }),
 

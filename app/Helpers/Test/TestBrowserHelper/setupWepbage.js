@@ -13,29 +13,18 @@ let setupWepbage = async function ({headless, args, webpageConfig, webpageGroup,
     logManager, displayDevTools,
     webpageConfig, webpageGroup
   })
+  //console.log('initPage ok')
   
   //await page.assertFn(async () => {
   //  document.title = '[ADMIN] ' + document.title
   //})
   
   
-  //await Sleep(3)
+  await Sleep(5) // 在這裡要確保PACORTestManager有正常載入
   try {
     await page.assertFn(async () => {
-      // 在這裡要確保PACORTestManager有正常載入
-      let exec = async () => {
-        if (typeof(PACORTestManager) === 'object') {
-          await PACORTestManager.adminLogin()
-          await PACORTestManager.adminPanel()
-        }
-        else {
-          setTimeout(() => {
-            exec()
-          }, 100)
-        }
-      }
-      
-      exec()
+      await PACORTestManager.adminLogin()
+      await PACORTestManager.adminPanel()
     })
     
     //await Sleep(300)

@@ -9761,7 +9761,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://127.0.0.1:3333/spa/asset/digital-7.ttf";
+module.exports = "http://pc.pulipuli.info:3333/spa/asset/digital-7.ttf";
 
 /***/ }),
 

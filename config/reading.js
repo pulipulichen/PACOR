@@ -36,7 +36,8 @@ module.exports = {
      * 純文字
      * 網址
      */
-    message: '/instruction/login/Login.html',
+    //message: '/instruction/login/Login.html',
+    message: 'ok',
     
     /**
      * @argument {Boolean} name 

@@ -179,12 +179,15 @@ let TestBrowserHelper = function (title, url, config, options) {
       }
       
       if (webpageConfig || webpageGroup) {
-        //await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools: true, webpageGroup, manualAdmin})
+        await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools: true, webpageGroup, manualAdmin})
         //return false
       }
       
       // 偵測尺寸
-      let screenSize = await detectScreenSize(browser)
+      let screenSize
+      if (headless === false) {
+        screenSize = await detectScreenSize(browser)
+      }
       
       let errors = []
       await Promise.all(ary.map(async (i) => {

@@ -53,20 +53,20 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
       // https://peter.sh/experiments/chromium-command-line-switches/
       args: chromeArgs,
       ignoreHTTPSErrors: true,
-      timeout: 3000,
+      timeout: 0,
     })
   //}
   
   
   //if (!sizeOptions) {
-  let visitRetryLimit = 2
+  let visitRetryLimit = 10
   for (let i = 0; i < visitRetryLimit; i++) {
     try {
       page = await browser.visit(url)
-      //if (headless === false) {
-      //  await closeBlankPage(page)
-      //}
-      console.log('visit ok', url)
+      if (headless === false) {
+        await closeBlankPage(page)
+      }
+      //console.log('visit ok', url)
       break
     }
     catch (e) {
