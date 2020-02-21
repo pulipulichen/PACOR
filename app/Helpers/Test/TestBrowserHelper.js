@@ -85,7 +85,7 @@ let TestBrowserHelper = function (title, url, config, options) {
     console.log('Force enable dev tools in 1 thread test')
   }
   
-  setTraitBrowser(trait, headless)
+  setTraitBrowser(trait, true)
   logManager.init(threads)
   let webpageGroup
   if (typeof(groupSize) === 'number') {
@@ -156,11 +156,11 @@ let TestBrowserHelper = function (title, url, config, options) {
         }
         
         let errors = []
+        let finalHeadless = headless
         let page = await initPage({headless: h, browser, url, index, logManager, displayDevTools, errors})
         if (page) {
           await excuteTest({config, args, page, errors, logManager})
 
-          let finalHeadless = headless
           if (forceShowIndexes.length > 0) {
             finalHeadless = false
           }
@@ -179,12 +179,16 @@ let TestBrowserHelper = function (title, url, config, options) {
       }
       
       if (webpageConfig || webpageGroup) {
-        await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools: true, webpageGroup, manualAdmin})
+        //await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools: true, webpageGroup, manualAdmin})
         //return false
       }
       
       // 偵測尺寸
-      let screenSize = await detectScreenSize(browser)
+      let screenSize = {
+        width: 800,
+        height: 600,
+      }
+      //let screenSize = await detectScreenSize(browser)
       
       let errors = []
       await Promise.all(ary.map(async (i) => {

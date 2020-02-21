@@ -43,7 +43,6 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
     //}
     
     // 畫面大小是800 x 600
-
     await browser.launch({
       headless,
       //dumpio: true,  // Log all browser console messages to the terminal.
@@ -61,10 +60,13 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
   //if (!sizeOptions) {
   try {
     page = await browser.visit(url)
-    await closeBlankPage(page)
+    if (headless === false) {
+      await closeBlankPage(page)
+    }
+    console.log('visit ok', url)
   }
   catch (e) {
-    let name = 'browser.visit()'
+    let name = 'browser.visit(): ' + headless
     let consolePrefix = `[${name}]`
     if (index !== undefined) {
       consolePrefix = `[${index}: ${name}] `
@@ -73,6 +75,7 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
     logManager.error(index, e)
 
     errors.push(consolePrefix + ' ' + e.message)
+    console.trace(e)
     return undefined
   }
   //}

@@ -237,7 +237,7 @@ let logManager = {
       
       if (isDirMade === false) {
         fs.mkdirSync(basedir)
-        console.log('\nLogs are saved in ' + basedir)
+        console.log('\nLog files have been saved at ' + basedir)
       }
       
       isDirMade = true
