@@ -18,15 +18,17 @@ export default function (PACORTestManager) {
       timeout: 3000
     })
     
-    await this.sleep(1000)
-    if ($('.AnnotationPanel .html-editor-container .note-editable').length === 0) {
+    // 等待Summernote載入
+    await this.sleep(5000)
+    
+    if ($('.AnnotationPanel .html-editor-container.editable').length === 0) {
       await this.waitForElementVisibleClick('.MainList .AnnotationItem.my-annotation:first .meta', {
         timeout: 3000
       })
     }
     
     await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .delete-button', {
-      timeout: 3000,
+      timeout: 5000,
       errorMessage: ' writeMainIdeaAnnotation 是不是資料沒有輸入？或是寫不夠長？'
     })
     
@@ -34,9 +36,16 @@ export default function (PACORTestManager) {
     
     await this.waitForElementVisibleClick('.ConfirmModal .ok.button')
     
+    await this.sleep(1000)
+    if ($('.AnnotationPanel .segment:visible').length !== 0) {
+      await this.waitForElementVisibleClick('.AnnotationPanel .close.icon', {
+        timeout: 5000
+      })
+    }
+    
     await this.waitForElementHidden('.AnnotationPanel .segment', {
       timeout: 3000,
-      errorMessage: '是不是傳送儲存花太多時間了？ writeMainIdeaAnnotation'
+      errorMessage: '刪除完後，AnnotationPanel沒有消失. deleteMainIdeaAnnotation'
     })
   }
 }

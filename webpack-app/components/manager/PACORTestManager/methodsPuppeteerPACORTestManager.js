@@ -78,14 +78,16 @@ export default function (PACORTestManager) {
       if (tagName === 'input'
               || tagName === 'textarea') {
         if (ele.val() === value) {
-          console.log('資料沒改變，重寫一次', this.getStackTraceString())
+          console.log('資料沒改變，重寫一次', selector)
+          console.log(this.getStackTraceString())
           await this.sleep(1000)
           return await this.typeInput(ele, text)
         }
       }
       else {
         if (ele.html() === value) {
-          console.log('資料沒改變，重寫一次', this.getStackTraceString())
+          console.log('資料沒改變，重寫一次', selector)
+          console.log(this.getStackTraceString())
           await this.sleep(1000)
           return await this.typeInput(ele, text)
         }

@@ -6,8 +6,11 @@ module.exports = {
     //forceMaxTimeoutMinutes: 0.2
     forceMaxTimeoutMinutes: 1,
     test: {
-      minAnnotation: 4,
-      maxAnnotation: 9
+      //minAnnotation: 4,
+      //maxAnnotation: 9
+      
+      minAnnotation: 1,
+      maxAnnotation: 1
     }
   },
   
@@ -36,8 +39,8 @@ module.exports = {
      * 純文字
      * 網址
      */
-    //message: '/instruction/login/Login.html',
-    message: 'ok',
+    message: '/instruction/login/Login.html',
+    //message: 'ok',
     
     /**
      * @argument {Boolean} name 
