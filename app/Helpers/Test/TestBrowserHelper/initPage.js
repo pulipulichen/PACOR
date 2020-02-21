@@ -53,31 +53,41 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
       // https://peter.sh/experiments/chromium-command-line-switches/
       args: chromeArgs,
       ignoreHTTPSErrors: true,
+      timeout: 3000,
     })
   //}
   
   
   //if (!sizeOptions) {
-  try {
-    page = await browser.visit(url)
-    if (headless === false) {
-      await closeBlankPage(page)
+  for (let i = 0; i < 3; i++) {
+    try {
+      page = await browser.visit(url)
+      //if (headless === false) {
+      //  await closeBlankPage(page)
+      //}
+      console.log('visit ok', url)
+      break
     }
-    console.log('visit ok', url)
-  }
-  catch (e) {
-    let name = 'browser.visit(): ' + headless
-    let consolePrefix = `[${name}]`
-    if (index !== undefined) {
-      consolePrefix = `[${index}: ${name}] `
-    }
-    //console.log(consolePrefix, e)
-    logManager.error(index, e)
+    catch (e) {
+      
+      if (i < 3) {
+        console.log(`[${index}] browser.visit() failed (${i}): ${url}`)
+      }
+      else {
+        let name = 'browser.visit(): ' + headless
+        let consolePrefix = `[${name}]`
+        if (index !== undefined) {
+          consolePrefix = `[${index}: ${name}] `
+        }
+        //console.log(consolePrefix, e)
+        logManager.error(index, e)
 
-    errors.push(consolePrefix + ' ' + e.message)
-    console.trace(e)
-    return undefined
-  }
+        errors.push(consolePrefix + ' ' + e.message)
+        console.trace(e)
+        return undefined
+      }
+    }
+  } // for (let i = 0; i < 3; i++) {
   //}
   //else {
   //  page = 
