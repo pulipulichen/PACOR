@@ -13,21 +13,22 @@ test('Visit home page', async ({ browser }) => {
     timeout: 1000
   })
   
-  console.log('AAA 1')
+  //console.log('AAA 1')
   //console.log(JSON.stringify(browser))
   //const page = await browser.newPage()
   for (let i = 0; i < 3; i++) {
     try {
-      const page = await browser.visit('http://blog.pulipuli.info/')
+      //const page = await browser.visit('http://pc.pulipuli.info:4000')
+      const page = await browser.visit('http://192.168.0.120:4000/')
       //console.log('AAA 1.5')
       //await page.goto('http://blog.pulipuli.info/')
       console.log('AAA 2')
       await page.assertHas('布丁布丁吃什麼')
+      break
     }
     catch (e) {
-      console.log('error ' + i)
+      console.log('error ' + i, e)
     }
-    break
   }
  /*
   await browser.visit('/', {

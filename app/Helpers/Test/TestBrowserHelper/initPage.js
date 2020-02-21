@@ -59,7 +59,8 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
   
   
   //if (!sizeOptions) {
-  for (let i = 0; i < 3; i++) {
+  let visitRetryLimit = 2
+  for (let i = 0; i < visitRetryLimit; i++) {
     try {
       page = await browser.visit(url)
       //if (headless === false) {
@@ -70,7 +71,7 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
     }
     catch (e) {
       
-      if (i < 3) {
+      if (i < visitRetryLimit - 1) {
         console.log(`[${index}] browser.visit() failed (${i}): ${url}`)
       }
       else {

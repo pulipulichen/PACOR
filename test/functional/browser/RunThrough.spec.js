@@ -62,7 +62,11 @@ const Env = use('Env')
 
 //const uri = '/test-lorem-ipsum?r=' + (new Date()).getTime().toString(36)
 const uri = '/demo-articles/test-lorem-ipsum-2sections.html?r=' + (new Date()).getTime().toString(36)
+
 const url = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT') + uri
+//const url = Env.get('PROTOCOL') + '//' + Env.get('HOST') + ':' + Env.get('PORT') + uri
+//const url = 'http://blog.pulipuli.info'
+
 //console.log(url)
 
 let webpage

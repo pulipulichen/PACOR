@@ -179,7 +179,7 @@ let TestBrowserHelper = function (title, url, config, options) {
       }
       
       if (webpageConfig || webpageGroup) {
-        await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools: true, webpageGroup, manualAdmin})
+        //await setupWepbage({headless: false, args, webpageConfig, url, logManager, displayDevTools: true, webpageGroup, manualAdmin})
         //return false
       }
       
