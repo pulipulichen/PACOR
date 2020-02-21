@@ -2514,6 +2514,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* global Element */
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
@@ -2532,6 +2534,11 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     let exec = async (ele) => {
+      if (isVisible(ele) === false) {
+        throw new Error('\nElement is not visible: ' + this.getDomPath(ele) 
+            + this.getStackTraceString())
+      }
+      
       let tmpClassName = 'PACORTestManagerInteractions-' + this.lib.DayJSHelper.time()
       ele.addClass(tmpClassName)
       
@@ -2552,6 +2559,9 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     if (typeof(selector) === 'string') {
+      if (selector.endsWith(':visible') === false) {
+        selector = selector + ':visible'
+      }
       let ele = jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector)
       
       if (ele.length === 0) {
@@ -2570,6 +2580,9 @@ __webpack_require__.r(__webpack_exports__);
     if (typeof(window.PACORTestManagerInteractions) === 'function') {
       let ele = selector
       if (typeof(ele) === 'string') {
+        if (selector.endsWith(':visible') === false) {
+          selector = selector + ':visible'
+        }
         ele = jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector)
       }
       
@@ -2728,6 +2741,35 @@ __webpack_require__.r(__webpack_exports__);
     if (prefix) {
       document.title = prefix + document.title
     }
+  }
+  
+  let isVisible = function (elem) {
+    if (typeof(elem[0]) === 'object') {
+      elem = elem[0]
+    }
+    
+    if (!(elem instanceof Element)) throw Error('DomUtil: elem is not an element.');
+    const style = getComputedStyle(elem);
+    if (style.display === 'none') return false;
+    if (style.visibility !== 'visible') return false;
+    if (style.opacity < 0.1) return false;
+    if (elem.offsetWidth + elem.offsetHeight + elem.getBoundingClientRect().height +
+        elem.getBoundingClientRect().width === 0) {
+        return false;
+    }
+    const elemCenter   = {
+        x: elem.getBoundingClientRect().left + elem.offsetWidth / 2,
+        y: elem.getBoundingClientRect().top + elem.offsetHeight / 2
+    };
+    if (elemCenter.x < 0) return false;
+    if (elemCenter.x > (document.documentElement.clientWidth || window.innerWidth)) return false;
+    if (elemCenter.y < 0) return false;
+    if (elemCenter.y > (document.documentElement.clientHeight || window.innerHeight)) return false;
+    let pointContainer = document.elementFromPoint(elemCenter.x, elemCenter.y);
+    do {
+        if (pointContainer === elem) return true;
+    } while (pointContainer = pointContainer.parentNode);
+    return false;
   }
 });
 
@@ -3244,6 +3286,8 @@ __webpack_require__.r(__webpack_exports__);
   
   PACORTestManager.methods.writeConfusedClarifiedAnnotation = async function () {
     
+    throw new Error('澄清 走錯路了！是誰？')
+    
     await this.sleep(1000)
     
     let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', {
@@ -3309,6 +3353,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
   
   PACORTestManager.methods.writeConfusedAnnotation = async function () {
+    
+    throw new Error('困惑 走錯路了！是誰？')
     
     await this.sleep(1000)
     
@@ -3735,12 +3781,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
   PACORTestManager.methods.writeQuestionnaire = async function (page) {
     
-    this.retry(async () => {
+    //this.retry(3, async () => {
+    try {
       let textarea = await this.waitForElementVisible('textarea.answer')
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('textarea.answer:visible') === 0) {
+        return
+      }
 
       await this.typeInput('textarea.answer', this.createRandomText())
 
       await this.sleep(500)
+      
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('textarea.answer:visible') === 0) {
+        return
+      }
 
       await this.typeInput('textarea.answer', this.createRandomText())
 
@@ -3748,8 +3803,16 @@ __webpack_require__.r(__webpack_exports__);
   //            .trigger('input')
   //            .trigger('change')
 
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('textarea.answer:visible') === 0) {
+        return
+      }
+
       await this.waitForElementVisibleClick('.ui.button.questionnaire-submit:not(.disabled)')
-    })
+    }
+    catch (e) {
+      console.log('對話框似乎已經不見了...')
+    }
+    //})
       
   }
 });

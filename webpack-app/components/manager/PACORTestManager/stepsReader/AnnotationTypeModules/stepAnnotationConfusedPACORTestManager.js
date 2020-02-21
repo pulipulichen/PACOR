@@ -4,6 +4,8 @@ export default function (PACORTestManager) {
   
   PACORTestManager.methods.writeConfusedAnnotation = async function () {
     
+    throw new Error('困惑 走錯路了！是誰？')
+    
     await this.sleep(1000)
     
     let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', {
