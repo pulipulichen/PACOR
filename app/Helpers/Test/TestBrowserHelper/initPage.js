@@ -6,11 +6,12 @@ const exposeFunction = use('./exposeFunction.js')
 const puppeteer = use('puppeteer');
 const iPhone = puppeteer.devices['iPhone 6'];
 
-let initPage = async function ({headless, browser, url, index, logManager, displayDevTools, sizeOptions, webpageGroup, webpageConfig}) {
+let initPage = async function ({headless, browser, url, index, logManager, displayDevTools, sizeOptions, webpageGroup, webpageConfig, errors}) {
   
   // 等待非同步工作完成
   if (typeof(index) === 'number' && index > 0) {
-    await Sleep(index * 10)
+    // 每個視窗開啟間隔時間
+    await Sleep(index * 2)
   }
   
   //if (headless === false) {
@@ -58,8 +59,22 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
   
   
   //if (!sizeOptions) {
+  try {
     page = await browser.visit(url)
     await closeBlankPage(page)
+  }
+  catch (e) {
+    let name = 'browser.visit()'
+    let consolePrefix = `[${name}]`
+    if (index !== undefined) {
+      consolePrefix = `[${index}: ${name}] `
+    }
+    //console.log(consolePrefix, e)
+    logManager.error(index, e)
+
+    errors.push(consolePrefix + ' ' + e.message)
+    return undefined
+  }
   //}
   //else {
   //  page = 

@@ -114,18 +114,20 @@ let TestBrowserHelper = function (title, url, config, options) {
       
       let browser = args.browser
       
-      let page = await initPage({headless, browser, url, logManager, displayDevTools})
       let errors = []
-      await excuteTest({config, args, page, errors, logManager})
-      
-      //if (e.length === 0) {
-      if (logManager.isError() === false) {
-        if (page.page.isClosed() === false) {
-          setTimeout(() => {
-            if (page.page.isClosed() === false) {
-              page.page.close()
-            }
-          }, 3000)
+      let page = await initPage({headless, browser, url, logManager, displayDevTools, errors})
+      if (page) {
+        await excuteTest({config, args, page, errors, logManager})
+
+        //if (e.length === 0) {
+        if (logManager.isError() === false) {
+          if (page.page.isClosed() === false) {
+            setTimeout(() => {
+              if (page.page.isClosed() === false) {
+                page.page.close()
+              }
+            }, 3000)
+          }
         }
       }
       console.log(errors)
@@ -152,14 +154,16 @@ let TestBrowserHelper = function (title, url, config, options) {
         if (forceShowIndexes.indexOf(i) > -1) {
           h = false
         }
-        let page = await initPage({headless: h, browser, url, index, logManager, displayDevTools})
         
         let errors = []
-        await excuteTest({config, args, page, errors, logManager})
-        
-        let finalHeadless = headless
-        if (forceShowIndexes.length > 0) {
-          finalHeadless = false
+        let page = await initPage({headless: h, browser, url, index, logManager, displayDevTools, errors})
+        if (page) {
+          await excuteTest({config, args, page, errors, logManager})
+
+          let finalHeadless = headless
+          if (forceShowIndexes.length > 0) {
+            finalHeadless = false
+          }
         }
         await handleException({errors, headless: finalHeadless, index, logManager})
       }).timeout(0)
@@ -202,8 +206,10 @@ let TestBrowserHelper = function (title, url, config, options) {
           page = await setupManualReader({headless: false, args, url, logManager, displayDevTools: true})
         }
         else {
-          page = await initPage({headless: h, browser, url, index, logManager, displayDevTools, sizeOptions})
-          await excuteTest({config, args, page, errors: e, index, logManager})
+          page = await initPage({headless: h, browser, url, index, logManager, displayDevTools, sizeOptions, errors: e})
+          if (page) {
+            await excuteTest({config, args, page, errors: e, index, logManager})
+          }
         }
         
         //if (e.length === 0) {
