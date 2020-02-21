@@ -11,9 +11,9 @@ const TestOptions = {
   //threads: 5,  // ?個錯誤
   //threads: 9,  // ?個錯誤
   //threads: 15,  // 10個錯誤
-  //threads: 20,  // 10個錯誤
+  threads: 20,  // 0個錯誤 20200222
   //threads: 30,  // ?個錯誤
-  threads: 40,  // 10個錯誤
+  //threads: 40,  // 10個錯誤
   maxShowThreads: 9,
   mode: 'parallel',
   headless: false,
@@ -148,7 +148,7 @@ let config = {
     //let writeAnnotations = Math.random()
     await page.assertFn(async function () {
       await PACORTestManager.waitForElementVisible('[data-pacor-paragraph-seq-id]')
-      await PACORTestManager.waitForElementVisible('.CompactNavigation .CompactMenu')
+      await PACORTestManager.waitForElementVisible('.CompactNavigation .CompactMenu', 60 * 1000)
       
       await PACORTestManager.writeAnnotations()
     })  // await page.assertFn(async function () {

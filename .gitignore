@@ -40,3 +40,5 @@ database/development.sqlite
 /database/*.sqlite
 /test/profiles/
 /test/log/
+
+*.dmp

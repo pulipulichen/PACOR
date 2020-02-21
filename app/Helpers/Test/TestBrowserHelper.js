@@ -200,7 +200,7 @@ let TestBrowserHelper = function (title, url, config, options) {
           h = false
         }
         if (h === false) {
-          sizeOptions = logManager.getSizeOptions(index, screenSize)
+          sizeOptions = logManager.getSizeOptions(forceShowIndexes.indexOf(index), screenSize)
         }
         
         let page

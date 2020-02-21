@@ -91,6 +91,11 @@ export default function (PACORTestManager) {
       }
       catch (e) {
         console.log('誤判嗎？ stepAnnotationMainIdeaEditPACORTestManager')
+        if ($('.ConfirmModal i.checkmark.icon:visible').length > 0) {
+          await this.waitForElementVisibleClick('.ConfirmModal i.checkmark.icon:visible', {
+            timeout: 5000
+          })
+        }
       }
     }
     

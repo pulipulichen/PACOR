@@ -93,10 +93,12 @@ export default function (PACORTestManager) {
     
     if (t === 0 || t === 3) {
       // 選擇重點
-      typeItemSelector = typeItemSelector + `:eq(${0 + baseMargin})`
+      //typeItemSelector = typeItemSelector + `:eq(${0 + baseMargin})`
+      typeItemSelector = typeItemSelector + `.MainIdea:not(.quick-add)`
     }
     else if (t === 1) {
-      typeItemSelector = typeItemSelector + `:eq(${1 + baseMargin})`
+      //typeItemSelector = typeItemSelector + `:eq(${1 + baseMargin})`
+      typeItemSelector = typeItemSelector + `.Confused`
     }
     else if (t === 2) {
       // 選擇已澄清

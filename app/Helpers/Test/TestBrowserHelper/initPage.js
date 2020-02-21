@@ -82,18 +82,28 @@ let initPage = async function ({headless, browser, url, index, logManager, displ
     }
     
     // 畫面大小是800 x 600
-    await browser.launch({
-      headless: false,
-      //dumpio: true,  // Log all browser console messages to the terminal.
-      devtools: displayDevTools,
-      //pipe: true,
-      defaultViewport: defaultViewport,  // 這樣就不會限定視窗大小了
+    for (let l = 0; l < 3; l++) {
+      try {
+        await browser.launch({
+          headless: false,
+          //dumpio: true,  // Log all browser console messages to the terminal.
+          devtools: displayDevTools,
+          //pipe: true,
+          defaultViewport: defaultViewport,  // 這樣就不會限定視窗大小了
 
-      // https://peter.sh/experiments/chromium-command-line-switches/
-      args: chromeArgs,
-      ignoreHTTPSErrors: true,
-      timeout: 0,
-    })
+          // https://peter.sh/experiments/chromium-command-line-switches/
+          args: chromeArgs,
+          ignoreHTTPSErrors: true,
+          timeout: 0,
+        })
+        break
+      }
+      catch (e) {
+        if (l === 2) {
+          throw e
+        }
+      }
+    }
   //}
   
   

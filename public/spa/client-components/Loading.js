@@ -3622,6 +3622,11 @@ __webpack_require__.r(__webpack_exports__);
       }
       catch (e) {
         console.log('誤判嗎？ stepAnnotationMainIdeaEditPACORTestManager')
+        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.ConfirmModal i.checkmark.icon:visible').length > 0) {
+          await this.waitForElementVisibleClick('.ConfirmModal i.checkmark.icon:visible', {
+            timeout: 5000
+          })
+        }
       }
     }
     
@@ -3799,10 +3804,12 @@ __webpack_require__.r(__webpack_exports__);
     
     if (t === 0 || t === 3) {
       // 選擇重點
-      typeItemSelector = typeItemSelector + `:eq(${0 + baseMargin})`
+      //typeItemSelector = typeItemSelector + `:eq(${0 + baseMargin})`
+      typeItemSelector = typeItemSelector + `.MainIdea:not(.quick-add)`
     }
     else if (t === 1) {
-      typeItemSelector = typeItemSelector + `:eq(${1 + baseMargin})`
+      //typeItemSelector = typeItemSelector + `:eq(${1 + baseMargin})`
+      typeItemSelector = typeItemSelector + `.Confused`
     }
     else if (t === 2) {
       // 選擇已澄清
@@ -4073,8 +4080,8 @@ __webpack_require__.r(__webpack_exports__);
   
   PACORTestManager.methods.confirmInstructionMessage = async function () {
     //await this.sleep(100)
-    await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button:last', {
-      timeout: 10 * 1000,
+    await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button:last:visible', {
+      timeout: 60 * 1000,
       errorMessage: '是不是傳送給end花太多時間了？'
     })
     await this.sleep(100)

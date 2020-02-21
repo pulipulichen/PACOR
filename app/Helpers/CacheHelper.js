@@ -125,7 +125,8 @@ Cache.rememberWait = function (tags, cacheKey, minutes, callback) {
       cacheQuery = Cache
     }
 
-    if (await cacheQuery.has(cacheKey)) {
+    let hasKey = await cacheQuery.has(cacheKey)
+    if (hasKey === true) {
       let result = await cacheQuery.get(cacheKey)
       resolve(result)
       return true
@@ -140,10 +141,12 @@ Cache.rememberWait = function (tags, cacheKey, minutes, callback) {
       console.log('LOCKED: ', lockName)
       setTimeout(async () => {
         this.rememberWaitLocks[lockName] = false
-        
+        //console.log('UNLOCKED: ', lockName)
         //console.log('再次嘗試')
         //let result = await this.rememberWait(tags, cacheKey, minutes, callback)
-        let result = await callback()
+        let result = await cacheQuery.remember(cacheKey, minutes, callback)
+        //hasKey = await cacheQuery.has(cacheKey)
+        //console.log('hasKey', hasKey)
         //console.log('鎖定解除', result)
         resolve(result)
         return true
@@ -157,8 +160,61 @@ Cache.rememberWait = function (tags, cacheKey, minutes, callback) {
     // ------------------------------
     // 如果沒有被鎖定的話
     let result = await cacheQuery.remember(cacheKey, minutes, callback)
-    delete this.rememberWaitLocks[lockName]
+    
+    //delete this.rememberWaitLocks[lockName]
+    this.rememberWaitLocks[lockName] = false
     //console.log(this.rememberWaitLocks)
+    resolve(result)
+    return true
+  })  // return new Promise((resolve, reject) => {
+}
+
+Cache.rememberInstant = function (tags, cacheKey, minutes, callback) {
+  
+  if (typeof(callback) !== 'function' 
+          && typeof(minutes) === 'function') {
+    callback = minutes
+    minutes = cacheKey
+    cacheKey = tags
+    tags = null
+  }
+  
+  if (tags !== null && tags !== undefined && Array.isArray(tags) === false) {
+    tags = [tags]
+  }
+  if (Array.isArray(tags)) {
+    tags = filterTags(tags)
+  }
+  
+  return new Promise(async (resolve, reject) => {
+    if (Config.get('cache.default') === 'null' 
+            || Config.get('cache.default') === null) {
+      let result = await callback()
+      return resolve(result)
+    }
+  
+    
+    // ------------------------------------------
+    // 先看看有沒有值
+
+    let cacheQuery
+    if (tags !== null) {
+      //console.log(tags)
+      cacheQuery = Cache.tags(tags)
+    }
+    else {
+      cacheQuery = Cache
+    }
+
+    if (await cacheQuery.has(cacheKey)) {
+      let result = await cacheQuery.get(cacheKey)
+      resolve(result)
+      return true
+    }
+
+    // ------------------------------
+    // 如果沒有被鎖定的話
+    let result = await cacheQuery.remember(cacheKey, minutes, callback)
     resolve(result)
     return true
   })  // return new Promise((resolve, reject) => {
