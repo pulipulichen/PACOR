@@ -39,6 +39,7 @@ let TestBrowserHelper = function (title, url, config, options) {
   } = options
   
   const { test, trait } = use('Test/Suite')(title)
+  let optionsHeadless = headless
 
   if (stopAt) {
     config = TestConfigHelper(config, stopAt)
@@ -185,7 +186,7 @@ let TestBrowserHelper = function (title, url, config, options) {
       
       // 偵測尺寸
       let screenSize
-      if (headless === false) {
+      if (optionsHeadless === false) {
         screenSize = await detectScreenSize(browser)
       }
       

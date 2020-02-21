@@ -24,7 +24,8 @@ export default function (PACORTestManager) {
     await this.sleep(5000)
     
     // 如果有一筆標註以上，那就會跳出列表
-    if ($('.AnnotationPanel .html-editor-container.editable').length === 0) {
+    if ($('.AnnotationPanel .html-editor-container.editable').length === 0
+            || $('.AnnotationPanel .html-editor-container .note-editable').length === 0) {
       await this.waitForElementVisibleClick('.MainList .AnnotationItem.my-annotation:first .meta', {
         timeout: 5000
       })
@@ -41,7 +42,7 @@ export default function (PACORTestManager) {
     
     await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
       timeout: 3000,
-      errorMessage: ' writeMainIdeaAnnotation 是不是資料沒有輸入？或是寫不夠長？'
+      errorMessage: 'writeMainIdeaAnnotation 是不是資料沒有輸入？或是寫不夠長？'
     })
     
     await this.sleep(1000)

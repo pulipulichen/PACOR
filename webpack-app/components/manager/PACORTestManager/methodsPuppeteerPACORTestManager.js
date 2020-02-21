@@ -60,14 +60,27 @@ export default function (PACORTestManager) {
     }
   }
   
-  PACORTestManager.methods.typeInput = async function (selector, text) {
+  PACORTestManager.methods.typeInput = async function (selector, text, throwNonVisibleException) {
     if (typeof(window.PACORTestManagerInteractions) === 'function') {
       let ele = selector
+      
       if (typeof(ele) === 'string') {
         if (selector.endsWith(':visible') === false) {
           selector = selector + ':visible'
         }
         ele = $(selector)
+      }
+      
+      if (isVisible(ele) === false) {
+        if (throwNonVisibleException === false) {
+          console.log('\nElement is not visible: ' + this.getDomPath(ele) 
+              + this.getStackTraceString())
+          return undefined
+        }
+        else {
+          throw new Error('\nElement is not visible: ' + this.getDomPath(ele) 
+              + this.getStackTraceString())
+        }
       }
       
       if (ele.length === 0) {
@@ -227,6 +240,7 @@ export default function (PACORTestManager) {
     }
   }
   
+  /*
   let isVisible = function (elem) {
     if (typeof(elem[0]) === 'object') {
       elem = elem[0]
@@ -254,5 +268,12 @@ export default function (PACORTestManager) {
         if (pointContainer === elem) return true;
     } while (pointContainer = pointContainer.parentNode);
     return false;
+  }
+   */
+  let isVisible = function (elem) {
+    if (typeof(elem.filter) !== 'function') {
+      elem = $(elem)
+    }
+    return (elem.filter(":visible").length > 0)
   }
 }

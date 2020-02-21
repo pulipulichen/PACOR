@@ -10,8 +10,8 @@ const TestOptions = {
   //threads: 3, // ok 完全運作正常
   //threads: 5,  // ?個錯誤
   //threads: 9,  // ?個錯誤
-  threads: 15,  // 10個錯誤
-  //threads: 20,  // 10個錯誤
+  //threads: 15,  // 10個錯誤
+  threads: 20,  // 10個錯誤
   //threads: 30,  // ?個錯誤
   //threads: 40,  // 10個錯誤
   maxShowThreads: 9,
@@ -26,8 +26,8 @@ const TestOptions = {
   //stopAt: 'd2. 隨意寫標註',
   displayDevTools: false,
   
-  //groupSize: 6,
-  //webpageConfig,
+  groupSize: 6,
+  webpageConfig,
   
   //manualReader: true,
   //manualAdmin: true
@@ -106,7 +106,25 @@ let config = {
 
     await page.assertFn(async function () {
       // 要先等到PACORTestManager讀取完成
-      console.log({PACORTestManager: typeof(PACORTestManager)})
+      //console.log({PACORTestManager: typeof(PACORTestManager)})
+      
+      let waitPACORTestManager = async () => {
+        return new Promise ((resolve, reject) => {
+          let loop = () => {
+            if (!PACORTestManager || typeof(PACORTestManager.login) !== 'function' ) {
+              setTimeout(() => {
+                loop()
+              }, 1000)
+            }
+            else {
+              resolve(true)
+            }
+          }
+          loop()
+        })
+      }
+      
+      await waitPACORTestManager()
       
       await PACORTestManager.login()
     })

@@ -11,7 +11,7 @@ export default function (PACORTestManager) {
         return
       }
 
-      await this.typeInput('textarea.answer', this.createRandomText())
+      await this.typeInput('textarea.answer', this.createRandomText(), false)
 
       await this.sleep(500)
       
@@ -19,7 +19,7 @@ export default function (PACORTestManager) {
         return
       }
 
-      await this.typeInput('textarea.answer', this.createRandomText())
+      await this.typeInput('textarea.answer', this.createRandomText(), false)
 
   //    textarea.val(this.createRandomText())
   //            .trigger('input')

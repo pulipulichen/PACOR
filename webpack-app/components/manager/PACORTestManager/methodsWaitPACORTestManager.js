@@ -1,6 +1,8 @@
 import $ from 'jquery'
 
-export default function (PACORTestManager) {
+export default function (PACORTestManager) {  
+  PACORTestManager.jQuery = $
+    
   PACORTestManager.methods.waitForElement = async function (selector, options = {}) {
     let {
       timeout,

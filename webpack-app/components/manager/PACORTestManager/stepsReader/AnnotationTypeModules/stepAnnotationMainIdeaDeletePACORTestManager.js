@@ -21,7 +21,9 @@ export default function (PACORTestManager) {
     // 等待Summernote載入
     await this.sleep(5000)
     
-    if ($('.AnnotationPanel .html-editor-container.editable').length === 0) {
+    if ($('.AnnotationPanel .html-editor-container.editable').length === 0
+            || $('.AnnotationPanel .annotation-panel-buttons .delete-button:visible').length === 0) {
+      console.log('似乎是以列表的形式呈現，讓我點點看')
       await this.waitForElementVisibleClick('.MainList .AnnotationItem.my-annotation:first .meta', {
         timeout: 3000
       })

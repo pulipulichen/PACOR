@@ -9082,14 +9082,27 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
   
-  PACORTestManager.methods.typeInput = async function (selector, text) {
+  PACORTestManager.methods.typeInput = async function (selector, text, throwNonVisibleException) {
     if (typeof(window.PACORTestManagerInteractions) === 'function') {
       let ele = selector
+      
       if (typeof(ele) === 'string') {
         if (selector.endsWith(':visible') === false) {
           selector = selector + ':visible'
         }
         ele = jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector)
+      }
+      
+      if (isVisible(ele) === false) {
+        if (throwNonVisibleException === false) {
+          console.log('\nElement is not visible: ' + this.getDomPath(ele) 
+              + this.getStackTraceString())
+          return undefined
+        }
+        else {
+          throw new Error('\nElement is not visible: ' + this.getDomPath(ele) 
+              + this.getStackTraceString())
+        }
       }
       
       if (ele.length === 0) {
@@ -9249,6 +9262,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
   
+  /*
   let isVisible = function (elem) {
     if (typeof(elem[0]) === 'object') {
       elem = elem[0]
@@ -9276,6 +9290,13 @@ __webpack_require__.r(__webpack_exports__);
         if (pointContainer === elem) return true;
     } while (pointContainer = pointContainer.parentNode);
     return false;
+  }
+   */
+  let isVisible = function (elem) {
+    if (typeof(elem.filter) !== 'function') {
+      elem = jquery__WEBPACK_IMPORTED_MODULE_0___default()(elem)
+    }
+    return (elem.filter(":visible").length > 0)
   }
 });
 
@@ -9448,7 +9469,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 
-/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {  
+  PACORTestManager.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a
+    
   PACORTestManager.methods.waitForElement = async function (selector, options = {}) {
     let {
       timeout,
@@ -9792,7 +9815,7 @@ __webpack_require__.r(__webpack_exports__);
   
   PACORTestManager.methods.writeConfusedClarifiedAnnotation = async function () {
     
-    throw new Error('澄清 走錯路了！是誰？')
+    //throw new Error('澄清 走錯路了！是誰？')
     
     await this.sleep(1000)
     
@@ -9860,7 +9883,7 @@ __webpack_require__.r(__webpack_exports__);
   
   PACORTestManager.methods.writeConfusedAnnotation = async function () {
     
-    throw new Error('困惑 走錯路了！是誰？')
+    //throw new Error('困惑 走錯路了！是誰？')
     
     await this.sleep(1000)
     
@@ -9934,7 +9957,9 @@ __webpack_require__.r(__webpack_exports__);
     // 等待Summernote載入
     await this.sleep(5000)
     
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .html-editor-container.editable').length === 0) {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .html-editor-container.editable').length === 0
+            || jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .annotation-panel-buttons .delete-button:visible').length === 0) {
+      console.log('似乎是以列表的形式呈現，讓我點點看')
       await this.waitForElementVisibleClick('.MainList .AnnotationItem.my-annotation:first .meta', {
         timeout: 3000
       })
@@ -10002,7 +10027,8 @@ __webpack_require__.r(__webpack_exports__);
     await this.sleep(5000)
     
     // 如果有一筆標註以上，那就會跳出列表
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .html-editor-container.editable').length === 0) {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .html-editor-container.editable').length === 0
+            || jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .html-editor-container .note-editable').length === 0) {
       await this.waitForElementVisibleClick('.MainList .AnnotationItem.my-annotation:first .meta', {
         timeout: 5000
       })
@@ -10019,7 +10045,7 @@ __webpack_require__.r(__webpack_exports__);
     
     await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
       timeout: 3000,
-      errorMessage: ' writeMainIdeaAnnotation 是不是資料沒有輸入？或是寫不夠長？'
+      errorMessage: 'writeMainIdeaAnnotation 是不是資料沒有輸入？或是寫不夠長？'
     })
     
     await this.sleep(1000)
@@ -10295,7 +10321,7 @@ __webpack_require__.r(__webpack_exports__);
         return
       }
 
-      await this.typeInput('textarea.answer', this.createRandomText())
+      await this.typeInput('textarea.answer', this.createRandomText(), false)
 
       await this.sleep(500)
       
@@ -10303,7 +10329,7 @@ __webpack_require__.r(__webpack_exports__);
         return
       }
 
-      await this.typeInput('textarea.answer', this.createRandomText())
+      await this.typeInput('textarea.answer', this.createRandomText(), false)
 
   //    textarea.val(this.createRandomText())
   //            .trigger('input')

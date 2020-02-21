@@ -4,7 +4,7 @@ export default function (PACORTestManager) {
   
   PACORTestManager.methods.writeConfusedAnnotation = async function () {
     
-    throw new Error('困惑 走錯路了！是誰？')
+    //throw new Error('困惑 走錯路了！是誰？')
     
     await this.sleep(1000)
     
