@@ -22,8 +22,20 @@ let setupWepbage = async function ({headless, args, webpageConfig, webpageGroup,
   //await Sleep(3)
   try {
     await page.assertFn(async () => {
-      await PACORTestManager.adminLogin()
-      await PACORTestManager.adminPanel()
+      // 在這裡要確保PACORTestManager有正常載入
+      let exec = async () => {
+        if (typeof(PACORTestManager) === 'object') {
+          await PACORTestManager.adminLogin()
+          await PACORTestManager.adminPanel()
+        }
+        else {
+          setTimeout(() => {
+            exec()
+          }, 100)
+        }
+      }
+      
+      exec()
     })
     
     //await Sleep(300)

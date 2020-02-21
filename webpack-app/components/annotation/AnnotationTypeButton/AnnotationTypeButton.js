@@ -12,7 +12,7 @@ let AnnotationTypeButton = {
       
       let name = this.$t('ANNOTATION_TYPE.' + this.type)
       
-      if (!this.lib) {
+      if (typeof(this.lib) !== 'object') {
         console.trace('this.lib is not defined.')
       }
       
