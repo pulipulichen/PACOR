@@ -86,7 +86,7 @@ class Annotation extends WebpageUserBaseController {
 
       // 來做計算
       if (!annotations) {
-        annotations = []
+        throw new Error('Annotations are not found')
       }
       
       if (typeof(annotations.toJSON) === 'function') {
@@ -111,9 +111,15 @@ class Annotation extends WebpageUserBaseController {
       }
       
       annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
+      if (!annotations) {
+        throw new Error('Annotation are not found')
+      }
+      
+      if (typeof(annotations.toJSON) === 'function') {
+        annotations = annotations.toJSON()
+      }
 
       // 來做計算
-      annotations = annotations.toJSON()
       annotationCount = annotations.length
       if (annotationCount === 0) {
         return 0

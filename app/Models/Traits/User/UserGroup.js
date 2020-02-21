@@ -116,7 +116,7 @@ class UserGroup {
      */
     Model.prototype.getUserIDsInGroup = async function (webpage, includeAdmins) {
       
-      let profiler = new Profiler(0, 'User/UserGroup.getUserIDsInGroup()', includeAdmins)
+      let profiler = new Profiler(2, 'User/UserGroup.getUserIDsInGroup()', includeAdmins)
       
       let cacheKey = Cache.key(`User.getUserIDsInGroup`, includeAdmins)
       

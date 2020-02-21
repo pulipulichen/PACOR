@@ -103,10 +103,19 @@ export default function (PACORTestManager) {
       typeItemSelector = typeItemSelector + `:eq(${1 + baseMargin})`
     }
     
-    await this.waitForElementVisibleClick(typeItemSelector, {
-      timeout: 10 * 1000,
-      errorMessage: '是不是太早選取了啊？'
-    })
+    try {
+      await this.waitForElementVisibleClick(typeItemSelector, {
+        timeout: 10 * 1000,
+        errorMessage: '是不是太早選取了啊？'
+      })
+    }
+    catch (e) {
+      errorCount++
+      if (errorCount >= 4) {
+        throw e
+      }
+      return await this.selectAnnotationType(i, errorCount)
+    }
     //this.log('selectAnnotationType', 3)
   }
   

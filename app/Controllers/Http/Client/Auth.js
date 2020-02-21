@@ -9,7 +9,7 @@ const Cache = use('Cache')
 
 const DatabaseHelper = use('App/Helpers/DatabaseHelper')
 
-let flushCache = true // for test
+let flushCache = false // for test
 
 /**
  * 登入

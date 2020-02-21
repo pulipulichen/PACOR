@@ -142,13 +142,18 @@ class AnnotationFind {
           if (isInAnonymousGroup === false) {
             profiler.before('await user.getUserIDsInGroup(webpage, true)')
             let userIdList = await user.getUserIDsInGroup(webpage, true)
+            profiler.after('await user.getUserIDsInGroup(webpage, true)')
 
-            if (userIdList.length > 0) {
+
+            profiler.before('query.whereIn', JSON.stringify(userIdList))
+            if (Array.isArray(userIdList) && userIdList.length > 0) {
               if (typeof(userIdList[0]) !== 'number') {
                 throw new Error('userList should be id list')
               }
               query.whereIn('user_id', userIdList)
             }
+            
+            profiler.after('query.whereIn', JSON.stringify(userIdList))
           }
           else {
             profiler.before('await webpage.getUserIDsInGroups()')
