@@ -69,6 +69,7 @@
     "component": {
       "attributes": {
         "v-on:read": {},
+        "instuction-component": {},
         "v-bind:heightPX": {},
         "v-bind:hook": {},
         "v-bind:notification": {},
