@@ -16,7 +16,11 @@
         </div>
       </template>
       <template v-slot:content
-                v-if="!contentURL">
+                v-if="$slots.content">
+        <slot name="content"></slot>
+      </template>
+      <template v-slot:content
+                v-else-if="!contentURL">
         <div v-html="instruction"></div>
       </template>
       <template v-slot:actions>

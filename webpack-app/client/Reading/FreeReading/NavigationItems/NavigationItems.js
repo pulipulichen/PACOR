@@ -53,8 +53,13 @@ let NavigationItems = {
         this.$refs.WebpageAdmin.show()
       }
       else {
-        this.lib.TutorialManager.start()
+        // 顯示歡迎訊息
+        //this.lib.TutorialManager.start()
+        this.showInstruction()
       }
+    },
+    showInstruction () {
+      this.$emit('showInstruction')
     },
     hideSideMenu () {
       this.$refs.nav.hideSideMenu()

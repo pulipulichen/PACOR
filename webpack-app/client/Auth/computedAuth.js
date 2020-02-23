@@ -12,6 +12,10 @@ export default function (Auth) {
     //console.log(this.status.readingConfig.debug)
     if (typeof(this.status.readingConfig.debug.stayInReadingProgress) === 'string') {
       let stayIn = this.status.readingConfig.debug.stayInReadingProgress
+      if (stayIn === 'FreeReading') {
+        return stayIn
+      }
+      
       for (let i = 0; i < this.status.readingProgresses.length; i++) {
         let step = this.status.readingProgresses[i].step_name
         if (stayIn === step) {

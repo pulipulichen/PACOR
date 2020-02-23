@@ -473,7 +473,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"In {0} step":"In {0} step"},"zh-TW":{"In {0} step":"在 {0} 階段","Open Administration Panel":"開啟管理工具"}}')
+  Component.options.__i18n.push('{"en":{"In {0} step":"In {0} step"},"zh-TW":{"In {0} step":"在 {0} 階段","Open Administration Panel":"開啟管理工具","FreeReading":"自由閱讀"}}')
   delete Component.options._Ctor
 }
 
@@ -4907,6 +4907,17 @@ var render = function() {
                 ]
               : _vm._e(),
             _vm._v(" "),
+            _vm.lib.auth.currentStep === "FreeReading"
+              ? [
+                  _vm._v(
+                    "\r\n        " +
+                      _vm._s(_vm.$t("FreeReading")) +
+                      "\r\n        "
+                  ),
+                  _c("i", { staticClass: "question circle icon" })
+                ]
+              : _vm._e(),
+            _vm._v(" "),
             _vm.status.role !== "reader"
               ? [
                   _vm._v(
@@ -4991,7 +5002,15 @@ var render = function() {
               },
               proxy: true
             },
-            !_vm.contentURL
+            _vm.$slots.content
+              ? {
+                  key: "content",
+                  fn: function() {
+                    return [_vm._t("content")]
+                  },
+                  proxy: true
+                }
+              : !_vm.contentURL
               ? {
                   key: "content",
                   fn: function() {

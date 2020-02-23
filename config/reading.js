@@ -13,7 +13,7 @@ module.exports = {
       //minAnnotation: 1,
       //maxAnnotation: 1
     },
-    //stayInReadingProgress: 'PostRecall'
+    stayInReadingProgress: 'FreeReading'
   },
   
   /**
@@ -60,7 +60,7 @@ module.exports = {
    * FreeReading: 自由閱讀
    * 網址: 例如 http://blog.pulipuli.info
    */
-  readingProgressesFinish: 'Exit',
+  readingProgressesFinish: 'FreeReading',
   
   /**
    * 閱讀流程的控制權
@@ -156,6 +156,7 @@ module.exports = {
       preloadPreImaginaryAnswer: true  // 是否顯示前面撰寫的內容
     },
     'FreeReading': {
+      //instruction: '/instruction/reading/CollaborativeReading.html',
       permission: {
         collaboration: true,
         control: false,
@@ -183,6 +184,7 @@ module.exports = {
         types: ['SectionMainIdea'],
         updateInterval: 30000
       },
+      showFinishMessage: true // 顯示恭喜完成的訊息
     },
   },
   annotationTypeModules: {

@@ -23,7 +23,11 @@ class Section extends Annotation {
     profiler.mark('enableCollaborative', enableCollaborative)
     
     let cacheKeySectionsChecklist = Cache.key('Section', 'init', enableCollaborative, 'sectionsChecklist')
-    let {sectionsChecklist, sectionsChecklistSubmitted} = await Cache.rememberWait([webpage, user, 'Section'], cacheKeySectionsChecklist, Config.get('view.indexCacheMinute'), async () => {
+    let indexCacheMinute = Config.get('view.indexCacheMinute')
+    let {
+      sectionsChecklist, 
+      sectionsChecklistSubmitted
+    } = await Cache.rememberWait([webpage, user, 'Section'], cacheKeySectionsChecklist, indexCacheMinute, async () => {
       let sectionsChecklist = await user.getSectionsChecklist(webpage)
       
       let sectionsChecklistSubmitted = null

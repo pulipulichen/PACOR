@@ -6,6 +6,14 @@
     v-bind:config="config"
     v-bind:status="status"
     v-bind:lib="lib">
+    <template v-slot:content
+              v-if="$options.components['instruction-message-content']">
+      <instruction-message-content
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib">
+      </instruction-message-content>
+    </template>
   </instruction-message>
   
   <!-- 共用元件 -->
