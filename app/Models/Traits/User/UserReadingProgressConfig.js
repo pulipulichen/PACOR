@@ -4,6 +4,7 @@ const Cache = use('Cache')
 const HttpException = use('HttpException')
 
 const Profiler = use('Profiler')
+const ReadingProgress = use('App/Models/ReadingProgress')
 
 class UserReadingProgressConfig {
 
@@ -216,8 +217,21 @@ class UserReadingProgressConfig {
       return this
     } // Model.prototype.setReadingProgressLogAttr = async function (webpage, log) {
     
-    Model.prototype.getReadingProgressLog = async function (webpage) {
-      let step = await this.startReadingProgress(webpage)
+    Model.prototype.getReadingProgress = async function (webpage, stepName) {
+      return await ReadingProgress.findBy({
+        'user_id': this.primaryKeyValue,
+        'webpage_id': webpage.primaryKeyValue,
+        'step_name': stepName
+      })
+    }
+    
+    Model.prototype.getReadingProgressLog = async function (webpage, step) {
+      if (typeof(step) === 'string') {
+        step = await this.getReadingProgress(webpage, step)
+      }
+      else {
+        step = await this.startReadingProgress(webpage)
+      }
       
       if (step === null) {
         console.error('Step is null: ' + await this.getCurrentReadingProgressStepName(webpage))
@@ -230,6 +244,7 @@ class UserReadingProgressConfig {
       //    console.log(step.log)
 
       let log = step.log
+      //console.log(step)
       if (typeof(log) === 'string' && log.startsWith('{') && log.endsWith('}')) {
         try {
           log = JSON.parse(log)

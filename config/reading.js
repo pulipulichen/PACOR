@@ -13,7 +13,7 @@ module.exports = {
       //minAnnotation: 1,
       //maxAnnotation: 1
     },
-    stayInReadingProgress: 'PostRecall'
+    //stayInReadingProgress: 'PostRecall'
   },
   
   /**
@@ -153,7 +153,7 @@ module.exports = {
       //limitMinutes: 5
       limitMinutes: 0.03,
       countdownAtStart: false,
-      loadPreImaginary: true  // 是否顯示前面撰寫的內容
+      preloadPreImaginaryAnswer: true  // 是否顯示前面撰寫的內容
     },
     'FreeReading': {
       permission: {

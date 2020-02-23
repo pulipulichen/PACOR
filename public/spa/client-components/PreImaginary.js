@@ -20,6 +20,7 @@ var render = function() {
     { staticClass: "PreImaginary" },
     [
       _c("questionnaire", {
+        ref: "Questionnaire",
         attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib },
         scopedSlots: _vm._u([
           {

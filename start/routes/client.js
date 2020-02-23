@@ -69,6 +69,10 @@ Route.any('/client/ReadingProgress/:action', (options) => {
   return controllerMapping(options, 'client', 'ReadingProgress')
 }).middleware(['user', 'webpage'])
 
+Route.any('/client/Questionnaire/:action', (options) => {
+  return controllerMapping(options, 'client', 'Questionnaire')
+}).middleware(['user', 'webpage'])
+
 Route.any('/client/File/:action', (options) => {
   return controllerMapping(options, 'client', 'File')
 }).middleware(['user', 'webpage'])

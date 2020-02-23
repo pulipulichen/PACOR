@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單","Show Instruction":"顯示說明","Start Answer and Countdown":"開始作答並且倒數計時","Answer":"繼續作答"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單","Show Instruction":"顯示說明","Start Answer and Countdown":"開始作答並且倒數計時","Answer":"繼續作答","Show Answer":"顯示作答內容"}}')
   delete Component.options._Ctor
 }
 
@@ -55,7 +55,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".hint[data-v-7f5ff080] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[disabled][data-v-7f5ff080] {\n  background-color: #CCC;\n}\n.user-avatar[data-v-7f5ff080]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-7f5ff080]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-7f5ff080]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-7f5ff080] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n", "",{"version":3,"sources":["QuestionnairePage.less?vue&type=style&index=0&id=7f5ff080&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,wBAAwB;EACxB,2BAA2B;EAC3B,qBAAqB;EACrB,oCAAoC;AACtC;AACA;EACE,yBAAyB;EACzB,4BAA4B;EAC5B,iBAAiB;AACnB","file":"QuestionnairePage.less?vue&type=style&index=0&id=7f5ff080&lang=less&scoped=true&","sourcesContent":[".hint[data-v-7f5ff080] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[disabled][data-v-7f5ff080] {\n  background-color: #CCC;\n}\n.user-avatar[data-v-7f5ff080]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-7f5ff080]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-7f5ff080]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-7f5ff080] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n"]}]);
+exports.push([module.i, ".hint[data-v-7f5ff080] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-7f5ff080] {\n  max-height: none !important;\n}\ntextarea.answer[disabled][data-v-7f5ff080] {\n  background-color: #CCC;\n}\n.user-avatar[data-v-7f5ff080]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-7f5ff080]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-7f5ff080]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-7f5ff080] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n", "",{"version":3,"sources":["QuestionnairePage.less?vue&type=style&index=0&id=7f5ff080&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,wBAAwB;EACxB,2BAA2B;EAC3B,qBAAqB;EACrB,oCAAoC;AACtC;AACA;EACE,yBAAyB;EACzB,4BAA4B;EAC5B,iBAAiB;AACnB","file":"QuestionnairePage.less?vue&type=style&index=0&id=7f5ff080&lang=less&scoped=true&","sourcesContent":[".hint[data-v-7f5ff080] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-7f5ff080] {\n  max-height: none !important;\n}\ntextarea.answer[disabled][data-v-7f5ff080] {\n  background-color: #CCC;\n}\n.user-avatar[data-v-7f5ff080]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-7f5ff080]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-7f5ff080]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-7f5ff080] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n"]}]);
 
 
 /***/ }),
@@ -289,12 +289,23 @@ var render = function() {
                           }
                         },
                         [
-                          _vm._v(
-                            "\r\n        " +
-                              _vm._s(_vm.$t("Answer")) +
-                              "\r\n      "
-                          )
-                        ]
+                          !_vm.isTimeUp
+                            ? [
+                                _vm._v(
+                                  "\r\n          " +
+                                    _vm._s(_vm.$t("Answer")) +
+                                    "\r\n        "
+                                )
+                              ]
+                            : [
+                                _vm._v(
+                                  "\r\n          " +
+                                    _vm._s(_vm.$t("Show Answer")) +
+                                    "\r\n        "
+                                )
+                              ]
+                        ],
+                        2
                       )
                     : _vm._e(),
                   _vm._v(" "),
@@ -363,7 +374,9 @@ var render = function() {
         ? _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
         : _vm._e(),
       _vm._v(" "),
-      _vm.answer !== "" && !_vm.isTimeUp ? _c("block-exit") : _vm._e()
+      _vm.hasStarted && _vm.answer !== "" && !_vm.isTimeUp
+        ? _c("block-exit")
+        : _vm._e()
     ],
     1
   )

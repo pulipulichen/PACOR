@@ -95,7 +95,12 @@
               v-on:click="page = 'Answer'"
               v-bind:class="{'disabled': (page === 'Answer')}"
               v-if="hasStarted">
-        {{ $t('Answer') }}
+        <template v-if="!isTimeUp">
+          {{ $t('Answer') }}
+        </template>
+        <template v-else>
+          {{ $t('Show Answer') }}
+        </template>
       </button>
 
       <countdown-button 
@@ -133,5 +138,5 @@
     v-if="hasStarted && !isTimeUp">
   </activity-timer>
   <block-exit
-    v-if="answer !== '' && !isTimeUp"></block-exit>
+    v-if="hasStarted && answer !== '' && !isTimeUp"></block-exit>
 </div>

@@ -20,6 +20,7 @@ var render = function() {
     { staticClass: "PostRecall" },
     [
       _c("questionnaire", {
+        ref: "Questionnaire",
         attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib },
         scopedSlots: _vm._u([
           {
@@ -103,6 +104,16 @@ let PostRecall = {
     'questionnaire': _components_QuestionnairePage_QuestionnairePage_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     'instruction': _PostRecallInstruction_PostRecallInstruction_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
+  mounted: async function () {
+    //console.log(this.lib.auth.currentStepConfig.preloadPreImaginaryAnswer)
+    //console.log(this.$refs.Questionnaire.answer)
+    if (this.lib.auth.currentStepConfig.preloadPreImaginaryAnswer === true
+            && this.$refs.Questionnaire.answer === '') {
+      let answer = await this.lib.AxiosHelper.get('/client/Questionnaire/getPreImaginaryAnswer')
+      //console.log(answer)
+      this.$refs.Questionnaire.answer = answer
+    }
+  }
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (PostRecall);
