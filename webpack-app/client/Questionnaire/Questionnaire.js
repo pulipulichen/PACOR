@@ -1,7 +1,7 @@
 import CountdownButton from './components/CountdownButton/CountdownButton.vue'
 
-import PostRecallInstruction from './components/Instruction/PostRecallInstruction/PostRecallInstruction.vue'
-import PreImaginaryInstruction from './components/Instruction/PreImaginaryInstruction/PreImaginaryInstruction.vue'
+import PreImaginaryInstruction from './PreImaginary/PreImaginaryInstruction/PreImaginaryInstruction.vue'
+import PostRecallInstruction from './PostRecall/PostRecallInstruction/PostRecallInstruction.vue'
 
 let Questionnaire = {
   props: ['lib', 'status', 'config'],
@@ -35,8 +35,10 @@ let Questionnaire = {
     
     data.instuctionComponent = null
     if (!data.instuction) {
-      data.instuctionComponent = key + 'Instruction'
-      console.log(data.instuctionComponent)
+      //data.instuctionComponent = key + 'Instruction'
+      //console.log(data.instuctionComponent)
+      data.instuctionComponent = 'pre-imaginary-instruction'
+      //console.log(data.instuctionComponent)
     }
     
     data.page = 'Instruction'
@@ -45,8 +47,8 @@ let Questionnaire = {
   },
   components: {
     'countdown-button': CountdownButton,
-    PreImaginaryInstruction,
-    PostRecallInstruction
+    'pre-imaginary-instruction': PreImaginaryInstruction,
+    'post-recall-instruction': PostRecallInstruction
   },
   computed: {
     buttonText: function () {

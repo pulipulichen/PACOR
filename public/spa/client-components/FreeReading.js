@@ -1619,8 +1619,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _libs_CopyPasteHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./libs/CopyPasteHelper.js */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/libs/CopyPasteHelper.js");
-/* harmony import */ var _Questionnaire_components_Instruction_PreImaginaryInstruction_PreImaginaryInstruction_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../Questionnaire/components/Instruction/PreImaginaryInstruction/PreImaginaryInstruction.vue */ "./webpack-app/client/Questionnaire/components/Instruction/PreImaginaryInstruction/PreImaginaryInstruction.vue");
-/* harmony import */ var _Questionnaire_components_Instruction_PostRecallInstruction_PostRecallInstruction_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../../Questionnaire/components/Instruction/PostRecallInstruction/PostRecallInstruction.vue */ "./webpack-app/client/Questionnaire/components/Instruction/PostRecallInstruction/PostRecallInstruction.vue");
+/* harmony import */ var _Questionnaire_PreImaginary_PreImaginaryInstruction_PreImaginaryInstruction_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../Questionnaire/PreImaginary/PreImaginaryInstruction/PreImaginaryInstruction.vue */ "./webpack-app/client/Questionnaire/PreImaginary/PreImaginaryInstruction/PreImaginaryInstruction.vue");
+/* harmony import */ var _Questionnaire_PostRecall_PostRecallInstruction_PostRecallInstruction_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../../Questionnaire/PostRecall/PostRecallInstruction/PostRecallInstruction.vue */ "./webpack-app/client/Questionnaire/PostRecall/PostRecallInstruction/PostRecallInstruction.vue");
 
 
 
@@ -1642,8 +1642,8 @@ let ArticleInformation = {
     }
   },
   components: {
-    "pre-imaginary-instruction": _Questionnaire_components_Instruction_PreImaginaryInstruction_PreImaginaryInstruction_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    "post-recall-instruction": _Questionnaire_components_Instruction_PostRecallInstruction_PostRecallInstruction_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    "pre-imaginary-instruction": _Questionnaire_PreImaginary_PreImaginaryInstruction_PreImaginaryInstruction_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    "post-recall-instruction": _Questionnaire_PostRecall_PostRecallInstruction_PostRecallInstruction_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   computed: {
     articleTitle () {

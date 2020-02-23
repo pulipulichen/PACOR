@@ -196,10 +196,13 @@ var render = function() {
                                   "ui segment field hint instruction-component content-full-height"
                               },
                               [
-                                _c(_vm.instuctionComponent, {
-                                  tag: "component",
+                                _vm._v(
+                                  "\r\n          AAA " +
+                                    _vm._s(_vm.instuctionComponent) +
+                                    "\r\n          "
+                                ),
+                                _c("pre-imaginary-instruction", {
                                   attrs: {
-                                    "instuction-component": "",
                                     config: _vm.config,
                                     status: _vm.status,
                                     lib: _vm.lib
@@ -502,10 +505,13 @@ var render = function() {
                                   "ui segment field hint instruction-component content-full-height"
                               },
                               [
-                                _c(_vm.instuctionComponent, {
-                                  tag: "component",
+                                _vm._v(
+                                  "\r\n          AAA " +
+                                    _vm._s(_vm.instuctionComponent) +
+                                    "\r\n          "
+                                ),
+                                _c("pre-imaginary-instruction", {
                                   attrs: {
-                                    "instuction-component": "",
                                     config: _vm.config,
                                     status: _vm.status,
                                     lib: _vm.lib
@@ -905,8 +911,8 @@ component.options.__file = "webpack-app/client/Questionnaire/PreImaginary/PreIma
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/CountdownButton/CountdownButton.vue */ "./webpack-app/client/Questionnaire/components/CountdownButton/CountdownButton.vue");
-/* harmony import */ var _components_Instruction_PostRecallInstruction_PostRecallInstruction_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Instruction/PostRecallInstruction/PostRecallInstruction.vue */ "./webpack-app/client/Questionnaire/components/Instruction/PostRecallInstruction/PostRecallInstruction.vue");
-/* harmony import */ var _components_Instruction_PreImaginaryInstruction_PreImaginaryInstruction_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Instruction/PreImaginaryInstruction/PreImaginaryInstruction.vue */ "./webpack-app/client/Questionnaire/components/Instruction/PreImaginaryInstruction/PreImaginaryInstruction.vue");
+/* harmony import */ var _PreImaginary_PreImaginaryInstruction_PreImaginaryInstruction_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PreImaginary/PreImaginaryInstruction/PreImaginaryInstruction.vue */ "./webpack-app/client/Questionnaire/PreImaginary/PreImaginaryInstruction/PreImaginaryInstruction.vue");
+/* harmony import */ var _PostRecall_PostRecallInstruction_PostRecallInstruction_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PostRecall/PostRecallInstruction/PostRecallInstruction.vue */ "./webpack-app/client/Questionnaire/PostRecall/PostRecallInstruction/PostRecallInstruction.vue");
 
 
 
@@ -944,8 +950,10 @@ let Questionnaire = {
     
     data.instuctionComponent = null
     if (!data.instuction) {
-      data.instuctionComponent = key + 'Instruction'
-      console.log(data.instuctionComponent)
+      //data.instuctionComponent = key + 'Instruction'
+      //console.log(data.instuctionComponent)
+      data.instuctionComponent = 'pre-imaginary-instruction'
+      //console.log(data.instuctionComponent)
     }
     
     data.page = 'Instruction'
@@ -954,8 +962,8 @@ let Questionnaire = {
   },
   components: {
     'countdown-button': _components_CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    PreImaginaryInstruction: _components_Instruction_PreImaginaryInstruction_PreImaginaryInstruction_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    PostRecallInstruction: _components_Instruction_PostRecallInstruction_PostRecallInstruction_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    'pre-imaginary-instruction': _PreImaginary_PreImaginaryInstruction_PreImaginaryInstruction_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    'post-recall-instruction': _PostRecall_PostRecallInstruction_PostRecallInstruction_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   computed: {
     buttonText: function () {
