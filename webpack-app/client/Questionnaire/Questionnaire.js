@@ -36,6 +36,7 @@ let Questionnaire = {
     data.instuctionComponent = null
     if (!data.instuction) {
       data.instuctionComponent = key + 'Instruction'
+      console.log(data.instuctionComponent)
     }
     
     data.page = 'Instruction'

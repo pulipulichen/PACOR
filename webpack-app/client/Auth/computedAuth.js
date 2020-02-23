@@ -15,6 +15,7 @@ export default function (Auth) {
       for (let i = 0; i < this.status.readingProgresses.length; i++) {
         let step = this.status.readingProgresses[i].step_name
         if (stayIn === step) {
+          console.log('@TEST stayInReadingProgress: ' + stayIn)
           return stayIn
         }
       }

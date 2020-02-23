@@ -176,6 +176,11 @@ var render = function() {
                 return [
                   _vm.page === "Instruction"
                     ? [
+                        _vm._v(
+                          "\r\n        " +
+                            _vm._s(_vm.instuctionComponent) +
+                            "\r\n        "
+                        ),
                         !_vm.instuctionComponent
                           ? _c("iframe-message-segment", {
                               staticClass: "field hint content-full-height",
@@ -375,9 +380,11 @@ var render = function() {
         )
       }),
       _vm._v(" "),
-      _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
+      _vm.hasStarted && !_vm.isTimeUp
+        ? _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
+        : _vm._e(),
       _vm._v(" "),
-      _vm.answer !== "" ? _c("block-exit") : _vm._e()
+      _vm.answer !== "" && !_vm.isTimeUp ? _c("block-exit") : _vm._e()
     ],
     1
   )
@@ -475,6 +482,11 @@ var render = function() {
                 return [
                   _vm.page === "Instruction"
                     ? [
+                        _vm._v(
+                          "\r\n        " +
+                            _vm._s(_vm.instuctionComponent) +
+                            "\r\n        "
+                        ),
                         !_vm.instuctionComponent
                           ? _c("iframe-message-segment", {
                               staticClass: "field hint content-full-height",
@@ -674,9 +686,11 @@ var render = function() {
         )
       }),
       _vm._v(" "),
-      _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
+      _vm.hasStarted && !_vm.isTimeUp
+        ? _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
+        : _vm._e(),
       _vm._v(" "),
-      _vm.answer !== "" ? _c("block-exit") : _vm._e()
+      _vm.answer !== "" && !_vm.isTimeUp ? _c("block-exit") : _vm._e()
     ],
     1
   )
@@ -931,6 +945,7 @@ let Questionnaire = {
     data.instuctionComponent = null
     if (!data.instuction) {
       data.instuctionComponent = key + 'Instruction'
+      console.log(data.instuctionComponent)
     }
     
     data.page = 'Instruction'
