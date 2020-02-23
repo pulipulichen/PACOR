@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單","Show Instruction":"顯示說明","Start Answer and Countdown":"開始作答並且倒數計時"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單","Show Instruction":"顯示說明","Start Answer and Countdown":"開始作答並且倒數計時","Answer":"繼續作答"}}')
   delete Component.options._Ctor
 }
 
@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單","Show Instruction":"顯示說明","Start Answer and Countdown":"開始作答並且倒數計時"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單","Show Instruction":"顯示說明","Start Answer and Countdown":"開始作答並且倒數計時","Answer":"繼續作答"}}')
   delete Component.options._Ctor
 }
 
@@ -57,7 +57,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".hint[data-v-359e549b] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.user-avatar[data-v-359e549b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-359e549b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-359e549b]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-359e549b] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n", "",{"version":3,"sources":["QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,wBAAwB;EACxB,2BAA2B;EAC3B,qBAAqB;EACrB,oCAAoC;AACtC;AACA;EACE,yBAAyB;EACzB,4BAA4B;EAC5B,iBAAiB;AACnB","file":"QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-359e549b] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.user-avatar[data-v-359e549b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-359e549b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-359e549b]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-359e549b] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n"]}]);
+exports.push([module.i, ".hint[data-v-359e549b] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[disabled][data-v-359e549b] {\n  background-color: #CCC;\n}\n.user-avatar[data-v-359e549b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-359e549b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-359e549b]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-359e549b] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n", "",{"version":3,"sources":["QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,wBAAwB;EACxB,2BAA2B;EAC3B,qBAAqB;EACrB,oCAAoC;AACtC;AACA;EACE,yBAAyB;EACzB,4BAA4B;EAC5B,iBAAiB;AACnB","file":"QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-359e549b] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[disabled][data-v-359e549b] {\n  background-color: #CCC;\n}\n.user-avatar[data-v-359e549b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-359e549b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-359e549b]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-359e549b] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n"]}]);
 
 
 /***/ }),
@@ -71,7 +71,7 @@ exports.push([module.i, ".hint[data-v-359e549b] {\n  overflow-x: hidden;\n  over
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".hint[data-v-71c8473b] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.user-avatar[data-v-71c8473b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-71c8473b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-71c8473b]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-71c8473b] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n", "",{"version":3,"sources":["QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,wBAAwB;EACxB,2BAA2B;EAC3B,qBAAqB;EACrB,oCAAoC;AACtC;AACA;EACE,yBAAyB;EACzB,4BAA4B;EAC5B,iBAAiB;AACnB","file":"QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-71c8473b] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.user-avatar[data-v-71c8473b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-71c8473b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-71c8473b]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-71c8473b] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n"]}]);
+exports.push([module.i, ".hint[data-v-71c8473b] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[disabled][data-v-71c8473b] {\n  background-color: #CCC;\n}\n.user-avatar[data-v-71c8473b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-71c8473b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-71c8473b]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-71c8473b] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n", "",{"version":3,"sources":["QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,wBAAwB;EACxB,2BAA2B;EAC3B,qBAAqB;EACrB,oCAAoC;AACtC;AACA;EACE,yBAAyB;EACzB,4BAA4B;EAC5B,iBAAiB;AACnB","file":"QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-71c8473b] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[disabled][data-v-71c8473b] {\n  background-color: #CCC;\n}\n.user-avatar[data-v-71c8473b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-71c8473b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-71c8473b]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-71c8473b] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n"]}]);
 
 
 /***/ }),
@@ -254,7 +254,7 @@ var render = function() {
                     ? _c(
                         "button",
                         {
-                          staticClass: "ui button",
+                          staticClass: "ui button open-instruction-page",
                           class: { disabled: _vm.page === "Instruction" },
                           attrs: { type: "button" },
                           on: {
@@ -277,7 +277,7 @@ var render = function() {
                     ? _c(
                         "button",
                         {
-                          staticClass: "ui button",
+                          staticClass: "ui button open-answer-page",
                           attrs: { type: "button" },
                           on: { click: _vm.startAnswer }
                         },
@@ -292,58 +292,79 @@ var render = function() {
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.hasStarted
-                    ? _c("countdown-button", {
-                        staticClass: "questionnaire-submit",
-                        attrs: {
-                          minWordCount: _vm.minWords,
-                          enableClassNames:
-                            "ui green right labeled icon button",
-                          text: _vm.answer,
-                          lib: _vm.lib,
-                          locale: _vm.status.preference.locale,
-                          countdownSec: _vm.remainingSeconds,
-                          enable: _vm.isTimeUp,
-                          isWaitingLoading: _vm.isWaitingLoading,
-                          ignoreWordCount: true,
-                          autoClickSeconds: 5
-                        },
-                        on: { click: _vm.nextStep, timeup: _vm.onTimeup },
-                        scopedSlots: _vm._u(
-                          [
-                            {
-                              key: "default",
-                              fn: function(ref) {
-                                var autoClickRemainingSeconds =
-                                  ref.autoClickRemainingSeconds
-                                return [
-                                  _vm._v(
-                                    "\r\n          " +
-                                      _vm._s(
-                                        _vm.$t("Start Answer and Countdown")
-                                      ) +
-                                      "\r\n\r\n          "
-                                  ),
-                                  autoClickRemainingSeconds
-                                    ? [
-                                        _vm._v(
-                                          "\r\n            (" +
-                                            _vm._s(autoClickRemainingSeconds) +
-                                            ")\r\n          "
-                                        )
-                                      ]
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  _c("i", { staticClass: "angle right icon" })
-                                ]
-                              }
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "ui button open-answer-page",
+                          class: { disabled: _vm.page === "Answer" },
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              _vm.page = "Answer"
                             }
-                          ],
-                          null,
-                          false,
-                          2066878213
-                        )
-                      })
-                    : _vm._e()
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\r\n        " +
+                              _vm._s(_vm.$t("Answer")) +
+                              "\r\n      "
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("countdown-button", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.hasStarted,
+                        expression: "hasStarted"
+                      }
+                    ],
+                    staticClass: "questionnaire-submit",
+                    attrs: {
+                      minWordCount: _vm.minWords,
+                      enableClassNames: "ui green right labeled icon button",
+                      text: _vm.answer,
+                      lib: _vm.lib,
+                      locale: _vm.status.preference.locale,
+                      countdownSec: _vm.remainingSeconds,
+                      enable: _vm.isTimeUp,
+                      isWaitingLoading: _vm.isWaitingLoading,
+                      ignoreWordCount: true,
+                      autoClickSeconds: 5
+                    },
+                    on: { click: _vm.nextStep, timeup: _vm.onTimeup },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(ref) {
+                          var autoClickRemainingSeconds =
+                            ref.autoClickRemainingSeconds
+                          return [
+                            _vm._v(
+                              "\r\n          " +
+                                _vm._s(_vm.$t("NEXT")) +
+                                "\r\n\r\n          "
+                            ),
+                            autoClickRemainingSeconds
+                              ? [
+                                  _vm._v(
+                                    "\r\n            (" +
+                                      _vm._s(autoClickRemainingSeconds) +
+                                      ")\r\n          "
+                                  )
+                                ]
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "angle right icon" })
+                          ]
+                        }
+                      }
+                    ])
+                  })
                 ]
               },
               proxy: true
@@ -532,7 +553,7 @@ var render = function() {
                     ? _c(
                         "button",
                         {
-                          staticClass: "ui button",
+                          staticClass: "ui button open-instruction-page",
                           class: { disabled: _vm.page === "Instruction" },
                           attrs: { type: "button" },
                           on: {
@@ -555,7 +576,7 @@ var render = function() {
                     ? _c(
                         "button",
                         {
-                          staticClass: "ui button",
+                          staticClass: "ui button open-answer-page",
                           attrs: { type: "button" },
                           on: { click: _vm.startAnswer }
                         },
@@ -570,58 +591,79 @@ var render = function() {
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.hasStarted
-                    ? _c("countdown-button", {
-                        staticClass: "questionnaire-submit",
-                        attrs: {
-                          minWordCount: _vm.minWords,
-                          enableClassNames:
-                            "ui green right labeled icon button",
-                          text: _vm.answer,
-                          lib: _vm.lib,
-                          locale: _vm.status.preference.locale,
-                          countdownSec: _vm.remainingSeconds,
-                          enable: _vm.isTimeUp,
-                          isWaitingLoading: _vm.isWaitingLoading,
-                          ignoreWordCount: true,
-                          autoClickSeconds: 5
-                        },
-                        on: { click: _vm.nextStep, timeup: _vm.onTimeup },
-                        scopedSlots: _vm._u(
-                          [
-                            {
-                              key: "default",
-                              fn: function(ref) {
-                                var autoClickRemainingSeconds =
-                                  ref.autoClickRemainingSeconds
-                                return [
-                                  _vm._v(
-                                    "\r\n          " +
-                                      _vm._s(
-                                        _vm.$t("Start Answer and Countdown")
-                                      ) +
-                                      "\r\n\r\n          "
-                                  ),
-                                  autoClickRemainingSeconds
-                                    ? [
-                                        _vm._v(
-                                          "\r\n            (" +
-                                            _vm._s(autoClickRemainingSeconds) +
-                                            ")\r\n          "
-                                        )
-                                      ]
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  _c("i", { staticClass: "angle right icon" })
-                                ]
-                              }
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "ui button open-answer-page",
+                          class: { disabled: _vm.page === "Answer" },
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              _vm.page = "Answer"
                             }
-                          ],
-                          null,
-                          false,
-                          2066878213
-                        )
-                      })
-                    : _vm._e()
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\r\n        " +
+                              _vm._s(_vm.$t("Answer")) +
+                              "\r\n      "
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("countdown-button", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.hasStarted,
+                        expression: "hasStarted"
+                      }
+                    ],
+                    staticClass: "questionnaire-submit",
+                    attrs: {
+                      minWordCount: _vm.minWords,
+                      enableClassNames: "ui green right labeled icon button",
+                      text: _vm.answer,
+                      lib: _vm.lib,
+                      locale: _vm.status.preference.locale,
+                      countdownSec: _vm.remainingSeconds,
+                      enable: _vm.isTimeUp,
+                      isWaitingLoading: _vm.isWaitingLoading,
+                      ignoreWordCount: true,
+                      autoClickSeconds: 5
+                    },
+                    on: { click: _vm.nextStep, timeup: _vm.onTimeup },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(ref) {
+                          var autoClickRemainingSeconds =
+                            ref.autoClickRemainingSeconds
+                          return [
+                            _vm._v(
+                              "\r\n          " +
+                                _vm._s(_vm.$t("NEXT")) +
+                                "\r\n\r\n          "
+                            ),
+                            autoClickRemainingSeconds
+                              ? [
+                                  _vm._v(
+                                    "\r\n            (" +
+                                      _vm._s(autoClickRemainingSeconds) +
+                                      ")\r\n          "
+                                  )
+                                ]
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "angle right icon" })
+                          ]
+                        }
+                      }
+                    ])
+                  })
                 ]
               },
               proxy: true
@@ -1010,6 +1052,7 @@ let Questionnaire = {
           if (this.remainingSeconds <= 0) {
             this.isTimeUp = true
           }
+          this.page = 'Answer'
           //console.log(this.remainingSeconds)
         }
         catch (e) {}
@@ -1038,6 +1081,11 @@ let Questionnaire = {
       this.isTimeUp = true
     },
     nextStep: async function () {
+      if (typeof(this.status.readingConfig.debug.stayInReadingProgress) === 'string') {
+        console.log(`Stay in ${this.status.readingConfig.debug.stayInReadingProgress} for debug.`)
+        return false
+      }
+      
       /*
       let data = {
         log: this.log,

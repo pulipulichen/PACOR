@@ -6,12 +6,12 @@ let webpageConfig = use('./../../test-config/reading-fastLimitTime')
 //console.log(webpageConfig)
 
 const TestOptions = {
-  //threads: 1,
+  threads: 1,
   //threads: 3, // ok 完全運作正常
   //threads: 5,  // ?個錯誤
   //threads: 9,  // ?個錯誤
   //threads: 15,  // 10個錯誤
-  threads: 20,  // 0個錯誤 20200222
+  //threads: 20,  // 0個錯誤 20200222
   //threads: 30,  // ?個錯誤
   //threads: 40,  // 10個錯誤
   maxShowThreads: 9,
@@ -134,7 +134,7 @@ let config = {
   'c1. pre image': async function ( { assert, client, browser }, page ) {
     //console.log('暫時跳過'); return
     await page.assertFn(async function () {
-      await PACORTestManager.writeQuestionnaire()
+      await PACORTestManager.writeQuestionnairePage()
     })
   },
   'd1. 專注閱讀: 確認視窗': async function ( { assert, client, browser }, page ) {
@@ -188,7 +188,7 @@ let config = {
   'f1. post recall': async function ( { assert, client, browser }, page ) {
     //console.log('暫時跳過'); return
     await page.assertFn(async function () {
-      await PACORTestManager.writeQuestionnaire()
+      await PACORTestManager.writeQuestionnairePage()
     })
   },
   'g1. exit': async function ( { assert, client, browser }, page ) {

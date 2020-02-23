@@ -9,7 +9,8 @@ const Cache = use('Cache')
 
 const DatabaseHelper = use('App/Helpers/DatabaseHelper')
 
-let flushCache = false // for test
+const Config = use('Config')
+let flushCache = Config.get('reading.debug.flushCache') // for test
 
 /**
  * 登入

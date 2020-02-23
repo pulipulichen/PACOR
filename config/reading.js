@@ -1,5 +1,6 @@
 module.exports = {
   debug: {
+    flushCache: true,
     enable: true,
     enableRemoteConosleLog: false,
     //forceMaxTimeoutMinutes: 0.4
@@ -12,7 +13,7 @@ module.exports = {
       //minAnnotation: 1,
       //maxAnnotation: 1
     },
-    stayInReadingProgress: 'PreImaginary'
+    //stayInReadingProgress: 'PreImaginary'
   },
   
   /**

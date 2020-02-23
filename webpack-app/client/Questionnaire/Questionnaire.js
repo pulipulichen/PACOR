@@ -157,6 +157,7 @@ let Questionnaire = {
           if (this.remainingSeconds <= 0) {
             this.isTimeUp = true
           }
+          this.page = 'Answer'
           //console.log(this.remainingSeconds)
         }
         catch (e) {}
@@ -185,6 +186,11 @@ let Questionnaire = {
       this.isTimeUp = true
     },
     nextStep: async function () {
+      if (typeof(this.status.readingConfig.debug.stayInReadingProgress) === 'string') {
+        console.log(`Stay in ${this.status.readingConfig.debug.stayInReadingProgress} for debug.`)
+        return false
+      }
+      
       /*
       let data = {
         log: this.log,

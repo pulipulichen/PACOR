@@ -90,7 +90,7 @@
       -->
       
       <button type="button"
-              class="ui button"
+              class="ui button open-instruction-page"
               v-bind:class="{'disabled': (page === 'Instruction')}"
               v-on:click="page = 'Instruction'"
               v-if="hasStarted">
@@ -98,14 +98,22 @@
       </button>
       
       <button type="button"
-              class="ui button"
+              class="ui button open-answer-page"
               v-on:click="startAnswer"
               v-if="!hasStarted">
         {{ $t('Start Answer and Countdown') }}
       </button>
+      
+      <button type="button"
+              class="ui button open-answer-page"
+              v-on:click="page = 'Answer'"
+              v-bind:class="{'disabled': (page === 'Answer')}"
+              v-if="hasStarted">
+        {{ $t('Answer') }}
+      </button>
 
       <countdown-button 
-        v-if="hasStarted"
+        v-show="hasStarted"
         class="questionnaire-submit"
         v-bind:minWordCount="minWords"
         enableClassNames="ui green right labeled icon button"
@@ -121,7 +129,7 @@
         v-on:timeup="onTimeup">
         <template 
           v-slot:default="{autoClickRemainingSeconds}">
-          {{ $t('Start Answer and Countdown') }}
+          {{ $t('NEXT') }}
 
           <template v-if="autoClickRemainingSeconds">
             ({{ autoClickRemainingSeconds }})

@@ -1046,6 +1046,7 @@ __webpack_require__.r(__webpack_exports__);
      * 加上固定步驟的功能
      * @author Pulipuli Chen 20200224
      */
+    //console.log(this.status.readingConfig.debug)
     if (typeof(this.status.readingConfig.debug.stayInReadingProgress) === 'string') {
       let stayIn = this.status.readingConfig.debug.stayInReadingProgress
       for (let i = 0; i < this.status.readingProgresses.length; i++) {
@@ -2331,6 +2332,48 @@ component.options.__file = "webpack-app/components/manager/PACORTestManager/PACO
 
 /***/ }),
 
+/***/ "./webpack-app/components/manager/PACORTestManager/lib/RandomKeyword.tpl":
+/*!*******************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/lib/RandomKeyword.tpl ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "曾經\n亞洲\n四小龍\n之首\n一直\n愛著\n老婆\n看著\n許多\n走動\n走進去\n穿著\n牛仔褲\n靴子\n老皮\n夾克\n上班族\n明天\n開始\n上班\n沒錯\n本領\n活潑\n他們\n煩愁\n沒有\n同樣\n碎痕\n力量\n翻起\n岩石\n才能\n傷損\n連根起出\n知道\n深藏\n好想你\n遠離\n世界\n塵垢\n不露痕跡\n讚\n撇開\n日子\n奔忙\n失望\n絕望\n下一站\n天堂\n固執\n善良\n朋友\n關心\n海灘\n坦蕩蕩\n悲傷\n哭泣\n空氣\n突然\n安靜\n漫天\n飛舞\n流動";
+
+/***/ }),
+
+/***/ "./webpack-app/components/manager/PACORTestManager/lib/RandomKeywordHelper.js":
+/*!************************************************************************************!*\
+  !*** ./webpack-app/components/manager/PACORTestManager/lib/RandomKeywordHelper.js ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RandomKeyword_tpl__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RandomKeyword.tpl */ "./webpack-app/components/manager/PACORTestManager/lib/RandomKeyword.tpl");
+/* harmony import */ var _RandomKeyword_tpl__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_RandomKeyword_tpl__WEBPACK_IMPORTED_MODULE_0__);
+
+
+
+const textList = _RandomKeyword_tpl__WEBPACK_IMPORTED_MODULE_0___default.a.trim().split('\n')
+const len = textList.length - 1
+
+let RandomKeywordHelper = function () {
+  let text = textList[(Math.floor(Math.random() * textList.length))]
+  if (!text) {
+    return RandomKeywordHelper()
+  }
+  else {
+    return text
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (RandomKeywordHelper);
+
+/***/ }),
+
 /***/ "./webpack-app/components/manager/PACORTestManager/lib/RandomText.tpl":
 /*!****************************************************************************!*\
   !*** ./webpack-app/components/manager/PACORTestManager/lib/RandomText.tpl ***!
@@ -2447,6 +2490,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_RandomTextHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/RandomTextHelper.js */ "./webpack-app/components/manager/PACORTestManager/lib/RandomTextHelper.js");
+/* harmony import */ var _lib_RandomKeywordHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/RandomKeywordHelper.js */ "./webpack-app/components/manager/PACORTestManager/lib/RandomKeywordHelper.js");
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
@@ -2456,6 +2501,10 @@ __webpack_require__.r(__webpack_exports__);
   
   PACORTestManager.methods.createRandomHtml = function () {
     return '<p>' + Object(_lib_RandomTextHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])() + '</p>'
+  }
+  
+  PACORTestManager.methods.createRandomKeyword = function () {
+    return Object(_lib_RandomKeywordHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])()
   }
 });
 
@@ -3916,10 +3965,49 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
-  PACORTestManager.methods.writeQuestionnaire = async function (page) {
+  PACORTestManager.methods.writeQuestionnaireSplit = async function (page) {
     
     //this.retry(3, async () => {
     try {
+      let textarea = await this.waitForElementVisible('textarea.answer')
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('textarea.answer:visible') === 0) {
+        return
+      }
+
+      await this.typeInput('textarea.answer', this.createRandomText(), false)
+
+      await this.sleep(500)
+      
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('textarea.answer:visible') === 0) {
+        return
+      }
+
+      await this.typeInput('textarea.answer', this.createRandomText(), false)
+
+  //    textarea.val(this.createRandomText())
+  //            .trigger('input')
+  //            .trigger('change')
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('textarea.answer:visible') === 0) {
+        return
+      }
+
+      await this.waitForElementVisibleClick('.ui.button.questionnaire-submit:not(.disabled)')
+    }
+    catch (e) {
+      console.log('對話框似乎已經不見了...')
+    }
+    //})
+      
+  }
+  
+  PACORTestManager.methods.writeQuestionnairePage = async function (page) {
+    
+    //this.retry(3, async () => {
+    try {
+      await this.waitForElementVisibleClick('.ui.button.open-answer-page')
+      
       let textarea = await this.waitForElementVisible('textarea.answer')
 
       if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('textarea.answer:visible') === 0) {

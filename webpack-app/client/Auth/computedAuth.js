@@ -9,6 +9,7 @@ export default function (Auth) {
      * 加上固定步驟的功能
      * @author Pulipuli Chen 20200224
      */
+    //console.log(this.status.readingConfig.debug)
     if (typeof(this.status.readingConfig.debug.stayInReadingProgress) === 'string') {
       let stayIn = this.status.readingConfig.debug.stayInReadingProgress
       for (let i = 0; i < this.status.readingProgresses.length; i++) {
