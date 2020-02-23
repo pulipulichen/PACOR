@@ -1,4 +1,4 @@
-<template src="./../Questionnaire.html"></template>
+<template src="./../QuestionnairePage.html"></template>
 <script src="./../Questionnaire.js"></script>
-<style src="./../Questionnaire.less" lang="less" scoped></style>
+<style src="./../QuestionnairePage.less" lang="less" scoped></style>
 <i18n src="./../Questionnaire.yaml" lang="yaml"></i18n>

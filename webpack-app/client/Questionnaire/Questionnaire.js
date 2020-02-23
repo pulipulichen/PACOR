@@ -38,6 +38,8 @@ let Questionnaire = {
       data.instuctionComponent = key + 'Instruction'
     }
     
+    data.page = 'Instruction'
+    
     return data
   },
   components: {
@@ -95,6 +97,9 @@ let Questionnaire = {
         return 'green'
       }
     },
+    hasStarted () {
+      return (this.log.start_timestamp !== null)
+    }
 //    isTimeUp: function () {
 //      console.log(this.remainingSeconds)
 //      return (typeof(this.remainingSeconds) === 'number'
@@ -199,6 +204,10 @@ let Questionnaire = {
     logout () {
       localStorage.removeItem(this.persistKey)
       this.lib.auth.logoutWithoutForget()
+    },
+    startAnswer () {
+      this.page = 'Answer'
+      this.persist()
     }
   } // methods
 }

@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單","Show Instruction":"顯示說明","Start Answer and Countdown":"開始作答並且倒數計時"}}')
   delete Component.options._Ctor
 }
 
@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單","Show Instruction":"顯示說明","Start Answer and Countdown":"開始作答並且倒數計時"}}')
   delete Component.options._Ctor
 }
 
@@ -48,30 +48,30 @@ module.exports = function (Component) {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".hint[data-v-359e549b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-359e549b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n.user-avatar[data-v-359e549b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-359e549b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-359e549b]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-359e549b] {\n  max-height: calc(15rem - 1rem) !important;\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n", "",{"version":3,"sources":["Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,mDAAmD;AACrD;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,wBAAwB;EACxB,2BAA2B;EAC3B,qBAAqB;EACrB,oCAAoC;AACtC;AACA;EACE,yCAAyC;EACzC,yBAAyB;EACzB,4BAA4B;EAC5B,iBAAiB;AACnB","file":"Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-359e549b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-359e549b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n.user-avatar[data-v-359e549b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-359e549b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-359e549b]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-359e549b] {\n  max-height: calc(15rem - 1rem) !important;\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n"]}]);
+exports.push([module.i, ".hint[data-v-359e549b] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.user-avatar[data-v-359e549b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-359e549b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-359e549b]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-359e549b] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n", "",{"version":3,"sources":["QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,wBAAwB;EACxB,2BAA2B;EAC3B,qBAAqB;EACrB,oCAAoC;AACtC;AACA;EACE,yBAAyB;EACzB,4BAA4B;EAC5B,iBAAiB;AACnB","file":"QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-359e549b] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.user-avatar[data-v-359e549b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-359e549b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-359e549b]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-359e549b] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n"]}]);
 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".hint[data-v-71c8473b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-71c8473b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n.user-avatar[data-v-71c8473b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-71c8473b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-71c8473b]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-71c8473b] {\n  max-height: calc(15rem - 1rem) !important;\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n", "",{"version":3,"sources":["Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,mDAAmD;AACrD;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,wBAAwB;EACxB,2BAA2B;EAC3B,qBAAqB;EACrB,oCAAoC;AACtC;AACA;EACE,yCAAyC;EACzC,yBAAyB;EACzB,4BAA4B;EAC5B,iBAAiB;AACnB","file":"Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-71c8473b] {\n  max-height: 15rem;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-71c8473b] {\n  height: calc(100vh - 6vh - 15rem - 19em) !important;\n}\n.user-avatar[data-v-71c8473b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-71c8473b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-71c8473b]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-71c8473b] {\n  max-height: calc(15rem - 1rem) !important;\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n"]}]);
+exports.push([module.i, ".hint[data-v-71c8473b] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.user-avatar[data-v-71c8473b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-71c8473b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-71c8473b]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-71c8473b] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n", "",{"version":3,"sources":["QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,wBAAwB;EACxB,2BAA2B;EAC3B,qBAAqB;EACrB,oCAAoC;AACtC;AACA;EACE,yBAAyB;EACzB,4BAA4B;EAC5B,iBAAiB;AACnB","file":"QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&","sourcesContent":[".hint[data-v-71c8473b] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.user-avatar[data-v-71c8473b]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-71c8473b]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-71c8473b]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-71c8473b] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n"]}]);
 
 
 /***/ }),
@@ -90,10 +90,10 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Questionnaire/Questionnaire.html?vue&type=template&id=359e549b&scoped=true&":
-/*!************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/Questionnaire/Questionnaire.html?vue&type=template&id=359e549b&scoped=true& ***!
-  \************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Questionnaire/QuestionnairePage.html?vue&type=template&id=359e549b&scoped=true&":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/Questionnaire/QuestionnairePage.html?vue&type=template&id=359e549b&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -174,65 +174,74 @@ var render = function() {
               key: "content",
               fn: function() {
                 return [
-                  !_vm.instuctionComponent
-                    ? _c("iframe-message-segment", {
-                        staticClass: "field hint",
-                        attrs: { config: _vm.config, message: _vm.instruction }
-                      })
-                    : _c(
-                        "div",
-                        {
-                          staticClass:
-                            "ui segment field hint instruction-component"
-                        },
-                        [
-                          _c(_vm.instuctionComponent, {
-                            tag: "component",
-                            attrs: {
-                              "instuction-component": "",
-                              config: _vm.config,
-                              status: _vm.status,
-                              lib: _vm.lib
-                            }
-                          })
-                        ],
-                        1
-                      ),
+                  _vm.page === "Instruction"
+                    ? [
+                        !_vm.instuctionComponent
+                          ? _c("iframe-message-segment", {
+                              staticClass: "field hint content-full-height",
+                              attrs: {
+                                config: _vm.config,
+                                message: _vm.instruction
+                              }
+                            })
+                          : _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "ui segment field hint instruction-component content-full-height"
+                              },
+                              [
+                                _c(_vm.instuctionComponent, {
+                                  tag: "component",
+                                  attrs: {
+                                    "instuction-component": "",
+                                    config: _vm.config,
+                                    status: _vm.status,
+                                    lib: _vm.lib
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                      ]
+                    : _vm._e(),
                   _vm._v(" "),
-                  _c("div", { staticClass: "field" }, [
-                    _c("textarea", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.answer,
-                          expression: "answer"
-                        }
-                      ],
-                      staticClass: "answer",
-                      attrs: { disabled: _vm.isTimeUp },
-                      domProps: { value: _vm.answer },
-                      on: {
-                        input: [
-                          function($event) {
-                            if ($event.target.composing) {
-                              return
+                  _vm.page === "Answer"
+                    ? _c("div", { staticClass: "field" }, [
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answer,
+                              expression: "answer"
                             }
-                            _vm.answer = $event.target.value
-                          },
-                          _vm.persist
-                        ],
-                        paste: function($event) {
-                          if ($event.target !== $event.currentTarget) {
-                            return null
+                          ],
+                          staticClass: "answer content-full-height",
+                          attrs: { disabled: _vm.isTimeUp },
+                          domProps: { value: _vm.answer },
+                          on: {
+                            input: [
+                              function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.answer = $event.target.value
+                              },
+                              _vm.persist
+                            ],
+                            paste: function($event) {
+                              if ($event.target !== $event.currentTarget) {
+                                return null
+                              }
+                              return (function(e) {
+                                e.preventDefault()
+                              })($event)
+                            }
                           }
-                          return (function(e) {
-                            e.preventDefault()
-                          })($event)
-                        }
-                      }
-                    })
-                  ])
+                        })
+                      ])
+                    : _vm._e()
                 ]
               },
               proxy: true
@@ -241,49 +250,100 @@ var render = function() {
               key: "actions",
               fn: function() {
                 return [
-                  _c("countdown-button", {
-                    staticClass: "questionnaire-submit",
-                    attrs: {
-                      minWordCount: _vm.minWords,
-                      enableClassNames: "ui green right labeled icon button",
-                      text: _vm.answer,
-                      lib: _vm.lib,
-                      locale: _vm.status.preference.locale,
-                      countdownSec: _vm.remainingSeconds,
-                      enable: _vm.isTimeUp,
-                      isWaitingLoading: _vm.isWaitingLoading,
-                      ignoreWordCount: true,
-                      autoClickSeconds: 5
-                    },
-                    on: { click: _vm.nextStep, timeup: _vm.onTimeup },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(ref) {
-                          var autoClickRemainingSeconds =
-                            ref.autoClickRemainingSeconds
-                          return [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(_vm.$t("NEXT")) +
-                                "\r\n\r\n          "
-                            ),
-                            autoClickRemainingSeconds
-                              ? [
+                  _vm.hasStarted
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "ui button",
+                          class: { disabled: _vm.page === "Instruction" },
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              _vm.page = "Instruction"
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\r\n        " +
+                              _vm._s(_vm.$t("Show Instruction")) +
+                              "\r\n      "
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.hasStarted
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "ui button",
+                          attrs: { type: "button" },
+                          on: { click: _vm.startAnswer }
+                        },
+                        [
+                          _vm._v(
+                            "\r\n        " +
+                              _vm._s(_vm.$t("Start Answer and Countdown")) +
+                              "\r\n      "
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.hasStarted
+                    ? _c("countdown-button", {
+                        staticClass: "questionnaire-submit",
+                        attrs: {
+                          minWordCount: _vm.minWords,
+                          enableClassNames:
+                            "ui green right labeled icon button",
+                          text: _vm.answer,
+                          lib: _vm.lib,
+                          locale: _vm.status.preference.locale,
+                          countdownSec: _vm.remainingSeconds,
+                          enable: _vm.isTimeUp,
+                          isWaitingLoading: _vm.isWaitingLoading,
+                          ignoreWordCount: true,
+                          autoClickSeconds: 5
+                        },
+                        on: { click: _vm.nextStep, timeup: _vm.onTimeup },
+                        scopedSlots: _vm._u(
+                          [
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var autoClickRemainingSeconds =
+                                  ref.autoClickRemainingSeconds
+                                return [
                                   _vm._v(
-                                    "\r\n            (" +
-                                      _vm._s(autoClickRemainingSeconds) +
-                                      ")\r\n          "
-                                  )
+                                    "\r\n          " +
+                                      _vm._s(
+                                        _vm.$t("Start Answer and Countdown")
+                                      ) +
+                                      "\r\n\r\n          "
+                                  ),
+                                  autoClickRemainingSeconds
+                                    ? [
+                                        _vm._v(
+                                          "\r\n            (" +
+                                            _vm._s(autoClickRemainingSeconds) +
+                                            ")\r\n          "
+                                        )
+                                      ]
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _c("i", { staticClass: "angle right icon" })
                                 ]
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _c("i", { staticClass: "angle right icon" })
-                          ]
-                        }
-                      }
-                    ])
-                  })
+                              }
+                            }
+                          ],
+                          null,
+                          false,
+                          2066878213
+                        )
+                      })
+                    : _vm._e()
                 ]
               },
               proxy: true
@@ -308,10 +368,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Questionnaire/Questionnaire.html?vue&type=template&id=71c8473b&scoped=true&":
-/*!************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/Questionnaire/Questionnaire.html?vue&type=template&id=71c8473b&scoped=true& ***!
-  \************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Questionnaire/QuestionnairePage.html?vue&type=template&id=71c8473b&scoped=true&":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/Questionnaire/QuestionnairePage.html?vue&type=template&id=71c8473b&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -392,65 +452,74 @@ var render = function() {
               key: "content",
               fn: function() {
                 return [
-                  !_vm.instuctionComponent
-                    ? _c("iframe-message-segment", {
-                        staticClass: "field hint",
-                        attrs: { config: _vm.config, message: _vm.instruction }
-                      })
-                    : _c(
-                        "div",
-                        {
-                          staticClass:
-                            "ui segment field hint instruction-component"
-                        },
-                        [
-                          _c(_vm.instuctionComponent, {
-                            tag: "component",
-                            attrs: {
-                              "instuction-component": "",
-                              config: _vm.config,
-                              status: _vm.status,
-                              lib: _vm.lib
-                            }
-                          })
-                        ],
-                        1
-                      ),
+                  _vm.page === "Instruction"
+                    ? [
+                        !_vm.instuctionComponent
+                          ? _c("iframe-message-segment", {
+                              staticClass: "field hint content-full-height",
+                              attrs: {
+                                config: _vm.config,
+                                message: _vm.instruction
+                              }
+                            })
+                          : _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "ui segment field hint instruction-component content-full-height"
+                              },
+                              [
+                                _c(_vm.instuctionComponent, {
+                                  tag: "component",
+                                  attrs: {
+                                    "instuction-component": "",
+                                    config: _vm.config,
+                                    status: _vm.status,
+                                    lib: _vm.lib
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                      ]
+                    : _vm._e(),
                   _vm._v(" "),
-                  _c("div", { staticClass: "field" }, [
-                    _c("textarea", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.answer,
-                          expression: "answer"
-                        }
-                      ],
-                      staticClass: "answer",
-                      attrs: { disabled: _vm.isTimeUp },
-                      domProps: { value: _vm.answer },
-                      on: {
-                        input: [
-                          function($event) {
-                            if ($event.target.composing) {
-                              return
+                  _vm.page === "Answer"
+                    ? _c("div", { staticClass: "field" }, [
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answer,
+                              expression: "answer"
                             }
-                            _vm.answer = $event.target.value
-                          },
-                          _vm.persist
-                        ],
-                        paste: function($event) {
-                          if ($event.target !== $event.currentTarget) {
-                            return null
+                          ],
+                          staticClass: "answer content-full-height",
+                          attrs: { disabled: _vm.isTimeUp },
+                          domProps: { value: _vm.answer },
+                          on: {
+                            input: [
+                              function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.answer = $event.target.value
+                              },
+                              _vm.persist
+                            ],
+                            paste: function($event) {
+                              if ($event.target !== $event.currentTarget) {
+                                return null
+                              }
+                              return (function(e) {
+                                e.preventDefault()
+                              })($event)
+                            }
                           }
-                          return (function(e) {
-                            e.preventDefault()
-                          })($event)
-                        }
-                      }
-                    })
-                  ])
+                        })
+                      ])
+                    : _vm._e()
                 ]
               },
               proxy: true
@@ -459,49 +528,100 @@ var render = function() {
               key: "actions",
               fn: function() {
                 return [
-                  _c("countdown-button", {
-                    staticClass: "questionnaire-submit",
-                    attrs: {
-                      minWordCount: _vm.minWords,
-                      enableClassNames: "ui green right labeled icon button",
-                      text: _vm.answer,
-                      lib: _vm.lib,
-                      locale: _vm.status.preference.locale,
-                      countdownSec: _vm.remainingSeconds,
-                      enable: _vm.isTimeUp,
-                      isWaitingLoading: _vm.isWaitingLoading,
-                      ignoreWordCount: true,
-                      autoClickSeconds: 5
-                    },
-                    on: { click: _vm.nextStep, timeup: _vm.onTimeup },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(ref) {
-                          var autoClickRemainingSeconds =
-                            ref.autoClickRemainingSeconds
-                          return [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(_vm.$t("NEXT")) +
-                                "\r\n\r\n          "
-                            ),
-                            autoClickRemainingSeconds
-                              ? [
+                  _vm.hasStarted
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "ui button",
+                          class: { disabled: _vm.page === "Instruction" },
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              _vm.page = "Instruction"
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\r\n        " +
+                              _vm._s(_vm.$t("Show Instruction")) +
+                              "\r\n      "
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.hasStarted
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "ui button",
+                          attrs: { type: "button" },
+                          on: { click: _vm.startAnswer }
+                        },
+                        [
+                          _vm._v(
+                            "\r\n        " +
+                              _vm._s(_vm.$t("Start Answer and Countdown")) +
+                              "\r\n      "
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.hasStarted
+                    ? _c("countdown-button", {
+                        staticClass: "questionnaire-submit",
+                        attrs: {
+                          minWordCount: _vm.minWords,
+                          enableClassNames:
+                            "ui green right labeled icon button",
+                          text: _vm.answer,
+                          lib: _vm.lib,
+                          locale: _vm.status.preference.locale,
+                          countdownSec: _vm.remainingSeconds,
+                          enable: _vm.isTimeUp,
+                          isWaitingLoading: _vm.isWaitingLoading,
+                          ignoreWordCount: true,
+                          autoClickSeconds: 5
+                        },
+                        on: { click: _vm.nextStep, timeup: _vm.onTimeup },
+                        scopedSlots: _vm._u(
+                          [
+                            {
+                              key: "default",
+                              fn: function(ref) {
+                                var autoClickRemainingSeconds =
+                                  ref.autoClickRemainingSeconds
+                                return [
                                   _vm._v(
-                                    "\r\n            (" +
-                                      _vm._s(autoClickRemainingSeconds) +
-                                      ")\r\n          "
-                                  )
+                                    "\r\n          " +
+                                      _vm._s(
+                                        _vm.$t("Start Answer and Countdown")
+                                      ) +
+                                      "\r\n\r\n          "
+                                  ),
+                                  autoClickRemainingSeconds
+                                    ? [
+                                        _vm._v(
+                                          "\r\n            (" +
+                                            _vm._s(autoClickRemainingSeconds) +
+                                            ")\r\n          "
+                                        )
+                                      ]
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _c("i", { staticClass: "angle right icon" })
                                 ]
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _c("i", { staticClass: "angle right icon" })
-                          ]
-                        }
-                      }
-                    ])
-                  })
+                              }
+                            }
+                          ],
+                          null,
+                          false,
+                          2066878213
+                        )
+                      })
+                    : _vm._e()
                 ]
               },
               proxy: true
@@ -568,43 +688,43 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&");
+var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&");
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("b2f0d31a", content, false, {});
+var update = add("30ea4956", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&");
+var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&");
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("4d95fe70", content, false, {});
+var update = add("53bdd9ac", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -640,9 +760,9 @@ if(false) {}
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Questionnaire_html_vue_type_template_id_359e549b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Questionnaire.html?vue&type=template&id=359e549b&scoped=true& */ "./webpack-app/client/Questionnaire/Questionnaire.html?vue&type=template&id=359e549b&scoped=true&");
+/* harmony import */ var _QuestionnairePage_html_vue_type_template_id_359e549b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../QuestionnairePage.html?vue&type=template&id=359e549b&scoped=true& */ "./webpack-app/client/Questionnaire/QuestionnairePage.html?vue&type=template&id=359e549b&scoped=true&");
 /* harmony import */ var _Questionnaire_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Questionnaire.js?vue&type=script&lang=js& */ "./webpack-app/client/Questionnaire/Questionnaire.js?vue&type=script&lang=js&?f8ca");
-/* empty/unused harmony star reexport *//* harmony import */ var _Questionnaire_less_vue_type_style_index_0_id_359e549b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true& */ "./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&");
+/* empty/unused harmony star reexport *//* harmony import */ var _QuestionnairePage_less_vue_type_style_index_0_id_359e549b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true& */ "./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 /* harmony import */ var _Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5CPostRecall_5CPostRecall_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Questionnaire.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5CPostRecall%5CPostRecall.vue&lang=yaml */ "./webpack-app/client/Questionnaire/Questionnaire.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5CPostRecall%5CPostRecall.vue&lang=yaml");
 
@@ -655,8 +775,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _Questionnaire_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Questionnaire_html_vue_type_template_id_359e549b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Questionnaire_html_vue_type_template_id_359e549b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _QuestionnairePage_html_vue_type_template_id_359e549b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _QuestionnairePage_html_vue_type_template_id_359e549b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   "359e549b",
@@ -684,9 +804,9 @@ component.options.__file = "webpack-app/client/Questionnaire/PostRecall/PostReca
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Questionnaire_html_vue_type_template_id_71c8473b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Questionnaire.html?vue&type=template&id=71c8473b&scoped=true& */ "./webpack-app/client/Questionnaire/Questionnaire.html?vue&type=template&id=71c8473b&scoped=true&");
+/* harmony import */ var _QuestionnairePage_html_vue_type_template_id_71c8473b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../QuestionnairePage.html?vue&type=template&id=71c8473b&scoped=true& */ "./webpack-app/client/Questionnaire/QuestionnairePage.html?vue&type=template&id=71c8473b&scoped=true&");
 /* harmony import */ var _Questionnaire_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Questionnaire.js?vue&type=script&lang=js& */ "./webpack-app/client/Questionnaire/Questionnaire.js?vue&type=script&lang=js&?f8ca");
-/* empty/unused harmony star reexport *//* harmony import */ var _Questionnaire_less_vue_type_style_index_0_id_71c8473b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true& */ "./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&");
+/* empty/unused harmony star reexport *//* harmony import */ var _QuestionnairePage_less_vue_type_style_index_0_id_71c8473b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true& */ "./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 /* harmony import */ var _Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5CPreImaginary_5CPreImaginary_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Questionnaire.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5CPreImaginary%5CPreImaginary.vue&lang=yaml */ "./webpack-app/client/Questionnaire/Questionnaire.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5CPreImaginary%5CPreImaginary.vue&lang=yaml");
 
@@ -699,8 +819,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _Questionnaire_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Questionnaire_html_vue_type_template_id_71c8473b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Questionnaire_html_vue_type_template_id_71c8473b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _QuestionnairePage_html_vue_type_template_id_71c8473b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _QuestionnairePage_html_vue_type_template_id_71c8473b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   "71c8473b",
@@ -716,42 +836,6 @@ if (typeof _Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath
 if (false) { var api; }
 component.options.__file = "webpack-app/client/Questionnaire/PreImaginary/PreImaginary.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./webpack-app/client/Questionnaire/Questionnaire.html?vue&type=template&id=359e549b&scoped=true&":
-/*!********************************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/Questionnaire.html?vue&type=template&id=359e549b&scoped=true& ***!
-  \********************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Questionnaire_html_vue_type_template_id_359e549b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./Questionnaire.html?vue&type=template&id=359e549b&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Questionnaire/Questionnaire.html?vue&type=template&id=359e549b&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Questionnaire_html_vue_type_template_id_359e549b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Questionnaire_html_vue_type_template_id_359e549b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./webpack-app/client/Questionnaire/Questionnaire.html?vue&type=template&id=71c8473b&scoped=true&":
-/*!********************************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/Questionnaire.html?vue&type=template&id=71c8473b&scoped=true& ***!
-  \********************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Questionnaire_html_vue_type_template_id_71c8473b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./Questionnaire.html?vue&type=template&id=71c8473b&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Questionnaire/Questionnaire.html?vue&type=template&id=71c8473b&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Questionnaire_html_vue_type_template_id_71c8473b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Questionnaire_html_vue_type_template_id_71c8473b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
 
 /***/ }),
 
@@ -806,6 +890,8 @@ let Questionnaire = {
     if (!data.instuction) {
       data.instuctionComponent = key + 'Instruction'
     }
+    
+    data.page = 'Instruction'
     
     return data
   },
@@ -864,6 +950,9 @@ let Questionnaire = {
         return 'green'
       }
     },
+    hasStarted () {
+      return (this.log.start_timestamp !== null)
+    }
 //    isTimeUp: function () {
 //      console.log(this.remainingSeconds)
 //      return (typeof(this.remainingSeconds) === 'number'
@@ -968,6 +1057,10 @@ let Questionnaire = {
     logout () {
       localStorage.removeItem(this.persistKey)
       this.lib.auth.logoutWithoutForget()
+    },
+    startAnswer () {
+      this.page = 'Answer'
+      this.persist()
     }
   } // methods
 }
@@ -987,38 +1080,6 @@ let Questionnaire = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Questionnaire_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./Questionnaire.js?vue&type=script&lang=js& */ "./webpack-app/client/Questionnaire/Questionnaire.js?vue&type=script&lang=js&?ea46");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_Questionnaire_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&":
-/*!***********************************************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true& ***!
-  \***********************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Questionnaire_less_vue_type_style_index_0_id_359e549b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-style-loader!../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Questionnaire_less_vue_type_style_index_0_id_359e549b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Questionnaire_less_vue_type_style_index_0_id_359e549b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Questionnaire_less_vue_type_style_index_0_id_359e549b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Questionnaire_less_vue_type_style_index_0_id_359e549b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Questionnaire_less_vue_type_style_index_0_id_359e549b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&":
-/*!***********************************************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true& ***!
-  \***********************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Questionnaire_less_vue_type_style_index_0_id_71c8473b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-style-loader!../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/Questionnaire.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Questionnaire_less_vue_type_style_index_0_id_71c8473b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Questionnaire_less_vue_type_style_index_0_id_71c8473b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Questionnaire_less_vue_type_style_index_0_id_71c8473b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Questionnaire_less_vue_type_style_index_0_id_71c8473b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_Questionnaire_less_vue_type_style_index_0_id_71c8473b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -1051,6 +1112,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5CPreImaginary_5CPreImaginary_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5CPreImaginary_5CPreImaginary_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5CPreImaginary_5CPreImaginary_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5CPreImaginary_5CPreImaginary_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5CPreImaginary_5CPreImaginary_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Questionnaire/QuestionnairePage.html?vue&type=template&id=359e549b&scoped=true&":
+/*!************************************************************************************************************!*\
+  !*** ./webpack-app/client/Questionnaire/QuestionnairePage.html?vue&type=template&id=359e549b&scoped=true& ***!
+  \************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_QuestionnairePage_html_vue_type_template_id_359e549b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./QuestionnairePage.html?vue&type=template&id=359e549b&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Questionnaire/QuestionnairePage.html?vue&type=template&id=359e549b&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_QuestionnairePage_html_vue_type_template_id_359e549b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_QuestionnairePage_html_vue_type_template_id_359e549b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/client/Questionnaire/QuestionnairePage.html?vue&type=template&id=71c8473b&scoped=true&":
+/*!************************************************************************************************************!*\
+  !*** ./webpack-app/client/Questionnaire/QuestionnairePage.html?vue&type=template&id=71c8473b&scoped=true& ***!
+  \************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_QuestionnairePage_html_vue_type_template_id_71c8473b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./QuestionnairePage.html?vue&type=template&id=71c8473b&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Questionnaire/QuestionnairePage.html?vue&type=template&id=71c8473b&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_QuestionnairePage_html_vue_type_template_id_71c8473b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_QuestionnairePage_html_vue_type_template_id_71c8473b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&":
+/*!***************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true& ***!
+  \***************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_QuestionnairePage_less_vue_type_style_index_0_id_359e549b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-style-loader!../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=359e549b&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_QuestionnairePage_less_vue_type_style_index_0_id_359e549b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_QuestionnairePage_less_vue_type_style_index_0_id_359e549b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_QuestionnairePage_less_vue_type_style_index_0_id_359e549b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_QuestionnairePage_less_vue_type_style_index_0_id_359e549b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_QuestionnairePage_less_vue_type_style_index_0_id_359e549b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&":
+/*!***************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true& ***!
+  \***************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_QuestionnairePage_less_vue_type_style_index_0_id_71c8473b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-style-loader!../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/QuestionnairePage.less?vue&type=style&index=0&id=71c8473b&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_QuestionnairePage_less_vue_type_style_index_0_id_71c8473b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_QuestionnairePage_less_vue_type_style_index_0_id_71c8473b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_QuestionnairePage_less_vue_type_style_index_0_id_71c8473b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_QuestionnairePage_less_vue_type_style_index_0_id_71c8473b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_QuestionnairePage_less_vue_type_style_index_0_id_71c8473b_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

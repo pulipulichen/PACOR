@@ -1,6 +1,6 @@
 # Model
 
-.content-full-height
+讓元件的高度維持最高的className: .content-full-height
 
 ````html
   <modal ref="Modal"
