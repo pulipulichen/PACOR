@@ -73,7 +73,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"For {0}: Congratulation! You finished reading.":"For {0}: Congratulation! You finished reading."},"zh-TW":{"Thank you for your reading":"感謝您的閱讀","Congratulation! You finished reading.":"恭喜您讀完了！","CLOSE WINDOW":"關閉視窗","For {0}: Congratulation! You finished reading.":"{0}：恭喜您讀完了！"}}')
+  Component.options.__i18n.push('{"en":{"For {0}: Congratulation! You finished reading.":"For {0}: Congratulation! You finished reading."},"zh-TW":{"Thank you for your reading":"感謝您的閱讀","Congratulation! You finished reading.":"恭喜您讀完了！","CLOSE WINDOW":"關閉視窗","For {0}: Congratulation! You finished reading.":"{0}：恭喜您讀完了！","Following are your previous answers:":"以下是您之前的作答："}}')
   delete Component.options._Ctor
 }
 
@@ -177,7 +177,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"QuestionnaireResults.less?vue&type=style&index=0&id=827d22d6&lang=less&scoped=true&"}]);
+exports.push([module.i, ".step-heading[data-v-827d22d6] {\n  text-align: center;\n  font-weight: bold;\n}\n.step-result[data-v-827d22d6] {\n  max-height: calc(100vh - 6vh - 15em - 19em) !important;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.image-column[data-v-827d22d6] {\n  text-align: right;\n}\n.image-column img[data-v-827d22d6] {\n  display: inline;\n}\n", "",{"version":3,"sources":["QuestionnaireResults.less?vue&type=style&index=0&id=827d22d6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,iBAAiB;AACnB;AACA;EACE,sDAAsD;EACtD,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,iBAAiB;AACnB;AACA;EACE,eAAe;AACjB","file":"QuestionnaireResults.less?vue&type=style&index=0&id=827d22d6&lang=less&scoped=true&","sourcesContent":[".step-heading[data-v-827d22d6] {\n  text-align: center;\n  font-weight: bold;\n}\n.step-result[data-v-827d22d6] {\n  max-height: calc(100vh - 6vh - 15em - 19em) !important;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.image-column[data-v-827d22d6] {\n  text-align: right;\n}\n.image-column img[data-v-827d22d6] {\n  display: inline;\n}\n"]}]);
 
 
 /***/ }),
@@ -869,27 +869,88 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "QuestionnaireResults" }, [
-    _c("div", { staticClass: "ui middle aligned grid" }, [
-      _c("div", { staticClass: "four wide column" }, [
+    _c("div", { staticClass: "ui middle aligned grid header-message" }, [
+      _c("div", { staticClass: "four wide column image-column" }, [
         _c("img", {
           staticClass: "ui image",
           attrs: { src: _vm.status.avatar }
         })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "twelve wide column" }, [
-        _c("h1", { staticClass: "ui header" }, [
-          _vm._v(
-            "\r\n        " +
-              _vm._s(
-                _vm.$t("For {0}: Congratulation! You finished reading.", [
-                  _vm.username
-                ])
-              ) +
-              "\r\n      "
-          )
-        ])
-      ])
+      _c(
+        "div",
+        { staticClass: "twelve wide column" },
+        [
+          _c("h1", { staticClass: "ui header" }, [
+            _vm._v(
+              "\r\n        " +
+                _vm._s(
+                  _vm.$t("For {0}: Congratulation! You finished reading.", [
+                    _vm.username
+                  ])
+                ) +
+                "\r\n      "
+            )
+          ]),
+          _vm._v(" "),
+          _vm.PreImaginaryResult || _vm.PostRecallResult
+            ? [
+                _vm._v(
+                  "\r\n        " +
+                    _vm._s(_vm.$t("Following are your previous answers:")) +
+                    "\r\n      "
+                )
+              ]
+            : _vm._e()
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "ui top aligned grid" }, [
+      _vm.PreImaginaryResult
+        ? _c("div", { staticClass: "eight wide column" }, [
+            _c(
+              "div",
+              { staticClass: "ui top attached secondary segment step-heading" },
+              [
+                _vm._v(
+                  "\r\n        " +
+                    _vm._s(_vm.$t("READING_PROGRESS.PreImaginary")) +
+                    "\r\n      "
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "ui attached segment step-result" }, [
+              _vm._v(
+                "\r\n        " + _vm._s(_vm.PreImaginaryResult) + "\r\n      "
+              )
+            ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.PostRecallResult
+        ? _c("div", { staticClass: "eight wide column" }, [
+            _c(
+              "div",
+              { staticClass: "ui top attached secondary segment step-heading" },
+              [
+                _vm._v(
+                  "\r\n        " +
+                    _vm._s(_vm.$t("READING_PROGRESS.PostRecall")) +
+                    "\r\n      "
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "ui attached segment step-result" }, [
+              _vm._v(
+                "\r\n        " + _vm._s(_vm.PostRecallResult) + "\r\n      "
+              )
+            ])
+          ])
+        : _vm._e()
     ])
   ])
 }
@@ -2627,6 +2688,8 @@ let QuestionnaireResults = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      PreImaginaryResult: null,
+      PostRecallResult: null
     }
   },
 //  components: {
@@ -2639,17 +2702,21 @@ let QuestionnaireResults = {
 //  watch: {
 //  },
   mounted() {
+    this.loadResults()
   },
   methods: {
-    logout: async function () {
+    loadResults: async function () {
+      let results = await this.lib.AxiosHelper.get('/client/Questionnaire/getQuestionnaireAnswers')
+//      for (let i = 0; i < 10; i++) {
+//        results.PreImaginary = results.PreImaginary + results.PreImaginary
+//      }
       
-      this.$refs.ExitModal.hide()
-      this.lib.auth.logout()
-    },
-    exit: async function () {
-      await this.lib.AxiosHelper.get('/client/auth/logout')
-      window.close()
-    },
+      this.PreImaginaryResult = results.PreImaginary
+      
+      
+      
+      this.PostRecallResult = results.PostRecall
+    }
   } // methods
 }
 

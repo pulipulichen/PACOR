@@ -15,8 +15,8 @@ class Questionnaire {
     })
   }
   
-  async getQuestionnaireAnswer({request, webpage, user}) {
-    let cacheKey = Cache.key('Questionnaire', 'getQuestionnaireAnswer')
+  async getQuestionnaireAnswers({request, webpage, user}) {
+    let cacheKey = Cache.key('Questionnaire', 'getQuestionnaireAnswers')
     return await Cache.rememberWait([webpage, user, 'Questionnaire'], cacheKey, async () => {
       let preImaginaryAnswer = await this.getPreImaginaryAnswer({webpage, user})
       let postRecallLog = await user.getReadingProgressLog(webpage, 'PostRecall')

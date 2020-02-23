@@ -28826,6 +28826,10 @@ let InstructionMessage = {
   },
   methods: {
     checkAutoShow () {
+      if (this.status.role !== 'reader') {
+        return false
+      }
+      
       //console.log(this.lib.auth.currentStepConfig)
       if (this.lib.auth.currentStepConfig.keepShowInstructionMessage === true) {
         return this.show()

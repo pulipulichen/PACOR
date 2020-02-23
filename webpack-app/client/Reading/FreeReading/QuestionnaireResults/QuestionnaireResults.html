@@ -1,6 +1,7 @@
 <div class="QuestionnaireResults">
-  <div class="ui middle aligned grid">
-    <div class="four wide column">
+  
+  <div class="ui middle aligned grid header-message">
+    <div class="four wide column image-column">
       <img v-bind:src="status.avatar"
            class="ui image" />
     </div>
@@ -8,6 +9,28 @@
       <h1 class="ui header">
         {{ $t('For {0}: Congratulation! You finished reading.', [username]) }}
       </h1>
+      <template v-if="PreImaginaryResult || PostRecallResult">
+        {{ $t('Following are your previous answers:') }}
+      </template>
+    </div>
+  </div>
+  
+  <div class="ui top aligned grid">
+    <div class="eight wide column" v-if="PreImaginaryResult">
+      <div class="ui top attached secondary segment step-heading">
+        {{ $t('READING_PROGRESS.PreImaginary') }}
+      </div>
+      <div class="ui attached segment step-result">
+        {{ PreImaginaryResult }}
+      </div>
+    </div>
+    <div class="eight wide column" v-if="PostRecallResult">
+      <div class="ui top attached secondary segment step-heading">
+        {{ $t('READING_PROGRESS.PostRecall') }}
+      </div>
+      <div class="ui attached segment step-result">
+        {{ PostRecallResult }}
+      </div>
     </div>
   </div>
   

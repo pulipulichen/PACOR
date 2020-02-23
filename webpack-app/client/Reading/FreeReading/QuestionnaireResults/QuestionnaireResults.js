@@ -3,6 +3,8 @@ let QuestionnaireResults = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      PreImaginaryResult: null,
+      PostRecallResult: null
     }
   },
 //  components: {
@@ -15,17 +17,21 @@ let QuestionnaireResults = {
 //  watch: {
 //  },
   mounted() {
+    this.loadResults()
   },
   methods: {
-    logout: async function () {
+    loadResults: async function () {
+      let results = await this.lib.AxiosHelper.get('/client/Questionnaire/getQuestionnaireAnswers')
+//      for (let i = 0; i < 10; i++) {
+//        results.PreImaginary = results.PreImaginary + results.PreImaginary
+//      }
       
-      this.$refs.ExitModal.hide()
-      this.lib.auth.logout()
-    },
-    exit: async function () {
-      await this.lib.AxiosHelper.get('/client/auth/logout')
-      window.close()
-    },
+      this.PreImaginaryResult = results.PreImaginary
+      
+      
+      
+      this.PostRecallResult = results.PostRecall
+    }
   } // methods
 }
 

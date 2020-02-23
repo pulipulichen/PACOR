@@ -191,13 +191,23 @@ let config = {
       await PACORTestManager.writeQuestionnairePage()
     })
   },
-  'g1. exit': async function ( { assert, client, browser }, page ) {
+//  'g1. exit': async function ( { assert, client, browser }, page ) {
+//    //console.log('暫時跳過'); return
+//    await page.assertFn(async function () {
+//      // first 是登出
+//      // last 是關閉
+//      //await PACORTestManager.waitForElementVisibleClick('.ExitModal .actions .button:last')
+//      await PACORTestManager.waitForElementVisible('.ExitModal .actions .button:last')
+//    })
+//    
+//  },
+  'g1. FreeReading': async function ( { assert, client, browser }, page ) {
     //console.log('暫時跳過'); return
     await page.assertFn(async function () {
       // first 是登出
       // last 是關閉
       //await PACORTestManager.waitForElementVisibleClick('.ExitModal .actions .button:last')
-      await PACORTestManager.waitForElementVisible('.ExitModal .actions .button:last')
+      await PACORTestManager.waitForElementVisible('.step-heading')
     })
     
   },

@@ -13,7 +13,7 @@ module.exports = {
       //minAnnotation: 1,
       //maxAnnotation: 1
     },
-    stayInReadingProgress: 'FreeReading'
+    //stayInReadingProgress: 'FreeReading'
   },
   
   /**
