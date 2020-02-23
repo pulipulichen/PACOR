@@ -2,7 +2,7 @@ import $ from 'jquery'
 
 export default function (AnnotationTypeSelector) {
   AnnotationTypeSelector.methods.setupTutorial = function () {
-    if (this.lib.auth.currentStep !== 'IndividualReading') {
+    if (this.lib.auth.enableCollaboration === true) {
       return false
     }
     
@@ -77,6 +77,8 @@ export default function (AnnotationTypeSelector) {
         //await this.lib.VueHelper.sleep(500)
         //setTimeout(() => {
           this.isTutorialMode = false
+          
+        
         //}, 100)
       },
       scroll: false

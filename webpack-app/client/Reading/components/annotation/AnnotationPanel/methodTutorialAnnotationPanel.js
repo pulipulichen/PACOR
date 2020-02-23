@@ -4,9 +4,9 @@ export default function (AnnotationPanel) {
     
   AnnotationPanel.methods.setupTutorial = function () {
     
-      if (this.lib.auth.currentStep !== 'IndividualReading') {
-        return false
-      }
+    if (this.lib.auth.enableCollaboration === true) {
+      return false
+    }
     
     this.lib.TutorialManager.addAction({
       //backgroundFadeOut: true,
@@ -22,7 +22,10 @@ export default function (AnnotationPanel) {
         return $(this.$refs.panel).find('.AnnotationSingle .add-button.ValidationButton:visible:first')
       },
       content: this.$t('Click "ADD" to save it.'),
-      order: 32
+      order: 32,
+      afterClick: () => {
+        this.lib.AnnotationPanel.hide()
+      }
     })
   }
 }

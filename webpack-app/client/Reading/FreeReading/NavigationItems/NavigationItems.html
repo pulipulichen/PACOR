@@ -14,7 +14,7 @@
     <template v-slot:header>
       
       <notification-icon
-        v-if="lib.style.isLeftHanded"
+        v-if="lib.style.isLeftHanded && enableCollaboration"
         v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib">
@@ -54,7 +54,8 @@
         v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib"
-        v-on:show="hideSideMenu">
+        v-on:show="hideSideMenu"
+        v-if="enableCollaboration">
       </user-filter>
 
       <annotation-type-filter 
@@ -87,7 +88,7 @@
       </about-item>
 
       <notification-icon
-        v-if="!lib.style.isLeftHanded"
+        v-if="!lib.style.isLeftHanded && enableCollaboration"
         v-bind:config="config"
         v-bind:status="status"
         v-bind:lib="lib"
@@ -101,7 +102,8 @@
         ref="NotificationManager"
         v-bind:config="config"
         v-bind:status="status"
-        v-bind:lib="lib">
+        v-bind:lib="lib"
+        v-if="enableCollaboration">
       </notification-icon>
     </template>
     

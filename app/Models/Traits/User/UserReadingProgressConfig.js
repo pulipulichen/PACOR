@@ -227,6 +227,7 @@ class UserReadingProgressConfig {
     
     Model.prototype.getReadingProgressLog = async function (webpage, step) {
       if (typeof(step) === 'string') {
+        //console.log(step)
         step = await this.getReadingProgress(webpage, step)
       }
       else {

@@ -208,6 +208,7 @@ let config = {
       // last 是關閉
       //await PACORTestManager.waitForElementVisibleClick('.ExitModal .actions .button:last')
       await PACORTestManager.waitForElementVisible('.step-heading')
+      await PACORTestManager.sleep(3000)
     })
     
   },

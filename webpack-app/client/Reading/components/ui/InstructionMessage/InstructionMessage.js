@@ -41,18 +41,14 @@ let InstructionMessage = {
       if (this.status.role !== 'reader') {
         return false
       }
-      
       //console.log(this.lib.auth.currentStepConfig)
       if (this.lib.auth.currentStepConfig.keepShowInstructionMessage === true) {
         return this.show()
       }
       
-      if (!this.instruction) {
+      if (!this.instruction && !this.lib.auth.currentStepConfig.showFinishMessage) {
         return null
       }
-      
-      
-      
       
       //console.log(localStorage.getItem(this.localStorageKeyPrefix))
       if (localStorage.getItem(this.localStorageKeyPrefix) === null) {

@@ -27,6 +27,11 @@ let NavigationItems = {
       if (this.isSideMenuDisplay === false) {
         return 'mini'
       }
+    },
+    enableCollaboration () {
+      if (this.lib.auth) {
+        return this.lib.auth.enableCollaboration
+      }
     }
   },
 //  watch: {

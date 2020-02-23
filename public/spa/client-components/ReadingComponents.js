@@ -7107,7 +7107,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (AnnotationTypeSelector) {
   AnnotationTypeSelector.methods.setupTutorial = function () {
-    if (this.lib.auth.currentStep !== 'IndividualReading') {
+    if (this.lib.auth.enableCollaboration === true) {
       return false
     }
     
@@ -7182,6 +7182,8 @@ __webpack_require__.r(__webpack_exports__);
         //await this.lib.VueHelper.sleep(500)
         //setTimeout(() => {
           this.isTutorialMode = false
+          
+        
         //}, 100)
       },
       scroll: false
@@ -12211,9 +12213,9 @@ __webpack_require__.r(__webpack_exports__);
     
   AnnotationPanel.methods.setupTutorial = function () {
     
-      if (this.lib.auth.currentStep !== 'IndividualReading') {
-        return false
-      }
+    if (this.lib.auth.enableCollaboration === true) {
+      return false
+    }
     
     this.lib.TutorialManager.addAction({
       //backgroundFadeOut: true,
@@ -12229,7 +12231,10 @@ __webpack_require__.r(__webpack_exports__);
         return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .add-button.ValidationButton:visible:first')
       },
       content: this.$t('Click "ADD" to save it.'),
-      order: 32
+      order: 32,
+      afterClick: () => {
+        this.lib.AnnotationPanel.hide()
+      }
     })
   }
 });
@@ -28829,18 +28834,14 @@ let InstructionMessage = {
       if (this.status.role !== 'reader') {
         return false
       }
-      
       //console.log(this.lib.auth.currentStepConfig)
       if (this.lib.auth.currentStepConfig.keepShowInstructionMessage === true) {
         return this.show()
       }
       
-      if (!this.instruction) {
+      if (!this.instruction && !this.lib.auth.currentStepConfig.showFinishMessage) {
         return null
       }
-      
-      
-      
       
       //console.log(localStorage.getItem(this.localStorageKeyPrefix))
       if (localStorage.getItem(this.localStorageKeyPrefix) === null) {

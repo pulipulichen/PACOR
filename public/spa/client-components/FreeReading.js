@@ -531,7 +531,7 @@ var render = function() {
                   key: "header",
                   fn: function() {
                     return [
-                      _vm.lib.style.isLeftHanded
+                      _vm.lib.style.isLeftHanded && _vm.enableCollaboration
                         ? _c("notification-icon", {
                             attrs: {
                               config: _vm.config,
@@ -573,15 +573,17 @@ var render = function() {
                         1
                       ),
                       _vm._v(" "),
-                      _c("user-filter", {
-                        ref: "UserFilter",
-                        attrs: {
-                          config: _vm.config,
-                          status: _vm.status,
-                          lib: _vm.lib
-                        },
-                        on: { show: _vm.hideSideMenu }
-                      }),
+                      _vm.enableCollaboration
+                        ? _c("user-filter", {
+                            ref: "UserFilter",
+                            attrs: {
+                              config: _vm.config,
+                              status: _vm.status,
+                              lib: _vm.lib
+                            },
+                            on: { show: _vm.hideSideMenu }
+                          })
+                        : _vm._e(),
                       _vm._v(" "),
                       _c("annotation-type-filter", {
                         ref: "AnnotationTypeFilter",
@@ -639,7 +641,7 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      !_vm.lib.style.isLeftHanded
+                      !_vm.lib.style.isLeftHanded && _vm.enableCollaboration
                         ? _c("notification-icon", {
                             staticClass: "in-top",
                             attrs: {
@@ -658,14 +660,16 @@ var render = function() {
                   key: "compactItems",
                   fn: function() {
                     return [
-                      _c("notification-icon", {
-                        ref: "NotificationManager",
-                        attrs: {
-                          config: _vm.config,
-                          status: _vm.status,
-                          lib: _vm.lib
-                        }
-                      })
+                      _vm.enableCollaboration
+                        ? _c("notification-icon", {
+                            ref: "NotificationManager",
+                            attrs: {
+                              config: _vm.config,
+                              status: _vm.status,
+                              lib: _vm.lib
+                            }
+                          })
+                        : _vm._e()
                     ]
                   },
                   proxy: true
@@ -689,7 +693,7 @@ var render = function() {
               ],
               null,
               false,
-              217849511
+              1830764647
             )
           })
         : _vm._e(),
@@ -1739,10 +1743,12 @@ let CollaborativeReading = {
     },
     initNavComponentToLib: async function () {
       
-      while (!this.$refs.nav.$refs.UserFilter) {
-        await this.lib.VueHelper.sleep(100)
+      if (this.lib.auth.enableCollaboration) {
+        while (!this.$refs.nav.$refs.UserFilter) {
+          await this.lib.VueHelper.sleep(100)
+        }
+        this.lib.UserFilter = this.$refs.nav.$refs.UserFilter
       }
-      this.lib.UserFilter = this.$refs.nav.$refs.UserFilter
       
       while (!this.$refs.nav.$refs.AnnotationTypeFilter) {
         await this.lib.VueHelper.sleep(100)
@@ -2360,6 +2366,11 @@ let NavigationItems = {
     searchManagerSize () {
       if (this.isSideMenuDisplay === false) {
         return 'mini'
+      }
+    },
+    enableCollaboration () {
+      if (this.lib.auth) {
+        return this.lib.auth.enableCollaboration
       }
     }
   },

@@ -256,10 +256,12 @@ let CollaborativeReading = {
     },
     initNavComponentToLib: async function () {
       
-      while (!this.$refs.nav.$refs.UserFilter) {
-        await this.lib.VueHelper.sleep(100)
+      if (this.lib.auth.enableCollaboration) {
+        while (!this.$refs.nav.$refs.UserFilter) {
+          await this.lib.VueHelper.sleep(100)
+        }
+        this.lib.UserFilter = this.$refs.nav.$refs.UserFilter
       }
-      this.lib.UserFilter = this.$refs.nav.$refs.UserFilter
       
       while (!this.$refs.nav.$refs.AnnotationTypeFilter) {
         await this.lib.VueHelper.sleep(100)
