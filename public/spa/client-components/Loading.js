@@ -1042,6 +1042,20 @@ __webpack_require__.r(__webpack_exports__);
       return 'FreeReading'
     }
     
+    /**
+     * 加上固定步驟的功能
+     * @author Pulipuli Chen 20200224
+     */
+    if (typeof(this.status.readingConfig.debug.stayInReadingProgress) === 'string') {
+      let stayIn = this.status.readingConfig.debug.stayInReadingProgress
+      for (let i = 0; i < this.status.readingProgresses.length; i++) {
+        let step = this.status.readingProgresses[i].step_name
+        if (stayIn === step) {
+          return stayIn
+        }
+      }
+    }
+    
     //console.log(JSON.stringify(this.status.readingProgresses, null, ' '))
     if (Array.isArray(this.status.readingProgresses)
             && this.status.readingProgresses.length > 0) {
@@ -1290,6 +1304,11 @@ __webpack_require__.r(__webpack_exports__);
 //    this.status.needLogin = true
   }
   Auth.methods.nextStep = async function (sendEnd) {
+    if (typeof(this.status.readingConfig.debug.stayInReadingProgress) === 'string') {
+      console.log(`Stay in ${this.status.readingConfig.debug.stayInReadingProgress} for debug.`)
+      return false
+    }
+    
     //throw 'nextStep'
     if (sendEnd !== false) {
       await this.lib.AxiosHelper.get('/client/ReadingProgress/end')

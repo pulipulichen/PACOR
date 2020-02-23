@@ -5,6 +5,20 @@ export default function (Auth) {
       return 'FreeReading'
     }
     
+    /**
+     * 加上固定步驟的功能
+     * @author Pulipuli Chen 20200224
+     */
+    if (typeof(this.status.readingConfig.debug.stayInReadingProgress) === 'string') {
+      let stayIn = this.status.readingConfig.debug.stayInReadingProgress
+      for (let i = 0; i < this.status.readingProgresses.length; i++) {
+        let step = this.status.readingProgresses[i].step_name
+        if (stayIn === step) {
+          return stayIn
+        }
+      }
+    }
+    
     //console.log(JSON.stringify(this.status.readingProgresses, null, ' '))
     if (Array.isArray(this.status.readingProgresses)
             && this.status.readingProgresses.length > 0) {

@@ -114,6 +114,11 @@ export default function (Auth) {
 //    this.status.needLogin = true
   }
   Auth.methods.nextStep = async function (sendEnd) {
+    if (typeof(this.status.readingConfig.debug.stayInReadingProgress) === 'string') {
+      console.log(`Stay in ${this.status.readingConfig.debug.stayInReadingProgress} for debug.`)
+      return false
+    }
+    
     //throw 'nextStep'
     if (sendEnd !== false) {
       await this.lib.AxiosHelper.get('/client/ReadingProgress/end')
