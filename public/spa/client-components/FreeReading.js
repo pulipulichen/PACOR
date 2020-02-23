@@ -73,7 +73,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":{"For {0}: Congratulation! You finished reading.":"For {0}: Congratulation! You finished reading."},"zh-TW":{"Thank you for your reading":"感謝您的閱讀","Congratulation! You finished reading.":"恭喜您讀完了！","CLOSE WINDOW":"關閉視窗","For {0}: Congratulation! You finished reading.":"{0}：恭喜您讀完了！"}}')
   delete Component.options._Ctor
 }
 
@@ -868,8 +868,29 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui segment" }, [
-    _vm._v("\r\n  Template\r\n")
+  return _c("div", { staticClass: "QuestionnaireResults" }, [
+    _c("div", { staticClass: "ui middle aligned grid" }, [
+      _c("div", { staticClass: "four wide column" }, [
+        _c("img", {
+          staticClass: "ui image",
+          attrs: { src: _vm.status.avatar }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "twelve wide column" }, [
+        _c("h1", { staticClass: "ui header" }, [
+          _vm._v(
+            "\r\n        " +
+              _vm._s(
+                _vm.$t("For {0}: Congratulation! You finished reading.", [
+                  _vm.username
+                ])
+              ) +
+              "\r\n      "
+          )
+        ])
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -2601,8 +2622,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let Template = {
-  props: ['lib', 'status', 'config'],
+let QuestionnaireResults = {
+  props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -2611,16 +2632,28 @@ let Template = {
 //  components: {
 //  },
   computed: {
+    username () {
+      return this.lib.auth.username
+    }
   },
-  watch: {
-  },
+//  watch: {
+//  },
   mounted() {
   },
   methods: {
+    logout: async function () {
+      
+      this.$refs.ExitModal.hide()
+      this.lib.auth.logout()
+    },
+    exit: async function () {
+      await this.lib.AxiosHelper.get('/client/auth/logout')
+      window.close()
+    },
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Template);
+/* harmony default export */ __webpack_exports__["default"] = (QuestionnaireResults);
 
 /***/ }),
 

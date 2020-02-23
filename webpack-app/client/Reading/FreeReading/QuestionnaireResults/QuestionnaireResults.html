@@ -1,3 +1,14 @@
-<div class="ui segment">
-  Template
+<div class="QuestionnaireResults">
+  <div class="ui middle aligned grid">
+    <div class="four wide column">
+      <img v-bind:src="status.avatar"
+           class="ui image" />
+    </div>
+    <div class="twelve wide column">
+      <h1 class="ui header">
+        {{ $t('For {0}: Congratulation! You finished reading.', [username]) }}
+      </h1>
+    </div>
+  </div>
+  
 </div>

@@ -28808,9 +28808,17 @@ let InstructionMessage = {
   },
   methods: {
     checkAutoShow () {
+      console.log(this.lib.auth.currentStepConfig)
+      if (this.lib.auth.currentStepConfig.keepShowInstructionMessage === true) {
+        return this.show()
+      }
+      
       if (!this.instruction) {
         return null
       }
+      
+      
+      
       
       //console.log(localStorage.getItem(this.localStorageKeyPrefix))
       if (localStorage.getItem(this.localStorageKeyPrefix) === null) {
