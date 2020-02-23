@@ -22,6 +22,9 @@ let InstructionMessage = {
       if (this.lib.StringHelper.isURL(this.instruction) ) {
         return this.instruction
       }
+    },
+    enableLogout () {
+      return this.lib.auth.currentStepConfig.enableLogout
     }
   },
 //  watch: {
@@ -35,7 +38,7 @@ let InstructionMessage = {
   },
   methods: {
     checkAutoShow () {
-      console.log(this.lib.auth.currentStepConfig)
+      //console.log(this.lib.auth.currentStepConfig)
       if (this.lib.auth.currentStepConfig.keepShowInstructionMessage === true) {
         return this.show()
       }
@@ -72,6 +75,15 @@ let InstructionMessage = {
     },
     nextStep () {
       this.lib.auth.nextStep()
+    },
+    logout: async function () {
+      let confirm = await this.lib.ConfirmModal.show(this.$t('Are you sure to logout?'))
+      if (confirm === false) {
+        return false
+      }
+      
+      this.$refs.Modal.hide()
+      this.lib.auth.logout()
     }
   } // methods
 }

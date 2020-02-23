@@ -185,7 +185,8 @@ module.exports = {
         updateInterval: 30000
       },
       showFinishMessage: true, // 顯示恭喜完成的訊息
-      keepShowInstructionMessage: true
+      keepShowInstructionMessage: true,
+      enableLogout: true
     },
   },
   annotationTypeModules: {

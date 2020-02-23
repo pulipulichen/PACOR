@@ -489,7 +489,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"OK":"我知道了！","Close":"我知道了","Start Tutorial":"顯示操作導覽"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"OK":"我知道了！","Close":"我知道了","Start Tutorial":"顯示操作導覽","Logout":"登出","Are you sure to logout?":"您確定要登出嗎？"}}')
   delete Component.options._Ctor
 }
 
@@ -5027,10 +5027,25 @@ var render = function() {
               key: "actions",
               fn: function() {
                 return [
+                  _vm.enableLogout
+                    ? _c(
+                        "div",
+                        { staticClass: "ui button", on: { click: _vm.logout } },
+                        [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("Logout")) +
+                              "\r\n        "
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
                   _c(
                     "div",
                     {
-                      staticClass: "ui positive button",
+                      staticClass: "ui button",
+                      class: { positive: !_vm.enableLogout },
                       on: { click: _vm.startTutorial }
                     },
                     [
@@ -28795,6 +28810,9 @@ let InstructionMessage = {
       if (this.lib.StringHelper.isURL(this.instruction) ) {
         return this.instruction
       }
+    },
+    enableLogout () {
+      return this.lib.auth.currentStepConfig.enableLogout
     }
   },
 //  watch: {
@@ -28808,7 +28826,7 @@ let InstructionMessage = {
   },
   methods: {
     checkAutoShow () {
-      console.log(this.lib.auth.currentStepConfig)
+      //console.log(this.lib.auth.currentStepConfig)
       if (this.lib.auth.currentStepConfig.keepShowInstructionMessage === true) {
         return this.show()
       }
@@ -28845,6 +28863,15 @@ let InstructionMessage = {
     },
     nextStep () {
       this.lib.auth.nextStep()
+    },
+    logout: async function () {
+      let confirm = await this.lib.ConfirmModal.show(this.$t('Are you sure to logout?'))
+      if (confirm === false) {
+        return false
+      }
+      
+      this.$refs.Modal.hide()
+      this.lib.auth.logout()
     }
   } // methods
 }

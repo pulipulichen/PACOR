@@ -24,7 +24,13 @@
         <div v-html="instruction"></div>
       </template>
       <template v-slot:actions>
-        <div class="ui positive button"
+        <div class="ui button"
+             v-on:click="logout"
+             v-if="enableLogout">
+          {{ $t('Logout') }}
+        </div>
+        <div class="ui button"
+             v-bind:class="{positive: !enableLogout}"
              v-on:click="startTutorial">
           {{ $t('Start Tutorial') }}
         </div>
