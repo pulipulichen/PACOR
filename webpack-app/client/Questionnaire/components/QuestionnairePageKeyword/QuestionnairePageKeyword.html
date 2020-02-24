@@ -54,19 +54,24 @@
         
         <div class="answer content-full-height">
           
-          <div class="ui search"
-               ref="SearchInput"
-               v-bind:class="{'no-result': noResult}">
-            <div class="ui icon input">
-              <input class="prompt" 
-                     type="text" 
-                     v-model="inputKeyword"
-                     v-bind:placeholder="$t('Add keyword...')">
-              <i class="plus icon"
-                 v-bind:title="$t('Add keyword...')"></i>
+          <form v-on:submit="onSubmit">
+            <div class="ui search"
+                 ref="SearchInput"
+                 v-bind:class="{'no-result': noResult}">
+              <div class="ui icon input">
+                <input class="prompt" 
+                       type="text" 
+                       v-model="inputKeyword"
+                       ref='SearchInputText'
+                       v-bind:placeholder="$t('Add keyword...')">
+                <i class="plus icon"
+                   v-bind:class="{link: (inputKeyword.trim() !== '')}"
+                   v-bind:title="$t('Add keyword...')"
+                   v-on:click="onSubmit"></i>
+              </div>
+              <div class="results"></div>
             </div>
-            <div class="results"></div>
-          </div>
+          </form>
           
           <!-- ========================================= -->
           <!-- 結果的部分 -->
@@ -87,7 +92,8 @@
               <div class="ui attached segment step-result">
                 <div class="ui teal label"
                      v-for="(keyword, i) in answeredList"
-                     v-on:click="deleteKeyword(i)">
+                     v-on:click="deleteKeyword(i)"
+                     v-bind:title="labelTitleRemove(keyword)">
                   {{ keyword }}
                   <i class="delete icon"></i>
                 </div>
@@ -110,7 +116,8 @@
               <div class="ui attached segment step-result">
                 <div class="ui grey label"
                      v-for="(keyword, i) in removedList"
-                     v-on:click="restoreKeyword(i)">
+                     v-on:click="restoreKeyword(i)"
+                     v-bind:title="labelTitleAdd(keyword)">
                   {{ keyword }}
                   <i class="undo icon"></i>
                 </div>

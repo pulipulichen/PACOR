@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Add keyword: {0}":"Add keyword: {0}"},"zh-TW":{"Add keyword...":"新增關鍵字","Add keyword":"新增關鍵字","Add removed keyword":"回收關鍵字","Answered Keywords":"目前作答的關鍵字","Answered":"已經作答","Removed Keywords":"被移除的關鍵字","Removed":"已經移除","Add keyword: {0}":"新增關鍵字：{0}","Action":"操作"}}')
+  Component.options.__i18n.push('{"en":{"Add keyword: {0}":"Add keyword: {0}","Remove keyword \\"{0}\\"":"Remove keyword \\"{0}\\"","Add keyword \\"{0}\\"":"Add keyword \\"{0}\\""},"zh-TW":{"Add keyword...":"新增關鍵字","Add keyword":"新增關鍵字","Add removed keyword":"回收關鍵字","Answered Keywords":"目前作答的關鍵字","Answered":"已經作答","Removed Keywords":"被移除的關鍵字","Removed":"已經移除","Add keyword: {0}":"新增關鍵字：{0}","Action":"操作","Remove keyword \\"{0}\\"":"移除關鍵字：{0}","Add keyword \\"{0}\\"":"新增關鍵字：{0}"}}')
   delete Component.options._Ctor
 }
 
@@ -85,7 +85,7 @@ exports.push([module.i, ".hint[data-v-2001f8ba] {\n  overflow-x: hidden;\n  over
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "/*.ui.search ::v-deep {\n  .message.empty {\n    display: none !important;\n  }\n}*/\n/*\n.ui.search.no-result ::v-deep {\n  .results.transition.visible {\n    //display: none !important;\n    box-shadow: none !important;\n    border-width: 0 !important;\n  }\n}\n*/\n", "",{"version":3,"sources":["QuestionnairePageKeyword.search.less?vue&type=style&index=1&id=2001f8ba&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;;;EAIE;AACF;;;;;;;;CAQC","file":"QuestionnairePageKeyword.search.less?vue&type=style&index=1&id=2001f8ba&lang=less&scoped=true&","sourcesContent":["/*.ui.search ::v-deep {\n  .message.empty {\n    display: none !important;\n  }\n}*/\n/*\n.ui.search.no-result ::v-deep {\n  .results.transition.visible {\n    //display: none !important;\n    box-shadow: none !important;\n    border-width: 0 !important;\n  }\n}\n*/\n"]}]);
+exports.push([module.i, "/*.ui.search ::v-deep {\n  .message.empty {\n    display: none !important;\n  }\n}*/\n/*\n.ui.search.no-result ::v-deep {\n  .results.transition.visible {\n    //display: none !important;\n    box-shadow: none !important;\n    border-width: 0 !important;\n  }\n}\n*/\n.plus.icon[data-v-2001f8ba]:not(.link) {\n  opacity: 0.2 !important;\n}\n", "",{"version":3,"sources":["QuestionnairePageKeyword.search.less?vue&type=style&index=1&id=2001f8ba&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;;;EAIE;AACF;;;;;;;;CAQC;AACD;EACE,uBAAuB;AACzB","file":"QuestionnairePageKeyword.search.less?vue&type=style&index=1&id=2001f8ba&lang=less&scoped=true&","sourcesContent":["/*.ui.search ::v-deep {\n  .message.empty {\n    display: none !important;\n  }\n}*/\n/*\n.ui.search.no-result ::v-deep {\n  .results.transition.visible {\n    //display: none !important;\n    box-shadow: none !important;\n    border-width: 0 !important;\n  }\n}\n*/\n.plus.icon[data-v-2001f8ba]:not(.link) {\n  opacity: 0.2 !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -226,49 +226,58 @@ var render = function() {
                           "div",
                           { staticClass: "answer content-full-height" },
                           [
-                            _c(
-                              "div",
-                              {
-                                ref: "SearchInput",
-                                staticClass: "ui search",
-                                class: { "no-result": _vm.noResult }
-                              },
-                              [
-                                _c("div", { staticClass: "ui icon input" }, [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.inputKeyword,
-                                        expression: "inputKeyword"
-                                      }
-                                    ],
-                                    staticClass: "prompt",
-                                    attrs: {
-                                      type: "text",
-                                      placeholder: _vm.$t("Add keyword...")
-                                    },
-                                    domProps: { value: _vm.inputKeyword },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
+                            _c("form", { on: { submit: _vm.onSubmit } }, [
+                              _c(
+                                "div",
+                                {
+                                  ref: "SearchInput",
+                                  staticClass: "ui search",
+                                  class: { "no-result": _vm.noResult }
+                                },
+                                [
+                                  _c("div", { staticClass: "ui icon input" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.inputKeyword,
+                                          expression: "inputKeyword"
                                         }
-                                        _vm.inputKeyword = $event.target.value
+                                      ],
+                                      ref: "SearchInputText",
+                                      staticClass: "prompt",
+                                      attrs: {
+                                        type: "text",
+                                        placeholder: _vm.$t("Add keyword...")
+                                      },
+                                      domProps: { value: _vm.inputKeyword },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.inputKeyword = $event.target.value
+                                        }
                                       }
-                                    }
-                                  }),
+                                    }),
+                                    _vm._v(" "),
+                                    _c("i", {
+                                      staticClass: "plus icon",
+                                      class: {
+                                        link: _vm.inputKeyword.trim() !== ""
+                                      },
+                                      attrs: {
+                                        title: _vm.$t("Add keyword...")
+                                      },
+                                      on: { click: _vm.onSubmit }
+                                    })
+                                  ]),
                                   _vm._v(" "),
-                                  _c("i", {
-                                    staticClass: "plus icon",
-                                    attrs: { title: _vm.$t("Add keyword...") }
-                                  })
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "results" })
-                              ]
-                            ),
+                                  _c("div", { staticClass: "results" })
+                                ]
+                              )
+                            ]),
                             _vm._v(" "),
                             _c(
                               "div",
@@ -333,6 +342,9 @@ var render = function() {
                                         "div",
                                         {
                                           staticClass: "ui teal label",
+                                          attrs: {
+                                            title: _vm.labelTitleRemove(keyword)
+                                          },
                                           on: {
                                             click: function($event) {
                                               return _vm.deleteKeyword(i)
@@ -410,6 +422,9 @@ var render = function() {
                                         "div",
                                         {
                                           staticClass: "ui grey label",
+                                          attrs: {
+                                            title: _vm.labelTitleAdd(keyword)
+                                          },
                                           on: {
                                             click: function($event) {
                                               return _vm.restoreKeyword(i)
@@ -1500,65 +1515,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (Questionnaire) {
   Questionnaire.methods.initLog = function () {
-      let cache = localStorage.getItem(this.persistKey)
-      //console.log(cache)
-      if (cache !== null) {
-        try {
-          this.log = JSON.parse(cache)
-          this.answer = this.log.answer
-          
-          let start_timestamp = this.log.start_timestamp
-          start_timestamp = parseInt(start_timestamp, 10)
-          this.remainingSeconds = this.limitMinutes * 60 - Math.round((this.lib.DayJSHelper.time() - start_timestamp) / 1000)
-          if (this.remainingSeconds <= 0) {
-            this.isTimeUp = true
-          }
-          this.page = 'Answer'
-          //console.log(this.remainingSeconds)
+    let cache = localStorage.getItem(this.persistKey)
+    //console.log(cache)
+    if (cache !== null) {
+      try {
+        this.log = JSON.parse(cache)
+        this.answer = this.log.answer
+
+        let start_timestamp = this.log.start_timestamp
+        start_timestamp = parseInt(start_timestamp, 10)
+        this.remainingSeconds = this.limitMinutes * 60 - Math.round((this.lib.DayJSHelper.time() - start_timestamp) / 1000)
+        if (this.remainingSeconds <= 0) {
+          this.isTimeUp = true
         }
-        catch (e) {}
+        this.page = 'Answer'
+        //console.log(this.remainingSeconds)
+      } catch (e) {
       }
     }
+  }
   Questionnaire.methods.persist = function () {
-      if (typeof(this.log) === 'object') {
-        //console.log(this.log)
-        if (typeof(this.log.start_timestamp) !== 'number') {
-          this.log.start_timestamp = this.lib.DayJSHelper.time()
-          this.remainingSeconds = this.limitMinutes * 60
-        }
-        
-        localStorage.setItem(this.persistKey, JSON.stringify(this.log))
+    if (typeof (this.log) === 'object') {
+      //console.log(this.log)
+      if (typeof (this.log.start_timestamp) !== 'number') {
+        this.log.start_timestamp = this.lib.DayJSHelper.time()
+        this.remainingSeconds = this.limitMinutes * 60
       }
+
+      localStorage.setItem(this.persistKey, JSON.stringify(this.log))
     }
+  }
   Questionnaire.methods.onTimeup = function () {
-      this.isTimeUp = true
+    this.isTimeUp = true
   }
   Questionnaire.methods.nextStep = async function () {
-      if (typeof(this.status.readingConfig.debug.stayInReadingProgress) === 'string') {
-        console.log(`Stay in ${this.status.readingConfig.debug.stayInReadingProgress} for debug.`)
-        return false
-      }
-      
-      /*
-      let data = {
-        log: this.log,
-        nextStep: true
-      }
-      */
-      //console.log(data)
-      this.isWaitingLoading = true
-      
-      await this.lib.AxiosHelper.post('/client/ReadingProgress/end', this.log)
-      localStorage.removeItem(this.persistKey)
-      if (this.$refs.Modal) {
-        this.$refs.Modal.hide()
-      }
-      return await this.lib.auth.nextStep(false)
+    if (typeof (this.status.readingConfig.debug.stayInReadingProgress) === 'string') {
+      console.log(`Stay in ${this.status.readingConfig.debug.stayInReadingProgress} for debug.`)
+      return false
     }
+
+    /*
+     let data = {
+     log: this.log,
+     nextStep: true
+     }
+     */
+    //console.log(data)
+    this.isWaitingLoading = true
+
+    await this.lib.AxiosHelper.post('/client/ReadingProgress/end', this.log)
+    localStorage.removeItem(this.persistKey)
+    if (this.$refs.Modal) {
+      this.$refs.Modal.hide()
+    }
+    return await this.lib.auth.nextStep(false)
+  }
   Questionnaire.methods.logout = function () {
-      localStorage.removeItem(this.persistKey)
-      this.lib.auth.logoutWithoutForget()
-    }
+    localStorage.removeItem(this.persistKey)
+    this.lib.auth.logoutWithoutForget()
+  }
+  
+  Questionnaire.methods.labelTitleRemove = function (keyword) {
+    return this.$t('Remove keyword "{0}"', [keyword])
+  }
+  
+  Questionnaire.methods.labelTitleAdd = function (keyword) {
+    return this.$t('Add keyword "{0}"', [keyword])
+  }
+  
+  
 });
 
 /***/ }),
@@ -1577,52 +1602,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (Questionnaire) {
-  
+
   Questionnaire.methods.initSearch = function () {
     let _this = this
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.SearchInput).search({
-        type: 'category',
-        source: this.localSearch,
-        cache: false,
-        showNoResults: false,
-        onResultsAddZZZ: (html) => {
-          console.log(html)
-          return false
-        },
-        onResultsAAA: function (response) {
-          //this.noResult = (Object.keys(response.results).length === 0)
-          
-//          let noResult = (Object.keys(response.results).length === 0)
-//          if (noResult) {
-//            response.results[this.$t('Action')] = [{
-//                category: this.$t('Action'),
-//                title: this.$t('Add keyword: {0}', ['zzassa']),
-//                id: 'a0'
-//            }]
-//          }
-//          console.log(response.results)
-          //console.log(this)
-          let resultsElement = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).find('.results:first')
-          _this.onResultsOpen(resultsElement)
-          
-          return response
-        },
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.SearchInput).search({
+      type: 'category',
+      source: this.localSearch,
+      cache: false,
+      showNoResults: false,
+      onSelect: (result, response) => {
+        //console.log(result, response)
+        this.inputKeyword = result.title
+        this.$refs.SearchInputText.focus()
+      },
 //        onResultsOpen: function () {
 //          let resultsElement = this
 //          _this.onResultsOpen(resultsElement)
 //          //console.log(this)
 //        },
-        error: {
-          noResults: ''
-        }
-      })
+      error: {
+        noResults: ''
+      }
+    })
   }
-  
+
   Questionnaire.methods.onResultsOpen = function (resultsElement) {
     let message = resultsElement.find('.message:first')
-    
+
     console.log(message.length, )
-    
+
     if (message.hasClass('empty')) {
       console.log('不行嗎', this.$t('Add keyword: {0}', ['zzassa']), message.find('.header').length)
       setTimeout(() => {
@@ -1630,41 +1638,62 @@ __webpack_require__.r(__webpack_exports__);
       }, 100)
     }
   }
-    
+
   Questionnaire.methods.addAnswerKeyword = function (keyword) {
-      if (typeof(keyword) !== 'string') {
-        return false
-      }
-      
-      keyword = keyword.trim()
-      if (keyword === '') {
-        return false
-      }
-      
-      let i = this.answeredList.indexOf(keyword)
-      if (i > -1) {
-        // 把這個選項移到最前面去
-        this.answeredList.splice(i, 1)
-      }
-      
-      this.answeredList.unshift(keyword)
-      return true
+    if (typeof (keyword) !== 'string') {
+      return false
     }
-  Questionnaire.methods.deleteKeyword = function (i) {
-      let keyword = this.answeredList[i]
+
+    keyword = keyword.trim()
+    if (keyword === '') {
+      return false
+    }
+
+    let i = this.answeredList.indexOf(keyword)
+    if (i > -1) {
+      // 把這個選項移到最前面去
       this.answeredList.splice(i, 1)
-      this.removedList.unshift(keyword)
     }
+    
+    let j = this.removedList.indexOf(keyword)
+    if (j > -1) {
+      // 把這個選項移到最前面去
+      this.removedList.splice(j, 1)
+    }
+
+    this.answeredList.unshift(keyword)
+    return true
+  }
+  Questionnaire.methods.deleteKeyword = function (i) {
+    let keyword = this.answeredList[i]
+    this.answeredList.splice(i, 1)
+    this.removedList.unshift(keyword)
+  }
   Questionnaire.methods.restoreKeyword = function (i) {
-      let keyword = this.removedList[i]
-      this.removedList.splice(i, 1)
-      this.answeredList.unshift(keyword)
-    }
+    let keyword = this.removedList[i]
+    this.removedList.splice(i, 1)
+    this.answeredList.unshift(keyword)
+  }
   Questionnaire.methods.sortList = function (listName) {
-      let list = this[listName]
-      list.sort()
-      //console.error('sortList (list)', list)
+    let list = this[listName]
+    list.sort()
+    //console.error('sortList (list)', list)
+  }
+  
+  Questionnaire.methods.onSubmit = function (e) {
+    e.preventDefault()
+    let inputKeyword = this.inputKeyword.trim()
+    if (inputKeyword === '') {
+      return false
     }
+    
+    this.addAnswerKeyword(inputKeyword)
+    this.inputKeyword = ''
+    this.$refs.SearchInputText.blur()
+    this.$refs.SearchInputText.focus()
+    
+    return false
+  }
 });
 
 /***/ }),

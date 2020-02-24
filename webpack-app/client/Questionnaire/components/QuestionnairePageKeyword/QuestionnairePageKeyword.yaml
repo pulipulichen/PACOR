@@ -1,5 +1,7 @@
 en:
   "Add keyword: {0}": "Add keyword: {0}"
+  'Remove keyword "{0}"': 'Remove keyword "{0}"'
+  'Add keyword "{0}"': 'Add keyword "{0}"'
   
 zh-TW:
   Add keyword...: 新增關鍵字
@@ -12,3 +14,6 @@ zh-TW:
   Removed: 已經移除
   "Add keyword: {0}": "新增關鍵字：{0}"
   Action: 操作
+  
+  'Remove keyword "{0}"': 移除關鍵字：{0}
+  'Add keyword "{0}"': 新增關鍵字：{0}
