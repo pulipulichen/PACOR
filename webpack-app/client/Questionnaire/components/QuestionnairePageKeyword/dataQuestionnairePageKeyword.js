@@ -48,6 +48,7 @@ export default function (Questionnaire) {
     
     data.minWords = data.minKeywords
     data.noResult = false
+    data.inputKeyword = "ZZZZ"
     
     return data
   }

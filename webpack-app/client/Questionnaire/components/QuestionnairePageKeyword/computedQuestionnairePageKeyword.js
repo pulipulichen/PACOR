@@ -76,7 +76,11 @@ export default function (Questionnaire) {
         {category: 'Africa', title: 'Nigeria'},
         {category: 'Africa', title: 'Zimbabwe'},
       ]*/
-      let categoryContent = []
+      let categoryContent = [{
+          category: this.$t('Action'),
+          title: this.$t('Add keyword: {0}', [this.inputKeyword.trim()])
+      }]
+      
       this.answeredList.forEach((keyword) => {
         categoryContent.push({
           category: this.$t('Answered'),

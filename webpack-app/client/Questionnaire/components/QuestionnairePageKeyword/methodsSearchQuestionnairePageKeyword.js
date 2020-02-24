@@ -7,7 +7,12 @@ export default function (Questionnaire) {
       $(this.$refs.SearchInput).search({
         type: 'category',
         source: this.localSearch,
-        onResults: function (response) {
+        cache: false,
+        onResultsAddZZZ: (html) => {
+          console.log(html)
+          return false
+        },
+        onResultsAAA: function (response) {
           //this.noResult = (Object.keys(response.results).length === 0)
           
 //          let noResult = (Object.keys(response.results).length === 0)
@@ -19,8 +24,8 @@ export default function (Questionnaire) {
 //            }]
 //          }
 //          console.log(response.results)
-
-          let resultsElement = this
+          //console.log(this)
+          let resultsElement = $(this).find('.results:first')
           _this.onResultsOpen(resultsElement)
           
           return response
@@ -37,7 +42,16 @@ export default function (Questionnaire) {
   }
   
   Questionnaire.methods.onResultsOpen = function (resultsElement) {
-    console.log(resultsElement.find('.message.empty').length)
+    let message = resultsElement.find('.message:first')
+    
+    console.log(message.length, )
+    
+    if (message.hasClass('empty')) {
+      console.log('不行嗎', this.$t('Add keyword: {0}', ['zzassa']), message.find('.header').length)
+      setTimeout(() => {
+        message.find('.header').html(this.$t('Add keyword: {0}', ['zzassa']))
+      }, 100)
+    }
   }
     
   Questionnaire.methods.addAnswerKeyword = function (keyword) {

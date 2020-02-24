@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Add keyword...":"新增關鍵字","Answered Keywords":"目前作答的關鍵字","Answered":"已經作答","Removed Keywords":"被移除的關鍵字","Removed":"已經移除"}}')
+  Component.options.__i18n.push('{"en":{"Add keyword: {0}":"Add keyword: {0}"},"zh-TW":{"Add keyword...":"新增關鍵字","Answered Keywords":"目前作答的關鍵字","Answered":"已經作答","Removed Keywords":"被移除的關鍵字","Removed":"已經移除","Add keyword: {0}":"新增關鍵字：{0}"}}')
   delete Component.options._Ctor
 }
 
@@ -236,10 +236,27 @@ var render = function() {
                               [
                                 _c("div", { staticClass: "ui icon input" }, [
                                   _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.inputKeyword,
+                                        expression: "inputKeyword"
+                                      }
+                                    ],
                                     staticClass: "prompt",
                                     attrs: {
                                       type: "text",
                                       placeholder: _vm.$t("Add keyword...")
+                                    },
+                                    domProps: { value: _vm.inputKeyword },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.inputKeyword = $event.target.value
+                                      }
                                     }
                                   }),
                                   _vm._v(" "),
@@ -1361,7 +1378,11 @@ __webpack_require__.r(__webpack_exports__);
         {category: 'Africa', title: 'Nigeria'},
         {category: 'Africa', title: 'Zimbabwe'},
       ]*/
-      let categoryContent = []
+      let categoryContent = [{
+          category: this.$t('Action'),
+          title: this.$t('Add keyword: {0}', [this.inputKeyword.trim()])
+      }]
+      
       this.answeredList.forEach((keyword) => {
         categoryContent.push({
           category: this.$t('Answered'),
@@ -1442,6 +1463,7 @@ __webpack_require__.r(__webpack_exports__);
     
     data.minWords = data.minKeywords
     data.noResult = false
+    data.inputKeyword = "ZZZZ"
     
     return data
   }
@@ -1547,7 +1569,12 @@ __webpack_require__.r(__webpack_exports__);
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.SearchInput).search({
         type: 'category',
         source: this.localSearch,
-        onResults: function (response) {
+        cache: false,
+        onResultsAddZZZ: (html) => {
+          console.log(html)
+          return false
+        },
+        onResultsAAA: function (response) {
           //this.noResult = (Object.keys(response.results).length === 0)
           
 //          let noResult = (Object.keys(response.results).length === 0)
@@ -1559,8 +1586,8 @@ __webpack_require__.r(__webpack_exports__);
 //            }]
 //          }
 //          console.log(response.results)
-
-          let resultsElement = this
+          //console.log(this)
+          let resultsElement = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).find('.results:first')
           _this.onResultsOpen(resultsElement)
           
           return response
@@ -1577,7 +1604,16 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   Questionnaire.methods.onResultsOpen = function (resultsElement) {
-    console.log(resultsElement.find('.message.empty').length)
+    let message = resultsElement.find('.message:first')
+    
+    console.log(message.length, )
+    
+    if (message.hasClass('empty')) {
+      console.log('不行嗎', this.$t('Add keyword: {0}', ['zzassa']), message.find('.header').length)
+      setTimeout(() => {
+        message.find('.header').html(this.$t('Add keyword: {0}', ['zzassa']))
+      }, 100)
+    }
   }
     
   Questionnaire.methods.addAnswerKeyword = function (keyword) {

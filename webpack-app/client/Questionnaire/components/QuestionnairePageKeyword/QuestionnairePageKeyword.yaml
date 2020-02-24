@@ -1,4 +1,5 @@
 en:
+  "Add keyword: {0}": "Add keyword: {0}"
   
 zh-TW:
   Add keyword...: 新增關鍵字
@@ -6,3 +7,4 @@ zh-TW:
   Answered: 已經作答
   Removed Keywords: 被移除的關鍵字
   Removed: 已經移除
+  "Add keyword: {0}": "新增關鍵字：{0}"
