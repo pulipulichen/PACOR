@@ -85,7 +85,7 @@ exports.push([module.i, ".hint[data-v-2001f8ba] {\n  overflow-x: hidden;\n  over
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".ui.search[data-v-2001f8ba]  .message.empty {\n  display: none !important;\n}\n.ui.search.no-result[data-v-2001f8ba]  .results.transition.visible {\n  display: none !important;\n  box-shadow: none !important;\n  border-width: 0 !important;\n}\n", "",{"version":3,"sources":["QuestionnairePageKeyword.search.less?vue&type=style&index=1&id=2001f8ba&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;AAC1B;AACA;EACE,wBAAwB;EACxB,2BAA2B;EAC3B,0BAA0B;AAC5B","file":"QuestionnairePageKeyword.search.less?vue&type=style&index=1&id=2001f8ba&lang=less&scoped=true&","sourcesContent":[".ui.search[data-v-2001f8ba]  .message.empty {\n  display: none !important;\n}\n.ui.search.no-result[data-v-2001f8ba]  .results.transition.visible {\n  display: none !important;\n  box-shadow: none !important;\n  border-width: 0 !important;\n}\n"]}]);
+exports.push([module.i, "/*.ui.search ::v-deep {\n  .message.empty {\n    display: none !important;\n  }\n}*/\n/*\n.ui.search.no-result ::v-deep {\n  .results.transition.visible {\n    //display: none !important;\n    box-shadow: none !important;\n    border-width: 0 !important;\n  }\n}\n*/\n", "",{"version":3,"sources":["QuestionnairePageKeyword.search.less?vue&type=style&index=1&id=2001f8ba&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;;;EAIE;AACF;;;;;;;;CAQC","file":"QuestionnairePageKeyword.search.less?vue&type=style&index=1&id=2001f8ba&lang=less&scoped=true&","sourcesContent":["/*.ui.search ::v-deep {\n  .message.empty {\n    display: none !important;\n  }\n}*/\n/*\n.ui.search.no-result ::v-deep {\n  .results.transition.visible {\n    //display: none !important;\n    box-shadow: none !important;\n    border-width: 0 !important;\n  }\n}\n*/\n"]}]);
 
 
 /***/ }),
@@ -1139,6 +1139,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _watchQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./watchQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/watchQuestionnairePageKeyword.js");
 /* harmony import */ var _mountedQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mountedQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/mountedQuestionnairePageKeyword.js");
 /* harmony import */ var _methodsQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methodsQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/methodsQuestionnairePageKeyword.js");
+/* harmony import */ var _methodsSearchQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./methodsSearchQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/methodsSearchQuestionnairePageKeyword.js");
 
 
 let Questionnaire = {
@@ -1151,7 +1152,7 @@ let Questionnaire = {
   },
   // watch: {}, // 轉移到 watchQuestionnairePageKeyword.js
   // mounted: async function () {}, // 轉移到 mountedQuestionnairePageKeyword.js
-  // methods: {} // 轉移到 methodsQuestionnairePageKeyword.js
+  methods: {} // 轉移到 methodsQuestionnairePageKeyword.js
 }
 
 
@@ -1168,6 +1169,9 @@ Object(_mountedQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_4__["default
 
 
 Object(_methodsQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_5__["default"])(Questionnaire)
+
+
+Object(_methodsSearchQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_6__["default"])(Questionnaire)
 
 /* harmony default export */ __webpack_exports__["default"] = (Questionnaire);
 
@@ -1459,8 +1463,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (Questionnaire) {
-  Questionnaire.methods = {
-    initLog: function () {
+  Questionnaire.methods.initLog = function () {
       let cache = localStorage.getItem(this.persistKey)
       //console.log(cache)
       if (cache !== null) {
@@ -1479,8 +1482,8 @@ __webpack_require__.r(__webpack_exports__);
         }
         catch (e) {}
       }
-    },
-    persist: function () {
+    }
+  Questionnaire.methods.persist = function () {
       if (typeof(this.log) === 'object') {
         //console.log(this.log)
         if (typeof(this.log.start_timestamp) !== 'number') {
@@ -1490,32 +1493,11 @@ __webpack_require__.r(__webpack_exports__);
         
         localStorage.setItem(this.persistKey, JSON.stringify(this.log))
       }
-    },
-//    startCountdown: function () {
-//      //return  // for test
-//      setTimeout(() => {
-//        if (this.remainingSeconds > 0) {
-//          this.remainingSeconds--
-//        }
-//      }, 1000)
-//    },
-    initSearch () {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.SearchInput).search({
-        type: 'category',
-        source: this.localSearch,
-        onResults: (response) => {
-          this.noResult = (Object.keys(response.results).length === 0)
-          return response
-        },
-        error: {
-          noResults: ''
-        }
-      })
-    },
-    onTimeup() {
+    }
+  Questionnaire.methods.onTimeup = function () {
       this.isTimeUp = true
-    },
-    nextStep: async function () {
+  }
+  Questionnaire.methods.nextStep = async function () {
       if (typeof(this.status.readingConfig.debug.stayInReadingProgress) === 'string') {
         console.log(`Stay in ${this.status.readingConfig.debug.stayInReadingProgress} for debug.`)
         return false
@@ -1536,17 +1518,69 @@ __webpack_require__.r(__webpack_exports__);
         this.$refs.Modal.hide()
       }
       return await this.lib.auth.nextStep(false)
-    },
-    logout () {
+    }
+  Questionnaire.methods.logout = function () {
       localStorage.removeItem(this.persistKey)
       this.lib.auth.logoutWithoutForget()
-    },
-    startAnswer () {
-      this.page = 'Answer'
-      this.persist()
-    },
+    }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/methodsSearchQuestionnairePageKeyword.js":
+/*!***********************************************************************************************************************!*\
+  !*** ./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/methodsSearchQuestionnairePageKeyword.js ***!
+  \***********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (Questionnaire) {
+  
+  Questionnaire.methods.initSearch = function () {
+    let _this = this
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.SearchInput).search({
+        type: 'category',
+        source: this.localSearch,
+        onResults: function (response) {
+          //this.noResult = (Object.keys(response.results).length === 0)
+          
+//          let noResult = (Object.keys(response.results).length === 0)
+//          if (noResult) {
+//            response.results[this.$t('Action')] = [{
+//                category: this.$t('Action'),
+//                title: this.$t('Add keyword: {0}', ['zzassa']),
+//                id: 'a0'
+//            }]
+//          }
+//          console.log(response.results)
+
+          let resultsElement = this
+          _this.onResultsOpen(resultsElement)
+          
+          return response
+        },
+//        onResultsOpen: function () {
+//          let resultsElement = this
+//          _this.onResultsOpen(resultsElement)
+//          //console.log(this)
+//        },
+        error: {
+          noResults: ''
+        }
+      })
+  }
+  
+  Questionnaire.methods.onResultsOpen = function (resultsElement) {
+    console.log(resultsElement.find('.message.empty').length)
+  }
     
-    addAnswerKeyword (keyword) {
+  Questionnaire.methods.addAnswerKeyword = function (keyword) {
       if (typeof(keyword) !== 'string') {
         return false
       }
@@ -1564,23 +1598,22 @@ __webpack_require__.r(__webpack_exports__);
       
       this.answeredList.unshift(keyword)
       return true
-    },
-    deleteKeyword (i) {
+    }
+  Questionnaire.methods.deleteKeyword = function (i) {
       let keyword = this.answeredList[i]
       this.answeredList.splice(i, 1)
       this.removedList.unshift(keyword)
-    },
-    restoreKeyword (i) {
+    }
+  Questionnaire.methods.restoreKeyword = function (i) {
       let keyword = this.removedList[i]
       this.removedList.splice(i, 1)
       this.answeredList.unshift(keyword)
-    },
-    sortList (listName) {
+    }
+  Questionnaire.methods.sortList = function (listName) {
       let list = this[listName]
       list.sort()
       //console.error('sortList (list)', list)
     }
-  } // methods
 });
 
 /***/ }),

@@ -10,7 +10,7 @@ let Questionnaire = {
   },
   // watch: {}, // 轉移到 watchQuestionnairePageKeyword.js
   // mounted: async function () {}, // 轉移到 mountedQuestionnairePageKeyword.js
-  // methods: {} // 轉移到 methodsQuestionnairePageKeyword.js
+  methods: {} // 轉移到 methodsQuestionnairePageKeyword.js
 }
 
 import dataQuestionnairePageKeyword from "./dataQuestionnairePageKeyword.js"
@@ -27,5 +27,8 @@ mountedQuestionnairePageKeyword(Questionnaire)
 
 import methodsQuestionnairePageKeyword from "./methodsQuestionnairePageKeyword.js"
 methodsQuestionnairePageKeyword(Questionnaire)
+
+import methodsSearchQuestionnairePageKeyword from "./methodsSearchQuestionnairePageKeyword.js"
+methodsSearchQuestionnairePageKeyword(Questionnaire)
 
 export default Questionnaire
