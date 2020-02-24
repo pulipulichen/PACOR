@@ -46,7 +46,7 @@ export default function (Questionnaire) {
         type: 'category',
         source: this.localSearch,
         onResults: (response) => {
-          //this.hasResponse = (Object.keys(response.results).length !== 0)
+          this.noResult = (Object.keys(response.results).length === 0)
           return response
         },
         error: {

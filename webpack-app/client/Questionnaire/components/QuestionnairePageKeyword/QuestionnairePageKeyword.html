@@ -56,7 +56,7 @@
           
           <div class="ui search"
                ref="SearchInput"
-               v-bind:class="{'has-response': hasResponse}">
+               v-bind:class="{'no-result': noResult}">
             <div class="ui icon input">
               <input class="prompt" type="text" 
                      v-bind:placeholder="$t('Add keyword...')">

@@ -85,7 +85,7 @@ exports.push([module.i, ".hint[data-v-2001f8ba] {\n  overflow-x: hidden;\n  over
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".ui.search[data-v-2001f8ba]  .message.empty {\n  display: none !important;\n}\n", "",{"version":3,"sources":["QuestionnairePageKeyword.search.less?vue&type=style&index=1&id=2001f8ba&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;AAC1B","file":"QuestionnairePageKeyword.search.less?vue&type=style&index=1&id=2001f8ba&lang=less&scoped=true&","sourcesContent":[".ui.search[data-v-2001f8ba]  .message.empty {\n  display: none !important;\n}\n"]}]);
+exports.push([module.i, ".ui.search[data-v-2001f8ba]  .message.empty {\n  display: none !important;\n}\n.ui.search.no-result[data-v-2001f8ba]  .results.transition.visible {\n  display: none !important;\n  box-shadow: none !important;\n  border-width: 0 !important;\n}\n", "",{"version":3,"sources":["QuestionnairePageKeyword.search.less?vue&type=style&index=1&id=2001f8ba&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;AAC1B;AACA;EACE,wBAAwB;EACxB,2BAA2B;EAC3B,0BAA0B;AAC5B","file":"QuestionnairePageKeyword.search.less?vue&type=style&index=1&id=2001f8ba&lang=less&scoped=true&","sourcesContent":[".ui.search[data-v-2001f8ba]  .message.empty {\n  display: none !important;\n}\n.ui.search.no-result[data-v-2001f8ba]  .results.transition.visible {\n  display: none !important;\n  box-shadow: none !important;\n  border-width: 0 !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -231,7 +231,7 @@ var render = function() {
                               {
                                 ref: "SearchInput",
                                 staticClass: "ui search",
-                                class: { "has-response": _vm.hasResponse }
+                                class: { "no-result": _vm.noResult }
                               },
                               [
                                 _c("div", { staticClass: "ui icon input" }, [
@@ -1437,7 +1437,7 @@ __webpack_require__.r(__webpack_exports__);
     data.page = 'Instruction'
     
     data.minWords = data.minKeywords
-    data.hasResponse = false
+    data.noResult = false
     
     return data
   }
@@ -1504,7 +1504,7 @@ __webpack_require__.r(__webpack_exports__);
         type: 'category',
         source: this.localSearch,
         onResults: (response) => {
-          //this.hasResponse = (Object.keys(response.results).length !== 0)
+          this.noResult = (Object.keys(response.results).length === 0)
           return response
         },
         error: {
