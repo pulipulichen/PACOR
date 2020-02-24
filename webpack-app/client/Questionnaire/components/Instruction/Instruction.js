@@ -37,6 +37,14 @@ let Instruction = {
     },
     timeLimitAutoStart () {
       return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts now.`, [this.preImaginaryConfig.limitMinutes])
+    },
+    isDiffMode () {
+      let isDiffMode = false
+      if (this.lib.auth
+              && this.lib.auth.currentStepConfig.preloadPreImaginaryAnswer) {
+        isDiffMode = this.lib.auth.currentStepConfig.preloadPreImaginaryAnswer
+      }
+      return isDiffMode
     }
   },
 //  watch: {

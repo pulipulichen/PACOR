@@ -1,7 +1,11 @@
 <section 
   class="instruction SectionPostRecall"
   ref="SectionPostRecall">
-  <p>{{ $t('Please recall the content of this article.') }}</p>
+  
+  <p v-if="isDiffMode"
+     class="diff-highlight">{{ $t('After reading, please recall the content of this article base on your previous answer.') }}</p>
+  <p v-else>{{ $t('After reading, please recall the content of this article.') }}</p>
+  
   <ul>
     <li v-html="titleHTML"></li>
     <li v-if="headings.length > 0"
