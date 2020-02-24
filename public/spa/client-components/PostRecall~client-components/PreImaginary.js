@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單","Show Instruction":"顯示說明","Start Answer and Countdown":"開始作答並且倒數計時","Answer":"繼續作答","Show Answer":"顯示作答內容"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單","Show Instruction":"顯示說明","Start Answer and Countdown":"開始作答並且倒數計時","Answer":"繼續作答","Show Answer":"顯示作答內容","Sort":"排序"}}')
   delete Component.options._Ctor
 }
 

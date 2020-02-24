@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單","Show Instruction":"顯示說明","Start Answer and Countdown":"開始作答並且倒數計時","Answer":"繼續作答","Show Answer":"顯示作答內容"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單","Show Instruction":"顯示說明","Start Answer and Countdown":"開始作答並且倒數計時","Answer":"繼續作答","Show Answer":"顯示作答內容","Sort":"排序"}}')
   delete Component.options._Ctor
 }
 
@@ -192,38 +192,162 @@ var render = function() {
                   _vm._v(" "),
                   _vm.page === "Answer"
                     ? _c("div", { staticClass: "field" }, [
-                        _c("textarea", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.answer,
-                              expression: "answer"
-                            }
-                          ],
-                          staticClass: "answer content-full-height",
-                          attrs: { disabled: _vm.isTimeUp },
-                          domProps: { value: _vm.answer },
-                          on: {
-                            input: [
-                              function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.answer = $event.target.value
-                              },
-                              _vm.persist
-                            ],
-                            paste: function($event) {
-                              if ($event.target !== $event.currentTarget) {
-                                return null
-                              }
-                              return (function(e) {
-                                e.preventDefault()
-                              })($event)
-                            }
-                          }
-                        })
+                        _c(
+                          "div",
+                          { staticClass: "answer content-full-height" },
+                          [
+                            _c(
+                              "div",
+                              { ref: "SearchInput", staticClass: "ui search" },
+                              [
+                                _c("div", { staticClass: "ui icon input" }, [
+                                  _c("input", {
+                                    staticClass: "prompt",
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Search countries..."
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", { staticClass: "search icon" })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "results" })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "ui top aligned grid" }, [
+                              _c("div", { staticClass: "ten wide column" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "ui top attached secondary segment step-heading"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\r\n                " +
+                                        _vm._s(_vm.$t("Answer Keywords")) +
+                                        "\r\n                "
+                                    ),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "ui icon button",
+                                        attrs: {
+                                          type: "button",
+                                          title: _vm.$t("Sort")
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.sortList("answeredList")
+                                          }
+                                        }
+                                      },
+                                      [_c("i", { staticClass: "sort icon" })]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "ui attached segment step-result"
+                                  },
+                                  _vm._l(_vm.answeredList, function(
+                                    keyword,
+                                    i
+                                  ) {
+                                    return _c(
+                                      "div",
+                                      {
+                                        staticClass: "ui label",
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.deleteKeyword(i)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\r\n                  " +
+                                            _vm._s(keyword) +
+                                            "\r\n                  "
+                                        ),
+                                        _c("i", { staticClass: "delete icon" })
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "six wide column" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "ui top attached secondary segment step-heading"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\r\n                " +
+                                        _vm._s(_vm.$t("Removed Keywords")) +
+                                        "\r\n                "
+                                    ),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "ui icon button",
+                                        attrs: {
+                                          type: "button",
+                                          title: _vm.$t("Sort")
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.sortList("removedList")
+                                          }
+                                        }
+                                      },
+                                      [_c("i", { staticClass: "sort icon" })]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "ui attached segment step-result"
+                                  },
+                                  _vm._l(_vm.removedList, function(keyword, i) {
+                                    return _c(
+                                      "div",
+                                      {
+                                        staticClass: "ui label",
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.restoreKeyword(i)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\r\n                  " +
+                                            _vm._s(keyword) +
+                                            "\r\n                  "
+                                        ),
+                                        _c("i", { staticClass: "redo icon" })
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              ])
+                            ])
+                          ]
+                        )
                       ])
                     : _vm._e()
                 ]
@@ -921,6 +1045,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CountdownButton/CountdownButton.vue */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.vue");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 let Questionnaire = {
@@ -1024,12 +1151,32 @@ let Questionnaire = {
     },
     hasStarted () {
       return (this.log.start_timestamp !== null)
-    }
+    },
 //    isTimeUp: function () {
 //      console.log(this.remainingSeconds)
 //      return (typeof(this.remainingSeconds) === 'number'
 //              && this.remainingSeconds <= 0)
 //    }
+    localSearch () {
+      
+      // 總之，先做假資料看看
+      var categoryContent = [
+        {category: 'South America', title: 'Brazil'},
+        {category: 'South America', title: 'Peru'},
+        {category: 'North America', title: 'Canada'},
+        {category: 'Asia', title: 'South Korea'},
+        {category: 'Asia', title: 'Japan'},
+        {category: 'Asia', title: 'China'},
+        {category: 'Europe', title: 'Denmark'},
+        {category: 'Europe', title: 'England'},
+        {category: 'Europe', title: 'France'},
+        {category: 'Europe', title: 'Germany'},
+        {category: 'Africa', title: 'Ethiopia'},
+        {category: 'Africa', title: 'Nigeria'},
+        {category: 'Africa', title: 'Zimbabwe'},
+      ]
+      return categoryContent
+    }
   },
   watch: {
 //    'remainingSeconds': function () {
@@ -1057,6 +1204,7 @@ let Questionnaire = {
     }
     
     this.$refs.Modal.show(() => {
+      this.initSearch()
       this.status.progress.initComponents = true
       
       //console.log(this.lib.auth.currentStepConfig.countdownAtStart)
@@ -1107,6 +1255,12 @@ let Questionnaire = {
 //        }
 //      }, 1000)
 //    },
+    initSearch () {
+      jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.SearchInput).search({
+        type: 'category',
+        source: this.localSearch
+      })
+    },
     onTimeup() {
       this.isTimeUp = true
     },
@@ -1139,6 +1293,15 @@ let Questionnaire = {
     startAnswer () {
       this.page = 'Answer'
       this.persist()
+    },
+    deleteKeyword (i) {
+      console.error('deleteKeyword (i)', i)
+    },
+    restoreKeyword (i) {
+      console.error('restoreKeyword (i)', i)
+    },
+    sortList (list) {
+      console.error('sortList (list)', i)
     }
   } // methods
 }

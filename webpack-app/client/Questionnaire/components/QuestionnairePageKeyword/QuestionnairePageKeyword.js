@@ -1,4 +1,5 @@
 import CountdownButton from './CountdownButton/CountdownButton.vue'
+import $ from 'jquery'
 
 let Questionnaire = {
   props: ['lib', 'status', 'config'],
@@ -101,12 +102,32 @@ let Questionnaire = {
     },
     hasStarted () {
       return (this.log.start_timestamp !== null)
-    }
+    },
 //    isTimeUp: function () {
 //      console.log(this.remainingSeconds)
 //      return (typeof(this.remainingSeconds) === 'number'
 //              && this.remainingSeconds <= 0)
 //    }
+    localSearch () {
+      
+      // 總之，先做假資料看看
+      var categoryContent = [
+        {category: 'South America', title: 'Brazil'},
+        {category: 'South America', title: 'Peru'},
+        {category: 'North America', title: 'Canada'},
+        {category: 'Asia', title: 'South Korea'},
+        {category: 'Asia', title: 'Japan'},
+        {category: 'Asia', title: 'China'},
+        {category: 'Europe', title: 'Denmark'},
+        {category: 'Europe', title: 'England'},
+        {category: 'Europe', title: 'France'},
+        {category: 'Europe', title: 'Germany'},
+        {category: 'Africa', title: 'Ethiopia'},
+        {category: 'Africa', title: 'Nigeria'},
+        {category: 'Africa', title: 'Zimbabwe'},
+      ]
+      return categoryContent
+    }
   },
   watch: {
 //    'remainingSeconds': function () {
@@ -134,6 +155,7 @@ let Questionnaire = {
     }
     
     this.$refs.Modal.show(() => {
+      this.initSearch()
       this.status.progress.initComponents = true
       
       //console.log(this.lib.auth.currentStepConfig.countdownAtStart)
@@ -184,6 +206,12 @@ let Questionnaire = {
 //        }
 //      }, 1000)
 //    },
+    initSearch () {
+      $(this.$refs.SearchInput).search({
+        type: 'category',
+        source: this.localSearch
+      })
+    },
     onTimeup() {
       this.isTimeUp = true
     },
@@ -216,6 +244,15 @@ let Questionnaire = {
     startAnswer () {
       this.page = 'Answer'
       this.persist()
+    },
+    deleteKeyword (i) {
+      console.error('deleteKeyword (i)', i)
+    },
+    restoreKeyword (i) {
+      console.error('restoreKeyword (i)', i)
+    },
+    sortList (list) {
+      console.error('sortList (list)', i)
     }
   } // methods
 }

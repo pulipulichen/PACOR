@@ -41,6 +41,8 @@
 
       <div class="field"
            v-if="page === 'Answer'">
+        
+        <!--
         <textarea 
           v-model="answer"
           v-on:input="persist"
@@ -48,6 +50,67 @@
           v-on:paste.self="(e) => { e.preventDefault() }"
           class="answer content-full-height">
         </textarea>
+        -->
+        
+        <div class="answer content-full-height">
+          
+          <div class="ui search"
+               ref="SearchInput">
+            <div class="ui icon input">
+              <input class="prompt" type="text" placeholder="Search countries...">
+              <i class="search icon"></i>
+            </div>
+            <div class="results"></div>
+          </div>
+          
+          <!-- ========================================= -->
+          <!-- 結果的部分 -->
+          
+          <div class="ui top aligned grid">
+            <div class="ten wide column">
+              <div class="ui top attached secondary segment step-heading">
+                {{ $t('Answer Keywords') }}
+                <button type="button" 
+                        class="ui icon button"
+                        v-bind:title="$t('Sort')"
+                        v-on:click="sortList('answeredList')">
+                  <i class="sort icon"></i>
+                </button>
+              </div>
+              <div class="ui attached segment step-result">
+                <div class="ui label"
+                     v-for="(keyword, i) in answeredList"
+                     v-on:click="deleteKeyword(i)">
+                  {{ keyword }}
+                  <i class="delete icon"></i>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="six wide column">
+              <div class="ui top attached secondary segment step-heading">
+                {{ $t('Removed Keywords') }}
+                <button type="button" 
+                        class="ui icon button"
+                        v-bind:title="$t('Sort')"
+                        v-on:click="sortList('removedList')">
+                  <i class="sort icon"></i>
+                </button>
+              </div>
+              <div class="ui attached segment step-result">
+                <div class="ui label"
+                     v-for="(keyword, i) in removedList"
+                     v-on:click="restoreKeyword(i)">
+                  {{ keyword }}
+                  <i class="redo icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
         <!--
         <div class="ui pointing basic label"
              v-bind:class="classWordCounter"
