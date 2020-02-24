@@ -50,7 +50,7 @@ module.exports = {
     allowLoginWithoutGrop: true,
   },
   
-  readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
+  readingProgresses: ['PreImaginaryKeyword', 'IndividualReading', 'CollaborativeReading', 'PostRecallKeyword'],
   
   /**
    * @argument {String}

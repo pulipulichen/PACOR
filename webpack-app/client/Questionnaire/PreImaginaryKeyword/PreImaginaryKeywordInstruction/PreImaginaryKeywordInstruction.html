@@ -1,0 +1,26 @@
+<section 
+  class="instruction SectionPreImaginary"
+  ref="SectionPreImaginary">
+  <p>{{ $t('Please try to predict what this article might write.') }}</p>
+  <ul>
+    <li v-html="titleHTML"></li>
+    <li v-if="headings.length > 0"
+        >{{ $t(`This article includes {0} headings:`, [headings.length]) }}<ol>
+        <li v-for="heading in headings">{{ heading }}</li>
+      </ol>
+    </li>
+    <li v-if="images.length > 0"
+        >{{ $t(`This article includes {0} images:`, [headings.length]) }} 
+      <br />
+      <span v-for="(image, i) in images"
+            class="image-container"
+            ><img v-bind:src="image.src" 
+            v-bind:title="image.title"/></span>
+    </li>
+    <li>{{ $t(`Don't worry about punctuation or typos, just write down what you predict of.`) }}</li>
+    <li v-if="preImaginaryConfig.countdownAtStart === false"
+        v-html="timeLimitTypeStart"></li>
+    <li v-else
+        v-html="timeLimitAutoStart"></li>
+  </ul>
+</section>

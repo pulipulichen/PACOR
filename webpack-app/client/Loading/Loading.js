@@ -32,10 +32,15 @@ let Loading = {
     
     PACORTestManager: () => import(/* webpackChunkName: "client-components/Loading" */ './../../components/test/PACORTestManager/PACORTestManager.vue'),
     
+    'PreImaginary': () => import(/* webpackChunkName: "client-components/PreImaginary" */ './../Questionnaire/PreImaginary/PreImaginary.vue'),
+    'PostRecall': () => import(/* webpackChunkName: "client-components/PostRecall" */ './../Questionnaire/PostRecall/PostRecall.vue'),
+    
+    'PreImaginaryKeyword': () => import(/* webpackChunkName: "client-components/PreImaginaryKeyword" */ './../Questionnaire/PreImaginaryKeyword/PreImaginaryKeyword.vue'),
+    'PostRecallKeyword': () => import(/* webpackChunkName: "client-components/PostRecallKeyword" */ './../Questionnaire/PostRecallKeyword/PostRecallKeyword.vue'),
+    
     'CollaborativeReading': () => import(/* webpackChunkName: "client-components/CollaborativeReading" */ './../Reading/CollaborativeReading/CollaborativeReading.vue'),
     'IndividualReading': () => import(/* webpackChunkName: "client-components/IndividualReading" */ './../Reading/IndividualReading/IndividualReading.vue'),
-    'PostRecall': () => import(/* webpackChunkName: "client-components/PostRecall" */ './../Questionnaire/PostRecall/PostRecall.vue'),
-    'PreImaginary': () => import(/* webpackChunkName: "client-components/PreImaginary" */ './../Questionnaire/PreImaginary/PreImaginary.vue'),
+    
     'Exit': () => import(/* webpackChunkName: "client-components/Exit" */ './../Exit/Exit.vue'),
     'FreeReading': () => import(/* webpackChunkName: "client-components/FreeReading" */ './../Reading/FreeReading/FreeReading.vue'),
   },

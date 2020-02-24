@@ -1,0 +1,17 @@
+<div class="PreImaginary">
+  <questionnaire
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+    ref="Questionnaire">
+    <template v-slot:instruction>
+      <div class="ui segment field hint instruction-component content-full-height">
+        <instruction
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib">
+        </instruction>
+      </div>
+    </template>
+  </questionnaire>
+</div>
