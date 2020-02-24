@@ -81,8 +81,8 @@ module.exports = {
     'PreImaginaryKeyword': {
       //instruction: '/instruction/questionnaire/PreImaginary.html',
       minKeywords: 2,
-      //limitMinutes: 5,
-      limitMinutes: 0.2,
+      limitMinutes: 5,
+      //limitMinutes: 0.2,
       countdownAtStart: false,
     },
     'PostRecall': {

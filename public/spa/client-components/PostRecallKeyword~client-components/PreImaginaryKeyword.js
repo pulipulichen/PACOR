@@ -598,7 +598,7 @@ var render = function() {
         ? _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
         : _vm._e(),
       _vm._v(" "),
-      _vm.hasStarted && _vm.countList !== 0 && !_vm.isTimeUp
+      _vm.hasStarted && _vm.inputKeyword.trim() !== "" && !_vm.isTimeUp
         ? _c("block-exit")
         : _vm._e()
     ],
@@ -1439,10 +1439,6 @@ __webpack_require__.r(__webpack_exports__);
     countList () {
       return this.answeredList.length + this.removedList.length
     },
-    
-    joinedAnsweredList () {
-      return this.answeredList.join(' ')
-    }
   }
 });
 
@@ -1475,7 +1471,8 @@ __webpack_require__.r(__webpack_exports__);
       data.readingConfig = this.status.readingConfig
     }
     data.log = {
-      answer: '',
+      answeredList: [],
+      removedList: [],
       start_timestamp: null
     }
     data.persistKey = key + '.log'
@@ -1535,7 +1532,12 @@ __webpack_require__.r(__webpack_exports__);
     if (cache !== null) {
       try {
         this.log = JSON.parse(cache)
-        this.answer = this.log.answer
+        if (Array.isArray(this.log.answeredList)) {
+          this.answeredList = this.log.answeredList
+        }
+        if (Array.isArray(this.log.removedList)) {
+          this.removedList = this.log.removedList
+        }
 
         let start_timestamp = this.log.start_timestamp
         start_timestamp = parseInt(start_timestamp, 10)
@@ -1788,14 +1790,16 @@ __webpack_require__.r(__webpack_exports__);
 //        this.startCountdown()
 //      }
 //    },
-    'answer' (answer) {
-      //console.log(answer)
-      if (answer !== this.log.answer) {
-        this.log.answer = answer
-      }
-    },
     'inputKeyword' (inputKeyword) {
       this.initSearch()
+    },
+    answeredList (list) {
+      this.log.answeredList = list
+      this.persist()
+    },
+    removedList (list) {
+      this.log.removedList = list
+      this.persist()
     }
   }
 });

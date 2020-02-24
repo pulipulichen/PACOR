@@ -16,7 +16,8 @@ export default function (Questionnaire) {
       data.readingConfig = this.status.readingConfig
     }
     data.log = {
-      answer: '',
+      answeredList: [],
+      removedList: [],
       start_timestamp: null
     }
     data.persistKey = key + '.log'

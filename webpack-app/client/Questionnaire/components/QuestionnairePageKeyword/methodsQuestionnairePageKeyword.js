@@ -7,7 +7,12 @@ export default function (Questionnaire) {
     if (cache !== null) {
       try {
         this.log = JSON.parse(cache)
-        this.answer = this.log.answer
+        if (Array.isArray(this.log.answeredList)) {
+          this.answeredList = this.log.answeredList
+        }
+        if (Array.isArray(this.log.removedList)) {
+          this.removedList = this.log.removedList
+        }
 
         let start_timestamp = this.log.start_timestamp
         start_timestamp = parseInt(start_timestamp, 10)

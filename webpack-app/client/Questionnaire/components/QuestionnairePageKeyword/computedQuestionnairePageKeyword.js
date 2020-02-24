@@ -115,9 +115,5 @@ export default function (Questionnaire) {
     countList () {
       return this.answeredList.length + this.removedList.length
     },
-    
-    joinedAnsweredList () {
-      return this.answeredList.join(' ')
-    }
   }
 }

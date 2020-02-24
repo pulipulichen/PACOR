@@ -8,14 +8,16 @@ export default function (Questionnaire) {
 //        this.startCountdown()
 //      }
 //    },
-    'answer' (answer) {
-      //console.log(answer)
-      if (answer !== this.log.answer) {
-        this.log.answer = answer
-      }
-    },
     'inputKeyword' (inputKeyword) {
       this.initSearch()
+    },
+    answeredList (list) {
+      this.log.answeredList = list
+      this.persist()
+    },
+    removedList (list) {
+      this.log.removedList = list
+      this.persist()
     }
   }
 }

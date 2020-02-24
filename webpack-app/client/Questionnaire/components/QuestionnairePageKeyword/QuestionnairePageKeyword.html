@@ -217,5 +217,5 @@
     v-if="hasStarted && !isTimeUp">
   </activity-timer>
   <block-exit
-    v-if="hasStarted && countList !== 0 && !isTimeUp"></block-exit>
+    v-if="hasStarted && inputKeyword.trim() !== '' && !isTimeUp"></block-exit>
 </div>
