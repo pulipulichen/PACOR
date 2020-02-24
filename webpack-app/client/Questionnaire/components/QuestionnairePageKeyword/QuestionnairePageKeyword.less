@@ -54,6 +54,9 @@ textarea.answer {
   word-break: keep-all;
   overflow: hidden;
   white-space: nowrap;
+  user-select: none;
+  
+  border-width: 0 !important;
   
   .button {
     margin-top: -0.3rem;
@@ -62,7 +65,22 @@ textarea.answer {
 }
 
 .step-result {
-  max-height: calc(100vh - 6vh - 15em - 19em) !important;
+  max-height: calc(100vh - 6vh - 16em - 19em) !important;
   overflow-x: hidden;
   overflow-y: auto;
+  
+  .label {
+    margin: 0.2rem;
+    cursor: pointer;
+    
+    .icon {
+      cursor: pointer;
+      margin-right: 0em;
+      margin-left: 0.5em;
+      font-size: 0.92857143em;
+      opacity: 0.5;
+      -webkit-transition: background 0.1s ease;
+      transition: background 0.1s ease;
+    }
+  }
 }

@@ -70,7 +70,7 @@
           
           <div class="ui top aligned grid list-grid">
             <div class="ten wide column">
-              <div class="ui top attached secondary segment step-heading">
+              <div class="ui top attached teal inverted segment step-heading">
                 <span>
                   {{ $t('Answered Keywords') }}
                 </span>
@@ -82,7 +82,7 @@
                 </button>
               </div>
               <div class="ui attached segment step-result">
-                <div class="ui label"
+                <div class="ui teal label"
                      v-for="(keyword, i) in answeredList"
                      v-on:click="deleteKeyword(i)">
                   {{ keyword }}
@@ -93,7 +93,7 @@
 
 
             <div class="six wide column">
-              <div class="ui top attached clearing inverted segment step-heading">
+              <div class="ui top attached grey inverted segment step-heading">
                 <span>
                   {{ $t('Removed Keywords') }}
                 </span>
@@ -105,11 +105,11 @@
                 </button>
               </div>
               <div class="ui attached segment step-result">
-                <div class="ui label"
+                <div class="ui grey label"
                      v-for="(keyword, i) in removedList"
                      v-on:click="restoreKeyword(i)">
                   {{ keyword }}
-                  <i class="redo icon"></i>
+                  <i class="undo icon"></i>
                 </div>
               </div>
             </div>
