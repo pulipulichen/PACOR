@@ -21,10 +21,14 @@ const Cache = use('Cache')
 
 const TestSetupScript = use('./scripts/TestSetupScript.js')
 
-const WebpageUserGroupScript = use('./scripts/WebpageUserGroupScript.js')
-const AnnotationInteractScript = use('./scripts/AnnotationInteractScript.js')
-const WebpageUserGroupScript2 = use('./scripts/WebpageUserGroupScript2.js')
-const AnnotationInteractScript2 = use('./scripts/AnnotationInteractScript2.js')
+const WebpageUserGroupScript = use('./scripts/WebpageUserGroupScript-1section.js')
+const AnnotationInteractScript = use('./scripts/AnnotationInteractScript-1section.js')
+
+const WebpageUserGroupScript2 = use('./scripts/WebpageUserGroupScript-2sections.js')
+const AnnotationInteractScript2 = use('./scripts/AnnotationInteractScript-2sections.js')
+
+const WebpageUserGroupScript2Cors = use('./scripts/WebpageUserGroupScript-2sections-cors.js')
+const AnnotationInteractScript2Cors = use('./scripts/AnnotationInteractScript-2sections-cors.js')
 
 const Exp2020Script = use('./2020exp/Exp2020Script.js')
 
@@ -42,6 +46,9 @@ class UserSeeder {
     
     await WebpageUserGroupScript2.main()
     await AnnotationInteractScript2.main()
+    
+    await WebpageUserGroupScript2Cors.main()
+    await AnnotationInteractScript2Cors.main()
     
     await Exp2020Script.main()
     
