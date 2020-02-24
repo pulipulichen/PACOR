@@ -18,7 +18,7 @@
   <div class="ui top aligned grid">
     
     
-    <div class="eight wide column" v-if="PreImaginaryResult">
+    <div class="eight wide column" v-if="PreImaginaryResult && PreImaginaryResult.length > 0">
       <div class="ui top attached secondary segment step-heading">
         {{ $t('READING_PROGRESS.PreImaginary') }}
       </div>
@@ -36,7 +36,7 @@
     </div>
     
     
-    <div class="eight wide column" v-if="PostRecallResult">
+    <div class="eight wide column" v-if="PostRecallResult && PostRecallResult.length > 0">
       <div class="ui top attached secondary segment step-heading">
         {{ $t('READING_PROGRESS.PostRecall') }}
       </div>

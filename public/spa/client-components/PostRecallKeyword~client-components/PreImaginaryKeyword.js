@@ -1557,10 +1557,15 @@ __webpack_require__.r(__webpack_exports__);
       }
     }
   }
-  Questionnaire.methods.persist = function () {
+  Questionnaire.methods.persist = function (preventBeforeStart) {
+    
     if (typeof (this.log) === 'object') {
       //console.log(this.log)
       if (typeof (this.log.start_timestamp) !== 'number') {
+        if (preventBeforeStart === true) {
+          return false
+        }
+        
         this.log.start_timestamp = this.lib.DayJSHelper.time()
         this.remainingSeconds = this.limitMinutes * 60
       }
@@ -1801,11 +1806,21 @@ __webpack_require__.r(__webpack_exports__);
     },
     answeredList (list) {
       this.log.answeredList = list
-      this.persist()
+      this.persist(true)
     },
     removedList (list) {
       this.log.removedList = list
-      this.persist()
+      this.persist(true)
+    },
+    isTimeUp (isTimeUp) {
+      if (isTimeUp === true) {
+        if (this.inputKeyword.trim() !== '') {
+          this.onSubmit()
+        }
+        if (this.$refs.SearchInputText) {
+          this.$refs.SearchInputText.blur()
+        }
+      }
     }
   }
 });

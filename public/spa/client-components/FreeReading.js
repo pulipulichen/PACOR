@@ -945,7 +945,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "ui top aligned grid" }, [
-      _vm.PreImaginaryResult
+      _vm.PreImaginaryResult && _vm.PreImaginaryResult.length > 0
         ? _c("div", { staticClass: "eight wide column" }, [
             _c(
               "div",
@@ -986,7 +986,7 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _vm.PostRecallResult
+      _vm.PostRecallResult && _vm.PostRecallResult.length > 0
         ? _c("div", { staticClass: "eight wide column" }, [
             _c(
               "div",
@@ -2815,7 +2815,7 @@ let QuestionnaireResults = {
               && steps.indexOf('PostRecallKeyword') > -1) {
         results = await this.lib.AxiosHelper.get('/client/Questionnaire/getQuestionnaireKeywords')
       }
-      console.log(results)
+      //console.log(results)
       
 //      for (let i = 0; i < 10; i++) {
 //        results.PreImaginary = results.PreImaginary + results.PreImaginary

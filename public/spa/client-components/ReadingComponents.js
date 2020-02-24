@@ -28882,6 +28882,7 @@ let InstructionMessage = {
       
       this.$refs.Modal.hide()
       this.lib.auth.logout()
+      location.reload()
     }
   } // methods
 }

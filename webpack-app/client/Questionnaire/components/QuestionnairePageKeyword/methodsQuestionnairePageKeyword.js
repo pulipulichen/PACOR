@@ -27,10 +27,15 @@ export default function (Questionnaire) {
       }
     }
   }
-  Questionnaire.methods.persist = function () {
+  Questionnaire.methods.persist = function (preventBeforeStart) {
+    
     if (typeof (this.log) === 'object') {
       //console.log(this.log)
       if (typeof (this.log.start_timestamp) !== 'number') {
+        if (preventBeforeStart === true) {
+          return false
+        }
+        
         this.log.start_timestamp = this.lib.DayJSHelper.time()
         this.remainingSeconds = this.limitMinutes * 60
       }

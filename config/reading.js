@@ -14,7 +14,7 @@ module.exports = {
       maxAnnotation: 1
     },
     //stayInReadingProgress: 'PreImaginaryKeyword'
-    stayInReadingProgress: 'PostRecallKeyword'
+    //stayInReadingProgress: 'PostRecallKeyword'
   },
   
   /**

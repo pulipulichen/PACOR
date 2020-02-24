@@ -32,7 +32,7 @@ let QuestionnaireResults = {
               && steps.indexOf('PostRecallKeyword') > -1) {
         results = await this.lib.AxiosHelper.get('/client/Questionnaire/getQuestionnaireKeywords')
       }
-      console.log(results)
+      //console.log(results)
       
 //      for (let i = 0; i < 10; i++) {
 //        results.PreImaginary = results.PreImaginary + results.PreImaginary
