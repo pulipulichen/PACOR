@@ -16,20 +16,40 @@
   </div>
   
   <div class="ui top aligned grid">
+    
+    
     <div class="eight wide column" v-if="PreImaginaryResult">
       <div class="ui top attached secondary segment step-heading">
         {{ $t('READING_PROGRESS.PreImaginary') }}
       </div>
-      <div class="ui attached segment step-result">
+      <div class="ui attached segment step-result"
+           v-if="typeof(PostRecallResult) === 'string'">
         {{ PreImaginaryResult }}
       </div>
+      <div class="ui attached segment step-result"
+           v-if="Array.isArray(PreImaginaryResult)">
+        <div class="ui label"
+             v-for="keyword in PreImaginaryResult">
+          {{ keyword }}
+        </div>
+      </div>
     </div>
+    
+    
     <div class="eight wide column" v-if="PostRecallResult">
       <div class="ui top attached secondary segment step-heading">
         {{ $t('READING_PROGRESS.PostRecall') }}
       </div>
-      <div class="ui attached segment step-result">
+      <div class="ui attached segment step-result"
+           v-if="typeof(PostRecallResult) === 'string'">
         {{ PostRecallResult }}
+      </div>
+      <div class="ui attached segment step-result"
+           v-if="Array.isArray(PostRecallResult)">
+        <div class="ui label"
+             v-for="keyword in PostRecallResult">
+          {{ keyword }}
+        </div>
       </div>
     </div>
   </div>
