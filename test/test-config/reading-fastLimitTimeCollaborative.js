@@ -6,6 +6,12 @@ module.exports = {
     'PostRecall': {
       limitMinutes: 0.05,
     },
+    'PreImaginaryKeyword': {
+      limitMinutes: 0.05,
+    },
+    'PostRecallKeyword': {
+      limitMinutes: 0.05,
+    },
     'IndividualReading': {
       debug: {
         countdownPause: true

@@ -263,7 +263,7 @@ var render = function() {
                                     }),
                                     _vm._v(" "),
                                     _c("i", {
-                                      staticClass: "plus icon",
+                                      staticClass: "plus icon submit-button",
                                       class: {
                                         link: _vm.inputKeyword.trim() !== ""
                                       },
@@ -1550,7 +1550,7 @@ __webpack_require__.r(__webpack_exports__);
         if (this.remainingSeconds <= 0) {
           this.isTimeUp = true
         }
-        console.log([this.remainingSeconds, (this.remainingSeconds <= 0), this.isTimeUp])
+        //console.log([this.remainingSeconds, (this.remainingSeconds <= 0), this.isTimeUp])
         this.page = 'Answer'
         //console.log(this.remainingSeconds)
       } catch (e) {

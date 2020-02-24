@@ -6167,6 +6167,33 @@ __webpack_require__.r(__webpack_exports__);
     //})
       
   }
+  
+  PACORTestManager.methods.writeQuestionnairePageKeyword = async function (page) {
+    
+    //this.retry(3, async () => {
+    try {
+      await this.waitForElementVisibleClick('.ui.button.open-answer-page')
+      
+      let input = await this.waitForElementVisible('.ui.search input')
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.ui.search input') === 0) {
+        return
+      }
+
+      for (let i = 0; i < this.getRandomInt(2, 5); i++) {
+        await this.typeInput('.ui.search input', this.createRandomKeyword(), false)
+        await this.sleep(100)
+        await this.waitForElementVisibleClick('.ui.search .submit-button')
+        await this.sleep(100)
+      }
+      
+      await this.waitForElementVisibleClick('.ui.button.questionnaire-submit:not(.disabled)')
+    }
+    catch (e) {
+      console.log('對話框似乎已經不見了...')
+    }
+    //})
+  }
 });
 
 /***/ }),

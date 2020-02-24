@@ -21,7 +21,19 @@ let QuestionnaireResults = {
   },
   methods: {
     loadResults: async function () {
-      let results = await this.lib.AxiosHelper.get('/client/Questionnaire/getQuestionnaireAnswers')
+      let steps = this.status.readingConfig.readingProgresses
+      //console.log(steps)
+      let results
+      if (steps.indexOf('PreImaginary') > -1 
+              && steps.indexOf('PostRecall') > -1) {
+        results = await this.lib.AxiosHelper.get('/client/Questionnaire/getQuestionnaireAnswers')
+      }
+      else if (steps.indexOf('PreImaginaryKeyword') > -1 
+              && steps.indexOf('PostRecallKeyword') > -1) {
+        results = await this.lib.AxiosHelper.get('/client/Questionnaire/getQuestionnaireKeywords')
+      }
+      console.log(results)
+      
 //      for (let i = 0; i < 10; i++) {
 //        results.PreImaginary = results.PreImaginary + results.PreImaginary
 //      }

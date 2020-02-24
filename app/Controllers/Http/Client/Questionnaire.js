@@ -21,15 +21,10 @@ class Questionnaire {
   }
   
   async getPreImaginaryKeywords({request, webpage, user}) {
-    let cacheKey = Cache.key('Questionnaire', 'getPreImaginaryKeyword')
+    let cacheKey = Cache.key('Questionnaire', 'getPreImaginaryKeywords')
     return await Cache.rememberWait([webpage, user, 'Questionnaire'], cacheKey, async () => {
       let log = await user.getReadingProgressLog(webpage, 'PreImaginaryKeyword')
-      if (log && typeof(log.answer) === 'object') {
-        return log.answer
-      }
-      else {
-        return ''
-      }
+      return log
     })
   }
   
@@ -57,17 +52,18 @@ class Questionnaire {
   async getQuestionnaireKeywords({request, webpage, user}) {
     let cacheKey = Cache.key('Questionnaire', 'getQuestionnaireKeywords')
     return await Cache.rememberWait([webpage, user, 'Questionnaire'], cacheKey, async () => {
-      let preImaginaryAnswer = await this.getPreImaginaryKeyword({webpage, user})
+      let preImaginaryAnswer = await this.getPreImaginaryKeywords({webpage, user})
+      //console.log(preImaginaryAnswer)
       preImaginaryAnswer = preImaginaryAnswer.answeredList
       
       let postRecallLog = await user.getReadingProgressLog(webpage, 'PostRecallKeyword')
       let postRecallLogAnswer
       
-      if (postRecallLog && typeof(postRecallLog.answer) === 'object') {
-        postRecallLogAnswer = postRecallLog.answer.answeredList
+      if (postRecallLog && Array.isArray(postRecallLog.answeredList)) {
+        postRecallLogAnswer = postRecallLog.answeredList
       }
       else {
-        postRecallLogAnswer = ''
+        postRecallLogAnswer = []
       }
       
       return {

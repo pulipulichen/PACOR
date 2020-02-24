@@ -64,7 +64,7 @@
                        v-model="inputKeyword"
                        ref='SearchInputText'
                        v-bind:placeholder="$t('Add keyword...')">
-                <i class="plus icon"
+                <i class="plus icon submit-button"
                    v-bind:class="{link: (inputKeyword.trim() !== '')}"
                    v-bind:title="$t('Add keyword...')"
                    v-on:click="onSubmit"></i>

@@ -20,7 +20,7 @@ export default function (Questionnaire) {
         if (this.remainingSeconds <= 0) {
           this.isTimeUp = true
         }
-        console.log([this.remainingSeconds, (this.remainingSeconds <= 0), this.isTimeUp])
+        //console.log([this.remainingSeconds, (this.remainingSeconds <= 0), this.isTimeUp])
         this.page = 'Answer'
         //console.log(this.remainingSeconds)
       } catch (e) {

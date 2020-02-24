@@ -13,7 +13,8 @@ module.exports = {
       minAnnotation: 1,
       maxAnnotation: 1
     },
-    stayInReadingProgress: 'PreImaginaryKeyword'
+    //stayInReadingProgress: 'PreImaginaryKeyword'
+    stayInReadingProgress: 'PostRecallKeyword'
   },
   
   /**
@@ -81,8 +82,8 @@ module.exports = {
     'PreImaginaryKeyword': {
       //instruction: '/instruction/questionnaire/PreImaginary.html',
       minKeywords: 2,
-      limitMinutes: 5,
-      //limitMinutes: 0.2,
+      //limitMinutes: 5,
+      limitMinutes: 0.2,
       countdownAtStart: false,
     },
     'PostRecall': {
@@ -97,9 +98,9 @@ module.exports = {
       //instruction: '/instruction/questionnaire/PostRecall.html',
       minKeywords: 10,
       //limitMinutes: 5
-      limitMinutes: 0.03,
+      limitMinutes: 0.2,
       countdownAtStart: false,
-      preloadPreImaginaryKeyword: true  // 是否顯示前面撰寫的內容
+      preloadPreImaginaryKeywords: true  // 是否顯示前面撰寫的內容
     },
     
     // ---------------------------
