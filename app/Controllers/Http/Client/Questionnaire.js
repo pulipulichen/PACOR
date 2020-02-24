@@ -55,12 +55,14 @@ class Questionnaire {
       let preImaginaryAnswer = await this.getPreImaginaryKeywords({webpage, user})
       //console.log(preImaginaryAnswer)
       preImaginaryAnswer = preImaginaryAnswer.answeredList
+      preImaginaryAnswer.sort()
       
       let postRecallLog = await user.getReadingProgressLog(webpage, 'PostRecallKeyword')
       let postRecallLogAnswer
       
       if (postRecallLog && Array.isArray(postRecallLog.answeredList)) {
         postRecallLogAnswer = postRecallLog.answeredList
+        postRecallLogAnswer.sort()
       }
       else {
         postRecallLogAnswer = []

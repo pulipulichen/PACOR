@@ -7,6 +7,19 @@
   max-height: calc(100vh - 6vh - 15em - 19em) !important;
   overflow-x: hidden;
   overflow-y: auto;
+  
+  .label {
+    margin: 0.2rem;
+    
+    &:first-child {
+      margin-left: 0.2rem !important;
+    }
+    
+    &.is-removed {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+  }
 }
 
 .header-message {

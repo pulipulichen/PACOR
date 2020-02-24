@@ -39,11 +39,16 @@ let QuestionnaireResults = {
 //      }
       
       this.PreImaginaryResult = results.PreImaginary
-      
-      
+      //this.PreImaginaryResult.push('AAAAAAAA') // for test
       
       this.PostRecallResult = results.PostRecall
-    }
+    },
+    isRemovedKeyword (keyword) {
+      return (this.PostRecallResult.indexOf(keyword) === -1)
+    },
+    isAddedKeyword (keyword) {
+      return (this.PreImaginaryResult.indexOf(keyword) === -1)
+    },
   } // methods
 }
 

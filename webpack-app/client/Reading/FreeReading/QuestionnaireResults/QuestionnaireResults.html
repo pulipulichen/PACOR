@@ -29,7 +29,8 @@
       <div class="ui attached segment step-result"
            v-if="Array.isArray(PreImaginaryResult)">
         <div class="ui label"
-             v-for="keyword in PreImaginaryResult">
+             v-for="keyword in PreImaginaryResult"
+             v-bind:class="{'is-removed': isRemovedKeyword(keyword)}">
           {{ keyword }}
         </div>
       </div>
@@ -47,7 +48,8 @@
       <div class="ui attached segment step-result"
            v-if="Array.isArray(PostRecallResult)">
         <div class="ui label"
-             v-for="keyword in PostRecallResult">
+             v-for="keyword in PostRecallResult"
+             v-bind:class="{'teal': isAddedKeyword(keyword)}">
           {{ keyword }}
         </div>
       </div>

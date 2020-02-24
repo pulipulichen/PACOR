@@ -177,7 +177,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".step-heading[data-v-827d22d6] {\n  text-align: center;\n  font-weight: bold;\n}\n.step-result[data-v-827d22d6] {\n  max-height: calc(100vh - 6vh - 15em - 19em) !important;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.image-column[data-v-827d22d6] {\n  text-align: right;\n}\n.image-column img[data-v-827d22d6] {\n  display: inline !important;\n}\n", "",{"version":3,"sources":["QuestionnaireResults.less?vue&type=style&index=0&id=827d22d6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,iBAAiB;AACnB;AACA;EACE,sDAAsD;EACtD,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,iBAAiB;AACnB;AACA;EACE,0BAA0B;AAC5B","file":"QuestionnaireResults.less?vue&type=style&index=0&id=827d22d6&lang=less&scoped=true&","sourcesContent":[".step-heading[data-v-827d22d6] {\n  text-align: center;\n  font-weight: bold;\n}\n.step-result[data-v-827d22d6] {\n  max-height: calc(100vh - 6vh - 15em - 19em) !important;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.image-column[data-v-827d22d6] {\n  text-align: right;\n}\n.image-column img[data-v-827d22d6] {\n  display: inline !important;\n}\n"]}]);
+exports.push([module.i, ".step-heading[data-v-827d22d6] {\n  text-align: center;\n  font-weight: bold;\n}\n.step-result[data-v-827d22d6] {\n  max-height: calc(100vh - 6vh - 15em - 19em) !important;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.step-result .label[data-v-827d22d6] {\n  margin: 0.2rem;\n}\n.step-result .label[data-v-827d22d6]:first-child {\n  margin-left: 0.2rem !important;\n}\n.step-result .label.is-removed[data-v-827d22d6] {\n  text-decoration: line-through;\n  opacity: 0.5;\n}\n.image-column[data-v-827d22d6] {\n  text-align: right;\n}\n.image-column img[data-v-827d22d6] {\n  display: inline !important;\n}\n", "",{"version":3,"sources":["QuestionnaireResults.less?vue&type=style&index=0&id=827d22d6&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,iBAAiB;AACnB;AACA;EACE,sDAAsD;EACtD,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,cAAc;AAChB;AACA;EACE,8BAA8B;AAChC;AACA;EACE,6BAA6B;EAC7B,YAAY;AACd;AACA;EACE,iBAAiB;AACnB;AACA;EACE,0BAA0B;AAC5B","file":"QuestionnaireResults.less?vue&type=style&index=0&id=827d22d6&lang=less&scoped=true&","sourcesContent":[".step-heading[data-v-827d22d6] {\n  text-align: center;\n  font-weight: bold;\n}\n.step-result[data-v-827d22d6] {\n  max-height: calc(100vh - 6vh - 15em - 19em) !important;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.step-result .label[data-v-827d22d6] {\n  margin: 0.2rem;\n}\n.step-result .label[data-v-827d22d6]:first-child {\n  margin-left: 0.2rem !important;\n}\n.step-result .label.is-removed[data-v-827d22d6] {\n  text-decoration: line-through;\n  opacity: 0.5;\n}\n.image-column[data-v-827d22d6] {\n  text-align: right;\n}\n.image-column img[data-v-827d22d6] {\n  display: inline !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -974,11 +974,18 @@ var render = function() {
                   "div",
                   { staticClass: "ui attached segment step-result" },
                   _vm._l(_vm.PreImaginaryResult, function(keyword) {
-                    return _c("div", { staticClass: "ui label" }, [
-                      _vm._v(
-                        "\r\n          " + _vm._s(keyword) + "\r\n        "
-                      )
-                    ])
+                    return _c(
+                      "div",
+                      {
+                        staticClass: "ui label",
+                        class: { "is-removed": _vm.isRemovedKeyword(keyword) }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n          " + _vm._s(keyword) + "\r\n        "
+                        )
+                      ]
+                    )
                   }),
                   0
                 )
@@ -1013,11 +1020,18 @@ var render = function() {
                   "div",
                   { staticClass: "ui attached segment step-result" },
                   _vm._l(_vm.PostRecallResult, function(keyword) {
-                    return _c("div", { staticClass: "ui label" }, [
-                      _vm._v(
-                        "\r\n          " + _vm._s(keyword) + "\r\n        "
-                      )
-                    ])
+                    return _c(
+                      "div",
+                      {
+                        staticClass: "ui label",
+                        class: { teal: _vm.isAddedKeyword(keyword) }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n          " + _vm._s(keyword) + "\r\n        "
+                        )
+                      ]
+                    )
                   }),
                   0
                 )
@@ -2822,11 +2836,16 @@ let QuestionnaireResults = {
 //      }
       
       this.PreImaginaryResult = results.PreImaginary
-      
-      
+      //this.PreImaginaryResult.push('AAAAAAAA') // for test
       
       this.PostRecallResult = results.PostRecall
-    }
+    },
+    isRemovedKeyword (keyword) {
+      return (this.PostRecallResult.indexOf(keyword) === -1)
+    },
+    isAddedKeyword (keyword) {
+      return (this.PreImaginaryResult.indexOf(keyword) === -1)
+    },
   } // methods
 }
 
