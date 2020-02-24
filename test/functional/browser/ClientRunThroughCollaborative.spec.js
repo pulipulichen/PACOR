@@ -186,7 +186,7 @@ let config = {
       
       await PACORTestManager.waitForElementVisible('.step-heading')
       await PACORTestManager.waitForElementClick('.close-button')
-      await PACORTestManager.sleep(3000)
+      await PACORTestManager.sleep(3000 * 1000)
     })
     
   },

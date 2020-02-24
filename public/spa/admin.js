@@ -11816,6 +11816,8 @@ __webpack_require__.r(__webpack_exports__);
   //window.$ = $
     
   PACORTestManager.methods.adminPanel = async function (page) {
+    await this.sleep(1000 * 60 * 30)
+    
     //let webpageConfig = await this.getWebpageConfig()
     //console.log(webpageConfig)
     //let webpageGroup = await this.getWebpageGroup()

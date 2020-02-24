@@ -125,7 +125,10 @@ let TestBrowserHelper = function (title, url, config, options) {
           if (page.page.isClosed() === false) {
             setTimeout(() => {
               if (page.page.isClosed() === false) {
-                page.page.close()
+                try {
+                  page.page.close()
+                }
+                catch (e) {}
               }
             }, 3000)
           }
