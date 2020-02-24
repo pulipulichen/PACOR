@@ -81,13 +81,19 @@ export default function (Questionnaire) {
       this.persist()
     },
     deleteKeyword (i) {
-      console.error('deleteKeyword (i)', i)
+      let keyword = this.answeredList[i]
+      this.answeredList.splice(i, 1)
+      this.removedList.unshift(keyword)
     },
     restoreKeyword (i) {
-      console.error('restoreKeyword (i)', i)
+      let keyword = this.removedList[i]
+      this.removedList.splice(i, 1)
+      this.answeredList.unshift(keyword)
     },
-    sortList (list) {
-      console.error('sortList (list)', list)
+    sortList (listName) {
+      let list = this[listName]
+      list.sort()
+      //console.error('sortList (list)', list)
     }
   } // methods
 }

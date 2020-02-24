@@ -27,8 +27,8 @@ export default function (Questionnaire) {
     
     // 測試用
     for (let i = 0; i < 100; i++) {
-      data.answeredList.push('AAA')
-      data.removedList.push('AAA')
+      data.answeredList.push(i + 'AAA')
+      data.removedList.push(i + 'BBB')
     }
     
     data.header = this.$t('READING_PROGRESS.' + key)
