@@ -42,3 +42,4 @@ database/development.sqlite
 /test/log/
 
 *.dmp
+/chromeData

@@ -3,7 +3,7 @@ module.exports = {
     message: '/2020exp/Login-e.html',
     allowLoginWithoutGrop: false
   },
-  readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
+  readingProgresses: ['PreImaginaryKeyword', 'IndividualReading', 'CollaborativeReading', 'PostRecallKeyword'],
   readingProgressModules: {
     PreImaginary: {
       //instruction: '/2020exp/PreImaginary-rice.html',
