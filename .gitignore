@@ -10,6 +10,8 @@ storage
 
 # Environment variables, never commit this file
 .env
+.env.testing
+/.env.testing
 
 # The development sqlite file
 database/development.sqlite
