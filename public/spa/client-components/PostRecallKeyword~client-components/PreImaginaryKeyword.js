@@ -32,6 +32,22 @@ module.exports = function (Component) {
 
 /***/ }),
 
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.yaml?vue&type=custom&index=1&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.yaml?vue&type=custom&index=1&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Add keyword...":"新增關鍵字","Answered Keywords":"選擇作答的關鍵字","Removed Keywords":"被移除的關鍵字"}}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=2331bdb8&lang=less&scoped=true&":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=2331bdb8&lang=less&scoped=true& ***!
@@ -55,7 +71,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".hint[data-v-2001f8ba] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-2001f8ba] {\n  max-height: none !important;\n}\ntextarea.answer[disabled][data-v-2001f8ba] {\n  background-color: #CCC;\n}\n.user-avatar[data-v-2001f8ba]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-2001f8ba]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-2001f8ba]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-2001f8ba] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n", "",{"version":3,"sources":["QuestionnairePageKeyword.less?vue&type=style&index=0&id=2001f8ba&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,wBAAwB;EACxB,2BAA2B;EAC3B,qBAAqB;EACrB,oCAAoC;AACtC;AACA;EACE,yBAAyB;EACzB,4BAA4B;EAC5B,iBAAiB;AACnB","file":"QuestionnairePageKeyword.less?vue&type=style&index=0&id=2001f8ba&lang=less&scoped=true&","sourcesContent":[".hint[data-v-2001f8ba] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-2001f8ba] {\n  max-height: none !important;\n}\ntextarea.answer[disabled][data-v-2001f8ba] {\n  background-color: #CCC;\n}\n.user-avatar[data-v-2001f8ba]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-2001f8ba]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-2001f8ba]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-2001f8ba] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n"]}]);
+exports.push([module.i, ".hint[data-v-2001f8ba] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-2001f8ba] {\n  max-height: none !important;\n}\ntextarea.answer[disabled][data-v-2001f8ba] {\n  background-color: #CCC;\n}\n.user-avatar[data-v-2001f8ba]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-2001f8ba]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-2001f8ba]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-2001f8ba] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n.list-grid[data-v-2001f8ba] {\n  margin: 0 !important;\n}\n.step-heading[data-v-2001f8ba] {\n  text-align: center;\n  font-weight: bold;\n  word-break: keep-all;\n  overflow: hidden;\n  white-space: nowrap;\n}\n.step-heading .button[data-v-2001f8ba] {\n  margin-top: -0.3rem;\n  margin-bottom: -0.2rem;\n}\n.step-result[data-v-2001f8ba] {\n  max-height: calc(100vh - 6vh - 15em - 19em) !important;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n", "",{"version":3,"sources":["QuestionnairePageKeyword.less?vue&type=style&index=0&id=2001f8ba&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,sBAAsB;AACxB;AACA;EACE,eAAe;AACjB;AACA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,uBAAuB;EACvB,wBAAwB;AAC1B;AACA;EACE,wBAAwB;EACxB,2BAA2B;EAC3B,qBAAqB;EACrB,oCAAoC;AACtC;AACA;EACE,yBAAyB;EACzB,4BAA4B;EAC5B,iBAAiB;AACnB;AACA;EACE,oBAAoB;AACtB;AACA;EACE,kBAAkB;EAClB,iBAAiB;EACjB,oBAAoB;EACpB,gBAAgB;EAChB,mBAAmB;AACrB;AACA;EACE,mBAAmB;EACnB,sBAAsB;AACxB;AACA;EACE,sDAAsD;EACtD,kBAAkB;EAClB,gBAAgB;AAClB","file":"QuestionnairePageKeyword.less?vue&type=style&index=0&id=2001f8ba&lang=less&scoped=true&","sourcesContent":[".hint[data-v-2001f8ba] {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\ntextarea.answer[data-v-2001f8ba] {\n  max-height: none !important;\n}\ntextarea.answer[disabled][data-v-2001f8ba] {\n  background-color: #CCC;\n}\n.user-avatar[data-v-2001f8ba]  img {\n  max-height: 1em;\n}\n.user-avatar[data-v-2001f8ba]  .icon-container {\n  top: 0.7em !important;\n  left: -0.5em !important;\n  width: 0.5em !important;\n  height: 0.5em !important;\n}\n.user-avatar[data-v-2001f8ba]  .icon-container .icon {\n  margin-top: 0 !important;\n  font-size: 0.3em !important;\n  padding: 0 !important;\n  line-height: 1.28571429em !important;\n}\n.instruction-component[data-v-2001f8ba] {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  user-select: none;\n}\n.list-grid[data-v-2001f8ba] {\n  margin: 0 !important;\n}\n.step-heading[data-v-2001f8ba] {\n  text-align: center;\n  font-weight: bold;\n  word-break: keep-all;\n  overflow: hidden;\n  white-space: nowrap;\n}\n.step-heading .button[data-v-2001f8ba] {\n  margin-top: -0.3rem;\n  margin-bottom: -0.2rem;\n}\n.step-result[data-v-2001f8ba] {\n  max-height: calc(100vh - 6vh - 15em - 19em) !important;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n"]}]);
 
 
 /***/ }),
@@ -205,147 +221,181 @@ var render = function() {
                                     staticClass: "prompt",
                                     attrs: {
                                       type: "text",
-                                      placeholder: "Search countries..."
+                                      placeholder: _vm.$t("Add keyword...")
                                     }
                                   }),
                                   _vm._v(" "),
-                                  _c("i", { staticClass: "search icon" })
+                                  _c("i", {
+                                    staticClass: "plus icon",
+                                    attrs: { title: _vm.$t("Add keyword...") }
+                                  })
                                 ]),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "results" })
                               ]
                             ),
                             _vm._v(" "),
-                            _c("div", { staticClass: "ui top aligned grid" }, [
-                              _c("div", { staticClass: "ten wide column" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "ui top attached secondary segment step-heading"
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\r\n                " +
-                                        _vm._s(_vm.$t("Answer Keywords")) +
-                                        "\r\n                "
-                                    ),
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "ui icon button",
-                                        attrs: {
-                                          type: "button",
-                                          title: _vm.$t("Sort")
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.sortList("answeredList")
-                                          }
-                                        }
-                                      },
-                                      [_c("i", { staticClass: "sort icon" })]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "ui attached segment step-result"
-                                  },
-                                  _vm._l(_vm.answeredList, function(
-                                    keyword,
-                                    i
-                                  ) {
-                                    return _c(
-                                      "div",
-                                      {
-                                        staticClass: "ui label",
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.deleteKeyword(i)
-                                          }
-                                        }
-                                      },
-                                      [
+                            _c(
+                              "div",
+                              { staticClass: "ui top aligned grid list-grid" },
+                              [
+                                _c("div", { staticClass: "ten wide column" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "ui top attached secondary segment step-heading"
+                                    },
+                                    [
+                                      _c("span", [
                                         _vm._v(
                                           "\r\n                  " +
-                                            _vm._s(keyword) +
-                                            "\r\n                  "
-                                        ),
-                                        _c("i", { staticClass: "delete icon" })
-                                      ]
-                                    )
-                                  }),
-                                  0
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "six wide column" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "ui top attached secondary segment step-heading"
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\r\n                " +
-                                        _vm._s(_vm.$t("Removed Keywords")) +
-                                        "\r\n                "
-                                    ),
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "ui icon button",
-                                        attrs: {
-                                          type: "button",
-                                          title: _vm.$t("Sort")
+                                            _vm._s(
+                                              _vm.$t("Answered Keywords")
+                                            ) +
+                                            "\r\n                "
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "ui right floated mini icon button",
+                                          attrs: {
+                                            type: "button",
+                                            title: _vm.$t("Sort")
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.sortList(
+                                                "answeredList"
+                                              )
+                                            }
+                                          }
                                         },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.sortList("removedList")
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "sort alphabet down icon"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "ui attached segment step-result"
+                                    },
+                                    _vm._l(_vm.answeredList, function(
+                                      keyword,
+                                      i
+                                    ) {
+                                      return _c(
+                                        "div",
+                                        {
+                                          staticClass: "ui label",
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.deleteKeyword(i)
+                                            }
                                           }
-                                        }
-                                      },
-                                      [_c("i", { staticClass: "sort icon" })]
-                                    )
-                                  ]
-                                ),
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\r\n                  " +
+                                              _vm._s(keyword) +
+                                              "\r\n                  "
+                                          ),
+                                          _c("i", {
+                                            staticClass: "delete icon"
+                                          })
+                                        ]
+                                      )
+                                    }),
+                                    0
+                                  )
+                                ]),
                                 _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "ui attached segment step-result"
-                                  },
-                                  _vm._l(_vm.removedList, function(keyword, i) {
-                                    return _c(
-                                      "div",
-                                      {
-                                        staticClass: "ui label",
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.restoreKeyword(i)
-                                          }
-                                        }
-                                      },
-                                      [
+                                _c("div", { staticClass: "six wide column" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "ui top attached clearing inverted segment step-heading"
+                                    },
+                                    [
+                                      _c("span", [
                                         _vm._v(
                                           "\r\n                  " +
-                                            _vm._s(keyword) +
-                                            "\r\n                  "
-                                        ),
-                                        _c("i", { staticClass: "redo icon" })
-                                      ]
-                                    )
-                                  }),
-                                  0
-                                )
-                              ])
-                            ])
+                                            _vm._s(_vm.$t("Removed Keywords")) +
+                                            "\r\n                "
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "ui right floated mini icon button",
+                                          attrs: {
+                                            type: "button",
+                                            title: _vm.$t("Sort")
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.sortList("removedList")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "sort alphabet down icon"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "ui attached segment step-result"
+                                    },
+                                    _vm._l(_vm.removedList, function(
+                                      keyword,
+                                      i
+                                    ) {
+                                      return _c(
+                                        "div",
+                                        {
+                                          staticClass: "ui label",
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.restoreKeyword(i)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\r\n                  " +
+                                              _vm._s(keyword) +
+                                              "\r\n                  "
+                                          ),
+                                          _c("i", { staticClass: "redo icon" })
+                                        ]
+                                      )
+                                    }),
+                                    0
+                                  )
+                                ])
+                              ]
+                            )
                           ]
                         )
                       ])
@@ -1045,14 +1095,11 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CountdownButton/CountdownButton.vue */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.vue");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _dataQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dataQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/dataQuestionnairePageKeyword.js");
-/* harmony import */ var _computedQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./computedQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/computedQuestionnairePageKeyword.js");
-/* harmony import */ var _watchQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./watchQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/watchQuestionnairePageKeyword.js");
-/* harmony import */ var _mountedQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./mountedQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/mountedQuestionnairePageKeyword.js");
-/* harmony import */ var _methodsQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./methodsQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/methodsQuestionnairePageKeyword.js");
-
+/* harmony import */ var _dataQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dataQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/dataQuestionnairePageKeyword.js");
+/* harmony import */ var _computedQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./computedQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/computedQuestionnairePageKeyword.js");
+/* harmony import */ var _watchQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./watchQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/watchQuestionnairePageKeyword.js");
+/* harmony import */ var _mountedQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mountedQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/mountedQuestionnairePageKeyword.js");
+/* harmony import */ var _methodsQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methodsQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/methodsQuestionnairePageKeyword.js");
 
 
 let Questionnaire = {
@@ -1069,19 +1116,19 @@ let Questionnaire = {
 }
 
 
-Object(_dataQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Questionnaire)
+Object(_dataQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Questionnaire)
 
 
-Object(_computedQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_3__["default"])(Questionnaire)
+Object(_computedQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Questionnaire)
 
 
-Object(_watchQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_4__["default"])(Questionnaire)
+Object(_watchQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_3__["default"])(Questionnaire)
 
 
-Object(_mountedQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_5__["default"])(Questionnaire)
+Object(_mountedQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_4__["default"])(Questionnaire)
 
 
-Object(_methodsQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_6__["default"])(Questionnaire)
+Object(_methodsQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_5__["default"])(Questionnaire)
 
 /* harmony default export */ __webpack_exports__["default"] = (Questionnaire);
 
@@ -1117,6 +1164,7 @@ __webpack_require__.r(__webpack_exports__);
 /* empty/unused harmony star reexport *//* harmony import */ var _QuestionnairePageKeyword_less_vue_type_style_index_0_id_2001f8ba_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QuestionnairePageKeyword.less?vue&type=style&index=0&id=2001f8ba&lang=less&scoped=true& */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.less?vue&type=style&index=0&id=2001f8ba&lang=less&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 /* harmony import */ var _QuestionnairePage_QuestionnairePage_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../QuestionnairePage/QuestionnairePage.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml */ "./webpack-app/client/Questionnaire/components/QuestionnairePage/QuestionnairePage.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml");
+/* harmony import */ var _QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./QuestionnairePageKeyword.yaml?vue&type=custom&index=1&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.yaml?vue&type=custom&index=1&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml");
 
 
 
@@ -1140,10 +1188,28 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 if (typeof _QuestionnairePage_QuestionnairePage_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_QuestionnairePage_QuestionnairePage_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
 
+if (typeof _QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__["default"] === 'function') Object(_QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__["default"])(component)
+
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.yaml?vue&type=custom&index=1&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.yaml?vue&type=custom&index=1&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./QuestionnairePageKeyword.yaml?vue&type=custom&index=1&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.yaml?vue&type=custom&index=1&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -1272,7 +1338,16 @@ __webpack_require__.r(__webpack_exports__);
     }
     data.persistKey = key + '.log'
     data.remainingSeconds = null
-    data.answer = ''
+    
+    data.answeredList = []
+    data.removedList = []
+    
+    // 測試用
+    for (let i = 0; i < 100; i++) {
+      data.answeredList.push('AAA')
+      data.removedList.push('AAA')
+    }
+    
     data.header = this.$t('READING_PROGRESS.' + key)
     data.isTimeUp = false
     
@@ -1305,6 +1380,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 /* harmony default export */ __webpack_exports__["default"] = (function (Questionnaire) {
   Questionnaire.methods = {
     initLog: function () {
@@ -1347,7 +1426,7 @@ __webpack_require__.r(__webpack_exports__);
 //      }, 1000)
 //    },
     initSearch () {
-      $(this.$refs.SearchInput).search({
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.SearchInput).search({
         type: 'category',
         source: this.localSearch
       })
@@ -1392,7 +1471,7 @@ __webpack_require__.r(__webpack_exports__);
       console.error('restoreKeyword (i)', i)
     },
     sortList (list) {
-      console.error('sortList (list)', i)
+      console.error('sortList (list)', list)
     }
   } // methods
 });

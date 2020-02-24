@@ -1,5 +1,4 @@
 import CountdownButton from './CountdownButton/CountdownButton.vue'
-import $ from 'jquery'
 
 let Questionnaire = {
   props: ['lib', 'status', 'config'],

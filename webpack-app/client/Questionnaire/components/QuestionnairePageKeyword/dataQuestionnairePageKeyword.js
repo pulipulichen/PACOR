@@ -21,7 +21,16 @@ export default function (Questionnaire) {
     }
     data.persistKey = key + '.log'
     data.remainingSeconds = null
-    data.answer = ''
+    
+    data.answeredList = []
+    data.removedList = []
+    
+    // 測試用
+    for (let i = 0; i < 100; i++) {
+      data.answeredList.push('AAA')
+      data.removedList.push('AAA')
+    }
+    
     data.header = this.$t('READING_PROGRESS.' + key)
     data.isTimeUp = false
     

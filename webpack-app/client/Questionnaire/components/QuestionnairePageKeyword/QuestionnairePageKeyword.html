@@ -57,8 +57,10 @@
           <div class="ui search"
                ref="SearchInput">
             <div class="ui icon input">
-              <input class="prompt" type="text" placeholder="Search countries...">
-              <i class="search icon"></i>
+              <input class="prompt" type="text" 
+                     v-bind:placeholder="$t('Add keyword...')">
+              <i class="plus icon"
+                 v-bind:title="$t('Add keyword...')"></i>
             </div>
             <div class="results"></div>
           </div>
@@ -66,15 +68,17 @@
           <!-- ========================================= -->
           <!-- 結果的部分 -->
           
-          <div class="ui top aligned grid">
+          <div class="ui top aligned grid list-grid">
             <div class="ten wide column">
               <div class="ui top attached secondary segment step-heading">
-                {{ $t('Answer Keywords') }}
+                <span>
+                  {{ $t('Answered Keywords') }}
+                </span>
                 <button type="button" 
-                        class="ui icon button"
+                        class="ui right floated mini icon button"
                         v-bind:title="$t('Sort')"
                         v-on:click="sortList('answeredList')">
-                  <i class="sort icon"></i>
+                  <i class="sort alphabet down icon"></i>
                 </button>
               </div>
               <div class="ui attached segment step-result">
@@ -89,13 +93,15 @@
 
 
             <div class="six wide column">
-              <div class="ui top attached secondary segment step-heading">
-                {{ $t('Removed Keywords') }}
+              <div class="ui top attached clearing inverted segment step-heading">
+                <span>
+                  {{ $t('Removed Keywords') }}
+                </span>
                 <button type="button" 
-                        class="ui icon button"
+                        class="ui right floated mini icon button"
                         v-bind:title="$t('Sort')"
                         v-on:click="sortList('removedList')">
-                  <i class="sort icon"></i>
+                  <i class="sort alphabet down icon"></i>
                 </button>
               </div>
               <div class="ui attached segment step-result">

@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 export default function (Questionnaire) {
   Questionnaire.methods = {
     initLog: function () {
@@ -85,7 +87,7 @@ export default function (Questionnaire) {
       console.error('restoreKeyword (i)', i)
     },
     sortList (list) {
-      console.error('sortList (list)', i)
+      console.error('sortList (list)', list)
     }
   } // methods
 }
