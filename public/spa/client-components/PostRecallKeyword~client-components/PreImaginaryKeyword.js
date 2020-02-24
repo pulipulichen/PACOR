@@ -886,7 +886,7 @@ let CountdownButton = {
   props: ['locale', 'lib', 'countdownSec'
     , 'minWordCount', 'maxWordCount', 'text', 'ignoreWordCount'
     , 'enableClassNames', 'enable'
-    , 'autoClickSeconds'],
+    , 'autoClickSeconds', 'initRemainingSeconds'],
   data() {    
     this.$i18n.locale = this.locale
     
@@ -988,11 +988,11 @@ let CountdownButton = {
       }
     },
   },
-//  mounted () {
-//    
-//    //console.log(this.countdownSec)
-//    
-//  },
+  mounted () {
+    if (typeof(this.countdownSec) === 'number') {
+      this._initCountdown()
+    }
+  },
   methods: {
     _initCountdown() {
       if (typeof(this.countdownSec) !== 'number'
@@ -1545,6 +1545,7 @@ __webpack_require__.r(__webpack_exports__);
         if (this.remainingSeconds <= 0) {
           this.isTimeUp = true
         }
+        console.log([this.remainingSeconds, (this.remainingSeconds <= 0), this.isTimeUp])
         this.page = 'Answer'
         //console.log(this.remainingSeconds)
       } catch (e) {

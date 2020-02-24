@@ -706,11 +706,11 @@ let CountdownButton = {
       }
     },
   },
-//  mounted () {
-//    
-//    //console.log(this.countdownSec)
-//    
-//  },
+  mounted () {
+    if (typeof(this.countdownSec) === 'number') {
+      this._initCountdown()
+    }
+  },
   methods: {
     _initCountdown() {
       if (typeof(this.countdownSec) !== 'number'
