@@ -1181,6 +1181,11 @@ __webpack_require__.r(__webpack_exports__);
     }
   } // Auth.computed.annotationUserData = function () {
   
+  Auth.computed.isCORS = function () {
+    return (!location.href.startsWith(this.config.baseURL))
+    //console.log(this.config.baseURL, location.href)
+    //return true
+  }
 });
 
 /***/ }),

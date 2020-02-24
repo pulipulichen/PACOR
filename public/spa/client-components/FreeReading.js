@@ -57,7 +57,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Webpage Admin":"網頁設定管理","You need reload to active the change. Do you want to reload now?":"修改設定後需要重新讀取網頁才能生效。您要現在重新讀取網頁嗎？"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Webpage Admin":"網頁設定管理","You need reload to active the change. Do you want to reload now?":"修改設定後需要重新讀取網頁才能生效。您要現在重新讀取網頁嗎？","Open Webpage Admin":"開啟網頁設定管理"}}')
   delete Component.options._Ctor
 }
 
@@ -836,7 +836,23 @@ var render = function() {
               ? {
                   key: "content",
                   fn: function() {
-                    return undefined
+                    return [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "ui fluid positive button",
+                          attrs: { type: "button" },
+                          on: { click: _vm.openWebpageAdmin }
+                        },
+                        [
+                          _vm._v(
+                            "\r\n        " +
+                              _vm._s(_vm.$t("Open Webpage Admin")) +
+                              "\r\n      "
+                          )
+                        ]
+                      )
+                    ]
                   },
                   proxy: true
                 }
@@ -2526,9 +2542,16 @@ let WebpageAdmin = {
   data() {    
     this.$i18n.locale = this.config.locale
     
-    let contentURL = this.config.baseURL + '/admin#/referer/?url=' + location.href
+    // 在這裡決定這是不是CORS應用
+    let adminURL = this.config.baseURL + '/admin#/referer/?url=' + location.href
+    let contentURL
+    if (this.lib.auth.isCORS === false) {
+      contentURL = adminURL
+    }
+    
     //console.log(contentURL)
     return {
+      adminURL,
       contentURL,
       webpage: null
     }
@@ -2569,6 +2592,9 @@ let WebpageAdmin = {
       if (confirm === true) {
         location.reload()
       }
+    },
+    openWebpageAdmin () {
+      window.open(this.adminURL, '_blank')
     }
   } // methods
 }

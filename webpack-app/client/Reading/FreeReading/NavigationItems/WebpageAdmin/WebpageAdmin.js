@@ -6,9 +6,16 @@ let WebpageAdmin = {
   data() {    
     this.$i18n.locale = this.config.locale
     
-    let contentURL = this.config.baseURL + '/admin#/referer/?url=' + location.href
+    // 在這裡決定這是不是CORS應用
+    let adminURL = this.config.baseURL + '/admin#/referer/?url=' + location.href
+    let contentURL
+    if (this.lib.auth.isCORS === false) {
+      contentURL = adminURL
+    }
+    
     //console.log(contentURL)
     return {
+      adminURL,
       contentURL,
       webpage: null
     }
@@ -49,6 +56,9 @@ let WebpageAdmin = {
       if (confirm === true) {
         location.reload()
       }
+    },
+    openWebpageAdmin () {
+      window.open(this.adminURL, '_blank')
     }
   } // methods
 }

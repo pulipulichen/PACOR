@@ -40,6 +40,11 @@
     <template 
       v-slot:content
       v-if="!contentURL">
+      <button type="button"
+              class="ui fluid positive button"
+              v-on:click="openWebpageAdmin">
+        {{ $t('Open Webpage Admin') }}
+      </button>
     </template>
   </modal>
 </div>

@@ -4892,32 +4892,6 @@ var render = function() {
           "div",
           { staticClass: "step" },
           [
-            _vm.lib.auth.currentStep !== "FreeReading"
-              ? [
-                  _vm._v(
-                    "\r\n        " +
-                      _vm._s(
-                        _vm.$t("In {0} step", [
-                          _vm.$t("READING_PROGRESS." + _vm.lib.auth.currentStep)
-                        ])
-                      ) +
-                      "\r\n        "
-                  ),
-                  _c("i", { staticClass: "question circle icon" })
-                ]
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.lib.auth.currentStep === "FreeReading"
-              ? [
-                  _vm._v(
-                    "\r\n        " +
-                      _vm._s(_vm.$t("FreeReading")) +
-                      "\r\n        "
-                  ),
-                  _c("i", { staticClass: "question circle icon" })
-                ]
-              : _vm._e(),
-            _vm._v(" "),
             _vm.status.role !== "reader"
               ? [
                   _vm._v(
@@ -4927,7 +4901,35 @@ var render = function() {
                   ),
                   _c("i", { staticClass: "cog icon" })
                 ]
-              : _vm._e()
+              : [
+                  _vm.lib.auth.currentStep !== "FreeReading"
+                    ? [
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(
+                              _vm.$t("In {0} step", [
+                                _vm.$t(
+                                  "READING_PROGRESS." + _vm.lib.auth.currentStep
+                                )
+                              ])
+                            ) +
+                            "\r\n          "
+                        ),
+                        _c("i", { staticClass: "question circle icon" })
+                      ]
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.lib.auth.currentStep === "FreeReading"
+                    ? [
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(_vm.$t("FreeReading")) +
+                            "\r\n          "
+                        ),
+                        _c("i", { staticClass: "question circle icon" })
+                      ]
+                    : _vm._e()
+                ]
           ],
           2
         )

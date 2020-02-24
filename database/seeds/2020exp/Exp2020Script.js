@@ -44,7 +44,8 @@ module.exports = {
   },
   createAdmin: async function () {
     let domain = await DomainModel.findByURL(url)
-    let adminsSetting = 'teacher:password'
+    let adminsSetting = `teacher:password
+布布:password`
     await domain.setAdmins(adminsSetting)
   },
   
