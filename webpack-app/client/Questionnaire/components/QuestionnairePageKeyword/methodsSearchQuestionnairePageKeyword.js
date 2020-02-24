@@ -8,6 +8,7 @@ export default function (Questionnaire) {
         type: 'category',
         source: this.localSearch,
         cache: false,
+        showNoResults: false,
         onResultsAddZZZ: (html) => {
           console.log(html)
           return false

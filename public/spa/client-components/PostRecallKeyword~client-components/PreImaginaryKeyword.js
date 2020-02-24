@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Add keyword: {0}":"Add keyword: {0}"},"zh-TW":{"Add keyword...":"新增關鍵字","Answered Keywords":"目前作答的關鍵字","Answered":"已經作答","Removed Keywords":"被移除的關鍵字","Removed":"已經移除","Add keyword: {0}":"新增關鍵字：{0}"}}')
+  Component.options.__i18n.push('{"en":{"Add keyword: {0}":"Add keyword: {0}"},"zh-TW":{"Add keyword...":"新增關鍵字","Add keyword":"新增關鍵字","Add removed keyword":"回收關鍵字","Answered Keywords":"目前作答的關鍵字","Answered":"已經作答","Removed Keywords":"被移除的關鍵字","Removed":"已經移除","Add keyword: {0}":"新增關鍵字：{0}","Action":"操作"}}')
   delete Component.options._Ctor
 }
 
@@ -1378,10 +1378,24 @@ __webpack_require__.r(__webpack_exports__);
         {category: 'Africa', title: 'Nigeria'},
         {category: 'Africa', title: 'Zimbabwe'},
       ]*/
-      let categoryContent = [{
-          category: this.$t('Action'),
-          title: this.$t('Add keyword: {0}', [this.inputKeyword.trim()])
-      }]
+      
+      
+      
+      let categoryContent = []
+    
+      let inputKeyword = this.inputKeyword.trim()
+      if (this.removedList.indexOf(inputKeyword) > -1) {
+        categoryContent.push({
+          category: this.$t('Add removed keyword'),
+          title: inputKeyword
+        })
+      }
+      else if (this.answeredList.indexOf(inputKeyword) === -1) {
+        categoryContent.push({
+          category: this.$t('Add keyword'),
+          title: inputKeyword
+        })
+      }
       
       this.answeredList.forEach((keyword) => {
         categoryContent.push({
@@ -1570,6 +1584,7 @@ __webpack_require__.r(__webpack_exports__);
         type: 'category',
         source: this.localSearch,
         cache: false,
+        showNoResults: false,
         onResultsAddZZZ: (html) => {
           console.log(html)
           return false
@@ -1700,6 +1715,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 /* harmony default export */ __webpack_exports__["default"] = (function (Questionnaire) {
   Questionnaire.watch = {
 //    'remainingSeconds': function () {
@@ -1713,6 +1732,9 @@ __webpack_require__.r(__webpack_exports__);
       if (answer !== this.log.answer) {
         this.log.answer = answer
       }
+    },
+    'inputKeyword' (inputKeyword) {
+      this.initSearch()
     }
   }
 });

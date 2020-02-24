@@ -76,10 +76,24 @@ export default function (Questionnaire) {
         {category: 'Africa', title: 'Nigeria'},
         {category: 'Africa', title: 'Zimbabwe'},
       ]*/
-      let categoryContent = [{
-          category: this.$t('Action'),
-          title: this.$t('Add keyword: {0}', [this.inputKeyword.trim()])
-      }]
+      
+      
+      
+      let categoryContent = []
+    
+      let inputKeyword = this.inputKeyword.trim()
+      if (this.removedList.indexOf(inputKeyword) > -1) {
+        categoryContent.push({
+          category: this.$t('Add removed keyword'),
+          title: inputKeyword
+        })
+      }
+      else if (this.answeredList.indexOf(inputKeyword) === -1) {
+        categoryContent.push({
+          category: this.$t('Add keyword'),
+          title: inputKeyword
+        })
+      }
       
       this.answeredList.forEach((keyword) => {
         categoryContent.push({

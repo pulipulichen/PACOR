@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 export default function (Questionnaire) {
   Questionnaire.watch = {
 //    'remainingSeconds': function () {
@@ -11,6 +13,9 @@ export default function (Questionnaire) {
       if (answer !== this.log.answer) {
         this.log.answer = answer
       }
+    },
+    'inputKeyword' (inputKeyword) {
+      this.initSearch()
     }
   }
 }
