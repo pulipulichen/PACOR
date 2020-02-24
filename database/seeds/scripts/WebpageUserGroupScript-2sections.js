@@ -1,5 +1,16 @@
 /* global __filename */
 
+//const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
+const Env = use('Env')
+
+const uri = '/demo-articles/test-lorem-ipsum-2sections.html'
+const url = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT') + uri
+const testPort = 4000
+//const urlTest = 'http://localhost:4000/test-lorem-ipsum'
+const urlTest = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + testPort + uri
+
+// -------------------
+
 const AnnotationParameters = use('./parameters/AnnotationParameters.js')
 
 const DomainModel = use('App/Models/Domain')
@@ -8,15 +19,6 @@ const UserModel = use('App/Models/User')
 const AnnotationModel = use('App/Models/Annotation')
 
 const Sleep = use('Sleep')
-
-//const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
-const Env = use('Env')
-
-const uri = '/demo-articles/test-lorem-ipsum-2sections-cors.html'
-const url = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT') + uri
-const testPort = 4000
-//const urlTest = 'http://localhost:4000/test-lorem-ipsum'
-const urlTest = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + testPort + uri
 
 let webpage
 

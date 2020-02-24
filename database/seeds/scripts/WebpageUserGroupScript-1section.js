@@ -1,14 +1,5 @@
 /* global __filename */
 
-const AnnotationParameters = use('./parameters/AnnotationParameters.js')
-
-const DomainModel = use('App/Models/Domain')
-const WebpageModel = use('App/Models/Webpage')
-const UserModel = use('App/Models/User')
-const AnnotationModel = use('App/Models/Annotation')
-
-const Sleep = use('Sleep')
-
 //const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
 const Env = use('Env')
 
@@ -17,6 +8,17 @@ const url = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + Env.get(
 const testPort = 4000
 //const urlTest = 'http://localhost:4000/test-lorem-ipsum'
 const urlTest = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + testPort + uri
+
+// ------------------
+
+const AnnotationParameters = use('./parameters/AnnotationParameters.js')
+
+const DomainModel = use('App/Models/Domain')
+const WebpageModel = use('App/Models/Webpage')
+const UserModel = use('App/Models/User')
+const AnnotationModel = use('App/Models/Annotation')
+
+const Sleep = use('Sleep')
 
 let webpage
 

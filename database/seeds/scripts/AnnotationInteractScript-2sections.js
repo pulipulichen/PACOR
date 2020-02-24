@@ -1,5 +1,16 @@
 /* global __filename */
 
+const Env = use('Env')
+
+const uri = '/demo-articles/test-lorem-ipsum-2sections.html'
+//const uri = '/demo-articles/test-lorem-ipsum-2sections.html'
+const url = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT') + uri
+const testPort = 4000
+//const urlTest = 'http://localhost:4000/test-lorem-ipsum'
+const urlTest = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + testPort + uri
+
+// ------------------------------------------
+
 const DomainModel = use('App/Models/Domain')
 const WebpageModel = use('App/Models/Webpage')
 const UserModel = use('App/Models/User')
@@ -10,15 +21,6 @@ const AnnotationRateModel = use('App/Models/AnnotationRate')
 const AnnotationCommentRateModel = use('App/Models/AnnotationCommentRate')
 
 const Sleep = use('Sleep')
-
-const Env = use('Env')
-
-const uri = '/demo-articles/test-lorem-ipsum-2sections.html'
-//const uri = '/demo-articles/test-lorem-ipsum-2sections.html'
-const url = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT') + uri
-const testPort = 4000
-//const urlTest = 'http://localhost:4000/test-lorem-ipsum'
-const urlTest = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + testPort + uri
 
 let webpage
 let annotation
@@ -52,8 +54,13 @@ module.exports = {
     //console.log(userBeCommented.annotations(webpage).toSQL())
     let annotations = await userBeCommented.annotations(webpage).fetch()
     //console.log(userBeCommented.primaryKeyValue)
-    //console.log(annotations.size())
+    
+    //console.log('annotations.size()', annotations.size())
+    
     annotation = annotations.nth(1)
+    if (annotation === null) {
+      annotation = annotations.nth(3)
+    }
     annotation2 = annotations.nth(2)
     
     // -------------------
