@@ -57,7 +57,7 @@
           <form v-on:submit="onSubmit">
             <div class="ui search"
                  ref="SearchInput"
-                 v-bind:class="{'no-result': noResult}">
+                 v-bind:class="{'disabled': isTimeUp}">
               <div class="ui icon input">
                 <input class="prompt" 
                        type="text" 
@@ -76,7 +76,8 @@
           <!-- ========================================= -->
           <!-- 結果的部分 -->
           
-          <div class="ui top aligned grid list-grid">
+          <div class="ui top aligned grid list-grid"
+               v-bind:class="{disabled: isTimeUp}">
             <div class="ten wide column">
               <div class="ui top attached teal inverted segment step-heading">
                 <span>
@@ -85,7 +86,8 @@
                 <button type="button" 
                         class="ui right floated mini icon button"
                         v-bind:title="$t('Sort')"
-                        v-on:click="sortList('answeredList')">
+                        v-on:click="sortList('answeredList')"
+                        v-bind:class="{disabled: isTimeUp}">
                   <i class="sort alphabet down icon"></i>
                 </button>
               </div>
@@ -109,7 +111,8 @@
                 <button type="button" 
                         class="ui right floated mini icon button"
                         v-bind:title="$t('Sort')"
-                        v-on:click="sortList('removedList')">
+                        v-on:click="sortList('removedList')"
+                        v-bind:class="{disabled: isTimeUp}">
                   <i class="sort alphabet down icon"></i>
                 </button>
               </div>

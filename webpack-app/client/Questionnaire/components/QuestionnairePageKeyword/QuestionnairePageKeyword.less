@@ -45,6 +45,12 @@ textarea.answer {
   
 .list-grid {
   margin: 0 !important;
+  
+  &.disabled .label {
+    pointer-events: none;
+    opacity: 0.5;
+    user-select: none;
+  }
 }
   
 .step-heading {
