@@ -1,0 +1,142 @@
+<div class="Questionnaire">
+  <modal 
+    ref="Modal"
+    class="Questionnaire"
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+    dimmer="opaque"
+    cancelable="false">
+    <template v-slot:header>
+      <user-avatar 
+        class="user-avatar"
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib">
+      </user-avatar>
+      {{ lib.auth.username }}
+      :
+      {{ header }}
+    </template>
+    <template v-slot:headerMenu
+              v-if="lib.auth.currentStep === 'PreImaginary'">
+      <a class="item"
+         v-bind:title="$t('Logout')"
+         v-on:click="logout">
+        <i class="undo icon"></i>
+        {{ $t(`Return to login`) }}
+      </a>
+    </template>
+    
+    <!-- ============================================== -->
+    <!-- 底下才是內容 -->
+    
+    <template v-slot:content inline-template>
+
+      <template v-if="page === 'Instruction'">
+        <slot name="instruction"></slot>
+      </template>
+      
+      <!-- ====================== -->
+
+      <div class="field"
+           v-if="page === 'Answer'">
+        <textarea 
+          v-model="answer"
+          v-on:input="persist"
+          v-bind:disabled="isTimeUp"
+          v-on:paste.self="(e) => { e.preventDefault() }"
+          class="answer content-full-height">
+        </textarea>
+        <!--
+        <div class="ui pointing basic label"
+             v-bind:class="classWordCounter"
+             v-if="!isTimeUp">
+          {{ displayCharacterCounter }}
+        </div>
+        -->
+      </div>
+      
+    <!-- ============================================== -->
+    <!-- 底下才是內容 -->
+    
+    </template>
+    <template v-slot:actions>
+      <!--
+      <div class="ui button disabled" 
+           v-if="!isTimeUp"
+           v-html="buttonText"></div>
+      
+      <div class="ui green right labeled icon button" 
+           v-if="isTimeUp"
+           v-on:click="nextStep">
+          {{ $t('NEXT') }}
+          <i class="angle right icon"></i>
+      </div>
+      -->
+      
+      <button type="button"
+              class="ui button open-instruction-page"
+              v-bind:class="{'disabled': (page === 'Instruction')}"
+              v-on:click="page = 'Instruction'"
+              v-if="hasStarted">
+        {{ $t('Show Instruction') }}
+      </button>
+      
+      <button type="button"
+              class="ui button open-answer-page"
+              v-on:click="startAnswer"
+              v-if="!hasStarted">
+        {{ $t('Start Answer and Countdown') }}
+      </button>
+      
+      <button type="button"
+              class="ui button open-answer-page"
+              v-on:click="page = 'Answer'"
+              v-bind:class="{'disabled': (page === 'Answer')}"
+              v-if="hasStarted">
+        <template v-if="!isTimeUp">
+          {{ $t('Answer') }}
+        </template>
+        <template v-else>
+          {{ $t('Show Answer') }}
+        </template>
+      </button>
+
+      <countdown-button 
+        v-show="hasStarted"
+        class="questionnaire-submit"
+        v-bind:minWordCount="minWords"
+        enableClassNames="ui green right labeled icon button"
+        v-bind:text="answer"
+        v-bind:lib="lib"
+        v-bind:locale="status.preference.locale"
+        v-bind:countdownSec="remainingSeconds"
+        v-bind:enable="isTimeUp"
+        v-bind:isWaitingLoading="isWaitingLoading"
+        v-bind:ignoreWordCount="true"
+        v-bind:autoClickSeconds="5"
+        v-on:click="nextStep"
+        v-on:timeup="onTimeup">
+        <template 
+          v-slot:default="{autoClickRemainingSeconds}">
+          {{ $t('NEXT') }}
+
+          <template v-if="autoClickRemainingSeconds">
+            ({{ autoClickRemainingSeconds }})
+          </template>
+
+          <i class="angle right icon"></i>
+        </template>
+      </countdown-button>
+    </template>
+  </modal>
+
+  <activity-timer 
+    v-bind:config="config"
+    v-bind:lib="lib"
+    v-if="hasStarted && !isTimeUp">
+  </activity-timer>
+  <block-exit
+    v-if="hasStarted && answer !== '' && !isTimeUp"></block-exit>
+</div>

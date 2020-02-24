@@ -1,0 +1,12 @@
+<button 
+  type="button"
+  class="ui button"
+  v-bind:class="computedClassName"
+  v-on:click="onClick">
+  <template v-if="isEnable">
+    <slot v-bind:autoClickRemainingSeconds="autoClickRemainingSeconds"></slot>
+  </template>
+  <template v-else>
+    ({{ disabledMessage }})
+  </template>
+</button>

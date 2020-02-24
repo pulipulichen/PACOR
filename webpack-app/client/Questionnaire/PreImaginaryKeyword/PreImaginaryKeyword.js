@@ -1,5 +1,5 @@
-import Questionnaire from './../components/QuestionnairePage/QuestionnairePage.vue'
-import Instruction from './PreImaginaryInstruction/PreImaginaryInstruction.vue'
+import Questionnaire from './../components/QuestionnairePageKeyword/QuestionnairePageKeyword.vue'
+import Instruction from './PreImaginaryKeywordInstruction/PreImaginaryKeywordInstruction.vue'
 
 let PreImaginary = {
   props: ['lib', 'status', 'config'],

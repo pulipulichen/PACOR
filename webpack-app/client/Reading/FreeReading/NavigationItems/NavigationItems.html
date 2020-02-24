@@ -86,6 +86,12 @@
         v-bind:status="status"
         v-bind:lib="lib">
       </about-item>
+      
+      <a class="item in-vertical article-information-item"
+         v-on:click="lib.auth.logout">
+         <i class="sign-out icon"></i>
+         {{ $t('LOGOUT') }}
+      </a>
 
       <notification-icon
         v-if="!lib.style.isLeftHanded && enableCollaboration"

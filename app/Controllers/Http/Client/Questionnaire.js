@@ -20,7 +20,7 @@ class Questionnaire {
     })
   }
   
-  async getPreImaginaryKeyword({request, webpage, user}) {
+  async getPreImaginaryKeywords({request, webpage, user}) {
     let cacheKey = Cache.key('Questionnaire', 'getPreImaginaryKeyword')
     return await Cache.rememberWait([webpage, user, 'Questionnaire'], cacheKey, async () => {
       let log = await user.getReadingProgressLog(webpage, 'PreImaginaryKeyword')

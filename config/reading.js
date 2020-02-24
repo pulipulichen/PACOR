@@ -78,6 +78,32 @@ module.exports = {
       limitMinutes: 0.03,
       countdownAtStart: false,
     },
+    'PreImaginaryKeyword': {
+      //instruction: '/instruction/questionnaire/PreImaginary.html',
+      minKeywords: 10,
+      //limitMinutes: 5,
+      limitMinutes: 0.03,
+      countdownAtStart: false,
+    },
+    'PostRecall': {
+      //instruction: '/instruction/questionnaire/PostRecall.html',
+      minWords: 10,
+      //limitMinutes: 5
+      limitMinutes: 0.03,
+      countdownAtStart: false,
+      preloadPreImaginaryAnswer: true  // 是否顯示前面撰寫的內容
+    },
+    'PostRecallKeyword': {
+      //instruction: '/instruction/questionnaire/PostRecall.html',
+      minKeywords: 10,
+      //limitMinutes: 5
+      limitMinutes: 0.03,
+      countdownAtStart: false,
+      preloadPreImaginaryKeyword: true  // 是否顯示前面撰寫的內容
+    },
+    
+    // ---------------------------
+    
     /**
      * include 'individual-reading' and 'collaborative-reading'
      */
@@ -147,14 +173,7 @@ module.exports = {
         countdownPause: false
       }
     },
-    'PostRecall': {
-      //instruction: '/instruction/questionnaire/PostRecall.html',
-      minWords: 10,
-      //limitMinutes: 5
-      limitMinutes: 0.03,
-      countdownAtStart: false,
-      preloadPreImaginaryAnswer: true  // 是否顯示前面撰寫的內容
-    },
+    
     'FreeReading': {
       //instruction: '/instruction/reading/CollaborativeReading.html',
       permission: {

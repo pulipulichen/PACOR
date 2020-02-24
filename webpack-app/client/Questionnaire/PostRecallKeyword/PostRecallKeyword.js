@@ -1,5 +1,5 @@
-import Questionnaire from './../components/QuestionnairePage/QuestionnairePage.vue'
-import Instruction from './PostRecallInstruction/PostRecallInstruction.vue'
+import Questionnaire from './../components/QuestionnairePageKeyword/QuestionnairePageKeyword.vue'
+import Instruction from './PostRecallKeywordInstruction/PostRecallKeywordInstruction.vue'
 
 let PostRecall = {
   props: ['lib', 'status', 'config'],
@@ -17,7 +17,7 @@ let PostRecall = {
     //console.log(this.$refs.Questionnaire.answer)
     if (this.lib.auth.currentStepConfig.preloadPreImaginaryAnswer === true
             && this.$refs.Questionnaire.answer === '') {
-      let answer = await this.lib.AxiosHelper.get('/client/Questionnaire/getPreImaginaryAnswer')
+      let answer = await this.lib.AxiosHelper.get('/client/Questionnaire/getPreImaginaryKeywords')
       //console.log(answer)
       this.$refs.Questionnaire.answer = answer
     }
