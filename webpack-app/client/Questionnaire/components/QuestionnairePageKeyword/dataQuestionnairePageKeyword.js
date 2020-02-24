@@ -26,10 +26,10 @@ export default function (Questionnaire) {
     data.removedList = []
     
     // 測試用
-    for (let i = 0; i < 100; i++) {
-      data.answeredList.push(i + 'AAA')
-      data.removedList.push(i + 'BBB')
-    }
+//    for (let i = 0; i < 100; i++) {
+//      data.answeredList.push(i + 'AAA')
+//      data.removedList.push(i + 'BBB')
+//    }
     
     data.header = this.$t('READING_PROGRESS.' + key)
     data.isTimeUp = false
@@ -48,7 +48,7 @@ export default function (Questionnaire) {
     
     data.minWords = data.minKeywords
     data.noResult = false
-    data.inputKeyword = "ZZZZ"
+    data.inputKeyword = ""
     
     return data
   }

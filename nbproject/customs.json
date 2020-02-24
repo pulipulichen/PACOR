@@ -144,6 +144,9 @@
       "context": "button"
     },
     "v-else": {},
+    "v-on:submit": {
+      "context": "form"
+    },
     "v-on:mouseleave": {},
     "inline-template": {
       "context": "template"

@@ -16,16 +16,16 @@ module.exports = function (Component) {
 
 /***/ }),
 
-/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CCountdownButton%5CCountdownButton.vue&lang=yaml":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CCountdownButton%5CCountdownButton.vue&lang=yaml ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CCountdownKeywordButton%5CCountdownKeywordButton.vue&lang=yaml":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CCountdownKeywordButton%5CCountdownKeywordButton.vue&lang=yaml ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":{"You still need to write {0} keywords more.":"You still need to write {0} keyword more. | You still need to write {0} keywords more.","You still need to delete {0} keywords more.":"You still need to delete {0} keyword more. | You still need to delete {0} keywords more.","You still need to write {0} keywords more":"You still need to write {0} keyword more | You still need to write {0} keywords more","You still need to delete {0} keywords more":"You still need to delete {0} keyword more | You still need to delete {0} keywords more"},"zh-TW":{"You still need to write {0} keywords more.":"你還需要寫{0}個關鍵字。","You still need to delete {0} keywords more.":"你還需要刪除{0}個關鍵字。","You still need to write {0} keywords more":"你還需要寫{0}個關鍵字","You still need to delete {0} keywords more":"你還需要刪除{0}個關鍵字"}}')
   delete Component.options._Ctor
 }
 
@@ -48,16 +48,16 @@ module.exports = function (Component) {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=2331bdb8&lang=less&scoped=true&":
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=2331bdb8&lang=less&scoped=true& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.less?vue&type=style&index=0&id=90413e48&lang=less&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.less?vue&type=style&index=0&id=90413e48&lang=less&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"CountdownButton.less?vue&type=style&index=0&id=2331bdb8&lang=less&scoped=true&"}]);
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"CountdownKeywordButton.less?vue&type=style&index=0&id=90413e48&lang=less&scoped=true&"}]);
 
 
 /***/ }),
@@ -90,10 +90,10 @@ exports.push([module.i, "/*.ui.search ::v-deep {\n  .message.empty {\n    displa
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.html?vue&type=template&id=2331bdb8&scoped=true&":
-/*!******************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.html?vue&type=template&id=2331bdb8&scoped=true& ***!
-  \******************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.html?vue&type=template&id=90413e48&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.html?vue&type=template&id=90413e48&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -546,7 +546,7 @@ var render = function() {
                     attrs: {
                       minWordCount: _vm.minWords,
                       enableClassNames: "ui green right labeled icon button",
-                      text: _vm.answer,
+                      text: _vm.answeredList,
                       lib: _vm.lib,
                       locale: _vm.status.preference.locale,
                       countdownSec: _vm.remainingSeconds,
@@ -598,7 +598,7 @@ var render = function() {
         ? _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
         : _vm._e(),
       _vm._v(" "),
-      _vm.hasStarted && _vm.answer !== "" && !_vm.isTimeUp
+      _vm.hasStarted && _vm.countList !== 0 && !_vm.isTimeUp
         ? _c("block-exit")
         : _vm._e()
     ],
@@ -612,22 +612,22 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=2331bdb8&lang=less&scoped=true&":
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=2331bdb8&lang=less&scoped=true& ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.less?vue&type=style&index=0&id=90413e48&lang=less&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.less?vue&type=style&index=0&id=90413e48&lang=less&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./CountdownButton.less?vue&type=style&index=0&id=2331bdb8&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=2331bdb8&lang=less&scoped=true&");
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./CountdownKeywordButton.less?vue&type=style&index=0&id=90413e48&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.less?vue&type=style&index=0&id=90413e48&lang=less&scoped=true&");
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("10f5d47a", content, false, {});
+var update = add("fe349b0c", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -836,28 +836,42 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.html?vue&type=template&id=2331bdb8&scoped=true&":
-/*!**************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.html?vue&type=template&id=2331bdb8&scoped=true& ***!
-  \**************************************************************************************************************************************************************/
+/***/ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.html?vue&type=template&id=90413e48&scoped=true&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.html?vue&type=template&id=90413e48&scoped=true& ***!
+  \****************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CountdownButton_html_vue_type_template_id_2331bdb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./CountdownButton.html?vue&type=template&id=2331bdb8&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.html?vue&type=template&id=2331bdb8&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CountdownButton_html_vue_type_template_id_2331bdb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CountdownKeywordButton_html_vue_type_template_id_90413e48_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./CountdownKeywordButton.html?vue&type=template&id=90413e48&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.html?vue&type=template&id=90413e48&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CountdownKeywordButton_html_vue_type_template_id_90413e48_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CountdownButton_html_vue_type_template_id_2331bdb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_CountdownKeywordButton_html_vue_type_template_id_90413e48_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.js?vue&type=script&lang=js&?a533":
-/*!******************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.js?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************/
+/***/ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.js?vue&type=script&lang=js&?027e":
+/*!********************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.js?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CountdownKeywordButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./CountdownKeywordButton.js?vue&type=script&lang=js& */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.js?vue&type=script&lang=js&?2c20");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_CountdownKeywordButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.js?vue&type=script&lang=js&?2c20":
+/*!********************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.js?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -898,7 +912,13 @@ let CountdownButton = {
       }
     },
     wordCount () {
-      let count = this.lib.StringHelper.countWords(this.text)
+      let count
+      if (typeof(this.text) === 'string') {
+        count = this.lib.StringHelper.countWords(this.text)
+      }
+      else {
+        count = this.text.length
+      }
       //console.log(count)
       return count
     },
@@ -920,6 +940,7 @@ let CountdownButton = {
       return true
     },
     isEnable () {
+      //console.log(this.enable, this.ignoreWordCount, this.validWordCount, this.remainingSeconds, (this.remainingSeconds <= 0))
       if (this.enable === false) {
         return false
       }
@@ -949,12 +970,12 @@ let CountdownButton = {
       if (typeof(this.minWordCount) === 'number'
               && wordCount < this.minWordCount) {
         let interval = this.minWordCount - wordCount
-        messages.push( this.$t('You still need to write {0} words more', [interval]) )
+        messages.push( this.$t('You still need to write {0} keywords more', [interval]) )
       }
       else if (typeof(this.maxWordCount) === 'number'
               && wordCount > this.maxWordCount) {
         let interval = wordCount - this.maxWordCount
-        messages.push( this.$t('You still need to delete {0} words more', [interval]) )
+        messages.push( this.$t('You still need to delete {0} keywords more', [interval]) )
       }
       
       return messages.join(' / ')
@@ -1034,50 +1055,36 @@ let CountdownButton = {
 
 /***/ }),
 
-/***/ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.js?vue&type=script&lang=js&?aacd":
-/*!******************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.js?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CountdownButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./CountdownButton.js?vue&type=script&lang=js& */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.js?vue&type=script&lang=js&?a533");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_CountdownButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=2331bdb8&lang=less&scoped=true&":
-/*!*****************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=2331bdb8&lang=less&scoped=true& ***!
-  \*****************************************************************************************************************************************************************************/
+/***/ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.less?vue&type=style&index=0&id=90413e48&lang=less&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.less?vue&type=style&index=0&id=90413e48&lang=less&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_2331bdb8_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-style-loader!../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./CountdownButton.less?vue&type=style&index=0&id=2331bdb8&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=2331bdb8&lang=less&scoped=true&");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_2331bdb8_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_2331bdb8_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_2331bdb8_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_2331bdb8_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownButton_less_vue_type_style_index_0_id_2331bdb8_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownKeywordButton_less_vue_type_style_index_0_id_90413e48_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-style-loader!../../../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./CountdownKeywordButton.less?vue&type=style&index=0&id=90413e48&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.less?vue&type=style&index=0&id=90413e48&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownKeywordButton_less_vue_type_style_index_0_id_90413e48_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownKeywordButton_less_vue_type_style_index_0_id_90413e48_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownKeywordButton_less_vue_type_style_index_0_id_90413e48_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownKeywordButton_less_vue_type_style_index_0_id_90413e48_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_CountdownKeywordButton_less_vue_type_style_index_0_id_90413e48_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.vue":
-/*!******************************************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.vue ***!
-  \******************************************************************************************************************/
+/***/ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.vue":
+/*!********************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.vue ***!
+  \********************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CountdownButton_html_vue_type_template_id_2331bdb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CountdownButton.html?vue&type=template&id=2331bdb8&scoped=true& */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.html?vue&type=template&id=2331bdb8&scoped=true&");
-/* harmony import */ var _CountdownButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CountdownButton.js?vue&type=script&lang=js& */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.js?vue&type=script&lang=js&?aacd");
-/* empty/unused harmony star reexport *//* harmony import */ var _CountdownButton_less_vue_type_style_index_0_id_2331bdb8_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CountdownButton.less?vue&type=style&index=0&id=2331bdb8&lang=less&scoped=true& */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.less?vue&type=style&index=0&id=2331bdb8&lang=less&scoped=true&");
+/* harmony import */ var _CountdownKeywordButton_html_vue_type_template_id_90413e48_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CountdownKeywordButton.html?vue&type=template&id=90413e48&scoped=true& */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.html?vue&type=template&id=90413e48&scoped=true&");
+/* harmony import */ var _CountdownKeywordButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CountdownKeywordButton.js?vue&type=script&lang=js& */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.js?vue&type=script&lang=js&?027e");
+/* empty/unused harmony star reexport *//* harmony import */ var _CountdownKeywordButton_less_vue_type_style_index_0_id_90413e48_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CountdownKeywordButton.less?vue&type=style&index=0&id=90413e48&lang=less&scoped=true& */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.less?vue&type=style&index=0&id=90413e48&lang=less&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-/* harmony import */ var _CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CCountdownButton%5CCountdownButton.vue&lang=yaml */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CCountdownButton%5CCountdownButton.vue&lang=yaml");
+/* harmony import */ var _CountdownKeywordButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownKeywordButton_5CCountdownKeywordButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./CountdownKeywordButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CCountdownKeywordButton%5CCountdownKeywordButton.vue&lang=yaml */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CCountdownKeywordButton%5CCountdownKeywordButton.vue&lang=yaml");
 
 
 
@@ -1087,40 +1094,40 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _CountdownButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CountdownButton_html_vue_type_template_id_2331bdb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _CountdownButton_html_vue_type_template_id_2331bdb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _CountdownKeywordButton_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CountdownKeywordButton_html_vue_type_template_id_90413e48_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CountdownKeywordButton_html_vue_type_template_id_90413e48_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "2331bdb8",
+  "90413e48",
   null
   
 )
 
 /* custom blocks */
 
-if (typeof _CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+if (typeof _CountdownKeywordButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownKeywordButton_5CCountdownKeywordButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__["default"] === 'function') Object(_CountdownKeywordButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownKeywordButton_5CCountdownKeywordButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__["default"])(component)
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.vue"
+component.options.__file = "webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CCountdownButton%5CCountdownButton.vue&lang=yaml":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CCountdownButton%5CCountdownButton.vue&lang=yaml ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CCountdownKeywordButton%5CCountdownKeywordButton.vue&lang=yaml":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CCountdownKeywordButton%5CCountdownKeywordButton.vue&lang=yaml ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CCountdownButton%5CCountdownButton.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CCountdownButton%5CCountdownButton.vue&lang=yaml");
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownButton_5CCountdownButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownKeywordButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownKeywordButton_5CCountdownKeywordButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./CountdownKeywordButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CCountdownKeywordButton%5CCountdownKeywordButton.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CCountdownKeywordButton%5CCountdownKeywordButton.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownKeywordButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownKeywordButton_5CCountdownKeywordButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownKeywordButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownKeywordButton_5CCountdownKeywordButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownKeywordButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownKeywordButton_5CCountdownKeywordButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownKeywordButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownKeywordButton_5CCountdownKeywordButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_CountdownKeywordButton_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CCountdownKeywordButton_5CCountdownKeywordButton_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -1165,7 +1172,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CountdownButton/CountdownButton.vue */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownButton/CountdownButton.vue");
+/* harmony import */ var _CountdownKeywordButton_CountdownKeywordButton_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CountdownKeywordButton/CountdownKeywordButton.vue */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/CountdownKeywordButton/CountdownKeywordButton.vue");
 /* harmony import */ var _dataQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dataQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/dataQuestionnairePageKeyword.js");
 /* harmony import */ var _computedQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./computedQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/computedQuestionnairePageKeyword.js");
 /* harmony import */ var _watchQuestionnairePageKeyword_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./watchQuestionnairePageKeyword.js */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/watchQuestionnairePageKeyword.js");
@@ -1178,7 +1185,7 @@ let Questionnaire = {
   props: ['lib', 'status', 'config'],
   //data() {},  // 轉移到 dataQuestionnairePageKeyword.js
   components: {
-    'countdown-button': _CountdownButton_CountdownButton_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    'countdown-button': _CountdownKeywordButton_CountdownKeywordButton_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     //'pre-imaginary-instruction': PreImaginaryInstruction,
     //'post-recall-instruction': PostRecallInstruction
   },
@@ -1427,6 +1434,14 @@ __webpack_require__.r(__webpack_exports__);
       })
       
       return categoryContent
+    },
+    
+    countList () {
+      return this.answeredList.length + this.removedList.length
+    },
+    
+    joinedAnsweredList () {
+      return this.answeredList.join(' ')
     }
   }
 });
@@ -1470,10 +1485,10 @@ __webpack_require__.r(__webpack_exports__);
     data.removedList = []
     
     // 測試用
-    for (let i = 0; i < 100; i++) {
-      data.answeredList.push(i + 'AAA')
-      data.removedList.push(i + 'BBB')
-    }
+//    for (let i = 0; i < 100; i++) {
+//      data.answeredList.push(i + 'AAA')
+//      data.removedList.push(i + 'BBB')
+//    }
     
     data.header = this.$t('READING_PROGRESS.' + key)
     data.isTimeUp = false
@@ -1492,7 +1507,7 @@ __webpack_require__.r(__webpack_exports__);
     
     data.minWords = data.minKeywords
     data.noResult = false
-    data.inputKeyword = "ZZZZ"
+    data.inputKeyword = ""
     
     return data
   }
@@ -1575,13 +1590,11 @@ __webpack_require__.r(__webpack_exports__);
     this.lib.auth.logoutWithoutForget()
   }
   
-  Questionnaire.methods.labelTitleRemove = function (keyword) {
-    return this.$t('Remove keyword "{0}"', [keyword])
+  Questionnaire.methods.startAnswer = function () {
+    this.page = 'Answer'
+    this.persist()
   }
   
-  Questionnaire.methods.labelTitleAdd = function (keyword) {
-    return this.$t('Add keyword "{0}"', [keyword])
-  }
   
   
 });
@@ -1612,6 +1625,14 @@ __webpack_require__.r(__webpack_exports__);
       showNoResults: false,
       onSelect: (result, response) => {
         //console.log(result, response)
+        if (result.category === this.$t('Add removed keyword')
+                || result.category === this.$t('Add keyword')) {
+          this.onSubmit()
+          this.$refs.SearchInputText.blur()
+          this.$refs.SearchInputText.focus()
+          return false
+        }
+        
         this.inputKeyword = result.title
         this.$refs.SearchInputText.focus()
       },
@@ -1681,7 +1702,9 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   Questionnaire.methods.onSubmit = function (e) {
-    e.preventDefault()
+    if (e) {
+      e.preventDefault()
+    }
     let inputKeyword = this.inputKeyword.trim()
     if (inputKeyword === '') {
       return false
@@ -1693,6 +1716,15 @@ __webpack_require__.r(__webpack_exports__);
     this.$refs.SearchInputText.focus()
     
     return false
+  }
+  
+  
+  Questionnaire.methods.labelTitleRemove = function (keyword) {
+    return this.$t('Remove keyword "{0}"', [keyword])
+  }
+  
+  Questionnaire.methods.labelTitleAdd = function (keyword) {
+    return this.$t('Add keyword "{0}"', [keyword])
   }
 });
 

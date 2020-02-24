@@ -62,13 +62,11 @@ export default function (Questionnaire) {
     this.lib.auth.logoutWithoutForget()
   }
   
-  Questionnaire.methods.labelTitleRemove = function (keyword) {
-    return this.$t('Remove keyword "{0}"', [keyword])
+  Questionnaire.methods.startAnswer = function () {
+    this.page = 'Answer'
+    this.persist()
   }
   
-  Questionnaire.methods.labelTitleAdd = function (keyword) {
-    return this.$t('Add keyword "{0}"', [keyword])
-  }
   
   
 }

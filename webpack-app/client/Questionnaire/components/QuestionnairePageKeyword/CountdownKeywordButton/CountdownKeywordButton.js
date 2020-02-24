@@ -33,7 +33,13 @@ let CountdownButton = {
       }
     },
     wordCount () {
-      let count = this.lib.StringHelper.countWords(this.text)
+      let count
+      if (typeof(this.text) === 'string') {
+        count = this.lib.StringHelper.countWords(this.text)
+      }
+      else {
+        count = this.text.length
+      }
       //console.log(count)
       return count
     },
@@ -55,6 +61,7 @@ let CountdownButton = {
       return true
     },
     isEnable () {
+      //console.log(this.enable, this.ignoreWordCount, this.validWordCount, this.remainingSeconds, (this.remainingSeconds <= 0))
       if (this.enable === false) {
         return false
       }
@@ -84,12 +91,12 @@ let CountdownButton = {
       if (typeof(this.minWordCount) === 'number'
               && wordCount < this.minWordCount) {
         let interval = this.minWordCount - wordCount
-        messages.push( this.$t('You still need to write {0} words more', [interval]) )
+        messages.push( this.$t('You still need to write {0} keywords more', [interval]) )
       }
       else if (typeof(this.maxWordCount) === 'number'
               && wordCount > this.maxWordCount) {
         let interval = wordCount - this.maxWordCount
-        messages.push( this.$t('You still need to delete {0} words more', [interval]) )
+        messages.push( this.$t('You still need to delete {0} keywords more', [interval]) )
       }
       
       return messages.join(' / ')

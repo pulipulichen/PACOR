@@ -11,6 +11,14 @@ export default function (Questionnaire) {
       showNoResults: false,
       onSelect: (result, response) => {
         //console.log(result, response)
+        if (result.category === this.$t('Add removed keyword')
+                || result.category === this.$t('Add keyword')) {
+          this.onSubmit()
+          this.$refs.SearchInputText.blur()
+          this.$refs.SearchInputText.focus()
+          return false
+        }
+        
         this.inputKeyword = result.title
         this.$refs.SearchInputText.focus()
       },
@@ -80,7 +88,9 @@ export default function (Questionnaire) {
   }
   
   Questionnaire.methods.onSubmit = function (e) {
-    e.preventDefault()
+    if (e) {
+      e.preventDefault()
+    }
     let inputKeyword = this.inputKeyword.trim()
     if (inputKeyword === '') {
       return false
@@ -92,5 +102,14 @@ export default function (Questionnaire) {
     this.$refs.SearchInputText.focus()
     
     return false
+  }
+  
+  
+  Questionnaire.methods.labelTitleRemove = function (keyword) {
+    return this.$t('Remove keyword "{0}"', [keyword])
+  }
+  
+  Questionnaire.methods.labelTitleAdd = function (keyword) {
+    return this.$t('Add keyword "{0}"', [keyword])
   }
 }

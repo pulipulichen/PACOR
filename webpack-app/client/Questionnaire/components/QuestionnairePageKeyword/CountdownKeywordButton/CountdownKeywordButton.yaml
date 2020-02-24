@@ -1,0 +1,12 @@
+en:
+  "You still need to write {0} keywords more.": "You still need to write {0} keyword more. | You still need to write {0} keywords more."
+  "You still need to delete {0} keywords more.": "You still need to delete {0} keyword more. | You still need to delete {0} keywords more."
+  "You still need to write {0} keywords more": "You still need to write {0} keyword more | You still need to write {0} keywords more"
+  "You still need to delete {0} keywords more": "You still need to delete {0} keyword more | You still need to delete {0} keywords more"
+
+  
+zh-TW:
+  "You still need to write {0} keywords more.": "你還需要寫{0}個關鍵字。"
+  "You still need to delete {0} keywords more.": "你還需要刪除{0}個關鍵字。"
+  "You still need to write {0} keywords more": "你還需要寫{0}個關鍵字"
+  "You still need to delete {0} keywords more": "你還需要刪除{0}個關鍵字"

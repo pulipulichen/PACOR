@@ -1,4 +1,4 @@
-import CountdownButton from './CountdownButton/CountdownButton.vue'
+import CountdownButton from './CountdownKeywordButton/CountdownKeywordButton.vue'
 
 let Questionnaire = {
   props: ['lib', 'status', 'config'],

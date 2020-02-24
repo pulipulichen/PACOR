@@ -110,6 +110,14 @@ export default function (Questionnaire) {
       })
       
       return categoryContent
+    },
+    
+    countList () {
+      return this.answeredList.length + this.removedList.length
+    },
+    
+    joinedAnsweredList () {
+      return this.answeredList.join(' ')
     }
   }
 }
