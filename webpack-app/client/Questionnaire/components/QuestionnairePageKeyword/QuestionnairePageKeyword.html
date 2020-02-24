@@ -55,7 +55,8 @@
         <div class="answer content-full-height">
           
           <div class="ui search"
-               ref="SearchInput">
+               ref="SearchInput"
+               v-bind:class="{'has-response': hasResponse}">
             <div class="ui icon input">
               <input class="prompt" type="text" 
                      v-bind:placeholder="$t('Add keyword...')">

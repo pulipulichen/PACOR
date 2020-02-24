@@ -47,6 +47,7 @@ export default function (Questionnaire) {
     data.page = 'Instruction'
     
     data.minWords = data.minKeywords
+    data.hasResponse = false
     
     return data
   }

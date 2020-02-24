@@ -60,7 +60,8 @@ export default function (Questionnaire) {
     localSearch () {
       
       // 總之，先做假資料看看
-      var categoryContent = [
+      /*
+      let categoryContent = [
         {category: 'South America', title: 'Brazil'},
         {category: 'South America', title: 'Peru'},
         {category: 'North America', title: 'Canada'},
@@ -74,7 +75,22 @@ export default function (Questionnaire) {
         {category: 'Africa', title: 'Ethiopia'},
         {category: 'Africa', title: 'Nigeria'},
         {category: 'Africa', title: 'Zimbabwe'},
-      ]
+      ]*/
+      let categoryContent = []
+      this.answeredList.forEach((keyword) => {
+        categoryContent.push({
+          category: this.$t('Answered'),
+          title: keyword
+        })
+      })
+      
+      this.removedList.forEach((keyword) => {
+        categoryContent.push({
+          category: this.$t('Removed'),
+          title: keyword
+        })
+      })
+      
       return categoryContent
     }
   }

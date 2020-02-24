@@ -44,7 +44,14 @@ export default function (Questionnaire) {
     initSearch () {
       $(this.$refs.SearchInput).search({
         type: 'category',
-        source: this.localSearch
+        source: this.localSearch,
+        onResults: (response) => {
+          //this.hasResponse = (Object.keys(response.results).length !== 0)
+          return response
+        },
+        error: {
+          noResults: ''
+        }
       })
     },
     onTimeup() {
@@ -79,6 +86,26 @@ export default function (Questionnaire) {
     startAnswer () {
       this.page = 'Answer'
       this.persist()
+    },
+    
+    addAnswerKeyword (keyword) {
+      if (typeof(keyword) !== 'string') {
+        return false
+      }
+      
+      keyword = keyword.trim()
+      if (keyword === '') {
+        return false
+      }
+      
+      let i = this.answeredList.indexOf(keyword)
+      if (i > -1) {
+        // 把這個選項移到最前面去
+        this.answeredList.splice(i, 1)
+      }
+      
+      this.answeredList.unshift(keyword)
+      return true
     },
     deleteKeyword (i) {
       let keyword = this.answeredList[i]
