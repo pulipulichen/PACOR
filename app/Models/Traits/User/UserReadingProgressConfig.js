@@ -19,6 +19,11 @@ class UserReadingProgressConfig {
         throw new HttpException('Webpage object is required.')
       }
       
+      let config = await webpage.getConfig()
+      if (typeof(config.debug.stayInReadingProgress) === 'string') {
+        return config.debug.stayInReadingProgress
+      }
+      
       let profiler = new Profiler(0, 'User/UserReadingProgressConfig.getCurrentReadingProgressStepName()')
       
       let doQuery = async () => {
@@ -234,7 +239,12 @@ class UserReadingProgressConfig {
         step = await this.startReadingProgress(webpage)
       }
       
-      if (step === null) {
+      if (!step) {
+        let config = await webpage.getConfig()
+        if (typeof(config.debug.stayInReadingProgress) === 'string') {
+          return {}
+        }
+        
         console.error('Step is null: ' + await this.getCurrentReadingProgressStepName(webpage))
         return {}
         //throw new Error('step is null')
@@ -245,7 +255,6 @@ class UserReadingProgressConfig {
       //    console.log(step.log)
 
       let log = step.log
-      //console.log(step)
       if (typeof(log) === 'string' && log.startsWith('{') && log.endsWith('}')) {
         try {
           log = JSON.parse(log)

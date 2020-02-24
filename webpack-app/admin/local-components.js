@@ -4,7 +4,8 @@ import Login from './Login/Login.vue'
 import NavigationItems from './NavigationItems/NavigationItems.vue'
 import Loading from './Login/Login.vue'
 import StyleManager from './../components/manager/StyleManager/StyleManager.vue'
-import PACORTestManager from './../components/manager/PACORTestManager/PACORTestManager.vue'
+
+import PACORTestManager from './../components/test/PACORTestManager/PACORTestManager.vue'
 
 let components = {
   Loading: Loading,

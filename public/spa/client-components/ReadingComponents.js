@@ -5059,7 +5059,10 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "ui button", on: { click: _vm.hide } },
+                    {
+                      staticClass: "ui button close-button",
+                      on: { click: _vm.hide }
+                    },
                     [
                       _vm._v(
                         "\r\n          " +

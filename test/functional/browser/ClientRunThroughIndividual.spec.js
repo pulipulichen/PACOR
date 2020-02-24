@@ -2,36 +2,15 @@
 
 'use strict'
 
-let webpageConfig = use('./../../test-config/reading-fastLimitTime')
+let webpageConfig = use('./../../test-config/reading-fastLimitTimeCollaborative')
+let webpageConfigIndividual = use('./../../test-config/reading-fastLimitTimeIndividual')
 //console.log(webpageConfig)
 
-const TestOptions = {
-  threads: 1,
-  //threads: 3, // ok 完全運作正常
-  //threads: 5,  // ?個錯誤
-  //threads: 9,  // ?個錯誤
-  //threads: 15,  // 10個錯誤
-  //threads: 20,  // 0個錯誤 20200222
-  //threads: 30,  // ?個錯誤
-  //threads: 40,  // 10個錯誤
-  maxShowThreads: 9,
-  mode: 'parallel',
-  headless: false,
-  //headless: false,
-  //stopAt: 'c1. pre image',
-  //stopAt: 'e2. 隨意寫標註',
-  //stopAt: '0a. setup webpage config',
-  //stopAt: 'c2. 中場確認 is PACORTestManager work?',
-  //stopAt: 'd1. 專注閱讀: 確認視窗',
-  //stopAt: 'd2. 隨意寫標註',
-  displayDevTools: false,
-  
-  groupSize: 6,
-  webpageConfig,
-  
-  //manualReader: true,
-  //manualAdmin: true
-}
+const TypeHelper = use('App/Helpers/TypeHelper')
+webpageConfig = TypeHelper.mergeDeep(webpageConfig, webpageConfigIndividual)
+
+let TestOptions = use('./../../browser-test-options.js')
+TestOptions.webpageConfig = webpageConfig
 
 // 每次大型功能開發完都要做這個確認
 /*
@@ -159,32 +138,6 @@ let config = {
       await PACORTestManager.completeChecklists()
     })
   },
-  'e1. 協助閱讀: 確認視窗': async function ( { assert, client, browser }, page ) {
-    //console.log('暫時跳過'); return
-    await page.assertFn(async function () {
-      await PACORTestManager.confirmInstructionMessage()
-    })  // await page.assertFn(async function () {
-  },
-  'e2. 隨意寫標註': async function ( { assert, client, browser }, page ) {
-    //console.log('暫時跳過'); return
-    //let writeAnnotations = Math.random()
-    await page.assertFn(async function () {
-      //PACORTestManager.log('呃，怎麽不能運作了...')
-      await PACORTestManager.waitForElementVisible('.Navigation.menu', 60 * 1000)
-      // Navigation
-      await PACORTestManager.sleep(3000)
-      await PACORTestManager.writeAnnotations()
-      
-      //await PACORTestManager.sleep(1000 * 60 * 30)
-    })  // await page.assertFn(async function () {
-  },
-  'e9. 強制進入下一個階段': async function ( { assert, client, browser }, page ) {
-    //console.log('暫時跳過'); return
-    //let writeAnnotations = Math.random()
-    await page.assertFn(async function () {
-      await PACORTestManager.nextStep()
-    })  // await page.assertFn(async function () {
-  },
   'f1. post recall': async function ( { assert, client, browser }, page ) {
     //console.log('暫時跳過'); return
     await page.assertFn(async function () {
@@ -207,7 +160,11 @@ let config = {
       // first 是登出
       // last 是關閉
       //await PACORTestManager.waitForElementVisibleClick('.ExitModal .actions .button:last')
+      await PACORTestManager.sleep(3000)
+      
       await PACORTestManager.waitForElementVisible('.step-heading')
+      await PACORTestManager.waitForElementClick('.close-button')
+      
       await PACORTestManager.sleep(3000)
     })
     

@@ -11,7 +11,12 @@ class Questionnaire {
     let cacheKey = Cache.key('Questionnaire', 'getPreImaginaryAnswer')
     return await Cache.rememberWait([webpage, user, 'Questionnaire'], cacheKey, async () => {
       let log = await user.getReadingProgressLog(webpage, 'PreImaginary')
-      return log.answer
+      if (log && typeof(log.answer) === 'string') {
+        return log.answer
+      }
+      else {
+        return ''
+      }
     })
   }
   
@@ -20,7 +25,15 @@ class Questionnaire {
     return await Cache.rememberWait([webpage, user, 'Questionnaire'], cacheKey, async () => {
       let preImaginaryAnswer = await this.getPreImaginaryAnswer({webpage, user})
       let postRecallLog = await user.getReadingProgressLog(webpage, 'PostRecall')
-      let postRecallLogAnswer = postRecallLog.answer
+      let postRecallLogAnswer
+      
+      if (postRecallLog && typeof(postRecallLog.answer) === 'string') {
+        postRecallLogAnswer = postRecallLog.answer
+      }
+      else {
+        postRecallLogAnswer = ''
+      }
+      
       return {
         PreImaginary: preImaginaryAnswer,
         PostRecall: postRecallLogAnswer

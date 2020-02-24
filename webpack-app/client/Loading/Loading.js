@@ -28,8 +28,9 @@ let Loading = {
     Auth: () => import(/* webpackChunkName: "client-components/Loading" */ './../Auth/Auth.vue'),
     Login: () => import(/* webpackChunkName: "client-components/Loading" */ './../Login/Login.vue'),
     StyleManager: () => import(/* webpackChunkName: "client-components/Loading" */ './../../components/manager/StyleManager/StyleManager.vue'),
-    PACORTestManager: () => import(/* webpackChunkName: "client-components/Loading" */ './../../components/manager/PACORTestManager/PACORTestManager.vue'),
     'tutorial-manager': () => import(/* webpackChunkName: "client-components/Loading" */ './../../components/manager/TutorialManager/TutorialManager.vue'),
+    
+    PACORTestManager: () => import(/* webpackChunkName: "client-components/Loading" */ './../../components/test/PACORTestManager/PACORTestManager.vue'),
     
     'CollaborativeReading': () => import(/* webpackChunkName: "client-components/CollaborativeReading" */ './../Reading/CollaborativeReading/CollaborativeReading.vue'),
     'IndividualReading': () => import(/* webpackChunkName: "client-components/IndividualReading" */ './../Reading/IndividualReading/IndividualReading.vue'),

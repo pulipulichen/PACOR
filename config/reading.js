@@ -7,11 +7,11 @@ module.exports = {
     //forceMaxTimeoutMinutes: 0.2
     forceMaxTimeoutMinutes: 1,
     test: {
-      minAnnotation: 4,
-      maxAnnotation: 9
+      //minAnnotation: 4,
+      //maxAnnotation: 9
       
-      //minAnnotation: 1,
-      //maxAnnotation: 1
+      minAnnotation: 1,
+      maxAnnotation: 1
     },
     //stayInReadingProgress: 'FreeReading'
   },
