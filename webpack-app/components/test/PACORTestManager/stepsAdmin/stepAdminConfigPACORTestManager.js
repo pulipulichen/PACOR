@@ -5,7 +5,8 @@ export default function (PACORTestManager) {
   //window.$ = $
     
   PACORTestManager.methods.adminPanel = async function (page) {
-    await this.sleep(1000 * 60 * 30)
+    //console.log('wait for debug')
+    //await this.sleep(1000 * 60 * 30)
     
     //let webpageConfig = await this.getWebpageConfig()
     //console.log(webpageConfig)
@@ -82,6 +83,9 @@ export default function (PACORTestManager) {
       await this.sleep(1500)
       await this.waitForElementVisibleClick('.ConfirmModal:visible .cancel.button')
       await this.sleep(1500)
+      
+      //console.log('await for debug')
+      //await this.sleep(1000 * 60 * 60)
     }
   }
 }

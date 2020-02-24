@@ -231,8 +231,10 @@ class UserReadingProgressConfig {
     }
     
     Model.prototype.getReadingProgressLog = async function (webpage, step) {
+      let stepName
       if (typeof(step) === 'string') {
         //console.log(step)
+        stepName = step
         step = await this.getReadingProgress(webpage, step)
       }
       else {
@@ -244,8 +246,9 @@ class UserReadingProgressConfig {
         if (typeof(config.debug.stayInReadingProgress) === 'string') {
           return {}
         }
-        
-        console.error('Step is null: ' + await this.getCurrentReadingProgressStepName(webpage))
+        if (typeof(stepName) !== 'string') {
+          console.error('Step is null: ' + await this.getCurrentReadingProgressStepName(webpage))
+        }
         return {}
         //throw new Error('step is null')
       }
