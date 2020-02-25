@@ -345,7 +345,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Write section main ideas":"撰寫小節重點","Edit section main ideas":"編輯小節重點"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Write section main ideas":"撰寫小節重點","Edit section main ideas":"編輯小節重點","Write article main ideas":"撰寫文章重點","Edit article main ideas":"編輯文章重點"}}')
   delete Component.options._Ctor
 }
 
@@ -3949,14 +3949,38 @@ var render = function() {
     [
       _vm.myAnnotation
         ? [
-            _vm._v(
-              "\r\n    " + _vm._s(_vm.$t("Edit section main ideas")) + "\r\n  "
-            )
+            _vm.lib.SectionManager.isArticleNote
+              ? [
+                  _vm._v(
+                    "\r\n      " +
+                      _vm._s(_vm.$t("Edit article main ideas")) +
+                      "\r\n    "
+                  )
+                ]
+              : [
+                  _vm._v(
+                    "\r\n      " +
+                      _vm._s(_vm.$t("Edit section main ideas")) +
+                      "\r\n    "
+                  )
+                ]
           ]
         : [
-            _vm._v(
-              "\r\n    " + _vm._s(_vm.$t("Write section main ideas")) + "\r\n  "
-            )
+            _vm.lib.SectionManager.isArticleNote
+              ? [
+                  _vm._v(
+                    "\r\n      " +
+                      _vm._s(_vm.$t("Write article main ideas")) +
+                      "\r\n    "
+                  )
+                ]
+              : [
+                  _vm._v(
+                    "\r\n      " +
+                      _vm._s(_vm.$t("Write section main ideas")) +
+                      "\r\n    "
+                  )
+                ]
           ]
     ],
     2

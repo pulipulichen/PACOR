@@ -3,9 +3,19 @@
   class="ui fluid button"
   v-on:click="openSectionAnnotationEditor">
   <template v-if="myAnnotation">
-    {{ $t('Edit section main ideas') }}
+    <template v-if="lib.SectionManager.isArticleNote">
+      {{ $t('Edit article main ideas') }}
+    </template>
+    <template v-else>
+      {{ $t('Edit section main ideas') }}
+    </template>
   </template>
   <template v-else>
-    {{ $t('Write section main ideas') }}
+    <template v-if="lib.SectionManager.isArticleNote">
+      {{ $t('Write article main ideas') }}
+    </template>
+    <template v-else>
+      {{ $t('Write section main ideas') }}
+    </template>
   </template>
 </button>

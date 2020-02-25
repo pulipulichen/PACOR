@@ -10,9 +10,9 @@ let ArticleInformation = {
     this.$i18n.locale = this.config.locale
     return {
       sections: null,
-      paragraphies: null,
+      paragraphs: null,
       wordCount: 0,
-      paragraphyCount: 0,
+      paragraphCount: 0,
       sectionCount: 0,
       headings: [],
       images: []
@@ -49,12 +49,18 @@ let ArticleInformation = {
     },
     calculating () {
       this.sections = $('[data-pacor-section-seq-id]')
-      this.paragraphies = this.sections.children()
+      this.paragraphs = this.sections.children(':not(.image-label)')
 
-      let text = this.lib.StringHelper.htmlToTextTrim(this.sections.html(), true)
+      let text = []
+      this.sections.each((i, ele) => {
+        text.push(this.lib.StringHelper.htmlToTextTrim(ele.innerHTML, true))
+      })
+
+      text = text.join(' ')
+      
       this.wordCount = this.lib.StringHelper.countWords(text)
 
-      this.paragraphyCount = this.paragraphies.length
+      this.paragraphCount = this.paragraphs.length
 
       this.sectionCount = this.sections.length
 

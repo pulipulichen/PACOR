@@ -12,6 +12,7 @@
     <template 
       v-slot:content>
       
+      <!--
       <h3>
         {{ $t('PreImaginary Instruction') }}
       </h3>
@@ -28,8 +29,11 @@
               v-on:click="copyPreImaginaryInstructionHtml()">
         {{ $t('Copy HTML') }}
       </button>
+      -->
       
       <!-- ===================================== -->
+      
+      <!--
       <div class="ui divider"></div>
       
       <h3>
@@ -48,16 +52,17 @@
               v-on:click="copyPostRecallInstructionHtml()">
         {{ $t('Copy HTML') }}
       </button>
-      
+      -->
       <!-- ===================================== -->
+      <!--
       <div class="ui divider"></div>
-      
+      -->
       <h3>
         {{ $t('Article Counting') }}
       </h3>
       <ul>
         <li>{{ $t('Word Count') }}: {{ wordCount }}</li>
-        <li>{{ $t('Paragraphy Count') }}: {{ paragraphyCount }}</li>
+        <li>{{ $t('Paragraph Count') }}: {{ paragraphCount }}</li>
         <li>{{ $t('Section Count') }}: {{ sectionCount }}</li>
       </ul>
       
