@@ -1,0 +1,51 @@
+<div class="Reading">
+  <div v-for="item in logPair"
+       class="ui field">
+    <template v-if="item.name === 'checklist'">
+      <label>{{ $t(item.name) }}</label>
+      <p>{{ $t('Checklists in sections') }}:</p>
+      <ol>
+        <li v-for="checklist in item.value">
+          <i v-for="(checked, i) in checklist"
+             class="square outline icon"
+             v-bind:class="{'check': checked}"
+             v-bind:title="displayChecklistItem(i)"/>
+        </li>
+      </ol>
+    </template>
+    <template v-else-if="item.name === 'type_count'">
+      <tempate v-if="Object.keys(item.value).length > 0">
+        <label>{{ $t(item.name) }}</label>
+        <span class="ui mini button AnnotationTypeButton"
+              v-for="typeName in Object.keys(item.value)"
+              >
+          {{ typeName }}
+          <template v-if="count">
+            : {{ item.value[typeName] }}
+          </template>
+        </span>
+      </tempate>
+    </template>
+    <template v-else-if="item.name === 'section_notes'">
+      <template v-if="item.value.length > 0">
+        <label>{{ $t(item.name) }}</label>
+        <ol>
+          <li v-for="note in item.value">
+            <div class="ui segment"
+                 v-if="note"
+                 v-html="note">
+            </div>
+            <div class="ui segment"
+                 v-else>
+              ({{ $t('No note') }})
+            </div>
+          </li>
+        </ol>
+      </template>
+    </template>
+    <template v-else>
+      <label>{{ $t(item.name) }}</label>:
+      <span>{{ item.value }}</span>
+    </template>
+  </div>
+</div>

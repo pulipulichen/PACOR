@@ -2,3 +2,8 @@ en:
   
 zh-TW:
   checklist: 查核單
+  annotation_count: 標註數量
+  word_count: 字數統計
+  type_count: 標註類型統計
+  section_notes: 小節重點
+  No note: 沒有標註

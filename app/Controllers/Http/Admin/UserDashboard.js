@@ -34,10 +34,11 @@ class UserDashboard {
       for (let i = 0; i < userJSON.readingProgresses.length; i++) {
         let step = userJSON.readingProgresses[i]
         let stepName = step.step_name
-        
+        //console.log(userJSON.readingProgresses[i].log)
         if (stepName === 'IndividualReading'
                 || stepName === 'CollaborativeReading') {
           let stat = await this._getAnnotationStatistic(webpage, user, step)
+          
           Object.keys(stat).forEach((key) => {
             //console.log(key, stat[key])
             if (!userJSON.readingProgresses[i].log) {
@@ -71,8 +72,8 @@ class UserDashboard {
     
     return {
       annotation_count,
-      word_count,
       type_count,
+      word_count,
       section_notes
     }
   }

@@ -97,7 +97,7 @@ class UserDashboard {
       let output = await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
         let types = {}
         
-        let annotations = await this.getSectionAnnotationsInStep(webpage, start_timestamp, end_timestamp)
+        let annotations = await this.getAnnotationsInStep(webpage, start_timestamp, end_timestamp)
         annotations.forEach((annotation) => {
           let type = annotation.type
           
