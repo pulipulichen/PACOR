@@ -5,7 +5,8 @@
      v-on:mouseout="onMouseout"
      v-on:click="onClick"
      v-bind:data-annotation-id="annotation.id"
-     v-bind:data-user-id="annotation.user_id">
+     v-bind:data-user-id="annotation.user_id"
+     v-bind:data-annotation-type="annotation.type">
 
   <div class="meta text-container ui basic "
        v-bind:class="computedMetaClassList"

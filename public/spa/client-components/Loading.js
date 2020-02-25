@@ -5765,7 +5765,7 @@ __webpack_require__.r(__webpack_exports__);
             || jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .html-editor-container .note-editable').length === 0) {
       console.log('似乎是以列表的形式呈現，讓我點點看 stepAnnotationMainIdeaEditPACORTestManager')
       try {
-        await this.waitForElementVisibleClick('.MainList .AnnotationItem.my-annotation:first .meta', {
+        await this.waitForElementVisibleClick('.MainList .AnnotationItem.my-annotation[data-annotation-type="MainIdea"]:first .meta', {
           timeout: 3000
         })
       }

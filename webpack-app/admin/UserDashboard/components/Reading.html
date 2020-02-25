@@ -15,14 +15,10 @@
     </template>
     <template v-else-if="item.name === 'type_count'">
       <tempate v-if="Object.keys(item.value).length > 0">
-        <label>{{ $t(item.name) }}</label>
+        <label>{{ $t(item.name) }}</label>: 
         <span class="ui mini button AnnotationTypeButton"
-              v-for="typeName in Object.keys(item.value)"
-              >
-          {{ typeName }}
-          <template v-if="count">
-            : {{ item.value[typeName] }}
-          </template>
+              v-for="typeName in Object.keys(item.value)">
+          {{ $t('ANNOTATION_TYPE.' + typeName) }}: {{ item.value[typeName] }}
         </span>
       </tempate>
     </template>

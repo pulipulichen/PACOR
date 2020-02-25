@@ -50,7 +50,6 @@ let AnnotationItem = {
         classNames.push('my-annotation')
       }
       
-      
       return classNames
     },
     note () {

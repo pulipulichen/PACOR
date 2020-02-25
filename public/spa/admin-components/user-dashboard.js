@@ -898,7 +898,7 @@ var render = function() {
                       "tempate",
                       [
                         _c("label", [_vm._v(_vm._s(_vm.$t(item.name)))]),
-                        _vm._v(" "),
+                        _vm._v(": \r\n        "),
                         _vm._l(Object.keys(item.value), function(typeName) {
                           return _c(
                             "span",
@@ -908,20 +908,14 @@ var render = function() {
                             [
                               _vm._v(
                                 "\r\n          " +
-                                  _vm._s(typeName) +
-                                  "\r\n          "
-                              ),
-                              _vm.count
-                                ? [
-                                    _vm._v(
-                                      "\r\n            : " +
-                                        _vm._s(item.value[typeName]) +
-                                        "\r\n          "
-                                    )
-                                  ]
-                                : _vm._e()
-                            ],
-                            2
+                                  _vm._s(
+                                    _vm.$t("ANNOTATION_TYPE." + typeName)
+                                  ) +
+                                  ": " +
+                                  _vm._s(item.value[typeName]) +
+                                  "\r\n        "
+                              )
+                            ]
                           )
                         })
                       ],
@@ -1033,7 +1027,7 @@ var render = function() {
                       "tempate",
                       [
                         _c("label", [_vm._v(_vm._s(_vm.$t(item.name)))]),
-                        _vm._v(" "),
+                        _vm._v(": \r\n        "),
                         _vm._l(Object.keys(item.value), function(typeName) {
                           return _c(
                             "span",
@@ -1043,20 +1037,14 @@ var render = function() {
                             [
                               _vm._v(
                                 "\r\n          " +
-                                  _vm._s(typeName) +
-                                  "\r\n          "
-                              ),
-                              _vm.count
-                                ? [
-                                    _vm._v(
-                                      "\r\n            : " +
-                                        _vm._s(item.value[typeName]) +
-                                        "\r\n          "
-                                    )
-                                  ]
-                                : _vm._e()
-                            ],
-                            2
+                                  _vm._s(
+                                    _vm.$t("ANNOTATION_TYPE." + typeName)
+                                  ) +
+                                  ": " +
+                                  _vm._s(item.value[typeName]) +
+                                  "\r\n        "
+                              )
+                            ]
                           )
                         })
                       ],

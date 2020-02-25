@@ -1,4 +1,4 @@
-const $ = use('jquery')
+const $ = use('cheerio')
 
 let StringHelper = {
   validateEmail(email) {
@@ -84,7 +84,11 @@ let StringHelper = {
       let children = $(s).children()
       output = []
       children.each((i, ele) => {
-        output.push(ele.innerText.trim())
+        let text = ele.children[0].data
+        if (typeof(text) !== 'string') {
+          return false
+        }
+        output.push(text.trim())
       })
       output = output.join(' ').trim()
     }

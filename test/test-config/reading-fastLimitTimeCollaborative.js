@@ -1,4 +1,7 @@
 module.exports = {
+  debug: {
+    flushCache: false,
+  },
   readingProgressModules: {
     'PreImaginary': {
       limitMinutes: 0.05,

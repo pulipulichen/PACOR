@@ -56,6 +56,10 @@ export default (List) => {
     //console.log(result)
 
     if (Array.isArray(result) && result.length > 0) {
+      // 過濾掉重複的ID
+      result = result.filter((r) => {
+        return (this.annotationsIDList.indexOf(r.id) === -1)
+      })
       this.annotations = this.annotations.concat(result)
     } else {
       this.noMore = true

@@ -2305,7 +2305,8 @@ var render = function() {
           class: _vm.computedContainerClassNames,
           attrs: {
             "data-annotation-id": _vm.annotation.id,
-            "data-user-id": _vm.annotation.user_id
+            "data-user-id": _vm.annotation.user_id,
+            "data-annotation-type": _vm.annotation.type
           },
           on: {
             mouseover: _vm.onMouseover,
@@ -8416,7 +8417,6 @@ let AnnotationItem = {
       if (this.annotation.user_id === this.status.userID) {
         classNames.push('my-annotation')
       }
-      
       
       return classNames
     },
