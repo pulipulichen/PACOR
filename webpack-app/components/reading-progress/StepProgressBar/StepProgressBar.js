@@ -78,7 +78,12 @@ let StepProgressBar = {
     displayTitle: function (step) {
       let title = this.getTitle(step)
       if (typeof(step.start_timestamp) === 'number'){
-        title = `${title} (${this.displayTime(step)})`
+        if (step.end_timestamp) {
+          title = `${title} (${this.$t('Spent time')}: ${this.displayTime(step)})`
+        }
+        else {
+          title = `${title} (${this.$t('Started at')}: ${this.displayTime(step)})`
+        }
       }
       else {
         title = `${title} (${this.$t('not yet started')})`

@@ -329,7 +329,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"not yet started":"尚未開始"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"not yet started":"尚未開始","Spent time":"花費時間","Started at":"開始於"}}')
   delete Component.options._Ctor
 }
 
@@ -10541,7 +10541,12 @@ let StepProgressBar = {
     displayTitle: function (step) {
       let title = this.getTitle(step)
       if (typeof(step.start_timestamp) === 'number'){
-        title = `${title} (${this.displayTime(step)})`
+        if (step.end_timestamp) {
+          title = `${title} (${this.$t('Spent time')}: ${this.displayTime(step)})`
+        }
+        else {
+          title = `${title} (${this.$t('Started at')}: ${this.displayTime(step)})`
+        }
       }
       else {
         title = `${title} (${this.$t('not yet started')})`

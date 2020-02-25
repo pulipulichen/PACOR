@@ -6,6 +6,7 @@ module.exports = {
     //forceMaxTimeoutMinutes: 0.4
     //forceMaxTimeoutMinutes: 0.2
     forceMaxTimeoutMinutes: 1,
+    
     test: {
       //minAnnotation: 4,
       //maxAnnotation: 9
@@ -25,7 +26,7 @@ module.exports = {
   selector: {
     /**
      * 選擇文章
-     * @Array|String
+    = * @Array|String
      */
     article: ['article', '#main', '#article', '.main', '.article,body'],
     /**

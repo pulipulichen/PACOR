@@ -3,6 +3,9 @@ import IndividualReading from './IndividualReading/IndividualReading.vue'
 import CollaborativeReading from './CollaborativeReading/CollaborativeReading.vue'
 import PostRecall from './PostRecall/PostRecall.vue'
 
+import PreImaginaryKeyword from './PreImaginaryKeyword/PreImaginaryKeyword.vue'
+import PostRecallKeyword from './PostRecallKeyword/PostRecallKeyword.vue'
+
 let UserDashboard = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
@@ -18,7 +21,9 @@ let UserDashboard = {
     PreImaginary: PreImaginary,
     IndividualReading: IndividualReading,
     CollaborativeReading: CollaborativeReading,
-    PostRecall: PostRecall
+    PostRecall: PostRecall,
+    PreImaginaryKeyword,
+    PostRecallKeyword
   },
   computed: {
     'webpagePath': function () {
