@@ -228,14 +228,17 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "CollaborativeReading" },
-    _vm._l(_vm.logPair, function(item) {
-      return _c("div", { staticClass: "ui field" }, [
-        _c("label", [_vm._v(_vm._s(item.name))]),
-        _vm._v(" "),
-        _c("div", [_vm._v(_vm._s(item.value))])
-      ])
-    }),
-    0
+    [
+      _vm._l(_vm.logPair, function(item) {
+        return _c("div", { staticClass: "ui field" }, [
+          _c("label", [_vm._v(_vm._s(item.name))]),
+          _vm._v(" "),
+          _c("div", [_vm._v(_vm._s(item.value))])
+        ])
+      }),
+      _vm._v("\r\n  CollaborativeReading\r\n")
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -271,7 +274,7 @@ var render = function() {
           _c("div", [_vm._v(_vm._s(item.value))])
         ])
       }),
-      _vm._v("\r\n  \r\n  這邊要列出標註數量\r\n")
+      _vm._v("\r\n  IndividualReading\r\n")
     ],
     2
   )
@@ -300,6 +303,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "PostRecall" },
     _vm._l(_vm.logPair, function(item) {
       return _c("div", { staticClass: "ui field" }, [
         _c("label", [_vm._v(_vm._s(item.name))]),
@@ -334,6 +338,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "PreImaginary" },
     _vm._l(_vm.logPair, function(item) {
       return _c("div", { staticClass: "ui field" }, [
         _c("label", [_vm._v(_vm._s(item.name))]),
@@ -706,7 +711,9 @@ var render = function() {
                   ])
                 : _vm._e()
             ]),
-            _vm._v(" "),
+            _vm._v(
+              "\r\n\r\n    " + _vm._s(step.step_name) + "\r\n    \r\n    "
+            ),
             _c(step.step_name, {
               tag: "component",
               attrs: {
@@ -880,16 +887,16 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./webpack-app/admin/UserDashboard/BaseMoudle/BaseMoudle.js":
+/***/ "./webpack-app/admin/UserDashboard/BaseModule/BaseModule.js":
 /*!******************************************************************!*\
-  !*** ./webpack-app/admin/UserDashboard/BaseMoudle/BaseMoudle.js ***!
+  !*** ./webpack-app/admin/UserDashboard/BaseModule/BaseModule.js ***!
   \******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let PreImaginary = {
+let BaseModule = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view', 'log', 'toc'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -947,7 +954,7 @@ let PreImaginary = {
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (PreImaginary);
+/* harmony default export */ __webpack_exports__["default"] = (BaseModule);
 
 /***/ }),
 
@@ -992,16 +999,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../BaseMoudle/BaseMoudle.js */ "./webpack-app/admin/UserDashboard/BaseMoudle/BaseMoudle.js");
+/* harmony import */ var _BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../BaseModule/BaseModule.js */ "./webpack-app/admin/UserDashboard/BaseModule/BaseModule.js");
 
 
-_BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = function () {    
+_BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = function () {    
     this.$i18n.locale = this.config.locale
     return {
       stepName: 'CollaborativeReading'
     }
 }
-/* harmony default export */ __webpack_exports__["default"] = (_BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (_BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 
@@ -1122,16 +1129,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../BaseMoudle/BaseMoudle.js */ "./webpack-app/admin/UserDashboard/BaseMoudle/BaseMoudle.js");
+/* harmony import */ var _BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../BaseModule/BaseModule.js */ "./webpack-app/admin/UserDashboard/BaseModule/BaseModule.js");
 
 
-_BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = function () {    
+_BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = function () {    
     this.$i18n.locale = this.config.locale
     return {
       stepName: 'IndividualReading'
     }
 }
-/* harmony default export */ __webpack_exports__["default"] = (_BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (_BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 
@@ -1252,16 +1259,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../BaseMoudle/BaseMoudle.js */ "./webpack-app/admin/UserDashboard/BaseMoudle/BaseMoudle.js");
+/* harmony import */ var _BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../BaseModule/BaseModule.js */ "./webpack-app/admin/UserDashboard/BaseModule/BaseModule.js");
 
 
-_BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = function () {    
+_BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = function () {    
     this.$i18n.locale = this.config.locale
     return {
       stepName: 'PostRecall'
     }
 }
-/* harmony default export */ __webpack_exports__["default"] = (_BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (_BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 
@@ -1364,16 +1371,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../BaseMoudle/BaseMoudle.js */ "./webpack-app/admin/UserDashboard/BaseMoudle/BaseMoudle.js");
+/* harmony import */ var _BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../BaseModule/BaseModule.js */ "./webpack-app/admin/UserDashboard/BaseModule/BaseModule.js");
 
 
-_BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = function () {    
+_BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = function () {    
     this.$i18n.locale = this.config.locale
     return {
       stepName: 'PostRecall'
     }
 }
-/* harmony default export */ __webpack_exports__["default"] = (_BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (_BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 
@@ -1448,16 +1455,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../BaseMoudle/BaseMoudle.js */ "./webpack-app/admin/UserDashboard/BaseMoudle/BaseMoudle.js");
+/* harmony import */ var _BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../BaseModule/BaseModule.js */ "./webpack-app/admin/UserDashboard/BaseModule/BaseModule.js");
 
 
-_BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = function () {    
+_BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = function () {    
   this.$i18n.locale = this.config.locale
   return {
     stepName: 'PreImaginary'
   }
 }
-/* harmony default export */ __webpack_exports__["default"] = (_BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (_BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 
@@ -1610,17 +1617,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../BaseMoudle/BaseMoudle.js */ "./webpack-app/admin/UserDashboard/BaseMoudle/BaseMoudle.js");
+/* harmony import */ var _BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../BaseModule/BaseModule.js */ "./webpack-app/admin/UserDashboard/BaseModule/BaseModule.js");
 
 
-_BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = function () {    
+_BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__["default"].data = function () {    
   this.$i18n.locale = this.config.locale
   return {
     stepName: 'PreImaginary'
   }
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (_BaseMoudle_BaseMoudle_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (_BaseModule_BaseModule_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 

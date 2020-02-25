@@ -1,4 +1,4 @@
-import Module from './../BaseMoudle/BaseMoudle.js'
+import Module from './../BaseModule/BaseModule.js'
 
 Module.data = function () {    
   this.$i18n.locale = this.config.locale

@@ -1,4 +1,4 @@
-let PreImaginary = {
+let BaseModule = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view', 'log', 'toc'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -56,4 +56,4 @@ let PreImaginary = {
   } // methods
 }
 
-export default PreImaginary
+export default BaseModule
